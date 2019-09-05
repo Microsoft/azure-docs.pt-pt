@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a063891339a46366490447b7c7a7a1a14fd81be6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828920"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305079"
 ---
 # <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Habilitar entrada de chave de segurança sem senha para o Azure AD (versão prévia)
 
 ## <a name="requirements"></a>Requisitos
 
-* Azure Multi-Factor Authentication
+* Multi-Factor Authentication do Azure
 * Visualização de registro combinado com usuários habilitados para SSPR
 * A visualização da chave de segurança do FIDO2 requer chaves de segurança FIDO2 compatíveis
 * Webauthn requer o Microsoft Edge no Windows 10 versão 1809 ou superior
@@ -54,12 +54,12 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
    1. Nome: Chaves de segurança para entrada no Windows
    1. Descrição: Permite que as chaves de segurança FIDO sejam usadas durante a entrada do Windows
    1. Plataforma: Windows 10 e posterior
-   1. Tipo de plataforma: Personalizar
+   1. Tipo de perfil: Personalizar
    1. Configurações personalizadas de OMA-URI:
       1. Nome: Ativar as chaves de segurança do FIDO para entrar no Windows
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-      1. Tipo de dados: Número inteiro
-      1. Valor: 1 
+      1. Tipo de dados: Integer
+      1. Valor 1 
 1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
 ![Criação de política de configuração de dispositivo personalizada do Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
@@ -167,7 +167,7 @@ Os usuários que dependem do SSO do WIA que usam credenciais gerenciadas como ch
 
 Estamos trabalhando para dar suporte a um recurso que permita a alteração de UPN em dispositivos AADJ e AADJ híbridos. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar isso. Portanto, a única abordagem é redefinir o dispositivo e o usuário precisa se registrar novamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais sobre o registro de dispositivo](../devices/overview.md)
 

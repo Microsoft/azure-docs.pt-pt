@@ -8,14 +8,14 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 4d20256381eab155d4b7532591cea85e43080ec0
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019803"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383129"
 ---
-# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como CSP, crie e gerencie um aplicativo de IoT Central do Azure em nome do seu cliente 
+# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como CSP, crie e gerencie um aplicativo de IoT Central do Azure em nome do seu cliente
 
 O programa CSP (provedor de soluções Microsoft Cloud) é um programa de revendedor da Microsoft. Sua intenção é fornecer aos nossos parceiros de canal um programa One-stop para revender todos os serviços online comerciais da Microsoft. Saiba mais sobre o [programa provedor de soluções na nuvem](https://partner.microsoft.com/cloud-solution-provider).
 
@@ -73,6 +73,9 @@ Para saber mais, confira [assinaturas do Azure](https://docs.microsoft.com/azure
 
 Escolha a região onde você gostaria de criar seu aplicativo de IoT Central do Azure. Normalmente, você deve escolher a região mais próxima fisicamente em seus dispositivos para obter o desempenho ideal.
 
+> [!NOTE]
+> No momento, o modelo de **aplicativo de visualização** só está disponível nas regiões **Europa setentrional** e **EUA Central** .
+
 Para saber mais, confira [regiões do Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 
 Você pode ver as regiões nas quais o Azure IoT Central está disponível na página [produtos disponíveis por região](https://azure.microsoft.com/regions/services/) .
@@ -90,7 +93,7 @@ Você pode escolher um dos modelos de aplicativo disponíveis para seu novo apli
 | Amostra Contoso       | Cria um aplicativo que inclui um modelo de dispositivo para um dispositivo conectado simples. Utilize este modelo para começar a explorar o Azure IoT Central. |
 | Exemplo da Devkits       | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Use este modelo se você for um desenvolvedor de dispositivos experimentando o código em um desses dispositivos. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu como criar um aplicativo de IoT Central do Azure como um CSP, aqui está a próxima etapa sugerida:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: roiyz
-ms.openlocfilehash: ba82b026fe69bd22b3afa89ddb73373dfd194472
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6a845cad298e2aedbe68a11cd170120d1d229043
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092701"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382831"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do agente de máquina virtual do Azure
 O Microsoft Azure agente de máquina virtual (agente de VM) é um processo leve e seguro que gerencia a interação de VM (máquina virtual) com o controlador de malha do Azure. O agente de VM tem uma função primária na habilitação e execução de extensões de máquina virtual do Azure. As extensões de VM habilitam a configuração pós-implantação da VM, como instalar e configurar o software. As extensões de VM também habilitam recursos de recuperação, como redefinir a senha administrativa de uma VM. Sem o agente de VM do Azure, as extensões de VM não podem ser executadas.
@@ -67,6 +67,9 @@ O agente de VM pode ser instalado clicando-se duas vezes no arquivo do Windows I
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
 
+### <a name="prerequisites"></a>Pré-requisitos
+O agente de VM do Windows precisa de pelo menos o Windows Server 2008 R2 (64 bits) para ser executado com o .NET Framework 4,0.
+
 ## <a name="detect-the-vm-agent"></a>Detectar o agente de VM
 
 ### <a name="powershell"></a>PowerShell
@@ -108,5 +111,5 @@ Quando conectado a uma VM do Windows, o Gerenciador de tarefas pode ser usado pa
 O agente de VM do Azure para Windows é atualizado automaticamente. À medida que novas VMs são implantadas no Azure, elas recebem o agente de VM mais recente no tempo de provisionamento da VM. As imagens de VM personalizadas devem ser atualizadas manualmente para incluir o novo agente de VM no momento da criação da imagem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).

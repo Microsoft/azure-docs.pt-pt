@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: bf2b83725f8ce8e712974c182c9a11e8ed0d04f0
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013229"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376339"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do barramento de serviço – comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure hoje: Filas de armazenamento e filas do barramento de serviço. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -73,7 +73,7 @@ Esta seção compara alguns dos recursos fundamentais de enfileiramento fornecid
 | Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (usando o modo de recebimento PeekLock-esse é o padrão) <br/><br/>**No máximo uma vez** (usando o modo de recebimento ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos de recebimento](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Suporte a operações atômicas |**Não** |**Sim**<br/><br/> |
 | Comportamento de recebimento |**Sem bloqueio**<br/><br/>(será concluído imediatamente se nenhuma mensagem nova for encontrada) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece sondagem longa ou a ["técnica de Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sem bloqueio**<br/><br/>(somente com o uso da API gerenciada do .NET) |
-| API de estilo push |**Não** |**Sim**<br/><br/>[](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) API do .NET e sessões onMessage. |
+| API de estilo push |**Não** |**Sim**<br/><br/>API do .NET [e sessões onMessage.](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) |
 | Modo de recebimento |**Espiar & concessão** |**Bloqueio de & de inspeção**<br/><br/>**Receber & Excluir** |
 | Modo de acesso exclusivo |**Baseado em concessão** |**Baseado em bloqueio** |
 | Duração da concessão/bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) .) |**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) . |
@@ -85,7 +85,6 @@ Esta seção compara alguns dos recursos fundamentais de enfileiramento fornecid
 * As mensagens nas filas de armazenamento são normalmente o primeiro a entrar, mas, às vezes, podem estar fora de ordem; por exemplo, quando a duração do tempo limite de visibilidade de uma mensagem expirar (por exemplo, como resultado de um aplicativo cliente falhar durante o processamento). Quando o tempo limite de visibilidade expira, a mensagem se torna visível novamente na fila de outro operador para remover a fila. Nesse ponto, a mensagem recentemente visível pode ser colocada na fila (para ser removida da fila novamente) após uma mensagem que foi originalmente enfileirada depois dela.
 * O padrão de FIFO garantido nas filas do barramento de serviço requer o uso de sessões de mensagens. Caso o aplicativo falhe durante o processamento de uma mensagem recebida no modo de **bloqueio de & de Peek** , na próxima vez que um destinatário da fila aceitar uma sessão de mensagens, ele começará com a mensagem com falha após seu período de tempo de vida (TTL) expirar.
 * As filas de armazenamento são projetadas para oferecer suporte a cenários de enfileiramento padrão, como dissociar componentes de aplicativos para aumentar a escalabilidade e a tolerância para falhas, nivelamento de carga e criação de fluxos de trabalho de processo.
-* As filas do barramento de serviço dão suporte à garantia de entrega *pelo menos uma vez* . 
 * Inconsistências em relação à manipulação de mensagens no contexto de sessões do barramento de serviço podem ser evitadas usando o estado de sessão para armazenar o estado do aplicativo em relação ao andamento da manipulação da sequência de mensagens da sessão e ao usar transações liquidar mensagens recebidas e atualizar o estado da sessão. Esse tipo de recurso de consistência, às vezes, é rotulado como *processamento exatamente uma vez* nos produtos de outros fornecedores, mas as falhas de transação certamente farão com que as mensagens sejam entregues novamente e, portanto, o termo não seja exatamente adequado.
 * As filas de armazenamento fornecem um modelo de programação uniforme e consistente entre filas, tabelas e BLOBs – para desenvolvedores e para equipes de operações.
 * As filas do barramento de serviço fornecem suporte para transações locais no contexto de uma única fila.
@@ -108,7 +107,7 @@ Esta seção compara os recursos avançados fornecidos pelas filas de armazename
 | Suporte a mensagens suspeitas |**Sim** |**Sim** |
 | Atualização in-loco |**Sim** |**Sim** |
 | Log de transações do lado do servidor |**Sim** |**Não** |
-| Métricas de armazenamento |**Sim**<br/><br/>**Métricas de minutos**: fornece métricas em tempo real para disponibilidade, TPS, contagens de chamada de API, contagens de erros e muito mais, tudo em tempo real (agregado por minuto e relatado em poucos minutos a partir do que acabou de acontecer na produção. Para obter mais informações, consulte [sobre métricas de análise de armazenamento](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sim**<br/><br/>(consultas em massa chamando [](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)getqueues) |
+| Métricas de armazenamento |**Sim**<br/><br/>**Métricas de minutos**: fornece métricas em tempo real para disponibilidade, TPS, contagens de chamada de API, contagens de erros e muito mais, tudo em tempo real (agregado por minuto e relatado em poucos minutos a partir do que acabou de acontecer na produção. Para obter mais informações, consulte [sobre métricas de análise de armazenamento](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sim**<br/><br/>(consultas em massa chamando [Getqueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
 | Gestão de estados |**Não** |**Sim**<br/><br/>[Microsoft. ServiceBus. Messaging. as. Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft. ServiceBus. Messaging. as. Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft. ServiceBus. Messaging. as. SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [ Microsoft. ServiceBus. Messaging. as. ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Encaminhamento automático de mensagem |**Não** |**Sim** |
 | Função limpar fila |**Sim** |**Não** |
@@ -140,7 +139,7 @@ Esta seção compara as filas de armazenamento e as filas do barramento de servi
 | Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(100 limite de conexão simultânea só se aplica à comunicação baseada em protocolo TCP) |
 
 ### <a name="additional-information"></a>Informações adicionais
-* O barramento de serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no barramento de serviço, consulte cotas do [barramento de serviço](service-bus-quotas.md).
+* O barramento de serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no barramento de serviço, consulte [cotas do barramento de serviço](service-bus-quotas.md).
 * O particionamento não tem suporte na [camada Premium](service-bus-premium-messaging.md). Na camada Standard, você pode criar filas do barramento de serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Na camada Standard, com o particionamento habilitado (que é o padrão), o barramento de serviço cria 16 partições para cada GB que você especificar. Assim, se você criar uma fila com 5 GB de tamanho, com 16 partições, o tamanho máximo da fila se tornará (5 * 16) = 80 GB. Você pode ver o tamanho máximo da fila ou do tópico particionado examinando sua entrada na [portal do Azure][Azure portal].
 * Com as filas de armazenamento, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64** . Se você codificar a mensagem em **Base64**, a carga do usuário poderá ser de até 48 KB, em vez de 64 KB.
 * Com as filas do barramento de serviço, cada mensagem armazenada em uma fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder o tamanho máximo de mensagem suportado pela camada de serviço.

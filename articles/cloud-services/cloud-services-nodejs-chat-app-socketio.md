@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359070"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306766"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar um aplicativo de chat do node. js com Socket.IO em um serviço de nuvem do Azure
 
@@ -69,7 +69,7 @@ Para este projeto, usaremos o exemplo de chat do [repositório GitHub do Socket.
 Antes de testar o aplicativo no emulador do Azure, devemos fazer algumas pequenas modificações. Execute as seguintes etapas para o arquivo Server. js:
 
 1. Abra o arquivo **Server. js** no Visual Studio ou em qualquer editor de texto.
-2. Localize a seção de dependências do **módulo** no início do Server. js e altere a linha que contém **sio = require ('.. //.. lib//Socket. Io ')** para **sio = require (' Socket. Io ')** , conforme mostrado abaixo:
+2. Localize a seção de **dependências do módulo** no início do Server. js e altere a linha que contém **sio = require ('.. //.. lib//Socket. Io ')** para **sio = require (' Socket. Io ')** , conforme mostrado abaixo:
    
        var express = require('express')
          , stylus = require('stylus')
@@ -123,14 +123,14 @@ Depois de salvar as alterações no **Server. js**, use as seguintes etapas para
    > [!IMPORTANT]
    > Certifique-se de usar um nome exclusivo, caso contrário, o processo de publicação falhará. Após a conclusão da implantação, o navegador será aberto e navegará até o serviço implantado.
    > 
-   > Se você receber um erro informando que o nome de assinatura fornecido não existe no perfil de publicação importado, você deverá baixar e importar o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção Implantando **o aplicativo no Azure** de [Compilar e implantar um aplicativo node. js em um serviço de nuvem do Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > Se você receber um erro informando que o nome de assinatura fornecido não existe no perfil de publicação importado, você deverá baixar e importar o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **implantando o aplicativo no Azure** de [Compilar e implantar um aplicativo node. js em um serviço de nuvem do Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
    
    ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]
    
    > [!NOTE]
-   > Se você receber um erro informando que o nome de assinatura fornecido não existe no perfil de publicação importado, você deverá baixar e importar o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção Implantando **o aplicativo no Azure** de [Compilar e implantar um aplicativo node. js em um serviço de nuvem do Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > Se você receber um erro informando que o nome de assinatura fornecido não existe no perfil de publicação importado, você deverá baixar e importar o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **implantando o aplicativo no Azure** de [Compilar e implantar um aplicativo node. js em um serviço de nuvem do Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
 
@@ -141,10 +141,10 @@ Seu aplicativo agora está em execução no Azure e pode retransmitir mensagens 
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, você aprendeu a criar um aplicativo de chat básico hospedado em um serviço de nuvem do Azure. Para saber como hospedar esse aplicativo em um site do Azure, consulte [criar um aplicativo de chat do node. js com o Socket.Io em um site do Azure][chatwebsite].
 
-Para obter mais informações, consulte também o [centro de desenvolvedores do node. js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+Para obter mais informações, consulte também o [centro de desenvolvedores do node. js](https://docs.microsoft.com/azure/javascript/).
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

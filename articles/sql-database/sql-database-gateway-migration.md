@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981291"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306008"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 
@@ -41,11 +41,11 @@ A primeira rodada de migração de tráfego para gateways mais recentes está ag
 - Ásia Oriental
 
 A migração de tráfego alterará o endereço IP público que o DNS resolve para o banco de dados SQL.
-Você será afetado se tiver
+Você será afetado se tiver:
 - O endereço IP embutido em código para qualquer gateway específico em seu firewall local
 - Todas as sub-redes que usam Microsoft. SQL como um ponto de extremidade de serviço, mas não podem se comunicar com os endereços IP do gateway
 
-Você não será afetado se tiver 
+Você não será afetado se tiver:
 - Redirecionamento como a política de conexão
 - Conexões com o banco de dados SQL de dentro do Azure e usando marcas de serviço
 - As conexões feitas usando as versões com suporte do driver JDBC para SQL Server não terão impacto. Para obter suporte para versões JDBC, consulte [baixar o Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
@@ -58,6 +58,6 @@ As conexões feitas de aplicativos usando o Microsoft JDBC Driver abaixo da vers
 
 Se a atenuação acima não funcionar, entre em arquivo uma solicitação de suporte para o banco de dados SQL usando a seguinte URL: https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [arquitetura de conectividade do SQL do Azure](sql-database-connectivity-architecture.md)

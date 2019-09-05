@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183584"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306198"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
 Usando Aplicativo Azure gateway, você pode monitorar os recursos das seguintes maneiras:
 
@@ -22,7 +22,7 @@ Usando Aplicativo Azure gateway, você pode monitorar os recursos das seguintes 
 
 * [Logs](#diagnostic-logging): Os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
-* [Métricas](#metrics): Atualmente, o gateway de aplicativo tem sete métricas para exibir contadores de desempenho.
+* [Métricas](application-gateway-metrics.md): O gateway de aplicativo tem várias métricas que ajudam a verificar se o sistema está sendo executado conforme o esperado.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ O relatório de integridade de back-end reflete a saída da investigação de in
 
 No portal, a integridade do back-end é fornecida automaticamente. Em um gateway de aplicativo existente, selecione **monitoramento** > **integridade de back-end**. 
 
-Cada membro no pool de back-ends é listado nesta página (seja uma NIC, um IP ou um FQDN). Nome do pool de back-end, porta, nome de configurações HTTP de back-end e status de integridade são mostrados. Os valores válidos para o statusde integridade são íntegros, não **íntegros**e desconhecidos.
+Cada membro no pool de back-ends é listado nesta página (seja uma NIC, um IP ou um FQDN). Nome do pool de back-end, porta, nome de configurações HTTP de back-end e status de integridade são mostrados. Os valores válidos para o status de integridade são **íntegros**, não **íntegros**e **desconhecidos**.
 
 > [!NOTE]
 > Se você vir um status de integridade de back-end **desconhecido**, verifique se o acesso ao back-end não está bloqueado por uma regra NSG, uma UDR (rota definida pelo usuário) ou um DNS personalizado na rede virtual.
@@ -360,68 +360,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicamos um modelo do Resource Manager que instala e executa o popular [GoAccess](https://goaccess.io/) log Analyzer para logs de acesso do gateway de aplicativo. O GoAccess fornece estatísticas valiosas de tráfego HTTP, como visitantes exclusivos, arquivos solicitados, hosts, sistemas operacionais, navegadores, códigos de status HTTP e muito mais. Para obter mais detalhes, consulte o [arquivo Leiame na pasta de modelos do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="metrics"></a>Métricas
-
-As métricas são um recurso para determinados recursos do Azure, onde você pode exibir os contadores de desempenho no Portal. Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
-
-- **Conexões atuais**
-- **Solicitações com falha**
-- **Contagem de hosts íntegros**
-
-   Você pode filtrar em uma base de pool por back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
-
-
-- **Status da resposta**
-
-   A distribuição de código de status de resposta pode ser categorizada ainda mais para mostrar as respostas nas categorias 2xx, 3xx, 4xx e 5xx.
-
-- **Débito**
-- **Total de solicitações**
-- **Contagem de hosts não íntegros**
-
-   Você pode filtrar em uma base de pool por back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
-
-Navegue até um gateway de aplicativo, em **monitoramento** selecione **métricas**. Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
-
-Na imagem a seguir, você verá um exemplo com três métricas exibidas nos últimos 30 minutos:
-
-[![](media/application-gateway-diagnostics/figure5.png "Exibição de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-Para ver uma lista atual de métricas, consulte [métricas com suporte com Azure monitor](../azure-monitor/platform/metrics-supported.md).
-
-### <a name="alert-rules"></a>Regras de alerta
-
-Você pode iniciar as regras de alerta com base nas métricas de um recurso. Por exemplo, um alerta pode chamar um webhook ou enviar um email para um administrador se a taxa de transferência do gateway de aplicativo estiver acima, abaixo ou em um limite para um período especificado.
-
-O exemplo a seguir orienta você pela criação de uma regra de alerta que envia um email para um administrador depois que a taxa de transferência viola um limite:
-
-1. Selecione **adicionar alerta de métrica** para abrir a página **Adicionar regra** . Você também pode acessar essa página na página métricas.
-
-   ![Botão "adicionar alerta de métrica"][6]
-
-2. Na página **Adicionar regra** , preencha as seções nome, condição e notificar e selecione **OK**.
-
-   * No seletor de **condição** , selecione um dos quatro valores: **Maior**que, **maior ou igual**a, **menor que**ou **menor ou igual a**.
-
-   * No seletor de **período** , selecione um período de cinco minutos a seis horas.
-
-   * Se você selecionar **proprietários, colaboradores e leitores de email**, o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você pode fornecer uma lista separada por vírgulas de usuários na caixa emails de **administrador adicionais** .
-
-   ![Página Adicionar regra][7]
-
-Se o limite for violado, um email semelhante ao da seguinte imagem chegará:
-
-![Email para o limite violado][8]
-
-Uma lista de alertas é exibida depois que você cria um alerta de métrica. Ele fornece uma visão geral de todas as regras de alerta.
-
-![Lista de alertas e regras][9]
-
-Para saber mais sobre notificações de alerta, confira [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-Para entender mais sobre WebHooks e como você pode usá-los com alertas, visite [configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Visualize logs de contador e de eventos usando [logs de Azure monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualize o log de atividades do Azure com](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) a postagem de blog Power bi.

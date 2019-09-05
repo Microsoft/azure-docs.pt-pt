@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f23a1f8e60567e1c2ed89b27f0eb2bab4ca5912
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5d607809b6e0356c8807879962927e99f2bd12fd
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061808"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382728"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -23,7 +23,7 @@ Você pode usar a solução Gerenciamento de Atualizações na automação do Az
 Você pode habilitar Gerenciamento de Atualizações para máquinas virtuais diretamente da sua conta de automação do Azure. Para saber como habilitar Gerenciamento de Atualizações para máquinas virtuais de sua conta de automação, consulte [gerenciar atualizações para várias máquinas virtuais](manage-update-multi.md). Você também pode habilitar Gerenciamento de Atualizações para uma máquina virtual na página de máquina virtual no portal do Azure. Esse cenário está disponível para máquinas virtuais [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) .
 
 > [!NOTE]
-> A solução Gerenciamento de Atualizações requer a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões com suporte, consulte Mapeamentos de [espaço de trabalho do Azure](./how-to/region-mappings.md). Os mapeamentos de região não afetam a capacidade de gerenciar máquinas virtuais em uma região separada do que a sua conta de automação.
+> A solução Gerenciamento de Atualizações requer a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões com suporte, consulte [mapeamentos de espaço de trabalho do Azure](./how-to/region-mappings.md). Os mapeamentos de região não afetam a capacidade de gerenciar máquinas virtuais em uma região separada do que a sua conta de automação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -138,7 +138,7 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver conectad
 * Pacote de Gestão de Implementação de Atualização
 
 > [!NOTE]
-> Se você tiver um grupo de gerenciamento Operations Manager 1807 com agentes configurados no nível do grupo de gerenciamento para ser associado a um espaço de trabalho, a solução alternativa atual para que eles apareçam é substituir **IsAutoRegistrationEnabled** como **true** no Regra **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
+> Se você tiver um grupo de gerenciamento Operations Manager 1807 ou 2019 com agentes configurados no nível do grupo de gerenciamento para ser associado a um espaço de trabalho, a solução alternativa atual para que eles apareçam é substituir **IsAutoRegistrationEnabled** por **true** em a regra **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
 
 Para obter mais informações sobre como os pacotes de gerenciamento de solução são atualizados, consulte [conectar Operations Manager a logs de Azure monitor](../azure-monitor/platform/om-agents.md).
 
@@ -281,7 +281,7 @@ Selecione **atualizações ausentes** para exibir a lista de atualizações ause
 
 ## <a name="view-update-deployments"></a>Exibir implantações de atualização
 
-Selecione a guia implantações de **atualização** para exibir a lista de implantações de atualização existentes. Selecione qualquer uma das implantações de atualização na tabela para abrir o painel **Atualizar execução de implantação** para essa implantação de atualização. Os logs de trabalho são armazenados por um máximo de 30 dias.
+Selecione a guia **implantações de atualização** para exibir a lista de implantações de atualização existentes. Selecione qualquer uma das implantações de atualização na tabela para abrir o painel **Atualizar execução de implantação** para essa implantação de atualização. Os logs de trabalho são armazenados por um máximo de 30 dias.
 
 ![Visão geral dos resultados da implantação de atualização](./media/automation-update-management/update-deployment-run.png)
 

@@ -4,21 +4,21 @@ description: Descreve como preparar a avaliação e a migração de VMs do VMwar
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5bd4926494e13c1dd0cfb6283292ade967471238
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b623675343d63385213091b66e220c5358c6437
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013424"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383314"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
-Este artigo descreve como se preparar para a avaliação e a migração de VMs do VMware locais para o Azure, usando as migrações para [Azure](migrate-services-overview.md).
+Este artigo descreve como se preparar para a avaliação e a migração de VMs do VMware locais para o Azure, usando as [migrações para Azure](migrate-services-overview.md).
 
-As migrações para [Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
+As [migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
 
 
 Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMs VMware. Neste tutorial, ficará a saber como:
@@ -151,7 +151,7 @@ Examine os requisitos para a migração baseada em agente de VMs VMware.
 4. Observação: [acesso à URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
 5. Examine os requisitos de [acesso de porta](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) para o serviço de mobilidade em execução em cada VM e para o servidor de configuração de migrações para Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
  

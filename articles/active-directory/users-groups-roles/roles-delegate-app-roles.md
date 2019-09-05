@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837874"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382493"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
-Este artigo descreve como usar permissões de aplicativo em funções personalizadas no Azure Active Directory (AD do Azure) para atender às necessidades de gerenciamento de aplicativos. O Azure Active Directory (AD do Azure) permite delegar permissões de criação e gerenciamento de aplicativos das seguintes maneiras:
+Este artigo descreve como usar permissões concedidas por funções personalizadas no Azure Active Directory (Azure AD) para atender às necessidades de gerenciamento de aplicativos. No Azure AD, você pode delegar permissões de criação e gerenciamento de aplicativos das seguintes maneiras:
 
 - [Restringir quem pode criar aplicativos](#restrict-who-can-create-applications) e gerenciar os aplicativos que eles criam. Por padrão, no Azure AD, todos os usuários podem registrar registros de aplicativos e gerenciar todos os aspectos de aplicativos que criam. Isso pode ser restrito para permitir apenas pessoas selecionadas que tenham permissão.
 - [Atribuição de um ou mais proprietários a um aplicativo](#assign-application-owners). Essa é uma maneira simples de conceder a alguém a capacidade de gerenciar todos os aspectos da configuração do Azure AD para um aplicativo específico.
@@ -40,7 +40,7 @@ Por padrão, no Azure AD, todos os usuários podem registrar registros de aplica
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Para desabilitar a capacidade padrão de criar registros de aplicativo ou consentimento para aplicativos
 
 1. Entre na sua organização do Azure AD com uma conta que seja qualificada para a função de administrador global na sua organização do Azure AD.
-1. Quando você tiver obtido permissões suficientes, defina uma ou ambas das opções a seguir:
+1. Defina um ou ambos os itens a seguir:
 
     - Na [página Configurações do usuário da sua organização](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), defina a configuração **usuários podem registrar aplicativos** como não. Isso desabilitará a capacidade padrão para os usuários criarem registros de aplicativo.
     - Nas [configurações de usuário para aplicativos empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), defina os **usuários podem consentir os aplicativos que acessam dados da empresa em sua** configuração de nome como não. Isso desabilitará a capacidade padrão para os usuários consentirem com os aplicativos que acessam os dados da empresa em seu nome.
@@ -93,7 +93,7 @@ A criação de funções personalizadas e a atribuição de funções personaliz
 - [Crie uma *definição de função* personalizada](roles-create-custom.md) e [Adicione permissões a ela de uma lista predefinida](roles-custom-available-permissions.md). Essas são as mesmas permissões usadas nas funções internas.
 - [Crie uma *atribuição de função* ](roles-assign-powershell.md) para atribuir a função personalizada.
 
-Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em escopos diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
+Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em *escopos*diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
 
 Dicas ao criar e usar funções personalizadas para delegar o gerenciamento de aplicativos:
 - As funções personalizadas só concedem acesso nas folhas de registro de aplicativo mais atuais do portal do Azure AD. Eles não concedem acesso nas folhas de registros do aplicativo herdado.

@@ -10,14 +10,14 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 220d2aefd714cd3546fa4d5c2ac8852d2786b8ac
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575419"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306095"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Pausar e retomar a computação no Azure SQL Data Warehouse com o PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Pausar e retomar a computação no Azure SQL Data Warehouse com Azure PowerShell
 
 Use o PowerShell para pausar a computação no Azure SQL Data Warehouse para economizar custos. [Retome a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para usar o data warehouse.
 
@@ -68,7 +68,7 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 
 Para economizar custos, você pode pausar e retomar os recursos de computação sob demanda. Por exemplo, se você não estiver usando o banco de dados durante a noite e nos finais de semana, poderá pausá-lo durante esses horários e retomá-lo durante o dia. Não há nenhum custo para os recursos de computação enquanto o banco de dados está em pausa. No entanto, você continua a ser cobrado pelo armazenamento.
 
-Para pausar um banco de dados, use o cmdlet [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) . O exemplo a seguir pausa um data warehouse chamado **mySampleDataWarehouse** hospedado em um servidor chamado **NewServer-20171113**. O servidor está em um grupo de recursos doAzure chamado MyResource Group.
+Para pausar um banco de dados, use o cmdlet [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) . O exemplo a seguir pausa um data warehouse chamado **mySampleDataWarehouse** hospedado em um servidor chamado **NewServer-20171113**. O servidor está em um grupo de recursos do Azure chamado **MyResource**Group.
 
 
 ```Powershell
@@ -134,7 +134,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você está pausado e retomou a computação para seu data warehouse. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 

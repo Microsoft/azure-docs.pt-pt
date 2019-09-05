@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989601"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383179"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de entrada 
 
@@ -153,6 +153,8 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |70018|Código de verificação inválido devido ao Utilizador ter introduzido o código de utilizador errado no fluxo de códigos do dispositivo. A autorização não foi aprovada.|
 |70019|O código de verificação expirou. Peça ao usuário que tente novamente a entrada.|
 |70037|Foi fornecida uma resposta errada para o desafio. A sessão de autenticação remota foi recusada.|
+|70043|O gerenciamento de sessão de acesso condicional do Azure força a sessão a expirar|
+|70044|O gerenciamento de sessão de acesso condicional do Azure força a sessão a expirar|
 |75001|Ocorreu um erro durante o enlace de mensagem SAML.|
 |75003|A aplicação devolveu um erro relacionado com o Enlace não suportado (a resposta do protocolo SAML não pode ser enviada através de enlaces que não HTTP POST). Contacte o proprietário da aplicação.|
 |75005|O Azure AD não suporta o Pedido SAML enviado pela aplicação para Início de Sessão Único. Contacte o proprietário da aplicação.|
@@ -188,7 +190,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
 * [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)

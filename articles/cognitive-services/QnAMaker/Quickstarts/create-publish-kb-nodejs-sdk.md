@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: dd2bb5fc4d6ecf2cac0fa629c59abb0e017d43b0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dcbbaa2f4c6ebe709c879909f873b212f238ff2a
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857293"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375861"
 ---
 # <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Início rápido: Biblioteca de cliente QnA Maker para node. js
 
@@ -27,7 +27,7 @@ Use a biblioteca de cliente QnA Maker para node. js para:
 * Gerenciar uma base de dados de conhecimento
 * Publicar uma base de dados de conhecimento
 
-[](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/qnamaker?view=azure-node-latest) | Exemplos de NPM | [](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker)[](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js) [](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker)donode.jsdabibliotecadedocumentaçãodereferênciadopacotedecódigo-fonte | 
+[](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | Exemplos de NPM | [](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker)[](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js) [](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker)donode.jsdabibliotecadedocumentaçãodereferênciadopacotedecódigo-fonte | 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +115,7 @@ Em seguida, crie um objeto createclientcredentials com sua chave e use-o com seu
 Uma base de dados de conhecimento armazena pares de perguntas e respostas para o objeto [CreateKbDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) de três fontes:
 
 * Para **conteúdo editorial**, use o objeto [QnADTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest) .
-* Para **arquivos**, use o [](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) objeto encampoto. 
+* Para **arquivos**, use o objeto [encampoto](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) . 
 * Para **URLs**, use uma lista de cadeias de caracteres.
 
 Chame o método [Create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) e, em seguida, passe a ID da operação retornada para o método [Operations. GetDetails](#get-status-of-an-operation) para sondar o status. 
@@ -145,7 +145,7 @@ Exclua a base de dados de conhecimento usando o método [delete](https://docs.mi
 
 Alguns métodos, como criar e atualizar, podem levar tempo suficiente que, em vez de aguardar a conclusão do processo, uma [operação](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest) é retornada. Use a [ID da operação](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid) da operação para sondagem (com lógica de repetição) para determinar o status do método original. 
 
-A chamada setTimeout no bloco de código a seguir é usada para simular código assíncrono. Substituir pela lógica de repetição. 
+A chamada _setTimeout_ no bloco de código a seguir é usada para simular código assíncrono. Substituir pela lógica de repetição. 
 
 [!code-javascript[Monitor an operation](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=monitorOperation&highlight=2,17)]
 

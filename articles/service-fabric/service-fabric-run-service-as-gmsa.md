@@ -1,6 +1,6 @@
 ---
-title: Executar um serviço de Azure Service Fabric numa conta gMSA | Documentos da Microsoft
-description: Saiba como executar um serviço como uma gMSA num cluster autónomo do Windows do Service Fabric.
+title: Executar um serviço de Service Fabric do Azure em uma conta do gMSA | Microsoft Docs
+description: Saiba como executar um serviço como um gMSA em um Cluster Service Fabric Windows autônomo.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837747"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307645"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Executar um serviço como uma Conta de Serviço Gerida de grupo
-Num cluster autónomo do Windows Server, pode executar um serviço como um grupo de conta de serviço gerida (gMSA) através de uma política de RunAs.  Por predefinição, as aplicações do Service Fabric executam sob a conta que o processo de Fabric.exe é executado em. Execução de aplicativos sob diferentes contas, mesmo num ambiente de hospedagem compartilhado, torna mais seguro umas das outras. Tenha em atenção que isto utiliza o Active Directory no local dentro de seu domínio e não do Azure Active Directory (Azure AD). Ao utilizar uma gMSA, não existe nenhuma palavra-passe ou a palavra-passe encriptada armazenado no manifesto do aplicativo.  Também pode executar um serviço como um [utilizador ou grupo do Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
+Em um cluster autônomo do Windows Server, você pode executar um serviço como uma conta de serviço gerenciado de grupo (gMSA) usando uma política RunAs.  Por padrão, Service Fabric aplicativos são executados sob a conta sob a qual o processo Fabric. exe é executado. Executar aplicativos em contas diferentes, mesmo em um ambiente hospedado compartilhado, os torna mais seguros uns dos outros. Observe que isso usa Active Directory local em seu domínio e não Azure Active Directory (AD do Azure). Usando um gMSA, não há senha ou senha criptografada armazenada no manifesto do aplicativo.  Você também pode executar um serviço como um [Active Directory usuário ou grupo](service-fabric-run-service-as-ad-user-or-group.md).
 
-O exemplo seguinte mostra como criar uma conta gMSA denominada *svc e teste$* ; como implementar essa conta de serviço gerido para os nós do cluster; e como configurar o principal de utilizador.
+O exemplo a seguir mostra como criar uma conta do gMSA chamada *svc-Test $* ; como implantar essa conta de serviço gerenciado nos nós do cluster; e como configurar a entidade de usuário.
 
 Pré-requisitos:
-- O domínio tem uma chave de raiz KDS.
-- O domínio tem de estar num Windows Server 2012 ou posterior a nível funcional.
+- O domínio precisa de uma chave raiz KDS.
+- Deve haver pelo menos um DC do Windows Server 2012 (ou R2) no domínio.
 
-1. Peça a um administrador de domínio do Active Directory, criar um serviço de geridas de grupo conta através da `New-ADServiceAccount` commandlet e certifique-se de que o `PrincipalsAllowedToRetrieveManagedPassword` inclui todos os nós de cluster do service fabric. `AccountName`, `DnsHostName`, e `ServicePrincipalName` tem de ser exclusivo.
+1. Tenha um administrador de domínio Active Directory criar uma conta de serviço gerenciado de `New-ADServiceAccount` grupo usando o commandlet e `PrincipalsAllowedToRetrieveManagedPassword` Verifique se o inclui todos os nós de cluster do Service Fabric. `AccountName`, `DnsHostName` e`ServicePrincipalName` deve ser exclusivo.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
-2. Em cada um dos recursos de infraestrutura do serviço de nós de cluster (por exemplo, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), instalar e testar a gMSA.
+2. Em cada um dos nós de Cluster Service Fabric (por exemplo `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`,), instale e teste o gMSA.
     
     ```powershell
     Add-WindowsFeature RSAT-AD-PowerShell
@@ -44,7 +44,7 @@ Pré-requisitos:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Configurar o principal de utilizador e configure o RunAsPolicy para fazer referência ao utilizador.
+3. Configure a entidade de usuário e configure o RunAsPolicy para fazer referência ao usuário.
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -65,13 +65,13 @@ Pré-requisitos:
     ```
 
 > [!NOTE] 
-> Se aplicar uma política de RunAs para um serviço e o manifesto do serviço declara os recursos de ponto final com o protocolo HTTP, tem de especificar um **SecurityAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso de segurança para pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
+> Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, você deverá especificar um **SecurityAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso de segurança para pontos de extremidade http e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Como passo seguinte, leia os artigos seguintes:
-* [Compreender o modelo de aplicativo](service-fabric-application-model.md)
-* [Especificar recursos num manifesto do serviço](service-fabric-service-manifest-resources.md)
+Como uma próxima etapa, leia os seguintes artigos:
+* [Entender o modelo de aplicativo](service-fabric-application-model.md)
+* [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

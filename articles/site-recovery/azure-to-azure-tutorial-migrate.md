@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3790b543a1a6dcbb793dbf661441700e6fa24232
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4404f785116110d99dc242d2dae39c4a462f45e9
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611888"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376253"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -71,7 +71,7 @@ Neste tutorial, irá:
 
     Para criar os recursos de rede usados com mais frequência que são relevantes para você com base na configuração da VM de origem, consulte a seguinte documentação:
     - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
     -  [IP público](../virtual-network/virtual-network-public-ip-address.md)
     - Para qualquer outro componente de rede, consulte a [documentação de rede](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
@@ -101,7 +101,7 @@ Site Recovery recupera uma lista das VMs que estão associadas à assinatura e a
 1. Em **configurações**, selecione **recuperação de desastre**.
 1. Em **Configurar** > **região de destino**de recuperação de desastre, selecione a região de destino para a qual você irá replicar.
 1. Para este tutorial, aceite as outras predefinições.
-1. Selecione **habilitar replicação**. Esta etapa inicia um trabalho para habilitar a replicação para a VM.
+1. Selecione **Ativar replicação**. Esta etapa inicia um trabalho para habilitar a replicação para a VM.
 
     ![Ativar replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
@@ -140,7 +140,7 @@ Se você não tiver planos para reutilizar nenhum dos recursos de origem, conclu
 1. Exclua todos os recursos de rede relevantes na região de origem que você identificou em [pré-requisitos](#prerequisites).
 1. Exclua a conta de armazenamento correspondente na região de origem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você moveu uma VM do Azure para uma região diferente do Azure. Agora você pode configurar a recuperação de desastre para a VM que você moveu.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3bdada262df3778ab8781f967fdbd64a780009b2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258288"
+ms.locfileid: "70307734"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: Criar um novo aplicativo no portal do LUIS
 
@@ -168,7 +168,7 @@ Quando você terminar este início rápido e não estiver passando para o próxi
 
 [![Excluir aplicativo da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [2. Implantar um aplicativo](get-started-portal-deploy-app.md)

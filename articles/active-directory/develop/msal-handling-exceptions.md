@@ -16,12 +16,12 @@ ms.date: 08/19/2019
 ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 77a2e571b76044ff9114f6671b187118cf03c0ba
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135817"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305055"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Tratamento de exceções e erros usando MSAL
 Exceções na MSAL (biblioteca de autenticação da Microsoft) são destinadas para os desenvolvedores de aplicativos solucionarem problemas e não para exibição para os usuários finais. As mensagens de exceção não são localizadas.
@@ -149,7 +149,7 @@ O padrão para lidar com esse erro é adquirir um token interativamente usando M
 Em determinados casos, ao chamar uma API que requer acesso condicional, você pode receber um desafio de declarações no erro da API. Por exemplo, se a política de acesso condicional for ter um dispositivo gerenciado (Intune), o erro será algo [como AADSTS53000: Seu dispositivo precisa ser gerenciado para acessar esse recurso](reference-aadsts-error-codes.md) ou algo semelhante. Nesse caso, você pode passar as declarações na chamada de token de aquisição para que o usuário seja solicitado a atender à política apropriada.
 
 ### <a name="net"></a>.NET
-Ao chamar uma API que requer acesso condicional do MSAL.NET, seu aplicativo precisará lidar com exceções de desafio de declaração. Isso será exibido como um [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) em que [](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) a propriedade Claims não estará vazia.
+Ao chamar uma API que requer acesso condicional do MSAL.NET, seu aplicativo precisará lidar com exceções de desafio de declaração. Isso será exibido como um [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) em que a propriedade [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) não estará vazia.
 
 Para lidar com o desafio da declaração, você precisará usar `.WithClaim()` o método `PublicClientApplicationBuilder` da classe.
 
@@ -179,7 +179,7 @@ Adquirir interativamente o token solicita o usuário e dá a ele a oportunidade 
 
 Ao chamar uma API que requer acesso condicional, você pode receber um desafio de declarações no erro da API. Nesse caso, você pode passar as declarações retornadas no erro para o `claimsRequest` campo `AuthenticationParameters.ts` da classe para atender à política apropriada. 
 
-Consulte [solicitando declarações adicionais]() para obter mais detalhes.
+Consulte [solicitando declarações adicionais](active-directory-optional-claims.md) para obter mais detalhes.
 
 ## <a name="retrying-after-errors-and-exceptions"></a>Repetindo após erros e exceções
 

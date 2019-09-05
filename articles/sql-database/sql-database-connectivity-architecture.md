@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: daa9937294cb3ffa594d83fbd56777bc8af8900a
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981465"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306142"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -67,15 +67,15 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Central2 da Austrália   | 20.36.113.0 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
-| Sul do Brasil         | 104.41.11.5,191.233.200.14 |
+| Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249      |
 | Leste do Canadá          | 40.86.226.166      |
-| EUA Central           | 13.67.215.62, 52.182.137.15 , 23.99.160.139, 104.208.16.96 | 
+| EUA Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
 | Leste da China           | 139.219.130.35     |
 | Leste da China 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
-| Ásia Oriental            | 191.234.2.139, 52.175.33.150,13.75.32.4 |
+| Ásia Oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | EUA Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | França Central       | 40.79.137.0, 40.79.129.1 |
@@ -84,16 +84,16 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Índia Central        | 104.211.96.159     |
 | Índia do Sul          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224 , 191.237.240.43, 40.79.192.5 | 
-| Oeste do Japão           | 104.214.148.156, 40.74.100.192 | 191.238.68.11,40.74.97.10 | 
+| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Coreia do Sul Central        | 52.231.32.42       |
 | Coreia do Sul          | 52.231.200.86      |
 | EUA Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Norte da África do Sul   | 102.133.152.0      |
 | Oeste da África do Sul    | 102.133.24.0       |
-| EUA Centro-Sul     | 13.66.62.124 , 23.98.162.75, 104.214.16.32   | 
-| Sudeste Asiático      | 104.43.15.0 , 23.100.117.95, 40.78.232.3   | 
+| EUA Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| Sudeste Asiático      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | E.A.U. Central          | 20.37.72.64        |
 | Norte dos E.A.U.            | 65.52.248.0        |
 | Reino Unido Sul             | 51.140.184.11      |
@@ -177,7 +177,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre como alterar a política de conexão do banco de dados SQL do Azure para um servidor de banco de dados SQL do Azure, consulte [Conn-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter informações sobre o comportamento de conexão do banco de dados SQL do Azure para clientes que usam o ADO.NET 4,5 ou uma versão posterior, consulte [portas além de 1433 para ADO.NET 4,5](sql-database-develop-direct-route-ports-adonet-v12.md).

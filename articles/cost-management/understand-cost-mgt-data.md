@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e44acfc66a8faf76068af9c31233e89c45ee02f7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b50c7c0fbd2ef2c3825ba4c69232b69188d7ffbb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953171"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308303"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -25,7 +25,7 @@ O gerenciamento de custos inclui todo o uso e as compras, incluindo reservas e o
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas de Microsoft Azure com suporte
 
-As informações a seguir mostram as [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) com suporte no momento no gerenciamento de custos do Azure. Uma oferta do Azure é o tipo de assinatura do Azure que você tem. Os dados estão disponíveis no gerenciamento de custos a partir dos **dados disponíveis a partir da** Data. Se uma assinatura alterar as ofertas, os custos antes da data de alteração da oferta não estarão disponíveis. 
+As informações a seguir mostram as [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) com suporte no momento no gerenciamento de custos do Azure. Uma oferta do Azure é o tipo de assinatura do Azure que você tem. Os dados estão disponíveis no gerenciamento de custos a partir dos **dados disponíveis a partir da** Data. Se uma assinatura alterar as ofertas, os custos antes da data de alteração da oferta não estarão disponíveis.
 
 | **Categoria**  | **Nome da oferta** | **ID da cota** | **Número da oferta** | **Dados disponíveis de** |
 | --- | --- | --- | --- | --- |
@@ -37,11 +37,10 @@ As informações a seguir mostram as [ofertas de Microsoft Azure](https://azure.
 | **Contrato com o cliente da Microsoft** | [Plano de Microsoft Azure para desenvolvimento/teste](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Março de 2019<sup>3</sup> |
 | **Microsoft Developer Network (MSDN)** | [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p) <sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de outubro de 2018<sup>2</sup> |
 | **Pré-pago** | [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de outubro de 2018<sup>2</sup> |
-| **Pré-pago** | [Desenvolvimento/teste pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de outubro de 2018<sup>2</sup> |
+| **Pré-pago** | [Desenvolvimento/Teste Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de outubro de 2018<sup>2</sup> |
 | **Pré-pago** | [Rede de parceiros da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 de outubro de 2018<sup>2</sup> |
 | **Pré-pago** | [Avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) <sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de outubro de 2018<sup>2</sup> |
 | **Pré-pago** | [Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p) <sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de outubro de 2018<sup>2</sup> |
-| **Pré-pago** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p) <sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2 de outubro de 2018<sup>2</sup> |
 | **Pré-pago** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 de outubro de 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p) <sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de outubro de 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p) <sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de outubro de 2018<sup>2</sup> |
@@ -66,14 +65,15 @@ As ofertas a seguir ainda não têm suporte:
 | **Provedor de soluções de nuvem (CSP)** | CSP do Azure governamental                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Provedor de soluções de nuvem (CSP)** | Azure Alemanha no CSP para a Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pré-pago**                 | Azure para Estudantes Iniciantes | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Pré-pago** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p) <sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **Pré-pago**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
-| **Planos de suporte** | Suporte Padrão                    | Default_2014-09-01 | MS-AZR-0041P |
-| **Planos de suporte** | Suporte a Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
-| **Planos de suporte** | Suporte ao desenvolvedor                   | Default_2014-09-01 | MS-AZR-0043P |
-| **Planos de suporte** | Plano de suporte da Alemanha                | Default_2014-09-01 | MS-AZR-DE-0043P |
-| **Planos de suporte** | Suporte Standard do Azure governamental   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
-| **Planos de suporte** | Suporte pro-Direct do Azure governamental | Default_2014-09-01 | MS-AZR-USGOV-0042P |
-| **Planos de suporte** | Suporte Developer do Azure governamental  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
+| **Planos de Suporte** | Suporte Padrão                    | Default_2014-09-01 | MS-AZR-0041P |
+| **Planos de Suporte** | Suporte a Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
+| **Planos de Suporte** | Suporte ao desenvolvedor                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Planos de Suporte** | Plano de suporte da Alemanha                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Planos de Suporte** | Suporte Standard do Azure governamental   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **Planos de Suporte** | Suporte pro-Direct do Azure governamental | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Planos de Suporte** | Suporte Developer do Azure governamental  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 ## <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
 Se você não vir os dados de uma assinatura e quiser determinar se sua assinatura está sob as ofertas com suporte, você pode validar que sua assinatura tem suporte. Para validar que uma assinatura do Azure tem suporte, entre no [portal do Azure](https://portal.azure.com). Em seguida, selecione **todos os serviços** no painel de menu à esquerda. Na lista de serviços, selecione **assinaturas**. No menu lista de assinaturas, clique na assinatura que você deseja verificar. Sua assinatura é mostrada na guia Visão geral e você pode ver a **oferta** e a **ID da oferta**. A imagem seguinte mostra um exemplo.

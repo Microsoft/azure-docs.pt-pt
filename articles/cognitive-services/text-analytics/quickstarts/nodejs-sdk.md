@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: shthowse
-ms.openlocfilehash: c3cd64d0a683a60132808bca6a7ceb4aa84db4f1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b5eb327daa74d8e6f384d6f8e1054fb265ce4a7d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195206"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375875"
 ---
 # <a name="quickstart-text-analytics-client-library-for-nodejs"></a>Início rápido: Biblioteca de cliente de análise de texto para node. js
 <a name="HOLTop"></a>
@@ -29,7 +29,7 @@ Use a biblioteca de cliente Análise de Texto para node. js para executar:
 * Reconhecimento de entidade
 * Extração de expressões chave
 
-[](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/) [de NPM (pacote de](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [código](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | -fonte de biblioteca de documentação de referência)
+[](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/) [de NPM (pacote de](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [código](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | -fonte de biblioteca de documentação de referência)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -304,7 +304,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

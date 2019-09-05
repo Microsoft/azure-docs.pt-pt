@@ -1,6 +1,6 @@
 ---
-title: Saiba mais sobre modelos de conjunto de dimensionamento de máquinas virtuais | Documentos da Microsoft
-description: Saiba como criar um modelo de conjunto de dimensionamento básico para conjuntos de dimensionamento de máquinas virtuais
+title: Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais | Microsoft Docs
+description: Aprenda a criar um modelo de conjunto de dimensionamento básico para conjuntos de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868911"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376112"
 ---
-# <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de dimensionamento de máquina virtual
-Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma ótima maneira de implementar grupos de recursos relacionados. Nesta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento básico e como modificar este modelo de acordo com vários cenários. Todos os exemplos vêm de isso [repositório do GitHub](https://github.com/gatneil/mvss).
+# <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos do conjunto de dimensionamento de máquinas virtuais
+Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento básico e como modificar esse modelo para atender a vários cenários. Todos os exemplos vêm deste [repositório GitHub](https://github.com/gatneil/mvss).
 
-Este modelo destina-se para ser simples. Para obter exemplos mais completos de dimensionamento do conjunto de modelos, consulte a [repositório do GitHub de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) e procure a pastas que contêm a cadeia de caracteres `vmss`.
+Esse modelo deve ser simples. Para obter exemplos mais completos de modelos de conjunto de dimensionamento, consulte o [repositório GitHub de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) e pesquise pastas que contenham a cadeia de caracteres `vmss`.
 
-Se já estiver familiarizado com a criação de modelos, pode avançar para a secção "Passos seguintes" para ver como modificar este modelo.
+Se você já estiver familiarizado com a criação de modelos, poderá pular para a seção "próximas etapas" para ver como modificar esse modelo.
 
 ## <a name="define-schema-and-contentversion"></a>Definir $schema e contentVersion
-Em primeiro lugar, defina `$schema` e `contentVersion` no modelo. O `$schema` elemento define a versão da linguagem do modelo e é utilizado para o realce de sintaxe do Visual Studio e os recursos de validação semelhantes. O `contentVersion` elemento não é utilizado pelo Azure. Em vez disso, ajuda-o a manter o controle de versão de modelo.
+Primeiro, defina `$schema` e `contentVersion` no modelo. O `$schema` elemento define a versão do idioma do modelo e é usado para realce de sintaxe do Visual Studio e recursos de validação semelhantes. O `contentVersion` elemento não é usado pelo Azure. Em vez disso, ele ajuda a manter o controle da versão do modelo.
 
 ```json
 {
@@ -38,8 +38,8 @@ Em primeiro lugar, defina `$schema` e `contentVersion` no modelo. O `$schema` el
   "contentVersion": "1.0.0.0",
 ```
 
-## <a name="define-parameters"></a>Definir os parâmetros
-Em seguida, defina dois parâmetros, `adminUsername` e `adminPassword`. Os parâmetros são valores que especificou no momento da implantação. O `adminUsername` parâmetro é simplesmente um `string` tipo, mas porque `adminPassword` é um proporcionar secreta, que ele escreva `securestring`. Mais tarde, esses parâmetros são transmitidos para a configuração de conjunto de dimensionamento.
+## <a name="define-parameters"></a>Definir parâmetros
+Em seguida, defina dois parâmetros `adminUsername` e `adminPassword`. Parâmetros são valores que você especifica no momento da implantação. O `adminUsername` parâmetro é simplesmente um `string` tipo, mas porque `adminPassword` é um segredo, dê a ele `securestring`o tipo. Posteriormente, esses parâmetros são passados para a configuração do conjunto de dimensionamento.
 
 ```json
   "parameters": {
@@ -52,20 +52,20 @@ Em seguida, defina dois parâmetros, `adminUsername` e `adminPassword`. Os parâ
   },
 ```
 ## <a name="define-variables"></a>Definir variáveis
-Modelos do Resource Manager também permitem-lhe definir as variáveis a ser utilizado mais tarde no modelo. O exemplo não utiliza quaisquer variáveis, para que o objeto JSON está vazio.
+Os modelos do Resource Manager também permitem que você defina variáveis a serem usadas posteriormente no modelo. O exemplo não usa nenhuma variável, portanto, o objeto JSON está vazio.
 
 ```json
   "variables": {},
 ```
 
-## <a name="define-resources"></a>Definir os recursos
-Em seguida, é a seção de recursos do modelo. Aqui, é possível definir o que realmente deseja implantar. Ao contrário `parameters` e `variables` (que são objetos JSON), `resources` é uma lista JSON de objetos JSON.
+## <a name="define-resources"></a>Definir recursos
+A seguir está a seção de recursos do modelo. Aqui, você define o que realmente deseja implantar. Ao `parameters` contrário `variables` de e (que são objetos JSON `resources` ), é uma lista JSON de objetos JSON.
 
 ```json
    "resources": [
 ```
 
-Todos os recursos exigem `type`, `name`, `apiVersion`, e `location` propriedades. Recurso de primeira neste exemplo tem o tipo [Network/virtualnetwork](/azure/templates/microsoft.network/virtualnetworks)e o nome `myVnet`e apiVersion `2018-11-01`. (Para obter a versão mais recente do API para um tipo de recurso, consulte a [referência de modelo do Azure Resource Manager](/azure/templates/).)
+Todos os recursos `type`exigem `name` `location` propriedades `apiVersion`,, e. O primeiro recurso deste exemplo tem [o tipo Microsoft. Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), `myVnet`Name e apiVersion `2018-11-01`. (Para encontrar a versão mais recente da API para um tipo de recurso, consulte a [referência do modelo Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
@@ -74,15 +74,15 @@ Todos os recursos exigem `type`, `name`, `apiVersion`, e `location` propriedades
        "apiVersion": "2018-11-01",
 ```
 
-## <a name="specify-location"></a>Especifique a localização
-Para especificar a localização para a rede virtual, utilize um [função de modelo do Resource Manager](../azure-resource-manager/resource-group-template-functions.md). Esta função deve estar entre aspas e parênteses Retos como este: `"[<template-function>]"`. Neste caso, utilize o `resourceGroup` função. Ele aceita nenhum argumento e retorna um objeto JSON com metadados sobre esta implementação está a ser implementada para o grupo de recursos. O grupo de recursos é definido pelo utilizador no momento da implantação. Este valor, em seguida, é indexado para esse objeto JSON com `.location` para obter a localização do objeto JSON.
+## <a name="specify-location"></a>Especificar local
+Para especificar o local da rede virtual, use uma [função de modelo do Resource Manager](../azure-resource-manager/resource-group-template-functions.md). Essa função deve ser colocada entre aspas e colchetes como esta: `"[<template-function>]"`. Nesse caso, use a `resourceGroup` função. Ele não usa nenhum argumento e retorna um objeto JSON com metadados sobre o grupo de recursos no qual essa implantação está sendo implantada. O grupo de recursos é definido pelo usuário no momento da implantação. Esse valor é então indexado nesse objeto JSON com `.location` para obter o local do objeto JSON.
 
 ```json
        "location": "[resourceGroup().location]",
 ```
 
-## <a name="specify-virtual-network-properties"></a>Especificar as propriedades de rede virtual
-Cada recurso do Resource Manager tem o seu próprio `properties` secção para configurações específicas para o recurso. Neste caso, especifique que a rede virtual deve ter uma sub-rede com o intervalo de endereços IP privados `10.0.0.0/16`. Um conjunto de dimensionamento sempre está contido dentro de uma sub-rede. Ele não pode abranger sub-redes.
+## <a name="specify-virtual-network-properties"></a>Especificar propriedades de rede virtual
+Cada recurso do Resource Manager tem sua `properties` própria seção para configurações específicas do recurso. Nesse caso, especifique que a rede virtual deve ter uma sub-rede usando o intervalo `10.0.0.0/16`de endereços IP privado. Um conjunto de dimensionamento sempre está contido em uma sub-rede. Ele não pode abranger sub-redes.
 
 ```json
        "properties": {
@@ -103,10 +103,10 @@ Cada recurso do Resource Manager tem o seu próprio `properties` secção para c
      },
 ```
 
-## <a name="add-dependson-list"></a>Adicionar a lista de dependsOn
-Além de necessários `type`, `name`, `apiVersion`, e `location` propriedades, cada recurso podem ter um opcional `dependsOn` lista de cadeias de caracteres. Esta lista especifica que outros recursos a partir desta implementação deverá ser concluída antes de implementar este recurso.
+## <a name="add-dependson-list"></a>Adicionar lista de dependentes
+Além das `type`Propriedades Required `name`,, e `location` , cada recurso pode ter uma lista opcional `dependsOn` de cadeias de caracteres. `apiVersion` Esta lista especifica quais outros recursos dessa implantação devem ser concluídos antes da implantação desse recurso.
 
-Neste caso, há apenas um elemento na lista, a rede virtual do exemplo anterior. Especifique esta dependência porque o conjunto de dimensionamento às suas necessidades da rede de existir antes de criar todas as VMs. Dessa forma, o conjunto de dimensionamento pode permitir que estes endereços IP privados de VMs do intervalo de endereços IP anteriormente especificado nas propriedades de rede. O formato de cada cadeia na lista dependsOn é `<type>/<name>`. Utilizar o mesmo `type` e `name` utilizado anteriormente na definição do recurso de rede virtual.
+Nesse caso, há apenas um elemento na lista, a rede virtual do exemplo anterior. Você especifica essa dependência porque o conjunto de dimensionamento precisa que a rede exista antes de criar qualquer VM. Dessa forma, o conjunto de dimensionamento pode fornecer a essas VMs endereços IP privados do intervalo de endereços IP especificado anteriormente nas propriedades de rede. O formato de cada cadeia de caracteres na lista de dependentes é `<type>/<name>`. Use o mesmo `type` e `name` usado anteriormente na definição de recurso de rede virtual.
 
 ```json
      {
@@ -118,10 +118,10 @@ Neste caso, há apenas um elemento na lista, a rede virtual do exemplo anterior.
          "Microsoft.Network/virtualNetworks/myVnet"
        ],
 ```
-## <a name="specify-scale-set-properties"></a>Especificar as propriedades do conjunto de dimensionamento
-Conjuntos de dimensionamento tem muitas propriedades para personalizar as VMs no conjunto de dimensionamento. Para obter uma lista completa dessas propriedades, consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachinescalesets). Para este tutorial, apenas algumas propriedades usadas são definidas.
-### <a name="supply-vm-size-and-capacity"></a>Tamanho da VM e a capacidade de fornecer
-O conjunto de dimensionamento tem de saber qual será o tamanho da VM para criar ("nome de sku") e o número de tal VMs para criar ("capacidade de sku"). Para ver os tamanhos de VM estão disponíveis, consulte a [documentação de tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+## <a name="specify-scale-set-properties"></a>Especificar propriedades do conjunto de dimensionamento
+Os conjuntos de dimensionamento têm muitas propriedades para personalizar as VMs no conjunto de dimensionamento. Para obter uma lista completa dessas propriedades, consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachinescalesets). Para este tutorial, apenas algumas propriedades usadas com frequência são definidas.
+### <a name="supply-vm-size-and-capacity"></a>Fornecer capacidade e tamanho da VM
+O conjunto de dimensionamento precisa saber o tamanho da VM a ser criado ("nome do SKU") e quantas dessas VMs devem ser criadas ("capacidade do SKU"). Para ver quais tamanhos de VM estão disponíveis, consulte a [documentação tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 
 ```json
        "sku": {
@@ -130,8 +130,8 @@ O conjunto de dimensionamento tem de saber qual será o tamanho da VM para criar
        },
 ```
 
-### <a name="choose-type-of-updates"></a>Escolha o tipo de atualizações
-A escala definida também precisa saber como lidar com atualizações no conjunto de dimensionamento. Atualmente, existem três opções pelo `Manual`, `Rolling` e `Automatic`. Para obter mais informações sobre as diferenças entre os dois, consulte a documentação sobre [como atualizar um conjunto de dimensionamento](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+### <a name="choose-type-of-updates"></a>Escolher tipo de atualizações
+O conjunto de dimensionamento também precisa saber como lidar com atualizações no conjunto de dimensionamento. Atualmente, há três opções, `Manual` `Rolling` e `Automatic`. Para obter mais informações sobre as diferenças entre os dois, consulte a documentação sobre [como atualizar um conjunto de dimensionamento](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {
@@ -140,8 +140,8 @@ A escala definida também precisa saber como lidar com atualizações no conjunt
          },
 ```
 
-### <a name="choose-vm-operating-system"></a>Escolha o sistema operacional VM
-O conjunto de dimensionamento tem de saber qual o sistema operacional para colocar nas VMs. Aqui, crie as VMs com uma imagem de 16.04 LTS do Ubuntu totalmente corrigida.
+### <a name="choose-vm-operating-system"></a>Escolher sistema operacional da VM
+O conjunto de dimensionamento precisa saber qual sistema operacional deve ser colocado nas VMs. Aqui, crie as VMs com uma imagem completa com patch do Ubuntu 16, 4-LTS.
 
 ```json
          "virtualMachineProfile": {
@@ -155,10 +155,10 @@ O conjunto de dimensionamento tem de saber qual o sistema operacional para coloc
            },
 ```
 
-### <a name="specify-computernameprefix"></a>Especifique o computerNamePrefix
-O conjunto de dimensionamento implementa várias VMs. Em vez de especificar cada nome da VM, especifique `computerNamePrefix`. O conjunto de dimensionamento acrescenta um índice para o prefixo para cada VM, para que os nomes VM têm a forma `<computerNamePrefix>_<auto-generated-index>`.
+### <a name="specify-computernameprefix"></a>Especificar computerNamePrefix
+O conjunto de dimensionamento implanta várias VMs. Em vez de especificar cada nome de VM `computerNamePrefix`, especifique. O conjunto de dimensionamento acrescenta um índice ao prefixo para cada VM, para que os nomes de VM `<computerNamePrefix>_<auto-generated-index>`tenham o formato.
 
-No seguinte fragmento, utilize os parâmetros de antes para definir o nome de utilizador de administrador e a palavra-passe para todas as VMs no conjunto de dimensionamento. Este processo utiliza a `parameters` função de modelo. Esta função aceita uma cadeia de caracteres que especifica qual parâmetro para fazer referência e produz o valor para esse parâmetro.
+No trecho a seguir, use os parâmetros de antes para definir o nome de usuário e a senha do administrador para todas as VMs no conjunto de dimensionamento. Esse processo usa a `parameters` função de modelo. Essa função usa uma cadeia de caracteres que especifica o parâmetro para o qual se refere e gera o valor para esse parâmetro.
 
 ```json
            "osProfile": {
@@ -168,12 +168,12 @@ No seguinte fragmento, utilize os parâmetros de antes para definir o nome de ut
            },
 ```
 
-### <a name="specify-vm-network-configuration"></a>Especificar a configuração de rede VM
-Por fim, especifique a configuração de rede para as VMs no conjunto de dimensionamento. Neste caso, só precisa de especificar o ID da sub-rede que criou anteriormente. Isso informa ao conjunto de dimensionamento para colocar as interfaces de rede nesta sub-rede.
+### <a name="specify-vm-network-configuration"></a>Especificar configuração de rede VM
+Por fim, especifique a configuração de rede para as VMs no conjunto de dimensionamento. Nesse caso, você só precisa especificar a ID da sub-rede criada anteriormente. Isso informa ao conjunto de dimensionamento para colocar os adaptadores de rede nesta sub-rede.
 
-Pode obter o ID da rede virtual que contém a sub-rede utilizando o `resourceId` função de modelo. Esta função aceita o tipo e o nome de um recurso e devolve o identificador completamente qualificado desse recurso. Este ID tem o formato: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
+Você pode obter a ID da rede virtual que contém a sub-rede usando a função `resourceId` de modelo. Essa função usa o tipo e o nome de um recurso e retorna o identificador totalmente qualificado desse recurso. Essa ID tem o formato:`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
-No entanto, o identificador da rede virtual não é suficiente. Fornece a sub-rede específica que o conjunto de dimensionamento de VMs deve estar no. Para tal, concatenar `/subnets/mySubnet` para o ID da rede virtual. O resultado é o identificador completamente qualificado da sub-rede. Fazer este concatenação com o `concat` função, que recebe uma série de cadeias de caracteres e retorna a concatenação.
+No entanto, o identificador da rede virtual não é suficiente. Forneça a sub-rede específica em que as VMs do conjunto de dimensionamento devem estar. Para fazer isso, concatene `/subnets/mySubnet` a ID da rede virtual. O resultado é a ID totalmente qualificada da sub-rede. Faça essa concatenação com a `concat` função, que usa uma série de cadeias de caracteres e retorna sua concatenação.
 
 ```json
            "networkProfile": {

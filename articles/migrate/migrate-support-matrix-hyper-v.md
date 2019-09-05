@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279560"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376086"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o Hyper-V
 
@@ -82,7 +82,7 @@ Para avaliação, as migrações para Azure executam um dispositivo leve para de
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Implantação de dispositivo**   |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida pela migração do Azure é a VM Hyper-V versão 5,0.<br/> O host Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
+| **Implantação de dispositivo**   |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida pela migração do Azure é a VM Hyper-V versão 5,0.<br/> O host Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
 | **Projeto de migrações para Azure**  |  Um dispositivo pode ser associado a um único projeto.<br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> Você pode avaliar até 35.000 VMs em um projeto.
 | **Hosts do Hyper-V**          | Um dispositivo pode se conectar a até 300 hosts Hyper-V.
 | **Descoberta**              | Um único dispositivo pode descobrir até 5000 VMs.

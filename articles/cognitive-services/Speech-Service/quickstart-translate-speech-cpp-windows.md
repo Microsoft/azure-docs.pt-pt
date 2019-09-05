@@ -1,36 +1,33 @@
 ---
 title: 'Início rápido: Traduzir fala, C++ (Windows)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você criará C++ um aplicativo simples para capturar a fala do usuário, convertê-lo em outro idioma e enviar o texto para a linha de comando. Este guia foi projetado para usuários do Windows.
+description: Neste guia de início rápido, você criará um C++ aplicativo para capturar a fala do usuário, convertê-lo em outro idioma e enviar o texto para a linha de comando. Este guia foi projetado para usuários do Windows.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 379087ca94eee6ce3d45bfd97b4771c5f08d6333
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 6ba4e44efc7ff24aa48f9f16840b2248423f7241
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607696"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382664"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Início rápido: Traduza a fala com o SDK de fala paraC++
+# <a name="quickstart-translate-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Traduzir a fala C++ no Windows usando o SDK de fala
 
-Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-cpp-windows.md) e [conversão de texto em fala](quickstart-text-to-speech-cpp-windows.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-cpp-windows.md) e [síntese de fala](quickstart-text-to-speech-cpp-windows.md).
 
-Neste guia de início rápido, você criará C++ um aplicativo simples que captura a fala do usuário do microfone do seu computador, traduz a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado em Windows de 64 bits e é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior.
+Neste guia de início rápido, você criará um C++ aplicativo que captura a fala do usuário do microfone do seu computador, traduz a fala e transcreve o texto traduzido para a linha de comando em tempo real. Esse aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2019 (qualquer edição).
 
 Para obter uma lista completa de idiomas disponíveis para tradução de fala, consulte [suporte a idiomas](language-support.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido requer:
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou posterior
-* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -38,38 +35,35 @@ Este início rápido requer:
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra o ficheiro de origem *helloworld.cpp*. Substitua todo o código abaixo da instrução de inclusão inicial (`#include "stdafx.h"` ou `#include "pch.h"`) pelo seguinte:
+1. Abra o ficheiro de origem **helloworld.cpp**.
 
-    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp#code)]
+1. Substitua todo o código pelo trecho a seguir:
+
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp?range=2-#code)]
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
 1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Guarde as alterações ao projeto.
+1. Na barra de menus, escolha **arquivo** > **salvar tudo**.
 
-## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
+## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. Compile a aplicação. Na barra de menus, escolha **Compilar** > **Compilar solução**. O código deve ser compilado sem erros.
+1. Na barra de menus, selecione **criar** > **solução de compilação** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
 
-   ![Captura de ecrã da aplicação Visual Studio, com a opção Compilar Solução realçada](media/sdk/qs-cpp-windows-06-build.png)
+1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. Inicie a aplicação. Na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou prima **F5**.
+1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para os serviços de fala, que converte e transcreve em texto (neste caso, para francês e alemão). Em seguida, os serviços de fala enviam o texto de volta para o aplicativo para exibição.
 
-   ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-cpp-windows-07-start-debugging.png)
+   ![Saída do console após tradução de fala bem-sucedida](media/sdk/qs-translate-cpp-windows-output.png)
 
-1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para o serviço de fala, traduzida e transcrita para texto, que aparece na mesma janela.
+## <a name="next-steps"></a>Passos Seguintes
 
-   ![Captura de tela da saída do console após tradução bem-sucedida](media/sdk/qs-translate-cpp-windows-output.png)
-
-## <a name="next-steps"></a>Passos seguintes
-
-Exemplos adicionais, como a leitura de fala de um arquivo de áudio e a saída de texto traduzido como fala sintetizada, estão disponíveis no GitHub.
+Exemplos adicionais, como como ler a fala de um arquivo de áudio ou transformar o texto traduzido em fala sintetizada, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de idioma](how-to-customize-language-model.md)
+- [Treinar um modelo para Fala Personalizada](how-to-custom-speech-train-model.md)

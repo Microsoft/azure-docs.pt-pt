@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: e18f1db80b8fcb2c8846ce0c7294e1766cfa1ca3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091373"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309231"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux imagens no Azure
 Este artigo descreve as imagens disponíveis do Red Hat Enterprise Linux (RHEL) no Azure Marketplace, juntamente com as políticas relacionadas à sua nomenclatura e retenção.
@@ -133,12 +133,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Agente Linux | RHEL 6,7 para SAP HANA
 |             | 7.3      | LVM    | Agente Linux | RHEL 7,3 para SAP HANA
 RHEL-SAP-APPS | 6.8      | RAW    | Agente Linux | RHEL 6,8 para SAP Business Applications
 |             | 7.3      | LVM    | Agente Linux | RHEL 7,3 para SAP Business Applications
-RHEL-HA       | 7.4      | RAW    | Agente Linux | RHEL 7,4 com complemento de HA
-|             | 7.5      | RAW    | Agente Linux | RHEL 7,5 com complemento de HA
-|             | 7,6      | RAW    | Agente Linux | RHEL 7,6 com complemento de HA
-RHEL-SAP-HA   | 7.4      | RAW    | Agente Linux | RHEL 7,4 para SAP com complemento de HA
-|             | 7.5      | RAW    | Agente Linux | RHEL 7,5 para SAP com complemento de HA
-|             | 7,6      | RAW    | Agente Linux | RHEL 7,6 para SAP com complemento de HA
+RHEL-HA       | 7.4      | LVM    | Agente Linux | RHEL 7,4 com complemento de HA
+|             | 7.5      | LVM    | Agente Linux | RHEL 7,5 com complemento de HA
+|             | 7,6      | LVM    | Agente Linux | RHEL 7,6 com complemento de HA
+RHEL-SAP-HA   | 7.4      | LVM    | Agente Linux | RHEL 7,4 para SAP com complemento de HA
+|             | 7.5      | LVM    | Agente Linux | RHEL 7,5 para SAP com complemento de HA
+|             | 7,6      | LVM    | Agente Linux | RHEL 7,6 para SAP com complemento de HA
 
 ### <a name="old-naming-convention"></a>Convenção de nomenclatura antiga
 A família de imagens RHEL 7 e a família de imagens RHEL 6 usavam versões específicas em seus SKUs até a alteração da Convenção de nomenclatura explicada acima.
@@ -159,6 +159,6 @@ Atualizamos apenas a versão secundária atual em uma determinada família de im
 ## <a name="image-retention-policy"></a>Política de retenção de imagem
 Nossa política atual é manter todas as imagens publicadas anteriormente. Reservamos o direito de remover imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações de componentes ou plataformas subsequentes podem ser removidas. As imagens que podem ser removidas seguirão a política atual do Marketplace para fornecer notificações de até 30 dias antes da remoção da imagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre a infraestrutura de atualização do Red Hat [aqui](https://aka.ms/rhui-update).
 * Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

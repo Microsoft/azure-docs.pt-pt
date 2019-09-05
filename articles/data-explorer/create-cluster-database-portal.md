@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 079f87dec67f98d502d135fc012b5523211d5957
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406090"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381797"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster de Data Explorer do Azure e um banco de dados
 
@@ -55,9 +55,9 @@ Crie um cluster de Data Explorer do Azure com um conjunto definido de recursos d
     | Resource group | Seu grupo de recursos | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Ele deve conter de 4 a 22 caracteres.
     | Região | *Oeste dos EUA* ou *oeste dos EUA 2* | Selecione *oeste dos EUA* ou *oeste dos EUA 2* (se estiver usando zonas de disponibilidade) para este guia de início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
-    | Zonas de disponibilidade | *1*, *2*e/ou *3* | Para regiões com suporte de redundância de zonas, selecione em quais zonas suas instâncias residirão (opcional). Os nós de cluster são criados, por padrão, na mesma data center. Use [zonas de disponibilidade do Azure](/azure/availability-zones/az-overview) para posicionar as instâncias de cluster em várias zonas de disponibilidade na mesma região. Ao selecionar várias zonas de disponibilidade, você pode eliminar um único ponto de falha e garantir a alta disponibilidade. 
+    | Zonas de disponibilidade | *1*, *2*e/ou *3* | Coloque as instâncias de cluster em várias zonas de disponibilidade na mesma região (opcional). [Zonas de disponibilidade do Azure](/azure/availability-zones/az-overview) são locais físicos exclusivos na mesma região do Azure. Eles protegem um cluster Data Explorer do Azure e dados de uma falha parcial da região. Os nós de cluster são criados, por padrão, na mesma data center. Ao selecionar várias zonas de disponibilidade, você pode eliminar um único ponto de falha e garantir a alta disponibilidade. A implantação em zonas de disponibilidade só é possível durante a criação do cluster e não pode ser modificada em uma data posterior.
     | Especificações do dispositivo | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
-    | | |
+    | | | |
 
 1. Selecione **examinar + criar** para examinar os detalhes do cluster e **criar** para provisionar o cluster. O provisionamento normalmente leva cerca de 10 minutos.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: e1c206c329b491ec9f8d36a12e2b4bf8ed8107b3
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997749"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383023"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>O que é o Azure IoT Central (recursos de visualização)?
 
@@ -62,7 +62,7 @@ Este artigo descreve os IoT Central do Azure:
 - Não há suporte para tipos de esquema de matriz.
 - Não há suporte para exportação de modelo de aplicativo e cópia de aplicativo.
 - Somente o SDK do dispositivo C e os SDKs do dispositivo e do serviço node. js têm suporte.
-- Ele só está disponível em regiões selecionadas.
+- Ele só está disponível nas regiões norte da Europa e centro dos EUA.
 
 ## <a name="personas"></a>Pessoas fictícias
 
@@ -139,7 +139,7 @@ Como um construtor, você pode definir regras e ações personalizadas que opera
 
 Os administradores gerenciam o acesso ao seu aplicativo com [funções e permissões de usuário](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma descrição geral do Azure IoT Central, eis os passos sugeridos:
 

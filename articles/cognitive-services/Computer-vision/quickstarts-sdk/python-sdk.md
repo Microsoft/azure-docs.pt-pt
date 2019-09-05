@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/17/2019
+ms.date: 09/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c03568ece97bdaad86f4564debf9f3b2fa14c6ed
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: bc42edc3e97aa68c5fe9d2b3162913e8925df4ee
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67786637"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375645"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK Pesquisa Visual Computacional de serviços cognitivas do Azure para Python
 
@@ -105,7 +105,7 @@ ACCT_NAME=<computervision-account-name>
 
 ### <a name="for-azure-subscription-users-get-credentials-for-key-and-endpoint"></a>Para usuários de assinatura do Azure, obtenha as credenciais para a chave e o ponto de extremidade
 
-Se você não se lembrar de seu ponto de extremidade e chave, poderá usar o método a seguir para encontrá-lo. Se você precisar criar uma chave e um ponto de extremidade, poderá usar o método para os detentores de [assinatura do Azure](#if-you-have-an-azure-subscription) ou para [usuários sem uma assinatura do Azure](#if-you-dont-have-an-azure-subscription).
+Se você não se lembrar de seu ponto de extremidade e chave, poderá usar o método a seguir para encontrá-lo. Se você precisar criar uma chave e um ponto de extremidade, poderá usar o método para os [detentores de assinatura do Azure](#if-you-have-an-azure-subscription) ou para [usuários sem uma assinatura do Azure](#if-you-dont-have-an-azure-subscription).
 
 Use o trecho de [CLI do Azure][cloud_shell] abaixo para preencher duas variáveis de ambiente com o **ponto de extremidade** da conta de pesquisa Visual computacional e uma de suas **chaves** (você também pode encontrar esses valores no [portal do Azure][azure_portal]). O trecho de código é formatado para o shell bash.
 
@@ -314,7 +314,7 @@ except HTTPFailure as e:
 
 Ao trabalhar com o cliente [ComputerVisionClient][ref_computervisionclient] , você pode encontrar falhas transitórias causadas por [limites de taxa][computervision_request_units] impostos pelo serviço ou outros problemas transitórios, como interrupções de rede. Para obter informações sobre como lidar com esses tipos de falhas, consulte [padrão de repetição][azure_pattern_retry] no guia de padrões de design de nuvem e o [padrão de disjuntor][azure_pattern_circuit_breaker]relacionado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Aplicação de etiquetas de conteúdo a imagens](../concept-tagging-images.md)

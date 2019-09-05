@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015648"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376455"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure
 
@@ -43,7 +43,7 @@ Outras opções de redundância de armazenamento do Azure incluem ZRS (armazenam
 > [!WARNING]
 > O armazenamento com redundância geográfica traz um risco de perda de dados. Os dados são replicados para a região secundária de forma assíncrona, o que significa que há um atraso entre o momento em que os dados gravados na região primária são gravados na região secundária. No caso de uma interrupção, as operações de gravação para o ponto de extremidade primário que ainda não foram replicadas para o ponto de extremidade secundário serão perdidas.
 
-## <a name="design-for-high-availability"></a>Design para alta disponibilidade
+## <a name="design-for-high-availability"></a>Criar para elevada disponibilidade
 
 É importante projetar seu aplicativo para alta disponibilidade desde o início. Consulte estes recursos do Azure para obter orientação sobre como projetar seu aplicativo e planejar a recuperação de desastres:
 
@@ -168,7 +168,6 @@ Tenha em mente que todos os dados armazenados em um disco temporário são perdi
 Os seguintes recursos ou serviços não têm suporte para failover de conta para a versão de visualização:
 
 - Sincronização de Arquivos do Azure não dá suporte ao failover da conta de armazenamento. As contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estão sendo usados como pontos de extremidade de nuvem no Sincronização de Arquivos do Azure não devem passar pelo failover. Fazer isso fará com que a sincronização pare de funcionar e também pode causar perda de dados inesperada no caso de arquivos recentemente em camadas.  
-- Não é possível fazer failover de contas de armazenamento usando Azure Data Lake Storage Gen2 namespace hierárquico.
 - Não é possível fazer failover de uma conta de armazenamento contendo BLOBs arquivados. Manter BLOBs arquivados em uma conta de armazenamento separada que você não planeja fazer failover.
 - Não é possível fazer failover de uma conta de armazenamento contendo blobs de blocos Premium. As contas de armazenamento que dão suporte a blobs de blocos Premium atualmente não dão suporte à redundância geográfica.
 - Depois que o failover for concluído, os seguintes recursos deixarão de funcionar se originalmente habilitados: [Assinaturas de evento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [políticas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) [análise de armazenamento log](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).

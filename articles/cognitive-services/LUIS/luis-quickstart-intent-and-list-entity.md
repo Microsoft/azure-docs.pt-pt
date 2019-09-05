@@ -1,5 +1,5 @@
 ---
-title: Correspondência exata de texto-LUIS
+title: 'Tutorial: Correspondência exata de texto-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Obtenha dados que correspondam a uma lista de itens predefinida. Cada item na lista pode ter sinónimos também com correspondência exata
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560405"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307602"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exatos de um expressão
 
@@ -169,7 +169,7 @@ O nome principal, _canônico_, para cada item é o nome do departamento. Exemplo
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* Listar informações conceituais da [entidade](luis-concept-entity-types.md#list-entity)
+* [Listar](luis-concept-entity-types.md#list-entity) informações conceituais da entidade
 * [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)

@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575191"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375845"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Criar e consultar uma SQL Data Warehouse do Azure no portal do Azure
 
@@ -98,7 +98,7 @@ O serviço de SQL Data Warehouse cria um firewall no nível do servidor. Esse Fi
 > O SQL Data Warehouse comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 
 1. Após a conclusão da implantação, selecione **todos os serviços** no menu à esquerda. Selecione **bancos**de dados, selecione a estrela ao lado de **SQL data warehouses** para adicionar SQL data warehouses aos seus favoritos.
-1. Selecione **SQL data warehouses** no menu à esquerda e clique em **MySampleDatabase** na página **SQL data warehouses** . A página Visão geral do seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20180430.Database.Windows.net**) e fornece opções para configuração adicional.
+1. Selecione **SQL data warehouses** no menu à esquerda e clique em **MySampleDataWarehouse** na página **SQL data warehouses** . A página Visão geral do seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20180430.Database.Windows.net**) e fornece opções para configuração adicional.
 1. Copie esse nome de servidor totalmente qualificado para usar para se conectar ao seu servidor e seus bancos de dados neste e em outros inícios rápidos. Para abrir as definições do servidor, clique no nome do servidor.
 
    ![localizar nome do servidor](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
@@ -194,7 +194,7 @@ Siga estas etapas para limpar os recursos que você não precisa mais.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para interromper a computação, clique no botão **Pausar**. Quando o data warehouse estiver em pausa, você verá um botão retomar. Para retomar a computação, clique em retomar.
+2. Para interromper a computação, clique no botão **Pausar**. Quando o data warehouse estiver em pausa, você verá um botão **retomar** . Para retomar a computação, clique em **retomar**.
 
 3. Para remover o data warehouse para que você não seja cobrado pela computação ou pelo armazenamento, clique em **excluir**.
 

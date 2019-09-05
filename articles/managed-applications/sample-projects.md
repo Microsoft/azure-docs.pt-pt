@@ -1,6 +1,6 @@
 ---
-title: Projetos de exemplo de aplicativo de geridas do Azure | Documentos da Microsoft
-description: Resume os projetos de exemplo disponíveis para o Azure aplicativos gerenciados
+title: Projetos de exemplo de aplicativo gerenciado do Azure | Microsoft Docs
+description: Resume os projetos de exemplo disponíveis para aplicativos gerenciados do Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -9,24 +9,24 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2019
+ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: c0e2ab5cbf45aa2b3836be760ca256bd28e7459a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b046b25e81e7b90e71ce57aea17fab3e80e52f9
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61423918"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309161"
 ---
-# <a name="sample-projects-for-azure-managed-applications"></a>Aplicativos gerenciados de projetos de exemplo para o Azure
+# <a name="sample-projects-for-azure-managed-applications"></a>Projetos de exemplo para aplicativos gerenciados do Azure
 
-As seguinte tabela inclui ligações para o exemplo do Azure gerido aplicativos no GitHub.
+A tabela a seguir contém links para aplicativos de exemplo gerenciados do Azure no GitHub.
 
 |  |  |
 | --- | --- |
 | **Exemplos** | |
-| [Managed Application (versão de avaliação ou de produção) numa rede virtual nova ou existente](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-app-using-existing-vnet) | Demonstra como pode criar opções de implantação flexível para os clientes. Esta aplicação gerida pode ser implementada para uma nova rede virtual ou uma rede virtual existente. Os clientes podem especificar a versão de avaliação ou de produção das aplicações geridas. |
-| [Conta de armazenamento do Azure gerida](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-storage-account) | Implementa uma única conta de armazenamento. Utilize este projeto de exemplo como uma introdução à criação de aplicativos gerenciados. |
-| [Recurso de infraestrutura de serviço gerido com os serviços de gestão do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-service-fabric) | Implementa um recurso de infraestrutura do serviço conjuntos de dimensionamento do cluster e máquina virtual. Inclui contas de armazenamento para o registo e diagnóstico. |
-| [Aplicação Web gerida (IaaS) com os serviços de gestão do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) | Implementa uma máquina virtual que aloja uma aplicação web. |
-| [Geridos IaaS de 2017 do SQL com a aplicação de patches automatizada e a cópia de segurança](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-sql-iaas) | Implementa uma máquina virtual que aloja o SQL 2017. |
+| [Aplicativo gerenciado (avaliação ou produção) em uma rede virtual nova ou existente](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet) | Demonstra como você pode criar opções de implantação flexíveis para os clientes. Esse aplicativo gerenciado pode ser implantado em uma nova rede virtual ou em uma rede virtual existente. Os clientes podem especificar uma versão de avaliação ou de produção dos aplicativos gerenciados. |
+| [Conta de armazenamento do Azure gerenciada](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account) | Implanta uma única conta de armazenamento. Use este projeto de exemplo como uma introdução à criação de aplicativos gerenciados. |
+| [Service Fabric gerenciados com os serviços de gerenciamento do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-service-fabric) | Implanta um cluster do Service Fabric e conjuntos de dimensionamento de máquinas virtuais. Inclui contas de armazenamento para registro em log e diagnóstico. |
+| [Aplicativo Web gerenciado (IaaS) com os serviços de gerenciamento do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app) | Implanta uma máquina virtual que hospeda um aplicativo Web. |
+| [SQL 2017 IaaS gerenciado com aplicação de patch e backup automatizados](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-sql-iaas) | Implanta uma máquina virtual que hospeda o SQL 2017. |

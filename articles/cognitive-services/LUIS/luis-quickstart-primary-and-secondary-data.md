@@ -1,5 +1,5 @@
 ---
-title: Entidade simples, lista de frases-LUIS
+title: 'Tutorial: Entidade simples, lista de frases-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, extraia os dados aprendidos por máquina de nome do trabalho de emprego de um expressão usando a entidade simples. Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1b731d8000e748813649ea32c91b9566a8bc245a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648611"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376271"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com entidade simples e uma lista de frases
 
@@ -233,7 +233,7 @@ Abra o [Jobs-Phrase-List. csv](https://github.com/Azure-Samples/cognitive-servic
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se você quiser mais palavras adicionadas à lista de frases, selecione recomando e, em seguida, examine os novos **valores relacionados** e adicione quaisquer que sejam relevantes. 
+    Se você quiser mais palavras adicionadas à lista de frases, selecione **recomando** e, em seguida, examine os novos **valores relacionados** e adicione quaisquer que sejam relevantes. 
 
     Certifique-se de manter **esses valores intercambiáveis** verificados porque esses valores devem ser tratados como sinônimos para trabalhos. Saiba mais sobre os conceitos intercambiáveis e não intercambiáveis da [lista de frases](luis-concept-feature.md#how-to-use-phrase-lists).
 
@@ -294,7 +294,7 @@ Abra o [Jobs-Phrase-List. csv](https://github.com/Azure-Samples/cognitive-servic
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, a aplicação Recursos Humanos utiliza uma entidade de aprendizagem automática simples para localizar nomes de cargos nas expressões. Como os nomes de cargos podem ter uma grande variedade de palavras ou expressões, a aplicação precisou de uma lista de expressões para melhorar as palavras dos nomes de cargos. 
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/25/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 34978d552b2a5002906b65c06e0c8ad76f58761b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258169"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382512"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início rápido: Usar aplicativo de automação inicial predefinido
 
@@ -65,7 +65,7 @@ Selecione **Intents** (Intenções) no painel de navegação do lado esquerdo pa
 
 Selecione a intenção **HomeAutomation.TurnOff**. Pode ver que a intenção contém uma lista de expressões que têm etiquetas de entidades.
 
-[![Captura de ecrã de HomeAutomation.TurnOff intenção](media/luis-quickstart-new-app/home-automation-turnon.png "intenção de captura de ecrã de HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Captura de ecrã de HomeAutomation.TurnOff intenção](media/luis-quickstart-new-app/home-automation-turnoff.png "intenção de captura de ecrã de HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 
@@ -80,10 +80,14 @@ Turn off the lights
 
 Verifique se a intenção com a melhor classificação corresponde à intenção esperada para cada expressão de teste.
 
-Neste exemplo, "Turn off the lights" (Desligar as luzes) é identificado corretamente como a intenção com a melhor classificação de "HomeAutomation.TurnOff".
+Neste exemplo, `Turn off the lights` é identificado corretamente como a principal intenção de Pontuação de **HomeAutomation.** de desativação.
 
 [![Painel de captura de ecrã de teste com a expressão realçado](media/luis-quickstart-new-app/test.png "painel de captura de ecrã de teste com a expressão realçado")](media/luis-quickstart-new-app/test.png)
 
+
+Selecione **inspecionar** para examinar mais informações sobre a previsão.
+
+![Captura de tela do painel de teste com expressão realçado](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
 Selecione **Test** (Testar) novamente para fechar o painel de teste. 
 
@@ -93,14 +97,134 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto final com uma expressão diferente
+## <a name="query-the-v2-api-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão da API v2
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Vá para o final do URL no endereço, introduza `turn off the living room light` e prima Enter. O browser apresenta a resposta JSON do ponto final de HTTP.
+1. Vá para o final do URL no endereço, introduza `turn off the living room light` e prima Enter. O navegador exibe a versão da **API v2** da resposta JSON do ponto de extremidade http.
 
-    [![Captura de ecrã do browser com o resultado JSON Deteta a intenção TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "captura de ecrã do browser com o resultado JSON Deteta a intenção TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    ```json
+    {
+      "query": "turn off the living room light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOff",
+        "score": 0.9753089
+      },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.9753089
+        },
+        {
+          "intent": "HomeAutomation.QueryState",
+          "score": 0.01027893
+        },
+        {
+          "intent": "HomeAutomation.TurnUp",
+          "score": 0.006881481
+        },
+        {
+          "intent": "HomeAutomation.SetDevice",
+          "score": 0.006786365
+        },
+        {
+          "intent": "HomeAutomation.TurnDown",
+          "score": 0.005145787
+        },
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.004114749
+        },
+        {
+          "intent": "None",
+          "score": 0.000598924
+        }
+      ],
+      "entities": [
+        {
+          "entity": "living room",
+          "type": "HomeAutomation.Location",
+          "startIndex": 13,
+          "endIndex": 23,
+          "score": 0.94558233
+        },
+        {
+          "entity": "living room light",
+          "type": "HomeAutomation.DeviceName",
+          "startIndex": 13,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "living room light"
+            ]
+          }
+        },
+        {
+          "entity": "light",
+          "type": "HomeAutomation.DeviceType",
+          "startIndex": 25,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "light"
+            ]
+          }
+        }
+      ]
+    }
+    ```
     
+## <a name="query-the-v3-api-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão da API v3
+
+Para uma [consulta de API v3](luis-migration-api-v3.md), no navegador, altere a solicitação obter método HTTPS, alterando os valores entre colchetes angulares para seus próprios valores. 
+
+**URL V2 com o método Get**:
+
+https://\<region >. API. cognitiva. Microsoft. com/Luis/**v 2.0**/apps/\<AppID >? Verbose = true & Subscription-Key\<= YOUR_KEY > &**q\<= User-expressão-Text >**
+
+**URL v3 com o método Get**:
+
+região\<https://>. API. cognitiva. Microsoft. com/Luis/**v 3.0-Preview**/apps/\<AppID >/**Slots**/**previsão**de**produção**/? Verbose = true & Subscription-Key =\<YOUR_KEY > &**consulta =\<User-expressão-Text >**
+
+O navegador exibe a versão da **API v3** da resposta JSON de seu ponto de extremidade http.
+
+```json
+{
+    "query": "turn off the lights",
+    "prediction": {
+        "normalizedQuery": "turn off the lights",
+        "topIntent": "HomeAutomation.TurnOff",
+        "intents": {
+            "HomeAutomation.TurnOff": {
+                "score": 0.99649024
+            }
+        },
+        "entities": {
+            "HomeAutomation.DeviceType": [
+                [
+                    "light"
+                ]
+            ],
+            "$instance": {
+                "HomeAutomation.DeviceType": [
+                    {
+                        "type": "HomeAutomation.DeviceType",
+                        "text": "lights",
+                        "startIndex": 13,
+                        "length": 6,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]

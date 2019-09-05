@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 23c54a69f709ec97d895ed5965841e43ebdc560c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68254351"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306552"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 
@@ -77,7 +77,7 @@ Não há nenhuma alteração na API de [Rosto – Identificar] ; Você só preci
 
 ## <a name="find-similar-faces-with-specified-model"></a>Localizar faces semelhantes com o modelo especificado
 
-Você também pode especificar um modelo de reconhecimento para pesquisa de similaridade. Você pode atribuir a versão `recognitionModel` do modelo ao ao criar a lista de rosto com a facelist [Facelist-criar] API ou [LargeFaceList-criar]. Se você não especificar esse parâmetro, o modelo original `recognition_01` será usado. Uma lista facial sempre usará o modelo de reconhecimento com o qual foi criado, e novas faces serão associadas a esse modelo quando forem adicionadas a ele; Isso não pode ser alterado após a criação. Para ver a qual modelo uma lista de face está configurada, use a API [Facelist-obter] de facelist com o parâmetro _returnRecognitionModel_ definido como **true**.
+Você também pode especificar um modelo de reconhecimento para pesquisa de similaridade. Você pode atribuir a versão `recognitionModel` do modelo ao ao criar a lista de rosto com a [Facelist-criar] API ou [LargeFaceList-criar]. Se você não especificar esse parâmetro, o modelo original `recognition_01` será usado. Uma lista facial sempre usará o modelo de reconhecimento com o qual foi criado, e novas faces serão associadas a esse modelo quando forem adicionadas a ele; Isso não pode ser alterado após a criação. Para ver a qual modelo uma lista de face está configurada, use a API [Facelist-obter] com o parâmetro _returnRecognitionModel_ definido como **true**.
 
 Consulte o exemplo de código a seguir para a biblioteca de cliente .NET.
 
@@ -107,7 +107,8 @@ Se você normalmente especificar um limite de confiança (um valor entre zero e 
 
 Neste artigo, você aprendeu a especificar o modelo de reconhecimento a ser usado com diferentes APIs de serviço de face. Em seguida, siga um guia de início rápido para começar a usar a detecção facial.
 
-* [Detectar faces em uma imagem](../quickstarts/csharp-detect-sdk.md)
+* [SDK do .NET facial](../Quickstarts/csharp-sdk.md)
+* [SDK facial do Python](../Quickstarts/python-sdk.md)
 
 [Detecção facial]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face-localizar semelhante]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

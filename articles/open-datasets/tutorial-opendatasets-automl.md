@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0218221426351b0b508021fc74693557f200b4e8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845813"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309252"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Tutorial: Criar um modelo de regressão com o Machine Learning automatizado e os conjuntos de valores abertos
 
@@ -147,7 +147,7 @@ green_taxi_df.head(10)
       <td>2016-01-20 17:46:33</td>
       <td>1</td>
       <td>0,98</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,921715</td>
       <td>40,766682</td>
@@ -243,8 +243,8 @@ green_taxi_df.head(10)
       <td>2016-01-13 08:52:16</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73,942589</td>
       <td>40,841423</td>
       <td>-73,943672</td>
@@ -315,8 +315,8 @@ green_taxi_df.head(10)
       <td>2016-01-09 14:32:48</td>
       <td>2</td>
       <td>0,80</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73,881195</td>
       <td>40,741779</td>
       <td>-73,872086</td>
@@ -339,8 +339,8 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1, 4</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73,954376</td>
       <td>40,805729</td>
       <td>-73,939117</td>
@@ -363,7 +363,7 @@ green_taxi_df.head(10)
       <td>2016-01-24 21:04:03</td>
       <td>6</td>
       <td>2,82</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73.845200</td>
       <td>40,722134</td>
@@ -454,7 +454,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,98</td>
       <td>Nenhum</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,921715</td>
       <td>40,766682</td>
       <td>-73,916908</td>
@@ -549,7 +549,7 @@ green_taxi_df.head(10)
       <td>2016-01-13 08:52:16</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,942589</td>
       <td>40,841423</td>
@@ -573,7 +573,7 @@ green_taxi_df.head(10)
       <td>2016-01-29 17:27:52</td>
       <td>1</td>
       <td>2.25</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,830894</td>
       <td>40,759434</td>
@@ -621,7 +621,7 @@ green_taxi_df.head(10)
       <td>2016-01-09 14:32:48</td>
       <td>2</td>
       <td>0,80</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,881195</td>
       <td>40,741779</td>
@@ -645,7 +645,7 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1, 4</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,954376</td>
       <td>40,805729</td>
@@ -910,7 +910,7 @@ holidays_df.head(5)
       <th>40692</th>
       <td>Argentina</td>
       <td>Dia do ano novo</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>AR</td>
       <td>Dia do ano novo</td>
       <td>2008-01-01</td>
@@ -1246,7 +1246,7 @@ weather_df.head(10)
 
 Novamente, `pandas.Series.dt.normalize` chame `datetime` no campo nos dados meteorológicos para que ele corresponda à chave de `taxi_holidays_df`tempo no. Exclua as colunas desnecessárias e filtre os registros em que a temperatura `NaN`está.
 
-Em seguida, agrupe os dados meteorológicos para que você tenha valores meteorológicos agregados diariamente. Defina um dictname `aggregations` para definir como agregar cada campo em um nível diário. Para `snowDepth` `precipTime` e `temperature` levar`precipDepth` a média e obter o máximo diário. Use a `groupby()` função junto com as agregações para agrupar os dados. Visualize os dados para garantir que haja um registro por dia.
+Em seguida, agrupe os dados meteorológicos para que você tenha valores meteorológicos agregados diariamente. Defina um dictname `aggregations` chamado para definir como agregar cada campo em um nível diário. Para `snowDepth` `precipTime` e `temperature` levar`precipDepth` a média e obter o máximo diário. Use a `groupby()` função junto com as agregações para agrupar os dados. Visualize os dados para garantir que haja um registro por dia.
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()
@@ -1942,7 +1942,7 @@ Se você não planeja usar os recursos que criou, exclua-os, para não incorrer 
 1. Selecione **Eliminar grupo de recursos**.
 1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte os [blocos de anotações](https://github.com/Azure/OpenDatasetsNotebooks) do Azure Open DataSets para obter mais exemplos de código.
 * Siga o [instruções](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) para obter mais informações sobre o aprendizado de máquina automatizado no serviço Azure Machine Learning.

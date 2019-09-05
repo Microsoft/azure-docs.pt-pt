@@ -1,5 +1,5 @@
 ---
-title: Alterar, treinar aplicativo, C# -Luis
+title: 'Início rápido: Alterar, treinar aplicativo, C# -Luis'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido do C#, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 43bbcbcad8b4c03829ba702cecfff1e64b8e27b4
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619946"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375571"
 ---
 # <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar modelo usandoC#
 

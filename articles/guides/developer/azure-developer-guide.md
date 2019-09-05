@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f04dd628ae0999edd202c98521526ae70e1ff0af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141223"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308574"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -144,7 +144,7 @@ O Azure fornece várias maneiras de usar contêineres em seus aplicativos.
   > 
   > **Introdução**: [Implantar um cluster do serviço de contêiner](../../container-service/dcos-swarm/container-service-deployment.md).
 
-- **Computador**do Docker: Permite que você instale e gerencie um mecanismo do Docker em hosts virtuais usando comandos de máquina Docker.
+- **Computador do Docker**: Permite que você instale e gerencie um mecanismo do Docker em hosts virtuais usando comandos de máquina Docker.
 
   >**Quando usar**: Quando você precisar criar um protótipo rápido de um aplicativo Criando um único host do Docker.
 
@@ -234,7 +234,7 @@ O Azure é criado em um conjunto de APIs REST que dão suporte à interface do u
 Além das APIs REST, muitos serviços do Azure também permitem que você gerencie programaticamente recursos de seus aplicativos usando SDKs do Azure específicos da plataforma, incluindo SDKs para as seguintes plataformas de desenvolvimento:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [python](/azure/python/)

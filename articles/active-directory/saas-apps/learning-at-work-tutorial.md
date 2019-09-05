@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823682"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376081"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Tutorial: Integre o aprendizado em trabalho com o Azure Active Directory
 
@@ -90,9 +90,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Learning at Work](https://www.learninga-z.com/site/contact/support) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. O aplicativo Learning at Work espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, onde o **nameidentifier** é mapeado com **User. UserPrincipalName**.
+5. O aplicativo Learning at Work espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, onde o **nameidentifier** é mapeado com **User. UserPrincipalName**.
 
-    Você pode atualizar o valor de **nameidentifier** no Azure AD com base na configuração da sua organização e esse valor precisa corresponder à **ID de usuário** na nuvem do Saba, para que você precise editar o mapeamento de atributo clicando no ícone **Editar**  e alterar o mapeamento de atributo.
+    Você pode atualizar o valor de **nameidentifier** no Azure AD com base na configuração da sua organização e esse valor precisa corresponder à **ID de usuário** na nuvem do Saba, para que você precise editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributos.
 
     ![image](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ### <a name="create-learning-at-work-test-user"></a>Criar usuário de teste do Learning at Work
 
-Nesta seção, você criará um usuário chamado B. Simon no Learning at Work. Trabalhe com a [equipe de suporte do Learning at Work](https://www.learninga-z.com/site/contact/support) para adicionar os usuários na plataforma Learning at Work. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon no Learning at Work. Trabalhe com a [equipe de suporte do Learning at Work](https://www.learninga-z.com/site/contact/support) para adicionar os usuários na plataforma Learning at Work. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-sso"></a>Testar SSO 
 

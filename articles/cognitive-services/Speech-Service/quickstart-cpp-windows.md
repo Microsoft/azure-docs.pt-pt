@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: c795f1581ae36f100065c39cd47bc4efc564b9fe
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a9c43e1d27a396a2c3e9123ce5ce538296c6870c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607882"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381956"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala C++ no Windows usando o SDK de fala
 
-Os guias de início rápido também estão disponíveis para conversão de [texto em fala](quickstart-text-to-speech-cpp-windows.md) e [de fala](quickstart-translate-speech-cpp-windows.md).
+Os guias de início rápido também estão disponíveis para [síntese de fala](quickstart-text-to-speech-cpp-windows.md) e [tradução de fala](quickstart-translate-speech-cpp-windows.md).
 
-Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
+Se desejar, escolha uma linguagem de programação e um ambiente diferentes:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai criar uma aplicação de consola C++ para Windows. Utilize o[SDK de Voz](speech-sdk.md) dos Serviços Cognitivos para a conversão de voz em texto em tempo real, a partir do microfone do seu PC. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior (qualquer edição).
+Neste artigo, vai criar uma aplicação de consola C++ para Windows. Utilize o[SDK de Voz](speech-sdk.md) dos Serviços Cognitivos para a conversão de voz em texto em tempo real, a partir do microfone do seu PC. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2019 (qualquer edição).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,9 @@ Você precisa de uma chave de assinatura dos serviços de fala para concluir est
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra o ficheiro de origem *helloworld.cpp*. Substitua todo o código abaixo da instrução de inclusão inicial (`#include "stdafx.h"` ou `#include "pch.h"`) pelo seguinte:
+1. Abra o ficheiro de origem **helloworld.cpp**.
+
+1. Substitua todo o código pelo trecho a seguir:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -44,21 +46,17 @@ Você precisa de uma chave de assinatura dos serviços de fala para concluir est
 
 1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Guarde as alterações ao projeto.
+1. Na barra de menus, escolha **arquivo** > **salvar tudo**.
 
-## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
+## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. Compile a aplicação. Na barra de menus, escolha **Compilar** > **Compilar solução**. O código deve ser compilado sem erros.
+1. Na barra de menus, selecione **criar** > **solução de compilação** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
 
-   ![Captura de ecrã da aplicação Visual Studio, com a opção Compilar Solução realçada](media/sdk/qs-cpp-windows-06-build.png)
+1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. Inicie a aplicação. Na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou prima **F5**.
+1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para os serviços de fala, o que transcreve para o texto e o envia de volta para o aplicativo para exibição.
 
-   ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na mesma janela.
-
-   ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Saída do console após reconhecimento bem-sucedido](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -69,5 +67,4 @@ Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão dispon
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de idioma](how-to-customize-language-model.md)
+- [Treinar um modelo para Fala Personalizada](how-to-custom-speech-train-model.md)

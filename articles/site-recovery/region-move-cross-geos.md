@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 63150b8924438df8d77fdd088811d9fbe3ec2d84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967316"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376128"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre o Azure governamental e as regiões públicas 
 
@@ -98,8 +98,8 @@ O serviço de mobilidade deve ser instalado em cada servidor que você deseja re
      Consulte os documentos a seguir para criar os recursos de rede usados com mais frequência relevantes para você, com base na configuração da VM de origem.
 
     - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [IP público](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
+    - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
     Para qualquer outro componente de rede, consulte a documentação de rede [.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 
@@ -147,7 +147,7 @@ Verifique se o computador pode acessar essas URLs com base em seu ambiente:
 As regras de firewall baseadas em endereço IP devem permitir a comunicação com todas as URLs do Azure listadas acima na porta HTTPS (443). Para simplificar e limitar os intervalos de IP, é recomendável que a filtragem de URL seja feita.
 
 - **IPS comerciais** – permitir os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e a porta HTTPS (443). Permitir intervalos de endereços IP para a região do Azure da sua assinatura para dar suporte às URLs do AAD, backup, replicação e armazenamento.  
-- **IPS do governo** -permita os intervalos de IP do datacenter do [Azure governamental](https://www.microsoft.com/en-us/download/details.aspx?id=57063)e a porta HTTPS (443) para todas as regiões USGov (Virgínia, Texas, Arizona e Iowa) para dar suporte ao AAD, backup, replicação e URLs de armazenamento.  
+- **IPS do governo** -permita os [intervalos de IP do datacenter do Azure governamental](https://www.microsoft.com/en-us/download/details.aspx?id=57063)e a porta HTTPS (443) para todas as regiões USGov (Virgínia, Texas, Arizona e Iowa) para dar suporte ao AAD, backup, replicação e URLs de armazenamento.  
 
 #### <a name="run-setup"></a>Executar a configuração
 Execute a instalação unificada como um administrador local para instalar o servidor de configuração. O servidor de processo e o servidor de destino mestre também são instalados por padrão no servidor de configuração.

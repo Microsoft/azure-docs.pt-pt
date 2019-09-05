@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1dbbb6e7bd88e08520225515c422529dc260e1b2
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e31f3dc166177ce36289b97d85d90a9582c9cae5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377364"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375988"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET Azure Functions
 
@@ -71,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>Usar dependências injetadas
 
-ASP.NET Core usa injeção de construtor para tornar suas dependências disponíveis para sua função. O exemplo a seguir demonstra como `IMyService` as `HttpClient` dependências e são injetadas em uma função disparada por http.
+ASP.NET Core usa injeção de construtor para tornar suas dependências disponíveis para sua função. O exemplo a seguir demonstra como `IMyService` as `HttpClient` dependências e são injetadas em uma função disparada por http. 
 
 ```csharp
 using System;
@@ -112,7 +112,7 @@ namespace MyNamespace
 }
 ```
 
-O uso da injeção de Construtor significa que você não deve usar funções estáticas se quiser aproveitar a injeção de dependência.
+O uso da injeção de Construtor significa que você não deve usar funções estáticas se quiser aproveitar a injeção de dependência. Para o cosmos Client, consulte [isso](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/CodeSamples/AzureFunctions/AzureFunctionsCosmosClient.cs).
 
 ## <a name="service-lifetimes"></a>Tempos de vida do serviço
 
@@ -146,7 +146,7 @@ Se houver outros serviços nos quais você deseja assumir uma dependência, [cri
 
 Atualmente, não há suporte para a substituição de serviços fornecidos pelo host.  Se houver serviços que você deseja substituir, [crie um problema e proponha-os no GitHub](https://github.com/azure/azure-functions-host).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

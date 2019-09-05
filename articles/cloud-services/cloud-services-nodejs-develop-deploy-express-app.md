@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: b3d8e364a982f85ad9df6e48dc4d28da1e8efb40
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359061"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306780"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar e implantar um aplicativo Web node. js usando o Express em um serviço de nuvem do Azure
 
@@ -40,7 +40,7 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do node. js. A instrução **set-AzureServiceProjectRole** acima instrui o Azure a usar v 0.10.21 do nó.  Observe que os parâmetros diferenciam maiúsculas de minúsculas.  Você pode verificar se a versão correta do node. js foi selecionada verificando a  Propriedade Engines em **WebRole1\package.JSON**.
+    > Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do node. js. A instrução **set-AzureServiceProjectRole** acima instrui o Azure a usar v 0.10.21 do nó.  Observe que os parâmetros diferenciam maiúsculas de minúsculas.  Você pode verificar se a versão correta do node. js foi selecionada verificando a propriedade **Engines** em **WebRole1\package.JSON**.
     > 
     > 
 
@@ -113,8 +113,8 @@ Depois que a operação de implantação for concluída, o navegador será abert
 
 ![Um navegador da Web exibindo a página Express. A URL indica que agora ele está hospedado no Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte o [Centro para Programadores do Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações, consulte o [Centro para Programadores do Node.js](https://docs.microsoft.com/azure/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/

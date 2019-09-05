@@ -1,5 +1,5 @@
 ---
-title: Criar base de dados de conhecimento-QnA Maker
+title: 'Início rápido: Criar base de dados de conhecimento-QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Use o portal de serviço API de QnA Maker para adicionar criar uma base de dados de conhecimento com o Chit-Chat. Isso faz seu aplicativo se envolver. Adicione um conjunto previamente preenchido do Chit principal – Converse em seu KB como um ponto de partida para o Chit-Chat do bot e economize o tempo e o custo de escrevê-los do zero.
 services: cognitive-services
@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
-ms.date: 08/30/2019
+ms.topic: quickstart
+ms.date: 09/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 322a1d25ed434d8be674288b1b13d6ecf961590b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 798bbb725d4764c5ec7a1d69770e9508af0fdf5a
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193574"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376218"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início rápido: Criar uma base de dados de conhecimento usando o portal do serviço API de QnA Maker
 

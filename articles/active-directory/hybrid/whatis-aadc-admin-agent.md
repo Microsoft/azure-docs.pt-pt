@@ -1,5 +1,5 @@
 ---
-title: O que é o agente do Azure AD Connect Admin - Azure AD Connect | Documentos da Microsoft
+title: O que é o agente de administração do Azure AD Connect-Azure AD Connect | Microsoft Docs
 description: Descreve as ferramentas usadas para sincronizar e monitorizar o seu ambiente no local com o Azure AD.
 services: active-directory
 author: billmath
@@ -7,55 +7,57 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab3fff4294b4cda3d1554ef2761d3f4acaca35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222dab87ee71870e564e426d7466555893cc565b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687234"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305208"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o Agente de Administração do Azure AD Connect? 
-O agente do Azure AD Connect administração é um componente novo do Azure Active Directory Connect que pode ser instalado num servidor do Azure Active Directory Connect. É utilizado para recolher dados específicos do seu ambiente do Active Directory que o ajuda a um engenheiro para resolver problemas ao abrir um incidente de suporte de suporte da Microsoft. 
+O agente de administração do Azure AD Connect é um novo componente do Azure Active Directory Connect que pode ser instalado em um servidor Azure Active Directory Connect. Ele é usado para coletar dados específicos de seu ambiente de Active Directory que ajuda um engenheiro de suporte da Microsoft a solucionar problemas quando você abre um caso de suporte. 
 
 >[!NOTE]
->O agente de administrador não está instalado e ativado por predefinição.  Tem de instalar o agente para recolher dados para ajudar a incidentes de suporte.
+>O agente de administração não está instalado e habilitado por padrão.  Você deve instalar o agente para coletar dados para ajudar com casos de suporte.
 
-Quando instalado, as esperas de agente do Azure AD Connect administração para pedidos específicos para dados do Azure Active Directory, obtém os dados solicitados do ambiente de sincronização e envia-os para o Azure Active Directory, onde é apresentada para a Microsoft suportam a engenheiro. 
+Quando instalado, o agente de administração do Azure AD Connect aguarda solicitações específicas de dados de Azure Active Directory, obtém os dados solicitados do ambiente de sincronização e os envia para Azure Active Directory, onde é apresentado ao suporte da Microsoft desenvolvida. 
 
-As informações que o agente do Azure AD Connect administração obtém do seu ambiente não são armazenadas de forma alguma – só é apresentada para o engenheiro de suporte da Microsoft para ajudá-los a investigar e resolver problemas do Azure Active Directory Connect incidente de suporte relacionados que abriu o agente do Azure AD Connect administração não está instalado no Azure AD Connect servidor por predefinição. 
+As informações que o agente de administração do Azure AD Connect recupera do seu ambiente não são armazenadas de nenhuma forma-ele é exibido apenas para o engenheiro de suporte da Microsoft para ajudá-lo a investigar e solucionar problemas do Azure Active Directory Connect o caso de suporte relacionado que você abriu o agente de administração do Azure AD Connect não está instalado no servidor Azure AD Connect por padrão. 
 
-## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Instalar o agente do Azure AD Connect administração no servidor do Azure AD Connect 
-Os binários do agente do Azure AD Connect administração são colocados no servidor do AAD Connect. Para instalar o agente, faça o seguinte: 
+## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Instalar o agente de administração do Azure AD Connect no servidor Azure AD Connect 
 
+Pré-requisitos:
+1.  O Azure AD Connect está instalado no servidor
+2.  O Azure AD Connect Health está instalado no servidor
 
+![Agente de administração](media/whatis-aadc-admin-agent/adminagent0.png)
 
-1. Powershell aberto no modo de administrador 
-2. Navegue para o diretório onde o aplicativo é localizado cd "C:\Program Files\Microsoft Azure Connect\SetupFiles do diretório Active Directory" 
-3. Executar a aplicação de AADConnectAdminAgentSetup.exe 
- 
-Quando lhe for pedido, introduza as credenciais de administrador global do Azure AD. 
+Os binários do agente de administração do Azure AD Connect são colocados no servidor do AAD Connect. Para instalar o agente, faça o seguinte:
 
->[!NOTE]
->Existe um problema conhecido, onde será solicitado para as suas credenciais várias vezes. Isso será corrigido na próxima versão.
+1.  Abrir o PowerShell no modo de administrador
+2.  Navegue até o diretório em que o aplicativo está localizado CD "C:\Program Files\Microsoft Azure Active Directory Connect\Tools"
+3.  Executar ConfigureAdminAgent. ps1
 
-Depois do agente está instalado, verá os seguintes dois programas novo na lista de "Adicionar/remover programas" no painel de controlo do seu servidor: 
+Quando solicitado, insira suas credenciais de administrador global do Azure AD. Elas devem ser as mesmas credenciais inseridas durante a instalação Azure AD Connect.
 
-![agente de administrador](media/whatis-aadc-admin-agent/adminagent1.png)
+Depois que o agente for instalado, você verá os dois novos programas a seguir na lista "Adicionar/remover programas" no painel de controle do seu servidor: 
 
-## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Os dados em meu serviço de sincronização são mostrados para o engenheiro de serviços da Microsoft? 
-Quando abrir um incidente de suporte o engenheiro de suporte da Microsoft pode ver, para um determinado usuário, os dados relevantes no Active Directory, o espaço conector do Active Directory no servidor do Azure Active Directory Connect, o espaço conector do Azure Active Directory no Azure Servidor de Active Directory Connect e o Metaverse no servidor do Azure Active Directory Connect. 
+![Agente de administração](media/whatis-aadc-admin-agent/adminagent1.png)
 
-O engenheiro de suporte da Microsoft não é possível alterar a todos os dados no seu sistema e não pode ver as palavras-passe. 
+## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Quais dados no meu serviço de sincronização são mostrados para o engenheiro de serviços da Microsoft? 
+Quando você abre um caso de suporte, o engenheiro de Suporte da Microsoft pode ver, para um determinado usuário, os dados relevantes em Active Directory, o espaço do conector do Active Directory no servidor Azure Active Directory Connect, o espaço do conector do Azure Active Directory no Azure Active Directory o servidor do Connect e o metaverso no servidor Azure Active Directory Connect. 
 
-## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>E se eu não quero o engenheiro de suporte da Microsoft para aceder aos meus dados? 
-Assim que o agente estiver instalado, se não pretender que o engenheiro de serviços da Microsoft para aceder aos seus dados para uma chamada de suporte, pode desativar a funcionalidade ao modificar o ficheiro de configuração de serviço, conforme descrito abaixo: 
+O engenheiro de Suporte da Microsoft não pode alterar nenhum dado em seu sistema e não pode ver nenhuma senha. 
 
-1.  Open **C:\Program Files\Microsoft Azure AD Connect administração Agent\AzureADConnectAdministrationAgentService.exe.config** no bloco de notas.
-2.  Desativar **UserDataEnabled** definição conforme mostrado abaixo. Se **UserDataEnabled** definição existe e está definida como true, em seguida, defino como false. Se a definição não existir, adicione a definição conforme mostrado abaixo.    
+## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>E se eu não quiser que o engenheiro de suporte da Microsoft acesse meus dados? 
+Depois que o agente for instalado, se você não quiser que o engenheiro de serviços da Microsoft acesse seus dados para uma chamada de suporte, você poderá desabilitar a funcionalidade modificando o arquivo de configuração de serviço, conforme descrito abaixo: 
+
+1.  Abra **c:\Arquivos de programas\microsoft Azure ad Connect administração Agent\AzureADConnectAdministrationAgentService.exe.config** no bloco de notas.
+2.  Desabilite a configuração **UserDataEnabled** , conforme mostrado abaixo. Se a configuração **UserDataEnabled** existir e estiver definida como true, defina-a como false. Se a configuração não existir, adicione a configuração conforme mostrado abaixo.    
 
     ```xml
     <appSettings>
@@ -64,10 +66,10 @@ Assim que o agente estiver instalado, se não pretender que o engenheiro de serv
     </appSettings>
     ```
 
-3.  Guarde o ficheiro de configuração.
-4.  Reinicie o serviço de agente do Azure AD Connect administração conforme mostrado abaixo
+3.  Salve o arquivo de configuração.
+4.  Reinicie Azure AD Connect serviço do agente de administração, conforme mostrado abaixo
 
-![agente de administrador](media/whatis-aadc-admin-agent/adminagent2.png)
+![Agente de administração](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

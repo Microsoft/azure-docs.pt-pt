@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: ecb840d97a45479d32079766807b4f2788cc29ec
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892030"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382908"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -42,7 +42,7 @@ Visite a [documentação da rede virtual](https://docs.microsoft.com/azure/virtu
 Sim. Você pode usar uma VNet sem conectá-la a seu local. Por exemplo, você pode executar o Microsoft Windows Server Active Directory controladores de domínio e farms do SharePoint somente em uma VNet do Azure.
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Posso executar a otimização de WAN entre VNets ou uma VNet e minha data center local?
-Sim. Você pode implantar uma [solução](https://azure.microsoft.com/marketplace/?term=wan+optimization) de virtualização de rede de otimização de WAN de vários fornecedores por meio do Azure Marketplace.
+Sim. Você pode implantar uma [solução de virtualização de rede de otimização de WAN](https://azure.microsoft.com/marketplace/?term=wan+optimization) de vários fornecedores por meio do Azure Marketplace.
 
 ## <a name="configuration"></a>Configuração
 
@@ -241,7 +241,7 @@ O emparelhamento VNet (ou emparelhamento de rede virtual) permite que você cone
 Sim. O emparelhamento de VNet global permite emparelhar VNets em regiões diferentes. O emparelhamento VNet global está disponível em todas as regiões públicas do Azure, nas regiões de nuvem da China e nas regiões de nuvem do governo. Não é possível globalmente emparelhar de regiões públicas do Azure para regiões de nuvem nacionais.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quais são as restrições relacionadas ao emparelhamento de VNet global e aos balanceadores de carga?
-Se as duas redes virtuais estiverem em região diferente (emparelhamento VNet global), você não poderá se conectar a recursos que usam Load Balancer básica. Você pode se conectar a recursos que usam Standard Load Balancer.
+Se as duas redes virtuais estiverem em regiões diferentes (emparelhamento VNet global), você não poderá se conectar a recursos que usam Load Balancer básica. Você pode se conectar a recursos que usam Standard Load Balancer.
 Os recursos a seguir usam balanceadores de carga básicos, o que significa que você não pode se comunicar com eles entre o emparelhamento VNet global:
 - VMs por trás de balanceadores de carga básicos
 - Conjuntos de dimensionamento de máquinas virtuais com balanceadores de carga básicos 
@@ -263,10 +263,10 @@ Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio
 Sim. É possível estabelecer o emparelhamento VNet (seja local ou global) se suas assinaturas pertencerem a locatários Azure Active Directory diferentes. Você pode fazer isso por meio do PowerShell ou da CLI. O portal ainda não tem suporte.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Minha conexão de emparelhamento VNet está em estado *iniciado* , por que não consigo me conectar?
-Se a conexão de emparelhamento estiver em um estado iniciado, isso significa que você criou apenas um link. Um link bidirecional deve ser criado para estabelecer uma conexão bem-sucedida. Por exemplo, para emparelhar a VNet a na VNet B, um link deve ser criado de VNetA para VNetB e de VNetB para VNetA. A criação de ambos os links alterará o estado para *conectado.*
+Se a conexão de emparelhamento estiver em um estado *iniciado* , isso significa que você criou apenas um link. Um link bidirecional deve ser criado para estabelecer uma conexão bem-sucedida. Por exemplo, para emparelhar a VNet a na VNet B, um link deve ser criado de VNetA para VNetB e de VNetB para VNetA. A criação de ambos os links alterará o estado para *conectado*.
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Minha conexão de emparelhamento VNet está em estado desconectado, por que não posso criar uma conexão de emparelhamento?
-Se a conexão de emparelhamento VNet estiver em um estado desconectado, isso significará que um dos links criados foi excluído. Para restabelecer uma conexão de emparelhamento, será necessário excluir o link e recriá-lo.
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Minha conexão de emparelhamento VNet está em estado *desconectado* , por que não posso criar uma conexão de emparelhamento?
+Se a conexão de emparelhamento VNet estiver em um estado *desconectado* , isso significará que um dos links criados foi excluído. Para restabelecer uma conexão de emparelhamento, será necessário excluir o link e recriá-lo.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Posso emparelhar minha VNet com uma VNet em uma assinatura diferente?
 Sim. Você pode emparelhar VNets em assinaturas e em regiões.
@@ -280,8 +280,8 @@ Não há nenhum encargo para a criação de uma conexão de emparelhamento VNet.
 ### <a name="is-vnet-peering-traffic-encrypted"></a>O tráfego de emparelhamento VNet está criptografado?
 Não. O tráfego entre os recursos no VNets emparelhado é privado e isolado. Ele permanece completamente no backbone da Microsoft.
 
-### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Por que minha conexão de emparelhamento está em um estado desconectado?
-As conexões de emparelhamento VNet entram no estado desconectado quando um link de emparelhamento vnet é excluído. Você deve excluir ambos os links para restabelecer uma conexão de emparelhamento bem-sucedida.
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Por que minha conexão de emparelhamento está em um estado *desconectado* ?
+As conexões de emparelhamento VNet entram no estado *desconectado* quando um link de emparelhamento vnet é excluído. Você deve excluir ambos os links para restabelecer uma conexão de emparelhamento bem-sucedida.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Se eu VNetA a VNetB e eu emparelhar VNetB para VNetC, isso significa que VNetA e VNetC são emparelhados?
 Não. Não há suporte para emparelhamento transitivo. Você deve emparelhar VNetA e VNetC para que isso ocorra.
@@ -301,7 +301,7 @@ A visualização de toque de rede virtual está disponível em todas as regiões
 Os recursos de filtragem não têm suporte com a visualização de toque da rede virtual. Quando uma configuração TAP é adicionada a um adaptador de rede, uma cópia profunda de todo o tráfego de entrada e saída na interface de rede é transmitida para o destino TAP.
 
 ### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>Várias configurações de toque podem ser adicionadas a uma interface de rede monitorada?
-Uma interface de rede monitorada pode ter apenas uma configuração TAP. Consulte as soluções de [parceiros](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) individuais para obter a capacidade de transmitir várias cópias do tráfego de toque para as ferramentas de análise de sua escolha.
+Uma interface de rede monitorada pode ter apenas uma configuração TAP. Consulte a solução de [parceiro](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) individual para obter a capacidade de transmitir várias cópias do tráfego de toque para as ferramentas de análise de sua escolha.
 
 ### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>A mesma rede virtual pode tocar no tráfego agregado de recursos de interfaces de rede monitoradas em mais de uma rede virtual?
 Sim. O mesmo recurso de toque de rede virtual pode ser usado para agregar tráfego espelhado de interfaces de rede monitoradas em redes virtuais emparelhadas na mesma assinatura ou em uma assinatura diferente. O recurso tocar na rede virtual e o balanceador de carga de destino ou a interface de rede de destino devem estar na mesma assinatura. Todas as assinaturas devem estar no mesmo locatário Azure Active Directory.
@@ -336,7 +336,7 @@ Quando você usa o recurso de pontos de extremidade do serviço de VNet (ativand
 
 ### <a name="how-does-vnet-service-endpoint-provide-security"></a>Como o ponto de extremidade do serviço de VNet fornece segurança?
 
-O recurso de ponto de extremidade de serviço de VNet (ativar o ponto de extremidade de serviço de VNet no lado da rede e configurar ACLs de VNet apropriadas no lado do serviço do Azure) limita o acesso do serviço do Azure à VNet e à sub-rede permitidas, fornecendo, assim, segurança de nível de rede e isolamento de o tráfego do serviço do Azure. Todo o tráfego usando pontos de extremidade de serviço de VNet flui sobre o backbone da Microsoft, fornecendo assim outra camada de isolamento da Internet pública. Além disso, os clientes podem optar por remover totalmente o acesso público à Internet para os recursos de serviço do Azure e permitir o tráfego somente de sua rede virtual por meio de uma combinação de firewall IP e ACLs de VNet, protegendo assim os recursos de serviço do Azure de não autorizados às.      
+O recurso de ponto de extremidade do serviço VNet (ativar o ponto de extremidade do serviço VNet no lado da rede e configurar ACLs de VNet apropriadas no lado do serviço do Azure) limita o acesso do serviço do Azure à VNet e à sub-rede permitidas, fornecendo, assim, segurança no nível da rede e isolamento do tráfego do serviço do Azure. Todo o tráfego usando pontos de extremidade de serviço de VNet flui sobre o backbone da Microsoft, fornecendo assim outra camada de isolamento da Internet pública. Além disso, os clientes podem optar por remover totalmente o acesso público à Internet para os recursos de serviço do Azure e permitir o tráfego somente de sua rede virtual por meio de uma combinação de firewall IP e ACLs de VNet, protegendo assim os recursos de serviço do Azure de não autorizados às.      
 
 ### <a name="what-does-the-vnet-service-endpoint-protect---vnet-resources-or-azure-service"></a>O que o ponto de extremidade do serviço de VNet protege-os recursos VNet ou o serviço do Azure?
 Os pontos de extremidade do serviço de VNet ajudam a proteger os recursos de serviço do Azure. Os recursos de VNet são protegidos por meio de NSGs (grupos de segurança de rede).
@@ -352,34 +352,34 @@ Sim, é possível. As redes virtuais e os recursos de serviço do Azure podem es
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Posso ativar os pontos de extremidade de serviço de VNet e configurar ACLs de VNet se a rede virtual e os recursos de serviço do Azure pertencerem a locatários diferentes do AD?
 Não, os pontos de extremidade do serviço VNet e as ACLs de VNet não têm suporte em locatários do AD.
 
-### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-express-route-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>O endereço IP de um dispositivo local pode ser conectado por meio do gateway de rede virtual do Azure (VPN) ou do gateway de rota expressa acesso ao serviço de PaaS do Azure por meio de pontos de extremidade de serviço de VNet?
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>É possível um endereço IP do dispositivo local conectado por meio do gateway de rede virtual do Azure (VPN) ou do gateway do ExpressRoute acessar o serviço de PaaS do Azure por meio de pontos de extremidade de serviço de VNet?
 Por predefinição, os recursos de serviço do Azure obtidos para redes virtuais não são acessíveis a partir de redes no local. Se você quiser permitir o tráfego local, também deverá permitir endereços IP públicos (normalmente, NAT) do seu local ou do ExpressRoute. Esses endereços IP podem ser adicionados por meio da configuração de firewall IP para os recursos de serviço do Azure.
 
-### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-with-in-a-virtual-network-or-across-multiple-virtual-networks"></a>Posso usar o recurso de ponto de extremidade de serviço de VNet para proteger o serviço do Azure em várias sub-redes com em uma rede virtual ou em várias redes virtuais?
+### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-within-a-virtual-network-or-across-multiple-virtual-networks"></a>Posso usar o recurso de ponto de extremidade de serviço de VNet para proteger o serviço do Azure em várias sub-redes em uma rede virtual ou em várias redes virtuais?
 Para proteger os serviços do Azure para várias sub-redes em uma rede virtual ou entre várias redes virtuais, habilite os pontos de extremidade de serviço no lado da rede em cada uma das sub-redes de forma independente e, em seguida, proteja os recursos de serviço do Azure para todas as sub-redes Configurando ACLs de VNet apropriadas no lado do serviço do Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Como posso filtrar o tráfego de saída de uma rede virtual para os serviços do Azure e ainda usar pontos de extremidade de serviço?
 Se você quiser inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, poderá implantar um dispositivo de rede virtual na rede virtual. Em seguida, você pode aplicar pontos de extremidade de serviço à sub-rede em que a solução de virtualização de rede está implantada e proteger os recursos de serviço do Azure somente para essa sub-rede por meio de ACLs de VNet. Esse cenário também pode ser útil se você quiser restringir o acesso de serviço do Azure de sua rede virtual somente para recursos específicos do Azure usando a filtragem de dispositivo de virtualização de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
-### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando você acessa uma conta de serviço do Azure que tem ACL (lista de controle de acesso) de rede virtual habilitada de fora da VNet?
+### <a name="what-happens-when-you-access-an-azure-service-account-that-has-a-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando você acessa uma conta de serviço do Azure que tem uma ACL (lista de controle de acesso) de rede virtual habilitada de fora da VNet?
 O erro HTTP 403 ou HTTP 404 é retornado.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>As sub-redes de uma rede virtual criada em regiões diferentes têm permissão para acessar uma conta de serviço do Azure em outra região? 
 Sim, para a maioria dos serviços do Azure, as redes virtuais criadas em regiões diferentes podem acessar os serviços do Azure em outra região por meio dos pontos de extremidade do serviço de VNet. Por exemplo, se uma conta de Azure Cosmos DB estiver no oeste dos EUA ou leste dos EUA e as redes virtuais estiverem em várias regiões, a rede virtual poderá acessar Azure Cosmos DB. O armazenamento e o SQL são exceções e são regionais por natureza e a rede virtual e o serviço do Azure precisam estar na mesma região.
   
-### <a name="can-an-azure-service-have-both-vnet-acl-and-an-ip-firewall"></a>Um serviço do Azure pode ter uma ACL de VNet e um firewall de IP?
-Sim, a ACL de VNet e um firewall de IP podem coexistir. Os dois recursos complementam uns aos outros para garantir o isolamento e a segurança.
+### <a name="can-an-azure-service-have-both-a-vnet-acl-and-an-ip-firewall"></a>Um serviço do Azure pode ter uma ACL de VNet e um firewall de IP?
+Sim, uma ACL de VNet e um firewall de IP podem coexistir. Os dois recursos complementam uns aos outros para garantir o isolamento e a segurança.
  
 ### <a name="what-happens-if-you-delete-a-virtual-network-or-subnet-that-has-service-endpoint-turned-on-for-azure-service"></a>O que acontecerá se você excluir uma rede virtual ou sub-rede com ponto de extremidade de serviço ativado para o serviço do Azure?
-A exclusão de VNets e sub-redes são operações independentes e têm suporte mesmo quando os pontos de extremidade de serviço são ativados para os serviços do Azure. Nos casos em que os serviços do Azure têm ACLs de VNet configuradas, para essas VNets e sub-redes, as informações de ACLs de VNet associadas a esse serviço do Azure são desabilitadas quando uma VNet ou sub-rede com o ponto de extremidade de serviço VNet ativado é excluída.
+A exclusão de VNets e sub-redes são operações independentes e têm suporte mesmo quando os pontos de extremidade de serviço são ativados para os serviços do Azure. Nos casos em que os serviços do Azure têm ACLs de VNet configuradas, para essas VNets e sub-redes, as informações de ACL de VNet associadas a esse serviço do Azure são desabilitadas quando uma VNet ou sub-rede com o ponto de extremidade de serviço VNet ativado é excluída.
  
-### <a name="what-happens-if-azure-service-account-that-has-vnet-service-endpoint-enabled-is-deleted"></a>O que acontece se a conta de serviço do Azure com ponto de extremidade de serviço de VNet habilitado for excluída?
-A exclusão da conta de serviço do Azure é uma operação independente e tem suporte mesmo quando o ponto de extremidade de serviço está habilitado no lado da rede e as ACLs de VNet são configuradas no lado do serviço do Azure. 
+### <a name="what-happens-if-an-azure-service-account-that-has-a-vnet-service-endpoint-enabled-is-deleted"></a>O que acontece se uma conta de serviço do Azure que tem um ponto de extremidade de serviço de VNet habilitado for excluída?
+A exclusão de uma conta de serviço do Azure é uma operação independente e tem suporte mesmo quando o ponto de extremidade de serviço está habilitado no lado da rede e as ACLs de VNet são configuradas no lado do serviço do Azure. 
 
 ### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>O que acontece com o endereço IP de origem de um recurso (como uma VM em uma sub-rede) que tem um ponto de extremidade de serviço de VNet habilitado?
-Quando os pontos de extremidade de serviço de rede virtual estão habilitados, os endereços IP de origem dos recursos na sub-rede da sua rede virtual alternam do uso de endereços IPV4 públicos para os endereços IP privados da rede virtual do Azure para o tráfego para o serviço do Azure. Observe que isso pode fazer com que o firewall IP específico definido como um endereço IPV4 público anteriormente nos serviços do Azure falhe. 
+Quando os pontos de extremidade de serviço de rede virtual estão habilitados, os endereços IP de origem dos recursos na sub-rede da sua rede virtual alternam do uso de endereços IPV4 públicos para os endereços IP privados da rede virtual do Azure para o tráfego para o serviço do Azure. Observe que isso pode fazer com que os firewalls IP específicos definidos como um endereço IPV4 público anteriormente nos serviços do Azure falhem. 
 
-### <a name="does-service-endpoint-route-always-take-precedence"></a>A rota de ponto de extremidade de serviço sempre tem precedência?
+### <a name="does-the-service-endpoint-route-always-take-precedence"></a>A rota de ponto de extremidade de serviço sempre tem precedência?
 Os pontos de extremidade de serviço adicionam uma rota do sistema que tem precedência sobre rotas BGP e fornece roteamento ideal para o tráfego do ponto de extremidade de serviço. Os pontos de extremidade de serviço sempre tomam o tráfego de serviço diretamente de sua rede virtual para o serviço na rede de backbone Microsoft Azure. Para obter mais informações sobre como o Azure seleciona uma rota, consulte [Roteamento de tráfego de rede virtual do Azure](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Como o NSG em uma sub-rede funciona com pontos de extremidade de serviço?
@@ -398,7 +398,7 @@ As políticas de ponto de extremidade de serviço de rede virtual (VNet) permite
 O Azure Active Directory (AD do Azure) não dá suporte a pontos de extremidade de serviço nativamente. A lista completa de serviços do Azure que dão suporte a pontos de extremidade de serviço VNet pode ser vista [aqui](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Observe que a marca "Microsoft. AzureActiveDirectory" listada em serviços que dão suporte a pontos de extremidade de serviço é usada para dar suporte a pontos de extremidade de serviço para o ADLS Gen 1. Para o ADLS Gen 1, a integração de rede virtual para Azure Data Lake Storage Gen1 usa a segurança do ponto de extremidade do serviço de rede virtual entre sua rede virtual e Azure Active Directory (AD do Azure) para gerar declarações de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. Saiba mais sobre [integração VNet do Azure Data Lake Store Gen 1] (.. /Data-Lake-Store/Data-Lake-Store-Network-Security.MD? TOC =% 2fazure% 2fvirtual-Network% 2ftoc. JSON
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Há algum limite de quantos pontos de extremidade de serviço de VNet posso configurar de minha VNet?
-Não há limite para o número total de pontos de extremidade de serviço de VNet em uma rede virtual. Para um recurso de serviço do Azure (como uma conta do Armazenamento do Microsoft Azure), os serviços podem impor limites ao número de sub-redes utilizadas para a proteção do recurso. A tabela a seguir mostra alguns limites de exemplo: 
+Não há limite para o número total de pontos de extremidade de serviço de VNet em uma rede virtual. Para um recurso de serviço do Azure (como uma conta de armazenamento do Azure), os serviços podem impor limites no número de sub-redes usadas para proteger o recurso. A tabela a seguir mostra alguns limites de exemplo: 
 
 |||
 |---|---|

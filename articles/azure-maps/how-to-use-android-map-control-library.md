@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3423635ab226693e0b3b057e2c2cb441861ea1b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9abe9eb9cdad6351f49fba2dace64095783455cf
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839432"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376013"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao Azure Maps SDK do Android
 
@@ -109,7 +109,18 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     * definir as informações de autenticação do Azure Maps
     * obter a instância de controle de mapa no método **OnCreate**
 
-    Definir as informações de autenticação na classe AzureMaps globalmente usando os métodos setSubscriptionKey ou setAadProperties faz isso para que você não precise adicionar suas informações de autenticação a cada exibição. O controle de mapa contém seus próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android, que deve ser chamado diretamente da atividade que o contém. Para que o aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa e chamar o respectivo método de controle de mapa. 
+    Definir as informações de autenticação na `AzureMaps` classe globalmente usando os `setSubscriptionKey` métodos `setAadProperties` ou o faz para que você não precise adicionar suas informações de autenticação a cada exibição. 
+
+    O controle de mapa contém seus próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android, que deve ser chamado diretamente da atividade que o contém. Para que o aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa e chamar o respectivo método de controle de mapa. 
+
+    * onCreate (pacote) 
+    * OnStart () 
+    * OnContinue () 
+    * OnPause () 
+    * onStop () 
+    * OnDestroy () 
+    * onSaveInstanceState (pacote) 
+    * onLowMemory() 
 
     Edite o arquivo **MainActivity. java** da seguinte maneira:
     
@@ -140,13 +151,24 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
             mapControl = findViewById(R.id.mapcontrol);
 
             mapControl.onCreate(savedInstanceState);
-
+    
+            //Wait until the map resources are ready.
+            mapControl.onReady(map -> {
+                //Add your post map load code here.
+    
+            });
         }
 
         @Override
         public void onResume() {
             super.onResume();
             mapControl.onResume();
+        }
+
+        @Override
+        protected void onStart(){
+            super.onStart();
+            mapControl.onStart();
         }
 
         @Override
@@ -178,7 +200,6 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
         }
-
     }
 
     ```
@@ -248,7 +269,7 @@ Aqui está um exemplo de mapas do Azure com a linguagem definida como "fr-FR" e 
 
 Uma lista completa de idiomas com suporte e exibições regionais está documentada [aqui](supported-languages.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como adicionar dados de sobreposição no mapa:
 

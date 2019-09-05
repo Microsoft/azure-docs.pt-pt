@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: b1839316f8f11af7e4f365694fc017c262d00a86
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 71a74476bcec6cb2ab3dc5efabe1a550577f0107
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191738"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383246"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
 
@@ -20,7 +20,7 @@ Para publicar suas ofertas no [Azure Marketplace](https://azuremarketplace.micro
 
 ## <a name="create-a-partner-center-account"></a>Criar uma conta do Partner Center
 
-Neste artigo, abordaremos como criar uma conta do Partner Center, incluindo como: 
+Neste artigo, abordaremos como criar uma conta do Partner Center, incluindo como:
 
 - [Registrar-se usando a página de registro do Partner Center](#to-create-a-commercial-marketplace-account-in-partner-center)
 - [Entrar com uma conta corporativa](#sign-in-with-a-work-account)
@@ -56,11 +56,11 @@ Você precisará concordar com os termos e condições no [contrato de Microsoft
 
 #### <a name="provide-your-publisher-profile"></a>Forneça seu perfil do Publicador
 
-Seu perfil de editor inclui o nome da sua empresa e a ID do MPN. Se você ainda não tiver feito isso, será necessário ingressar no [Microsoft Partner Network](https://partner.microsoft.com/commercial). Depois de ingressar no Microsoft Partner Network, você será fornecido com uma ID MPN. 
+Seu perfil de editor inclui o nome da sua empresa e a ID do MPN. Se você ainda não tiver feito isso, será necessário ingressar no [Microsoft Partner Network](https://partner.microsoft.com/commercial). Depois de ingressar no Microsoft Partner Network, você será fornecido com uma ID MPN.
 
-Crie uma ID de editor. Sua ID de editor identifica exclusivamente sua empresa e suas ofertas no Marketplace e no AppSource. 
+Crie uma ID de editor. Sua ID de editor identifica exclusivamente sua empresa e suas ofertas no Marketplace e no AppSource.
 
-Depois de confirmar as informações de perfil do editor, concorde com os termos e condições e crie sua conta do Partner Center selecionando **aceitar e continuar**. 
+Depois de confirmar as informações de perfil do editor, concorde com os termos e condições e crie sua conta do Partner Center selecionando **aceitar e continuar**.
 
 >[!Important]
 >*Você deve estar autorizado a agir em nome da sua empresa para aceitar esses termos.*
@@ -90,7 +90,7 @@ Outro usuário do mesmo Azure Active Directory locatário pode adicionar um novo
 1. Selecione **entrar com uma conta de trabalho** e insira seu endereço de email de trabalho.
 1. Selecione o botão **Adicionar Publicador** .
 1. Escolha a ID de MPN que você deseja associar ao Publicador.
-1. Atualize os **detalhes** do Publicador no formulário. <br>
+1. Atualize os **detalhes do Publicador** no formulário. <br>
 
    1. **Nome do editor**: O nome que será exibido no Azure Marketplace ou AppSource com a oferta. <br>
    1. **PublisherID**: Um identificador usado pelo Partner Center para identificar exclusivamente o seu editor. O padrão para esse campo é mapeado para um existente e `PublisherID` exclusivo no sistema, que não pode ser reutilizado e, portanto, esse campo precisa ser atualizado. <br>
@@ -98,6 +98,6 @@ Outro usuário do mesmo Azure Active Directory locatário pode adicionar um novo
 
 1. Depois de concluir o processo, você pode gerenciar seu Publicador recém-criado acessando o programa do **Marketplace comercial** listado no menu de navegação à esquerda. Se você não vir o programa **comercial do Marketplace** , atualize a página.  O novo editor aparecerá na lista **editores** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md) 

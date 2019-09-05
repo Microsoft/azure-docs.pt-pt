@@ -1,5 +1,5 @@
 ---
-title: Bot C# de reconhecimento vocal v4
+title: 'Tutorial: Bot C# de reconhecimento vocal v4'
 titleSuffix: Azure Cognitive Services
 description: Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). O bot é criado com o bot Framework versão 4 e o serviço de bot do aplicativo Web do Azure.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/30/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: c78359920ebc5faab2e0a678a901bcb8581a4e45
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 79f75fbae9a13db985f46408145c7d6762ff56b9
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207326"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375586"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Usar um bot de aplicativo Web habilitado com Reconhecimento vocal noC#
 

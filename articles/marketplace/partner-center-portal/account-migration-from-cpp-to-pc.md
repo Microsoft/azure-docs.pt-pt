@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8c7680896507cd3738fa3bce0d30a516d08509c4
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208086"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383296"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração de conta do Portal do Cloud Partner para o Partner Center
 
@@ -43,17 +43,17 @@ Caso sua conta de CPP não tenha uma ID de Microsoft Partner Network ou tenha um
 A migração precisa ocorrer apenas uma vez para uma determinada conta. Depois que um determinado parceiro tiver concluído a migração para a conta, todos os proprietários verão esse comportamento na página de perfil do editor:
 
 1. Você verá a página Configurações de parceiro em Microsoft Partner Network, em que agora é possível gerenciar as configurações de conta. 
-2. Uma faixa amarela na página de perfil do Publicador em CPP será mostrada aos usuários que têm a função proprietário, solicitando que eles gerenciem suas configurações de conta no Partner Center. 
-3. A página de configurações de conta em CPP é convertida em modo somente leitura. 
+2. Uma faixa amarela na página de perfil do Publicador em CPP será mostrada aos usuários que têm a função proprietário, solicitando que eles gerenciem suas configurações de conta no Partner Center.
+3. A página de configurações de conta em CPP é convertida em modo somente leitura.
 
 ## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Mover soluções baseadas no Dynamics 365 para o Partner Center
 
 Se você tiver criado o Dynamics 365 para o envolvimento do cliente ou o Dynamics 365 para soluções de finanças e operações no portal de GTM de um parceiro comercial, **essas soluções agora devem ser gerenciadas no Partner Center**.
 
-**Se você não moveu suas soluções até 31 de agosto de 2019**, conclua as etapas a seguir assim que possível. Até fazer isso: 
+**Se você não moveu suas soluções até 31 de agosto de 2019**, conclua as etapas a seguir assim que possível. Até fazer isso:
 - Os ISVs não terão acesso aos benefícios de marketing
 - A prioridade de venda conjunta perderá seu status
-- Aqueles que exigem a inserção na nuvem estarão fora de conformidade
+- Aqueles que exigem a inserção na nuvem ficarão fora de conformidade após 15 de outubro de 2019
 
 > [!NOTE]
 > Se sua conta de associação do MPN foi originalmente criada no centro de associação de parceiros (PMC), entre no [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) para confirmar que sua conta foi migrada antes de concluir as etapas abaixo. Se você vir uma tela de perfil com sua ID do MPN, você estará pronto para continuar. Caso contrário, você deve iniciar a migração da sua conta seguindo os prompts no [centro de associação do parceiro](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Se precisar de ajuda com isso, visite [suporte](https://partner.microsoft.com/support?issueid=100-0077).

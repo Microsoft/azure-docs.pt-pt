@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127132"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306018"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -408,6 +408,14 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Diretórios|Obter idps para um fluxo de administração específico|
 |Gestão de Diretórios|Obter a lista de todos os fluxos de administração|
 |Gestão de Diretórios|Obter a lista de etiquetas de todos os fluxos de administração de todos os utilizadores|
+|Gestão de Grupos|Membros do grupo de download em massa-iniciados|
+|Gestão de Grupos|Membros do grupo de download em massa-concluído|
+|Gestão de Grupos|Membros do grupo de importação em massa-iniciados|
+|Gestão de Grupos|Membros do grupo de importação em massa-concluídos|
+|Gestão de Grupos|Remoção de membros do grupo em massa-iniciada|
+|Gestão de Grupos|Remoção de membros do grupo em massa – concluída|
+|Gestão de Grupos|Grupos de download em massa-iniciados|
+|Gestão de Grupos|Grupos de download em massa-concluídos|
 |Gestão de Grupos|Obter a lista de inquilinos de um utilizador|
 |Gestão de Grupos|Obter afirmações de declaração própria de contas locais|
 |Gestão de Grupos|Obter json de recurso localizado|
@@ -454,28 +462,42 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Funções|Eliminar configuração do dispositivo|
 |Gestão de Funções|O dispositivo já não está em conformidade|
 |Gestão de Funções|O dispositivo já não está a ser gerido|
-|Gestão de Utilizadores|Remover proprietário registado do dispositivo|
-|Gestão de Utilizadores|Remover utilizadores registados do dispositivo|
-|Gestão de Utilizadores|Atualizar o dispositivo|
-|Gestão de Utilizadores|Atualizar configuração do dispositivo|
-|Gestão de Utilizadores|Adicionar membro elegível à função|
-|Gestão de Utilizadores|Adicionar membro à função|
-|Gestão de Utilizadores|Adicionar atribuição de função à definição de função|
-|Gestão de Utilizadores|Adicionar função a partir de modelo|
-|Gestão de Utilizadores|Adicionar membro com âmbito à função|
-|Gestão de Utilizadores|Remover membro elegível da função|
-|Gestão de Utilizadores|Remover membro da função|
-|Gestão de Utilizadores|Remover atribuição de função da definição de função|
-|Gestão de Utilizadores|Remover membro com âmbito da função|
-|Gestão de Utilizadores|Atualizar função|
 |Gestão de Utilizadores|AccessReview_Review|
 |Gestão de Utilizadores|AccessReview_Update|
 |Gestão de Utilizadores|ActivationAborted|
 |Gestão de Utilizadores|ActivationApproved|
 |Gestão de Utilizadores|ActivationCanceled|
 |Gestão de Utilizadores|ActivationRequested|
+|Gestão de Utilizadores|Adicionar membro elegível à função|
+|Gestão de Utilizadores|Adicionar membro à função|
+|Gestão de Utilizadores|Adicionar atribuição de função à definição de função|
+|Gestão de Utilizadores|Adicionar função a partir de modelo|
+|Gestão de Utilizadores|Adicionar membro com âmbito à função|
 |Gestão de Utilizadores|Adicionado|
 |Gestão de Utilizadores|Atribuir|
+|Gestão de Utilizadores|Criação de usuários em massa-iniciada|
+|Gestão de Utilizadores|Criação de usuários em massa – concluída|
+|Gestão de Utilizadores|Exclusão de usuários em massa – iniciada|
+|Gestão de Utilizadores|Exclusão de usuários em massa concluída|
+|Gestão de Utilizadores|Usuários do download em massa-iniciados|
+|Gestão de Utilizadores|Usuários do download em massa-concluídos|
+|Gestão de Utilizadores|Restauração em massa de usuários excluídos-iniciado|
+|Gestão de Utilizadores|Restauração em massa de usuários excluídos-concluído|
+|Gestão de Utilizadores|Usuários de convite em massa-iniciados|
+|Gestão de Utilizadores|Usuários de convite em massa-concluídos|
+|Gestão de Utilizadores|Remover proprietário registado do dispositivo|
+|Gestão de Utilizadores|Remover utilizadores registados do dispositivo|
+|Gestão de Utilizadores|Remover membro elegível da função|
+|Gestão de Utilizadores|Remover membro da função|
+|Gestão de Utilizadores|Remover atribuição de função da definição de função|
+|Gestão de Utilizadores|Remover membro com âmbito da função|
+|Gestão de Utilizadores|Atualizar o dispositivo|
+|Gestão de Utilizadores|Atualizar configuração do dispositivo|
+|Gestão de Utilizadores|Atualizar função|
+
+
+
+
 
 
 ## <a name="identity-protection"></a>Proteção de identidade

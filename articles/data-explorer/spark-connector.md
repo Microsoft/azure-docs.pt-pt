@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 0fe81926327bcccac56718cc0d06e336e1af17fe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165096"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383057"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Conector do Azure Data Explorer para Apache Spark (versão prévia)
 
@@ -21,7 +21,7 @@ ms.locfileid: "70165096"
 O Azure Data Explorer Connector para Spark implementa a fonte de dados e o coletor de dados para mover dados entre os clusters do Azure Data Explorer e Spark para usar ambos os recursos. Usando o Azure Data Explorer e o Apache Spark, você pode criar aplicativos rápidos e escalonáveis direcionados a cenários baseados em dados, como o aprendizado de máquina (ML), o ETL (Extract-Transform-Load) e o Log Analytics. A gravação no Azure Data Explorer pode ser feita em modo de fluxo e em lote.
 A leitura do Azure Data Explorer dá suporte à remoção de colunas e à aplicação de predicado, o que reduz o volume de dados transferidos Filtrando dados no Azure Data Explorer.
 
-O conector Spark do Azure Data Explorer é um [projeto](https://github.com/Azure/azure-kusto-spark) de software livre que pode ser executado em qualquer cluster Spark.
+O conector Spark do Azure Data Explorer é um [projeto](https://github.com/Azure/azure-kusto-spark) de software livre que pode ser executado em qualquer cluster Spark. O conector do Azure Data Explorer Spark torna o Azure Data Explorer um armazenamento de dados válido para operações de origem e coletor padrão do Spark, como Write, Read e writeStream. 
 
 > [!NOTE]
 > Embora alguns dos exemplos a seguir refiram-se a um cluster [Azure Databricks](https://docs.azuredatabricks.net/) Spark, o conector do Azure data Explorer Spark não assume dependências diretas no databricks ou em qualquer outra distribuição do Spark.
@@ -30,7 +30,7 @@ O conector Spark do Azure Data Explorer é um [projeto](https://github.com/Azure
 
 * [Criar um cluster de Data Explorer do Azure e um banco de dados](/azure/data-explorer/create-cluster-database-portal) 
 * Criar um cluster do Spark
-* Instale a biblioteca do conector do Azure Data Explorer e bibliotecas [](https://github.com/Azure/azure-kusto-spark#dependencies) listadas em dependências, incluindo as seguintes bibliotecas do [SDK do Java Kusto](/azure/kusto/api/java/kusto-java-client-library) :
+* Instale a biblioteca do conector do Azure Data Explorer e bibliotecas listadas em [dependências](https://github.com/Azure/azure-kusto-spark#dependencies) , incluindo as seguintes bibliotecas do [SDK do Java Kusto](/azure/kusto/api/java/kusto-java-client-library) :
     * [Cliente de dados Kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Cliente de ingestão de Kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
 * Bibliotecas predefinidas para [Spark 2,4, escala 2,11](https://github.com/Azure/azure-kusto-spark/releases)
@@ -120,7 +120,7 @@ Método de autenticação mais simples e comum. Esse método é recomendado para
 Os privilégios a seguir devem ser concedidos em um cluster de Data Explorer do Azure:
 
 * Para leitura (fonte de dados), o aplicativo do Azure AD deve ter privilégios de *Visualizador* no banco de dado de destino ou privilégios de *administrador* na tabela de destino.
-* Para gravação (coletor de dados), o aplicativo do Azure ad deve ter privilégios de ingestão no banco de dados de destino. Ele também deve ter privilégios de *usuário* no banco de dados de destino para criar novas tabelas. Se a tabela de destino já existir, os privilégios de *administrador* na tabela de destino poderão ser configurados.
+* Para gravação (coletor de dados), o aplicativo do Azure AD deve ter privilégios de *ingestão* no banco de dados de destino. Ele também deve ter privilégios de *usuário* no banco de dados de destino para criar novas tabelas. Se a tabela de destino já existir, os privilégios de *administrador* na tabela de destino poderão ser configurados.
  
 Para obter mais informações sobre as funções de entidade de segurança Data Explorer do Azure, consulte [autorização baseada em função](/azure/kusto/management/access-control/role-based-authorization). Para gerenciar funções de segurança, consulte [Gerenciamento de funções de segurança](/azure/kusto/management/security-roles).
 

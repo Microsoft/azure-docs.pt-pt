@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014077"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305946"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o Harness
 
@@ -131,17 +131,25 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-harness-sso"></a>Configurar SSO de Harness
 
-1. Abra uma nova janela do navegador da Web e entre no site da empresa do Harness como administrador.
+1. Para automatizar a configuração no Harness, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-1. Na parte superior direita da página, clique em **Gerenciamento** > de acesso de **segurança** >contínua**configurações de autenticação**.
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **instalação equipamento** direcionará você para o aplicativo de Harness. A partir daí, forneça as credenciais de administrador para entrar no Harness. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se você quiser configurar o Harness manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do Harness como administrador e execute as seguintes etapas:
+
+4. Na parte superior direita da página, clique em **Gerenciamento** > de acesso de **segurança** >contínua**configurações de autenticação**.
 
     ![Configuração do Harness](./media/harness-tutorial/configure01.png)
 
-1. Na seção **provedores de SSO** , clique em **+ adicionar provedores** >de SSO **SAML**.
+5. Na seção **provedores de SSO** , clique em **+ adicionar provedores** >de SSO **SAML**.
 
     ![Configuração do Harness](./media/harness-tutorial/configure03.png)
 
-1. No pop-up do **provedor SAML** , execute as seguintes etapas:
+6. No pop-up do **provedor SAML** , execute as seguintes etapas:
 
     ![Configuração do Harness](./media/harness-tutorial/configure02.png)
 

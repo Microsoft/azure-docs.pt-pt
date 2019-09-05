@@ -1,6 +1,6 @@
 ---
-title: Configurar o Postman para chamadas de API de REST de serviços de multimédia do Azure
-description: Saiba como configurar o Postman para chamadas de API de REST dos serviços de multimédia.
+title: Configurar o postmaster para chamadas de API REST de Serviços de Mídia do Azure
+description: Saiba como configurar o postmaster para chamadas à API REST dos serviços de mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,26 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: a2171ff8a4354a59ec2f790f9bf38b7a687419ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322554"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308457"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o Postman para chamadas de API de REST dos serviços de multimédia
+# <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia
 
-Este artigo mostra-lhe como configurar **Postman** para que possa ser utilizada para chamar as APIs REST do Azure Media Services (AMS). O artigo mostra como importar ficheiros para o ambiente e a coleção **Postman**. A coleção contém definições agrupadas de pedidos HTTP que chamam as APIs REST do Azure Media Services (AMS). O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
+Este artigo mostra como configurar o **postmaster** para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS). O artigo mostra como importar arquivos de ambiente e de coleção para o **postmaster**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs REST dos serviços de mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
 
-Antes de começar a desenvolver, reveja [desenvolver com os serviços de multimédia v3 APIs](media-services-apis-overview.md).
+Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia. 
-- Obtenha informações necessárias para [aceder a APIs](access-api-cli-how-to.md)
+- Obter as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas: **Visual Studio Code** com o plug-in REST ou o **Fiddler Telerik**. 
+
+> [!IMPORTANT]
+> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Transferir ficheiros do Postman
 
@@ -59,7 +62,7 @@ Esta secção configura o Postman.
     > [!Note]
     > Atualize as variáveis de acesso com valores obtidos na secção **Aceder à API dos Serviços de Multimédia** acima.
 
-7. Faça duplo clique no ficheiro selecionado e introduza os valores que obteve ao seguir os passos de API de acesso.
+7. Clique duas vezes no arquivo selecionado e insira os valores que você obteve seguindo as etapas de API de acesso.
 8. Feche a caixa de diálogo.
 9. Selecione o **Ambiente v3 do Serviço de Multimédia do Azure** na lista pendente.
 
@@ -75,9 +78,9 @@ Esta secção configura o Postman.
 
 ## <a name="get-azure-ad-token"></a>Obter o Token do Microsoft Azure AD 
 
-Antes de começar a manipulação de recursos do AMS v3 terá de obter e definir o Token do Azure AD para autenticação do Principal de serviço.
+Antes de começar a manipular os recursos do AMS v3, você precisa obter e definir o token do Azure AD para a autenticação de entidade de serviço.
 
-1. Na janela à esquerda do Postman, selecione "passo 1: Obter autenticação do AAD token".
+1. Na janela à esquerda do postmaster, selecione "etapa 1: Obter token de autenticação do AAD ".
 2. Em seguida, selecione "Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço".
 3. Prima **Enviar**.
 
@@ -93,11 +96,11 @@ Antes de começar a manipulação de recursos do AMS v3 terá de obter e definir
 
 ## <a name="see-also"></a>Consulte também
 
-- [Carregar ficheiros para uma conta de Media Services - REST](upload-files-rest-how-to.md)
-- [Criar filtros com serviços de multimédia - REST](filters-dynamic-manifest-rest-howto.md)
+- [Carregar arquivos em uma conta dos serviços de mídia-REST](upload-files-rest-how-to.md)
+- [Criar filtros com os serviços de mídia-REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Stream ficheiros com REST](stream-files-tutorial-with-rest.md).  
+- [Transmita arquivos com REST](stream-files-tutorial-with-rest.md).  
 - [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

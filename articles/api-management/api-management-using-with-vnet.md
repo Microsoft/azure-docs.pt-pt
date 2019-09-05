@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: f79fffe2117de77e4e44dcbbaa782b2ade81e04b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164195"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305235"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede roteável que não seja da Internet para a qual você controla o acesso. Essas redes podem ser conectadas às suas redes locais usando várias tecnologias de VPN. Para saber mais sobre as redes virtuais do Azure, comece com as informações aqui: [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -25,7 +25,7 @@ As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos re
 O gerenciamento de API do Azure pode ser implantado dentro da rede virtual (VNET), para que possa acessar os serviços de back-end na rede. O portal do desenvolvedor e o gateway de API podem ser configurados para serem acessíveis da Internet ou apenas dentro da rede virtual.
 
 > [!NOTE]
-> O gerenciamento de API do Azure dá suporte a VNets clássicas e Azure Resource Managers.
+> A URL do documento de importação de API deve ser hospedada em um endereço de Internet acessível publicamente.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -172,7 +172,7 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
 
 * **Atualizações incrementais**: Ao fazer alterações em sua rede, consulte [API do NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)para verificar se o serviço de gerenciamento de API não perdeu o acesso a nenhum dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
 
-* **Links de navegação de recursos**: Ao implantar na sub-rede vnet do estilo do Resource Manager, o gerenciamento de API reserva a sub-rede, criando um link de navegação de recurso. Se a sub-rede já contiver um recurso de um provedor diferente, aimplantação falhará. Da mesma forma, ao mover um serviço de gerenciamento de API para uma sub-rede diferente ou excluí-lo, removeremos esse link de navegação do recurso.
+* **Links de navegação de recursos**: Ao implantar na sub-rede vnet do estilo do Resource Manager, o gerenciamento de API reserva a sub-rede, criando um link de navegação de recurso. Se a sub-rede já contiver um recurso de um provedor diferente, a implantação **falhará**. Da mesma forma, ao mover um serviço de gerenciamento de API para uma sub-rede diferente ou excluí-lo, removeremos esse link de navegação do recurso.
 
 ## <a name="subnet-size"></a> Requisito de tamanho de sub-rede
 O Azure reserva alguns endereços IP dentro de cada sub-rede e esses endereços não podem ser usados. O primeiro e o último endereços IP das sub-redes são reservados para a conformidade do protocolo, juntamente com mais três endereços usados para os serviços do Azure. Para obter mais informações, consulte [existem restrições sobre como usar endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

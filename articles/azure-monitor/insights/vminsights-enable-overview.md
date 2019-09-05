@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2019
 ms.author: magoedte
 ms.openlocfilehash: f395ba5d63463aa177b453d187d025a4461eff28
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "69905582"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
@@ -26,7 +26,7 @@ Este artigo fornece uma visão geral das opções disponíveis para configurar A
 
 Para configurar Azure Monitor para VMs:
 
-* Habilite uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais selecionando insights **(versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM.
+* Habilite uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais selecionando **insights (versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM.
 * Habilite duas ou mais VMs do Azure e conjuntos de dimensionamento de máquinas virtuais usando Azure Policy. Esse método garante que, em VMs e conjuntos de dimensionamento novos e existentes, as dependências necessárias sejam instaladas e configuradas corretamente. VMs não compatíveis e conjuntos de dimensionamento são relatados, para que você possa decidir se deseja habilitá-los e corrigi-los.
 * Ativar dois ou conjuntos de dimensionamento de VMs do Azure ou numa máquina virtual mais através de uma subscrição especificada ou o grupo de recursos com o PowerShell.
 * Habilite Azure Monitor para VMs para monitorar VMs ou computadores físicos hospedados em sua rede corporativa ou em outro ambiente de nuvem.
@@ -101,7 +101,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 <sup>1</sup> funcionalidade do desempenho do Azure Monitor para VMs está disponível apenas a partir do Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
 
 >[!NOTE]
->O recurso de integridade do Azure Monitor para VMs não oferece [](../../virtual-machines/windows/nested-virtualization.md) suporte à virtualização aninhada em uma VM do Azure.
+>O recurso de integridade do Azure Monitor para VMs não oferece suporte à [virtualização aninhada](../../virtual-machines/windows/nested-virtualization.md) em uma VM do Azure.
 >
 
 >[!NOTE]
@@ -188,7 +188,7 @@ Habilite Azure Monitor para VMs usando um dos métodos descritos nesta tabela:
 
 | Estado da implantação | Método | Descrição |
 |------------------|--------|-------------|
-| Uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais | [Habilitar da VM](vminsights-enable-single-vm.md) | Você pode habilitar uma única VM do Azure selecionando insights **(versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM. |
+| Uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais | [Habilitar da VM](vminsights-enable-single-vm.md) | Você pode habilitar uma única VM do Azure selecionando **insights (versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM. |
 | Várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais | [Habilitar por meio de Azure Policy](vminsights-enable-at-scale-policy.md) | Você pode habilitar várias VMs do Azure usando Azure Policy e definições de política disponíveis. |
 | Várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais | [Habilitar por meio de modelos Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Você pode habilitar várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou grupo de recursos especificado usando modelos Azure PowerShell ou Azure Resource Manager. |
 | Nuvem híbrida | [Habilitar para o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Você pode implantar em VMs ou computadores físicos hospedados em seu datacenter ou em outros ambientes de nuvem. |
@@ -252,6 +252,6 @@ Para obter mais informações sobre a recolha de dados e a utilização, consult
 
 Agora que você habilitou o monitoramento para sua VM, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md). Para ver dependências de aplicações detetadas, consulte [vista do Azure Monitor para o mapa de VMs](vminsights-maps.md).

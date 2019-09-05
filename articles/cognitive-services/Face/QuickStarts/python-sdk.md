@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: d3128144a06f4faa46d18650c3dd2c21f72afc1c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164775"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376144"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: Biblioteca de cliente facial para Python
 
@@ -26,6 +26,7 @@ Use a biblioteca de cliente facial para Python para:
 * Encontrar rostos semelhantes
 * Criar e treinar um grupo de pessoas
 * Identificar uma face
+* Verificar faces
 * Tirar um instantâneo para a migração de dados
 
 [](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0) [de PiPy (pacote de](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | -fonte de biblioteca de documentação de referência)
@@ -76,7 +77,7 @@ As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Essa classe representa sua autorização para usar o serviço de face e você precisa dela para todas as funcionalidades de face. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Essa classe manipula as tarefas básicas de detecção e reconhecimento que você pode fazer com as faces humanas. |
 |[DetectedFace](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.models.detectedface?view=azure-python)|Essa classe representa todos os dados que foram detectados de uma única face em uma imagem. Você pode usá-lo para recuperar informações detalhadas sobre a face.|
-|[FaceListOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.facelistoperations?view=azure-python)|Essa classe gerencia os constructos da facelist armazenados na nuvem, que armazenam um conjunto de faces classificado. |
+|[FaceListOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.facelistoperations?view=azure-python)|Essa classe gerencia os constructos da **facelist** armazenados na nuvem, que armazenam um conjunto de faces classificado. |
 |[PersonGroupPersonOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python)| Essa classe gerencia as construções de **pessoas** armazenadas na nuvem, que armazenam um conjunto de faces que pertencem a uma única pessoa.|
 |[PersonGroupOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongroupoperations?view=azure-python)| Essa classe gerencia as construções de grupo de **pessoas** armazenadas na nuvem, que armazenam um conjunto de objetos de **pessoa** asclassificadas. |
 |[ShapshotOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.snapshotoperations?view=azure-python)|Essa classe gerencia a funcionalidade de instantâneo; Você pode usá-lo para salvar temporariamente todos os dados de face baseados em nuvem e migrar esses dados para uma nova assinatura do Azure. |
@@ -90,6 +91,7 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a biblio
 * [Localizar faces semelhantes](#find-similar-faces)
 * [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
 * [Identificar uma face](#identify-a-face)
+* [Verificar faces](#verify-faces)
 * [Tirar um instantâneo para a migração de dados](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
@@ -108,6 +110,14 @@ O código a seguir detecta uma face em uma imagem remota. Ele imprime a ID da fa
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
 Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) para obter mais cenários de detecção.
+
+### <a name="display-and-frame-faces"></a>Exibição e rostos de quadro
+
+O código a seguir gera a imagem fornecida para a exibição e desenha retângulos em volta das faces, usando a propriedade DetectedFace. faceRectangle.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![Uma moça com um retângulo vermelho desenhada em todo o Mostrador](../images/face-rectangle-result.png)
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 
@@ -143,7 +153,7 @@ Depois de configurar suas imagens, defina um rótulo na parte superior do script
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Em seguida, adicione o código a seguir à parte inferior do seu script. Esse código cria um objeto de radiosong e três objetos **Person** .
+Em seguida, adicione o código a seguir à parte inferior do seu script. Esse código cria um objeto de **radiosong** e três objetos **Person** .
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 
@@ -177,6 +187,32 @@ O código a seguir procura na raiz do seu projeto uma imagem _Test-Image-Person-
 O método **Identify** usa uma matriz de faces detectadas e as compara a um **Person**. Se ele puder corresponder a uma face detectada a uma **pessoa**, ele salvará o resultado. Esse código imprime os resultados de correspondência detalhados para o console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
+
+## <a name="verify-faces"></a>Verificar faces
+
+A operação de verificação usa uma ID de face e outra ID de face ou um objeto **Person** e determina se elas pertencem à mesma pessoa.
+
+O código a seguir detecta rostos em duas imagens de origem e as verifica em relação a uma face detectada a partir de uma imagem de destino.
+
+### <a name="get-test-images"></a>Obter imagens de teste
+
+Os blocos de código a seguir declaram variáveis que apontarão para as imagens de origem e de destino da operação de verificação.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_baseurl)]
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_photos)]
+
+### <a name="detect-faces-for-verification"></a>Detectar faces para verificação
+
+O código a seguir detecta rostos nas imagens de origem e de destino e as salva em variáveis.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_detect)]
+
+### <a name="get-verification-results"></a>Obter resultados da verificação
+
+O código a seguir compara cada uma das imagens de origem com a imagem de destino e imprime uma mensagem indicando se elas pertencem à mesma pessoa.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Tirar um instantâneo para a migração de dados
 

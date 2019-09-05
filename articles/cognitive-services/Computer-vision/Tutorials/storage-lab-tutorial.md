@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/17/2019
+ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8ecf5fb7d54e7c9411c1153610d3a637477285bf
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137547"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382986"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Usar Pesquisa Visual Computacional para gerar metadados de imagem no armazenamento do Azure
 
@@ -42,7 +42,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Você precisará criar um recurso de Pesquisa Visual Computacional para sua conta do Azure; Esse recurso gerencia o acesso ao serviço de Pesquisa Visual Computacional do Azure. 
 
-1. Siga as instruções em [criar um recurso de serviços cognitivas do Azure](../../cognitive-services-apis-create-account.md#single-service-resource) para criar um recurso de pesquisa Visual computacional.
+1. Siga as instruções em [criar um recurso de serviços cognitivas do Azure](../../cognitive-services-apis-create-account.md) para criar um recurso de pesquisa Visual computacional.
 
 1. Em seguida, vá para o menu do seu grupo de recursos e clique na assinatura API da Pesquisa Visual Computacional que você acabou de criar. Copie a URL no **ponto de extremidade** para algum lugar para poder recuperá-la com facilidade em um momento. Em seguida, clique em **Mostrar chaves de acesso**.
 
@@ -139,7 +139,7 @@ Se você quiser continuar trabalhando em seu aplicativo Web, consulte a seção 
 
 Para excluir o grupo de recursos, abra a folha **grupos de recursos** no portal, navegue até o grupo de recursos usado para este projeto e clique em **excluir grupo de recursos** na parte superior da exibição. Você será solicitado a digitar o nome do grupo de recursos para confirmar que deseja excluí-lo, pois, uma vez excluído, um grupo de recursos não poderá ser recuperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você integrou o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web existente para gerar automaticamente legendas e palavras-chave para imagens de blob conforme elas são carregadas. Em seguida, consulte o laboratório de armazenamento do Azure, exercício 6, para saber como adicionar a funcionalidade de pesquisa ao seu aplicativo Web. Isso aproveita as palavras-chave de pesquisa que o serviço Pesquisa Visual Computacional gera.
 

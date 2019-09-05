@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639286"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382884"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criar uma aplicação de compreensão de idiomas com os serviços cognitivos
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS: 
@@ -80,11 +80,11 @@ Para obter mais informações:
 
 Uma prática recomendada é não aplicar essas práticas antes que seu aplicativo seja testado. Você deve entender como o aplicativo se comporta antes de adicionar [listas de frases](luis-concept-feature.md) e [padrões](luis-concept-patterns.md) , pois esses recursos são ponderados de forma mais intensa do que o exemplo declarações e distorcerá a confiança. 
 
-Depois de entender como seu aplicativo se comporta sem eles, adicione cada um desses recursos à medida que eles se aplicam ao seu aplicativo. Você não precisa adicionar esses recursos a cada iteração [](luis-concept-app-iteration.md) ou alterar os recursos com cada versão. 
+Depois de entender como seu aplicativo se comporta sem eles, adicione cada um desses recursos à medida que eles se aplicam ao seu aplicativo. Você não precisa adicionar esses recursos a cada [iteração](luis-concept-app-iteration.md) ou alterar os recursos com cada versão. 
 
 Não há danos para adicioná-los no início do design do modelo, mas é mais fácil ver como cada recurso altera os resultados depois que o modelo é testado com declarações. 
 
-Uma prática recomendada é testar por meio do [ponto de extremidade](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) para que você tenha o benefício adicional do [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O [painel de teste interativo](luis-interactive-test.md) também é uma metodologia de teste válida. 
+Uma prática recomendada é testar por meio do [ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) para que você tenha o benefício adicional do [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O [painel de teste interativo](luis-interactive-test.md) também é uma metodologia de teste válida. 
  
 
 ### <a name="phrase-lists"></a>Listas de expressões

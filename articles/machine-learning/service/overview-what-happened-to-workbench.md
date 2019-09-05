@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 42c6671479c299c3229a3769a0410223274bc87f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 22f9ff8c493e850152e1fd74c8787e2cde507685
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279075"
+ms.locfileid: "70308842"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -56,7 +56,7 @@ Todos os recursos mais recentes estão disponíveis usando esse <a href="https:/
 
 Os históricos de execução mais antigos não são mais acessíveis, como você ainda pode ver suas execuções na versão mais recente.
 
-Os históricos de execução agorasão chamados de experimentos. Você pode coletar os experimentos do modelo e explorá-los usando o SDK, a CLI ou o portal do Azure.
+Os históricos de execução agora são chamados de **experimentos**. Você pode coletar os experimentos do modelo e explorá-los usando o SDK, a CLI ou o portal do Azure.
 
 O painel de espaço de trabalho do portal tem suporte apenas nos navegadores Microsoft Edge, Chrome e Firefox:
 
@@ -100,7 +100,7 @@ Saiba mais nestes artigos:
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>E quanto ao SDK e à CLI antigos?
 
-Sim, eles continuarão a funcionar até Janeiro. Veja a [linha do tempo](#timeline)anterior. Recomendamos que você comece a criar seus novos experimentos e modelos com o SDK ou a CLI mais recente.
+Veja a [linha do tempo](#timeline)anterior. Recomendamos que você comece a criar seus novos experimentos e modelos com o SDK ou a CLI mais recente.
 
 Usando o novo SDK do Python na versão mais recente, você pode interagir com Azure Machine Learning serviço em qualquer ambiente do Python. Saiba como instalar a versão o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> mais recente. Você também pode usar a [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) atualizada com o conjunto `az ml` avançado de comandos para interagir com o serviço em qualquer ambiente de linha de comando, incluindo Azure cloud Shell.
 
