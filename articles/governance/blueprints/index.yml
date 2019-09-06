@@ -1,49 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação para o serviço Azure Blueprints
+### YamlMime:Landing
+title: Documentação do Azure Blueprints
+summary: Simplifique as implementações ao empacotar artefactos, como modelos do Resource Manager, controlos de acesso baseado em funções e políticas, tudo numa única definição de esquema.
 metadata:
-  title: 'Documentação do Azure Blueprints - Tutoriais, Referência da API'
-  description: 'O Azure Blueprints é um serviço no Azure que serve para criar, definir e implementar artefactos no ambiente do Azure.'
-  author: DCtheGeek
-  manager: carmonm
+  title: Documentação do Azure Blueprints
+  description: Simplifique as implementações ao empacotar artefactos, como modelos do Resource Manager, controlos de acesso baseado em funções e políticas, tudo numa única definição de esquema.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 06/14/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: 'O Azure Blueprints ajuda-o a implementar e atualizar os ambientes de cloud de forma repetível através de artefactos compostos, como os modelos do Azure Resource Manager, para aprovisionar recursos, controlos de acesso baseado em funções e políticas.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a criar, atribuir e gerir as definições de esquemas no Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Portal do Azure
-              src: ./media/portal.svg
-            text: Portal do Azure
-            href: create-blueprint-portal.md
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: create-blueprint-powershell.md
-          - image:
-              alt: REST
-              src: ./media/rest.svg
-            text: REST
-            href: create-blueprint-rest-api.md
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">O Azure PowerShell</a></p>'
-          - title: Linguagens
-            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
-          - title: REST
-            html: <p><a href="/rest/api/blueprints/">Referência da API</a></p>
+  ms.date: 09/01/2019
+  ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70239212"
+landingContent:
+- title: Acerca do Azure Blueprints
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Blueprints?
+      url: ./overview.md
+    - text: Fases de implementação
+      url: ./concepts/deployment-stages.md
+    - text: Ciclo de vida de um esquema
+      url: ./concepts/lifecycle.md
+  - linkListType: video
+    links:
+    - text: Azure Friday - Descrição Geral do Azure Blueprints
+      url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um novo esquema (portal)
+      url: ./create-blueprint-portal.md
+    - text: Criar um novo esquema (PowerShell)
+      url: ./create-blueprint-powershell.md
+    - text: Criar um novo esquema (API REST)
+      url: ./create-blueprint-rest-api.md
+  - linkListType: tutorial
+    links:
+    - text: Utilizar um exemplo de esquema
+      url: ./tutorials/create-from-sample.md
+  - linkListType: deploy
+    links:
+    - text: Índice de exemplos de esquema
+      url: ./samples/index.md
+- title: Personalizar esquemas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Parâmetros dinâmicos
+      url: ./concepts/parameters.md
+    - text: Sequenciar artefactos
+      url: ./concepts/sequencing-order.md
+    - text: Bloquear recursos implementados
+      url: ./concepts/resource-locking.md
+  - linkListType: tutorial
+    links:
+    - text: Proteger novos recursos com bloqueios
+      url: ./tutorials/protect-new-resources.md
+- title: Evoluir para “em escala”
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Atualizar esquemas existentes
+      url: ./how-to/update-existing-assignments.md
+    - text: Gerir atribuições com o PowerShell
+      url: ./how-to/manage-assignments-ps.md
+    - text: Importar e exportar com o PowerShell
+      url: ./how-to/import-export-ps.md
+    - text: Implementar Operadores de Esquema
+      url: ./how-to/configure-for-blueprint-operator.md
+    - text: Gerir Esquemas como Código
+      url: https://github.com/Azure/azure-blueprints/blob/master/README.md
+- title: Participar
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Canal do YouTube sobre a Governação do Azure
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Pedir funcionalidade do produto
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Tech Community da Governação do Azure
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Funções específicas do esquema
+      url: ./reference/blueprint-functions.md
+    - text: Módulo do PowerShell (PSGallery)
+      url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: Azure PowerShell
+      url: /powershell/module/az.blueprint/#blueprint
+    - text: API REST
+      url: /rest/api/blueprints/
+    - text: .NET
+      url: /dotnet/api/overview/azure/blueprints/management

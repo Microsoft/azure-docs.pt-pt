@@ -85,26 +85,30 @@
   items:
     - name: Criar modelos
       items:
-        - name: Ferramenta de desenvolvimento - VS Code
+        - name: "Utilizar Código\_VS"
           href: resource-manager-tools-vs-code.md
-        - name: Criar o modelo
-          href: how-to-create-template.md
-        - name: Nome e tipo do recurso subordinado
-          href: child-resource-name-type.md
-        - name: Criar grupos de recursos e recursos na subscrição
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: Definir as dependências de recurso
-          href: resource-group-define-dependencies.md
+        - name: Escrever expressões de modelo
+          href: template-expressions.md
+        - name: Recursos
+          items:
+            - name: Nome e tipo do recurso subordinado
+              href: child-resource-name-type.md
+            - name: Implementação condicional
+              href: conditional-resource-deployment.md
+            - name: Definir dependências de recursos
+              href: resource-group-define-dependencies.md
+            - name: Definir localização dos recursos
+              href: resource-location.md
+            - name: Utilizar extensões de modelo
+              href: resource-manager-use-extensions.md
         - name: Modularizar modelos
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: Criar múltiplas instâncias
           href: resource-group-create-multiple.md
-        - name: Utilizar extensões de modelo
-          href: resource-manager-use-extensions.md
-        - name: Atualizar recursos
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: Criar grupos de recursos e recursos na subscrição
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: Implementar modelos
       items:
         - name: Implementar - portal

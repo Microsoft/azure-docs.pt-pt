@@ -1,36 +1,99 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Azure Blockchain Workbench
+summary: Saiba como criar aplicações de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como implementar o Azure Blockchain Workbench e criar e gerir aplicações de blockchain no Azure.
 metadata:
-  title: 'Documentação do Azure Blockchain Workbench - Tutoriais, Referência da API | Microsoft Docs'
-  description: 'Saiba como criar aplicações de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como implementar o Azure Blockchain Workbench e criar e gerir aplicações de blockchain no Azure.'
-  services: blockchain-workbench
-  author: patricka
-  manager: femila
-  ms.service: blockchain-workbench
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Documentação do Azure Blockchain Workbench – Tutoriais, Referência da API
+  description: Saiba como criar aplicações de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como implementar o Azure Blockchain Workbench e criar e gerir aplicações de blockchain no Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
   ms.topic: landing-page
-  ms.date: 04/17/2018
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: 'Saiba como criar aplicações de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como implementar o Azure Blockchain Workbench para criar e utilizar aplicações de blockchain no Azure.'
-sections:
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar, criar e utilizar aplicações de blockchain no Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Implementar o Azure Blockchain Workbench</a>
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Criar aplicação de blockchain</a>
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Utilizar uma aplicação de blockchain</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">API REST</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 515e269619f7efa5c00071794e41fff83b81ed60
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240817"
+landingContent:
+- title: Sobre o Azure Blockchain Workbench
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Blockchain Workbench?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Arquitetura
+      url: architecture.md
+  - linkListType: video
+    links:
+    - text: Introdução ao Azure Blockchain Workbench
+      url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
+- title: Introdução
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Implementar o Azure Blockchain Workbench
+      url: deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Criar uma aplicação do Blockchain Workbench
+      url: create-app.md
+    - text: Utilizar uma aplicação do Blockchain Workbench
+      url: use.md
+  - linkListType: video
+    links:
+    - text: Criar a primeira aplicação Azure Blockchain Workbench
+      url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
+- title: Contratos de exemplo
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Marketplace simples
+      url: https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/simple-marketplace
+    - text: Proveniência básica
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/basic-provenance
+    - text: Cacifo digital
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/digital-locker
+    - text: Transporte refrigerado
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation
+    - text: Transferência de recursos
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer
+    - text: Marketplace avançado com fluxos de trabalho múltiplos
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/bazaar-item-listing
+- title: Gerir
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir utilizadores da aplicação
+      url: manage-users.md
+    - text: Configuração da aplicação
+      url: configuration.md
+    - text: Controlo de versões da aplicação
+      url: version-app.md
+- title: Integrar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Padrões de integração de contratos inteligentes
+      url: integration-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ligar à base de dados fora da cadeia
+      url: getdb-details.md
+    - text: Utilizar dados no Excel
+      url: data-excel.md
+    - text: Utilizar dados no Power BI
+      url: data-powerbi.md
+    - text: Utilizar dados no SQL Management Studio
+      url: data-sql-management-studio.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: use-api.md
+    - text: API de Mensagens
+      url: messages-overview.md
+    - text: Vistas de base de dados
+      url: database-views.md

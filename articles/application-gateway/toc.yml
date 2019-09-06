@@ -81,8 +81,10 @@
       items:
         - name: Sonda de estado de funcionamento
           href: application-gateway-probe-overview.md
-        - name: Diagnóstico
+        - name: Registos de diagnósticos e estado de funcionamento do back-end
           href: application-gateway-diagnostics.md
+        - name: Métricas
+          href: application-gateway-metrics.md
     - name: Aplicação Web do serviço de aplicações e suporte multi-inquilino
       href: application-gateway-web-app-overview.md
     - name: Suporte do WebSocket
@@ -225,6 +227,8 @@
           href: resource-health-overview.md
         - name: Utilizar o Log Analytics
           href: log-analytics.md
+        - name: Problemas de estado de funcionamento do back-end
+          href: application-gateway-backend-health-troubleshooting.md
     - name: Migrar do v1 para v2
       href: migrate-v1-v2.md
 - name: Referência

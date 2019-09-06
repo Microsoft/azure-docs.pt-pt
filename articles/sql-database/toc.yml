@@ -219,10 +219,16 @@
       items:
         - name: Documentação de instância gerida
           href: sql-database-managed-instance-index.yml
-        - name: Funcionalidades de instância gerida
+        - name: Descrição geral da instância gerida
           href: sql-database-managed-instance.md
         - name: FAQ de instância gerida
           href: sql-database-managed-instance-faq.md
+        - name: Conjuntos de instâncias
+          items:
+            - name: Descrição geral dos conjuntos de instâncias
+              href: sql-database-instance-pools.md
+            - name: Manual de instruções dos conjuntos de instâncias
+              href: sql-database-instance-pools-how-to.md
         - name: Referência da API de Gestão
           href: sql-database-managed-instance-create-manage.md
         - name: Limites de recursos

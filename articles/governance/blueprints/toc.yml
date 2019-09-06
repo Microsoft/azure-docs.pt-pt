@@ -153,6 +153,9 @@
     - name: Gerir atribuições com o PowerShell
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: Importar e exportar com o PowerShell
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: Atualizar atribuições existentes a partir do portal
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md

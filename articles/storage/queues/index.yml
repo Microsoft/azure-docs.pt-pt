@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentação do Armazenamento de Filas do Azure - Armazenamento do Azure
+title: Documentação do armazenamento de Filas do Azure
 summary: O armazenamento de Filas do Azure é um serviço para alojar grandes quantidades de mensagens. Aceda a mensagens em qualquer parte do mundo através de HTTP ou HTTPS.
 metadata:
-  title: Documentação do Armazenamento de Filas do Azure - Armazenamento do Azure
-  description: O Armazenamento de Filas do Azure é um serviço para alojar grandes quantidades de mensagens. Aceda a mensagens em qualquer parte do mundo através de HTTP ou HTTPS.
+  title: Documentação do armazenamento de Filas do Azure
+  description: O armazenamento de Filas do Azure é um serviço para alojar grandes quantidades de mensagens. Aceda a mensagens em qualquer parte do mundo através de HTTP ou HTTPS.
   services: storage
   ms.service: storage
   ms.subservice: queues
@@ -12,12 +12,12 @@ metadata:
   author: mhopkins-msft
   ms.author: mhopkins
   ms.date: 08/27/2019
-  ms.openlocfilehash: 5de22a49dcc985ca95ee97d9de77180e2c56765b
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 4dcf6ae4e9a5a65e060b647f02761b2c46238d13
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70129419"
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70277905"
 landingContent:
 - title: Sobre as filas do Azure
   linkLists:
