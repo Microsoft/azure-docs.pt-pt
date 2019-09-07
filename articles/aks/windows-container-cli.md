@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: ee798ba624aaf9f21886edab36185fb1b6ae67f2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147210"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387341"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização-criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 
 As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que dão suporte a vários pools de nós:
 
-* Vários pools de nó estão disponíveis para clusters criados depois que você registrou o *WindowsPreview*com êxito. Vários pools de nós também estarão disponíveis se você registrar os recursos *MultiAgentpoolPreview* e *VMSSPreview* para sua assinatura. Você não pode adicionar ou gerenciar pools de nós com um cluster AKS existente criado antes que esses recursos tenham sido registrados com êxito.
+* Vários pools de nó estão disponíveis para clusters criados depois que você registrou o *WindowsPreview*com êxito. Vários pools de nós também estarão disponíveis se você registrar o recurso *MultiAgentpoolPreview* para sua assinatura. Você não pode adicionar ou gerenciar pools de nós com um cluster AKS existente criado antes que esse recurso tenha sido registrado com êxito.
 * Não é possível excluir o primeiro pool de nós.
 
 Embora esse recurso esteja em versão prévia, as seguintes limitações adicionais se aplicam:
@@ -199,7 +199,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.6
 
 Um arquivo de manifesto kubernetes define um estado desejado para o cluster, como quais imagens de contêiner executar. Neste artigo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo de exemplo ASP.NET em um contêiner do Windows Server. Esse manifesto inclui uma [implantação do kubernetes][kubernetes-deployment] para o aplicativo de exemplo ASP.net e um [serviço kubernetes][kubernetes-service] externo para acessar o aplicativo da Internet.
 
-O aplicativo de exemplo ASP.NET é fornecido como parte do [.NET Framework amostras][dotnet-samples] e é executado em um contêiner do Windows Server. O AKS requer que os contêineres do Windows Server sejam baseados em imagens do *Windows Server 2019* ou superior. O arquivo de manifesto kubernetes também deve definir um seletor de [nó][node-selector] para instruir o cluster AKs a executar o Pod do aplicativo de exemplo ASP.net em um nó que possa executar contêineres do Windows Server.
+O aplicativo de exemplo ASP.NET é fornecido como parte do [.NET Framework amostras][dotnet-samples] e é executado em um contêiner do Windows Server. O AKS requer que os contêineres do Windows Server sejam baseados em imagens do *Windows Server 2019* ou superior. O arquivo de manifesto kubernetes também deve definir um [seletor de nó][node-selector] para instruir o cluster AKs a executar o Pod do aplicativo de exemplo ASP.net em um nó que possa executar contêineres do Windows Server.
 
 Crie um arquivo chamado `sample.yaml` e copie na seguinte definição de YAML. Se você usar o Azure cloud Shell, esse arquivo poderá ser criado usando `vi` ou `nano` como se estiver trabalhando em um sistema físico ou virtual:
 

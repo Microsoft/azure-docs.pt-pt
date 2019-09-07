@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9d04d00be52619d220a698697459376e4937942d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5c97648bd11a506d3c818584ed7d82d0a12d2e2c
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134967"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387497"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Go para chamar o serviço de Análise de Texto cognitiva 
 <a name="HOLTop"></a>
@@ -28,7 +28,8 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada automaticamente durante a sua inscrição.
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 
 <a name="Detect"></a>
 
@@ -566,7 +567,7 @@ func main() {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

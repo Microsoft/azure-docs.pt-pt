@@ -1,47 +1,47 @@
 ---
-title: Ferramentas do HDInsight do Azure - configurar o ambiente interativo do PySpark para Visual Studio Code
-description: Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code para criar e submeter consultas e scripts.
-keywords: VScode, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, interativas do Hive, Interactive Query
+title: Ferramentas do Azure HDInsight – ambiente interativo do PySpark para Visual Studio Code
+description: Saiba como usar as ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
+keywords: VScode, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive interativo, consulta interativa
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0e993577bda59ae4fda51d17dc175ec0b0fcd4f5
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 54adb2ec61d77ea429f7da1b88aa9347c1addfe0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137123"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736421"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para Visual Studio Code
 
-Os passos seguintes mostram como configurar o ambiente interativo do PySpark no VS Code.
+As etapas a seguir mostram como configurar o ambiente interativo do PySpark no VS Code.
 
-Usamos **pip do python** comando para criar o ambiente virtual no seu caminho de casa. Se quiser utilizar outra versão, terá de alterar a versão predefinida do **pip do python** comando manualmente. Mais detalhes, consulte [alternativas de atualização](https://linux.die.net/man/8/update-alternatives).
+Usamos o comando **Python/Pip** para criar um ambiente virtual em seu caminho inicial. Se você quiser usar outra versão, será necessário alterar manualmente a versão padrão do comando **Python/Pip** . Para obter mais detalhes [, consulte Atualização-alternativas](https://linux.die.net/man/8/update-alternatives).
 
-1. Instale [Python](https://www.python.org/downloads/) e [pip](https://pip.pypa.io/en/stable/installing/).
+1. Instale o [Python](https://www.python.org/downloads/) e o [Pip](https://pip.pypa.io/en/stable/installing/).
    
-   + Instalar o Python a partir [ https://www.python.org/downloads/ ](https://www.python.org/downloads/).
-   + Instalar o pip partir [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Se não instalado da instalação do Python)
-   + Valide o Python e pip estão instalados com êxito com os comandos seguintes. (Opcional)
+   + Instale o Python [https://www.python.org/downloads/](https://www.python.org/downloads/)do.
+   + Instalar Pip de [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/). (Se não estiver instalado na instalação do Python)
+   + Valide se o Python e o Pip foram instalados com êxito usando os comandos a seguir. Adicional
  
-        ![Versão de pip do Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Versão de Pip do Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > Recomenda-se para instalar manualmente o Python em vez de utilizar a versão predefinida do MacOS.
+     > É recomendável instalar o Python manualmente em vez de usar a versão padrão do MacOS.
 
 
-2. Instale **virtualenv** ao executar o comando abaixo.
+2. Instale o **virtualenv** executando o comando a seguir.
    
    ```
    pip install virtualenv
    ```
 
-3. Para o Linux, instale os pacotes necessários ao executar os comandos abaixo se encontrar a mensagem de erro.
+3. Somente para Linux, instale os pacotes necessários executando comandos abaixo se você encontrar a mensagem de erro.
    
-    ![Versão de pip do Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+    ![Versão de Pip do Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
    ```
    sudo apt-get install libkrb5-dev 
@@ -51,22 +51,22 @@ Usamos **pip do python** comando para criar o ambiente virtual no seu caminho de
    sudo apt-get install python-dev
    ```
 
-4. Reinicie o VS Code e, em seguida, voltar para o editor de script que está a executar **HDInsight: PySpark Interactive**.
+4. Reinicie vs Code e, em seguida, volte para o editor de script **que está executando o HDInsight: PySpark Interactive**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="demo"></a>Demonstração
-* HDInsight para o VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Utilize a ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md)
-* [Utilizar o Azure Toolkit para IntelliJ para criar e submeter aplicações do Apache Spark Scala](spark/apache-spark-intellij-tool-plugin.md)
-* [Utilizar o Azure Toolkit para IntelliJ para depurar aplicações de Apache Spark remotamente através de SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Utilizar o Azure Toolkit para IntelliJ para depurar aplicações de Apache Spark remotamente através de VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar ferramentas do HDInsight no Azure Toolkit para Eclipse para criar aplicações do Apache Spark](spark/apache-spark-eclipse-tool-plugin.md)
-* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](spark/apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter num cluster do Apache Spark para HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Usar a ferramenta Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md)
+* [Usar Azure Toolkit for IntelliJ para criar e enviar Apache Spark aplicativos escalares](spark/apache-spark-intellij-tool-plugin.md)
+* [Usar Azure Toolkit for IntelliJ para depurar Apache Spark aplicativos remotamente por meio de SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Usar Azure Toolkit for IntelliJ para depurar Apache Spark aplicativos remotamente por meio de VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar as ferramentas do HDInsight no Azure Toolkit for Eclipse para criar aplicativos Apache Spark](spark/apache-spark-eclipse-tool-plugin.md)
+* [Usar notebooks do Apache Zeppelin com um cluster Apache Spark no HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o Jupyter notebook em um cluster Apache Spark para HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualize os dados do Apache Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Visualizar dados de Apache Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Utilizar o Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](./interactive-query/hdinsight-connect-hive-zeppelin.md)

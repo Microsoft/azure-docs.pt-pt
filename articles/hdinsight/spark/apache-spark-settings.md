@@ -1,6 +1,6 @@
 ---
 title: Definir configurações do Spark – Azure HDInsight
-description: Como configurar o Spark para um cluster do Azure HDInsight.
+description: Como exibir e definir configurações de Apache Spark para um cluster do Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: eb948aa2b683f426831e1b0d34b44f814eab6b9f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441919"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736027"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -91,13 +91,13 @@ Três parâmetros principais que geralmente são ajustados para ajustar as confi
 > [!NOTE]  
 > Esses três parâmetros de configuração podem ser configurados no nível do cluster (para todos os aplicativos que são executados no cluster) e também especificados para cada aplicativo individual.
 
-Outra fonte de informações sobre os recursos que estão sendo usados pelos executores do Spark é a interface do usuário do aplicativo Spark.  Na interface do usuário do Spark,  selecione a guia executores para exibir as exibições de resumo e detalhe da configuração e dos recursos consumidos pelos executores.  Essas exibições podem ajudá-lo a determinar se é para alterar os valores padrão para executores do Spark para todo o cluster ou um conjunto específico de execuções de trabalho.
+Outra fonte de informações sobre os recursos que estão a ser utilizados pelos Executores do Apache Spark é a IU da Aplicação Apache Spark.  Na interface do usuário do Spark, selecione a guia **executores** para exibir as exibições de resumo e detalhe da configuração e dos recursos consumidos pelos executores.  Estas vistas podem ajudar a determinar se deve alterar os valores padrão dos executores do Apache Spark para todo o cluster ou para um conjunto específico de execuções de tarefas.
 
 ![Executores do Spark](./media/apache-spark-settings/spark-executors.png)
 
 Como alternativa, você pode usar a API REST do amAmbari para verificar programaticamente as definições de configuração do cluster HDInsight e Spark.  Mais informações estão disponíveis na [referência da API do Apache Ambari no GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Dependendo da carga de trabalho do Spark, você pode determinar que uma configuração não padrão do Spark fornece execuções de trabalhos Spark mais otimizadas.  Você deve executar testes de benchmark com cargas de trabalho de exemplo para validar qualquer configuração de cluster não padrão.  Alguns dos parâmetros comuns que você pode considerar ajustar são:
+Dependendo da carga de trabalho do Spark, pode determinar que uma configuração não padrão do Apache Spark permite execuções de tarefas do Apache Spark mais otimizadas.  Deve executar testes de referência com cargas de trabalho de exemplo para validar as configurações do cluster não padrão.  Alguns dos parâmetros comuns que pode querer ajustar:
 
 * `--num-executors`define o número de executores.
 * `--executor-cores`define o número de núcleos para cada executor. É recomendável usar executores de tamanho intermediário, pois outros processos também consomem alguma parte da memória disponível.

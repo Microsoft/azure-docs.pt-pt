@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar Apache Storm para ler e gravar dados com Apache Kafka-Azure HDInsight'
+title: 'Tutorial: Apache Storm ler, gravar com Apache Kafka-Azure HDInsight'
 description: Saiba como criar um pipeline de transmissão em fluxo com o Apache Storm e o Apache Kafka no HDInsight. Neste tutorial, vai utilizar os componentes KafkaBolt e KafkaSpout para transmitir em fluxo dados a partir do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 62452937d51c80a59e24e6d254d29337552b1af2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840253"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734722"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar Apache Storm com Apache Kafka no HDInsight
 
@@ -471,9 +471,9 @@ Para criar uma Rede Virtual do Azure e, depois, criar os clusters do Kafka e do 
 
     O valor devolvido é semelhante ao seguinte texto:
 
-        ```output
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        ```
+    ```output
+    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+     ```
 
     > [!IMPORTANT]  
     > Embora possa haver mais de dois anfitriões de mediadores para o cluster, não tem de fornecer uma lista completa de todos os anfitriões aos clientes. Basta um ou dois.

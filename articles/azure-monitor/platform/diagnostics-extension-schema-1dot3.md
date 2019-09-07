@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60238058"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735108"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Diagnóstico do Azure 1,3 e esquema de configuração posterior
 > [!NOTE]
@@ -27,13 +27,11 @@ ms.locfileid: "60238058"
 >
 > Essa página só será relevante se você estiver usando um desses serviços.
 
-Esta página é válida para as versões 1,3 e mais recentes (SDK do Azure 2,4 e mais recente). As seções de configuração mais recentes são comentadas para mostrar em qual versão elas foram adicionadas.  
+Esta página é válida para as versões 1,3 e mais recentes (SDK do Azure 2,4 e mais recente). As seções de configuração mais recentes são comentadas para mostrar em qual versão elas foram adicionadas. A versão 1,0 e 1,2 do esquema foram arquivadas e não estão mais disponíveis. 
 
 O arquivo de configuração descrito aqui é usado para definir as definições de configuração de diagnóstico quando o monitor de diagnóstico é iniciado.  
 
 A extensão é usada em conjunto com outros produtos de diagnóstico da Microsoft, como Azure Monitor, que inclui Application Insights e Log Analytics.
-
-
 
 Baixe a definição de esquema do arquivo de configuração pública executando o seguinte comando do PowerShell:  
 
@@ -564,7 +562,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Permite que você gere uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela de métricas, além da tabela de contador de desempenho.  
 
- O atributo ResourceId é necessário.  A ID de recurso da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais em que você está implantando Diagnóstico do Azure. Obtenha o ResourceId do [portal do Azure](https://portal.azure.com). Selecione **procurar** ->  **** gruposde -> recursos **<nome\>** . Clique no bloco **Propriedades** e copie o valor do campo **ID** .  
+ O atributo **ResourceId** é necessário.  A ID de recurso da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais em que você está implantando Diagnóstico do Azure. Obtenha o **ResourceId** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> gruposde -> recursos **<nome\>** . Clique no bloco **Propriedades** e copie o valor do campo **ID** .  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -644,12 +642,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|cadeia|Uma cadeia de caracteres que identifica o sinkname.|  
+|**name**|Cadeia de caracteres|Uma cadeia de caracteres que identifica o sinkname.|  
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|cadeia|Usado somente ao enviar dados para Application Insights. Conter a chave de instrumentação para uma conta do Active Application Insights à qual você tem acesso.|  
-|**Meios**|cadeia|Uma para cada filtragem adicional que é transmitida para você|  
+|**Application Insights**|Cadeia de caracteres|Usado somente ao enviar dados para Application Insights. Conter a chave de instrumentação para uma conta do Active Application Insights à qual você tem acesso.|  
+|**Meios**|Cadeia de caracteres|Uma para cada filtragem adicional que é transmitida para você|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Três Raiz-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels*

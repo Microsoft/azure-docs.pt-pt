@@ -8,63 +8,62 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 21e2d3f75028d239175effa7a3608cc18ccfc95c
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305320"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70392899"
 ---
-**Volume de recolha de dados e retenção** 
+**Retenção e volume de coleta de dados** 
 
-| Escalão | Limitar por dia | Retenção de dados | Comentário |
+| Escalão | Limite por dia | Retenção de dados | Comentário |
 |:---|:---|:---|:---|
-| Escalão de preço atual por GB<br>(introduzida em Abril de 2018) | Sem limite | 30 - 730 dias | Retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre os preços do Azure Monitor. |
-| Escalões gratuitos legados<br>(introduzida em Abril de 2016) | 500 MB | 7 dias | Quando a sua área de trabalho atinge a 500 MB por limite de dias, ingestão de dados parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC. Tenha em atenção que os dados recolhidos pelo centro de segurança do Azure não estão incluído neste 500 MB por limite de dias e continuará a ser recolhidos acima desse limite.  |
-| Escalão de legado autónomo por GB<br>(introduzida em Abril de 2016) | Sem limite | 30 para 730 dias | Retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre os preços do Azure Monitor. |
-| Herdado por nó (OMS)<br>(introduzida em Abril de 2016) | Sem limite | 30 para 730 dias | Retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre os preços do Azure Monitor. |
-| Escalão Standard legado | Sem limite | 30 dias  | Retenção não pode ser ajustada |
-| Escalão Premium legado | Sem limite | 365 dias  | Retenção não pode ser ajustada |
+| Tipo de preço atual por GB<br>(introduzido em abril de 2018) | Sem limite | 30-730 dias | A retenção de dados além de 31 dias está disponível para encargos adicionais. Saiba mais sobre preços de Azure Monitor. |
+| Camadas gratuitas herdadas<br>(introduzido em abril de 2016) | 500 MB | 7 dias | Quando seu espaço de trabalho atinge o limite de 500 MB por dia, a ingestão de dados é interrompida e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC. Observe que os dados coletados pela central de segurança do Azure não estão incluídos neste limite de 500 MB por dia e continuarão a ser coletados acima desse limite.  |
+| Camada autônoma herdada por GB<br>(introduzido em abril de 2016) | Sem limite | 30 a 730 dias | A retenção de dados além de 31 dias está disponível para encargos adicionais. Saiba mais sobre preços de Azure Monitor. |
+| Herdado por nó (OMS)<br>(introduzido em abril de 2016) | Sem limite | 30 a 730 dias | A retenção de dados além de 31 dias está disponível para encargos adicionais. Saiba mais sobre preços de Azure Monitor. |
+| Camada padrão herdada | Sem limite | 30 dias  | A retenção não pode ser ajustada |
+| Camada Premium herdada | Sem limite | 365 dias  | A retenção não pode ser ajustada |
 
-**Número de áreas de trabalho por subscrição.**
+**Número de espaços de trabalho por assinatura.**
 
-| Escalão de preço    | Limite de área de trabalho | Comentários
+| Escalão de preço    | Limite do espaço de trabalho | Comentários
 |:---|:---|:---|
-| Escalão gratuito  | 10 | Não é possível aumentar este limite. |
-| Todos os outros escalões | Sem limite | Está limitado pelo número de recursos dentro de um grupo de recursos e o número de grupos de recursos por subscrição. |
+| Escalão gratuito  | 10 | Esse limite não pode ser aumentado. |
+| Todas as outras camadas | Sem limite | Você está limitado pelo número de recursos dentro de um grupo de recursos e o número de grupos de recursos por assinatura. |
 
 **Azure portal**
 
-| Category | Limits | Comentários |
+| Category | Limites | Comentários |
 |:---|:---|:---|
-| Máximo de registos devolvido por uma consulta de registo | 10,000 | Reduza os resultados usando o âmbito de consulta e filtros de intervalo de tempo na consulta. |
+| Máximo de registros retornados por uma consulta de log | 10,000 | Reduza os resultados usando o escopo da consulta, o intervalo de tempo e os filtros na consulta. |
 
 
-**API do Recoletor de dados**
+**API do coletor de dados**
 
-| Category | Limits | Comentários |
+| Category | Limites | Comentários |
 |:---|:---|:---|
-| Tamanho máximo para um post individual | 30 MB | Dividir volumes maiores em várias postagens. |
-| Tamanho máximo de valores de campo  | 32 KB | Os campos com mais de 32 KB são truncados. |
+| Tamanho máximo para uma única postagem | 30 MB | Dividir volumes maiores em várias postagens. |
+| Tamanho máximo para valores de campo  | 32 KB | Os campos com mais de 32 KB são truncados. |
 
 **API de pesquisa**
 
-| Category | Limits | Comentários |
+| Category | Limites | Comentários |
 |:---|:---|:---|
-| Máximo de registos devolvido para dados não agregados | 5,000 | |
-| Máximo de registos para dados agregados | 500,000 | Dados agregados são uma pesquisa que inclui o `summarize` comando. |
-| Tamanho máximo de dados devolvidos | bytes 64,000,000 (~ 61 MiB)| |
-| Tempo de execução máxima de consulta | 10 minutos | Ver [tempos limite](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obter detalhes.  |
-| Taxa máxima de pedidos | 200 pedidos por 30 segundos por endereço IP de cliente ou de utilizador do AAD | Ver [limites de velocidade](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obter detalhes. |
+| Máximo de registros retornados em uma única consulta | 500,000 | |
+| Tamanho máximo dos dados retornados | 64 milhões bytes (~ 61 MiB)| |
+| Tempo de execução máximo da consulta | 10 minutos | Consulte [tempos limite](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obter detalhes.  |
+| Taxa de solicitação máxima | 200 solicitações por 30 segundos por usuário do AAD ou endereço IP do cliente | Consulte [limites de taxa](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obter detalhes. |
 
-**Limites da área de trabalho geral**
+**Limites gerais do espaço de trabalho**
 
-| Category | Limits | Comentários |
+| Category | Limites | Comentários |
 |:---|:---|:---|
-| Máximo de colunas numa tabela         | 500 | |
-| Número máximo de carateres para o nome da coluna | 500 | |
-| Regiões atingiu o limite | EUA Centro-Oeste | Atualmente não é possível criar uma nova área de trabalho nesta região, uma vez que está no limite de capacidade temporário. Este limite está previsto para serem resolvidas pela final de Setembro de 2019. |
-| Exportação de dados | Não se encontra disponível | Utilize a função do Azure ou a aplicação lógica para agregar e exportar dados. | 
+| Máximo de colunas em uma tabela         | 500 | |
+| Máximo de caracteres para o nome da coluna | 500 | |
+| Regiões em capacidade | EUA Centro-Oeste | No momento, não é possível criar um novo espaço de trabalho nesta região, pois ele está em um limite de capacidade temporário. Esse limite está planejado para ser resolvido até o final de outubro de 2019. |
+| Exportação de dados | Não disponível no momento | Use o Azure Function ou o aplicativo lógico para agregar e exportar dados. | 
 
 >[!NOTE]
->Consoante o tempo que estava usando o Log Analytics, poderá ter acesso aos escalões de preços legado. Saiba mais sobre [legado do Log Analytics escalões de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>Dependendo de quanto tempo você esteve usando Log Analytics, você pode ter acesso a tipos de preço herdados. Saiba mais sobre [log Analytics tipos de preço herdados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

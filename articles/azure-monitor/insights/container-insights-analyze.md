@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 154848c33960cb78b10c58e7a39ddec669d4fae0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872996"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744581"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores
 Com Azure Monitor para contêineres, você pode usar os gráficos de desempenho e o status de integridade para monitorar a carga de trabalho de seus clusters do AKS (serviço kubernetes do Azure) de duas perspectivas. Você pode monitorar diretamente de um cluster AKS ou pode monitorar todos os clusters do AKS em uma assinatura do Azure Monitor. A exibição de instâncias de contêiner do Azure também é possível quando você monitora um cluster AKS específico.
@@ -92,14 +92,14 @@ Na lista de clusters, você pode fazer uma busca detalhada na página do **clust
 
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>Ver desempenho diretamente a partir de um cluster do AKS
 
-O acesso a Azure Monitor para contêineres está disponível diretamente de um cluster AKS selecionando insights no painel esquerdo. As informações sobre o cluster AKS são organizadas em quatro perspectivas:
+O acesso a Azure Monitor para contêineres está disponível diretamente de um cluster AKS selecionando **insights** no painel esquerdo. As informações sobre o cluster AKS são organizadas em quatro perspectivas:
 
 - Cluster
 - Nós 
 - Controladores 
 - Contentores
 
-A página padrão é aberta quando você > seleciona**cluster**do insights. Quatro gráficos de desempenho de linha exibem as principais métricas de desempenho do cluster. 
+A página padrão é aberta quando você seleciona**cluster**do **insights** > . Quatro gráficos de desempenho de linha exibem as principais métricas de desempenho do cluster. 
 
 ![Exemplos de gráficos de desempenho no separador de Cluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
@@ -118,18 +118,18 @@ O Azure Monitor para contêineres também dá suporte a Azure Monitor [métricas
 
 No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod agregadas de Azure Monitor para contêineres. A tabela a seguir resume os detalhes para ajudá-lo a entender como usar os gráficos de métrica para visualizar as métricas de contêiner.
 
-|Espaço de Nomes | Métrica |
-|----------|--------|
+|Espaço de Nomes | Métrica | Descrição | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Medição agregada da utilização da CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (Mili = 1000). Usado para determinar o uso de núcleos em um contêiner em que muitos aplicativos podem estar usando um núcleo.| 
+| | cpuUsagePercentage | Utilização média de CPU agregada medida em percentual em todo o cluster.|
+| | memoryRssBytes | Memória RSS do contêiner usada em bytes.| 
+| | memoryRssPercentage | Memória RSS do contêiner usada em percentual.|
+| | memoryWorkingSetBytes | Memória do conjunto de trabalho do contêiner usada.| 
+| | memoryWorkingSetPercentage | Memória do conjunto de trabalho do contêiner usada em porcentagem. | 
+| | nodesCount | Uma contagem de nós de kubernetes.|
 | percepções. Container/pods | |
-| | PodCount |
+| | PodCount | Uma contagem de pod de kubernetes.|
 
 Você pode [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) uma métrica para exibi-la por dimensão e visualizar como os diferentes segmentos de ti se comparam entre si. Para um nó, você pode segmentar o gráfico pela dimensão do *host* . De um pod, você pode segmentá-lo pelas seguintes dimensões:
 
@@ -170,7 +170,7 @@ Em um nó expandido, você pode fazer drill-down do Pod ou contêiner que é exe
 
 Selecione controladores ou contêineres na parte superior da página para examinar o status e a utilização de recursos para esses objetos. Para examinar a utilização de memória, na lista suspensa **métrica** , selecione **conjunto de trabalho** **memória RSS** ou memória. **Memória RSS** só é suportada para Kubernetes versão 1.8 e posterior. Caso contrário, exibir os valores para **Min&nbsp; %**  como *NaN&nbsp;%* , que é um valor de tipo de dados numéricos que representa um indefinido ou valor não representável.
 
-**Conjunto de trabalho de memória** mostra a memória residente e a memória virtual (cache) incluídas e é um total do que o aplicativo está usando. A **memória RSS** mostra apenas a memória principal, que é a memória residente. Essa métrica mostra a capacidade real da memória disponível.
+**Conjunto de trabalho de memória** mostra a memória residente e a memória virtual (cache) incluídas e é um total do que o aplicativo está usando. O **RSS de memória** mostra somente a memória principal (que não é nada, exceto a memória residente em outras palavras). Essa métrica mostra a capacidade real da memória disponível.
 
 ![Vista de desempenho de nós de contentor](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -182,7 +182,7 @@ Quando você focaliza o gráfico de barras na coluna **tendência** , cada barra
 
 ![Exemplo de foco de gráfico de barra de tendência](./media/container-insights-analyze/containers-metric-trend-bar-01.png) 
 
-No próximo exemplo, para o primeiro nó na lista, *AKs-nodepool1-* , o valor para contêineres é 9. Esse valor é um ROLLUP do número total de contêineres implantados.
+No próximo exemplo, para o primeiro nó na lista, *AKs-nodepool1-* , o valor para **contêineres** é 9. Esse valor é um ROLLUP do número total de contêineres implantados.
 
 ![ROLLUP de contêineres por exemplo por nó](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 

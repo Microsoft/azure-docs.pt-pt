@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098008"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734343"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor no exemplo do observador de Durable Functions de clima
 
-O padrão de monitor refere-se a um processo recorrente flexível em um fluxo de trabalho, por exemplo, sondando até que determinadas condições sejam atendidas. Este artigo explica um exemplo que usa [Durable Functions](durable-functions-overview.md) para implementar o monitoramento.
+O padrão de monitor refere-se a um processo *recorrente* flexível em um fluxo de trabalho, por exemplo, sondando até que determinadas condições sejam atendidas. Este artigo explica um exemplo que usa [Durable Functions](durable-functions-overview.md) para implementar o monitoramento.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -31,7 +31,7 @@ Este exemplo monitora as condições do clima atual de um local e alerta um usu�
 * Os monitores podem terminar quando alguma condição é atendida ou terminada por outro processo.
 * Os monitores podem usar parâmetros. O exemplo mostra como o mesmo processo de monitoramento meteorológico pode ser aplicado a qualquer local e número de telefone solicitados.
 * Os monitores são escalonáveis. Como cada monitor é uma instância de orquestração, vários monitores podem ser criados sem a necessidade de criar novas funções ou definir mais códigos.
-* Os monitores integram-se facilmente a fluxos de trabalho maiores. Um monitor pode ser uma seção de uma função de orquestração mais complexa ou uma [](durable-functions-sub-orchestrations.md)suborquestração.
+* Os monitores integram-se facilmente a fluxos de trabalho maiores. Um monitor pode ser uma seção de uma função de orquestração mais complexa ou uma [suborquestração](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Configurando a integração do twilio
 
@@ -67,7 +67,7 @@ A função **E3_Monitor** usa o *Function. JSON* padrão para funções de orque
 
 Este é o código que implementa a função:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -103,7 +103,7 @@ Assim como ocorre com outros exemplos, as funções de atividade auxiliar são f
 
 E aqui está a implementação. Como o POCOs usado para transferência de dados, a lógica para manipular a chamada à API e analisar a resposta JSON é dissociada em uma C#classe compartilhada no. Você pode encontrá-lo como parte do [código de exemplo do Visual Studio](#run-the-sample).
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -117,7 +117,7 @@ A função **E3_SendGoodWeatherAlert** usa a associação twilio para enviar uma
 
 E aqui está o código que envia a mensagem SMS:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
@@ -181,7 +181,7 @@ Aqui está a orquestração como um único C# arquivo em um projeto do Visual St
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este exemplo demonstrou como usar Durable Functions para monitorar o status de uma fonte externa usando [temporizadores duráveis](durable-functions-timers.md) e a lógica condicional. O exemplo a seguir mostra como usar eventos externos e [temporizadores duráveis](durable-functions-timers.md) para lidar com a interação humana.
 

@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40e25fc0cfc9d08ef59092929d2cf1d51dcf83d1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e34d000f77ca5a5ac75fadab61b4280d528c6805
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087560"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735296"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -31,7 +31,7 @@ Para concluir este tutorial:
 
 * Instale o [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Verifique se a carga de trabalho de **desenvolvimento do Azure** também está instalada. O Visual Studio 2017 também dá suporte ao desenvolvimento de Durable Functions, mas a interface do usuário e as etapas são diferentes.
 
-* Verifique se você tem o emulador de [armazenamento do Azure](../../storage/common/storage-use-emulator.md) instalado e em execução.
+* Verifique se você tem o [emulador de armazenamento do Azure](../../storage/common/storage-use-emulator.md) instalado e em execução.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -79,7 +79,7 @@ Uma nova função durável é adicionada ao aplicativo.  Abra o novo arquivo. cs
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Gerencia a orquestração durável. Nesse caso, a orquestração inicia, cria uma lista e adiciona o resultado de três chamadas de funções à lista.  Quando as três chamadas de função são concluídas, ela retorna a lista. |
 | **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. Essa é a função que contém a lógica de negócios que está sendo orquestrada. |
-| **`HttpStart`** | `<file-name>_HttpStart` | Uma [função](../functions-bindings-http-webhook.md) disparada por http que inicia uma instância da orquestração e retorna uma resposta de verificação de status. |
+| **`HttpStart`** | `<file-name>_HttpStart` | Uma [função disparada por http](../functions-bindings-http-webhook.md) que inicia uma instância da orquestração e retorna uma resposta de verificação de status. |
 
 Agora que você criou seu projeto de função e uma função durável, você pode testá-lo em seu computador local.
 
@@ -139,7 +139,7 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 
 2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Você deve obter a mesma resposta de status que antes de usar o aplicativo publicado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você usou o Visual Studio para criar e publicar um C# aplicativo de funções duráveis.
 

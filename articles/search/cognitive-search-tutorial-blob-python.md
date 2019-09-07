@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 2cde1fe258d2caf7e7dc9d8ede582364f42c676b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c21b4d525e395dfb032a89631eb34156fe3e5b23
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648873"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744723"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial do Python: Chamar API de Serviços Cognitivos em um pipeline de indexação de Azure Search
 
@@ -67,11 +67,11 @@ Todas as solicitações exigem uma chave de API em cada solicitação enviada ao
 
 ## <a name="prepare-sample-data"></a>Preparar dados de exemplo
 
-O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de origem de dados suportado de um [indexador do Azure Search](search-indexer-overview.md). O armazenamento de tabelas do Azure não tem suporte para pesquisa cognitiva. Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
+O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de origem de dados suportado de um [indexador do Azure Search](search-indexer-overview.md). Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
 
-1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, cliqueem BLOBs e, em seguida, clique em **+ contêiner**.
+1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, clique em **BLOBs**e, em seguida, clique em **+ contêiner**.
 
-1. [Crie um contêiner](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) de BLOBs para conter dados de exemplo. Você pode definir o nível de acesso público para qualquer um de seus valores válidos.
+1. [Crie um contêiner de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Você pode definir o nível de acesso público para qualquer um de seus valores válidos.
 
 1. Depois que o contêiner for criado, abra-o e selecione **carregar** na barra de comandos para carregar os arquivos de exemplo que você baixou em uma etapa anterior.
 
@@ -404,7 +404,7 @@ print(r.status_code)
 
 A solicitação deve retornar rapidamente um código de status de 201, no entanto, o processamento pode levar vários minutos para ser concluído. Embora o conjunto de dados seja pequeno, as habilidades analíticas, como análise de imagem, são computacionalmente intensivas e demoram tempo.
 
-Use o script [verificar o status](#check-indexer-status) do indexador na próxima seção para determinar quando o processo do indexador foi concluído.
+Use o script [verificar o status do indexador](#check-indexer-status) na próxima seção para determinar quando o processo do indexador foi concluído.
 
 > [!TIP]
 > A criação de um indexador invoca o pipeline. Se houver um problema ao acessar os dados, mapear entradas e saídas ou com a ordem das operações, ele será exibido neste estágio. Para executar novamente o pipeline com alterações de código ou script, talvez seja necessário excluir objetos primeiro. Para obter mais informações, veja [Repor e executar novamente](#reset).
@@ -436,7 +436,7 @@ Na resposta, monitore o "lastResult" para seus valores de "status" e "endTime". 
 
 Os avisos são comuns com algumas combinações de ficheiros de origem e competências e nem sempre indicam um problema. Neste tutorial, os avisos são benignos. Por exemplo, um dos arquivos JPEG que não tem texto mostrará o aviso nesta captura de tela.
 
-![Exemplo de aviso] do indexador (./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exemplo de aviso") do indexador
+![Exemplo de aviso do indexador](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exemplo de aviso do indexador")
 
 ## <a name="query-your-index"></a>Consultar o índice
 
@@ -473,7 +473,8 @@ Os resultados devem ser semelhantes ao exemplo a seguir. A captura de tela mostr
 Repita para campos adicionais: conteúdo, languageCode, prefrases e organizações neste exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
 
 Pode utilizar GET ou POST, dependendo da complexidade da cadeia de consulta e do comprimento. Para obter mais informações, veja [Consultar através da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-fosse<a name="reset"></a>
+
+<a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Repor e executar novamente
 
@@ -504,7 +505,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Este tutorial demonstra os passos básicos para criar um pipeline de indexação melhorado através da criação de partes do componente: uma origem de dados, um conjunto de competências, um índice e um indexador.
 
-[Habilidades](cognitive-search-predefined-skills.md) predefinidas foram introduzidas, juntamente com definições de conjunto de qualificações e uma maneira de encadear habilidades em entradas e saídas. Também aprendeu que precisa de `outputFieldMappings` na definição do indexador para encaminhar valores melhorados do pipeline para um índice pesquisável num serviço do Azure Search.
+[Habilidades predefinidas](cognitive-search-predefined-skills.md) foram introduzidas, juntamente com definições de conjunto de qualificações e uma maneira de encadear habilidades em entradas e saídas. Também aprendeu que precisa de `outputFieldMappings` na definição do indexador para encaminhar valores melhorados do pipeline para um índice pesquisável num serviço do Azure Search.
 
 Por fim, você aprendeu como testar os resultados e redefinir o sistema para iterações adicionais. Aprendeu que a emissão de consultas acerca do índice devolve o resultado criado pelo pipeline de indexação melhorado. Nesta versão, não há um mecanismo para visualizar as construções internas (documentos melhorados criados pelo sistema). Você também aprendeu como verificar o status do indexador e quais objetos devem ser excluídos antes de executar novamente um pipeline.
 
@@ -512,7 +513,7 @@ Por fim, você aprendeu como testar os resultados e redefinir o sistema para ite
 
 A forma mais rápida de os limpar no final do tutorial passa por eliminar o grupo de recursos que contém o serviço do Azure Search e o serviço Blob do Azure. Supondo que você coloque os dois serviços no mesmo grupo, exclua o grupo de recursos para excluir permanentemente tudo nele, incluindo os serviços e qualquer conteúdo armazenado que você criou para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
 

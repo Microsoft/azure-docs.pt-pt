@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo de escala de aplicativos do Maven para o Spark no Azure HDInsight usando o IntelliJ'
+title: 'Tutorial: Aplicativo de escala do Maven para Spark com IntelliJ-Azure HDInsight'
 description: Tutorial-criar um aplicativo Spark escrito em escala com o Apache Maven como o sistema de compilação e um arquétipo Maven existente para escalabilidade fornecida pela IntelliJ IDEA.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 263eea88182a947eccc8a57450432fce8d2fcfc9
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3b9001b9c7fa81b86c70d5c07a33a54bae539add
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839713"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736451"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar um aplicativo de escala de aplicativos do Maven para Apache Spark no HDInsight usando IntelliJ
 
@@ -113,13 +113,13 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
 10. Confirme o nome e a localização do projeto e selecione **Finish** (Concluir).  O projeto levará alguns minutos para ser importado.
 
-11. Depois que o projeto for importado, no painel esquerdo, navegue até **SparkSimpleApp** > **src** > **Test** > **Scale** > **com** > **Microsoft** exemplo de **Spark** > .  >   Clique com obotão direito do mouse em myspec e selecione **excluir...** . Não precisa deste ficheiro para a aplicação.  Selecione **OK** na caixa de diálogo.
+11. Depois que o projeto for importado, no painel esquerdo, navegue até **SparkSimpleApp** > **src** > **Test** > **Scale** > **com** > **Microsoft** exemplo de **Spark** > .  >   Clique com o botão direito do mouse em **myspec**e selecione **excluir...** . Não precisa deste ficheiro para a aplicação.  Selecione **OK** na caixa de diálogo.
   
 12. Nas etapas subsequentes, você atualiza o **pom. xml** para definir as dependências para o aplicativo do Spark escalar. Para que essas dependências sejam transferidas e resolvidas automaticamente, tem de configurar o Maven em conformidade.
 
 13. No menu **arquivo** , selecione **configurações** para abrir a janela **configurações** .
 
-14. Na janela **configurações** , navegue até **compilação, execução, implantação** > **ferramentas** > de compilação**Maven** > importando.
+14. Na janela **configurações** , navegue até **compilação, execução, implantação** > **ferramentas** > de compilação**Maven** > **importando**.
 
 15. Marque a caixa de seleção **Importar projetos Maven automaticamente** .
 
@@ -195,7 +195,7 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
         Verifique se a caixa de seleção **incluir no Build do projeto** está selecionada, o que garante que o jar seja criado toda vez que o projeto for compilado ou atualizado. Selecione **aplicar** e **OK**.
 
-    7. Para criar o Jar, navegue para > compilar compilar**artefatos** > **Build**. O projeto será compilado em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
+    7. Para criar o Jar, **navegue para** > compilar compilar**artefatos** > **Build**. O projeto será compilado em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
 
         ![Criar o JAR](./media/apache-spark-create-standalone-application/output.png)
 

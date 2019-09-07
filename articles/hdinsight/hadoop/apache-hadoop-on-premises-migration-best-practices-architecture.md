@@ -1,127 +1,127 @@
 ---
-title: Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de arquitetura
-description: Aprenda as práticas recomendadas de arquitetura para migrar clusters do Hadoop no local para Azure HDInsight.
+title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-Architecture
+description: Aprenda as práticas recomendadas de arquitetura para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: d1f2b79ff3ae33adb0b6e3ce5a6d96ad38fb1562
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693111"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735886"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de arquitetura
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de arquitetura
 
-Este artigo fornece recomendações para a arquitetura de sistemas do Azure HDInsight. É parte de uma série que fornece as práticas recomendadas para ajudar a migrar sistemas de Apache Hadoop no local para Azure HDInsight.
+Este artigo fornece recomendações para a arquitetura dos sistemas do Azure HDInsight. É parte de uma série que fornece as práticas recomendadas para ajudar na migração de sistemas locais Apache Hadoop para o Azure HDInsight.
 
-## <a name="use-multiple-workload-optimized-clusters"></a>Utilizar vários clusters com otimização de carga de trabalho
+## <a name="use-multiple-workload-optimized-clusters"></a>Usar vários clusters com otimização de carga de trabalho
 
-Muitas implementações de Apache Hadoop no local são compostos por um único cluster grande que suporta muitas cargas de trabalho. Este cluster único pode ser complexo e pode exigir comprometimentos para os serviços individuais para fazer tudo funcionar em conjunto. Migração no local para Azure HDInsight clusters do Hadoop requer uma mudança na abordagem.
+Muitas implantações Apache Hadoop locais consistem em um único cluster grande que dá suporte a várias cargas de trabalho. Esse único cluster pode ser complexo e pode exigir comprometimentos para os serviços individuais para fazer tudo funcionar juntos. Migrar clusters Hadoop locais para o Azure HDInsight requer uma alteração na abordagem.
 
-Clusters do HDInsight do Azure foram concebidos para um tipo específico de utilização de computação. Como o armazenamento pode ser compartilhado entre vários clusters, é possível criar vários clusters de computação com otimização de carga de trabalho para satisfazer as necessidades de diferentes tarefas. Cada tipo de cluster tem a configuração ideal para essa carga de trabalho específica. A tabela seguinte lista os tipos de cluster suportadas no HDInsight e as cargas de trabalho correspondentes.
+Os clusters do Azure HDInsight são projetados para um tipo específico de uso de computação. Como o armazenamento pode ser compartilhado entre vários clusters, é possível criar vários clusters de computação com otimização de carga de trabalho para atender às necessidades de diferentes trabalhos. Cada tipo de cluster tem a configuração ideal para essa carga de trabalho específica. A tabela a seguir lista os tipos de cluster com suporte no HDInsight e as cargas de trabalho correspondentes.
 
-|**Carga de trabalho**|**Tipo de Cluster do HDInsight**|
+|**Carga de trabalho**|**Tipo de cluster HDInsight**|
 |---|---|
-|Processamento em lotes (ETL / ELT)|Hadoop, Spark|
-|Armazenamento de dados|Uma consulta interativa do Hadoop, Spark,|
-|IoT / transmissão em fluxo|Kafka, Storm, Spark|
-|Processamento de transações do NoSQL|HBase|
-|Consultas interativo e mais rápidas com colocação em cache na memória|Interactive Query|
+|Processamento em lotes (ETL/ELT)|Hadoop, Spark|
+|Armazenamento de dados|Hadoop, Spark, consulta interativa|
+|IoT/streaming|Kafka, Storm, Spark|
+|Processamento transacional NoSQL|HBase|
+|Consultas interativas e mais rápidas com cache na memória|Interactive Query|
 |Ciência de dados|Serviços de ML, Spark|
 
-A tabela seguinte mostra os diferentes métodos que podem ser utilizados para criar um cluster do HDInsight.
+A tabela a seguir mostra os diferentes métodos que podem ser usados para criar um cluster HDInsight.
 
-|**Ferramenta**|**Baseadas no browser**|**Linha de comandos**|**API REST**|**SDK**|
+|**Ferramenta**|**Baseado em navegador**|**Linha de comando**|**REST API**|**SDK**|
 |---|---|---|---|---|
-|[Portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
-|[CLI do Azure (vidor 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
+|[CLI do Azure (ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[SDK do .NET](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
 |[SDK Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
-|[Modelos Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
+|[Modelos de Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
-Para obter mais informações, consulte o artigo [tipos no HDInsight do Cluster](../hadoop/apache-hadoop-introduction.md).
+Para obter mais informações, consulte o artigo [tipos de cluster no HDInsight](../hadoop/apache-hadoop-introduction.md).
 
-## <a name="use-transient-on-demand-clusters"></a>Utilizar clusters do transitórios sob demanda
+## <a name="use-transient-on-demand-clusters"></a>Usar clusters temporários sob demanda
 
-Clusters do HDInsight podem ir não utilizados por longos períodos de tempo. Para ajudar a poupar nos custos de recursos, o HDInsight suporta clusters transitórios de sob demanda, o que podem ser eliminados depois da carga de trabalho foi concluída com êxito.
+Os clusters HDInsight podem ficar inutilizados por longos períodos de tempo. Para ajudar a economizar em custos de recursos, o HDInsight dá suporte a clusters transitórios sob demanda, que podem ser excluídos depois que a carga de trabalho for concluída com êxito.
 
-Quando eliminar um cluster, a conta de armazenamento associado e externo de metadados não são removidas. O cluster pode posteriormente voltar a criar com o mesmo contas de armazenamento e os arquivos de metadados.
+Quando você exclui um cluster, a conta de armazenamento associada e os metadados externos não são removidos. O cluster pode ser recriado posteriormente usando as mesmas contas de armazenamento e metaarmazenamentos.
 
-O Azure Data Factory pode ser utilizado para agendar a criação de clusters de HDInsight a pedido. Para obter mais informações, consulte o artigo [criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory pode ser usado para agendar a criação de clusters HDInsight sob demanda. Para obter mais informações, consulte o artigo [criar Apache Hadoop clusters sob demanda no HDInsight usando Azure data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
-## <a name="decouple-storage-from-compute"></a>Desassociar o armazenamento da computação
+## <a name="decouple-storage-from-compute"></a>Dissociar o armazenamento da computação
 
-Implementações de Hadoop do típico no local utilizam o mesmo conjunto de máquinas para armazenamento de dados e processamento de dados. Como são colocalizados, computação e armazenamento devem ser dimensionados em conjunto.
+Implantações típicas do Hadoop locais usam o mesmo conjunto de computadores para armazenamento de dados e processamento de dados. Como eles são colocados, a computação e o armazenamento devem ser dimensionados juntos.
 
-Nos clusters do HDInsight, armazenamento não tem de ser foi colocalizado com a computação e o poderá no armazenamento do Azure, armazenamento do Azure Data Lake ou ambos. Desacoplamento armazenamento da computação tem as seguintes vantagens:
+Em clusters HDInsight, o armazenamento não precisa estar colocalizado com computação e pode estar no armazenamento do Azure, Azure Data Lake Storage ou ambos. O desacoplamento do armazenamento da computação tem os seguintes benefícios:
 
-- Partilha de dados em clusters.
-- Utilização de clusters transitórios, uma vez que os dados não são dependentes de cluster.
-- Redução no custo de armazenamento.
-- Dimensionar o armazenamento e computação em separado.
-- Replicação de dados em várias regiões.
+- Compartilhamento de dados entre clusters.
+- Uso de clusters transitórios, pois os dados não dependem do cluster.
+- Custo de armazenamento reduzido.
+- Dimensionando o armazenamento e a computação separadamente.
+- Replicação de dados entre regiões.
 
-Computação clusters são criados perto dos recursos da conta de armazenamento numa região do Azure para reduzir o custo de desempenho de separar a computação e armazenamento. Redes de alta velocidade torná-lo no eficiente para os nós de computação aceder a dados de armazenamento do Azure.
+Os clusters de computação são criados próximos aos recursos da conta de armazenamento em uma região do Azure para reduzir o custo de desempenho da separação da computação e do armazenamento. Redes de alta velocidade tornam eficiente para os nós de computação acessar os dados no armazenamento do Azure.
 
 ## <a name="use-external-metadata-stores"></a>Utilizar arquivos de metadados externos
 
 
-Existem dois metastores principais que funcionam com clusters do HDInsight: [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). O metastore Hive é o repositório do esquema central que pode ser utilizado por motores de processamento de dados, incluindo o Hadoop, Spark, o LLAP, Presto e o Apache Pig. O metastore Oozie armazena os detalhes sobre o agendamento e o estado de em curso e concluídas tarefas do Hadoop.
+Há dois metarepositórios principais que funcionam com clusters HDInsight: [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). O metastore do Hive é o repositório de esquema central que pode ser usado por mecanismos de processamento de dados, incluindo Hadoop, Spark, LLAP, presto e Apache Pig. O metastore do Oozie armazena detalhes sobre o agendamento e o status em andamento e trabalhos do Hadoop concluídos.
 
 
-HDInsight utiliza a base de dados do Azure SQL para Hive e Oozie metastores. Existem duas formas de configurar um metastore em clusters do HDInsight:
+O HDInsight usa o banco de dados SQL do Azure para metastores do hive e do Oozie. Há duas maneiras de configurar um metastore em clusters HDInsight:
 
-1. Metastore predefinida
+1. Metastore padrão
 
-    - Sem custos adicionais.
-    - Metastore será eliminado quando o cluster é eliminado.
-    - Metastore não pode ser partilhado entre clusters diferentes.
-    - Utiliza básica BD SQL do Azure, que tem um limite DTU cinco.
+    - Sem custo adicional.
+    - O metastore é excluído quando o cluster é excluído.
+    - O metastore não pode ser compartilhado entre clusters diferentes.
+    - Usa o banco de BD SQL básico do Azure, que tem um limite de cinco DTU.
 
 1. Metastore externo personalizado
 
-    - Especifique uma base de dados de SQL do Azure externos como o metastore.
-    - Clusters podem ser criados e eliminados sem perder a metadados, incluindo detalhes da tarefa do Hive do esquema Oozie.
-    - Db de metastore único pode ser partilhado com diferentes tipos de clusters.
-    - Metastore pode ser aumentado verticalmente, conforme necessário.
-    - Para obter mais informações, consulte [utilizar arquivos de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
+    - Especifique um banco de dados SQL do Azure externo como o metastore.
+    - Os clusters podem ser criados e excluídos sem perder metadados, incluindo detalhes do trabalho do esquema do hive Oozie.
+    - O BD de metastore único pode ser compartilhado com diferentes tipos de clusters.
+    - O metastore pode ser escalado verticalmente conforme necessário.
+    - Para obter mais informações, consulte [usar repositórios de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
-## <a name="best-practices-for-hive-metastore"></a>Melhores práticas para Hive Metastore
+## <a name="best-practices-for-hive-metastore"></a>Práticas recomendadas para metastore do hive
 
-Seguem-se algumas práticas recomendadas de metastore Hive do HDInsight:
+Algumas práticas recomendadas do HDInsight metastore do Hive são as seguintes:
 
-- Utilize um metastore externo personalizado para recursos de computação separada e metadados.
-- Começar com uma instância de SQL do Azure de escalão S2, que fornece 50 DTUS e 250 GB de armazenamento. Se vir um estrangulamento, pode dimensionar a base de dados.
-- Não partilhe o metastore criado para uma versão de cluster do HDInsight com clusters de uma versão diferente. Diferentes versões de Hive usam esquemas diferentes. Por exemplo, um metastore não pode ser partilhado com clusters do Hive 1.2 e 2.1 do Hive.
-- Criar cópias de segurança o metastore personalizado periodicamente.
-- Mantenha o metastore e o cluster do HDInsight na mesma região.
-- Monitorize o metastore para desempenho e disponibilidade usando ferramentas de monitorização de base de dados SQL do Azure, como o portal do Azure ou registos do Azure Monitor.
-- Executar o **analisar tabela** comando conforme necessário para gerar estatísticas de tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Use um metastore externo personalizado para separar os recursos de computação e os metadados.
+- Comece com uma instância do SQL do Azure de camada S2, que fornece 50 DTU e 250 GB de armazenamento. Se você vir um afunilamento, poderá dimensionar o banco de dados.
+- Não compartilhe o metastore criado para uma versão de cluster do HDInsight com clusters de uma versão diferente. Versões diferentes do hive usam esquemas diferentes. Por exemplo, um metastore não pode ser compartilhado com os clusters Hive 1,2 e Hive 2,1.
+- Faça backup do metastore personalizado periodicamente.
+- Mantenha o metastore e o cluster HDInsight na mesma região.
+- Monitore o metastore para obter desempenho e disponibilidade usando as ferramentas de monitoramento do banco de dados SQL do Azure, como portal do Azure ou Azure Monitor logs.
+- Execute o comando **analisar tabela** conforme necessário para gerar estatísticas para tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
-## <a name="best-practices-for-different-workloads"></a>Melhores práticas para diferentes cargas de trabalho
+## <a name="best-practices-for-different-workloads"></a>Práticas recomendadas para cargas de trabalho diferentes
 
-- Considere a utilização de LLAP cluster para consultas interativas do Hive com o tempo de resposta melhoradas [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) é uma funcionalidade nova no 2.0 Hive, que permite a colocação em cache de memória de consultas. LLAP torna muito mais rápidas, até de consultas do Hive [26 x mais rapidamente do que o Hive 1.x em alguns casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
-- Considere a utilização de tarefas do Spark no lugar de tarefas do Hive.
-- Considere substituir consultas baseadas em impala consultas LLAP.
-- Considere a substituição de tarefas de MapReduce com tarefas do Spark.
-- Considere a substituição de tarefas de lote de Spark de baixa latência através de tarefas de transmissão estruturada do Spark.
-- Considere utilizar o Azure Data Factory (ADF) 2.0 para orquestração de dados.
-- Considere o Ambari para gerenciamento de Cluster.
-- Altere o armazenamento de dados do HDFS no local para WASB ou ADLS ou AD FS para o processamento de scripts.
-- Considere utilizar o Ranger RBAC em tabelas de ramo de registo e auditoria.
-- Considere a utilização do cosmos DB em vez do MongoDB ou o Cassandra.
+- Considere usar o cluster LLAP para consultas interativas do hive com tempo de resposta aprimorado [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) é um novo recurso do hive 2,0 que permite o cache em memória de consultas. O LLAP torna as consultas de Hive muito mais rápidas, até [26x mais rápidas do que o hive 1. x em alguns casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Considere o uso de trabalhos do Spark em vez de trabalhos do hive.
+- Considere a substituição de consultas baseadas em Impala por consultas LLAP.
+- Considere a possibilidade de substituir trabalhos MapReduce por trabalhos do Spark.
+- Considere a possibilidade de substituir trabalhos em lotes do Spark de baixa latência usando trabalhos de streaming estruturado do Spark.
+- Considere o uso de Azure Data Factory (ADF) 2,0 para orquestração de dados.
+- Considere Ambari para o gerenciamento de cluster.
+- Altere o armazenamento de dados do HDFS local para WASB ou ADLS ou ADFS para processamento de scripts.
+- Considere o uso do Ranger RBAC em tabelas e auditoria do hive.
+- Considere o uso de CosmosDB no lugar do MongoDB ou do Cassandra.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Leia o artigo seguinte nesta série:
+Leia o próximo artigo desta série:
 
-- [Práticas recomendadas de infraestrutura no local para a migração do Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
+- [Práticas recomendadas de infraestrutura para migração local para Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)

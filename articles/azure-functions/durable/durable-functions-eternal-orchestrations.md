@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a04221a61ae057185ddd8ad37bbba2d387ee5eda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 788693698e75a24269e29c54e03af35c1853f1f6
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097976"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735213"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternass no Durable Functions (Azure Functions)
 
-As orquestrações de *eternas* são funções de orquestrador que nunca terminam. Eles são úteis quando você deseja usar [Durable Functions](durable-functions-overview.md) para agregadores e qualquer cenário que exija um loop infinito.
+As *orquestrações de eternas* são funções de orquestrador que nunca terminam. Eles são úteis quando você deseja usar [Durable Functions](durable-functions-overview.md) para agregadores e qualquer cenário que exija um loop infinito.
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 

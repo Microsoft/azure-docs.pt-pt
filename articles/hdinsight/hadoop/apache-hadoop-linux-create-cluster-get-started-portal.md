@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive usando o portal do Azure HDInsight do Azure'
+title: 'Início rápido: Apache Hadoop e Apache Hive no HDInsight usando o portal do Azure'
 description: Neste guia de início rápido, você usa o portal do Azure para criar um cluster HDInsight Hadoop
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5becea8c9cb525d86dac09ead40ab1604abdbbed
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: a22fef717acdc0cd619ddfe1efdf256b1255dbf9
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207373"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735947"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: Criar Apache Hadoop cluster no Azure HDInsight usando portal do Azure
 
@@ -146,7 +146,7 @@ Depois de concluir o início rápido, talvez você queira excluir o cluster. Com
 
 3. Selecione **Eliminar grupo de recursos** para eliminar o grupo de recursos, o qual contém o cluster e a conta de armazenamento predefinida. Tenha em atenção que a eliminação do grupo de recursos elimina a conta de armazenamento. Se pretender manter a conta do Storage, opte por eliminar apenas o cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você aprendeu como criar um cluster HDInsight baseado em Linux usando um modelo do Resource Manager e como executar consultas básicas do hive. No artigo seguinte, irá saber como executar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
 

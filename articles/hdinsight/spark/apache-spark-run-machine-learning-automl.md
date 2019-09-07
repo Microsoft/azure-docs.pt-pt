@@ -1,5 +1,5 @@
 ---
-title: Executar cargas de trabalho de Azure Machine Learning com o AutoML (Machine Learning automatizado) no Apache Spark no Azure HDInsight
+title: Executar cargas de trabalho de Azure Machine Learning no Apache Spark no Azure HDInsight
 description: Saiba como executar cargas de trabalho de Azure Machine Learning com o AutoML (Machine Learning automatizado) no Apache Spark no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: aaea8a1af7ad6df89d41dc0e39d13bafbb610224
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141173"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736054"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Executar cargas de trabalho de Azure Machine Learning com o AutoML (Machine Learning automatizado) no Apache Spark no Azure HDInsight
 

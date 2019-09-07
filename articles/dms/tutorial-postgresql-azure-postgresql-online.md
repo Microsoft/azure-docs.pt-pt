@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: 29776c1a49161daf9cf972c43c1378e52f5c3069
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/06/2019
+ms.openlocfilehash: 5888555e93c28c96445bed1936deda022b0a4b94
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141509"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734592"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 
@@ -44,9 +44,6 @@ Para concluir este tutorial, precisa de:
 * Baixe e instale o [PostgreSQL Community edition](https://www.postgresql.org/download/) 9,5, 9,6 ou 10. A versão do servidor PostgreSQL de origem deve ser 9.5.11, 9.6.7, 10 ou posterior. Para obter mais informações, consulte o artigo [versões de banco de dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     Além disso, a versão do PostgreSQL no local tem de corresponder à versão da Base de Dados do Azure para PostgreSQL. Por exemplo, o PostgreSQL 9.5.11.5 só pode ser migrado para a Base de Dados do Azure para PostgreSQL 9.5.11 e não para a versão 9.6.7.
-
-    > [!NOTE]
-    > Para PostgreSQL versão 10, atualmente o DMS dá suporte apenas à migração da versão 10,3 para o banco de dados do Azure para PostgreSQL.
 
 * [Criar uma instância na Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
 * Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
@@ -79,7 +76,7 @@ Para concluir este tutorial, precisa de:
 * Ative a replicação lógica no ficheiro postgresql.config e defina os seguintes parâmetros:
 
   * wal_level = **logical**
-  * max_replication_slots = [número de ranhuras], definição recomendada de **5 ranhuras**
+  * max_replication_slots = [número de Slots], configuração recomendada para **cinco Slots**
   * max_wal_senders = [número de tarefas simultâneas] – O parâmetro max_wal_senders define o número de tarefas simultâneas que podem ser executadas, definição recomendada de **10 tarefas**
 
 ## <a name="migrate-the-sample-schema"></a>Migrar o esquema de exemplo

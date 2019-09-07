@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 33d1b410119e631e0ccc9941beac1062d4ec30f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087336"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734313"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros em Durable Functions (Azure Functions)
 
@@ -26,7 +26,45 @@ Qualquer exceção gerada em uma função de atividade é empacotada de volta pa
 
 Por exemplo, considere a seguinte função de orquestrador que transfere fundos de uma conta para outra:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+[FunctionName("TransferFunds")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var transferDetails = ctx.GetInput<TransferOperation>();
+
+    await context.CallActivityAsync("DebitAccount",
+        new
+        {
+            Account = transferDetails.SourceAccount,
+            Amount = transferDetails.Amount
+        });
+
+    try
+    {
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.DestinationAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+    catch (Exception)
+    {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.SourceAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+}
+```
+
+### <a name="c-script"></a>C#Prescritiva
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -107,7 +145,23 @@ Se a chamada à função **CreditAccount** falhar para a conta de destino, a fun
 
 Quando você chama funções de atividade ou funções de suborquestração, pode especificar uma política de repetição automática. O exemplo a seguir tenta chamar uma função até três vezes e aguarda 5 segundos entre cada repetição:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+[FunctionName("TimerOrchestratorWithRetry")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var retryOptions = new RetryOptions(
+        firstRetryInterval: TimeSpan.FromSeconds(5),
+        maxNumberOfAttempts: 3);
+
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
+
+    // ...
+}
+```
+
+### <a name="c-script"></a>C#Prescritiva
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -151,7 +205,37 @@ Há várias opções para personalizar a política de repetição automática. E
 
 Talvez você queira abandonar uma chamada de função dentro de uma função de orquestrador se estiver demorando muito tempo para ser concluída. A maneira correta de fazer isso hoje é criando um [temporizador durável](durable-functions-timers.md) usando `context.CreateTimer` (.net) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.net) ou `context.df.Task.any` (JavaScript), como no exemplo a seguir:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+[FunctionName("TimerOrchestrator")]
+public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    TimeSpan timeout = TimeSpan.FromSeconds(30);
+    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+    using (var cts = new CancellationTokenSource())
+    {
+        Task activityTask = context.CallActivityAsync("FlakyFunction");
+        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
+
+        Task winner = await Task.WhenAny(activityTask, timeoutTask);
+        if (winner == activityTask)
+        {
+            // success case
+            cts.Cancel();
+            return true;
+        }
+        else
+        {
+            // timeout case
+            return false;
+        }
+    }
+}
+```
+
+### <a name="c-script"></a>C#Prescritiva
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -205,7 +289,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> Esse mecanismo não encerra realmente a execução da função de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e passe. Para obter mais informações, consulte [](durable-functions-timers.md#usage-for-timeout) a documentação de temporizadores.
+> Esse mecanismo não encerra realmente a execução da função de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e passe. Para obter mais informações, consulte a documentação de [temporizadores](durable-functions-timers.md#usage-for-timeout) .
 
 ## <a name="unhandled-exceptions"></a>Exceções não processadas
 

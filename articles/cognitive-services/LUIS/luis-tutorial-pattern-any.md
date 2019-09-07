@@ -1,5 +1,5 @@
 ---
-title: Padrão. qualquer entidade-LUIS
+title: 'Tutorial: Padrão. qualquer entidade-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Utilize a entidade pattern.any para extrair dados de expressões em que as expressões estão bem formatadas e em que o final dos dados pode ser facilmente confundido com as restantes palavras da expressão.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563277"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390289"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com padrão. qualquer entidade
 

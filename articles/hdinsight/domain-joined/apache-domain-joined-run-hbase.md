@@ -1,29 +1,29 @@
 ---
-title: Tutorial - configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package - Azure
-description: Tutorial – Saiba como configurar políticas do Apache Ranger para o HBase no HDInsight do Azure com o Enterprise Security Package.
+title: Tutorial – configurar o Apache HBase com o Enterprise Security Package-Azure
+description: Tutorial-saiba como configurar políticas do Apache Ranger para HBase no Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 39b87347212aef36bcced1a5b297f2f9e89bcc47
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274393"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734919"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas do Apache HBase no HDInsight com Enterprise Security Package
 
-Saiba como configurar políticas do Apache Ranger para clusters do HBase do Apache de pacote de segurança da empresa (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso para famílias de colunas diferentes numa tabela de HBase.
+Saiba como configurar políticas do Apache Ranger para clusters do Apache HBase Enterprise Security Package (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, você cria duas políticas de Ranger para restringir o acesso a diferentes famílias de coluna em uma tabela do HBase.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar utilizadores de domínio
 > * Criar políticas do Ranger
-> * Criar tabelas num cluster do HBase
+> * Criar tabelas em um cluster HBase
 > * Testar as políticas do Ranger
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -32,11 +32,11 @@ Neste tutorial, ficará a saber como:
 
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-* Criar uma [cluster de HDInsight HBase com o Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
+* Crie um [cluster HDInsight HBase com Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Ligar à IU do Apache Ranger Admin
 
-1. Num browser, ligue à interface de utilizador do Ranger Admin através do URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Não se esqueça de alterar `<ClusterName>` para o nome do cluster do HBase.
+1. Num browser, ligue à interface de utilizador do Ranger Admin através do URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Lembre-se `<ClusterName>` de alterar para o nome do cluster HBase.
 
     > [!NOTE]  
     > As credenciais do Ranger não são iguais às credenciais de cluster do Hadoop. Para impedir que os browsers utilizem credenciais em cache do Hadoop, utilize uma nova janela do browser InPrivate para ligar à IU do Ranger Admin.
@@ -45,11 +45,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-domain-users"></a>Criar utilizadores de domínio
 
-Visite [criar um cluster do HDInsight com o Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds), para saber como criar o **sales_user1** e **marketing_user1** utilizadores de domínio. Num cenário de produção, os utilizadores de domínio são provenientes do seu inquilino do Active Directory.
+Visite [criar um cluster HDInsight com o Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)para saber como criar os usuários de domínio **sales_user1** e **marketing_user1** . Num cenário de produção, os utilizadores de domínio são provenientes do seu inquilino do Active Directory.
 
-## <a name="create-hbase-tables-and-import-sample-data"></a>Criar tabelas de HBase e importar dados de exemplo
+## <a name="create-hbase-tables-and-import-sample-data"></a>Criar tabelas do HBase e importar dados de exemplo
 
-Pode utilizar o SSH para ligar a HBase clusters e, em seguida, utilizar [Shell do HBase Apache](https://hbase.apache.org/0.94/book/shell.html) para criar tabelas de HBase, inserir dados e consultar dados. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o [shell do Apache HBase](https://hbase.apache.org/0.94/book/shell.html) para criar tabelas HBase, inserir dados e consultar dados. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="to-use-the-hbase-shell"></a>Para utilizar a shell de HBase
 
@@ -59,7 +59,7 @@ Pode utilizar o SSH para ligar a HBase clusters e, em seguida, utilizar [Shell d
     hbase shell
     ```
 
-2. Criar uma tabela de HBase `Customers` com duas famílias de coluna: `Name` e `Contact`.
+2. Crie uma tabela `Customers` do HBase com famílias de duas colunas `Name` : `Contact`e.
 
     ```hbaseshell   
     create 'Customers', 'Name', 'Contact'
@@ -92,32 +92,32 @@ Pode utilizar o SSH para ligar a HBase clusters e, em seguida, utilizar [Shell d
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
 
-Criar uma política Ranger **sales_user1** e **marketing_user1**.
+Crie uma política de Ranger para **sales_user1** e **marketing_user1**.
 
-1. Abra a **IU do Ranger Admin**. Clique em  **\<ClusterName > _hbase** sob **HBase**.
+1. Abra a **IU do Ranger Admin**. Clique em  **\<ClusterName > _hbase** em **HBase**.
 
    ![IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. O **lista de políticas** tela exibirá todas as políticas do Ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique em **Adicionar nova política**.
+2. A tela **lista de políticas** exibirá todas as políticas de Ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique em **Adicionar nova política**.
 
     ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3. Sobre o **criar política** ecrã, introduza os seguintes valores:
+3. Na tela **criar política** , insira os seguintes valores:
 
    |**Definição**  |**Valor sugerido**  |
    |---------|---------|
    |Nome da Política  |  sales_customers_name_contact   |
-   |Tabela de HBase   |  Clientes |
-   |Família de colunas de HBase   |  Nome do contacto |
-   |HBase Column   |  * |
-   |Selecionar grupo  | |
+   |Tabela do HBase   |  Clientes |
+   |Coluna do HBase – família   |  Nome, contato |
+   |Coluna do HBase   |  * |
+   |Selecionar Grupo  | |
    |Selecionar Utilizador  | sales_user1 |
    |Permissões  | Leitura |
 
    Os carateres universais seguintes podem ser incluídos no nome do tópico:
 
-   * `*` indica ocorrências de zero ou mais dos caracteres.
-   * `?` indica o caractere único.
+   * `*`indica zero ou mais ocorrências de caracteres.
+   * `?`indica um único caractere.
 
    ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
@@ -131,10 +131,10 @@ Criar uma política Ranger **sales_user1** e **marketing_user1**.
    |**Definição**  |**Valor sugerido**  |
    |---------|---------|
    |Nome da Política  |  marketing_customers_contact   |
-   |Tabela de HBase   |  Clientes |
-   |Família de colunas de HBase   |  Contacto |
-   |HBase Column   |  * |
-   |Selecionar grupo  | |
+   |Tabela do HBase   |  Clientes |
+   |Coluna do HBase – família   |  Contacto |
+   |Coluna do HBase   |  * |
+   |Selecionar Grupo  | |
    |Selecionar Utilizador  | marketing_user1 |
    |Permissões  | Leitura |
 
@@ -144,30 +144,30 @@ Criar uma política Ranger **sales_user1** e **marketing_user1**.
 
 ## <a name="test-the-ranger-policies"></a>Testar as políticas do Ranger
 
-Com base em políticas do Ranger configuradas, **sales_user1** pode ver todos os dados das colunas em ambas as `Name` e `Contact` famílias de colunas. O **marketing_user1** apenas pode ver os dados no `Contact` família de colunas.
+Com base nas políticas de Ranger configuradas, o **sales_user1** pode exibir todos os dados das colunas nas `Name` famílias `Contact` de colunas e. O **marketing_user1** só pode exibir dados na família `Contact` de colunas.
 
-### <a name="access-data-as-salesuser1"></a>Aceder a dados como sales_user1
+### <a name="access-data-as-sales_user1"></a>Acessar dados como sales_user1
 
-1. Abra uma nova ligação SSH ao cluster. Utilize o seguinte comando para iniciar sessão para o cluster:
+1. Abra uma nova ligação SSH ao cluster. Use o seguinte comando para entrar no cluster:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-1. Utilize o comando de kinit para alterar para o contexto de nosso usuário que desejarem.
+1. Use o comando kinit para alterar para o contexto do nosso usuário desejado.
 
    ```bash
    kinit sales_user1
    ```
 
-2. Abra a shell de HBase e a tabela de análise `Customers`.
+2. Abra o Shell do HBase e verifique a `Customers`tabela.
 
    ```hbaseshell
    hbase shell
    scan `Customers`
    ```
 
-3. Tenha em atenção que o usuário de vendas pode ver todas as colunas do `Customers` tabela, incluindo as duas colunas no `Name` família de colunas, bem como as cinco colunas no `Contact` família de colunas.
+3. Observe que o usuário de vendas pode exibir todas as colunas `Customers` da tabela, incluindo as duas colunas `Name` na família de colunas, bem como `Contact` as cinco colunas na família de colunas.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -188,28 +188,28 @@ Com base em políticas do Ranger configuradas, **sales_user1** pode ver todos os
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Aceder a dados como marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Acessar dados como marketing_user1
 
-1. Abra uma nova ligação SSH ao cluster. Utilize o seguinte comando para iniciar sessão como **marketing_user1**:
+1. Abra uma nova ligação SSH ao cluster. Use o seguinte comando para entrar como **marketing_user1**:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-1. Utilize o comando de kinit para alterar para o contexto de nosso utilizador pretendido
+1. Use o comando kinit para alterar para o contexto do nosso usuário desejado
 
    ```bash
    kinit marketing_user1
    ```
 
-2. Abra a shell de HBase e a tabela de análise `Customers`:
+2. Abra o Shell do HBase e verifique a `Customers`tabela:
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Tenha em atenção que o utilizador de marketing pode visualizar apenas cinco colunas do `Contact` família de colunas.
+3. Observe que o usuário de marketing só pode exibir as cinco colunas da `Contact` família de colunas.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -232,15 +232,15 @@ Com base em políticas do Ranger configuradas, **sales_user1** pode ver todos os
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não pretender continuar a utilizar esta aplicação, elimine o cluster do HBase que criou com os seguintes passos:
+Se você não for continuar a usar este aplicativo, exclua o cluster HBase criado com as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Na **pesquisa** caixa na parte superior, tipo **HDInsight**. 
-1. Selecione **clusters do HDInsight** sob **serviços**.
-1. Na lista de clusters do HDInsight que aparece, clique o **...**  junto do cluster que criou para este tutorial. 
+2. Na caixa de **pesquisa** na parte superior, digite **HDInsight**. 
+1. Selecione **clusters HDInsight** em **Serviços**.
+1. Na lista de clusters HDInsight que aparece, clique em **...** ao lado do cluster que você criou para este tutorial. 
 1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Começar com uma Apache HBase](../hbase/apache-hbase-tutorial-get-started-linux.md)
+> [Introdução a um Apache HBase](../hbase/apache-hbase-tutorial-get-started-linux.md)

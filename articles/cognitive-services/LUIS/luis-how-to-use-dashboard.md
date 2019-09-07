@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932727"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735056"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
@@ -78,9 +78,9 @@ O principal método de corrigir seu aplicativo será adicionar ou editar o exemp
 
 Adicionar exemplo declarações deve ser feito por alguém que:
 
-* tem um alto grau de compreensão de quais declarações estão em diferentes intenções
-* Sabe como declarações em uma única tentativa pode ser confundida com outra intenção
-* é capaz de decidir se duas intenções, que são frequentemente confundidas umas com as outras, devem ser recolhidas em uma única intenção e os diferentes dados extraídos com entidades
+* tem um alto grau de compreensão de quais declarações estão em diferentes intenções.
+* Sabe como declarações em uma única tentativa pode ser confundida com outra intenção.
+* é capaz de decidir se duas intenções, que frequentemente são confundidas umas com as outras, devem ser recolhidas em uma única intenção. Se esse for o caso, os dados diferentes devem ser extraídos com entidades.
 
 ### <a name="patterns-and-phrase-lists"></a>Listas de padrões e frases
 
@@ -90,7 +90,7 @@ A página de análise não indica quando usar [padrões](luis-concept-patterns.m
 
 Comece com esse problema – pode ser a causa raiz dos outros problemas.
 
-A lista de intenções de desequilíbrio de **dados** mostra tentativas que precisam de mais declarações para corrigir o desequilíbrio de dados. 
+A lista de intenções de **desequilíbrio de dados** mostra tentativas que precisam de mais declarações para corrigir o desequilíbrio de dados. 
 
 **Para corrigir esse problema**:
 
@@ -169,6 +169,6 @@ O que é uma pontuação de confiança de previsão confiável para você? No in
 
 Esses dois filtros permitem que você encontre declarações na intenção selecionada além do limite. Você pode considerar esses dois percentuais como porcentagens de erro. Se você estiver familiarizado com uma taxa de erro de 10-15% para previsões, defina o limite de filtro para 15% para localizar todos os declarações acima desse valor. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerenciar seus recursos do Azure](luis-how-to-azure-subscription.md)

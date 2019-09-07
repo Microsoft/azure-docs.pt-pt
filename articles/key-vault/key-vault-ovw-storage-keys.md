@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 251a7c21b671052a23f6ee18cb4278737464b25c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934184"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744879"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gerenciar chaves de conta de armazenamento com Azure Key Vault e o CLI do Azure 
 
@@ -67,7 +67,7 @@ Há quatro etapas básicas para usar Key Vault gerenciar chaves de conta de arma
 
 1. Obter uma conta de armazenamento existente.
 1. Busque um cofre de chaves existente.
-1. Adicione uma Key Vault conta de armazenamento gerenciado ao cofre. Defina `key1` como a chave ativa com um período de regeneração de 180 dias.
+1. Adicione uma Key Vault conta de armazenamento gerenciado ao cofre. Defina `key1` como a chave ativa com um período de regeneração de 90 dias.
 1. Use `key1` para definir um contexto de armazenamento para a conta de armazenamento especificada.
 
 > [!NOTE]
@@ -150,7 +150,7 @@ Depois de concluir as etapas na seção anterior, execute os comandos a seguir p
 
 ## <a name="fetch-tokens-in-code"></a>Buscar tokens no código
 
-Execute operações em sua conta de armazenamento buscando tokens de [assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) do Key Vault.
+Execute operações em sua conta de armazenamento buscando [tokens de assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) do Key Vault.
 
 Há três maneiras de se autenticar no Key Vault:
 

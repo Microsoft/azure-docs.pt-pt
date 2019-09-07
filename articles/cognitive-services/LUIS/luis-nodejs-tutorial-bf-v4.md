@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 8227a7683c1333b21537630f7f074f624926f984
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
-ms.translationtype: MT
+ms.openlocfilehash: 63a0717e615ff85dbc5cfc06567f83cb9aa83a30
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375776"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735044"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Usar um bot de aplicativo Web habilitado com Reconhecimento vocal no node. js 
 
@@ -80,12 +80,13 @@ O processo de criação do serviço bot também cria um novo aplicativo LUIS com
 |--|--|
 |Vôo do livro|`Travel to Paris`|
 |Cancelar|`bye`|
+|GetWeather|`what's the weather like?`|
 |Nenhum|Tudo o que estiver fora do domínio da aplicação.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Testar o bot em Web Chat
 
 1. Ainda na portal do Azure para o novo bot, selecione **testar no Web Chat**. 
-1. Na caixa de texto **Digite sua mensagem** , insira o `hello`texto. O bot responde com informações sobre o bot Framework, bem como consultas de exemplo para o modelo LUIS específico, como a reserva de um vôo para Paris. 
+1. Na caixa de texto **Digite sua mensagem** , insira o `Book a flight from Seattle to Berlin tomorrow`texto. O bot responde com a verificação de que você deseja reservar um vôo. 
 
     ![Captura de tela de portal do Azure, insira o texto ' Olá '.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
@@ -108,242 +109,128 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
 ## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Revisar o código para enviar expressão para LUIS e obter resposta
 
-1. Abra as **caixas de diálogo-> arquivo luisHelper. js** . É aqui que a expressão do utilizador introduzida no bot é enviada para o LUIS. A resposta de LUIS é retornada do método como um objeto JSON **bookDetails** . Ao criar seu próprio bot, você também deve criar seu próprio objeto para retornar os detalhes de LUIS. 
+1. Para enviar o usuário expressão para o ponto de extremidade de previsão do LUIS, abra o arquivo de **diálogos-> flightBookingRecognizer. js** . É aqui que a expressão do utilizador introduzida no bot é enviada para o LUIS. A resposta de LUIS é retornada do método **executeLuisQuery** .  
 
-    ```nodejs
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    const { LuisRecognizer } = require('botbuilder-ai');
-    
-    class LuisHelper {
+    ````javascript
+    class FlightBookingRecognizer {
+
+        ...
+
         /**
          * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
-         * @param {*} logger
          * @param {TurnContext} context
          */
-        static async executeLuisQuery(logger, context) {
-            const bookingDetails = {};
-    
-            try {
-                const recognizer = new LuisRecognizer({
-                    applicationId: process.env.LuisAppId,
-                    endpointKey: process.env.LuisAPIKey,
-                    endpoint: `https://${ process.env.LuisAPIHostName }`
-                }, {}, true);
-    
-                const recognizerResult = await recognizer.recognize(context);
-    
-                const intent = LuisRecognizer.topIntent(recognizerResult);
-    
-                bookingDetails.intent = intent;
-    
-                if (intent === 'Book_flight') {
-                    // We need to get the result from the LUIS JSON which at every level returns an array
-    
-                    bookingDetails.destination = LuisHelper.parseCompositeEntity(recognizerResult, 'To', 'Airport');
-                    bookingDetails.origin = LuisHelper.parseCompositeEntity(recognizerResult, 'From', 'Airport');
-    
-                    // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
-                    // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
-                    bookingDetails.travelDate = LuisHelper.parseDatetimeEntity(recognizerResult);
-                }
-            } catch (err) {
-                logger.warn(`LUIS Exception: ${ err } Check your LUIS configuration`);
-            }
-            return bookingDetails;
+        async executeLuisQuery(context) {
+            return await this.recognizer.recognize(context);
         }
-    
-        static parseCompositeEntity(result, compositeName, entityName) {
-            const compositeEntity = result.entities[compositeName];
-            if (!compositeEntity || !compositeEntity[0]) return undefined;
-    
-            const entity = compositeEntity[0][entityName];
-            if (!entity || !entity[0]) return undefined;
-    
-            const entityValue = entity[0][0];
-            return entityValue;
-        }
-    
-        static parseDatetimeEntity(result) {
-            const datetimeEntity = result.entities['datetime'];
-            if (!datetimeEntity || !datetimeEntity[0]) return undefined;
-    
-            const timex = datetimeEntity[0]['timex'];
-            if (!timex || !timex[0]) return undefined;
-    
-            const datetime = timex[0].split('T')[0];
-            return datetime;
-        }
-    }
-    
-    module.exports.LuisHelper = LuisHelper;
-    ```
 
-1. Abra **caixas de diálogo-> bookingDialog. js** para entender como o objeto BookingDetails é usado para gerenciar o fluxo de conversa. Os detalhes da viagem são solicitados em etapas. em seguida, toda a reserva é confirmada e, finalmente, repetida para o usuário. 
+        ...
 
-    ```nodejs
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
-    const { ConfirmPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
-    const { CancelAndHelpDialog } = require('./cancelAndHelpDialog');
-    const { DateResolverDialog } = require('./dateResolverDialog');
-    
-    const CONFIRM_PROMPT = 'confirmPrompt';
-    const DATE_RESOLVER_DIALOG = 'dateResolverDialog';
-    const TEXT_PROMPT = 'textPrompt';
-    const WATERFALL_DIALOG = 'waterfallDialog';
-    
-    class BookingDialog extends CancelAndHelpDialog {
-        constructor(id) {
-            super(id || 'bookingDialog');
-    
-            this.addDialog(new TextPrompt(TEXT_PROMPT))
-                .addDialog(new ConfirmPrompt(CONFIRM_PROMPT))
-                .addDialog(new DateResolverDialog(DATE_RESOLVER_DIALOG))
-                .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
-                    this.destinationStep.bind(this),
-                    this.originStep.bind(this),
-                    this.travelDateStep.bind(this),
-                    this.confirmStep.bind(this),
-                    this.finalStep.bind(this)
-                ]));
-    
-            this.initialDialogId = WATERFALL_DIALOG;
-        }
-    
-        /**
-         * If a destination city has not been provided, prompt for one.
-         */
-        async destinationStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            if (!bookingDetails.destination) {
-                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'To what city would you like to travel?' });
-            } else {
-                return await stepContext.next(bookingDetails.destination);
-            }
-        }
-    
-        /**
-         * If an origin city has not been provided, prompt for one.
-         */
-        async originStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            // Capture the response to the previous step's prompt
-            bookingDetails.destination = stepContext.result;
-            if (!bookingDetails.origin) {
-                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'From what city will you be travelling?' });
-            } else {
-                return await stepContext.next(bookingDetails.origin);
-            }
-        }
-    
-        /**
-         * If a travel date has not been provided, prompt for one.
-         * This will use the DATE_RESOLVER_DIALOG.
-         */
-        async travelDateStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            // Capture the results of the previous step
-            bookingDetails.origin = stepContext.result;
-            if (!bookingDetails.travelDate || this.isAmbiguous(bookingDetails.travelDate)) {
-                return await stepContext.beginDialog(DATE_RESOLVER_DIALOG, { date: bookingDetails.travelDate });
-            } else {
-                return await stepContext.next(bookingDetails.travelDate);
-            }
-        }
-    
-        /**
-         * Confirm the information the user has provided.
-         */
-        async confirmStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            // Capture the results of the previous step
-            bookingDetails.travelDate = stepContext.result;
-            const msg = `Please confirm, I have you traveling to: ${ bookingDetails.destination } from: ${ bookingDetails.origin } on: ${ bookingDetails.travelDate }.`;
-    
-            // Offer a YES/NO prompt.
-            return await stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
-        }
-    
-        /**
-         * Complete the interaction and end the dialog.
-         */
-        async finalStep(stepContext) {
-            if (stepContext.result === true) {
-                const bookingDetails = stepContext.options;
-    
-                return await stepContext.endDialog(bookingDetails);
-            } else {
-                return await stepContext.endDialog();
-            }
-        }
-    
-        isAmbiguous(timex) {
-            const timexPropery = new TimexProperty(timex);
-            return !timexPropery.types.has('definite');
-        }
     }
-    
-    module.exports.BookingDialog = BookingDialog;
-    ```
+    ````
+
+1. As **caixas de diálogo-> mainDialog** capturam o expressão e os envia para o executeLuisQuery no método actStep.
+
+
+    ````javascript
+    class MainDialog extends ComponentDialog {
+
+        ...
+
+        /**
+         * Second step in the waterfall.  This will use LUIS to attempt to extract the origin, destination and travel dates.
+         * Then, it hands off to the bookingDialog child dialog to collect any remaining details.
+         */
+        async actStep(stepContext) {
+
+            ...
+
+            const luisResult = await this.luisRecognizer.executeLuisQuery(stepContext.context);
+
+            switch (LuisRecognizer.topIntent(luisResult)) {
+                    case 'BookFlight':
+                        // Extract the values for the composite entities from the LUIS result.
+                        const fromEntities = this.luisRecognizer.getFromEntities(luisResult);
+                        const toEntities = this.luisRecognizer.getToEntities(luisResult);
+            
+                        // Show a warning for Origin and Destination if we can't resolve them.
+                        await this.showWarningForUnsupportedCities(stepContext.context, fromEntities, toEntities);
+            
+                        // Initialize BookingDetails with any entities we may have found in the response.
+                        bookingDetails.destination = toEntities.airport;
+                        bookingDetails.origin = fromEntities.airport;
+                        bookingDetails.travelDate = this.luisRecognizer.getTravelDate(luisResult);
+                        console.log('LUIS extracted these booking details:', JSON.stringify(bookingDetails));
+            
+                        // Run the BookingDialog passing in whatever details we have from the LUIS call, it will fill out the remainder.
+                        return await stepContext.beginDialog('bookingDialog', bookingDetails);
+            
+                    case 'GetWeather':
+                        // We haven't implemented the GetWeatherDialog so we just display a TODO message.
+                        const getWeatherMessageText = 'TODO: get weather flow here';
+                        await stepContext.context.sendActivity(getWeatherMessageText, getWeatherMessageText, InputHints.IgnoringInput);
+                        break;
+            
+                    default:
+                        // Catch all for unhandled intents
+                        const didntUnderstandMessageText = `Sorry, I didn't get that. Please try asking in a different way (intent was ${ LuisRecognizer.topIntent(luisResult) })`;
+                        await stepContext.context.sendActivity(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    }
+            
+                    return await stepContext.next();
+
+        }
+
+        ...
+
+    }
+    ````
 
 
 ## <a name="install-dependencies-and-start-the-bot-code-in-visual-studio"></a>Instalar dependências e iniciar o código de bot no Visual Studio
 
 1. No VSCode, no terminal integrado, instale as dependências com o `npm install`comando.
-1. Além disso, do terminal integrado, inicie o bot com o `npm start`comando. 
+1. Além disso, do terminal integrado, inicie o bot com o `npm start`comando. Isso inicia um aplicativo Web para o bot com um ponto de extremidade HTTP. O console do fornece a URL e o número da porta para acessar o site em execução. Você precisa do número da porta na próxima seção deste tutorial.
 
+    ```console
+    > core-bot@1.0.0 start C:\Users\diberry\repos\bots\2019-bot-nodejs-basic
+    > node ./index.js
+    
+    
+    restify listening to http://[::]:3978
+    
+    Get Bot Framework Emulator: https://aka.ms/botframework-emulator
+    ```
+
+## <a name="create-an-environment-file-and-add-luis-values"></a>Criar um arquivo de ambiente e adicionar valores de LUIS
+
+O emulador de bot precisa de acesso ao recurso LUIS para fornecer resultados LUIS detalhados.
+
+1. Na raiz do projeto, crie um arquivo chamado `.env` e adicione as seguintes variáveis de ambiente:
+
+    ```console
+    LuisAppId= 
+    LuisAPIKey=
+    LuisAPIHostName=
+    ```
+
+1. No portal do Azure, para o recurso bot, abra as definições de configuração do serviço de aplicativo para o aplicativo.
+1. Abra **edição avançada**para ver o valor de cada configuração.
+
+    ![Abra * * edição avançada * * para ver o valor de cada configuração.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
+
+<a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
 ## <a name="use-the-bot-emulator-to-test-the-bot"></a>Usar o emulador de bot para testar o bot
 
+Peça ao bot uma pergunta para a tentativa de vôo do livro.
+
 1. Inicie o emulador de bot e selecione **abrir bot**.
 1. Na caixa de diálogo pop-up **abrir um bot** , insira a URL do bot, `http://localhost:3978/api/messages`como. A `/api/messages` rota é o endereço Web para o bot.
-1. Insira a **ID do aplicativo** da Microsoft e a **senha do aplicativo Microsoft**, encontradas no arquivo **. env** na raiz do código do bot que você baixou.
 
-    Opcionalmente, você pode criar uma nova configuração de bot e copiar `MicrosoftAppId` e `MicrosoftAppPassword` do arquivo **. env** no projeto do Visual Studio para o bot. O nome do arquivo de configuração do bot deve ser o mesmo que o nome do bot. 
-
-    ```json
-    {
-        "name": "<bot name>",
-        "description": "<bot description>",
-        "services": [
-            {
-                "type": "endpoint",
-                "appId": "<appId from .env>",
-                "appPassword": "<appPassword from .env>",
-                "endpoint": "http://localhost:3978/api/messages",
-                "id": "<don't change this value>",
-                "name": "http://localhost:3978/api/messages"
-            }
-        ],
-        "padlock": "",
-        "version": "2.0",
-        "overrides": null,
-        "path": "<local path to .bot file>"
-    }
-    ```
-
-1. No emulador de bot, `Hello` Insira e obtenha a mesma resposta para o bot básico como você recebeu no **teste no Web Chat**.
+1. No emulador de bot, `Book a flight from Seattle to Berlin tomorrow` Insira e obtenha a mesma resposta para o bot básico como você recebeu no **teste no Web Chat**.
 
     [![Resposta básica de bot no emulador](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
-
-
-## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>Perguntar ao bot uma pergunta sobre a intenção de vôo do livro
-
-1. No emulador de bot, marque um vôo digitando o seguinte expressão: 
-
-    ```console
-    Book a flight from Paris to Berlin on March 22, 2020
-    ```
-
-    O emulador de bot pede para confirmar. 
 
 1. Selecione **Sim**. O bot responde com um resumo de suas ações. 
 1. No log do emulador de bot, selecione a linha que inclui `Luis Trace`. Isso exibe a resposta JSON de LUIS para a intenção e entidades do expressão.

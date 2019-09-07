@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 361dc10aad6f65230e1e0f4c563534d44b45f902
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697815"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387797"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detectar idioma com Análise de Texto
 
@@ -69,7 +69,7 @@ Para obter mais informações sobre a definição de solicitação, consulte [ch
 
 + Crie uma solicitação POST. Para examinar a documentação da API para essa solicitação, consulte a [api detecção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-+ Defina o ponto de final HTTP para a deteção de idioma. Use um recurso de Análise de Texto no Azure ou um contêiner de [análise de texto](text-analytics-how-to-install-containers.md)instanciado. Ele deve incluir o `/languages` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`.
++ Defina o ponto de final HTTP para a deteção de idioma. Use um recurso de Análise de Texto no Azure ou um contêiner de [análise de texto](text-analytics-how-to-install-containers.md)instanciado. Você deve incluir `/text/analytics/v2.1/languages` na URL. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`.
 
 + Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de análise de texto.
 

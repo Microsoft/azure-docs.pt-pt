@@ -1,32 +1,32 @@
 ---
-title: Eventos de filtragem para o Azure Event Grid
-description: Descreve como filtrar eventos durante a criação de uma subscrição do Azure Event Grid.
+title: Filtragem de eventos para a grade de eventos do Azure
+description: Descreve como filtrar eventos ao criar uma assinatura da grade de eventos do Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305060"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390185"
 ---
-# <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender o evento de filtragem para subscrições do Event Grid
+# <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Entender a filtragem de eventos para assinaturas de grade de eventos
 
-Este artigo descreve as diferentes formas de filtro que eventos são enviados para o ponto final. Ao criar uma subscrição de evento, tem três opções para filtragem:
+Este artigo descreve as diferentes maneiras de filtrar quais eventos são enviados para o ponto de extremidade. Ao criar uma assinatura de evento, você tem três opções de filtragem:
 
 * Tipos de eventos
-* Assunto começa com ou termina com
-* Campos avançados e operadores
+* O assunto começa com ou termina com
+* Campos e operadores avançados
 
 ## <a name="event-type-filtering"></a>Filtragem de tipo de evento
 
-Por predefinição, todos os [tipos de evento](event-schema.md) a origem do evento são enviadas para o ponto final. Pode optar por enviar apenas determinados tipos de eventos para o ponto final. Por exemplo, pode obter notificado sobre as atualizações para seus recursos, mas não é notificado para outras operações, como as eliminações. Nesse caso, filtrar pelo `Microsoft.Resources.ResourceWriteSuccess` tipo de evento. Forneça uma matriz com os tipos de evento ou especifique `All` para obter todos os tipos de evento para a origem do evento.
+Por padrão, todos os [tipos de evento](event-schema.md) para a origem do evento são enviados para o ponto de extremidade. Você pode optar por enviar apenas determinados tipos de evento para o ponto de extremidade. Por exemplo, você pode ser notificado sobre atualizações para seus recursos, mas não notificado para outras operações como exclusões. Nesse caso, filtre pelo tipo de `Microsoft.Resources.ResourceWriteSuccess` evento. Forneça uma matriz com os tipos de evento ou especifique `All` para obter todos os tipos de evento para a origem do evento.
 
-A sintaxe JSON para filtrar por tipo de evento é:
+A sintaxe JSON para filtragem por tipo de evento é:
 
 ```json
 "filter": {
@@ -39,11 +39,11 @@ A sintaxe JSON para filtrar por tipo de evento é:
 
 ## <a name="subject-filtering"></a>Filtragem de assunto
 
-Simples filtrar pelo requerente, especifique um valor inicial ou final para o assunto. Por exemplo, pode especificar o assunto termina com `.txt` para obter apenas os eventos relacionados com o carregamento de um ficheiro de texto para a conta de armazenamento. Em alternativa, pode filtrar o assunto começa com `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento.
+Para filtragem simples por assunto, especifique um valor inicial ou final para o assunto. Por exemplo, você pode especificar que o assunto termine `.txt` com para obter apenas eventos relacionados ao carregamento de um arquivo de texto na conta de armazenamento. Ou, você pode filtrar a entidade começa com `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contêiner, mas não para outros contêineres na conta de armazenamento.
 
-Quando publica eventos tópicos personalizados, crie assuntos para seus eventos que tornam fácil para os assinantes para saber se elas têm interesse no evento. Os subscritores utilizar a propriedade de assunto para filtrar e encaminhar eventos. Considere adicionar o caminho para onde o evento ter acontecido, para que os assinantes podem filtrar por segmentos de caminho. O caminho permite que os subscritores de foco menor ou amplamente filtrar eventos. Se fornecer um caminho de três segmento como `/A/B/C` no assunto, os assinantes podem filtrar pelo primeiro segmento `/A` para obter um amplo conjunto de eventos. Os subscritores recebem eventos com os assuntos como `/A/B/C` ou `/A/D/E`. Outros subscritores podem filtrar por `/A/B` para obter um conjunto mais estreito de eventos.
+Ao publicar eventos em tópicos personalizados, crie assuntos para seus eventos, o que torna mais fácil para os assinantes saber se eles estão interessados no evento. Os assinantes usam a propriedade Subject para filtrar e rotear eventos. Considere adicionar o caminho para onde o evento ocorreu, para que os assinantes possam filtrar por segmentos desse caminho. O caminho permite que os assinantes filtrem eventos de forma estreita ou ampla. Se você fornecer um caminho de três segmentos `/A/B/C` como no assunto, os assinantes poderão filtrar pelo primeiro `/A` segmento para obter um amplo conjunto de eventos. Esses assinantes recebem eventos com assuntos `/A/B/C` como `/A/D/E`ou. Outros assinantes podem filtrar `/A/B` por para obter um conjunto mais estreito de eventos.
 
-A sintaxe JSON para filtrar pelo requerente é:
+A sintaxe JSON para filtragem por assunto é:
 
 ```json
 "filter": {
@@ -55,95 +55,112 @@ A sintaxe JSON para filtrar pelo requerente é:
 
 ## <a name="advanced-filtering"></a>Filtragem avançada
 
-Para filtrar por valores nos campos de dados e especificar o operador de comparação, utilize a opção de filtragem avançada. Na filtragem avançada, especificar o:
+Para filtrar por valores nos campos de dados e especificar o operador de comparação, use a opção de filtragem avançada. Na filtragem avançada, você especifica o:
 
-* tipo de operador - o tipo de comparação.
-* chave – o campo nos dados de evento que está a utilizar para filtragem. Pode ser um número, booleano ou uma cadeia.
-* valor ou valores - o valor ou valores a comparar com a chave.
+* tipo de operador-o tipo de comparação.
+* chave – o campo nos dados de evento que você está usando para filtragem. Pode ser um número, booliano ou cadeia de caracteres.
+* valor ou valores-o valor ou valores para comparar com a chave.
 
-A sintaxe JSON para a utilização de filtros avançados é:
+Se você especificar um único filtro com vários valores, uma operação **ou** será executada, portanto, o valor do campo de chave deverá ser um desses valores. Segue-se um exemplo:
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
-    },
-    {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
-### <a name="operator"></a>Operador
+Se você especificar vários filtros diferentes, uma operação and será executada, portanto, cada condição **de** filtro deverá ser atendida. Segue-se um exemplo: 
 
-Os operadores disponíveis para os números são:
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
+    },
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+### <a name="operator"></a>Operator
+
+Os operadores disponíveis para números são:
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
 * NumberLessThan
 * NumberLessThanOrEquals
-* NumberIn
+* Em
 * NumberNotIn
 
-O operador disponível para booleanos é: BoolEquals
+O operador disponível para boolianos é: BoolEquals
 
 Os operadores disponíveis para cadeias de caracteres são:
 
 * StringContains
 * StringBeginsWith
 * StringEndsWith
-* StringIn
+* Cadeia de caracteres
 * StringNotIn
 
-Todas as comparações de seqüência de caracteres são insensitve caso.
+Todas as comparações de cadeia de caracteres são case-insensitve.
 
 ### <a name="key"></a>Chave
 
-Para eventos no esquema do Event Grid, utilize os seguintes valores para a chave:
+Para eventos no esquema da grade de eventos, use os seguintes valores para a chave:
 
-* Id
+* id
 * Tópico
 * Subject
 * EventType
 * DataVersion
-* Dados de eventos (como Data.key1)
+* Dados de evento (como data. key1)
 
-Para eventos no esquema de eventos na Cloud, utilize os seguintes valores para a chave:
+Para eventos no esquema de eventos de nuvem, use os seguintes valores para a chave:
 
 * EventId
-* source
+* Source
 * EventType
 * EventTypeVersion
-* Dados de eventos (como Data.key1)
+* Dados de evento (como data. key1)
 
-Para o esquema de entrada personalizada, utilize os campos de dados de eventos (como Data.key1).
+Para o esquema de entrada personalizado, use os campos de dados de evento (como data. key1).
 
 ### <a name="values"></a>Valores
 
 Os valores podem ser:
 
-* número
-* string
+* number
+* Cadeia de caracteres
 * boolean
 * array
 
 ### <a name="limitations"></a>Limitações
 
-Filtragem avançada tem as seguintes limitações:
+A filtragem avançada tem as seguintes limitações:
 
-* Cinco filtros avançados por subscrição do event grid
-* 512 carateres por valor de cadeia
-* Cinco valores para **no** e **não está no** operadores
+* Cinco filtros avançados por assinatura de grade de eventos
+* 512 caracteres por valor de cadeia de caracteres
+* Cinco valores para os operadores **in** e **Not in**
 
-A mesma chave pode ser utilizada em mais do que um filtro.
+A mesma chave pode ser usada em mais de um filtro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre a filtragem de eventos com o PowerShell e CLI do Azure, veja [filtrar eventos do Event Grid](how-to-filter-events.md).
+* Para saber mais sobre como filtrar eventos com o PowerShell e CLI do Azure, consulte [filtrar eventos para a grade de eventos](how-to-filter-events.md).
 * Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

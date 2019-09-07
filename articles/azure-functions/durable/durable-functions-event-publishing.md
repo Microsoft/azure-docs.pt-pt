@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 837e29731b617fcb8da95b89668403638c4d049a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f3fd59c0d17bd9094f6887aa5ec088f9fdcdd979
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087410"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734441"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicação na grade de eventos do Azure (visualização)
 
@@ -31,7 +31,7 @@ A seguir, alguns cenários em que esse recurso é útil:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instale [Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-RC ou posterior em seu projeto Durable functions.
-* Instale o emulador de [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
+* Instale o [emulador de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Instalar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou usar [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico de grade de eventos personalizado
@@ -125,6 +125,16 @@ Insira o nome da função e, em seguida, `Create`selecione.
 
 Uma função com o código a seguir é criada:
 
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+```csharp
+public static void Run([HttpTrigger] JObject eventGridEvent, ILogger log)
+{
+    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+#### <a name="c-script"></a>C#Prescritiva
+
 ```csharp
 #r "Newtonsoft.Json"
 using Newtonsoft.Json;
@@ -150,6 +160,8 @@ Agora você está pronto para receber eventos de ciclo de vida.
 ## <a name="create-durable-functions-to-send-the-events"></a>Criar Durable Functions para enviar os eventos
 
 Em seu projeto de Durable Functions, inicie a depuração no computador local.  O código a seguir é o mesmo que o código de modelo para o Durable Functions. Você já `host.json` configurou `local.settings.json` o e o em seu computador local.
+
+### <a name="precompiled-c"></a>Pré-compiladoC#
 
 ```csharp
 using System.Collections.Generic;
@@ -188,8 +200,8 @@ namespace LifeCycleEventSpike
 
         [FunctionName("Sample_HttpStart")]
         public static async Task<HttpResponseMessage> HttpStart(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
-            [OrchestrationClient]DurableOrchestrationClient starter,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
+            [OrchestrationClient] DurableOrchestrationClient starter,
             ILogger log)
         {
             // Function input comes from the request content.

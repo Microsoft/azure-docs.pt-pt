@@ -1,19 +1,19 @@
 ---
-title: Apache Spark streaming estruturado de Apache Kafka para Azure Cosmos DB-Azure HDInsight
+title: Apache Spark dados de Apache Kafka para Azure Cosmos DB-Azure HDInsight
 description: Saiba como usar Apache Spark streaming estruturado para ler dados de Apache Kafka e, em seguida, armazená-los em Azure Cosmos DB. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: c2d2f56f2a0686b23a3a907686dcee0760d37365
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 546dd094614a72cada2aff60704c4fc191301ad2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947057"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734940"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use Apache Spark streaming estruturado com Apache Kafka e Azure Cosmos DB
 
@@ -69,7 +69,7 @@ Embora você possa criar uma rede virtual do Azure, os clusters Kafka e Spark ma
    
     ![Implantação personalizada do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
-    * **Assinatura**: Selecione a sua subscrição do Azure.
+    * **Subscrição**: Selecione a sua subscrição do Azure.
    
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
 

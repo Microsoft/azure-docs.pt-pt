@@ -1,17 +1,17 @@
 ---
-title: Apache Spark aplicativo de streaming interrompe o processamento de dados após a execução por 24 dias sem erros conhecidos nos logs no Azure HDInsight
+title: Apache Spark aplicativo de streaming é interrompido após 24 dias no Azure HDInsight
 description: Um aplicativo Apache Spark streaming é interrompido após a execução por 24 dias e não há erros nos arquivos de log.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 002c45c514b5d8207a1aa70ec8e1c749677a239a
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c513c5df0d83eb0049683f88d85e8a1c41fd0bf0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620886"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736301"
 ---
 # <a name="scenario-apache-spark-streaming-application-stops-after-executing-for-24-days-in-azure-hdinsight"></a>Cenário: Apache Spark aplicativo de streaming é interrompido após a execução por 24 dias no Azure HDInsight
 
@@ -31,7 +31,7 @@ Para trabalhos de longa execução, aumente o valor `livy.server.session.timeout
 
 Substitua `<yourclustername>` pelo nome do seu cluster HDInsight, conforme mostrado no Portal.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

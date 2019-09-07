@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 5ce0a81f6c9c886fcbe9186dd7363c38170ca580
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 65cc2d9ac2b96822f2c1b740f3180ba1d9eaf98c
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382956"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389987"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar uma galeria de imagens compartilhadas no Azure Lab Services
 Este artigo mostra como os professores/administrador de laboratório podem salvar uma imagem de máquina virtual de modelo para que ela seja reutilizada por outras pessoas. Essas imagens são salvas em uma [Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-image-galleries.md)do Azure. Como uma primeira etapa, o administrador do laboratório anexa uma galeria de imagens compartilhada existente à conta do laboratório. Depois que a Galeria de imagens compartilhada é anexada, os laboratórios criados na conta de laboratório podem salvar imagens na Galeria de imagens compartilhadas. Outros professores podem selecionar essa imagem na Galeria de imagens compartilhadas para criar um modelo para suas classes. 
@@ -40,8 +40,11 @@ Depois que uma galeria de imagens compartilhadas é anexada, um administrador de
 3. Verifique o status no bloco do laboratório. 
 
     ![Status da operação de salvar imagem](../media/how-to-use-shared-image-gallery/save-image-status.png)
+4. Confirme se a operação foi bem-sucedida.
 
- Você também pode carregar uma imagem na Galeria de imagens compartilhadas fora do contexto de um laboratório. Para obter mais informações, consulte [visão geral da Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-images.md). 
+    ![A operação de salvar imagem foi bem-sucedida](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+
+Você também pode carregar uma imagem na Galeria de imagens compartilhadas fora do contexto de um laboratório. Para obter mais informações, consulte [visão geral da Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-images.md). 
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Usar uma imagem da Galeria de imagens compartilhadas
 Um professor/professor pode escolher uma imagem personalizada disponível na Galeria de imagens compartilhadas para o modelo durante a criação do novo laboratório.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 690d22eadf37a24b4679ce10838074533ac65fcb
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033139"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390074"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Visualização-criar um cluster AKS (serviço de kubernetes do Azure) que usa Zonas de Disponibilidade
 
@@ -34,7 +34,7 @@ Você precisa do CLI do Azure versão 2.0.66 ou posterior instalado e configurad
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI do AKS-Preview
 
-Para criar clusters AKS que usam zonas de disponibilidade, você precisa da extensão da CLI do *AKs-Preview* versão 0.4.1 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
+Para criar clusters AKS que usam zonas de disponibilidade, você precisa da extensão da CLI do *AKs-Preview* versão 0.4.1 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,25 +44,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flags-for-your-subscription"></a>Registrar sinalizadores de recurso para sua assinatura
+### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Registrar o sinalizador de recurso AvailabilityZonePreview para sua assinatura
 
-Para criar um cluster AKS que as zonas de disponibilidade, primeiro habilite alguns sinalizadores de recurso em sua assinatura. Os clusters usam um conjunto de dimensionamento de máquinas virtuais para gerenciar a implantação e a configuração dos nós kubernetes. O SKU *padrão* do Azure Load Balancer também é necessário para fornecer resiliência para os componentes de rede para rotear o tráfego para o cluster. Registre os sinalizadores de recurso *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*e *VMSSPreview* usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
+Para criar um cluster AKS que as zonas de disponibilidade, primeiro habilite o sinalizador de recurso *AvailabilityZonePreview* em sua assinatura. Registre o sinalizador de recurso *AvailabilityZonePreview* usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
 
 > [!CAUTION]
 > Quando você registra um recurso em uma assinatura, não é possível cancelar o registro desse recurso no momento. Depois de habilitar alguns recursos de visualização, os padrões podem ser usados para todos os clusters AKS, em seguida, criados na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Use uma assinatura separada para testar recursos de visualização e coletar comentários.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 Leva alguns minutos para que o status seja mostrado *registrado*. Você pode verificar o status do registro usando o comando [AZ Feature List][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
@@ -90,7 +86,7 @@ As seguintes limitações se aplicam quando você cria um cluster AKS usando zon
 * Clusters com zonas de disponibilidade habilitadas exigem o uso de balanceadores de carga standard do Azure para distribuição entre zonas.
 * Você deve usar o kubernetes versão 1.13.5 ou superior para implantar balanceadores de carga padrão.
 
-Os clusters AKS que usam zonas de disponibilidade devem usar a SKU *padrão* do Azure Load Balancer. O SKU *básico* padrão do Azure Load Balancer não dá suporte à distribuição entre zonas de disponibilidade. Para obter mais informações e as limitações do balanceador de carga padrão, consulte [limitações de visualização de SKU do Azure Load Balancer Standard][standard-lb-limitations].
+Os clusters AKS que usam zonas de disponibilidade devem usar a SKU *padrão* do Azure Load Balancer. O SKU *básico* padrão do Azure Load Balancer não dá suporte à distribuição entre zonas de disponibilidade. Para obter mais informações e as limitações do balanceador de carga padrão, consulte [limitações de SKU standard do Azure Load Balancer][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitações de discos do Azure
 
@@ -116,7 +112,7 @@ Quando você cria um cluster usando o comando [AZ AKs Create][az-aks-create] , o
 
 Se você não definir zonas para o pool de agente padrão ao criar um cluster AKS, os componentes do plano de controle AKS para o cluster não usarão zonas de disponibilidade. Você pode adicionar pools de nós adicionais (atualmente em visualização no AKs) usando o comando [AZ AKs nodepool Add][az-aks-nodepool-add] e especificar `--node-zones` para esses novos nós de agente, no entanto, os componentes do plano de controle permanecem sem reconhecimento de zona de disponibilidade. Você não pode alterar o reconhecimento de zona para um pool de nós ou os componentes do plano de controle AKS depois que eles são implantados.
 
-O exemplo a seguir cria um cluster AKS chamado *myAKSCluster* no grupo de recursoschamado MyResource Group. Um total de *3* nós são criados-um agente na zona *1*, um em *2*e, em seguida, um em *3*. Os componentes do plano de controle AKS também são distribuídos entre zonas na configuração mais alta disponível, já que elas são definidas como parte do processo de criação do cluster.
+O exemplo a seguir cria um cluster AKS chamado *myAKSCluster* no grupo de recursos chamado *MyResource*Group. Um total de *3* nós são criados-um agente na zona *1*, um em *2*e, em seguida, um em *3*. Os componentes do plano de controle AKS também são distribuídos entre zonas na configuração mais alta disponível, já que elas são definidas como parte do processo de criação do cluster.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -162,7 +158,7 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 À medida que você adiciona nós adicionais a um pool de agentes, a plataforma do Azure distribui automaticamente as VMs subjacentes entre as zonas de disponibilidade especificadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo detalha como criar um cluster AKS que usa zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [práticas recomendadas para continuidade dos negócios e recuperação de desastres no AKs][best-practices-bc-dr].
 

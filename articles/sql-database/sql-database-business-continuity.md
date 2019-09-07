@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569347"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744456"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -78,7 +78,7 @@ Os [grupos de failover automático](sql-database-auto-failover-group.md#auto-fai
 Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma indisponibilidade, esta causa uma interrupção do negócio que poderá demorar apenas alguns minutos ou pode durar horas.
 
 - Uma opção é aguardar que a base de dados volte a ficar online quando a indisponibilidade do centro de dados terminar. Isto funciona para as aplicações que podem dar-se ao luxo de ter a base de dados offline. Por exemplo, um projeto de desenvolvimento ou uma versão de avaliação gratuita nos quais não tem de trabalhar constantemente. Quando um data center tem uma interrupção, você não sabe por quanto tempo a interrupção pode durar, portanto, essa opção só funcionará se você não precisar do seu banco de dados por algum tempo.
-- Outra opção é restaurar um banco de dados em qualquer servidor em qualquer região do Azure usando backups de [banco de dados com redundância geográfica](sql-database-recovery-using-backups.md#geo-restore) (restauração geográfica). A restauração geográfica usa um backup com redundância geográfica como sua origem e pode ser usada para recuperar um banco de dados, mesmo se o banco de dados ou o datacenter estiver inacessível devido a uma interrupção.
+- Outra opção é restaurar um banco de dados em qualquer servidor em qualquer região do Azure usando [backups de banco de dados com redundância geográfica](sql-database-recovery-using-backups.md#geo-restore) (restauração geográfica). A restauração geográfica usa um backup com redundância geográfica como sua origem e pode ser usada para recuperar um banco de dados, mesmo se o banco de dados ou o datacenter estiver inacessível devido a uma interrupção.
 - Por fim, você pode se recuperar rapidamente de uma interrupção se tiver configurado um secundário geográfico usando [a replicação geográfica ativa](sql-database-active-geo-replication.md) ou um [grupo de failover automático](sql-database-auto-failover-group.md) para seu banco de dados ou bancos de dados. Dependendo de sua escolha dessas tecnologias, você pode usar o failover manual ou automático. Enquanto o failover leva apenas alguns segundos, o serviço levará pelo menos uma hora para ativá-lo. Isso é necessário para garantir que o failover seja justificado pela escala da interrupção. Além disso, o failover pode resultar em pequena perda de dados devido à natureza da replicação assíncrona. 
 
 À medida que elabora o seu plano de continuidade empresarial, tem de saber qual o tempo máximo aceitável antes de a aplicação recuperar totalmente após o evento problemático. O tempo necessário para a recuperação completa do aplicativo é conhecido como RTO (objetivo de tempo de recuperação). Você também precisa entender o período máximo de atualizações de dados recentes (intervalo de tempo) que o aplicativo pode tolerar a perda ao recuperar-se de um evento de interrupção não planejado. A possível perda de dados é conhecida como RPO (objetivo de ponto de recuperação).
@@ -107,7 +107,7 @@ Use grupos de failover automático se seu aplicativo atender a qualquer um deste
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
-Você pode optar por usar uma combinação de backups de banco de dados e replicação geográfica ativa, dependendo dos requisitos do aplicativo. Para obter uma discussão sobre considerações de design para bancos de dados autônomos e pools elásticos usando esses recursos de continuidade de negócios, consulte [criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e estratégias de recuperação de desastres do [pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Você pode optar por usar uma combinação de backups de banco de dados e replicação geográfica ativa, dependendo dos requisitos do aplicativo. Para obter uma discussão sobre considerações de design para bancos de dados autônomos e pools elásticos usando esses recursos de continuidade de negócios, consulte [criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 As seções a seguir fornecem uma visão geral das etapas para recuperar usando backups de banco de dados ou replicação geográfica ativa. Para obter etapas detalhadas, incluindo requisitos de planejamento, etapas de pós-recuperação e informações sobre como simular uma interrupção para executar uma análise de recuperação de desastre, consulte [recuperar um banco de dados SQL de uma interrupção](sql-database-disaster-recovery.md).
 
@@ -140,7 +140,7 @@ Se você estiver usando os backups automatizados com armazenamento com redundân
 Após a recuperação a partir de qualquer mecanismo de recuperação, tem de efetuar as seguintes tarefas adicionais antes de os seus utilizadores e aplicações ficarem funcionais:
 
 - Redirecionar os clientes e as aplicações de cliente para o novo servidor e base de dados restaurada
-- Verifique se as regras apropriadas de firewall de IP no nível de servidor estão em vigor para que os usuários se conectem ou usem firewalls de [nível de banco de dados](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) para habilitar as regras apropriadas.
+- Verifique se as regras apropriadas de firewall de IP no nível de servidor estão em vigor para que os usuários se conectem ou usem [firewalls de nível de banco de dados](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) para habilitar as regras apropriadas.
 - Certificar-se de que estão implementados inícios de sessão e permissões ao nível da base de dados mestra no local adequados (ou utilizar [utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configurar auditorias, conforme adequado
 - Configurar alertas, conforme adequado
@@ -154,4 +154,4 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma discussão sobre as considerações de design de aplicativos para bancos de dados autônomos e pools elásticos, consulte [criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e estratégias de recuperação de desastres do [pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Para obter uma discussão sobre as considerações de design de aplicativos para bancos de dados autônomos e pools elásticos, consulte [criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o desempenho do cluster - Azure HDInsight
-description: Como monitorizar um cluster do HDInsight para a capacidade e desempenho.
+title: Monitorar o desempenho do cluster-Azure HDInsight
+description: Como monitorar a integridade e o desempenho de clusters de Apache Hadoop no Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,84 +8,84 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 591fd2e0f5c6d36ad6b84b1f3ec035488fa02614
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393419"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733252"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorizar o desempenho do cluster
 
-Monitorizar o estado de funcionamento e o desempenho de um cluster do HDInsight é essencial para manter a otimizar o desempenho e utilização de recursos. Monitorização pode também ajudar a detetar e resolver problemas de código de utilizador e de erros de configuração de cluster.
+Monitorar a integridade e o desempenho de um cluster HDInsight é essencial para manter o desempenho e a utilização de recursos ideais. O monitoramento também pode ajudá-lo a detectar e resolver erros de configuração de cluster e problemas de código do usuário.
 
-As secções seguintes descrevem como monitorizar e otimizar a carga nos seus clusters, filas de Apache Hadoop YARN e detetar problemas de limitação de armazenamento.
+As seções a seguir descrevem como monitorar e otimizar a carga em seus clusters, Apache Hadoop filas YARN e detectar problemas de limitação de armazenamento.
 
-## <a name="monitor-cluster-load"></a>Carga de cluster de monitor
+## <a name="monitor-cluster-load"></a>Monitorar carga do cluster
 
-Clusters do Hadoop podem fornecer um desempenho mais otimizado, quando a carga no cluster é distribuída uniformemente entre todos os nós. Isto permite que as tarefas de processamento para execução sem que sejam restringidos pela RAM, CPU ou recursos de disco em nós individuais.
+Os clusters do Hadoop podem fornecer o desempenho ideal quando a carga no cluster é distribuída uniformemente entre todos os nós. Isso permite que as tarefas de processamento sejam executadas sem restrições de RAM, CPU ou recursos de disco em nós individuais.
 
-Para obter uma visão de alto nível os nós do cluster e o carregamento, inicie sessão para o [IU Web do Ambari](hdinsight-hadoop-manage-ambari.md), em seguida, selecione a **anfitriões** separador. Os anfitriões estão listados por seus nomes de domínio completamente qualificado. Estado de funcionamento de cada anfitrião é apresentado por um indicador de estado de funcionamento coloridos:
+Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, entre na [interface do usuário da Web do AmAmbari](hdinsight-hadoop-manage-ambari.md)e selecione a guia **hosts** . Seus hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
 | Cor | Descrição |
 | --- | --- |
-| Vermelho | Pelo menos um componente principal do anfitrião está inativo. Passe o Mouse para ver uma descrição que listas afetados componentes. |
-| Orange | Pelo menos um componente secundário no anfitrião está inativo. Passe o Mouse para ver uma descrição que listas afetados componentes. |
-| Amarelo | Servidor Ambari não ter recebido um heartbeat do anfitrião durante mais de 3 minutos. |
-| Verde | Estado de funcionamento do normal. |
+| Vermelho | Pelo menos um componente mestre no host está inoperante. Focalize para ver uma dica de ferramenta que lista os componentes afetados. |
+| Laranja | Pelo menos um componente secundário no host está inoperante. Focalize para ver uma dica de ferramenta que lista os componentes afetados. |
+| Amarelo | O servidor Ambari não recebeu uma pulsação do host por mais de 3 minutos. |
+| Verde | Estado de execução normal. |
 
-Também verá colunas que mostra o número de núcleos e a quantidade de RAM para cada anfitrião e a utilização do disco e a carga média.
+Você também verá colunas que mostram o número de núcleos e a quantidade de RAM para cada host, além do uso do disco e da média de carga.
 
-![Separador anfitriões](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Guia hosts](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
 
-Selecione qualquer um dos nomes de anfitrião para uma visão detalhada de componentes em execução no anfitrião e as suas métricas. As métricas são apresentadas como uma linha cronológica selecionável de utilização, o carga de CPU, utilização do disco, a utilização de memória, utilização de rede e um número de processos.
+Selecione qualquer um dos nomes de host para obter uma visão detalhada dos componentes em execução nesse host e suas métricas. As métricas são mostradas como uma linha do tempo selecionável de uso da CPU, carga, uso do disco, uso de memória, uso da rede e números de processos.
 
-![Detalhes do anfitrião](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![Detalhes do host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Ver [clusters do HDInsight gerir com a IU do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre como alertas e ver métricas.
+Consulte [gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre como configurar alertas e exibir métricas.
 
-## <a name="yarn-queue-configuration"></a>Configuração da fila de YARN
+## <a name="yarn-queue-configuration"></a>Configuração de fila do YARN
 
-Hadoop tem vários serviços em execução na sua plataforma distribuída. YARN (ainda outro recurso Negociador) coordena estes serviços e aloca recursos de cluster para se certificar de que qualquer carga é distribuída uniformemente no cluster.
+O Hadoop tem vários serviços em execução em sua plataforma distribuída. O YARN (ainda outro negociador de recursos) coordena esses serviços e aloca recursos de cluster para garantir que qualquer carga seja distribuída uniformemente pelo cluster.
 
-YARN divide as duas responsabilidades do JobTracker, a gestão de recursos e o trabalho de agendamento/monitorização, em dois daemons: um Gerenciador de recursos global e um ApplicationMaster por aplicação (AM).
+O YARN divide as duas responsabilidades do JobTracker, do gerenciamento de recursos e do agendamento/monitoramento de trabalhos, em dois daemons: um Gerenciador de recursos global e um aplicativo (AM) por aplicativo.
 
-O Gestor de recursos é um *agendador puro*e apenas arbitrates recursos disponíveis entre todos os aplicativos concorrentes. O Gestor de recursos assegura que todos os recursos estejam sempre em utilização, otimizar para vários constantes, como o SLA, garante a capacidade e assim por diante. O ApplicationMaster negocia recursos do Resource Manager e funciona com o NodeManager(s) para executar e monitorizar os contentores e seu consumo de recursos.
+O Gerenciador de recursos é um *Agendador puro*e apenas arbitra os recursos disponíveis entre todos os aplicativos concorrentes. O Gerenciador de recursos garante que todos os recursos estejam sempre em uso, otimizando para várias constantes, como SLAs, garantias de capacidade e assim por diante. O aplicativo negocia os recursos do Gerenciador de recursos e trabalha com os NodeManager para executar e monitorar os contêineres e o consumo de recursos.
 
-Quando vários inquilinos partilham um cluster grande, não há concorrência de recursos do cluster. O CapacityScheduler é um agendador conectável, que ajuda a colocação em fila a pedidos de partilha de recursos. Também suporta o CapacityScheduler *filas hierárquicas* para garantir que os recursos são compartilhados entre as filas de frações de uma organização, antes de filas dos outros aplicativos têm permissão para utilizar recursos gratuitos.
+Quando vários locatários compartilham um cluster grande, há competição para os recursos do cluster. O CapacityScheduler é um Agendador conectável que auxilia no compartilhamento de recursos ao enfileirar solicitações. O CapacityScheduler também dá suporte a *filas hierárquicas* para garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que as filas de outros aplicativos tenham permissão para usar recursos gratuitos.
 
-YARN permite-nos alocar recursos para estas filas e mostra-lhe se todos os seus recursos disponíveis estão atribuídos. Para ver informações sobre as filas, inicie sessão na IU da Web do Ambari, em seguida, selecione **Gestor de filas do YARN** no menu superior.
+O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para exibir informações sobre suas filas, entre na interface do usuário da Web do amAmbari e selecione **Gerenciador de filas do yarn** no menu superior.
 
-![Gestor de filas de YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![Gerenciador de filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
-A página de Gestor de filas do YARN mostra uma lista das suas filas no lado esquerdo, juntamente com a percentagem da capacidade atribuída a cada um.
+A página Gerenciador de filas do YARN mostra uma lista de suas filas à esquerda, juntamente com a porcentagem de capacidade atribuída a cada uma.
 
-![Página de detalhes do Gestor de filas de YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+![Página de detalhes do Gerenciador de filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Para uma visão mais detalhada de suas filas, a partir do dashboard de Ambari, selecione o **YARN** serviço a partir da lista à esquerda. Em seguida, sob o **ligações rápidas** menu pendente, selecione **da IU do Gestor de recursos** sob o nó ativo.
+Para obter uma visão mais detalhada de suas filas, no painel do Ambari, selecione o serviço **yarn** na lista à esquerda. Em seguida, no menu suspenso **links rápidos** , selecione **interface do usuário do Resource Manager** abaixo do nó ativo.
 
-![Ligação de menu da IU do Gestor de recursos](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Link do menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Na IU do Gestor de recursos, selecione **agendador** no menu esquerdo. É apresentada uma lista das suas filas por baixo *filas de aplicativo*. Aqui pode ver a capacidade utilizada para cada uma das suas filas, bem como as tarefas são distribuídas entre eles, e se quaisquer tarefas estão a restrição de recursos.
+Na interface do usuário do Resource Manager, selecione **Agendador** no menu à esquerda. Você verá uma lista de suas filas sob *filas de aplicativos*. Aqui você pode ver a capacidade usada para cada uma de suas filas, o quão bem os trabalhos são distribuídos entre eles e se algum trabalho tem restrições de recursos.
 
-![Ligação de menu da IU do Gestor de recursos](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Link do menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
-## <a name="storage-throttling"></a>Otimização do armazenamento
+## <a name="storage-throttling"></a>Limitação de armazenamento
 
-Afunilamento de desempenho de um cluster pode acontecer ao nível do armazenamento. Este tipo de estrangulamento com mais freqüência é devido a *bloqueio* operações (e/s), o que acontecem quando as tarefas em execução enviar mais e/s do que o serviço de armazenamento pode processar de entrada/saída. Este bloqueio cria uma fila de pedidos de e/s a aguardar processamento até depois de IOs atuais são processados. Os blocos são devido a *otimização de armazenamento*, que não é um limite físico, mas em vez disso, um limite imposto pelo serviço de armazenamento por um contrato de nível de serviço (SLA). Este limite assegura que nenhum inquilino ou cliente único pode monopolizar o serviço. O SLA limita o número do IOs por segundo (IOPS) para o armazenamento do Azure - para obter detalhes, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+O afunilamento de desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento geralmente ocorre devido ao *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de e/s aguardando para serem processadas até que o IOs atual seja processado. Os blocos são devidos à *limitação de armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite garante que um único cliente ou locatário possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para o armazenamento do Azure-para obter detalhes, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
-Se estiver a utilizar o armazenamento do Azure, para obter informações sobre problemas relacionados com o armazenamento de monitorização, incluindo limitação, consulte [monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Se o armazenamento de backup do seu cluster do Azure Data Lake Storage (ADLS), a limitação é mais provável devido a limites de largura de banda. Limitação nesse caso foi identificada por erros de limitação a observar nos registos de tarefas. Para ADLS, consulte a secção de limitação para o serviço apropriado nestes artigos:
+Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), sua limitação provavelmente ocorrerá devido a limites de largura de banda. A limitação, nesse caso, pode ser identificada observando erros de limitação nos logs de tarefas. Para ADLS, consulte a seção limitação para o serviço apropriado nestes artigos:
 
-* [Guia para o Apache Hive no HDInsight e o armazenamento do Azure Data Lake de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Guia para o MapReduce no HDInsight e o armazenamento do Azure Data Lake de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Guia para Apache Storm no HDInsight e o armazenamento do Azure Data Lake de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Diretrizes de ajuste de desempenho para Apache Hive no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Diretrizes de ajuste de desempenho para MapReduce no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [Diretrizes de ajuste de desempenho para Apache Storm no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Visite as seguintes ligações para mais informações sobre os clusters de monitorização e resolução de problemas:
+Visite os links a seguir para obter mais informações sobre como solucionar problemas e monitorar seus clusters:
 
 * [Analisar registos do HDInsight](hdinsight-debug-jobs.md)
-* [Depurar aplicações com registos YARN do Apache Hadoop](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Depurar aplicativos com Apache Hadoop logs do YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

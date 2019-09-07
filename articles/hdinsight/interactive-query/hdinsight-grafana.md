@@ -1,31 +1,31 @@
 ---
-title: Utilizar o Grafana no Azure HDInsight
-description: Saiba como aceder a Grafana no Azure HDInsight.
+title: Usar o Grafana no Azure HDInsight
+description: Saiba como acessar o painel do Grafana com clusters de Apache Hadoop no Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: a8d79e15a0c967c4b00f337928f00e76f6d296fd
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67458809"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733220"
 ---
-# <a name="access-grafana-in-azure-hdinsight"></a>Grafana de acesso no Azure HDInsight
+# <a name="access-grafana-in-azure-hdinsight"></a>Acessar o Grafana no Azure HDInsight
 
 
-[O Grafana](https://grafana.com/) é um construtor gráfico e dashboard popular, o código-fonte aberto. O Grafana é recursos sofisticados; não só permite aos utilizadores criar personalizáveis e dashboards partilhável, ele também oferece dashboards baseadas num modelo com/script, integração de LDAP, várias origens de dados e muito mais.
+O [Grafana](https://grafana.com/) é um popular Construtor de gráficos e painéis de software livre. O Grafana é rico em recursos; Ele não apenas permite que os usuários criem painéis personalizáveis e compartilháveis, também oferece painéis com modelo/script, integração LDAP, várias fontes de dados e muito mais.
 
-Atualmente, no Azure HDInsight, o Grafana é suportado com os tipos de cluster Hbase e o Interactive Query.
+Atualmente, no Azure HDInsight, o Grafana tem suporte com os tipos de cluster HBase e consulta interativa.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-apache-hadoop-cluster"></a>Criar um cluster do Apache Hadoop
+## <a name="create-an-apache-hadoop-cluster"></a>Criar um cluster Apache Hadoop
 
-Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um modelo Azure Resource Manager. Não precisa de ter experiência no modelo do Resource Manager para seguir este artigo. 
+Nesta seção, você cria um cluster de consulta interativa no HDInsight usando um modelo de Azure Resource Manager. Não precisa de ter experiência no modelo do Resource Manager para seguir este artigo. 
 
 1. Clique no botão **Implementar no Azure** abaixo para iniciar sessão no Azure abrir o modelo do Resource Manager no portal do Azure. 
    
@@ -46,13 +46,13 @@ Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um mo
     |---------|---------|
     |**Subscrição**     |  Selecione a sua subscrição do Azure. |
     |**Grupo de recursos**     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
-    |**Localização**     | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
+    |**Location**     | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
     |**Tipo de Cluster**     | Selecione **hadoop**. |
-    |**Nome do Cluster**     | Introduza um nome para o cluster do Apache Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode ser composto por um máximo de 59 carateres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
+    |**Nome do Cluster**     | Insira um nome para o cluster Apache Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode ser composto por um máximo de 59 carateres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
     |**Nome e palavra-passe de início de sessão no cluster**     | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |**Nome de utilizador e palavra-passe de SSH**     | O nome de utilizador predefinido é **sshuser**.  Pode mudar o nome de utilizador do SSH.  A palavra-passe de utilizador do SSH tem os mesmos requisitos que a palavra-passe de início de sessão do cluster.|
        
-    Algumas propriedades foram codificadas no modelo.  Pode configurar estes valores a partir do modelo. Para obter mais explicações sobre estas propriedades, consulte [Apache Hadoop criar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Algumas propriedades foram codificadas no modelo.  Pode configurar estes valores a partir do modelo. Para obter mais explicações sobre essas propriedades, consulte [criar Apache Hadoop clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecione **Concordo com os termos e condições indicados acima** e **Afixar ao dashboard**. Em seguida, clique em **Comprar**. Irá ver um novo mosaico intitulado **A submeter a implementação** no dashboard do portal. A criação de um cluster demora cerca de 20 minutos.
 
@@ -62,29 +62,29 @@ Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um mo
    
     ![Introdução ao grupo de recursos no HDInsight com Linux](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de cluster no Azure HDInsight")
     
-5. O mosaico indica igualmente o armazenamento predefinido associado ao cluster. Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. Cluster do HDInsight e a sua conta do storage predefinida tem de ser colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
+5. O mosaico indica igualmente o armazenamento predefinido associado ao cluster. Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
     
 
 > [!NOTE]  
-> Para outros métodos de criação de clusters e compreender as propriedades utilizadas neste artigo, consulte [clusters do HDInsight criar](../hdinsight-hadoop-provision-linux-clusters.md). 
+> Para outros métodos de criação de cluster e noções básicas sobre as propriedades usadas neste artigo, consulte [Criar clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). 
 
-## <a name="access-the-grafana-dashboard"></a>Aceder ao dashboard da Grafana
+## <a name="access-the-grafana-dashboard"></a>Acessar o painel do Grafana
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **clusters do HDInsight**e, em seguida, selecione o nome do cluster que criou na última secção.
+2. Selecione **clusters HDInsight**e, em seguida, selecione o nome do cluster que você criou na última seção.
 
-3. Sob **ligações rápidas**, clique em **dashboard de clusters**.
+3. Em **links rápidos**, clique em **painel do cluster**.
 
-    ![Portal de dashboard de cluster do HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "dashboard de clusters do HDInsight no portal")
+    ![Portal do painel do cluster HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Painel do cluster HDInsight no portal")
 
-4. No dashboard, clique nas **Grafana** mosaico. Em alternativa, navegue para o `/grafana/` caminho do URL do seu cluster. Por exemplo, `https://<clustername>.azurehdinsight.net/grafana/`.
+4. No painel, clique no bloco **Grafana** . Como alternativa, navegue até o `/grafana/` caminho da URL do cluster. Por exemplo, `https://<clustername>.azurehdinsight.net/grafana/`.
 
-5. Introduza as credenciais de utilizador do cluster de Hadoop.
+5. Insira as credenciais de usuário do cluster Hadoop.
 
-6. O dashboard da Grafana aparece e este aspeto:
+6. O painel do Grafana é exibido e é semelhante a este exemplo:
 
-    ![O dashboard da Grafana do HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "o dashboard da Grafana do HDInsight")
+    ![Painel do HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Painel do HDInsight Grafana")
 
    
 
@@ -105,10 +105,10 @@ Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HD
 3. Selecione **Eliminar grupo de recursos** para eliminar o grupo de recursos, o qual contém o cluster e a conta de armazenamento predefinida. Tenha em atenção que a eliminação do grupo de recursos elimina a conta de armazenamento. Se pretender manter a conta do Storage, opte por eliminar apenas o cluster.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu como criar um cluster do HDInsight baseado em Linux com um modelo do Resource Manager e como executar consultas do Apache Hive básicas. No artigo seguinte, irá saber como executar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
+Neste artigo, você aprendeu como criar um cluster HDInsight baseado em Linux usando um modelo do Resource Manager e como executar consultas de Apache Hive básicas. No artigo seguinte, irá saber como executar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrair, transformar e carregar dados com o Interactive Query no HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+>[Extrair, transformar e carregar dados usando a consulta interativa no HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 Se estiver pronto para começar a trabalhar com os seus próprios dados e precisar de saber mais sobre a forma como o HDInsight armazena os dados ou como carregar dados para o HDInsight, consulte os seguintes artigos:
 
@@ -117,8 +117,8 @@ Se estiver pronto para começar a trabalhar com os seus próprios dados e precis
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
 
-* Para saber mais sobre como utilizar o Hive com HDInsight, incluindo como executar consultas do Hive a partir do Visual Studio, veja [utilizar o Apache Hive com HDInsight](../hdinsight-use-hive.md).
-* Para saber mais sobre o Pig, uma linguagem utilizada para transformar dados, veja [utilizar o Apache Pig com o HDInsight](../hdinsight-use-pig.md).
+* Para saber mais sobre como usar o hive com o HDInsight, incluindo como executar consultas de hive do Visual Studio, confira [usar o Apache Hive com o hdinsight](../hdinsight-use-hive.md).
+* Para saber mais sobre o Pig, uma linguagem usada para transformar dados, consulte [usar o Apache Pig com o HDInsight](../hdinsight-use-pig.md).
 * Para saber mais sobre o MapReduce, uma forma de escrever programas que processam dados no Hadoop, veja [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md) (Utilizar o MapReduce com o HDInsight).
 * Para saber mais sobre como utilizar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 

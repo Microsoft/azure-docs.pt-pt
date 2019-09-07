@@ -1,6 +1,6 @@
 ---
-title: Formato de dados do perímetro geográfico GeoJSON no Azure Maps | Documentos da Microsoft
-description: Saiba mais sobre o formato de dados do perímetro geográfico GeoJSON no Azure Maps
+title: Formato de dados geojson de limite geográfico no Azure Maps | Microsoft Docs
+description: Saiba mais sobre o formato de dados geojson de cerca geográfica no Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019
@@ -8,41 +8,41 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723568"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735132"
 ---
-# <a name="geofencing-geojson-data"></a>Dados de barreira geográfica GeoJSON
+# <a name="geofencing-geojson-data"></a>Dados geojson de isolamento geográfico
 
-O Azure Maps [obter perímetro geográfico](/rest/api/maps/spatial/getgeofence) e [perímetro geográfico de POSTAGEM](/rest/api/maps/spatial/postgeofence) APIs permitem-lhe obter proximidade de uma coordenada em relação a um perímetro geográfico fornecido ou conjunto de limites. Este artigo fornece detalhes sobre como preparar os dados do perímetro geográfico que podem ser utilizados na introdução do Azure Maps e API de publicação.
+As APIs de [obtenção de cerca geográfica](/rest/api/maps/spatial/getgeofence) e [postagem geográfica](/rest/api/maps/spatial/postgeofence) do Azure Maps permitem que você recupere a proximidade de uma coordenada em relação a uma cerca geográfica fornecida ou a um conjunto de limites. Este artigo fornece detalhes sobre como preparar os dados de limite geográfico que podem ser usados na API GET e POST do Azure Maps.
 
-Os dados para o perímetro geográfico ou conjunto de perímetros geográficos são representados por `Feature` objeto e `FeatureCollection` objeto `GeoJSON` formato, o que é definido no [rfc7946](https://tools.ietf.org/html/rfc7946). Além de que:
+Os dados para cerca geográfica ou conjunto de limites geográficos são `Feature` representados por `FeatureCollection` objeto e `GeoJSON` objeto no formato, que é definido em [rfc7946](https://tools.ietf.org/html/rfc7946). Além disso:
 
-* O tipo de objeto GeoJSON pode ser um `Feature` objeto ou uma `FeatureCollection` objeto.
-* O tipo de objeto Geometry pode ser um `Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, e `GeometryCollection`.
-* Todas as propriedades de recurso devem conter um `geometryId`, que é utilizado para identificar o perímetro geográfico.
-* Funcionalidade com `Point`, `MultiPoint`, `LineString`, `MultiLineString` tem de conter `radius` nas propriedades. `radius` valor é medido em medidores, o `radius` vai de 1 a 10000 de valor.
-* Funcionalidade com `polygon` e `multipolygon` tipo geometria não tem uma propriedade radius.
-* `validityTime` é uma propriedade opcional que permite que o utilizador definir período expirado e validade período de tempo para os dados do perímetro geográfico. Se não for especificado, os dados nunca expira e é sempre válidos.
-* O `expiredTime` é a data de expiração e hora de dados de barreira geográfica. Se o valor de `userTime` no pedido é posterior a este valor, do perímetro geográfico correspondente dados são considerados dados expirados e não são consultados. Sobre a qual, geometryId deste perímetro geográfico dados serão incluídos no `expiredGeofenceGeometryId` matriz da resposta do perímetro geográfico.
-* O `validityPeriod` é uma lista de validade período de tempo do perímetro geográfico. Se o valor de `userTime` cai a pedido, fora do período de validade, os dados correspondentes do perímetro geográfico são considerados como inválidos e não serão consultados. GeometryId destes dados de perímetro geográfico está incluído no `invalidPeriodGeofenceGeometryId` matriz dentro do perímetro geográfico resposta. A tabela seguinte mostra as propriedades do elemento de validityPeriod.
+* O tipo de objeto geojson pode ser `Feature` um objeto ou `FeatureCollection` um objeto.
+* O tipo de objeto Geometry pode ser `Point`um `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, e `GeometryCollection`.
+* Todas as propriedades de recurso devem `geometryId`conter um, que é usado para identificar a cerca geográfica.
+* Recurso com `Point`, `MultiPoint`, `LineString`, deve`MultiLineString` conter`radius` em Propriedades. `radius`o valor é medido em metros `radius` , o valor varia de 1 a 10000.
+* O recurso `polygon` com `multipolygon` e o tipo geometry não têm uma propriedade RADIUS.
+* `validityTime`é uma propriedade opcional que permite que o usuário defina a hora expirada e o período de tempo de validade para os dados de limite geográfico. Se não for especificado, os dados nunca expirarão e serão sempre válidos.
+* O `expiredTime` é a data e a hora de expiração dos dados de isolamento geográfica. Se o valor de `userTime` na solicitação for posterior a esse valor, os dados de cerca geográfica correspondentes serão considerados como dados expirados e não serão consultados. Após o qual, a geometryid desses dados de cerca geográfica será incluída na `expiredGeofenceGeometryId` matriz dentro da resposta de cerca geográfica.
+* O `validityPeriod` é uma lista de períodos de tempo de validade da cerca geográfica. Se o valor de `userTime` na solicitação cair fora do período de validade, os dados de cerca geográfica correspondentes serão considerados inválidos e não serão consultados. A geometryid desses dados de cerca geográfica está incluída na `invalidPeriodGeofenceGeometryId` matriz dentro da resposta de cerca geográfica. A tabela a seguir mostra as propriedades do elemento validityPeriod.
 
 | Name | Type | Necessário  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Datetime  | true | O início, data hora da validade período de tempo. |
-| endTime   | Datetime  | true |  Data hora da validade período de tempo final. |
-| recurrenceType | string | false |   O tipo de periodicidade do período. O valor pode ser `Daily`, `Weekly`, `Monthly`, ou `Yearly`. Valor predefinido é `Daily`.|
-| businessDayOnly | Boolean | false |  Indica se os dados só são válidos durante dias úteis. Valor predefinido é `false`.|
+| startTime | Datetime  | true | A data e a hora de início do período de validade. |
+| endTime   | Datetime  | true |  A data e a hora de término do período de validade. |
+| recurrenceType | Cadeia de caracteres | false |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly`ou `Yearly`. O valor padrão `Daily`é.|
+| businessDayOnly | Booleano | false |  Indique se os dados são válidos somente durante os dias úteis. O valor padrão `false`é.|
 
 
-* Todos os valores de coordenadas são representados como [latitude, longitude] definido na `WGS84`.
-* Para cada funcionalidade, que contém `MultiPoint`, `MultiLineString`, `MultiPolygon` , ou `GeometryCollection`, as propriedades são aplicadas a todos os elementos. Por exemplo: Todos os pontos no `MultiPoint` irá utilizar o mesmo radius para formar um perímetro de geográfico vários do círculo.
-* Cenário de ponto-círculo, uma geometria de círculo pode ser representada com um `Point` objeto geometry com propriedades fosse elaborado de acordo na [estendendo GeoJSON geometrias](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* Todos os valores de coordenadas são representados como [longitude, latitude] `WGS84`definido em.
+* Para cada recurso, que contém `MultiPoint` `MultiPolygon` , `MultiLineString`, ou `GeometryCollection`, as propriedades são aplicadas a todos os elementos. por exemplo: Todos os pontos em `MultiPoint` usarão o mesmo raio para formar uma cerca geográfica de círculo múltiplo.
+* No cenário de círculo de ponto, uma geometria de círculo pode ser representada `Point` usando um objeto Geometry com propriedades elaboradas na [extensão de geometrias geojson](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 
-Segue-se um corpo de pedido de exemplo para um perímetro geográfico representado como uma geometria de perímetro geográfico do círculo no `GeoJSON` usando um ponto central e um raio. O período válido dos dados do perímetro geográfico começa a partir de 2018-10-22, às 09: para 5 PM, repetido todos os dias, exceto para o fim de semana. `expiredTime` indica estes dados de perímetro geográfico serão considerados expirou, se `userTime` no pedido é posterior à `2019-01-01`.  
+Veja a seguir um corpo de solicitação de exemplo para uma cerca geográfica representada como um círculo com `GeoJSON` cerca de cerca de uma geometria no uso de um ponto central e um raio. O período válido dos dados de limite geográfico começa de 2018-10-22, 9:00 às 17:00, repetido todos os dias, exceto o fim de semana. `expiredTime`indica que `userTime` `2019-01-01`os dados de cerca geográfica serão considerados expirados, se na solicitação for posterior a.  
 
 ```json
 {

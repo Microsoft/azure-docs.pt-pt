@@ -1,22 +1,22 @@
 ---
-title: Tutorial - configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package - Azure
-description: Tutorial – Saiba como configurar políticas do Apache Ranger para o Kafka no HDInsight do Azure com o Enterprise Security Package.
+title: Tutorial-Apache Kafka com Enterprise Security Package no Azure HDInsight
+description: Tutorial-saiba como configurar políticas do Apache Ranger para Kafka no Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6be97e3a94a10097e53863577da5bf9c6cde5ea0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441377"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734894"
 ---
-# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (pré-visualização)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas de Apache Kafka no HDInsight com Enterprise Security Package (versão prévia)
 
-Saiba como configurar políticas do Apache Ranger para clusters do Apache Kafka do pacote de segurança da empresa (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso aos tópicos `sales` e `marketingspend`.
+Saiba como configurar políticas do Apache Ranger para clusters de Apache Kafka Enterprise Security Package (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso aos tópicos `sales` e `marketingspend`.
 
 Neste tutorial, ficará a saber como:
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-R [cluster de HDInsight Kafka com o Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
+Um [cluster HDInsight Kafka com Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Ligar à IU do Apache Ranger Admin
 
@@ -48,9 +48,9 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
 1. Abra a **IU do Ranger Admin**.
 
-2. Selecione  **\<ClusterName > _kafka** sob **Kafka**. Poderá ser apresentada uma política pré-configurada.
+2. **Selecione\<ClusterName > _kafka** em **Kafka**. Poderá ser apresentada uma política pré-configurada.
 
-3. Selecione **Adicionar nova política** e introduza os seguintes valores:
+3. Selecione **Adicionar nova política** e insira os seguintes valores:
 
    |Definição  |Valor sugerido  |
    |---------|---------|
@@ -68,9 +68,9 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
    Aguarde um momento enquanto o Ranger sincroniza com o Azure AD, se um utilizador de domínio não for preenchido automaticamente em **Selecionar Utilizador**.
 
-4. Selecione **adicionar** para guardar a política.
+4. Selecione **Adicionar** para salvar a política.
 
-5. Selecione **Adicionar nova política** e, em seguida, introduza os seguintes valores:
+5. Selecione **Adicionar nova política** e, em seguida, insira os seguintes valores:
 
    |Definição  |Valor sugerido  |
    |---------|---------|
@@ -81,11 +81,11 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
    ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Selecione **adicionar** para guardar a política.
+6. Selecione **Adicionar** para salvar a política.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Criar tópicos num cluster do Kafka com o ESP
 
-Para criar dois tópicos, `salesevents` e `marketingspend`:
+Para criar dois tópicos `salesevents` e: `marketingspend`
 
 1. Utilize o seguinte comando para abrir uma ligação SSH ao cluster:
 
@@ -93,7 +93,7 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Substitua `DOMAINADMIN` com o utilizador de administrador para o seu cluster configurado durante [criação de cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)e substitua `CLUSTERNAME` com o nome do cluster. Se lhe for pedido, introduza a palavra-passe da conta de utilizador de administrador. Para obter mais informações sobre como utilizar `SSH` com o HDInsight, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Substitua `DOMAINADMIN` pelo usuário administrador do cluster configurado durante a [criação do cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)e substitua `CLUSTERNAME` pelo nome do cluster. Se solicitado, insira a senha para a conta de usuário administrador. Para obter mais informações sobre como utilizar `SSH` com o HDInsight, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilize os comandos seguintes para guardar o nome do cluster numa variável e instalar um utilitário de análise JSON `jq`. Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
@@ -102,17 +102,17 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Utilize os seguintes comandos para obter o mediador Kafka anfitriões. Quando lhe for pedido, introduza a palavra-passe da conta de administrador do cluster.
+3. Use os comandos a seguir para obter os hosts do agente do Kafka. Quando lhe for pedido, introduza a palavra-passe da conta de administrador do cluster.
 
    ```bash
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   Antes de continuar, terá de configurar o ambiente de desenvolvimento se ainda não o tiver feito. Terá de componentes, como o JDK do Java, Apache Maven e um cliente SSH com o scp. Para obter mais informações, consulte [instruções de configuração](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   Antes de continuar, talvez seja necessário configurar seu ambiente de desenvolvimento se você ainda não tiver feito isso. Você precisará de componentes como Java JDK, Apache Maven e um cliente SSH com o scp. Para obter mais informações, consulte [instruções de instalação](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
 1. Transfira os [exemplos de consumidor produtor associados a um domínio do Apache Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Siga os passos 2 e 3 sob **criar e implementar o exemplo** no [Tutorial: Utilizar o Apache Kafka produtor e consumidor APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
+1. Siga as etapas 2 e 3 em **criar e implantar o exemplo** no [tutorial: Usar as APIs de produtor e consumidor do Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
 
 1. Execute os seguintes comandos:
 
@@ -123,7 +123,7 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
 
 ## <a name="test-the-ranger-policies"></a>Testar as políticas do Ranger
 
-Com base em políticas do Ranger configuradas, **sales_user** pode produzir/consumir tópico `salesevents` mas não tópico `marketingspend`. Por outro lado, **marketing_user** pode produzir/consumir tópico `marketingspend` mas não tópico `salesevents`.
+Com base nas políticas de Ranger configuradas, o **sales_user** pode `salesevents` produzir/consumir `marketingspend`o tópico, mas não o tópico. Por outro lado, o **marketing_user** pode produzir/consumir `marketingspend` o tópico, `salesevents`mas não o tópico.
 
 1. Abra uma nova ligação SSH ao cluster. Utilize o seguinte comando para iniciar sessão como **sales_user1**:
 
@@ -137,7 +137,7 @@ Com base em políticas do Ranger configuradas, **sales_user** pode produzir/cons
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
    ```
 
-3. Utilize os nomes de Mediador da secção anterior para definir a variável de ambiente seguintes:
+3. Use os nomes do agente da seção anterior para definir a seguinte variável de ambiente:
 
    ```bash
    export KAFKABROKERS=<brokerlist>:9092
@@ -145,23 +145,23 @@ Com base em políticas do Ranger configuradas, **sales_user** pode produzir/cons
 
    Exemplo: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Siga o passo 3 sob **criar e implementar o exemplo** no [Tutorial: Utilizar as APIs de consumidor e o Apache Kafka produtor](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para se certificar de que o `kafka-producer-consumer.jar` também está disponível para **sales_user**.
+4. Siga a etapa 3 em **criar e implantar o exemplo** no [tutorial: Use o Apache Kafka produtor e as APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) de consumidor para garantir `kafka-producer-consumer.jar` que o também esteja disponível para o **sales_user**.
 
-5. Certifique-se de que **sales_user1** pode produzir para tópico `salesevents` executando o seguinte comando:
+5. Verifique se o **sales_user1** pode produzir para `salesevents` o tópico executando o seguinte comando:
 
    ```bash
    java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-6. Execute o seguinte comando para consumir de tópico `salesevents`:
+6. Execute o seguinte comando para consumir do tópico `salesevents`:
 
    ```bash
    java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
-   Certifique-se de que pode ler as mensagens.
+   Verifique se você é capaz de ler as mensagens.
 
-7. Certifique-se de que o **sales_user1** não é possível produzir para tópico `marketingspend` executando o seguinte na mesma ssh janela:
+7. Verifique se o **sales_user1** não pode produzir para `marketingspend` o tópico executando o seguinte na mesma janela SSH:
 
    ```bash
    java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
@@ -169,11 +169,11 @@ Com base em políticas do Ranger configuradas, **sales_user** pode produzir/cons
 
    Um erro de autorização ocorre e pode ser ignorado.
 
-8. Tenha em atenção que **marketing_user1** não pode consumir de tópico `salesevents`.
+8. Observe que o **marketing_user1** não pode consumir `salesevents`do tópico.
 
-   Repita os passos 1 a 4 acima, mas desta vez, como **marketing_user1**.
+   Repita as etapas 1-4 acima, mas desta vez como **marketing_user1**.
 
-   Execute o seguinte comando para consumir de tópico `salesevents`:
+   Execute o seguinte comando para consumir do tópico `salesevents`:
 
    ```bash
    java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
@@ -187,15 +187,15 @@ Com base em políticas do Ranger configuradas, **sales_user** pode produzir/cons
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não pretender continuar a utilizar esta aplicação, elimine o cluster de Kafka que criou com os seguintes passos:
+Se você não for continuar a usar este aplicativo, exclua o cluster Kafka que você criou com as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Na **pesquisa** caixa na parte superior, tipo **HDInsight**.
-1. Selecione **clusters do HDInsight** sob **serviços**.
-1. Na lista de clusters do HDInsight que aparece, clique o **...**  junto do cluster que criou para este tutorial. 
+1. Na caixa de **pesquisa** na parte superior, digite **HDInsight**.
+1. Selecione **clusters HDInsight** em **Serviços**.
+1. Na lista de clusters HDInsight que aparece, clique em **...** ao lado do cluster que você criou para este tutorial. 
 1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Traga a sua própria chave ao Apache Kafka](../kafka/apache-kafka-byok.md)
+> [Traga sua própria chave para Apache Kafka](../kafka/apache-kafka-byok.md)

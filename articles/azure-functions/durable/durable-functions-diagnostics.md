@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2cc60ee2c73aa6858f68d6b13a895a0188bb5735
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098140"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734498"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnósticos em Durable Functions no Azure
 
@@ -28,13 +28,13 @@ A extensão durável Azure Functions também emite *eventos de rastreamento* que
 
 ### <a name="tracking-data"></a>Dados de rastreamento
 
-Cada evento de ciclo de vida de uma instância de orquestração faz com que um evento de rastreamento seja gravado na coleção de rastreamentos em Application insights. Esse evento contém uma carga **customDimensions** com vários campos.  Todos os nomes de campo são precedidos por `prop__`.
+Cada evento de ciclo de vida de uma instância de orquestração faz com que um evento de rastreamento seja gravado na coleção de **rastreamentos** em Application insights. Esse evento contém uma carga **customDimensions** com vários campos.  Todos os nomes de campo são precedidos por `prop__`.
 
 * **hubName**: O nome do hub de tarefas no qual suas orquestrações estão em execução.
 * **appName**: O nome do aplicativo de funções. Isso é útil quando você tem vários aplicativos de função compartilhando a mesma instância de Application Insights.
 * **slotName**: O [slot de implantação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) no qual o aplicativo de funções atual está em execução. Isso é útil quando você aproveita os slots de implantação para a versão de suas orquestrações.
 * **functionName**: O nome da função de orquestrador ou de atividade.
-* **functionType**: O tipo da função, como orquestrador ou **atividade**.
+* **functionType**: O tipo da função, como **orquestrador** ou **atividade**.
 * **instanceId**: A ID exclusiva da instância de orquestração.
 * **estado**: O estado de execução do ciclo de vida da instância. Valores válidos incluem:
   * **Agendado**: A função foi agendada para execução, mas ainda não começou a ser executada.
@@ -107,7 +107,7 @@ Para habilitar a emissão dos eventos de reprodução de orquestração detalhad
 
 ### <a name="single-instance-query"></a>Consulta de instância única
 
-A consulta a seguir mostra dados de controle de histórico para uma única instância da orquestração de função de [sequência](durable-functions-sequence.md) de saudação. Ele é escrito usando a [linguagem de consulta de Application insights (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Ele filtra a execução de reprodução para que apenas o caminho de execução *lógica* seja mostrado. Os eventos podem ser ordenados classificando `sequenceNumber` por `timestamp` e conforme mostrado na consulta abaixo:
+A consulta a seguir mostra dados de controle de histórico para uma única instância da orquestração de função de [sequência de saudação](durable-functions-sequence.md) . Ele é escrito usando a [linguagem de consulta de Application insights (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Ele filtra a execução de reprodução para que apenas o caminho de execução *lógica* seja mostrado. Os eventos podem ser ordenados classificando `sequenceNumber` por `timestamp` e conforme mostrado na consulta abaixo:
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -158,9 +158,26 @@ O resultado é uma lista de IDs de instância e seu status de tempo de execuçã
 
 É importante manter o comportamento de reprodução do orquestrador em mente ao gravar logs diretamente de uma função de orquestrador. Por exemplo, considere a seguinte função de orquestrador:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>Pré-compiladoC#
 
-```cs
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+### <a name="c-script"></a>C#Prescritiva
+
+```csharp
 public static async Task Run(
     DurableOrchestrationContext context,
     ILogger log)
@@ -211,6 +228,23 @@ Done!
 
 Se você quiser fazer logon somente na execução sem repetição, poderá gravar uma expressão condicional para registrar somente se `IsReplaying` for. `false` Considere o exemplo acima, mas desta vez com as verificações de repetição.
 
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    if (!context.IsReplaying) log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    if (!context.IsReplaying) log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    if (!context.IsReplaying) log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
 #### <a name="c"></a>C#
 
 ```cs
@@ -257,7 +291,7 @@ Done!
 
 O status de orquestração personalizado permite definir um valor de status personalizado para a função de orquestrador. Esse status é fornecido por meio da API de consulta de status `DurableOrchestrationClient.GetStatusAsync` http ou da API. O status personalizado de orquestração permite um monitoramento mais rico para funções de orquestrador. Por exemplo, o código da função de orquestrador `DurableOrchestrationContext.SetCustomStatus` pode incluir chamadas para atualizar o progresso de uma operação de execução longa. Um cliente, como uma página da Web ou outro sistema externo, pode consultar periodicamente as APIs de consulta de status HTTP para obter informações mais detalhadas sobre o progresso. Um exemplo de `DurableOrchestrationContext.SetCustomStatus` uso é fornecido abaixo:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>Pré-compiladoC#
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
@@ -316,7 +350,7 @@ Os clientes receberão a seguinte resposta:
 O Azure Functions dá suporte diretamente ao código de função de depuração e esse mesmo suporte é enviado para Durable Functions, seja em execução no Azure ou localmente. No entanto, há alguns comportamentos que devem ser considerados durante a depuração:
 
 * **Reprodução**: As funções do Orchestrator são reproduzidas regularmente quando novas entradas são recebidas. Isso significa que uma única execução *lógica* de uma função de orquestrador pode resultar em atingir o mesmo ponto de interrupção várias vezes, especialmente se ele estiver definido no início do código de função.
-* **Aguardar**: Sempre que `await` um é encontrado, ele gera o controle de volta para o Dispatcher do Framework de tarefa durável. Se esta for a primeira vez que uma `await` determinada foi encontrada, a tarefa associada *nunca* será retomada. Como a tarefa nunca é retomada , a depuração do Await (F10 no Visual Studio) não é realmente possível. A depuração só funciona quando uma tarefa está sendo repetida.
+* **Aguardar**: Sempre que `await` um é encontrado, ele gera o controle de volta para o Dispatcher do Framework de tarefa durável. Se esta for a primeira vez que uma `await` determinada foi encontrada, a tarefa associada *nunca* será retomada. Como a tarefa nunca é retomada, *a depuração do* Await (F10 no Visual Studio) não é realmente possível. A depuração só funciona quando uma tarefa está sendo repetida.
 * **Tempos limite de mensagens**: Durable Functions usa internamente mensagens de fila para acionar a execução de funções de orquestrador e funções de atividade. Em um ambiente de várias VMS, dividir a depuração por longos períodos de tempo pode fazer com que outra VM pegue a mensagem, resultando em execução duplicada. Esse comportamento existe para funções regulares de gatilho de fila também, mas é importante destacar nesse contexto, uma vez que as filas são um detalhe de implementação.
 
 > [!TIP]

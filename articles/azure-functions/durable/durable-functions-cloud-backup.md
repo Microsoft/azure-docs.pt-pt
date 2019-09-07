@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db98039ae057e48867c91d1081c38066067c621
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 81c1279670e786ddaa03946869773121a859d3b7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087441"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735242"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de Fan-out/Fan-in no exemplo de backup Durable Functions-Cloud
 
@@ -26,7 +26,7 @@ ms.locfileid: "70087441"
 
 Neste exemplo, as funções carregam todos os arquivos em um diretório especificado recursivamente no armazenamento de BLOBs. Eles também contam o número total de bytes que foram carregados.
 
-É possível escrever uma única função que cuida de tudo. O principal problema que você encontraria éa escalabilidade. Uma única execução de função só pode ser executada em uma única VM, portanto, a taxa de transferência será limitada pela taxa de transferência dessa única VM. Outro problema é a **confiabilidade**. Se houver uma falha percorrendo ou se o processo inteiro levar mais de 5 minutos, o backup poderá falhar em um estado parcialmente concluído. Em seguida, ele precisaria ser reiniciado.
+É possível escrever uma única função que cuida de tudo. O principal problema que você encontraria é a **escalabilidade**. Uma única execução de função só pode ser executada em uma única VM, portanto, a taxa de transferência será limitada pela taxa de transferência dessa única VM. Outro problema é a **confiabilidade**. Se houver uma falha percorrendo ou se o processo inteiro levar mais de 5 minutos, o backup poderá falhar em um estado parcialmente concluído. Em seguida, ele precisaria ser reiniciado.
 
 Uma abordagem mais robusta seria escrever duas funções regulares: uma para enumerar os arquivos e adicionar os nomes de arquivo a uma fila, e outra seria ler da fila e carregar os arquivos no armazenamento de BLOBs. Isso é melhor em termos de produtividade e confiabilidade, mas requer que você provisione e gerencie uma fila. Mais importante, uma complexidade significativa é introduzida em termos de **Gerenciamento de estado** e **coordenação** se você quiser fazer mais alguma coisa, como relatar o número total de bytes carregados.
 
@@ -177,7 +177,7 @@ Aqui está a orquestração como um único C# arquivo em um projeto do Visual St
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este exemplo mostrou como implementar o padrão Fan-out/Fan-in. O exemplo a seguir mostra como implementar o padrão de monitor usando [temporizadores duráveis](durable-functions-timers.md).
 

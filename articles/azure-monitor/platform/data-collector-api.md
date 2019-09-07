@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 11c3ded45e87e815b6c694f0a3f9c0ccb96f8750
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a34faeb42fce0a1ee7960f71ffce176492495f9c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813921"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744517"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para Azure Monitor com a API do coletor de dados HTTP (visualização pública)
 Este artigo mostra como usar a API do coletor de dados HTTP para enviar dados de log para Azure Monitor de um cliente de API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada por Azure Monitor.  Os exemplos são fornecidos para PowerShell C#, e Python.
@@ -59,10 +59,10 @@ Para usar a API do coletor de dados HTTP, você cria uma solicitação POST que 
 | Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura de autorização. Mais adiante neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
-| Tipo de log |Especifique o tipo de registro dos dados que estão sendo enviados. O limite de tamanho para esse parâmetro é de 100 caracteres. |
+| Tipo de log |Especifique o tipo de registro dos dados que estão sendo enviados. Pode conter apenas letras, números e sublinhado (_) e não pode exceder 100 caracteres. |
 | x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
 | x-ms-AzureResourceId | ID de recurso do recurso do Azure ao qual os dados devem ser associados. Isso popula a propriedade [_ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de [contexto de recurso](design-logs-deployment.md#access-mode) . Se esse campo não for especificado, os dados não serão incluídos nas consultas de contexto de recurso. |
-| tempo gerado-campo | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para TimeGenerated é a hora em que a mensagem é ingerida. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh: mm: ssZ. |
+| tempo gerado-campo | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** é a hora em que a mensagem é ingerida. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh: mm: ssZ. |
 
 ## <a name="authorization"></a>Autorização
 Qualquer solicitação para a API do coletor de dados HTTP Azure Monitor deve incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o espaço de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
@@ -100,7 +100,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 Os exemplos nas seções a seguir têm um código de exemplo para ajudá-lo a criar um cabeçalho de autorização.
 
 ## <a name="request-body"></a>Corpo do pedido
-O corpo da mensagem deve estar em JSON. Ele deve incluir um ou mais registros com os pares de nome de propriedade e valor neste formato:
+O corpo da mensagem deve estar em JSON. Ele deve incluir um ou mais registros com os pares nome e valor da propriedade no formato a seguir. O nome da propriedade só pode conter letras, números e sublinhado (_).
 
 ```json
 [
@@ -187,7 +187,7 @@ O código de status HTTP 200 significa que a solicitação foi recebida para pro
 
 Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
 
-| Código | Estado | Código de erro | Descrição |
+| Código | State | Código de erro | Descrição |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |A solicitação foi aceita com êxito. |
 | 400 |Pedido incorreto |InactiveCustomer |O espaço de trabalho foi fechado. |
@@ -202,7 +202,7 @@ Esta tabela lista o conjunto completo de códigos de status que o serviço pode 
 | 403 |Proibido |InvalidAuthorization |Falha do serviço ao autenticar a solicitação. Verifique se a ID do espaço de trabalho e a chave de conexão são válidas. |
 | 404 |Não Encontrado | | A URL fornecida está incorreta ou a solicitação é muito grande. |
 | 429 |Demasiados Pedidos | | O serviço está apresentando um alto volume de dados de sua conta. Repita a solicitação mais tarde. |
-| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço obteve um erro interno. Repita a solicitação. |
+| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita a solicitação. |
 | 503 |Serviço Não Disponível |ServiceUnavailable |O serviço atualmente não está disponível para receber solicitações. Repita a solicitação. |
 
 ## <a name="query-data"></a>Consultar dados
@@ -478,7 +478,7 @@ Embora a API do coletor de dados deva abranger a maioria das suas necessidades d
 |---|---|---|
 | [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo no Application Insights | Application Insights, normalmente instrumentados por meio de um SDK dentro de seu aplicativo, oferece a capacidade de enviar dados personalizados por meio de eventos personalizados. | <ul><li> Dados que são gerados em seu aplicativo, mas não são selecionados pelo SDK por meio de um dos tipos de dados padrão (solicitações, dependências, exceções e assim por diante).</li><li> Dados que costumam ser correlacionados a outros dados de aplicativo no Application Insights </li></ul> |
 | [API do coletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) em Logs de Azure monitor | A API do coletor de dados em logs de Azure Monitor é uma maneira completamente aberta de ingerir dados. Todos os dados formatados em um objeto JSON podem ser enviados aqui. Depois de enviado, ele será processado e estará disponível nos logs para serem correlacionados a outros dados nos logs ou a outros dados de Application Insights. <br/><br/> É bem fácil carregar os dados como arquivos em um blob de blob do Azure, de onde esses arquivos serão processados e carregados em Log Analytics. Consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para obter uma implementação de exemplo desse pipeline. | <ul><li> Dados que não são necessariamente gerados em um aplicativo instrumentado dentro de Application Insights.</li><li> Os exemplos incluem tabelas de pesquisa e de fatos, dados de referência, estatísticas pré-configuradas e assim por diante. </li><li> Destinado a dados que serão referenciados entre outros dados de Azure Monitor (Application Insights, outros tipos de dados de logs, central de segurança, Azure Monitor para contêineres/VMs e assim por diante). </li></ul> |
-| [Data Explorer do Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que capacita Application Insights análise e Azure Monitor logs. Agora disponível ("GA"), usar a plataforma de dados em sua forma bruta oferece flexibilidade total (mas exigindo a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema e assim por diante). O ADX fornece muitas [Opções](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) de ingestão, incluindo arquivos [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dados que não serão correlacionados a outros dados em Application Insights ou logs. </li><li> Os dados que exigem recursos avançados de ingestão ou processamento não estão disponíveis atualmente nos logs de Azure Monitor. </li></ul> |
+| [Data Explorer do Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que capacita Application Insights análise e Azure Monitor logs. Agora disponível ("GA"), usar a plataforma de dados em sua forma bruta oferece flexibilidade total (mas exigindo a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema e assim por diante). O ADX fornece muitas [Opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) , incluindo arquivos [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dados que não serão correlacionados a outros dados em Application Insights ou logs. </li><li> Os dados que exigem recursos avançados de ingestão ou processamento não estão disponíveis atualmente nos logs de Azure Monitor. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

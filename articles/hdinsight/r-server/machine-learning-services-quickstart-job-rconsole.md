@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Executar um script R num cluster no HDInsight do Azure utilizando a consola de R Services de ML'
-description: Guia de introdução, que executa um script R num cluster de serviços de ML no HDInsight do Azure utilizando a consola de R.
+title: 'Início rápido: Executar script R em serviços de ML usando o console do R-Azure HDInsight'
+description: No início rápido, você executa um script R em um cluster de serviços do ML no Azure HDInsight usando o console do R.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,29 +8,29 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 682ee4f44dcdd2619668645fa7a8aa22cb645273
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450927"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736369"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início rápido: Executar um script R num cluster no HDInsight do Azure utilizando a consola de R Services de ML
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início rápido: Executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o console do R
 
-Serviços de ML no Azure HDInsight permite que os scripts R utilizem o Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. Serviços de ML controla como as chamadas são executadas ao definir o contexto de cálculo. Nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e para executar os scripts R. Com um nó de extremidade, tem a opção de executar as funções em paralelo distribuídas de RevoScaleR entre os núcleos do servidor de nó edge. Também pode executá-los em todos os nós do cluster através da utilização Hadoop mapeamento redução do RevoScaleR ou contextos de computação do Apache Spark.
+Os serviços de ML no Azure HDInsight permitem que os scripts R usem Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. Os serviços de ML controlam como as chamadas são executadas definindo o contexto de computação. O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R. Com um nó de borda, você tem a opção de executar as funções distribuídas paralelizadas do RevoScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los em todos os nós do cluster usando o mapa do Hadoop do RevoScaleR para reduzir ou Apache Spark contextos de computação.
 
-Neste início rápido, irá aprender a executar um script R com a consola de R que demonstra a utilização do Spark para cálculos de R distribuídos. Definir o contexto de cálculo para efetuar cálculos localmente num nó de extremidade e, novamente distribuída por nós do cluster do HDInsight.
+Neste guia de início rápido, você aprende a executar um script R com o console R que demonstra o uso do Spark para cálculos de R distribuídos. Você definirá um contexto de computação para executar cálculos localmente em um nó de borda e será distribuído novamente entre os nós no cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de serviços de ML no HDInsight. Ver [Apache Hadoop criar clusters no portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **serviços ML** para **tipo de Cluster**.
+* Um cluster de serviços do ML no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços ml** para o **tipo de cluster**.
 
-* Um cliente SSH. Para obter mais informações, consulte [ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
-## <a name="connect-to-r-console"></a>Ligar à consola de R
+## <a name="connect-to-r-console"></a>Conectar-se ao console do R
 
-1. Ligar ao nó de extremidade de um cluster do HDInsight de serviços de ML através de SSH. Editar o comando abaixo, substituindo `CLUSTERNAME` com o nome do cluster e, em seguida, introduza o comando:
+1. Conecte-se ao nó de borda de um cluster HDInsight dos serviços do ML usando o SSH. Edite o comando a seguir `CLUSTERNAME` substituindo pelo nome do cluster e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ed-ssh.azurehdinsight.net
@@ -47,7 +47,7 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
 
 ## <a name="use-a-compute-context"></a>Utilizar um contexto de cálculo
 
-1. Na linha de comandos `>`, pode introduzir o código R. Utilize o seguinte código para carregar dados de exemplo para o armazenamento predefinido do HDInsight:
+1. Na linha de comandos `>`, pode introduzir o código R. Use o código a seguir para carregar dados de exemplo no armazenamento padrão do HDInsight:
 
     ```R
     # Set the HDFS (WASB) location of example data
@@ -82,9 +82,9 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
      rxHadoopCopyFromLocal(source, bigDataDirRoot)
     ```
 
-    Este passo pode demorar cerca de 10 minutos a concluir.
+    Esta etapa pode levar cerca de 10 minutos para ser concluída.
 
-1. Criar algumas informações de dados e definir duas origens de dados. Introduza o código seguinte na consola do R:
+1. Crie algumas informações de dados e defina duas fontes de dados. Insira o seguinte código no console do R:
 
     ```R
     # Define the HDFS (WASB) file system
@@ -111,7 +111,7 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
      formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
     ```
 
-1. Executar um regressão logística sobre os dados com o **local** contexto de cálculo. Introduza o código seguinte na consola do R:
+1. Execute uma regressão logística sobre os dados usando o contexto de computação **local** . Insira o seguinte código no console do R:
 
     ```R
     # Set a local compute context
@@ -126,7 +126,7 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
      summary(modelLocal)
     ```
 
-    As computações devem demorar cerca de 7 minutos. Deverá ver um resultado que acaba com linhas semelhantes ao seguinte fragmento:
+    Os cálculos devem ser concluídos em aproximadamente 7 minutos. Você deve ver a saída que termina com linhas semelhantes ao trecho a seguir:
 
     ```output
     Data: airOnTimeDataLocal (RxTextData Data Source)
@@ -156,7 +156,7 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
       Number of iterations: 7
     ```
 
-1. Executar a mesma regressão logística com o **Spark** contexto. O contexto do Spark distribui o processamento por todos os nós de trabalho do cluster do HDInsight. Introduza o código seguinte na consola do R:
+1. Execute a mesma regressão logística usando o contexto do **Spark** . O contexto do Spark distribui o processamento por todos os nós de trabalho do cluster do HDInsight. Insira o seguinte código no console do R:
 
     ```R
     # Define the Spark compute context
@@ -174,7 +174,7 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
      summary(modelSpark)
     ```
 
-    As computações devem demorar cerca de 5 minutos.
+    Os cálculos devem ser concluídos em cerca de 5 minutos.
 
 1. Para sair da consola do R, utilize o seguinte comando:
 
@@ -184,13 +184,13 @@ Neste início rápido, irá aprender a executar um script R com a consola de R q
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o início rápido, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o início rápido, talvez você queira excluir o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
-Para eliminar um cluster, veja [eliminar um cluster do HDInsight com o seu browser, o PowerShell ou a CLI do Azure](../hdinsight-delete-cluster.md).
+Para excluir um cluster, consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, aprendeu a executar um script R com a consola de R que demonstram a utilização do Spark para cálculos de R distribuídos.  Avance para o artigo seguinte para saber as opções que estão disponíveis para especificar se e como a execução é paralelizada entre os núcleos do nó de extremidade ou cluster do HDInsight.
+Neste guia de início rápido, você aprendeu a executar um script R com o console R, que demonstrou usar o Spark para cálculos de R distribuídos.  Avance para o próximo artigo para aprender as opções disponíveis para especificar se e como a execução é paralelizada entre os núcleos do nó de borda ou do cluster HDInsight.
 
 > [!div class="nextstepaction"]
->[Opções de contexto para os serviços de ML no HDInsight de computação](./r-server-compute-contexts.md)
+>[Opções de contexto de computação para serviços de ML no HDInsight](./r-server-compute-contexts.md)

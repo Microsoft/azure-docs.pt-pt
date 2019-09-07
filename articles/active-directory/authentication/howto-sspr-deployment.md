@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879231"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743232"
 ---
-# <a name="deploy-azure-ad-self-service-password-reset"></a>Implantar a redefinição de senha de autoatendimento do Azure AD
+# <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar a reposição personalizada de palavra-passe do Azure AD
 
 A SSPR (autoatendimento de redefinição de senha) é um recurso Azure Active Directory que permite aos funcionários redefinir suas senhas sem precisar entrar em contato com a equipe de ti. Os funcionários devem se registrar ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o funcionário escolhe um ou mais métodos de autenticação habilitados pela organização.
 
@@ -37,7 +37,7 @@ Antes de implantar o SSPR, as organizações podem querer determinar a quantidad
 
 ## <a name="licensing-considerations"></a>Considerações sobre licenciamento
 
-Azure Active Directory é licença por usuário, o que significa que cada usuário precisa ter uma licença apropriada para os recursos que eles utilizam.
+Azure Active Directory é licenciado por usuário, o que significa que cada usuário precisa ter uma licença apropriada para os recursos que eles utilizam.
 
 Mais informações sobre o licenciamento podem ser encontradas na [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 
@@ -59,7 +59,7 @@ As configurações a seguir são necessárias para habilitar o SSPR juntamente c
 | **Métodos de autenticação** | Métodos de autenticação necessários para registrar | Sempre 1 mais do que o necessário para redefinir |
 |   | Métodos de autenticação necessários para redefinir | Um ou dois |
 | **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
-|   | Número de dias até ser pedido aos utilizadores que reconfirmem as informações de autenticação | 90 – 180 dias |
+|   | Número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação | 90 – 180 dias |
 | **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
 |   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
 | **Customization** | Personalizar ligação de suporte técnico | Sim |
@@ -202,7 +202,7 @@ Faça referência ao seu planejamento na seção planejando métodos de autentic
 
 ### <a name="enable-sspr-in-windows"></a>Habilitar SSPR no Windows
 
-Dispositivos Windows 10 que executam a versão 1803 ou superior que são ingressadas no Azure AD ou no Azure AD híbrido podem redefinir suas senhas na tela de logon do Windows. As informações e as etapas para configurar esse recurso podem ser encontradas no artigo redefinição de [senha do Azure ad na tela de logon](tutorial-sspr-windows.md)
+Dispositivos Windows 10 que executam a versão 1803 ou superior que são ingressadas no Azure AD ou no Azure AD híbrido podem redefinir suas senhas na tela de logon do Windows. As informações e as etapas para configurar esse recurso podem ser encontradas no artigo [redefinição de senha do Azure ad na tela de logon](tutorial-sspr-windows.md)
 
 ### <a name="configure-password-writeback"></a>Configurar write-back de senha
 
@@ -239,7 +239,7 @@ Talvez você também queira incluir informações como as seguintes para soluç�
 
 Você também pode consultar nossa documentação online sobre solução de problemas de redefinição de senha de autoatendimento para entender as etapas gerais de solução de problemas para os cenários de SSPR mais comuns.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Considere implementar a proteção de senha do Azure AD](concept-password-ban-bad.md)
 

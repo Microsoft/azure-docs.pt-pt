@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eeabb4547e3c02ebf540e6d156df97954e612fbc
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208333"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743921"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -29,7 +29,7 @@ A implantação de uma imagem SQL Server VM do Azure Marketplace por meio do por
 
 - **Conformidade**: De acordo com os termos de produto da Microsoft, os clientes devem informar à Microsoft quando estiverem usando o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para fazer isso, eles devem se registrar com o provedor de recursos de VM do SQL. 
 
-- **Benefícios do recurso**: Registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md)e os recursos de monitoramento e capacidade de gerenciamento. Ele também desbloqueia a [](virtual-machines-windows-sql-ahb.md) flexibilidade de licenciamento e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM do Azure Marketplace.
+- **Benefícios do recurso**: Registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md)e os recursos de monitoramento e capacidade de gerenciamento. Ele também desbloqueia a flexibilidade de [Licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM do Azure Marketplace.
 
 Para utilizar o provedor de recursos da VM do SQL, você também deve registrar o provedor de recursos da VM do SQL com sua assinatura. Você pode fazer isso usando o portal do Azure, o CLI do Azure ou o PowerShell. 
 
@@ -178,7 +178,7 @@ Há três modos de gerenciamento para a extensão de IaaS SQL Server:
 
 - **Leve** não requer a reinicialização de SQL Server, mas dá suporte apenas à alteração do tipo de licença e da edição do SQL Server. Use essa opção para SQL Server VMs com várias instâncias ou para participar de uma FCI (instância de cluster de failover). 
 
-- O noagent é dedicado a SQL Server 2008 e SQL Server 2008 R2 instalado no Windows Server 2008. 
+- O **noagent** é dedicado a SQL Server 2008 e SQL Server 2008 R2 instalado no Windows Server 2008. 
 
 Você pode exibir o modo atual de seu SQL Server agente IaaS usando o PowerShell: 
 
@@ -338,7 +338,7 @@ Sim. A atualização do modo de gerenciamento de Lightweight para Full tem supor
 
 Não. Não há suporte para o downgrade do modo de gerenciamento de extensão IaaS SQL Server. Não é possível fazer downgrade do modo de gerenciamento completo para o modo leve ou sem agente, e ele não pode ser desatualizado do modo leve para o modo sem agente. 
 
-Para alterar o modo de gerenciamento da capacidade de gerenciamento total, remova a extensão SQL Server IaaS. Em seguida, remova o recurso Microsoft. SqlVirtualMachine e registre novamente o SQL Server VM com o provedor de recursos de VM do SQL.
+Para alterar o modo de gerenciamento da capacidade de gerenciamento total, remova a extensão SQL Server IaaS. Em seguida, descarte o recurso Microsoft. SqlVirtualMachine e registre novamente o SQL Server VM com o provedor de recursos de VM do SQL.
 
 **Posso registrar com o provedor de recursos de VM do SQL na portal do Azure?**
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: ae25ffdf3f819c30fdfb1d3110042579f0b197b9
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381784"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743855"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de serviços cognitivas usando o portal do Azure
 
@@ -32,12 +32,17 @@ Use este guia de início rápido para começar a usar os serviços cognitivas do
 1. Criar um recurso.
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de vários serviços](#tab/multiservice)
-
+    
     O recurso de vários serviços é chamado de **Serviços cognitivas** no Portal. [Crie um recurso de serviços cognitivas](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
-    Neste momento, esses serviços **não podem** ser chamados usando chaves de vários serviços: QnA Maker, serviços de fala, Visão Personalizada e detector de anomalias.
+    Neste momento, o recurso de vários serviços permite o acesso aos seguintes serviços cognitivas:
     
-
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | Imagem Digitalizada  | Content Moderator                                    | Face               | Compreensão de Idiomas (LUIS) | Análise de Texto   |
+    | Texto do Tradutor  | Pesquisa do Bing v7 <br>(Web, imagem, notícias, vídeo, Visual) | Pesquisa Personalizada do Bing | Pesquisa de Entidades do Bing            | Sugestão Automática do Bing |
+    | Verificação Ortográfica do Bing |                                                      |                    |                               |                  |
+    
     #### <a name="single-service-resourcetabsingleservice"></a>[Recurso de serviço único](#tab/singleservice)
 
     Use os links abaixo para criar um recurso para os serviços cognitivas disponíveis:
@@ -85,13 +90,13 @@ Use este guia de início rápido para começar a usar os serviços cognitivas do
 
 ## <a name="get-the-keys-for-your-resource"></a>Obter as chaves para seu recurso
 
-Depois que o recurso for implantado com êxito, clique em **ir para o recurso** em **próximas etapas**.
+1. Depois que o recurso for implantado com êxito, clique em **ir para o recurso** em **próximas etapas**.
 
-![Pesquisar serviços cognitivas](media/cognitive-services-apis-create-account/resource-next-steps.png)
+    ![Pesquisar serviços cognitivas](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-No painel de início rápido que é aberto, você pode acessar sua chave e ponto de extremidade.
+2. No painel de início rápido que é aberto, você pode acessar sua chave e ponto de extremidade.
 
-![Obter chave e ponto de extremidade](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![Obter chave e ponto de extremidade](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 

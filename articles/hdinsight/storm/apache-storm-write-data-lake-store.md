@@ -1,5 +1,5 @@
 ---
-title: Tutorial-usar Apache Storm para gravar no armazenamento/Data Lake Storage-Azure HDInsight
+title: Tutorial-Apache Storm gravações no armazenamento/Data Lake Storage-Azure HDInsight
 description: Tutorial-saiba como usar Apache Storm para gravar no armazenamento compatível com HDFS para o Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 17cb1091d34c8c0800d0b4dd1f9044fee0ef313f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 752bf1919634d29221a00d983b4e88fefaf628d5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946460"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736343"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Gravar em Apache Hadoop HDFS de Apache Storm no Azure HDInsight
 
@@ -114,7 +114,7 @@ Por padrão, o Storm no HDInsight não inclui os componentes que `HdfsBolt` o us
 
 | Propriedade | Value |
 |---|---|
-|Tipo de script |- Personalizado|
+|Tipo de script |-Personalizado|
 |URI do script de bash |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |Tipo (s) de nó |Nimbus, supervisor|
 |Parâmetros |Nenhum|
@@ -160,7 +160,7 @@ Para obter informações sobre como usar esse script com o cluster, consulte o d
     hdfs.url: wasbs:///
     ```
 
-    Para salvar o arquivo, use __Ctrl + X__ , em seguida, __Y__ e, por fim, __Enter__ . Os valores nesse arquivo definem a URL de armazenamento e o nome do diretório no qual os dados são gravados.
+    Para salvar o arquivo, use __Ctrl + X__, em seguida, __Y__e, por fim, __Enter__. Os valores nesse arquivo definem a URL de armazenamento e o nome do diretório no qual os dados são gravados.
 
 1. Use o seguinte comando para iniciar a topologia:
 
@@ -205,7 +205,7 @@ Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recu
 
 Para remover o grupo de recursos através do Portal do Azure:
 
-1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__ , para apresentar a lista dos seus grupos de recursos.
+1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__, para apresentar a lista dos seus grupos de recursos.
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 

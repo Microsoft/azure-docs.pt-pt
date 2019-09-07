@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b1632ab943026578eb753014575ab53d151c33f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855022"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743546"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conhecidos/limitações de migração com migrações online para o BD do Azure para PostgreSQL
 
@@ -88,6 +88,8 @@ Os problemas conhecidos e as limitações associadas a migrações online do Pos
 - **Limitação**: Se não houver nenhuma chave primária em tabelas, a sincronização contínua falhará.
 
     **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para que a migração continue. Você pode remover a chave primária após a conclusão da migração de dados.
+
+- **Limitação**: JSONB DataType não tem suporte para migração.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 

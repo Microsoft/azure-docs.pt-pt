@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061858"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743388"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Proteger a conexão do banco de dados SQL do Azure do serviço de aplicativo usando uma identidade gerenciada
 
@@ -54,7 +54,7 @@ O que você aprenderá:
 
 Este artigo continua de onde você parou no [tutorial: Crie um aplicativo ASP.net no Azure com o banco](app-service-web-tutorial-dotnet-sqldatabase.md) de [dados SQL ou tutorial: Crie um ASP.NET Core e um aplicativo de banco de dados](app-service-web-tutorial-dotnetcore-sqldb.md)SQL no serviço Azure app. Se você ainda não fez isso, siga um dos dois tutoriais primeiro. Como alternativa, você pode adaptar as etapas para seu próprio aplicativo .NET com o banco de dados SQL.
 
-Para depurar seu aplicativo usando o banco de dados SQL como o back-end, certifique-se de que você tenha permitido a conexão de cliente do seu computador. Caso contrário, adicione o IP do cliente seguindo as etapas em [gerenciar regras de firewall de IP de nível de servidor usando o portal do Azure](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+Para depurar seu aplicativo usando o banco de dados SQL como o back-end, certifique-se de que você tenha permitido a conexão de cliente do seu computador. Caso contrário, adicione o IP do cliente seguindo as etapas em [gerenciar regras de firewall de IP de nível de servidor usando o portal do Azure](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +79,7 @@ Adicione este usuário do Azure ad como um Active Directory administrador [`az s
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
 ```
 
-Para obter mais informações sobre como adicionar um administrador de Active Directory, consulte provisionar [um administrador de Azure Active Directory para seu servidor de banco de dados SQL do Azure](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
+Para obter mais informações sobre como adicionar um administrador de Active Directory, consulte [provisionar um administrador de Azure Active Directory para seu servidor de banco de dados SQL do Azure](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
 
 ## <a name="set-up-visual-studio"></a>Configurar o Visual Studio
 
@@ -268,7 +268,7 @@ Agora, deverá conseguir editar a lista de tarefas como antes.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O que aprendeu:
 

@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 72546e6327fc3286455482943dcaedbd5a8e2943
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648912"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744740"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de indexação de ia usando habilidades cognitivas no Azure Search
 
@@ -45,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os [Serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/) fornecem o ia. Este guia de início rápido inclui etapas para adicionar esses recursos em linha ao especificar o pipeline. Não é necessário configurar contas com antecedência.
 
-Os serviços do Azure são necessários para fornecer as entradas para o pipeline de indexação. Você pode usar qualquer fonte de dados com suporte de [indexadores Azure Search](search-indexer-overview.md) , exceto para o armazenamento de tabelas do Azure, que não tem suporte para a indexação de ia. Este guia de início rápido usa o [armazenamento de BLOBs do Azure](https://azure.microsoft.com/services/storage/blobs/) como um contêiner para arquivos de dados de origem. 
+Os serviços do Azure são necessários para fornecer as entradas para o pipeline de indexação. Você pode usar qualquer fonte de dados com suporte dos [indexadores Azure Search](search-indexer-overview.md). Este guia de início rápido usa o [armazenamento de BLOBs do Azure](https://azure.microsoft.com/services/storage/blobs/) como um contêiner para arquivos de dados de origem. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço Blob do Azure e carregar dados de exemplo
 
@@ -106,13 +106,13 @@ Para este início rápido, o assistente é muito útil, pois define predefiniç�
 
 + A chave padrão é *metadata_storage_path* (esse campo contém valores exclusivos).
 
-+ Os atributos padrão são recuperáveis e pesquisáveis para esses campos. **Pesquisável** indica que um campo pode ser pesquisado. **Recuperável** significa que ele pode ser retornado nos resultados. O assistente pressupõe que você deseja que esses campos sejam recuperáveis e pesquisáveis porque você os criou por meio de um contratador de habilidades.
++ Os atributos padrão são **recuperáveis** e **pesquisáveis** para esses campos. **Pesquisável** indica que um campo pode ser pesquisado. **Recuperável** significa que ele pode ser retornado nos resultados. O assistente pressupõe que você deseja que esses campos sejam recuperáveis e pesquisáveis porque você os criou por meio de um contratador de habilidades.
 
   ![Campos de índice](media/cognitive-search-quickstart-blob/index-fields.png)
 
-Observe o tachado e o ponto de interrogação no atributo recuperável pelo `content` campo. Para documentos de blob com texto pesado, `content` o campo contém a massa do arquivo, potencialmente em milhares de linhas. Se você precisar passar o conteúdo do arquivo para o código do cliente, certifique-se de que recuperável permaneça selecionado. Caso contrário, considere limpar esse atributo `content` se os elementos extraídos`people`( `organizations`,, `locations`e) forem suficientes para suas finalidades.
+Observe o tachado e o ponto de interrogação no atributo **recuperável** pelo `content` campo. Para documentos de blob com texto pesado, `content` o campo contém a massa do arquivo, potencialmente em milhares de linhas. Se você precisar passar o conteúdo do arquivo para o código do cliente, certifique-se de que **recuperável** permaneça selecionado. Caso contrário, considere limpar esse atributo `content` se os elementos extraídos`people`( `organizations`,, `locations`e) forem suficientes para suas finalidades.
 
-Marcar um campo como **recuperável** não significa que o campo *deve* estar presente nos resultados da pesquisa. Você pode controlar precisamente a composição dos resultados da pesquisa usando o parâmetro de consulta **$Select** para especificar quais campos incluir. Para campos com texto pesado como `content`, o parâmetro **$Select** é sua solução para fornecer resultados de pesquisa gerenciáveis para os usuários humanos de seu aplicativo, ao mesmo tempo em que garante que o código do cliente tenha acesso a todas as informações necessárias por meio doAtributo recuperável.
+Marcar um campo como **recuperável** não significa que o campo *deve* estar presente nos resultados da pesquisa. Você pode controlar precisamente a composição dos resultados da pesquisa usando o parâmetro de consulta **$Select** para especificar quais campos incluir. Para campos com texto pesado como `content`, o parâmetro **$Select** é sua solução para fornecer resultados de pesquisa gerenciáveis para os usuários humanos de seu aplicativo, ao mesmo tempo em que garante que o código do cliente tenha acesso a todas as informações necessárias por meio do  **Atributo recuperável** .
   
 Vá para a próxima página.
 
@@ -130,7 +130,7 @@ Clique em **Enviar** para criar e executar o indexador simultaneamente.
 
 ## <a name="monitor-indexing"></a>Indexação de monitor
 
-As etapas de enriquecimento levam mais tempo para serem concluídas do que a indexação típica baseada em texto. O assistente deve abrir a lista indexador na página Visão geral para que você possa acompanhar o progresso. Para navegação automática, vá para a página Visão geral e cliqueem indexadores.
+As etapas de enriquecimento levam mais tempo para serem concluídas do que a indexação típica baseada em texto. O assistente deve abrir a lista indexador na página Visão geral para que você possa acompanhar o progresso. Para navegação automática, vá para a página Visão geral e clique em **indexadores**.
 
 O aviso ocorre porque os arquivos JPG e PNG são arquivos de imagem e omitimos a habilidade de OCR deste pipeline. Você também encontrará notificações de truncamento. Azure Search limita a extração a 32.000 caracteres na camada gratuita.
 

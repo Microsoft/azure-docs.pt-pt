@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 828bcaa8c93454ba845c30c03c76144310891123
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe3000181ed02e3640e7af48fa492f4a7db55191
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098260"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734575"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Padrões de Durable Functions e conceitos técnicos (Azure Functions)
 
@@ -37,6 +37,25 @@ No padrão de encadeamento de funções, uma sequência de funções é executad
 
 Você pode usar Durable Functions para implementar o padrão de encadeamento de funções de forma concisa, conforme mostrado no exemplo a seguir:
 
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+public static async Task<object> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    try
+    {
+        var x = await context.CallActivityAsync<object>("F1");
+        var y = await context.CallActivityAsync<object>("F2", x);
+        var z = await context.CallActivityAsync<object>("F3", y);
+        return  await context.CallActivityAsync<object>("F4", z);
+    }
+    catch (Exception)
+    {
+        // Error handling or compensation goes here.
+    }
+}
+```
+
 #### <a name="c-script"></a>Script C#
 
 ```csharp
@@ -57,7 +76,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Há diferenças sutis entre a gravação de uma função durável pré-compilada no C# e a gravação de uma função durável pré-compilada no C# script que é mostrada no exemplo. Em uma C# função pré-compilada, os parâmetros duráveis devem ser decorados com os respectivos atributos. Um exemplo é o `[OrchestrationTrigger]` atributo para o `DurableOrchestrationContext` parâmetro. Em uma C# função durável pré-compilada, se os parâmetros não estiverem corretamente decorados, o tempo de execução não poderá injetar as variáveis na função e ocorrerá um erro. Para obter mais exemplos, consulte os [exemplos do Azure-Functions-durável-Extension no GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
+> Há diferenças sutis entre a gravação de uma função durável pré-compilada no C# e a gravação de uma função durável pré-compilada no C# script. Em uma C# função pré-compilada, os parâmetros duráveis devem ser decorados com os respectivos atributos. Um exemplo é o `[OrchestrationTrigger]` atributo para o `DurableOrchestrationContext` parâmetro. Em uma C# função durável pré-compilada, se os parâmetros não estiverem corretamente decorados, o tempo de execução não poderá injetar as variáveis na função e ocorrerá um erro. Para obter mais exemplos, consulte os [exemplos do Azure-Functions-durável-Extension no GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
 #### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
@@ -88,6 +107,29 @@ No padrão Fan-out/Fan, execute várias funções em paralelo e aguarde a conclu
 Com as funções normais, você pode se espalhar fazendo com que a função envie várias mensagens para uma fila. Fan de volta é muito mais desafiador. Para o Fan-in, em uma função normal, você escreve o código para controlar quando as funções disparadas por fila terminam e, em seguida, armazenam saídas de função. 
 
 A extensão Durable Functions manipula esse padrão com código relativamente simples:
+
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var parallelTasks = new List<Task<int>>();
+
+    // Get a list of N work items to process in parallel.
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
+    for (int i = 0; i < workBatch.Length; i++)
+    {
+        Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
+        parallelTasks.Add(task);
+    }
+
+    await Task.WhenAll(parallelTasks);
+
+    // Aggregate all N outputs and send the result to F3.
+    int sum = parallelTasks.Sum(t => t.Result);
+    await context.CallActivityAsync("F3", sum);
+}
+```
 
 #### <a name="c-script"></a>Script C#
 
@@ -177,7 +219,29 @@ A extensão de Durable Functions tem WebHooks internos que gerenciam orquestraç
 
 Aqui estão alguns exemplos de como usar o padrão de API HTTP:
 
-#### <a name="c"></a>C#
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+// An HTTP-triggered function starts a new orchestrator function instance.
+[FunctionName("StartNewOrchestration")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger] HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    ILogger log)
+{
+    // The function name comes from the request URL.
+    // The function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+#### <a name="c-script"></a>Script C#
 
 ```csharp
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -224,7 +288,7 @@ Nos exemplos anteriores, uma função disparada por http usa um `functionName` v
 
 ### <a name="monitoring"></a>#4 padrão: Monitorizar
 
-O padrão de monitor refere-se a um processo recorrente e flexível em um fluxo de trabalho. Um exemplo é sondando até que condições específicas sejam atendidas. Você pode usar um [gatilho](../functions-bindings-timer.md) de temporizador regular para abordar um cenário básico, como um trabalho de limpeza periódico, mas seu intervalo é estático e o gerenciamento de tempos de vida da instância se torna complexo. Você pode usar Durable Functions para criar intervalos de recorrência flexíveis, gerenciar tempos de vida da tarefa e criar vários processos de monitor de uma única orquestração.
+O padrão de monitor refere-se a um processo recorrente e flexível em um fluxo de trabalho. Um exemplo é sondando até que condições específicas sejam atendidas. Você pode usar um [gatilho de temporizador](../functions-bindings-timer.md) regular para abordar um cenário básico, como um trabalho de limpeza periódico, mas seu intervalo é estático e o gerenciamento de tempos de vida da instância se torna complexo. Você pode usar Durable Functions para criar intervalos de recorrência flexíveis, gerenciar tempos de vida da tarefa e criar vários processos de monitor de uma única orquestração.
 
 Um exemplo do padrão de monitor é reverter o cenário de API HTTP assíncrono anterior. Em vez de expor um ponto de extremidade para um cliente externo monitorar uma operação de execução longa, o monitor de execução longa consome um ponto de extremidade externo e aguarda uma alteração de estado.
 
@@ -233,6 +297,35 @@ Um exemplo do padrão de monitor é reverter o cenário de API HTTP assíncrono 
 Em algumas linhas de código, você pode usar Durable Functions para criar vários monitores que observam pontos de extremidade arbitrários. Os monitores podem encerrar a execução quando uma condição é atendida ou o [DurableOrchestrationClient](durable-functions-instance-management.md) pode encerrar os monitores. Você pode alterar o intervalo de `wait` um monitor com base em uma condição específica (por exemplo, retirada exponencial). 
 
 O código a seguir implementa um monitor básico:
+
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+[FunctionName("Orchestrator")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    int jobId = context.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+
+    while (context.CurrentUtcDateTime < expiryTime)
+    {
+        var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform an action when a condition is met.
+            await context.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration sleeps until this time.
+        var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await context.CreateTimer(nextCheck, CancellationToken.None);
+    }
+
+    // Perform more work here, or let the orchestration end.
+}
+```
 
 #### <a name="c-script"></a>Script C#
 
@@ -304,6 +397,32 @@ Você pode implementar o padrão neste exemplo usando uma função de orquestrad
 
 Estes exemplos criam um processo de aprovação para demonstrar o padrão de interação humana:
 
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+[FunctionName("Orchestrator")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    await context.CallActivityAsync("RequestApproval");
+    using (var timeoutCts = new CancellationTokenSource())
+    {
+        DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+        Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
+
+        Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
+        if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
+        {
+            timeoutCts.Cancel();
+            await context.CallActivityAsync("ProcessApproval", approvalEvent.Result);
+        }
+        else
+        {
+            await context.CallActivityAsync("Escalate");
+        }
+    }
+}
+```
+
 #### <a name="c-script"></a>Script C#
 
 ```csharp
@@ -355,6 +474,20 @@ Para criar o temporizador durável, `context.CreateTimer` chame (.net) `context.
 
 Um cliente externo pode entregar a notificação de eventos a uma função de orquestrador em espera usando as [APIs http internas](durable-functions-http-api.md#raise-event) ou usando a API [DurableOrchestrationClient. RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) de outra função:
 
+#### <a name="precompiled-c"></a>Pré-compiladoC#
+
+```csharp
+public static async Task Run(
+  [HttpTrigger] string instanceId,
+  [OrchestrationClient] DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
+
+#### <a name="c-script"></a>C#Prescritiva
+
 ```csharp
 public static async Task Run(string instanceId, DurableOrchestrationClient client)
 {
@@ -362,6 +495,8 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
 }
 ```
+
+#### <a name="javascript"></a>Javascript
 
 ```javascript
 const df = require("durable-functions");
@@ -467,7 +602,7 @@ Durante a repetição, se o código tentar chamar uma função (ou qualquer outr
 
 ### <a name="orchestrator-code-constraints"></a>Restrições de código do Orchestrator
 
-O comportamento de reprodução do código do Orchestrator cria restrições sobre o tipo de código que você pode escrever em uma função de orquestrador. Por exemplo, o código do orquestrador deve ser determinístico porque será reproduzido várias vezes e deve produzir o mesmo resultado a cada vez. Para obter a lista completa de restrições, consulte [restrições de código](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints)do Orchestrator.
+O comportamento de reprodução do código do Orchestrator cria restrições sobre o tipo de código que você pode escrever em uma função de orquestrador. Por exemplo, o código do orquestrador deve ser determinístico porque será reproduzido várias vezes e deve produzir o mesmo resultado a cada vez. Para obter a lista completa de restrições, consulte [restrições de código do Orchestrator](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints).
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 

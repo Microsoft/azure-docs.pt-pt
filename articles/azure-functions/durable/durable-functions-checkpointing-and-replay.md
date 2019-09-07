@@ -3,18 +3,17 @@ title: Pontos de verificação e reprodução no Durable Functions – Azure
 description: Saiba como o ponto de verificação e a resposta funcionam na extensão de Durable Functions para Azure Functions.
 services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5d0527de556c25a1d369d7b22c3f62579bc508f0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241049"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735252"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e reprodução em Durable Functions (Azure Functions)
 
@@ -60,7 +59,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Em cada `await` instruçãoC#() `yield` ou (JavaScript), o Framework de tarefa durável verifica o estado de execução da função no armazenamento de tabela. Esse estado é o que é conhecido como o *histórico*de orquestração.
+Em cada `await` instruçãoC#() `yield` ou (JavaScript), o Framework de tarefa durável verifica o estado de execução da função no armazenamento de tabela. Esse estado é o que é conhecido como o *histórico de orquestração*.
 
 ## <a name="history-table"></a>Tabela de histórico
 
@@ -128,21 +127,13 @@ O comportamento de reprodução cria restrições sobre o tipo de código que po
 
   Se o código do Orchestrator precisar obter a data/hora atual, ele deverá usar a API [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET `currentUtcDateTime` ) ou (JavaScript), que é segura para reprodução.
 
-  Se o código do Orchestrator precisar gerar um GUID aleatório, ele deverá usar a API [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.net), que é segura para reprodução ou delegar a geração de GUID a uma função de atividade (JavaScript), como neste exemplo:
+  Se o código do Orchestrator precisar gerar um GUID aleatório, ele deverá usar a API [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.net) ou `newGuid` (JavaScript), que é segura para reprodução.
 
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  As operações não determinísticas devem ser feitas em funções de atividade. Isso inclui qualquer interação com outras associações de entrada ou saída. Isso garante que qualquer valor não determinístico será gerado uma vez na primeira execução e salvo no histórico de execução. As execuções subsequentes usarão o valor salvo automaticamente.
+   Além desses casos especiais, as operações não determinísticas devem ser feitas em funções de atividade. Isso inclui qualquer interação com outras associações de entrada ou saída. Isso garante que qualquer valor não determinístico será gerado uma vez na primeira execução e salvo no histórico de execução. As execuções subsequentes usarão o valor salvo automaticamente.
 
 * O código do orquestrador deve ser **sem bloqueio**. Por exemplo, isso significa nenhuma e/s e nenhuma chamada para `Thread.Sleep` (.net) ou APIs equivalentes.
 
-  Se um orquestrador precisar atrasar, ele poderá usar a API [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) CreateTimer (.net) ou `createTimer` (JavaScript).
+  Se um orquestrador precisar atrasar, ele poderá usar a API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.net) ou `createTimer` (JavaScript).
 
 * O código do Orchestrator **nunca deve iniciar nenhuma operação assíncrona** , exceto usando a `context.df` API [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) ou a API do objeto. Por exemplo, não `Task.Run`, `Task.Delay` ou `HttpClient.SendAsync` no .net, ou `setTimeout()` e `setInterval()` em JavaScript. O Framework de tarefa durável executa o código do orquestrador em um único thread e não pode interagir com outros threads que podem ser agendados por outras APIs assíncronas. Caso isso ocorra, `InvalidOperationException` a exceção será lançada.
 
@@ -165,13 +156,13 @@ Embora essas restrições possam parecer assustadoras a princípio, na prática,
 
 As tarefas que podem ser aguardadas com segurança em funções de orquestrador são ocasionalmente chamadas de *tarefas duráveis*. Essas são tarefas que são criadas e gerenciadas pelo Framework de tarefa durável. Os exemplos são as tarefas retornadas `WaitForExternalEvent`por `CallActivityAsync`, `CreateTimer`e.
 
-Essas *tarefas duráveis* são gerenciadas internamente usando uma lista de `TaskCompletionSource` objetos. Durante a repetição, essas tarefas são criadas como parte da execução do código do Orchestrator e são concluídas, pois o Dispatcher enumera os eventos de histórico correspondentes. Tudo isso é feito de forma síncrona usando um único thread até que todo o histórico tenha sido reproduzido. Todas as tarefas duráveis, que não são concluídas pelo fim da reprodução do histórico, têm as ações apropriadas executadas. Por exemplo, uma mensagem pode ser enfileirada para chamar uma função de atividade.
+Essas *tarefas duráveis* são gerenciadas internamente usando uma lista de `TaskCompletionSource` objetos. Durante a repetição, essas tarefas são criadas como parte da execução do código do Orchestrator e são concluídas, pois o Dispatcher enumera os eventos de histórico correspondentes. Tudo isso é feito de forma síncrona usando um único thread até que todo o histórico tenha sido reproduzido. Todas as tarefas duráveis que não forem concluídas pelo fim da reprodução do histórico terão as ações apropriadas executadas. Por exemplo, uma mensagem pode ser enfileirada para chamar uma função de atividade.
 
 O comportamento de execução descrito aqui deve ajudá-lo a entender por que o código `await` de função do Orchestrator nunca deve ser uma tarefa não durável: o thread do Dispatcher não pode esperar que ele seja concluído e qualquer retorno de chamada por essa tarefa poderia corromper o controle estado da função de orquestrador. Algumas verificações de tempo de execução estão em vigor para tentar evitar isso.
 
 Se você quiser mais informações sobre como o Framework de tarefa durável executa funções de orquestrador, a melhor coisa a fazer é consultar o [código-fonte de tarefa durável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o gerenciamento de instâncias](durable-functions-instance-management.md)

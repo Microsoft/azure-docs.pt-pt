@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b37de45099362fda7288db52cf17749da6e44ea6
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697737"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390219"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: Detectar sentimentos com Análise de Texto
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre a definição de solicitação, consulte [ch
 
 + Crie uma solicitação POST. Para examinar a documentação da API para essa solicitação, consulte a [api análise de sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Defina o ponto de extremidade HTTP para análise de sentimentos usando um recurso de Análise de Texto no Azure ou um [contêiner de análise de texto](text-analytics-how-to-install-containers.md)instanciado. Ele deve incluir o `/sentiment` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
++ Defina o ponto de extremidade HTTP para análise de sentimentos usando um recurso de Análise de Texto no Azure ou um [contêiner de análise de texto](text-analytics-how-to-install-containers.md)instanciado. Você deve incluir `/text/analytics/v2.1/sentiment` na URL. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
 
 + Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de análise de texto.
 
@@ -139,8 +139,8 @@ A [próxima versão do análise de sentimento](https://westcentralus.dev.cogniti
 > [!NOTE]
 > * O formato de solicitação e [os limites de dados](../overview.md#data-limits) do análise de sentimento v3 são os mesmos da versão anterior.
 > * Neste momento, Análise de Sentimento V3:
->    * Atualmente, dá suporte apenas ao idioma inglês.
->    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`e `East Asia`.
+>    * Atualmente, dá suporte a idiomas inglês, chinês simplificado e japonês.
+>    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`e `East Asia`. 
 
 |Funcionalidade |Descrição  |
 |---------|---------|

@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ea3f4f295da747b3a53956c0888797a5f8607d6e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 25a0ef528d67deb5ea71720d2ff8e4d62b3b98a5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310480"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744558"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar compilações de imagem de contêiner na nuvem quando você confirma o código-fonte
 
 Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a compilações automatizadas de imagem de contêiner do Docker na nuvem quando você confirma o código-fonte para um repositório git.
 
-Neste tutorial, a tarefa ACR cria e envia uma única imagem de contêiner especificada em um Dockerfile quando você confirma o código-fonte para um repositório git. Para criar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md) que usa um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres na [confirmação do código, consulte o tutorial: Execute um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o](container-registry-tutorial-multistep-task.md)código-fonte. Para obter uma visão geral das tarefas de ACR, consulte automatizar o [sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md)
+Neste tutorial, a tarefa ACR cria e envia uma única imagem de contêiner especificada em um Dockerfile quando você confirma o código-fonte para um repositório git. Para criar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md) que usa um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres na [confirmação do código, consulte o tutorial: Execute um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o](container-registry-tutorial-multistep-task.md)código-fonte. Para obter uma visão geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md)
 
 Neste tutorial:
 
@@ -58,7 +58,6 @@ az acr task create \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```

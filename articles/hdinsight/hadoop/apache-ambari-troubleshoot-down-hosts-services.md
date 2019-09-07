@@ -1,17 +1,17 @@
 ---
 title: A interface do usuário do Apache Ambari mostra hosts e serviços no Azure HDInsight
-description: A interface do usuário do Apache Ambari mostra hosts e serviços no Azure HDInsight
+description: Solução de problemas de um problema da interface do usuário do Apache Ambari quando ele mostra hosts e serviços no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/02/2019
-ms.openlocfilehash: 1227635a193fdf1b55e2c1cc141a837a250ee08c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: bc65387252fd425256684474f38ec5d783bb45e7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842520"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734855"
 ---
 # <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>Cenário: A interface do usuário do Apache Ambari mostra hosts e serviços no Azure HDInsight
 
@@ -36,7 +36,7 @@ $>telnet headnodehost 8440
 
 Geralmente, reinicializar o cabeçalho ativo atenuará esse problema. Caso contrário, entre em contato com a equipe de suporte do HDInsight.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

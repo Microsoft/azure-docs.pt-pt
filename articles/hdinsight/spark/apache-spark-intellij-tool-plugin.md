@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial-Azure Toolkit for IntelliJ: Criar aplicativos Spark para um cluster HDInsight'
+title: 'Tutorial-Azure Toolkit for IntelliJ: Aplicativo Spark para cluster HDInsight'
 description: Tutorial-use a Azure Toolkit for IntelliJ para desenvolver aplicativos Spark escritos em escalares e enviá-los para um cluster HDInsight Spark.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: dac72cee62a3bd4cc4c315e15ace784bf24deff3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489867"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736484"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Tutorial: Usar Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster HDInsight
 
@@ -195,7 +195,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
 
     * **Serviço Livy**  
   
-        |Propriedade |Valor |
+        |Propriedade |Value |
         |----|----|
         |Tipo de recurso de link|Selecione **serviço Livy** na lista suspensa.|
         |Livy Endpoint| Enter Livy Endpoint|
@@ -227,7 +227,7 @@ Depois de criar um aplicativo escala, você pode enviá-lo para o cluster.
 
 3. Na janela **Editar configuração** , forneça os seguintes valores e, em seguida, selecione **OK**:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |----|----|
     |Clusters do Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Selecione um artefato para enviar|Mantenha a configuração padrão.|
@@ -346,7 +346,7 @@ Ele só tem suporte no IntelliJ 2018,2 e 2018,3.
 
 4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |----|----|
     |Clusters do Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Nome da classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticências ( **...** )  e escolhendo outra classe.|
@@ -453,7 +453,7 @@ Se você não pretende usar este aplicativo, exclua o cluster que você criou co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, você aprendeu a usar o plug-in Azure Toolkit for IntelliJ para desenvolver Apache Spark aplicativos escritos em escalares [](https://www.scala-lang.org/)e, em seguida, os enviou para um cluster HDInsight Spark diretamente do ambiente de desenvolvimento integrado IntelliJ ( IDE). Avance para o próximo artigo para ver como os dados registrados no Apache Spark podem ser obtidos em uma ferramenta de análise de BI, como Power BI.
+Neste tutorial, você aprendeu a usar o plug-in Azure Toolkit for IntelliJ para desenvolver Apache Spark aplicativos escritos em [escalares](https://www.scala-lang.org/)e, em seguida, os enviou para um cluster HDInsight Spark diretamente do ambiente de desenvolvimento integrado IntelliJ ( IDE). Avance para o próximo artigo para ver como os dados registrados no Apache Spark podem ser obtidos em uma ferramenta de análise de BI, como Power BI.
 
 > [!div class="nextstepaction"]
 > [Analisar dados com ferramentas do BI](apache-spark-use-bi-tools.md)

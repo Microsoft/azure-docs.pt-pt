@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 8712af60df2454b29c0691602260c8b826eae75c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 98e6b515d5e9d60f95873016ad1cb06a13799bb2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165005"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390112"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar-se a sistemas SAP de aplicativos lógicos do Azure
 
 > [!IMPORTANT]
-> O servidor de aplicativos SAP e os conectores do servidor de mensagens SAP anteriores estão agendados para substituição. O conector SAP atual consolida esses conectores do SAP anteriores para que você não precise alterar o tipo de conexão, é totalmente compatível com conectores anteriores, fornece muitos recursos adicionais e continua a usar a biblioteca de conectores do SAP .net ( SAP NCo).
+> Os conectores anteriores do servidor de aplicativos SAP e do SAP Message Server estão agendados para substituição em 30 de novembro de 2019. O conector SAP atual consolida esses conectores do SAP anteriores para que você não precise alterar o tipo de conexão, é totalmente compatível com conectores anteriores, fornece muitos recursos adicionais e continua a usar a biblioteca de conectores do SAP .net ( SAP NCo).
 >
 > Para aplicativos lógicos que usam os conectores mais antigos, [migre para o conector mais recente](#migrate) antes da data de reprovação. Caso contrário, esses aplicativos lógicos sofrerão falhas de execução e não poderão enviar mensagens para o sistema SAP.
 
@@ -94,7 +94,7 @@ Neste exemplo, você cria um aplicativo lógico com um ponto de extremidade no A
 
 1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco, que abre o designer do aplicativo lógico.
 
-1. Na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
+1. Na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de **gatilhos** , selecione **quando uma solicitação HTTP é recebida**.
 
    ![Adicionar gatilho de solicitação HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -142,7 +142,7 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
    1. Na caixa **ação SAP** , selecione o ícone de pasta. Na lista arquivo, localize e selecione a mensagem SAP que você deseja usar. Para navegar na lista, use as setas.
 
-      Este exemplo seleciona um IDoc com o tipo Orders.
+      Este exemplo seleciona um IDoc com o tipo **Orders** .
 
       ![Localizar e selecionar a ação IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
@@ -218,7 +218,7 @@ Este exemplo usa um aplicativo lógico que é disparado quando o aplicativo rece
 
 1. No portal do Azure, crie um aplicativo lógico em branco, que abre o designer do aplicativo lógico.
 
-1. Na caixa de pesquisa, digite "SAP" como seu filtro. Na lista de gatilhos, selecione **quando uma mensagem é recebida do SAP**.
+1. Na caixa de pesquisa, digite "SAP" como seu filtro. Na lista de **gatilhos** , selecione **quando uma mensagem é recebida do SAP**.
 
    ![Adicionar gatilho SAP](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -272,7 +272,7 @@ Seu aplicativo lógico agora está pronto para receber mensagens do seu sistema 
 
 1. Para disparar seu aplicativo lógico, envie uma mensagem do seu sistema SAP.
 
-1. No menu do aplicativo lógico, selecione **visão geral**. Examine o **histórico** de execuções para qualquer nova execução para seu aplicativo lógico.
+1. No menu do aplicativo lógico, selecione **visão geral**. Examine o **histórico de execuções** para qualquer nova execução para seu aplicativo lógico.
 
 1. Abra a execução mais recente, que mostra a mensagem enviada do seu sistema SAP na seção saídas do gatilho.
 
@@ -319,7 +319,7 @@ Este exemplo usa um aplicativo lógico que você pode disparar com uma solicita�
 
 1. No portal do Azure, crie um aplicativo lógico em branco, que abre o designer do aplicativo lógico.
 
-1. Na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
+1. Na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de **gatilhos** , selecione **quando uma solicitação HTTP é recebida**.
 
    ![Adicionar gatilho de solicitação HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -460,7 +460,7 @@ Antes de começar, certifique-se de que você atende aos [pré-requisitos](#pre-
 
 ## <a name="safe-typing"></a>Digitação segura
 
-Por padrão, quando você cria sua conexão SAP, a tipagem forte é usada para verificar valores inválidos executando a validação de XML no esquema. Esse comportamento pode ajudá-lo a detectar problemas anteriormente. A opção de **tipagem segura** está disponível para compatibilidade com versões anteriores e verifica apenas o comprimento da cadeia de caracteres. Se você escolher **a digitação segura**, o tipo de DATs e o tipo TIMS no SAP serão tratados como cadeias de caracteres em `xs:date` vez de como `xmlns:xs="http://www.w3.org/2001/XMLSchema"`seus equivalentes XML e `xs:time`, em que. A digitação segura afeta o comportamento de toda a geração de esquema, a mensagem de envio para a carga "enviada" e a resposta "foi recebida" e o gatilho. 
+Por padrão, quando você cria sua conexão SAP, a tipagem forte é usada para verificar valores inválidos executando a validação de XML no esquema. Esse comportamento pode ajudá-lo a detectar problemas anteriormente. A opção de **tipagem segura** está disponível para compatibilidade com versões anteriores e verifica apenas o comprimento da cadeia de caracteres. Se você escolher a **digitação segura**, o tipo de DATs e o tipo TIMS no SAP serão tratados como cadeias de caracteres em `xs:date` vez `xs:time`de como seus equivalentes XML e, em que `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. A digitação segura afeta o comportamento de toda a geração de esquema, a mensagem de envio para a carga "enviada" e a resposta "foi recebida" e o gatilho. 
 
 Quando a digitação forte é usada (a**digitação segura** não está habilitada), o esquema MAPEIA os DATs e os tipos TIMS para tipos XML mais diretos:
 
@@ -506,7 +506,7 @@ Quando as mensagens são enviadas com a **digitação segura** habilitada, a res
 
 ### <a name="confirm-transaction-explicitly"></a>Confirmar transação explicitamente
 
-Quando você envia transações para o SAP de aplicativos lógicos, essa troca ocorre em duas etapas, conforme descrito no documento SAP, [programas de servidor RFC](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true)transacionais. Por padrão, a ação **Enviar para SAP lida com** as etapas para a transferência de função e para a confirmação de transação em uma única chamada. O conector SAP oferece a opção de desacoplar essas etapas. Você pode enviar um IDOC e, em vez de confirmar automaticamente a transação, pode usar a ação de **confirmar ID da transação** explícita.
+Quando você envia transações para o SAP de aplicativos lógicos, essa troca ocorre em duas etapas, conforme descrito no documento SAP, [programas de servidor RFC transacionais](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Por padrão, a ação **Enviar para SAP lida com** as etapas para a transferência de função e para a confirmação de transação em uma única chamada. O conector SAP oferece a opção de desacoplar essas etapas. Você pode enviar um IDOC e, em vez de confirmar automaticamente a transação, pode usar a ação de **confirmar ID da transação** explícita.
 
 Esse recurso para desacoplar a confirmação de ID de transação é útil quando você não deseja duplicar transações no SAP, por exemplo, em cenários em que as falhas podem ocorrer devido a causas, como problemas de rede. Confirmando a ID da transação separadamente, a transação é concluída apenas uma vez no sistema SAP.
 
@@ -538,8 +538,8 @@ Aqui estão os problemas e limitações atualmente conhecidos do conector SAP:
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência do conector](/connectors/sap/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Conecte-se a sistemas locais](../logic-apps/logic-apps-gateway-connection.md) de aplicativos lógicos do Azure.
 * Saiba como validar, transformar e usar outras operações de mensagem com o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md).
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md).

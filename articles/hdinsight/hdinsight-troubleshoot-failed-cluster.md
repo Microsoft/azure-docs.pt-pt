@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight – Azure HDInsight
-description: Diagnostique e solucione problemas de um cluster HDInsight lento ou com falha.
+description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8c50068914c1519a5522372310bd0f5863a94b39
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573577"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735776"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight
 
@@ -48,7 +48,7 @@ Para ajudar a identificar o problema, considere as seguintes perguntas:
 Informações importantes do cluster incluem:
 
 * Nome do cluster.
-* Região do cluster-Verifique se há interrupções de [região](https://azure.microsoft.com/status/).
+* Região do cluster-Verifique se há [interrupções de região](https://azure.microsoft.com/status/).
 * Tipo e versão do cluster HDInsight.
 * Tipo e número de instâncias do HDInsight especificadas para os nós de cabeçalho e de trabalho.
 
@@ -72,7 +72,7 @@ Cada cluster HDInsight depende de vários serviços do Azure e de software livre
 ### <a name="service-details"></a>Detalhes do serviço
 
 * Verifique as versões de lançamento da biblioteca de código aberto.
-* Verifique se há interrupções de [serviço do Azure](https://azure.microsoft.com/status/).  
+* Verifique se há [interrupções de serviço do Azure](https://azure.microsoft.com/status/).  
 * Verifique os limites de uso do serviço do Azure. 
 * Verifique a configuração de sub-rede da rede virtual do Azure.  
 
@@ -90,7 +90,7 @@ O HDInsight depende de vários serviços do Azure. Ele executa servidores virtua
 
 #### <a name="check-azure-service-usage-limits"></a>Verificar os limites de uso do serviço do Azure
 
-Se você estiver iniciando um cluster grande ou tiver iniciado vários clusters simultaneamente, um cluster poderá falhar se você tiver excedido um limite de serviço do Azure. Os limites de serviço variam de acordo com sua assinatura do Azure. Para obter mais informações, consulte [assinatura do Azure e limites de serviço, cotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Se você estiver iniciando um cluster grande ou tiver iniciado vários clusters simultaneamente, um cluster poderá falhar se você tiver excedido um limite de serviço do Azure. Os limites de serviço variam de acordo com sua assinatura do Azure. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 Você pode solicitar que a Microsoft aumente o número de recursos do HDInsight disponíveis (como os núcleos de VM e instâncias de VM) com uma [solicitação de aumento de cota de núcleo do Resource Manager](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 #### <a name="check-the-release-version"></a>Verificar a versão de lançamento

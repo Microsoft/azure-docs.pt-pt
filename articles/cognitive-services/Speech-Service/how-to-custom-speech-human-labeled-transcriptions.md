@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1645e97e5648032a1281e7cb410c42f0a28b6767
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4f0cffbb65192a3698df0c658742147aea354b70
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559654"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744540"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -74,7 +74,7 @@ Aqui estão alguns exemplos de normalização executadas automaticamente na tran
 | Vá em Get-em! | entrar em Get em |
 | Estou em conjunto duplo | Estou em conjunto duplo |
 | Rua do 104 Elm | rua do 1 0 4 Elm |
-| Ajustar para 102,7 | ajustar para 1 0 2 7 |
+| Ajustar para 102,7 | ajustar para 1 0 2 ponto sete |
 | Pi é de cerca de 3,14 | Pi é de aproximadamente três pontos 1 4 |
 Custos de ti $3.14| custos de ti 3 14 |
 

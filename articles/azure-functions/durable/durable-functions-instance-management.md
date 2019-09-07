@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6548b84f9599116aaa5055324bfa4625ea621ec3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087254"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735179"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias no Durable Functions no Azure
 
@@ -43,7 +43,9 @@ Os parâmetros para [StartNewAsync](https://azure.github.io/azure-functions-dura
 * **Entrada**: Qualquer dado serializável em JSON que deve ser passado como a entrada para a função de orquestrador.
 * **InstanceId**: Adicional A ID exclusiva da instância. Se você não especificar esse parâmetro, o método usará uma ID aleatória.
 
-Veja um exemplo simples C# :
+Eis alguns exemplos:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -532,7 +534,7 @@ modules.exports = async function(context, ctx) {
 
 ## <a name="rewind-instances-preview"></a>Rebobinar instâncias (visualização)
 
-Se você tiver uma falha de orquestração por um motivo inesperado , poderá retroceder a instância para um estado de integridade anterior usando uma API criada para essa finalidade.
+Se você tiver uma falha de orquestração por um motivo inesperado, poderá *retroceder* a instância para um estado de integridade anterior usando uma API criada para essa finalidade.
 
 > [!NOTE]
 > Essa API não se destina a ser uma substituição para o tratamento de erros e as políticas de repetição adequados. Em vez disso, ele se destina a ser usado apenas nos casos em que as instâncias de orquestração falham por motivos inesperados. Para obter mais detalhes sobre o tratamento de erros e as políticas de repetição, consulte o tópico [tratamento de erros](durable-functions-error-handling.md) .
@@ -592,6 +594,8 @@ Para remover todos os dados associados a uma orquestração, você pode limpar o
 
  O método tem duas sobrecargas. A primeira limpa o histórico pela ID da instância de orquestração:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -603,6 +607,8 @@ public static Task Run(
 ```
 
 O segundo exemplo mostra uma função disparada por temporizador que limpa o histórico de todas as instâncias de orquestração concluídas após o intervalo de tempo especificado. Nesse caso, ele remove dados de todas as instâncias concluídas 30 ou mais dias atrás. Ele está agendado para ser executado uma vez por dia, às 12:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]

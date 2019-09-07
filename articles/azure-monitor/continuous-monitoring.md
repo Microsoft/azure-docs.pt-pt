@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: ab633ca47f684688019b1313de61571252760a20
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967752"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744504"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com Azure Monitor
 
@@ -56,7 +56,7 @@ A [Infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-co
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combinar recursos em grupos de recursos do Azure
 Um aplicativo típico no Azure atualmente inclui vários recursos, como VMs e serviços de aplicativo ou microservices hospedados em serviços de nuvem, clusters AKS ou Service Fabric. Esses aplicativos frequentemente utilizam dependências como hubs de eventos, armazenamento, SQL e barramento de serviço.
 
-- Combine recursos inazure grupos de recursos para obter visibilidade total de todos os seus recursos que compõem seus aplicativos diferentes. [Azure monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) fornece uma maneira simples de controlar a integridade e o desempenho de todo o seu aplicativo completo de pilha e permite a busca detalhada dos respectivos componentes para qualquer investigação ou depuração.
+- Combine recursos nos grupos de recursos do Azure para obter visibilidade total de todos os seus recursos que compõem seus aplicativos diferentes. [Azure monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) fornece uma maneira simples de controlar a integridade e o desempenho de todo o seu aplicativo completo de pilha e permite a busca detalhada dos respectivos componentes para qualquer investigação ou depuração.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garantir a qualidade por meio da implantação contínua
 A integração contínua/implantação contínua permite que você integre e implante automaticamente as alterações de código em seu aplicativo com base nos resultados do teste automatizado. Ele simplifica o processo de implantação e garante a qualidade das alterações antes que elas se movam para a produção.
@@ -72,9 +72,9 @@ Um aspecto crítico do monitoramento é notificar de forma proativa os administr
 
 - Crie [alertas no Azure monitor](../azure-monitor/platform/alerts-overview.md) com base em logs e métricas para identificar Estados de falha previsíveis. Você deve ter uma meta de tornar todos os alertas acionáveis, o que significa que eles representam as condições críticas reais e buscam reduzir os falsos positivos. Use [limites dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente linhas de base em dados de métrica em vez de definir seus próprios limites estáticos. 
 - Defina ações para que os alertas usem o meio mais eficaz de notificar seus administradores. As [ações disponíveis para notificação](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, emails, notificações por Push ou chamadas de voz.
-- Use ações mais avançadas para [se conectar à sua ferramenta de ITSM](platform/itsmc-overview.md) ou a outros sistemas [](platform/activity-log-alerts-webhook.md)de gerenciamento de alertas por meio de WebHooks.
+- Use ações mais avançadas para [se conectar à sua ferramenta de ITSM](platform/itsmc-overview.md) ou a outros sistemas de gerenciamento de alertas por meio de [WebHooks](platform/activity-log-alerts-webhook.md).
 - Corrija as situações identificadas em alertas também com os [runbooks de automação do Azure](../automation/automation-webhooks.md) ou os [aplicativos lógicos](/connectors/custom-connectors/create-webhook-trigger) que podem ser iniciados por meio de um alerta usando WebHooks. 
-- Use [](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) o dimensionamento automático para aumentar e diminuir dinamicamente seus recursos de computação com base nas métricas coletadas.
+- Use o [dimensionamento](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) automático para aumentar e diminuir dinamicamente seus recursos de computação com base nas métricas coletadas.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>Preparar painéis e pastas de trabalho
 Garantir que seu desenvolvimento e suas operações tenham acesso à mesma telemetria e ferramentas permite que eles exibam padrões em todo o ambiente e minimizem o tempo médio de detecção (MTTD) e o tempo médio de restauração (MTTR).

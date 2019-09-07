@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 6b9a74ee6530d8fc195490b0f1414e6348e855f6
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114621"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743596"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar compilações de imagem de contêiner quando uma imagem base é atualizada em um registro de contêiner do Azure 
 
@@ -81,7 +81,7 @@ Quando uma imagem de base é atualizada, será necessário recompilar todas as i
 
    Se a imagem base especificada na `FROM` instrução residir em um desses locais, a tarefa ACR adicionará um gancho para garantir que a imagem seja recriada sempre que sua base for atualizada.
 
-* Atualmente, as tarefas de ACR rastreiam apenas atualizações de imagem base para imagens de aplicativo (*tempo de execução*). Ele não rastreia atualizações de imagem base para imagensintermediárias (buildtime) usadas em Dockerfiles de vários estágios.  
+* Atualmente, as tarefas de ACR rastreiam apenas atualizações de imagem base para imagens de aplicativo (*tempo de execução*). Ele não rastreia atualizações de imagem base para imagens intermediárias (*buildtime*) usadas em Dockerfiles de vários estágios.  
 
 * Quando você cria uma tarefa ACR com o comando [AZ ACR Task Create][az-acr-task-create] , por padrão, a tarefa é *habilitada* para o gatilho por uma atualização de imagem de base. Ou seja, a `base-image-trigger-enabled` propriedade é definida como true. Se você quiser desabilitar esse comportamento em uma tarefa, atualize a propriedade para false. Por exemplo, execute o seguinte comando [AZ ACR Task Update][az-acr-task-update] :
 
@@ -125,7 +125,6 @@ az acr task create \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
-    --branch master \
     --git-access-token $GIT_PAT
 ```
 
@@ -271,7 +270,7 @@ az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem de contentor quando a imagem de base é atualizada. Agora, pode avançar para saber mais sobre a autenticação do registo do contentor.
 

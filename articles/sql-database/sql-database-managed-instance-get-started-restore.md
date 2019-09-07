@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567474"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744412"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar um banco de dados para um Instância Gerenciada
 
@@ -37,6 +37,7 @@ Este guia de início rápido:
 - Requer o uso do SSMS para se conectar ao seu Instância Gerenciada. Consulte estes guias de início rápido sobre como se conectar:
   - [Ligar a uma Instância Gerida da Base de Dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
   - [Configure uma conexão ponto a site com um instância gerenciada do banco de dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md).
+- Requer a conta de armazenamento de BLOBs do Azure (por exemplo, Standard_LRS v2) em **IP público** protegido com a **credencial SAS** que tem `rw` permissão. Não há suporte atualmente [para IPS privados para armazenamento de blob protegido por firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e pontos de extremidade de serviço de armazenamento de BLOBs do Azure.
 
 > [!NOTE]
 > Para obter mais informações sobre como fazer backup e restaurar um banco de dados SQL Server usando o armazenamento de BLOBs do Azure e uma [chave de assinatura de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).

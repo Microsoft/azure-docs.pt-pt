@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 08/08/2019
 ms.author: larryfr
-ms.openlocfilehash: 7b42ac110fffc0397d75138155ddfb84f0a00098
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b9520e0ba7b8a80a40bb60dab351029f04ce3868
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912458"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390606"
 ---
 > [!IMPORTANT]
-> Você só deve usar modelos que você criar ou obter de uma fonte confiável. Os modelos serializados devem ser tratados como código, pois as vulnerabilidades de segurança foram descobertas em vários formatos populares. Além disso, os modelos podem ser intencionalmente treinados com intenção mal-intencionada para fornecer saída tendenciosa ou imprecisa.
+> Você deve usar apenas os modelos que criar ou obter de uma fonte confiável. Você deve tratar modelos serializados como código, pois as vulnerabilidades de segurança foram descobertas em vários formatos populares. Além disso, os modelos podem ser intencionalmente treinados com intenção mal-intencionada para fornecer saída tendenciosa ou imprecisa.

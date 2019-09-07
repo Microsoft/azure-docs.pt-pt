@@ -1,5 +1,5 @@
 ---
-title: Alojar API RESTful com CORS - serviço de aplicações do Azure | Documentos da Microsoft
+title: 'Tutorial: Hospedar a API RESTful com o serviço CORS-Azure App'
 description: Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS.
 services: app-service\api
 documentationcenter: dotnet
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138651"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743867"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
@@ -58,7 +58,7 @@ Execute o seguinte comando para clonar o repositório de exemplo.
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Este repositório contém uma aplicação que é criada com base no tutorial: [As páginas de ajuda do ASP.NET Core Web API com Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
+Esse repositório contém um aplicativo criado com base no seguinte tutorial: [ASP.NET Core páginas de ajuda da API Web usando o Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
 
 ### <a name="run-the-application"></a>Executar a aplicação
 
@@ -132,7 +132,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure
 
 Navegue para `http://<app_name>.azurewebsites.net/swagger` num browser experimente a IU do Swagger.
 
@@ -177,7 +177,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
 
 > [!NOTE]
-> Se a sua aplicação necessita de credenciais, como cookies ou tokens de autenticação a ser enviados, o navegador pode exigir a `ACCESS-CONTROL-ALLOW-CREDENTIALS` cabeçalho na resposta. Para ativar esta opção no serviço de aplicações, defina `properties.cors.supportCredentials` para `true` na sua configuração CORS. Não pode ser ativada quando `allowedOrigins` inclui `'*'`.
+> Se seu aplicativo exigir que credenciais como cookies ou tokens de autenticação sejam enviadas, o navegador poderá exigir `ACCESS-CONTROL-ALLOW-CREDENTIALS` o cabeçalho na resposta. Para habilitar isso no serviço de aplicativo, `properties.cors.supportCredentials` defina `true` como em sua configuração de CORS. Isso não pode ser habilitado `allowedOrigins` quando `'*'`o inclui.
 
 ### <a name="test-cors-again"></a>Testar o CORS novamente
 
@@ -211,4 +211,4 @@ O que aprendeu:
 Avançar para o próximo tutorial para saber como autenticar e autorizar utilizadores.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar e autorizar utilizadores ponto a ponto](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar usuários de ponta a ponta](app-service-web-tutorial-auth-aad.md)

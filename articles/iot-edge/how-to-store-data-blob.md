@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f2b26e3418e264c2613a183570c7e27f75ab5d63
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 1a48088d0d7ef1e14614629340ee477833535861
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208236"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390399"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazene dados na borda com o armazenamento de BLOBs do Azure no IoT Edge
 
@@ -173,7 +173,6 @@ A documentação do armazenamento de BLOBs do Azure inclui o código de exemplo 
 Os exemplos de início rápido a seguir usam idiomas que também são suportados pelo IoT Edge, portanto, você pode implantá-los como IoT Edge módulos juntamente com o módulo de armazenamento de BLOBs:
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
     - Temos um problema conhecido ao usar esse SDK porque esta versão do módulo não retorna o tempo de criação de BLOB. Portanto, poucos métodos como BLOBs de lista não funcionam. Como solução alternativa, defina a versão de API explicitamente no cliente de blob como ' 2017-04-17 '. <br>Exemplo`block_blob_service._X_MS_VERSION = '2017-04-17'`
 - [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
@@ -264,7 +263,7 @@ Não suportado:
 
 ## <a name="release-notes"></a>Notas de Versão
 
-Aqui estão as [notas de versão no Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) do Docker para este módulo
+Aqui estão as [notas de versão no Hub do Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo
 
 ## <a name="feedback"></a>Comentários
 

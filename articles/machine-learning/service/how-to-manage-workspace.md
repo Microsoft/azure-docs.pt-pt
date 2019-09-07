@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar espaços de trabalho
+title: Criar espaços de trabalho do Azure ML no portal
 titleSuffix: Azure Machine Learning service
 description: Saiba como criar, ver e eliminar as áreas de trabalho do Azure Machine Learning serviço no portal do Azure.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f103bde99eb5b21d06988f11ac6f17fcf50ceb31
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: df015df3c20cdb99512167e3dc3e455da2762c52
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278279"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744790"
 ---
-# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Criar e gerir áreas de trabalho do serviço Azure Machine Learning
+# <a name="create-and-manage-azure-machine-learning-service-workspaces-in-the-azure-portal"></a>Criar e gerenciar espaços de trabalho de serviço do Azure Machine Learning no portal do Azure
 
 Neste artigo, vai criar, ver e eliminar [ **áreas de trabalho do serviço Azure Machine Learning** ](concept-workspace.md) no portal do Azure para [serviço Azure Machine Learning](overview-what-is-azure-ml.md).  O portal é a maneira mais fácil de começar com espaços de trabalho, mas conforme suas necessidades mudam ou requisitos para aumentar a automação, você também pode criar e excluir espaços de trabalho [usando a CLI](reference-azure-machine-learning-cli.md), [com código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [por meio da extensão vs Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 

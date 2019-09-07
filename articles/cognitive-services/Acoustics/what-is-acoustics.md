@@ -11,24 +11,27 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932985"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390315"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
-O projeto acústicos é um mecanismo acústicos de ondas para experiências interativas 3D. Ele modela efeitos de ondas como diffraction, portabilidade e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona manual. Ele também inclui o mecanismo de jogo e a integração de middleware de áudio. A filosofia do projeto acústicos é semelhante à iluminação estática: distortar a física em modo offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas.
+O projeto acústicos é um mecanismo acústicos de ondas para experiências interativas 3D. Ele modela efeitos de ondas como oclusão, obstrução, portabilidade e efeitos reverberations em cenas complexas, sem a necessidade de marcação de zona manual ou de raytracing de uso intensivo de CPU. Ele também inclui o mecanismo de jogo e a integração de middleware de áudio. A filosofia do projeto acústicos é semelhante à iluminação estática: distortar a física detalhada offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas para os acústicos do mundo virtual.
 
 ![Captura de tela de engrenagens da guerra 4 mostrando acústicas voxels](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Usando a física de onda para acústicas interativas
-Os métodos acústicos baseados em Ray podem verificar oclusão usando uma única conversão Ray de origem em ouvinte ou gerar um verbo de unidade estimando o volume da cena local com alguns raios. Mas essas técnicas podem não ser confiáveis porque uma Pebble occludes tanto como uma Boulder. Os raios não se desenvolvem pela forma como o som se curva em objetos, um fenômeno conhecido como Diffraction. A simulação do projeto acústicos captura esses efeitos usando uma simulação baseada em onda. O resultado é mais previsível e confiável.
+Os métodos acústicos baseados em Ray podem verificar oclusão usando uma única conversão Ray de origem em ouvinte ou gerar um verbo de unidade estimando o volume da cena local com alguns raios. Mas essas técnicas podem não ser confiáveis porque uma Pebble occludes tanto como uma Boulder. Os raios não se desenvolvem pela forma como o som se curva em objetos, um fenômeno conhecido como Diffraction. A simulação do projeto acústicos captura esses efeitos usando uma simulação baseada em onda. Os acústicos são mais previsíveis, precisos e contínuos.
 
-A principal inovação do projeto é a combinação de simulação acústica com conceitos tradicionais de design de som. Ele traduz os resultados da simulação em parâmetros tradicionais do DSP de áudio para oclusão, portal e reverberação. O designer usa controles sobre esse processo de tradução. Para obter mais detalhes sobre as tecnologias principais por trás do projeto acústicos, visite a [página do projeto de pesquisa](https://www.microsoft.com/en-us/research/project/project-triton/).
+A principal inovação do projeto é a de duas simulações acústicas com base na onda de som real com conceitos tradicionais de design de som. Ele traduz os resultados da simulação em parâmetros tradicionais do DSP de áudio para oclusão, portal e reverberação. O designer usa controles sobre esse processo de tradução. Para obter mais detalhes sobre as tecnologias principais por trás do projeto acústicos, visite a [página do projeto de pesquisa](https://www.microsoft.com/en-us/research/project/project-triton/).
 
 ![Animação mostrando uma fatia 2D horizontal da propagação de ondas por meio de uma cena](media/wave-simulation.gif)
+
+## <a name="video-presentation-from-gdc-2019-30-min"></a>Apresentação em vídeo do GDC 2019 (~ 30 min)
+Vídeo acústicos do projeto(https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "clique para reproduzir vídeo") [ ![]
 
 ## <a name="setup"></a>Configurar
 A [integração do Unity do projeto acústica](unity-integration.md) é o recurso arrastar e soltar e inclui um plug-in do mecanismo de áudio do Unity. Aumente os controles de origem de áudio do Unity anexando um C# componente controles acústicos do projeto a cada objeto de áudio.

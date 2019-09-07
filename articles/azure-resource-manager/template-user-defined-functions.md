@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 71c166b9c596c3c8628f943ae5c7dbebd9c2d51c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 227ecb57b125264e7d0eba56e634966d677e0f58
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384141"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387289"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo usuário no modelo Azure Resource Manager
 
@@ -73,7 +73,7 @@ Ao definir uma função de usuário, há algumas restrições:
 * A função não pode acessar variáveis.
 * A função só pode usar parâmetros que são definidos na função. Quando você usa a função [Parameters](resource-group-template-functions-deployment.md#parameters) em uma função definida pelo usuário, você está restrito aos parâmetros para essa função.
 * A função não pode chamar outras funções definidas pelo usuário.
-* A função não pode usar as funções de [referência](resource-group-template-functions-resource.md#reference) ou de [lista](resource-group-template-functions-resource.md#list) .
+* A função não pode usar a função de [referência](resource-group-template-functions-resource.md#reference) ou qualquer uma das funções de [lista](resource-group-template-functions-resource.md#list) .
 * Os parâmetros da função não podem ter valores padrão.
 
 

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 08/20/2019
+ms.topic: reference
+ms.date: 09/05/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: bc1863795161342c05a5538e8f7e40e789ce695d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b6aa36eaeee85aec042dd215c9d6226b493d261f
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647107"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390945"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Como utilizar a API de REST do QnA Maker com Go 
 <a name="HOLTop"></a>

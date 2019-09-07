@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034824"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735113"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral de alertas no Microsoft Azure 
 
@@ -53,6 +53,7 @@ Sinais de **sinal** são emitidos pelo recurso de destino e podem ser de vários
 **Descrição do alerta** – uma descrição para a regra de alerta configurada pelo usuário
 
 **Severidade** – a severidade do alerta quando os critérios especificados na regra de alerta são atendidos. A severidade pode variar de 0 a 4.
+Sev 0 = crítico Sev 1 = erro Sev 2 = aviso Sev 3 = informativo Sev 4 = detalhado
 
 **Ação** -uma ação específica executada quando o alerta é acionado. Para obter mais informações, consulte [grupos de ações](../../azure-monitor/platform/action-groups.md).
 
@@ -83,7 +84,7 @@ Há suporte para os seguintes Estados de alerta.
 | Reconhecido | Um administrador analisou o alerta e começou a trabalhar nele. |
 | Fechado | O problema foi resolvido. Depois que um alerta for fechado, você poderá reabri-lo alterando-o para outro Estado. |
 
-O **estado do alerta** é diferente e independente da condição do **Monitor**. O estado do alerta é definido pelo usuário. A condição do monitor é definida pelo sistema. Quando um alerta é disparado, a condição do monitor doalerta é definida como disparada. Quando a condição subjacente que fez com que o alerta fosse limpo, a condição do monitor é definidacomo resolvida. O estado do alerta não é alterado até que o usuário o altere. Saiba [como alterar o estado de seus alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
+O **estado do alerta** é diferente e independente da condição do **Monitor**. O estado do alerta é definido pelo usuário. A condição do monitor é definida pelo sistema. Quando um alerta é *disparado, a condição*do monitor do alerta é definida como disparada. Quando a condição subjacente que fez com que o alerta fosse limpo, a condição do monitor é definida como *resolvida*. O estado do alerta não é alterado até que o usuário o altere. Saiba [como alterar o estado de seus alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="smart-groups"></a>Grupos inteligentes 
 Os grupos inteligentes estão em versão prévia. 

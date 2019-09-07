@@ -1,19 +1,19 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de infraestrutura
+title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-infraestrutura
 description: Aprenda práticas recomendadas de infraestrutura para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: dbd4cc987883c959ad9b13b60491dd2288bd5643
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404381"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735741"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de infraestrutura
 
@@ -86,7 +86,7 @@ O HDInsight fornece scripts pré-gravados para instalar os seguintes componentes
 - Instalar prontamente
 - Instalar Solr
 - Instalar Giraph
-- Pré-carregar as bibliotecas do Hive
+- Pré-carregar bibliotecas do hive
 - Instalar ou atualizar o Mono
 
 > [!Note]  
@@ -189,7 +189,7 @@ O HDInsight pode ser conectado à rede local usando redes virtuais do Azure e um
 
 Para obter mais informações, consulte o artigo [conectar o HDInsight à sua rede local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

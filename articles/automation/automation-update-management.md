@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d607809b6e0356c8807879962927e99f2bd12fd
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382728"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743843"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -75,8 +75,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Dá suporte apenas a avaliações de atualização.         |
-|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|O .NET Framework 4.5.1 ou posterior é necessário. ([Baixar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 4,0 ou posterior é necessário. ([Baixe o WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> O Windows PowerShell 5,1 é recomendado para maior confiabilidade.  ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|**Avaliações de atualização**: Suportadas<br><br>**Aplicação de patch**: Requer Hybrid Runbook Worker. Consulte [os requisitos de Hybrid runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. A aplicação de patches baseada em classificação requer ' yum ' para retornar dados de segurança que o CentOS não está pronto para uso. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, consulte [Atualizar classificações no Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -666,7 +665,7 @@ Para remover uma VM do Gerenciamento de Atualizações:
 * No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração `MicrosoftDefaultScopeConfig-Updates`de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
 * Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Continue no tutorial para saber como gerenciar atualizações para suas máquinas virtuais do Windows.
 

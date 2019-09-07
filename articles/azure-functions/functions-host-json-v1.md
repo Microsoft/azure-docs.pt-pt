@@ -1,20 +1,18 @@
 ---
 title: referência de host. JSON para Azure Functions 1. x
 description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v1.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: c169d9cc774a2c6264ba1520240005f13ba9d2da
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096444"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735163"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência de host. JSON para Azure Functions 1. x
 
@@ -46,6 +44,13 @@ Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis e
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -86,6 +91,9 @@ Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis e
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -115,6 +123,28 @@ As seções a seguir deste artigo explicam cada propriedade de nível superior. 
 ## <a name="applicationinsights"></a>applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
+## <a name="documentdb"></a>DocumentDB
+
+Definições de configuração para o [gatilho Azure Cosmos DB e associações](functions-bindings-cosmosdb.md).
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------|
+|GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço de Azure Cosmos DB. As opções `Direct` são e`Gateway`|
+|Protocol|Https|O protocolo de conexão usado pela função quando a conexão com o serviço de Azure Cosmos DB.  Leia [aqui para obter uma explicação dos dois modos](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -238,6 +268,21 @@ Definições de configuração para [gatilhos e associações de fila de armazen
 |batchSize|16|O número de mensagens de fila que o tempo de execução do Functions recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega ao `newBatchThreshold`, o tempo de execução Obtém outro lote e começa a processar essas mensagens. Portanto, o número máximo de mensagens simultâneas sendo processadas por `batchSize` função `newBatchThreshold`é mais. Esse limite se aplica separadamente a cada função disparada por fila. <br><br>Se você quiser evitar a execução paralela de mensagens recebidas em uma fila, poderá definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade somente contanto que seu aplicativo de funções seja executado em uma única máquina virtual (VM). Se o aplicativo de funções for dimensionado para várias VMs, cada VM poderá executar uma instância de cada função disparada por fila.<br><br>O máximo `batchSize` é 32. | 
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de suspeitas.| 
 |newBatchThreshold|batchSize/2|Sempre que o número de mensagens sendo processadas simultaneamente chega a esse número, o tempo de execução recupera outro lote.| 
+
+## <a name="sendgrid"></a>SendGrid
+
+Parâmetro de configuração para a [Associação de saída SendGrind](functions-bindings-sendgrid.md)
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|from|n/d|O endereço de email do remetente em todas as funções.| 
 
 ## <a name="servicebus"></a>serviceBus
 

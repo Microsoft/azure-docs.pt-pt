@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953014"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389768"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -295,7 +295,7 @@ Quando uma versão mais recente do software de proxy de proteção de senha do A
 
 Não é necessário desinstalar a versão atual do software proxy-o instalador executará uma atualização in-loco. Nenhuma reinicialização deve ser necessária ao atualizar o software proxy. A atualização de software pode ser automatizada usando procedimentos MSI padrão, por `AzureADPasswordProtectionProxySetup.exe /quiet`exemplo:.
 
-O agente de proxy dá suporte à atualização automática. A atualização automática usa o serviço de atualizador do agente Microsoft Azure AD Connect que é instalado lado a lado com o serviço de proxy. A atualização automática está ativada por padrão e pode ser habilitada ou desabilitada usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A configuração atual pode ser consultada usando o cmdlet Get-AzureADPasswordProtectionProxyConfiguration. A Microsoft recomenda que a atualização automática seja deixada habilitada.
+O agente de proxy dá suporte à atualização automática. A atualização automática usa o serviço de atualizador do agente Microsoft Azure AD Connect que é instalado lado a lado com o serviço de proxy. A atualização automática está ativada por padrão e pode ser habilitada ou desabilitada usando o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet. A configuração atual pode ser consultada usando o `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. A Microsoft recomenda que a atualização automática seja deixada habilitada.
 
 O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para consultar a versão de software de todos os agentes de proxy atualmente instalados em uma floresta.
 
@@ -325,7 +325,7 @@ A principal preocupação de disponibilidade para proteção por senha é a disp
 
 O design do software do agente de DC atenua os problemas comuns associados à alta disponibilidade. O agente de DC mantém um cache local da política de senha baixada mais recentemente. Mesmo se todos os servidores proxy registrados ficarem indisponíveis, os agentes de DC continuarão impõem a política de senha armazenada em cache. Uma frequência de atualização razoável para diretivas de senha em uma implantação grande geralmente é dias, não horas ou menos. Portanto, poucas interrupções dos servidores proxy não afetam significativamente a proteção de senha do Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você instalou os serviços necessários para a proteção de senha do Azure AD nos servidores locais, [Execute a configuração pós-instalação e colete as informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 

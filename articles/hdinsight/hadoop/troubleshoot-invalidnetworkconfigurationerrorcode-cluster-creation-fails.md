@@ -1,17 +1,17 @@
 ---
-title: Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
+title: InvalidNetworkConfigurationErrorCode da criação do cluster no Azure HDInsight
 description: Vários motivos para as criações de cluster com falha com o InvalidNetworkConfigurationErrorCode no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 9d55041e05101c610a050574f2e940c40dac991a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 1f60ef5e267b0ee3233f9adb9dc9e8ccd3ac1c65
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817150"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734782"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
 

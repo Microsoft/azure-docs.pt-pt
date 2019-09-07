@@ -1,5 +1,5 @@
 ---
-title: Application Insights, C# -Luis
+title: 'Tutorial: Application Insights, C# -Luis'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial adiciona informações de bot e Reconhecimento vocal para Application Insights armazenamento de dados de telemetria.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: bc8cf9973ed6889b0820e5ada5565d0541532fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 93a75945025b2ab98541f1e1cf678145ddff0123
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560056"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387998"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>Adicionar resultados de LUIS a Application Insights de um bot emC#
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adicionar resultados de LUIS a Application Insights de um bot emC#
 
 Este tutorial adiciona informações de bot e Reconhecimento vocal para [Application insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, você pode consultá-los com a linguagem Kusto ou Power BI para analisar, agregar e relatar tentativas e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
 
@@ -151,7 +151,7 @@ Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacot
 Para adicionar dados ao Application insights, você precisa da chave de instrumentação.
 
 1. Em um navegador, na [portal do Azure](https://portal.azure.com), localize o recurso de **Application insights** do bot. Seu nome terá a maior parte do nome do bot e, em seguida, os caracteres aleatórios no final do nome `luis-csharp-bot-johnsmithxqowom`, como. 
-1. No recurso Application Insights, na página **visão geral** , copie a **chave**de instrumentação.
+1. No recurso Application Insights, na página **visão geral** , copie a **chave de instrumentação**.
 1. No Visual Studio, abra o arquivo **appSettings. JSON** na raiz do projeto bot. Esse arquivo contém todas as suas variáveis de ambiente.
 1. Adicione uma nova variável, `BotDevAppInsightsKey` com o valor de sua chave de instrumentação. O valor em deve estar entre aspas. 
 

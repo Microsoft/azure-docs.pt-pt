@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11ae418ddbe007c6fd5aa44ef22ed7fddec9c702
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b34fd30b8e43e674b0b346672366d680d99ebd5c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087272"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734276"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs HTTP no Durable Functions (Azure Functions)
 
@@ -33,7 +33,11 @@ Cada uma dessas APIs HTTP é uma operação de webhook que é tratada diretament
 
 A classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) expõe uma API [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) que pode ser usada para gerar uma carga de resposta http contendo links para todas as operações com suporte. Aqui está um exemplo de função de gatilho HTTP que demonstra como usar essa API:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>Pré-compiladoC#
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
+
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
@@ -75,7 +79,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 ## <a name="async-operation-tracking"></a>Acompanhamento de operação assíncrona
 
-A resposta HTTP mencionada anteriormente foi projetada para ajudar a implementar APIs assíncronas HTTP de longa execução com Durable Functions. Isso às vezes é chamado de *padrão de consumidor*de sondagem. O fluxo de cliente/servidor funciona da seguinte maneira:
+A resposta HTTP mencionada anteriormente foi projetada para ajudar a implementar APIs assíncronas HTTP de longa execução com Durable Functions. Isso às vezes é chamado de *padrão de consumidor de sondagem*. O fluxo de cliente/servidor funciona da seguinte maneira:
 
 1. O cliente emite uma solicitação HTTP para iniciar um processo de execução demorada, como uma função de orquestrador.
 2. O gatilho http de destino retorna uma resposta http 202 com `Location` um cabeçalho com `statusQueryGetUri` o valor.
@@ -157,7 +161,7 @@ A carga de resposta para os casos **http 200** e **http 202** é um objeto JSON 
 
 | Campo                 | Tipo de dados | Descrição |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | Cadeia de caracteres    | O status de tempo de execução da instância. Os valores incluem *execução*, *pendente*, *falha*, cancelado, *encerrado*, *concluído*. |
+| **`runtimeStatus`**   | Cadeia de caracteres    | O status de tempo de execução da instância. Os valores incluem *execução*, *pendente*, *falha*, *cancelado*, *encerrado*, *concluído*. |
 | **`input`**           | JSON      | Os dados JSON usados para inicializar a instância. Esse campo é `null` se o `showInput` parâmetro da cadeia de caracteres de `false`consulta for definido como.|
 | **`customStatus`**    | JSON      | Os dados JSON usados para o status de orquestração personalizado. Esse campo é `null` se não estiver definido. |
 | **`output`**          | JSON      | A saída JSON da instância. Esse campo é `null` se a instância não estiver em um estado concluído. |
@@ -680,7 +684,7 @@ Se a `Counter` entidade contiver simplesmente uma série de etapas salvas `curre
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com erros](durable-functions-error-handling.md)

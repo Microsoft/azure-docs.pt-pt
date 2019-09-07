@@ -1,5 +1,5 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para as práticas recomendadas do Azure HDInsight-Security e DevOps
+title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-segurança
 description: Aprenda as práticas recomendadas de segurança e DevOps para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0e7db970bee44d40831c05e8911b72841d027211
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442095"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736144"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters de Apache Hadoop locais para as práticas recomendadas do Azure HDInsight-Security e DevOps
 
@@ -47,7 +47,7 @@ Use as etapas a seguir para implantar o cluster HDInsight ingressado no domínio
     - **Nome de usuário do domínio**: A conta de serviço no domínio gerenciado pelo DC AD DS do Azure que você criou na seção anterior, por exemplo: `hdiadmin@contoso.onmicrosoft.com`. Esse usuário de domínio será o administrador deste cluster HDInsight.
     - **Senha do domínio**: A senha da conta de serviço.
     - **Unidade organizacional**: O nome distinto da UO que você deseja usar com o cluster HDInsight, por exemplo: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se essa UO não existir, o cluster HDInsight tentará criar a UO usando os privilégios da conta de serviço.
-    - **URL**de LDAPS: por exemplo `ldaps://contoso.onmicrosoft.com:636`,.
+    - **URL de LDAPS**: por exemplo `ldaps://contoso.onmicrosoft.com:636`,.
     - **Acessar o grupo de usuários**: Os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula '; '. Os grupos devem existir no diretório antes da criação do cluster ESP.
 
 Para obter mais informações, veja os artigos seguintes:

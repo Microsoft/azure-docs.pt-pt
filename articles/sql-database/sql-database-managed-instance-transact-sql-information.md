@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d99bb6db56a8db9d78952e4cf16465e386358cc
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8f12f07d22387e5625b10e564cd05109e5bc73fc
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383141"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744388"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -339,7 +339,7 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 - `ALTER ASSEMBLY`Não é possível fazer referência a arquivos. Consulte [ALTER assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Não é possível enviar @file_attachments atachments usando o parâmetro. O sistema de arquivos local e os compartilhamentos de extensão ou o armazenamento de BLOBs do Azure não estão acessíveis neste procedimento.
+ - `sp_send_dbmail`Não é possível enviar @file_attachments anexos usando o parâmetro. O sistema de arquivos local e os compartilhamentos de extensão ou o armazenamento de BLOBs do Azure não estão acessíveis neste procedimento.
  - Consulte os problemas conhecidos relacionados ao `@query` parâmetro e à autenticação.
  
 ### <a name="dbcc"></a>DBCC
@@ -665,7 +665,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Resolução** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

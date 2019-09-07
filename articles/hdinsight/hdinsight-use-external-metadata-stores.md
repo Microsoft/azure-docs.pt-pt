@@ -1,6 +1,6 @@
 ---
-title: Utilizar arquivos de metadados externos - Azure HDInsight
-description: Utilize arquivos de metadados externos com clusters do HDInsight.
+title: Usar repositórios de metadados externos-Azure HDInsight
+description: Use armazenamentos de metadados externos com clusters do Azure HDInsight e as práticas recomendadas.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
@@ -8,75 +8,75 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38e33c0e138b115010b22cc3510b93be98546b50
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298876"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735877"
 ---
-# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utilizar arquivos de metadados externos no Azure HDInsight
+# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar repositórios de metadados externos no Azure HDInsight
 
-O metastore Apache Hive no HDInsight é uma parte essencial da arquitetura do Apache Hadoop. Um metastore é o repositório do esquema central que pode ser utilizado por outras ferramentas de acesso de grandes volumes de dados, como o Apache Spark, consulta interativa (LLAP), Presto ou Apache Pig. HDInsight utiliza uma base de dados do SQL do Azure como o metastore Hive.
+O metastore Apache Hive no HDInsight é uma parte essencial da arquitetura de Apache Hadoop. Um metastore é o repositório de esquema central que pode ser usado por outras ferramentas de acesso Big Data, como Apache Spark, LLAP (consulta interativa), presto ou Apache Pig. O HDInsight usa um banco de dados SQL do Azure como o metastore do Hive.
 
-![Arquitetura de Store de metadados do Hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+![Arquitetura do repositório de metadados do hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
-Existem duas formas, que pode configurar um metastore para os seus clusters do HDInsight:
+Há duas maneiras de configurar um metastore para seus clusters HDInsight:
 
-* [Metastore predefinida](#default-metastore)
+* [Metastore padrão](#default-metastore)
 * [Metastore personalizado](#custom-metastore)
 
-## <a name="default-metastore"></a>Metastore predefinida
+## <a name="default-metastore"></a>Metastore padrão
 
-Por predefinição, o HDInsight cria um metastore com todos os tipos de cluster. Em vez disso, pode especificar um metastore personalizado. O metastore predefinida inclui as seguintes considerações:
-- Sem custos adicionais. HDInsight cria um metastore com todos os tipos de cluster sem qualquer custo adicional para.
-- Cada metastore predefinida faz parte do ciclo de vida do cluster. Quando eliminar um cluster, o metastore correspondente e os metadados também são eliminados.
-- Não é possível partilhar o metastore predefinida com outros clusters.
-- O metastore predefinida utiliza o básico BD SQL do Azure, que tem um limite relativamente cinco do DTU (unidade de transação de base de dados).
-Este metastore predefinida é normalmente utilizado para cargas de trabalho relativamente simples, que não necessitam de vários clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
+Por padrão, o HDInsight cria um metastore com cada tipo de cluster. Em vez disso, você pode especificar um metastore personalizado. O metastore padrão inclui as seguintes considerações:
+- Sem custo adicional. O HDInsight cria um metastore com cada tipo de cluster sem nenhum custo adicional.
+- Cada metastore padrão faz parte do ciclo de vida do cluster. Quando você exclui um cluster, o metastore correspondente e os metadados também são excluídos.
+- Não é possível compartilhar o metastore padrão com outros clusters.
+- O metastore padrão usa o BD SQL básico do Azure, que tem um limite de DTU (unidade de transação de banco de dados).
+Esse metastore padrão é normalmente usado para cargas de trabalho relativamente simples que não exigem vários clusters e não precisam de metadados preservados além do ciclo de vida do cluster.
 
 
 ## <a name="custom-metastore"></a>Metastore personalizado
 
-HDInsight também suporta metastores personalizada, que são recomendados para clusters de produção:
-- Especificar sua própria base de dados do SQL do Azure como o metastore.
-- O ciclo de vida do metastore não está associado a um ciclo de vida de clusters, para que possa criar e eliminar os clusters sem perder os metadados. Metadados, como seus esquemas de Hive persistirá mesmo depois de eliminar e voltar a criar o cluster do HDInsight.
-- Um metastore personalizado permite-lhe ligar vários clusters e os tipos de cluster para esse metastore. Por exemplo, um metastore único pode ser compartilhado em clusters do Interactive Query, o Hive e o Spark no HDInsight.
-- Paga pelo custo de um metastore (Azure SQL DB), de acordo com o nível de desempenho que escolher.
-- Pode aumentar verticalmente o metastore conforme necessário.
+O HDInsight também dá suporte a metastores personalizados, que são recomendados para clusters de produção:
+- Você especifica seu próprio banco de dados SQL do Azure como o metastore.
+- O ciclo de vida do metastore não está vinculado a um ciclo de vida de clusters, para que você possa criar e excluir clusters sem perder metadados. Os metadados, como os esquemas do hive, persistirão mesmo depois que você excluir e recriar o cluster HDInsight.
+- Um metastore personalizado permite anexar vários clusters e tipos de cluster a esse metastore. Por exemplo, um único metastore pode ser compartilhado entre clusters de consulta interativa, Hive e Spark no HDInsight.
+- Você paga pelo custo de um metastore (banco de BD SQL do Azure) de acordo com o nível de desempenho escolhido.
+- Você pode escalar verticalmente o metastore conforme necessário.
 
-![Caso de utilização do HDInsight Hive metadados Store](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+![Caso de uso do repositório de metadados do hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecionar um metastore personalizado durante a criação do cluster
 
-Pode apontar o seu cluster para uma base de dados de SQL do Azure criado anteriormente durante a criação do cluster, ou pode configurar a base de dados SQL após a criação do cluster. Esta opção é especificada com o **armazenamento > definições de Metastore** ao criar um novo Hadoop, Spark ou cluster do interactive Hive a partir do portal do Azure.
+Você pode apontar seu cluster para um banco de dados SQL do Azure criado anteriormente durante a criação do cluster ou pode configurar o banco de dados SQL após a criação do cluster. Essa opção é especificada com as **configurações de metastore > de armazenamento** ao criar um novo cluster Hadoop, Spark ou Hive interativo do portal do Azure.
 
-![Portal do Azure de Store de metadados do Hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
+![portal do Azure de repositório de metadados do hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
-Também pode adicionar clusters adicionais a um metastore personalizado no portal do Azure ou das configurações de Ambari (Hive > Avançadas)
+Você também pode adicionar clusters adicionais a um metastore personalizado de portal do Azure ou de configurações do Ambari (Hive > avançado)
 
-![Ambari Store de metadados do Hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
+![Repositório de metadados do hive do HDInsight Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
-## <a name="hive-metastore-best-practices"></a>Melhores práticas de metastore de Hive
+## <a name="hive-metastore-best-practices"></a>Práticas recomendadas de metastore do Hive
 
-Aqui estão alguns geral Hive do HDInsight metastore melhores práticas:
+Aqui estão algumas práticas recomendadas de metastore do Hive do HDInsight geral:
 
-- Utilize um metastore personalizado sempre que possível, para ajudar a recursos de computação separada (seu cluster em execução) e metadados (armazenado no metastore).
-- Comece com um escalão S2, que fornece 50 DTUS e 250 GB de armazenamento. Se vir um estrangulamento, pode dimensionar a base de dados.
-- Se pretende vários clusters do HDInsight para aceder a dados separado, utilize uma base de dados separado para o metastore em cada cluster. Se partilhar um metastore em vários clusters do HDInsight, significa que os clusters utilizam os mesmos metadados e arquivos de dados de utilizador subjacentes.
-- Criar cópias de segurança seu metastore personalizado periodicamente. Base de dados SQL do Azure gera as cópias de segurança automaticamente, mas o período de tempo de retenção de cópia de segurança varia. Para obter mais informações, consulte [Saiba mais sobre cópias de segurança de base de dados SQL automáticas](../sql-database/sql-database-automated-backups.md).
-- Localize o metastore e o cluster do HDInsight na mesma região, para um desempenho mais elevado e custos de saída de rede mais baixos.
-- Monitorize o metastore para desempenho e disponibilidade usando ferramentas de monitorização de base de dados SQL do Azure, como o portal do Azure ou os registos do Azure Monitor.
-- Quando uma versão nova e superior do Azure HDInsight é criada num banco de dados existente do metastore personalizado, o sistema atualiza o esquema de metastore, que é irreversível sem restaurar a base de dados de cópia de segurança.
-- Se partilhar um metastore em vários clusters, certifique-se de que todos os clusters são a mesma versão do HDInsight. Diferentes versões de Hive usam esquemas de banco de dados da metastore diferentes. Por exemplo, é possível partilhar um metastore em clusters com a versão 1.2 do Hive e Hive 2.1. 
+- Use um metastore personalizado sempre que possível, para ajudar a separar recursos de computação (seu cluster em execução) e metadados (armazenados no metastore).
+- Comece com uma camada S2, que fornece 50 DTU e 250 GB de armazenamento. Se você vir um afunilamento, poderá dimensionar o banco de dados.
+- Se você pretende que vários clusters HDInsight acessem dados separados, use um banco de dado separado para o metastore em cada cluster. Se você compartilhar um metastore em vários clusters HDInsight, isso significará que os clusters usam os mesmos metadados e arquivos de dados de usuário subjacentes.
+- Faça backup de seu metastore personalizado periodicamente. O banco de dados SQL do Azure gera backups automaticamente, mas o prazo de retenção de backup varia. Para obter mais informações, consulte [saiba mais sobre backups automáticos do banco de dados SQL](../sql-database/sql-database-automated-backups.md).
+- Localize seu metastore e o cluster HDInsight na mesma região, para obter o melhor desempenho e encargos de saída de rede mais baixos.
+- Monitore seu metastore para obter desempenho e disponibilidade usando as ferramentas de monitoramento do banco de dados SQL do Azure, como os logs de portal do Azure ou Azure Monitor.
+- Quando uma nova versão mais recente do Azure HDInsight é criada em um banco de dados de metastore personalizado existente, o sistema atualiza o esquema do metastore, que é irreversível sem restaurar o banco de dados do backup.
+- Se você compartilhar um metastore em vários clusters, verifique se todos os clusters são da mesma versão do HDInsight. Versões diferentes do hive usam esquemas de banco de dados de metastore diferentes. Por exemplo, você não pode compartilhar um metastore em clusters do hive 1,2 e com versão do hive 2,1. 
 
-##  <a name="apache-oozie-metastore"></a>O Apache Oozie Metastore
+##  <a name="apache-oozie-metastore"></a>Metastore do Apache Oozie
 
-Apache Oozie é um sistema de coordenação do fluxo de trabalho que gere as tarefas do Hadoop.  Oozie suporta tarefas do Hadoop para Apache MapReduce, Pig, Hive e outras pessoas.  Oozie utiliza um metastore para armazenar detalhes sobre os fluxos de trabalho atuais e concluídos. Para aumentar o desempenho ao utilizar o Oozie, pode utilizar a base de dados do Azure SQL como um metastore personalizado. O metastore também pode fornecer acesso aos dados da tarefa de Oozie depois de eliminar o cluster.
+O Apache Oozie é um sistema de coordenação de fluxo de trabalho que gerencia trabalhos do Hadoop.  O Oozie dá suporte a trabalhos do Hadoop para Apache MapReduce, Pig, Hive e outros.  O Oozie usa um metastore para armazenar detalhes sobre os fluxos de trabalho atuais e concluídos. Para aumentar o desempenho ao usar o Oozie, você pode usar o banco de dados SQL do Azure como um metastore personalizado. O metastore também pode fornecer acesso a dados de trabalho do Oozie depois de excluir o cluster.
 
-Para obter instruções sobre como criar um metastore Oozie com o Azure SQL Database, consulte [utilização Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
+Para obter instruções sobre como criar um metastore do Oozie com o banco de dados SQL do Azure, consulte [usar o Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](./hdinsight-hadoop-provision-linux-clusters.md)

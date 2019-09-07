@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60527303"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735095"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração da extensão de Diagnóstico do Azure
 Esta página indexa Diagnóstico do Azure versões de esquema de extensão fornecidas como parte do SDK do Microsoft Azure.  
@@ -54,20 +54,14 @@ A extensão de Diagnóstico do Azure é usada com outros produtos de diagnóstic
  A partir do SDK 2,5 (versão de diagnóstico 1,2), o diagnóstico do Azure passou para um modelo de extensão. As ferramentas para utilizar novos recursos só estavam disponíveis em SDKs mais recentes do Azure, mas qualquer serviço usando o diagnóstico do Azure pegaria a versão de envio mais recente diretamente do Azure. Por exemplo, qualquer pessoa que ainda estiver usando o SDK 2,5 estaria carregando a versão mais recente mostrada na tabela anterior, independentemente de estar usando os recursos mais recentes.  
 
 ## <a name="schemas-index"></a>Índice de esquemas  
-Versões diferentes do diagnóstico do Azure usam esquemas de configuração diferentes.
-
-[Esquema de configuração do Diagnostics 1,0](diagnostics-extension-schema-1dot0.md)  
-
-[Esquema de configuração do Diagnostics 1,2](diagnostics-extension-schema-1dot2.md)  
-
-[Diagnóstico 1,3 e esquema de configuração posterior](diagnostics-extension-schema-1dot3.md)  
+Versões diferentes do diagnóstico do Azure usam esquemas de configuração diferentes. O esquema 1,0 e 1,2 foram preteridos. Para obter mais informações sobre a versão 1,3 e posterior, consulte [diagnóstico 1,3 e esquema de configuração posterior](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Histórico de versões
 
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1,11
 Adicionado suporte para o coletor de Azure Monitor. Esse coletor só é aplicável a contadores de desempenho. Permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para Azure Monitor como métricas personalizadas. O coletor de Azure Monitor dá suporte a:
-* Recuperar todos os contadores de desempenho enviados para Azure Monitor por meio das APIs de métricas de [Azure monitor.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alertas em todos os contadores de desempenho enviados para Azure Monitor por meio da nova [experiência de alertas](../../azure-monitor/platform/alerts-overview.md) unificados no Azure monitor
+* Recuperar todos os contadores de desempenho enviados para Azure Monitor por meio das [APIs de métricas de Azure monitor.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+* Alertas em todos os contadores de desempenho enviados para Azure Monitor por meio da nova [experiência de alertas unificados](../../azure-monitor/platform/alerts-overview.md) no Azure monitor
 * Tratando o operador curinga em contadores de desempenho como a dimensão "instância" em sua métrica. Por exemplo, se você coletou o contador\*"LogicalDisk ()/DiskWrites/SEC", poderá filtrar e dividir na dimensão "instância" para plotar ou alertar as gravações de disco/s para cada disco lógico (C:, D:, etc.)
 
 Definir Azure Monitor como um novo coletor em sua configuração de extensão de diagnóstico
@@ -206,7 +200,7 @@ Por exemplo, suponha que você marque essa caixa de seleção e a cadeia `UseDev
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diferenças de funcionalidade de diagnóstico entre o SDK 2,4 do Azure e versões anteriores e o SDK do Azure 2,5 e posteriores
 Se você estiver atualizando seu projeto do SDK do Azure 2,4 para o SDK do Azure 2,5 ou posterior, lembre-se das diferenças de funcionalidade de diagnóstico a seguir.
 
-* As **APIs de configuração foram** preteridas – a configuração programática do diagnóstico está disponível no SDK do Azure 2,4 ou versões anteriores, mas foi preterida no SDK do Azure 2,5 e posterior. Se sua configuração de diagnóstico estiver atualmente definida no código, você precisará reconfigurar essas configurações do zero no projeto migrado para que o diagnóstico continue funcionando. O arquivo de configuração de diagnóstico para o SDK 2,4 do Azure é Diagnostics. wadcfg e Diagnostics. wadcfgx para o SDK do Azure 2,5 e posterior.
+* As **APIs de configuração foram preteridas** – a configuração programática do diagnóstico está disponível no SDK do Azure 2,4 ou versões anteriores, mas foi preterida no SDK do Azure 2,5 e posterior. Se sua configuração de diagnóstico estiver atualmente definida no código, você precisará reconfigurar essas configurações do zero no projeto migrado para que o diagnóstico continue funcionando. O arquivo de configuração de diagnóstico para o SDK 2,4 do Azure é Diagnostics. wadcfg e Diagnostics. wadcfgx para o SDK do Azure 2,5 e posterior.
 * **O diagnóstico para aplicativos de serviço de nuvem só pode ser configurado no nível de função, não no nível de instância.**
 * **Sempre que você implantar seu aplicativo, a configuração de diagnóstico será atualizada** – isso poderá causar problemas de paridade se você alterar a configuração de diagnóstico de Gerenciador de servidores e, em seguida, reimplantar o aplicativo.
 * **No SDK do Azure 2,5 e posteriores, os despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, será necessário transferir manualmente a configuração do código para o arquivo de configuração, pois a falha os despejos não são transferidos durante a migração para o SDK do Azure 2,6.

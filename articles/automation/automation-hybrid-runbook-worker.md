@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970447"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743807"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizar recursos em seu datacenter ou nuvem usando Hybrid Runbook Worker
 
@@ -24,7 +24,7 @@ A imagem a seguir ilustra essa funcionalidade:
 
 ![Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)](media/automation-hybrid-runbook-worker/automation.png)
 
-Cada Hybrid Runbook Worker é um membro de um grupo de Hybrid Runbook Worker que você especifica ao instalar o agente. Um grupo pode incluir um único agente, mas você pode instalar vários agentes em um grupo para alta disponibilidade.
+Cada Hybrid Runbook Worker é um membro de um grupo de Hybrid Runbook Worker que você especifica ao instalar o agente. Um grupo pode incluir um único agente, mas você pode instalar vários agentes em um grupo para alta disponibilidade. Cada computador pode hospedar um Hybrid Worker relatórios para uma conta de automação.
 
 Ao iniciar um runbook em um Hybrid Runbook Worker, você especifica o grupo em que ele é executado. Cada trabalho no grupo sonda a automação do Azure para ver se há trabalhos disponíveis. Se um trabalho estiver disponível, o primeiro operador para fazer o trabalho o levará. O tempo de processamento da fila de trabalhos depende do perfil de hardware do Hybrid Worker e do carregamento. Você não pode especificar um trabalho específico. Hybrid runbook Workers não compartilham muitos dos limites que as áreas restritas do Azure têm. Eles não têm os mesmos limites de espaço em disco, memória ou soquetes de rede. Hybrid runbook Workers só são limitados pelos recursos no Hybrid Runbook Worker em si. Além disso, Hybrid runbook Workers não compartilham o limite de tempo de [compartilhamento justo](automation-runbook-execution.md#fair-share) de 180 minutos que as áreas restritas do Azure fazem. Para saber mais sobre os limites de serviço para as áreas restritas do Azure e Hybrid runbook Workers, consulte a página [limites](../azure-subscription-service-limits.md#automation-limits) de trabalho.
 
@@ -133,7 +133,7 @@ Se você tiver uma conta de automação definida para uma região específica, p
 | Reino Unido Sul | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | Gov (US) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
-Para obter uma lista de endereços IP de região em vez de nomes de região, baixe o arquivo XML do [endereço IP](https://www.microsoft.com/download/details.aspx?id=41653) do datacenter do Azure no centro de download da Microsoft.
+Para obter uma lista de endereços IP de região em vez de nomes de região, baixe o arquivo XML do [endereço IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) no centro de download da Microsoft.
 
 > [!NOTE]
 > O arquivo XML do endereço IP do datacenter do Azure lista os intervalos de endereços IP que são usados nos data centers Microsoft Azure. O arquivo inclui intervalos de computação, SQL e armazenamento.
@@ -152,7 +152,7 @@ Além dos endereços padrão e das portas que o Hybrid Runbook Worker requer, os
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como configurar seus runbooks para automatizar processos em seu datacenter local ou em outro ambiente de nuvem, consulte [executar runbooks em um Hybrid runbook Worker](automation-hrw-run-runbooks.md).
 * Para saber como solucionar problemas de seus Hybrid runbook Workers, consulte [Solucionando problemas de Hybrid runbook Workers](troubleshoot/hybrid-runbook-worker.md#general)

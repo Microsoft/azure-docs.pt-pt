@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 339b13201934b1ba5cd4f53c21d50b62814c36eb
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 913f535cb7fa07832a272c1cb9d02ab3e885f52c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905382"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743574"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o código-fonte
 
 Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a fluxos de trabalho de várias etapas com base em vários contêineres que podem disparar automaticamente quando você confirma o código-fonte para um repositório git. 
 
-Neste tutorial, você aprenderá a usar arquivos de exemplo YAML para definir tarefas de várias etapas que criam, executam e enviam por push uma ou mais imagens de contêiner para um registro quando você confirma o código-fonte. Para criar uma tarefa que só automatiza uma única compilação de imagem na confirmação de código, consulte [o tutorial: Automatize a criação de imagens de contêiner na nuvem ao confirmar o código](container-registry-tutorial-build-task.md)-fonte. Para obter uma visão geral das tarefas de ACR, consulte automatizar o [sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md),
+Neste tutorial, você aprenderá a usar arquivos de exemplo YAML para definir tarefas de várias etapas que criam, executam e enviam por push uma ou mais imagens de contêiner para um registro quando você confirma o código-fonte. Para criar uma tarefa que só automatiza uma única compilação de imagem na confirmação de código, consulte [o tutorial: Automatize a criação de imagens de contêiner na nuvem ao confirmar o código](container-registry-tutorial-build-task.md)-fonte. Para obter uma visão geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md),
 
 Neste tutorial:
 
@@ -87,7 +87,6 @@ az acr task create \
     --registry $ACR_NAME \
     --name example1 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file taskmulti.yaml \
     --git-access-token $GIT_PAT
 ```
@@ -331,7 +330,6 @@ az acr task create \
     --registry $ACR_NAME \
     --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231081"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389901"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 
@@ -92,7 +92,7 @@ Agora que você anexou a computação e configurou sua execução, a próxima et
 
 ### <a id="amlcompute"></a>Computação do Azure Machine Learning
 
-Azure Machine Learning computação é uma infraestrutura de computação gerenciada que permite ao usuário criar facilmente uma computação de vários nós ou um único nó. A computação é criada dentro de sua região de espaço de trabalho como um recurso que pode ser compartilhado com outros usuários em seu espaço de trabalho. A computação é dimensionada automaticamente quando um trabalho é enviado e pode ser colocada em uma rede virtual do Azure. A computação é executada em um ambiente em contêiner e empacota suas dependências de modelo em um [contêiner](https://www.docker.com/why-docker)do Docker.
+Azure Machine Learning computação é uma infraestrutura de computação gerenciada que permite ao usuário criar facilmente uma computação de vários nós ou um único nó. A computação é criada dentro de sua região de espaço de trabalho como um recurso que pode ser compartilhado com outros usuários em seu espaço de trabalho. A computação é dimensionada automaticamente quando um trabalho é enviado e pode ser colocada em uma rede virtual do Azure. A computação é executada em um ambiente em contêiner e empacota suas dependências de modelo em um [contêiner do Docker](https://www.docker.com/why-docker).
 
 Pode usar a computação do Azure Machine Learning para distribuir o processo de treinamento em clusters de nós de computação de CPU ou de GPU na cloud. Para obter mais informações sobre os tamanhos de VM que incluem GPUs, consulte [tamanhos de máquina virtual com otimização de GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
@@ -379,7 +379,7 @@ Depois de criar uma configuração de execução, use-a para executar o experime
 >
 > Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem `.amlignore` , o arquivo terá precedência.
 > 
-> Para obter mais informações, [](concept-azure-machine-learning-architecture.md#snapshots)consulte instantâneos.
+> Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Criar uma experimentação
 
@@ -403,11 +403,20 @@ Alterne o mesmo experimento para ser executado em um destino de computação dif
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> Este exemplo usa como padrão apenas um nó do destino de computação para treinamento. Para usar mais de um nó, defina a `node_count` configuração de execução para o número de nós desejado. Por exemplo, o código a seguir define o número de nós usados para treinamento para quatro:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Ou você pode:
 
 * Envie o experimento com um `Estimator` objeto, conforme mostrado em [treinar modelos ml com estimações](how-to-train-ml-models.md).
-* Envie uma execução HyperDrive para [ajuste](how-to-tune-hyperparameters.md)de hiperparâmetro.
+* Envie uma execução HyperDrive para [ajuste de hiperparâmetro](how-to-tune-hyperparameters.md).
 * Envie um experimento por meio da [extensão vs Code](how-to-vscode-tools.md#train-and-tune-models).
+
+Para obter mais informações, consulte a documentação do [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) e do [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) .
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Criar configuração de execução e enviar execução usando Azure Machine Learning CLI
 
@@ -498,10 +507,10 @@ Consulte estes blocos de anotações para obter exemplos de treinamento com vár
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
-* Saiba como ajustar os hiperparâmetros com [eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.
+* Saiba como [ajustar os hiperparâmetros com eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.
 * Depois de ter um modelo treinado, saiba [como e onde implantar modelos](how-to-deploy-and-where.md).
 * Exiba a referência do SDK da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) .
 * [Usar o serviço de Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)

@@ -1,5 +1,5 @@
 ---
-title: Migrar para o acesso granular baseado em função para configurações de cluster – Azure HDInsight
+title: Migrar para o acesso baseado em função granular – configurações do cluster HDInsight do Azure
 description: Saiba mais sobre as alterações necessárias como parte da migração para o acesso baseado em função granular para configurações de cluster HDInsight.
 author: tylerfox
 ms.author: tyfox
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9eb77b3e4066712aecebee4660d50baf45957cb8
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983023"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733240"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -28,7 +28,7 @@ Também estamos introduzindo uma nova função de [operador de cluster HDInsight
 
 | Role                                  | Possíveis                                                                                       | Em frente       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Leitor                                | -Acesso de leitura, incluindo segredos                                                                   | -Acesso de leitura , excluindo segredos |           |   |   |
+| Leitor                                | -Acesso de leitura, incluindo segredos                                                                   | -Acesso de leitura, **excluindo** segredos |           |   |   |
 | Operador de cluster HDInsight<br>(Nova função) | N/A                                                                                              | -Acesso de leitura/gravação, incluindo segredos         |   |   |
 | Contribuinte                           | -Acesso de leitura/gravação, incluindo segredos<br>-Crie e gerencie todos os tipos de recursos do Azure.     | Sem alterações |
 | Owner                                 | -Acesso de leitura/gravação, incluindo segredos<br>-Acesso completo a todos os recursos<br>-Delegar acesso a outras pessoas | Sem alterações |

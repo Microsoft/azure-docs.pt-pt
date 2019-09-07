@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a82571260f5da679202e96f5e6f72aa2db6788a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7c2e80f80ea5d7e7d5ee26eee8b26506386a6e2f
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834682"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389776"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicativos Web usando OpenID Connect e Azure Active Directory
 
-O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é uma camada de identidade simples criada com base no protocolo OAuth 2,0. O OAuth 2,0 define mecanismos para obter e usar tokens de [**acesso**](access-tokens.md) para acessar recursos protegidos, mas eles não definem métodos padrão para fornecer informações de identidade. O OpenID Connect implementa a autenticação como uma extensão para o processo de autorização do OAuth 2,0. Ele fornece informações sobre o usuário final na forma de um [`id_token`](id-tokens.md) que verifica a identidade do usuário e fornece informações básicas de perfil sobre o usuário.
+O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é uma camada de identidade simples criada com base no protocolo OAuth 2,0. O OAuth 2,0 define mecanismos para obter e usar [**tokens de acesso**](access-tokens.md) para acessar recursos protegidos, mas eles não definem métodos padrão para fornecer informações de identidade. O OpenID Connect implementa a autenticação como uma extensão para o processo de autorização do OAuth 2,0. Ele fornece informações sobre o usuário final na forma de um [`id_token`](id-tokens.md) que verifica a identidade do usuário e fornece informações básicas de perfil sobre o usuário.
 
 O OpenID Connect é a nossa recomendação se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador.
 
@@ -181,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| post_logout_redirect_uri |aconselhável |A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, o usuário será exibido como uma mensagem genérica. |
+| post_logout_redirect_uri |aconselhável |A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida.  Essa URL deve corresponder a um dos URIs de redirecionamento registrados para seu aplicativo no portal de registro de aplicativo.  Se *post_logout_redirect_uri* não for incluído, o usuário será exibido como uma mensagem genérica. |
 
 ## <a name="single-sign-out"></a>Fim de sessão único
 
@@ -251,9 +251,9 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para obter uma descrição dos possíveis códigos de erro e sua ação de cliente recomendada, consulte [códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).
 
-Depois de obter uma autorização `code` e um `id_token`, você pode conectar o usuário e obter tokens de [acesso](access-tokens.md) em seu nome. Para conectar o usuário, você deve validar o `id_token` exatamente como descrito acima. Para obter tokens de acesso, você pode seguir as etapas descritas na seção "usar o código de autorização para solicitar um token de acesso" da nossa [documentação de fluxo de código OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Depois de obter uma autorização `code` e um `id_token`, você pode conectar o usuário e obter [tokens de acesso](access-tokens.md) em seu nome. Para conectar o usuário, você deve validar o `id_token` exatamente como descrito acima. Para obter tokens de acesso, você pode seguir as etapas descritas na seção "usar o código de autorização para solicitar um token de acesso" da nossa [documentação de fluxo de código OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [tokens de acesso](access-tokens.md).
 * Saiba mais sobre as [ `id_token` declarações e](id-tokens.md).

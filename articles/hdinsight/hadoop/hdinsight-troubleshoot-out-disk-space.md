@@ -1,17 +1,17 @@
 ---
 title: O nó do cluster fica sem espaço em disco no Azure HDInsight
-description: O nó do cluster fica sem espaço em disco no Azure HDInsight
+description: Solução de problemas de Apache Hadoop de espaço em disco do nó de cluster no Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 696327a00135ba6b3414c773732b8bc99ce4100c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 139fb0e77f8f6960e7b13899f9586dd78bf46a92
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842455"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735854"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Cenário: O nó do cluster fica sem espaço em disco no Azure HDInsight
 

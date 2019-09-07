@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884111"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736045"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -53,6 +53,7 @@ Austrália   | Leste da Austrália, sudeste da Austrália, Austrália Central, A
 Azure Government    | GOV-Virgínia, EUA GOV Iowa, US GOV-Arizona, US GOV Texas, US DOD leste, US DOD central 
 Alemanha | Centro da Alemanha, nordeste da Alemanha
 China | Leste da China, Norte da China, China North2, China 2
+Regiões restritas reservadas para recuperação de desastres no país |Norte da Alemanha reservado para Centro-oeste da Alemanha, Oeste da Suíça reservado para Norte da Suíça, o sul da França reservado para clientes da França central 
 
 >[!NOTE]
 >
@@ -242,7 +243,7 @@ Balanceador de carga interno | Suportadas | Associe o balanceador de carga pré-
 Endereço IP público | Suportadas | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na NIC | Suportadas | Associe o NSG à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na sub-rede | Suportadas | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
-Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM com failover.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede em**configurações** > de **itens** > replicados e**interfaces de rede**de**rede** > .
+Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM com failover.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede em > **configurações** > de **itens replicados**e**interfaces de rede**de**rede** > .
 Endereço IP dinâmico | Suportadas | Se a NIC na origem tiver um endereçamento IP dinâmico, a NIC na VM com failover também será dinâmica por padrão.<br/><br/> Você pode modificar isso para um endereço IP fixo, se necessário.
 Vários endereços IP | Não suportado | Quando você faz failover de uma VM que tem uma NIC com vários endereços IP, somente o endereço IP primário da NIC na região de origem é mantido. Para atribuir vários endereços IP, você pode adicionar VMs a um [plano de recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano ou pode fazer a alteração manualmente ou com um script após o failover. 
 Gestor de Tráfego     | Suportadas | Você pode pré-configurar o Gerenciador de tráfego para que o tráfego seja roteado para o ponto de extremidade na região de origem regularmente e para o ponto de extremidade na região de destino em caso de failover.
@@ -257,6 +258,6 @@ Funcionamento em rede acelerado | Suportadas | A rede acelerada deve estar habil
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Leia as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.
 - Implante a recuperação de desastres [replicando VMs do Azure](site-recovery-azure-to-azure.md).

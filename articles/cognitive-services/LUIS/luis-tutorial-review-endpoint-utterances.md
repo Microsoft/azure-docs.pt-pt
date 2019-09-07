@@ -1,5 +1,5 @@
 ---
-title: Examinando o ponto de extremidade declarações-LUIS
+title: 'Tutorial: Examinando o ponto de extremidade declarações-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTP que o LUIS não pode assegurar. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563322"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387526"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras examinando o ponto de extremidade declarações
 Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
@@ -85,15 +85,17 @@ Utilize os passos seguintes:
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Tarefa - "Processo de Linguagem Natural"|
 
+    Para alterar `natural language processing` de uma entidade keyPhrase para uma entidade de trabalho, selecione a frase e, em seguida, selecione **trabalho** na lista. Se você quiser selecionar apenas parte do texto do keyPhrase para uma entidade diferente, será necessário remover o keyPhrase como uma entidade, um rótulo com uma entidade diferente e reaplicar a entidade keyPhrase ao aplicativo. 
+
     Adicionar o expressão move o expressão do **ponto de extremidade de revisão declarações** para a intenção de **GetJobInformation** . A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
 
     Além de alinhar esse expressão corretamente, mais declarações devem ser adicionados à tentativa de **GetJobInformation** . Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
 
-1. Reveja as restantes expressões nesta intenção, identificando as expressões e corrigindo a **Intenção alinhada**, se as expressões estiverem incorretas.
+    Reveja as restantes expressões nesta intenção, identificando as expressões e corrigindo a **Intenção alinhada**, se as expressões estiverem incorretas.
 
-1. A lista já não deve ter essas expressões. Se surgirem mais expressões, continue a trabalhar na lista ao corrigir as intenções e ao identificar quaisquer entidades em falta, até que a lista esteja vazia. 
+    A lista **revisar declarações do ponto de extremidade** não deve mais ter essas declarações. Se surgirem mais expressões, continue a trabalhar na lista ao corrigir as intenções e ao identificar quaisquer entidades em falta, até que a lista esteja vazia. 
 
-1. Selecione a intenção seguinte na lista Filtro e, em seguida, continue a corrigir as expressões e a identificar as entidades. Lembre-se de que o último passo de cada intenção é selecionar **Adicionar a intenção alinhada** na linha da expressão ou marcar a caixa ao lado de cada intenção e selecionar **Adicionar seleção**, acima da tabela.
+    Selecione a intenção seguinte na lista Filtro e, em seguida, continue a corrigir as expressões e a identificar as entidades. Lembre-se de que o último passo de cada intenção é selecionar **Adicionar a intenção alinhada** na linha da expressão ou marcar a caixa ao lado de cada intenção e selecionar **Adicionar seleção**, acima da tabela.
 
     Continue até que todas as intenções e entidades na lista de filtro tenham uma lista vazia. Esta aplicação é muito pequena. O processo de revisão demora apenas alguns minutos. 
 

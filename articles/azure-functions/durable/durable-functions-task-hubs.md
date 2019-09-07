@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 40144fb50a01a64bbd67d541562b4fe0842fbf10
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097788"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734327"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas em Durable Functions (Azure Functions)
 
@@ -101,6 +101,8 @@ O nome do hub de tarefas será definido como o valor da `MyTaskHub` configuraç�
 
 Aqui está um C# exemplo pré-compilado de como escrever uma função que usa um [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) para trabalhar com um hub de tarefas que está configurado como uma configuração de aplicativo:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -119,8 +121,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-E abaixo está a configuração necessária para o JavaScript. A propriedade do hub de tarefas `function.json` no arquivo é definida por meio da configuração do aplicativo:
+### <a name="javascript"></a>JavaScript
 
+A propriedade do hub de tarefas `function.json` no arquivo é definida por meio da configuração do aplicativo:
 ```json
 {
     "name": "input",
@@ -135,7 +138,7 @@ Os nomes de Hub de tarefas devem começar com uma letra e consistir apenas em le
 > [!NOTE]
 > O nome é o que diferencia um hub de tarefas de outro quando há vários hubs de tarefas em uma conta de armazenamento compartilhado. Se você tiver vários aplicativos de funções compartilhando uma conta de armazenamento compartilhado, deverá configurar explicitamente nomes diferentes para cada Hub de tarefas nos arquivos *host. JSON* . Caso contrário, os aplicativos de várias funções competirão entre si para mensagens, o que pode resultar em um comportamento indefinido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com controle de versão](durable-functions-versioning.md)

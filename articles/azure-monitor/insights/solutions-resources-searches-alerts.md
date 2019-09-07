@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
-ms.translationtype: MT
+ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662896"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744484"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionando Log Analytics pesquisas e alertas salvos à solução de gerenciamento (versão prévia)
 
@@ -169,30 +169,30 @@ As ações de alerta têm a seguinte estrutura. Isso inclui variáveis e parâme
 
 As propriedades dos recursos de ação de alerta são descritas nas tabelas a seguir.
 
-| Nome do elemento | Necessário | description |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| type | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
-| name | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
-| description | Não | Descrição opcional do alerta. |
-| Severity | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
+| `Type` | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
+| `Name` | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| `Description` | Não | Descrição opcional do alerta. |
+| `Severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
 
 
 #### <a name="threshold"></a>Limiar
 Esta seção é necessária. Ele define as propriedades para o limite de alerta.
 
-| Nome do elemento | Necessário | description |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| Operator | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Value | Sim | O valor para comparar os resultados. |
+| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| `Value` | Sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta seção é opcional. Inclua-o para um alerta de medição de métrica.
 
-| Nome do elemento | Necessário | description |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| TriggerCondition | Sim | Especifica se o limite é para o número total de violações ou violações consecutivas dos seguintes valores:<br><br>**Total<br>consecutivo** |
-| Operator | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Value | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
+| `TriggerCondition` | Sim | Especifica se o limite é para o número total de violações ou violações consecutivas dos seguintes valores:<br><br>**Total<br>consecutivo** |
+| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| `Value` | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233265"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390826"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files
 
@@ -22,7 +22,7 @@ Você pode criar contêineres de perfil FSLogix usando o [Azure NetApp files](ht
 
 Este guia mostrará como configurar uma conta de Azure NetApp Files e criar contêineres de perfil FSLogix na área de trabalho virtual do Windows.
 
-Este artigo pressupõe que você já [](create-host-pools-azure-marketplace.md) tem pools de hosts configurados e agrupados em um ou mais locatários no seu ambiente de área de trabalho virtual do Windows. Para saber como configurar locatários, confira [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md) e [nossa postagem no blog da comunidade técnica](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+Este artigo pressupõe que você já tem [pools de hosts](create-host-pools-azure-marketplace.md) configurados e agrupados em um ou mais locatários no seu ambiente de área de trabalho virtual do Windows. Para saber como configurar locatários, confira [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md) e [nossa postagem no blog da comunidade técnica](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 As instruções neste guia são específicas para usuários da área de trabalho virtual do Windows. Se você estiver procurando uma orientação mais geral sobre como configurar Azure NetApp Files e criar contêineres de perfil FSLogix fora da área de trabalho virtual do Windows, consulte o guia de [início rápido configurar Azure NetApp Files e criar um volume de NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -86,7 +86,7 @@ Para começar, você precisa configurar uma conta de Azure NetApp Files.
 Em seguida, crie um novo pool de capacidade: 
 
 1. Vá para o menu Azure NetApp Files e selecione sua nova conta.
-2. No menu conta, selecione pools de **capacidade** em serviço de armazenamento.
+2. No menu conta, selecione **pools de capacidade** em serviço de armazenamento.
 3. Selecione **Adicionar pool**.
 4. Quando a folha **novo pool de capacidade** for aberta, insira os seguintes valores:
 
@@ -115,7 +115,7 @@ Depois disso, você precisa ingressar em uma conexão de Active Directory.
     - Para **senha**, insira a senha da conta.
 
   >[!NOTE]
-  >É uma prática recomendada confirmar se a conta de computador que você criou em ingressar em [uma Active Directory conexão](create-fslogix-profile-container.md#join-an-active-directory-connection) apareceu no controlador de domínio em **computadores** ou **na UO relevante da sua empresa**.
+  >É uma prática recomendada confirmar se a conta de computador que você criou em [ingressar em uma Active Directory conexão](create-fslogix-profile-container.md#join-an-active-directory-connection) apareceu no controlador de domínio em **computadores** ou **na UO relevante da sua empresa**.
 
 ## <a name="create-a-new-volume"></a>Criar um novo volume
 
@@ -138,7 +138,7 @@ Em seguida, você precisará criar um novo volume.
 Depois de criar o volume, configure os parâmetros de acesso ao volume.
 
 1.  Selecione **SMB** como o tipo de protocolo.
-2.  Em configuração no menu suspenso **Active Directory** , selecione o mesmo diretório que você conectou originalmente em ingressar em [uma conexão de Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection). Tenha em mente que há um limite de um Active Directory por assinatura.
+2.  Em configuração no menu suspenso **Active Directory** , selecione o mesmo diretório que você conectou originalmente em [ingressar em uma conexão de Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection). Tenha em mente que há um limite de um Active Directory por assinatura.
 3.  Na caixa de texto **nome do compartilhamento** , digite o nome do compartilhamento usado pelo pool de hosts da sessão e seus usuários.
 
 4.  Selecione **revisar + criar** na parte inferior da página. Isso abre a página validação. Depois que o volume for validado com êxito, selecione **criar**.
@@ -195,11 +195,11 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 4. Execute os seguintes cmdlets para atribuir um usuário a um grupo de Área de Trabalho Remota:
 
    ```powershell
-   $tenant = "<your-wvd-tenant>"
-   $pool1 = "<wvd-pool>"
-   $appgroup = "Desktop Application Group"
-   $user1 = "<user-principal>"
-   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   $wvdTenant = "<your-wvd-tenant>"
+   $hostPool = "<wvd-pool>"
+   $appGroup = "Desktop Application Group"
+   $user = "<user-principal>"
+   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Verifique se os usuários podem acessar o compartilhamento de arquivos do Azure NetApp
@@ -222,6 +222,6 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
    ![Uma captura de tela do conteúdo da pasta no caminho de montagem. Inside é um único arquivo VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Você pode usar contêineres de perfil FSLogix para configurar um compartilhamento de perfil de usuário. Para saber como criar compartilhamentos de perfil de usuário com seus novos contêineres, confira [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).

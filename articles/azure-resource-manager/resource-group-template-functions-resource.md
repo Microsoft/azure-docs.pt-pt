@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306933"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390696"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -42,6 +42,10 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 | resourceName ou resourceIdentifier |Sim |cadeia |Identificador exclusivo para o recurso. |
 | apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **dd-mm-aaaa**. |
 | functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para as funções que suportam a receção de um objeto com valores de parâmetros, tal como **listAccountSas** numa conta de armazenamento. Um exemplo de passagem de valores de função é mostrado neste artigo. | 
+
+### <a name="valid-uses"></a>Usos válidos
+
+As funções de lista só podem ser usadas nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou implantação. Quando usado com a [iteração de propriedade](resource-group-create-multiple.md#property-iteration), você pode usar as `input` funções de lista para o porque a expressão é atribuída à propriedade de recurso. Você não pode usá- `count` los com o porque a contagem deve ser determinada antes que a função list seja resolvida.
 
 ### <a name="implementations"></a>Implementações
 

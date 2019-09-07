@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar clusters de Apache Hadoop sob demanda no Azure HDInsight usando Data Factory '
+title: 'Tutorial: Clusters de Apache Hadoop sob demanda no Azure HDInsight-Data Factory'
 description: Tutorial-saiba como criar clusters de Apache Hadoop sob demanda no HDInsight usando Azure Data Factory.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 7af70de91a7f7696be3b003fec11390d6db9ba60
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854974"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736170"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters de Apache Hadoop sob demanda no HDInsight usando Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -153,7 +153,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 2. Selecione **grupos de recursos** no painel esquerdo.
 3. Selecione o nome do grupo de recursos que você criou no script do PowerShell. Use o filtro se você tiver muitos grupos de recursos listados.
 4. No bloco **recursos** , você verá um recurso listado, a menos que compartilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome especificado anteriormente. Selecione o nome de conta de armazenamento.
-5. Selecione os blocos de BLOBs.
+5. Selecione os blocos de **BLOBs** .
 6. Selecione o contêiner **adfgetstarted** . Você verá uma pasta chamada **hivescripts**.
 7. Abra a pasta e verifique se ela contém o arquivo de script de exemplo, **partitionweblogs. HQL**.
 
@@ -187,9 +187,9 @@ Neste artigo, você configura a atividade do hive para criar um cluster Hadoop d
 
 3. Insira ou selecione os seguintes valores para o **novo** bloco de data Factory:
 
-    |Propriedade  |Valor  |
+    |Propriedade  |Value  |
     |---------|---------|
-    |Nome | Insira um nome para o data factory. Este nome tem de ser globalmente exclusivo.|
+    |Name | Insira um nome para o data factory. Este nome tem de ser globalmente exclusivo.|
     |Subscription | Selecione a sua subscrição do Azure. |
     |Resource group | Selecione **usar existente** e, em seguida, selecione o grupo de recursos que você criou usando o script do PowerShell. |
     |Version | Deixe em **v2**. |
@@ -230,7 +230,7 @@ Nesta seção, você criará dois serviços vinculados dentro de seu data factor
 
     |Propriedade |Value |
     |---|---|
-    |Nome |Introduza `HDIStorageLinkedService`.|
+    |Name |Introduza `HDIStorageLinkedService`.|
     |Subscrição do Azure |Selecione sua assinatura na lista suspensa.|
     |Nome da conta de armazenamento |Selecione a conta de armazenamento do Azure que você criou como parte do script do PowerShell.|
 
@@ -250,9 +250,9 @@ Nesta seção, você criará dois serviços vinculados dentro de seu data factor
 
 4. Na janela **novo serviço vinculado** , insira os seguintes valores e deixe o restante como padrão:
 
-    | Propriedade | Valor |
+    | Propriedade | Value |
     | --- | --- |
-    | Nome | Introduza `HDInsightLinkedService`.|
+    | Name | Introduza `HDInsightLinkedService`.|
     | Type | Selecione **HDInsight sob demanda**. |
     | Serviço Ligado do Storage do Azure | Selecione `HDIStorageLinkedService`. |
     | Tipo de cluster | Selecionar **Hadoop** |
@@ -322,7 +322,7 @@ Nesta seção, você criará dois serviços vinculados dentro de seu data factor
 
 1. Selecione **Atualizar** para atualizar o estado.
 
-1. Você também pode selecionar o ícone **Exibir execuções de atividade** para ver a execução da atividade associada ao pipeline. Na captura de tela abaixo, você verá apenas uma execução de atividade, pois há apenas uma atividade no pipeline que você criou. Para voltar para o modo de exibição anterior, selecione pipelines em direção à parte superior da página.
+1. Você também pode selecionar o ícone **Exibir execuções de atividade** para ver a execução da atividade associada ao pipeline. Na captura de tela abaixo, você verá apenas uma execução de atividade, pois há apenas uma atividade no pipeline que você criou. Para voltar para o modo de exibição anterior, selecione **pipelines** em direção à parte superior da página.
 
     ![Monitorar a atividade de pipeline de Azure data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png "Monitorar a atividade de pipeline de Azure data Factory")
 

@@ -1,22 +1,22 @@
 ---
 title: Usar o scaler e o Sparkr com o Azure HDInsight
-description: Usar o scaler e o Sparkr com os serviços de ML no HDInsight
+description: Use o scaler e o Sparkr para a manipulação de dados e o desenvolvimento de modelos com os serviços de ML no Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a91d2d569b4900e3d5b787145c242a75b928d822
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231117"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733373"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar dimensionador e Sparkr no HDInsight
 
-Este documento mostra como prever atrasos de chegada de voo usando um modelo de regressão logística de scaler. O exemplo usa o atraso de voo e os dados meteorológicos, associados usando o **sparkr**.
+Este documento mostra como prever atrasos de chegada de voo usando um modelo de regressão logística de **scaler** . O exemplo usa o atraso de voo e os dados meteorológicos, associados usando o **sparkr**.
 
 Embora ambos os pacotes sejam executados no mecanismo de execução do Spark Apache Hadoop, eles são bloqueados do compartilhamento de dados na memória, pois cada um deles exigem suas próprias sessões do Spark. Até que esse problema seja resolvido em uma versão futura do ML Server, a solução alternativa é manter sessões não sobrepostas do Spark e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples de obter.
 
@@ -542,4 +542,4 @@ Para obter mais informações sobre o uso do Sparkr, consulte:
 
 - [Documento do Apache sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Visão geral](https://docs.databricks.com/spark/latest/sparkr/overview.html) do sparkr do databricks.
+- [Visão geral do sparkr](https://docs.databricks.com/spark/latest/sparkr/overview.html) do databricks.

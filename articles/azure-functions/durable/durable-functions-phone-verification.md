@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3918c37d985c6766fe6ad4601b70ddbd4597b0ba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4d8955517450ce3b4efdf30e2790e4be678dfc7b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087156"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735184"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana no exemplo de verificação de telefone Durable Functions
 
@@ -53,7 +53,7 @@ A função **E4_SmsPhoneVerification** usa o *Function. JSON* padrão para funç
 
 Este é o código que implementa a função:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
@@ -63,7 +63,7 @@ Este é o código que implementa a função:
 
 Depois de iniciada, essa função de orquestrador faz o seguinte:
 
-1. Obtém um número de telefone para o qual ele enviará a notificação de SMS.
+1. Obtém um número de telefone para o qual ele *enviará* a notificação de SMS.
 2. Chama **E4_SendSmsChallenge** para enviar uma mensagem SMS ao usuário e retorna de volta o código de desafio de 4 dígitos esperado.
 3. Cria um temporizador durável que dispara 90 segundos a partir da hora atual.
 4. Em paralelo com o temporizador, o aguarda um evento **SmsChallengeResponse** do usuário.
@@ -84,7 +84,7 @@ A função **E4_SendSmsChallenge** usa a associação twilio para enviar a mensa
 
 E aqui está o código que gera o código de desafio de 4 dígitos e envia a mensagem SMS:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 

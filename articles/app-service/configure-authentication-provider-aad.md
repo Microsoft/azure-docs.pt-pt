@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 8b4b6549f9553773cc44c311f49befbb3eec9dc9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8de464a00867dd397f28de1dc35cf264244f6905
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233092"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743261"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurar seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar
 
@@ -57,7 +57,7 @@ Ao criar um registro de aplicativo manualmente, observe três partes de informa�
 1. No [Azure portal], navegue até o aplicativo do serviço de aplicativo e anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
 1. No [Azure portal], no menu à esquerda, selecione **Active Directory** > **registros de aplicativo** > **novo registro**. 
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
-1. Em **URI**de redirecionamento, selecione **Web** e digite a URL do aplicativo do serviço de aplicativo `/.auth/login/aad/callback`e acrescente o caminho. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Em seguida, selecione **Criar**.
+1. Em **URI de redirecionamento**, selecione **Web** e digite a URL do aplicativo do serviço de aplicativo `/.auth/login/aad/callback`e acrescente o caminho. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Em seguida, selecione **Criar**.
 1. Depois que o registro do aplicativo for criado, copie a **ID do aplicativo (cliente)** e a **ID do diretório (locatário)** para mais tarde.
 1. Selecione **identidade visual**. Na **URL da Home Page**, digite a URL do aplicativo do serviço de aplicativo e selecione **salvar**.
 1. Selecione **expor um conjunto de API** > . Cole a URL do aplicativo do serviço de aplicativo e selecione **salvar**.
@@ -81,6 +81,9 @@ Ao criar um registro de aplicativo manualmente, observe três partes de informa�
     |ID do emissor| Use `https://login.microsoftonline.com/<tenant-id>`e substitua  *\<o ID do locatário >* com a **ID do diretório (locatário)** do registro do aplicativo. |
     |Segredo do cliente (opcional)| Use o segredo do cliente gerado no registro do aplicativo.|
     |Audiências de Token permitidas| Se este for um aplicativo de *back-end* e você quiser permitir tokens de autenticação de um aplicativo de front-end, adicione o **URI de ID do aplicativo** do front- *end* aqui. |
+
+    > [!NOTE]
+    > A **ID do cliente** configurada *sempre* é considerada implicitamente como um público permitido, independentemente de como você configurou os **públicos de token permitidos**.
 1. Selecione **OK**e, em seguida, selecione **salvar**.
 
 Agora você está pronto para usar Azure Active Directory para autenticação em seu aplicativo do serviço de aplicativo.
@@ -90,7 +93,7 @@ Você pode registrar clientes nativos se desejar executar entradas usando uma bi
 
 1. No [Azure portal], no menu à esquerda, selecione **Active Directory** > **registros de aplicativo** > **novo registro**. 
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
-1. Em **URI**de redirecionamento, selecione **cliente público (Mobile & Desktop)** e digite a URL do aplicativo do serviço de aplicativo `/.auth/login/aad/callback`e acrescente o caminho. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Em seguida, selecione **Criar**.
+1. Em **URI de redirecionamento**, selecione **cliente público (Mobile & Desktop)** e digite a URL do aplicativo do serviço de aplicativo `/.auth/login/aad/callback`e acrescente o caminho. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Em seguida, selecione **Criar**.
 
     > [!NOTE]
     > Para um aplicativo do Windows, use o [SID do pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI em vez disso.

@@ -1,5 +1,5 @@
 ---
-title: Application Insights, Node. js-LUIS
+title: 'Tutorial: Application Insights, Node. js-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial adiciona informações de bot e Reconhecimento vocal para Application Insights armazenamento de dados de telemetria.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 72ce681b6b0e4109151b987a5f8cc4bc050aafa0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f488cfaf1e55edd8ae0d2bfd177553deb2677f8b
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563295"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387913"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Adicionar resultados de LUIS a Application Insights de um bot no node. js
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Tutorial: Adicionar resultados de LUIS a Application Insights de um bot no node. js
 Este tutorial adiciona informações de bot e Reconhecimento vocal para [Application insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, você pode consultá-los com a linguagem Kusto ou Power BI para analisar, agregar e relatar tentativas e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
 
 Neste tutorial, ficará a saber como:
@@ -47,7 +47,7 @@ Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacot
     npm install applicationinsights && npm install underscore
     ```
     
-    O  pacote de sublinhado é usado para mesclar a estrutura JSON Luis para que seja mais fácil ver e usar em Application insights.
+    O pacote de **sublinhado** é usado para mesclar a estrutura JSON Luis para que seja mais fácil ver e usar em Application insights.
     
 
 
@@ -178,7 +178,7 @@ Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacot
 Para adicionar dados ao Application insights, você precisa da chave de instrumentação.
 
 1. Em um navegador, na [portal do Azure](https://portal.azure.com), localize o recurso de **Application insights** do bot. Seu nome terá a maior parte do nome do bot e, em seguida, os caracteres aleatórios no final do nome `luis-nodejs-bot-johnsmithxqowom`, como. 
-1. No recurso Application Insights, na página **visão geral** , copie a **chave**de instrumentação.
+1. No recurso Application Insights, na página **visão geral** , copie a **chave de instrumentação**.
 1. No VSCode, abra o arquivo **. env** na raiz do projeto de bot. Esse arquivo contém todas as suas variáveis de ambiente.  
 1. Adicione uma nova variável, `MicrosoftApplicationInsightsInstrumentationKey` com o valor de sua chave de instrumentação. Não coloque o valor entre aspas. 
 

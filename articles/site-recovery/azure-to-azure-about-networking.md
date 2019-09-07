@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876464"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736400"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre a rede na replicação do Azure para o Azure
 
@@ -113,7 +113,11 @@ Os intervalos de endereços IP Site Recovery são os seguintes:
    Norte da China 2 | 40.73.35.193 | 40.73.33.230
    Leste da China | 42.159.205.45 | 42.159.132.40
    Leste da China 2 | 40.73.118.52| 40.73.100.125
-  
+   Norte da Alemanha| 51.116.208.58| 51.116.58.128
+   Alemanha Oeste-Central | 51.116.156.176 | 51.116.154.192
+   Oeste da Suíça | 51.107.231.223| 51.107.154.128
+   Norte da Suíça | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
 
 Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
@@ -172,7 +176,7 @@ Você pode criar um ponto de extremidade de serviço de rede em sua rede virtual
 
 Você pode substituir a rota do sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 por uma [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego da VM para uma NVA (solução de virtualização de rede) local, mas essa configuração não é recomendada para replicação de site Recovery. Se você estiver usando rotas personalizadas, deverá [criar um ponto de extremidade de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para "armazenamento" para que o tráfego de replicação não deixe o limite do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
-- Comece a proteger suas cargas de trabalho replicando as [máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
+## <a name="next-steps"></a>Passos Seguintes
+- Comece a proteger suas cargas de trabalho [replicando as máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
 - Saiba mais sobre a [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para o failover de máquina virtual do Azure.
 - Saiba mais sobre a recuperação de desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

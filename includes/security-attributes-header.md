@@ -2,15 +2,15 @@
 author: msmbaldwin
 ms.service: security
 ms.topic: include
-ms.date: 07/23/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4aea8c1d1d7112ac1f9ff9042ff01d173ed986c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b7881d38e04f9b5793f61110e0e3e4c76baeddf2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440864"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743781"
 ---
-Um atributo de segurança é uma qualidade ou um recurso de um serviço do Azure. Ele contribui para a capacidade do serviço de prevenir, detectar e responder a vulnerabilidades de segurança.
+Um controle de segurança é uma qualidade ou um recurso de um serviço do Azure que contribui para a capacidade do serviço de prevenir, detectar e responder a vulnerabilidades de segurança.
 
-Em cada categoria, mostramos "Sim" ou "não" para indicar se um atributo é usado. Para alguns serviços, mostramos "N/A" para um atributo que não é aplicável. Também poderemos fornecer uma observação ou um link para obter mais informações sobre um atributo.
+Para cada controle, usamos "Sim" ou "não" para indicar se ele está atualmente em vigor para o serviço, "N/A" para um controle que não é aplicável ao serviço. Também poderemos fornecer uma observação ou links para obter mais informações sobre um atributo.

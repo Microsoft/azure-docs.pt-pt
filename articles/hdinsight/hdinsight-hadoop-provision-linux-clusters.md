@@ -1,5 +1,5 @@
 ---
-title: Configuração de cluster para Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase ou R Server – Azure HDInsight
+title: Configuração de cluster para Apache Hadoop, Spark, Kafka, HBase ou R Server – Azure
 description: Configure clusters Hadoop, Kafka, Spark, HBase, R Server ou Storm para o HDInsight em um navegador, a CLI clássica do Azure, Azure PowerShell, REST ou SDK.
 keywords: configuração de cluster Hadoop, configuração de cluster Kafka, configuração de cluster Spark, o que é cluster no Hadoop
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: c2aad97cea39221da56666dbeff72ce56fcb2a22
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: f59455374299e25d0c5d6a06c7ec9efc1f220ecf
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113702"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733491"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -219,7 +219,7 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais](../virt
 
 Você pode instalar componentes adicionais ou personalizar a configuração do cluster usando scripts durante a criação. Esses scripts são chamados por meio de **ação de script**, que é uma opção de configuração que pode ser usada no portal do Azure, nos cmdlets do Windows PowerShell do hdinsight ou no SDK do .net do hdinsight. Para obter mais informações, consulte [Personalizar o cluster HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Alguns componentes Java nativos, como Apache Mahout e em cascata, podem ser executados no cluster como arquivos de arquivo Java (JAR). Esses arquivos JAR podem ser distribuídos para o armazenamento do Azure e enviados para clusters HDInsight com mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [enviar trabalhos de Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md)programaticamente.
+Alguns componentes Java nativos, como Apache Mahout e em cascata, podem ser executados no cluster como arquivos de arquivo Java (JAR). Esses arquivos JAR podem ser distribuídos para o armazenamento do Azure e enviados para clusters HDInsight com mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [enviar trabalhos de Apache Hadoop programaticamente](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]  
 > Se você tiver problemas ao implantar arquivos JAR em clusters HDInsight ou chamar arquivos JAR em clusters HDInsight, entre em contato com [suporte da Microsoft](https://azure.microsoft.com/support/options/).

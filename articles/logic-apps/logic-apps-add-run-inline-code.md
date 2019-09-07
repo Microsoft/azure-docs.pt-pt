@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 76b3807727f4b5c9ab0a2c2bc21c45af1f713b83
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242452"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390807"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adicionar e executar trechos de código usando código embutido em aplicativos lógicos do Azure
 
@@ -23,6 +23,7 @@ Quando você quiser executar um trecho de código dentro de seu aplicativo lógi
 * É executado em JavaScript. Mais idiomas em breve.
 * Termina a execução em cinco segundos ou menos.
 * Manipula dados de até 50 MB de tamanho.
+* Não requer trabalho com as [ações de **variáveis** ](../logic-apps/logic-apps-create-variables-store-values.md), que ainda não têm suporte.
 * Usa o Node. js versão 8.11.1. Para obter mais informações, consulte [objetos internos padrão](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
@@ -90,7 +91,7 @@ Neste artigo, o aplicativo lógico de exemplo dispara quando um novo email chega
 
    > [!NOTE]
    >
-   > Se o trecho de código fizer referência a nomes de ação que usam o operador ponto (.), você deverá adicionar esses nomes de ação ao [ parâmetro Actions](#add-parameters). Essas referências também devem incluir os nomes de ação entre colchetes ([]) e aspas, por exemplo:
+   > Se o trecho de código fizer referência a nomes de ação que usam o operador ponto (.), você deverá adicionar esses nomes de ação ao [parâmetro **Actions** ](#add-parameters). Essas referências também devem incluir os nomes de ação entre colchetes ([]) e aspas, por exemplo:
    >
    > `// Correct`</br> 
    > `workflowContext.actions["my.action.name"].body`</br>
@@ -99,7 +100,7 @@ Neste artigo, o aplicativo lógico de exemplo dispara quando um novo email chega
    > `workflowContext.actions.my.action.name.body`
 
    A ação de código embutido não `return` requer uma instrução, mas os resultados `return` de uma instrução estão disponíveis para referência em ações posteriores por meio do token de **resultado** . 
-   Por exemplo, o trecho de código retorna o resultado chamando a `match()` função, que localiza correspondências no corpo do email em relação à expressão regular. A ação compor usa o token de **resultado** para fazer referência aos resultados da ação de código embutida e cria um único resultado.
+   Por exemplo, o trecho de código retorna o resultado chamando a `match()` função, que localiza correspondências no corpo do email em relação à expressão regular. A ação **compor** usa o token de **resultado** para fazer referência aos resultados da ação de código embutida e cria um único resultado.
 
    ![Aplicação lógica concluída](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -232,7 +233,7 @@ Para adicionar esses parâmetros, abra a lista **Adicionar novo parâmetro** e s
 
 Se você selecionar **gatilhos**, será solicitado se deseja incluir os resultados do gatilho.
 
-* Na lista de gatilhos, selecione **Sim**.
+* Na lista de **gatilhos** , selecione **Sim**.
 
 <a name="action-results"></a>
 
@@ -266,6 +267,6 @@ Se você selecionar **ações**, as ações que você deseja adicionar serão so
 
 Para obter mais informações sobre a estrutura e a sintaxe da ação de **código JavaScript** na definição de fluxo de trabalho subjacente do aplicativo lógico usando a linguagem de definição de fluxo de trabalho, consulte a [seção de referência](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)da ação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md)

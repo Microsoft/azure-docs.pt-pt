@@ -1,5 +1,5 @@
 ---
-title: Bot QnA - Azure Bot Service - QnA Maker
+title: 'Tutorial: Bot QnA - Azure Bot Service - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Crie um bot de chat QnA da página de publicação para uma base de dados de conhecimento existente. Este bot usa o SDK do bot Framework v4. Você não precisa escrever nenhum código para criar o bot, todo o código é fornecido para você.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 07/31/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697997"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390897"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Criar um bot QnA com o serviço de bot do Azure v4
 
@@ -57,7 +57,7 @@ Crie um bot como um aplicativo cliente para a base de dados de conhecimento.
     |Nome da aplicação|`my-tutorial-kb-bot-app`|Este é um aplicativo Web para dar suporte apenas ao bot. Esse não deve ser o mesmo nome de aplicativo que seu serviço de QnA Maker já está usando. Não há suporte para o compartilhamento do aplicativo Web de QnA Maker com qualquer outro recurso.|
     |Idioma do SDK|C#|Essa é a linguagem de programação subjacente usada pelo SDK do bot Framework. Suas opções são [C#](https://github.com/Microsoft/botbuilder-dotnet) ou [node. js](https://github.com/Microsoft/botbuilder-js).|
     |Chave de autenticação QnA|**Não alterar**|Esse valor é preenchido para você.|
-    |Plano do serviço de aplicações/localização|**Não alterar**|Para este tutorial, o local não é importante.|
+    |Local/plano do serviço de aplicativo|**Não alterar**|Para este tutorial, o local não é importante.|
     |Storage do Azure|**Não alterar**|Os dados de conversa são armazenados nas tabelas do armazenamento do Azure.|
     |Application Insights|**Não alterar**|O registro em log é enviado para Application Insights.|
     |ID do aplicativo da Microsoft|**Não alterar**|O usuário e a senha do Active Directory são necessários.|
@@ -108,7 +108,7 @@ Se você não criou um novo grupo de recursos, precisará localizar os recursos 
 
 [!INCLUDE [Bot Information](../../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conceito: base de dados de conhecimento](../concepts/knowledge-base.md)

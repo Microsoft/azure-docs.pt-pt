@@ -1,23 +1,23 @@
 ---
-title: Usar o servidor de histórico do Spark estendido para depurar e diagnosticar aplicativos Spark – Azure HDInsight
+title: Servidor de histórico do Spark estendido para depurar aplicativos Spark – Azure HDInsight
 description: Use o servidor de histórico do Spark estendido para depurar e diagnosticar aplicativos Spark – Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.date: 09/04/2019
+ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377260"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736458"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar Apache Spark aplicativos
 
-Este artigo fornece orientação sobre como usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar aplicativos Spark concluídos e em execução. A extensão inclui a guia de dados e a guia gráfico e a guia diagnóstico. Na guia **dados** , os usuários podem verificar os dados de entrada e saída do trabalho do Spark. Na guia **gráfico** , os usuários podem verificar o fluxo de dados e reproduzir o grafo de trabalho. Na guia **diagnóstico** , o usuário pode referir-se à distorção de **dados**, à distorção de **tempo** e à **análise de uso de executor**.
+Este artigo fornece orientação sobre como usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar aplicativos Spark concluídos e em execução. A extensão inclui a guia de dados e a guia gráfico e a guia diagnóstico. Na guia **dados** , os usuários podem verificar os dados de entrada e saída do trabalho do Spark. Na guia **gráfico** , os usuários podem verificar o fluxo de dados e reproduzir o grafo de trabalho. Na guia **diagnóstico** , o usuário pode referir-se à **distorção de dados**, à **distorção de tempo** e à **análise de uso de executor**.
 
 ## <a name="get-access-to-apache-spark-history-server"></a>Obter acesso ao servidor de histórico de Apache Spark
 
@@ -158,38 +158,38 @@ Selecione ID do trabalho e, em seguida, clique em **grafo** no menu ferramenta p
 
 
 ## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Guia diagnóstico no servidor de histórico de Apache Spark
-Selecione ID do trabalho e clique em **diagnóstico** no menu ferramenta para obter a exibição de diagnóstico do trabalho. A guia diagnóstico inclui **distorção de dados**, distorção de **tempo**e análise de **uso de executor**.
+Selecione ID do trabalho e clique em **diagnóstico** no menu ferramenta para obter a exibição de diagnóstico do trabalho. A guia diagnóstico inclui **distorção de dados**, **distorção de tempo**e **análise de uso de executor**.
     
-+ Verifique a **distorção de dados**, a distorção de **tempo**e a análise de **uso do executor** selecionando as guias respectivamente.
++ Verifique a **distorção de dados**, a **distorção de tempo**e a **análise de uso do executor** selecionando as guias respectivamente.
 
     ![Guias de diagnóstico](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### <a name="data-skew"></a>Distorção de dados
-Clique na guia distorção de **dados** , as tarefas distorcidas correspondentes são exibidas com base nos parâmetros especificados. 
+Clique na guia **distorção de dados** , as tarefas distorcidas correspondentes são exibidas com base nos parâmetros especificados. 
 
-+ **Especificar parâmetros** – a primeira seção exibe os parâmetros que são usados para detectar a distorção de dados. A regra interna é: A leitura dos dados da tarefa é maior que 3 vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior do que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, você poderá escolher seus parâmetros, a seção do **estágio distorcido**e a **inclinação do caractere** de distorção será atualizada de acordo.
++ **Especificar parâmetros** – a primeira seção exibe os parâmetros que são usados para detectar a distorção de dados. A regra interna é: A leitura dos dados da tarefa é maior que 3 vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior do que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, você poderá escolher seus parâmetros, a seção do **estágio distorcido**e a **inclinação do caractere de distorção** será atualizada de acordo.
 
 + **Estágio distorcido** – a segunda seção exibe os estágios que têm tarefas distorcidas que atendem aos critérios especificados acima. Se houver mais de uma tarefa distorcida em um estágio, a tabela de estágio distorcido exibirá apenas a tarefa mais distorcida (por exemplo, os maiores dados para distorção de dados).
 
     ![Section2 de distorção de dados](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
-+ **Gráfico** de distorção – quando uma linha na tabela de estágio de distorção é selecionada, o gráfico de distorção exibe mais detalhes de distribuições de tarefas com base no tempo de leitura e de execução de dados. As tarefas distorcidas são marcadas em vermelho e as tarefas normais são marcadas em azul. Para considerar o desempenho, o gráfico exibe apenas até 100 tarefas de exemplo. Os detalhes da tarefa são exibidos no painel inferior direito.
++ **Gráfico de distorção** – quando uma linha na tabela de estágio de distorção é selecionada, o gráfico de distorção exibe mais detalhes de distribuições de tarefas com base no tempo de leitura e de execução de dados. As tarefas distorcidas são marcadas em vermelho e as tarefas normais são marcadas em azul. Para considerar o desempenho, o gráfico exibe apenas até 100 tarefas de exemplo. Os detalhes da tarefa são exibidos no painel inferior direito.
 
     ![Section3 de distorção de dados](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
 ### <a name="time-skew"></a>Distorção de tempo
-A guia distorção de **tempo** exibe tarefas distorcidas com base no tempo de execução da tarefa. 
+A guia **distorção de tempo** exibe tarefas distorcidas com base no tempo de execução da tarefa. 
 
-+ **Especificar parâmetros** – a primeira seção exibe os parâmetros que são usados para detectar a distorção de tempo. Os critérios padrão para detectar a distorção de tempo são: o tempo de execução da tarefa é maior que 3 vezes do tempo médio de execução e o tempo de execução da tarefa é maior que 30 segundos. Você pode alterar os parâmetros com base em suas necessidades. O **gráfico** de intertorção e de distorção exibe as informações de estágios e tarefas correspondentes, assim como a guia de distorção de **dados** acima.
++ **Especificar parâmetros** – a primeira seção exibe os parâmetros que são usados para detectar a distorção de tempo. Os critérios padrão para detectar a distorção de tempo são: o tempo de execução da tarefa é maior que 3 vezes do tempo médio de execução e o tempo de execução da tarefa é maior que 30 segundos. Você pode alterar os parâmetros com base em suas necessidades. O gráfico de **intertorção** e de **distorção** exibe as informações de estágios e tarefas correspondentes, assim como a guia de **distorção de dados** acima.
 
-+ Clique em distorção de **tempo**e o resultado filtrado será exibido na seção **estágio inclinado** de acordo com os parâmetros definidos na seção **especificar parâmetros**. Clique em um item na seção **estágio inclinado** , o gráfico correspondente é exibido em section3 e os detalhes da tarefa são exibidos no painel inferior direito.
++ Clique em **distorção de tempo**e o resultado filtrado será exibido na seção **estágio inclinado** de acordo com os parâmetros definidos na seção **especificar parâmetros**. Clique em um item na seção **estágio inclinado** , o gráfico correspondente é exibido em section3 e os detalhes da tarefa são exibidos no painel inferior direito.
 
     ![Section2 de distorção de tempo](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
 ### <a name="executor-usage-analysis"></a>Análise de uso do executor
 O grafo de uso do executor visualiza a alocação real do executor do trabalho do Spark e o status de execução.  
 
-+ Clique **em análise de uso do executor**, quatro tipos de curvas sobre o uso do executor são rascunhos, incluindo executores alocados, **execuções em execução**,**executores ociosos**e **instâncias de máximo de executor**. Em relação aos executores alocados, cada evento "executor adicionado" ou "executor removido" aumentará ou diminuirá os executores alocados, você poderá verificar "linha do tempo do evento" na guia "trabalhos" para obter mais comparações.
++ Clique em **análise de uso do executor**, quatro tipos de curvas sobre o uso do executor são rascunhos, incluindo **executores alocados**, **execuções em execução**,**executores ociosos**e **instâncias de máximo de executor**. Em relação aos executores alocados, cada evento "executor adicionado" ou "executor removido" aumentará ou diminuirá os executores alocados, você poderá verificar "linha do tempo do evento" na guia "trabalhos" para obter mais comparações.
 
     ![Guia executores](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -323,7 +323,7 @@ Se você quiser atualizar com o hotfix, use o script abaixo, que atualizará Spa
 
 2.  Os dados de entrada/saída usando RDD não serão mostrados na guia dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerenciar recursos para um cluster Apache Spark no HDInsight](apache-spark-resource-manager.md)
 * [Definir configurações de Apache Spark](apache-spark-settings.md)
