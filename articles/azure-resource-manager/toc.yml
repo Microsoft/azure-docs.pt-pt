@@ -4,6 +4,8 @@
   items:
     - name: O que é o Resource Manager?
       href: resource-group-overview.md
+    - name: Descrição geral do modelo
+      href: template-deployment-overview.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -58,11 +60,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: Conceitos
   items:
-    - name: Implementações de modelos
-      href: template-deployment-overview.md
-    - name: Modelo de estrutura de ficheiros
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: resource-group-authoring-templates.md
     - name: Modelo de melhores práticas
       href: template-best-practices.md
     - name: Modelos para a consistência de cloud
@@ -89,6 +86,12 @@
           href: resource-manager-tools-vs-code.md
         - name: Escrever expressões de modelo
           href: template-expressions.md
+        - name: Parâmetros
+          href: template-parameters.md
+        - name: Variáveis
+          href: template-variables.md
+        - name: Funções definidas pelo utilizador
+          href: template-user-defined-functions.md
         - name: Recursos
           items:
             - name: Nome e tipo do recurso subordinado
@@ -101,6 +104,8 @@
               href: resource-location.md
             - name: Utilizar extensões de modelo
               href: resource-manager-use-extensions.md
+        - name: Saídas
+          href: template-outputs.md
         - name: Modularizar modelos
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
@@ -248,6 +253,9 @@
       href: resource-manager-async-operations.md
 - name: Referência
   items:
+    - name: Modelo de estrutura de ficheiros
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: resource-group-authoring-templates.md
     - name: Referência de modelo
       href: /azure/templates/
     - name: Funções de modelos

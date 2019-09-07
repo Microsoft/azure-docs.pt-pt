@@ -194,7 +194,7 @@
       items:
         - name: Portal do Azure
           href: howto-auto-grow-storage-portal.md
-        - name: Portal do Azure
+        - name: CLI do Azure
           href: howto-auto-grow-storage-cli.md
     - name: Aceder a registos do servidor
       items:
