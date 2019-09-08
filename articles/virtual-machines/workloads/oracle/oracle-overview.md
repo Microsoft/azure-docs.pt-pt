@@ -13,26 +13,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: e9e37c54668ec0343cbfd45e51e90216955b46c4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100013"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802245"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral de aplicativos e soluções Oracle no Azure
 
-Este artigo apresenta recursos para executar soluções Oracle usando a infraestrutura do Azure. Consulte também introduções detalhadas sobre as [imagens de VM Oracle](oracle-vm-solutions.md) disponíveis no Azure Marketplace e o recurso de visualização para interconectar o [Azure ao Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+Este artigo apresenta recursos para executar soluções Oracle usando a infraestrutura do Azure. Consulte também introduções detalhadas sobre as [imagens de VM Oracle](oracle-vm-solutions.md) disponíveis no Azure Marketplace e o recurso de visualização para [interconectar o Azure ao Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Bancos de dados Oracle na infraestrutura do Azure
 
-Execute bancos de dados Oracle na infraestrutura do Azure usando as imagens do Linux disponíveis no Azure Marketplace:
+Execute bancos de dados Oracle na infraestrutura do Azure usando Oracle Database em Oracle Linux imagens disponíveis no Azure Marketplace:
 
 * Oracle Database 12,1, 12,2 e 18,3 Enterprise Edition 
 
 * Oracle Database 12,1, 12,2 e 18,3 Standard Edition 
 
-Você também pode optar por basear uma solução em uma imagem personalizada criada do zero no Azure ou carregar uma imagem personalizada do seu ambiente local.
+Você também pode optar por configurar Oracle Database em uma imagem não Oracle Linux disponível no Azure, basear uma solução em uma imagem personalizada criada a partir do zero no Azure ou carregar uma imagem personalizada do seu ambiente local.
 
 Opcionalmente, configure com vários discos anexados e aprimore o desempenho do banco de dados instalando o ASM (Automated Storage Management) da Oracle.
 
@@ -46,11 +46,17 @@ Execute aplicativos empresariais no Azure em sistemas operacionais Oracle com su
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opções de alta disponibilidade e recuperação de desastre
 
-* Configure o Oracle Data Guard, o Active Data Guard ou o GoldenGate na infraestrutura do Azure em conjunto com [zonas de disponibilidade](../../../availability-zones/az-overview.md) para alta disponibilidade.
+* Configure o [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), o [Active Data Guard com FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [fragmentação](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) ou [portão dourado](https://www.oracle.com/middleware/technologies/goldengate.html) na infraestrutura do Azure em conjunto com [zonas de disponibilidade](../../../availability-zones/az-overview.md) para alta disponibilidade na região. Você também pode configurar essas configurações em várias regiões do Azure para aumentar a disponibilidade e a recuperação de desastres.
 
 * Use [Azure site Recovery](../../../site-recovery/site-recovery-overview.md) para orquestrar e gerenciar a recuperação de desastres para suas VMs Oracle Linux no Azure e seus servidores físicos ou locais. 
 
-* Habilite RAC (clusters de aplicativos reais) da Oracle no Azure usando [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Habilite RAC (clusters de aplicativos reais) da Oracle no Azure usando a [solução VMware do Azure](https://docs.azure.cloudsimple.com/oracle-rac/) ou [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+
+## <a name="backup-oracle-workloads"></a>Fazer backup de cargas de trabalho do Oracle
+
+* Fazer backup de suas VMs Oracle usando o [backup do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+
+* Faça backup de seu Oracle Database usando o Oracle RMAN e, opcionalmente, use o [fusível de BLOBs do Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) para montar uma [conta de armazenamento de BLOBs do Azure altamente Redudant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) e gravar os backups do RMAN nele para obter resiliência adicional.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Integração do Azure com o OCI (versão prévia)
 
@@ -84,4 +90,4 @@ A implantação de aplicativos Oracle no Azure é baseada em um modelo "Traga su
 
 * Saiba mais sobre como implantar [imagens de VM do Oracle](oracle-vm-solutions.md) na infraestrutura do Azure.
 
-* Saiba mais sobre como interconectar o [Azure com o OCI](oracle-oci-overview.md).
+* Saiba mais sobre como [interconectar o Azure com o OCI](oracle-oci-overview.md).

@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fcd3e5fd6db0d7c18a5f9bfba030cd3d809b452f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559677"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802530"
 ---
 # <a name="deploy-a-custom-model"></a>Implementar um modelo personalizado
 
-Depois de carregar e inspecionar dados, avaliar a precisão e treinar um modelo personalizado, você pode implantar um ponto de extremidade personalizado para usar com seus aplicativos, ferramentas e produtos. Neste documento, você aprenderá a criar e implantar um ponto de extremidade usando o portal de Fala Personalizada.
+Depois de carregar e inspecionar dados, avaliar a precisão e treinar um modelo personalizado, você pode implantar um ponto de extremidade personalizado para usar com seus aplicativos, ferramentas e produtos. Neste documento, você aprenderá a criar e implantar um ponto de extremidade usando o [portal de fala personalizada](https://speech.microsoft.com/customspeech).
 
 ## <a name="create-a-custom-endpoint"></a>Criar um ponto de extremidade personalizado
 
-Para criar um novo ponto de extremidade personalizado, selecione **implantação** no menu fala personalizada na parte superior da página. Se esta for sua primeira execução, você observará que não há nenhum ponto de extremidade listado na tabela. Depois de criar um ponto de extremidade, você usará essa página para acompanhar cada ponto de extremidade implantado.
+Para criar um novo ponto de extremidade personalizado, entre no [portal de fala personalizada](https://speech.microsoft.com/customspeech) e selecione **implantação** no menu fala personalizada na parte superior da página. Se esta for sua primeira execução, você observará que não há nenhum ponto de extremidade listado na tabela. Depois de criar um ponto de extremidade, você usará essa página para acompanhar cada ponto de extremidade implantado.
 
 Em seguida, selecione **Adicionar ponto de extremidade** e insira um **nome** e uma **Descrição** para o ponto de extremidade personalizado. Em seguida, selecione o modelo personalizado que você deseja associar a esse ponto de extremidade. Nessa página, você também pode habilitar o registro em log. O registro em log permite monitorar o tráfego do ponto de extremidade. Se desabilitado, o tráfego não será armazenado.
 
@@ -40,7 +40,7 @@ Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade
 
 Os dados de log estão disponíveis para download em **detalhes do ponto de extremidade >** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Usar seu ponto de extremidade personalizado com o [SDK de fala](speech-sdk.md)
 

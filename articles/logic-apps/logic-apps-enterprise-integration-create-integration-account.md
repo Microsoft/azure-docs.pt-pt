@@ -11,16 +11,16 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982933"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801280"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Criar e gerenciar contas de integração para Soluções B2B usando aplicativos lógicos do Azure
 
-Antes de criar [soluções de integração corporativa e B2B](../logic-apps/logic-apps-enterprise-integration-overview.md) usando os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), você precisa criar uma conta de integração, que é um recurso separado do Azure que fornece um contêiner seguro, escalonável e gerenciável para o artefatos de integração que você define e usa com seus fluxos de trabalho de aplicativo lógico.
+Antes de criar [soluções B2B e de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md) com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md), precisa de criar uma conta de integração, que é um recurso separado do Azure que fornece um contentor seguro, dimensionável e gerível para os artefatos de integração que define e utiliza com os fluxos de trabalho da aplicação lógica.
 
 Por exemplo, você pode criar, armazenar e gerenciar artefatos B2B, como parceiros comerciais, contratos, mapas, esquemas, certificados e configurações de lote. Além disso, antes de seu aplicativo lógico poder trabalhar com esses artefatos e usar os conectores de Aplicativos Lógicos B2B, você deve [vincular sua conta de integração](#link-account) ao seu aplicativo lógico. A conta de integração e o aplicativo lógico devem existir no *mesmo* local ou região.
 
@@ -80,7 +80,7 @@ Para essa tarefa, você pode usar a portal do Azure seguindo as etapas nesta se�
 
 ## <a name="link-to-logic-app"></a>Link para o aplicativo lógico
 
-Para dar acesso aos seus aplicativos lógicos a uma conta de integração que contém seus artefatos B2B, você deve primeiro vincular sua conta de integração ao seu aplicativo lógico. O aplicativo lógico e a conta de integração devem existir na mesma região. Para essa tarefa, você pode usar a portal do Azure seguindo as etapas nesta seção.
+Para dar acesso aos seus aplicativos lógicos a uma conta de integração que contém seus artefatos B2B, você deve primeiro vincular sua conta de integração ao seu aplicativo lógico. O aplicativo lógico e a conta de integração devem existir na mesma região. Para concluir essa tarefa, você pode usar o portal do Azure. Se você usar o Visual Studio e seu aplicativo lógico estiver em um [projeto de grupo de recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), você poderá [vincular seu aplicativo lógico a uma conta de integração usando o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Na portal do Azure, localize e abra seu aplicativo lógico.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usando o Node. js para chamar o API de Análise de Texto'
+title: 'Início rápido: Usar o Node. js para chamar a API REST do Análise de Texto'
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 5d441b51d75f032ecf6e60419218ef3f902e2cbd
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 9f9bc3bfe0c8eb023dcc9cca879eeb92175fc094
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142744"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801522"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Node. js para chamar o serviço de Análise de Texto cognitiva  
 <a name="HOLTop"></a>

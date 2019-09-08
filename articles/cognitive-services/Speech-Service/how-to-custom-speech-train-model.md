@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b5893b4f07444b07bf142971a5df4776e549d307
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 21a0cd5e257f57a9371a30c6fe57afb88e174b53
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562815"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801453"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Treinar um modelo para Fala Personalizada
 
@@ -37,13 +37,14 @@ Se você estiver encontrando problemas de reconhecimento com seu modelo, usar tr
 
 A primeira etapa para treinar um modelo é carregar dados de treinamento. Use [preparar e testar seus dados](how-to-custom-speech-test-data.md) para obter instruções passo a passo para preparar transcrições com rótulo humano e texto relacionado (declarações e pronúncias). Depois de carregar os dados de treinamento, siga estas instruções para começar a treinar seu modelo:
 
-1. Navegue até a **> de fala para texto fala personalizada treinamento de >** .
-2. Clique em **treinar modelo**.
-3. Em seguida, dê um **nome** e uma **Descrição**ao seu treinamento.
-4. No menu suspenso **cenário e modelo de linha de base** , selecione o cenário que melhor se adapta ao seu domínio. Se você não tiver certeza de qual cenário escolher, selecione **geral**. O modelo de linha de base é o ponto de partida para treinamento. Se você não tiver uma preferência, poderá usar o mais recente.
-5. Na página **selecionar dados de treinamento** , escolha um ou vários conjuntos de itens de áudio e de transcrição com rótulo humano que você gostaria de usar para treinamento.
-6. Quando o treinamento for concluído, você poderá optar por executar o teste de exatidão no modelo treinado recentemente. Este passo é opcional.
-7. Selecione **criar** para criar seu modelo personalizado.
+1. Entre no portal de [fala personalizada](https://speech.microsoft.com/customspeech).
+2. Navegue até a **> de fala para texto fala personalizada treinamento de >** .
+3. Clique em **treinar modelo**.
+4. Em seguida, dê um **nome** e uma **Descrição**ao seu treinamento.
+5. No menu suspenso **cenário e modelo de linha de base** , selecione o cenário que melhor se adapta ao seu domínio. Se você não tiver certeza de qual cenário escolher, selecione **geral**. O modelo de linha de base é o ponto de partida para treinamento. Se você não tiver uma preferência, poderá usar o mais recente.
+6. Na página **selecionar dados de treinamento** , escolha um ou vários conjuntos de itens de áudio e de transcrição com rótulo humano que você gostaria de usar para treinamento.
+7. Quando o treinamento for concluído, você poderá optar por executar o teste de exatidão no modelo treinado recentemente. Este passo é opcional.
+8. Selecione **criar** para criar seu modelo personalizado.
 
 A tabela de treinamento exibe uma nova entrada que corresponde a esse modelo recém-criado. A tabela também exibe o status:  Processamento, com êxito, com falha.
 

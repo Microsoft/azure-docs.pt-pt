@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 09/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: cdfaca32b31d5392ffb59e6750729cad9db1c725
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 7df117dbb071081473a5651a953927cee8ddaa03
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735941"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801501"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -136,7 +136,8 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Suportadas | Suportadas | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Suportadas |Suportadas |Chicago, RAE de Hong Kong, Londres |
-| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportadas |Suportado |Seoul |
+| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportadas |Suportado |Seul |
+| **EAS** | Suportadas |Suportado | Washington, D.C. |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportadas |Chennai, Mumbai2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Suportado |Suportado |Singapura, Singapura2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Suportado |Suportado |Osaka, Tóquio |
@@ -156,6 +157,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Suportadas |Suportadas |Dallas, + Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Suportado |Suportado |São Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Suportado |Suportadas |Amsterdã, Chicago, Dallas, RAE de Hong Kong, Londres, Mumbai, vale do silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.c. |
+| **Viasat** | Suportadas | Suportadas | Washington DC2 |
 | **[NZ de grupo Vocus](https://www.vocus.co.nz/business/cloud-data-centres)** | Suportadas | Suportadas | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportadas |Suportadas |Amsterdam2, Londres, Cingapura |
 | **Vodafone Idea** | Suportadas | Suportadas | Mumbai, Mumbai2 |

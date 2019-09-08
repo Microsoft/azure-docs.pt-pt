@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562861"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801541"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão de Fala Personalizada
 
@@ -51,11 +51,12 @@ Se você quiser testar a qualidade do modelo de linha de base de fala para texto
 
 Para avaliar modelos lado a lado:
 
-1. Navegue até a **> de fala para texto fala personalizada teste de >** .
-2. Clique em **Adicionar teste**.
-3. Selecione **avaliar exatidão**. Dê ao teste um nome, uma descrição e selecione seu conjunto de testes de áudio e de transcrição com rótulo humano.
-4. Selecione até dois modelos que você gostaria de testar.
-5. Clique em **Criar**.
+1. Entre no portal de [fala personalizada](https://speech.microsoft.com/customspeech).
+2. Navegue até a **> de fala para texto fala personalizada teste de >** .
+3. Clique em **Adicionar teste**.
+4. Selecione **avaliar exatidão**. Dê ao teste um nome, uma descrição e selecione seu conjunto de testes de áudio e de transcrição com rótulo humano.
+5. Selecione até dois modelos que você gostaria de testar.
+6. Clique em **Criar**.
 
 Depois que o teste tiver sido criado com êxito, você poderá comparar os resultados lado a lado.
 

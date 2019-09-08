@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663588"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802510"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -35,7 +35,7 @@ Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como 
 
 ## <a name="upload-data"></a>Carregar dados
 
-Quando você estiver pronto para carregar seus dados, clique em **carregar dados** para iniciar o assistente e criar seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
+Quando você estiver pronto para carregar seus dados, navegue até o [portal de fala personalizada](https://speech.microsoft.com/customspeech), clique em **carregar dados** para iniciar o assistente e criar seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
 
 ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -96,7 +96,7 @@ Para resolver problemas como exclusão ou substituição de palavras, uma quanti
 
 As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas pelo utilizador _antes_ de carregar os dados para o Serviço de Voz Personalizada. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de coletar os arquivos de áudio e as transcrições correspondentes, eles devem ser empacotados como um único arquivo. zip antes de carregar para o portal de Fala Personalizada. Este é um conjunto de exemplo com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
+Depois de coletar os arquivos de áudio e as transcrições correspondentes, eles devem ser empacotados como um único arquivo. zip antes de carregar para o [portal de fala personalizada](https://speech.microsoft.com/customspeech). Este é um conjunto de exemplo com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
 
 ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -109,7 +109,7 @@ Se você tiver nomes de produtos ou recursos que sejam exclusivos e quiser ter c
 | Declarações e/ou frases | Eles podem melhorar a precisão ao reconhecer nomes de produtos ou vocabulário específico do setor dentro do contexto de uma frase. |
 | Pronúncias | Eles podem melhorar a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
 
-Declarações pode ser fornecido como um único ou vários arquivos de texto. Quanto mais perto os dados de texto forem falados, maior será a probabilidade de que a precisão seja melhorada. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no portal de Fala Personalizada.
+Declarações pode ser fornecido como um único ou vários arquivos de texto. Quanto mais perto os dados de texto forem falados, maior será a probabilidade de que a precisão seja melhorada. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no [portal de fala personalizada](https://speech.microsoft.com/customspeech).
 
 ### <a name="guidelines-to-create-an-utterances-file"></a>Diretrizes para criar um arquivo declarações
 

@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b145b341a4db503a00d517decf6406e26f23c3cd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066065"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802470"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -42,7 +42,7 @@ Você pode usar a auditoria do banco de dados SQL para:
 - **Analise** os relatórios. Você pode encontrar eventos suspeitos, atividades incomuns e tendências.
 
 > [!IMPORTANT]
-> Os logs de auditoria são gravados em blobs de **acréscimo** no armazenamento de BLOBs do Azure em sua assinatura do Azure.
+> Os logs de auditoria são gravados em **blobs de acréscimo** no armazenamento de BLOBs do Azure em sua assinatura do Azure.
 >
 > - Há suporte para todos os tipos de armazenamento (v1, v2, BLOB).
 > - Há suporte para todas as configurações de replicação de armazenamento.
@@ -58,7 +58,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 
 - Se a *auditoria de blob do servidor estiver habilitada*, ela *sempre se aplicará ao banco de dados*. O banco de dados será auditado, independentemente das configurações de auditoria do banco de dados.
 
-- Habilitar a auditoria de blob no banco de dados ou data warehouse, além de habilitá-lo no servidor , não substitui nem altera as configurações da auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo; uma vez pela política de servidor e uma vez pela política de banco de dados.
+- Habilitar a auditoria de blob no banco de dados ou data warehouse, além de habilitá-lo no servidor, *não substitui nem* altera as configurações da auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo; uma vez pela política de servidor e uma vez pela política de banco de dados.
 
    > [!NOTE]
    > Você deve evitar habilitar a auditoria de blob de servidor e a auditoria de blob de banco de dados, a menos que:
@@ -201,8 +201,6 @@ Com bancos de dados replicados geograficamente, quando você habilita a auditori
 
     >[!IMPORTANT]
     >Com a auditoria no nível do banco de dados, as configurações de armazenamento para o banco de dados secundário serão idênticas às do banco de dados primário, causando o tráfego entre regiões. É recomendável que você habilite apenas a auditoria no nível do servidor e deixe a auditoria no nível do banco de dados desabilitada para todos os bancos.
-    > [!WARNING]
-    > Não há suporte para o uso de logs de Hub de eventos ou de Azure Monitor como destinos para logs de auditoria no nível do servidor em bancos de dados secundários replicados geograficamente.
 
 ### <a id="subheading-6">Regeneração da chave de armazenamento</a>
 
@@ -224,7 +222,7 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
     > [!IMPORTANT]
     > O Azure SQL Database Audit armazena 4000 caracteres de dados para campos de caractere em um registro de auditoria. Quando a **instrução** ou os valores de **data_sensitivity_information** retornados de uma ação auditável contiverem mais de 4000 caracteres, todos os dados que ultrapassarem os primeiros 4000 caracteres serão **truncados e não auditados**.
 
-- Os logs de auditoria são gravados em blobs de **acréscimo** em um armazenamento de BLOBs do Azure em sua assinatura do Azure:
+- Os logs de auditoria são gravados em **blobs de acréscimo** em um armazenamento de BLOBs do Azure em sua assinatura do Azure:
   - No momento, **não há suporte para** o **armazenamento Premium** em blobs de acréscimo.
   - Atualmente, **não há suporte para** **armazenamento na VNet** .
 
@@ -263,10 +261,10 @@ Para obter um exemplo de script, consulte [Configurar a auditoria e a detecção
 
 Política estendida com suporte de cláusula WHERE para filtragem adicional:
 
-- [Criar ou atualizar a política de auditoria estendida do banco de dados](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Criar ou atualizar a política de auditoria estendida do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obter política de auditoria estendida do banco de dados](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Obter política de auditoria estendida do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Criar ou atualizar a política de auditoria *estendida* do banco de dados](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Criar ou atualizar a política de auditoria *estendida* do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obter política de auditoria *estendida* do banco de dados](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Obter política de auditoria *estendida* do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>Gerenciar a auditoria do banco de dados SQL usando modelos de Azure Resource Manager
 

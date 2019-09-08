@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: 7fe35edfbfc8f50aa9428e41e7d807a0838417ec
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: bfd11254ffccd5085701071fcdb2116ca368bc82
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259664"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801441"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -36,14 +36,14 @@ Por exemplo, se você tiver dois tipos de aplicativos LUIS que você está crian
 A migração inclui:
 
 * **Todos** os aplicativos do proprietário.
-* Uma migração unidirecional.
+* Uma migração **unidirecional** .
 
 O proprietário não pode escolher um subconjunto de aplicativos para migrar e o processo não é reversível. 
 
 A migração não é: 
 
 * Um processo que coleta colaboradores e move ou adiciona automaticamente o recurso de criação do Azure. Você, como o proprietário do aplicativo, precisa concluir esta etapa. Esta etapa requer permissões para o recurso apropriado.
-* Um processo para criar e atribuir um recurso de tempo de execução de previsão. Se você precisar de um recurso de tempo de execução de previsão, isso será [um processo separado](/luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) e não será alterado. 
+* Um processo para criar e atribuir um recurso de tempo de execução de previsão. Se você precisar de um recurso de tempo de execução de previsão, isso será [um processo separado](luis-how-to-azure-subscription.md##create-resources-in-the-azure-portal) e não será alterado. 
 
 ## <a name="how-are-the-apps-migrating"></a>Como os aplicativos são migrados?
 
@@ -74,7 +74,7 @@ Siga [estas etapas de migração](luis-migration-authoring-steps.md).
 
 Após o processo de migração, todos os seus aplicativos LUIS agora são atribuídos a um único recurso de criação de LUIS.
 
-Você pode criar mais recursos de criação e atribuir na página **gerenciar > do Azure** Resources no _portal do Luis_. 
+Você pode criar mais recursos de criação e atribuir na página **gerenciar > do Azure Resources** no _portal do Luis_. 
 
 Você pode adicionar colaboradores ao recurso de criação do _portal do Azure_, na página de controle de **acesso (iam)** para esse recurso. Consulte [Adicionar acesso de colaborador](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) para obter mais informações.
 
@@ -93,6 +93,6 @@ Você pode optar por exportar um aplicativo no qual você é um colaborador e, e
 
 Após o processo de migração, você precisará ser adicionado ao recurso de criação do Azure pelo proprietário do aplicativo.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como migrar seu aplicativo para um recurso de criação](luis-migration-authoring-steps.md)

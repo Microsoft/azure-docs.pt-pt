@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562853"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801447"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados de Fala Personalizada
 
 > [!NOTE]
 > Esta página pressupõe que você tenha lido [preparar dados de teste para fala personalizada](how-to-custom-speech-test-data.md) e ter carregado um DataSet para inspeção.
 
-Fala Personalizada fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando dados de áudio com o resultado de reconhecimento correspondente. No portal de Fala Personalizada, você pode reproduzir áudio carregado e determinar se o resultado de reconhecimento fornecido está correto. Essa ferramenta permite que você inspecione rapidamente a qualidade do modelo de fala-para-texto de linha de base da Microsoft ou de um modelo personalizado treinado sem precisar transcrever os dados de áudio.
+Fala Personalizada fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando dados de áudio com o resultado de reconhecimento correspondente. No [portal de fala personalizada](https://speech.microsoft.com/customspeech), você pode reproduzir áudio carregado e determinar se o resultado de reconhecimento fornecido está correto. Essa ferramenta permite que você inspecione rapidamente a qualidade do modelo de fala-para-texto de linha de base da Microsoft ou de um modelo personalizado treinado sem precisar transcrever os dados de áudio.
 
 Neste documento, você aprenderá a inspecionar visualmente a qualidade de um modelo usando os dados de treinamento carregados anteriormente.
 
@@ -32,11 +32,12 @@ Nesta página, você aprenderá a inspecionar visualmente a qualidade do modelo 
 
 Siga estas instruções para criar um teste:
 
-1. Navegue até a **> de fala para texto fala personalizada teste de >** .
-2. Clique em **Adicionar teste**.
-3. Selecione **inspecionar qualidade (dados somente de áudio)** . Dê ao teste um nome, uma descrição e selecione seu conjunto de dado de áudio.
-4. Selecione até dois modelos que você gostaria de testar.
-5. Clique em **Criar**.
+1. Entre no portal de [fala personalizada](https://speech.microsoft.com/customspeech).
+2. Navegue até a **> de fala para texto fala personalizada teste de >** .
+3. Clique em **Adicionar teste**.
+4. Selecione **inspecionar qualidade (dados somente de áudio)** . Dê ao teste um nome, uma descrição e selecione seu conjunto de dado de áudio.
+5. Selecione até dois modelos que você gostaria de testar.
+6. Clique em **Criar**.
 
 Depois que um teste tiver sido criado com êxito, você poderá comparar os modelos lado a lado.
 
