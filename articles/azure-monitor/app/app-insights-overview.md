@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 7c4a0aa01b1895ece2e77bed5ee4837704546b4b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774729"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773063"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedado local, híbrido ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -116,7 +116,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
 * **[Analise a utilização da aplicação móvel](../../azure-monitor/learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Introdução ao tempo de execução com:
 
 * [VM do Azure e conjunto de dimensionamento de máquinas virtuais do Azure aplicativos hospedados pelo IIS](../../azure-monitor/app/azure-vm-vmss-apps.md)
@@ -139,12 +139,6 @@ Introdução no momento de programação com:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blogue:
   * [Blogue do Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
-## <a name="videos"></a>Os meus vídeos
-
-- Vídeo externo: [configurando Application insights com um aplicativo ASP.net](https://www.youtube.com/watch?v=blnGAVgMAfA).
-- Vídeo externo: [configurando Application insights com o ASP.NET Core e o Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- Vídeo externo: [configurando Application insights com ASP.NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

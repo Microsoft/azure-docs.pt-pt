@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de kubernetes com contêineres, microservices e node. js no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 4ee11b4bebe32ff4a9af38a0789823178f388e10
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 8148f7858ac9de458daa1c15220507b0de1bad19
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725772"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772628"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Depurar e iterar com Visual Studio Code e node. js em kubernetes usando Azure Dev Spaces
 
@@ -34,11 +34,11 @@ Neste guia, vai aprender a:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
-Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado MyResource Group e um cluster AKs chamado *MyAKS*.
+Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado *MyResource* Group e um cluster AKs chamado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
@@ -77,7 +77,7 @@ git clone https://github.com/Azure/dev-spaces
 
 Abra Visual Studio Code, clique em *arquivo* e, em seguida, *abra...* , navegue até o diretório *dev-Spaces/Samples/NodeJS/getfront-Started/WebFrontEnd* e clique em *abrir*.
 
-Agora você tem o projeto de WebFrontEnd aberto no Visual Studio Code. Para executar o aplicativo em seu espaço de desenvolvimento, gere os ativos do gráfico do Docker e do Helm usando a extensão Azure Dev Spaces na paleta de comandos.
+Agora você tem o projeto de *WebFrontEnd* aberto no Visual Studio Code. Para executar o aplicativo em seu espaço de desenvolvimento, gere os ativos do gráfico do Docker e do Helm usando a extensão Azure Dev Spaces na paleta de comandos.
 
 Para abrir a paleta de comandos no Visual Studio Code, clique em *Exibir* na *paleta de comandos*. Comece a `Azure Dev Spaces` digitar e clique `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`em.
 
@@ -140,7 +140,7 @@ Altere o modo de depuração para *anexar a um servidor (AZDS)* e inicie o servi
 
 ![](media/get-started-node/attach-nodejs.png)
 
-Esse comando cria e executa seu serviço no Azure Dev Spaces. Ele também inicia um [](https://nodemon.io) processo nodemon no contêiner do serviço e anexa vs Code a ele. O processo nodemon permite reinicializações automáticas quando são feitas alterações no código-fonte, permitindo um desenvolvimento de loop interno mais rápido semelhante ao desenvolvimento em seu computador local.
+Esse comando cria e executa seu serviço no Azure Dev Spaces. Ele também inicia um processo [nodemon](https://nodemon.io) no contêiner do serviço e anexa vs Code a ele. O processo *nodemon* permite reinicializações automáticas quando são feitas alterações no código-fonte, permitindo um desenvolvimento de loop interno mais rápido semelhante ao desenvolvimento em seu computador local.
 
 Depois que o serviço for iniciado, navegue até ele usando seu navegador e interaja com ele.
 
@@ -151,7 +151,7 @@ Enquanto o serviço estiver em execução, retorne para VS Code e atualize a `se
 
 Salve o arquivo e retorne ao seu serviço em um navegador. Interaja com o serviço e observe que a mensagem atualizada é exibida.
 
-Ao executarnodemon, o processo de nó é reiniciado automaticamente assim que qualquer alteração de código é detectada. Esse processo de reinicialização automática é semelhante à experiência de edição e reinicialização do serviço em seu computador local, fornecendo uma experiência de desenvolvimento de loop interno.
+Ao executar *nodemon*, o processo de nó é reiniciado automaticamente assim que qualquer alteração de código é detectada. Esse processo de reinicialização automática é semelhante à experiência de edição e reinicialização do serviço em seu computador local, fornecendo uma experiência de desenvolvimento de loop interno.
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
@@ -159,7 +159,7 @@ Ao executarnodemon, o processo de nó é reiniciado automaticamente assim que qu
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 

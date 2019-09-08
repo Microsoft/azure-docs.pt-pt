@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de kubernetes com contêineres, microservices e Java no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 146812a5553643d3cbe3b308d6b7d7bed1e66dad
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28b6a2ecff756c878bb3bc0a69976e7cede5f7ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725873"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772661"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Depurar e iterar com Visual Studio Code e Java em kubernetes usando Azure Dev Spaces
 
@@ -36,11 +36,11 @@ Neste guia, vai aprender a:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
-Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado MyResource Group e um cluster AKs chamado *MyAKS*.
+Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado *MyResource* Group e um cluster AKs chamado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
@@ -79,7 +79,7 @@ git clone https://github.com/Azure/dev-spaces
 
 Abra Visual Studio Code, clique em *arquivo* e, em seguida, *abra...* , navegue até o diretório *dev-Spaces/samples/java/Getting-Started/WebFrontEnd* e clique em *abrir*.
 
-Agora você tem o projeto de WebFrontEnd aberto no Visual Studio Code. Para executar o aplicativo em seu espaço de desenvolvimento, gere os ativos do gráfico do Docker e do Helm usando a extensão Azure Dev Spaces na paleta de comandos.
+Agora você tem o projeto de *WebFrontEnd* aberto no Visual Studio Code. Para executar o aplicativo em seu espaço de desenvolvimento, gere os ativos do gráfico do Docker e do Helm usando a extensão Azure Dev Spaces na paleta de comandos.
 
 Para abrir a paleta de comandos no Visual Studio Code, clique em *Exibir* na *paleta de comandos*. Comece a `Azure Dev Spaces` digitar e clique `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`em.
 
@@ -145,7 +145,7 @@ Enquanto o serviço estiver sendo executado no modo de depuração, atualize a `
 return "Hello from webfrontend in Azure while debugging!";
 ```
 
-Guarde o ficheiro. Clique em *depurar* e reinicie a *depuração* ou, na *barra de ferramentas depurar*, clique no botão *reiniciar depuração* .
+Guarde o ficheiro. Clique em *depurar* e *reinicie a depuração* ou, na barra de *ferramentas depurar*, clique no botão *reiniciar depuração* .
 
 ![Atualizar depuração](media/common/debug-action-refresh.png)
 
@@ -159,7 +159,7 @@ Em vez de recompilar e reimplantar uma nova imagem de contêiner cada vez que s�
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 

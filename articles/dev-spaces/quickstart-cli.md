@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Implantar um microserviço no AKS com o Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 39fb7658140a2eda948cd0dc0e58d71b0b9a053b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 6ce5338bd2b3d6153255fcdb67cb8afe10e8101c
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67706273"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772582"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolver um aplicativo no kubernetes usando Azure Dev Spaces
 Neste guia, vai aprender a:
@@ -30,11 +30,11 @@ Neste guia, vai aprender a:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
-Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado MyResource Group e um cluster AKs chamado *MyAKS*.
+Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado *MyResource* Group e um cluster AKs chamado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
@@ -80,7 +80,7 @@ Gere os ativos do gráfico do Docker e do Helm para executar o aplicativo no `az
 azds prep --public
 ```
 
-Você deve executar o `prep` comando no diretório *dev-Spaces/Samples/NodeJS/getfront-Started/* de WebFrontEnd para gerar corretamente os ativos do gráfico do Docker e do Helm.
+Você deve executar o `prep` comando no diretório *dev-Spaces/Samples/NodeJS/getfront-Started/de WebFrontEnd* para gerar corretamente os ativos do gráfico do Docker e do Helm.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
 
