@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: HT
+ms.openlocfilehash: 3ac6ec9fe55e901e593f201b5ff71668d80d66e3
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735113"
+ms.locfileid: "70773014"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral de alertas no Microsoft Azure 
 
@@ -53,7 +53,11 @@ Sinais de **sinal** são emitidos pelo recurso de destino e podem ser de vários
 **Descrição do alerta** – uma descrição para a regra de alerta configurada pelo usuário
 
 **Severidade** – a severidade do alerta quando os critérios especificados na regra de alerta são atendidos. A severidade pode variar de 0 a 4.
-Sev 0 = crítico Sev 1 = erro Sev 2 = aviso Sev 3 = informativo Sev 4 = detalhado
+   - Sev 0 = crítico
+   - Sev 1 = erro
+   - Sev 2 = aviso
+   - Sev 3 = informativo
+   - Sev 4 = detalhado 
 
 **Ação** -uma ação específica executada quando o alerta é acionado. Para obter mais informações, consulte [grupos de ações](../../azure-monitor/platform/action-groups.md).
 
@@ -212,7 +216,7 @@ A funcionalidade de alerta Azure Monitor métricas e log de atividades antes de 
 Para obter mais informações, consulte [Classic Alerts](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais sobre os grupos inteligentes](https://aka.ms/smart-groups)
 - [Saiba mais sobre grupos de ação](../../azure-monitor/platform/action-groups.md)

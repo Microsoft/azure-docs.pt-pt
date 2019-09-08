@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897335"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772513"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usar SSL para proteger um serviço Web por meio do Azure Machine Learning
 
@@ -51,7 +51,7 @@ Há pequenas diferenças quando você protege os serviços da Web entre os [dest
 
 ## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
-Se você ainda não possui um nome de domínio, compre um de um registrador de *nome de domínio*. O processo e o preço são diferentes entre os registradores. O registrador fornece ferramentas para gerenciar o nome de domínio. Você usa essas ferramentas para mapear um FQDN (nome de domínio totalmente qualificado) (como\.www contoso.com) para o endereço IP que hospeda o serviço Web.
+Se você ainda não possui um nome de domínio, compre um de um *registrador de nome de domínio*. O processo e o preço são diferentes entre os registradores. O registrador fornece ferramentas para gerenciar o nome de domínio. Você usa essas ferramentas para mapear um FQDN (nome de domínio totalmente qualificado) (como\.www contoso.com) para o endereço IP que hospeda o serviço Web.
 
 ## <a name="get-an-ssl-certificate"></a>Obter um certificado SSL
 
@@ -66,7 +66,7 @@ Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja
 > Se a autoridade de certificação não puder fornecer o certificado e a chave como arquivos codificados por PEM, você poderá usar um utilitário como o [OpenSSL](https://www.openssl.org/) para alterar o formato.
 
 > [!WARNING]
-> Use certificados autoassinados somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas no seu cliente de aplicativos. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
+> Use certificados *autoassinados* somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas no seu cliente de aplicativos. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
 
 ## <a id="enable"></a>Habilitar SSL e implantar
 
@@ -77,7 +77,7 @@ Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmet
   > [!NOTE]
   > As informações nesta seção também se aplicam quando você implanta um serviço Web seguro para a interface visual. Se você não estiver familiarizado com o uso do SDK do Python, consulte [o que é o SDK do Azure Machine Learning para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-Ao implantar no AKS, você pode criar um novo cluster do AKS ou anexar um existente.
+Ao implantar no AKS, você pode criar um novo cluster do AKS ou anexar um existente. Para obter mais informações sobre como criar ou anexar um cluster, consulte [implantar um modelo em um cluster do serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
   
 -  Se você criar um novo cluster, use **[AksCompute. provisionining_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** .
 - Se você anexar um cluster existente, use **[AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos retornam um objeto de configuração que tem um método **Enable_ssl** .
@@ -246,7 +246,7 @@ update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Aprenda a:
 + [Consumir um modelo de aprendizado de máquina implantado como um serviço Web](how-to-consume-web-service.md)
 + [Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure](how-to-enable-virtual-network.md)

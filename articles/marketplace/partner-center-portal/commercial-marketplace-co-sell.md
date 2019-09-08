@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 8524a315228601adbb30a5def383f7b54a8f1495
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076111"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773227"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Partner Center
 
@@ -47,10 +47,10 @@ As áreas de solução ajudam a definir os cenários para os quais sua oferta fo
 
 | **Documento**    | **Descrição**  |
 | :------------------- | :-------------------|
-| *Cliente One-pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes abaixo: <br> <ul> <li> [Microsoft Azure modelo de um pager](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Modelo do Microsoft Dynamics 365 1-pager](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Office 365 1-modelo de pager](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Windows 10 1-modelo de pager](https://aka.ms/Customer-One-Pager_Windows) </li> </ul>
+| *Cliente One-pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Microsoft Azure modelo de um pager </li> <li> Modelo do Microsoft Dynamics 365 1-pager </li> <li> Office 365 1-modelo de pager </li> <li> Windows 10 1-modelo de pager </li> </ul>
  |
-| *Apresentação do cliente* | Deslize a apresentação para pitch sua solução e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que a sua solução faz, como ela pode ajudar os clientes, em que setores a solução se destina e como ela se compara às soluções concorrentes. <br> <br> Para obter mais informações, consulte [modelo de apresentação do cliente](https://aka.ms/GTMServices_CustomerPresentation).|
-| *Estudo de caso de cliente* | Essas informações mostram um cliente potencial como você e a Microsoft implantaram com êxito essa solução em casos anteriores. <br> <br> Para obter mais informações, consulte [modelo de estudo de caso](https://aka.ms/GTM_Case_Study_Template). |
+| *Apresentação do cliente* | Deslize a apresentação para pitch sua solução e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que a sua solução faz, como ela pode ajudar os clientes, em que setores a solução se destina e como ela se compara às soluções concorrentes. <br> <br> Use o modelo disponível no Partner Center.|
+| *Estudo de caso de cliente* | Essas informações mostram um cliente potencial como você e a Microsoft implantaram com êxito essa solução em casos anteriores. <br> <br> Use o modelo disponível no Partner Center. |
 | *Cliente verificável ganha (opcional)* | Exemplos específicos de sucessos do cliente depois que sua solução foi implantada. |
 | *Baralho com densidade de canal (opcional)* | Um deck de slides com informações que ajudarão os revendedores de canal a aprender mais sobre sua solução e a preparar suas equipes de vendas para vender sua oferta. Ele normalmente inclui uma inclinação do elevador, informações sobre clientes alvo, perguntas a serem feitas aos clientes, pontos de discussão e links para vídeos, documentação e informações de suporte. |
 | *Diagramas de arquitetura de referência* | Um documento que mostra o modelo que representa o IP criado pelo parceiro, juntamente com sua relação com os serviços de nuvem da Microsoft, e como ele atende aos requisitos técnicos do programa de venda conjunta de IP. |
@@ -83,6 +83,6 @@ Você também pode exportar sua lista existente de contatos de uma oferta e, em 
 
 * *Estados/províncias (opcional):*  Ao preencher o modelo, use o formato XX-XX, conforme listado na [tabela Estados/províncias](./commercial-marketplace-co-sell-states.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações, consulte [vender com a Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
