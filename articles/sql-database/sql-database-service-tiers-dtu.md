@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/25/2019
-ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566695"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773213"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
-As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por um intervalo de tamanhos de computação com uma quantidade fixa de armazenamento incluído, o período de retenção fixo para backups e o preço fixo. Todas as camadas de serviço no modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos de computação com [tempo](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)de inatividade mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
+As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por um intervalo de tamanhos de computação com uma quantidade fixa de armazenamento incluído, o período de retenção fixo para backups e o preço fixo. Todas as camadas de serviço no modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos de computação com [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
 
 > [!IMPORTANT]
 > A instância gerenciada do banco de dados SQL não dá suporte a um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
@@ -37,7 +37,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 |SLA de Tempo de Atividade|99,99%|99,99%|99,99%|
 |Retenção da cópia de segurança|7 dias|35 dias|35 dias|
 |CPU|Baixa|Baixa, média, alta|Médio, alto|
-|Débito de e/s (aproximado) |2,5 IOPS de por DTU| 2,5 IOPS de por DTU | 48 IOPS por DTU|
+|Débito de e/s (aproximado) |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |Latência de e/s (aproximada)|5 ms (ler), 10 ms (escrita)|5 ms (ler), 10 ms (escrita)|2 ms (leitura/escrita)|
 |Indexação Columnstore |N/A|S3 e posterior|Suportadas|
 |OLTP dentro da memória|N/A|N/A|Suportadas|

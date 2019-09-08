@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907424"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764420"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
-**Aplica-se a:** Banco de dados do Azure para PostgreSQL-servidor único 9,6 e 10
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
 
 O recurso Repositório de Consultas no banco de dados do Azure para PostgreSQL fornece uma maneira de controlar o desempenho da consulta ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas de desempenho, ajudando você a encontrar rapidamente as consultas mais longas e com uso intensivo de recursos. Repositório de Consultas captura automaticamente um histórico de consultas e estatísticas de tempo de execução e as retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver os padrões de uso do banco de dados. Os dados para todos os usuários, bancos de dados e consultas é armazenado em um banco de dados chamado **azure_sys** na instância do banco de dados do Azure para PostgreSQL.
 
@@ -84,7 +84,7 @@ Quando o Repositório de Consultas está habilitado, ele salva os dados em janel
 
 As opções a seguir estão disponíveis para configurar parâmetros de Repositório de Consultas.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Amplitude**|
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Define quais instruções são rastreadas. | nenhum | nenhum, superior, todos |
 | pg_qs.max_query_text_length | Define o tamanho máximo da consulta que pode ser salvo. As consultas mais longas serão truncadas. | 6000 | 100-10K |
@@ -93,7 +93,7 @@ As opções a seguir estão disponíveis para configurar parâmetros de Reposit�
 
 As opções a seguir se aplicam especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Amplitude**|
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para estatísticas de espera. | nenhum | nenhum, tudo|
 | Pgms_wait_sampling.history_period | Defina a frequência, em milissegundos, na qual os eventos de espera são amostrados. | 100 | 1-600000 |
@@ -175,9 +175,9 @@ Query_store. staging_data_reset () retorna void
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se um servidor PostgreSQL tiver o parâmetro default_transaction_read_only ativado, Repositório de Consultas não poderá capturar dados.
 - Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas de Unicode (> = 6000 bytes).
-- As réplicas de [leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
+- As [réplicas de leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [cenários em que repositório de consultas pode ser especialmente útil](concepts-query-store-scenarios.md).
 - Saiba mais sobre [as práticas recomendadas para usar repositório de consultas](concepts-query-store-best-practices.md).

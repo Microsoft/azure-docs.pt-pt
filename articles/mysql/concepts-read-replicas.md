@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: f567eefee84cf6a01afad4e5245337dd92b8cc48
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.date: 09/06/2019
+ms.openlocfilehash: 7e1f27738ae5a87cfb84fad955f80ad2f2eb910f
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309437"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773334"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -34,7 +34,9 @@ O recurso ler réplica usa a replicação assíncrona do MySQL. O recurso não �
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do servidor mestre. A replicação entre regiões pode ser útil para cenários como planejamento de recuperação de desastres ou trazer dados mais próximos aos seus usuários.
 
-Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal.
+Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
+
+[![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. Estas são as regiões de réplica universal:

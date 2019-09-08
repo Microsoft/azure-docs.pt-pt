@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: 93a75945025b2ab98541f1e1cf678145ddff0123
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
-ms.translationtype: HT
+ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387998"
+ms.locfileid: "70772811"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adicionar resultados de LUIS a Application Insights de um bot emC#
 
@@ -160,7 +160,7 @@ Para adicionar dados ao Application insights, você precisa da chave de instrume
 1. No Visual Studio, compile e execute o bot. 
 1. Inicie o emulador de bot e abra o bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) é fornecida no tutorial anterior.
 
-1. Faça uma pergunta ao bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) é fornecida no tutorial anterior.
+1. Faça uma pergunta ao bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) é fornecida no tutorial anterior.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Vista LUIS entradas no Application Insights
 

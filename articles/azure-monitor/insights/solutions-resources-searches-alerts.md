@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: HT
+ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744484"
+ms.locfileid: "70772993"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionando Log Analytics pesquisas e alertas salvos à solução de gerenciamento (versão prévia)
 
@@ -171,11 +171,10 @@ As propriedades dos recursos de ação de alerta são descritas nas tabelas a se
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| `Type` | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
-| `Name` | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
-| `Description` | Não | Descrição opcional do alerta. |
-| `Severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
-
+| `type` | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
+| `name` | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| `description` | Não | Descrição opcional do alerta. |
+| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
 
 #### <a name="threshold"></a>Limiar
 Esta seção é necessária. Ele define as propriedades para o limite de alerta.

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 08/26/2019
-ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/06/2019
+ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035713"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773343"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
 
@@ -115,7 +115,8 @@ Os recursos a seguir não oferecem suporte à autopausa.  Ou seja, se qualquer u
 
 - Replicação geográfica (replicação geográfica ativa e grupos de failover automático).
 - Retenção de backup de longo prazo (EPD).
-- O banco de dados de sincronização usado no SQL Data Sync.
+- O banco de dados de sincronização usado no SQL Data Sync.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de Hub e de membros dão suporte à autopausa.
+- O banco de dados de trabalho usado em trabalhos elásticos.
 
 A autopausa é temporariamente impedida durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.  Nesses casos, a pausa automática é permitida novamente após a conclusão da atualização do serviço.
 

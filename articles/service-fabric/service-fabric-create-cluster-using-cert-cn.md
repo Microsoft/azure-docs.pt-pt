@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 49c733c475f401b0e8c9329e2e5d7b463175f81a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 73e02b4482f69ec0c9d5a602f30cefea77279778
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599744"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764730"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implantar um Cluster Service Fabric que usa o nome comum do certificado em vez da impressão digital
 Dois certificados não podem ter a mesma impressão digital, o que torna difícil a substituição ou o gerenciamento do certificado do cluster. No entanto, vários certificados podem ter o mesmo nome ou assunto comum.  Um cluster que usa nomes comuns de certificado torna muito mais simples o gerenciamento de certificados. Este artigo descreve como implantar um Cluster Service Fabric para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -62,7 +62,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -173,7 +173,7 @@ Em seguida, abra o arquivo *azuredeploy. JSON* em um editor de texto e faça tr�
           },
     ```
 
-4. No recurso **Microsoft. perfabric/clusters** , atualize a versão da API para "2018-02-01".  Adicione também uma configuração de **certificateCommonNames** com uma propriedade comumnames e remova a configuração de **certificado** (com a propriedade de impressão digital), como no exemplo a seguir:
+4. No recurso **Microsoft. perfabric/clusters** , atualize a versão da API para "2018-02-01".  Adicione também uma configuração de **certificateCommonNames** com uma propriedade **comumnames** e remova a configuração de **certificado** (com a propriedade de impressão digital), como no exemplo a seguir:
    ```json
    {
        "apiVersion": "2018-02-01",
@@ -222,10 +222,10 @@ New-AzResourceGroup -Name $groupname -Location $clusterloc
 New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
 * Saiba como [sobrepor um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
-* Simplifique o gerenciamento de certificados alterando o [cluster da impressão digital do certificado para o nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
+* Simplifique o gerenciamento [de certificados alterando o cluster da impressão digital do certificado para o nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

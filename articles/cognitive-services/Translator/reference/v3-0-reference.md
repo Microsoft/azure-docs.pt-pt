@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594998"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772793"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v 3.0
 
@@ -99,7 +99,7 @@ Ao usar uma chave secreta de vários serviços, você deve incluir dois cabeçal
 
 A região é necessária para a assinatura de API de texto de vários serviços. A região selecionada é a única região que você pode usar para a tradução de texto ao usar a chave de assinatura de vários serviços e deve ser a mesma região que você selecionou quando se inscreveu para sua assinatura de vários serviços por meio do portal do Azure.
 
-As regiões disponíveis `australiaeast`são `brazilsouth` `canadacentral`, `centralindia` ,,`southeastasia`,,,, ,`japaneast`,, ,,`southcentralus` `northeurope` `eastus2` `centraluseuap` `eastasia` `eastus` `uksouth` ,`westcentralus`, ,`westus`e. `westeurope` `westus2`
+As regiões disponíveis `australiaeast`são `brazilsouth` `canadacentral`, `centralindia` ,,`japanwest`,,,, ,`eastus2`,, ,,`japaneast` `francecentral` `eastus` `centralus` `centraluseuap` `eastasia` `koreacentral` ,,,`westus2`, ,`southeastasia`,, ,`westeurope`, e .`southafricanorth` `uksouth` `southcentralus` `northcentralus` `northeurope` `westcentralus` `westus`
 
 Se você passar a chave secreta na cadeia de caracteres de consulta com `Subscription-Key`o parâmetro, deverá especificar a região com o parâmetro `Subscription-Region`de consulta.
 

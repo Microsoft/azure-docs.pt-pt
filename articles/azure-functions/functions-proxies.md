@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: e5f856bbd8f6fdec46d947a4c726024a08a2b6e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096044"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773062"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -65,7 +65,7 @@ Pode usar `localhost` para fazer referência a uma função na mesma aplicação
 
  
 >[!Note]  
->Se utilizar a sua função *função, administrador ou sys* níveis de autorização, precisará fornecer o código e o ID de cliente, de acordo com o URL da função original. Neste caso a referência teria o seguinte aspeto: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
+>Se utilizar a sua função *função, administrador ou sys* níveis de autorização, precisará fornecer o código e o ID de cliente, de acordo com o URL da função original. Nesse caso, a referência ficaria assim: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`É recomendável armazenar essas chaves nas [Definições da aplicação] e fazer referência a elas em seus proxies. Isso evita o armazenamento de segredos em seu código-fonte. 
 
 ### <a name="request-parameters"></a>Parâmetros do pedido de referência
 

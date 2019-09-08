@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 78d16e8e6fc43644cdb318f8e402c2e8bbe0363e
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278298"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772497"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -70,6 +70,12 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
   + **azureml-train-core**
     + Falha antecipada de alguns erros de definição de espaço de hiperparâmetro diretamente no SDK, em vez de no lado do servidor.
 
+### <a name="azure-machine-learning-data-prep-sdk-v1114"></a>SDK v 1.1.14 do Azure Machine Learning data Prep
++ **Correções de bugs e melhorias**
+  + Habilitado gravação em ADLS/ADLSGen2 usando caminho e credenciais brutos.
+  + Corrigido um bug que causou `include_path=True` o trabalho de não `read_parquet`funcionar para o.
+  + Correção `to_pandas_dataframe()` da falha causada pela exceção "valor da propriedade inválido: hostSecret".
+  + Correção de um bug em que os arquivos não puderam ser lidos em DBFS no modo Spark.
   
 ## <a name="2019-08-19"></a>2019-08-19
 
@@ -439,9 +445,9 @@ Revertemos uma alteração que melhorou o desempenho, pois ela estava causando p
   + As aprovações de cota AmlCompute se tornaram mais rápidas! Agora, automatizamos o processo para aprovar suas solicitações de cota dentro de um limite. Para obter mais informações sobre como as cotas funcionam, saiba [como gerenciar cotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
 
 + **Recursos de visualização**
-    + Integração com o [MLflow](https://mlflow.org) 1.0.0 Tracking por meio do pacote azureml-MLflow (notebooks de[exemplo](https://aka.ms/azureml-mlflow-examples)).
+    + Integração com o [MLflow](https://mlflow.org) 1.0.0 Tracking por meio do pacote azureml-MLflow ([notebooks de exemplo](https://aka.ms/azureml-mlflow-examples)).
     + Envie o bloco de anotações Jupyter como uma execução. [Documentação de referência de API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Visualização pública do [detector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) de descompasso de dados por meio do pacote azureml-contrib-descompasso (notebooks de[exemplo](https://aka.ms/azureml-datadrift-example)). A descompasso de dados é uma das principais razões em que a precisão do modelo diminui com o passar do tempo. Acontece quando os dados servidos para o modelo na produção são diferentes dos dados em que o modelo foi treinado. O detector de descompasso de dados AML ajuda o cliente a monitorar descompasso de dados e envia alerta sempre que o descompasso é detectado. 
+    + Visualização pública do [detector de descompasso de dados](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) por meio do pacote azureml-contrib-descompasso ([notebooks de exemplo](https://aka.ms/azureml-datadrift-example)). A descompasso de dados é uma das principais razões em que a precisão do modelo diminui com o passar do tempo. Acontece quando os dados servidos para o modelo na produção são diferentes dos dados em que o modelo foi treinado. O detector de descompasso de dados AML ajuda o cliente a monitorar descompasso de dados e envia alerta sempre que o descompasso é detectado. 
 
 + **Alterações recentes**
 
@@ -641,7 +647,7 @@ Nota: O SDK do Python de preparação de dados `numpy` não `pandas` será mais 
 + **Novos recursos**
   + O SDK do Azure Machine Learning agora dá suporte ao Python 3,7.
   + Azure Machine Learning os estimadores DNN agora fornecem suporte interno a várias versões. Por exemplo, `TensorFlow`  o estimador agora `framework_version` aceita um parâmetro e os usuários podem especificar a versão ' 1,10 ' ou ' 1,12 '. Para obter uma lista das versões com suporte na versão atual do SDK, `get_supported_versions()` chame na classe da estrutura desejada (por exemplo `TensorFlow.get_supported_versions()`,).
-  Para obter uma lista das versões com suporte da versão mais recente do SDK, consulte a documentação do estimador do [DNN](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  Para obter uma lista das versões com suporte da versão mais recente do SDK, consulte a [documentação do estimador do DNN](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>SDK v 1.1.1 do Azure Machine Learning data Prep
 
@@ -956,7 +962,7 @@ O portal do Azure para o serviço Azure Machine Learning tem as seguintes atuali
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning SDK for Python v0.1.74
 
 + **Alterações recentes** 
-  * \* Workspace. compute_targets, repositórios de armazenamento, experimentos, imagens, modelos e WebServices são propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
+  * \* Workspace. compute_targets, repositórios de armazenamento, experimentos, imagens, modelos e *WebServices* são propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
   * *Run.get_context* pretere *Run.get_submitted_run*. Este segundo método será removido em versões subsequentes.
   * *PipelineData* classe espera agora um objeto de arquivo de dados como um parâmetro em vez de datastore_name. Da mesma forma, *Pipeline* aceita default_datastore em vez de default_datastore_name.
 

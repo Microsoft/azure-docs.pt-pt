@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669788"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775884"
 ---
 Os discos do sistema operacional efêmero são criados no armazenamento da VM (máquina virtual) local e não são salvos no armazenamento remoto do Azure. Os discos do sistema operacional efêmero funcionam bem para cargas de trabalho sem estado, em que os aplicativos são tolerantes a falhas de VM individuais, mas são mais afetados pelo tempo de implantação da VM ou refazendo a imagem das instâncias de VM individuais. Com o disco do sistema operacional efêmero, você obtém latência de leitura/gravação mais baixa no disco do sistema operacional e uma reimagem de VM mais rápida. 
  
@@ -24,7 +24,7 @@ Os principais recursos dos discos efêmeras são:
 - Menor latência, semelhante a um disco temporário. 
 - Discos do sistema operacional efêmero são gratuitos, você não incorre em nenhum custo de armazenamento para o disco do sistema operacional.
 - Eles estão disponíveis em todas as regiões do Azure. 
-- O disco do so efêmero tem suporte pela [Galeria de imagens](/azure/virtual-machines/linux/shared-image-galleries)compartilhadas. 
+- O disco do so efêmero tem suporte pela [Galeria de imagens compartilhadas](/azure/virtual-machines/linux/shared-image-galleries). 
  
 
  
@@ -175,7 +175,7 @@ Você pode implantar uma VM com um disco do sistema operacional efêmero usando 
 
 
 ## <a name="reimage-a-vm-using-rest"></a>Refazer a imagem de uma VM usando REST
-Atualmente, o único método para refazer a imagem de uma instância de máquina virtual com o disco do sistema operacional efêmero é por meio do uso da API REST. Para conjuntos de dimensionamento, a recriação de imagens já está disponível por meio do PowerShell, da CLI e do Portal.
+Você pode refazer a imagem de uma instância de máquina virtual com o disco do sistema operacional efêmero usando a API REST, conforme descrito abaixo e por meio do portal do Azure, acessando o painel Visão geral da VM. Para conjuntos de dimensionamento, a recriação de imagens já está disponível por meio do PowerShell, da CLI e do Portal.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

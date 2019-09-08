@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: 63a0717e615ff85dbc5cfc06567f83cb9aa83a30
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: HT
+ms.openlocfilehash: 8f0438ab015f9d16fd3776421b8d0032fc0a0639
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735044"
+ms.locfileid: "70772894"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Usar um bot de aplicativo Web habilitado com Reconhecimento vocal no node. js 
 
@@ -101,7 +101,7 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
     [![Baixar o código-fonte do bot do aplicativo Web para bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. Quando a caixa de diálogo pop-up perguntar **inclui configurações de aplicativo no arquivo zip baixado?** , selecione **Sim**.
+1. Quando a caixa de diálogo pop-up perguntar **inclui configurações de aplicativo no arquivo zip baixado?** , selecione **Sim**. Isso fornece as configurações de LUIS. 
 
 1. Quando o código de origem estiver zipado, é disponibilizada uma ligação numa mensagem para o transferir. Selecione a ligação. 
 
@@ -134,6 +134,13 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
     ````javascript
     class MainDialog extends ComponentDialog {
+
+        constructor(luisRecognizer, bookingDialog) {
+            ...
+            this.luisRecognizer = luisRecognizer;
+            ...
+        }
+
 
         ...
 
@@ -185,40 +192,6 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
     }
     ````
-
-
-## <a name="install-dependencies-and-start-the-bot-code-in-visual-studio"></a>Instalar dependências e iniciar o código de bot no Visual Studio
-
-1. No VSCode, no terminal integrado, instale as dependências com o `npm install`comando.
-1. Além disso, do terminal integrado, inicie o bot com o `npm start`comando. Isso inicia um aplicativo Web para o bot com um ponto de extremidade HTTP. O console do fornece a URL e o número da porta para acessar o site em execução. Você precisa do número da porta na próxima seção deste tutorial.
-
-    ```console
-    > core-bot@1.0.0 start C:\Users\diberry\repos\bots\2019-bot-nodejs-basic
-    > node ./index.js
-    
-    
-    restify listening to http://[::]:3978
-    
-    Get Bot Framework Emulator: https://aka.ms/botframework-emulator
-    ```
-
-## <a name="create-an-environment-file-and-add-luis-values"></a>Criar um arquivo de ambiente e adicionar valores de LUIS
-
-O emulador de bot precisa de acesso ao recurso LUIS para fornecer resultados LUIS detalhados.
-
-1. Na raiz do projeto, crie um arquivo chamado `.env` e adicione as seguintes variáveis de ambiente:
-
-    ```console
-    LuisAppId= 
-    LuisAPIKey=
-    LuisAPIHostName=
-    ```
-
-1. No portal do Azure, para o recurso bot, abra as definições de configuração do serviço de aplicativo para o aplicativo.
-1. Abra **edição avançada**para ver o valor de cada configuração.
-
-    ![Abra * * edição avançada * * para ver o valor de cada configuração.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
-
 <a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
 ## <a name="use-the-bot-emulator-to-test-the-bot"></a>Usar o emulador de bot para testar o bot
@@ -227,6 +200,7 @@ Peça ao bot uma pergunta para a tentativa de vôo do livro.
 
 1. Inicie o emulador de bot e selecione **abrir bot**.
 1. Na caixa de diálogo pop-up **abrir um bot** , insira a URL do bot, `http://localhost:3978/api/messages`como. A `/api/messages` rota é o endereço Web para o bot.
+1. Insira a **ID do aplicativo** da Microsoft e a **senha do aplicativo Microsoft**, encontradas no arquivo **. env** na raiz do código do bot que você baixou.
 
 1. No emulador de bot, `Book a flight from Seattle to Berlin tomorrow` Insira e obtenha a mesma resposta para o bot básico como você recebeu no **teste no Web Chat**.
 

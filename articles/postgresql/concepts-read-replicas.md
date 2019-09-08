@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 75fcbdc20c1caf191d4a22672fc9641b36c263c5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.date: 09/06/2019
+ms.openlocfilehash: 1571fc449bd40063c531f9942fe9b51da56f783c
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309349"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764323"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -33,8 +33,9 @@ O recurso ler réplica usa replicação assíncrona do PostgreSQL. O recurso nã
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do servidor mestre. A replicação entre regiões pode ser útil para cenários como planejamento de recuperação de desastres ou trazer dados mais próximos aos seus usuários.
 
+Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
 
-Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal.
+[![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. Estas são as regiões de réplica universal:
@@ -47,11 +48,11 @@ Além das regiões de réplica universal, você pode criar uma réplica de leitu
 
 Se você estiver usando réplicas entre regiões para planejamento de recuperação de desastres, recomendamos que você crie a réplica na região emparelhada em vez de uma das outras regiões. Regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
 
-No entanto, há limitações a serem consideradas: 
+Há limitações a serem consideradas: 
 
 * Disponibilidade regional: O banco de dados do Azure para PostgreSQL está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
     
-* Pares unidirecionais: Algumas regiões do Azure são emparelhadas somente em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
+* Pares unidirecionais: Algumas regiões do Azure são emparelhadas somente em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil. 
    Isso significa que um servidor mestre na Índia ocidental pode criar uma réplica na Índia Sul. No entanto, um servidor mestre na Índia Sul não pode criar uma réplica na Índia ocidental. Isso ocorre porque a região secundária da Índia ocidental é sul da Índia, mas a região secundária do Sul da Índia não é oeste da Índia.
 
 
@@ -170,6 +171,6 @@ Se você parar a replicação entre um servidor mestre e uma réplica de leitura
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 Quando um servidor mestre é excluído, todas as suas réplicas de leitura se tornam servidores autônomos. As réplicas são reiniciadas para refletir essa alteração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [criar e gerenciar réplicas de leitura no portal do Azure](howto-read-replicas-portal.md).
 * Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure](howto-read-replicas-cli.md).

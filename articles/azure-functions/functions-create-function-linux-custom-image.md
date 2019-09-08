@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210174"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773140"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux usando uma imagem personalizada
 
@@ -143,9 +143,8 @@ Com a imagem personalizada em execução num contentor local do Docker, certifiq
 
 ![Teste a aplicação de funções localmente.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Opcionalmente, pode testar a sua função novamente, desta vez no contentor local com o seguinte URL:
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> Neste ponto, ao tentar chamar sua função HTTP específica, você obtém uma resposta de erro HTTP 401. Isso ocorre porque sua função é executada no contêiner local como faria no Azure, o que significa que a chave de função é necessária. Como o contêiner ainda não foi publicado em um aplicativo de funções, não há nenhuma chave de função disponível. Você verá posteriormente que, quando usar as ferramentas principais para publicar seu contêiner, as teclas de função serão mostradas a você. Se você quiser testar sua função em execução no contêiner local, poderá alterar a chave de [autorização](functions-bindings-http-webhook.md#authorization-keys) para `anonymous`. 
 
 Depois de ter verificado a aplicação de funções no contentor, pare a execução. Agora, pode enviar a imagem personalizada para a sua conta do Docker Hub.
 
@@ -159,7 +158,7 @@ Antes de poder enviar uma imagem, tem de iniciar sessão no Docker Hub com o com
 docker login --username <docker-id>
 ```
 
-A mensagem "início de sessão bem-sucedido" confirma que tem sessão iniciada. Depois de iniciar sessão, envie a imagem para o Docker Hub com o comando [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+Uma mensagem de "logon bem-sucedido" confirma que você está conectado. Depois de iniciar sessão, envie a imagem para o Docker Hub com o comando [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -209,7 +208,7 @@ O parâmetro _deployment-container-image-name_ indica a imagem alojada no Docker
 
 ## <a name="configure-the-function-app"></a>Configurar a aplicação de funções
 
-A função precisa da cadeia de ligação para ligar à conta de armazenamento predefinida. Quando estiver a publicar a sua imagem personalizada numa conta de contentor privada, deve definir estas definições de aplicação como variáveis de ambiente no Dockerfile com a [instrução ENV](https://docs.docker.com/engine/reference/builder/#env) ou algo semelhante.
+A função precisa da cadeia de ligação para ligar à conta de armazenamento predefinida. Quando você estiver publicando sua imagem personalizada em uma conta de contêiner privada, defina essas configurações de aplicativo como variáveis de ambiente no Dockerfile usando a [instrução env](https://docs.docker.com/engine/reference/builder/#env)ou algo semelhante.
 
 Neste caso, `<storage_name>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
@@ -247,7 +246,7 @@ az functionapp deployment container config --enable-cd \
 
 Esse comando retorna a URL de webhook de implantação após a implantação contínua ser habilitada. Você também pode usar o comando [AZ functionapp Deployment contêiner show-CD-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) para retornar essa URL. 
 
-Copie a URL de implantação e navegue até o repositório DockerHub, escolha a guia WebHooks, digite um **nome** de webhook para o webhook, Cole a URL na **URL**do webhook e, em seguida, **+** escolha o sinal de adição ().
+Copie a URL de implantação e navegue até o repositório DockerHub, escolha a guia **WebHooks** , digite um **nome de webhook** para o webhook, Cole a URL na **URL do webhook**e, em seguida, **+** escolha o sinal de adição ().
 
 ![Adicionar o webhook em seu repositório DockerHub](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -265,7 +264,7 @@ Para saber mais, consulte [monitorar Azure Functions](functions-monitoring.md).
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

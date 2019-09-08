@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012721"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773037"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
 
@@ -32,7 +32,7 @@ Este artigo pressupõe que você já tenha lido o [Azure Functions referência d
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
-A estrutura de pastas necessária para um projeto do PowerShell é semelhante ao seguinte. Esse padrão pode ser alterado. Para obter mais informações, consulte [](#configure-function-scriptfile) a seção scriptfile abaixo.
+A estrutura de pastas necessária para um projeto do PowerShell é semelhante ao seguinte. Esse padrão pode ser alterado. Para obter mais informações, consulte a seção [scriptfile](#configure-function-scriptfile) abaixo.
 
 ```
 PSFunctionApp
@@ -381,7 +381,7 @@ param([string] $myBlob)
 
 ## <a name="powershell-profile"></a>Perfil do PowerShell
 
-No PowerShell, há o conceito de um perfil do PowerShell. Se você não estiver familiarizado com os perfis do PowerShell, consulte [about](/powershell/module/microsoft.powershell.core/about/about_profiles)Profiles.
+No PowerShell, há o conceito de um perfil do PowerShell. Se você não estiver familiarizado com os perfis do PowerShell, consulte [about Profiles](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
 Em funções do PowerShell, o script de perfil é executado quando o aplicativo de funções é iniciado. Os aplicativos de funções começam quando são implantados pela primeira vez e depois ficam ociosos ([inicialização a frio](#cold-start)).
 
@@ -403,14 +403,18 @@ Você pode ver a versão atual imprimindo `$PSVersionTable` de qualquer função
 
 ## <a name="dependency-management"></a>Gestão de dependências
 
-As funções do PowerShell dão suporte ao gerenciamento de módulos do Azure pelo serviço. Ao modificar o host. JSON e definir a propriedade managedDependency Enabled como true, o arquivo Requirements. psd1 será processado. Os módulos mais recentes do Azure serão baixados automaticamente e disponibilizados para a função.
+As funções do PowerShell dão suporte ao download e gerenciamento de módulos da [Galeria do PowerShell](https://www.powershellgallery.com) pelo serviço. Ao modificar o host. JSON e definir a propriedade managedDependency Enabled como true, o arquivo Requirements. psd1 será processado. Os módulos especificados serão baixados automaticamente e disponibilizados para a função. 
+
+O número máximo de módulos com suporte no momento é 10. A sintaxe com suporte é MajorNumber. * ou versão exata do módulo, conforme mostrado abaixo. O módulo AZ do Azure é incluído por padrão quando um novo aplicativo de funções do PowerShell é criado.
+
+O trabalho de idioma irá pegar todos os módulos atualizados em uma reinicialização.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -419,10 +423,11 @@ requirements.psd1
 ```powershell
 @{
     Az = '1.*'
+    SqlServer = '21.1.18147'
 }
 ```
 
-Aproveitar seus próprios módulos ou módulos personalizados do [Galeria do PowerShell](https://powershellgallery.com) é um pouco diferente de como você faria normalmente.
+Aproveitar seus próprios módulos personalizados é um pouco diferente de como você faria normalmente.
 
 Quando você instala o módulo em seu computador local, ele entra em uma das pastas disponíveis globalmente no seu `$env:PSModulePath`. Como sua função é executada no Azure, você não terá acesso aos módulos instalados em seu computador. Isso requer que o `$env:PSModulePath` para um aplicativo de funções do PowerShell seja `$env:PSModulePath` diferente de em um script do PowerShell regular.
 
@@ -433,16 +438,19 @@ No functions `PSModulePath` , o contém dois caminhos:
 
 ### <a name="function-app-level-modules-folder"></a>Pasta de nível `Modules` de aplicativo de função
 
-Para usar módulos personalizados ou módulos do PowerShell do Galeria do PowerShell, você pode posicionar os módulos nos quais suas funções dependem `Modules` de uma pasta. Nessa pasta, os módulos ficam automaticamente disponíveis para o tempo de execução do functions. Qualquer função no aplicativo de funções pode usar esses módulos.
+Para usar módulos personalizados, você pode posicionar os módulos nos quais suas funções dependem `Modules` de uma pasta. Nessa pasta, os módulos ficam automaticamente disponíveis para o tempo de execução do functions. Qualquer função no aplicativo de funções pode usar esses módulos. 
 
-Para aproveitar esse recurso, crie uma `Modules` pasta na raiz do seu aplicativo de funções. Salve os módulos que você deseja usar em suas funções neste local.
+> [!NOTE]
+> Os módulos especificados no arquivo Requirements. psd1 são baixados e incluídos automaticamente no caminho para que você não precise incluí-los na pasta modules. Eles são armazenados localmente na pasta $env: LOCALAPPDATA/AzureFunctions e na pasta/data/ManagedDependencies quando executados na nuvem.
+
+Para aproveitar o recurso de módulo personalizado, crie uma `Modules` pasta na raiz do seu aplicativo de funções. Copie os módulos que você deseja usar em suas funções para esse local.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Use `Save-Module` para salvar todos os módulos que suas funções usam ou copie seus próprios módulos personalizados para a `Modules` pasta. Com uma pasta modules, seu aplicativo de funções deve ter a seguinte estrutura de pastas:
+Com uma pasta modules, seu aplicativo de funções deve ter a seguinte estrutura de pastas:
 
 ```
 PSFunctionApp
@@ -450,11 +458,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 Quando você inicia seu aplicativo de funções, o operador de linguagem do `Modules` PowerShell adiciona essa `$env:PSModulePath` pasta ao para que você possa contar com o carregamento automático de módulo da mesma forma que faria em um script do PowerShell normal.
@@ -503,17 +512,7 @@ Você define essa variável de ambiente nas [configurações de aplicativo](func
 
 ### <a name="considerations-for-using-concurrency"></a>Considerações sobre o uso de simultaneidade
 
-O PowerShell é uma linguagem de script de _thread único_ por padrão. No entanto, a simultaneidade pode ser adicionada usando vários espaços de uso do PowerShell no mesmo processo. Esse recurso é como funciona o tempo de execução do Azure Functions PowerShell.
-
-Há algumas desvantagens nessa abordagem.
-
-#### <a name="concurrency-is-only-as-good-as-the-machine-its-running-on"></a>A simultaneidade é tão boa quanto a máquina em que está sendo executada
-
-Se seu aplicativo de funções estiver sendo executado em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) que dá suporte apenas a um único núcleo, a simultaneidade não ajudará muito. Isso porque não há núcleos adicionais para ajudar a balancear a carga. Nesse caso, o desempenho pode variar quando o único núcleo tem a alternância de contexto entre Runspaces.
-
-O [plano de consumo](functions-scale.md#consumption-plan) é executado usando apenas um núcleo, portanto, você não pode aproveitar a simultaneidade. Se você quiser aproveitar ao máximo a simultaneidade, implante suas funções em um aplicativo de funções em execução em um plano de serviço de aplicativo dedicado com núcleos suficientes.
-
-#### <a name="azure-powershell-state"></a>Estado de Azure PowerShell
+O PowerShell é uma linguagem de script de _thread único_ por padrão. No entanto, a simultaneidade pode ser adicionada usando vários espaços de uso do PowerShell no mesmo processo. A quantidade de Runspaces criados corresponderá à configuração do aplicativo PSWorkerInProcConcurrencyUpperBound. A taxa de transferência será afetada pela quantidade de CPU e memória disponíveis no plano selecionado.
 
 Azure PowerShell usa alguns contextos de _nível de processo_ e um estado para ajudá-lo a evitar a digitação de excesso de tipos. No entanto, se você ativar a simultaneidade em seu aplicativo de funções e invocar ações que alteram o estado, poderá acabar com condições de corrida. Essas condições de corrida são difíceis de depurar porque uma invocação depende de um determinado Estado e a outra invocação alterou o estado.
 
@@ -599,9 +598,9 @@ Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Agrupar módulos em vez de usar`Install-Module`
 
-O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez `Save-Module` disso, use antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como Always *on* ou em um [plano Premium](functions-scale.md#premium-plan).
+O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez `Save-Module` disso, use antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

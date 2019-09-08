@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905685"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773148"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver Azure Functions usando o Visual Studio  
 
@@ -41,6 +41,8 @@ Outros recursos necessários, como uma conta de armazenamento do Azure, são cri
 
 > [!NOTE]
 > No Visual Studio 2017, a carga de trabalho de desenvolvimento do Azure instala as ferramentas de Azure Functions como uma extensão separada. Ao atualizar o Visual Studio 2017, verifique também se você está usando a [versão mais recente](#check-your-tools-version) das ferramentas de Azure functions. As seções a seguir mostram como verificar e (se necessário) atualizar sua extensão de ferramentas de Azure Functions no Visual Studio 2017. 
+>
+> Ignore esta seção ao usar o Visual Studio 2019.
 
 ### <a name="check-your-tools-version"></a>Verifique a versão das ferramentas no Visual Studio 2017
 
@@ -86,13 +88,13 @@ Para obter mais informações, consulte [funções de projeto de biblioteca de c
 
 As configurações em local. Settings. JSON não são carregadas automaticamente quando você publica o projeto. Para certificar-se de que essas configurações também existam em seu aplicativo de funções no Azure, você deve carregá-las depois de publicar o projeto. Para saber mais, confira [configurações do aplicativo de funções](#function-app-settings).
 
-Os valores em ConnectionStrings nunca são publicados.
+Os valores em **connectionStrings** nunca são publicados.
 
 Os valores das configurações do aplicativo de funções também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte [variáveis de ambiente](functions-dotnet-class-library.md#environment-variables).
 
 ## <a name="configure-the-project-for-local-development"></a>Configurar o projeto para desenvolvimento local
 
-O tempo de execução do Functions usa uma conta de armazenamento do Azure internamente. Para todos os tipos de gatilho diferentes de HTTP e WebHooks, você deve definir a chave **Values. AzureWebJobsStorage** para uma cadeia de conexão de conta de armazenamento do Azure válida. Seu aplicativo de funções também pode usar o emulador de [armazenamento do Azure](../storage/common/storage-use-emulator.md) para a configuração de conexão **AzureWebJobsStorage** que é exigida pelo projeto. Para usar o emulador, defina o valor de AzureWebJobsStorage `UseDevelopmentStorage=true`como. Altere essa configuração para uma cadeia de conexão de conta de armazenamento real antes da implantação.
+O tempo de execução do Functions usa uma conta de armazenamento do Azure internamente. Para todos os tipos de gatilho diferentes de HTTP e WebHooks, você deve definir a chave **Values. AzureWebJobsStorage** para uma cadeia de conexão de conta de armazenamento do Azure válida. Seu aplicativo de funções também pode usar o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) para a configuração de conexão **AzureWebJobsStorage** que é exigida pelo projeto. Para usar o emulador, defina o valor de AzureWebJobsStorage `UseDevelopmentStorage=true`como. Altere essa configuração para uma cadeia de conexão de conta de armazenamento real antes da implantação.
 
 Para definir a cadeia de conexão da conta de armazenamento:
 
@@ -114,7 +116,7 @@ Em C# funções de biblioteca de classes, as associações usadas pela função 
 
     Este exemplo de gatilho usa uma cadeia de conexão com uma chave chamada **QueueStorage**. Essa configuração de cadeia de conexão deve ser definida no [arquivo local. Settings. JSON](functions-run-local.md#local-settings-file).
 
-3. Examine a classe recém-adicionada. Você vê um método **Run** estático, que é atribuído com o atributo FunctionName. Esse atributo indica que o método é o ponto de entrada para a função.
+3. Examine a classe recém-adicionada. Você vê um método **Run** estático, que é atribuído com o atributo **FunctionName** . Esse atributo indica que o método é o ponto de entrada para a função.
 
     Por exemplo, a classe C# a seguir representa uma função básica disparada pelo armazenamento de filas:
 

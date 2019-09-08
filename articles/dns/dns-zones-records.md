@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68004464"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772261"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -30,7 +30,7 @@ Esta página explica os principais conceitos de domínios, zonas DNS e registros
 
 O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “ **.** ”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
-Um registrador de nome de domínio é uma organização que permite que você compre um nome de domínio, como ' contoso.com '.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome ' www.contoso.com ' para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou permitir que você especifique servidores de nomes alternativos.
+Um registrador de nome de domínio é uma organização que permite que você compre um nome de domínio, como ' contoso.com '.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome www.contoso.com para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou permitir que você especifique servidores de nomes alternativos.
 
 O DNS do Azure fornece uma infraestrutura de servidor de nome de alta disponibilidade globalmente distribuída, que pode ser usada para hospedar seu domínio. Ao hospedar seus domínios no DNS do Azure, você pode gerenciar seus registros DNS com as mesmas credenciais, APIs, ferramentas, cobrança e suporte que os outros serviços do Azure.
 
@@ -135,7 +135,7 @@ No nível da API REST do DNS do Azure, as ETags são especificadas usando cabeç
 
 | Cabeçalho | Comportamento |
 | --- | --- |
-| Nenhuma |PUT sempre sucede (nenhuma verificação de eTag) |
+| Nenhum |PUT sempre sucede (nenhuma verificação de eTag) |
 | If-match \<etag> |PUT só terá sucesso se o recurso existir e a ETag corresponder |
 | If-Match * |PUT só terá sucesso se o recurso existir |
 | If-None-Match * |PUT só terá sucesso se o recurso não existir |

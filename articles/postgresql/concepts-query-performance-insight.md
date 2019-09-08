@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 748c6f08da535013724f68b8be424e50a2d49dfd
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907460"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764423"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
-**Aplica-se a:** Banco de dados do Azure para PostgreSQL-servidor único 9,6 e 10
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
 
 Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são suas consultas em execução mais longas, como elas mudam com o passar do tempo e quais esperas estão afetando-as.
 

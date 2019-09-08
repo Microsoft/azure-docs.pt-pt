@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e6f781926e2a30ecf6d34274b20991b81f0bb96d
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0f8e605db3d647b5907c8c6741e4e2200bf14c4f
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972911"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772354"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Criar e gerenciar VLANs/sub-redes para suas nuvens privadas
 
@@ -21,7 +21,7 @@ Abra a guia VLANs/sub-redes na página rede para criar e gerenciar VLANs/sub-red
 
 ## <a name="create-a-vlansubnet"></a>Criar uma VLAN/sub-rede
 
-1. [Acesse o portal do CloudSimple](monitor-activity.md) e selecione **rede** no menu lateral.
+1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
 2. Selecione **VLANs/sub-redes**.
 3. Clique em **criar VLAN/sub-rede**.
 

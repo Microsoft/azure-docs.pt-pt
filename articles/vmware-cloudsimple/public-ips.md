@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12a6af73dc0abc9598184f6c83e9d7652973a99e
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544451"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773788"
 ---
 # <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Alocar endereços IP públicos para o ambiente de nuvem privada
 
 Abra a guia IPs públicos na página rede para alocar endereços IP públicos para máquinas virtuais em seu ambiente de nuvem privada.
 
-1. [Acesse o portal do CloudSimple](monitor-activity.md) e selecione **rede** no menu lateral.
+1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
 2. Selecione **IPS públicos**.
 3. Clique em **novo IP público**.
 

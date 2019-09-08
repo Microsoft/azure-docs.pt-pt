@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/01/2019
+ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6bf24a0948ecee68d1bbf3cd3fe8b2bec5634de9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3618339349d618b371a40d3b37ebc30192c067ca
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600032"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764830"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster da impressão digital do certificado para o nome comum
 Dois certificados não podem ter a mesma impressão digital, o que torna difícil a substituição ou o gerenciamento do certificado do cluster. No entanto, vários certificados podem ter o mesmo nome ou assunto comum.  Alternar um cluster implantado do uso de impressões digitais de certificado para usar nomes comuns de certificado torna o gerenciamento de certificados muito mais simples. Este artigo descreve como atualizar um Cluster Service Fabric em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -67,7 +67,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
     -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
@@ -101,7 +101,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Os segredos do conjunto de dimensionamento não dão suporte à mesma ID de recurso para dois segredos separados, pois cada segredo é um recurso com versão e exclusivo. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Baixar e atualizar o modelo no portal
-O certificado foi instalado no conjunto de dimensionamento subjacente, mas você também precisa atualizar o cluster de Service Fabric para usar esse certificado e seu nome comum.  Agora, baixe o modelo para a implantação do cluster.  Entre no [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que hospeda o cluster.  Em **configurações**, selecioneimplantações.  Selecione a implantação mais recente e clique em **Exibir modelo**.
+O certificado foi instalado no conjunto de dimensionamento subjacente, mas você também precisa atualizar o cluster de Service Fabric para usar esse certificado e seu nome comum.  Agora, baixe o modelo para a implantação do cluster.  Entre no [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que hospeda o cluster.  Em **configurações**, selecione **implantações**.  Selecione a implantação mais recente e clique em **Exibir modelo**.
 
 ![Exibir modelos][image1]
 
@@ -162,7 +162,7 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
                 },
     ```
 
-3.  No recurso **Microsoft. perfabric/clusters** , atualize a versão da API para "2018-02-01".  Adicione também uma configuração de **certificateCommonNames** com uma propriedade comumnames e remova a configuração de **certificado** (com a propriedade de impressão digital), como no exemplo a seguir:
+3.  No recurso **Microsoft. perfabric/clusters** , atualize a versão da API para "2018-02-01".  Adicione também uma configuração de **certificateCommonNames** com uma propriedade **comumnames** e remova a configuração de **certificado** (com a propriedade de impressão digital), como no exemplo a seguir:
     ```json
     {
         "apiVersion": "2018-02-01",

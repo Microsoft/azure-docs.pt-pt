@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611712"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773238"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
@@ -110,13 +110,19 @@ O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 
-1. No seu planeamento de ativação pós-falha, também deve considerar o fator de tempo. Por exemplo, se perder a conectividade durante mais de 15 a 20 minutos, pode decidir iniciar a ativação pós-falha. 
+1. Por design, a recuperação de desastre geográfica dos hubs de eventos não replica os dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. É recomendável reiniciar o receptor de eventos com um dos seguintes:
+
+- *EventPosition. FromStart ()* – se você quiser ler todos os dados em seu hub de eventos secundário.
+- *EventPosition. deextremidade ()* – se você quiser ler todos os novos dados da hora da conexão com o Hub de eventos secundário.
+- *EventPosition. FromEnqueuedTime (DateTime)* – se você quiser ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
+
+2. No seu planeamento de ativação pós-falha, também deve considerar o fator de tempo. Por exemplo, se perder a conectividade durante mais de 15 a 20 minutos, pode decidir iniciar a ativação pós-falha. 
  
-2. O fato de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, deteção de duplicados e de mensagens agendadas poderão não funcionar. Novas sessões de mensagens agendadas e duplicados novo irão funcionar. 
+3. O fato de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, deteção de duplicados e de mensagens agendadas poderão não funcionar. Novas sessões de mensagens agendadas e duplicados novo irão funcionar. 
 
-3. Realizar a ativação pós-falha de uma infraestrutura distribuída complexa deve estar [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) , pelo menos, uma vez. 
+4. Realizar a ativação pós-falha de uma infraestrutura distribuída complexa deve estar [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) , pelo menos, uma vez. 
 
-4. Sincronização de entidades pode demorar algum tempo, aproximadamente 50 a 100 entidades por minuto.
+5. Sincronização de entidades pode demorar algum tempo, aproximadamente 50 a 100 entidades por minuto.
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidade 
 
