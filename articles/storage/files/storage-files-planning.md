@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 163c3cbaeed1526f08d047c3bf357232ccb534a3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309574"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802387"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -206,14 +206,17 @@ Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos 
 
 Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões de até 5 TiB. Em determinadas regiões, ele está disponível com um limite de TiB de 100, essas regiões são listadas na tabela a seguir:
 
-|Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal *   |
+|Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal * |
 |-------|---------|---------|---------|
-|Leste da Austrália  |LRS     |Não    |Sim|
-|França Central  |LRS     |Não    |Ainda não|
-|Sul de França    |LRS     |Não    |Ainda não|
-|Sudeste da Ásia  |LRS, ZRS|Não    |Sim|
-|Europa Ocidental     |LRS, ZRS|Não    |Sim|
-|EUA Oeste 2       |LRS, ZRS|Não    |Sim|
+|Leste da Austrália |LRS     |Não    |Sim|
+|Sudeste da Austrália|LRS     |Não    |Ainda não|
+|Índia Central  |LRS     |Não    |Ainda não|
+|França Central  |LRS, ZRS|Não    |LRS-Sim, ZRS-ainda não|
+|Sul da Índia    |LRS     |Não    |Ainda não|
+|Sudeste Asiático |LRS, ZRS|Não    |Sim|
+|EUA Centro-Oeste|LRS     |Não    |Ainda não|
+|Europa Ocidental    |LRS, ZRS|Não    |Sim|
+|EUA Oeste 2      |LRS, ZRS|Não    |Sim|
 
 \* Para regiões sem suporte ao portal, você ainda pode usar o PowerShell ou a CLI (interface de linha de comando) do Azure para criar mais de 5 compartilhamentos TiB. Como alternativa, crie um novo compartilhamento por meio do portal sem especificar a cota. Isso criará um compartilhamento com o tamanho padrão de 100 TiB, que pode ser atualizado posteriormente por meio do PowerShell ou CLI do Azure.
 

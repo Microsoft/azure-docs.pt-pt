@@ -4,19 +4,19 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b6ea8c7b3a6374572c8bd31e3c62b788efbafcbc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184913"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70803011"
 ---
-## <a name="obtain-an-azure-resource-manager-token"></a>Obter um token do Azure Resource Manager
-O Azure Active Directory tem de ser autenticado todas as tarefas que executar nos recursos com o Azure Resource Manager. O exemplo mostrado a seguir utiliza a autenticação de palavra-passe, para outras abordagens, consulte [pedidos de autenticação do Azure Resource Manager][lnk-authenticate-arm].
+## <a name="obtain-an-azure-resource-manager-token"></a>Obter um token de Azure Resource Manager
+Azure Active Directory deve autenticar todas as tarefas que você executa nos recursos usando o Azure Resource Manager. O exemplo mostrado aqui usa a autenticação de senha, para outras abordagens, consulte [autenticando Azure Resource Manager solicitações][lnk-authenticate-arm].
 
-1. Adicione o seguinte código para o **Main** método em Program.cs para obter um token do Azure AD com o id da aplicação e a palavra-passe.
+1. Adicione o seguinte código ao método **principal** no Program.cs para recuperar um token do Azure ad usando a ID do aplicativo e a senha.
    
-    ```
+    ```csharp
     var authContext = new AuthenticationContext(string.Format  
       ("https://login.microsoftonline.com/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
@@ -29,16 +29,16 @@ O Azure Active Directory tem de ser autenticado todas as tarefas que executar no
       return;
     }
     ```
-2. Criar uma **ResourceManagementClient** objeto que utiliza o token adicionando o seguinte código ao final do **Main** método:
+2. Crie um objeto **ResourceManagementClient** que usa o token adicionando o seguinte código ao final do método **Main** :
    
-    ```
+    ```csharp
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Criar ou obter uma referência para o grupo de recursos que está a utilizar:
+3. Crie ou obtenha uma referência para o grupo de recursos que você está usando:
    
-    ```
+    ```csharp
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
         new ResourceGroup("East US"));
     if (rgResponse.Properties.ProvisioningState != "Succeeded")

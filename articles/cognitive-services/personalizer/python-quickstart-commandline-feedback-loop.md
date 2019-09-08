@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: diberry
-ms.openlocfilehash: ca1478801ad704888266175a23b6f436d067dd10
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ad220287685dd2405931cd6f8cd460b06f340b2
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950794"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801562"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Início rápido: Personalizar a biblioteca de cliente para Python
 
@@ -109,6 +109,8 @@ Em seguida, crie um método para retornar um cliente personalizado. O parâmetro
 
 As ações representam as opções de conteúdo que você deseja que o personalizado classifique. Adicione os seguintes métodos à classe Program para obter a entrada de um usuário da linha de comando para a hora do dia e a preferência de alimentos atual.
 
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
+
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 
 [!code-python[Present food taste preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTastePreference)]
@@ -156,7 +158,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Como o personalizador funciona](how-personalizer-works.md)

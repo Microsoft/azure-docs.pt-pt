@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fbd765ef94f4dbb26f076d8bc9520b4e4860bbae
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: fb68b2f78e48dabf5b1377b7c811840a85604f53
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232766"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802423"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar a amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL
 
@@ -37,7 +37,7 @@ Antes que este exemplo de plano gráfico possa ser implantado, o exemplo de plan
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
@@ -48,7 +48,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
    - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo de especificação de esquema de carga de trabalho do ISO 27001 ASE/SQL.
    - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -56,7 +56,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de plano gráfico pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-lo para fora do padrão ISO 27001.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -66,7 +66,7 @@ Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado 
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -117,7 +117,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |-|-|-|-|
 |Log Analytics Grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
 |Log Analytics Grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Escalão do serviço|Define a camada do espaço de trabalho Log Analytics. O valor padrãoé PerNode.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Escalão do serviço|Define a camada do espaço de trabalho Log Analytics. O valor padrão é _PerNode_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Location|Região usada para criar o espaço de trabalho Log Analytics. O valor padrão é _oeste dos EUA 2_.|
 |Grupo de recursos de rede|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
@@ -158,7 +158,7 @@ Agora que você analisou as etapas para implantar o exemplo de esquema de carga 
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

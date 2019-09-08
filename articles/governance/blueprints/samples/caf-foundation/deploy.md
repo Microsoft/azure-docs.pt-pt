@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: f4235599d3156c35b50aea1815f3d62d925f326a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 98ade4e5c8a14c2d4f5c2a22c2c973fac844861f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231844"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802548"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implantar a estrutura de adoção do Microsoft Cloud para a amostra do Azure Foundation Blueprint
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
@@ -41,7 +41,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
    - **Nome do plano gráfico**: Forneça um nome para sua cópia do exemplo do CAF Foundation Blueprint.
    - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -49,7 +49,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo do Blueprint pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-la para fora do plano gráfico do CAF Foundation.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -59,7 +59,7 @@ Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado 
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -115,7 +115,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou as etapas para implantar a amostra do CAF Foundation Blueprint, visite o seguinte artigo para saber mais sobre a arquitetura:
 
@@ -124,7 +124,7 @@ Agora que você analisou as etapas para implantar a amostra do CAF Foundation Bl
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

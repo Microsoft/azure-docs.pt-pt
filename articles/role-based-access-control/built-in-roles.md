@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114659"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801367"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -36,7 +36,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | Função interna | Descrição |
 | --- | --- |
 | [Proprietário](#owner) | Permite que você gerencie tudo, incluindo o acesso aos recursos. |
-| [Contribuidor](#contributor) | Permite que você gerencie tudo, exceto o acesso aos recursos. |
+| [Contribuidor](#contributor) | Permite que você gerencie tudo, exceto conceder acesso aos recursos. |
 | [Leitor](#reader) | Permite exibir tudo, mas não fazer nenhuma alteração. |
 | [AcrDelete](#acrdelete) | exclusão de ACR |
 | [AcrImageSigner](#acrimagesigner) | signatário de imagem acr |

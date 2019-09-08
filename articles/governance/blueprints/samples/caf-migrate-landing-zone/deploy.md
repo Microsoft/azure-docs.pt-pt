@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: 0125fa20e61890317d4df510cb668f68e5049c43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 520eded941f625bf90204213188ac1afc94d3111
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231849"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802573"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
 
@@ -33,17 +33,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
-1. Localize a amostra de plantas da zona de aterrissagem de **migração do Caf** em _outros exemplos_ e selecione **usar este exemplo**.
+1. Localize a amostra de plantas da **zona de aterrissagem de migração do Caf** em _outros exemplos_ e selecione **usar este exemplo**.
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
    - **Nome do plano gráfico** Forneça um nome para sua cópia do exemplo de plano gráfico da zona de aterrissagem de migração do CAF.
    - **Local de definição** Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -51,7 +51,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo do Blueprint pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-la para fora das diretrizes da zona de aterrissagem de migração do CAF.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -61,7 +61,7 @@ Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado 
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -123,7 +123,7 @@ Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

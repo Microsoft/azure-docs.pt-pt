@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773343"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802372"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
 
@@ -292,7 +292,7 @@ A quantidade de computação cobrada é o máximo usado pela CPU e pela memória
 - **Valor cobrado**: preço unitário vCore * máx (min vCores, vCores usado, min memory gb * 1/3, GB de memória usado * 1/3) 
 - **Frequência de cobrança**: Por segundo
 
-O preço unitário vCore no custo por vCore por segundo. Consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) para preços unitários específicos em uma determinada região.
+O preço unitário vCore é o custo por vCore por segundo. Consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) para preços unitários específicos em uma determinada região.
 
 A quantidade de computação cobrada é exposta pela seguinte métrica:
 

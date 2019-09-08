@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035993"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802060"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos de Azure Resource Manager vinculados
 
@@ -287,7 +287,7 @@ Lembre- [se do tutorial: Criar modelos de Azure Resource Manager com recursos](.
 
 Uma vez que agora a conta de armazenamento está definida no modelo ligado, tem de atualizar os dois elementos seguintes do recurso `Microsoft.Compute/virtualMachines`.
 
-* Reconfigure o elemento `dependOn`. A definição da conta de armazenamento é movida para o modelo ligado.
+* Reconfigure o elemento `dependsOn`. A definição da conta de armazenamento é movida para o modelo ligado.
 * Reconfigure o elemento `properties/diagnosticsProfile/bootDiagnostics/storageUri`. Em [Criar o modelo ligado](#create-the-linked-template), adicionou um valor de resultado:
 
     ```json

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164880"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801239"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com o Visual Studio
 
@@ -85,7 +85,7 @@ No Visual Studio, você pode encontrar todos os aplicativos lógicos associados 
 
 ## <a name="open-in-visual-studio"></a>Abrir no Visual Studio
 
-No Visual Studio, você pode abrir aplicativos lógicos criados anteriormente e implantados diretamente por meio do portal do Azure ou como projetos Azure Resource Manager com o Visual Studio.
+No Visual Studio, você pode abrir aplicativos lógicos criados anteriormente e implantados diretamente por meio do portal do Azure ou como projetos do grupo de recursos do Azure com o Visual Studio.
 
 1. Abra o Cloud Explorer e localize seu aplicativo lógico. 
 
@@ -123,7 +123,34 @@ Você pode baixar aplicativos lógicos do [portal do Azure](https://portal.azure
 
 4. Quando for solicitado um local, navegue até esse local e salve o modelo do Resource Manager para a definição do aplicativo lógico no formato de arquivo JSON (. JSON). 
 
-Sua definição de aplicativo lógico aparece na `resources` subseção dentro do modelo do Resource Manager. Agora você pode editar a definição do aplicativo lógico e o modelo do Resource Manager com o Visual Studio. Você também pode adicionar o modelo como um projeto Azure Resource Manager a uma solução do Visual Studio. Saiba mais sobre [projetos do Resource Manager para aplicativos lógicos no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+Sua definição de aplicativo lógico aparece na `resources` subseção dentro do modelo do Resource Manager. Agora você pode editar a definição do aplicativo lógico e o modelo do Resource Manager com o Visual Studio. Você também pode adicionar o modelo como um [projeto de grupo de recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) a uma solução do Visual Studio. Saiba mais sobre os [projetos do grupo de recursos do Azure para aplicativos lógicos no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>Vincular à conta de integração
+
+Para criar aplicativos lógicos para cenários de integração empresarial B2B (entre empresas), você pode vincular seu aplicativo lógico a uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) criada anteriormente que existe na mesma região que o seu aplicativo lógico. Uma conta de integração contém artefatos B2B, como parceiros comerciais, contratos, esquemas e mapas, e permite que seu aplicativo lógico use conectores B2B para validação de XML e codificação ou decodificação de arquivo simples. Embora seja possível [criar esse link usando o portal do Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), você também pode usar o Visual Studio depois de atender aos [pré-requisitos](#requirements), e seu aplicativo lógico existe como um arquivo JSON (. JSON) dentro de um [projeto do grupo de recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre os [projetos do grupo de recursos do Azure para aplicativos lógicos no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+
+1. No Visual Studio, abra o projeto do grupo de recursos do Azure que contém seu aplicativo lógico.
+
+1. Em Gerenciador de Soluções, abra o menu de atalho **< lógica-app-name >. JSON** e selecione **abrir com o designer de aplicativo lógico**. Teclado CTRL + L)
+
+   ![Abrir o arquivo. JSON do aplicativo lógico com o designer de aplicativo lógico](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Se você não tiver esse comando no Visual Studio 2019, verifique se você tem as atualizações mais recentes para o Visual Studio.
+
+1. Para certificar-se de que o designer do aplicativo lógico tenha foco, selecione a guia ou a superfície do designer para que o painel Propriedades mostre a propriedade da **conta de integração** para seu aplicativo lógico.
+
+   ![O painel Propriedades mostra a propriedade "conta de integração"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. Abra a lista **conta de integração** e selecione a conta de integração que você deseja vincular ao seu aplicativo lógico, por exemplo:
+
+   ![Abrir a lista de propriedades da "conta de integração"](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. Quando tiver terminado, lembre-se de salvar sua solução do Visual Studio.
+
+Quando você define a propriedade de **conta de integração** no Visual Studio e salva seu aplicativo lógico como um modelo de Azure Resource Manager, esse modelo também inclui uma declaração de parâmetro para a conta de integração selecionada. Para obter mais informações sobre parâmetros de modelo e aplicativos lógicos, consulte [visão geral: Automatize a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)do aplicativo lógico.
 
 <a name="refresh"></a>
 
@@ -201,7 +228,7 @@ Ao abrir seu projeto de aplicativo lógico no designer de aplicativos lógicos, 
 
 * Para remover as assinaturas selecionadas anteriormente para *todos os* aplicativos lógicos em sua solução, exclua a pasta de configurações ocultas do Visual Studio (. vs) no diretório da solução. Esse local armazena as informações de sua assinatura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu a gerenciar aplicativos lógicos implantados com o Visual Studio. Em seguida, saiba mais sobre como personalizar definições de aplicativo lógico para implantação:
 
