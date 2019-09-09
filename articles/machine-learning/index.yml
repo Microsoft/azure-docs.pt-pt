@@ -12,20 +12,20 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/03/2019
-  ms.openlocfilehash: e2c5e592c2330f1e5514c5c59c92ff5c8a3a62b2
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: 58afd4ab8576b78fc3138861c13ac39ae343b04d
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70278320"
+  ms.locfileid: "70308778"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Experimentar com blocos de notas
+    - text: Experimentação em notebooks Python
       url: service/tutorial-1st-experiment-sdk-setup.md
-    - text: Experimentar na interface visual
+    - text: Experimentação com arrastar e largar
       url: service/ui-tutorial-automobile-price-train-score.md
     - text: Automatizar a primeira experimentação
       url: service/tutorial-first-experiment-automated-ml.md
@@ -37,17 +37,17 @@ landingContent:
       url: service/concept-azure-machine-learning-architecture.md
   - linkListType: how-to-guide
     links:
-    - text: Configurar ambientes de desenvolvimento
+    - text: Configurar o ambiente
       url: service/how-to-configure-environment.md
     - text: Configurar destinos de computação de preparação
       url: service/how-to-set-up-training-targets.md
-- title: Preparar com o Python
+- title: 'Experimentação: SDK Python'
   linkLists:
   - linkListType: tutorial
     links:
     - text: Criar a primeira experimentação de ML
       url: service/tutorial-1st-experiment-sdk-setup.md
-    - text: Preparar modelos de classificação de imagens
+    - text: Classificar imagens
       url: service/tutorial-train-models-with-aml.md
     - text: Prever tarifas de táxi com ML automatizado
       url: service/tutorial-auto-train-models.md
@@ -61,23 +61,21 @@ landingContent:
       url: service/how-to-train-pytorch.md
     - text: Preparar com o Keras
       url: service/how-to-train-keras.md
-- title: Preparar na interface visual
+- title: 'Experimentação: interface visual'
   linkLists:
-  - linkListType: get-started
+  - linkListType: tutorial
     links:
-    - text: Preparar a experimentação de ML automatizado
+    - text: Utilizar ML automatizado para prever subscrições
       url: service/tutorial-first-experiment-automated-ml.md
-    - text: Preparar na interface visual
+    - text: Utilizar regressão linear para prever preços
       url: service/ui-tutorial-automobile-price-train-score.md
   - linkListType: how-to-guide
     links:
-    - text: 'Interface visual: prever preços de automóveis'
-      url: service/ui-sample-regression-predict-automobile-price-basic.md
-    - text: 'Interface visual: prever o risco de crédito'
+    - text: Prever o risco do crédito
       url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - text: 'Interface visual: prever atrasos'
+    - text: Prever atrasos
       url: service/ui-sample-classification-predict-flight-delay.md
-    - text: 'Interface visual: prever alterações'
+    - text: Prever alterações
       url: service/ui-sample-classification-predict-churn.md
 - title: Implementar e gerir modelos
   linkLists:

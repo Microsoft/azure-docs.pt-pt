@@ -12,12 +12,12 @@ metadata:
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 09/03/2019
-  ms.openlocfilehash: a44b9bca7062e451c23453cacbe7042dacb4916c
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: 44dea30e44e204664a5266a37c740b2eb23a49f7
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70274021"
+  ms.locfileid: "70309354"
 landingContent:
 - title: Acerca do Open Datasets
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
     links:
     - text: Criar um modelo de regressão com aprendizagem automática automatizada
       url: tutorial-opendatasets-automl.md
-- title: Explorar o conteúdo de referência
+- title: Explorar conteúdo de referência
   linkLists:
   - linkListType: reference
     links:

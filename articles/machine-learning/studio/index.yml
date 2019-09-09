@@ -11,47 +11,43 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/03/2019
-  ms.openlocfilehash: 774c63e1df815b509a88b9de25b8199b53bfafa1
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.date: 09/04/2019
+  ms.openlocfilehash: b6c9013d61df1a0076817af5baab0e0af6375083
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70278017"
+  ms.locfileid: "70309190"
 landingContent:
-- title: Acerca do Azure Machine Learning Studio
+- title: Introdução ao Studio
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
     - text: O que é o Studio?
       url: what-is-ml-studio.md
-    - text: Comparar os nossos produtos de ML
-      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- title: Introdução ao Studio
-  linkLists:
-  - linkListType: tutorial
-    links:
     - text: Criar a primeira experimentação de ML
       url: create-experiment.md
     - text: Criar uma solução preditiva
       url: tutorial-part1-credit-risk.md
-- title: Referências
+- title: Explorar conteúdo de referência
   linkLists:
   - linkListType: reference
     links:
-    - text: Módulos do PowerShell de Linha de Comandos
+    - text: Módulos do PowerShell
       url: powershell-module.md
-    - text: Referência aos Algoritmos e aos Módulos
+    - text: Algoritmo e módulos
       url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
     - text: APIs de gestão REST
       url: https://docs.microsoft.com/rest/api/machinelearning/
     - text: Códigos de erro do serviço Web
       url: web-service-error-codes.md
-- title: Mais tecnologias do Azure Machine Learning
+- title: Mais tecnologias Azure ML
   linkLists:
   - linkListType: reference
     links:
     - text: Serviço Azure Machine Learning
       url: /azure/machine-learning/
-    - text: Máquina Virtual de Ciência de Dados do Azure
+    - text: Máquina Virtual de Ciência de Dados
       url: /azure/machine-learning/data-science-virtual-machine
+    - text: Comparar os nossos produtos de ML
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
