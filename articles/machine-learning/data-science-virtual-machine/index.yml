@@ -12,14 +12,14 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/03/2019
-  ms.openlocfilehash: 503737ab7dbc58d76ffe3c72d2aaff044c25ae5b
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: c33504124bdef2edf44842581143a8468cbb1e20
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70278578"
+  ms.locfileid: "70308799"
 landingContent:
-- title: Acerca da Máquina Virtual de Ciência de Dados
+- title: Introdução à DSVM
   linkLists:
   - linkListType: overview
     links:
@@ -27,8 +27,6 @@ landingContent:
       url: overview.md
     - text: O que é a DSVM de IA Geográfica?
       url: geo-ai-dsvm-overview.md
-- title: Introdução à DSVM
-  linkLists:
   - linkListType: get-started
     links:
     - text: Criar uma DSVM do Windows
@@ -55,3 +53,5 @@ landingContent:
     links:
     - text: Serviço Azure Machine Learning
       url: /azure/machine-learning/
+    - text: Comparar os nossos produtos de ML
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
