@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 136f7e290947066e6d4ea4e9bb89d06fe9b2cac7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 37e6a3ee9f793a475cf9d775e99da989e82957dc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274537"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813480"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiar dados de e para SQL Server usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -151,7 +151,7 @@ Para copiar dados de e para um SQL Server, há suporte para as seguintes proprie
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definidacomo sqlservertable. | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como **Sqlservertable**. | Sim |
 | tableName |Essa propriedade é o nome da tabela ou exibição na instância de banco de dados SQL Server à qual o serviço vinculado se refere. | Não para a origem, Sim para o sink |
 
 **Exemplo**
@@ -176,15 +176,15 @@ Para copiar dados de e para um SQL Server, há suporte para as seguintes proprie
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de seções e propriedades disponíveis para uso para definir atividades, consulte [](concepts-pipelines-activities.md) o artigo pipelines. Esta seção fornece uma lista das propriedades com suporte pela fonte de SQL Server e pelo coletor.
+Para obter uma lista completa de seções e propriedades disponíveis para uso para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela fonte de SQL Server e pelo coletor.
 
 ### <a name="sql-server-as-a-source"></a>SQL Server como uma fonte
 
-Para copiar dados de SQL Server, defina o tipo de fonte na atividade de cópiacomo sqlsource. As propriedades a seguir têm suporte na seção origem da atividade de cópia:
+Para copiar dados de SQL Server, defina o tipo de fonte na atividade de cópia como **sqlsource**. As propriedades a seguir têm suporte na seção origem da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definidacomo sqlsource. | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **sqlsource**. | Sim |
 | sqlReaderQuery |Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `select * from MyTable`. |Não |
 | sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
 | storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
@@ -286,11 +286,11 @@ GO
 > [!TIP]
 > Saiba mais sobre os comportamentos de gravação com suporte, as configurações e as práticas recomendadas da [prática recomendada para carregar dados em SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cópiacomo sqlsink. As propriedades a seguir têm suporte na seção coletor de atividade de cópia:
+Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cópia como **sqlsink**. As propriedades a seguir têm suporte na seção coletor de atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do coletor da atividade de cópia deve ser definidacomo sqlsink. | Sim |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **sqlsink**. | Sim |
 | writeBatchSize |Número de linhas a serem inseridas na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. |Não |
 | writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção em lote ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o TimeSpan. Um exemplo é "00:30:00" por 30 minutos. |Não |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados em SQL Server. Ele é invocado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados pré-carregados. |Não |
@@ -298,6 +298,7 @@ Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cóp
 | storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia torna os dados que estão sendo movidos disponíveis em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
 | storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
+| tableOption | Especifica se a tabela do coletor deve ser criada automaticamente se não existir com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são `none` : (padrão) `autoCreate`,. |Não |
 
 **Exemplo 1: Acrescentar dados**
 
@@ -324,7 +325,8 @@ Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cóp
             },
             "sink": {
                 "type": "SqlSink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }
@@ -397,7 +399,7 @@ Por exemplo, em Azure Data Factory, você pode criar um pipeline com uma **ativi
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-No banco de dados, defina um procedimento armazenado com lógica de MESCLAgem, como o exemplo a seguir, que é apontado da atividade de procedimento armazenado anterior. Suponha que o destino seja a tabela de **marketing** com três colunas:ProfileId, **estado**e **categoria**. Faça o Upsert com base na coluna ProfileId.
+No banco de dados, defina um procedimento armazenado com lógica de MESCLAgem, como o exemplo a seguir, que é apontado da atividade de procedimento armazenado anterior. Suponha que o destino seja a tabela de **marketing** com três colunas: **ProfileId**, **estado**e **categoria**. Faça o Upsert com base na coluna **ProfileId** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -438,7 +440,7 @@ Ao copiar dados para um banco de SQL Server, você também pode configurar e inv
 
 Você pode usar um procedimento armazenado quando os mecanismos de cópia internos não atenderem ao propósito. Um exemplo é quando você deseja aplicar processamento extra antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são quando você deseja mesclar colunas, Pesquisar valores adicionais e inserir dados em mais de uma tabela.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Upsert em uma tabela no banco de dados SQL Server. Suponha que os dados de entrada e a tabela de **marketing** do coletor tenham três colunas:ProfileId, **estado**e **categoria**. Faça o Upsert com base na coluna ProfileId e aplique-o somente para uma categoria específica chamada "produtoA".
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Upsert em uma tabela no banco de dados SQL Server. Suponha que os dados de entrada e a tabela de **marketing** do coletor tenham três colunas: **ProfileId**, **estado**e **categoria**. Faça o Upsert com base na coluna **ProfileId** e aplique-o somente para uma categoria específica chamada "produtoA".
 
 1. No banco de dados, defina o tipo de tabela com o mesmo nome que **sqlWriterTableType**. O esquema do tipo de tabela é o mesmo que o esquema retornado pelos dados de entrada.
 
@@ -485,7 +487,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
 
 ## <a name="data-type-mapping-for-sql-server"></a>Mapeamento de tipo de dados para SQL Server
 
-Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usados de tipos de dados SQL Server para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usados de tipos de dados SQL Server para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados SQL Server | Azure Data Factory tipo de dados provisório |
 |:--- |:--- |
@@ -525,7 +527,7 @@ Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usa
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.
 
-## <a name="troubleshoot-connection-issues"></a>Solucionar problemas de conexão
+## <a name="troubleshoot-connection-issues"></a>Resolver problemas de ligação
 
 1. Configure sua instância de SQL Server para aceitar conexões remotas. Inicie o **SQL Server Management Studio**, clique com o botão direito do mouse em **servidor**e selecione **Propriedades**. Selecione **conexões** na lista e marque a caixa de seleção **permitir conexões remotas com este servidor** .
 
@@ -544,5 +546,5 @@ Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usa
 5. Crie uma **regra para o Firewall do Windows** no computador para permitir o tráfego de entrada por essa porta. 
 6. **Verificar conexão**: Para se conectar ao SQL Server usando um nome totalmente qualificado, use SQL Server Management Studio de um computador diferente. Um exemplo é `"<machine>.<domain>.corp.<company>.com,1433"`.
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte armazenamentos de [dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+## <a name="next-steps"></a>Passos Seguintes
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

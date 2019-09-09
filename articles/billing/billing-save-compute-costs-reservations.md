@@ -5,18 +5,20 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558866"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806342"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
-As reservas do Azure ajudam você a economizar dinheiro ao pagar por um ou três anos de máquinas virtuais, capacidade de computação do banco de dados SQL, taxa de transferência de Azure Cosmos DB ou outros recursos do Azure. O pagamento prévio permite-lhe obter um desconto nos recursos que utiliza. As reservas podem reduzir significativamente sua máquina virtual, computação do banco de dados SQL, Azure Cosmos DB ou outros custos de recursos de até 72% em preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de tempo de execução de seus recursos.
+As reservas do Azure ajudam você a economizar dinheiro confirmando um ou três anos de máquinas virtuais, capacidade de computação do banco de dados SQL, taxa de transferência de Azure Cosmos DB ou outros recursos do Azure. A confirmação permite que você obtenha um desconto sobre os recursos que usa. As reservas podem reduzir significativamente sua máquina virtual, computação do banco de dados SQL, Azure Cosmos DB ou outros custos de recursos de até 72% em preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de tempo de execução de seus recursos.
+
+Você pode pagar por uma reserva antecipada ou mensal. O custo total de reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para as reservas do Azure, não para produtos de terceiros.
 
 Você pode comprar uma reserva no [portal do Azure](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -31,6 +33,8 @@ Planos de serviço:
 - **Instância de máquina virtual reservada** -uma reserva cobre apenas os custos de computação da máquina virtual. Ele não cobre software adicional, redes ou encargos de armazenamento.
 - **Azure Cosmos DB capacidade reservada** -uma reserva abrange a taxa de transferência provisionada para seus recursos. Ele não cobre o armazenamento e os encargos de rede.
 - **VCore reservado do banco de dados SQL** – somente os custos de computação estão incluídos com uma reserva. A licença é cobrada separadamente.
+- **SQL data warehouse** -uma reserva abrange o uso de cDWU. Ele não cobre os encargos de armazenamento ou de rede associados ao uso de SQL Data Warehouse.
+- **Taxa de selo do serviço de aplicativo** -uma reserva cobre o uso do carimbo. Ele não se aplica a trabalhadores, portanto, quaisquer outros recursos associados ao carimbo são cobrados separadamente.
 
 Para máquinas virtuais do Windows e banco de dados SQL, você pode cobrir os custos de licenciamento com [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -92,17 +96,17 @@ Um escopo de reserva não será atualizado automaticamente se você mover o grup
 
 ## <a name="discounted-subscription-and-offer-types"></a>Assinatura com desconto e tipos de oferta
 
-Os descontos de reserva se aplicam às seguintes assinaturas qualificadas e tipos de oferta.
+Os descontos da reserva aplicam-se às seguintes subscrições e tipos de oferta elegíveis.
 
 - Contrato Enterprise (números de oferta: MS-AZR-0017P ou MS-AZR-0148P)
-- Planos individuais com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P)
-- Assinaturas do CSP
+- Planos individuais com preços pay as you go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P)
+- Subscrições CSP
 
-Os recursos que são executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
+Os recursos executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva.
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada?
 
-A reserva é cobrada para o método de pagamento vinculado à assinatura. Se você tiver uma assinatura corporativa, o custo de reserva será deduzido do saldo de compromisso monetário. Quando seu saldo de compromisso monetário não cobre o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente. Quando for cobrado por fatura, você verá os encargos em sua próxima fatura.
+A reserva é cobrada para o método de pagamento vinculado à assinatura. Se você tiver uma assinatura corporativa, o custo de reserva será deduzido do saldo de compromisso monetário. Quando seu saldo de compromisso monetário não cobre o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras iniciais. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos em sua próxima fatura.
 
 ## <a name="how-reservation-discount-is-applied"></a>Como o desconto de reserva é aplicado
 
@@ -116,7 +120,7 @@ Por exemplo, você pode criar posteriormente um recurso e ter uma reserva corres
 
 Se as máquinas virtuais estiverem em execução em assinaturas diferentes em seu registro/conta, selecione o escopo como compartilhado. O escopo compartilhado permite que o desconto de reserva seja aplicado entre assinaturas. Você pode alterar o escopo depois de comprar uma reserva. Para obter mais informações, consulte [gerenciar reservas do Azure](billing-manage-reserved-vm-instance.md).
 
-Um desconto de reserva só se aplica a recursos associados a empresas, CSP ou assinaturas com tarifas pagas conforme o uso. Os recursos que são executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
+Um desconto de reserva só se aplica a recursos associados a empresas, CSP ou assinaturas com tarifas pagas conforme o uso. Os recursos executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva.
 
 ## <a name="when-the-reservation-term-expires"></a>Quando o termo de reserva expirar
 
@@ -163,7 +167,7 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 - Saiba mais sobre as reservas do Azure com os seguintes artigos:
     - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
     - [Entenda o uso de reserva para sua assinatura com tarifas pagas conforme o uso](billing-understand-reserved-instance-usage.md)
-    - [Entender o uso de reserva para seu registro corporativo](billing-understand-reserved-instance-usage-ea.md)
+    - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
     - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)
     - [Reservas do Azure no programa CSP (provedor de soluções na nuvem) do Partner Center](/partner-center/azure-reservations)
 

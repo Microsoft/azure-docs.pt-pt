@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 361fcc6b60e863ee43d348cedd6b1571f3f563a2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258853"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812898"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
 
@@ -102,7 +102,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
 
 * Use `allowedValues` com moderação. Use-o somente quando você tiver certeza de que alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
-* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo detemplate ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo **detemplate** ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Recomendações de segurança para parâmetros
 
@@ -192,7 +192,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -203,43 +203,32 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
 * Se você usar um *ponto de extremidade público* em seu modelo (como um ponto de extremidade público do armazenamento de BLOBs do Azure), *não codifique* o namespace. Use a função de **referência** para recuperar dinamicamente o namespace. Você pode usar essa abordagem para implantar o modelo em diferentes ambientes de namespace público sem alterar manualmente o ponto de extremidade no modelo. Defina a versão da API para a mesma versão que você está usando para a conta de armazenamento em seu modelo:
    
    ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
    
-   Se a conta de armazenamento for implantada no mesmo modelo que você está criando, você não precisará especificar o namespace do provedor ao fazer referência ao recurso. O exemplo a seguir mostra a sintaxe simplificada:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Se você tiver outros valores em seu modelo que são configurados para usar um namespace público, altere esses valores para refletir a mesma função de **referência** . Por exemplo, você pode definir a propriedade **storageUri** do perfil de diagnóstico de máquina virtual:
+   Se a conta de armazenamento for implantada no mesmo modelo que você está criando e o nome da conta de armazenamento não for compartilhado com outro recurso no modelo, você não precisará especificar o namespace do provedor ou o apiVersion quando fizer referência ao recurso. O exemplo a seguir mostra a sintaxe simplificada:
    
    ```json
    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
    }
    ```
-   
+     
    Você também pode fazer referência a uma conta de armazenamento existente que esteja em um grupo de recursos diferente:
 
    ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
@@ -254,7 +243,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    * [Permitir acesso externo à sua VM usando o PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Permitir acesso externo à sua VM Linux usando CLI do Azure](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a função uniquestring gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
+* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a função **uniquestring** gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
 
    ```json
    "parameters": {
@@ -312,7 +301,7 @@ Se você usar um modelo para criar endereços IP públicos, inclua uma [seção 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter informações sobre a estrutura do arquivo de modelo do Resource Manager, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [desenvolver modelos de Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).

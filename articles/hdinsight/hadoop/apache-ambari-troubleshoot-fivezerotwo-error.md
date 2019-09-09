@@ -1,17 +1,17 @@
 ---
 title: Erro do Apache Ambari UI 502 no Azure HDInsight
-description: Erro do Apache Ambari UI 502 no Azure HDInsight
+description: Erro do Apache Ambari UI 502 ao tentar acessar o cluster HDInsight do Azure
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 1b79ef044271c926bf8c4255d0cee67943a0e58b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8e911fcb68fb318ce0a9c1178eee1c7d126728e0
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886705"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810926"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Cenário: Erro do Apache Ambari UI 502 no Azure HDInsight
 
@@ -64,7 +64,7 @@ Raramente o servidor Ambari não pode lidar com a solicitação de entrada, voc�
 Error Processing URI: /api/v1/clusters/xxxxxx/host_components - (java.lang.OutOfMemoryError) Java heap space
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

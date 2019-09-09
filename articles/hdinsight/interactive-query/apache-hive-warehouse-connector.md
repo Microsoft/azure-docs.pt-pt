@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983073"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811670"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar Apache Spark e Apache Hive com o conector do depósito do hive
 
@@ -72,7 +72,7 @@ Siga estas etapas para configurar o conector de depósito do hive entre um Spark
         ```
 
     1. Defina `spark.security.credentials.hiveserver2.enabled` como`false` para o modo de implantação de cliente yarn.
-    1. Defina `spark.hadoop.hive.zookeeper.quorum` como o quorum Zookeeper do seu cluster LLAP. Para localizar o quorum Zookeeper para o cluster do LLAP, procure a propriedade **Hive. Zookeeper. quorum** na interface do usuário do Ambari para o cluster > LLAP em > Hive avançado avançado**Hive-site**. O valor será semelhante à seguinte cadeia de caracteres:
+    1. Defina `spark.hadoop.hive.zookeeper.quorum` como o quorum Zookeeper do seu cluster LLAP. Para localizar o quorum Zookeeper para o cluster do LLAP, procure a propriedade **Hive. Zookeeper. quorum** na interface > do usuário do Ambari para o cluster **LLAP em** > Hive avançado avançado**Hive-site**. O valor será semelhante à seguinte cadeia de caracteres:
 
         ```
         zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
@@ -229,10 +229,10 @@ Siga as etapas abaixo para criar um exemplo de conector de depósito do hive que
 1. Aplique uma política de mascaramento de coluna que mostre apenas os últimos quatro caracteres da coluna.  
     1. Acesse a interface do usuário do `https://CLUSTERNAME.azurehdinsight.net/ranger/`administrador do Ranger em.
     1. Clique no serviço de Hive para o cluster em **Hive**.
-        ![tabela de demonstração antes de aplicar a política de Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. Clique na guia **mascaramento** e **adicione nova** ![lista de políticas de política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+    1. Clique na guia **mascaramento** e adicione a **nova política** ![lista de políticas de Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. Forneça um nome de política desejado. Selecionar Banco de dados: **Padrão**, tabela do hive: **demonstração**, coluna do hive: **nome**, usuário: **rsadmin2**, tipos de acesso: **Select**e **máscara parcial: Mostre os últimos 4** no menu de **opção Selecionar mascaramento** . Clique em **Adicionar**.
-                ![lista de políticas](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                ![criar política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Exiba o conteúdo da tabela novamente. Depois de aplicar a política de Ranger, podemos ver apenas os últimos quatro caracteres da coluna.
 
     ![tabela de demonstração após a aplicação da política de Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

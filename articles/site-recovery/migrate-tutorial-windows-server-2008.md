@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400086"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814495"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
 
@@ -23,17 +23,20 @@ Este tutorial mostra como migrar servidores no local com o Windows Server 2008 o
 > * Preparar o ambiente no local para a migração
 > * Configurar o ambiente de destino
 > * Configurar uma política de replicação
-> * Ativar a replicação
+> * Ativar replicação
 > * Executar uma migração de teste para confirmar que está tudo a funcionar conforme o previsto
 > * Fazer a ativação pós-falha no Azure e concluir a migração
 
 A secção de limitações e problemas conhecidos apresenta algumas limitações e soluções para problemas conhecidos com que se poderá deparar ao migrar máquinas com o Windows Server 2008 para o Azure. 
 
+> [!NOTE]
+> Agora você pode migrar do local para o Azure usando o serviço migrações para Azure. [Saiba mais](../migrate/migrate-services-overview.md).
+
 
 ## <a name="supported-operating-systems-and-environments"></a>Sistemas operativos e ambientes suportados
 
 
-|Sistema operativo  | Ambiente no local  |
+|Sistema operativo  | Ambiente local  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32 bits e 64 bits (IA-32 e x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMs de VMware, VMs de Hyper-V e Servidores Físicos    |
 |Windows Server 2008 R2 SP1 - 64 bits</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMs de VMware, VMs de Hyper-V e Servidores Físicos|
@@ -51,7 +54,7 @@ Para migrar máquinas virtuais de Hyper-V com o Windows Server 2008 ou Windows S
 
 O resto deste tutorial mostra como pode migrar máquinas virtuais de VMware no local e Servidores físicos com o Windows Server 2008 ou 2008 R2.
 > [!TIP]
-> À procura de uma forma sem agente migrar VMs de VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
+> Procurando uma maneira sem agente de migrar VMs VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
@@ -72,7 +75,7 @@ O resto deste tutorial mostra como pode migrar máquinas virtuais de VMware no l
 
 - Pode não ser possível fazer o RDP para servidores Windows Server 2008 SP2 com o sistema operativo de 32 bits imediatamente após a respetiva ativação pós-falha ou ativação pós-falha de teste no Azure. Reinicie a máquina virtual na qual foi feita a ativação pós-falha a partir do portal do Azure e tente ligar novamente. Se ainda assim não conseguir ligar, verifique se o servidor está configurado para permitir ligações ao ambiente de trabalho remoto e certifique-se de que não existem regras de firewall ou grupos de segurança de rede que estejam a bloquear a ligação. 
   > [!TIP]
-  > Antes de migrar servidores, é altamente recomendada uma ativação pós-falha de teste. Certifique-se de que, feita pelo menos uma ativação pós-falha de teste em cada servidor que está a migrar. Como parte da ativação pós-falha de teste, ligue à máquina na qual foi executada a ativação pós-falha de teste e certifique-se de que tudo está a funcionar como esperado.
+  > Antes de migrar servidores, é altamente recomendada uma ativação pós-falha de teste. Verifique se você executou pelo menos um failover de teste bem-sucedido em cada servidor que você está migrando. Como parte da ativação pós-falha de teste, ligue à máquina na qual foi executada a ativação pós-falha de teste e certifique-se de que tudo está a funcionar como esperado.
   >
   >A operação de ativação pós-falha de teste não é disruptiva e ajuda a testar as migrações através da criação de máquinas virtuais numa rede isolada à sua escolha. Ao contrário da operação de ativação pós-falha, durante a operação de ativação pós-falha de teste, a replicação de dados continua a ser executada. Pode executar a quantidade de ativações pós-falha de teste que quiser até estar preparado para executar a migração. 
   >
@@ -87,10 +90,10 @@ Execute as seguintes tarefas para preparar a subscrição do Azure e o ambiente 
 2. Preparar o [VMware](vmware-azure-tutorial-prepare-on-premises.md) no local
 
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **criar um recurso** > **ferramentas de gestão** > **cópia de segurança e recuperação de Site**.
+2. Clique em **criar um recurso** > **ferramentas** > de gerenciamento**backup e site Recovery**.
 3. Em **Nome**, especifique o nome amigável **W2K8-migration**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 4. Crie um grupo de recursos com o nome **w2k8migrate**.
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -120,23 +123,23 @@ Selecione e verifique os recursos de destino.
 1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Se o RPO de replicação exceder este limite, será gerado um alerta.
-4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. Servidores replicadas podem ser recuperadas para qualquer ponto nessa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
+4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. Os servidores replicados podem ser recuperados para qualquer ponto nessa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
 5. Em **Frequência de instantâneo consistente com a aplicação**, especifique **Desativada**. Clique em **OK** para criar a política.
 
 A política é associada automaticamente ao servidor de configuração.
 
 > [!WARNING]
-> Certifique-se de que especifica **DESATIVADA** na definição Frequência de instantâneo consistente com a aplicação da política de replicação. Apenas os pontos de recuperação consistentes com falhas são suportados ao replicar servidores com o Windows Server 2008. Especificar qualquer outro valor para a frequência de instantâneo consistente com a aplicação irá resultar em alertas falsas ao ativar o estado de funcionamento de replicação do servidor crítico devido à ausência de pontos de recuperação consistente com a aplicação.
+> Certifique-se de que especifica **DESATIVADA** na definição Frequência de instantâneo consistente com a aplicação da política de replicação. Apenas os pontos de recuperação consistentes com falhas são suportados ao replicar servidores com o Windows Server 2008. A especificação de qualquer outro valor para a frequência de instantâneo consistente com o aplicativo resultará em falsos alertas, transformando a integridade da replicação do servidor crítico devido à falta de pontos de recuperação consistentes com o aplicativo.
 
    ![Criar política de replicação](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
-## <a name="enable-replication"></a>Ativar a replicação
+## <a name="enable-replication"></a>Ativar replicação
 
 [Ative a replicação](physical-azure-disaster-recovery.md#enable-replication) para que o servidor Windows Server 2008 SP2/Windows Server 2008 R2 SP1 seja migrado.
    
    ![Adicionar um servidor físico](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Ativar a replicação](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Ativar replicação](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ## <a name="run-a-test-migration"></a>Executar uma migração de teste
 
@@ -155,13 +158,13 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Selecione o ponto de recuperação mais recente.
 3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tentará encerrar o servidor antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 4. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
-5. Na **itens replicados**, clique com o botão direito do servidor > **concluir a migração**. Isso faz o seguinte:
+5. Em **itens replicados**, clique com o botão direito do mouse no servidor > **concluir a migração**. Isso faz o seguinte:
 
-    - O processo de migração é concluído, para a replicação para o servidor e interrompe a faturação do Site Recovery para a servir.
-    - Este passo limpa os dados de replicação. Não elimina as VMs migradas.
+    - Conclui o processo de migração, interrompe a replicação para o servidor e interrompe Site Recovery cobrança para o servi.
+    - Esta etapa limpa os dados de replicação. Ele não exclui as VMs migradas.
 
-   ![Concluir a migração](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Concluir migração](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Não cancelar uma ativação pós-falha em curso**: Replicação de servidor está parada antes de o início da ativação pós-falha. Se cancelar uma ativação pós-falha em curso, paradas de ativação pós-falha, mas o servidor não continua a replicar.
+> **Não cancelar um failover em andamento**: A replicação do servidor é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas o servidor não continuará replicando.

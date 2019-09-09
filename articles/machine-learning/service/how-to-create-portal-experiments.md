@@ -1,5 +1,5 @@
 ---
-title: Usar o ML automatizado para criar e implantar modelos de aprendizado de máquina
+title: Usar a interface do ML automatizada do Azure para treinar & implantar modelos
 titleSuffix: Azure Machine Learning service
 description: Crie, gerencie e implante experiências automatizadas de aprendizado de máquina no portal do Azure
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0286c82c0b4378e24fa46d0327bd6a5b26037496
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990574"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813653"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar, explorar e implantar experimentos automatizados de aprendizado de máquina na portal do Azure (versão prévia)
 
@@ -38,7 +38,7 @@ Navegue até o painel esquerdo do seu espaço de trabalho. Selecione Machine Lea
 
  Se esta for a primeira vez que você faz qualquer experimento, você verá a tela **Bem-vindo à Machine Learning automatizada** . 
 
-Caso contrário, você verá o painel automatizado do **Machine Learning** com uma visão geral de todos os seus experimentos de aprendizado de máquina automatizados, incluindo aqueles criados com o SDK. Aqui você pode filtrar e explorar suas execuções por data, nome do experimento e status de execução.
+Caso contrário, você verá o painel **automatizado do Machine Learning** com uma visão geral de todos os seus experimentos de aprendizado de máquina automatizados, incluindo aqueles criados com o SDK. Aqui você pode filtrar e explorar suas execuções por data, nome do experimento e status de execução.
 
 ## <a name="create-an-experiment"></a>Criar uma experimentação
 
@@ -194,7 +194,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 Agora você tem um serviço Web operacional para gerar previsões!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.

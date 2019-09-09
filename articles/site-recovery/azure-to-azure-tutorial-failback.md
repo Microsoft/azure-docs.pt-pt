@@ -1,20 +1,19 @@
 ---
 title: Failback VMs do Azure replicadas para uma região secundária do Azure para recuperação de desastre com o serviço Azure Site Recovery.
 description: Saiba como fazer failback de VMs do Azure com o serviço Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3910336efe50131fbd5df72039af345eb7346385
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383226"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814526"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Fazer failback de uma VM do Azure entre regiões do Azure
 
@@ -58,6 +57,6 @@ Depois que as VMs são protegidas novamente, você pode fazer failback para a re
 
     ![VM em regiões primárias e secundárias](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) sobre o fluxo de nova proteção.

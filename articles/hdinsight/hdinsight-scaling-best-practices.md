@@ -1,67 +1,67 @@
 ---
-title: Tamanhos de cluster de dimensionamento - Azure HDInsight
-description: Dimensione um cluster de HDInsight do Azure de forma elástica para corresponder à sua carga de trabalho.
+title: Dimensionar tamanhos de cluster-Azure HDInsight
+description: Dimensionar um cluster Apache Hadoop de forma elástica para corresponder à sua carga de trabalho no Azure HDInsight
 author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a278196b2f4edc35ebc8c4dc77116363e9f7901
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077183"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811810"
 ---
-# <a name="scale-hdinsight-clusters"></a>Dimensionar clusters do HDInsight
+# <a name="scale-hdinsight-clusters"></a>Dimensionar clusters HDInsight
 
-HDInsight fornece elasticidade, dando-lhe a opção de aumentar verticalmente e reduzir verticalmente o número de nós de trabalho nos seus clusters. Este elasticidade permite-lhe diminuir um cluster após horas ou no fim de semana e expanda-o durante picos de procura de negócios.
+O HDInsight fornece elasticidade fornecendo a opção de escalar verticalmente e reduzir o número de nós de trabalho em seus clusters. Essa elasticidade permite que você reduza um cluster após horas ou em fins de semana e expanda-o durante as demandas de negócios de pico.
 
-Se tiver o processamento em lotes periódicas, pode ser aumentado o cluster de HDInsight alguns minutos antes dessa operação, para que o cluster tem memória suficiente e a potência da CPU.  Mais tarde, depois do processamento é concluído e uso novamente a ficar inativo, pode reduzir verticalmente o cluster do HDInsight para menos nós de trabalho.
+Se você tiver um processamento de lote periódico, o cluster HDInsight poderá ser escalado verticalmente alguns minutos antes dessa operação, de modo que o cluster tenha uma capacidade de CPU e memória adequada.  Posteriormente, depois que o processamento for concluído e o uso falhar novamente, você poderá reduzir o cluster HDInsight para menos nós de trabalho.
 
-Pode dimensionar um cluster manualmente usando um dos métodos descritos abaixo ou utilize [dimensionamento automático](hdinsight-autoscale-clusters.md) opções para fazer o sistema automaticamente ou reduza verticalmente em resposta a CPU, memória e outras métricas.
+Você pode dimensionar um cluster manualmente usando um dos métodos descritos abaixo, ou usar opções de [dimensionamento automático](hdinsight-autoscale-clusters.md) para que o sistema seja dimensionado e reduzido automaticamente em resposta à CPU, memória e outras métricas.
 
 > [!NOTE]  
-> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.
+> Há suporte apenas para clusters com o HDInsight versão 3.1.3 ou superior. Se não tiver certeza da versão do cluster, você poderá verificar a página Propriedades.
 
 ## <a name="utilities-to-scale-clusters"></a>Utilitários para dimensionar clusters
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
-|Utilitário | Descrição|
+|Utilitários | Descrição|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
-|[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [Redimensionar AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) – grupo de recursos \<grupo de recursos >-name \<nome do Cluster > – contagem de instâncias de destino \<NewSize >|
-|[CLI do Azure](hdinsight-administer-use-command-line.md)|o Azure hdinsight cluster redimensionamento \<clusterName > \<contagem de instâncias de destino > |
-|[Portal do Azure](https://portal.azure.com)|Abra o painel de cluster do HDInsight, selecione **tamanho do Cluster** no menu do lado esquerdo, em seguida, no painel de tamanho de Cluster, escreva o número de nós de trabalho e selecione guardar.|  
+|[AZ do PowerShell](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<nome do cluster >- \<TargetInstanceCount newSize >|
+|[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<nome do cluster >- \<TargetInstanceCount newSize >|
+|[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ hdinsight Resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --Resource-Group \<Resource Group >--nome \<cluster Name >--Target-Instance-Count \<newSize >|
+|[CLI do Azure](hdinsight-administer-use-command-line.md)|ClusterName de redimensionamento \<de \<cluster do Azure hdinsight > contagem de instâncias de destino > |
+|[Azure portal](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
 
-![Dimensionar o cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Cluster de dimensionamento](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
-Utilizar qualquer um destes métodos, pode dimensionar o cluster do HDInsight ou reduzir verticalmente dentro de minutos.
+Usando qualquer um desses métodos, você pode dimensionar seu cluster HDInsight para cima ou para baixo em minutos.
 
 > [!IMPORTANT]  
-> * A CLI clássica do Azure foi preterida e só deve ser utilizada com o modelo de implementação clássica. Para todas as outras implementações, utilize o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
-> * O módulo PowerShell AzureRM foi preterido.  Utilize o [módulo Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) sempre que possível.
+> * A CLI clássica do Azure foi preterida e só deve ser usada com o modelo de implantação clássico. Para todas as outras implantações, use o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * O módulo AzureRM do PowerShell foi preterido.  Use o [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) sempre que possível.
 
 ## <a name="impact-of-scaling-operations"></a>Impacto das operações de dimensionamento
 
-Quando **adicionar** nós para em execução HDInsight cluster (aumentar verticalmente), todas as tarefas em execução ou pendentes não serão afetados. Novas tarefas podem ser submetidas com segurança enquanto o processo de dimensionamento está em execução. Se a operação de dimensionamento falhar por algum motivo, a falha será manipulada para deixar o seu cluster num estado funcional.
+Quando você **adiciona** nós ao cluster do HDInsight em execução (Scale up), todos os trabalhos pendentes ou em execução não serão afetados. Novos trabalhos podem ser enviados com segurança enquanto o processo de dimensionamento está em execução. Se a operação de dimensionamento falhar por algum motivo, a falha será tratada para deixar o cluster em um estado funcional.
 
-Se **remover** nós (reduzir verticalmente), qualquer vontade de tarefas pendentes ou em execução falharem quando a operação de dimensionamento for concluída. Esta falha é devido a alguns dos serviços reiniciar durante o processo de dimensionamento. Também é um risco de que o seu cluster pode obter bloqueado no modo de segurança durante uma operação de dimensionamento de manual.
+Se você **remover** nós (reduzir verticalmente), todos os trabalhos pendentes ou em execução falharão quando a operação de dimensionamento for concluída. Essa falha ocorre devido a alguns dos serviços reiniciando durante o processo de dimensionamento. Também há um risco de que o cluster fique preso no modo de segurança durante uma operação de dimensionamento manual.
 
-O impacto de alterar o número de nós de dados varia para cada tipo de cluster suportada pelo HDInsight:
+O impacto da alteração do número de nós de dados varia para cada tipo de cluster com suporte do HDInsight:
 
 * Apache Hadoop
 
-    Pode facilmente aumentar o número de nós de trabalho num cluster do Hadoop que está a ser executado sem afetar todas as tarefas em execução ou pendentes. Também podem ser submetidas a novas tarefas enquanto a operação estiver em curso. Falhas numa operação de dimensionamento são processadas corretamente para que o cluster está sempre deixado no estado funcional.
+    Você pode aumentar diretamente o número de nós de trabalho em um cluster Hadoop em execução sem afetar nenhum trabalho pendente ou em execução. Novos trabalhos também podem ser enviados enquanto a operação está em andamento. As falhas em uma operação de dimensionamento são normalmente manipuladas para que o cluster sempre fique em um estado funcional.
 
-    Quando um cluster do Hadoop é reduzido, reduzindo o número de nós de dados, alguns dos serviços do cluster são reiniciados. Esse comportamento faz com que tudo em execução e tarefas pendentes a falhar após a conclusão da operação de dimensionamento. Pode, no entanto, volte a submeter as tarefas depois de concluída a operação.
+    Quando um cluster Hadoop é reduzido reduzindo o número de nós de dados, alguns dos serviços no cluster são reiniciados. Esse comportamento faz com que todos os trabalhos em execução e pendentes falhem na conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
 
 * Apache HBase
 
-    Pode facilmente adicionar ou remover nós ao cluster do HBase durante a execução. Servidores regionais são balanceadas automaticamente dentro de alguns minutos a concluir a operação de dimensionamento. No entanto, também manualmente pode balancear servidores regionais iniciando sessão nó principal do cluster e executar os seguintes comandos a partir de uma janela de linha de comandos:
+    Você pode adicionar ou remover nós diretamente em seu cluster HBase enquanto ele está em execução. Os servidores regionais são balanceados automaticamente em alguns minutos após a conclusão da operação de dimensionamento. No entanto, você também pode balancear manualmente os servidores regionais fazendo logon no cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
 
     ```bash
     pushd %HBASE_HOME%\bin
@@ -69,24 +69,24 @@ O impacto de alterar o número de nós de dados varia para cada tipo de cluster 
     balancer
     ```
 
-    Para obter mais informações sobre como utilizar a shell de HBase, consulte [começar com um exemplo de Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+    Para obter mais informações sobre como usar o Shell do HBase, consulte [introdução a um exemplo do Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Apache Storm
 
-    Pode facilmente adicionar ou remover nós de dados ao seu cluster do Storm, enquanto estiver em execução. No entanto, após a conclusão bem-sucedida da operação de dimensionamento, terá de reequilibrar a topologia.
+    Você pode adicionar ou remover nós de dados diretamente em seu cluster Storm enquanto ele estiver em execução. No entanto, após uma conclusão bem-sucedida da operação de dimensionamento, será necessário reequilibrar a topologia.
 
-    Reequilíbrio pode ser feito de duas formas:
+    O rebalanceamento pode ser realizado de duas maneiras:
 
-  * IU da web do Storm
-  * Ferramenta de interface de linha de comandos (CLI)
+  * Interface do usuário da Web do Storm
+  * Ferramenta de interface de linha de comando (CLI)
 
     Consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
 
-    A IU da web de Storm está disponível no cluster do HDInsight:
+    A interface do usuário da Web do Storm está disponível no cluster HDInsight:
 
-    ![Reequilíbrio de dimensionamento do HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![Rebalanceamento de escala do HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
-    Eis um exemplo de comando da CLI para reequilibrar a topologia do Storm:
+    Aqui está um exemplo de comando da CLI para reequilibrar a topologia do Storm:
 
     ```cli
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -95,32 +95,32 @@ O impacto de alterar o número de nós de dados varia para cada tipo de cluster 
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-## <a name="how-to-safely-scale-down-a-cluster"></a>Como com segurança reduzir verticalmente um cluster
+## <a name="how-to-safely-scale-down-a-cluster"></a>Como reduzir com segurança um cluster
 
-### <a name="scale-down-a-cluster-with-running-jobs"></a>Reduzir verticalmente um cluster com tarefas em execução
+### <a name="scale-down-a-cluster-with-running-jobs"></a>Reduzir verticalmente um cluster com trabalhos em execução
 
-Para evitar que as tarefas em execução falhar durante a operação de redução de dimensionamento, pode experimentar três coisas:
+Para evitar que seus trabalhos em execução falhem durante uma operação de redução, você pode experimentar três coisas:
 
-1. Aguarde que as tarefas esteja concluída antes de reduzir verticalmente o cluster.
-1. Termina manualmente as tarefas.
-1. Volte a submeter as tarefas após tem concluíram a operação de dimensionamento.
+1. Aguarde até que os trabalhos sejam concluídos antes de reduzir horizontalmente o cluster.
+1. Encerre manualmente os trabalhos.
+1. Reenvie os trabalhos após a operação de dimensionamento ser concluída.
 
-Para ver uma lista de pendentes e tarefas em execução, pode usar o YARN **da IU do Gestor de recursos**, seguindo estes passos:
+Para ver uma lista de trabalhos pendentes e em execução, você pode usar a interface do usuário do YARN **Resource Manager**, seguindo estas etapas:
 
-1. Partir do [portal do Azure](https://portal.azure.com/), selecione o cluster.  Ver [listar e Mostrar clusters](./hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto numa nova página de portal.
-2. A vista principal, navegue para **dashboards de clusters** > **Ambari doméstica**. Introduza as credenciais de cluster.
-3. Na IU do Ambari, selecione **YARN** na lista de serviços no menu do lado esquerdo.  
-4. Na página do YARN, selecione **ligações rápidas** e coloque o cursor sobre o nó principal do Active Directory, em seguida, selecione **IU de ResourceManager**.
+1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  Consulte [listar e mostrar clusters](./hdinsight-administer-use-portal-linux.md#showClusters) para obter as instruções. O cluster é aberto em uma nova página do Portal.
+2. Na exibição principal, navegue até **painéis** > de cluster**Ambari página inicial**. Insira suas credenciais de cluster.
+3. Na interface do usuário do amAmbari, selecione **yarn** na lista de serviços no menu à esquerda.  
+4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e selecione **interface do usuário do ResourceManager**.
 
-    ![IU de ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![Interface do usuário do ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
-Pode aceder diretamente a IU de ResourceManager com `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
+Você pode acessar diretamente a interface do usuário `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`do ResourceManager com.
 
-É apresentada uma lista de tarefas, juntamente com o respetivo estado atual. Na captura de ecrã, existe uma tarefa atualmente em execução:
+Você verá uma lista de trabalhos, juntamente com seu estado atual. Na captura de tela, há um trabalho em execução no momento:
 
-![Aplicativos de IU de ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+![Aplicativos de interface do usuário do ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
-Para eliminar manualmente esse aplicativo em execução, execute o seguinte comando a partir da shell SSH:
+Para eliminar manualmente esse aplicativo em execução, execute o seguinte comando no Shell SSH:
 
 ```bash
 yarn application -kill <application_id>
@@ -132,15 +132,15 @@ Por exemplo:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-### <a name="getting-stuck-in-safe-mode"></a>A acumular-se no modo de segurança
+### <a name="getting-stuck-in-safe-mode"></a>Travando no modo de segurança
 
-Quando reduzir verticalmente um cluster, o HDInsight utiliza interfaces de gerenciamento do Apache Ambari para primeiro desativar os nós de trabalho extra, o qual replicar os seus blocos HDFS para outros nós de trabalho online. Depois disso, o HDInsight aumenta com segurança o cluster diminui. HDFS entra em modo de segurança durante a operação de dimensionamento e deve para aparecer assim que o dimensionamento é concluído. Em alguns casos, no entanto, HDFS fica preso em modo de segurança durante uma operação de dimensionamento devido a replicação de insuficientemente de blocos de arquivo.
+Quando você reduz verticalmente um cluster, o HDInsight usa as interfaces de gerenciamento do Apache Ambari para primeiro desativar os nós de trabalho adicionais, que replicam seus blocos HDFS para outros nós de trabalho online. Depois disso, o HDInsight dimensiona com segurança o cluster para baixo. O HDFS entra em modo de segurança durante a operação de dimensionamento e deve sair quando o dimensionamento for concluído. Em alguns casos, no entanto, o HDFS fica preso no modo de segurança durante uma operação de dimensionamento devido à replicação do bloco de arquivos.
 
-Por predefinição, o HDFS é configurado com um `dfs.replication` definição de 3, que controla o número de cópias de cada bloco do arquivo está disponível. Cada cópia de um bloco de ficheiro é armazenada num nó diferente do cluster.
+Por padrão, o HDFS é configurado com `dfs.replication` uma configuração de 3, que controla quantas cópias de cada bloco de arquivo estão disponíveis. Cada cópia de um bloco de arquivos é armazenada em um nó diferente do cluster.
 
-Quando o HDFS detecta que o número esperado de cópias de bloco não está disponível, HDFS entra em modo seguro e Ambari gera alertas. Se HDFS introduz o modo de segurança numa operação de dimensionamento, mas, em seguida, não pode sair do modo de segurança porque o número necessário de nós não é detetado para a replicação, pode ficar bloqueado, o cluster no modo de segurança.
+Quando o HDFS detecta que o número esperado de cópias de bloco não está disponível, o HDFS entra no modo de segurança e Ambari gera alertas. Se o HDFS entrar no modo de segurança para uma operação de dimensionamento, mas não puder sair do modo de segurança porque o número necessário de nós não for detectado para replicação, o cluster poderá ficar preso no modo de segurança.
 
-### <a name="example-errors-when-safe-mode-is-turned-on"></a>Erros de exemplo, quando o modo de segurança está ativado
+### <a name="example-errors-when-safe-mode-is-turned-on"></a>Erros de exemplo quando o modo de segurança está ativado
 
 ```
 org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
@@ -150,32 +150,32 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Pode rever os registos de nó de nome do `/var/log/hadoop/hdfs/` pasta, perto da hora quando o cluster foi dimensionado, para ver quando ele introduziu o modo de segurança. Os ficheiros de registo são nomeados `Hadoop-hdfs-namenode-hn0-clustername.*`.
+Você pode examinar os logs de nó de nome `/var/log/hadoop/hdfs/` da pasta, perto do momento em que o cluster foi dimensionado, para ver quando ele entrou no modo de segurança. Os arquivos de log são `Hadoop-hdfs-namenode-hn0-clustername.*`nomeados.
 
-A causa dos erros anteriores é que Hive depende ficheiros temporários no HDFS durante a execução de consultas. Quando o HDFS entra em modo seguro, ramo de registo não é possível executar consultas porque ele não é possível escrever no HDFS. Os arquivos temporários no HDFS estão localizados na unidade local instalado no nó de trabalho individuais VMs e replicados entre os outros nós de trabalho em três réplicas, mínimo.
+A causa raiz dos erros anteriores é que o hive depende de arquivos temporários no HDFS durante a execução de consultas. Quando o HDFS entra no modo de segurança, o hive não pode executar consultas porque ele não pode gravar no HDFS. Os arquivos temporários no HDFS estão localizados na unidade local montada nas VMs de nó de trabalho individuais e replicados entre outros nós de trabalho em três réplicas, no mínimo.
 
-### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Como impedir que o HDInsight presos no modo de segurança
+### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Como impedir que o HDInsight fique preso no modo de segurança
 
-Existem várias formas para impedir que o HDInsight a ser deixada no modo de segurança:
+Há várias maneiras de impedir que o HDInsight seja deixado no modo de segurança:
 
-* Pare todas as tarefas de ramo de registo antes de dimensionar para baixo do HDInsight. Em alternativa, agende a reduzir verticalmente o processo para evitar em conflito com a execução de tarefas do Hive.
-* Limpar manualmente zero do Hive `tmp` ficheiros do diretório hdfs antes de dimensionar para baixo.
-* Apenas reduza verticalmente o HDInsight para três nós de trabalho, mínimo. Evite vai como tão baixo como nó de um trabalho.
-* Execute o comando sair do modo de segurança, se necessário.
+* Interrompa todos os trabalhos do hive antes de reduzir o HDInsight. Como alternativa, agende o processo de redução para baixo para evitar conflitos com a execução de trabalhos do hive.
+* Limpe manualmente os arquivos do diretório `tmp` temporário do hive no HDFS antes de reduzir horizontalmente.
+* Reduza verticalmente o HDInsight para três nós de trabalho, no mínimo. Evite ficar tão baixo quanto um nó de trabalho.
+* Execute o comando para sair do modo de segurança, se necessário.
 
-As secções seguintes descrevem estas opções.
+As seções a seguir descrevem essas opções.
 
-#### <a name="stop-all-hive-jobs"></a>Parar todas as tarefas do Hive
+#### <a name="stop-all-hive-jobs"></a>Parar todos os trabalhos do hive
 
-Pare todas as tarefas do Hive antes de reduzir verticalmente para o nó de um trabalho. Se estiver agendada a sua carga de trabalho, em seguida, execute o seu verticalmente depois de terminar o trabalho do Hive.
+Interrompa todos os trabalhos do hive antes de reduzir horizontalmente para um nó de trabalho. Se sua carga de trabalho estiver agendada, execute a escala vertical após a conclusão da tarefa do hive.
 
-A parar as tarefas do Hive antes de dimensionar, ajuda a minimizar o número de ficheiros de rascunho na pasta tmp (se houver).
+Parar os trabalhos do hive antes do dimensionamento, ajuda a minimizar o número de arquivos transitórios na pasta tmp (se houver).
 
-#### <a name="manually-clean-up-hives-scratch-files"></a>Limpar manualmente os ficheiros de rascunho do Hive
+#### <a name="manually-clean-up-hives-scratch-files"></a>Limpar manualmente os arquivos temporários do hive
 
-Se o Hive tem deixadas para trás ficheiros temporários, em seguida, pode limpar manualmente esses arquivos antes de dimensionar para evitar o modo de segurança.
+Se o hive for deixado para trás dos arquivos temporários, você poderá limpar manualmente esses arquivos antes de reduzir verticalmente para evitar o modo de segurança.
 
-1. Verifique qual local está a ser utilizado para ficheiros temporários do ramo de registo ao observar o `hive.exec.scratchdir` propriedade de configuração. Este parâmetro estiver definido no `/etc/hive/conf/hive-site.xml`:
+1. Verifique qual local está sendo usado para arquivos temporários do hive examinando `hive.exec.scratchdir` a propriedade de configuração. Esse parâmetro é definido em `/etc/hive/conf/hive-site.xml`:
 
     ```xml
     <property>
@@ -184,14 +184,14 @@ Se o Hive tem deixadas para trás ficheiros temporários, em seguida, pode limpa
     </property>
     ```
 
-1. Parar os serviços do Hive e certifique-se de que todas as consultas e as tarefas são concluídas.
-2. Listar o conteúdo do diretório de rascunho encontrados acima, `hdfs://mycluster/tmp/hive/` para ver se ele contém todos os ficheiros:
+1. Pare os serviços do hive e certifique-se de que todas as consultas e trabalhos estejam concluídos.
+2. Liste o conteúdo do diretório temporário encontrado acima, `hdfs://mycluster/tmp/hive/` para ver se ele contém algum arquivo:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
-    Aqui está uma saída de exemplo quando existem ficheiros:
+    Aqui está um exemplo de saída quando existem arquivos:
 
     ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -203,23 +203,23 @@ Se o Hive tem deixadas para trás ficheiros temporários, em seguida, pode limpa
     -rw-r--r--   3 hive hdfs         26 2017-07-06 20:30 hdfs://mycluster/tmp/hive/hive/c108f1c2-453e-400f-ac3e-e3a9b0d22699/inuse.info
     ```
 
-3. Se souber o que Hive é feito com esses arquivos, pode removê-los. Certifique-se de que o ramo de registo não tem quaisquer consultas em execução ao procurar na página da IU de ResourceManager do Yarn.
+3. Se você souber que o hive é feito com esses arquivos, poderá removê-los. Certifique-se de que o hive não tenha nenhuma consulta em execução examinando a página da interface do usuário do yarn ResourceManager.
 
-    Linha de comandos de exemplo para remover ficheiros de HDFS:
+    Exemplo de linha de comando para remover arquivos do HDFS:
 
     ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
-#### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>HDInsight de dimensionamento para três ou mais nós de trabalho
+#### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>Dimensionar o HDInsight para três ou mais nós de trabalho
 
-Se os clusters de ficar preso no modo de segurança com frequência quando o dimensionamento para baixo para menos de três nós de trabalho e os passos anteriores não funcionarem, em seguida, pode evitar o cluster vai modo de segurança totalmente mantendo a, pelo menos, três nós de trabalho.
+Se os clusters ficarem presos no modo de segurança com frequência ao reduzir verticalmente para menos de três nós de trabalho e as etapas anteriores não funcionarem, você poderá evitar que o cluster vá para o modo de segurança completamente mantendo pelo menos três nós de trabalho.
 
-Manter os três nós de trabalho é mais dispendioso do que reduzir verticalmente para o nó de trabalho apenas uma, mas irá impedir que o cluster a acumular-se no modo de segurança.
+Reter três nós de trabalho é mais dispendioso do que escalar verticalmente para apenas um nó de trabalho, mas impedirá que o cluster fique preso no modo de segurança.
 
-#### <a name="run-the-command-to-leave-safe-mode"></a>Execute o comando sair do modo de segurança
+#### <a name="run-the-command-to-leave-safe-mode"></a>Execute o comando para sair do modo de segurança
 
-A última opção é a executar o comando de modo de segurança de saída. Se souber que o motivo para o HDFS entrar no modo seguro é devido a replicação de insuficientemente de ficheiros do ramo de registo, pode executar o seguinte comando para sair do modo de segurança:
+A opção final é executar o comando sair do modo de segurança. Se você souber que o motivo para o HDFS entrar no modo de segurança é devido ao arquivo de Hive em replicação, você poderá executar o seguinte comando para sair do modo de segurança:
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -227,17 +227,17 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 ### <a name="scale-down-an-apache-hbase-cluster"></a>Reduzir verticalmente um cluster do Apache HBase
 
-Servidores de região são balanceadas automaticamente dentro de alguns minutos depois de concluir uma operação de dimensionamento. Para balancear manualmente os servidores de região, conclua os seguintes passos:
+Os servidores de região são balanceados automaticamente em alguns minutos após a conclusão de uma operação de dimensionamento. Para balancear manualmente os servidores de região, conclua as seguintes etapas:
 
-1. Ligue ao cluster do HDInsight através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Conecte-se ao cluster HDInsight usando SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Inicie a shell de HBase:
+2. Inicie o Shell do HBase:
 
     ```bash
     hbase shell
     ```
 
-3. Utilize o seguinte comando para balancear manualmente os servidores de região:
+3. Use o seguinte comando para balancear manualmente os servidores de região:
 
     ```bash
     balancer
@@ -245,5 +245,5 @@ Servidores de região são balanceadas automaticamente dentro de alguns minutos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Dimensionar automaticamente os clusters do HDInsight do Azure](hdinsight-autoscale-clusters.md)
+* [Dimensionar automaticamente os clusters do Azure HDInsight](hdinsight-autoscale-clusters.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

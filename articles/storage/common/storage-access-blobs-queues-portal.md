@@ -9,12 +9,12 @@ ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: abbd436e5d1c88c53af95fd8ba9add20fa67c8e4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8d19724883e6c2b3630de6100b1b4ca9fd9250a1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640883"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813363"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar o portal do Azure para acessar dados de BLOB ou de fila
 
@@ -22,7 +22,7 @@ Quando você acessa dados de BLOB ou de fila usando o [portal do Azure](https://
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Permissões necessárias para acessar dados de BLOB ou fila
 
-Dependendo de como você deseja autorizar o acesso ao BLOB ou aos dados da fila no portal do Azure, você precisará de permissões específicas. Na maioria dos casos, essas permissões são fornecidas por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
+Dependendo de como você deseja autorizar o acesso a dados de BLOB ou de fila no portal do Azure, você precisará de permissões específicas. Na maioria dos casos, essas permissões são fornecidas por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
 
 ### <a name="account-access-key"></a>Chave de acesso da conta
 
@@ -95,7 +95,7 @@ Para alternar para o usando a chave de acesso da conta, clique no link realçado
 
 Observe que nenhum blob aparecerá na lista se você não tiver acesso às chaves da conta. Clique no link **alternar para a conta de usuário do Azure ad** para usar sua conta do Azure ad para autenticação novamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md)
 - [Conceder acesso a contêineres e filas do Azure com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)

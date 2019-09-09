@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 15ce85385662ba186f8434285130099054e52c05
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663502"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814459"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -30,6 +30,10 @@ Este tutorial ensina-lhe a migrar máquinas virtuais (VMs) do Amazon Web Service
 > * Executar uma ativação pós-falha única para o Azure
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
+
+
+> [!NOTE]
+    > Agora você pode usar o serviço migrações para Azure para migrar instâncias AWS para o Azure. [Saiba mais](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Certifique-se de que as VMs que quer migrar têm uma versão suportada do SO. As versões suportadas incluem: 
@@ -111,9 +115,9 @@ Na página **Objetivo da proteção**, selecione os seguintes valores:
 
 |    |  |
 |---------|-----------|
-| Onde estão localizadas as máquinas virtuais? |Escolha **no local**.|
+| Onde estão localizadas as máquinas? |Escolha **no local**.|
 | Para onde pretende replicar as máquinas? |Selecionar **Para o Azure**.|
-| As suas máquinas estão virtualizadas? |Selecione **Não virtualizadas / Outro**.|
+| As máquinas estão virtualizadas? |Selecione **Não virtualizadas / Outro**.|
 
 Quando tiver terminado, selecione **OK** para avançar para a secção seguinte.
 
@@ -185,7 +189,7 @@ Ative a replicação em cada VM que quer migrar. Quando a replicação for ativa
 
      |  |  |
      |-----|-----|
-     | Alvo: | Deixe a predefinição.|
+     | Destino: | Deixe a predefinição.|
      | Subscrição: | Selecione a subscrição que tem estado a utilizar.|
      | Grupo de recursos de ativação pós-falha:| Utilize o grupo de recursos que criou na secção [Preparar recursos do Azure](#prepare-azure-resources).|
      | Modelo de implementação de ativação pós-falha: | Selecione o **Resource Manager**.|
@@ -254,7 +258,7 @@ Execute uma ativação pós-falha real para as instâncias do EC2, para migrá-l
 > *Não cancele uma ativação pós-falha que está em curso*. Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida. Se cancelar uma ativação pós-falha que está em curso, a mesma parará, mas a VM não será replicada outra vez.  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a migrar instâncias do AWS EC2 para VMs do Azure. Para saber mais sobre as VMs do Azure, avance para os tutoriais relativos às VMs do Windows.
 

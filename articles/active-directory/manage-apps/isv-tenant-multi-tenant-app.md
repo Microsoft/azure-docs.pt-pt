@@ -1,6 +1,6 @@
 ---
-title: Criar um inquilino do Azure para uma aplicação multi-inquilino
-description: Documentação de orientação para fornecedores independentes de software sobre como integrar com o Azure Active Directory
+title: Criar um locatário do Azure para um aplicativo multilocatário
+description: Diretrizes para fornecedores independentes de software na integração com o Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -12,34 +12,34 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69cc625500af60a753ad8e7db0363954088f3307
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 637adba89445e6974e83486f0641576225ccd268
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659583"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812607"
 ---
-# <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Criar um inquilino do Azure para uma aplicação multi-inquilino  
+# <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Criar um locatário do Azure para um aplicativo multilocatário  
 
-Para fornecer acesso à sua aplicação multi-inquilino tem de criar um inquilino do Azure Active Directory para registar a aplicação e ativar a Federação de identidades do seu cliente. Ver [escolher o protocolo de Federação certo para a sua aplicação multi-inquilino](isv-choose-multi-tenant-federation.md). Este inquilino permitirá que teste seu aplicativo e a Federação num ambiente que é semelhante aos seus ambientes do Azure AD de clientes.
+Para fornecer acesso ao aplicativo multilocatário, você deve criar um locatário Azure Active Directory para registrar o aplicativo e habilitar a Federação das identidades do cliente. Consulte [escolhendo o protocolo de Federação correto para seu aplicativo multilocatário](isv-choose-multi-tenant-federation.md). Esse locatário permitirá que você teste seu aplicativo e a Federação em um ambiente semelhante aos seus ambientes de clientes do Azure AD.
 
-## <a name="costs-of-hosting-a-multi-tenant-application"></a>Custos de hospedagem de uma aplicação multi-inquilino
+## <a name="costs-of-hosting-a-multi-tenant-application"></a>Custos de Hospedagem de um aplicativo multilocatário
 
-O Azure Active Directory está disponível em três SKUs, gratuito, Basic e Premium. [Veja a comparação detalhada das funcionalidades](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory está disponível em várias edições. [Consulte a comparação detalhada de recursos](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Pode criar a sua subscrição do Azure e o Azure active directory gratuito e utilizar as funcionalidades básicas.
+Você pode criar sua assinatura do Azure e o Azure Active Directory gratuitamente e usar recursos básicos.
 
-## <a name="create-your-tenant"></a>Criar o inquilino
+## <a name="create-your-tenant"></a>Criar seu locatário
 
-1. Crie o inquilino. Ver [configurar um ambiente de desenvolvimento](../develop/quickstart-create-new-tenant.md).
+1. Crie seu locatário. Consulte [configurar um ambiente de desenvolvimento](../develop/quickstart-create-new-tenant.md).
 
-2. Ativar e testar o acesso de início de sessão único para seu aplicativo,
+2. Habilitar e testar o acesso de logon único ao seu aplicativo,
 
-   a. **Para aplicativos OIDC ou Oath**, [registar a sua aplicação](../develop/quickstart-register-app.md) como uma aplicação multi-inquilino. Selecione as contas em qualquer diretório organizacional e a opção de contas Microsoft pessoa em tipos de conta suportada
+   a. **Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](../develop/quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte
 
-   b. **Para aplicações SAML e WS-Fed-com base na**, [baseado em SAML configurar início de sessão único](configure-single-sign-on-non-gallery-applications.md) aplicativos usando um modelo SAML genérico no Azure AD.
+   b. **Para aplicativos baseados em SAML e WS-baseded**, você [configura aplicativos de logon único baseados em SAML](configure-single-sign-on-non-gallery-applications.md) usando um modelo SAML genérico no Azure AD.
 
-Também pode [converta um aplicativo de inquilino único em multi-inquilino](../develop/howto-convert-app-to-be-multi-tenant.md) se necessário.
+Você também pode [converter um aplicativo de locatário único para multilocatário,](../develop/howto-convert-app-to-be-multi-tenant.md) se necessário.
 
 ## <a name="next-steps"></a>Próximos Passos
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: f664e0419396eaf60c037c2adfde70df0034cc5b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 34a701c6d99f7b773a06e316fa9a29cd8b070303
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276000"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813238"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure usando Azure Data Factory
 
@@ -25,7 +25,7 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Você pode copiar dados de Instância Gerenciada do Banco de Dados SQL do Azure para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para a instância gerenciada. Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia, consulte a tabela armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados de Instância Gerenciada do Banco de Dados SQL do Azure para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para a instância gerenciada. Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Especificamente, esse conector de Instância Gerenciada do Banco de Dados SQL do Azure dá suporte a:
 
@@ -266,7 +266,7 @@ Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de seções e propriedades disponíveis para uso para definir atividades, consulte [](concepts-pipelines-activities.md) o artigo pipelines. Esta seção fornece uma lista das propriedades com suporte pela fonte de Instância Gerenciada do Banco de Dados SQL do Azure e pelo coletor.
+Para obter uma lista completa de seções e propriedades disponíveis para uso para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela fonte de Instância Gerenciada do Banco de Dados SQL do Azure e pelo coletor.
 
 ### <a name="azure-sql-database-managed-instance-as-a-source"></a>Instância Gerenciada do Banco de Dados SQL do Azure como uma fonte
 
@@ -388,6 +388,7 @@ Para copiar dados para Instância Gerenciada do Banco de Dados SQL do Azure, as 
 | storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia torna os dados que estão sendo movidos disponíveis em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
 | storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
+| tableOption | Especifica se a tabela do coletor deve ser criada automaticamente se não existir com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são `none` : (padrão) `autoCreate`,. |Não |
 
 **Exemplo 1: Acrescentar dados**
 
@@ -414,7 +415,8 @@ Para copiar dados para Instância Gerenciada do Banco de Dados SQL do Azure, as 
             },
             "sink": {
                 "type": "SqlMISink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }
@@ -487,7 +489,7 @@ Por exemplo, em Azure Data Factory, você pode criar um pipeline com uma **ativi
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-No banco de dados, defina um procedimento armazenado com lógica de MESCLAgem, como o exemplo a seguir, que é apontado da atividade de procedimento armazenado anterior. Suponha que o destino seja a tabela de **marketing** com três colunas:ProfileId, **estado**e **categoria**. Faça o Upsert com base na coluna ProfileId.
+No banco de dados, defina um procedimento armazenado com lógica de MESCLAgem, como o exemplo a seguir, que é apontado da atividade de procedimento armazenado anterior. Suponha que o destino seja a tabela de **marketing** com três colunas: **ProfileId**, **estado**e **categoria**. Faça o Upsert com base na coluna **ProfileId** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -528,7 +530,7 @@ Ao copiar dados para o Instância Gerenciada do Banco de Dados SQL do Azure, voc
 
 Você pode usar um procedimento armazenado quando os mecanismos de cópia internos não atenderem ao propósito. Um exemplo é quando você deseja aplicar processamento extra antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são quando você deseja mesclar colunas, Pesquisar valores adicionais e inserir dados em mais de uma tabela.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Upsert em uma tabela no banco de dados SQL Server. Suponha que os dados de entrada e a tabela de **marketing** do coletor tenham três colunas:ProfileId, **estado**e **categoria**. Faça o Upsert com base na coluna ProfileId e aplique-o somente para uma categoria específica chamada "produtoA".
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Upsert em uma tabela no banco de dados SQL Server. Suponha que os dados de entrada e a tabela de **marketing** do coletor tenham três colunas: **ProfileId**, **estado**e **categoria**. Faça o Upsert com base na coluna **ProfileId** e aplique-o somente para uma categoria específica chamada "produtoA".
 
 1. No banco de dados, defina o tipo de tabela com o mesmo nome que **sqlWriterTableType**. O esquema do tipo de tabela é o mesmo que o esquema retornado pelos dados de entrada.
 
@@ -575,7 +577,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Mapeamento de tipo de dados para Instância Gerenciada do Banco de Dados SQL do Azure
 
-Quando os dados são copiados para e de Instância Gerenciada do Banco de Dados SQL do Azure, os seguintes mapeamentos são usados de Instância Gerenciada do Banco de Dados SQL do Azure tipos de dados para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia é mapeada do esquema de origem e do tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando os dados são copiados para e de Instância Gerenciada do Banco de Dados SQL do Azure, os seguintes mapeamentos são usados de Instância Gerenciada do Banco de Dados SQL do Azure tipos de dados para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia é mapeada do esquema de origem e do tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados Instância Gerenciada do Banco de Dados SQL do Azure | Azure Data Factory tipo de dados provisório |
 |:--- |:--- |
@@ -616,4 +618,4 @@ Quando os dados são copiados para e de Instância Gerenciada do Banco de Dados 
 > Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte armazenamentos de [dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -173,7 +173,7 @@ Para **dispositivo ligado** e **dispositivo desligado** eventos do IoT Hub, o ob
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | moduleId | string | O identificador exclusivo do módulo. Este campo é de saída apenas para dispositivos de módulo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| deviceConnectionStateEventInfo | objeto | Informações de eventos de estado de ligação do dispositivo
+| deviceConnectionStateEventInfo | object | Informações de eventos de estado de ligação do dispositivo
 | sequenceNumber | string | Um número que ajuda a indica a ordem de dispositivo ligado ou dispositivo desligado eventos. Evento mais recente terá um número de sequência é maior do que o evento anterior. Este número pode ser alterada por mais de 1, mas está estritamente aumentando. Ver [como utilizar o número de sequência](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 Para **telemetria do dispositivo** evento do IoT Hub, o objeto de dados contém a mensagem de dispositivo-para-cloud no [formato de mensagem do hub IoT](../iot-hub/iot-hub-devguide-messages-construct.md) e tem as seguintes propriedades:
@@ -188,7 +188,7 @@ Para **dispositivo criado** e **dispositivo eliminado** eventos do IoT Hub, o ob
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| twin | objeto | Informações sobre o dispositivo duplo, que é a representação de cloud de metadados de dispositivo do aplicativo. | 
+| twin | object | Informações sobre o dispositivo duplo, que é a representação de cloud de metadados de dispositivo do aplicativo. | 
 | deviceID | string | O identificador exclusivo do dispositivo duplo. | 
 | etag | string | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
 | deviceEtag| string | Um validador para garantir a consistência das atualizações para um registo do dispositivo. Cada deviceEtag é a garantia de ser exclusivo por registo de dispositivo. |
@@ -202,8 +202,8 @@ Para **dispositivo criado** e **dispositivo eliminado** eventos do IoT Hub, o ob
 | primaryThumbprint | string | Thumbprint primário para o x509 certificado. |
 | secondaryThumbprint | string | Thumbprint secundário para o x509 certificado. | 
 | version | inteiro | Um número inteiro que é incrementado em um cada vez que o dispositivo duplo é atualizado. |
-| desired | objeto | Uma parte das propriedades que podem ser gravados apenas pelo back-end da aplicação e ler pelo dispositivo. | 
-| reported | objeto | Uma parte das propriedades que pode ser escrito apenas pelo dispositivo e ler o back-end da aplicação. |
+| desired | object | Uma parte das propriedades que podem ser gravados apenas pelo back-end da aplicação e ler pelo dispositivo. | 
+| reported | object | Uma parte das propriedades que pode ser escrito apenas pelo dispositivo e ler o back-end da aplicação. |
 | lastUpdated | string | Atualizar o carimbo de hora ISO8601 da última propriedade de twin do dispositivo. | 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: eb6df3bfda131f00c04499dc80c47482229195a5
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b21847d27dc7f444afaf1b73efa19b0b0087cfe4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623906"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811673"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -643,7 +643,7 @@ Você pode usar o coordenador para especificar uma frequência de início, de t�
     > [!NOTE]  
     > Essa imagem mostra apenas as execuções bem-sucedidas do trabalho, e não as ações individuais dentro do Workflow agendado. Para ver as ações individuais, selecione uma das entradas de **ação** .
 
-    ![Informações da ação](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Informações de ação do coordenador](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -684,7 +684,7 @@ Estes são os erros específicos que você pode encontrar e como resolvê-los.
 
 ### <a name="launcher-error-sqoop"></a>ERRO do inicializador (Sqoop)
 
-**Sintomas**: O status do trabalho mudapara eliminado. Os detalhes do trabalho mostram o `RunSqoopExport` status como **erro**. Se você selecionar a ação, ela mostrará a seguinte mensagem de erro:
+**Sintomas**: O status do trabalho muda para **eliminado**. Os detalhes do trabalho mostram o `RunSqoopExport` status como **erro**. Se você selecionar a ação, ela mostrará a seguinte mensagem de erro:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 

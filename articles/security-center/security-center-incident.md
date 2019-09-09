@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: df487b5d16568605544fb69111579bd4a9fb045f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047651"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806565"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerenciar incidentes de segurança na central de segurança do Azure
 
@@ -41,7 +41,7 @@ No Centro de Segurança, um incidente de segurança é uma agregação de todos 
 
     ![Responder a incidentes de segurança na central de segurança do Azure](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. Para obter mais informações sobre cada alerta, clique em um alerta. A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança. A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança. 
+1. Para obter mais informações sobre cada alerta, clique em um alerta. A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança.
 
    > [!NOTE]
    > O mesmo alerta pode existir como parte de um incidente, bem como ser visível como um alerta autônomo.

@@ -1,54 +1,50 @@
 ---
-title: Criar principais de serviço de pré-visualização de ambiente de Trabalho Virtual do Windows e as atribuições de funções com o PowerShell - Azure
-description: Como criar principais de serviço e atribuir funções com o PowerShell no Windows Virtual Desktop Preview.
+title: Criar entidades de serviço e atribuições de função do Windows Virtual Desktop Preview usando o PowerShell-Azure
+description: Como criar entidades de serviço e atribuir funções usando o PowerShell na visualização da área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3e9ee3f5dd04ef838f78b9731885b7ea48e6c99d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206664"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811316"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar principais de serviço e as atribuições de funções com o PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
 
-Principais de serviço são identidades que podem ser criados no Azure Active Directory para atribuir funções e permissões para um fim específico. No Windows Virtual Desktop Preview, pode criar um serviço principal para:
+As entidades de serviço são identidades que você pode criar em Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na visualização da área de trabalho virtual do Windows, você pode criar uma entidade de serviço para:
 
-- Automatize tarefas de gestão de área de Trabalho Virtual do Windows específicas.
-- Utilizar como credenciais em vez de utilizadores necessário de MFA durante a execução de qualquer modelo do Azure Resource Manager para a área de Trabalho Virtual do Windows.
+- Automatize tarefas específicas de gerenciamento de área de trabalho virtual do Windows.
+- Use como credenciais em vez de MFA-usuários necessários ao executar qualquer modelo de Azure Resource Manager para área de trabalho virtual do Windows.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Crie um principal de serviço no Azure Active Directory.
-> * Crie uma atribuição de função na área de Trabalho Virtual do Windows.
-> * Inicie sessão para a área de Trabalho Virtual do Windows com o principal de serviço.
+> * Crie uma entidade de serviço no Azure Active Directory.
+> * Crie uma atribuição de função na área de trabalho virtual do Windows.
+> * Entre na área de trabalho virtual do Windows usando a entidade de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder criar principais de serviço e as atribuições de funções, terá de fazer três coisas:
+Antes de poder criar entidades de serviço e atribuições de função, você precisa fazer três coisas:
 
-1. Instale o módulo do AzureAD. Para instalar o módulo, execute o PowerShell como administrador e execute o seguinte cmdlet:
+1. Instale o módulo AzureAD. Para instalar o módulo, execute o PowerShell como administrador e execute o seguinte cmdlet:
 
     ```powershell
     Install-Module AzureAD
     ```
 
-2. Execute os seguintes cmdlets com os valores são aspas substituído pelos valores relevantes à sua sessão.
+2. [Baixar e importar o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
 
-    ```powershell
-    $myTenantName = "<my-tenant-name>"
-    ```
-
-3. Siga todas as instruções neste artigo na mesma sessão do PowerShell. Poderá não funcionar se fecha a janela e voltar a ele mais tarde.
+3. Siga todas as instruções neste artigo na mesma sessão do PowerShell. Ele pode não funcionar se você fechar a janela e retornar a ela mais tarde.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Criar um principal de serviço no Azure Active Directory
 
-Depois de ter concluído os pré-requisitos na sessão do PowerShell, execute os seguintes cmdlets do PowerShell para criar um serviço multi-inquilino principal no Azure.
+Depois de ter atendido os pré-requisitos em sua sessão do PowerShell, execute os seguintes cmdlets do PowerShell para criar uma entidade de serviço multilocatário no Azure.
 
 ```powershell
 Import-Module AzureAD
@@ -57,57 +53,61 @@ $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayNa
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Criar uma atribuição de função no Windows Virtual Desktop pré-visualização
+## <a name="view-your-credentials-in-powershell"></a>Exibir suas credenciais no PowerShell
 
-Agora que criou um serviço principal, pode utilizá-lo para iniciar sessão na área de Trabalho Virtual do Windows. Certifique-se de iniciar sessão com uma conta que tenha permissões para criar a atribuição de função.
+Antes de encerrar a sessão do PowerShell, exiba suas credenciais e anote-as para referência futura. A senha é especialmente importante porque você não poderá recuperá-la depois de fechar esta sessão do PowerShell.
 
-Primeiro, [transferir e importar o módulo do Windows PowerShell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) a utilizar na sua sessão do PowerShell, se ainda não o fez.
+Aqui estão as três credenciais que devem ser anotadas e os cmdlets que você precisa executar para obtê-las:
 
-Execute os seguintes cmdlets do PowerShell para ligar a área de Trabalho Virtual do Windows e criar uma atribuição de função para o serviço principal.
+- La
+
+    ```powershell
+    $svcPrincipalCreds.Value
+    ```
+
+- ID do locatário:
+
+    ```powershell
+    $aadContext.TenantId.Guid
+    ```
+
+- ID do aplicativo:
+
+    ```powershell
+    $svcPrincipal.AppId
+    ```
+
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Criar uma atribuição de função na visualização da área de trabalho virtual do Windows
+
+Em seguida, você criará uma atribuição de função de RDS na área de trabalho virtual do Windows para a entidade de serviço, que permitirá que a entidade de serviço entre na área de trabalho virtual do Windows. Certifique-se de usar uma conta que tenha permissões para criar atribuições de função de RDS.
+
+Execute os seguintes cmdlets do PowerShell para se conectar à área de trabalho virtual do Windows e exibir seus locatários do RDS.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
+Get-RdsTenant | FL
 ```
 
-## <a name="sign-in-with-the-service-principal"></a>Inicie sessão com o principal de serviço
+Use o Tenantname para o locatário correto e execute os seguintes cmdlets do PowerShell para criar uma atribuição de função para a entidade de serviço no locatário especificado.
 
-Depois de criar uma atribuição de função para o serviço principal, certifique-se de que o principal de serviço pode iniciar sessão na área de Trabalho Virtual do Windows, execute o seguinte cmdlet:
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName "<my-rds-tenantname>"
+```
+
+## <a name="sign-in-with-the-service-principal"></a>Entrar com a entidade de serviço
+
+Depois de criar uma atribuição de função para a entidade de serviço, verifique se a entidade de serviço pode entrar na área de trabalho virtual do Windows executando o seguinte cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-Depois de iniciar sessão, certifique-se de que tudo funciona testando alguns cmdlets do PowerShell de ambiente de trabalho virtuais Windows com o principal de serviço.
-
-## <a name="view-your-credentials-in-powershell"></a>Ver as suas credenciais no PowerShell
-
-Antes de terminar a sessão do PowerShell, veja as suas credenciais e anotá-las para referência futura. A palavra-passe é especialmente importante, porque não será possível recuperá-la depois de fechar esta sessão do PowerShell.
-
-Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que precisa para ser executada para obtê-los:
-
-- Palavra-passe:
-
-    ```powershell
-    $svcPrincipalCreds.Value
-    ```
-
-- ID do inquilino:
-
-    ```powershell
-    $aadContext.TenantId.Guid
-    ```
-
-- ID da aplicação:
-
-    ```powershell
-    $svcPrincipal.AppId
-    ```
+Depois de entrar, verifique se tudo funciona testando alguns cmdlets do PowerShell de área de trabalho virtual do Windows com a entidade de serviço.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de ter criado o principal de serviço e atribuído ele uma função no seu inquilino de área de Trabalho Virtual do Windows, pode usá-lo para criar um conjunto de anfitrião. Para saber mais sobre conjuntos de anfitrião, avance para o tutorial para criar um agrupamento de anfitrião na área de Trabalho Virtual do Windows.
+Depois de criar a entidade de serviço e atribuir a ela uma função no locatário da área de trabalho virtual do Windows, você poderá usá-la para criar um pool de hosts. Para saber mais sobre pools de hosts, continue no tutorial para criar um pool de hosts na área de trabalho virtual do Windows.
 
  > [!div class="nextstepaction"]
- > [Tutorial de conjunto de anfitrião de área de Trabalho Virtual do Windows](./create-host-pools-azure-marketplace.md)
+ > [Tutorial pool de hosts da área de trabalho virtual do Windows](./create-host-pools-azure-marketplace.md)

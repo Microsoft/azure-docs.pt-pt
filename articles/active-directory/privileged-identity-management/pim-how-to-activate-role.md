@@ -1,9 +1,9 @@
 ---
-title: Ativar as minhas funções do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
-description: Aprenda a ativar as funções do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Ativar minhas funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
+description: Saiba como ativar as funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,131 +11,131 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/28/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b3e02222580da67a4eeb4159e4fc5dc3b9a98f
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: f9d9b2aff1d196d8b2987d77046831e7200ee2fe
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501685"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804482"
 ---
-# <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Azure AD no PIM
+# <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar minhas funções do Azure AD no PIM
 
-O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica como as empresas a gerir o acesso privilegiado a recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
+O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica o modo como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou Microsoft Intune.  
 
-Se tiver sido efetuado elegível para uma função administrativa, o que significa que pode ativar essa função, quando precisa efetuar ações privilegiadas. Por exemplo, se ocasionalmente gerir recursos do Office 365, os administradores de função com privilégios da sua organização podem não fazer é um Administrador Global permanente, uma vez que essa função tem impacto sobre outros serviços, também. Em vez disso, eles fazem-no elegível para funções do Azure AD, como o administrador do Exchange Online. Pode pedir para ativar essa função, quando precisar de seus privilégios e, em seguida, terá controlo de administrador para um período de tempo predeterminado.
+Se você se tornou qualificado para uma função administrativa, isso significa que você pode ativar essa função quando precisar executar ações privilegiadas. Por exemplo, se você ocasionalmente gerencia recursos do Office 365, os administradores de função com privilégios de sua organização podem não torná-lo um administrador global permanente, pois essa função também afeta outros serviços. Em vez disso, eles o tornam qualificado para funções do Azure AD, como administrador do Exchange Online. Você pode solicitar para ativar essa função quando precisar de seus privilégios e, em seguida, terá controle de administrador para um período de tempo predeterminado.
 
-Este artigo destina-se a administradores que precisam de ativar a respetiva função do Azure AD no PIM.
+Este artigo é para os administradores que precisam ativar sua função do Azure AD no PIM.
 
 ## <a name="activate-a-role"></a>Ativar uma função
 
-Quando tiver de assumir uma função do Azure AD, pode pedir a ativação ao utilizar o **minhas funções** opção de navegação no PIM.
+Quando você precisa tomar uma função do Azure AD, você pode solicitar a ativação usando a opção de navegação **minhas funções** no PIM.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Open **do Azure AD Privileged Identity Management**. Para obter informações sobre como adicionar o mosaico do PIM ao dashboard, consulte [começar a utilizar o PIM](pim-getting-started.md).
+1. Abra **Azure ad Privileged Identity Management**. Para obter informações sobre como adicionar o bloco do PIM ao seu painel, consulte [começar a usar o PIM](pim-getting-started.md).
 
-1. Clique em **funções do Azure AD**.
+1. Clique em **funções do Azure ad**.
 
-1. Clique em **minhas funções** para ver uma lista de sua elegíveis funções do Azure AD.
+1. Clique em **minhas funções** para ver uma lista de suas funções qualificadas do Azure AD.
 
-    ![Funções do Azure AD - as minhas funções que mostra a lista de funções elegíveis ou Active Directory](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Funções do Azure AD – minhas funções mostrando a lista de funções qualificadas ou ativas](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
-1. Localize uma função que pretende ativar.
+1. Localize uma função que você deseja ativar.
 
-    ![Funções do Azure AD – minha lista de funções elegíveis que mostra ativar ligação](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Funções do Azure AD – minha lista de funções qualificadas mostrando o link ativar](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
-1. Clique em **Activate** para abrir o painel de detalhes de ativação de função.
+1. Clique em **Ativar** para abrir o painel detalhes de ativação de função.
 
-1. Se a sua função requer autenticação multifator (MFA), clique em **verificar a sua identidade antes de continuar**. Só precisa que autenticar uma vez por sessão.
+1. Se sua função exigir a autenticação multifator (MFA), clique em **verificar sua identidade antes de continuar**. Você só precisa autenticar uma vez por sessão.
 
-    ![Verifique se o meu painel de identidade com a MFA antes da ativação de função](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![Verificar meu painel de identidade com MFA antes da ativação de função](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
-1. Clique em **verificar a minha identidade** e siga as instruções para fornecer verificação adicional de segurança.
+1. Clique em **verificar minha identidade** e siga as instruções para fornecer verificação de segurança adicional.
 
-    ![Página de verificação de segurança adicionais perguntar como entrar em contacto consigo](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Página de verificação de segurança adicional perguntando como entrar em contato com você](./media/pim-how-to-activate-role/additional-security-verification.png)
 
-1. Clique em **Activate** para abrir o painel de ativação.
+1. Clique em **Ativar** para abrir o painel ativação.
 
-    ![Painel de ativação para especificar a hora de início, duração, pedido de suporte e motivo](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![Painel ativação para especificar a hora de início, a duração, o tíquete e o motivo](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
-1. Se necessário, especifique uma hora de início de ativação personalizado.
+1. Se necessário, especifique uma hora de início de ativação personalizada.
 
-1. Especifique a duração de ativação.
+1. Especifique a duração da ativação.
 
-1. Na **razão da ativação** , digite a razão para o pedido de ativação. Algumas funções exigem que forneça um número de pedido de suporte de problemas.
+1. Na caixa **motivo da ativação** , insira o motivo para a solicitação de ativação. Algumas funções exigem que você forneça um número de tíquete de problema.
 
-    ![Painel de ativação concluída com uma hora de início personalizados, a duração, o pedido de suporte e a razão](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![O painel de ativação foi concluído com uma hora de início personalizada, a duração, o tíquete e o motivo](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
-1. Clique em **ativar**.
+1. Clique em **Ativar**.
 
-    Se a função de não necessitar de aprovação, um **estado de ativação** é apresentado o painel que apresenta o estado da ativação.
+    Se a função não exigir aprovação, um painel **status de ativação** será exibido exibindo o status da ativação.
 
-    ![Página de estado de ativação que mostra as três fases de ativação](./media/pim-how-to-activate-role/activation-status.png)
+    ![Página status da ativação mostrando os três estágios da ativação](./media/pim-how-to-activate-role/activation-status.png)
 
-    Depois de todas as fases são concluídas, clique nas **terminar sessão** hiperligação terminar sessão do portal do Azure. Quando iniciar sessão novamente no portal, agora, pode utilizar a função.
+    Depois que todos os estágios forem concluídos, clique **no link sair para sair do** portal do Azure. Quando você entra novamente no portal, agora você pode usar a função.
 
-    Se o [a função requer aprovação](./azure-ad-pim-approval-workflow.md) para ativar, uma notificação será exibida no canto superior direito do seu navegador informando o pedido está com aprovação pendente.
+    Se a [função exigir aprovação](./azure-ad-pim-approval-workflow.md) para ser ativada, uma notificação será exibida no canto superior direito do seu navegador informando que a solicitação está com aprovação pendente.
 
-    ![Pedido de ativação é a notificação de aprovação pendente](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    ![Notificação de aprovação pendente da solicitação de ativação](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Ver o estado dos pedidos
+## <a name="view-the-status-of-your-requests"></a>Exibir o status de suas solicitações
 
-Pode ver o estado dos seus pedidos pendentes para ativar.
+Você pode exibir o status de suas solicitações pendentes para ativar.
 
-1. Abra o Azure AD Privileged Identity Management.
+1. Abra Azure AD Privileged Identity Management.
 
-1. Clique em **funções do Azure AD**.
+1. Clique em **funções do Azure ad**.
 
-1. Clique em **os meus pedidos** para ver uma lista dos pedidos.
+1. Clique em **minhas solicitações** para ver uma lista de suas solicitações.
 
-    ![Funções do Azure AD – minha lista de pedidos](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Funções do Azure AD – lista de minhas solicitações](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Desativar uma função
 
-Depois de uma função, automaticamente desativa quando for atingido o limite de tempo (duração elegível).
+Depois que uma função é ativada, ela é desativada automaticamente quando seu limite de tempo (duração qualificada) é atingido.
 
-Se concluir suas tarefas de administrador no início, que também pode desativar uma função manualmente no Azure AD Privileged Identity Management.
+Se você concluir as tarefas do administrador antecipadamente, também poderá desativar uma função manualmente no Azure AD Privileged Identity Management.
 
-1. Abra o Azure AD Privileged Identity Management.
+1. Abra Azure AD Privileged Identity Management.
 
-1. Clique em **funções do Azure AD**.
+1. Clique em **funções do Azure ad**.
 
 1. Clique em **minhas funções**.
 
-1. Clique em **funções do Active Directory** para ver uma lista de funções ativas.
+1. Clique em **funções ativas** para ver sua lista de funções ativas.
 
-1. Localizar a função já está a utilizar e, em seguida, clique em **desativar**.
+1. Localize a função que você concluiu usando e clique em **desativar**.
 
-## <a name="cancel-a-pending-request"></a>Cancelar um pedido pendente
+## <a name="cancel-a-pending-request"></a>Cancelar uma solicitação pendente
 
-Se não necessitar de ativação de uma função que requer aprovação, pode cancelar um pedido pendente em qualquer altura.
+Se você não precisar de ativação de uma função que exija aprovação, poderá cancelar uma solicitação pendente a qualquer momento.
 
-1. Abra o Azure AD Privileged Identity Management.
+1. Abra Azure AD Privileged Identity Management.
 
-1. Clique em **funções do Azure AD**.
+1. Clique em **funções do Azure ad**.
 
-1. Clique em **os meus pedidos**.
+1. Clique em **minhas solicitações**.
 
-1. Para a função que pretende cancelar, clique nas **Cancelar** botão.
+1. Para a função que você deseja cancelar, clique no botão **Cancelar** .
 
-    Ao clicar em Cancelar, o pedido será cancelado. Para ativar a função mais uma vez, terá que submeter um novo pedido de ativação.
+    Quando você clicar em cancelar, a solicitação será cancelada. Para ativar a função novamente, você precisará enviar uma nova solicitação de ativação.
 
-   ![Minha lista de pedidos com o botão de cancelar realçado](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![Minha lista de solicitações com o botão Cancelar realçado](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-### <a name="permissions-are-not-granted-after-activating-a-role"></a>Não são concedidas permissões após a ativação de uma função
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não concedidas após a ativação de uma função
 
-Quando ativar uma função no PIM, a ativação não pode propagar instantaneamente para todos os portais que requerem a função com privilégios. Às vezes, mesmo que a alteração é propagada, cache da web num portal pode resultar na alteração não entrarem em vigor imediatamente. Se a ativação é atrasada, eis o que deve fazer.
+Quando você ativa uma função no PIM, a ativação pode não ser propagada instantaneamente para todos os portais que exigem a função privilegiada. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a ativação estiver atrasada, aqui está o que você deve fazer.
 
-1. Terminar sessão do portal do Azure e, em seguida, inicie sessão novamente.
+1. Termine sessão no portal do Azure e, em seguida, inicie sessão novamente.
 
-    Ao ativar uma função do Azure AD, verá as fases de sua ativação. Assim que todas as fases são concluídas, verá uma **terminar sessão** ligação. Pode utilizar esta ligação para terminar sessão. Isto irá resolver a maioria dos casos, para atraso de ativação.
+    Quando você ativar uma função do Azure AD, verá os estágios da ativação. Quando todas as fases estiverem concluídas, verá a ligação **Terminar sessão**. Pode utilizar esta ligação para terminar sessão. Deste modo, vai resolver a maioria dos atrasos da ativação.
 
-1. No PIM, certifique-se de que está listado como o membro da função.
+1. No PIM, verifique se você está listado como o membro da função.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

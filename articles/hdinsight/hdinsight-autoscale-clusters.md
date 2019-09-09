@@ -1,6 +1,6 @@
 ---
 title: Dimensionar automaticamente os clusters do Azure HDInsight (versão prévia)
-description: Usar o recurso de autoescala do HDInsight para dimensionar automaticamente os clusters
+description: Usar o recurso de autoescala do Azure HDInsight para Apache Hadoop automaticamente os clusters de escala
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f7e34d2bbad5f5d8e6b063269b7e87c314fdce90
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 877fc3a4e29fc1753d7b4f92091b34d4b2537846
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70770704"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810322"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do Azure HDInsight (versão prévia)
 
@@ -85,7 +85,7 @@ Para habilitar o recurso de dimensionamento automático com dimensionamento base
     * Número **mínimo** de nós de trabalho.  
     * Número **máximo** de nós de trabalho.  
 
-    ![Habilitar a opção de dimensionamento automático baseado em carga do nó de trabalho](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Habilitar dimensionamento automático baseado em carga de nó de trabalho](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 O número inicial de nós de trabalho deve estar entre o mínimo e o máximo, inclusive. Esse valor define o tamanho inicial do cluster quando ele é criado. O número mínimo de nós de trabalho deve ser maior que zero.
 
@@ -103,7 +103,7 @@ Para habilitar o recurso de dimensionamento automático com dimensionamento base
 1. Edite a hora em que a condição deve entrar em vigor e o número de nós para o qual o cluster deve ser dimensionado.
 1. Adicione mais condições, se necessário.
 
-    ![Habilitar a opção de dimensionamento automático com base na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    ![Habilitar a criação baseada em agendamento de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
 O número de nós deve estar entre 1 e o número de nós de trabalho que você inseriu antes de adicionar condições.
 
@@ -111,7 +111,7 @@ O número de nós deve estar entre 1 e o número de nós de trabalho que você i
 
 Para o dimensionamento baseado em carga e em agendamento, selecione o tipo de VM para nós de trabalho clicando em tamanho do nó de **trabalho** e **tamanho do nó de cabeçalho**. Depois de escolher o tipo de VM para cada tipo de nó, você poderá ver o intervalo de custo estimado para todo o cluster. Ajuste os tipos de VM para se ajustarem ao seu orçamento.
 
-![Habilitar a opção de dimensionamento automático com base na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
+![Habilitar o tamanho do nó de dimensionamento automático baseado na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 Sua assinatura tem uma cota de capacidade para cada região. O número total de núcleos dos nós de cabeçalho combinados com o número máximo de nós de trabalho não pode exceder a cota de capacidade. No entanto, essa cota é um limite flexível; Você sempre pode criar um tíquete de suporte para que ele seja aumentado com facilidade.
 
@@ -189,7 +189,7 @@ Você pode criar um cluster HDInsight com dimensionamento automático baseado em
 #### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 Para habilitar o dimensionamento automático em um cluster em execução, selecione **tamanho do cluster** em **configurações**. Em seguida, clique em **Habilitar dimensionamento automático**. Selecione o tipo de dimensionamento automático desejado e insira as opções para o dimensionamento baseado em carga ou em agendamento. Por fim, clique em **salvar**.
 
-![Habilitar a opção de dimensionamento automático com base na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![Habilitar dimensionamento automático baseado em agenda de nó de trabalho executando cluster](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
 #### <a name="using-the-rest-api"></a>Utilizar a API REST
 Para habilitar ou desabilitar o dimensionamento automático em um cluster em execução usando a API REST, faça uma solicitação POST para o ponto de extremidade de dimensionamento automático, conforme mostrado no trecho de código abaixo:
@@ -231,7 +231,7 @@ Os trabalhos em execução continuarão a ser executados e concluídos. Os traba
 
 O status do cluster listado no portal do Azure pode ajudá-lo a monitorar as atividades de dimensionamento automático.
 
-![Habilitar a opção de dimensionamento automático baseado em carga do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+![Habilitar o status do cluster de dimensionamento automático baseado em carga do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
 
 Todas as mensagens de status do cluster que você pode ver são explicadas na lista abaixo.
 
@@ -251,7 +251,7 @@ Você pode exibir o histórico de expansão e redução do cluster como parte da
 
 Selecione **métricas** em **monitoramento**. Em seguida, clique em **Adicionar métrica** e **número de operadores ativos** na caixa suspensa de **métrica** . Clique no botão no canto superior direito para alterar o intervalo de tempo.
 
-![Habilitar a opção de dimensionamento automático com base na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+![Habilitar métrica de dimensionamento automático baseado em agenda de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

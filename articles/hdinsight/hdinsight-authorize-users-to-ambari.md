@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442177"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810690"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar utilizadores para as Vistas do Apache Ambari
 
@@ -36,7 +36,7 @@ Para acessar a **página de gerenciamento do Ambari** na [interface do usuário 
 
 O Ambari vem com instâncias de exibição para [Apache Hive](https://hive.apache.org/) e [Apache tez](https://tez.apache.org/), entre outras. Para conceder acesso a uma ou mais instâncias de exibição do hive, vá para a **página de gerenciamento do Ambari**.
 
-1. Na página Gerenciamento, selecione o link **exibições** no título  do menu exibições à esquerda.
+1. Na página Gerenciamento, selecione o link **exibições** no título do menu **exibições** à esquerda.
 
     ![Link de exibições](./media/hdinsight-authorize-users-to-ambari/views-link.png)
 
@@ -97,7 +97,7 @@ Para gerenciar funções, vá para a **página de gerenciamento do Ambari**e, em
 
 Para ver a lista de permissões dadas a cada função, clique no ponto de interrogação azul ao lado do cabeçalho da tabela **funções** na página funções.
 
-![Link do menu de funções](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![Permissões de link do menu funções](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "Permissões de link do menu funções")
 
 Nessa página, há duas exibições diferentes que você pode usar para gerenciar funções para usuários e grupos: Bloquear e listar.
 

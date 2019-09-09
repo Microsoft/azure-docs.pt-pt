@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103106"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813340"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automático
 
-Por padrão, os backups do banco de dados SQL são armazenados no armazenamento de BLOBs replicados geograficamente (RA-GRS). As seguintes opções estão disponíveis para recuperação de banco de dados usando backups de [banco de dados automatizados](sql-database-automated-backups.md):
+Por padrão, os backups do banco de dados SQL são armazenados no armazenamento de BLOBs replicados geograficamente (RA-GRS). As seguintes opções estão disponíveis para recuperação de banco de dados usando [backups de banco de dados automatizados](sql-database-automated-backups.md):
 
 - Crie um novo banco de dados no mesmo servidor de banco de dados SQL recuperado para um determinado momento dentro do período de retenção.
 - Crie um banco de dados no mesmo servidor do banco de dados SQL recuperado para a hora de exclusão de um banco de dados excluído.
@@ -87,7 +87,7 @@ Para recuperar um banco de dados único, em pool ou de instância para um ponto 
 ![tempo de restauração pontual](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 > [!IMPORTANT]
-> Para restaurar programaticamente um banco de dados de um backup, consulte Executando programaticamente a [recuperação usando backups automatizados](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
+> Para restaurar programaticamente um banco de dados de um backup, consulte [executando programaticamente a recuperação usando backups automatizados](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="deleted-database-restore"></a>Restauração de banco de dados excluída
 
@@ -107,7 +107,7 @@ Para recuperar um banco de dados excluído usando o portal do Azure, abra a pág
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 > [!IMPORTANT]
-> Para restaurar programaticamente um banco de dados excluído, consulte programaticamente [executando a recuperação usando backups automatizados](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
+> Para restaurar programaticamente um banco de dados excluído, consulte [programaticamente executando a recuperação usando backups automatizados](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="geo-restore"></a>Georrestauro
 
@@ -127,10 +127,7 @@ Atualmente, não há suporte para a restauração pontual em um secundário geog
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauração geográfica usando o portal do Azure
 
-Para fazer a restauração geográfica de um banco de dados usando o portal do Azure, abra a página SQL databases e clique em **Adicionar**. Na caixa de texto **selecionar origem** , selecione **backup**. Especifique o backup do qual executar a recuperação na região e no servidor de sua escolha.
-
-> [!Note]
-> A restauração geográfica usando o portal do Azure não está disponível no Instância Gerenciada. Em vez disso, use o PowerShell.
+Para fazer a restauração geográfica de um banco de dados usando o portal do Azure, abra a página SQL databases e clique em **Adicionar**. Na caixa de texto **selecionar origem** , selecione **backup**. Especifique o backup do qual executar a recuperação na região e no servidor de sua escolha. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Executando programaticamente a recuperação usando backups automatizados
 
@@ -182,7 +179,7 @@ Os backups automáticos protegem seus bancos de dados contra erros de usuário e
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral](sql-database-business-continuity.md)da continuidade de negócios
-- Para saber mais sobre backups automatizados do banco [](sql-database-automated-backups.md)de dados SQL
+- Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para saber mais sobre backups automatizados do banco [de dados SQL](sql-database-automated-backups.md)
 - Para saber mais sobre retenção de longo prazo, confira [retenção de longo prazo](sql-database-long-term-retention.md).
 - Para saber mais sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md) ou [grupos de failover automático](sql-database-auto-failover-group.md).

@@ -1,6 +1,6 @@
 ---
-title: Carregamento em Apache Phoenix com psql - Azure HDInsight em massa
-description: Utilize a ferramenta de psql para carregar o carregamento em massa para tabelas de Phoenix.
+title: Carregamento em massa em Apache Phoenix usando o psql-Azure HDInsight
+description: Usar a ferramenta psql para carregar dados de carregamento em massa em tabelas Apache Phoenix no Azure HDInsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,32 +8,32 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: fe6705dc3dedd521357f924dd433c7eacf88ba84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15bb65e004de916862297f91278328cddb16487d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718638"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810414"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregamento de dados em massa para o Apache Phoenix com psql
 
-[O Apache Phoenix](https://phoenix.apache.org/) é uma código-fonte aberto, paralela em massa base de dados relacional, criado nos [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix fornece consultas de tipo SQL através de HBase. Phoenix utiliza controladores JDBC para permitir aos utilizadores criar, eliminar e alterar as tabelas SQL, índices, Exibições e sequências e linhas de upsert individualmente e em massa. Phoenix utiliza compilação nativo do noSQL, em vez de utilizar o MapReduce para compilar consultas, para criar aplicativos de baixa latência sobre o HBase. Phoenix adiciona coprocessadores para suportar a execução do código fornecido pelo cliente no espaço de endereços de servidor, executando o código localizado conjuntamente com os dados. Isso minimiza a transferência de dados de cliente/servidor.  Para trabalhar com dados com o Phoenix no HDInsight, primeiro crie tabelas e, em seguida, carregar dados para eles.
+[Apache Phoenix](https://phoenix.apache.org/) é um banco de dados relacional de software livre, maciçomente paralelo, criado no [Apache HBase](../hbase/apache-hbase-overview.md). O Phoenix fornece consultas semelhantes ao SQL no HBase. O Phoenix usa drivers JDBC para permitir que os usuários criem, excluam e alterem tabelas, índices, exibições e sequências do SQL e Upsert linhas individualmente e em massa. O Phoenix usa a compilação nativa noSQL em vez de usar o MapReduce para compilar consultas, para criar aplicativos de baixa latência sobre o HBase. O Phoenix adiciona coprocessadores para dar suporte à execução de código fornecido pelo cliente no espaço de endereço do servidor, executando o código colocalizado com os dados. Isso minimiza a transferência de dados do cliente/servidor.  Para trabalhar com dados usando Phoenix no HDInsight, primeiro crie tabelas e, em seguida, carregue os dados nelas.
 
-## <a name="bulk-loading-with-apache-phoenix"></a>Carregamento com o Apache Phoenix em massa
+## <a name="bulk-loading-with-apache-phoenix"></a>Carregamento em massa com Apache Phoenix
 
-Existem várias formas de obter dados no HBase, incluindo através de APIs, uma tarefa de MapReduce com TableOutputFormat, cliente ou inserir os dados manualmente utilizando a shell de HBase. Phoenix fornece dois métodos para carregar dados do CSV para tabelas de Phoenix: um cliente com o nome de ferramenta de carregamento `psql`e uma ferramenta de carregamento em massa baseada em MapReduce.
+Há várias maneiras de obter dados no HBase, incluindo o uso de APIs de cliente, um trabalho MapReduce com TableOutputFormat ou a colocação dos dados manualmente usando o Shell do HBase. O Phoenix fornece dois métodos para carregar dados CSV em tabelas Phoenix: uma ferramenta de carregamento `psql`de cliente chamada e uma ferramenta de carregamento em massa baseada em MapReduce.
 
-O `psql` ferramenta é o único thread e é mais adequada para carregar em megabytes ou gigabytes de dados. Todos os ficheiros CSV para ser carregado tem de ter a extensão de ficheiro ". csv".  Também pode especificar ficheiros de script SQL no `psql` linha de comandos com a extensão de arquivo ". SQL".
+A `psql` ferramenta é de thread único e é mais adequada para carregar megabytes ou gigabytes de dados. Todos os arquivos CSV a serem carregados devem ter a extensão de arquivo '. csv '.  Você também pode especificar arquivos de script SQL na `psql` linha de comando com a extensão de arquivo '. SQL '.
 
-Em massa ao carregar com o MapReduce é utilizada para muito maiores volumes de dados, normalmente em cenários de produção, como MapReduce usa vários threads.
+O carregamento em massa com o MapReduce é usado para volumes de dados muito maiores, normalmente em cenários de produção, já que o MapReduce usa vários threads.
 
-Antes de iniciar o carregamento de dados, certifique-se de que o Phoenix está ativado e que as definições de tempo limite da consulta são os esperados.  Aceder ao seu cluster do HDInsight [Apache Ambari](https://ambari.apache.org/) dashboard, selecione o HBase e, em seguida, no separador de configuração.  Desloque para baixo para verificar se o Apache Phoenix está definido `enabled` conforme mostrado:
+Antes de começar a carregar dados, verifique se Phoenix está habilitado e se as configurações de tempo limite de consulta estão conforme o esperado.  Acesse o painel do [Apache Ambari](https://ambari.apache.org/) do cluster HDInsight, selecione HBase e, em seguida, a guia configuração.  Role para baixo para verificar se Apache Phoenix está definido `enabled` como mostrado:
 
-![Definições de Cluster de HDInsight Apache Phoenix](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
+![Apache Phoenix configurações do cluster HDInsight](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
 
-### <a name="use-psql-to-bulk-load-tables"></a>Utilize `psql` para tabelas de carregamento em massa
+### <a name="use-psql-to-bulk-load-tables"></a>Usar `psql` para tabelas de carregamento em massa
 
-1. Criar uma nova tabela, em seguida, guarde a consulta com nome de ficheiro `createCustomersTable.sql`.
+1. Crie uma nova tabela e salve a consulta com o nome `createCustomersTable.sql`do arquivo.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,7 +44,7 @@ Antes de iniciar o carregamento de dados, certifique-se de que o Phoenix está a
         Country varchar);
     ```
 
-2. Copiar um ficheiro CSV (conteúdo de exemplo mostrado) como `customers.csv` num `/tmp/` diretório para carregamento na tabela criada recentemente.  Utilize o `hdfs` comandos para copiar o ficheiro CSV para a sua localização de origem pretendido.
+2. Copie o arquivo CSV (exemplo de conteúdo mostrado) `customers.csv` como em `/tmp/` um diretório para carregar em sua tabela recém-criada.  Use o `hdfs` comando para copiar o arquivo CSV para o local de origem desejado.
 
     ```
     1,Samantha,260000.0,18,US
@@ -57,14 +57,14 @@ Antes de iniciar o carregamento de dados, certifique-se de que o Phoenix está a
     hdfs dfs -copyToLocal /example/data/customers.csv /tmp/
     ```
 
-3. Criar uma consulta SQL SELECT para verificar os dados de entrada carregado corretamente, em seguida, guarde a consulta com nome de ficheiro `listCustomers.sql`. Pode usar qualquer consulta SQL.
+3. Crie uma consulta SQL SELECT para verificar os dados de entrada carregados corretamente e salve a consulta com o `listCustomers.sql`nome de arquivo. Você pode usar qualquer consulta SQL.
      ```sql
     SELECT Name, Income from Customers group by Country;
     ```
 
-4. Em massa carregar os dados, abrindo uma *novo* janela de comandos do Hadoop. Em primeiro lugar mude para a localização do diretório de execução com o `cd` de comandos e, em seguida, utilizar o `psql` ferramenta (Python `psql.py` comando). 
+4. Carregue os dados em massa abrindo uma *nova* janela de comando do Hadoop. Primeiro, altere para o local do diretório de `cd` execução com o comando e, `psql` em seguida, `psql.py` use a ferramenta (comando do Python). 
 
-    O exemplo seguinte espera que copiou a `customers.csv` ficheiro a partir de uma conta de armazenamento para o seu diretório temporário local com `hdfs` como no passo 2 acima.
+    O exemplo a seguir espera que você copiou `customers.csv` o arquivo de uma conta de armazenamento para seu diretório temporário `hdfs` local usando como na etapa 2 acima.
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
@@ -73,40 +73,40 @@ Antes de iniciar o carregamento de dados, certifique-se de que o Phoenix está a
     ```
 
     > [!NOTE]   
-    > Para determinar a `ZookeeperQuorum` atribua um nome, localize o [Apache ZooKeeper](https://zookeeper.apache.org/) cadeia de quórum no ficheiro `/etc/hbase/conf/hbase-site.xml` com o nome da propriedade `hbase.zookeeper.quorum`.
+    > Para determinar o `ZookeeperQuorum` nome, localize a cadeia de caracteres de quorum [Apache ZooKeeper](https://zookeeper.apache.org/) no arquivo `/etc/hbase/conf/hbase-site.xml` com `hbase.zookeeper.quorum`o nome da propriedade.
 
-5. Depois do `psql` operação é concluída, deverá ver uma mensagem na janela de comando:
+5. Após a `psql` conclusão da operação, você verá uma mensagem na janela de comando:
 
     ```
     CSV Upsert complete. 5000 rows upserted
     Time: 4.548 sec(s)
     ```
 
-## <a name="use-mapreduce-to-bulk-load-tables"></a>Utilizar o MapReduce para tabelas de carregamento em massa
+## <a name="use-mapreduce-to-bulk-load-tables"></a>Usar o MapReduce para carregar tabelas em massa
 
-Para o carregamento de um maior débito distribuído por cluster, utilize a ferramenta de carga do MapReduce. Este carregador primeiro converte todos os dados em HFiles e, em seguida, fornece o HFiles criado para HBase.
+Para o carregamento de taxa de transferência mais alta distribuído pelo cluster, use a ferramenta de carregamento do MapReduce. Esse carregador primeiro converte todos os dados em HFiles e, em seguida, fornece o HFiles criado para o HBase.
 
-1. Inicie o carregador de MapReduce de CSV, utilizando o `hadoop` comando com o jar do cliente de Phoenix:
+1. Inicie o carregador MapReduce do CSV usando o `hadoop` comando com o JAR do cliente Phoenix:
 
     ```bash
     hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table CUSTOMERS --input /data/customers.csv
     ```
 
-2. Criar uma nova tabela com uma instrução de SQL, tal como acontece com `CreateCustomersTable.sql` anterior no passo 1.
+2. Crie uma nova tabela com uma instrução SQL, como `CreateCustomersTable.sql` na etapa 1 anterior.
 
 3. Para verificar o esquema da sua tabela, execute `!describe inputTable`.
 
-4. Determinar o caminho de localização aos seus dados de entrada, como o exemplo `customers.csv` ficheiro. Os ficheiros de entrada podem ser na sua conta de armazenamento WASB/ADLS. Neste cenário de exemplo, os ficheiros de entrada estão no `<storage account parent>/inputFolderBulkLoad` diretório.
+4. Determine o caminho do local para os dados de entrada, como o `customers.csv` arquivo de exemplo. Os arquivos de entrada podem estar em sua conta de armazenamento WASB/ADLS. Neste cenário de exemplo, os arquivos de entrada estão no `<storage account parent>/inputFolderBulkLoad` diretório.
 
-5. Mude para o diretório de execução do comando de carga do MapReduce em massa:
+5. Altere para o diretório de execução para o comando de carregamento em massa do MapReduce:
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
     ```
 
-6. Localize seu `ZookeeperQuorum` valor numa `/etc/hbase/conf/hbase-site.xml`, com o nome da propriedade `hbase.zookeeper.quorum`.
+6. Localize seu `ZookeeperQuorum` valor em `/etc/hbase/conf/hbase-site.xml`, com o nome `hbase.zookeeper.quorum`da propriedade.
 
-7. Configurar o caminho da classe e execute o `CsvBulkLoadTool` ferramenta comando:
+7. Configure o classpath e execute o comando `CsvBulkLoadTool` da ferramenta:
 
     ```bash
     /usr/hdp/current/phoenix-client$ HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar /usr/hdp/2.4.2.0-258/phoenix/phoenix-4.4.0.2.4.2.0-258-client.jar
@@ -114,7 +114,7 @@ Para o carregamento de um maior débito distribuído por cluster, utilize a ferr
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. Para utilizar o MapReduce com o armazenamento do Azure Data Lake, localize o diretório de raiz de armazenamento do Data Lake, o que é o `hbase.rootdir` valor em `hbase-site.xml`. No comando seguinte, o diretório de raiz de armazenamento do Data Lake é `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. Neste comando, especifique a entrada de armazenamento do Data Lake e pastas como parâmetros de saída:
+8. Para usar o MapReduce com Azure data Lake Storage, localize o diretório raiz data Lake Storage, que é `hbase.rootdir` o valor `hbase-site.xml`em. No comando a seguir, o diretório raiz Data Lake Storage é `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. Neste comando, especifique o Data Lake Storage as pastas de entrada e saída como parâmetros:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -126,21 +126,21 @@ Para o carregamento de um maior débito distribuído por cluster, utilize a ferr
 
 ## <a name="recommendations"></a>Recomendações
 
-* Utilize o mesmo meio de armazenamento para pastas de entrada e saídas, o armazenamento do Azure (WASB) ou o Azure Data Lake Storage (ADL). Para transferir dados do armazenamento do Azure para armazenamento do Data Lake, pode utilizar o `distcp` comando:
+* Use o mesmo meio de armazenamento para as pastas de entrada e saída, o armazenamento do Azure (WASB) ou o Azure Data Lake Storage (ADL). Para transferir dados do armazenamento do Azure para data Lake Storage, você pode usar `distcp` o comando:
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder
     ```
 
-* Utilize nós de trabalho de tamanho maior. Os processos de mapa da cópia em massa MapReduce produzem grandes quantidades de saída temporária preencher o espaço não DFS disponíveis. Para uma grande quantidade de carregamento em massa, utilize nós de trabalho mais e tamanho maior. O número de nós de trabalho que é atribuir diretamente ao seu cluster afeta a velocidade de processamento.
+* Use nós de trabalho de tamanho maior. Os processos de mapa da cópia em massa do MapReduce produzem grandes quantidades de saídas temporárias que preenchem o espaço não DFS disponível. Para uma grande quantidade de carregamento em massa, use nós de trabalho mais amplos e de tamanho maior. O número de nós de trabalho que você aloca para o cluster afeta diretamente a velocidade de processamento.
 
-* Divida ficheiros de entrada em partes de ~ 10 GB. Carregamento em massa é uma operação de armazenamento intensivas, então, dividindo os ficheiros de entrada em vários segmentos resulta num melhor desempenho.
+* Divida os arquivos de entrada em partes de ~ 10 GB. O carregamento em massa é uma operação de uso intensivo de armazenamento, portanto, dividir os arquivos de entrada em várias partes resulta em um melhor desempenho.
 
-* Evite pontos ativos do servidor de região. Se a sua chave de linha forma monótona está aumentando, escritas sequenciais do HBase podem induza hotspotting de servidor de região. *Inclusão de Salt* a chave de linha reduz escritas sequenciais. Phoenix fornece uma forma de forma transparente salt a chave de linha com um byte de inclusão de Salt para uma tabela específica, conforme referenciado abaixo.
+* Evite pontos de HotSpot do servidor de região. Se a chave de linha for monotônico aumentando, as gravações sequenciais do HBase poderão induzir a hotspotting do servidor de região. O *Salt* da chave de linha reduz as gravações sequenciais. O Phoenix fornece uma maneira de saltar de forma transparente a chave de linha com um byte de Salt para uma tabela específica, como referenciado abaixo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Dados em massa ao carregar com o Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
-* [Utilizar Apache Phoenix com clusters do Apache HBase baseado em Linux no HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
-* [Tabelas de Salt](https://phoenix.apache.org/salted.html)
+* [Carregamento de dados em massa com Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
+* [Usar Apache Phoenix com clusters Apache HBase baseados em Linux no HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Tabelas com Salt](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix gramática](https://phoenix.apache.org/language/index.html)

@@ -1,35 +1,35 @@
 ---
-title: Requisitos de servidor de configuração para a recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve requisitos e suporte ao implementar o servidor de configuração para a recuperação de desastre do VMware para o Azure com o Azure Site Recovery
+title: Requisitos do servidor de configuração para a recuperação de desastres do VMware no Azure com Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve o suporte e os requisitos ao implantar o servidor de configuração para a recuperação de desastres do VMware no Azure com o Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 94f410b7bd3b7c2eb3d7d6a9316323092010338e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86fa817128dc89eb97bee18f4f8a6de1f650c265
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418328"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814299"
 ---
-# <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisitos de servidor de configuração para a recuperação de desastre do VMware para o Azure
+# <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisitos do servidor de configuração para a recuperação de desastres do VMware para o Azure
 
-Implementar um servidor de configuração no local quando utiliza [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure.
+Você implanta um servidor de configuração local ao usar [Azure site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware e servidores físicos no Azure.
 
-- As comunicações de coordenadas do servidor de configuração entre locais VMware e o Azure. Ele também gerencia a replicação de dados.
-- [Saiba mais](vmware-azure-architecture.md) sobre os componentes de servidor de configuração e os processos.
+- O servidor de configuração coordena as comunicações entre o VMware local e o Azure. Ele também gerencia a replicação de dados.
+- [Saiba mais](vmware-azure-architecture.md) sobre os componentes e processos do servidor de configuração.
 
-## <a name="configuration-server-deployment"></a>Implementação de servidor de configuração
+## <a name="configuration-server-deployment"></a>Implantação do servidor de configuração
 
-Para a recuperação de desastre de VMs de VMware para o Azure, implementar o servidor de configuração como uma VM de VMware.
+Para a recuperação de desastre de VMs VMware no Azure, você implanta o servidor de configuração como uma VM VMware.
 
-- Recuperação de sites fornece um modelo de OVA que transferir a partir do portal do Azure e importar para o vCenter Server para configurar a VM do servidor de configuração.
-- Ao implementar o servidor de configuração com o modelo de OVA, a VM automaticamente cumpre os requisitos listados neste artigo.
-- Recomendamos vivamente que configure o servidor de configuração com o modelo de OVA. No entanto, se estiver configurando a recuperação após desastre para VMs de VMware e não é possível utilizar o modelo de OVA, pode implementar o servidor de configuração utilizando [estas instruções fornecidas](physical-azure-set-up-source.md).
-- Se estiver a implementar o servidor de configuração para recuperação após desastre de computadores físicos no local para o Azure, siga as instruções em [este artigo](physical-azure-set-up-source.md). 
+- Site Recovery fornece um modelo OVA que você baixa do portal do Azure e importa para vCenter Server para configurar a VM do servidor de configuração.
+- Quando você implanta o servidor de configuração usando o modelo OVA, a VM está em conformidade automaticamente com os requisitos listados neste artigo.
+- É altamente recomendável que você configure o servidor de configuração usando o modelo OVA. No entanto, se você estiver configurando a recuperação de desastre para VMs VMware e não puder usar o modelo OVA, poderá implantar o servidor de configuração usando [essas instruções fornecidas](physical-azure-set-up-source.md).
+- Se você estiver implantando o servidor de configuração para recuperação de desastre de máquinas físicas locais no Azure, siga as instruções neste [artigo](physical-azure-set-up-source.md). 
 
 
 ## <a name="hardware-requirements"></a>Requisitos de hardware
@@ -38,7 +38,7 @@ Para a recuperação de desastre de VMs de VMware para o Azure, implementar o se
 --- | ---
 Núcleos de CPU | 8 
 RAM | 16 GB
-Número de discos | 3, incluindo o disco de SO, disco de cache do servidor de processo e unidade de retenção para a reativação pós-falha 
+Número de discos | 3, incluindo o disco do sistema operacional, o disco de cache do servidor de processo e a unidade de retenção para failback 
 Espaço livre em disco (cache do servidor de processo) | 600 GB
 Espaço livre em disco (disco de retenção) | 600 GB
 
@@ -48,40 +48,40 @@ Espaço livre em disco (disco de retenção) | 600 GB
 --- | ---
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Região do sistema operativo | Inglês (en-us)
-Funções do Windows Server | Não ative estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
-Políticas de grupo | Não ative estas políticas de grupo: <br> -Impedi o acesso ao prompt de comando. <br> -Impedi o acesso a ferramentas de edição do registo. <br> -Lógica para anexos de ficheiros de fidedignidade. <br> – Ative a execução do Script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Sem Web site predefinido do preexistente <br> -Sem preexistente/aplicação do Web site escute na porta 443 <br>-Permitir [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição 
+Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
+Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | -Nenhum site da Web padrão preexistente <br> -Nenhum site/aplicativo pré-existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
 
 ## <a name="network-requirements"></a>Requisitos da rede
 
 **Componente** | **Requisito** 
 --- | --- 
 Tipo de endereço IP | Estático 
-Acesso à Internet | O servidor precisa de acesso a estes URLs (diretamente ou através do proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF também precisa de acesso para os seguintes URLs: <br> -https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> -https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> -https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
+Acesso à Internet | O servidor precisa de acesso a essas URLs (diretamente ou via proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> -https:\//Management.Azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> O OVF também precisa de acesso às seguintes URLs: <br> -https:\//login.microsoftonline.com <br> -https:\//Secure.aadcdn.microsoftonline-p.com <br> -https:\//login.Live.com  <br> -https:\//auth.gfx.ms <br> -https:\//Graph.Windows.net <br> -https:\//login.Windows.net <br> - https:\//www.live.com <br> -https:\//www.Microsoft.com <br> -https:\//dev.mysql.com/Get/downloads/MySQLInstaller/MySQL-Installer-Community-5.7.20.0.msi 
 Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados) 
-Tipo NIC | VMXNET3 (se o servidor de configuração é uma VM de VMware)
+Tipo de NIC | VMXNET3 (se o servidor de configuração for uma VM VMware)
 
 ## <a name="required-software"></a>Software necessário
 
 **Componente** | **Requisito** 
 --- | ---
-VMware vSphere PowerCLI | [Versão 6.0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o servidor de configuração está em execução numa VM do VMware.
-MYSQL | Deve ser instalado o MySQL. Pode instalar manualmente ou recuperação de sites pode instalá-lo.
+VMware vSphere PowerCLI | A [versão 6,0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o servidor de configuração estiver em execução em uma VM do VMware.
+MYSQL | O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo.
 
-## <a name="sizing-and-capacity-requirements"></a>Dimensionamento e os requisitos de capacidade
+## <a name="sizing-and-capacity-requirements"></a>Requisitos de dimensionamento e capacidade
 
-A tabela seguinte resume os requisitos de capacidade para o servidor de configuração. Se estiver a replicar várias VMs de VMware, deve rever o [considerações de planeamento de capacidade](site-recovery-plan-capacity-vmware.md)e execute o [do Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md) ferramenta para replication.read de VMWare 
+A tabela a seguir resume os requisitos de capacidade para o servidor de configuração. Se você estiver replicando várias VMs VMware, examine as considerações de [planejamento de capacidade](site-recovery-plan-capacity-vmware.md)e execute a ferramenta de [planejador de implantações do Azure site Recovery](site-recovery-deployment-planner.md) para replicação do VMware. Leia 
 
 **Componente** | **Requisito** 
 --- | ---
 
 | **CPU** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Máquinas replicadas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPUs<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | Les que 100 máquinas |
-| 12 vCPUs<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB – 1 TB | máquinas de 100 a 150 |
-| 16 vCPUs<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 200 máquinas | 
+| 8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | Les que 100 computadores |
+| 12 vCPUs<br/><br/> 2 Socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 a 150 computadores |
+| 16 vCPUs<br/><br/> 2 Socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computadores | 
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Configurar a recuperação após desastre de [VMs de VMware](vmware-azure-tutorial.md) para o Azure.
+Configure a recuperação de desastre de [VMs do VMware](vmware-azure-tutorial.md) no Azure.

@@ -1,17 +1,17 @@
 ---
 title: erro de CPU de travamento suave do Watchdog BUG de um cluster do Azure HDInsight
-description: CPU de travamento soft do BUG do Watchdog aparece em syslogs de kernel
+description: CPU de travamento soft do BUG do Watchdog aparece em syslogs de kernel do cluster HDInsight do Azure
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 9278c174d96cb6b1823c8dbfdcba197b7a3c05cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 618a871bee762900d4c99700cde42d759506b4b9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829180"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810593"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Cenário: "Watchdog: BUG: bloqueio Soft – CPU "erro de um cluster do Azure HDInsight
 
@@ -35,10 +35,10 @@ Aplique o patch do kernel. O script abaixo atualiza o kernel do Linux e reinicia
 
 1. Selecione **Enviar novo** e insira a entrada da seguinte maneira
 
-    | Propriedade | Valor |
+    | Propriedade | Value |
     | --- | --- |
     | Tipo de script | -Personalizado |
-    | Nome |Correção para o problema de bloqueio soft do kernel |
+    | Name |Correção para o problema de bloqueio soft do kernel |
     | URI do script de bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Tipo (s) de nó |Trabalho, Zookeeper |
     | Parâmetros |N/A |

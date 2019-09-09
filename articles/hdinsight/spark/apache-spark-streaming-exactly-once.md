@@ -1,18 +1,18 @@
 ---
 title: Trabalhos de streaming do Spark com processamento de eventos exatamente uma vez – Azure HDInsight
-description: Como configurar o streaming do Spark para processar um evento apenas uma vez.
+description: Como configurar Apache Spark streaming para processar um evento apenas uma vez.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ce676031e0cace3f3dffc77fcd71159337938661
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ce2cff6a1a6bf769f52940ecc0d1dc5a4678cbd5
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735981"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814026"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez
 
@@ -86,7 +86,7 @@ Por exemplo, você pode usar um procedimento armazenado com o banco de dados SQL
 
 Outro exemplo é usar um sistema de arquivos particionado, como BLOBs de armazenamento do Azure ou Azure Data Lake Storage. Nesse caso, a lógica do coletor não precisa verificar a existência de um arquivo. Se o arquivo que representa o evento existir, ele será simplesmente substituído pelos mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral de streaming de Apache Spark](apache-spark-streaming-overview.md)
 * [Criando trabalhos de streaming de Apache Spark altamente disponíveis no Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

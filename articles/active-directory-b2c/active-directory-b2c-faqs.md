@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8bd1bee82941953e96eed1defa04c9fddef3e293
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183186"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809215"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas Mais Frequentes (FAQ)
 
@@ -102,7 +102,7 @@ Não, por motivos de segurança, Azure AD B2C páginas não podem ser abertas em
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C funciona com sistemas CRM, como o Microsoft Dynamics?
 
-A integração com o portal do Microsoft Dynamics 365 está disponível. Consulte Configurando o [portal do Dynamics 365 para usar Azure ad B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+A integração com o portal do Microsoft Dynamics 365 está disponível. Consulte [Configurando o portal do Dynamics 365 para usar Azure ad B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C trabalhar com o SharePoint local 2016 ou anterior?
 
@@ -124,9 +124,9 @@ Não, Azure AD B2C não dá suporte ao mesmo conjunto de relatórios que Azure A
 
 Sim!  Leia sobre a [personalização de idioma](active-directory-b2c-reference-language-customization.md), que está em visualização pública. Fornecemos traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
 
-### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada que são servidas pelo Azure AD B2C? Por exemplo, posso alterar a URL de login.microsoftonline.com para login.contoso.com?
+### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada que são servidas pelo Azure AD B2C? Por exemplo, posso alterar a URL de contoso.b2clogin.com para login.contoso.com?
 
-Atualmente não. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **domínios** no portal do Azure não atinge essa meta.
+Atualmente não. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **domínios** no portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como fazer excluir meu locatário Azure AD B2C?
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 6e8f8e7d8324f23a81cd6ae3284bd6d7cff24117
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 87ac2283e96081297fdd54c1c131aa5b78a5973a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489845"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814272"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usar Azure Toolkit for Eclipse para criar aplicativos Apache Spark para um cluster HDInsight
 
@@ -61,7 +61,7 @@ O usuário pode [entrar na assinatura do Azure](#sign-in-to-your-azure-subscript
    ![Caixa de diálogo Selecionar assinaturas](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 1. Na guia **Azure Explorer** , expanda **hdinsight** para ver os clusters hdinsight Spark em sua assinatura.
    
-   ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
+   ![Clusters do HDInsight Spark no Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
 1. Você pode expandir ainda mais um nó de nome de cluster para ver os recursos (por exemplo, contas de armazenamento) associados ao cluster.
    
    ![Expandindo um nome de cluster para ver os recursos](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
@@ -235,16 +235,16 @@ Quando os usuários enviam o trabalho para um cluster com permissão de função
        
 2. No **Azure Explorer**, expanda **hdinsight** para exibir os clusters hdinsight que estão em sua assinatura. Os clusters marcados como **"função: leitor"** têm apenas a permissão de função de leitor.
 
-    ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+    ![Clusters HDInsight Spark no leitor de função do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
 3. Clique com o botão direito do mouse no cluster com permissão de função somente leitura. Selecione **vincular este cluster** no menu de contexto para vincular o cluster. Insira o nome de usuário e a senha do Ambari.
 
-    ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+    ![Clusters do HDInsight Spark no link do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
 4. Se o cluster for vinculado com êxito, o HDInsight será atualizado.
    O estágio do cluster será vinculado.
   
-    ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+    ![Clusters do HDInsight Spark no Azure Explorer vinculado](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
@@ -254,7 +254,7 @@ Quando os usuários enviam o trabalho para um cluster com permissão de função
    
 2. Clique em **vincular este cluster** para vincular o cluster.
    
-    ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+    ![Clusters do HDInsight Spark no Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
 ### <a name="link-cluster-from-spark-submission-window"></a>Vincular cluster da janela de envio do Spark
 
@@ -262,23 +262,23 @@ Quando os usuários enviam o trabalho para um cluster com permissão de função
 
 2. Clique com o botão direito do mouse no pacote. Em seguida, selecione **Enviar aplicativo Spark ao HDInsight**.
    
-   ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+   ![Clusters do HDInsight Spark no Azure Explorer enviar](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
 3. Selecione um cluster que tenha permissão de função somente de leitor para o **nome do cluster**. Mensagem de aviso mostrada. Você pode clicar em **vincular este cluster** para vincular o cluster.
    
-   ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   ![Clusters do HDInsight Spark no Azure Explorer link isso](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### <a name="view-storage-accounts"></a>Exibir contas de armazenamento
 
 * Para clusters com permissão de função somente de leitor, clique em nó **contas de armazenamento** , janela **acesso de armazenamento negado** aparece. 
      
-   ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+   ![Clusters do HDInsight Spark no armazenamento do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
-   ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+   ![Clusters HDInsight Spark no Azure Explorer negados](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
 * Para clusters vinculados, clique no nó **contas de armazenamento** , a janela **acesso de armazenamento negado** é exibida. 
      
-   ![Clusters do HDInsight Spark no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+   ![Clusters do HDInsight Spark no Azure Explorer denied2](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
 ## <a name="known-problems"></a>Problemas conhecidos
 Ao vincular um cluster, eu o sugiro a fornecer credenciais de armazenamento.
@@ -287,9 +287,9 @@ Ao vincular um cluster, eu o sugiro a fornecer credenciais de armazenamento.
 
 Há dois modos para enviar os trabalhos. Se a credencial de armazenamento for fornecida, o modo de lote será usado para enviar o trabalho. Caso contrário, o modo interativo será usado. Se o cluster estiver ocupado, você poderá obter o erro abaixo.
 
-![erro de Get do Eclipse quando o cluster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+![erro de Get do Eclipse quando o cluster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "erro de Get do Eclipse quando o cluster está ocupado")
 
-![erro de Get do Eclipse quando o cluster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
+![erro de Get do Eclipse quando o cluster está ocupado yarn](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "erro de Get do Eclipse quando o cluster está ocupado yarn")
 
 ## <a name="seealso"></a>Ver também
 * [Sobre Apache Spark no Azure HDInsight](apache-spark-overview.md)

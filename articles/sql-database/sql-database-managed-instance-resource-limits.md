@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: c0bfbbd8b85f0b3eadf468cdd1261f52bff26abe
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060646"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813378"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -54,18 +54,20 @@ A instância gerenciada tem duas camadas de serviço: Uso Geral e Comercialmente
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
 | Memória máxima | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 40,8 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 40,8 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
 | Tamanho máximo de armazenamento reservado de instância | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5 <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
-| Tamanho máx. da base de dados | Determinado pelo tamanho máximo de armazenamento por instância | Determinado pelo tamanho máximo de armazenamento por instância |
+| Tamanho máx. da base de dados | 8 TB | 4 TB |
 | Número máximo de bancos de dados por instância | 100 | 100 |
 | Número máximo de arquivos de banco de dados por instância | Até 280 | 32.767 arquivos por banco de dados |
 | Tamanho máximo do arquivo | 8 TB | 4 TB |
-| IOPS de dados/log (aproximado) | 500-7.500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k-110 K (1375/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| IOPS de dados/log (aproximado) | 500-7.500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
 | Limite de produtividade de gravação de log | 3 MB/s por vCore<br/>Máximo de 22 MB/s por instância | 4 MB/s por vCore<br/>Máximo de 48 MB/s por instância|
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
 | Tamanho máximo de tempDB | 192-1.920 GB (24 GB por vCore)<br/>Adicione mais vCores para obter mais espaço de TempDB. | Limitado pelo tamanho máximo de armazenamento da instância. O tamanho do arquivo de log de TempDB está limitado atualmente a 24 GB/vCore. |
 | OLTP dentro da memória | Não suportado | Disponível |
 | Máx. de sessões | 30000 | 30000 |
-| Réplicas legíveis | 0 | 1 |
+| Réplicas legíveis | 0 | 1 (incluído no preço) |
+| Preço/cobrança | vCore, armazenamento reservado  <br/> IOPS não cobrado, o armazenamento de backup ainda não foi cobrado. | vCore, armazenamento reservado  <br/> IOPS não cobrado, o armazenamento de backup ainda não foi cobrado. | 
+| Modelos de desconto | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste) | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)|
 
 > [!NOTE]
 > - Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">Sys. master_files</a> para determinar o total de espaço usado por bancos de dados. Os logs de erros não são persistidos e não são incluídos no tamanho. Os backups não são incluídos no tamanho do armazenamento.
@@ -84,7 +86,7 @@ Atualmente, a instância gerenciada dá suporte à implantação somente nos seg
 - [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Provedor de serviços de nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Desenvolvimento/Teste Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Assinaturas com crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
@@ -97,7 +99,7 @@ Os tipos de assinatura com suporte podem conter um número limitado de recursos 
 > [!Note]
 > Esses limites são configurações padrão e não limitações técnicas. Os limites podem ser aumentados sob demanda criando uma solicitação especial [de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se você precisar de mais instâncias gerenciadas na região atual. Como alternativa, você pode criar novas instâncias gerenciadas em outra região do Azure sem enviar solicitações de suporte.
 
-A tabela a seguir mostra os limites regionais padrão para assinaturas com suporte:
+A tabela a seguir mostra os **limites regionais padrão** para os tipos de assinatura com suporte (os limites padrão podem ser estendidos usando a solicitação de suporte descrita abaixo):
 
 |Tipo de subscrição| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |

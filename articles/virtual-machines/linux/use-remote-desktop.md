@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 18e8f577a52ff36f5e6c4eb8f9697d301f056911
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1189faf64dc3619d0e4581641c2c66d0b527754a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081408"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813440"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar Área de Trabalho Remota para se conectar a uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure geralmente são gerenciadas na linha de comando usando uma conexão SSH (Secure Shell). Quando for novo no Linux ou para cenários de solução de problemas rápidos, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([Xfce](https://www.xfce.org)) e uma área de trabalho remota ([xrdp](https://www.xrdp.org)) para sua VM Linux usando o modelo de implantação do Gerenciador de recursos.
@@ -55,7 +55,7 @@ sudo apt-get install xfce4
 Agora que você tem um ambiente de área de trabalho instalado, configure um serviço de área de trabalho remota para escutar conexões de entrada. [xrdp](http://xrdp.org) é um servidor de protocolo RDP de software livre (RDP) que está disponível na maioria das distribuições do Linux e funciona bem com o Xfce. Instale o xrdp em sua VM do Ubuntu da seguinte maneira:
 
 ```bash
-sudo apt-get install xrdp=0.6.1-2
+sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
 ```
 
@@ -136,7 +136,7 @@ Outras distribuições do Linux, como Red Hat Enterprise Linux e SUSE, podem ter
 Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não vir nenhum evento no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não poderá acessar a VM. Examine as regras do grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para obter mais informações, consulte [solucionar problemas de conectividade do aplicativo](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como criar e usar chaves SSH com VMs do Linux, consulte [criar chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
 
 Para obter informações sobre como usar o SSH do Windows, consulte [como usar chaves SSH com o Windows](ssh-from-windows.md).

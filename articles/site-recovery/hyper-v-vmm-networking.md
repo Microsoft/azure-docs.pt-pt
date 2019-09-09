@@ -1,84 +1,83 @@
 ---
-title: Configurar para ligar a um site secundário no local após a ativação pós-falha com o Azure Site Recovery de endereçamento IP | Documentos da Microsoft
-description: Descreve como configurar o endereçamento de IP para ligar a VMs num site secundário no local após a recuperação após desastre e de ativação pós-falha com o Azure Site Recovery.
-services: site-recovery
+title: Configurar o endereçamento IP para se conectar a um site secundário local após o failover com Azure Site Recovery
+description: Descreve como configurar o endereçamento IP para se conectar a VMs em um site secundário local após a recuperação de desastres e o failover com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 8e4dca61016adce209bdce356ea4280fee525c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f158c6b71bb53d6b683577401e625e24808eb7eb
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397957"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813693"
 ---
-# <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar a ligação a um site secundário no local após a ativação pós-falha de endereçamento IP
+# <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar o endereçamento IP para se conectar a um site secundário local após o failover
 
-Depois de efetuar a ativação pós-falha de VMs de Hyper-V em clouds do System Center Virtual Machine Manager (VMM) para um site secundário, tem de ser capaz de ligar a VMs de réplica. Este artigo ajuda-o a fazê-lo. 
+Depois de realizar o failover de VMs do Hyper-V em nuvens System Center Virtual Machine Manager (VMM) para um site secundário, você precisará ser capaz de se conectar às VMs de réplica. Este artigo ajuda você a fazer isso. 
 
-## <a name="connection-options"></a>Opções de ligação
+## <a name="connection-options"></a>Opções de conexão
 
-Após a ativação pós-falha, existem duas formas de lidar com endereçamento IP para VMs de réplica: 
+Após o failover, há duas maneiras de lidar com endereçamento IP para VMs de réplica: 
 
-- **Manter o mesmo endereço IP após a ativação pós-falha**: Neste cenário, a VM replicada tem o mesmo endereço IP da VM principal. Isso simplifica a rede relacionado com problemas após a ativação pós-falha, mas requer algum trabalho de infraestrutura.
-- **Utilizar um endereço IP diferente após a ativação pós-falha**: Neste cenário a VM obtém um novo endereço IP após a ativação pós-falha. 
+- **Manter o mesmo endereço IP após o failover**: Nesse cenário, a VM replicada tem o mesmo endereço IP que a VM primária. Isso simplifica os problemas relacionados à rede após o failover, mas requer algum trabalho de infraestrutura.
+- **Usar um endereço IP diferente após o failover**: Nesse cenário, a VM Obtém um novo endereço IP após o failover. 
  
 
 ## <a name="retain-the-ip-address"></a>Manter o endereço IP
 
-Se pretende manter os endereços IP a partir do site primário, após a ativação pós-falha para o site secundário, pode:
+Se desejar manter os endereços IP do site primário, após o failover para o site secundário, você poderá:
 
-- Implemente uma sub-rede Stretch entre a primária e os sites secundários.
-- Execute uma ativação pós-falha de sub-rede completa dos principais para site secundário. Terá de atualizar as rotas para indicar a nova localização dos endereços IP.
-
-
-### <a name="deploy-a-stretched-subnet"></a>Implementar uma sub-rede Stretch
-
-Numa configuração de Stretch, a sub-rede está disponível em simultâneo em sites primários e secundários. Numa sub-rede Stretch, quando move uma máquina e a respetiva configuração de endereço IP (camada 3) para o site secundário, a rede automaticamente encaminha o tráfego para a nova localização. 
-
-- De uma perspectiva de (camada de ligação de dados) de camada 2, terá de equipamento de rede que pode gerir uma VLAN Stretch.
-- Por alongamento a VLAN, o domínio de falha potenciais estende para ambos os sites. Isso se torna um ponto único de falha. Embora seja pouco provável, neste cenário que poderá não conseguir isolar um incidente, como um storm de difusão. 
+- Implante uma sub-rede ampliada entre os sites primário e secundário.
+- Execute um failover de sub-rede completo do site primário para o secundário. Você precisa atualizar as rotas para indicar o novo local dos endereços IP.
 
 
-### <a name="fail-over-a-subnet"></a>Efetuar a ativação pós-falha de uma sub-rede
+### <a name="deploy-a-stretched-subnet"></a>Implantar uma sub-rede ampliada
 
-Pode efetuar a ativação ao longo de toda a rede para obter os benefícios da sub-rede Stretch, sem alongamento, na verdade, ele. Nesta solução, uma sub-rede está disponível no site de origem ou destino, mas não em ambos simultaneamente.
+Em uma configuração ampliada, a sub-rede está disponível simultaneamente nos sites primário e secundário. Em uma sub-rede ampliada, quando você move um computador e sua configuração de endereço IP (camada 3) para o site secundário, a rede roteia automaticamente o tráfego para o novo local. 
 
-- Para manter o espaço de endereços IP em caso de uma ativação pós-falha, por meio de programação pode fazer com que a infraestrutura de router para mover as sub-redes de um site para outro.
-- Quando ocorre uma ativação pós-falha, sub-redes mover-se com as respetivas VMs associadas.
-- A principal desvantagem dessa abordagem é que, em caso de falha, precisa mover toda a rede.
+- De uma perspectiva de camada 2 (camada de link de dados), você precisa de um equipamento de rede que possa gerenciar uma VLAN ampliada.
+- Ao estender a VLAN, o domínio de falha potencial se estende a ambos os sites. Isso se torna um ponto único de falha. Embora seja improvável, nesse cenário, talvez você não consiga isolar um incidente, como um Storm de difusão. 
+
+
+### <a name="fail-over-a-subnet"></a>Fazer failover de uma sub-rede
+
+Você pode fazer failover de toda a sub-rede para obter os benefícios da sub-rede ampliada, sem realmente estendê-la. Nesta solução, uma sub-rede está disponível no site de origem ou de destino, mas não em ambos simultaneamente.
+
+- Para manter o espaço de endereço IP no caso de um failover, você pode organizar de forma programática a infraestrutura do roteador para mover sub-redes de um site para outro.
+- Quando ocorre um failover, as sub-redes se movem com suas VMs associadas.
+- A principal desvantagem dessa abordagem é que, em caso de falha, você precisa mover toda a sub-rede.
 
 #### <a name="example"></a>Exemplo
 
-Eis um exemplo de ativação pós-falha de sub-rede completa. 
+Aqui está um exemplo de failover de sub-rede completo. 
 
-- Antes da ativação pós-falha, o site primário tem aplicações em execução na sub-rede 192.168.1.0/24.
-- Durante a ativação pós-falha, todas as VMs nesta sub-rede com ativação pós-falha para o site secundário e mantém os seus endereços IP. 
-- Rotas entre todos os sites tenham de ser modificados para refletir o fato de que todas as VMs na sub-rede 192.168.1.0/24 agora foram movidas para o site secundário.
+- Antes do failover, o site primário tem aplicativos em execução na sub-rede 192.168.1.0/24.
+- Durante o failover, todas as VMs nessa sub-rede são transferidas para o site secundário e mantêm seus endereços IP. 
+- As rotas entre todos os sites precisam ser modificadas para refletir o fato de que todas as VMs na sub-rede 192.168.1.0/24 agora foram movidas para o site secundário.
 
-Os gráficos seguintes ilustram as sub-redes antes e após a ativação pós-falha.
+Os gráficos a seguir ilustram as sub-redes antes e após o failover.
 
 
-**Antes da ativação pós-falha**
+**Antes do failover**
 
-![Antes da ativação pós-falha](./media/hyper-v-vmm-networking/network-design2.png)
+![Antes do failover](./media/hyper-v-vmm-networking/network-design2.png)
 
-**Após a ativação pós-falha**
+**Após o failover**
 
-![Após a ativação pós-falha](./media/hyper-v-vmm-networking/network-design3.png)
+![Após o failover](./media/hyper-v-vmm-networking/network-design3.png)
 
-Após a ativação pós-falha, o Site Recovery aloca um endereço IP para cada interface de rede na VM. O endereço é alocado a partir do conjunto de endereços IP estático na rede relevante, para cada instância VM.
+Após o failover, Site Recovery aloca um endereço IP para cada interface de rede na VM. O endereço é alocado do pool de endereços IP estáticos na rede relevante, para cada instância de VM.
 
-- Se o conjunto de endereços IP no site secundário é o mesmo que o site de origem, o Site Recovery aloca o mesmo endereço IP (da VM de origem), para a VM de réplica. O endereço IP é reservado no VMM, mas ele não está definido como o endereço IP de ativação pós-falha do anfitrião de Hyper-V. O endereço IP de ativação pós-falha num anfitrião Hyper-v é definido apenas antes da ativação pós-falha.
-- Se o mesmo endereço IP não estiver disponível, o Site Recovery aloca outro endereço IP disponível do conjunto.
-- Se as VMs usam DHCP, a recuperação de Site não gere os endereços IP. Tem de verificar que o servidor DHCP no site secundário pode alocar endereços do mesmo intervalo de que o site de origem.
+- Se o pool de endereços IP no site secundário for o mesmo que no site de origem, Site Recovery alocará o mesmo endereço IP (da VM de origem) para a VM de réplica. O endereço IP é reservado no VMM, mas não é definido como o endereço IP de failover no host Hyper-V. O endereço IP de failover em um host Hyper-v é definido logo antes do failover.
+- Se o mesmo endereço IP não estiver disponível, Site Recovery alocará outro endereço IP disponível do pool.
+- Se as VMs usarem DHCP, o Site Recovery não gerenciará os endereços IP. Você precisa verificar se o servidor DHCP no site secundário pode alocar endereços do mesmo intervalo que o site de origem.
 
 ### <a name="validate-the-ip-address"></a>Validar o endereço IP
 
-Depois de ativar a proteção para uma VM, pode utilizar após o script de exemplo para verificar o endereço atribuído à VM. Este endereço IP é definido como o endereço IP de ativação pós-falha e atribuído à VM no momento da ativação pós-falha:
+Depois de habilitar a proteção para uma VM, você pode usar o seguinte script de exemplo para verificar o endereço atribuído à VM. Esse endereço IP é definido como o endereço IP de failover e atribuído à VM no momento do failover:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -87,12 +86,12 @@ Depois de ativar a proteção para uma VM, pode utilizar após o script de exemp
     $ip.address 
     ```
 
-## <a name="use-a-different-ip-address"></a>Utilizar um endereço IP diferente
+## <a name="use-a-different-ip-address"></a>Usar um endereço IP diferente
 
-Neste cenário, os endereços IP das VMs com ativação pós-falha são alterados. A desvantagem dessa solução é a manutenção necessária.  Entradas DNS e a cache poderão ter de ser atualizado. Isso pode resultar em tempo de inatividade, que pode ser atenuado da seguinte forma:
+Nesse cenário, os endereços IP das VMs que fazem failover são alterados. A desvantagem dessa solução é a manutenção necessária.  As entradas de cache e DNS podem precisar ser atualizadas. Isso pode resultar em tempo de inatividade, que pode ser mitigado da seguinte maneira:
 
-- Utilize valores de TTL baixas para aplicativos de intranet.
-- Utilize o seguinte script num plano de recuperação do Site Recovery, para uma atualização atempada do servidor DNS. O script não é necessário se utilizar o registo de DNS dinâmico.
+- Use valores TTL baixos para aplicativos de intranet.
+- Use o script a seguir em um plano de recuperação Site Recovery, para uma atualização oportuna do servidor DNS. Você não precisará do script se usar o registro de DNS dinâmico.
 
     ```
     param(
@@ -108,25 +107,25 @@ Neste cenário, os endereços IP das VMs com ativação pós-falha são alterado
     
 ### <a name="example"></a>Exemplo 
 
-Neste exemplo temos diferentes endereços IP em todos os sites primários e secundários, e há um site de terceiro que aplicações alojadas no principal ou recuperação de site pode ser acedido.
+Neste exemplo, temos endereços IP diferentes em sites primários e secundários, e há um terceiro site do qual os aplicativos hospedados no site primário ou de recuperação podem ser acessados.
 
-- Antes da ativação pós-falha, as aplicações são 192.168.1.0/24 sub-rede alojada no site primário.
-- Após a ativação pós-falha, as aplicações são configuradas na sub-rede 172.16.1.0/24 no site secundário.
-- Todos os três sites podem aceder a si.
-- Após a ativação pós-falha, aplicações serão restauradas na sub-rede de recuperação.
-- Neste cenário não é necessário fazer a ativação pós-falha toda a rede e sem alterações são necessárias para reconfigurar as rotas de rede ou VPN. A ativação pós-falha e algumas atualizações DNS, certifique-se de que as aplicações permanecem acessíveis.
-- Se o DNS está configurado para permitir atualizações dinâmicas, em seguida, as VMs serão registram-se com o novo endereço IP, quando for iniciado após a ativação pós-falha.
+- Antes do failover, os aplicativos são hospedados na sub-rede 192.168.1.0/24 no site primário.
+- Após o failover, os aplicativos são configurados na sub-rede 172.16.1.0/24 no site secundário.
+- Todos os três sites podem acessar um ao outro.
+- Após o failover, os aplicativos serão restaurados na sub-rede de recuperação.
+- Nesse cenário, não há necessidade de fazer failover de toda a sub-rede e nenhuma alteração é necessária para reconfigurar as rotas VPN ou de rede. O failover e algumas atualizações de DNS garantem que os aplicativos permaneçam acessíveis.
+- Se o DNS estiver configurado para permitir atualizações dinâmicas, as VMs se registrarão usando o novo endereço IP quando iniciarem após o failover.
 
-**Antes da ativação pós-falha**
+**Antes do failover**
 
-![Endereço IP diferente - antes da ativação pós-falha](./media/hyper-v-vmm-networking/network-design10.png)
+![Endereço IP diferente-antes do failover](./media/hyper-v-vmm-networking/network-design10.png)
 
-**Após a ativação pós-falha**
+**Após o failover**
 
-![Endereço IP diferente - após a ativação pós-falha](./media/hyper-v-vmm-networking/network-design11.png)
+![Endereço IP diferente-após o failover](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Executar uma ativação pós-falha](hyper-v-vmm-failover-failback.md)
+[Executar um failover](hyper-v-vmm-failover-failback.md)
 

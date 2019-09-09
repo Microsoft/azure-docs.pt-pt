@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ff795bbbd3cf136735499b571367cf5b8a6ec170
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5cb5c5813bff8c0df5b119ea1cadf4f2e7c1696a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622158"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811387"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Twitter usando Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Para usar o Twitter como um provedor de identidade no Azure AD B2C, você precis
 1. Selecione **criar um aplicativo**.
 1. Insira um **nome de aplicativo** e uma **Descrição de aplicativo**.
 1. Na **URL do site**, `https://your-tenant.b2clogin.com`digite. Substitua `your-tenant` pelo nome do seu locatário. Por exemplo, https://contosob2c.b2clogin.com.
-1. Para a **URL de retorno**de `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`chamada, digite. Substitua `your-tenant` pelo nome do seu nome do locatário e `your-user-flow-Id` pelo identificador do seu fluxo de usuário. Por exemplo, `b2c_1A_signup_signin_twitter`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+1. Para a **URL de retorno**de `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`chamada, digite. Substitua `your-tenant` pelo nome do seu nome do locatário e `your-user-flow-Id` pelo identificador do seu fluxo de usuário. Por exemplo, `b2c_1A_signup_signin_twitter`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário e a ID do fluxo do usuário, mesmo que elas estejam definidas com letras maiúsculas no Azure AD B2C.
 1. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **criar**.
 1. Na página **detalhes do aplicativo** , selecione **Editar > Editar detalhes**, marque a caixa **Habilitar entrada com o Twitter**e, em seguida, selecione **salvar**.
 1. Selecione **chaves e tokens** e registre a **chave de API do consumidor** e os valores de **chave secreta da API do consumidor** a serem usados posteriormente.

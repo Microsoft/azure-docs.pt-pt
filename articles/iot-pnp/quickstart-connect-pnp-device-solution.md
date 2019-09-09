@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 246d3eac8f9d8aff6d603ea8686e430ce0f772ea
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a082e4b7896b317bf2b28971d3693bada95a3445
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878251"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806552"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution"></a>Início rápido: Interagir com um dispositivo de visualização de Plug and Play IoT que está conectado à sua solução
 
@@ -28,6 +28,9 @@ Baixe e instale o Node. js em [NodeJS.org](https://nodejs.org).
 ## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
 
 Você também precisa de um hub IoT do Azure em sua assinatura do Azure para concluir este guia de início rápido. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!NOTE]
+> Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
 
 Adicione a extensão Microsoft Azure IoT para CLI do Azure:
 
@@ -125,7 +128,7 @@ Neste guia de início rápido, você usa uma solução de IoT de exemplo no node
 
 1. Abra o arquivo **update_digital_twin_property. js**.
 
-1. No início do arquivo, há um conjunto de constantes definidas com espaços reservados em maiúsculas. Substitua o DeviceID pela sua ID de dispositivo real, atualize as constantes com os seguintes valores e salve o arquivo:
+1. No início do arquivo, há um conjunto de constantes definidas com espaços reservados em maiúsculas. Substitua o **DeviceID** pela sua ID de dispositivo real, atualize as constantes com os seguintes valores e salve o arquivo:
 
     ```javascript
     const componentName = 'environmentalSensor';

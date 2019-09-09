@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 54adb2ec61d77ea429f7da1b88aa9347c1addfe0
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 8e90be5a38ff40b748c11539e1d5c6558d198b62
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736421"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814229"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para Visual Studio Code
 
@@ -24,13 +24,13 @@ Usamos o comando **Python/Pip** para criar um ambiente virtual em seu caminho in
 1. Instale o [Python](https://www.python.org/downloads/) e o [Pip](https://pip.pypa.io/en/stable/installing/).
    
    + Instale o Python [https://www.python.org/downloads/](https://www.python.org/downloads/)do.
-   + Instalar Pip de [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/). (Se não estiver instalado na instalação do Python)
+   + Instale o Pip [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) do (se ele não estiver instalado na instalação do Python).
    + Valide se o Python e o Pip foram instalados com êxito usando os comandos a seguir. Adicional
  
         ![Versão de Pip do Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > É recomendável instalar o Python manualmente em vez de usar a versão padrão do MacOS.
+     > É recomendável instalar o Python manualmente em vez de usar a versão padrão do macOS.
 
 
 2. Instale o **virtualenv** executando o comando a seguir.
@@ -39,21 +39,23 @@ Usamos o comando **Python/Pip** para criar um ambiente virtual em seu caminho in
    pip install virtualenv
    ```
 
-3. Somente para Linux, instale os pacotes necessários executando comandos abaixo se você encontrar a mensagem de erro.
-   
-    ![Versão de Pip do Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
-       
-   ```
-   sudo apt-get install libkrb5-dev 
-   ```
+## <a name="other-packages"></a>Outros pacotes
 
-   ```
-   sudo apt-get install python-dev
-   ```
+Se você encontrar uma mensagem de erro, instale os pacotes necessários executando os seguintes comandos:
 
-4. Reinicie vs Code e, em seguida, volte para o editor de script **que está executando o HDInsight: PySpark Interactive**.
+   ![Versão de Pip do Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+```
+sudo apt-get install libkrb5-dev
+```
+
+```
+sudo apt-get install python-dev
+```
+
+Reinicie vs Code e, em seguida, volte para o editor de script **que está executando o HDInsight: PySpark Interactive**.
+
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="demo"></a>Demonstração
 * HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)

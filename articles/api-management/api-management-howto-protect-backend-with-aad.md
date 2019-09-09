@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 344613c50f46337ffbd7e786f6753e8030c2af22
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072251"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806336"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API usando o OAuth 2,0 com gerenciamento de API e Azure Active Directory
 
 Este guia mostra como configurar sua instância do gerenciamento de API do Azure para proteger uma API, usando o protocolo OAuth 2,0 com o Azure Active Directory (AD do Azure). 
+
+> [!NOTE]
+> Esse recurso está disponível nas camadas **Developer**, **Standard** e **Premium** do gerenciamento de API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir as etapas neste artigo, você deve ter:
@@ -51,7 +54,7 @@ Para proteger uma API com o Azure AD, a primeira etapa é registrar um aplicativ
     - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `backend-app`. 
     - Na seção **tipos de conta com suporte** , selecione uma opção que atenda ao seu cenário. 
 
-1. Deixe a seção redirecionar **URI** vazia.
+1. Deixe a seção **Redirecionar URI** vazia.
 
 1. Selecione **Registar** para criar a aplicação. 
 
@@ -77,7 +80,7 @@ Cada aplicativo cliente que chama a API também precisa ser registrado como um a
     - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `client-app`. 
     - Na seção **tipos de conta com suporte** , selecione **contas em qualquer diretório organizacional**. 
 
-1. Na seção **URI** de redirecionamento `Web` , selecione e insira a URL`https://contoso5.portal.azure-api.net/signin`
+1. Na seção **URI de redirecionamento** , selecione `Web` e insira a URL`https://contoso5.portal.azure-api.net/signin`
 
 1. Selecione **Registar** para criar a aplicação. 
 
@@ -210,7 +213,7 @@ Você pode usar a política [validar JWT](api-management-access-restriction-poli
 
 Neste guia, você usou o console do desenvolvedor no gerenciamento de API como o aplicativo cliente de exemplo para `Echo API` chamar o protegido pelo OAuth 2,0. Para saber mais sobre como criar um aplicativo e implementar o OAuth 2,0, confira [Azure Active Directory exemplos de código](../active-directory/develop/sample-v1-code.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o [Azure Active Directory e o OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o gerenciamento de API.
 * Para obter outras maneiras de proteger seu serviço de back-end, consulte [autenticação de certificado mútuo](api-management-howto-mutual-certificates.md).

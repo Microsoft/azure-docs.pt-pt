@@ -1,9 +1,9 @@
 ---
-title: Notificações no PIM - Azure Active Directory por e-mail | Documentos da Microsoft
-description: Descreve as notificações por e-mail no Azure AD Privileged Identity Management (PIM).
+title: Notificações por email no PIM-Azure Active Directory | Microsoft Docs
+description: Descreve as notificações por email no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
@@ -12,94 +12,94 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/05/2019
-ms.author: rolyon
+ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0db4828ef7a6d3392ce53b2f2f95b0f7f014d65
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289188"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804543"
 ---
-# <a name="email-notifications-in-pim"></a>Notificações por e-mail no PIM
+# <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
-O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite-lhe saber quando ocorrem eventos importantes, como quando uma função é atribuída ou ativada. PIM mantém-se informado com o envio de que notificações de e-mail do utilizador e outros participantes. Estes e-mails também podem incluir ligações para tarefas relevantes, tais ativando ou renovar uma função. Este artigo descreve a aparência estes e-mails, quando são enviados e quem receberá-los.
+O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite que você saiba quando ocorrem eventos importantes, como quando uma função é atribuída ou ativada. O PIM mantém você informado enviando-lhe e outros participantes notificações por email. Esses emails também podem incluir links para tarefas relevantes, como ativar ou renovar uma função. Este artigo descreve de que forma esses emails se parecem, quando eles são enviados e quem os recebe.
 
-## <a name="sender-email-address-and-subject-line"></a>Linha de endereço e o assunto de e-mail do remetente
+## <a name="sender-email-address-and-subject-line"></a>Endereço de email do remetente e linha do assunto
 
-E-mails enviados do PIM do Azure AD e funções de recursos do Azure têm o seguinte endereço de e-mail do remetente:
+Os emails enviados do PIM para o Azure AD e as funções de recurso do Azure têm o seguinte endereço de email do remetente:
 
-- Endereço de e-mail: **azure-noreply\@microsoft.com**
-- Nome a apresentar: Microsoft Azure
+- Endereço de email: **Azure-\@noresponder Microsoft.com**
+- Nome para exibição: Microsoft Azure
 
-Estes e-mails incluem uma **PIM** prefixo na linha de assunto. Segue-se um exemplo:
+Esses emails incluem um prefixo de **PIM** na linha de assunto. Segue-se um exemplo:
 
-- PIM: Alain Charon permanentemente foi atribuída a função de leitor de cópia de segurança
+- PIM: Alain Charon foi atribuído à função de leitor de backup permanentemente
 
-## <a name="pim-emails-for-azure-ad-roles"></a>E-mails PIM para funções do Azure AD
+## <a name="pim-emails-for-azure-ad-roles"></a>Emails do PIM para funções do Azure AD
 
-PIM envia mensagens de correio eletrónico quando ocorrem os seguintes eventos para funções do Azure AD:
+O PIM envia emails quando os seguintes eventos ocorrem para funções do Azure AD:
 
-- Quando uma ativação de função com privilégios está com aprovação pendente
-- Quando um pedido de ativação de função com privilégios é concluído
-- Quando está ativado o Azure AD PIM
+- Quando uma ativação de função privilegiada estiver com aprovação pendente
+- Quando uma solicitação de ativação de função privilegiada for concluída
+- Quando o PIM do Azure AD está habilitado
 
-Quem receberá estes e-mails para funções do Azure AD depende de sua função, o evento e as notificações de definição:
+Quem recebe esses emails para as funções do Azure AD depende de sua função, do evento e da configuração de notificações:
 
-| Utilizador | Ativação de função está com aprovação pendente | Conclusão do pedido de ativação de função | PIM está ativada |
+| Utilizador | A ativação da função está com aprovação pendente | A solicitação de ativação de função foi concluída | O PIM está habilitado |
 | --- | --- | --- | --- |
-| Administrador com função privilegiada</br>(Ativado/elegíveis) | Sim</br>(apenas se nenhum aprovadores explícitos são especificados) | Sim* | Sim |
-| Administrador de Segurança</br>(Ativado/elegíveis) | Não | Sim* | Sim |
-| Administrador Global</br>(Ativado/elegíveis) | Não | Sim* | Sim |
+| Administrador com Função Privilegiada</br>(Ativado/qualificado) | Sim</br>(somente se nenhum aprovador explícito for especificado) | Sim* | Sim |
+| Administrador de Segurança</br>(Ativado/qualificado) | Não | Sim* | Sim |
+| Administrador Global</br>(Ativado/qualificado) | Não | Sim* | Sim |
 
-\* Se o [ **notificações** definição](pim-how-to-change-default-settings.md#notifications) está definida como **ativar**.
+\*Se a [configuração **notificações** ](pim-how-to-change-default-settings.md#notifications) estiver definida como **habilitar**.
 
-O código a seguir mostra uma mensagem de e-mail de exemplo que é enviada quando um utilizador ativa a uma função do Azure AD para a organização Contoso fictícia.
+Veja a seguir um email de exemplo que é enviado quando um usuário ativa uma função do Azure AD para a organização fictícia Contoso.
 
-![Novo e-mail do PIM para funções do Azure AD](./media/pim-email-notifications/email-directory-new.png)
+![Novo email do PIM para funções do Azure AD](./media/pim-email-notifications/email-directory-new.png)
 
-### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>E-mail de resumo semanal PIM para funções do Azure AD
+### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>Email de resumo do PIM semanal para funções do Azure AD
 
-Um e-mail de resumo de semanal PIM para funções do Azure AD é enviado para os administradores de função com privilégios, os administradores de segurança e os administradores globais que tiver ativado o PIM. Este e-mail semanal fornece um instantâneo de atividades do PIM para a semana, bem como as atribuições de funções privilegiadas. Só está disponível para os inquilinos na cloud pública. Eis um e-mail de exemplo:
+Um email de resumo do PIM semanal para funções do Azure AD é enviado para administradores de função com privilégios, administradores de segurança e administradores globais que habilitaram o PIM. Este email semanal fornece um instantâneo das atividades do PIM para a semana, bem como atribuições de função com privilégios. Ele só está disponível para locatários na nuvem pública. Aqui está um exemplo de email:
 
-![E-mail de resumo semanal PIM para funções do Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
+![Email de resumo do PIM semanal para funções do Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
 
-O e-mail inclui quatro mosaicos:
+O email inclui quatro blocos:
 
-| mosaico | Descrição |
+| Dispor em Mosaico | Descrição |
 | --- | --- |
-| **Utilizadores ativados** | Número de vezes que os utilizadores ativado a respetiva função elegível dentro do inquilino. |
-| **Tornar-se permanentes de usuários** | Número de vezes que os utilizadores com uma atribuição elegível é tornar-se permanentes. |
-| **Atribuições de funções no PIM** | Número de vezes que os utilizadores são atribuídos uma função elegível dentro do PIM. |
-| **Atribuições de funções fora do PIM** | Número de vezes que os utilizadores são atribuídos uma função permanente fora do PIM (dentro do Azure AD). |
+| **Usuários ativados** | Número de vezes que os usuários ativaram sua função qualificada dentro do locatário. |
+| **Usuários que se tornaram permanentes** | Número de vezes que os usuários com uma atribuição qualificada são tornados permanentes. |
+| **Atribuições de função no PIM** | Número de vezes que os usuários recebem uma função qualificada dentro do PIM. |
+| **Atribuições de função fora do PIM** | Número de vezes que os usuários recebem uma função permanente fora do PIM (dentro do Azure AD). |
 
-O **descrição geral das suas funções principais** seção lista top cinco funções no seu inquilino com base no número total de administradores elegíveis e permanentes para cada função. O **agir** abre-se de vincular a [assistente PIM](pim-security-wizard.md) onde pode converter os administradores permanentes para os administradores elegíveis em lotes.
+A **visão geral da seção de funções principais** lista as cinco principais funções em seu locatário com base no número total de administradores permanentes e qualificados para cada função. O link **executar ação** abre o [Assistente do PIM](pim-security-wizard.md) , no qual você pode converter administradores permanentes em lotes qualificados em lotes.
 
-## <a name="pim-emails-for-azure-resource-roles"></a>E-mails PIM para funções de recursos do Azure
+## <a name="pim-emails-for-azure-resource-roles"></a>Emails do PIM para funções de recurso do Azure
 
-PIM envia mensagens de correio eletrónico para os titulares e administradores de acesso do utilizador quando ocorrem os seguintes eventos para funções de recursos do Azure:
+O PIM envia emails aos proprietários e aos administradores de acesso do usuário quando os seguintes eventos ocorrem para as funções de recurso do Azure:
 
 - Quando uma atribuição de função está com aprovação pendente
 - Quando uma função é atribuída
-- Quando uma função estiver prestes a expirar
-- Quando uma função é elegível para expandir
-- Quando uma função está a ser renovada por um usuário final
-- Quando um pedido de ativação de função está concluído
+- Quando uma função estiver em breve para expirar
+- Quando uma função está qualificada para estender
+- Quando uma função está sendo renovada por um usuário final
+- Quando uma solicitação de ativação de função é concluída
 
-PIM envia mensagens de correio eletrónico aos utilizadores finais quando ocorrem os seguintes eventos para funções de recursos do Azure:
+O PIM envia emails aos usuários finais quando os seguintes eventos ocorrem para funções de recursos do Azure:
 
-- Quando uma função é atribuída ao utilizador
+- Quando uma função é atribuída ao usuário
 - Quando a função de um usuário está expirada
-- Quando a função de um utilizador é expandida
-- Quando o pedido de ativação de função de um utilizador está concluído
+- Quando a função de um usuário é estendida
+- Quando a solicitação de ativação de função de um usuário for concluída
 
-O código a seguir mostra uma mensagem de e-mail de exemplo que é enviada quando um utilizador seja atribuído uma função de recursos do Azure para a organização Contoso fictícia.
+Veja a seguir um email de exemplo que é enviado quando um usuário recebe uma função de recurso do Azure para a organização fictícia Contoso.
 
-![Novo e-mail do PIM para funções de recursos do Azure](./media/pim-email-notifications/email-resources-new.png)
+![Novo email do PIM para funções de recurso do Azure](./media/pim-email-notifications/email-resources-new.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar definições de função do Azure AD no PIM](pim-how-to-change-default-settings.md)
-- [Aprovar ou recusar pedidos para funções do Azure AD no PIM](azure-ad-pim-approval-workflow.md)
+- [Definir as configurações de função do Azure AD no PIM](pim-how-to-change-default-settings.md)
+- [Aprovar ou negar solicitações para funções do Azure AD no PIM](azure-ad-pim-approval-workflow.md)

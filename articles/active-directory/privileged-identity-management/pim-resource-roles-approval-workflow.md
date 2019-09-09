@@ -1,9 +1,9 @@
 ---
-title: Aprovar ou recusar pedidos para funções de recursos do Azure no PIM - Azure Active Directory | Documentos da Microsoft
-description: Saiba como aprovar ou recusar pedidos para funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
+title: Aprovar ou negar solicitações para funções de recurso do Azure em PIM-Azure Active Directory | Microsoft Docs
+description: Saiba como aprovar ou negar solicitações para funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,76 +12,76 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8b39434f8763e44a126f74ac9a19596e4413ae9c
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476390"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804269"
 ---
-# <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Aprovar ou recusar pedidos para funções de recursos do Azure no PIM
+# <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Aprovar ou negar solicitações para funções de recurso do Azure no PIM
 
-Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), pode configurar funções para exigir a aprovação para a ativação e escolher um ou vários utilizadores ou grupos como aprovadores delegados. Aprovadores delegados têm 24 horas para aprovar pedidos. Se um pedido não está aprovado dentro de 24 horas, em seguida, o utilizador elegível tem novamente submeter um novo pedido. A janela de tempo de aprovação de 24 horas não é configurável.
+Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores delegados têm 24 horas para aprovar solicitações. Se uma solicitação não for aprovada dentro de 24 horas, o usuário elegível deverá enviar novamente uma nova solicitação. A janela de tempo de aprovação de 24 horas não é configurável.
 
-Siga os passos neste artigo para aprovar ou recusar pedidos para funções de recursos do Azure.
+Siga as etapas neste artigo para aprovar ou negar solicitações para funções de recurso do Azure.
 
 ## <a name="view-pending-requests"></a>Ver pedidos pendentes
 
-Como um aprovador de delegados, receberá uma notificação por e-mail quando uma solicitação de função de recursos do Azure está com aprovação pendente. Pode ver estes pedidos pendentes no PIM.
+Como um Aprovador delegado, você receberá uma notificação por email quando uma solicitação de função de recurso do Azure estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no PIM.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Open **do Azure AD Privileged Identity Management**.
+1. Abra **Azure ad Privileged Identity Management**.
 
-1. Clique em **aprovar pedidos**.
+1. Clique em **aprovar solicitações**.
 
-    ![Aprovar pedidos - página de recursos do Azure que mostra o pedido para rever](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Aprovar solicitações-página de recursos do Azure mostrando solicitação para revisão](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
-    Na **pedidos de ativações de função** seção, verá uma lista de pedidos com aprovação pendente.
+    Na seção **solicitações para ativações de função** , você verá uma lista de solicitações que aguardam sua aprovação.
 
 ## <a name="approve-requests"></a>Aprovar pedidos
 
-1. Encontre e clique em pedido de que pretende aprovar. Um aprovar ou negar é apresentado o painel.
+1. Localize e clique na solicitação que você deseja aprovar. Um painel aprovar ou negar é exibido.
 
-    ![Aprovar pedidos - aprovar ou negar o painel com detalhes e a caixa de justificação](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aprovar solicitações – painel aprovar ou negar com detalhes e caixa de justificação](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-1. Na **justificação** , escreva um motivo.
+1. Na caixa de **justificação** , digite um motivo.
 
 1. Clique em **aprovar**.
 
-    É apresentada uma notificação com a sua aprovação.
+    Uma notificação é exibida com sua aprovação.
 
-    ![Aprovar a notificação a mostrar que o pedido foi aprovado](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Aprovar notificação mostrando que a solicitação foi aprovada](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
-## <a name="deny-requests"></a>Negar pedidos
+## <a name="deny-requests"></a>Negar solicitações
 
-1. Encontre e clique em pedido de que pretende negar. Um aprovar ou negar é apresentado o painel.
+1. Localize e clique na solicitação que você deseja negar. Um painel aprovar ou negar é exibido.
 
-    ![Aprovar pedidos - aprovar ou negar o painel com detalhes e a caixa de justificação](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aprovar solicitações – painel aprovar ou negar com detalhes e caixa de justificação](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-1. Na **justificação** , escreva um motivo.
+1. Na caixa de **justificação** , digite um motivo.
 
 1. Clique em **negar**.
 
-    É apresentada uma notificação com o tipo de negação.
+    Uma notificação é exibida com sua negação.
 
-## <a name="workflow-notifications"></a>Notificações do fluxo de trabalho
+## <a name="workflow-notifications"></a>Notificações de fluxo de trabalho
 
-Eis algumas informações sobre notificações de fluxo de trabalho:
+Veja algumas informações sobre notificações de fluxo de trabalho:
 
-- Todos os membros da lista aprovador notificados por e-mail quando um pedido para uma função está a aguardar a revisão. As notificações de e-mail incluem uma ligação direta para o pedido, em que o aprovador pode aprovar ou negar.
-- Pedidos são resolvidos pelo primeiro membro da lista que aprova ou nega.
-- Quando um aprovador responde à solicitação, todos os membros da lista aprovador são notificados da ação.
-- Os administradores de recursos são notificados quando um membro aprovado se torna ativo na sua função.
+- Todos os membros da lista de aprovadores são notificados por email quando uma solicitação de uma função está aguardando sua revisão. As notificações por email incluem um link direto para a solicitação, onde o aprovador pode aprovar ou negar.
+- As solicitações são resolvidas pelo primeiro membro da lista que aprova ou nega.
+- Quando um Aprovador responde à solicitação, todos os membros da lista de aprovadores são notificados sobre a ação.
+- Os administradores de recursos são notificados quando um membro aprovado se torna ativo em sua função.
 
 >[!Note]
->Um administrador de recursos que acredita que um membro aprovado não deve estar ativo pode remover a atribuição de função ativa no PIM. Embora os administradores de recursos não são notificados de pedidos pendentes, a menos que são membros da lista aprovador, pode ver e cancelar solicitações de todos os utilizadores pendentes visualizando pedidos no PIM pendentes. 
+>Um administrador de recursos que acredita que um membro aprovado não deve estar ativo pode remover a atribuição de função ativa no PIM. Embora os administradores de recursos não sejam notificados sobre solicitações pendentes, a menos que sejam membros da lista de aprovadores, eles podem exibir e cancelar solicitações pendentes de todos os usuários exibindo solicitações pendentes no PIM. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Expandir ou renovar funções de recursos do Azure no PIM](pim-resource-roles-renew-extend.md)
-- [Notificações por e-mail no PIM](pim-email-notifications.md)
-- [Aprovar ou recusar pedidos para funções do Azure AD no PIM](azure-ad-pim-approval-workflow.md)
+- [Estender ou renovar funções de recurso do Azure no PIM](pim-resource-roles-renew-extend.md)
+- [Notificações por email no PIM](pim-email-notifications.md)
+- [Aprovar ou negar solicitações para funções do Azure AD no PIM](azure-ad-pim-approval-workflow.md)

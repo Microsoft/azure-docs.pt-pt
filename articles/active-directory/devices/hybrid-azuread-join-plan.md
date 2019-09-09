@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5559d30921ea44679b4ecd24c77e26be163c18fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 53900bcade3f7a283309f5ee1c624c742a62ad3f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375899"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812453"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -149,10 +149,10 @@ A tabela a seguir fornece detalhes sobre o suporte para esses UPNs locais do AD 
 | ----- | ----- | ----- | ----- |
 | Podem | Federado | Da versão 1703 | Disponível em geral |
 | Não roteável | Federado | Da versão 1803 | Disponível em geral |
-| Podem | Managed | Não suportado | |
+| Podem | Managed | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
 | Não roteável | Managed | Não suportado | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar junção de Azure Active Directory híbrida para federado ambiente](hybrid-azuread-join-federated-domains.md)

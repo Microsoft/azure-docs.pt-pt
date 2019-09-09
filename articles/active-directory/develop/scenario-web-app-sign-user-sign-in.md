@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562198"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812390"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Aplicativo Web que conecta usuários-entrar
 
@@ -28,7 +28,8 @@ Saiba como adicionar entrada ao código para seu aplicativo Web que faz logon de
 
 ## <a name="sign-in"></a>Iniciar sessão
 
-O código que temos na [configuração de código do aplicativo do](scenario-web-app-sign-user-app-configuration.md) artigo anterior é tudo o que você precisa para implementar o logout. Depois que o usuário entrar no seu aplicativo, você provavelmente desejará habilitá-lo a sair. O ASP.NET Core manipula a saída para você.
+O código que examinamos na [configuração do código do aplicativo do](scenario-web-app-sign-user-app-configuration.md) artigo anterior é tudo o que você precisa para implementar a entrada.
+Depois que o usuário entrar no seu aplicativo, você provavelmente desejará habilitá-lo a sair. O ASP.NET Core manipula a saída para você.
 
 ## <a name="what-sign-out-involves"></a>O que a saída envolve
 
@@ -39,7 +40,7 @@ Para saber mais, consulte a seção [Enviar uma solicitação de saída](v2-prot
 
 ## <a name="application-registration"></a>Registo da aplicação
 
-Durante o registro do aplicativo, você terá registrado um **URI de logout**de postagem. Em nosso tutorial, você se `https://localhost:44321/signout-oidc` registrou no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** . Para obter detalhes, consulte [registrar o aplicativo webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)
+Durante o registro do aplicativo, você terá registrado um **URI de logout de postagem**. Em nosso tutorial, você se `https://localhost:44321/signout-oidc` registrou no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** . Para obter detalhes, consulte [registrar o aplicativo webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)
 
 ## <a name="aspnet-core-code"></a>Código de ASP.NET Core
 
@@ -128,7 +129,7 @@ public void SignOut()
 
 Se você não quiser usar ASP.NET Core ou ASP.NET, poderá examinar a documentação do protocolo, que está disponível no [Open ID Connect](./v2-protocols-oidc.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Mover para produção](scenario-web-app-sign-user-production.md)

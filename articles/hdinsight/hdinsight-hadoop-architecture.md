@@ -1,6 +1,6 @@
 ---
-title: Arquitetura do Apache Hadoop - Azure HDInsight
-description: Descreve o processamento e armazenamento do Apache Hadoop em clusters do HDInsight.
+title: Arquitetura de Apache Hadoop-Azure HDInsight
+description: Descreve Apache Hadoop armazenamento e processamento em clusters HDInsight do Azure.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -8,46 +8,46 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 3fd85232ff7044c699a3e68ce34b267bf50c4dc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d41d671cf773bdab20c3f105c7d1abb6c7bde840
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257866"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810243"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
-[Apache Hadoop](https://hadoop.apache.org/) inclui dois componentes principais: a [Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) que permite o armazenamento, e [Apache Hadoop ainda outro Resource Negotiator (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) que Fornece o processamento. Com o armazenamento e recursos de processamento, se torna um cluster com capacidade de execução [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) programas para realizar o processamento de dados pretendido.
+O [Apache Hadoop](https://hadoop.apache.org/) inclui dois componentes principais: o [HDFS (Apache Hadoop sistema de arquivos distribuído](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) ) que fornece armazenamento e [Apache HADOOP outro recurso negociador (Yarn)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) que fornece processamento. Com os recursos de armazenamento e processamento, um cluster torna-se capaz de executar programas [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) para executar o processamento de dados desejado.
 
 > [!NOTE]  
-> Normalmente, não é implementada uma HDFS dentro do cluster do HDInsight para fornecer armazenamento. Em vez disso, uma camada de interface compatível com HDFS é utilizada por componentes do Hadoop. A capacidade de armazenamento real é fornecida ao armazenamento do Azure ou ao armazenamento do Azure Data Lake. Para o Hadoop, tarefas de MapReduce em execução no cluster de HDInsight executar como se um HDFS estavam presentes e por isso, não necessitam de alterações para dar suporte a suas necessidades de armazenamento. Hadoop no HDInsight, armazenamento seja externo, mas o processamento de YARN continua sendo um componente fundamental. Para obter mais informações, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md).
+> Um HDFS normalmente não é implantado no cluster HDInsight para fornecer armazenamento. Em vez disso, uma camada de interface compatível com HDFS é usada por componentes do Hadoop. O recurso de armazenamento real é fornecido pelo armazenamento do Azure ou Azure Data Lake Storage. Para o Hadoop, trabalhos do MapReduce em execução no cluster HDInsight são executados como se um HDFS estivesse presente e, portanto, não exigem alterações para dar suporte às suas necessidades de armazenamento. No Hadoop no HDInsight, o armazenamento é terceirizado, mas o processamento de YARN permanece como um componente principal. Para obter mais informações, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
-Este artigo apresenta YARN e como ele coordena a execução de aplicativos no HDInsight.
+Este artigo apresenta o YARN e como ele coordena a execução de aplicativos no HDInsight.
 
-## <a name="apache-hadoop-yarn-basics"></a>Noções básicas do Apache Hadoop YARN 
+## <a name="apache-hadoop-yarn-basics"></a>Noções básicas do YARN Apache Hadoop 
 
-YARN rege e orquestra o processamento de dados no Hadoop. YARN tem dois serviços principais que são executadas como processos em nós do cluster: 
+O YARN rege e orquestra o processamento de dados no Hadoop. O YARN tem dois serviços principais que são executados como processos em nós no cluster: 
 
 * ResourceManager 
 * NodeManager
 
-O ResourceManager concede aos recursos de computação de cluster para as aplicações, como tarefas de MapReduce. O ResourceManager concede estes recursos, como contentores, onde cada contentor é composta por uma alocação de núcleos de CPU e memória RAM. Se combinado de todos os recursos disponíveis num cluster e, em seguida, distribuídos os núcleos e memória em blocos, cada bloco de recursos é um contentor. Cada nó do cluster tem uma capacidade para um determinado número de contentores, portanto o cluster tem um limite fixo no número de contentores disponíveis. A alocação de recursos num contentor é configurável. 
+O ResourceManager concede recursos de computação de cluster a aplicativos como trabalhos MapReduce. O ResourceManager concede esses recursos como contêineres, onde cada contêiner consiste em uma alocação de núcleos de CPU e memória RAM. Se você combinar todos os recursos disponíveis em um cluster e, em seguida, distribuir os núcleos e a memória em blocos, cada bloco de recursos será um contêiner. Cada nó no cluster tem uma capacidade para um determinado número de contêineres, portanto, o cluster tem um limite fixo no número de contêineres disponíveis. A alocação de recursos em um contêiner é configurável. 
 
-Quando um aplicativo de MapReduce é executado num cluster, o ResourceManager fornece o aplicativo os contentores para executar. O ResourceManager controla o estado de execução de aplicativos, capacidade de cluster disponível e controla as aplicações à medida que concluir e seus recursos de versão. 
+Quando um aplicativo MapReduce é executado em um cluster, o ResourceManager fornece ao aplicativo os contêineres a serem executados. O ResourceManager rastreia o status dos aplicativos em execução, a capacidade de cluster disponível e controla os aplicativos à medida que eles são concluídos e libera seus recursos. 
 
-O ResourceManager também é executado um processo de servidor web que fornece uma interface do usuário de web para monitorizar o estado das aplicações.
+O ResourceManager também executa um processo de servidor Web que fornece uma interface de usuário da Web para monitorar o status dos aplicativos.
 
-Quando um utilizador submete um aplicativo de MapReduce para executar no cluster, o aplicativo foi submetido para o ResourceManager. Por sua vez, ResourceManager aloca um contentor em nós de NodeManager disponíveis. Os nós de NodeManager são onde o aplicativo for executado. O primeiro contentor alocado executa um aplicativo de especial chamado o ApplicationMaster. Este ApplicationMaster é responsável por a adquirir recursos, na forma de contentores subsequentes, necessários para executar uma aplicação submetida. O ApplicationMaster examina os estágios do aplicativo, como o estágio de mapa e reduzir a fase e fatores na quantidade de dados deve ser processado. Em seguida, pede a ApplicationMaster (*negocia*) os recursos a partir do ResourceManager em nome do aplicativo. O ResourceManager concede por sua vez para recursos NodeManagers no cluster para o Applicationmastê-la para utilizar na execução do aplicativo. 
+Quando um usuário envia um aplicativo MapReduce para ser executado no cluster, o aplicativo é enviado para o ResourceManager. Por sua vez, o ResourceManager aloca um contêiner nos nós NodeManager disponíveis. Os nós NodeManager são onde o aplicativo é realmente executado. O primeiro contêiner alocado executa um aplicativo especial chamado de aplicativo. Esse aplicativo é responsável por adquirir recursos, na forma de contêineres subsequentes, necessários para executar o aplicativo enviado. O aplicativo de nível examina os estágios do aplicativo, como o estágio de mapa e o estágio de redução, e os fatores de quantos dados precisam ser processados. Em seguida, o aplicativo solicita (*negocia*) os recursos do ResourceManager em nome do aplicativo. O ResourceManager, por sua vez, concede recursos do NodeManagers no cluster para o aplicativo a ser usado na execução do aplicativo. 
 
-NodeManagers executados as tarefas que compõem o aplicativo, em seguida, relatar seu estado e progresso para o ApplicationMaster. O ApplicationMaster relatórios, por sua vez, o estado da aplicação para o ResourceManager. O ResourceManager retorna os resultados para o cliente.
+O NodeManagers executa as tarefas que compõem o aplicativo e, em seguida, relata seu progresso e status de volta para o aplicativo. O aplicativo, por sua vez, relata o status do aplicativo de volta para o ResourceManager. O ResourceManager retorna todos os resultados para o cliente.
 
 ## <a name="yarn-on-hdinsight"></a>YARN no HDInsight
 
-Todos os tipos de cluster do HDInsight implementar YARN. O ResourceManager é implementado para elevada disponibilidade com uma instância primária e secundária, que é executado em nós principais, primeiros e segundo, dentro do cluster, respetivamente. Apenas a uma instância do ResourceManager está ativa por vez. As instâncias de NodeManager são executadas em todos os nós de trabalho disponíveis no cluster.
+Todos os tipos de cluster HDInsight implantam YARN. O ResourceManager é implantado para alta disponibilidade com uma instância primária e secundária, que é executada no primeiro e segundo nós de cabeçalho no cluster, respectivamente. Somente a instância do ResourceManager está ativa por vez. As instâncias do NodeManager são executadas nos nós de trabalho disponíveis no cluster.
 
 ![YARN no HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar o MapReduce no Apache Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

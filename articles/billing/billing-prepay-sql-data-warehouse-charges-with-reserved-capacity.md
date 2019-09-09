@@ -1,33 +1,33 @@
 ---
-title: Pagar antecipadamente por SQL Data Warehouse encargos com a capacidade reservada do Azure
-description: Saiba como você pode pagar por SQL Data Warehouse encargos com capacidade reservada para economizar dinheiro.
+title: Economize custos para encargos SQL Data Warehouse com a capacidade reservada do Azure
+description: Saiba como economizar custos para SQL Data Warehouse encargos com capacidade reservada para economizar dinheiro.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779991"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806271"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pagar antecipadamente por SQL Data Warehouse encargos com capacidade reservada
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economize custos para encargos SQL Data Warehouse com capacidade reservada
 
-Você pode economizar dinheiro com o Azure SQL Data Warehouse prestando pelo uso de cDWU por uma duração de um ou três anos. Para comprar SQL Data Warehouse capacidade reservada, você precisa escolher a região do Azure e o termo. Em seguida, adicione o SQL Data Warehouse SKU ao seu carrinho e escolha a quantidade de unidades cDWU que você deseja comprar.
+Você pode economizar dinheiro com o Azure SQL Data Warehouse confirmando uma reserva para seu uso de cDWU por uma duração de um ou três anos. Para comprar SQL Data Warehouse capacidade reservada, você precisa escolher a região do Azure e o termo. Depois, adicione o SKU do SQL Data Warehouse ao carrinho e escolha a quantidade de unidades de cDWU que quer comprar.
 
-Quando você adquire uma reserva, o uso de SQL Data Warehouse que corresponde aos atributos de reserva não é mais cobrado com as tarifas de pagamento conforme o uso.
+Quando compra uma reserva, a utilização do SQL Data Warehouse que corresponde aos atributos da reserva deixa de ser cobrada às tarifas de pay as you go.
 
-Uma reserva não abrange os encargos de armazenamento ou de rede associados ao uso de SQL Data Warehouse.
+A reserva não cobre os custos de armazenamento ou rede associados à utilização do SQL Data Warehouse.
 
-Quando a capacidade reservada expira, SQL Data Warehouse instâncias continuam a ser executadas, mas são cobradas com a taxa paga conforme o uso. As reservas não são renovadas automaticamente.
+Quando a capacidade reservada expirar, as instâncias do SQL Data Warehouse continuam a ser executadas, mas são cobradas à tarifa de pay as you go. As reservas não se renovam automaticamente.
 
 Para obter informações sobre preços, consulte a [SQL data warehouse oferta de capacidade reservada](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-Você pode comprar o Azure SQL Data Warehouse capacidade reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Para comprar a capacidade reservada:
+Você pode comprar o Azure SQL Data Warehouse capacidade reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pague pela reserva [antecipada ou com pagamentos mensais](billing-monthly-payments-reservations.md). Para comprar a capacidade reservada:
 
 - Você deve ter a função de proprietário para pelo menos uma assinatura corporativa ou paga conforme o uso.
 - Para assinaturas Enterprise, a opção **adicionar instâncias reservadas** deve ser habilitada no [portal de ea](https://ea.azure.com/). Se a configuração estiver desabilitada, você deverá ser um administrador do EA.
@@ -45,7 +45,7 @@ Por exemplo, suponha que o consumo total de SQL Data Warehouse seja DW3000c. Voc
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **todas as** > **reservas**de serviços.
-3. Selecione uma subscrição. Use a lista assinatura para escolher a assinatura que é usada para pagar pela capacidade reservada. O método de pagamento da assinatura é cobrado pelos custos iniciais da capacidade reservada. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
+3. Selecione uma subscrição. Use a lista assinatura para escolher a assinatura que é usada para pagar pela capacidade reservada. O método de pagamento da assinatura é cobrado pelos custos da capacidade reservada. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
    - Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
    - Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.
 4. Selecione um escopo. Use a lista escopo para escolher um escopo de assinatura.
@@ -79,5 +79,5 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
   - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
   - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
   - [Entender o desconto de reservas do Azure](billing-understand-reservation-charges.md)
-  - [Entenda o uso de reserva para sua assinatura pré-paga](billing-understand-reserved-instance-usage.md)
-  - [Entender o uso de reserva para seu registro corporativo](billing-understand-reserved-instance-usage-ea.md)
+  - [Compreender a utilização de reservas na sua subscrição Pay As You Go](billing-understand-reserved-instance-usage.md)
+  - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

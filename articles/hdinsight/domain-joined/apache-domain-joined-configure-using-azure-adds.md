@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 76f95e74c8150ac797d20c3166c0e8d6ea085bf9
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 83e9e1364293601337f854f083bbb279361e29c5
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734959"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810996"
 ---
-# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Pacote de Segurança Enterprise mediante a utilização do Azure Active Directory Domain Services
+# <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package configurações com Azure Active Directory Domain Services no HDInsight
 
 Os clusters de Enterprise Security Package (ESP) fornecem acesso de vários usuários em clusters do Azure HDInsight. Os clusters HDInsight com ESP são conectados a um domínio para que os usuários de domínio possam usar suas credenciais de domínio para autenticar com os clusters e executar trabalhos de Big Data.
 
@@ -118,7 +118,7 @@ A captura de tela a seguir mostra uma configuração bem-sucedida no portal do A
 
 A identidade gerenciada que você criou pode ser escolhida no menu suspenso identidade gerenciada atribuída pelo usuário ao criar um novo cluster.
 
-![Configuração de Active Directory Domain Services do Azure HDInsight ESP](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Identidade gerenciada Active Directory Domain Services do Azure HDInsight ESP](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 ## <a name="next-steps"></a>Passos seguintes
 

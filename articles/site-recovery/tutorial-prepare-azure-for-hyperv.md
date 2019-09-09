@@ -1,36 +1,36 @@
 ---
 title: Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
-description: Saiba como preparar o Azure para recuperação após desastre de VMs de Hyper-V no local com o Azure Site Recovery
+description: Saiba como preparar o Azure para a recuperação de desastre de VMs do Hyper-V locais usando Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418349"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814345"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
 
- [O Azure Site Recovery](site-recovery-overview.md) ajuda empresas continuidade e recuperação após desastre (BCDR) ao manter as aplicações empresariais em execução durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
+ [Azure site Recovery](site-recovery-overview.md) ajuda a BCDR (continuidade dos negócios e recuperação de desastre) mantendo os aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
-Este tutorial é a primeira de uma série que descreve como configurar a recuperação após desastre para VMs de Hyper-V no local.
+Este tutorial é o primeiro de uma série que descreve como configurar a recuperação de desastre para VMs do Hyper-V locais.
 
 > [!NOTE]
-> Podemos tutoriais que indicassem o caminho de implantação mais simples para um cenário de design. Estes tutoriais utilizam as opções predefinidas, sempre que possível e não mostram todas as configurações possíveis e caminhos. Para obter mais informações, consulte a secção "Como para" para cada cenário correspondente.
+> Criamos tutoriais para mostrar o caminho de implantação mais simples para um cenário. Esses tutoriais usam as opções padrão quando possível e não mostram todas as configurações e caminhos possíveis. Para obter mais informações, consulte a seção "como" para cada cenário correspondente.
 
-Este tutorial mostra como preparar os componentes do Azure quando pretende replicar VMs no local (Hyper-V) para o Azure. Vai aprender a:
+Este tutorial mostra como preparar os componentes do Azure quando você deseja replicar VMs locais (Hyper-V) para o Azure. Vai aprender a:
 
 > [!div class="checklist"]
 > * Certifique-se de que a conta do Azure tem permissões de replicação.
-> * Crie uma conta de armazenamento do Azure, que armazena as imagens das máquinas replicadas.
-> * Crie um cofre dos serviços de recuperação, que armazena informações de metadados e configuração para VMs e outros componentes de replicação.
-> * Configure uma rede do Azure. Quando as VMs do Azure são criadas após a ativação pós-falha, são associadas a esta rede.
+> * Crie uma conta de armazenamento do Azure, que armazena imagens de máquinas replicadas.
+> * Crie um cofre dos serviços de recuperação, que armazena metadados e informações de configuração para VMs e outros componentes de replicação.
+> * Configure uma rede do Azure. Quando as VMs do Azure são criadas após o failover, elas são unidas a essa rede.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
@@ -40,38 +40,38 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
 
-Se acabou de criar uma conta gratuita do Azure, é o administrador para essa subscrição. Se não for o administrador, trabalhe com o administrador para atribuir as permissões que necessárias. Para ativar a replicação para uma nova máquina virtual, tem de ter permissões para:
+Se você acabou de criar uma conta gratuita do Azure, você é o administrador dessa assinatura. Se você não for o administrador, trabalhe com o administrador para atribuir as permissões necessárias. Para ativar a replicação para uma nova máquina virtual, tem de ter permissões para:
 
 - Criar uma VM no grupo de recursos selecionado.
 - Criar uma VM na rede virtual selecionada.
 - Escrever na conta de armazenamento selecionada.
 
-Para concluir estas tarefas, a conta deve ser atribuída a função incorporada de Contribuidor de Máquina Virtual. Para gerir as operações do Site Recovery num cofre, a conta deve ser atribuída a função incorporada contribuinte do Site Recovery.
+Para concluir essas tarefas, sua conta deve ser atribuída à função interna colaborador de máquina virtual. Para gerenciar as operações de Site Recovery em um cofre, sua conta deve ser atribuída à função interna colaborador de Site Recovery.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento quando fizer a ativação pós-falha do local para o Azure. A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
 
-1. Na [portal do Azure](https://portal.azure.com) menu, selecione **criar um recurso** > **armazenamento** > **conta de armazenamento - blob, ficheiro, tabela, fila** .
-2. Em **Criar conta de armazenamento**, introduza um nome para a conta.  O nome que escolher tem de ser exclusivo no Azure, ser a partir de 3 a 24 carateres de comprimento e apenas, utilize letras minúsculas e números. Neste tutorial, utilize **contosovmsacct1910171607**.
+1. No menu [portal do Azure](https://portal.azure.com) , selecione **criar um recurso** > **armazenamento** > **conta de armazenamento-BLOB, arquivo, tabela, fila**.
+2. Em **Criar conta de armazenamento**, introduza um nome para a conta.  O nome escolhido deve ser exclusivo no Azure, ter de 3 a 24 caracteres e usar apenas letras minúsculas e números. Para este tutorial, use **contosovmsacct1910171607**.
 3. Em **Modelo de implementação**, selecione **Resource Manager**.
-4. Na **tipo de conta**, selecione **(para fins gerais v1) de armazenamento**. Não selecione o armazenamento de blobs.
-5. Em **Replicação**, selecione o **Armazenamento georredundante com acesso de leitura** predefinido para redundância de armazenamento. Deixe a transferência segura necessária definir como desativado.
-6. Em **Desempenho**, selecione **Padrão**. Em seguida, no **camada de acesso**, selecione a opção predefinida **frequente**.
-7. Na **subscrição**, escolha a subscrição na qual pretende criar a nova conta de armazenamento.
-8. Em **Grupo de recursos**, introduza um novo grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos são implementados e geridos. Neste tutorial, utilize **ContosoRG**.
-9. Na **localização**, escolha a localização geográfica para a sua conta de armazenamento. Neste tutorial, utilize **Europa Ocidental**.
+4. Em **tipo de conta**, selecione **armazenamento (uso geral v1)** . Não selecione o armazenamento de blobs.
+5. Em **Replicação**, selecione o **Armazenamento georredundante com acesso de leitura** predefinido para redundância de armazenamento. Deixe a configuração de transferência segura necessária como desabilitada.
+6. Em **Desempenho**, selecione **Padrão**. Em seguida, na **camada de acesso**, selecione a opção padrão de **quente**.
+7. Em **assinatura**, escolha a assinatura na qual você deseja criar a nova conta de armazenamento.
+8. Em **Grupo de recursos**, introduza um novo grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Para este tutorial, use **ContosoRG**.
+9. Em **local**, escolha a localização geográfica da sua conta de armazenamento. Para este tutorial, use **Europa Ocidental**.
 10. Selecione **Criar** para criar a conta de armazenamento.
 
    ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
-1. No portal do Azure, selecione **+ criar um recurso**e, em seguida, procure no Azure Marketplace para serviços de recuperação.
-2. Selecione **Backup e Site Recovery (OMS)** . Em seguida, na **Backup e Site Recovery** página, selecione **criar**.
-1. Na **cofre dos Recovery services > nome**, introduza um nome amigável para identificar o cofre. Neste tutorial, utilize **ContosoVMVault**.
-2. Na **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Neste tutorial, utilize **contosoRG**.
-3. Na **localização**, selecione a região em que o cofre deve estar localizado. Neste tutorial, utilize **Europa Ocidental**.
+1. Na portal do Azure, selecione **+ criar um recurso**e pesquise os serviços de recuperação no Azure Marketplace.
+2. Selecione **backup e site Recovery (OMS)** . Em seguida, na página **backup e site Recovery** , selecione **criar**.
+1. Em **cofre dos serviços de recuperação > nome**, insira um nome amigável para identificar o cofre. Neste tutorial, utilize **ContosoVMVault**.
+2. Em **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Para este tutorial, use **contosoRG**.
+3. Em **local**, selecione a região onde o cofre deve ser localizado. Para este tutorial, use **Europa Ocidental**.
 4. Para aceder rapidamente ao cofre a partir do dashboard, selecione **Afixar ao dashboard** > **Criar**.
 
 ![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -82,18 +82,18 @@ O novo cofre é apresentado em **Dashboard** > **Todos os recursos** e na págin
 
 Quando as VMs do Azure são criadas a partir do armazenamento após a ativação pós-falha, são associadas a esta rede.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Redes** > **Rede virtual**. Deixe selecionado como o modelo de implementação do Resource Manager.
-2. Em **Nome**, introduza um nome de rede. O nome tem de ser exclusivo dentro do grupo de recursos do Azure. Neste tutorial, utilize **ContosoASRnet**.
-3. Especifique o grupo de recursos no qual pretende criar a rede. Neste tutorial, utilize o grupo de recursos existentes **contosoRG**.
-4. Na **intervalo de endereços**, introduza **10.0.0.0/24** como o intervalo para a rede. Não existe nenhuma sub-rede para esta rede.
+1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Redes** > **Rede virtual**. Deixe o Gerenciador de recursos selecionado como o modelo de implantação.
+2. Em **Nome**, introduza um nome de rede. O nome tem de ser exclusivo dentro do grupo de recursos do Azure. Para este tutorial, use **ContosoASRnet**.
+3. Especifique o grupo de recursos no qual criar a rede. Para este tutorial, use o grupo de recursos existente **contosoRG**.
+4. Em **intervalo de endereços**, insira **10.0.0.0/24** como o intervalo para a rede. Não há nenhuma sub-rede para esta rede.
 5. Em **Subscrição**, selecione a subscrição na qual vai criar a rede.
-6. Na **localização**, escolha **Europa Ocidental**. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação.
-7. Deixe as opções predefinidas de proteção de DDoS básica, com nenhum ponto de final de serviço na rede.
+6. Em **local**, escolha **Europa Ocidental**. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação.
+7. Deixe as opções padrão de proteção contra DDoS básica, sem nenhum ponto de extremidade de serviço na rede.
 8. Selecione **Criar**.
 
 ![Criar uma rede virtual](media/tutorial-prepare-azure/create-network.png)
 
-A rede virtual demora alguns segundos a ser criada. Depois de estar criada, irá vê-la no dashboard do portal do Azure.
+A rede virtual demora alguns segundos a ser criada. Depois de criado, você o verá no painel de portal do Azure.
 
 ## <a name="useful-links"></a>Ligações úteis
 
@@ -106,4 +106,4 @@ Saiba mais sobre:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Preparar a infraestrutura de Hyper-V no local para a recuperação após desastre para o Azure](hyper-v-prepare-on-premises-tutorial.md)
+> [Preparar a infraestrutura local do Hyper-V para recuperação de desastres no Azure](hyper-v-prepare-on-premises-tutorial.md)

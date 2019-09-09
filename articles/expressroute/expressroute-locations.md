@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7df117dbb071081473a5651a953927cee8ddaa03
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e758707511989cca64fdef45b1c673dd3d96d6d2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801501"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812147"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -161,7 +161,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[NZ de grupo Vocus](https://www.vocus.co.nz/business/cloud-data-centres)** | Suportadas | Suportadas | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportadas |Suportadas |Amsterdam2, Londres, Cingapura |
 | **Vodafone Idea** | Suportadas | Suportadas | Mumbai, Mumbai2 |
-| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Suportado |Suportadas |Amsterdã, Chicago, Dallas, Denver, Londres, Los Angeles, Montreal, Nova York, Paris, Seattle, vale do silício, Toronto, Washington, D.c. |
+| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Suportado |Suportadas |Amsterdã, Chicago, Dallas, Denver, Londres, Los Angeles, Montreal, Nova York, Paris, Seattle, vale do silício, Toronto, Washington DC, Washington DC2 |
 
  **+** brevemente disponível
 
@@ -198,7 +198,7 @@ Para saber mais, veja [ExpressRoute na China](http://www.windowsazure.cn/home/fe
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado  | Não suportado | Berlim |
 | **T-Systems** |Suportado |Não suportado |Berlim |
 
-## <a name="connectivity-through-exchange-providers"></a>Conectividade Através de Fornecedores do Exchange
+## <a name="connectivity-through-exchange-providers"></a>Conectividade por meio de provedores do Exchange
 
 Se o seu fornecedor de conectividade não está listado nas secções anteriores, pode criar na mesma uma ligação.
 
@@ -216,7 +216,14 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 * Organize um circuito ExpressRoute com a troca como o seu fornecedor de conectividade para se ligar à Microsoft.
   * Siga os passos em [Criar um circuito ExpressRoute](expressroute-howto-circuit-classic.md) para configurar a conectividade.
 
-## <a name="connectivity-through-additional-service-providers"></a>Conectividade Através de Fornecedores de Serviços Adicionais
+## <a name="connectivity-through-satellite-operators"></a>Conectividade por meio de operadores satélite
+Se você for remoto e não tiver conectividade de fibra ou se quiser explorar outras opções de conectividade, poderá verificar os seguintes operadores de satélite. 
+
+* Intelsat
+* EAS
+* Viasat
+
+## <a name="connectivity-through-additional-service-providers"></a>Conectividade por meio de provedores de serviço adicionais
 
 | **Fornecedor de conectividade** | **Exchange** | **Localizações** |
 | --- | --- | --- |
@@ -278,7 +285,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montreal, Toronto |
 
-## <a name="connectivity-through-datacenter-providers"></a>Conectividade Através de Fornecedores de Datacenters
+## <a name="connectivity-through-datacenter-providers"></a>Conectividade por meio de provedores de datacenter
 
 | **Fornecedor** | **Exchange** |
 | --- | --- |
@@ -295,7 +302,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX REACH, Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
-## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividade Através de National Research and Education Networks (NREN, Redes de Investigação e Ensino Nacionais)
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividade por meio de NREN (pesquisa nacional e redes educacionais)
 
 | **Fornecedor**|
 | --- |

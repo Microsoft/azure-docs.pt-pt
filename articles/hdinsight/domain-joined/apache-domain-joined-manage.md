@@ -1,6 +1,6 @@
 ---
 title: Gerenciar clusters HDInsight com o Enterprise Security Enterprise-Azure
-description: Saiba como gerenciar clusters HDInsight com o Enterprise Security Package.
+description: Saiba como gerenciar clusters do Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488731"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811018"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerenciar clusters HDInsight com Enterprise Security Package
 Aprenda os usuários e as funções no Enterprise Security Package do HDInsight (ESP) e como gerenciar clusters ESP.
@@ -34,7 +34,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Ap
    
 3. Você pode ver um cluster vinculado usando o **cluster de lista**de comandos. Agora você pode enviar um script para esse cluster vinculado.
 
-   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster.png "cluster vinculado")
 
 4. Você também pode desvincular um cluster ao inserir **o HDInsight: Desvincular um cluster** da paleta de comandos.
 
@@ -43,11 +43,11 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Ap
 Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambari, também vincular um cluster Hadoop de segurança usando o nome de usuário `user1@contoso.com`do domínio (como:). 
 1. Clique em **vincular um cluster** do **Azure Explorer**.
 
-   ![menu de contexto do cluster de link](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![menu de contexto do cluster de link IntelliJ](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Insira o **nome do cluster**, o nome de **usuário** e a **senha**. Você precisa verificar o nome de usuário e a senha se obtiver a falha de autenticação. Opcionalmente, adicione conta de armazenamento, chave de armazenamento e, em seguida, selecione um contêiner do contêiner de armazenamento. As informações de armazenamento são para o Gerenciador de armazenamento na árvore à esquerda
    
-   ![caixa de diálogo Vincular cluster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![caixa de diálogo Vincular cluster IntelliJ](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > Usamos a chave de armazenamento vinculada, o nome de usuário e a senha se o cluster fizer logon na assinatura do Azure e vinculado a um cluster.
@@ -56,22 +56,22 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambar
    
 3. Você poderá ver um cluster vinculado no nó do **HDInsight** se as informações de entrada estiverem corretas. Agora você pode enviar um aplicativo para esse cluster vinculado.
 
-   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![IntelliJ de cluster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png "cluster vinculado IntelliJ]")
 
 4. Você também pode desvincular um cluster do **Azure Explorer**.
    
-   ![cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
+   ![IntelliJ de cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Utilizar o Eclipse para ligar a um cluster associado a um domínio
 
 Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambari, também vincular um cluster Hadoop de segurança usando o nome de usuário `user1@contoso.com`do domínio (como:).
 1. Clique em **vincular um cluster** do **Azure Explorer**.
 
-   ![menu de contexto do cluster de link](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![menu de contexto do cluster de link Eclipse](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Insira o **nome do cluster**, o nome de **usuário** e a **senha**e clique no botão OK para vincular o cluster. Opcionalmente, insira a conta de armazenamento, a chave de armazenamento e, em seguida, selecione contêiner de armazenamento para o Gerenciador de armazenamento funcionar no modo de exibição de árvore à esquerda
    
-   ![caixa de diálogo Vincular cluster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![caixa de diálogo Vincular cluster Eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
    > [!NOTE]  
    > Usamos a chave de armazenamento vinculada, o nome de usuário e a senha se o cluster fizer logon na assinatura do Azure e vinculado a um cluster.
@@ -79,11 +79,11 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambar
 
 3. Você poderá ver um cluster vinculado no nó **HDInsight** depois de clicar no botão OK, se as informações de entrada estiverem corretas. Agora você pode enviar um aplicativo para esse cluster vinculado.
 
-   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![eclipse do cluster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. Você também pode desvincular um cluster do **Azure Explorer**.
    
-   ![cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
+   ![eclipse do cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Acesse os clusters com Enterprise Security Package.
 
@@ -203,7 +203,7 @@ O HDInsight Enterprise Security Package tem as seguintes funções:
 
 ## <a name="configure-hive-views-permissions"></a>Configurar permissões de exibições do hive
 1. Abra a interface do usuário de gerenciamento do Ambari.  Consulte [abrir a interface do usuário de gerenciamento do Ambari](#open-the-ambari-management-ui).
-2. No menu à esquerda, clique em exibições.
+2. No menu à esquerda, clique em **exibições**.
 3. Clique em **Hive** para mostrar os detalhes.
 
     ![Exibições do hive da interface do usuário do gerenciamento Ambari do HDInsight](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)

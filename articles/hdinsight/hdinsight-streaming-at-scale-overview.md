@@ -1,70 +1,70 @@
 ---
-title: Transmissão em fluxo em escala no Azure HDInsight
-description: Como utilizar os dados de transmissão em fluxo com clusters do HDInsight dimensionáveis.
+title: Streaming em escala no Azure HDInsight
+description: Como usar o streaming de dados com clusters Apache escalonáveis no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 97bc2e585ccce250dd83dc855c3eda5f958186a7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 18f1c15f12295228dab971f2abfa612d2061ab5d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484061"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811925"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
-Soluções de macrodados em tempo real agirem sobre dados em movimento. Normalmente, estes dados são mais valiosos em seu tempo de chegada. Se o fluxo de dados de entrada se torna maior do que podem ser processadas nesse momento, se pretender limitar a redução de recursos. Em alternativa, um cluster do HDInsight, pode aumentar verticalmente para atender a sua solução de transmissão em fluxo ao adicionar nós a pedido.
+Soluções de Big Data em tempo real atuam em dados que estão em movimento. Normalmente, esses dados são mais valiosos no momento da chegada. Se o fluxo de dados de entrada se tornar maior que o que pode ser tratado nesse momento, talvez seja necessário limitar os recursos. Como alternativa, um cluster HDInsight pode escalar verticalmente para atender à sua solução de streaming adicionando nós sob demanda.
 
 
-Num aplicativo de transmissão em fluxo, uma ou mais origens de dados estão a gerar eventos (por vezes em milhões por segundo), que tem de ser ingeridos rapidamente sem remover quaisquer informações úteis. Os eventos de entrada são processados com *fluxo na memória intermédia*, também conhecido como *fila de eventos*, por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [dos Hubs de eventos](https://azure.microsoft.com/services/event-hubs/). Depois de recolher os eventos, em seguida, pode analisar os dados a utilizar um sistema de análise em tempo real dentro do *processamento de fluxo* colocar em camadas, como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Os dados processados podem ser armazenados em sistemas de armazenamento de longo prazo, como [armazenamento do Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)e apresentadas em tempo real num business intelligence dashboard, tais como [Power BI](https://powerbi.microsoft.com), Tableau ou um web personalizado página.
+Em um aplicativo de streaming, uma ou mais fontes de dados estão gerando eventos (às vezes, em milhões por segundo) que precisam ser ingeridas rapidamente sem descartar informações úteis. Os eventos de entrada são tratados com o *buffer de fluxo*, também chamado de *enfileiramento de eventos*, por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [hubs de eventos](https://azure.microsoft.com/services/event-hubs/). Depois de coletar os eventos, você pode analisar os dados usando um sistema de análise em tempo real dentro da camada de *processamento de fluxo* , como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark streaming](spark/apache-spark-streaming-overview.md). Os dados processados podem ser armazenados em sistemas de armazenamento de longo prazo, como [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)e exibidos em tempo real em um painel de Business Intelligence, como [Power bi](https://powerbi.microsoft.com), tableau ou uma página da Web personalizada.
 
 
-![Padrões de Streaming do HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+![Padrões de streaming do HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-Apache Kafka fornece um alto débito e o serviço de colocação em fila de mensagens de baixa latência e faz agora parte do pacote do Apache Software de código aberto (OSS). Kafka utiliza um publicar e subscrever fluxos de modelo e arquivos de mensagens de dados particionados com segurança num cluster distribuído, replicado. Kafka dimensionados de maneira linear à medida que aumenta o débito.
+O Apache Kafka fornece um serviço de enfileiramento de mensagens de baixa latência e alta taxa de transferência e agora faz parte do pacote Apache de software livre (OSS). O Kafka usa um modelo de mensagens de publicação e assinatura e armazena fluxos de dados particionados com segurança em um cluster distribuído e replicado. Kafka escala linearmente à medida que a taxa de transferência aumenta.
 
 Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](kafka/apache-kafka-introduction.md).
 
 ## <a name="apache-storm"></a>Apache Storm
 
-O Apache Storm é um sistema de computação distribuída, tolerante a falhas, código-fonte aberto otimizada para o processamento de fluxos de dados em tempo real com o Hadoop. A unidade básica de dados para um evento de entrada é uma cadeia de identificação, o que é um imutável conjunto de pares chave/valor. Uma sequência não vinculada essas formas de cadeias de identificação é um Stream, que é proveniente de um Spout. O Spout encapsula uma origem de dados de transmissão em fluxo (por exemplo, o Kafka) e emite as Tuplas. Um topologia do storm é uma sequência de transformações nestes fluxos.
+O Apache Storm é um sistema de computação distribuído, tolerante a falhas e de software livre que é otimizado para processar fluxos de dados em tempo real com o Hadoop. A unidade principal de dados para um evento de entrada é uma tupla, que é um conjunto imutável de pares de chave/valor. Uma sequência não vinculada dessas tuplas forma um fluxo, que é proveniente de um Spout. O Spout encapsula uma fonte de dados de streaming (como Kafka) e emite tuplas. Uma topologia Storm é uma sequência de transformações nesses fluxos.
 
-Para obter mais informações, consulte [o que é o Apache Storm no HDInsight do Azure?](storm/apache-storm-overview.md).
+Para obter mais informações, consulte [o que é Apache Storm no Azure HDInsight?](storm/apache-storm-overview.md).
 
-## <a name="spark-streaming"></a>Transmissão em fluxo do Spark
+## <a name="spark-streaming"></a>Streaming do Spark
 
-Transmissão em fluxo do Spark é uma extensão para Spark, permitindo-lhe reutilizar o mesmo código que utiliza para processamento em lotes. Pode combinar o batch e consultas interativas no mesmo aplicativo. Ao contrário do Storm, Spark Streaming permite com monitoração de estado exatamente-processamento semântica uma vez. Quando utilizado em combinação com o [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka são recebidos pelo Spark Streaming exatamente uma vez, é possível obter o ponto-a-ponto exatamente-garante uma vez. Uma das vantagens do Spark Streaming é seus recursos de tolerante a falhas, a recuperação falha nós rapidamente quando vários nós que estão a ser utilizados dentro do cluster.
+O streaming do Spark é uma extensão do Spark, que permite reutilizar o mesmo código que você usa para o processamento em lotes. Você pode combinar consultas de lote e interativas no mesmo aplicativo. Ao contrário do Storm, o Spark streaming fornece semântica de processamento com estado exatamente uma vez. Quando usado em combinação com a [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka sejam recebidos pelo Spark streaming exatamente uma vez, é possível atingir garantias de ponta a ponta exatamente uma vez. Um dos pontos fortes do Spark streaming são seus recursos tolerantes a falhas, recuperando os nós com falha rapidamente quando vários nós estão sendo usados dentro do cluster.
 
-Para obter mais informações, consulte [o que é o Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
+Para obter mais informações, consulte [o que é Apache Spark streaming?](hdinsight-spark-streaming-overview.md).
 
-## <a name="scaling-a-cluster"></a>Dimensionar um cluster
+## <a name="scaling-a-cluster"></a>Dimensionando um cluster
 
-Embora possa especificar o número de nós do cluster durante a criação, pode querer aumentar ou diminuir o cluster de acordo com a carga de trabalho. Todos os clusters do HDInsight permitem-lhe [alterar o número de nós do cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Possível ignorar os clusters do Spark sem perda de dados, como todos os dados são armazenados no armazenamento do Azure ou o armazenamento do Data Lake.
+Embora você possa especificar o número de nós no cluster durante a criação, talvez você queira aumentar ou reduzir o cluster para corresponder à carga de trabalho. Todos os clusters HDInsight permitem [alterar o número de nós no cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Os clusters do Spark podem ser descartados sem perda de dados, pois todos os dados são armazenados no armazenamento ou Data Lake Storage do Azure.
 
-Há vantagens em tecnologias de desassociação. Por exemplo, o Kafka é um evento na memória intermédia de tecnologia, para que ele é bastante e/s intensivas e não precisa de muito poder de processamento. Em comparação, processadores de fluxos, como o Spark Streaming são intensivas de computação, que requerem mais poderosas VMs. Fazendo com que essas tecnologias dissociadas em clusters diferentes, pode ajustá-las forma independente ao utilizar as VMs melhor.
+Há vantagens em desacoplar as tecnologias. Por exemplo, Kafka é uma tecnologia de buffer de eventos, portanto, ele é muito intensivo de e/s e não precisa de muita capacidade de processamento. Em comparação, os processadores de fluxo, como o Spark streaming, são de computação intensiva, exigindo VMs mais poderosas. Ao ter essas tecnologias desacopladas em diferentes clusters, você pode dimensioná-las de forma independente e melhor utilizando as VMs.
 
-### <a name="scale-the-stream-buffering-layer"></a>Dimensionar o fluxo na memória intermédia de camada
+### <a name="scale-the-stream-buffering-layer"></a>Dimensionar a camada de buffer de fluxo
 
-O fluxo na memória intermédia de tecnologias de Hubs de eventos e Kafka utilizam partições e os consumidores leem nessas partições. Dimensionar o débito de entrada requer a aumentar o número de partições e adicionar partições oferece a cada vez maior de paralelismo. Nos Hubs de eventos, não é possível alterar o número de partições após a implementação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), até mesmo enquanto Kafka está a processar dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. HDInsight fornece um [ferramenta de reequilíbrio de réplicas de partição](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py`. Essa ferramenta rebalancear chama o `kafka-reassign-partitions.sh` ferramenta de tal forma que cada réplica está num domínio de falha e o domínio de atualização, tornando a tolerância de falhas de conhecimento e cada vez maior de rack do Kafka.
+Os hubs de eventos das tecnologias de buffer de fluxo e os Kafka usam partições e os consumidores lêem dessas partições. O dimensionamento da taxa de transferência de entrada requer a expansão do número de partições e a adição de partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições `kafka-reassign-partitions.sh`,. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools),. `rebalance_rackaware.py` Essa ferramenta de rebalanceamento chama `kafka-reassign-partitions.sh` a ferramenta de forma que cada réplica esteja em um domínio de falha e atualização de domínio separado, tornando o Kafka rack ciente e aumentando a tolerância a falhas.
 
 ### <a name="scale-the-stream-processing-layer"></a>Dimensionar a camada de processamento de fluxo
 
-Apache Storm e Spark Streaming suportam a adição de nós de trabalho para os clusters, mesmo quando os dados que está a ser processados.
+O Apache Storm e o Spark streaming dão suporte à adição de nós de trabalho a seus clusters, mesmo enquanto os dados estão sendo processados.
 
-Para tirar partido dos novos nós adicionados através do Storm de dimensionamento, tem de reequilibrar as qualquer topologias do Storm iniciadas antes de o aumento do tamanho de cluster. Este reequilíbrio pode ser feito usando o Storm web de interface do Usuário ou a CLI. Para obter mais informações, consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+Para aproveitar os novos nós adicionados por meio de dimensionamento do Storm, você precisa reequilibrar todas as topologias do Storm iniciadas antes que o tamanho do cluster seja aumentado. Esse rebalanceamento pode ser feito usando a interface do usuário da Web do Storm ou sua CLI. Para obter mais informações, consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-Apache Spark utiliza três parâmetros de chave para configurar o seu ambiente, dependendo dos requisitos de aplicação: `spark.executor.instances`, `spark.executor.cores`, e `spark.executor.memory`. Uma *executor* é um processo que é iniciado para uma aplicação de Spark. Um executor é executado no nó de trabalho e é responsável pela realização de tarefas do aplicativo. O número predefinido de executores e os tamanhos de executor para cada cluster é calculado com base no número de nós de trabalho e o tamanho de nó de trabalho. Esses números são armazenados no `spark-defaults.conf`arquivo em cada nó principal do cluster.
+O Apache Spark usa três parâmetros principais para configurar seu ambiente, dependendo dos requisitos do aplicativo `spark.executor.instances`: `spark.executor.cores`, e `spark.executor.memory`. Um *executor* é um processo que é iniciado para um aplicativo Spark. Um executor é executado no nó de trabalho e é responsável por realizar as tarefas do aplicativo. O número padrão de executores e os tamanhos de executor para cada cluster são calculados com base no número de nós de trabalho e no tamanho do nó de trabalho. Esses números são armazenados no `spark-defaults.conf`arquivo em cada nó de cabeçalho do cluster.
 
-Estes três parâmetros podem ser configurados ao nível do cluster, para todas as aplicações que são executados no cluster e, também pode ser especificado para cada aplicativo individual. Para obter mais informações, consulte [gestão de recursos para clusters do Apache Spark](spark/apache-spark-resource-manager.md).
+Esses três parâmetros podem ser configurados no nível do cluster, para todos os aplicativos que são executados no cluster e também podem ser especificados para cada aplicativo individual. Para obter mais informações, consulte [Gerenciando recursos para clusters de Apache Spark](spark/apache-spark-resource-manager.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar e monitorizar uma topologia do Apache Storm no HDInsight do Azure](storm/apache-storm-quickstart.md)
+* [Criar e monitorar uma topologia de Apache Storm no Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](storm/apache-storm-example-topology.md)
 * [Introdução ao Apache Spark no HDInsight](spark/apache-spark-overview.md)
-* [Introdução ao Apache Kafka no HDInsight](kafka/apache-kafka-get-started.md)
+* [Iniciar com o Apache Kafka no HDInsight](kafka/apache-kafka-get-started.md)

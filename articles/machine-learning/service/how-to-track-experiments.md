@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946392"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812299"
 ---
-# <a name="log-metrics-during-training-runs"></a>Métricas de log durante execuções de treinamento
+# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Acompanhe as métricas de treinamento do Machine Learning com Azure Machine Learning
 
-Aprimore o processo de criação de modelo acompanhando suas métricas de monitoramento e experimentos. Neste artigo, saiba como adicionar o log ao script de treinamento, enviar uma execução de experimento, monitorar a execução e exibir os resultados de uma execução no serviço Azure Machine Learning.
+Aprimore o processo de criação de modelo acompanhando suas métricas de monitoramento e experimentos. Neste artigo, saiba como adicionar o código de registro em log ao script de treinamento, enviar uma execução de experimento, monitorar a execução e inspecionar os resultados no serviço Azure Machine Learning.
 
 > [!NOTE]
-> Azure Machine Learning serviço também pode registrar informações de outras fontes durante o treinamento, como AutoML ou o contêiner do Docker que executa o trabalho de treinamento. Esses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
+> Azure Machine Learning serviço também pode registrar informações de outras fontes durante o treinamento, como execuções automatizadas do Machine Learning ou o contêiner do Docker que executa o trabalho de treinamento. Esses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
 
-## <a name="list-of-training-metrics"></a>Lista de métricas de treinamento 
+## <a name="available-metrics-to-track"></a>Métricas disponíveis para acompanhar
 
 As métricas seguintes podem ser adicionadas a uma execução enquanto uma experimentação de preparação. Para ver uma lista mais detalhada das quais podem ser acompanhadas numa execução, consulte a [execute a documentação de referência de classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -43,7 +43,7 @@ As métricas seguintes podem ser adicionadas a uma execução enquanto uma exper
 > [!NOTE]
 > As métricas de escalares, listas, linhas e tabelas podem ter o tipo: número de vírgula flutuante, número inteiro ou uma cadeia.
 
-## <a name="start-logging-metrics"></a>Iniciar as métricas de registo
+## <a name="choose-a-logging-option"></a>Escolha uma opção de log
 
 Se pretender controlar ou monitorizar a sua experimentação, tem de adicionar o código para iniciar o log ao submeter a execução. Seguem-se formas para acionar o envio de execução:
 * __Run.start_logging__ - adicionar funções de registo para o script de treinamento e iniciar uma sessão de registo interativo na experimentação do especificado. **start_logging** cria uma execução interativa para utilização em cenários como blocos de notas. Qualquer métricas que são registadas durante a sessão são adicionadas ao registo de execução na experimentação.

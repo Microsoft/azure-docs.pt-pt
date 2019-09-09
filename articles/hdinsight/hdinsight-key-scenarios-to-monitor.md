@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 591fd2e0f5c6d36ad6b84b1f3ec035488fa02614
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 2caa96e0ad036bbb872de43a7d8736969cf33c42
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733252"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812037"
 ---
-# <a name="monitor-cluster-performance"></a>Monitorizar o desempenho do cluster
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
 Monitorar a integridade e o desempenho de um cluster HDInsight é essencial para manter o desempenho e a utilização de recursos ideais. O monitoramento também pode ajudá-lo a detectar e resolver erros de configuração de cluster e problemas de código do usuário.
 
@@ -82,7 +82,7 @@ Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), 
 * [Diretrizes de ajuste de desempenho para MapReduce no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Diretrizes de ajuste de desempenho para Apache Storm no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Visite os links a seguir para obter mais informações sobre como solucionar problemas e monitorar seus clusters:
 

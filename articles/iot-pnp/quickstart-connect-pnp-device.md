@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b233fcecfe80d1ce4464d2d02fdddb188f9265a7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4802c120f4722796fcad4ea99f25adad368451fd
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878244"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806530"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub"></a>Início rápido: Conectar um aplicativo de dispositivo de visualização de IoT Plug and Play de exemplo ao Hub IoT
 
@@ -36,6 +36,9 @@ Baixe e instale a ferramenta do Azure IoT Explorer na página de [versão mais r
 ## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
 
 Você também precisa de um hub IoT do Azure em sua assinatura do Azure para concluir este guia de início rápido. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!NOTE]
+> Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
 
 Adicione a extensão Microsoft Azure IoT para CLI do Azure:
 
@@ -123,7 +126,7 @@ O aplicativo do dispositivo começa a enviar dados para o Hub IoT.
 
 1. Expanda a interface com ID **urn: YOUR_COMPANY_NAME_HERE: EnvironmentalSensor: 1** para ver os primitivos de plug and Play IOT-Propriedades, comandos e telemetria.
 
-1. Selecione a página telemetria para exibir os dados de telemetria que o dispositivo está enviando.
+1. Selecione a página **telemetria** para exibir os dados de telemetria que o dispositivo está enviando.
 
 1. Selecione a página **Propriedades (não gravável)** para exibir as propriedades não graváveis relatadas pelo dispositivo.
 
@@ -131,7 +134,7 @@ O aplicativo do dispositivo começa a enviar dados para o Hub IoT.
 
 1. Expanda **nome**da propriedade, atualize com um novo nome e selecione **Atualizar propriedade gravável**. 
 
-1. Para ver o novo nome aparece na coluna **Propriedade** relatada, clique no botão **Atualizar** na parte superior da página.
+1. Para ver o novo nome aparece na coluna **Propriedade relatada** , clique no botão **Atualizar** na parte superior da página.
 
 1. Selecione a página de **comando** para exibir todos os comandos aos quais o dispositivo dá suporte.
 

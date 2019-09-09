@@ -1,9 +1,9 @@
 ---
-title: Descubra os recursos do Azure para gerir no PIM - Azure Active Directory | Documentos da Microsoft
-description: Saiba como detetar recursos do Azure para gerir no Azure AD Privileged Identity Management (PIM).
+title: Descobrir recursos do Azure para gerenciar em PIM-Azure Active Directory | Microsoft Docs
+description: Saiba como descobrir recursos do Azure para gerenciar no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,59 +12,59 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b9ca4862f129b2da23a1d1ad8bb0b1bd0a5078f
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: ef1f1712ab7474747829c8744a39e74b78777668
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476282"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804176"
 ---
-# <a name="discover-azure-resources-to-manage-in-pim"></a>Descubra os recursos do Azure para gerir no PIM
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Descobrir recursos do Azure para gerenciar no PIM
 
-Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), pode melhorar a proteção dos seus recursos do Azure. Isso é útil para as organizações que já utilizam o PIM para proteger as funções do Azure AD e proprietários de subscrição e grupo de gestão que estão procurando para proteger os recursos de produção.
+Usando o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode melhorar a proteção dos recursos do Azure. Isso é útil para organizações que já usam o PIM para proteger as funções do Azure AD e para os proprietários do grupo de gerenciamento e da assinatura que estão procurando proteger os recursos de produção.
 
-Quando configura primeiro a PIM para recursos do Azure, tem de detetar e selecione os recursos para proteger com o PIM. Não existe nenhum limite para o número de recursos que podem ser geridos com o PIM. No entanto, recomendamos começar com os seus recursos (produção) mais críticos.
+Ao configurar o PIM para recursos do Azure pela primeira vez, você precisa descobrir e selecionar os recursos a serem protegidos com o PIM. Não há limite para o número de recursos que você pode gerenciar com o PIM. No entanto, é recomendável começar com seus recursos mais críticos (de produção).
 
 ## <a name="discover-resources"></a>Detetar recursos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Open **do Azure AD Privileged Identity Management**.
+1. Abra **Azure ad Privileged Identity Management**.
 
 1. Clique em **recursos do Azure**.
 
-    Se esta for a primeira vez que utilizar o PIM para recursos do Azure, verá um painel de recursos de descoberta.
+    Se esta for a primeira vez que você usa o PIM para recursos do Azure, você verá um painel descobrir recursos.
 
-    ![Detetar o painel de recursos com nenhum recurso listado para a primeira experiência de tempo](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Descobrir o painel de recursos sem recursos listados para a primeira experiência](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-    Se outro administrador de recursos ou o diretório da sua organização já está a gerir os recursos do Azure no PIM, verá uma lista dos recursos que estão atualmente a ser geridos.
+    Se outro administrador de recursos ou de diretório em sua organização já estiver gerenciando recursos do Azure no PIM, você verá uma lista dos recursos que estão sendo gerenciados no momento.
 
-    ![Detetar recursos de listagem de painel de recursos que estão atualmente a ser geridos](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Painel descobrir recursos listando recursos que estão sendo gerenciados no momento](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-1. Clique em **detetar recursos** para iniciar a experiência de deteção.
+1. Clique em **descobrir recursos** para iniciar a experiência de descoberta.
 
-    ![Painel deteção listar recursos que podem ser geridos como as subscrições e grupos de gestão](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Painel de descoberta listando recursos que podem ser gerenciados, como assinaturas e grupos de gerenciamento](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-1. No painel de deteção, utilize **filtro de estado de recurso** e **selecione o tipo de recurso** para filtrar a gestão de grupos ou subscrições que tem permissão para escrever. Ela provavelmente é mais fácil para começar **todos os** inicialmente.
+1. No painel descoberta, use **filtro de estado do recurso** e **selecione tipo de recurso** para filtrar os grupos de gerenciamento ou assinaturas para os quais você tem permissão de gravação. Provavelmente é mais fácil começar com **tudo** inicialmente.
 
-    Só é possível procurar e selecione recursos de subscrição ou grupo de gestão para gerir com o PIM. Quando gerir um grupo de gestão ou de uma subscrição no PIM, também pode gerir os recursos subordinados.
+    Você só pode procurar e selecionar recursos de assinatura ou grupo de gerenciamento para gerenciar usando o PIM. Ao gerenciar um grupo de gerenciamento ou uma assinatura no PIM, você também pode gerenciar seus recursos filho.
 
-1. Adicione uma marca de verificação junto a quaisquer recursos não gerenciados que pretende gerir.
+1. Adicione uma marca de seleção ao lado de quaisquer recursos não gerenciados que você deseja gerenciar.
 
-1. Clique em **gerir recurso** para começar a gerir os recursos selecionados.
+1. Clique em **gerenciar recurso** para começar a gerenciar os recursos selecionados.
 
     > [!NOTE]
-    > Assim que uma subscrição ou grupo de gestão é definida gerida, não pode ser gerido. Isto impede o outro administrador de recursos e remover as definições do PIM.
+    > Depois que um grupo de gerenciamento ou uma assinatura é definido como gerenciado, ele não pode ser não gerenciado. Isso impede que outro administrador de recursos remova as configurações de PIM.
 
-    ![Painel de deteção com um recurso selecionado e a opção de recursos de gerir destacadas](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Painel de descoberta com um recurso selecionado e a opção de gerenciar recurso realçada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Se vir uma mensagem para confirmar a inclusão do recurso selecionado para a gestão, clique em **Sim**.
+1. Se você vir uma mensagem para confirmar a integração do recurso selecionado para gerenciamento, clique em **Sim**.
 
-    ![Mensagem confirmando para integrar os recursos selecionados para gestão](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Mensagem confirmando a integração dos recursos selecionados para gerenciamento](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)
-- [Atribuir funções de recursos do Azure no PIM](pim-resource-roles-assign-roles.md)
+- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

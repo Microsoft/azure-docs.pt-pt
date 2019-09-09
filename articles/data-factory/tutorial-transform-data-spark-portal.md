@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312332"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812276"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através de uma atividade do Spark no Azure Data Factory
 Neste tutorial, irá utilizar o portal do Azure para criar um pipeline do Azure Data Factory. Este pipeline transforma dados através de uma atividade do Spark e de um serviço ligado do Azure HDInsight a pedido. 
@@ -104,7 +104,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Em **Versão**, selecione **V2**.
 1. Em **Localização**, selecione a localização para a fábrica de dados. 
 
-   Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
+   Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
 
 1. Selecione **Criar**.
 
@@ -147,13 +147,13 @@ Nesta secção, vai criar dois serviços ligados:
    
    b. Para **Tipo**, confirme se está selecionado **HDInsight a pedido**.
    
-   c. Para **serviço ligado do armazenamento do Azure**, selecione **AzureBlobStorage1**. Criou este serviço ligado anteriormente. Se utilizou um nome diferente, especifique o nome correto aqui. 
+   c. Para **serviço vinculado do armazenamento do Azure**, selecione **AzureBlobStorage1**. Criou este serviço ligado anteriormente. Se utilizou um nome diferente, especifique o nome correto aqui. 
    
    d. Para **Tipo de cluster**, selecione **spark**.
    
    e. Para **ID do principal de serviço**, introduza o ID do principal de serviço que tem permissão para criar um cluster do HDInsight. 
    
-      Este principal de serviço tem de ser membro da função de Contribuinte da subscrição ou do grupo de recursos no qual o cluster é criado. Para obter mais informações, veja [Criar uma aplicação e um principal de serviço do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
+      Este principal de serviço tem de ser membro da função de Contribuinte da subscrição ou do grupo de recursos no qual o cluster é criado. Para obter mais informações, veja [Criar uma aplicação e um principal de serviço do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md). A **ID da entidade de serviço** é equivalente à *ID do aplicativo*e uma chave de entidade de **serviço** é equivalente ao valor de um *segredo do cliente*.
    
    f. Para **Chave do principal de serviço**, introduza a chave. 
    
@@ -189,7 +189,7 @@ Nesta secção, vai criar dois serviços ligados:
    ![Especificar um serviço ligado do HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Mude para o separador **Script/Jar** e conclua os seguintes passos: 
 
-   a. Para **serviço ligado da tarefa**, selecione **AzureBlobStorage1**.
+   a. Para **serviço vinculado de trabalho**, selecione **AzureBlobStorage1**.
    
    b. Selecione **Procurar no Armazenamento**.
 
@@ -206,7 +206,7 @@ Nesta secção, vai criar dois serviços ligados:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
-Selecione **adicionar acionador** na barra de ferramentas e, em seguida, selecione **acionar agora**. 
+Selecione **Adicionar gatilho** na barra de ferramentas e, em seguida, selecione **disparar agora**. 
 
 ![Botões "Acionar" e "Acionar Agora"](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Selecione **adicionar acionador** na barra de ferramentas e, em seguida, selecio
 
    ![Estado da execução do pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Pode voltar a mudar para vista de execuções do pipeline, selecionando o **todas as execuções de Pipeline** link na parte superior.
+   Você pode voltar para a exibição execuções de pipeline selecionando o link **todas as execuções de pipeline** na parte superior.
 
    ![Vista "Execuções de Atividades"](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -253,7 +253,7 @@ O pipeline, neste exemplo, transforma dados através de uma atividade do Spark e
 Para aprender a transformar dados ao executar o script Hive num cluster do Azure HDInsight numa rede virtual, avance para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Transformar dados com o Hive na rede Virtual do Azure](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Tutorial: Transforme dados usando o hive na rede](tutorial-transform-data-hive-virtual-network-portal.md)virtual do Azure.
 
 
 

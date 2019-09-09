@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: 1c1921391048fc59f03070d4753f422d9cfc5237
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883486"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813788"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -41,7 +41,7 @@ A versão mais recente das bibliotecas pode ser encontrada na ramificação **me
 
 * A implementação principal do SDK está na pasta **\_iothub Client** que contém a implementação da camada de API mais baixa no SDK: a biblioteca **IoTHubClient** . A biblioteca **IoTHubClient** contém APIs que implementam mensagens brutas para enviar mensagens ao Hub IOT e receber mensagens do Hub IOT. Ao usar essa biblioteca, você é responsável pela implementação da serialização de mensagens, mas outros detalhes da comunicação com o Hub IoT são tratados para você.
 
-* A pasta serializador contém funções auxiliares e exemplos que mostram como serializar dados antes de enviar para o Hub IOT do Azure usando a biblioteca de cliente. O uso do serializador não é obrigatório e é fornecido como uma conveniência. Para usar a biblioteca do serializador, você define um modelo que especifica os dados a serem enviados ao Hub IOT e as mensagens que você espera receber dele. Depois que o modelo é definido, o SDK fornece uma superfície de API que permite que você trabalhe facilmente com mensagens do dispositivo para a nuvem e da nuvem para o dispositivo sem se preocupar com os detalhes de serialização. A biblioteca depende de outras bibliotecas de código aberto que implementam o transporte usando protocolos como MQTT e AMQP.
+* A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar dados antes de enviar para o Hub IOT do Azure usando a biblioteca de cliente. O uso do serializador não é obrigatório e é fornecido como uma conveniência. Para usar a biblioteca do **serializador** , você define um modelo que especifica os dados a serem enviados ao Hub IOT e as mensagens que você espera receber dele. Depois que o modelo é definido, o SDK fornece uma superfície de API que permite que você trabalhe facilmente com mensagens do dispositivo para a nuvem e da nuvem para o dispositivo sem se preocupar com os detalhes de serialização. A biblioteca depende de outras bibliotecas de código aberto que implementam o transporte usando protocolos como MQTT e AMQP.
 
 * A biblioteca **IoTHubClient** depende de outras bibliotecas de código aberto:
 
@@ -119,7 +119,7 @@ static const char* connectionString = "[device connection string]";
 
 ## <a name="use-the-iothubclient-library"></a>Usar a biblioteca IoTHubClient
 
-Na pasta **iothub\_Client** no repositório [Azure-IOT-SDK-c](https://github.com/azure/azure-iot-sdk-c) , há uma pasta Samples que contém um aplicativo chamado **iothub\_Client\_Sample\_MQTT** .
+Na pasta **iothub\_Client** no repositório [Azure-IOT-SDK-c](https://github.com/azure/azure-iot-sdk-c) , há uma pasta **Samples** que contém um aplicativo chamado **iothub\_Client\_Sample\_MQTT** .
 
 A versão do Windows do **aplicativo\_iothub_client\_Samples iothub_convenience_sample** inclui a seguinte solução do Visual Studio:
 
@@ -144,7 +144,7 @@ As etapas a seguir usam esse aplicativo de exemplo para orientá-lo sobre o que 
 ### <a name="initialize-the-library"></a>Inicializar a biblioteca
 
 > [!NOTE]
-> Antes de começar a trabalhar com as bibliotecas, talvez seja necessário executar uma inicialização específica da plataforma. Por exemplo, se você planeja usar o AMQP no Linux, deverá inicializar a biblioteca OpenSSL. Os exemplos no [repositório do GitHub](https://github.com/Azure/azure-iot-sdk-c) chamam a função do utilitário **init da plataforma\_** quando o cliente inicia e chama a função de desinicialização da **plataforma\_** antes de sair. Essas funções são declaradas no arquivo de cabeçalho Platform. h. Examine as definições dessas funções para sua plataforma de destino no [repositório](https://github.com/Azure/azure-iot-sdk-c) para determinar se você precisa incluir qualquer código de inicialização específico da plataforma em seu cliente.
+> Antes de começar a trabalhar com as bibliotecas, talvez seja necessário executar uma inicialização específica da plataforma. Por exemplo, se você planeja usar o AMQP no Linux, deverá inicializar a biblioteca OpenSSL. Os exemplos no [repositório do GitHub](https://github.com/Azure/azure-iot-sdk-c) chamam a função do utilitário **init da plataforma\_** quando o cliente inicia e chama a função de **desinicialização da plataforma\_** antes de sair. Essas funções são declaradas no arquivo de cabeçalho Platform. h. Examine as definições dessas funções para sua plataforma de destino no [repositório](https://github.com/Azure/azure-iot-sdk-c) para determinar se você precisa incluir qualquer código de inicialização específico da plataforma em seu cliente.
 
 Para começar a trabalhar com as bibliotecas, primeiro aloque um identificador de cliente do Hub IoT:
 
@@ -217,7 +217,7 @@ Sempre que você envia uma mensagem, você especifica uma referência a uma fun�
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
 {
     EVENT_INSTANCE* eventInstance = (EVENT_INSTANCE*)userContextCallback;
-    (void)printf("Confirmation[%d] received for message tracking id = %zu with result = %s\r\n", callbackCounter, eventInstance->messageTrackingId, ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+    (void)printf("Confirmation[%d] received for message tracking id = %zu with result = %s\r\n", callbackCounter, eventInstance->messageTrackingId, MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
     /* Some device specific action code goes here... */
     callbackCounter++;
     IoTHubMessage_Destroy(eventInstance->messageHandle);
@@ -328,13 +328,13 @@ Essa chamada libera os recursos alocados anteriormente pela função **IoTHubCli
 
 Como você pode ver, é fácil enviar e receber mensagens com a biblioteca **IoTHubClient** . A biblioteca manipula os detalhes de comunicação com o Hub IoT, incluindo o protocolo a ser usado (da perspectiva do desenvolvedor, essa é uma opção de configuração simples).
 
-A biblioteca **IoTHubClient** também fornece controle preciso sobre como serializar os dados que o dispositivo envia ao Hub IOT. Em alguns casos, esse nível de controle é uma vantagem, mas, em outros, é um detalhe de implementação com o qual você não deseja se preocupar. Se esse for o caso, você pode considerar o uso da biblioteca do serializador, que é descrita na próxima seção.
+A biblioteca **IoTHubClient** também fornece controle preciso sobre como serializar os dados que o dispositivo envia ao Hub IOT. Em alguns casos, esse nível de controle é uma vantagem, mas, em outros, é um detalhe de implementação com o qual você não deseja se preocupar. Se esse for o caso, você pode considerar o uso da biblioteca do **serializador** , que é descrita na próxima seção.
 
 ## <a name="use-the-serializer-library"></a>Usar a biblioteca do serializador
 
-Conceitualmente, a biblioteca do serializador se encontra na parte superior da biblioteca **IoTHubClient** no SDK. Ele usa a biblioteca **IoTHubClient** para a comunicação subjacente com o Hub IOT, mas adiciona recursos de modelagem que removem a carga de lidar com a serialização de mensagens do desenvolvedor. A maneira como essa biblioteca funciona é melhor demonstrada por um exemplo.
+Conceitualmente, a biblioteca do **serializador** se encontra na parte superior da biblioteca **IoTHubClient** no SDK. Ele usa a biblioteca **IoTHubClient** para a comunicação subjacente com o Hub IOT, mas adiciona recursos de modelagem que removem a carga de lidar com a serialização de mensagens do desenvolvedor. A maneira como essa biblioteca funciona é melhor demonstrada por um exemplo.
 
-Dentro da pasta do serializador no [repositório Azure-IOT-SDK-c](https://github.com/Azure/azure-iot-sdk-c), é uma pasta de **exemplos** que contém um aplicativo chamado **SimpleSample\_MQTT**. A versão do Windows deste exemplo inclui a seguinte solução do Visual Studio:
+Dentro da pasta do **serializador** no [repositório Azure-IOT-SDK-c](https://github.com/Azure/azure-iot-sdk-c), é uma pasta de **exemplos** que contém um aplicativo chamado **SimpleSample\_MQTT**. A versão do Windows deste exemplo inclui a seguinte solução do Visual Studio:
 
   ![Exemplo de solução do Visual Studio para MQTT](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
@@ -349,7 +349,7 @@ Assim como no exemplo anterior, este inclui vários pacotes NuGet:
 * Microsoft.Azure.IoTHub.Serializer
 * Microsoft.Azure.umqtt
 
-Você viu a maioria desses pacotes no exemplo anterior, mas o **Microsoft. Azure. IoTHub. serializador** é novo. Esse pacote é necessário quando você usa a biblioteca do serializador.
+Você viu a maioria desses pacotes no exemplo anterior, mas o **Microsoft. Azure. IoTHub. serializador** é novo. Esse pacote é necessário quando você usa a biblioteca do **serializador** .
 
 Você pode encontrar a implementação do aplicativo de exemplo no arquivo **iothub_client\_Samples\_iothub_convenience_sample** .
 
@@ -357,7 +357,7 @@ As seções a seguir orientam você pelas principais partes deste exemplo.
 
 ### <a name="initialize-the-library"></a>Inicializar a biblioteca
 
-Para começar a trabalhar com a biblioteca do serializador, chame as APIs de inicialização:
+Para começar a trabalhar com a biblioteca do **serializador** , chame as APIs de inicialização:
 
 ```c
 if (serializer_init(NULL) != SERIALIZER_OK)
@@ -386,13 +386,13 @@ else
 ...
 ```
 
-A chamada para a função de **inicialização\_** do serializador é uma chamada única e inicializa a biblioteca subjacente. Em seguida, você chama **a\_função\_IoTHubClient ll CreateFromConnectionString** , que é a mesma API do exemplo **IoTHubClient** . Essa chamada define a cadeia de conexão do dispositivo (essa chamada também é onde você escolhe o protocolo que deseja usar). Este exemplo usa MQTT como transporte, mas pode usar AMQP ou HTTPS.
+A chamada para a função de **inicialização do serializador\_** é uma chamada única e inicializa a biblioteca subjacente. Em seguida, você chama **a\_função\_IoTHubClient ll CreateFromConnectionString** , que é a mesma API do exemplo **IoTHubClient** . Essa chamada define a cadeia de conexão do dispositivo (essa chamada também é onde você escolhe o protocolo que deseja usar). Este exemplo usa MQTT como transporte, mas pode usar AMQP ou HTTPS.
 
 Por fim, chame **a\_função\_criar instância de modelo** . **WeatherStation** é o namespace do modelo e **ContosoAnemometer** é o nome do modelo. Depois que a instância do modelo for criada, você poderá usá-la para começar a enviar e receber mensagens. No entanto, é importante entender o que é um modelo.
 
 ### <a name="define-the-model"></a>Definir o modelo
 
-Um modelo na biblioteca do serializador define as mensagens que o dispositivo pode enviar ao Hub IOT e as mensagens, chamadas *ações* na linguagem de modelagem, que pode receber. Você define um modelo usando um conjunto de macros C como no aplicativo de exemplo **\_iothub_client Samples\_iothub_convenience_sample** :
+Um modelo na biblioteca do **serializador** define as mensagens que o dispositivo pode enviar ao Hub IOT e as mensagens, chamadas *ações* na linguagem de modelagem, que pode receber. Você define um modelo usando um conjunto de macros C como no aplicativo de exemplo **iothub_client\_Samples\_iothub_convenience_sample** :
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -410,13 +410,13 @@ END_NAMESPACE(WeatherStation);
 
 As macros **begin\_namespace** e **end\_namespace** usam o namespace do modelo como um argumento. Espera-se que qualquer coisa entre essas macros seja a definição de seu modelo ou modelos e as estruturas de dados usadas pelos modelos.
 
-Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo define dois tipos de dados que seu dispositivo pode enviar para o Hub IoT: DeviceID e **WindSpeed**. Ele também define três ações (mensagens) que seu dispositivo pode receber: **TurnFanOn**, **TurnFanOff**e **SetAirResistance**. Cada elemento de dados tem um tipo, e cada ação tem um nome (e, opcionalmente, um conjunto de parâmetros).
+Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo define dois tipos de dados que seu dispositivo pode enviar para o Hub IoT: **DeviceID** e **WindSpeed**. Ele também define três ações (mensagens) que seu dispositivo pode receber: **TurnFanOn**, **TurnFanOff**e **SetAirResistance**. Cada elemento de dados tem um tipo, e cada ação tem um nome (e, opcionalmente, um conjunto de parâmetros).
 
 Os dados e as ações definidos no modelo definem uma superfície de API que você pode usar para enviar mensagens ao Hub IoT e responder às mensagens enviadas para o dispositivo. O uso desse modelo é mais bem compreendido por meio de um exemplo.
 
 ### <a name="send-messages"></a>Enviar mensagens
 
-O modelo define os dados que você pode enviar ao Hub IoT. Neste exemplo, isso significa um dos dois itens de dados definidos usando a macro **WITH_DATA** . Há várias etapas necessárias para enviar os valores de DeviceID e **WindSpeed** para um hub IOT. A primeira é definir os dados que você deseja enviar:
+O modelo define os dados que você pode enviar ao Hub IoT. Neste exemplo, isso significa um dos dois itens de dados definidos usando a macro **WITH_DATA** . Há várias etapas necessárias para enviar os valores de **DeviceID** e **WindSpeed** para um hub IOT. A primeira é definir os dados que você deseja enviar:
 
 ```c
 myWeather->DeviceId = "myFirstDevice";
@@ -475,7 +475,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
     (void)printf("Message Id: %u Received.\r\n", messageTrackingId);
 
-    (void)printf("Result Call Back Called! Result is: %s \r\n", ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+    (void)printf("Result Call Back Called! Result is: %s \r\n", MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
 }
 ```
 

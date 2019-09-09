@@ -1,95 +1,95 @@
 ---
-title: Utilizar planos de recuperação na recuperação após desastre com o Azure Site Recovery | Documentos da Microsoft
-description: Saiba como utilizar planos de recuperação para recuperação após desastre com o serviço Azure Site Recovery.
+title: Usando planos de recuperação em recuperação de desastre com o Azure Site Recovery
+description: Saiba mais sobre como usar planos de recuperação para recuperação de desastres com o serviço de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514562"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814435"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
-Este artigo descreve os planos de recuperação no [do Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve os planos de recuperação no [Azure site Recovery](site-recovery-overview.md).
 
-Um plano de recuperação reúne máquinas em grupos de recuperação. Pode personalizar um plano com a adição de ordem, instruções e tarefas. Depois de um plano é definido, pode executar uma ativação pós-falha no mesmo.  As máquinas podem ser referenciadas nos vários planos de recuperação, na qual planos subsequentes irão ignorar a implementação de arranque da máquina se ele foi anteriormente implementado por meio de outro plano de recuperação.
+Um plano de recuperação reúne computadores em grupos de recuperação. Você pode personalizar um plano adicionando uma ordem, instruções e tarefas a ele. Depois que um plano é definido, você pode executar um failover nele.  Os computadores podem ser referenciados em vários planos de recuperação, nos quais os planos subsequentes irão ignorar a implantação/inicialização do computador se ele foi implantado anteriormente por outro plano de recuperação.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Por que usar um plano de recuperação?
 
-Um plano de recuperação ajuda-o a definir um processo de recuperação sistemática, através da criação de pequenas unidades independentes que pode efetuar a ativação pós-falha. Uma unidade representa, normalmente, uma aplicação no seu ambiente. Um plano de recuperação define como os computadores efetuar a ativação pós-falha e a sequência em que iniciar após a ativação pós-falha. Utilize planos de recuperação para:
+Um plano de recuperação ajuda você a definir um processo de recuperação sistemático, criando pequenas unidades independentes nas quais você pode fazer failover. Uma unidade normalmente representa um aplicativo em seu ambiente. Um plano de recuperação define como os computadores fazem failover e a sequência na qual eles iniciam após o failover. Use planos de recuperação para:
 
-* Modele uma aplicação em torno de suas dependências.
-* Automatize tarefas de recuperação para reduzir o RTO.
-* Certifique-se de que está preparada para a recuperação de migração ou desastre, garantindo que as suas aplicações são parte de um plano de recuperação.
-* Execute a ativação pós-falha de teste nos planos de recuperação, para garantir a recuperação após desastre ou a migração está a funcionar conforme esperado.
+* Modele um aplicativo em relação a suas dependências.
+* Automatize as tarefas de recuperação para reduzir o RTO.
+* Verifique se você está preparado para migração ou recuperação de desastres, garantindo que seus aplicativos façam parte de um plano de recuperação.
+* Execute o failover de teste nos planos de recuperação para garantir que a recuperação ou a migração de desastres funcione conforme o esperado.
 
 
-## <a name="model-apps"></a>Aplicações de modelo
+## <a name="model-apps"></a>Aplicativos de modelo
 
-Planear e criar um grupo de recuperação para capturar as propriedades específicas da aplicação. Por exemplo, vamos considerar um aplicativo típico de três camadas com um servidor SQL back-end, middleware e um front-end da web. Normalmente, personalizar o plano de recuperação para que as máquinas em cada escalão de começar, na ordem correta, após a ativação pós-falha.
+Você pode planejar e criar um grupo de recuperação para capturar propriedades específicas do aplicativo. Por exemplo, vamos considerar um aplicativo típico de três camadas com um back-end do SQL Server, middleware e um front-end da Web. Normalmente, você personaliza o plano de recuperação para que os computadores em cada camada sejam iniciados na ordem correta após o failover.
 
-- O back-end do SQL deve começar em primeiro lugar, o middleware da próxima e, finalmente, o front-end da web.
-- Esta ordem de início garante que a aplicação está a funcionar quando a última máquina é iniciado.
-- Esta ordem garante que quando o middleware é iniciado e tenta estabelecer ligação com o escalão do SQL Server, o escalão do SQL Server já está em execução. 
-- Esta ordem também ajuda a garantir que o servidor front-end é iniciado último, para que os utilizadores finais não ligar para o URL da aplicação antes de todos os componentes estão operacionais e em execução e a aplicação está pronto para aceitar pedidos.
+- O back-end do SQL deve iniciar primeiro, o middleware em seguida e, por fim, o front-end da Web.
+- Essa ordem de início garante que o aplicativo está funcionando na hora em que o último computador é iniciado.
+- Essa ordem garante que quando o middleware iniciar e tentar se conectar à camada de SQL Server, a camada de SQL Server já estará em execução. 
+- Essa ordem também ajuda a garantir que o servidor front-end seja iniciado por último, de modo que os usuários finais não se conectem à URL do aplicativo antes que todos os componentes estejam em funcionamento e o aplicativo esteja pronto para aceitar solicitações.
 
-Para criar esta ordem, adicionar grupos ao grupo de recuperação e adicionar máquinas em grupos.
-- Em que ordem for especificada, é utilizada a sequenciação. Ações executam em paralelo quando apropriado, para melhorar a recuperação de aplicativos RTO.
-- As máquinas num único grupo de ativação pós-falha em paralelo.
-- As máquinas em grupos diferentes a ativação pós-falha por ordem de grupo, para que máquinas do grupo 2 começar sua ativação pós-falha depois de todas as máquinas num grupo 1 têm de efetuar a ativação pós-falha e iniciado.
+Para criar essa ordem, você adiciona grupos ao grupo de recuperação e adiciona computadores aos grupos.
+- Quando Order é especificado, o sequenciamento é usado. As ações são executadas em paralelo, quando apropriado, para melhorar o RTO da recuperação de aplicativos.
+- Os computadores em um único grupo fazem failover em paralelo.
+- Os computadores em grupos diferentes fazem failover em ordem de grupo, para que os computadores do grupo 2 iniciem seu failover somente depois que todos os computadores no grupo 1 tiverem feito failover e iniciados.
 
-    ![Plano de recuperação de exemplo](./media/recovery-plan-overview/rp.png)
+    ![Exemplo de plano de recuperação](./media/recovery-plan-overview/rp.png)
 
-Com essa personalização no local, este é o que acontece quando executa uma ativação pós-falha no plano de recuperação: 
+Com essa personalização em vigor, veja o que acontece quando você executa um failover no plano de recuperação: 
 
-1. Um passo de encerramento tenta desative as máquinas no local. A exceção é se executar uma ativação pós-falha de teste, caso em que o site primário continua a ser executado. 
-2. O encerramento aciona uma ativação pós-falha paralela de todas as máquinas no plano de recuperação.
-3. A ativação pós-falha prepara discos de máquinas virtuais com os dados replicados.
-4. Os grupos de arranque são executados pela ordem e iniciar as máquinas em cada grupo. Em primeiro lugar, grupo 1 é executado, em seguida, grupo 2 e, por fim, grupo 3. Se houver mais de uma máquina em qualquer grupo, em seguida, começar a todas as máquinas em paralelo.
+1. Uma etapa de desligamento tenta desligar os computadores locais. A exceção é se você executar um failover de teste, caso em que o site primário continua a ser executado. 
+2. O desligamento dispara um failover paralelo de todos os computadores no plano de recuperação.
+3. O failover prepara os discos de máquina virtual usando os dados replicados.
+4. Os grupos de inicialização são executados em ordem e iniciam os computadores em cada grupo. Primeiro, o grupo 1 é executado, depois o grupo 2 e, por fim, o grupo 3. Se houver mais de um computador em qualquer grupo, todos os computadores iniciarão em paralelo.
 
 
 ## <a name="automate-tasks"></a>Automatizar tarefas
 
-Recuperação de aplicativos grandes pode ser uma tarefa complexa. Passos manuais tornam o processo propenso a erro e a pessoa a executar a ativação pós-falha possa não ter conhecimento de todos os pormenores de aplicação. Pode utilizar um plano de recuperação para impor a ordem e automatizar as ações necessárias em cada etapa, através de runbooks de automatização do Azure para a ativação pós-falha para o Azure ou scripts. Para tarefas que não podem ser automatizadas, pode inserir interrupções para ações manuais em planos de recuperação. Existem dois tipos de tarefas que pode configurar:
+A recuperação de aplicativos grandes pode ser uma tarefa complexa. As etapas manuais tornam o processo propenso a erros e a pessoa que executa o failover pode não estar ciente de todos os pormenores do aplicativo. Você pode usar um plano de recuperação para impor a ordem e automatizar as ações necessárias em cada etapa, usando runbooks de automação do Azure para failover para o Azure ou scripts. Para tarefas que não podem ser automatizadas, você pode inserir pausas para ações manuais em planos de recuperação. Há alguns tipos de tarefas que você pode configurar:
 
-* **Tarefas na VM do Azure após a ativação pós-falha**: Quando estiver a fazer failover para o Azure, normalmente, tem de executar ações para que possam ligar à VM após a ativação pós-falha. Por exemplo: 
+* **Tarefas na VM do Azure após o failover**: Quando estiver fazendo failover para o Azure, você normalmente precisará executar ações para que possa se conectar à VM após o failover. Por exemplo: 
     * Crie um endereço IP público na VM do Azure.
-    * Atribua um grupo de segurança de rede para o adaptador de rede da VM do Azure.
+    * Atribua um grupo de segurança de rede ao adaptador de rede da VM do Azure.
     * Adicione um balanceador de carga a um conjunto de disponibilidade.
-* **Tarefas de VM após a ativação pós-falha**: Estas tarefas, normalmente, reconfigure a aplicação em execução na máquina, para que continuam a funcionar corretamente no novo ambiente. Por exemplo:
-    * Modificar a cadeia de ligação de base de dados dentro da máquina.
-    * Altere a configuração de servidor web ou regras.
+* **Tarefas dentro da VM após o failover**: Normalmente, essas tarefas reconfiguram o aplicativo em execução no computador, para que ele continue funcionando corretamente no novo ambiente. Por exemplo:
+    * Modifique a cadeia de conexão do banco de dados dentro da máquina.
+    * Altere a configuração ou as regras do servidor Web.
 
 
 ## <a name="test-failover"></a>Ativação pós-falha de teste
 
-Pode utilizar um plano de recuperação para acionar uma ativação pós-falha de teste. Utilize as seguintes práticas recomendadas:
+Você pode usar um plano de recuperação para disparar um failover de teste. Use as seguintes práticas recomendadas:
 
-- Sempre execute uma ativação pós-falha de teste num aplicativo, antes de executar uma ativação pós-falha completa. Ativações pós-falha de teste ajudá-lo para verificar se a aplicação é exibido no site de recuperação.
-- Se que tivesse deixado passar alguma coisa, acionar um limpa a cópia de segurança e, em seguida, volte a executar a ativação pós-falha de teste. 
-- Execute uma ativação pós-falha de teste várias vezes, até que tem a certeza de que a aplicação recupera sem problemas.
-- Uma vez que cada aplicação é exclusiva, terá de criar planos de recuperação que são personalizados para cada aplicativo e executar uma ativação pós-falha de teste em cada um.
-- Aplicações e as respetivas dependências mudam frequentemente. Para garantir que os planos de recuperação estão atualizados, execute uma ativação pós-falha de teste para cada aplicação a cada trimestre.
+- Sempre conclua um failover de teste em um aplicativo antes de executar um failover completo. Os failovers de teste ajudam a verificar se o aplicativo aparece no local de recuperação.
+- Se você achar que perdeu alguma coisa, dispare uma limpeza e execute novamente o failover de teste. 
+- Execute um failover de teste várias vezes até ter certeza de que o aplicativo será recuperado sem problemas.
+- Como cada aplicativo é exclusivo, você precisa criar planos de recuperação personalizados para cada aplicativo e executar um failover de teste em cada um deles.
+- Os aplicativos e suas dependências mudam com frequência. Para garantir que os planos de recuperação estejam atualizados, execute um failover de teste para cada aplicativo a cada trimestre.
 
-    ![Plano de recuperação de teste de captura de ecrã de um exemplo no Site Recovery](./media/recovery-plan-overview/rptest.png)
+    ![Captura de tela de um exemplo de plano de recuperação de teste no Site Recovery](./media/recovery-plan-overview/rptest.png)
 
 ## <a name="watch-the-video"></a>Ver o vídeo
 
-Ver um vídeo de exemplo rápido que mostra um só clique ativação pós-falha para uma aplicação do WordPress de duas camadas.
+Assista a um vídeo de exemplo rápido mostrando um failover de clique para um aplicativo WordPress de duas camadas.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
-- Saiba mais sobre [executar as ativações pós-falha](site-recovery-failover.md).  
+- [Crie](site-recovery-create-recovery-plans.md) um plano de recuperação.
+- Saiba mais sobre [failovers em execução](site-recovery-failover.md).  
