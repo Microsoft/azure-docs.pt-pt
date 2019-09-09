@@ -22,6 +22,11 @@
       href: how-to/move-account.md
     - name: Automatizar a integração dos Serviços de Automatização
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
+    - name: Regiões suportadas para mapeamentos de área de trabalho do Log Analytics
+      href: how-to/region-mappings.md
+    - name: Gerir os dados da Automatização do Azure
+      href: automation-managing-data.md
+      displayName: backup
 - name: Automatização de Processos
   items:
     - name: Descrição Geral da Função de Trabalho de Runbook Híbrida
@@ -39,16 +44,10 @@
       items:
         - name: Criar um runbook
           href: automation-quickstart-create-runbook.md
-    - name: Inclusão
-      items:
-        - name: Incluir várias VMs a partir do portal
-          href: automation-onboard-solutions-from-browse.md
-        - name: Inclusão a partir de uma VM do Azure
-          href: automation-onboard-solutions-from-vm.md
-        - name: Inclusão a partir da conta de automatização
-          href: automation-onboard-solutions-from-automation-account.md
     - name: Guias de Procedimentos
       items:
+        - name: Iniciar/parar VMs fora do horário de expediente
+          href: automation-solution-vm-management.md
         - name: Gerir runbooks
           href: manage-runbooks.md
         - name: Criar runbooks
@@ -86,8 +85,6 @@
               href: automation-child-runbooks.md
             - name: Passar um objeto JSON para um runbook da Automatização do Azure
               href: automation-pass-json-string.md
-            - name: Iniciar/parar VMs fora do horário de expediente
-              href: automation-solution-vm-management.md
         - name: Monitorizar runbooks
           items:
             - name: Resultado do runbook
@@ -98,15 +95,6 @@
               displayName: 'fair share, activity log'
             - name: Processamento de erros em runbooks gráficos
               href: automation-runbook-graphical-error-handling.md
-            - name: Integração do controlo de origem
-              href: source-control-integration.md
-              displayName: 'github, vsts, azure devops, personal access token'
-            - name: Integração do controlo de origem - legado
-              href: automation-source-control-integration-legacy.md
-              displayname: github
-            - name: Gerir os dados da Automatização do Azure
-              href: automation-managing-data.md
-              displayName: backup
         - name: Função de Trabalho de Runbook Híbrida
           items:
             - name: Implementar Função de Trabalho de Runbook Híbrida do Windows
@@ -120,6 +108,19 @@
             - name: Controlar ficheiros atualizados com tarefas de observador
               href: automation-watchers-tutorial.md
               displayName: 'hybrid runbook worker, hybrid worker, trigger'
+        - name: Integração do Controlo de Origem
+          items:
+            - name: Integração do controlo de origem
+              href: source-control-integration.md
+              displayName: 'github, vsts, azure devops, personal access token'
+            - name: Integração do controlo de origem - legado
+              href: automation-source-control-integration-legacy.md
+              displayname: github
+            - name: Integração do controlo de origem com o GitHub Enterprise
+              href: automation-scenario-source-control-integration-with-github-ent.md
+              displayName: 'CI, runbooks'
+            - name: Integração do controlo de origem com o DevOps do Azure
+              href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Resolução de problemas
       items:
         - name: Resolver problemas de Função de Trabalho de Runbook Híbrida
@@ -297,7 +298,7 @@
       href: automation-connections.md
     - name: Credenciais
       href: automation-credentials.md
-    - name: Módulos de integração
+    - name: Módulos
       href: automation-integration-modules.md
     - name: Agendas
       href: automation-schedules.md
@@ -321,11 +322,6 @@
       displayName: 'Monitor, Azure Monitor'
     - name: Criar uma VM do Amazon Web Service
       href: automation-scenario-aws-deployment.md
-    - name: Integração do controlo de origem com o GitHub Enterprise
-      href: automation-scenario-source-control-integration-with-github-ent.md
-      displayName: 'CI, runbooks'
-    - name: Integração do controlo de origem com o DevOps do Azure
-      href: automation-scenario-source-control-integration-with-VSTS.md
       displayName: 'VSTS, CI, runbooks'
     - name: Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
       href: automation-deploy-template-runbook.md
@@ -348,14 +344,10 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
-    - name: Azure PowerShell (Clássico)
-      href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.automation
     - name: REST
       href: /rest/api/automation
-    - name: REST (Clássico)
-      href: 'https://msdn.microsoft.com/library/azure/mt163781'
 - name: Recursos
   items:
     - name: Vídeo de introdução à Automatização

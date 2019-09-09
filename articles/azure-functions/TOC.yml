@@ -250,6 +250,8 @@
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Personalizar o ponto final da função HTTP
           href: functions-create-serverless-api.md
+        - name: Gerir recursos no local
+          href: functions-hybrid-powershell.md
     - name: Resolução de problemas
       items:
         - name: Resolução de problemas de armazenamento

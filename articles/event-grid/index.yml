@@ -1,83 +1,97 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Azure Event Grid
+summary: Saiba como utilizar o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real.
 metadata:
-  title: 'Documentação do Azure Event Grid - Tutoriais, Referência da API'
-  description: 'Utilize o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real.'
+  title: Documentação do Azure Event Grid
+  description: Saiba como utilizar o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real.
   services: event-grid
-  author: dougeby
-  manager: dougeby
   ms.service: event-grid
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 08/10/2017
-  ms.author: dougeby
-abstract:
-  description: 'O Azure Event Grid é um serviço inteligente de encaminhamento de eventos integralmente gerido que permite um consumo de eventos uniforme através de um modelo de publicação-subscrição. Utilize o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real. Saiba como utilizar o Azure Event Grid com os nossos inícios rápidos, tutoriais e amostras.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Saiba como criar e subscrever eventos personalizados.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: CLI do Azure
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Portal do Azure
-            href: /azure/event-grid/custom-event-quickstart-portal
-      - type: paragraph
-        text: Saiba como encaminhar os eventos de armazenamento de Blobs.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: CLI do Azure
-            href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: Saiba como desenvolver aplicações que reagem a eventos.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorizar as alterações nas VMs com as Aplicações Lógicas</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrar a Automatização do Azure no Event Grid</a>
-  - title: Desenvolva as suas competências com o Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Escolha um modelo de mensagens no Azure para ligar os seus serviços de forma livre
-            href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-            image:
-              src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
-              href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-event-grid">Mais aprendizagem interativa...</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/cli/azure/eventgrid">CLI do Azure</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
-          - title: APIs REST
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Esquemas
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Esquema de Subscrições</a></p><p><a href="/azure/event-grid/event-schema">Esquema de Eventos</a></p>
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 09/06/2019
+  ms.openlocfilehash: 65eea06d0e31b0d4f9c151ed94719814be5086de
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70772140"
+landingContent:
+- title: Sobre o Event Grid
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Event Grid?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Conceitos do Event Grid
+      url: concepts.md
+    - text: Origens de eventos
+      url: event-sources.md
+    - text: Processadores de eventos
+      url: event-handlers.md
+    - text: Filtros de eventos
+      url: event-filtering.md
+- title: Cenários
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Encaminhar eventos do Armazenamento de blobs para um ponto final Web
+      url: blob-event-quickstart-portal.md
+    - text: Armazenamento de filas como um processador de eventos
+      url: custom-event-to-queue-storage.md
+    - text: Hubs de Eventos como um processador de eventos
+      url: custom-event-to-eventhub.md
+    - text: Encaminhar eventos para um ponto final Web
+      url: custom-event-quickstart-portal.md
+    - text: Enviar eventos para um registo de contentor privado
+      url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - linkListType: tutorial
+    links:
+    - text: Enviar e-mail quando a VM altera
+      url: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - text: Redimensionar imagens carregadas
+      url: resize-images-on-storage-blob-upload-event.md
+    - text: Acionar o runbook da Automatização
+      url: ensure-tags-exists-on-new-virtual-machines.md
+    - text: Enviar e-mail quando o dispositivo Hub IoT é adicionado
+      url: publish-iot-hub-events-to-logic-apps.md
+    - text: Responder a eventos do Service Bus
+      url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - text: Transmitir dados a partir dos Hubs de Eventos
+      url: event-grid-event-hubs-integration.md
+    - text: Encaminhar eventos dos Serviços de Multimédia
+      url: ..//media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - text: Encaminhar para as Ligações Híbridas
+      url: custom-event-to-hybrid-connection.md
+- title: Conceitos avançados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Segurança e autenticação
+      url: security-authentication.md
+    - text: Entrega e tentativa
+      url: delivery-and-retry.md
+    - text: Domínios de eventos
+      url: event-domains.md
+    - text: Recuperação após desastre geográfica
+      url: geo-disaster-recovery.md
+- title: Personalizações
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Encaminhar eventos para ponto final Web
+      url: custom-event-quickstart-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar um tópico personalizado
+      url: scripts/event-grid-cli-create-custom-topic.md
+    - text: Subscrever um tópico personalizado
+      url: scripts/event-grid-cli-subscribe-custom-topic.md
+    - text: Publicar num tópico personalizado
+      url: post-to-custom-topic.md
+    - text: Mapear campos personalizados no esquema do Event Grid
+      url: input-mappings.md
