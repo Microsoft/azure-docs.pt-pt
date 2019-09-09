@@ -1,5 +1,5 @@
 ---
-title: Tentativas e entidades predefinidas-LUIS
+title: 'Tutorial: Tentativas e entidades predefinidas-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, adicione as intenções e as entidades predefinidas a um aplicativo para obter rapidamente a previsão de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 4697bad15a374bed0de08b7cabc5aceaad7f1259
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: aaeddac98e3f192d5e6a87ecfd48005526379ff2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876713"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390989"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar entidades e intenções comuns
 
@@ -189,9 +189,9 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 Saiba mais sobre modelos predefinidos:
 
-* [Domínios](luis-reference-prebuilt-domains.md)predefinidos: são domínios comuns que reduzem a criação geral de aplicativos Luis
+* [Domínios predefinidos](luis-reference-prebuilt-domains.md): são domínios comuns que reduzem a criação geral de aplicativos Luis
 * Tentativas predefinidas: são as intenções individuais dos domínios comuns. Você pode adicionar tentativas individualmente em vez de adicionar o domínio inteiro.
-* [Entidades](luis-prebuilt-entities.md)predefinidas: são tipos de dados comuns úteis para a maioria dos aplicativos Luis.
+* [Entidades predefinidas](luis-prebuilt-entities.md): são tipos de dados comuns úteis para a maioria dos aplicativos Luis.
 
 Saiba mais sobre como trabalhar com seu aplicativo LUIS:
 
@@ -199,7 +199,7 @@ Saiba mais sobre como trabalhar com seu aplicativo LUIS:
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Ao adicionar intenções e entidades pré-concebidas, a aplicação cliente pode determinar as intenções de utilizador comuns e extrair tipos de dados comuns.  
 

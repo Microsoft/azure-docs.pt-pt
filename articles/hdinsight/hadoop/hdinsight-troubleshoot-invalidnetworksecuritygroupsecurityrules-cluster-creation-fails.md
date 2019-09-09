@@ -1,17 +1,17 @@
 ---
-title: InvalidNetworkSecurityGroupSecurityRules-falha na criação do cluster no Azure HDInsight
+title: InvalidNetworkSecurityGroupSecurityRules-falha no cluster no Azure HDInsight
 description: A criação do cluster falha com o ErrorCode InvalidNetworkSecurityGroupSecurityRules
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: 35e583fa31ee99c9d6307c01287c2c0fde021280
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a534ae54b6cb9ce20d0a1bc970ef575f88a09827
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700616"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735755"
 ---
 # <a name="scenario-invalidnetworksecuritygroupsecurityrules---cluster-creation-fails-in-azure-hdinsight"></a>Cenário: InvalidNetworkSecurityGroupSecurityRules-falha na criação do cluster no Azure HDInsight
 
@@ -29,7 +29,7 @@ Provavelmente um problema com as regras de [grupo de segurança de rede](../../v
 
 Vá para a portal do Azure e identifique o NSG associado à sub-rede em que o cluster está sendo implantado. Na seção **regras de segurança de entrada** , verifique se as regras permitem o acesso de entrada à porta 443 para os endereços IP mencionados [aqui](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

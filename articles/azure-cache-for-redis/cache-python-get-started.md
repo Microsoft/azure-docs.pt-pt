@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 70a8e4cd694a90e83bf78e00a7c725a8c887b2eb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: fcb5d74305375c9883f2d601a2ab7d2d9a50b9cb
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324079"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743942"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: Usar o cache do Azure para Redis com Python
 
@@ -111,17 +111,17 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 > A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
+Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , insira o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. Em seu grupo de recursos na lista de resultados, selecione **...** em seguida, **excluir grupo de recursos**.
 
 ![Eliminar](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e clique em **Eliminar**.
+É-lhe pedido que confirme a eliminação do grupo de recursos. Insira o nome do grupo de recursos a ser confirmado e selecione **excluir**.
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Crie um aplicativo Web ASP.NET simples que usa um cache do Azure para Redis.](./cache-web-app-howto.md)

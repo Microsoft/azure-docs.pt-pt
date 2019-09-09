@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2a18362546ae3c31b06fc5294495d8f5ac5f0be3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241076"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389943"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -47,14 +47,13 @@ az extension update --name aks-preview
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Registrar provedor de recursos de pool de vários nós
 
-Para criar um cluster AKS que possa usar vários pools de nós, primeiro habilite dois sinalizadores de recurso em sua assinatura. Os clusters de pools de vários nós usam um VMSS (conjunto de dimensionamento de máquinas virtuais) para gerenciar a implantação e a configuração dos nós kubernetes. Registre os sinalizadores de recurso *MultiAgentpoolPreview* e *VMSSPreview* usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
+Para criar um cluster AKS que possa usar vários pools de nós, primeiro habilite um sinalizador de recurso em sua assinatura. Registre o sinalizador de recurso *MultiAgentpoolPreview* usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
 
 > [!CAUTION]
 > Quando você registra um recurso em uma assinatura, não é possível cancelar o registro desse recurso no momento. Depois de habilitar alguns recursos de visualização, os padrões podem ser usados para todos os clusters AKS, em seguida, criados na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Use uma assinatura separada para testar recursos de visualização e coletar comentários.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
@@ -64,7 +63,6 @@ Leva alguns minutos para que o status seja mostrado *registrado*. Você pode ver
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
@@ -77,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que dão suporte a vários pools de nós:
 
-* Vários pools de nós só estão disponíveis para clusters criados depois que você registrou com êxito os recursos de *MultiAgentpoolPreview* e *VMSSPreview* para sua assinatura. Você não pode adicionar ou gerenciar pools de nós com um cluster AKS existente criado antes que esses recursos tenham sido registrados com êxito.
+* Vários pools de nós só estão disponíveis para clusters criados depois que você registrou com êxito o recurso *MultiAgentpoolPreview* para sua assinatura. Você não pode adicionar ou gerenciar pools de nós com um cluster AKS existente criado antes que esse recurso tenha sido registrado com êxito.
 * Não é possível excluir o primeiro pool de nós.
 * O complemento de roteamento de aplicativo HTTP não pode ser usado.
 * Você não pode adicionar/atualizar/excluir pools de nós usando um modelo do Resource Manager existente como a maioria das operações. Em vez disso, [use um modelo do Resource Manager separado](#manage-node-pools-using-a-resource-manager-template) para fazer alterações em pools de nós em um cluster AKs.
@@ -86,11 +84,11 @@ Embora esse recurso esteja em versão prévia, as seguintes limitações adicion
 
 * O cluster AKS pode ter um máximo de oito pools de nós.
 * O cluster AKS pode ter um máximo de 400 nós entre esses oito pools de nós.
-* Todos os pools de nós devem residir na mesma sub-rede
+* Todos os pools de nós devem residir na mesma sub-rede.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-Para começar, crie um cluster AKS com um único pool de nós. O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado MyResource Group na região *eastus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . A *--kubernetes-Version* de *1.13.10* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do kubernetes com suporte][supported-versions].
+Para começar, crie um cluster AKS com um único pool de nós. O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado *MyResource* Group na região *eastus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . A *--kubernetes-Version* de *1.13.10* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do kubernetes com suporte][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -310,7 +308,7 @@ Leva alguns minutos para que a operação de dimensionamento seja concluída.
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Dimensionar um pool de nós específico automaticamente habilitando o dimensionador automático do cluster
 
-O AKS oferece um recurso separado na visualização para dimensionar automaticamente os pools de nós com um recurso chamado de dimensionador automático do [cluster](cluster-autoscaler.md). Esse recurso é um complemento AKS que pode ser habilitado por pool de nós com contagens de escala mínima e máxima exclusivas por pool de nós. Saiba como [usar o conjunto de dimensionamento de clusters por pool de nós](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+O AKS oferece um recurso separado na visualização para dimensionar automaticamente os pools de nós com um recurso chamado de [dimensionador](cluster-autoscaler.md)automático do cluster. Esse recurso é um complemento AKS que pode ser habilitado por pool de nós com contagens de escala mínima e máxima exclusivas por pool de nós. Saiba como [usar o conjunto de dimensionamento de clusters por pool de nós](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## <a name="delete-a-node-pool"></a>Excluir um pool de nós
 
@@ -425,12 +423,12 @@ aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
 
 O Agendador kubernetes pode usar os conteúdo e os Tolerations para restringir quais cargas de trabalho podem ser executadas em nós.
 
-* Um seu pods é aplicado a um nó que indica que apenas um inconsistente específico pode ser agendado neles.
+* Um seu **pods é aplicado** a um nó que indica que apenas um inconsistente específico pode ser agendado neles.
 * Em seguida, um **toleration** é aplicado a um pod que permite *tolerar* o de um nó.
 
 Para obter mais informações sobre como usar os recursos agendados do kubernetes avançados, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][taints-tolerations]
 
-Neste exemplo, aplique um o seu nó baseado em GPU usando o comando de [nó kubectl][kubectl-taint] Especifique o nome do nó baseado em GPU da saída do comando anterior `kubectl get nodes` . O o o comparado é aplicado como um *valor chave:* e, em seguida, uma opção de agendamento. O exemplo a seguir usa o par *SKU = GPU* e define pods, caso contrário, tem a capacidade NoSchedule:
+Neste exemplo, aplique um o seu nó baseado em GPU usando o comando de [nó kubectl][kubectl-taint] Especifique o nome do nó baseado em GPU da saída do comando anterior `kubectl get nodes` . O o o comparado é aplicado como um *valor chave:* e, em seguida, uma opção de agendamento. O exemplo a seguir usa o par *SKU = GPU* e define pods, caso contrário, tem a capacidade *NoSchedule* :
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -488,7 +486,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Somente os pods que têm esse seu *gpunodepool*aplicado podem ser agendados em nós no am. Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
+Somente os pods que têm esse seu gpunodepool aplicado podem ser agendados em nós no *am*. Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gerenciar pools de nós usando um modelo do Resource Manager
 
