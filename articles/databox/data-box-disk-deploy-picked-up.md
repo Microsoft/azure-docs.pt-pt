@@ -1,43 +1,43 @@
 ---
-title: Tutorial para enviar Disco do Azure Data Box de volta | Microsoft Docs
+title: Tutorial para enviar o Azure Data Box Disk de volta | Microsoft Docs
 description: Utilize este tutorial para aprender enviar o Azure Data Box Disk para a Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240199"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390413"
 ---
 ::: zone target="chromeless"
 
-## <a name="return-azure-data-box-disk"></a>Disco do Azure Data Box de retorno 
+## <a name="return-azure-data-box-disk"></a>Devolver o Azure Data Box Disk 
 
 ::: zone-end
 
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-disk"></a>Tutorial: Disco do Azure Data Box de retorno 
+# <a name="tutorial-return-azure-data-box-disk"></a>Tutorial: Devolver o Azure Data Box Disk 
 
-Este tutorial descreve como agendar uma seleção para retornar o Disco do Azure Data Box. As instruções de seleção dependem de onde você está retornando o dispositivo. 
+Este tutorial descreve como agendar uma recolha para devolver o seu Azure Data Box Disk. As instruções de recolha dependem da localização a partir da qual pretende devolver o dispositivo. 
 
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Enviar o Data Box Disk para a Microsoft
-> * Pegue Disco do Data Box em regiões diferentes
+> * Recolha do Data Box Disk em diferentes regiões
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Disco do Azure Data Box e verifique](data-box-disk-deploy-copy-data.md).
+Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md).
 
 
 ## <a name="ship-data-box-disk-back"></a>Enviar o Data Box Disk de volta
@@ -45,61 +45,58 @@ Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Dis
 ::: zone-end
 
 1. Após a validação de dados ser concluída, desligue os discos. Remova os cabos de ligação.
-2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Os encargos poderão ser aplicados se os acessórios estiverem ausentes.
-    - Reutilize o empacotamento da remessa inicial.  
-    - É recomendável que você empacote os discos usando um encapsulamento bolha bem protegido.
-    - Certifique-se de que o ajuste esteja ajustado para reduzir os movimentos na caixa.
+2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Podem aplicar-se custos se faltarem os acessórios.
+    - Reutilize a embalagem do envio inicial.  
+    - Recomendamos que embrulhe os discos em plástico-bolha e que o prenda bem.
+    - Assegure que o plástico-bolha envolve bem os discos para reduzir os movimentos dentro da caixa.
 
-As próximas etapas são determinadas por onde você está retornando o dispositivo. As instruções são diferentes para nós/Canadá, União Europeia (UE), Austrália ou países na Ásia.
+A localização a partir da qual pretende devolver o dispositivo determina os passos seguintes. As instruções são diferentes para os E.U.A./Canadá, a União Europeia (UE), a Austrália ou os países da Ásia.
 
-### <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
+### <a name="pick-up-in-us-canada"></a>Recolha nos E.U.A. ou no Canadá
 
-Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
+Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos abaixo.
 
-1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se o rótulo estiver danificado ou perdido:
-    - Acesse **visão geral > baixar o rótulo de envio** e baixar um rótulo de remessa de retorno.
-    - Afixar o rótulo no dispositivo.
+1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se a guia estiver danificada ou a tiver perdido:
+    - Aceda a **Descrição Geral > Transferir guia de remessa** e transfira uma guia de remessa para devolução.
+    - Afixe a guia ao dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
-3. Agendar uma retirada com UPS. Para agendar uma retirada:
+3. Agende uma recolha com a UPS. Para agendar uma recolha:
 
-    - Chame o no-break local (número gratuito de ligação específica de país/região).
-    - Em sua chamada, entre em contato com o número de acompanhamento de remessa reversa, conforme mostrado no seu rótulo impresso.
-    - Se o número de rastreamento não estiver entre aspas, o UPS exigirá que você pague um encargo adicional durante a retirada.
-    - Em vez de agendar a retirada, você também pode remover o Disco do Data Box no local de distribuição mais próximo.
+    - Ligue para o ponto UPS local (número gratuito específico do seu país/região).
+    - Durante a chamada, indique o número de rastreio do envio de devolução apresentado na guia impressa.
+    - Se não indicar o número de rastreio, terá de pagar uma taxa adicional à UPS na recolha.
+    - Em vez de agendar a recolha, também pode entregar o Data Box Disk na localização de entrega mais próxima.
 
-### <a name="pick-up-in-europe"></a>Escolha na Europa
+### <a name="pick-up-in-europe"></a>Recolha na Europa
 
-Execute as etapas a seguir se retornar o dispositivo na Europa.
+Se pretender devolver o dispositivo na Europa, siga os passos abaixo.
 
-1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se o rótulo estiver danificado ou perdido:
-    - Acesse **visão geral > baixar o rótulo de envio** e baixar um rótulo de remessa de retorno.
-    - Afixar o rótulo no dispositivo.
+1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se a guia estiver danificada ou a tiver perdido:
+    - Aceda a **Descrição Geral > Transferir guia de remessa** e transfira uma guia de remessa para devolução.
+    - Afixe a guia ao dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
 3. Se estiver a devolver o dispositivo na Europa com a DHL, solicite uma recolha à DHL acedendo ao respetivo site e especificando o número de carta de porte aéreo.
-4. Vá para o site país/região DHL Express e escolha **agendar uma coleção do Courier > remessa do eReturn**.    
+4. Aceda ao site da DHL Express do seu país/região e selecione **Book a Courier Collection (Agendar uma Recolha por Estafeta) > eReturn Shipment (Envio eReturn)** .    
 3. Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
 
-### <a name="pick-up-in-australia"></a>Escolha na Austrália
+### <a name="pick-up-in-australia"></a>Recolha na Austrália
 
-Os data centers do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para a retirada na Austrália.
+Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para recolhas na Austrália.
 
-1. Email `adbops@microsoft.com` para solicitar o rótulo de remessa com ID de entrada exclusiva ou o código Tau. Coloque a solicitação pelo menos três dias antes da data de remessa planejada para obter o rótulo no tempo.
-2. O assunto do email deve ser *solicitação de etiqueta de envio reversa com código Tau*. Certifique-se de incluir os seguintes detalhes no email: 
+1. Utilize a guia de remessa para devolução fornecida e confirme que o código TAU (número de referência) se encontra na mesma. Se não tiver a guia de remessa fornecida ou se deparar com outros problemas, envie um e-mail para o departamento de [Operações Data Box na Ásia](mailto:adbo@microsoft.com). Indique o nome da encomenda no assunto e os detalhes do seu problema.
+3. Afixe a guia à caixa. 
+4. Marque uma recolha online através da ligação https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-    - Nome do pedido
-    - Endereço
-    - Nome do contacto
+### <a name="pick-up-in-asia"></a>Recolha na Ásia
 
-### <a name="pick-up-in-asia"></a>Escolha na Ásia
+As instruções de recolha são diferentes para o Japão, a Coreia e Singapura.
 
-As instruções de retirada são diferentes para o Japão, a Coreia e a Cingapura.
+#### <a name="pick-up-in-japan"></a>Recolha no Japão
 
-#### <a name="pick-up-in-japan"></a>Escolha no Japão
-
-1. Grave as informações de nome e endereço da sua empresa na nota de consignação como as informações do remetente.
-2. Envie uma solução de Quantium de email usando o modelo de email a seguir.
+1. Escreva o nome e o endereço da sua empresa na nota de expedição como as informações do remetente.
+2. Utilize o modelo que se segue para enviar um e-mail à Quantium Solutions.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -112,59 +109,59 @@ As instruções de retirada são diferentes para o Japão, a Coreia e a Cingapur
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
-    - **Se você estiver selecionando em Osaka**, modifique o assunto no modelo de email para: `Pickup request for Microsoft Azure OSA`.
-    - Se a nota de consignação do Chakubarai do Japão não tiver sido incluída ou estiver ausente, observe que neste email. As soluções Quantium do Japão solicitarão o lançamento do Japão para trazer a nota de consignação na retirada.
-    - Se você tiver vários pedidos, envie um email para garantir a retirada individual.
+    - **Se pretender que a recolha seja efetuada em Osaka**, modifique o assunto do modelo de e-mail para: `Pickup request for Microsoft Azure OSA`.
+    - Caso a nota de expedição Chakubarai da Japan Post não tenha sido incluída ou esteja em falta, indique-o neste e-mail. A Quantium Solutions Japan irá solicitar à Japan Post que apresente a nota de expedição na recolha.
+    - Se tiver várias encomendas, envie um e-mail para garantir a recolha individual.
 
-3. Receba uma confirmação por email das soluções Quantium depois de ter reservado uma retirada. A confirmação por email também inclui informações sobre a nota de consignação do Chakubarai.
+3. Depois de marcar uma recolha, recebe uma confirmação por e-mail da Quantium Solutions. Esta confirmação também inclui informações sobre a nota de expedição Chakubarai.
 
-Se necessário, você pode entrar em contato com o suporte da solução Quantium (idioma japonês) nas seguintes informações: 
+Se necessário, pode entrar em contacto com o Apoio ao Cliente da Quantium Solutions (em japonês) através das seguintes informações: 
 
-- Email:Customerservice.JP@quantiumsolutions.com 
+- E-mail：Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Escolha na Coreia
+#### <a name="pick-up-in-korea"></a>Recolha na Coreia
 
-1. Certifique-se de incluir a nota de consignação de retorno.
-2. Para solicitar retirada quando a nota de consignação estiver presente:
-    1. Ligue para a linha direta do *Quantium Solutions* em 070-8231-1418 durante as horas do escritório (10 a.m. às 17:00, de segunda-feira a sexta-feira). Quote *Microsoft Azure retirada* e o número da solicitação de serviço para organizar uma coleção.  
-    2. Se a linha direta estiver ocupada, `microsoft@rocketparcel.com`envie um email com o assunto do email *Microsoft Azure a retirada* e o número da solicitação de serviço como referência.
-    3. Se a Courier não chegar à coleta, chame a linha direta do *Quantium Solutions International* para obter as disposições alternativas. 
-    4. Você receberá uma confirmação por email para a agenda de retirada.
-3. Execute esta etapa somente se a nota de consignação não estiver presente. Para solicitar retirada:
-    1. Ligue para a linha direta do *Quantium Solutions* em 070-8231-1418 durante as horas do escritório (10 a.m. às 17:00, de segunda-feira a sexta-feira). Quote *Microsoft Azure retirada* e o número da solicitação de serviço para organizar uma coleção. Especifique que você precisa de uma nova nota de assinatura para organizar uma coleção. Forneça o remetente (cliente), as informações do receptor (Datacenter do Azure) e o número de referência (número da solicitação de serviço). 
-    2. Se a linha direta estiver ocupada, `microsoft@rocketparcel.com`envie um email com o assunto do email *Microsoft Azure a retirada* e o número da solicitação de serviço como referência.
-    3. Se a Courier não chegar à coleta, chame a linha direta do *Quantium Solutions International* para obter as disposições alternativas. 
-    4. Você receberá uma confirmação verbal se a solicitação for feita por telefone.
+1. Certifique-se de que inclui a nota de expedição de devolução.
+2. Para solicitar a recolha quando a nota de expedição estiver presente:
+    1. Ligue para a linha direta da *Quantium Solutions International* através do número 070-8231-1418 durante o horário de expediente (das 10:00 às 17:00, de segunda a sexta-feira). Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço para combinar uma recolha.  
+    2. Se a linha direta estiver ocupada, envie um e-mail para `microsoft@rocketparcel.com` com o assunto *Microsoft Azure Pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço como referência.
+    3. Se o estafeta não efetuar a recolha, ligue para a linha direta da *Quantium Solutions International* para combinar uma alternativa. 
+    4. Recebe uma confirmação por e-mail do horário da recolha.
+3. Siga este passo apenas se a nota de expedição não estiver presente. Para solicitar a recolha:
+    1. Ligue para a linha direta da *Quantium Solutions International* através do número 070-8231-1418 durante o horário de expediente (das 10:00 às 17:00, de segunda a sexta-feira). Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço para combinar uma recolha. Especifique que precisa de uma nova nota de expedição para combinar uma recolha. Forneça as informações do remetente (cliente), as informações do destinatário (datacenter do Azure) e o número de referência (número do pedido de serviço). 
+    2. Se a linha direta estiver ocupada, envie um e-mail para `microsoft@rocketparcel.com` com o assunto *Microsoft Azure Pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço como referência.
+    3. Se o estafeta não efetuar a recolha, ligue para a linha direta da *Quantium Solutions International* para combinar uma alternativa. 
+    4. Se efetuar o pedido por telefone, recebe uma confirmação verbal.
 
-#### <a name="pick-up-in-singapore"></a>Escolha em Cingapura
+#### <a name="pick-up-in-singapore"></a>Recolha em Singapura
 
-1. Imprima o rótulo de remessa e anexe na caixa. Se o rótulo estiver danificado ou perdido:
-    - Acesse **visão geral > baixar o rótulo de envio** e obter um rótulo de envio de devolução.
-    - Afixar o rótulo no dispositivo. Verifique se o rótulo está visível.
+1. Imprima a guia de remessa e afixe-a à caixa. Se a guia estiver danificada ou a tiver perdido:
+    - Aceda a **Descrição Geral > Transferir guia de remessa** e obtenha uma guia de remessa para devolução.
+    - Afixe a guia ao dispositivo. Certifique-se de que a guia está visível.
 
-2. Para solicitar retirada:
-    - Ligue para a linha direta da **Singpost** às **6845 6485** durante as horas do escritório (9h às 17:00, de segunda-feira a sexta-feira).  
-    - Quote *Microsoft Azure retirada* e o número da solicitação de serviço (número de rastreamento no rótulo de envio de retorno) para organizar uma coleção. 
-    - Você receberá uma confirmação verbal para a agenda de retirada. 
-    - Se a Courier não chegar à coleção, chame **Singpost** em **6845 6485** para organizações alternativas. 
-3. Passe para a Courier. 
+2. Para solicitar a recolha:
+    - Ligue para a linha direta da **SingPost** através do número **6845 6485** durante o horário de expediente (das 09:00 às 17:00, de segunda a sexta-feira).  
+    - Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço (número de rastreio na guia de remessa para devolução) para combinar uma recolha. 
+    - Recebe uma confirmação verbal do horário da recolha. 
+    - Se o estafeta não efetuar a recolha, ligue para a **SingPost** através do número **6845 6485** para combinar uma alternativa. 
+3. Entregue a caixa ao estafeta. 
 
 
 ::: zone target="docs"
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 
 > [!div class="checklist"]
 > * Enviar o Data Box Disk para a Microsoft
-> * Pegue Disco do Data Box em regiões diferentes
+> * Recolha do Data Box Disk em diferentes regiões
 
-Avance para o próximo passo para saber como verificar o carregamento de dados de Disco do Data Box para a conta de armazenamento do Azure.
+Avance para os procedimentos seguintes para saber como verificar o carregamento de dados do Data Box Disk para a conta de Armazenamento do Microsoft Azure.
 
 > [!div class="nextstepaction"]
-> [Verificar o carregamento de dados do Disco do Azure Data Box](./data-box-disk-deploy-picked-up.md)
+> [Verificar o carregamento de dados do Azure Data Box Disk](./data-box-disk-deploy-picked-up.md)
 
 ::: zone-end
 
