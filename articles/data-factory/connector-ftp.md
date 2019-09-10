@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: a20c6e90f38e6443597fdf50edd3d4766dc71096
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 98c13287e6e549f1fbcab710adc12cdf5416e814
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275280"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813163"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar dados do servidor FTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -38,7 +38,7 @@ Este conector de FTP tem suporte para as seguintes atividades:
 Especificamente, esse conector de FTP dá suporte a:
 
 - Copiar arquivos usando a autenticação **básica** ou **anônima** .
-- Copiando arquivos no estado em que se encontram ou analisando arquivos com os [formatos de arquivo e codecs](supported-file-formats-and-compression-codecs.md)de compactação com suporte.
+- Copiando arquivos no estado em que se encontram ou analisando arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -122,12 +122,12 @@ As propriedades a seguir têm suporte para o serviço vinculado de FTP:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
 
-- Para **parquet, texto delimitado, Avro e formato binário**, consulte a seção [parquet, texto delimitado, Avro e formato binário do conjunto de banco](#format-based-dataset) de uma.
-- Para outros formatos como o **formato Orc/JSON**, consulte [outra](#other-format-dataset) seção do conjunto de exemplo.
+- Para **parquet, texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e DataSet de formato binário](#format-based-dataset) .
+- Para outros formatos, como o **formato Orc**, consulte outra seção do conjunto de um [formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Parquet, texto delimitado, Avro e conjunto de um formato binário
+### <a name="format-based-dataset"></a>Parquet, texto delimitado, JSON, Avro e conjunto de DataSet de formato binário
 
-Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte o [formato parquet](format-parquet.md), o formato de [texto delimitado](format-delimited-text.md), o formato [Avro](format-avro.md) e o artigo [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte. As propriedades a seguir têm suporte para FTP `location` em configurações em conjunto de conjuntos de base de formato:
+Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), [formato de Avro](format-avro.md) e artigo de [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte. As propriedades a seguir têm suporte para FTP `location` em configurações em conjunto de conjuntos de base de formato:
 
 | Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -166,15 +166,15 @@ Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte
 
 ### <a name="other-format-dataset"></a>Outro conjunto de DataSet de formato
 
-Para copiar dados do FTP no **formato Orc/JSON**, há suporte para as seguintes propriedades:
+Para copiar dados do FTP no **formato Orc**, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. Há suporte para o filtro curinga, os curingas `*` permitidos são: (corresponde a zero ou `?` mais caracteres) e (corresponde a zero ou `^` a um único caractere); Use para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro. <br/><br/>Exemplos: RootFolder/subfolder/, veja mais exemplos nos [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
 | fileName | **Filtro de nome ou o caráter universal** para o ficheiro ou ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape. |Não |
-| format | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formato de arquivo:TextFormat **, JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
-| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **Gzip**,deflate, **bzip2**e **ZipDeflate**.<br/>Os níveis com suporte são: **Ideal** e **mais rápido**. |Não |
+| format | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formato de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**.<br/>Os níveis com suporte são: **Ideal** e **mais rápido**. |Não |
 | useBinaryTransfer | Especifique se deseja usar o modo de transferência binária. Os valores são verdadeiros para o modo binário (padrão) e false para ASCII. |Não |
 
 >[!TIP]
@@ -217,12 +217,12 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="ftp-as-source"></a>FTP como fonte
 
-- Para copiar de **parquet, texto delimitado, Avro e formato binário**, consulte a seção [parquet, texto delimitado, Avro e fonte de formato binário](#format-based-source) .
-- Para copiar de outros formatos como o **formato Orc/JSON**, consulte [outra seção fonte de formato](#other-format-source) .
+- Para copiar de **parquet, de texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e fonte de formato binário](#format-based-source) .
+- Para copiar de outros formatos, como o **formato Orc**, consulte [outra seção fonte de formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, texto delimitado, Avro e fonte de formato binário
+#### <a name="format-based-source"></a>Parquet, texto delimitado, JSON, Avro e fonte de formato binário
 
-Para copiar dados de **parquet, texto delimitado, formato Avro ou binário**, consulte o [formato parquet](format-parquet.md), o formato de [texto delimitado](format-delimited-text.md), o [formato Avro](format-avro.md) e o artigo [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e nas configurações com suporte . As propriedades a seguir têm suporte para FTP `storeSettings` em configurações na fonte de cópia baseada em formato:
+Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), formato de [Avro](format-avro.md) e artigo de [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e com suporte Configurações. As propriedades a seguir têm suporte para FTP `storeSettings` em configurações na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Necessário                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -236,7 +236,7 @@ Para copiar dados de **parquet, texto delimitado, formato Avro ou binário**, co
 | maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 
 > [!NOTE]
-> Para o formato de texto parquet/delimitado, a fonte da atividade de cópia do tipo FileSystemProvider mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
+> Para o formato de texto parquet/delimitado, a fonte da atividade de cópia do tipo **FileSystemProvider** mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Example:**
 
@@ -281,7 +281,7 @@ Para copiar dados de **parquet, texto delimitado, formato Avro ou binário**, co
 
 #### <a name="other-format-source"></a>Outra fonte de formato
 
-Para copiar dados do FTP no **formato Orc/JSON**, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados do FTP no **formato Orc**, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -332,5 +332,5 @@ Esta seção descreve o comportamento resultante do caminho da pasta e o nome do
 | `Folder*` | `*.csv` | false | PastaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | `*.csv` | true | PastaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
