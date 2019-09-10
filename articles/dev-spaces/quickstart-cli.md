@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Implantar um microserviço no AKS com o Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 6ce5338bd2b3d6153255fcdb67cb8afe10e8101c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b845a176497891f55990c560e719832c6eaebb73
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772582"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842515"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolver um aplicativo no kubernetes usando Azure Dev Spaces
 Neste guia, vai aprender a:
@@ -109,6 +109,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ```
 
 Você pode ver o serviço em execução abrindo a URL pública, que é exibida na saída do `azds up` comando. Neste exemplo, a URL pública é *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
+
+> [!NOTE]
+> Quando você navega até o serviço durante a `azds up`execução, os rastreamentos de solicitação HTTP também são exibidos na saída `azds up` do comando. Esses rastreamentos podem ajudá-lo a solucionar problemas e depurar seu serviço. Você pode desabilitar esses rastreamentos `--disable-http-traces` usando o `azds up`durante a execução.
 
 Se você parar o `azds up` comando usando *Ctrl + c*, o serviço continuará a ser executado no AKs e a URL pública permanecerá disponível.
 

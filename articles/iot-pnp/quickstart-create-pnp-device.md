@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e13e6f86e9ddc494378e35f85962658d3fe5b25
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 6e5e08df444f66f2c5500d968c805552d20901c5
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806495"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861202"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device"></a>Início rápido: Usar um modelo de capacidade de dispositivo para criar um dispositivo de Plug and Play de IoT
 
@@ -28,12 +28,12 @@ Para concluir este guia de início rápido, você precisa instalar o seguinte so
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-### <a name="install-azure-iot-device-workbench"></a>Instalar o Azure IoT Device Workbench
+### <a name="install-azure-iot-tools"></a>Instalar as ferramentas do Azure IoT
 
-Use as etapas a seguir para instalar a extensão do Azure IoT Device Workbench no VS Code:
+Use as etapas a seguir para instalar as [Ferramentas do Azure IOT para](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o pacote de extensão vs Code:
 
 1. Em VS Code, selecione a guia **extensões** .
-1. Pesquise o **Azure IOT Device Workbench**.
+1. Pesquise pelas **Ferramentas do Azure IOT**.
 1. Selecione **Instalar**.
 
 ### <a name="install-the-azure-iot-explorer"></a>Instalar o Azure IoT Explorer
