@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 7922f07cfe08d0bd58827b59337b86387c624778
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207203"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844680"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor do Azure Functions Python
 
@@ -94,6 +94,7 @@ A estrutura de pastas para um projeto de funções do Python é semelhante ao ex
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -110,6 +111,12 @@ O código compartilhado deve ser mantido em uma pasta separada. Para fazer refer
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+Para fazer referência a módulos locais para uma função, você pode usar a sintaxe de importação relativa da seguinte maneira:
+
+```
+from . import example
 ```
 
 Ao implantar um projeto de função em seu aplicativo de funções no Azure, todo o conteúdo da pasta *FunctionApp* deve ser incluído no pacote, mas não na própria pasta.
@@ -394,7 +401,7 @@ There was an error restoring dependencies.ERROR: cannot install <package name - 
 The terminal process terminated with exit code: 1
 ```
 
-Para criar localmente e configurar os binários necessários, [Instale](https://docs.docker.com/install/) o Docker no computador local e execute o comando a seguir para publicar usando o [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Lembre-se `<app name>` de substituir pelo nome do seu aplicativo de funções no Azure. 
+Para criar localmente e configurar os binários necessários, [Instale o Docker](https://docs.docker.com/install/) no computador local e execute o comando a seguir para publicar usando o [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Lembre-se `<app name>` de substituir pelo nome do seu aplicativo de funções no Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps
@@ -559,7 +566,7 @@ Certifique-se de também atualizar seu function. JSON para dar suporte ao métod
 
 Esse método é usado pelo navegador Chrome para negociar a lista de origens permitidas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

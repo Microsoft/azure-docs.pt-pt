@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197df5c5467a9cea9a76c888569752ed2576d2d2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e6bb926aeab4f88f2d41c578ae3962737df7b2f3
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375745"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872859"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -50,6 +50,23 @@ Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente. Se 
 A partir de 1º de outubro de 2019, Power BI começará a substituir todos os pacotes de conteúdo, incluindo o pacote de conteúdo do Azure AD Power BI. Como alternativa para esse pacote de conteúdo, você pode usar pastas de trabalho do Azure AD para obter informações sobre seus serviços relacionados ao Azure AD. Pastas de trabalho adicionais são disponibilizadas, incluindo pastas de trabalho sobre políticas de acesso condicional no modo somente de relatório, informações baseadas em consentimento do aplicativo e muito mais.
 
 Para obter mais informações sobre as pastas de trabalho, consulte [como usar pastas de trabalho do Azure monitor para relatórios Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Para obter mais informações sobre a substituição dos pacotes de conteúdo, consulte a postagem do blog [anunciando Power bi aplicativos de modelo de disponibilidade geral](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
+
+---
+
+### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Pesquisa, filtragem e classificação aprimoradas para grupos estão disponíveis no portal do AD do Azure (visualização pública)
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Gestão de Grupos  
+**Funcionalidade do produto:** Colaboração
+
+Temos o prazer de anunciar a disponibilidade de visualização pública das experiências relacionadas a grupos aprimoradas no portal do AD do Azure. Esses aprimoramentos ajudam você a gerenciar melhor grupos e listas de membros, fornecendo:
+
+- Recursos de pesquisa avançada, como a pesquisa de subcadeia de caracteres em listas de grupos.
+- Opções avançadas de filtragem e classificação em listas de membros e proprietários.
+- Novos recursos de pesquisa para listas de membros e proprietários.
+- Contagens de grupos mais precisas para grupos grandes.
+
+Para obter mais informações, consulte [gerenciar grupos na portal do Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
 ---
 

@@ -9,10 +9,10 @@ ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68362599"
 ---
 Azure Data Factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para garantir que as assinaturas de cliente sejam protegidas das cargas de trabalho das outras. Para aumentar os limites até o máximo de sua assinatura, entre em contato com o suporte.

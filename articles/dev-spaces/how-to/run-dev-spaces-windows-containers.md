@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Saiba como executar Azure Dev Spaces em um cluster existente com contêineres do Windows
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, contêineres do Windows
-ms.openlocfilehash: 2110636b331f0cf4e74c77f41726ead5bf80a64f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501523"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858590"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Usar Azure Dev Spaces para interagir com contêineres do Windows
 
@@ -49,6 +49,9 @@ Aplique um [o][using-taints] seu em seus nós do Windows. Os seus nós do Window
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
+
+> [!IMPORTANT]
+> Ao aplicar um salve a um nó, você deve configurar um toleration correspondente no modelo de implantação do serviço para executar o serviço nesse nó. O aplicativo de exemplo já está configurado com um [toleration correspondente][sample-application-toleration-example] ao seu comparado que você configurou no comando anterior.
 
 ## <a name="run-your-windows-service"></a>Executar o serviço do Windows
 
@@ -169,7 +172,7 @@ Você pode ver o serviço em execução abrindo a URL pública, que é exibida n
 
 ![Aplicativo de exemplo mostrando a versão do Windows do mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 
@@ -180,8 +183,8 @@ Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em v�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
+[sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md
-
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [team-development]: ../team-development-netcore.md
 [using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations

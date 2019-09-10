@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0ec97683fe8597ced234fe4b7251a4daeed49f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00cbb5ff4b9354d0d1702161460b2646669f34c2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173498"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com acesso de SSO do MS Azure para o Office Ethidex Compliance™
 
@@ -80,8 +80,14 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`com.ethidex.prod.<CLIENTID>`
+
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://www.ethidex.com/saml2/sp/acs/<CLIENTID>`
+
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com o identificador e a URL de resposta reais. Contate o [acesso do Microsoft Azure SSO para a equipe de suporte do Ethidex Compliance Office™](mailto:support@ethidex.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 1. O acesso de SSO do MS Azure para Ethidex Compliance Office™ aplicativo de aplicativo espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, onde o **nameidentifier** é mapeado com **User. UserPrincipalName**. O acesso de SSO do MS Azure para Ethidex Compliance Office™ aplicativo espera que o **nameidentifier** seja mapeado com **User. mail**, portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 

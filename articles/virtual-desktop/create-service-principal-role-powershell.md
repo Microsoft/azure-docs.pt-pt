@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/12/2019
+ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 3e9ee3f5dd04ef838f78b9731885b7ea48e6c99d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: HT
+ms.openlocfilehash: a9b5eecd97b078c9446e28d971f900c4cf65130f
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811316"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845527"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
 
@@ -38,9 +38,9 @@ Antes de poder criar entidades de serviço e atribuições de função, você pr
     Install-Module AzureAD
     ```
 
-2. [Baixar e importar o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
+2. [Baixe e importe o módulo do PowerShell da área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
 
-3. Siga todas as instruções neste artigo na mesma sessão do PowerShell. Ele pode não funcionar se você fechar a janela e retornar a ela mais tarde.
+3. Siga todas as instruções neste artigo na mesma sessão do PowerShell. O processo pode não funcionar se você interromper a sessão do PowerShell fechando a janela e reabrindo-a mais tarde.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Criar um principal de serviço no Azure Active Directory
 
@@ -52,10 +52,9 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
 ## <a name="view-your-credentials-in-powershell"></a>Exibir suas credenciais no PowerShell
 
-Antes de encerrar a sessão do PowerShell, exiba suas credenciais e anote-as para referência futura. A senha é especialmente importante porque você não poderá recuperá-la depois de fechar esta sessão do PowerShell.
+Antes de criar a atribuição de função para sua entidade de serviço, exiba suas credenciais e anote-as para referência futura. A senha é especialmente importante porque você não poderá recuperá-la depois de fechar esta sessão do PowerShell.
 
 Aqui estão as três credenciais que devem ser anotadas e os cmdlets que você precisa executar para obtê-las:
 
@@ -79,19 +78,21 @@ Aqui estão as três credenciais que devem ser anotadas e os cmdlets que você p
 
 ## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Criar uma atribuição de função na visualização da área de trabalho virtual do Windows
 
-Em seguida, você criará uma atribuição de função de RDS na área de trabalho virtual do Windows para a entidade de serviço, que permitirá que a entidade de serviço entre na área de trabalho virtual do Windows. Certifique-se de usar uma conta que tenha permissões para criar atribuições de função de RDS.
+Em seguida, você precisa criar uma atribuição de função para que a entidade de serviço possa entrar na área de trabalho virtual do Windows. Certifique-se de entrar com uma conta que tenha permissões para criar atribuições de função.
 
-Execute os seguintes cmdlets do PowerShell para se conectar à área de trabalho virtual do Windows e exibir seus locatários do RDS.
+Primeiro, [Baixe e importe o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso.
+
+Execute os seguintes cmdlets do PowerShell para se conectar à área de trabalho virtual do Windows e exibir seus locatários.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Get-RdsTenant | FL
+Get-RdsTenant
 ```
 
-Use o Tenantname para o locatário correto e execute os seguintes cmdlets do PowerShell para criar uma atribuição de função para a entidade de serviço no locatário especificado.
+Quando você encontrar o nome do locatário para o locatário para o qual deseja criar uma atribuição de função, use esse nome no seguinte cmdlet:
 
 ```powershell
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName "<my-rds-tenantname>"
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Entrar com a entidade de serviço

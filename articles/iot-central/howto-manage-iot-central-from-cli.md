@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 421d41f95eff0ba0fdbca02c588d4a9a0c461a84
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1ec83541c62d93eee91348531797ecdeb8c9fc6e
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381067"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873472"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerenciar IoT Central de CLI do Azure
 
@@ -53,9 +53,9 @@ Esses comandos primeiro criam um grupo de recursos na região leste dos EUA para
 | Parâmetro         | Descrição |
 | ----------------- | ----------- |
 | resource-group    | O grupo de recursos que contém o aplicativo. Este grupo de recursos já deve existir em sua assinatura. |
-| location          | Por padrão, esse comando usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central nas regiões **leste dos EUA**, **oeste dos EUA**, **Europa setentrional**ou **Europa Ocidental** . |
+| location          | Por padrão, esse comando usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central nas regiões **leste dos EUA**, **oeste dos EUA**, **Europa setentrional**ou **Europa Ocidental** ou na geografia da **Austrália** . |
 | name              | O nome do aplicativo no portal do Azure. |
-| subdomínio         | O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
+| Subdomínio         | O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
 | sku               | Atualmente, o único valor é **S1** (camada Standard). Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
 | Modelo          | O modelo de aplicativo a ser usado. Para obter mais informações, consulte a tabela a seguir: |
 | nome de exibição      | O nome do aplicativo, conforme exibido na interface do usuário. |

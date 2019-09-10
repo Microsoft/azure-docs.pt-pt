@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516869"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859157"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migre os dados de face para uma assinatura facial diferente
 
-Este guia mostra como mover dados de face, como um objeto de um usuário salvo com faces, para um serviço de cognitiva do Azure diferente API de Detecção Facial assinatura. Para mover os dados, use o recurso de instantâneo. Dessa forma, você evita ter que criar e treinar repetidamente um objeto Person ou Facelist ao mover ou expandir suas operações. Por exemplo, talvez você tenha criado um objeto Person usando uma assinatura de avaliação gratuita e agora deseja migrá-lo para sua assinatura paga. Ou talvez seja necessário sincronizar dados de face entre regiões para uma grande operação empresarial.
+Este guia mostra como mover dados de face, como um objeto de um usuário salvo com faces, para um serviço de cognitiva do Azure diferente API de Detecção Facial assinatura. Para mover os dados, use o recurso de instantâneo. Dessa forma, você evita ter que criar e treinar repetidamente um objeto Person ou Facelist ao mover ou expandir suas operações. Por exemplo, talvez você tenha criado um objeto Person usando uma assinatura de avaliação gratuita e agora deseja migrá-lo para sua assinatura paga. Ou talvez seja necessário sincronizar dados de face entre assinaturas em regiões diferentes para uma operação empresarial grande.
 
 Essa mesma estratégia de migração também se aplica aos objetos LargePersonGroup e LargeFaceList. Se você não estiver familiarizado com os conceitos deste guia, consulte suas definições no guia de [conceitos de reconhecimento facial](../concepts/face-recognition.md) . Este guia usa a biblioteca de cliente do API de Detecção Facial C#.NET com o.
 
@@ -41,7 +41,9 @@ Este guia usa um aplicativo de console simples para executar a migração de dad
 
 ## <a name="create-face-clients"></a>Criar clientes facial
 
-No método **principal** no *Program.cs*, crie duas instâncias [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para suas assinaturas de origem e de destino. Este exemplo usa uma assinatura facial na região de Ásia Oriental como a origem e uma assinatura oeste dos EUA como o destino. Este exemplo demonstra como migrar dados de uma região do Azure para outra. Se suas assinaturas estiverem em regiões diferentes, altere as cadeias `Endpoint` de caracteres.
+No método **principal** no *Program.cs*, crie duas instâncias [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para suas assinaturas de origem e de destino. Este exemplo usa uma assinatura facial na região de Ásia Oriental como a origem e uma assinatura oeste dos EUA como o destino. Este exemplo demonstra como migrar dados de uma região do Azure para outra. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))
@@ -79,7 +81,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> O processo de fazer e aplicar instantâneos não interrompe nenhuma chamada regular para a origem ou o destino PersonGroups ou FaceLists. Não faça chamadas simultâneas que alterem o objeto de origem, como [chamadas de gerenciamento](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) de facelist ou a chamada de [treinamento de pessoa](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) , por exemplo. A operação de instantâneo pode ser executada antes ou depois dessas operações ou pode encontrar erros.
+> O processo de fazer e aplicar instantâneos não interrompe nenhuma chamada regular para a origem ou o destino PersonGroups ou FaceLists. Não faça chamadas simultâneas que alterem o objeto de origem, como [chamadas de gerenciamento de facelist](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) ou a chamada de [treinamento de pessoa](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) , por exemplo. A operação de instantâneo pode ser executada antes ou depois dessas operações ou pode encontrar erros.
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperar a ID do instantâneo
 

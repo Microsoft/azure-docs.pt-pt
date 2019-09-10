@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: d23d1881bb2d07d6287d648bb8ceb3e7930d547e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074476"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844555"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Conectar IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -103,7 +103,7 @@ O início rápido usa o firmware DevKit pré-compilado para enviar a telemetria 
 
 O DevKit se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT e envia a telemetria de temperatura e umidade.
 
-1. Baixe a versão mais recente do [firmware](https://aka.ms/devkit/prod/getstarted/latest) getstarted para IOT devkit.
+1. Baixe a versão mais recente do [firmware getstarted](https://aka.ms/devkit/prod/getstarted/latest) para IOT devkit.
 
 1. Verifique se o IoT DevKit se conecte ao seu computador via USB. Abra o explorador de arquivos há um dispositivo de armazenamento em massa USB chamado **AZ3166**.
 
@@ -179,7 +179,7 @@ Siga estas etapas para preparar o ambiente de desenvolvimento para o DevKit:
 
 5. Defina VS Code com as configurações de Arduino.
 
-    Em Visual Studio Code, clique em **arquivo > preferência > configurações**. Em seguida, clique em **...** e **abra Settings. JSON**.
+    Em Visual Studio Code, clique em **arquivo > preferências > configurações** (no MacOS, **código > Preferências > configurações**). Em seguida, clique no ícone de **configurações abertas (JSON)** no canto superior direito da página de *configurações* .
 
     ![Instalar as ferramentas do Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 

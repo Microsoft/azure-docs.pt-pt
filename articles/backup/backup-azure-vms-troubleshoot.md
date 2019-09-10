@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258989"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860337"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -25,7 +25,7 @@ Esta seção aborda a falha da operação de backup da máquina virtual do Azure
 
 ### <a name="basic-troubleshooting"></a>Resolução de problemas básicos
 
-* Verifique se o agente de VM (agente de WA) é a [versão mais recente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Verifique se o agente de VM (agente de WA) é a [versão mais recente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Verifique se há suporte para a versão do so da VM do Windows ou Linux, consulte a [matriz de suporte de backup da VM IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verifique se outro serviço de backup não está em execução.
    * Para garantir que não haja problemas de extensão de instantâneo, [desinstale as extensões para forçar a recarga e repita o backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
@@ -108,8 +108,8 @@ Reinicie os gravadores VSS que estão em um estado inadequado. Em um prompt de c
 Código de erro: ExtensionConfigParsingFailure<br/>
 Mensagem de erro: Falha ao analisar a configuração para a extensão da cópia de segurança.
 
-Esse erro ocorre devido às permissões alteradas no diretório MachineKeys: **%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
-Execute o comando a seguir e verifique se as permissões no diretório MachineKeys são padrão:**icacls%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
+Esse erro ocorre devido às permissões alteradas no diretório **MachineKeys** : **%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
+Execute o comando a seguir e verifique se as permissões no diretório **MachineKeys** são padrão:**icacls%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
 
 As permissões padrão são as seguintes:
 * Mundo (R, W)
@@ -117,7 +117,7 @@ As permissões padrão são as seguintes:
 
 Se você vir permissões no diretório **MachineKeys** que são diferentes dos padrões, siga estas etapas para corrigir as permissões, excluir o certificado e disparar o backup:
 
-1. Corrija as permissões no diretório MachineKeys. Usando as propriedades de segurança do Explorer e as configurações de segurança avançadas no diretório, redefina as permissões de volta para os valores padrão. Remova todos os objetos de usuário, exceto os padrões do diretório, e certifique-se de que a permissão **Everyone** tenha acesso especial da seguinte maneira:
+1. Corrija as permissões no diretório **MachineKeys** . Usando as propriedades de segurança do Explorer e as configurações de segurança avançadas no diretório, redefina as permissões de volta para os valores padrão. Remova todos os objetos de usuário, exceto os padrões do diretório, e certifique-se de que a permissão **Everyone** tenha acesso especial da seguinte maneira:
 
     * Listar pasta/ler dados
     * Atributos de leitura
@@ -241,7 +241,7 @@ Normalmente, o agente de VM já está presente em VMs criadas na galeria do Azur
 ### <a name="update-the-vm-agent"></a>Atualizar o agente de VM
 #### <a name="windows-vms"></a>VMs do Windows
 
-* Para atualizar o agente de VM, reinstale os binários do [agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que nenhuma operação de backup ocorra durante a atualização do agente de VM.
+* Para atualizar o agente de VM, reinstale os [binários do agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que nenhuma operação de backup ocorra durante a atualização do agente de VM.
 
 #### <a name="linux-vms"></a>VMs do Linux
 
@@ -270,7 +270,7 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 
-- **O status da VM é relatado incorretamente porque a VM está desligada no RDP**. Se você usou a área de trabalho remota para desligar a máquina virtual, verifique se o status da VM no portal está correto. Se o status não estiver correto, use a opção de desligamento no painel da VM do portal para desligar a VM.
+- **O status da VM é relatado incorretamente porque a VM está desligada no RDP**. Se você usou a área de trabalho remota para desligar a máquina virtual, verifique se o status da VM no portal está correto. Se o status não estiver correto, use a opção de **desligamento** no painel da VM do portal para desligar a VM.
 - **Se mais de quatro VMs compartilharem o mesmo serviço de nuvem, distribua as VMs entre várias políticas de backup**. Escalonar os tempos de backup, portanto, no máximo quatro backups de VM são iniciados ao mesmo tempo. Tente separar as horas de início nas políticas por pelo menos uma hora.
 - **A VM é executada em alta CPU ou memória**. Se a máquina virtual for executada com alta utilização de memória ou CPU, mais de 90%, sua tarefa de instantâneo será enfileirada e atrasada. Eventualmente, ele expira. Se esse problema ocorrer, tente um backup sob demanda.
 

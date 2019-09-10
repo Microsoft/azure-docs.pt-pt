@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997922"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858896"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 
@@ -34,7 +34,7 @@ Opções de configuração disponíveis no automatizada de machine learning:
 * Explorar métricas de modelo
 * Registe e implemente o modelo
 
-Se preferir uma experiência sem código, você também poderá [criar experiências automatizadas de aprendizado de máquina no portal do Azure](how-to-create-portal-experiments.md).
+Se preferir uma experiência sem código, você também poderá [criar experiências automatizadas de aprendizado de máquina em portal do Azure](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Selecione o tipo de experimentação
 
@@ -553,13 +553,13 @@ Existem duas formas de gerar a importância de funcionalidade.
     print(per_class_summary)
     ```
 
-É possível visualizar o gráfico de importância de funcionalidade na sua área de trabalho no portal do Azure. Exiba a URL usando o objeto de execução:
+Exiba a URL para exibir a importância do recurso usando o objeto de execução:
 
 ```
 automl_run.get_portal_url()
 ```
 
-É possível visualizar o gráfico de importância de funcionalidade na sua área de trabalho no portal do Azure. O gráfico também é mostrado ao usar o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) em um bloco de anotações. Para saber mais sobre os gráficos, consulte [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
+Você pode visualizar o gráfico de importância do recurso em seu espaço de trabalho na portal do Azure ou na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com). O gráfico também é mostrado ao usar o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) em um bloco de anotações. Para saber mais sobre os gráficos, consulte [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837933"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844309"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -35,7 +35,7 @@ Depois de definir um grupo para expirar:
 Atualmente, apenas uma política de expiração pode ser configurada para grupos do Office 365 num inquilino.
 
 > [!NOTE]
-> Configurar e usar a política de expiração para grupos do Office 365 exige que você tenha Azure AD Premium licenças para os membros de todos os grupos aos quais a política de expiração é aplicada.
+> Configurar e usar a política de expiração para grupos do Office 365 exige que você tenha, mas não necessariamente, atribuir Azure AD Premium licenças para os membros de todos os grupos aos quais a política de expiração é aplicada.
 
 Para obter informações sobre como baixar e instalar os cmdlets do PowerShell do Azure AD, consulte [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre permissões para restaurar um grupo excluíd
 
 1. Abra o [centro de administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global em sua organização do Azure AD.
 
-2. Selecione **grupos**e, em seguida, selecione expiração para abrir as configurações de expiração.
+2. Selecione **grupos**e, em seguida, selecione **expiração** para abrir as configurações de expiração.
   
    ![Configurações de expiração para grupos](./media/groups-lifecycle/expiration-settings.png)
 
@@ -69,8 +69,11 @@ Para obter mais informações sobre permissões para restaurar um grupo excluíd
   - Salve as configurações quando terminar selecionando **salvar**.
 
 > [!NOTE]
-> Quando você configura pela primeira vez, todos os grupos que são mais antigos que o intervalo de expiração são definidos como 30 dias até a expiração. O email de notificação da primeira renovação é enviado dentro de um dia. Por exemplo, o grupo A foi criado 400 dias atrás e o intervalo de expiração é definido como 180 dias. Quando você aplica a política de expiração, o grupo A tem 30 dias antes de ser excluído, a menos que o proprietário o renova.
+> Quando você configura pela primeira vez, todos os grupos que são mais antigos que o intervalo de expiração são definidos como 30 dias até a expiração, a menos que o proprietário o renova. O email de notificação da primeira renovação é enviado dentro de um dia.
+>
 > Quando um grupo dinâmico é excluído e restaurado, ele é visto como um novo grupo e populado novamente de acordo com a regra. Esse processo pode levar até 24 horas.
+>
+> Os avisos de expiração para grupos usados em equipes são exibidos no feed proprietários de equipes.
 
 ## <a name="email-notifications"></a>Notificações de e-mail
 

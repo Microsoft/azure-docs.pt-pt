@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 270ebb6247e812d42ac84698d0073b41c639cb9a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2f3c3532637bef041ad1983b7573837dd0f29211
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011594"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860604"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
@@ -38,7 +38,7 @@ Para saber mais sobre os conceitos por trás do MLOps e como eles se aplicam ao 
 ### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>Transforme seu processo de treinamento em um pipeline reproduzível
 Use pipelines de ML de Azure Machine Learning para reunir todas as etapas envolvidas em seu processo de treinamento de modelo, da preparação de dados para a extração de recursos até o ajuste de hiperparâmetro até a avaliação do modelo.
 
-Para obter mais informações, consulte pipelines do [ml](concept-ml-pipelines.md).
+Para obter mais informações, consulte [pipelines do ml](concept-ml-pipelines.md).
 
 ### <a name="register-and-track-ml-models"></a>Registrar e acompanhar modelos de ML
 
@@ -61,7 +61,7 @@ Antes de implantar um modelo na produção, ele é empacotado em uma imagem do D
 
 Se você tiver problemas com a implantação, poderá implantar em seu ambiente de desenvolvimento local para solução de problemas e depuração.
 
-Para obter mais informações, consulte [implantar modelos](how-to-deploy-and-where.md#registermodel) e [solucionar problemas](how-to-troubleshoot-deployment.md)de implantações.
+Para obter mais informações, consulte [implantar modelos](how-to-deploy-and-where.md#registermodel) e [solucionar problemas de implantações](how-to-troubleshoot-deployment.md).
 
 ### <a name="validate-and-profile-models"></a>Validar e criar perfil de modelos
 
@@ -155,10 +155,10 @@ A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?
 
 Para obter mais informações sobre como usar Azure Pipelines com Azure Machine Learning, consulte a [integração contínua e a implantação de modelos de ml com Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning) artigo e o repositório do [Azure Machine Learning Service MLOps](https://aka.ms/mlops) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [como e onde pode implementar modelos](how-to-deploy-and-where.md) com o serviço Azure Machine Learning. Para obter um exemplo de implantação, [consulte Tutorial: Implante um modelo de classificação de imagem em instâncias](tutorial-deploy-models-with-aml.md)de contêiner do Azure.
 
 Saiba como criar [integração e implantação contínuas de modelos de ml com Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
 
-Saiba como criar aplicativos cliente e serviços que consomem [um modelo implantado como um serviço Web](how-to-consume-web-service.md).
+Saiba como criar aplicativos cliente e serviços que [consomem um modelo implantado como um serviço Web](how-to-consume-web-service.md).

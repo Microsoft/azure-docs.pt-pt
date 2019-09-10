@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8f12f07d22387e5625b10e564cd05109e5bc73fc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744388"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858553"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -27,8 +27,8 @@ Este artigo resume e explica as diferenças na sintaxe e no comportamento entre 
 Há algumas limitações de PaaS que são introduzidas em Instância Gerenciada e algumas alterações de comportamento em comparação com SQL Server. As diferenças são divididas nas seguintes categorias:<a name="Differences"></a>
 
 - A [disponibilidade](#availability) inclui as diferenças em [Always on](#always-on-availability) e [backups](#backup).
-- A [segurança](#security) inclui as diferenças de [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), [logons e usuários](#logins-and-users)e a [chave de serviço e a chave mestra de serviço](#service-key-and-service-master-key).
-- A [configuração](#configuration) inclui as diferenças na [extensão do pool de buffers](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels), [espelhamento de banco de dados](#database-mirroring), opções de banco de [dados](#database-options), [SQL Server Agent](#sql-server-agent)e [Opções de tabela](#tables).
+- A [segurança](#security) inclui as diferenças de [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), logons [e usuários](#logins-and-users)e a [chave de serviço e a chave mestra de serviço](#service-key-and-service-master-key).
+- A [configuração](#configuration) inclui as diferenças na [extensão do pool](#buffer-pool-extension)de buffers, [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels), espelhamento de [banco de dados](#database-mirroring), opções de [banco de dados](#database-options), [SQL Server Agent](#sql-server-agent)e [Opções de tabela](#tables).
 - As [funcionalidades](#functionalities) incluem [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [eventos estendidos](#extended-events), [bibliotecas externas](#external-libraries), [FileStream e filetable](#filestream-and-filetable), [texto completo Pesquisa semântica](#full-text-semantic-search), [servidores vinculados](#linked-servers), [polybase](#polybase), [replicação](#replication), [restauração](#restore-statement), [Service Broker](#service-broker), [procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-and-triggers).
 - [Configurações de ambiente](#Environment) , como VNets e configurações de sub-rede.
 
@@ -192,7 +192,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 
 ### <a name="buffer-pool-extension"></a>Extensão do pool de buffers
 
-- Não há suporte para a [extensão do pool de buffers](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) .
+- Não há suporte para a [extensão do pool](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) de buffers.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`Não tem suporte. Consulte [ALTER Server Configuration](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
 ### <a name="collation"></a>Agrupamento
@@ -201,7 +201,7 @@ O agrupamento de instância padrão `SQL_Latin1_General_CP1_CI_AS` é e pode ser
 
 ### <a name="compatibility-levels"></a>Níveis de compatibilidade
 
-- Os níveis de compatibilidade com suporte são 100, 110, 120, 130 e 140.
+- Os níveis de compatibilidade com suporte são 100, 110, 120, 130, 140 e 150.
 - Os níveis de compatibilidade abaixo de 100 não têm suporte.
 - O nível de compatibilidade padrão para novos bancos de dados é 140. Para bancos de dados restaurados, o nível de compatibilidade permanece inalterado se foi 100 e superior.
 
@@ -378,7 +378,7 @@ R e Python no banco de dados, ainda não há suporte para bibliotecas externas. 
   - `GetFileNamespacePat)`
   - `FileTableRootPath()`
 
-Para obter mais informações, consulte [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) e [filetables](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server).
+Para obter mais informações, consulte [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) e filetables. [](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
 
 ### <a name="full-text-semantic-search"></a>Pesquisa semântica de texto completo
 
@@ -618,7 +618,7 @@ Este exemplo ilustra que, em determinadas circunstâncias, devido a uma distribu
 
 Neste exemplo, os bancos de dados existentes continuam funcionando e podem crescer sem qualquer problema, desde que novos arquivos não sejam adicionados. Novos bancos de dados não podem ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todos os bancos de dados não atinja o limite de tamanho da instância. O erro retornado nesse caso não é claro.
 
-Você pode [identificar o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você atingir esse limite, tente [esvaziar e excluir alguns dos arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou alterne para a [camada comercialmente crítico, que não tem esse limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Você pode [identificar o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você atingir esse limite, tente esvaziar [e excluir alguns dos arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou alterne para a [camada comercialmente crítico, que não tem esse limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="guid-values-shown-instead-of-database-names"></a>Valores de GUID mostrados em vez de nomes de banco de dados
 
@@ -665,7 +665,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Resolução** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

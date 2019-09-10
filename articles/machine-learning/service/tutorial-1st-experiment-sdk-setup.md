@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: f1003324e9f4b3762b5d8eca703af4a1fbd4613a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308820"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860417"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento do ML com o SDK do Python
 
@@ -79,3 +79,5 @@ Na **parte dois** do tutorial, você executa o código `tutorial-1st-experiment-
 
 > [!IMPORTANT]
 > Se você não planejar a seguinte parte 2 deste tutorial ou quaisquer outros tutoriais, deverá [interromper a VM do servidor do bloco de anotações de nuvem](tutorial-1st-experiment-sdk-train.md#clean-up-resources) quando não estiver usando-a para reduzir o custo.
+
+

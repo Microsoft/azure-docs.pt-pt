@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 5586886f348fd20ec316461e603156043d4233e8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 23cbab927c994024ba733a0cfd7a15c58a2970a7
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387353"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861287"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -376,7 +376,7 @@ Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kuber
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
-[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-prefix-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus

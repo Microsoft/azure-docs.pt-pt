@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detetar rostos numa imagem usando a REST API e Go'
+title: 'Início rápido: Detectar faces em uma imagem usando a API REST e ir'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos de uma imagem através da API Face com o Go.
 services: cognitive-services
@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 14d79c6ec7a4e9197aca49e9c98e4f24a890ba54
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0bcd94c62ec0fe5d9e9ffec18c982e7a102f0ffc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606848"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858958"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: Detetar rostos numa imagem usando a REST API e Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: Detectar faces em uma imagem usando a API REST e ir
 
-Neste início rápido, irá utilizar a API de REST de Face do Azure com o Go para detetar rostos humanos numa imagem.
+Neste guia de início rápido, você usará a API REST do Azure facial com go para detectar faces humanas em uma imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
-- Um editor de código, tais como [Visual Studio Code](https://code.visualstudio.com/download)
+- Um editor de códigos como [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="write-the-script"></a>Escrever o script
+## <a name="write-the-script"></a>Gravar o script
 
-Criar um novo arquivo _faceDetection.go_e adicione o seguinte código. Isso chama a API Face de um URL de imagem específica.
+Crie um novo arquivo, _faceDetection. go_, e adicione o código a seguir. Isso chama o API de Detecção Facial para uma determinada URL de imagem.
 
 ```go
 package main
@@ -49,7 +49,7 @@ func main() {
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"
+      "https://<My Endpoint String>.com/face/v1.0/detect"
     const imageUrl =
       "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
 
@@ -108,13 +108,15 @@ func main() {
 }
 ```
 
-Terá de atualizar o `subscriptionKey` valor com a chave de subscrição e poderá ter de alterar o `uriBase` , para que ele contém o identificador de região correto de cadeias de caracteres (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região) . 
+Você precisará atualizar o `subscriptionKey` valor com sua chave de assinatura e alterar a cadeia de `uriBase` caracteres para que ela contenha a cadeia de caracteres de ponto de extremidade correta.
 
-Também pode pretender alterar o `imageUrl` campo para apontar para a sua própria imagem de entrada. Também pode pretender chang o `returnFaceAttributes` campo, que especifica qual face deve atributos para recuperar.
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+Talvez você também queira alterar o `imageUrl` campo para apontar para sua própria imagem de entrada. Talvez você também queira alterar o `returnFaceAttributes` campo que especifica quais atributos de face recuperar.
 
 ## <a name="run-the-script"></a>Executar o script
 
-Abra um prompt de comando e criar o programa com o seguinte comando:
+Abra um prompt de comando e compile o programa com o seguinte comando:
 
 ```shell
 go build faceDetection.go
@@ -126,7 +128,7 @@ Em seguida, execute o programa:
 detect-face
 ```
 
-Deverá ver uma cadeia de caracteres do JSON de dados de rostos detetados impressos no console. Segue-se um exemplo de uma resposta JSON com êxito.
+Você deve ver uma cadeia de caracteres JSON de dados de face detectados impressos no console. Veja a seguir um exemplo de uma resposta JSON bem-sucedida.
 
 ```json
 [
@@ -307,9 +309,9 @@ Deverá ver uma cadeia de caracteres do JSON de dados de rostos detetados impres
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, Escrevi um script de Ruby que chama a API de rostos do Azure para detetar rostos numa imagem e retornar seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
+Neste guia de início rápido, você escreveu um script Ruby que chama o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

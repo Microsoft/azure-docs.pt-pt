@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972780"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845334"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurar uma conexão de alta disponibilidade do gateway de VPN local para CloudSimple
 
@@ -50,7 +50,7 @@ Por padrão, os gateways de VPN CloudSimple são configurados no modo IKEv1 junt
 
 Conclua as tarefas a seguir antes de configurar o firewall local.
 
-1. Verifique se sua organização [comprou](create-nodes.md) os nós necessários e criou pelo menos uma nuvem privada do CloudSimple.
+1. Verifique se sua organização [provisionou](create-nodes.md) os nós necessários e criou pelo menos uma nuvem privada CloudSimple.
 2. [Configure um gateway de VPN site a site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre sua rede local e sua nuvem privada do CloudSimple.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Configurar o Firewall do Cisco ASA local
@@ -185,7 +185,7 @@ Como essa configuração é para uma VPN de alta disponibilidade, são necessár
 
 As rotas são necessárias para que as sub-redes locais alcancem sub-redes de nuvem privada do CloudSimple.
 
-Selecione >  > **roteadores virtuais de**rede**rotas**estáticaspadrãoadicionar,configureoscamposaseguirecliqueemOK. >  > 
+Selecione >  > **roteadores virtuais de**rede**rotas**estáticaspadrãoadicionar,configureoscamposaseguirecliqueem > OK. > 
 
 * Nomes. Insira qualquer nome para facilitar a identificação da finalidade da rota.
 * Destino. Especifique as sub-redes da nuvem privada do CloudSimple a serem acessadas pelas interfaces de túnel S2S do local
@@ -264,7 +264,7 @@ Repita as etapas anteriores para criar outro perfil de criptografia IPsec, que s
 Selecione **rede** > **expandir rede perfis** > **Monitor**adicionar, configure os campos a seguir e clique em OK. > 
 
 * Nomes. Insira qualquer nome do perfil de monitor a ser usado para o monitoramento de túnel para a reação proativa para a falha.
-* Action. Selecionefazer failover.
+* Action. Selecione **fazer failover.**
 * Intervalo. Insira o valor **3**.
 * Os. Insira o valor **7**.
 

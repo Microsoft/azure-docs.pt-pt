@@ -1,6 +1,6 @@
 ---
-title: Gerir laboratórios de sala de aula no Azure Lab Services | Documentos da Microsoft
-description: Saiba como criar e configurar um laboratório de sala de aula, ver todos os laboratórios de sala de aula, partilhar a ligação de registo com um utilizador de laboratório ou eliminar um laboratório.
+title: Gerenciar laboratórios de sala de aula em Azure Lab Services | Microsoft Docs
+description: Saiba como criar e configurar um laboratório de sala de aula, exibir todos os laboratórios de sala de aula, compartilhar o link de registro com um usuário de laboratório ou excluir um laboratório.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 6ba41132c93ebdb2578bafb100416ca3fe579298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f9cb82abd5bc0823f5e7bc23fe437007bccc8e0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123292"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873574"
 ---
-# <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de sala de aula no Azure Lab Services 
-Este artigo descreve como criar e eliminar um laboratório de sala de aula. Ele também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
+# <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula em Azure Lab Services 
+Este artigo descreve como criar e excluir um laboratório de sala de aula. Ele também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para configurar um laboratório de sala de aula numa conta do laboratório, tem de ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que utilizou para criar a conta de laboratório é adicionada automaticamente a esta função. Proprietário de um laboratório pode adicionar outros utilizadores para a função de criador do laboratório, utilizando os passos no seguinte artigo: [Adicionar um utilizador à função de criador do laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Para configurar um laboratório de sala de aula numa conta do laboratório, tem de ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que utilizou para criar a conta de laboratório é adicionada automaticamente a esta função. Um proprietário de laboratório pode adicionar outros usuários à função de criador de laboratório usando as etapas no seguinte artigo: [Adicione um usuário à função de criador de laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Tenha em atenção que Internet Explorer 11 ainda não é suportado. 
-2. Selecione **iniciar sessão**. Selecione ou introduza um **ID de utilizador** isto é um membro da **criador do laboratório** função no laboratório de conta e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Observe que o Internet Explorer 11 ainda não tem suporte. 
+2. Selecione **entrar**. Selecione ou insira uma **ID de usuário** que seja membro da função de **criador de laboratório** na conta de laboratório e digite a senha. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 
-    2. Especifique o número máximo **número de máquinas virtuais** no laboratório. Pode aumentar ou diminuir o número de máquinas virtuais no laboratório mais tarde. 
+    2. Especifique o **número máximo de máquinas virtuais** no laboratório. Você pode aumentar ou diminuir o número de máquinas virtuais no laboratório posteriormente. 
     6. Selecione **Guardar**.
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, execute os passos seguintes:
-    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. Atualmente, **pequeno**, **médio**, **média (virtualização)** , **grandes**, e **GPU** tamanhos são permitido. Para obter detalhes, consulte a [tamanhos de VM](#vm-sizes) secção.
+    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. Atualmente, os tamanhos **pequeno**, **médio**, **médio (virtualização)** , **grande**e **GPU** são permitidos. Para obter detalhes, consulte a seção [tamanhos de VM](#vm-sizes) .
     1. Selecione a **região** na qual pretende que as VM sejam criadas. 
-    1. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. Se selecionar uma imagem do Linux, verá uma opção para ativar a ligação de ambiente de trabalho remoto para o mesmo. Para obter detalhes, consulte [ativar a ligação de ambiente de trabalho remoto para Linux](how-to-enable-remote-desktop-linux.md).
+    1. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, consulte [habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     1. Selecione **Seguinte**.
 
         ![Especificar as especificações de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -49,9 +49,9 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
         > [!IMPORTANT]
         > Registe o nome de utilizador e a palavra-passe. Estas não serão apresentadas novamente.
-    3. Desativar **utilizar a mesma palavra-passe para todas as máquinas virtuais** opção se pretender que os estudantes para definir a palavra-passe. Este passo é **opcional**. 
+    3. Desabilitar a opção **usar a mesma senha para todas as máquinas virtuais** se desejar que os alunos definam suas próprias senhas. Este passo é **opcional**. 
 
-        Um professor pode optar por utilizar a mesma palavra-passe para todas as VMs no laboratório ou que os alunos possam definir palavras-passe para as suas VMs. Por predefinição, esta definição está ativada para imagens de todos os Windows e Linux, exceto para o Ubuntu. Quando seleciona **Ubuntu** VM, esta definição estiver desativada, para que os alunos serão pedidos para definir uma palavra-passe quando iniciam sessão pela primeira vez.
+        Um professor pode optar por usar a mesma senha para todas as VMs no laboratório ou permitir que os alunos definam senhas para suas VMs. Por padrão, essa configuração é habilitada para todas as imagens do Windows e do Linux, exceto para Ubuntu. Quando você seleciona VM **Ubuntu** , essa configuração é desabilitada, portanto, os alunos serão solicitados a definir uma senha quando entrarem pela primeira vez.
     1. Selecione **Criar**. 
 
         ![Definir credenciais](../media/tutorial-setup-classroom-lab/set-credentials.png)
@@ -62,8 +62,8 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
     ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Os passos seguintes são opcionais neste tutorial: 
-    2. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um modelo VM do Linux, escolher se pretende ligar com SSH ou RDP (se estiver ativado RDP).
-    1. Selecione **Repor palavra-passe** para repor a palavra-passe para a VM. 
+    2. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for uma VM de modelo do Linux, escolha se deseja se conectar usando SSH ou RDP (se o RDP estiver habilitado).
+    1. Selecione **Redefinir senha** para redefinir a senha para a VM. 
     1. Instalar e configurar o software na sua VM de modelo. 
     1. **Parar** a VM.  
     1. Introduzir uma **descrição** do modelo
@@ -73,7 +73,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
         > [!WARNING]
         > Depois de publicar, não é possível anular a publicação. 
-    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte o artigo para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte publicar o modelo de secção a [como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md) artigo.
+    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar após a conclusão do assistente, consulte para obter detalhes sobre como configurar e publicar após a conclusão do assistente, confira a seção publicar o modelo no artigo [como gerenciar laboratórios de sala de aula](how-to-manage-classroom-labs.md) .
 
         ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Verá o **progresso da publicação** do modelo. Este processo pode demorar até uma hora. 
@@ -91,43 +91,45 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Size | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
-| Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para a linha de comandos, abrir navegador da web, servidores web de tráfego reduzido, pequeno a médios bases de dados. |
-| Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, colocação em cache na memória e análise | 
-| Médio (virtualização aninhados) | 4 | 16 GB | Este tamanho é mais adequado para bases de dados relacionais, colocação em cache na memória e análise. Este tamanho também oferece suporte a virtualização aninhada. <p>Este tamanho pode ser usado em cenários em que cada estudante tem várias VMs. Professores podem utilizar a virtualização aninhada para configurar algumas máquinas de virtuais de tamanho pequeno aninhada dentro da máquina virtual. </p> |
-| Grande | 8 | 32 GB | Este tamanho é mais adequado para aplicativos que precisam de CPUs mais rápidas, melhor local desempenho de disco, bancos de dados grandes, caches de memória de grandes dimensões. Este tamanho também oferece suporte a virtualização aninhada |  
-| GPU | 12 | 112 GB | Este tamanho é mais adequado para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização | 
+| Pequeno | 2 | 3,5 GB | Esse tamanho é mais adequado para linha de comando, abertura de navegador da Web, servidores Web de tráfego baixo, bancos de dados pequenos a médios. |
+| Médio | 4 | 7 GB | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise | 
+| Médio (virtualização aninhada) | 4 | 16 GB | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise. Esse tamanho também dá suporte à virtualização aninhada. <p>Esse tamanho pode ser usado em cenários em que cada aluno precisa de várias VMs. Os professores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequeno tamanho dentro da máquina virtual. </p> |
+| Grande | 8 | 32 GB | Esse tamanho é mais adequado para aplicativos que precisam de CPUs mais rápidas, melhor desempenho de disco local, bancos de dados grandes, caches de memória grande. Esse tamanho também dá suporte à virtualização aninhada |  
+| GPU pequena (visualização) | 6 | 56 GB | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. | 
+| GPU pequena (computação) | 6 | 56 GB | Esse tamanho é mais adequado para aplicativos com uso intensivo de computação e rede, como inteligência artificial e aplicativos de aprendizado profundo. | 
+| GPU média (visualização) | 12 | 112 GB | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. | 
 
-## <a name="view-all-classroom-labs"></a>Ver todos os laboratórios de sala de aula
-1. Navegue para [portal do Azure Lab Services](https://labs.azure.com).
-2. Selecione **iniciar sessão**. Selecione ou introduza um **ID de utilizador** isto é um membro da **criador do laboratório** função no laboratório de conta e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
-3. Confirme que vê todos os laboratórios na conta de laboratório selecionado. 
+## <a name="view-all-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
+1. Navegue até [Azure Lab Services portal](https://labs.azure.com).
+2. Selecione **entrar**. Selecione ou insira uma **ID de usuário** que seja membro da função de **criador de laboratório** na conta de laboratório e digite a senha. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
+3. Confirme que você vê todos os laboratórios na conta de laboratório selecionada. 
 
     ![Todos os laboratórios](../media/how-to-manage-classroom-labs/all-labs.png)
-3. Utilize a lista pendente na parte superior para selecionar uma conta de laboratório diferentes. Veja laboratórios na conta de laboratório selecionado. 
+3. Use a lista suspensa na parte superior para selecionar uma conta de laboratório diferente. Você vê os laboratórios na conta de laboratório selecionada. 
 
-## <a name="delete-a-classroom-lab"></a>Eliminar um laboratório de sala de aula
-1. No mosaico para o laboratório, selecione as reticências (...) no canto. 
+## <a name="delete-a-classroom-lab"></a>Excluir um laboratório de sala de aula
+1. No bloco do laboratório, selecione três pontos (...) no canto. 
 
     ![Selecionar o laboratório](../media/how-to-manage-classroom-labs/select-three-dots.png)
 2. Selecione **Eliminar**. 
 
     ![Botão de eliminar](../media/how-to-manage-classroom-labs/delete-button.png)
-3. Sobre o **laboratório de eliminação** caixa de diálogo, selecione **eliminar**. 
+3. Na caixa de diálogo **excluir laboratório** , selecione **excluir**. 
 
-    ![Eliminar a caixa de diálogo](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
+    ![Caixa de diálogo Excluir](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
 
-## <a name="switch-to-another-classroom-lab"></a>Mudar para outra laboratório de sala de aula
-Para mudar para outra laboratório de sala de aula do atual, selecione a lista pendente de laboratórios na conta de laboratório, na parte superior.
+## <a name="switch-to-another-classroom-lab"></a>Alternar para outro laboratório de sala de aula
+Para alternar para outro laboratório de sala de aula do atual, selecione a lista suspensa de laboratórios na conta do laboratório na parte superior.
 
-![Selecione o laboratório de lista pendente na parte superior](../media/how-to-manage-classroom-labs/switch-lab.png)
+![Selecione o laboratório na lista suspensa na parte superior](../media/how-to-manage-classroom-labs/switch-lab.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
-- [Como proprietário de um laboratório, configurar e publicar modelos](how-to-create-manage-template.md)
-- [Como proprietário de um laboratório, configurar e controlar a utilização de um laboratório](how-to-configure-student-usage.md)
-- [Como um utilizador de laboratório, acessar os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como proprietário do laboratório, configurar e publicar modelos](how-to-create-manage-template.md)
+- [Como proprietário de um laboratório, configurar e controlar o uso de um laboratório](how-to-configure-student-usage.md)
+- [Como usuário do laboratório, acesse laboratórios da sala de aula](how-to-use-classroom-lab.md)
 

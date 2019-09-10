@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 15ce85385662ba186f8434285130099054e52c05
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814459"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873303"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -95,11 +95,11 @@ Quando as VMs do Azure são criadas após a migração (ativação pós-falha), 
 1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** >
    **Rede virtual**.
 3. Em **Nome**, introduza **myMigrationNetwork**.
-4. Deixe o valor predefinido em **Espaço de endereços**.
+4. Deixe o valor padrão para **espaço de endereço** (deve inserir valor).
 5. Para **Subscrição**, selecione a subscrição pretende utilizar.
 6. Em **Grupo de recursos**, selecione **Utilizar existente** e depois selecione **migrationRG**.
 7. Em **Localização**, selecione **Europa Ocidental**.
-8. Em **Sub-rede**, mantenha os valores predefinidos para **Nome** e **Intervalo de IP**.
+8. Em **sub-rede**, deixe os valores padrão para **nome** e **intervalo de IP (deve inserir valor)** .
 9. Adicione instruções para as configurações de proteção contra DDoS.
 10. Deixe a opção de **Pontos finais de serviço** desativada.
 11. Adicione instruções para configurações de firewall.
@@ -258,7 +258,7 @@ Execute uma ativação pós-falha real para as instâncias do EC2, para migrá-l
 > *Não cancele uma ativação pós-falha que está em curso*. Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida. Se cancelar uma ativação pós-falha que está em curso, a mesma parará, mas a VM não será replicada outra vez.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a migrar instâncias do AWS EC2 para VMs do Azure. Para saber mais sobre as VMs do Azure, avance para os tutoriais relativos às VMs do Windows.
 

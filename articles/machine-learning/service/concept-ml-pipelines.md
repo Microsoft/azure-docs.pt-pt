@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d7333a9316e4d39fd550872c3df04024a75d21d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128319"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858815"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>O que são pipelines de ML no serviço Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Depois que o pipeline é criado, geralmente há um ajuste mais fino em relação
 
 Com o Azure Machine Learning, você pode usar vários kits de instruções e estruturas, como PyTorch ou TensorFlow, para cada etapa em seu pipeline. As coordenadas do Azure entre os vários [destinos de computação](concept-azure-machine-learning-architecture.md) que você usa, para que os dados intermediários possam ser compartilhados com facilidade com os destinos de computação downstream.
 
-Pode [controlar as métricas para suas experimentações do pipeline](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) diretamente no portal do Azure. Depois que um pipeline tiver sido publicado, você poderá configurar um ponto de extremidade REST, que permite executar novamente o pipeline de qualquer plataforma ou pilha.
+Você pode [acompanhar as métricas de seus experimentos de pipeline](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) diretamente no portal do Azure ou na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com). Depois que um pipeline tiver sido publicado, você poderá configurar um ponto de extremidade REST, que permite executar novamente o pipeline de qualquer plataforma ou pilha.
 
 ## <a name="key-advantages"></a>Principais vantagens
 
@@ -82,7 +82,7 @@ Há dois pacotes do Python para pipelines com Azure Machine Learning: [azureml-p
 * Transferindo dados entre opções de armazenamento com [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)
 * Criando uma etapa de pipeline AutoML com [AutoMLStep](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).
 

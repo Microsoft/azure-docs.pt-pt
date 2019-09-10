@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 902887c2a765fa50c7075cbdcb835f53e84f583f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208265"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842540"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no armazenamento de BLOBs do Azure com Azure Search
 Este artigo mostra como usar Azure Search para indexar documentos (como, por exemplo, PDFs, Microsoft Office documentos e vários outros formatos comuns) armazenados no armazenamento de BLOBs do Azure. Primeiro, ele explica as noções básicas de configuração e configuração de um indexador de BLOB. Em seguida, ele oferece uma exploração mais profunda dos comportamentos e cenários que você provavelmente encontrará.
@@ -159,7 +159,7 @@ No Azure Search, a chave do documento identifica exclusivamente um documento. Ca
 Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave do índice. Os candidatos são:
 
 * **nome\_dearmazenamento\_de metadados** -pode ser um candidato conveniente, mas observe que 1) os nomes podem não ser exclusivos, pois você pode ter BLOBs com o mesmo nome em pastas diferentes e 2) o nome pode conter caracteres inválidos em chaves do documento, como traços. Você pode lidar com caracteres inválidos usando `base64Encode` a [função de mapeamento de campos](search-indexer-field-mappings.md#base64EncodeFunction) . se você fizer isso, lembre-se de codificar as chaves do documento ao passá-las em chamadas à API, como pesquisa. (Por exemplo, no .NET, você pode usar o [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
-* **caminho\_dearmazenamento\_de metadados** -usar o caminho completo garante a exclusividade, mas o caminho `/` definitivamente contém caracteres que são inválidos [em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como acima, você tem a opção de codificar as chaves usando a `base64Encode` [função](search-indexer-field-mappings.md#base64EncodeFunction).
+* **caminho\_dearmazenamento\_de metadados** -usar o caminho completo garante a exclusividade, mas o caminho `/` definitivamente contém caracteres que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como acima, você tem a opção de codificar as chaves usando a `base64Encode` [função](search-indexer-field-mappings.md#base64EncodeFunction).
 * Se nenhuma das opções acima funcionar para você, você poderá adicionar uma propriedade de metadados personalizada aos BLOBs. No entanto, essa opção requer que o processo de carregamento de blob adicione essa propriedade de metadados a todos os BLOBs. Como a chave é uma propriedade necessária, todos os blobs que não têm essa propriedade não serão indexados.
 
 > [!IMPORTANT]
@@ -337,7 +337,7 @@ Os blobs de indexação podem ser um processo demorado. Nos casos em que você t
 
 Talvez você queira "montar" documentos de várias fontes no índice. Por exemplo, talvez você queira mesclar texto de BLOBs com outros metadados armazenados no Cosmos DB. Você pode até mesmo usar a API de indexação por push junto com vários indexadores para criar documentos de pesquisa de várias partes. 
 
-Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave do documento. Para obter um passo a passo detalhado, consulte este artigo externo: [Combine documentos com outros dados no Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave do documento. Para obter detalhes adicionais sobre este tópico, consulte [indexar várias fontes de dados do Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Para obter um passo a passo detalhado, consulte este artigo externo: [Combine documentos com outros dados no Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexação de texto sem formatação 

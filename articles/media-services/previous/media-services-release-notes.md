@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019301"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860347"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de mídia do Azure
 
@@ -29,7 +29,7 @@ Estas notas de versão dos serviços de mídia do Azure resumem as alterações 
 
 Queremos ouvir nossos clientes para que possamos nos concentrar na correção de problemas que afetam você. Para relatar um problema ou fazer perguntas, envie uma postagem no [Fórum do MSDN dos serviços de mídia do Azure]. 
 
-## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemas atualmente conhecidos
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>Problemas conhecidos
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais dos serviços de mídia
 
 | Problema | Descrição |
@@ -41,6 +41,7 @@ Queremos ouvir nossos clientes para que possamos nos concentrar na correção de
 | Quando você consulta entidades, um limite de 1.000 entidades é retornado ao mesmo tempo porque o REST público versão 2 limita os resultados da consulta para 1.000 resultados. |Use Skip e Take (.NET)/Top (REST), conforme descrito neste exemplo de [.net](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alguns clientes podem vir por um problema de marca de repetição no manifesto Smooth Streaming. |Para obter mais informações, consulte [esta seção](media-services-deliver-content-overview.md#known-issues). |
 | Os objetos do SDK do .NET dos serviços de mídia não podem ser serializados e, como resultado, não funcionam com o cache do Azure para Redis. |Se você tentar serializar o objeto Assetcollection do SDK para adicioná-lo ao cache do Azure para Redis, uma exceção será lançada. |
+|A API REST responde com uma mensagem de erro dizendo "o filtro não pode ser acessado por esta versão da API REST" ao tentar obter um filtro de nível de conta ou ativo.|O filtro foi criado ou modificado com uma versão de API mais recente do que está sendo usado para tentar obter o filtro. Isso pode acontecer se duas versões de API estiverem sendo usadas pelo código ou por ferramentas que estão sendo usadas pelo cliente.  A melhor solução aqui é atualizar o código ou as ferramentas para usar as duas versões de API mais recentes.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versão da API REST
 Para obter informações sobre o histórico de versão da API REST dos serviços de mídia, consulte a [referência de API REST de serviços de mídia do Azure].
@@ -275,7 +276,7 @@ Os novos recursos a seguir foram anunciados:
 ## <a id="april_changes_15"></a>Versão de abril de 2015
 ### <a name="general-media-services-updates"></a>Atualizações gerais dos serviços de mídia
 * O [player de mídia](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/) foi anunciado.
-* A partir do REST 2,10 dos serviços de mídia, os canais configurados para ingerir um protocolo RTMP são criados com URLs de ingestão primária e secundária. Para obter mais informações, consulte Configurações de ingestão de [canal](media-services-live-streaming-with-onprem-encoders.md#channel_input).
+* A partir do REST 2,10 dos serviços de mídia, os canais configurados para ingerir um protocolo RTMP são criados com URLs de ingestão primária e secundária. Para obter mais informações, consulte [configurações de ingestão de canal](media-services-live-streaming-with-onprem-encoders.md#channel_input).
 * Azure Media Indexer foi atualizado.
 * Foi adicionado suporte para idioma espanhol.
 * Foi adicionada uma nova configuração para o formato XML.

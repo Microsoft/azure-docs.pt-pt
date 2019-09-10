@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fdf1fc14eb4ab1458c25b484bae6cd84ecec6d7f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575503"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845492"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 
@@ -23,7 +23,7 @@ Neste artigo, saiba como criar uma nuvem privada do CloudSimple e configurar seu
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-private-cloud"></a>Criar uma nuvem privada
+## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
 
 Uma nuvem privada é uma pilha VMware isolada que dá suporte a hosts ESXi, vCenter, vSAN e NSX.
 
@@ -46,7 +46,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
 9. Clique **em Avançar: Opções**avançadas.
 10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
-    **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até nove nós, um intervalo CIDR/23 dá suporte a até 41 nós, e um intervalo CIDR/22 e/21 dá suporte a até 64 nós (o número máximo de nós em uma nuvem privada).
+    **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até 26 nós, um intervalo CIDR/23 dá suporte a até 58 nós, e um intervalo CIDR/22 e/21 dá suporte a nós 64 (o número máximo de nós em uma nuvem privada).  Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
 
       > [!IMPORTANT]
       > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.

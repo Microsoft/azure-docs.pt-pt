@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035948"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860388"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explore Azure Machine Learning serviço com blocos de anotações do Jupyter
 
@@ -27,7 +27,6 @@ Este artigo mostra como acessar o repositório nos seguintes ambientes:
 - [VM Azure Machine Learning Notebook](#notebookvm)
 - [Traga seu próprio servidor de notebook](#byo)
 - [Máquina Virtual de Ciência de Dados](#dsvm)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > Depois de clonar o repositório, você encontrará os notebooks do tutorial na pasta **tutoriais** e nos notebooks específicos do recurso na pasta **como usar-azureml** .
@@ -54,14 +53,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-<a name="aznb"></a>
-## <a name="get-samples-on-azure-notebooks"></a>Obter exemplos em Azure Notebooks
-
-No [Azure notebooks](https://notebooks.azure.com/), o SDK e o servidor de notebook são instalados e configurados para você. O Azure Notebooks fornece um ambiente de notebook leve e totalmente gerenciado para você explorar.
-
-Para acessar o repositório de exemplo no Azure Notebooks, navegue até o espaço de trabalho Azure Machine Learning por meio do [portal do Azure](https://portal.azure.com). Na seção **visão geral** , selecione **introdução em Azure notebooks**.
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore os [notebooks de exemplo](https://aka.ms/aml-notebooks) para descobrir o que Azure Machine Learning serviço pode fazer ou Experimente estes tutoriais:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242485"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861250"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Endereços IP do gerenciamento de API do Azure
 
@@ -55,7 +55,7 @@ Os endereços IP públicos serão parte da resposta:
 }
 ```
 
-Em implantações de [várias regiões](api-management-howto-deploy-multi-region.md), cada implantação regional tem um endereço IP público.
+Em [implantações de várias regiões](api-management-howto-deploy-multi-region.md), cada implantação regional tem um endereço IP público.
 
 ## <a name="ip-addresses-of-api-management-service-in-vnet"></a>Endereços IP do serviço de gerenciamento de API na VNET
 
@@ -102,5 +102,6 @@ Nas camadas Developer, Basic, Standard e Premium do gerenciamento de API, os end
 * O serviço é excluído e, em seguida, recriado.
 * A assinatura do serviço é [suspensa](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ou [avisada](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (por exemplo, para não pagamento) e, em seguida, restabelecida.
 * A rede virtual do Azure é adicionada ou removida do serviço.
+* O serviço de gerenciamento de API é alternado entre o modo de implantação de rede virtual interna e externa.
 
-Em implantações de [várias regiões](api-management-howto-deploy-multi-region.md), o endereço IP regional é alterado se uma região está vazia e, em seguida, restabelecida.
+Em [implantações de várias regiões](api-management-howto-deploy-multi-region.md), o endereço IP regional é alterado se uma região está vazia e, em seguida, restabelecida.

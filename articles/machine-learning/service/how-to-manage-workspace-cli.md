@@ -1,5 +1,5 @@
 ---
-title: Usar o CLI do Azure para criar um espaço de trabalho
+title: Criar espaços de trabalho com CLI do Azure
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o CLI do Azure para criar um novo espaço de trabalho de serviço do Azure Machine Learning.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 1213e9bc3b27b8d5f6f6ef93b6eefa5a8c32be57
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f398eb8124f45562ebc3c4238c641a6638811394
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392678"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873490"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usar um modelo de Azure Resource Manager para criar um espaço de trabalho para o serviço Azure Machine Learning
+# <a name="create-a-workspace-for-azure-machine-learning-service-with-azure-cli"></a>Criar um espaço de trabalho para Azure Machine Learning serviço com CLI do Azure
 
 Neste artigo, você aprenderá a criar um espaço de trabalho de serviço do Azure Machine Learning usando o CLI do Azure. O CLI do Azure fornece comandos para gerenciar recursos do Azure. A extensão de aprendizado de máquina para a CLI fornece comandos para trabalhar com Azure Machine Learning recursos de serviço.
 
@@ -337,6 +337,6 @@ az group delete -g <resource-group-name>
 
 Para obter mais informações, consulte a documentação [AZ ml Workspace Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a extensão de CLI do Azure para aprendizado de máquina, consulte a documentação [AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest) .

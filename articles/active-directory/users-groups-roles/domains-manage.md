@@ -1,6 +1,6 @@
 ---
-title: Adicionar e verificar nomes de domínio personalizado - Azure Active Directory | Documentos da Microsoft
-description: Conceitos de gestão e guias de instruções para a gestão de um nome de domínio no Azure Active Directory
+title: Adicionar e verificar nomes de domínio personalizados-Azure Active Directory | Microsoft Docs
+description: Conceitos de gerenciamento e instruções para gerenciar um nome de domínio no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,103 +14,103 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472336"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844510"
 ---
-# <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no Azure Active Directory
+# <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerenciando nomes de domínio personalizados no seu Azure Active Directory
 
-Um nome de domínio é uma parte importante do identificador para muitos recursos de diretório: ele faz parte de um endereço de e-mail ou nome de utilizador para um utilizador, a parte do endereço de um grupo e, às vezes, faz parte do URI de ID de aplicação para uma aplicação. Um recurso no Azure Active Directory (Azure AD) pode incluir um nome de domínio que é propriedade de diretório que contém o recurso. Apenas um Administrador Global pode gerir domínios no Azure AD.
+Um nome de domínio é uma parte importante do identificador para muitos recursos de diretório: faz parte de um nome de usuário ou endereço de email para um usuário, parte do endereço de um grupo e, às vezes, faz parte do URI de ID de aplicativo para um aplicativo. Um recurso no Azure Active Directory (AD do Azure) pode incluir um nome de domínio que pertence ao diretório que contém o recurso. Somente um administrador global pode gerenciar domínios no Azure AD.
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Defina o nome de domínio primário de diretório do Azure AD
+## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Definir o nome de domínio primário para seu diretório do Azure AD
 
-Quando é criado o seu diretório, o nome de domínio inicial, como "contoso.onmicrosoft.com", também é o nome de domínio primário. O domínio principal é o nome de domínio predefinido para um novo utilizador ao criar um novo utilizador. Definir um nome de domínio primário simplifica o processo para um administrador criar novos utilizadores no portal. Para alterar o nome de domínio primário:
+Quando o diretório é criado, o nome de domínio inicial, como ' contoso.onmicrosoft.com ', também é o nome de domínio primário. O domínio primário é o nome de domínio padrão para um novo usuário quando você cria um novo usuário. Definir um nome de domínio primário simplifica o processo para um administrador criar novos usuários no Portal. Para alterar o nome de domínio primário:
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um Administrador Global do diretório.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Selecione **Azure Active Directory**.
 3. Selecione **Nomes de domínio personalizados**.
   
-   ![Abrir a página de gestão de utilizadores](./media/domains-manage/add-custom-domain.png)
-4. Selecione o nome do domínio que pretende que o domínio principal.
-5. Selecione o **tornar o primário** comando. Certifique-se à sua escolha quando lhe for pedido.
+   ![Abrindo a página de gerenciamento de usuário](./media/domains-manage/add-custom-domain.png)
+4. Selecione o nome do domínio que você deseja que seja o domínio primário.
+5. Selecione o comando **Make Primary** . Confirme sua escolha quando solicitado.
   
-   ![Tornar um domínio, nome principal](./media/domains-manage/make-primary-domain.png)
+   ![Tornar um nome de domínio o primário](./media/domains-manage/make-primary-domain.png)
 
-Pode alterar o nome de domínio primário para o diretório para qualquer domínio personalizado verificado que não está federado. Alterar o domínio principal para o seu diretório não será alterado o nome de utilizador para todos os utilizadores existentes.
+Você pode alterar o nome de domínio primário para seu diretório para qualquer domínio personalizado verificado que não seja federado. A alteração do domínio primário para seu diretório não alterará o nome de usuário para nenhum dos usuários existentes.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Adicionar nomes de domínio personalizado ao seu inquilino do Azure AD
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Adicionar nomes de domínio personalizados ao seu locatário do Azure AD
 
-Pode adicionar até 900 nomes de domínio gerido. Se estiver a configurar todos os seus domínios para federação com o Active Directory no local, pode adicionar até 450 nomes de domínio em cada diretório.
+Você pode adicionar até 900 nomes de domínio gerenciados. Se você estiver configurando todos os seus domínios para federação com Active Directory locais, poderá adicionar até 450 nomes de domínio em cada diretório.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicionar subdomínios de um domínio personalizado
 
-Se pretender adicionar um nome de domínio de terceiro nível, como 'europe.contoso.com' para o seu diretório, deve primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio automaticamente é verificado pelo Azure AD. Para ver que o subdomínio adicionou é verificado, atualize a lista de domínio no browser.
+Se você quiser adicionar um nome de domínio de terceiro nível, como ' europe.contoso.com ', a seu diretório, primeiro adicione e verifique o domínio de segundo nível, como contoso.com. O subdomínio é verificado automaticamente pelo Azure AD. Para ver se o subdomínio adicionado foi verificado, atualize a lista de domínios no navegador.
 
-## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>O que fazer se alterar a entidade de registo DNS para o seu nome de domínio personalizado
+## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>O que fazer se você alterar o registrador de DNS para seu nome de domínio personalizado
 
-Se alterar as entidades de registo DNS, existem não existem tarefas de configuração adicionais no Azure AD. Pode continuar a utilizar o nome de domínio com o Azure AD sem interrupção. Se utilizar o seu nome de domínio personalizado com o Office 365, o Intune ou outros serviços que dependem de nomes de domínio personalizados no Azure AD, consulte a documentação para os serviços.
+Se você alterar os registradores de DNS, não haverá nenhuma tarefa de configuração adicional no Azure AD. Você pode continuar usando o nome de domínio com o Azure AD sem interrupção. Se você usar seu nome de domínio personalizado com o Office 365, Intune ou outros serviços que dependem de nomes de domínio personalizados no Azure AD, consulte a documentação para esses serviços.
 
-## <a name="delete-a-custom-domain-name"></a>Eliminar um nome de domínio personalizado
+## <a name="delete-a-custom-domain-name"></a>Excluir um nome de domínio personalizado
 
-Pode eliminar um nome de domínio personalizado do Azure AD, se sua organização já não utiliza esse nome de domínio ou se precisar de utilizar esse nome de domínio com o outro Azure AD.
+Você pode excluir um nome de domínio personalizado do AD do Azure se sua organização não usa mais esse nome de domínio ou se você precisar usar esse nome de domínio com outro Azure AD.
 
-Para eliminar um nome de domínio personalizado, primeiro tem de se certificar de que não existem recursos no seu diretório contam com o nome de domínio. Não é possível eliminar um nome de domínio do diretório se:
+Para excluir um nome de domínio personalizado, primeiro você deve garantir que nenhum recurso em seu diretório dependa do nome de domínio. Você não poderá excluir um nome de domínio do seu diretório se:
 
-* Qualquer utilizador tem um nome de utilizador, o endereço de e-mail ou o endereço de proxy que inclui o nome de domínio.
-* Qualquer grupo tem um endereço de e-mail ou o endereço de proxy que inclui o nome de domínio.
-* Qualquer aplicação no seu Azure AD tem um URI de ID, que inclui o nome de domínio do aplicativo.
+* Qualquer usuário tem um nome de usuário, endereço de email ou endereço de proxy que inclui o nome de domínio.
+* Qualquer grupo tem um endereço de email ou endereço proxy que inclui o nome de domínio.
+* Qualquer aplicativo no Azure AD tem um URI de ID de aplicativo que inclui o nome de domínio.
 
-Tem de alterar ou eliminar todos os tais recursos no diretório do Azure AD antes de poder eliminar o nome de domínio personalizado.
+Você deve alterar ou excluir qualquer recurso desse tipo em seu diretório do Azure AD antes de excluir o nome de domínio personalizado.
 
-### <a name="forcedelete-option"></a>Opção de ForceDelete
+### <a name="forcedelete-option"></a>Opção ForceDelete
 
-Pode **ForceDelete** um nome de domínio a [Centro de administração do Azure AD](https://aad.portal.azure.com) ou utilizar [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Estas opções de utilizar uma operação assíncrona e atualizar todas as referências de nome de domínio personalizado, como "user@contoso.com"para o nome de domínio predefinido inicial, tais como"user@contoso.onmicrosoft.com." 
+Você pode **ForceDelete** um nome de domínio no [centro de administração do Azure AD](https://aad.portal.azure.com) ou usando [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Essas opções usam uma operação assíncrona e atualizam todas as referências do nome de domíniouser@contoso.compersonalizado como "" para o nome de domínio padrãouser@contoso.onmicrosoft.cominicial, como "." 
 
-Para chamar **ForceDelete** no portal do Azure, tem de garantir que há menos de 1000 referências para o nome de domínio, e todas as referências em que o Exchange é o serviço de aprovisionamento tem de ser atualizadas ou removidas no [ Centro de administração do Exchange](https://outlook.office365.com/ecp/). Isto inclui os grupos de segurança de Exchange Mail-Enabled e listas distribuídas; Para obter mais informações, consulte [remover grupos de segurança com capacidade de correio](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Além disso, o **ForceDelete** operação não ter êxito se uma das seguintes opções for verdadeira:
+Para chamar **ForceDelete** no portal do Azure, você deve verificar se há menos de 1000 referências ao nome de domínio e quaisquer referências em que o Exchange é o serviço de provisionamento devem ser atualizadas ou removidas no [centro de administração do Exchange](https://outlook.office365.com/ecp/). Isso inclui grupos de segurança habilitados para email do Exchange e listas distribuídas; para obter mais informações, consulte [removendo grupos de segurança habilitados para email](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não terá sucesso se uma das seguintes opções for verdadeira:
 
-* Comprou um domínio através de serviços de assinatura de domínio do Office 365
-* É um parceiro administrar em nome de outro inquilino do cliente
+* Você comprou um domínio por meio dos serviços de assinatura de domínio do Office 365
+* Você é um parceiro administrando em nome de outro locatário do cliente
 
-As seguintes ações são efetuadas como parte da **ForceDelete** operação:
+As ações a seguir são executadas como parte da operação **ForceDelete** :
 
-* Muda o nome o UPN, endereço de correio eletrónico e ProxyAddress de utilizadores com referências para o nome de domínio personalizado para o nome de domínio predefinido inicial.
-* Muda o nome do endereço de correio eletrónico de grupos com referências para o nome de domínio personalizado para o nome de domínio predefinido inicial.
-* Muda o nome identifierUris dos aplicativos com referências para o nome de domínio personalizado para o nome de domínio predefinido inicial.
+* Renomeia o UPN, o EmailAddress e o ProxyAddress de usuários com referências ao nome de domínio personalizado para o nome de domínio padrão inicial.
+* Renomeia o EmailAddress de grupos com referências ao nome de domínio personalizado para o nome de domínio padrão inicial.
+* Renomeia o identifierUris de aplicativos com referências ao nome de domínio personalizado para o nome de domínio padrão inicial.
 
-É devolvido um erro quando:
+Um erro é retornado quando:
 
-* O número de objetos a possível mudar o nome é superior a 1000
-* Um dos aplicativos para possível mudar o nome é uma aplicação multi-inquilino
+* O número de objetos a serem renomeados é maior que 1000
+* Um dos aplicativos a serem renomeados é um aplicativo multilocatário
 
 ### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**P: Por que a eliminação de domínio falha com um erro que indica que tenho de grupos do Exchange controlada neste nome de domínio?** <br>
-**R:** Hoje em dia, determinados grupos como grupos de segurança com capacidade de correio e distribuídas listas são aprovisionados pelo Exchange e precisem ser limpos manualmente no [Centro de administração do Exchange (EAC)](https://outlook.office365.com/ecp/). Aqui pode ser remanescentes ProxyAddresses que contam com o nome de domínio personalizado e terá de ser atualizados manualmente para outro nome de domínio. 
+**P: Por que a exclusão do domínio falha com um erro afirmando que tenho grupos mestres do Exchange nesse nome de domínio?** <br>
+**R:** Hoje, determinados grupos, como grupos de segurança habilitados para email e listas distribuídas, são provisionados pelo Exchange e precisam ser limpos manualmente no [centro de administração do Exchange (Eat)](https://outlook.office365.com/ecp/). Pode haver ProxyAddresses persistentes que dependem do nome de domínio personalizado e precisarão ser atualizadas manualmente para outro nome de domínio. 
 
-**P: Eu estou conectado como administrador\@contoso.com, mas eu não é possível eliminar o nome de domínio "contoso.com"?**<br>
-**R:** Não é possível referenciar o nome de domínio personalizado que está a tentar eliminar o seu nome de conta de utilizador. Certifique-se de que a conta de Administrador Global está a utilizar o nome de domínio predefinido inicial (. onmicrosoft.com) como admin@contoso.onmicrosoft.com. Inicie sessão com um Administrador Global diferente da conta que, como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado, como "fabrikam.com" onde está a conta admin@fabrikam.com.
+**P: Estou conectado como administrador\@contoso.com, mas não posso excluir o nome de domínio "contoso.com"?**<br>
+**R:** Não é possível referenciar o nome de domínio personalizado que você está tentando excluir em seu nome de conta de usuário. Verifique se a conta de administrador global está usando o nome de domínio padrão inicial (. onmicrosoft.com) admin@contoso.onmicrosoft.com, como. Entre com uma conta de administrador global diferente que como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado, como "fabrikam.com", em que a conta é. admin@fabrikam.com
 
-**P: Cliquei no botão de domínio de eliminar e veja `In Progress` estado para a operação de eliminação. Quanto tempo demora? O que acontece se falhar?**<br>
-**R:** A operação de eliminação de domínio é uma tarefa em segundo plano assíncronas que muda o nome de todas as referências para o nome de domínio. Ele deve ser concluído dentro de um ou dois minutos. Se falhar a eliminação do domínio, certifique-se de que não tem de:
+**P: Cliquei no botão excluir domínio e veja `In Progress` o status da operação de exclusão. Quanto tempo leva? O que acontecerá se falhar?**<br>
+**R:** A operação excluir domínio é uma tarefa em segundo plano assíncrona que renomeia todas as referências ao nome de domínio. Ele deve ser concluído em um ou dois minutos. Se a exclusão do domínio falhar, verifique se você não tem:
 
-* Aplicações configuradas no nome de domínio com o appIdentifierURI
-* Qualquer grupo com capacidade de correio que referencia o nome de domínio personalizado
-* Mais de 1000 referências para o nome de domínio
+* Aplicativos configurados no nome de domínio com o appIdentifierURI
+* Qualquer grupo habilitado para email referenciando o nome de domínio personalizado
+* Mais de 1000 referências ao nome de domínio
 
-Se acha que ainda não foram cumpridos qualquer uma das condições, manualmente limpar as referências e tente novamente a eliminar o domínio.
+Se você descobrir que qualquer uma das condições não foi atendida, limpe manualmente as referências e tente excluir o domínio novamente.
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Utilize o PowerShell ou Graph API para gerir os nomes de domínio
+## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Usar o PowerShell ou API do Graph para gerenciar nomes de domínio
 
-Também é possível concluir a maioria das tarefas de gestão para nomes de domínio no Azure Active Directory através do PowerShell da Microsoft, ou usando programaticamente o Azure AD Graph API.
+A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Directory também pode ser concluída usando o Microsoft PowerShell ou programaticamente usando o Azure AD API do Graph.
 
-* [Utilizar o PowerShell para gerir nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-* [Com o Graph API para gerir nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Usando o PowerShell para gerenciar nomes de domínio no Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
+* [Usando API do Graph para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Adicionar nomes de domínio personalizados](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
-* [Remover grupos de segurança com capacidade de correio do Exchange no Centro de administração do Exchange num nome de domínio personalizado no Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [ForceDelete um nome de domínio personalizado com o Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [Remover grupos de segurança habilitados para email do Exchange no centro de administração do Exchange em um nome de domínio personalizado no Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
+* [ForceDelete um nome de domínio personalizado com a API Microsoft Graph](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)

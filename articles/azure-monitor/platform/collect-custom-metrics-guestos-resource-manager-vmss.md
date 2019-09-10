@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129624"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844964"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métrica Azure Monitor usando um modelo de Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
@@ -31,6 +31,7 @@ Se você for novo nos modelos do Resource Manager, saiba mais sobre implantaçõ
 
 - Você precisa ter [Azure PowerShell](/powershell/azure) instalado ou pode usar [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
+- O recurso da VM deve estar em uma [região que ofereça suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar Azure Monitor como um coletor de dados 
 A extensão Diagnóstico do Azure usa um recurso chamado **coletores de dados** para rotear métricas e logs para locais diferentes. As etapas a seguir mostram como usar um modelo do Resource Manager e o PowerShell para implantar uma VM usando o novo coletor de dados Azure Monitor. 
@@ -291,7 +292,7 @@ Você também pode optar por usar as dimensões nessa métrica para criar um gr�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257009"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844863"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Usando chaves de recurso de criação e tempo de execução
 
@@ -73,6 +73,38 @@ Quando você estiver pronto para publicar seu ponto de extremidade de previsão,
 
     Depois que ambos os recursos forem criados, atribua os recursos no portal do LUIS.
 
+## <a name="create-resources-in-azure-cli"></a>Criar recursos no CLI do Azure
+
+Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente. 
+
+Recurso `kind`:
+
+* Criação`LUIS.Authoring`
+* Previsão`LUIS` 
+
+1. Entre no CLI do Azure:
+
+    ```console
+    az login
+    ```
+
+    Isso abre um navegador para permitir que você selecione a conta correta e forneça a autenticação.
+
+1. Crie um **recurso de criação de Luis**, de `LUIS.Authoring`tipo, `my-luis-authoring-resource` nomeado no grupo de recursos existente `my-resource-group` chamado para `westus` a região. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. Crie um **recurso de ponto de extremidade de previsão Luis** `LUIS`, de `my-luis-prediction-resource` tipo, nomeado no grupo de `my-resource-group` recursos existente `westus` denominado para a região. Se você quiser uma taxa de transferência mais alta do que a `F0` camada `S0`gratuita, altere para. Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-boundaries.md#key-limits).
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > Essas chaves **não** são usadas pelo portal do Luis até que sejam atribuídas no portal do Luis nos **recursos do Azure gerenciar->** .
+
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Atribuir um recurso de criação no portal do LUIS para todos os aplicativos
 
 Você pode atribuir um recurso de criação para um único aplicativo ou para todos os aplicativos no LUIS. O procedimento a seguir atribui todos os aplicativos a um único recurso de criação.
@@ -101,7 +133,7 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     ![Solicitar token Azure Resource Manager e receber token de Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use o token para solicitar os recursos de tempo de execução LUIS entre assinaturas, da [API Get Luis Azure](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)accounts, à qual sua conta de usuário tem acesso. 
+1. Use o token para solicitar os recursos de tempo de execução LUIS entre assinaturas, da [API Get Luis Azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), à qual sua conta de usuário tem acesso. 
 
     Esta API de publicação requer as seguintes definições:
 
@@ -136,7 +168,7 @@ Quando você cancelar a atribuição de um recurso, ele não será excluído do 
 
 ## <a name="reset-authoring-key"></a>Repor a chave de criação
 
-**Para a [criação](luis-migration-authoring.md) de aplicativos migrados**: se a sua chave de criação estiver comprometida, redefina a chave no portal do Azure na página **chaves** desse recurso de criação. 
+**Para a criação de aplicativos [migrados](luis-migration-authoring.md)** : se a sua chave de criação estiver comprometida, redefina a chave no portal do Azure na página **chaves** desse recurso de criação. 
 
 **Para aplicativos que ainda não foram migrados**: a chave é redefinida em todos os seus aplicativos no portal do Luis. Se você criar seus aplicativos por meio de APIs de criação, precisará alterar o valor de OCP-APIM-Subscription-Key para a nova chave.
 
@@ -186,6 +218,6 @@ Adicionar um alerta de métrica para o **total de chamadas** métrica durante um
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba [como usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
-* Entenda os conceitos, incluindo o [recurso de criação](/luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
+* Entenda os conceitos, incluindo o [recurso de criação](luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
 * Saiba [como criar](luis-how-to-azure-subscription.md) recursos de criação e tempo de execução
 * Migrar para o novo [recurso de criação](luis-migration-authoring.md) 

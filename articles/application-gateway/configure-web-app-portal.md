@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: absha
 ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68370424"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar o serviço de aplicativo com o gateway de aplicativo
@@ -100,6 +100,6 @@ Os aplicativos Web implantados nesses exemplos usam endereços IP públicos que 
 
 Uma maneira de restringir o acesso aos seus aplicativos Web é usar [Azure app restrições de IP estático do serviço](../app-service/app-service-ip-restrictions.md). Por exemplo, você pode restringir o aplicativo Web para que ele só receba tráfego do gateway de aplicativo. Use o recurso de restrição de IP do serviço de aplicativo para listar o VIP do gateway de aplicativo como o único endereço com acesso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o serviço de aplicativo e outros suporte a vários locatários com o gateway de aplicativo, consulte [suporte a serviços multilocatários com o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).

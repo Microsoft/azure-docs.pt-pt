@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129458"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844944"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar métricas do SO convidado para os serviços de nuvem clássicos do repositório de métricas de Azure Monitor 
 
@@ -35,6 +35,8 @@ O processo descrito neste artigo funciona apenas para contadores de desempenho n
 
 - Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
+- Seu serviço de nuvem deve estar em uma [região que dá suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
+
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionar um serviço de nuvem e uma conta de armazenamento 
 
 1. Crie e implante um serviço de nuvem clássico. Um exemplo de aplicativo e implantação de serviços de nuvem clássicos pode ser encontrado em [introdução aos serviços de nuvem do Azure e ASP.net](../../cloud-services/cloud-services-dotnet-get-started.md). 
@@ -51,7 +53,7 @@ Crie um princípio de serviço em seu locatário Azure Active Directory usando a
 - Crie um novo segredo do cliente para este aplicativo.  
 - Salve a chave e a ID do cliente para uso em etapas posteriores.  
 
-Forneça ao aplicativo criado na etapa anterior o *monitoramento* de permissões de editor de métricas para o recurso do qual você deseja emitir métricas. Se você planeja usar o aplicativo para emitir métricas personalizadas em vários recursos, você pode conceder essas permissões no nível do grupo de recursos ou da assinatura.  
+Forneça ao aplicativo criado na etapa anterior o monitoramento de permissões de *Editor de métricas* para o recurso do qual você deseja emitir métricas. Se você planeja usar o aplicativo para emitir métricas personalizadas em vários recursos, você pode conceder essas permissões no nível do grupo de recursos ou da assinatura.  
 
 > [!NOTE]
 > A extensão de diagnóstico usa a entidade de serviço para se autenticar em Azure Monitor e emitir métricas para seu serviço de nuvem.
@@ -176,7 +178,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 2. No menu à esquerda, selecione **Monitor.**
 
-3. Na folha **Monitor** , selecione a guia **Visualização** de métricas.
+3. Na folha **Monitor** , selecione a guia **visualização de métricas** .
 
 4. No menu suspenso recursos, selecione seu serviço de nuvem clássico.
 

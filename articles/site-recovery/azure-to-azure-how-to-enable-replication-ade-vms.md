@@ -1,29 +1,26 @@
 ---
-title: Configurar a replicação para VMs habilitadas para Azure Disk Encryption no Azure Site Recovery | Microsoft Docs
+title: Configurar a replicação para VMs habilitadas para Azure Disk Encryption no Azure Site Recovery
 description: Este artigo descreve como configurar a replicação para VMs habilitadas para Azure Disk Encryption de uma região do Azure para outra usando o Site Recovery.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884118"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861328"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
 
-Este artigo descreve como replicar VMs habilitadas para Azure Disk Encryption de uma região do Azure para outra.
+Este artigo descreve como replicar VMs do Azure com o Azure Disk Encryption (ADE) habilitado, de uma região do Azure para outra.
 
 >[!NOTE]
->O Azure Site Recovery atualmente dá suporte apenas a VMs habilitadas para Azure Disk Encryption que executam um sistema operacional Windows. As VMs habilitadas para Azure Disk Encryption sem o aplicativo do Azure AD terão suporte apenas se estiverem usando discos gerenciados. Não há suporte para VMs com discos não gerenciados.
+> O Site Recovery atualmente dá suporte a ADE, com e sem Azure Active Directory (AAD) para VMs que executam o Windows.  Para máquinas que executam o ADE 1,1 (sem AAD), as VMs do Windows devem estar usando discos gerenciados. Não há suporte para VMs com discos não gerenciados. Se você alternar de ADE 0,1 (com AAD) para 1,1, será necessário desabilitar a replicação e habilitar a replicação para uma VM depois de habilitar a 1,1.
 
->[!NOTE]
->Se você alternar do ADE V1 (com o aplicativo do Azure AD) para o ADE v2 (sem o aplicativo do Azure AD), será necessário desabilitar a replicação e habilitar a replicação depois de habilitar o ADE v2.
 
 ## <a id="required-user-permissions"></a>Permissões de usuário necessárias
 Site Recovery exige que o usuário tenha permissões para criar o cofre de chaves na região de destino e copiar chaves do cofre de chaves de região de origem para o cofre de chaves da região de destino.

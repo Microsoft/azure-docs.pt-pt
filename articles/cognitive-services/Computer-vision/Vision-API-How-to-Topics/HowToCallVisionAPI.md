@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 97b9e0defb3f349a6e202572bc0e3005d5d87e9c
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 386503a7089c910b52a87cca8d9f2f2203ae0cad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141193"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859062"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar o API da Pesquisa Visual Computacional
 
@@ -57,9 +57,14 @@ Você pode obter uma chave de avaliação gratuita de [experimentar serviços co
 
     ```ocp-apim-subscription-key: <Your subscription key>```
 
-1. Ao utilizar a biblioteca de cliente, a chave de subscrição é transmitida através do construtor do VisionServiceClient:
+1. Ao usar a biblioteca de cliente, a chave de assinatura é passada por meio do construtor de ComputerVisionClient e a região é especificada em uma propriedade do cliente:
 
-    ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
+    ```
+    var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
+    {
+        Endpoint = "https://westus.api.cognitive.microsoft.com"
+    }
+    ```
 
 ## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Carregar uma imagem no serviço de API da Pesquisa Visual Computacional e obter marcas, descrições e celebridades
 
@@ -74,16 +79,16 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatur
 ```
 
 ```csharp
-using Microsoft.ProjectOxford.Vision;
-using Microsoft.ProjectOxford.Vision.Contract;
 using System.IO;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
-AnalysisResult analysisResult;
-var features = new VisualFeature[] { VisualFeature.Tags, VisualFeature.Description };
+ImageAnalysis imageAnalysis;
+var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
 
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.AnalyzeImageAsync(fs, features);
+  imageAnalysis = await visionClient.AnalyzeImageInStreamAsync(fs, features);
 }
 ```
 
@@ -92,17 +97,17 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ###### <a name="tags-only"></a>Somente marcas:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
-var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 ###### <a name="description-only"></a>Somente Descrição:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.DescribeAsync(fs);
+  imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
 }
 ```
 
@@ -239,6 +244,6 @@ Tenha em atenção que, se houver correspondência de múltiplas categorias (por
 
 Estas respostas são idênticas ao vision.analyze, com o erro adicional NotSupportedModel (HTTP 400), que pode ser devolvido nos cenários da Opção Um e da Opção Dois. Para a Opção Dois (Análise Avançada), se qualquer um dos modelos especificados nos detalhes não for reconhecido, a API irá devolver um erro NotSupportedModel, mesmo que um ou mais dos modelos sejam válidos.  Os utilizadores podem chamar a função listModels para saber que modelos são suportados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para utilizar a API REST, aceda à [Referência à API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44).

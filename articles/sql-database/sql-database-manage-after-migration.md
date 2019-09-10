@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567811"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845598"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na nuvem – Gerenciando seus bancos de dados individuais e em pool no banco de dados SQL do Azure
 
@@ -29,7 +29,7 @@ A mudança do ambiente tradicional autogerenciado e autocontrolado para um ambie
 Este artigo discute algumas das principais características do banco de dados SQL do Azure como uma plataforma que você pode aproveitar prontamente ao trabalhar com bancos de dados individuais e bancos de dados em pool em pools elásticos. Eles são os seguintes:
 
 - Monitorar o banco de dados usando o portal do Azure
-- Continuidade dos negócios e recuperação de desastres (BCDR)
+- Continuidade de negócio e recuperação após desastre (BCDR)
 - Segurança e conformidade
 - Monitoramento e manutenção de banco de dados inteligente
 - O movimento de dados é suspenso.
@@ -56,7 +56,7 @@ Por exemplo, se espera que a carga de trabalho na sua base de dados aumente, pod
 
 As métricas de desempenho também podem ajudá-lo a determinar se você pode fazer downgrade para um tamanho de computação inferior. Parta do princípio de que está a utilizar uma base de dados Standard S2 e que todas as métricas de desempenho mostram que, em média, a base de dados não utiliza mais de 10% em qualquer momento. É provável que a base de dados funcione corretamente no Standard S1. No entanto, esteja atento às cargas de trabalho que se espicom ou flutuam antes de tomar a decisão de mudar para um tamanho de computação inferior.
 
-## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuidade dos negócios e recuperação de desastres (BCDR)
+## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuidade de negócio e recuperação após desastre (BCDR)
 
 A continuidade dos negócios e os recursos de recuperação de desastre permitem que você continue seus negócios, como de costume, em caso de desastre. O desastre pode ser um evento no nível do banco de dados (por exemplo, alguém descartava erroneamente uma tabela crucial) ou um evento de nível do centro de data (catástrofe regional, por exemplo, um tsunami).
 
@@ -71,7 +71,7 @@ Você não cria backups no BD SQL do Azure e isso ocorre porque você não preci
 |Premium|35|
 |||
 
-Além disso, o recurso de [retenção de longo prazo (EPD)](sql-database-long-term-retention.md) permite que você mantenha os arquivos de backup por um período muito mais longo especificamente, por até 10 anos, e restaure os dados desses backups em qualquer ponto dentro desse período. Além disso, os backups de banco de dados são mantidos no armazenamento replicado geograficamente para garantir a resiliência de catástrofe regional. Você também pode restaurar esses backups em qualquer região do Azure a qualquer momento dentro do período de retenção. Consulte [visão geral](sql-database-business-continuity.md)da continuidade de negócios.
+Além disso, o recurso de [retenção de longo prazo (EPD)](sql-database-long-term-retention.md) permite que você mantenha os arquivos de backup por um período muito mais longo especificamente, por até 10 anos, e restaure os dados desses backups em qualquer ponto dentro desse período. Além disso, os backups de banco de dados são mantidos no armazenamento replicado geograficamente para garantir a resiliência de catástrofe regional. Você também pode restaurar esses backups em qualquer região do Azure a qualquer momento dentro do período de retenção. Consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md).
 
 ### <a name="how-do-i-ensure-business-continuity-in-the-event-of-a-datacenter-level-disaster-or-regional-catastrophe"></a>Como fazer garantir a continuidade dos negócios no caso de um desastre de nível de Datacenter ou de uma catástrofe regional
 
@@ -142,7 +142,7 @@ Os pontos de extremidade de serviço (SE) permitem que você exponha seus recurs
 
 #### <a name="reserved-ips"></a>IPs Reservados
 
-Outra opção é provisionar [IPS reservados](../virtual-network/virtual-networks-reserved-public-ip.md) para suas VMs e listar os endereços IP específicos da VM nas configurações de firewall do servidor. Ao atribuir IPs reservados, você economiza o problema de ter que atualizar as regras de firewall com a alteração de endereços IP.
+Outra opção é provisionar [IPS reservados](../virtual-network/virtual-networks-reserved-public-ip.md) para suas VMs e adicionar esses endereços IP de VM específicos nas configurações de firewall do servidor. Ao atribuir IPs reservados, você economiza o problema de ter que atualizar as regras de firewall com a alteração de endereços IP.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Em qual porta eu me conecto ao banco de dados SQL
 
@@ -321,7 +321,7 @@ O banco de dados SQL usa algumas técnicas inteligentes que permitem que ele man
 
 - **Exportar**: Você pode exportar seu banco de dados SQL do Azure como um arquivo BACPAC do portal do Azure
 
-   ![exportação de banco de dados](./media/sql-database-export/database-export1.png)
+   ![Exportação de banco de dados](./media/sql-database-export/database-export1.png)
 
 - **Importar**: Você também pode importar dados como um arquivo BACPAC para o banco de dado usando o portal do Azure.
 

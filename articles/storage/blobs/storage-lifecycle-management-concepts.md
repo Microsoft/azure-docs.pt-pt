@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722089"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861406"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -54,7 +54,7 @@ Você pode adicionar, editar ou remover uma política usando qualquer um dos seg
 Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.  
 
 > [!NOTE]
-> Se você habilitar regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento de ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções. O bypass necessário são: `Logging,  Metrics,  AzureServices`. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se você habilitar regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento de ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções. O bypass necessário é: `AzureServices`. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -435,4 +435,4 @@ Quando um blob é movido de uma camada de acesso para outra, sua hora da última
 
 Saiba como recuperar dados após a exclusão acidental:
 
-- [Exclusão reversível para BLOBs de armazenamento do Azure](../blobs/storage-blob-soft-delete.md)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../blobs/storage-blob-soft-delete.md)

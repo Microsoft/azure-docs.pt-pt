@@ -9,16 +9,16 @@ ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70242739"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis. Se você tivesse esses limites aumentados pelo suporte no passado e não vir os limites atualizados nas tabelas a seguir, [abra uma solicitação de atendimento ao cliente online sem](../articles/azure-resource-manager/resource-manager-quota-errors.md) encargos
+> Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis. Se você tivesse esses limites aumentados pelo suporte no passado e não vir os limites atualizados nas tabelas a seguir, [abra uma solicitação de atendimento ao cliente online sem encargos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Resource | Limite máximo/padrão | 
 | --- | --- |

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 215660b0f0b8748461849f20e65a3585f939085e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259281"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858790"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Criar e acessar conjuntos de os (visualização) no Azure Machine Learning
 
@@ -47,7 +47,7 @@ Para criar e trabalhar com conjuntos de os, você precisa de:
 
 Os conjuntos de linhas são categorizados em vários tipos com base em como os usuários os consomem no treinamento. Lista de tipos de conjunto de conjuntos:
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo fornecido ou a lista de arquivos. Isso fornece a capacidade de materializar os dados em um dataframe do pandas. Um `TabularDataset` objeto pode ser criado A partir de arquivos CSV, TSV, parquet, resultados da consulta SQL etc. Para obter uma lista completa, visite nossa [documentação](https://aka.ms/tabulardataset-api-reference).
-* Filedataset faz referência a um ou vários arquivos em seus armazenamentos de [dados](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) ou URLs públicas. Isso fornece a capacidade de baixar ou montar os arquivos em sua computação. Os arquivos podem ser de qualquer formato, o que permite uma ampla gama de cenários de aprendizado de máquina, incluindo aprendizado profundo.
+* [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Isso fornece a capacidade de baixar ou montar os arquivos em sua computação. Os arquivos podem ser de qualquer formato, o que permite uma ampla gama de cenários de aprendizado de máquina, incluindo aprendizado profundo.
 
 Para saber mais sobre as futuras alterações de API, consulte [aqui](https://aka.ms/tabular-dataset).
 
@@ -55,7 +55,7 @@ Para saber mais sobre as futuras alterações de API, consulte [aqui](https://ak
 
 Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dado, juntamente com uma cópia de seus metadados. Os dados permanecem em seu local existente, portanto, nenhum custo de armazenamento extra é incorrido.
 
-Para que os dados sejam acessíveis pelo serviço Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em repositórios de dados [do Azure](how-to-access-data.md) ou URLs da Web públicas.
+Para que os dados sejam acessíveis pelo serviço Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em [repositórios de dados do Azure](how-to-access-data.md) ou URLs da Web públicas.
 
 Para criar conjuntos de valores de um [repositório de armazenamento do Azure](how-to-access-data.md):
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7c3f72c3ce6acfb63e682b479519dba02a9900eb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898344"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844906"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementar análise espacial de IoT usando mapas do Azure
 
@@ -36,15 +36,15 @@ Neste tutorial, você vai:
 
 Exemplificaremos a solução para um cenário em que uma empresa de aluguel de carros planeja monitorar e registrar eventos para seus carros alugados. Muitas vezes, as empresas de aluguel de carros disparam carros para uma região geográfica específica e precisam manter o controle de suas localização enquanto elas são alugadas. Qualquer instância, que envolve um carro deixando a região geográfica designada, precisa ser registrada de forma que as políticas, as tarifas e outros aspectos comerciais possam ser tratados adequadamente.
 
-Em nosso caso de uso, os carros de aluguel são equipados com dispositivos IoT que enviam dados de telemetria para o Hub IoT do Azure regularmente. A telemetria inclui o local atual e indica se o mecanismo do carro está em execução ou não. O esquema de localização do dispositivo adere ao [esquema de plug and Play de IOT para dados](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md)geoespaciais. O esquema de telemetria do dispositivo do carro de aluguel é semelhante a:
+Em nosso caso de uso, os carros de aluguel são equipados com dispositivos IoT que enviam dados de telemetria para o Hub IoT do Azure regularmente. A telemetria inclui o local atual e indica se o mecanismo do carro está em execução ou não. O esquema de localização do dispositivo adere ao [esquema de plug and Play de IOT para dados geoespaciais](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). O esquema de telemetria do dispositivo do carro de aluguel é semelhante a:
 
 ```JSON
 {
     "data": {
-         "properties": {
+        "properties": {
             "Engine": "ON"
-         },
-         "systemProperties": {
+        },
+        "systemProperties": {
             "iothub-content-type": "application/json",
             "iothub-content-encoding": "utf-8",
             "iothub-connection-device-id": "ContosoRentalDevice",
@@ -52,13 +52,13 @@ Em nosso caso de uso, os carros de aluguel são equipados com dispositivos IoT q
             "iothub-connection-auth-generation-id": "636959817064335548",
             "iothub-enqueuedtime": "2019-06-18T00:17:20.608Z",
             "iothub-message-source": "Telemetry"
-         },
-         "body": { 
-                    "location": { 
-                        "type": "Point",
-                        "coordinates": [ -77.025988698005662, 38.9015330523316 ]
-                     } 
-                 } 
+        },
+        "body": { 
+            "location": { 
+                "type": "Point",
+                "coordinates": [ -77.025988698005662, 38.9015330523316 ]
+            } 
+        } 
     }
 }
 ```
@@ -167,7 +167,7 @@ Abra o aplicativo de postmaster e siga as etapas abaixo para carregar a cerca ge
     
     O valor "geojson" em relação `dataFormat` ao parâmetro no caminho da URL representa o formato dos dados que estão sendo carregados.
 
-3. Cliqueem params e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela sua chave de assinatura do Azure Maps.
+3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela sua chave de assinatura do Azure Maps.
    
     ![Chave-valor params do postmaster](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -280,7 +280,7 @@ O mapa abaixo mostra quatro pontos em que o veículo estava fora da cerca geogr�
 
 ![mapa de violação](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar as APIs do Azure Maps usadas neste tutorial, consulte:
 

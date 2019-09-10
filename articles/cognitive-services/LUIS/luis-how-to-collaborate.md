@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: e69fea4d57aaf2a0b7d3615b1eecbf99a6b13ab8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 004da6c84e6226c4de3114d32cde826cd167e1ab
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256824"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844831"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicionar colaboradores ao seu aplicativo
 
@@ -26,7 +26,7 @@ Um proprietário de aplicativo pode adicionar colaboradores a aplicativos. Estes
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Adicionar colaborador ao recurso de criação do Azure
 
-O procedimento a seguir é para todos os usuários que migraram para usar o recurso de criação do Azure.
+O procedimento a seguir é para todos os usuários que **migraram** para usar o recurso de criação do Azure.
 
 Você migrou se sua experiência de criação do LUIS está vinculada a um recurso de criação na página **gerenciar recursos do Azure->** no portal do Luis.
 
@@ -41,7 +41,7 @@ Você migrou se sua experiência de criação do LUIS está vinculada a um recur
 
     Quando o email do usuário for encontrado, selecione a conta e selecione **salvar**. 
 
-    Se você tiver problemas com essa atribuição de função, examine as atribuições de [função do Azure](../../role-based-access-control/role-assignments-portal.md) e [solução de problemas do controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
+    Se você tiver problemas com essa atribuição de função, examine as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) e [solução de problemas do controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
 
 ## <a name="add-collaborator-to-luis-app"></a>Adicionar colaborador ao aplicativo LUIS
 
@@ -96,9 +96,9 @@ Se o administrador de locatários quiser que apenas determinados usuários usem 
 Saiba mais sobre os usuários e o consentimento do Azure Active Directory: 
 * [Restringir seu aplicativo](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de usuários
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
-* Entenda os conceitos, incluindo o [recurso de criação](/luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
+* Entenda os conceitos, incluindo o [recurso de criação](luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
 * Saiba [como criar](luis-how-to-azure-subscription.md) recursos de criação e tempo de execução
 * Migrar para o novo [recurso de criação](luis-migration-authoring.md) 

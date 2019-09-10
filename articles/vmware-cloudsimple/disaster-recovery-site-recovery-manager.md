@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972785"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846133"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a nuvem privada como um destino de recuperação de desastre com o VMware Site Recovery Manager
 
@@ -33,6 +33,8 @@ A solução CloudSimple exige que você faça o seguinte:
 * Forneça suas próprias licenças para SRM quando a nuvem privada for o site protegido. Você não precisa de nenhuma licença de SRM adicional para o site CloudSimple quando ele é usado como o site de recuperação.
 
 Com essa solução, você tem controle total sobre a replicação e o SRM do vSphere. A interface do usuário familiar, API e interfaces CLI permitem o uso de seus scripts e ferramentas existentes.
+
+![Implantação do Site Recovery Manager](media/srm-deployment.png)
 
 Você pode usar qualquer versão do vRA e do SRM que seja compatível com sua nuvem privada e seus ambientes locais. Os exemplos neste guia usam o vRA 6,5 e o SRM 6,5. Essas versões são compatíveis com o vSphere 6,5, que tem suporte do CloudSimple.
 

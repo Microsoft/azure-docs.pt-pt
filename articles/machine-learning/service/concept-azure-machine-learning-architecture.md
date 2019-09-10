@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011633"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845001"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como Azure Machine Learning serviço funciona: Arquitetura e conceitos
 
@@ -129,7 +129,7 @@ Para obter mais informações, veja os artigos seguintes:
 
 ### <a name="datasets-and-datastores"></a>Conjuntos de e armazenamentos de
 
-**Conjuntos de Azure Machine Learning** (versão prévia) facilite o acesso e o trabalho com seus dados. DataSets gerenciam dados em vários cenários, como treinamento de modelo e criação de pipeline. Usando o SDK do Azure Machine Learning, você pode acessar o armazenamento subjacente, explorar e preparar dados, gerenciar o ciclo de vida de definições de conjunto de dados diferentes e comparar entre os DataSets usados no treinamento e na produção.
+**Conjuntos de Azure Machine Learning** (versão prévia) facilite o acesso e o trabalho com seus dados. DataSets gerenciam dados em vários cenários, como treinamento de modelo e criação de pipeline. Usando o SDK do Azure Machine Learning, você pode acessar o armazenamento subjacente, explorar dados e gerenciar o ciclo de vida de diferentes definições do conjunto de dados.
 
 DataSets fornecem métodos para trabalhar com dados em formatos populares, como usar `from_delimited_files()` o ou `to_pandas_dataframe()`o.
 

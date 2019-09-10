@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 145b643999ff6e4af99ec50c9b0120fc9f11a212
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840150"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858935"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -39,7 +39,10 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolva módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
+>[!TIP]
+>Este tutorial é uma versão simplificada do [visão personalizada e Azure IOT Edge em um](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) projeto de exemplo do Raspberry Pi 3. Este tutorial foi projetado para ser executado em uma VM de nuvem e usa imagens estáticas para treinar e testar o classificador de imagem, o que é útil para alguém apenas começando a avaliar Visão Personalizada em IoT Edge. O projeto de exemplo usa o hardware físico e configura um feed de câmera ao vivo para treinar e testar o classificador de imagem, o que é útil para alguém que deseja experimentar um cenário mais detalhado e de vida real.
+
+Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente para o desenvolvimento de contêiner do Linux: [Desenvolva módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando o Azure IOT Edge](quickstart-linux.md)
@@ -51,7 +54,7 @@ Para desenvolver um módulo IoT Edge com o serviço Visão Personalizada, instal
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* Extensão [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para o Visual Studio Code
+* [Extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Compilar um classificador de imagens com a Visão Personalizada
 
@@ -167,7 +170,7 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 
 ### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-Atualmente, Visual Studio Code pode desenvolver módulos para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
+Atualmente, Visual Studio Code pode desenvolver módulos para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64, que será usado para este tutorial. 
 
 1. Abra a paleta de comandos e procure **Azure IOT Edge: Defina a plataforma de destino padrão para**a solução de borda ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
 
@@ -191,7 +194,7 @@ O modelo de módulo de Python no Visual Studio Code contém um código de exempl
 
 6. Abra o ficheiro **module.json** na pasta do classificador. 
 
-7. Atualize o parâmetro **platforms** (plataformas) para apontar para o Dockerfile novo que foi adicionado e remova as opções de arquitetura ARM32 e AMD64.debug, que o módulo da Visão Personalizada não suporta atualmente. 
+7. Atualize o parâmetro de **plataformas** para apontar para o novo Dockerfile que você adicionou e remova todas as opções além de AMD64, que é a única arquitetura que estamos usando para este tutorial. 
 
    ```json
    "platforms": {
@@ -351,7 +354,7 @@ Neste cenário, em vez de utilizarmos uma câmara real para fornecer um feed de 
 
 3. Navegue para o diretório da solução do IoT Edge e cole a imagem de teste na pasta **modules** / **cameraCapture**. A imagem deverá estar na mesma pasta que o ficheiro main.py que foi editado na última secção. 
 
-3. No Visual Studio Code, abra o ficheiro **Dockerfile.amd64** relativo ao módulo cameraCapture. (Atualmente, o módulo da Visão Personalizada não suporta o ARM32). 
+3. No Visual Studio Code, abra o ficheiro **Dockerfile.amd64** relativo ao módulo cameraCapture. 
 
 4. Adicione a linha de código abaixo a seguir à linha que estabelece o diretório de trabalho, `WORKDIR /app`: 
 

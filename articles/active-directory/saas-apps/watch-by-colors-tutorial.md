@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0882be0419cbbbc7d94cb8d517e27bdb06a780
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014140"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861299"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com inspeção por cores
 
@@ -56,7 +56,6 @@ Para configurar a integração do Watch by Colors ao Azure AD, você precisará 
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
 1. Na seção **Adicionar da Galeria** , digite **inspeção por cores** na caixa de pesquisa.
 1. Selecione **inspecionar por cores** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-watch-by-colors"></a>Configurar e testar o logon único do Azure AD para inspeção por cores
 
@@ -123,13 +122,21 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-watch-by-colors-sso"></a>Configurar o SSO de inspeção por cores
 
-1. Abra uma nova janela do navegador da Web e entre no site da empresa Watch with Colors como administrador e execute as seguintes etapas:
+1. Para automatizar a configuração em inspeção por cores, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-1. No canto superior direito da página, clique em **perfil** > **configurações** > de conta**SSO (logon único)** .
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar Inspeção por cores** para direcionar você ao aplicativo inspecionar por cores. A partir daí, forneça as credenciais de administrador para entrar em observação por cores. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se você quiser configurar a inspeção por cores manualmente, abra uma nova janela do navegador da Web e entre no site da empresa Watch with Colors como administrador e execute as seguintes etapas:
+
+4. No canto superior direito da página, clique em **perfil** > **configurações** > de conta**SSO (logon único)** .
 
     ![Inspecionar por configuração de cores](./media/watch-by-colors-tutorial/config01.png)
 
-1. Na página **SSO (logon único)** , execute as seguintes etapas:
+5. Na página **SSO (logon único)** , execute as seguintes etapas:
 
     ![Inspecionar por configuração de cores](./media/watch-by-colors-tutorial/config02.png)
 
@@ -183,5 +190,5 @@ Ao clicar no bloco inspecionar por cores no painel de acesso, você deverá ser 
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente a margem de atraso com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente assistir por cores com o Azure AD](https://aad.portal.azure.com/)
 

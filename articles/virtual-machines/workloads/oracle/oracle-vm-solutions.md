@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 3d3805fe5a574d3e6ecd9a6fa8f95dd28f308d25
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101398"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858568"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens de VM Oracle e sua implantação no Microsoft Azure
 
@@ -58,15 +58,12 @@ Essas imagens são consideradas "Traga sua própria licença" e, como tal, você
 
 Os indivíduos também podem optar por basear suas soluções em uma imagem personalizada que eles criam do zero no Azure ou carregar uma imagem personalizada de seu ambiente local.
 
-## <a name="support-for-jd-edwards"></a>Suporte para JD Edwards
-De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versões 9,2 e superiores têm suporte em **qualquer oferta de nuvem pública** que atenda aos seus específicos `Minimum Technical Requirements` (MTR).  Você precisa criar imagens personalizadas que atendam às suas especificações de MTR para compatibilidade de aplicativos SO e software. 
-
 ## <a name="oracle-database-vm-images"></a>Imagens de VM de banco de dados Oracle
-O Oracle dá suporte à execução do Oracle DB 12,1 Standard e Enterprise Editions no Azure em imagens de máquina virtual com base em Oracle Linux.  Para obter o melhor desempenho para cargas de trabalho de produção de Oracle DB no Azure, certifique-se de dimensionar corretamente a imagem da VM e usar Managed Disks com suporte do armazenamento Premium. Para obter instruções sobre como obter rapidamente um Oracle DB em funcionamento no Azure usando a imagem de VM publicada do Oracle, [Experimente o guia de início rápido do Oracle DB](oracle-database-quick-create.md).
+O Oracle dá suporte à execução de Oracle DB 12,1 e superior Standard e Enterprise Editions no Azure em imagens de máquina virtual com base em Oracle Linux.  Para obter o melhor desempenho para cargas de trabalho de produção de Oracle DB no Azure, certifique-se de dimensionar corretamente a imagem da VM e usar SSD Premium ou SSD Ultra Managed Disks. Para obter instruções sobre como obter rapidamente um Oracle DB em funcionamento no Azure usando a imagem de VM publicada do Oracle, [Experimente o guia de início rápido do Oracle DB](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Opções de configuração de disco anexado
 
-Os discos anexados dependem do serviço de armazenamento de BLOBs do Azure. Cada disco padrão é capaz de um máximo teórico de aproximadamente 500 operações de entrada/saída por segundo (IOPS). Nossa oferta de disco Premium é preferida para cargas de trabalho de banco de dados de alto desempenho e pode alcançar até 5000 IOps por disco. Você pode usar um único disco se atender às suas necessidades de desempenho. No entanto, você pode melhorar o desempenho de IOPS efetivo se usar vários discos anexados, espalhar dados de banco de dados entre eles e usar o Oracle Automatic Storage Management (ASM). Consulte [visão geral do armazenamento automático da Oracle](https://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações específicas sobre o Oracle ASM. Para obter um exemplo de como instalar e configurar o Oracle ASM em uma VM do Azure para Linux, consulte o tutorial Instalando e Configurando o [Oracle Automated Storage Management](configure-oracle-asm.md) .
+Os discos anexados dependem do serviço de armazenamento de BLOBs do Azure. Cada disco padrão é capaz de um máximo teórico de aproximadamente 500 operações de entrada/saída por segundo (IOPS). Nossa oferta de disco Premium é preferida para cargas de trabalho de banco de dados de alto desempenho e pode alcançar até 5000 IOps por disco. Você pode usar um único disco se atender às suas necessidades de desempenho. No entanto, você pode melhorar o desempenho de IOPS efetivo se usar vários discos anexados, espalhar dados de banco de dados entre eles e usar o Oracle Automatic Storage Management (ASM). Consulte [visão geral do armazenamento automático da Oracle](https://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações específicas sobre o Oracle ASM. Para obter um exemplo de como instalar e configurar o Oracle ASM em uma VM do Azure para Linux, consulte o tutorial [Instalando e Configurando o Oracle Automated Storage Management](configure-oracle-asm.md) .
 
 ### <a name="shared-storage-configuration-options"></a>Opções de configuração de armazenamento compartilhado
 
@@ -77,7 +74,14 @@ O Azure NetApp Files foi projetado para atender aos principais requisitos de exe
 - Alta disponibilidade, alta durabilidade e capacidade de gerenciamento em escala, normalmente exigidas por cargas de trabalho de missão crítica corporativas (como SAP e Oracle)
 - Backup e recuperação rápidos e eficientes, para atingir os SLAs de RTO e RPO mais agressivos
 
-Esses recursos são possíveis porque Azure NetApp Files se baseia no NetApp® ONTAP® todos os sistemas flash em execução no ambiente de data center do Azure – como um serviço nativo do Azure. O resultado é uma tecnologia de armazenamento de banco de dados ideal que pode ser provisionada e consumida da mesma forma que outras opções de armazenamento do Azure. Consulte a [documentação Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/) para obter mais informações sobre como implantar e acessar Azure NetApp files volumes NFS. Consulte o guia de práticas recomendadas de [implantação do Oracle no Azure usando Azure NetApp files](https://www.netapp.com/us/media/tr-4780.pdf) para obter recomendações de práticas recomendadas para operar um banco de dados Oracle no Azure NetApp files.
+Esses recursos são possíveis porque Azure NetApp Files se baseia no NetApp® ONTAP® todos os sistemas flash em execução no ambiente de data center do Azure – como um serviço nativo do Azure. O resultado é uma tecnologia de armazenamento de banco de dados ideal que pode ser provisionada e consumida da mesma forma que outras opções de armazenamento do Azure. Consulte a [documentação Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/) para obter mais informações sobre como implantar e acessar Azure NetApp files volumes NFS. Consulte o guia de práticas [recomendadas de implantação do Oracle no Azure usando Azure NetApp files](https://www.netapp.com/us/media/tr-4780.pdf) para obter recomendações de práticas recomendadas para operar um banco de dados Oracle no Azure NetApp files.
+
+
+## <a name="licensing-oracle-database--software-on-azure"></a>Licenciamento Oracle Database software & no Azure
+Microsoft Azure é um ambiente de nuvem autorizado para execução de Oracle Database. A tabela de fatores básicos do Oracle não é aplicável ao licenciar bancos de dados Oracle na nuvem. Em vez disso, ao usar VMs com a tecnologia Hyper-Threading habilitada para bancos de dados Enterprise Edition, conte duas vCPUs como equivalentes a uma licença de processador Oracle se o hyperthreading estiver habilitado (conforme indicado no documento de política). Os detalhes da política podem ser encontrados [aqui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Os bancos de dados Oracle geralmente exigem mais memória e e/s. Por esse motivo, as [VMs com otimização de memória](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) são recomendadas para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, as [VCPUs básicas restritas](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) são recomendadas para cargas de trabalho Oracle DB que exigem memória alta, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos alta.
+
+Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft Azure, a Oracle fornece mobilidade de licenças conforme indicado nas [perguntas frequentes sobre o Oracle no Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle RAC (Oracle Real Application Cluster)
@@ -95,6 +99,11 @@ Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de 
 O tutorial [implementar o Oracle GoldenGate no Azure](configure-oracle-golden-gate.md) orienta você pelo procedimento de configuração básica no Azure.
 
 Além de ter uma solução de HA e DR arquitetada no Azure, você deve ter uma estratégia de backup em vigor para restaurar seu banco de dados. O tutorial [fazer backup e recuperar um Oracle Database](oracle-backup-recovery.md) orienta você pelo procedimento básico para estabelecer um backup consistente.
+
+
+## <a name="support-for-jd-edwards"></a>Suporte para JD Edwards
+De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versões 9,2 e superiores têm suporte em **qualquer oferta de nuvem pública** que atenda aos seus específicos `Minimum Technical Requirements` (MTR).  Você precisa criar imagens personalizadas que atendam às suas especificações de MTR para compatibilidade de aplicativos SO e software. 
+
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Imagens de máquina virtual do Oracle WebLogic Server
 

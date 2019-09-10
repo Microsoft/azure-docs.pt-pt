@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
 ms.openlocfilehash: fbb87843462e7e830fc357e178b41f7262b80e70
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70099574"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP
@@ -82,7 +82,7 @@ Leia as seguintes notas e documentos SAP primeiro:
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* Guias de práticas recomendadas do [SuSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
+* [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 * [Aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp Files][anf-sap-applications-azure]
 
@@ -152,7 +152,7 @@ A arquitetura do SAP NetWeaver apresentada neste artigo usa um único pool de ca
 
 4. Delegue uma sub-rede para os arquivos do Azure NetApp conforme descrito nas [instruções delegar uma sub-rede para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Implante Azure NetApp Files volumes, seguindo as [instruções para criar um volume para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Implante os volumes na [sub-rede](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp files designada. Tenha em mente que os recursos Azure NetApp Files e as VMs do Azure devem estar na mesma rede virtual do Azure ou em redes virtuais emparelhadas do Azure. Por exemplo, sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. são os nomes de volume e sapmnt<b>QAS</b>, usrsap QAS, etc. são os caminhos de caminho para os volumes de Azure NetApp files.<b></b>  
+5. Implante Azure NetApp Files volumes, seguindo as [instruções para criar um volume para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Implante os volumes na [sub-rede](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp files designada. Tenha em mente que os recursos Azure NetApp Files e as VMs do Azure devem estar na mesma rede virtual do Azure ou em redes virtuais emparelhadas do Azure. Por exemplo, sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. são os nomes de volume e sapmnt QAS<b>, usrsap QAS</b>, etc. são os caminhos de caminho para os volumes de Azure NetApp files.<b></b>  
 
    1. volume sapmnt<b>QAS</b> (NFS://10.1.0.4/sapmnt<b>QAS</b>)
    2. volume usrsap<b>QAS</b> (NFS://10.1.0.4/usrsap<b>QAS</b>)

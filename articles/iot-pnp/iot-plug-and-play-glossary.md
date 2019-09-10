@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 79b57a9c9f12c6014b9002b0688beae334af3587
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806523"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858843"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -46,9 +46,9 @@ O Azure IoT Central é uma solução de software como serviço totalmente gerenc
 
 O serviço de certificação do Azure IoT executa um conjunto de testes de certificação quando você envia um [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) para a certificação por meio do portal do [Azure Certified para IOT](#azure-certified-for-iot-portal). Para poder adicionar um dispositivo ao [Catálogo de dispositivos certificado para IOT](#certified-for-iot-device-catalog), o dispositivo deve ser certificado.
 
-## <a name="azure-iot-device-workbench-extension"></a>Extensão do Azure IoT Device Workbench
+## <a name="azure-iot-tools-extension"></a>Extensão de ferramentas do Azure IoT
 
-O Azure IoT Device Workbench é uma extensão do [Visual Studio Code](#visual-studio-code) que fornece um ambiente integrado para:
+As ferramentas do Azure IoT são uma coleção de extensões no [Visual Studio Code](#visual-studio-code) que ajudam você a interagir com o Hub IOT e a desenvolver dispositivos IOT. Para o desenvolvimento de dispositivos IoT Plug and Play, ele ajuda você a:
 
 - Crie [modelos](#device-capability-model) e [interfaces](#interface)de recursos de dispositivo.
 - Publicar em [repositórios de modelo](#model-repository).
@@ -200,4 +200,4 @@ Os campos de telemetria definidos em uma [interface](#interface) representam med
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-O Visual Studio Code é um editor de código moderno disponível para várias plataformas. As extensões, como a [extensão do Azure IOT Device Workbench](#azure-iot-device-workbench-extension) permitem personalizá-lo para dar suporte a uma ampla gama de cenários de desenvolvimento.
+O Visual Studio Code é um editor de código moderno disponível para várias plataformas. As extensões, como as do pacote de [Ferramentas do Azure IOT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) , permitem que você personalize o editor para dar suporte a uma ampla gama de cenários de desenvolvimento.

@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389901"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860535"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 
 Com o serviço Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente chamados de [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-targets). Um destino de computação pode ser um computador local ou um recurso de nuvem, como um Azure Machine Learning computação, Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para implantação de modelo, conforme descrito em ["onde e como implantar seus modelos"](how-to-deploy-and-where.md).
 
-Você pode criar e gerenciar um destino de computação usando a extensão Azure Machine Learning SDK, portal do Azure, CLI do Azure ou Azure Machine Learning VS Code. Se tiver de destinos de computação que foram criados por meio de outro serviço (por exemplo, um cluster do HDInsight), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
+Você pode criar e gerenciar um destino de computação usando o SDK do Azure Machine Learning, portal do Azure, sua página de aterrissagem do espaço de trabalho (versão prévia), CLI do Azure ou Azure Machine Learning VS Code extensão. Se tiver de destinos de computação que foram criados por meio de outro serviço (por exemplo, um cluster do HDInsight), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
  
 Neste artigo, você aprenderá a usar vários destinos de computação para treinamento de modelo.  As etapas para todos os destinos de computação seguem o mesmo fluxo de trabalho:
 1. __Crie__ um destino de computação se você ainda não tiver um.
@@ -45,9 +45,9 @@ O serviço de Azure Machine Learning tem suporte variado entre diferentes destin
 
 ## <a name="whats-a-run-configuration"></a>O que é uma configuração de execução?
 
-Ao treinar, é comum iniciar em seu computador local e, posteriormente, executar esse script de treinamento em um destino de computação diferente. Com o serviço Azure Machine Learning, você pode executar o script em vários destinos de computação sem precisar alterar o script. 
+Ao treinar, é comum iniciar em seu computador local e, posteriormente, executar esse script de treinamento em um destino de computação diferente. Com o serviço Azure Machine Learning, você pode executar o script em vários destinos de computação sem precisar alterar o script.
 
-Tudo o que você precisa fazer é definir o ambiente para cada destino de computação em uma **configuração de execução**.  Em seguida, quando você quiser executar o teste de treinamento em um destino de computação diferente, especifique a configuração de execução para essa computação. Para obter detalhes de como especificar um ambiente e associá-lo para executar a configuração, consulte [criar e gerenciar ambientes de treinamento e implantação](how-to-use-environments.md)
+Tudo o que você precisa fazer é definir o ambiente para cada destino de computação em uma **configuração de execução**.  Em seguida, quando você quiser executar o teste de treinamento em um destino de computação diferente, especifique a configuração de execução para essa computação. Para obter detalhes de como especificar um ambiente e associá-lo para executar a configuração, consulte [criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md).
 
 Saiba mais sobre como [Enviar experimentos](#submit) no final deste artigo.
 
@@ -278,6 +278,7 @@ Você pode acessar os destinos de computação associados ao seu espaço de trab
 * [Criar um destino de computação](#portal-create) em seu espaço de trabalho
 * [Anexar um destino de computação](#portal-reuse) que foi criado fora do espaço de trabalho
 
+
 Depois que um destino é criado e anexado ao seu espaço de trabalho, você o usará em sua configuração `ComputeTarget` de execução com um objeto: 
 
 ```python
@@ -290,7 +291,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Para ver os destinos de computação para seu espaço de trabalho, use as seguintes etapas:
 
-1. Navegue até a [portal do Azure](https://portal.azure.com) e abra seu espaço de trabalho. 
+1. Navegue até a [portal do Azure](https://portal.azure.com) e abra seu espaço de trabalho. Você também pode acessar essas mesmas etapas na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com), embora as imagens abaixo mostrem o portal do Azure.
+ 
 1. Em __aplicativos__, selecione __computação__.
 
     [![Exibir guia de computação](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
@@ -379,7 +381,7 @@ Depois de criar uma configuração de execução, use-a para executar o experime
 >
 > Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem `.amlignore` , o arquivo terá precedência.
 > 
-> Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshots).
+> Para obter mais informações, [](concept-azure-machine-learning-architecture.md#snapshots)consulte instantâneos.
 
 ### <a name="create-an-experiment"></a>Criar uma experimentação
 

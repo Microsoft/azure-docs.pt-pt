@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706515"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845448"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
 
@@ -83,10 +83,10 @@ Quando você executa o `Get-LogicAppTemplate` comando com essa ferramenta, o com
 
 ### <a name="generate-template-with-powershell"></a>Gerar modelo com o PowerShell
 
-Para gerar seu modelo depois de instalar o módulo LogicAppTemplate, execute este comando do PowerShell:
+Para gerar seu modelo depois de instalar o módulo LogicAppTemplate e [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), execute este comando do PowerShell:
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 Para seguir a recomendação de encanamento em um token da [ferramenta de cliente Azure Resource Manager](https://github.com/projectkudu/ARMClient), execute este comando, em `$SubscriptionId` que é a sua ID de assinatura do Azure:

@@ -1,49 +1,49 @@
 ---
-title: 'Início rápido: Detetar rostos numa imagem com a API REST do Azure e Java'
+title: 'Início rápido: Detectar faces em uma imagem com a API REST do Azure e o Java'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá utilizar a API de REST de Face do Azure com Java para detetar rostos numa imagem.
+description: Neste guia de início rápido, você usará a API REST do Azure face com Java para detectar rostos em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: d014785a0e866301e228458fe3742b899bd1f192
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 30e4852668fc12c38cd7d1794c461041acd654db
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606961"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859193"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início rápido: Detetar rostos numa imagem usando a REST API e o Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início rápido: Detectar faces em uma imagem usando a API REST e o Java
 
-Neste início rápido, irá utilizar a API de REST de Face do Azure com o Java para detetar rostos humanos numa imagem.
+Neste guia de início rápido, você usará a API REST do Azure face com Java para detectar faces humanas em uma imagem.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
-- Qualquer Java IDE à sua escolha.
+- Qualquer Java IDE de sua escolha.
 
-## <a name="create-the-java-project"></a>Criar o projeto de Java
+## <a name="create-the-java-project"></a>Criar o projeto Java
 
-1. Crie uma nova aplicação de Java da linha de comandos no seu IDE e adicione um **Main** classe com um **principal** método.
+1. Crie um novo aplicativo Java de linha de comando em seu IDE e adicione uma classe **principal** com um método **Main** .
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
-   - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
-   - [Principais de Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
+   - [Cliente http do Apache](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: HttpClient: 4.5.6)
+   - [Núcleo http do Apache](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: httpcore: 4.4.10)
    - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-   - [Registo do Apache Commons](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (commons-registo: commons-registo: 1.1.2)
+   - [Log do Apache Commons](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (Commons – log: Commons-Logging: 1.1.2)
 
-## <a name="add-face-detection-code"></a>Adicione o código de detecção de rostos
+## <a name="add-face-detection-code"></a>Adicionar código de detecção facial
 
-Abra a classe principal do seu projeto. Aqui, irá adicionar o código necessário para carregar imagens e detetar rostos.
+Abra a classe principal do seu projeto. Aqui, você adicionará o código necessário para carregar imagens e detectar rostos.
 
 ### <a name="import-packages"></a>Importar pacotes
 
-Adicione o seguinte `import` declarações na parte superior do ficheiro.
+Adicione as instruções `import` a seguir à parte superior do arquivo.
 
 ```java
 // This sample uses Apache HttpComponents:
@@ -63,26 +63,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 ```
 
-### <a name="add-essential-fields"></a>Adicione campos essenciais
+### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
-Substitua a **Main** classe com o código a seguir. Estes dados especifica como se pode ligar para o serviço de rostos e onde obter os dados de entrada. Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de assinatura e poderá ter de alterar o `uriBase` , para que ele contém o identificador de região correto de cadeias de caracteres (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todas as regiões pontos de extremidade). Também pode ser útil definir o `imageWithFaces` valor para um caminho que aponta para um ficheiro de imagem diferentes.
+Substitua a classe **principal** pelo código a seguir. Esses dados especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o `subscriptionKey` campo com o valor de sua chave de assinatura e alterar a cadeia de `uriBase` caracteres para que ela contenha a cadeia de caracteres de ponto de extremidade correta. Talvez você também queira definir o `imageWithFaces` valor para um caminho que aponte para um arquivo de imagem diferente.
 
-O `faceAttributes` campo é simplesmente uma lista de determinados tipos de atributos. Ele irá especificar quais as informações para recuperar sobre os rostos detetados.
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+O `faceAttributes` campo é simplesmente uma lista de determinados tipos de atributos. Ele especificará quais informações serão recuperadas sobre as faces detectadas.
 
 ```Java
 public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westus" region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
     private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        "https://<My Endpoint String>.com/face/v1.0/detect";
 
     private static final String imageWithFaces =
         "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
@@ -91,9 +86,9 @@ public class Main {
         "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 ```
 
-### <a name="call-the-face-detection-rest-api"></a>Chamar a REST API de deteção de rostos
+### <a name="call-the-face-detection-rest-api"></a>Chamar a API REST de detecção facial
 
-Adicionar a **principal** método com o código a seguir. Ele constrói uma chamada REST para a API de rostos para detetar informações de rosto na imagem remota (o `faceAttributes` cadeia Especifica atributos de qual face deve obter). Em seguida, escreve os dados de saída para uma cadeia de caracteres do JSON.
+Adicione o método **Main** com o código a seguir. Ele constrói uma chamada REST para o API de detecção facial para detectar informações de face na imagem remota (a cadeia `faceAttributes` de caracteres especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
 
 ```Java
     public static void main(String[] args) {
@@ -127,7 +122,7 @@ Adicionar a **principal** método com o código a seguir. Ele constrói uma cham
 
 ### <a name="parse-the-json-response"></a>Analisar a resposta JSON
 
-Diretamente abaixo do código anterior, adicione o bloco seguinte, que converte os dados JSON retornados num formato mais facilmente legível antes imprimi-la na consola. Finalmente, fechar o bloco try-catch, a **principal** método e o **Main** classe.
+Diretamente abaixo do código anterior, adicione o bloco a seguir, que converte os dados JSON retornados em um formato mais fácil de ler antes de imprimi-lo no console. Finalmente, feche o bloco try-catch, o método **Main** e a classe **Main** .
 
 ```Java
             if (entity != null)
@@ -159,7 +154,7 @@ Diretamente abaixo do código anterior, adicione o bloco seguinte, que converte 
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-Compilar o código e executá-lo. Uma resposta com êxito irá apresentar dados de Face no formato de fácil leitura JSON na janela da consola. Por exemplo:
+Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de face em formato JSON facilmente legível na janela do console. Por exemplo:
 
 ```json
 [{
@@ -253,7 +248,7 @@ Compilar o código e executá-lo. Uma resposta com êxito irá apresentar dados 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou uma aplicação de consola Java simples que utiliza chamadas REST com a API Face do Azure para detetar rostos numa imagem e retornar seus atributos. Em seguida, Aprenda a fazer mais com esta funcionalidade num aplicativo Android.
+Neste guia de início rápido, você criou um aplicativo de console Java simples que usa chamadas REST com o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, saiba como fazer mais com essa funcionalidade em um aplicativo Android.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar uma aplicação Android para detetar e rostos de fotograma](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

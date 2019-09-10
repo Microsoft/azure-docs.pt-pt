@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972609"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845356"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurar gateways de VPN na rede CloudSimple
 
@@ -56,7 +56,7 @@ Um gateway de VPN ponto a site permite que você defina uma política de adiçã
     > [!WARNING]
     > Habilitar a alta disponibilidade exige que o dispositivo VPN local dê suporte à conexão com dois endereços IP. Esta opção não pode ser desabilitada depois que o gateway de VPN é implantado.
 
-5. Crie a primeira conexão de sua rede local e clique em **Avançar**
+5. Crie a primeira conexão de sua rede local e clique em **Avançar**.
 
     * Insira um nome para identificar a conexão.
     * Para o IP do par, insira o endereço IP público do gateway de VPN local.

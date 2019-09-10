@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192052"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860553"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 
@@ -30,10 +30,10 @@ Saiba mais sobre:
 
 * Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-* Crie um experimento de Machine Learning automatizado, seja com o SDK ou na portal do Azure.
+* Crie um experimento de aprendizado de máquina automatizado, seja com o SDK, na portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia).
 
     * Usar o SDK para criar um modelo de [classificação](how-to-auto-train-remote.md) ou um [modelo](tutorial-auto-train-models.md) de regressão
-    * Use o [portal do Azure](how-to-create-portal-experiments.md) para criar um modelo de classificação ou regressão carregando os dados apropriados.
+    * Use a [portal do Azure ou a página de aterrissagem do espaço de trabalho (versão prévia)](how-to-create-portal-experiments.md) para criar um modelo de classificação ou regressão carregando os dados apropriados.
 
 ## <a name="view-the-run"></a>Exibir a execução
 
@@ -53,7 +53,7 @@ Depois de executar um experimento de aprendizado de máquina automatizado, um hi
 
    Execução do experimento) [ ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)
 
-1. Na tabela iterações, selecione o **número** de iteração para o modelo que você deseja explorar ainda mais.
+1. Na tabela iterações, selecione o **número de iteração** para o modelo que você deseja explorar ainda mais.
 
    [![Modelo de experimento](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 

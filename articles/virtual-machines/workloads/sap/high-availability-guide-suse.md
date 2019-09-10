@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
 ms.openlocfilehash: 534a3e349faaa3a6ef5b6e01082564eda51936c1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70101039"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server para aplicativos SAP
@@ -75,7 +75,7 @@ Leia as seguintes notas e documentos SAP primeiro
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* Guias de práticas recomendadas do [SuSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
+* [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Descrição geral
@@ -1196,7 +1196,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de práticas rec
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

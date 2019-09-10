@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812299"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858713"
 ---
 # <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Acompanhe as métricas de treinamento do Machine Learning com Azure Machine Learning
 
@@ -273,7 +273,7 @@ Modelo de formação e monitorização ocorre em segundo plano para que possam e
 Pode ver as métricas de usar um modelo preparado ```run.get_metrics()```. Agora pode obter todas as métricas que foram registadas no exemplo acima para determinar o melhor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>Ver a experimentação no portal do Azure
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Exibir o experimento no portal do Azure ou na [página de aterrissagem do espaço de trabalho (visualização)](https://ml.azure.com)
 
 Quando uma experimentação estiver concluída em execução, pode navegar para a experimentação gravada executar o registo. Você pode acessar o histórico de duas maneiras:
 

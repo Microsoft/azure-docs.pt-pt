@@ -9,20 +9,20 @@ ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67184622"
 ---
 | Resource | Limite predefinido |
 | --- | :--- |
-| Clusters máximos por subscrição | 100 |
-| Número máximo de nós por cluster | 100 |
-| Pods máximas por nó: [Rede básica] [ basic-networking] com Kubenet | 110 |
-| Pods máximas por nó: [Advanced networking] [ advanced-networking] com Interface de rede de contentor do Azure | Implementação de CLI do Azure: 30<sup>1</sup><br />Modelo de Gestor de recursos do Azure: 30<sup>1</sup><br />Implementação do portal: 30 |
+| Máximo de clusters por assinatura | 100 |
+| Máximo de nós por cluster | 100 |
+| Máximo de pods por nó: [Sistema de rede básico][basic-networking] com Kubenet | 110 |
+| Máximo de pods por nó: [Rede avançada][advanced-networking] com a interface de rede de contêiner do Azure | Implantação de CLI do Azure: 30<sup>1</sup><br />Modelo de Azure Resource Manager: 30<sup>1</sup><br />Implantação do portal: 30 |
 
-<sup>1</sup>quando implementar um cluster do Azure Kubernetes Service (AKS) com a CLI do Azure ou um modelo do Resource Manager, este valor é configurável até 250 pods por nó. Não é possível configurar pods máximas por nó, depois de já implementar um cluster do AKS, ou se implementar um cluster com o portal do Azure.<br />
+<sup>1</sup> Quando você implanta um cluster do AKS (serviço kubernetes do Azure) com o CLI do Azure ou um modelo do Resource Manager, esse valor é configurado até 250 pods por nó. Não é possível configurar o pods máximo por nó depois que você já tiver implantado um cluster AKS ou se você implantar um cluster usando o portal do Azure.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

@@ -9,24 +9,24 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67184250"
 ---
-**Discos geridos de HDD padrão**
+**HDD Standard discos gerenciados**
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**Discos geridos de Standard SSD**
+**SSD Standard discos gerenciados**
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Premium SSD discos geridos: Limites de por disco**
+**SSD Premium discos gerenciados: Limites por disco**
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Premium SSD discos geridos: Limites de por VM**
+**SSD Premium discos gerenciados: Limites por VM**
 
 | Resource | Limite predefinido |
 | --- | --- |
-| IOPS máximo por VM |80.000 IOPS com GS5 VM |
-| Débito máximo por VM |2\.000 MB/s com GS5 VM |
+| IOPS máximo por VM |IOPS de 80.000 com VM GS5 |
+| Taxa de transferência máxima por VM |2\.000 MB/s com VM GS5 |

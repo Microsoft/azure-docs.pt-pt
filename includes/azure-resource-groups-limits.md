@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "69626384"
 ---
 | Resource | Limite predefinido | Limite máximo |

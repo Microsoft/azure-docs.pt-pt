@@ -1,412 +1,412 @@
 ---
-title: Vistas de base de dados no Azure Blockchain Workbench
-description: Descrição geral das vistas da base de dados de BD SQL do Azure Blockchain Workbench.
+title: Exibições de banco de dados na visualização do Azure Blockchain Workbench
+description: Visão geral das exibições do banco de dados SQL do Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/28/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 9071cf524a0f3d319d108cb5c961fa886cf8747f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d460d0d99642d11e4eb5755730400b509e94
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399907"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845034"
 ---
-# <a name="database-views-in-azure-blockchain-workbench"></a>Vistas de base de dados no Azure Blockchain Workbench
+# <a name="database-views-in-azure-blockchain-workbench-preview"></a>Exibições de banco de dados na visualização do Azure Blockchain Workbench
 
-O Azure Blockchain Workbench fornece dados de livros razão distribuídos para um *fora da cadeia* base de dados SQL DB. A base de dados fora da cadeia torna possível utilizar o SQL e ferramentas existentes, como [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interagir com dados de blockchain.
+A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interagir com os dados do blockchain.
 
-O Azure Blockchain Workbench fornece um conjunto de vistas de base de dados que fornecem acesso a dados que serão úteis ao executar as suas consultas. Essas exibições são bastante desnormalizadas para que seja fácil obter rapidamente começar a criar relatórios, análises e caso contrário, consumir dados de blockchain com as ferramentas existentes e sem ter de voltar a preparar a equipe de base de dados.
+O Azure Blockchain Workbench fornece um conjunto de modos de exibição de banco de dados que fornecem acesso ao dado que será útil ao executar suas consultas. Essas exibições são muito desnormalizadas para facilitar a criação rápida de relatórios, análises e, de outra forma, consumir dados de blockchain com ferramentas existentes e sem a necessidade de treinar novamente a equipe do banco.
 
-Esta secção inclui uma visão geral das vistas da base de dados e os dados que nelas contidos.
+Esta seção inclui uma visão geral das exibições do banco de dados e dos próprios dados que elas contêm.
 
 > [!NOTE]
-> Qualquer utilização direta das tabelas de base de dados encontrada na base de dados fora destas vistas, ainda que possível, não é suportada.
+> Qualquer uso direto de tabelas de banco de dados localizadas no banco de dados fora dessas exibições, embora possível, não tem suporte.
 >
 
 ## <a name="vwapplication"></a>vwApplication
 
-Esta vista fornece detalhes sobre **aplicativos** que tenha sido carregado para o Azure Blockchain Workbench.
+Esta exibição fornece detalhes sobre **os aplicativos** que foram carregados no Azure Blockchain Workbench.
 
-| Name                             | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Name                             | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |----------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                    | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                  | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDescription           | nvarchar(255) | Sim         | Uma descrição da aplicação |
-| ApplicationDisplayName           | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled               | bit           | Não          | Identifica se o aplicativo está atualmente ativado<br /> **Nota:** Mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados continuam a desenvolver o blockchain e dados sobre esses contratos permanecerem na base de dados. |
-| UploadedDtTm                     | datetime2(7)  | Não          | A data e hora de que um contrato foi carregado |
-| UploadedByUserId                 | int           | Não          | O ID do utilizador que carregou o aplicativo |
-| UploadedByUserExternalId         | nvarchar(255) | Não          | O identificador externo para o utilizador que carregou o aplicativo. Por predefinição, este ID é o utilizador do Azure Active Directory para o consortium.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | Não          | Identifica o estado atual do processo para o utilizador de aprovisionamento. Os valores possíveis são: <br />0 – o utilizador tiver sido criado pela API<br />1 – a chave foi associada com o utilizador na base de dados<br />2 – o utilizador esteja totalmente aprovisionado                         |
-| UploadedByUserFirstName          | nvarchar(50)  | Sim         | O primeiro nome do utilizador que carregou o contrato |
-| UploadedByUserLastName           | nvarchar(50)  | Sim         | O apelido do utilizador que carregou o contrato |
-| UploadedByUserEmailAddress       | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que carregou o contrato |
+| ApplicationId                    | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                  | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDescription           | nvarchar(255) | Sim         | Uma descrição do aplicativo |
+| ApplicationDisplayName           | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled               | bit           | Não          | Identifica se o aplicativo está habilitado no momento<br /> **Nota:** Embora um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecem no blockchain e os dados sobre esses contratos permanecem no banco de dado. |
+| UploadedDtTm                     | datetime2 (7)  | Não          | A data e a hora em que um contrato foi carregado |
+| UploadedByUserId                 | int           | Não          | A ID do usuário que carregou o aplicativo |
+| UploadedByUserExternalId         | nvarchar(255) | Não          | O identificador externo do usuário que carregou o aplicativo. Por padrão, essa ID é o usuário da Azure Active Directory para o consórcio.                                                                                                |
+| UploadedByUserProvisioningStatus | int           | Não          | Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi associada ao usuário no banco de dados<br />2 – o usuário está totalmente provisionado                         |
+| UploadedByUserFirstName          | nvarchar(50)  | Sim         | O nome do usuário que carregou o contrato |
+| UploadedByUserLastName           | nvarchar(50)  | Sim         | O último nome do usuário que carregou o contrato |
+| UploadedByUserEmailAddress       | nvarchar(255) | Sim         | O endereço de email do usuário que carregou o contrato |
 
 ## <a name="vwapplicationrole"></a>vwApplicationRole
 
-Esta vista fornece detalhes sobre as funções que foram definidas nas aplicações do Azure Blockchain Workbench.
+Esta exibição fornece detalhes sobre as funções que foram definidas nos aplicativos do Azure Blockchain Workbench.
 
-Num *Asset transferência* aplicativo, por exemplo, funções, como *comprador* e *vendedor* poderão ser definidas em funções.
+Em um aplicativo de *transferência de ativos* , por exemplo, funções como *compradores* e *vendedores* podem ser definidas.
 
-| Name                   | Tipo             | Pode ser nulo | Descrição                                       |
+| Name                   | Type             | Pode ser nulo | Descrição                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
-| ApplicationId          | int              | Não          | Um identificador exclusivo para a aplicação           |
-| ApplicationName        | nvarchar(50)     | Não          | O nome da aplicação                       |
-| ApplicationDescription | nvarchar(255)    | Sim         | Uma descrição da aplicação                  |
-| ApplicationDisplayName | nvarchar(255)    | Não          | O nome a apresentar numa interface de utilizador      |
-| RoleId                 | int              | Não          | Um identificador exclusivo para uma função na aplicação |
+| ApplicationId          | int              | Não          | Um identificador exclusivo para o aplicativo           |
+| ApplicationName        | nvarchar(50)     | Não          | O nome do aplicativo                       |
+| ApplicationDescription | nvarchar(255)    | Sim         | Uma descrição do aplicativo                  |
+| ApplicationDisplayName | nvarchar(255)    | Não          | O nome a ser exibido em uma interface do usuário      |
+| RoleId                 | int              | Não          | Um identificador exclusivo para uma função no aplicativo |
 | RoleName               | nvarchar50)      | Não          | O nome da função                              |
 | RoleDescription        | description(255) | Sim         | Uma descrição da função                         |
 
 ## <a name="vwapplicationroleuser"></a>vwApplicationRoleUser
 
-Esta vista fornece detalhes sobre as funções que foram definidas em aplicações do Azure Blockchain Workbench e os utilizadores associados a eles.
+Essa exibição fornece detalhes sobre as funções que foram definidas nos aplicativos do Azure Blockchain Workbench e os usuários associados a elas.
 
-Num *Asset transferir* aplicativo, por exemplo, *John Smith* podem ser associados a *comprador* função.
+Em um aplicativo de *transferência de ativos* , por exemplo, *John Smith* pode estar associado à função de *comprador* .
 
-| Name                       | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
+| Name                       | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId              | int           | Não          | Um identificador exclusivo para a aplicação                                                                                                                                                                                               |
-| ApplicationName            | nvarchar(50)  | Não          | O nome da aplicação                                                                                                                                                                                                           |
-| ApplicationDescription     | nvarchar(255) | Sim         | Uma descrição da aplicação                                                                                                                                                                                                      |
-| ApplicationDisplayName     | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador                                                                                                                                                                                          |
-| ApplicationRoleId          | int           | Não          | Um identificador exclusivo para uma função na aplicação                                                                                                                                                                                     |
+| ApplicationId              | int           | Não          | Um identificador exclusivo para o aplicativo                                                                                                                                                                                               |
+| ApplicationName            | nvarchar(50)  | Não          | O nome do aplicativo                                                                                                                                                                                                           |
+| ApplicationDescription     | nvarchar(255) | Sim         | Uma descrição do aplicativo                                                                                                                                                                                                      |
+| ApplicationDisplayName     | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário                                                                                                                                                                                          |
+| ApplicationRoleId          | int           | Não          | Um identificador exclusivo para uma função no aplicativo                                                                                                                                                                                     |
 | ApplicationRoleName        | nvarchar50)   | Não          | O nome da função                                                                                                                                                                                                                  |
 | ApplicationRoleDescription | nvarchar(255) | Sim         | Uma descrição da função                                                                                                                                                                                                             |
-| UserId                     | int           | Não          | O ID do utilizador associado à função |
-| UserExternalId             | nvarchar(255) | Não          | O identificador externo para o utilizador que está associado com a função. Por predefinição, este ID é o utilizador do Azure Active Directory para o consortium.                                                                     |
-| UserProvisioningStatus     | int           | Não          | Identifica o estado atual do processo para o utilizador de aprovisionamento. Os valores possíveis são: <br />0 – o utilizador tiver sido criado pela API<br />1 – a chave foi associada com o utilizador na base de dados<br />2 – o utilizador esteja totalmente aprovisionado |
-| UserFirstName              | nvarchar(50)  | Sim         | O primeiro nome do utilizador que está associado com a função |
-| UserLastName               | nvarchar(255) | Sim         | O apelido do utilizador que está associado com a função |
-| UserEmailAddress           | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que está associado com a função |
+| UserId                     | int           | Não          | A ID do usuário associado à função |
+| Userexternalsourceid             | nvarchar(255) | Não          | O identificador externo para o usuário que está associado à função. Por padrão, essa ID é o usuário da Azure Active Directory para o consórcio.                                                                     |
+| UserProvisioningStatus     | int           | Não          | Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi associada ao usuário no banco de dados<br />2 – o usuário está totalmente provisionado |
+| UserFirstName              | nvarchar(50)  | Sim         | O nome do usuário que está associado à função |
+| UserLastName               | nvarchar(255) | Sim         | O último nome do usuário que está associado à função |
+| UserEmailAddress           | nvarchar(255) | Sim         | O endereço de email do usuário que está associado à função |
 
 ## <a name="vwconnectionuser"></a>vwConnectionUser
 
-Esta vista fornece detalhes sobre as conexões definidas no Azure Blockchain Workbench e os utilizadores associados a eles. Para cada ligação, esta vista contém os seguintes dados:
+Esta exibição fornece detalhes sobre as conexões definidas no Azure Blockchain Workbench e os usuários associados a elas. Para cada conexão, essa exibição contém os seguintes dados:
 
--   Detalhes de contabilidade associada
--   Informações de utilizador associado
+-   Detalhes do razão associado
+-   Informações do usuário associado
 
-| Name                     | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
+| Name                     | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
 |--------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ConnectionId             | int           | Não          | O identificador exclusivo para uma ligação no Azure Blockchain Workbench |
-| ConnectionEndpointUrl    | nvarchar(50)  | Não          | O url do ponto final de uma ligação |
-| ConnectionFundingAccount | nvarchar(255) | Sim         | A conta de financiamento associada com uma ligação, se aplicável |
-| LedgerId                 | int           | Não          | O identificador exclusivo de um livro razão |
+| connectionId             | int           | Não          | O identificador exclusivo para uma conexão no Azure Blockchain Workbench |
+| ConnectionEndpointUrl    | nvarchar(50)  | Não          | A URL do ponto de extremidade para uma conexão |
+| ConnectionFundingAccount | nvarchar(255) | Sim         | A conta de financiamento associada a uma conexão, se aplicável |
+| LedgerId                 | int           | Não          | O identificador exclusivo de um razão |
 | LedgerName               | nvarchar(50)  | Não          | O nome do razão |
-| LedgerDisplayName        | nvarchar(255) | Não          | O nome do razão a apresentar na interface do Usuário |
-| UserId                   | int           | Não          | O ID do utilizador associado à ligação |
-| UserExternalId           | nvarchar(255) | Não          | O identificador externo para o utilizador que está associado com a ligação. Por predefinição, este ID é o utilizador do Azure Active Directory para o consortium. |
-| UserProvisioningStatus   | int           | Não          |Identifica o estado atual do processo para o utilizador de aprovisionamento. Os valores possíveis são: <br />0 – o utilizador tiver sido criado pela API<br />1 – a chave foi associada com o utilizador na base de dados<br />2 – o utilizador esteja totalmente aprovisionado |
-| UserFirstName            | nvarchar(50)  | Sim         | O primeiro nome do utilizador que está associado com a ligação |
-| UserLastName             | nvarchar(255) | Sim         | O apelido do utilizador que está associado com a ligação |
-| UserEmailAddress         | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que está associado com a ligação |
+| LedgerDisplayName        | nvarchar(255) | Não          | O nome do razão a ser exibido na interface do usuário |
+| UserId                   | int           | Não          | A ID do usuário associado à conexão |
+| Userexternalsourceid           | nvarchar(255) | Não          | O identificador externo para o usuário que está associado à conexão. Por padrão, essa ID é o usuário da Azure Active Directory para o consórcio. |
+| UserProvisioningStatus   | int           | Não          |Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi associada ao usuário no banco de dados<br />2 – o usuário está totalmente provisionado |
+| UserFirstName            | nvarchar(50)  | Sim         | O nome do usuário que está associado à conexão |
+| UserLastName             | nvarchar(255) | Sim         | O último nome do usuário que está associado à conexão |
+| UserEmailAddress         | nvarchar(255) | Sim         | O endereço de email do usuário que está associado à conexão |
 
 ## <a name="vwcontract"></a>vwContract
 
-Esta vista fornece detalhes sobre os contratos implementados. Para cada contrato, esta vista contém os seguintes dados:
+Esta exibição fornece detalhes sobre os contratos implantados. Para cada contrato, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
--   Implementação de contabilidade associada para a função
--   Detalhes para o utilizador que iniciou a ação
--   Detalhes relacionados com o bloco de blockchain e transação
+-   Implementação do razão associada para a função
+-   Detalhes do usuário que iniciou a ação
+-   Detalhes relacionados ao bloco e à transação do blockchain
 
-| Name                                     | Tipo           | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Name                                     | Type           | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |------------------------------------------|----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ConnectionId                             | int            | Não          | O identificador exclusivo para uma ligação no Azure Blockchain Workbench.                                                                                                                                                                                         |
-| ConnectionEndpointUrl                    | nvarchar(50)   | Não          | O url do ponto final de uma ligação |
-| ConnectionFundingAccount                 | nvarchar(255)  | Sim         | A conta de financiamento associada com uma ligação, se aplicável |
-| LedgerId                                 | int            | Não          | O identificador exclusivo de um livro razão |
+| connectionId                             | int            | Não          | O identificador exclusivo para uma conexão no Azure Blockchain Workbench.                                                                                                                                                                                         |
+| ConnectionEndpointUrl                    | nvarchar(50)   | Não          | A URL do ponto de extremidade para uma conexão |
+| ConnectionFundingAccount                 | nvarchar(255)  | Sim         | A conta de financiamento associada a uma conexão, se aplicável |
+| LedgerId                                 | int            | Não          | O identificador exclusivo de um razão |
 | LedgerName                               | nvarchar(50)   | Não          | O nome do razão |
-| LedgerDisplayName                        | nvarchar(255)  | Não          | O nome do razão a apresentar na interface do Usuário |
-| ApplicationId                            | int            | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                          | nvarchar (50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName                   | nvarchar (255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled                       | bit            | Não          | Identifica se o aplicativo está atualmente ativado.<br /> **Nota:** Mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados continuam a desenvolver o blockchain e dados sobre esses contratos permanecerem na base de dados.  |
-| WorkflowId                               | int            | Não          | Um identificador exclusivo para o fluxo de trabalho associado com um contrato |
-| WorkflowName                             | nvarchar(50)   | Não          | O nome do fluxo de trabalho associado com um contrato |
-| WorkflowDisplayName                      | nvarchar(255)  | Não          | O nome do fluxo de trabalho associado com o contrato exibido na interface do usuário |
-| WorkflowDescription                      | nvarchar(255)  | Sim         | A descrição do fluxo de trabalho associado com um contrato |
-| ContractCodeId                           | int            | Não          | Um identificador exclusivo para o código de contrato associado o contrato |
-| ContractFileName                         | int            | Não          | O nome do ficheiro que contém o código de contrato inteligente para este fluxo de trabalho. |
-| ContractUploadedDtTm                     | int            | Não          | A data e hora, que o código de contrato foi carregado |
-| ContractId                               | int            | Não          | O identificador exclusivo para o contrato |
-| ContractProvisioningStatus               | int            | Não          | Identifica o estado atual do processo de aprovisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API na base de dados<br />1 – o contrato foi enviado ao razão<br />2 – o contrato foi implementado com êxito ao razão<br />3 ou 4 - o contrato de falha para implementação em razão<br />5 - o contrato foi implementado com êxito ao razão <br /><br />A partir da versão 1.5, são suportados valores de 0 a 5. Para efeitos compatibilidade na versão atual, modo de exibição **vwContractV0** está disponível-se de que apenas suporta valores 2 por meio de 0. |
-| ContractLedgerIdentifier                 | nvarchar (255) |             | O endereço de e-mail do utilizador que implementaram o contrato |
-| ContractDeployedByUserId                 | int            | Não          | Um identificador externo para o utilizador que implementaram o contrato. Por predefinição, este ID é o guid que representa a ID do Azure Active Directory para o utilizador.                                                                                                          |
-| ContractDeployedByUserExternalId         | nvarchar(255)  | Não          | Um identificador externo para o utilizador que implementado o contrato. Por predefinição, este ID é o guid que representa a ID do Azure Active Directory para o utilizador.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | Não          | Identifica o estado atual do processo de aprovisionamento para o utilizador. Os valores possíveis são: <br />0 – o utilizador tiver sido criado pela API<br />1 – a chave foi associada com o utilizador na base de dados <br />2 – o utilizador esteja totalmente aprovisionado                     |
-| ContractDeployedByUserFirstName          | nvarchar(50)   | Sim         | O primeiro nome do utilizador que implementaram o contrato |
-| ContractDeployedByUserLastName           | nvarchar(255)  | Sim         | O apelido do utilizador que implementaram o contrato |
-| ContractDeployedByUserEmailAddress       | nvarchar(255)  | Sim         | O endereço de e-mail do utilizador que implementaram o contrato |
+| LedgerDisplayName                        | nvarchar(255)  | Não          | O nome do razão a ser exibido na interface do usuário |
+| ApplicationId                            | int            | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                          | nvarchar (50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName                   | nvarchar (255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled                       | bit            | Não          | Identifica se o aplicativo está habilitado no momento.<br /> **Nota:** Embora um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecem no blockchain e os dados sobre esses contratos permanecem no banco de dado.  |
+| WorkflowId                               | int            | Não          | Um identificador exclusivo para o fluxo de trabalho associado a um contrato |
+| workflowName                             | nvarchar(50)   | Não          | O nome do fluxo de trabalho associado a um contrato |
+| WorkflowDisplayName                      | nvarchar(255)  | Não          | O nome do fluxo de trabalho associado ao contrato exibido na interface do usuário |
+| WorkflowDescription                      | nvarchar(255)  | Sim         | A descrição do fluxo de trabalho associado a um contrato |
+| ContractCodeId                           | int            | Não          | Um identificador exclusivo para o código de contrato associado ao contrato |
+| ContractFileName                         | int            | Não          | O nome do arquivo que contém o código do contrato inteligente para este fluxo de trabalho. |
+| ContractUploadedDtTm                     | int            | Não          | A data e a hora em que o código do contrato foi carregado |
+| contractId                               | int            | Não          | O identificador exclusivo do contrato |
+| ContractProvisioningStatus               | int            | Não          | Identifica o status atual do processo de provisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API no banco de dados<br />1 – o contrato foi enviado para o razão<br />2 – o contrato foi implantado com êxito no razão<br />3 ou 4-o contrato falhou ao ser implantado no razão<br />5-o contrato foi implantado com êxito no razão <br /><br />A partir da versão 1,5, há suporte para os valores de 0 a 5. Para compatibilidade com versões anteriores na versão atual, a exibição **vwContractV0** está disponível e só dá suporte a valores de 0 a 2. |
+| ContractLedgerIdentifier                 | nvarchar (255) |             | O endereço de email do usuário que implantou o contrato |
+| ContractDeployedByUserId                 | int            | Não          | Um identificador externo para o usuário que implantou o contrato. Por padrão, essa ID é o GUID que representa a ID de Azure Active Directory para o usuário.                                                                                                          |
+| ContractDeployedByUserExternalId         | nvarchar(255)  | Não          | Um identificador externo para o usuário que implantou o contrato. Por padrão, essa ID é o GUID que representa a ID de Azure Active Directory para o usuário.                                                                                                         |
+| ContractDeployedByUserProvisioningStatus | int            | Não          | Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi associada ao usuário no banco de dados <br />2 – o usuário está totalmente provisionado                     |
+| ContractDeployedByUserFirstName          | nvarchar(50)   | Sim         | O nome do usuário que implantou o contrato |
+| ContractDeployedByUserLastName           | nvarchar(255)  | Sim         | O último nome do usuário que implantou o contrato |
+| ContractDeployedByUserEmailAddress       | nvarchar(255)  | Sim         | O endereço de email do usuário que implantou o contrato |
 
 ## <a name="vwcontractaction"></a>vwContractAction
 
-Esta vista representa a maioria das informações relacionadas com ações executadas nos contratos e foi desenvolvida para facilitar prontamente cenários comuns de geração de relatórios. Para cada ação executada, esta vista contém os seguintes dados:
+Essa exibição representa a maioria das informações relacionadas às ações executadas em contratos e é projetada para facilitar prontamente cenários comuns de relatórios. Para cada ação executada, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
--   Associado à definição de função e o parâmetro de contrato inteligente
--   Implementação de contabilidade associada para a função
--   Valores de instância específica que forneceu para os parâmetros
--   Detalhes para o utilizador que iniciou a ação
--   Detalhes relacionados com o bloco de blockchain e transação
+-   Definição de parâmetro e função de contrato inteligente associada
+-   Implementação do razão associada para a função
+-   Valores de instância específicos fornecidos para parâmetros
+-   Detalhes do usuário que iniciou a ação
+-   Detalhes relacionados ao bloco e à transação do blockchain
 
-| Name                                     | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                                                    |
+| Name                                     | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                                                    |
 |------------------------------------------|---------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                            | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                          | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName                   | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled                       | bit           | Não          | Este campo identifica se o aplicativo está atualmente ativado. Tenha em atenção – mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados permanecem a desenvolver o blockchain e os dados sobre esses contratos permanecem na base de dados.                                                  |
+| ApplicationId                            | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                          | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName                   | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled                       | bit           | Não          | Este campo identifica se o aplicativo está habilitado no momento. Observação – mesmo que um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecerão no blockchain e os dados sobre esses contratos permanecerão no banco de dado.                                                  |
 | WorkflowId                               | int           | Não          | Um identificador exclusivo para um fluxo de trabalho |
-| WorkflowName                             | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
-| WorkflowDisplayName                      | nvarchar(255) | Não          | O nome do fluxo de trabalho para exibir numa interface de utilizador |
+| workflowName                             | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| WorkflowDisplayName                      | nvarchar(255) | Não          | O nome do fluxo de trabalho a ser exibido em uma interface do usuário |
 | WorkflowDescription                      | nvarchar(255) | Sim         | A descrição do fluxo de trabalho |
-| ContractId                               | int           | Não          | Um identificador exclusivo para o contrato |
-| ContractProvisioningStatus               | int           | Não          | Identifica o estado atual do processo de aprovisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API na base de dados<br />1 – o contrato foi enviado ao razão<br />2 – o contrato foi implementado com êxito ao razão<br />3 ou 4 - o contrato de falha para implementação em razão<br />5 - o contrato foi implementado com êxito ao razão <br /><br />A partir da versão 1.5, são suportados valores de 0 a 5. Para efeitos compatibilidade na versão atual, modo de exibição **vwContractActionV0** está disponível-se de que apenas suporta valores 2 por meio de 0. |
-| ContractCodeId                           | int           | Não          | Um identificador exclusivo para a implementação de código do contrato |
-| ContractLedgerIdentifier                 | nvarchar(255) | Sim         | Um identificador exclusivo associado com a versão implementada de um contrato inteligente para um livro razão distribuído específico. Por exemplo, Ethereum. |
-| ContractDeployedByUserId                 | int           | Não          | O identificador exclusivo do utilizador que o contrato de implementadas |
-| ContractDeployedByUserFirstName          | nvarchar(50)  | Sim         | Nome próprio do utilizador que implementaram o contrato |
-| ContractDeployedByUserLastName           | nvarchar(255) | Sim         | Apelido do utilizador que implementaram o contrato |
-| ContractDeployedByUserExternalId         | nvarchar(255) | Não          | Identificador externo do utilizador que implementaram o contrato. Por predefinição, este ID é o guid que representa a identidade no consortium do Azure Active Directory.                                                                                                                                                |
-| ContractDeployedByUserEmailAddress       | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que implementaram o contrato |
+| contractId                               | int           | Não          | Um identificador exclusivo para o contrato |
+| ContractProvisioningStatus               | int           | Não          | Identifica o status atual do processo de provisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API no banco de dados<br />1 – o contrato foi enviado para o razão<br />2 – o contrato foi implantado com êxito no razão<br />3 ou 4-o contrato falhou ao ser implantado no razão<br />5-o contrato foi implantado com êxito no razão <br /><br />A partir da versão 1,5, há suporte para os valores de 0 a 5. Para compatibilidade com versões anteriores na versão atual, a exibição **vwContractActionV0** está disponível e só dá suporte a valores de 0 a 2. |
+| ContractCodeId                           | int           | Não          | Um identificador exclusivo para a implementação do código do contrato |
+| ContractLedgerIdentifier                 | nvarchar(255) | Sim         | Um identificador exclusivo associado à versão implantada de um contrato inteligente para um razão distribuído específico. Por exemplo, Ethereum. |
+| ContractDeployedByUserId                 | int           | Não          | O identificador exclusivo do usuário que implantou o contrato |
+| ContractDeployedByUserFirstName          | nvarchar(50)  | Sim         | Nome do usuário que implantou o contrato |
+| ContractDeployedByUserLastName           | nvarchar(255) | Sim         | Sobrenome do usuário que implantou o contrato |
+| ContractDeployedByUserExternalId         | nvarchar(255) | Não          | Identificador externo do usuário que implantou o contrato. Por padrão, essa ID é o GUID que representa sua identidade no Azure Active Directory do consórcio.                                                                                                                                                |
+| ContractDeployedByUserEmailAddress       | nvarchar(255) | Sim         | O endereço de email do usuário que implantou o contrato |
 | WorkflowFunctionId                       | int           | Não          | Um identificador exclusivo para uma função de fluxo de trabalho |
 | WorkflowFunctionName                     | nvarchar(50)  | Não          | O nome da função |
-| WorkflowFunctionDisplayName              | nvarchar(255) | Não          | O nome de uma função a ser exibido na interface do usuário |
+| WorkflowFunctionDisplayName              | nvarchar(255) | Não          | O nome de uma função a ser exibida na interface do usuário |
 | WorkflowFunctionDescription              | nvarchar(255) | Não          | A descrição da função |
 | ContractActionId                         | int           | Não          | O identificador exclusivo para uma ação de contrato |
-| ContractActionProvisioningStatus         | int           | Não          | Identifica o estado atual do processo de aprovisionamento para a ação de contrato. Os valores possíveis são: <br />0 – a ação de contrato ter sido criada pela API na base de dados<br />1 – a ação de contrato foi enviada ao razão<br />2 – a ação de contrato foi implementada com êxito ao razão<br />3 ou 4 - o contrato de falha para implementação em razão<br />5 - o contrato foi implementado com êxito ao razão <br /><br />A partir da versão 1.5, são suportados valores de 0 a 5. Para efeitos compatibilidade na versão atual, modo de exibição **vwContractActionV0** está disponível-se de que apenas suporta valores 2 por meio de 0. |
-| ContractActionTimestamp                  | datetime(2,7) | Não          | O carimbo de hora da ação de contrato |
-| ContractActionExecutedByUserId           | int           | Não          | Identificador exclusivo do utilizador que executou a ação de contrato |
-| ContractActionExecutedByUserFirstName    | int           | Sim         | Nome próprio do utilizador que executou a ação de contrato |
-| ContractActionExecutedByUserLastName     | nvarchar(50)  | Sim         | Apelido do utilizador que executou a ação de contrato |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Sim         | Identificador externo do utilizador que executou a ação de contrato. Por predefinição, este ID é o guid que representa a identidade no consortium do Azure Active Directory. |
-| ContractActionExecutedByUserEmailAddress | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que executou a ação de contrato |
+| ContractActionProvisioningStatus         | int           | Não          | Identifica o status atual do processo de provisionamento para a ação de contrato. Os valores possíveis são: <br />0 – a ação de contrato foi criada pela API no banco de dados<br />1 – a ação de contrato foi enviada para o razão<br />2 – a ação de contrato foi implantada com êxito no razão<br />3 ou 4-o contrato falhou ao ser implantado no razão<br />5-o contrato foi implantado com êxito no razão <br /><br />A partir da versão 1,5, há suporte para os valores de 0 a 5. Para compatibilidade com versões anteriores na versão atual, a exibição **vwContractActionV0** está disponível e só dá suporte a valores de 0 a 2. |
+| ContractActionTimestamp                  | DateTime (2, 7) | Não          | O carimbo de data/hora da ação do contrato |
+| ContractActionExecutedByUserId           | int           | Não          | Identificador exclusivo do usuário que executou a ação de contrato |
+| ContractActionExecutedByUserFirstName    | int           | Sim         | Nome do usuário que executou a ação de contrato |
+| ContractActionExecutedByUserLastName     | nvarchar(50)  | Sim         | Sobrenome do usuário que executou a ação de contrato |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | Sim         | Identificador externo do usuário que executou a ação de contrato. Por padrão, essa ID é o GUID que representa sua identidade no Azure Active Directory do consórcio. |
+| ContractActionExecutedByUserEmailAddress | nvarchar(255) | Sim         | O endereço de email do usuário que executou a ação de contrato |
 | WorkflowFunctionParameterId              | int           | Não          | Um identificador exclusivo para um parâmetro da função |
 | WorkflowFunctionParameterName            | nvarchar(50)  | Não          | O nome de um parâmetro da função |
 | WorkflowFunctionParameterDisplayName     | nvarchar(255) | Não          | O nome de um parâmetro de função a ser exibido na interface do usuário |
-| WorkflowFunctionParameterDataTypeId      | int           | Não          | O identificador exclusivo para o tipo de dados associado um parâmetro de função de fluxo de trabalho |
+| WorkflowFunctionParameterDataTypeId      | int           | Não          | O identificador exclusivo para o tipo de dados associado a um parâmetro de função de fluxo de trabalho |
 | WorkflowParameterDataTypeName            | nvarchar(50)  | Não          | O nome de um tipo de dados associado a um parâmetro de função de fluxo de trabalho |
-| ContractActionParameterValue             | nvarchar(255) | Não          | O valor para o parâmetro armazenado no contrato de inteligente |
-| BlockHash                                | nvarchar(255) | Sim         | O hash do bloco |
-| BlockNumber                              | int           | Sim         | O número de blocos no razão |
-| BlockTimestamp                           | datetime(2,7) | Sim         | O carimbo de data / hora do bloco |
+| ContractActionParameterValue             | nvarchar(255) | Não          | O valor do parâmetro armazenado no contrato inteligente |
+| blockHash                                | nvarchar(255) | Sim         | O hash do bloco |
+| blockNumber                              | int           | Sim         | O número do bloco no razão |
+| blockTimestamp                           | DateTime (2, 7) | Sim         | O carimbo de data/hora do bloco |
 | TransactionId                            | int           | Não          | Um identificador exclusivo para a transação |
 | TransactionFrom                          | nvarchar(255) | Sim         | A parte que originou a transação |
 | TransactionTo                            | nvarchar(255) | Sim         | A parte que foi transacionada com |
-| TransactionHash                          | nvarchar(255) | Sim         | O hash de uma transação |
-| TransactionIsWorkbenchTransaction        | bit           | Sim         | Um pouco que identifica se a transação é uma transação de Azure Blockchain Workbench |
-| TransactionProvisioningStatus            | int           | Sim         | Identifica o estado atual do processo de aprovisionamento para a transação. Os valores possíveis são: <br />0 – a transação foi criada pela API na base de dados<br />1 – a transação foi enviada ao razão<br />2 – a transação foi implementada com êxito ao razão                 |
-| TransactionValue                         | decimal(32,2) | Sim         | O valor da transação |
+| transactionHash                          | nvarchar(255) | Sim         | O hash de uma transação |
+| TransactionIsWorkbenchTransaction        | bit           | Sim         | Um bit que identifica se a transação é uma transação do Azure Blockchain Workbench |
+| TransactionProvisioningStatus            | int           | Sim         | Identifica o status atual do processo de provisionamento para a transação. Os valores possíveis são: <br />0 – a transação foi criada pela API no banco de dados<br />1 – a transação foi enviada para o razão<br />2 – a transação foi implantada com êxito no razão                 |
+| Transação                         | decimal (32, 2) | Sim         | O valor da transação |
 
 ## <a name="vwcontractproperty"></a>vwContractProperty
 
-Esta vista representa a maioria das informações relacionadas com a propriedades associadas a um contrato e foi desenvolvida para facilitar prontamente cenários comuns de geração de relatórios. Para cada propriedade tomada, esta vista contém os seguintes dados:
+Essa exibição representa a maioria das informações relacionadas às propriedades associadas a um contrato e é projetada para facilitar prontamente cenários comuns de relatórios. Para cada propriedade obtida, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
--   Detalhes para o utilizador que implementaram o fluxo de trabalho
--   Associado à definição de propriedade de contrato inteligente
--   Valores de instância específica para propriedades
--   Detalhes para a propriedade de estado do contrato
+-   Detalhes do usuário que implantou o fluxo de trabalho
+-   Definição de propriedade de contrato inteligente associada
+-   Valores de instância específicos para propriedades
+-   Detalhes da propriedade de estado do contrato
 
-| Name                               | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
+| Name                               | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                      | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                    | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName             | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled                 | bit           | Não          | Identifica se o aplicativo está atualmente ativado.<br />**Nota:** Mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados continuam a desenvolver o blockchain e dados sobre esses contratos permanecerem na base de dados.                      |
-| WorkflowId                         | int           | Não          | O identificador exclusivo para o fluxo de trabalho |
-| WorkflowName                       | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| ApplicationId                      | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                    | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName             | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled                 | bit           | Não          | Identifica se o aplicativo está habilitado no momento.<br />**Nota:** Embora um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecem no blockchain e os dados sobre esses contratos permanecem no banco de dado.                      |
+| WorkflowId                         | int           | Não          | O identificador exclusivo do fluxo de trabalho |
+| workflowName                       | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
 | WorkflowDisplayName                | nvarchar(255) | Não          | O nome do fluxo de trabalho exibido na interface do usuário |
 | WorkflowDescription                | nvarchar(255) | Sim         | A descrição do fluxo de trabalho |
-| ContractId                         | int           | Não          | O identificador exclusivo para o contrato |
-| ContractProvisioningStatus         | int           | Não          | Identifica o estado atual do processo de aprovisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API na base de dados<br />1 – o contrato foi enviado ao razão<br />2 – o contrato foi implementado com êxito ao razão<br />3 ou 4 - o contrato de falha para implementação em razão<br />5 - o contrato foi implementado com êxito ao razão <br /><br />A partir da versão 1.5, são suportados valores de 0 a 5. Para efeitos compatibilidade na versão atual, modo de exibição **vwContractPropertyV0** está disponível-se de que apenas suporta valores 2 por meio de 0. |
-| ContractCodeId                     | int           | Não          | Um identificador exclusivo para a implementação de código do contrato |
-| ContractLedgerIdentifier           | nvarchar(255) | Sim         | Um identificador exclusivo associado com a versão implementada de um contrato inteligente para um livro razão distribuído específico. Por exemplo, Ethereum. |
-| ContractDeployedByUserId           | int           | Não          | O identificador exclusivo do utilizador que o contrato de implementadas |
-| ContractDeployedByUserFirstName    | nvarchar(50)  | Sim         | Nome próprio do utilizador que implementaram o contrato |
-| ContractDeployedByUserLastName     | nvarchar(255) | Sim         | Apelido do utilizador que implementaram o contrato |
-| ContractDeployedByUserExternalId   | nvarchar(255) | Não          | Identificador externo do utilizador que implementaram o contrato. Por predefinição, este ID é o guid que representa a identidade no consortium do Azure Active Directory |
-| ContractDeployedByUserEmailAddress | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que implementaram o contrato |
-| WorkflowPropertyId                 | int           |             | Um identificador exclusivo para uma propriedade de um fluxo de trabalho |
-| WorkflowPropertyDataTypeId         | int           | Não          | O ID do tipo de dados da propriedade |
+| contractId                         | int           | Não          | O identificador exclusivo do contrato |
+| ContractProvisioningStatus         | int           | Não          | Identifica o status atual do processo de provisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API no banco de dados<br />1 – o contrato foi enviado para o razão<br />2 – o contrato foi implantado com êxito no razão<br />3 ou 4-o contrato falhou ao ser implantado no razão<br />5-o contrato foi implantado com êxito no razão <br /><br />A partir da versão 1,5, há suporte para os valores de 0 a 5. Para compatibilidade com versões anteriores na versão atual, a exibição **vwContractPropertyV0** está disponível e só dá suporte a valores de 0 a 2. |
+| ContractCodeId                     | int           | Não          | Um identificador exclusivo para a implementação do código do contrato |
+| ContractLedgerIdentifier           | nvarchar(255) | Sim         | Um identificador exclusivo associado à versão implantada de um contrato inteligente para um razão distribuído específico. Por exemplo, Ethereum. |
+| ContractDeployedByUserId           | int           | Não          | O identificador exclusivo do usuário que implantou o contrato |
+| ContractDeployedByUserFirstName    | nvarchar(50)  | Sim         | Nome do usuário que implantou o contrato |
+| ContractDeployedByUserLastName     | nvarchar(255) | Sim         | Sobrenome do usuário que implantou o contrato |
+| ContractDeployedByUserExternalId   | nvarchar(255) | Não          | Identificador externo do usuário que implantou o contrato. Por padrão, essa ID é o GUID que representa sua identidade no consórcio Azure Active Directory |
+| ContractDeployedByUserEmailAddress | nvarchar(255) | Sim         | O endereço de email do usuário que implantou o contrato |
+| workflowPropertyId                 | int           |             | Um identificador exclusivo para uma propriedade de um fluxo de trabalho |
+| WorkflowPropertyDataTypeId         | int           | Não          | A ID do tipo de dados da propriedade |
 | WorkflowPropertyDataTypeName       | nvarchar(50)  | Não          | O nome do tipo de dados da propriedade |
 | WorkflowPropertyName               | nvarchar(50)  | Não          | O nome da propriedade de fluxo de trabalho |
-| WorkflowPropertyDisplayName        | nvarchar(255) | Não          | O nome a apresentar da propriedade de fluxo de trabalho |
+| WorkflowPropertyDisplayName        | nvarchar(255) | Não          | O nome de exibição da propriedade de fluxo de trabalho |
 | WorkflowPropertyDescription        | nvarchar(255) | Sim         | Uma descrição da propriedade |
-| ContractPropertyValue              | nvarchar(255) | Não          | O valor para uma propriedade no contrato |
-| StateName                          | nvarchar(50)  | Sim         | Se esta propriedade contém o estado do contrato, é o nome a apresentar para o estado. Se não for associado com o estado, o valor será nulo. |
-| StateDisplayName                   | nvarchar(255) | Não          | Se esta propriedade contém o estado, é o nome a apresentar para o estado. Se não for associado com o estado, o valor será nulo. |
-| StateValue                         | nvarchar(255) | Sim         | Se esta propriedade contém o estado, é o valor de estado. Se não for associado com o estado, o valor será nulo. |
+| ContractPropertyValue              | nvarchar(255) | Não          | O valor de uma propriedade no contrato |
+| StateName                          | nvarchar(50)  | Sim         | Se essa propriedade contiver o estado do contrato, será o nome de exibição do estado. Se não estiver associado ao estado, o valor será NULL. |
+| StateDisplayName                   | nvarchar(255) | Não          | Se essa propriedade contiver o estado, será o nome de exibição do estado. Se não estiver associado ao estado, o valor será NULL. |
+| Estadovalue                         | nvarchar(255) | Sim         | Se essa propriedade contiver o estado, será o valor de estado. Se não estiver associado ao estado, o valor será NULL. |
 
 ## <a name="vwcontractstate"></a>vwContractState
 
-Esta vista representa a maioria das informações relacionadas com o estado de um contrato específico e foi desenvolvida para facilitar prontamente cenários comuns de geração de relatórios. Cada registo nesta vista contém os seguintes dados:
+Essa exibição representa a maioria das informações relacionadas ao estado de um contrato específico e é projetada para facilitar prontamente cenários comuns de relatórios. Cada registro nessa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
--   Detalhes para o utilizador que implementaram o fluxo de trabalho
--   Associado à definição de propriedade de contrato inteligente
--   Detalhes para a propriedade de estado do contrato
+-   Detalhes do usuário que implantou o fluxo de trabalho
+-   Definição de propriedade de contrato inteligente associada
+-   Detalhes da propriedade de estado do contrato
 
-| Name                               | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
+| Name                               | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                      | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                    | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName             | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled                 | bit           | Não          | Identifica se o aplicativo está atualmente ativado.<br />**Nota:** Mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados continuam a desenvolver o blockchain e dados sobre esses contratos permanecerem na base de dados. |
+| ApplicationId                      | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                    | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName             | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled                 | bit           | Não          | Identifica se o aplicativo está habilitado no momento.<br />**Nota:** Embora um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecem no blockchain e os dados sobre esses contratos permanecem no banco de dado. |
 | WorkflowId                         | int           | Não          | Um identificador exclusivo para o fluxo de trabalho |
-| WorkflowName                       | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
-| WorkflowDisplayName                | nvarchar(255) | Não          | O nome apresentado na interface do usuário |
+| workflowName                       | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| WorkflowDisplayName                | nvarchar(255) | Não          | O nome exibido na interface do usuário |
 | WorkflowDescription                | nvarchar(255) | Sim         | A descrição do fluxo de trabalho |
-| ContractLedgerImplementationId     | nvarchar(255) | Sim         | Um identificador exclusivo associado com a versão implementada de um contrato inteligente para um livro razão distribuído específico. Por exemplo, Ethereum. |
-| ContractId                         | int           | Não          | Um identificador exclusivo para o contrato |
-| ContractProvisioningStatus         | int           | Não          |Identifica o estado atual do processo de aprovisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API na base de dados<br />1 – o contrato foi enviado ao razão<br />2 – o contrato foi implementado com êxito ao razão<br />3 ou 4 - o contrato de falha para implementação em razão<br />5 - o contrato foi implementado com êxito ao razão <br /><br />A partir da versão 1.5, são suportados valores de 0 a 5. Para efeitos compatibilidade na versão atual, modo de exibição **vwContractStateV0** está disponível-se de que apenas suporta valores 2 por meio de 0. |
-| ConnectionId                       | int           | Não          | Um identificador exclusivo para o fluxo de trabalho é implementado para a instância de blockchain |
-| ContractCodeId                     | int           | Não          | Um identificador exclusivo para a implementação de código do contrato |
-| ContractDeployedByUserId           | int           | Não          | Identificador exclusivo do utilizador que o contrato de implementadas |
-| ContractDeployedByUserExternalId   | nvarchar(255) | Não          | Identificador externo do utilizador que implementaram o contrato. Por predefinição, este ID é o guid que representa a identidade no consortium do Azure Active Directory. |
-| ContractDeployedByUserFirstName    | nvarchar(50)  | Sim         | Nome próprio do utilizador que implementaram o contrato |
-| ContractDeployedByUserLastName     | nvarchar(255) | Sim         | Apelido do utilizador que implementaram o contrato |
-| ContractDeployedByUserEmailAddress | nvarchar(255) | Sim         | O endereço de e-mail do utilizador que implementaram o contrato |
-| WorkflowPropertyId                 | int           | Não          | Um identificador exclusivo para uma propriedade de fluxo de trabalho |
-| WorkflowPropertyDataTypeId         | int           | Não          | O ID do tipo de dados da propriedade de fluxo de trabalho |
+| ContractLedgerImplementationId     | nvarchar(255) | Sim         | Um identificador exclusivo associado à versão implantada de um contrato inteligente para um razão distribuído específico. Por exemplo, Ethereum. |
+| contractId                         | int           | Não          | Um identificador exclusivo para o contrato |
+| ContractProvisioningStatus         | int           | Não          |Identifica o status atual do processo de provisionamento para o contrato. Os valores possíveis são: <br />0 – o contrato foi criado pela API no banco de dados<br />1 – o contrato foi enviado para o razão<br />2 – o contrato foi implantado com êxito no razão<br />3 ou 4-o contrato falhou ao ser implantado no razão<br />5-o contrato foi implantado com êxito no razão <br /><br />A partir da versão 1,5, há suporte para os valores de 0 a 5. Para compatibilidade com versões anteriores na versão atual, a exibição **vwContractStateV0** está disponível e só dá suporte a valores de 0 a 2. |
+| connectionId                       | int           | Não          | Um identificador exclusivo para a instância de blockchain em que o fluxo de trabalho é implantado |
+| ContractCodeId                     | int           | Não          | Um identificador exclusivo para a implementação do código do contrato |
+| ContractDeployedByUserId           | int           | Não          | Identificador exclusivo do usuário que implantou o contrato |
+| ContractDeployedByUserExternalId   | nvarchar(255) | Não          | Identificador externo do usuário que implantou o contrato. Por padrão, essa ID é o GUID que representa sua identidade no Azure Active Directory do consórcio. |
+| ContractDeployedByUserFirstName    | nvarchar(50)  | Sim         | Nome do usuário que implantou o contrato |
+| ContractDeployedByUserLastName     | nvarchar(255) | Sim         | Sobrenome do usuário que implantou o contrato |
+| ContractDeployedByUserEmailAddress | nvarchar(255) | Sim         | O endereço de email do usuário que implantou o contrato |
+| workflowPropertyId                 | int           | Não          | Um identificador exclusivo para uma propriedade de fluxo de trabalho |
+| WorkflowPropertyDataTypeId         | int           | Não          | A ID do tipo de dados da propriedade de fluxo de trabalho |
 | WorkflowPropertyDataTypeName       | nvarchar(50)  | Não          | O nome do tipo de dados da propriedade de fluxo de trabalho |
 | WorkflowPropertyName               | nvarchar(50)  | Não          | O nome da propriedade de fluxo de trabalho |
-| WorkflowPropertyDisplayName        | nvarchar(255) | Não          | O nome a apresentar da propriedade a mostrar numa interface do Usuário |
+| WorkflowPropertyDisplayName        | nvarchar(255) | Não          | O nome de exibição da propriedade a ser mostrada em uma interface do usuário |
 | WorkflowPropertyDescription        | nvarchar(255) | Sim         | A descrição da propriedade |
-| ContractPropertyValue              | nvarchar(255) | Não          | O valor para uma propriedade armazenado no contrato |
-| StateName                          | nvarchar(50)  | Sim         | Se esta propriedade contém o estado, ele o nome a apresentar para o estado. Se não for associado com o estado, o valor será nulo. |
-| StateDisplayName                   | nvarchar(255) | Não          | Se esta propriedade contém o estado, é o nome a apresentar para o estado. Se não for associado com o estado, o valor será nulo. |
-| StateValue                         | nvarchar(255) | Sim         | Se esta propriedade contém o estado, é o valor de estado. Se não for associado com o estado, o valor será nulo. |
+| ContractPropertyValue              | nvarchar(255) | Não          | O valor de uma propriedade armazenada no contrato |
+| StateName                          | nvarchar(50)  | Sim         | Se essa propriedade contiver o estado, ela será o nome de exibição do estado. Se não estiver associado ao estado, o valor será NULL. |
+| StateDisplayName                   | nvarchar(255) | Não          | Se essa propriedade contiver o estado, será o nome de exibição do estado. Se não estiver associado ao estado, o valor será NULL. |
+| Estadovalue                         | nvarchar(255) | Sim         | Se essa propriedade contiver o estado, será o valor de estado. Se não estiver associado ao estado, o valor será NULL. |
 
 ## <a name="vwuser"></a>vwUser
 
-Esta vista fornece detalhes sobre os membros de consórcio aprovisionadas para utilizar o Azure Blockchain Workbench. Por predefinição, os dados serem preenchidos por meio de provisionamento inicial do utilizador.
+Esta exibição fornece detalhes sobre os membros do Consortium que são provisionados para usar o Azure Blockchain Workbench. Por padrão, os dados são preenchidos por meio do provisionamento inicial do usuário.
 
-| Name               | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                               |
+| Name               | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                 | int           | Não          | Um identificador exclusivo para um utilizador |
-| externalID         | nvarchar(255) | Não          | Um identificador externo para um utilizador. Por predefinição, este ID é o guid que representa a ID do Azure Active Directory para o utilizador. |
-| ProvisioningStatus | int           | Não          |Identifica o estado atual do processo para o utilizador de aprovisionamento. Os valores possíveis são: <br />0 – o utilizador tiver sido criado pela API<br />1 – a chave foi associada com o utilizador na base de dados<br />2 – o utilizador esteja totalmente aprovisionado |
-| FirstName          | nvarchar(50)  | Sim         | O primeiro nome do utilizador |
-| LastName           | nvarchar(50)  | Sim         | O apelido do utilizador |
-| EmailAddress       | nvarchar(255) | Sim         | O endereço de e-mail do utilizador |
+| id                 | int           | Não          | Um identificador exclusivo para um usuário |
+| externalID         | nvarchar(255) | Não          | Um identificador externo para um usuário. Por padrão, essa ID é o GUID que representa a ID de Azure Active Directory para o usuário. |
+| provisioningStatus | int           | Não          |Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi associada ao usuário no banco de dados<br />2 – o usuário está totalmente provisionado |
+| FirstName          | nvarchar(50)  | Sim         | O nome do usuário |
+| LastName           | nvarchar(50)  | Sim         | O último nome do usuário |
+| EmailAddress       | nvarchar(255) | Sim         | O endereço de email do usuário |
 
 ## <a name="vwworkflow"></a>vwWorkflow
 
-Esta vista representa os parâmetros e as funções do fluxo de trabalho, bem como metadados de fluxo de trabalho de núcleo de detalhes. Concebido para relatórios, também contém metadados sobre a aplicação associada com o fluxo de trabalho. Esta vista contém dados de várias tabelas subjacentes para facilitar a geração de relatórios em fluxos de trabalho. Para cada fluxo de trabalho, esta vista contém os seguintes dados:
+Essa exibição representa os detalhes principais metadados do fluxo de trabalho, bem como as funções e os parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Esta exibição contém dados de várias tabelas subjacentes para facilitar o relatório de fluxos de trabalho. Para cada fluxo de trabalho, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
--   Informações de estado de início do fluxo de trabalho de associados
+-   Informações do estado de início do fluxo de trabalho associado
 
-| Name                              | Tipo          | Pode ser nulo | Descrição                                                                                                                                |
+| Name                              | Type          | Pode ser nulo | Descrição                                                                                                                                |
 |-----------------------------------|---------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                     | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                   | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName            | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled                | bit           | Não          | Identifica se o aplicativo está ativado |
+| ApplicationId                     | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                   | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName            | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled                | bit           | Não          | Identifica se o aplicativo está habilitado |
 | WorkflowId                        | int           | Sim         | Um identificador exclusivo para um fluxo de trabalho |
-| WorkflowName                      | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
-| WorkflowDisplayName               | nvarchar(255) | Não          | O nome apresentado na interface do usuário |
+| workflowName                      | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| WorkflowDisplayName               | nvarchar(255) | Não          | O nome exibido na interface do usuário |
 | WorkflowDescription               | nvarchar(255) | Sim         | A descrição do fluxo de trabalho. |
 | WorkflowConstructorFunctionId     | int           | Não          | O identificador da função de fluxo de trabalho que serve como o construtor para o fluxo de trabalho |
-| WorkflowStartStateId              | int           | Não          | Um identificador exclusivo para o Estado |
-| WorkflowStartStateName            | nvarchar(50)  | Não          | O nome do Estado |
-| WorkflowStartStateDisplayName     | nvarchar(255) | Não          | O nome a apresentar na interface do usuário para o Estado |
-| WorkflowStartStateDescription     | nvarchar(255) | Sim         | Uma descrição do Estado do fluxo de trabalho |
-| WorkflowStartStateStyle           | nvarchar(50)  | Sim         | Este valor identifica a percentagem de conclusão de que o fluxo de trabalho está quando neste Estado |
-| WorkflowStartStateValue           | int           | Não          | O valor do Estado |
-| WorkflowStartStatePercentComplete | int           | Não          | Uma descrição de texto que fornece uma dica para os clientes sobre como processar esse Estado na interface do Usuário. Estados suportados incluem *sucesso* e *falha* |
+| WorkflowStartStateId              | int           | Não          | Um identificador exclusivo para o estado |
+| WorkflowStartStateName            | nvarchar(50)  | Não          | O nome do estado |
+| WorkflowStartStateDisplayName     | nvarchar(255) | Não          | O nome a ser exibido na interface do usuário para o estado |
+| WorkflowStartStateDescription     | nvarchar(255) | Sim         | Uma descrição do estado do fluxo de trabalho |
+| WorkflowStartStateStyle           | nvarchar(50)  | Sim         | Esse valor identifica a porcentagem concluída em que o fluxo de trabalho é quando está nesse estado |
+| WorkflowStartStateValue           | int           | Não          | O valor do estado |
+| WorkflowStartStatePercentComplete | int           | Não          | Uma descrição de texto que fornece uma dica aos clientes sobre como renderizar esse estado na interface do usuário. Os Estados com suporte incluem *êxito* e *falha* |
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Esta vista representa os parâmetros e as funções do fluxo de trabalho, bem como metadados de fluxo de trabalho de núcleo de detalhes. Concebido para relatórios, também contém metadados sobre a aplicação associada com o fluxo de trabalho. Esta vista contém dados de várias tabelas subjacentes para facilitar a geração de relatórios em fluxos de trabalho. Para cada função de fluxo de trabalho, esta vista contém os seguintes dados:
+Essa exibição representa os detalhes principais metadados do fluxo de trabalho, bem como as funções e os parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Esta exibição contém dados de várias tabelas subjacentes para facilitar o relatório de fluxos de trabalho. Para cada função de fluxo de trabalho, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
 -   Detalhes da função de fluxo de trabalho
 
-| Name                                 | Tipo          | Pode ser nulo | Descrição                                                                          |
+| Name                                 | Type          | Pode ser nulo | Descrição                                                                          |
 |--------------------------------------|---------------|-------------|--------------------------------------------------------------------------------------|
-| ApplicationId                        | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName                      | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName               | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled                   | bit           | Não          | Identifica se o aplicativo está ativado |
+| ApplicationId                        | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName                      | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName               | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled                   | bit           | Não          | Identifica se o aplicativo está habilitado |
 | WorkflowId                           | int           | Não          | Um identificador exclusivo para um fluxo de trabalho |
-| WorkflowName                         | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| workflowName                         | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
 | WorkflowDisplayName                  | nvarchar(255) | Não          | O nome do fluxo de trabalho exibido na interface do usuário |
 | WorkflowDescription                  | nvarchar(255) | Sim         | A descrição do fluxo de trabalho |
 | WorkflowFunctionId                   | int           | Não          | Um identificador exclusivo para uma função |
 | WorkflowFunctionName                 | nvarchar(50)  | Sim         | O nome da função |
-| WorkflowFunctionDisplayName          | nvarchar(255) | Não          | O nome de uma função a ser exibido na interface do usuário |
+| WorkflowFunctionDisplayName          | nvarchar(255) | Não          | O nome de uma função a ser exibida na interface do usuário |
 | WorkflowFunctionDescription          | nvarchar(255) | Sim         | A descrição da função de fluxo de trabalho |
-| WorkflowFunctionIsConstructor        | bit           | Não          | Identifica se a função de fluxo de trabalho é o construtor para o fluxo de trabalho |
+| WorkflowFunctionIsConstructor        | bit           | Não          | Identifica se a função de fluxo de trabalho é o construtor do fluxo de trabalho |
 | WorkflowFunctionParameterId          | int           | Não          | Um identificador exclusivo para um parâmetro de uma função |
 | WorkflowFunctionParameterName        | nvarchar(50)  | Não          | O nome de um parâmetro da função |
 | WorkflowFunctionParameterDisplayName | nvarchar(255) | Não          | O nome de um parâmetro de função a ser exibido na interface do usuário |
-| WorkflowFunctionParameterDataTypeId  | int           | Não          | Um identificador exclusivo para o tipo de dados associado um parâmetro de função de fluxo de trabalho |
+| WorkflowFunctionParameterDataTypeId  | int           | Não          | Um identificador exclusivo para o tipo de dados associado a um parâmetro de função de fluxo de trabalho |
 | WorkflowParameterDataTypeName        | nvarchar(50)  | Não          | O nome de um tipo de dados associado a um parâmetro de função de fluxo de trabalho |
 
 ## <a name="vwworkflowproperty"></a>vwWorkflowProperty
 
-Esta vista representa as propriedades definidas para um fluxo de trabalho. Para cada propriedade, esta vista contém os seguintes dados:
+Essa exibição representa as propriedades definidas para um fluxo de trabalho. Para cada propriedade, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
--   Detalhes de propriedade do fluxo de trabalho
+-   Detalhes da propriedade de fluxo de trabalho
 
-| Name                         | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Name                         | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName              | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName       | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| ApplicationEnabled           | bit           | Não          | Identifica se o aplicativo está atualmente ativado.<br />**Nota:** Mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados continuam a desenvolver o blockchain e dados sobre esses contratos permanecerem na base de dados. |
+| ApplicationId                | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName              | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName       | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| ApplicationEnabled           | bit           | Não          | Identifica se o aplicativo está habilitado no momento.<br />**Nota:** Embora um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecem no blockchain e os dados sobre esses contratos permanecem no banco de dado. |
 | WorkflowId                   | int           | Não          | Um identificador exclusivo para o fluxo de trabalho |
-| WorkflowName                 | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
-| WorkflowDisplayName          | nvarchar(255) | Não          | O nome a apresentar para o fluxo de trabalho numa interface de utilizador |
+| workflowName                 | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| WorkflowDisplayName          | nvarchar(255) | Não          | O nome a ser exibido para o fluxo de trabalho em uma interface do usuário |
 | WorkflowDescription          | nvarchar(255) | Sim         | Uma descrição do fluxo de trabalho |
 | WorkflowPropertyID           | int           | Não          | Um identificador exclusivo para uma propriedade de um fluxo de trabalho |
 | WorkflowPropertyName         | nvarchar(50)  | Não          | O nome da propriedade |
 | WorkflowPropertyDescription  | nvarchar(255) | Sim         | Uma descrição da propriedade |
-| WorkflowPropertyDisplayName  | nvarchar(255) | Não          | O nome a apresentar numa interface de utilizador |
-| WorkflowPropertyWorkflowId   | int           | Não          | O ID do fluxo de trabalho a que esta propriedade está associada |
-| WorkflowPropertyDataTypeId   | int           | Não          | O ID do tipo de dados definido para a propriedade |
+| WorkflowPropertyDisplayName  | nvarchar(255) | Não          | O nome a ser exibido em uma interface do usuário |
+| WorkflowPropertyWorkflowId   | int           | Não          | A ID do fluxo de trabalho ao qual esta propriedade está associada |
+| WorkflowPropertyDataTypeId   | int           | Não          | A ID do tipo de dados definido para a propriedade |
 | WorkflowPropertyDataTypeName | nvarchar(50)  | Não          | O nome do tipo de dados definido para a propriedade |
-| WorkflowPropertyIsState      | bit           | Não          | Este campo identifica se esta propriedade de fluxo de trabalho contém o estado do fluxo de trabalho |
+| WorkflowPropertyIsState      | bit           | Não          | Este campo identifica se essa propriedade de fluxo de trabalho contém o estado do fluxo de trabalho |
 
 ## <a name="vwworkflowstate"></a>vwWorkflowState
 
-Esta vista representa as propriedades associadas um fluxo de trabalho. Para cada contrato, esta vista contém os seguintes dados:
+Essa exibição representa as propriedades associadas a um fluxo de trabalho. Para cada contrato, essa exibição contém os seguintes dados:
 
--   Definição de aplicação associada
+-   Definição de aplicativo associada
 -   Definição de fluxo de trabalho associada
 -   Informações de estado do fluxo de trabalho
 
-| Name                         | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Name                         | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                | int           | Não          | Um identificador exclusivo para a aplicação |
-| ApplicationName              | nvarchar(50)  | Não          | O nome da aplicação |
-| ApplicationDisplayName       | nvarchar(255) | Não          | Uma descrição da aplicação |
-| ApplicationEnabled           | bit           | Não          | Identifica se o aplicativo está atualmente ativado.<br />**Nota:** Mesmo que um aplicativo pode ser refletido como desativado na base de dados, contratos de associados continuam a desenvolver o blockchain e dados sobre esses contratos permanecerem na base de dados. |
-| WorkflowId                   | int           | Não          | O identificador exclusivo para o fluxo de trabalho |
-| WorkflowName                 | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
-| WorkflowDisplayName          | nvarchar(255) | Não          | O nome apresentado na interface do usuário para o fluxo de trabalho |
+| ApplicationId                | int           | Não          | Um identificador exclusivo para o aplicativo |
+| ApplicationName              | nvarchar(50)  | Não          | O nome do aplicativo |
+| ApplicationDisplayName       | nvarchar(255) | Não          | Uma descrição do aplicativo |
+| ApplicationEnabled           | bit           | Não          | Identifica se o aplicativo está habilitado no momento.<br />**Nota:** Embora um aplicativo possa ser refletido como desabilitado no banco de dados, os contratos associados permanecem no blockchain e os dados sobre esses contratos permanecem no banco de dado. |
+| WorkflowId                   | int           | Não          | O identificador exclusivo do fluxo de trabalho |
+| workflowName                 | nvarchar(50)  | Não          | O nome do fluxo de trabalho |
+| WorkflowDisplayName          | nvarchar(255) | Não          | O nome exibido na interface do usuário para o fluxo de trabalho |
 | WorkflowDescription          | nvarchar(255) | Sim         | A descrição do fluxo de trabalho |
-| WorkflowStateID              | int           | Não          | O identificador exclusivo para o Estado |
-| WorkflowStateName            | nvarchar(50)  | Não          | O nome do Estado |
-| WorkflowStateDisplayName     | nvarchar(255) | Não          | O nome a apresentar na interface do usuário para o Estado |
-| WorkflowStateDescription     | nvarchar(255) | Sim         | Uma descrição do Estado do fluxo de trabalho |
-| WorkflowStatePercentComplete | int           | Não          | Este valor identifica a percentagem de conclusão de que o fluxo de trabalho está quando neste Estado |
-| WorkflowStateValue           | nvarchar(50)  | Não          | Valor do Estado |
-| WorkflowStateStyle           | nvarchar(50)  | Não          | Uma descrição de texto que fornece uma dica para os clientes sobre como processar esse Estado na interface do Usuário. Estados suportados incluem *sucesso* e *falha* |
+| WorkflowStateID              | int           | Não          | O identificador exclusivo para o estado |
+| WorkflowStateName            | nvarchar(50)  | Não          | O nome do estado |
+| WorkflowStateDisplayName     | nvarchar(255) | Não          | O nome a ser exibido na interface do usuário para o estado |
+| WorkflowStateDescription     | nvarchar(255) | Sim         | Uma descrição do estado do fluxo de trabalho |
+| WorkflowStatePercentComplete | int           | Não          | Esse valor identifica a porcentagem concluída em que o fluxo de trabalho é quando está nesse estado |
+| WorkflowStateValue           | nvarchar(50)  | Não          | Valor do estado |
+| WorkflowStateStyle           | nvarchar(50)  | Não          | Uma descrição de texto que fornece uma dica aos clientes sobre como renderizar esse estado na interface do usuário. Os Estados com suporte incluem *êxito* e *falha* |

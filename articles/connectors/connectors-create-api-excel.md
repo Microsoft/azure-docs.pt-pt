@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050910"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859247"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel online com aplicativos lógicos do Azure
 
@@ -44,7 +44,7 @@ Se você for novo em aplicativos lógicos, examine [o que são os aplicativos l�
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar seus dados do Excel online. Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, selecione um gatilho separado, por exemplo, o gatilho de recorrência.
+* O aplicativo lógico no qual você deseja acessar seus dados do Excel online. Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, selecione um gatilho separado, por exemplo, o gatilho de **recorrência** .
 
 ## <a name="add-excel-action"></a>Adicionar ação do Excel
 
@@ -53,6 +53,9 @@ Se você for novo em aplicativos lógicos, examine [o que são os aplicativos l�
 1. No gatilho, escolha **nova etapa**.
 
 1. Na caixa de pesquisa, digite "Excel" como filtro. Na lista ações, selecione a ação desejada.
+
+   > [!NOTE]
+   > O designer do aplicativo lógico não pode carregar tabelas que tenham 100 ou mais colunas. Se possível, reduza o número de colunas na tabela selecionada para que o designer possa carregar a tabela.
 
 1. Se solicitado, entre na sua conta do Office 365.
 

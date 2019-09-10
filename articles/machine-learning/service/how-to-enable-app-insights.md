@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ff9261e2720ed80fc96131cea69d2985c8e0883e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871773"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858755"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitorizar os seus modelos do Azure Machine Learning com o Application Insights
 
@@ -127,7 +127,7 @@ Para vê-la:
    [![Rastreios personalizados](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Para saber mais sobre como utilizar o Application Insights, veja [o que é o Application Insights?](../../azure-monitor/app/app-insights-overview.md).
-    
+
 
 ## <a name="example-notebook"></a>Bloco de notas de exemplo
 
@@ -135,7 +135,7 @@ O bloco de anotações [Enable-app-Revisions-in-Production-Service. ipynb](https
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Também é possível recolher dados em seus modelos em produção. Leia o artigo [recolher dados para modelos em produção](how-to-enable-data-collection.md). 
 
 Leia também [Azure monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

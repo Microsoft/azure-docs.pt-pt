@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972623"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845481"
 ---
-# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho usando redes ampliadas de camada 2
+# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
 
 Neste guia, você aprenderá a usar a VPN de camada 2 (L2VPN) para ampliar uma rede de camada 2 do seu ambiente local para sua nuvem privada do CloudSimple. Essa solução permite a migração de cargas de trabalho em execução em seu ambiente VMware local para a nuvem privada no Azure no mesmo espaço de endereço de sub-rede sem a necessidade de reutilizar o IP de suas cargas de trabalho.
 
@@ -108,7 +108,7 @@ Para obter mais informações, consulte [redes virtuais privadas](https://docs.v
 
 As etapas a seguir mostram como buscar a ID do roteador lógico da instância do roteador lógico tier0 DR para os serviços IPsec e L2VPN. A ID do roteador lógico é necessária posteriormente ao implementar o L2VPN.
 
-1. Entre no NSX-T Manager (e https://nsx-t-manager-ip-address) selecione**provedor de** > **roteadores** >  de **rede** >  –**visão geral**do LR. Para o **modo de alta disponibilidade**, selecione **ativo-em espera**. Essa ação abre uma janela pop-up que mostra a VM de borda na qual o roteador tier0 está ativo no momento.
+1. Entre no NSX-t Manager https://*NSX-t-Manager-IP-address* e selecione**provedor de** > **roteadores** > de **rede** > -LR**visão geral**. Para o **modo de alta disponibilidade**, selecione **ativo-em espera**. Essa ação abre uma janela pop-up que mostra a VM de borda na qual o roteador tier0 está ativo no momento.
 
     ![Selecionar ativo-em espera](media/l2vpn-fetch01.png)
 
@@ -137,7 +137,7 @@ As etapas a seguir mostram como buscar a ID do roteador lógico da instância do
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Buscar a ID de comutador lógico necessária para L2VPN
 
 1. Entre no [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Selecione comutadores de**troca** > de **rede** > > * * < opção \Logical > \ * * > **visão geral**.
+2. Selecione comutadores de**troca** > de **rede** >  **> *** * < opção \Logical > \ * * > **visão geral**.
 3. Anote o UUID do comutador lógico de ampliação, que é necessário ao configurar o L2VPN.
 
     ![obter saída de roteador lógico](media/l2vpn-fetch-switch01.png)
@@ -158,7 +158,7 @@ Para estabelecer uma VPN baseada em rota IPsec entre o roteador NSX-T tier0 e o 
 
     ![Adicionar rota estática](media/l2vpn-routing-security01.png)
 
-2. Crie uma lista de prefixos IP. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **listas de prefixo de IP**de**Roteamento** > . Clique em **Adicionar**. Insira um nome para identificar a lista. Paraprefixos, clique em **Adicionar** duas vezes. Na primeira linha, digite "0.0.0.0/0" para **rede** e "negar" para **ação**. Na segunda linha, selecione **qualquer** para **rede** e **permissão** para **ação**.
+2. Crie uma lista de prefixos IP. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **listas de prefixo de IP**de**Roteamento** > . Clique em **Adicionar**. Insira um nome para identificar a lista. Para **prefixos**, clique em **Adicionar** duas vezes. Na primeira linha, digite "0.0.0.0/0" para **rede** e "negar" para **ação**. Na segunda linha, selecione **qualquer** para **rede** e **permissão** para **ação**.
 3. Anexe a lista de prefixos IP a ambos os vizinhos de BGP (TOR). Anexar a lista de prefixo de IP ao vizinho BGP impede que a rota padrão seja anunciada no BGP para os comutadores TOR. No entanto, qualquer outra rota que inclua a rota nula anunciará o endereço IP da interface de loopback para os comutadores TOR.
 
     ![Criar lista de prefixo IP](media/l2vpn-routing-security02.png)

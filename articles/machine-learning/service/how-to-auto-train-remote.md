@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5918cc3835d00536845a96ed81ef663867291e29
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624820"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858807"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Utilizar modelos com aprendizagem automática na cloud
 
@@ -278,7 +278,7 @@ Imprimir a `best_run` resultados do resumo de variáveis de explicação na segu
 
 ![Resultado da consola do modelo explainability](./media/how-to-auto-train-remote/expl-print.png)
 
-Também é possível visualizar importância de funcionalidade através do widget de interface do Usuário, bem como a IU da web no portal do Azure dentro de sua área de trabalho.
+Você também pode visualizar a importância do recurso por meio da interface do usuário do widget, da interface do usuário da Web no portal do Azure ou da [página inicial do espaço de trabalho (versão prévia)](https://ml.azure.com). 
 
 ![Modelo explainability da interface do Usuário](./media/how-to-auto-train-remote/model-exp.png)
 
@@ -288,6 +288,6 @@ O notebook [How-to-use-azureml/Automated-Machine-Learning/Remote-amlcompute/auto
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais [como configurar as definições para treinamento automática](how-to-configure-auto-train.md).

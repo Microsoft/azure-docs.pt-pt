@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68698289"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
@@ -23,7 +23,7 @@ Este documento lista alguns dos limites de Microsoft Azure mais comuns, que tamb
 Para saber mais sobre os preços do Azure, consulte [visão geral de preços do Azure](https://azure.microsoft.com/pricing/). Lá, você pode estimar seus custos usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/). Você também pode ir para a página de detalhes de preços de um serviço específico, por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas para ajudar a gerenciar seus custos, confira [evitar custos inesperados com o gerenciamento de custos e cobrança do Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem](azure-resource-manager/resource-manager-quota-errors.md)encargos. Os limites não podem ser gerados acima do valor de limite máximo mostrado nas tabelas a seguir. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis.
+> Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem encargos](azure-resource-manager/resource-manager-quota-errors.md). Os limites não podem ser gerados acima do valor de limite máximo mostrado nas tabelas a seguir. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis.
 >
 > As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se tiver um [subscrição de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), pode atualizar para uma [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscrição. Para obter mais informações, consulte [atualizar sua assinatura de avaliação gratuita do Azure para uma assinatura paga conforme o uso](billing/billing-upgrade-azure-subscription.md) e as [perguntas frequentes sobre assinatura de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
 >
@@ -53,7 +53,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Base de Dados do Azure para MySQL](#azure-database-for-mysql)
 * [Base de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
 * [DNS do Azure](#azure-dns-limits)
-* [Firewall do Azure](#azure-firewall-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * [Funções do Azure](#functions-limits)
 * [Serviço Kubernetes do Azure](#azure-kubernetes-service-limits)
 * [Serviço de Azure Machine Learning](#azure-machine-learning-service-limits)
@@ -71,7 +71,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
-* [Serviço de migração de banco de dados](#database-migration-service-limits)
+* [Database Migration Service](#database-migration-service-limits)
 * [Event Grid](#event-grid-limits)
 * [Hubs de Eventos](#event-hubs-limits)
 * [Serviço de porta frontal](#azure-front-door-service-limits)
@@ -85,8 +85,8 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Redes](#networking-limits)
   * [Gateway de Aplicação](#application-gateway-limits)
   * [DNS do Azure](#azure-dns-limits)
-  * [Serviço de porta frontal do Azure](#azure-front-door-service-limits)
-  * [Firewall do Azure](#azure-firewall-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Balanceador de Carga](#load-balancer)
   * [Endereço IP público](#publicip-address)

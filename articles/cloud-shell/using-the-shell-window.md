@@ -1,6 +1,6 @@
 ---
-title: Usando a janela do Azure Cloud Shell | Documentos da Microsoft
-description: Descrição geral de como usar a janela do Azure Cloud Shell.
+title: Usando a janela de Azure Cloud Shell | Microsoft Docs
+description: Visão geral de como usar a janela de Azure Cloud Shell.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,79 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
-ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60200705"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860317"
 ---
-# <a name="using-the-azure-cloud-shell-window"></a>Usando a janela do Azure Cloud Shell
+# <a name="using-the-azure-cloud-shell-window"></a>Usando a janela de Azure Cloud Shell
 
-Este documento explica como usar a janela do Cloud Shell.
+Este documento explica como usar a janela de Cloud Shell.
 
-## <a name="swap-between-bash-and-powershell-environments"></a>Alternar entre ambientes de Bash e o PowerShell
+## <a name="swap-between-bash-and-powershell-environments"></a>Alternar entre os ambientes bash e PowerShell
 
-Utilize o Seletor de ambiente na barra de ferramentas da Cloud Shell para mudar entre ambientes de Bash e o PowerShell.  
+Use o seletor de ambiente na barra de ferramentas Cloud Shell para alternar entre os ambientes bash e PowerShell.  
 ![Selecionar ambiente](media/using-the-shell-window/env-selector.png)
 
 ## <a name="restart-cloud-shell"></a>Reiniciar o Cloud Shell
-Clique no ícone de reinício da barra de ferramentas do Cloud Shell para repor o estado da máquina.  
+Clique no ícone de reinicialização na barra de ferramentas Cloud Shell para redefinir o estado da máquina.  
 ![Reiniciar o Cloud Shell](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Reiniciar o Cloud Shell irá repor o estado da máquina e todos os ficheiros não mantido pelo seu Azure partilha de ficheiros serão perdida.
+> Reiniciar Cloud Shell redefinirá o estado do computador e todos os arquivos não persistentes pelo compartilhamento de arquivos do Azure serão perdidos.
 
 ## <a name="change-the-text-size"></a>Alterar o tamanho do texto
-Clique no ícone de definições no canto superior esquerdo da janela, em seguida, coloque o cursor sobre a opção de "Tamanho do texto" e selecione o tamanho do texto desejado. A seleção continuarão a ter a seguinte entre sessões.
+Clique no ícone de configurações na parte superior esquerda da janela, em seguida, passe o mouse sobre a opção "tamanho do texto" e selecione o tamanho desejado do texto. Sua seleção será persistida entre as sessões.
 ![Tamanho do texto](media/using-the-shell-window/text-size.png)
 
-## <a name="change-the-font"></a>Alterar o tipo de letra
-Clique no ícone de definições no canto superior esquerdo da janela, em seguida, coloque o cursor sobre a opção de "Tipo de letra" e selecione o tipo de letra pretendido.  A seleção continuarão a ter a seguinte entre sessões.
-![Font](media/using-the-shell-window/text-font.png)
+## <a name="change-the-font"></a>Alterar a fonte
+Clique no ícone de configurações na parte superior esquerda da janela, em seguida, passe o mouse sobre a opção "fonte" e selecione a fonte desejada.  Sua seleção será persistida entre as sessões.
+![La](media/using-the-shell-window/text-font.png)
 
 ## <a name="upload-and-download-files"></a>Carregar e transferir os ficheiros
-Clique no ícone de ficheiros de carregamento/transferência no canto superior esquerdo da janela, em seguida, selecione o carregamento ou transferência.  
-![Carregar/transferir ficheiros](media/using-the-shell-window/uploaddownload.png)
-* Para carregar ficheiros, utilize o pop-up para procurar o ficheiro no seu computador local, selecione o arquivo desejado e clique no botão "Abrir".  O arquivo será carregado para o `/home/user` diretório.
-* Para transferir ficheiros, introduza o caminho de ficheiro completamente qualificado para a janela de pop-up e selecione o botão "Transferir".  
+Clique no ícone carregar/baixar arquivos na parte superior esquerda da janela e, em seguida, selecione carregar ou baixar.  
+![Carregar/baixar arquivos](media/using-the-shell-window/uploaddownload.png)
+* Para carregar arquivos, use o pop-up para navegar até o arquivo no computador local, selecione o arquivo desejado e clique no botão "abrir".  O arquivo será carregado no `/home/user` diretório.
+* Para baixar o arquivo, insira o caminho do arquivo totalmente qualificado na janela pop-up (ou seja, basicamente um caminho sob `/home/user` o diretório que aparece por padrão) e selecione o botão "baixar".  
 > [!NOTE] 
-> Ficheiros e caminhos de ficheiro são maiúsculas de minúsculas no Cloud Shell. Volte a verificar as maiúsculas e minúsculas no caminho do ficheiro.
+> Arquivos e caminhos de arquivo diferenciam maiúsculas de minúsculas no Cloud Shell. Verifique novamente sua capitalização no caminho do arquivo.
 
-## <a name="open-another-cloud-shell-window"></a>Abrir outra janela do Cloud Shell
-Cloud Shell permite várias sessões simultâneas em separadores de browser, permitindo que cada sessão de existir como um processo separado.
-Se sair de uma sessão, certifique-se de que sair de cada janela de sessão como cada processo é executado independentemente embora eles são executados na mesma máquina.  
-Clique no ícone abrir sessão de novo no canto superior esquerdo da janela. Uma nova guia será aberto com outra sessão ligado para o contentor existente.
+## <a name="open-another-cloud-shell-window"></a>Abrir outra janela de Cloud Shell
+O Cloud Shell permite várias sessões simultâneas nas guias do navegador, permitindo que cada sessão exista como um processo separado.
+Se você sair de uma sessão, não deixe de sair de cada janela de sessão, pois cada processo é executado de forma independente, embora seja executado no mesmo computador.  
+Clique no ícone abrir nova sessão na parte superior esquerda da janela. Uma nova guia será aberta com outra sessão conectada ao contêiner existente.
 ![Abrir nova sessão](media/using-the-shell-window/newsession.png)
 
-## <a name="cloud-shell-editor"></a>Editor do cloud Shell
-* Consulte a [com o editor do Azure Cloud Shell](using-cloud-shell-editor.md) página.
+## <a name="cloud-shell-editor"></a>Editor de Cloud Shell
+* Consulte a página [usando o editor de Azure cloud Shell](using-cloud-shell-editor.md) .
 
-## <a name="web-preview"></a>Pré-visualização Web
-Clique no ícone de pré-visualização da web no canto superior esquerdo da janela, selecione "Configurar", especifique a porta pretendida para abrir.  Selecione qualquer um dos "porta aberta" apenas para abrir a porta, ou "abrir e procure" para abrir a porta e a porta num novo separador de pré-visualização.  
-![Pré-visualização Web](media/using-the-shell-window/preview.png)  
+## <a name="web-preview"></a>Visualização da Web
+Clique no ícone de visualização da Web na parte superior esquerda da janela, selecione "configurar", especifique a porta desejada a ser aberta.  Selecione "abrir porta" para abrir apenas a porta ou "abrir e procurar" para abrir a porta e visualizar a porta em uma nova guia.  
+![Visualização da Web](media/using-the-shell-window/preview.png)  
 <br>
-![Configurar a porta](media/using-the-shell-window/preview-configure.png)  
-Clique no ícone de pré-visualização da web no canto superior esquerdo da janela, selecione "Pré-visualizar porta..." Para pré-visualizar uma porta aberta num novo separador. Clique no ícone de pré-visualização da web no canto superior esquerdo da janela, selecione "Fechar porta..." para fechar a porta aberta.  
-![Pré-visualização/fechar a porta](media/using-the-shell-window/preview-options.png)
+![Configurar porta](media/using-the-shell-window/preview-configure.png)  
+Clique no ícone de visualização da Web na parte superior esquerda da janela, selecione "porta de visualização..." para visualizar uma porta aberta em uma nova guia. Clique no ícone de visualização da Web na parte superior esquerda da janela, selecione "fechar porta..." para fechar a porta aberta.  
+![Visualizar/fechar porta](media/using-the-shell-window/preview-options.png)
 
-## <a name="minimize--maximize-cloud-shell-window"></a>Minimizar & Maximizar a janela do Cloud Shell
-Clique no ícone de minimizar no canto superior direito da janela para ocultá-lo. Clique no ícone do Cloud Shell novamente para mostrar.
-Clique no ícone de maximizar para definir a janela para a altura máxima. Para restaurar a janela para tamanho anterior, clique em restaurar.  
+## <a name="minimize--maximize-cloud-shell-window"></a>Minimizar & maximizar Cloud Shell janela
+Clique no ícone minimizar na parte superior direita da janela para ocultá-la. Clique no ícone de Cloud Shell novamente para Reexibir.
+Clique no ícone maximizar para definir a janela como altura máxima. Para restaurar a janela para o tamanho anterior, clique em restaurar.  
 ![Minimizar ou maximizar a janela](media/using-the-shell-window/minmax.png)
 
 ## <a name="copy-and-paste"></a>Copiar e colar
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-## <a name="resize-cloud-shell-window"></a>Redimensionar a janela do Cloud Shell
-Clique e arraste o limite superior da barra de ferramentas de cópia de segurança ou para baixo para redimensionar a janela do Cloud Shell.
+## <a name="resize-cloud-shell-window"></a>Redimensionar Cloud Shell janela
+Clique e arraste a borda superior da barra de ferramentas para cima ou para baixo para redimensionar a janela de Cloud Shell.
 
 ## <a name="scrolling-text-display"></a>Exibição de texto de rolagem
-Desloque-se com o rato ou touchpad para mover o texto de terminal.
+Role com o mouse ou o Touchpad para mover o texto do terminal.
 
-## <a name="exit-command"></a>Comando de saída
-Executar `exit` termina a sessão ativa. Este comportamento ocorre por predefinição, passados 20 minutos sem a interação.
+## <a name="exit-command"></a>Comando exit
+A `exit` execução encerra a sessão ativa. Esse comportamento ocorre por padrão após 20 minutos sem interação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Guia de introdução do Cloud Shell de bash](quickstart.md) <br>
-[PowerShell no guia de introdução do Cloud Shell](quickstart-powershell.md)
+[Bash no guia de início rápido Cloud Shell](quickstart.md) <br>
+[PowerShell no guia de início rápido Cloud Shell](quickstart-powershell.md)

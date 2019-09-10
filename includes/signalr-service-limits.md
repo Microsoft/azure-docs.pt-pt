@@ -1,6 +1,6 @@
 ---
-title: Tabela de limites do serviço Azure SignalR
-description: Descreve os limites de sistema para o serviço Azure SignalR.
+title: Tabela de limites de serviço do Azure Signalr
+description: Descreve os limites do sistema para o serviço do Azure Signalr.
 services: signalr
 documentationcenter: signalr
 author: sffamily
@@ -14,21 +14,21 @@ ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
 ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67184660"
 ---
 | Resource | Limite predefinido | Limite máximo | 
 | --- | --- | --- |
-| As unidades de serviço SignalR do Azure por instância camada gratuitamente |1 |1 |
-| Unidades de serviço SignalR do Azure por instância para o escalão Standard |100 |100 |
-| As unidades de serviço SignalR do Azure por subscrição por região gratuitamente da camada|5 |5 |
-| Total de unidades de serviço Azure SignalR contagens por subscrição por região |150 |Ilimitado |
-| Ligações por unidade por dia para gratuito da camada |20 |20 |
-| Ligações por unidade por dia para o escalão Standard |1,000 |1,000|
-| Gratuitamente da camada de mensagens incluídas por unidade por dia|20,000 |20,000 |
-| Mensagens incluídas por unidade por dia para o escalão Standard|1 000 000 |1 000 000 |
+| Unidades de serviço do Azure Signalr por instância para a camada gratuita |1 |1 |
+| Unidades de serviço do Azure Signalr por instância para a camada Standard |100 |100 |
+| Unidades de serviço do Signalr do Azure por assinatura por região para a camada gratuita|5 |5 |
+| Total de contagens de unidades de serviço do Signaler do Azure por assinatura por região |150 |Ilimitado |
+| Conexões por unidade por dia para a camada gratuita |20 |20 |
+| Conexões por unidade por dia para a camada Standard |1,000 |1,000|
+| Mensagens incluídas por unidade por dia para a camada gratuita|20,000 |20,000 |
+| Mensagens incluídas por unidade por dia para a camada Standard|1 000 000 |1 000 000 |
 
-Para pedir uma atualização para o seu padrão dos limites da subscrição, abra um pedido de suporte. 
+Para solicitar uma atualização para os limites padrão da sua assinatura, abra um tíquete de suporte. 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
-ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822790"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845471"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrições do Event Grid
 
@@ -68,7 +68,7 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Resolver problemas de conectividade SQL | Documentos da Microsoft'
-description: Explica como resolver problemas de conectividade SQL que ocorrem com o Azure AD Connect.
+title: 'Azure AD Connect: Solucionar problemas de conectividade do SQL | Microsoft Docs'
+description: Explica como solucionar problemas de conectividade do SQL que ocorrem com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,39 +14,39 @@ ms.date: 05/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea88951682c24d2a470d5bd7646722481e4db2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381404"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842688"
 ---
-# <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade SQL com o Azure AD Connect
-Este artigo explica como resolver problemas de conectividade entre o Azure AD Connect e o SQL Server. 
+# <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade do SQL com Azure AD Connect
+Este artigo explica como solucionar problemas de conectividade entre Azure AD Connect e SQL Server. 
 
-Captura de ecrã seguinte mostra um erro típico, se o SQL Server não é possível encontrar.
+A captura de tela a seguir mostra um erro típico, se o SQL Server não puder ser encontrado.
 
-![Erro SQL](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
+![Erro de SQL](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
-Abra uma janela do powershell e importe o módulo ADSyncTools Powershell
+Abrir uma janela do PowerShell e importar o módulo do PowerShell do ADSyncTools
 
 ``` powershell
 Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
 ```
 
 >[!NOTE]
->Install-Module requer a atualização para [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) ou posterior;  
-Ou instale [pré-visualização de módulos do PowerShell PackageManagement - Março de 2016 para o PowerShell 3.0/4.0](https://www.microsoft.com/download/details.aspx?id=51451) 
+>Install-Module requer atualização para o [PowerShell 5,0 (WMF 5,0)](https://www.microsoft.com/download/details.aspx?id=50395) ou posterior;  
+Ou instalar [módulos do PowerShell de PackageManagement Preview-março de 2016 para o PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
-- **Mostrar todos os comandos**: `Get-Command -Module AdSyncTools` 
-- **Executar a função do powershell**: `Connect-ADSyncDatabase` com os seguintes parâmetros
+- **Mostrar todos os comandos**:`Get-Command -Module AdSyncTools` 
+- **Execute a função do PowerShell**: `Connect-ADSyncDatabase` com os seguintes parâmetros
     - Servidor. O nome do SQL Server.
-    - Instância. (Opcional) O nome de instância do SQL Server e, opcionalmente, número de porta, o que deseja usar. Não especifica este parâmetro para utilizar a instância predefinida.
-    - Nome de utilizador. (Opcional) Conecte-se a conta de utilizador. Se deixado em branco do utilizador atualmente com sessão iniciada será utilizado. Se estiver a ligar a um servidor SQL remoto deve ser a conta de serviço personalizado que criou para a conectividade de SQL do Azure ADConnect. O Azure AD Connect utiliza a conta de serviço de sincronização do Azure AD Connect para autenticar para um SQL server remoto.
-    - Palavra-passe. (Opcional) Palavra-passe para o nome de utilizador fornecida.
+    - Cópia. Adicional O nome da instância do SQL Server e, opcionalmente, o número da porta, que você gostaria de usar. Não especifique esse parâmetro para usar a instância padrão.
+    - Usu. Adicional A conta de usuário com a qual se conectar. Se for deixado em branco, o usuário conectado no momento será usado. Se você estiver se conectando a um SQL Server remoto, essa deve ser a conta de serviço personalizada que você criou para a conectividade do SQL ADConnect do Azure. Azure AD Connect usa a conta de serviço de sincronização Azure AD Connect como para autenticar para um SQL Server remoto.
+    - La. Adicional Senha para o nome de usuário fornecido.
 
-Esta função do powershell irá tentar ligar para o SQL Server e instância com as credenciais transmitidas no especificados ou utilizar as credenciais do utilizador atual. Se o SQL Server não é possível localizar que o script irá tentar ligar ao serviço SQL Browser para determinar as portas e protocolos ativados.
+Essa função do PowerShell tentará se associar ao SQL Server e à instância especificados usando as credenciais passadas ou usar as credenciais do usuário atual. Se o SQL Server não puder ser encontrado, o script tentará se conectar ao serviço de SQL Browser para determinar protocolos e portas habilitados.
 
 Exemplo usando apenas um nome de servidor:
 ```
@@ -85,7 +85,7 @@ Container                        :
 PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> 
 ```
 
-Exemplo utilizando um número de instância e a porta que não existem:
+Exemplo usando uma instância e um número de porta que não existem:
 
 ```
 PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1"

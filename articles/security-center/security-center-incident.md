@@ -2,24 +2,19 @@
 title: Gerenciar incidentes de segurança na central de segurança do Azure | Microsoft Docs
 description: Este documento ajuda você a usar a central de segurança do Azure para gerenciar incidentes de segurança.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.date: 09/09/2019
+ms.author: memildin
+ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806565"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873382"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerenciar incidentes de segurança na central de segurança do Azure
 
@@ -29,7 +24,7 @@ Este tópico explica os incidentes na central de segurança e como usar a corre�
 
 ## <a name="what-is-a-security-incident"></a>O que é um incidente de segurança?
 
-No Centro de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com padrões de [cadeia de ataque](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Os incidentes aparecem na lista [alertas de segurança](security-center-managing-and-responding-alerts.md) . Clique em ona um incidente para exibir os alertas relacionados, o que permite obter mais informações sobre cada ocorrência.
+No Centro de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com padrões de [cadeia de ataque](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Os incidentes aparecem na lista [alertas de segurança](security-center-managing-and-responding-alerts.md) . Clique em um incidente para exibir os alertas relacionados, o que permite obter mais informações sobre cada ocorrência.
 
 ## <a name="managing-security-incidents"></a>Gerir incidentes de segurança
 

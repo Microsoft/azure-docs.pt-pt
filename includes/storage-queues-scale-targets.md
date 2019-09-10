@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 781087023bf9783bc3a153578b60b4941dc75c0e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67184469"
 ---
 | Resource | Destino |
 |----------|---------------|
 | Tamanho máximo de uma única fila | 500 TiB |
-| Tamanho máximo de uma mensagem numa fila | 64 KiB |
+| Tamanho máximo de uma mensagem em uma fila | 64 KiB |
 | Número máximo de políticas de acesso armazenadas por fila | 5 |
-| Taxa máxima de pedidos por conta de armazenamento | 20 000 mensagens por segundo, o que assume um tamanho de mensagem de 1-KiB |
-| Taxa de transferência de destino para uma única fila (1-KiB mensagens) | Até 2000 mensagens por segundo |
+| Taxa máxima de pedidos por conta de armazenamento | 20.000 mensagens por segundo, que assumem um tamanho de mensagem de 1 KiB |
+| Taxa de transferência de destino para uma única fila (mensagens de 1 KiB) | Até 2.000 mensagens por segundo |

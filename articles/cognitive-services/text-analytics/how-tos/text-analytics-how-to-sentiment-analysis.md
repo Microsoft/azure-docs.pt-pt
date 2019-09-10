@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: b37de45099362fda7288db52cf17749da6e44ea6
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390219"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845338"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: Detectar sentimentos com Análise de Texto
 
@@ -140,7 +140,7 @@ A [próxima versão do análise de sentimento](https://westcentralus.dev.cogniti
 > * O formato de solicitação e [os limites de dados](../overview.md#data-limits) do análise de sentimento v3 são os mesmos da versão anterior.
 > * Neste momento, Análise de Sentimento V3:
 >    * Atualmente, dá suporte a idiomas inglês, chinês simplificado e japonês.
->    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`e `East Asia`. 
+>    * Está disponível `Australia East`nas seguintes regiões: ,`East US 2` `North Europe` `Southeast Asia` ,,`UK South`,,, ,`South Central US`, ,`West Europe`, e`West US 2` `Central Canada` `Central US` `East Asia` `East US` .
 
 |Funcionalidade |Descrição  |
 |---------|---------|

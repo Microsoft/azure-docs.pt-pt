@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: f85605610727ef2c1e1987b7ef93a41ce2417a25
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "69626382"
 ---
 | Resource | Limite predefinido | Limite máximo |
@@ -20,7 +20,7 @@ ms.locfileid: "69626382"
 | VMs por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> por região. |25.000 por região. |
 | Total de núcleos de VM por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | VM por série, como Dv2 e F, núcleos por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
-| [](../articles/billing-add-change-azure-subscription-administrator.md) Coadministradores por assinatura |Inúmeros. |Inúmeros. |
+| [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |Inúmeros. |Inúmeros. |
 | [Contas de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) por região por assinatura |250 |250 |
 | [Grupos de recursos](../articles/azure-resource-manager/resource-group-overview.md) por assinatura |980 |980 |
 | [Conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2\.000 por região. |2\.000 por região. |

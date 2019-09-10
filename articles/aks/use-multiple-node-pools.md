@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 2a18362546ae3c31b06fc5294495d8f5ac5f0be3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 8edb361000110da16ce2a230d8768b204076ad21
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389943"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844282"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -88,7 +88,7 @@ Embora esse recurso esteja em versão prévia, as seguintes limitações adicion
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-Para começar, crie um cluster AKS com um único pool de nós. O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado *MyResource* Group na região *eastus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . A *--kubernetes-Version* de *1.13.10* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do kubernetes com suporte][supported-versions].
+Para começar, crie um cluster AKS com um único pool de nós. O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado MyResource Group na região *eastus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . A *--kubernetes-Version* de *1.13.10* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do kubernetes com suporte][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -169,14 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## <a name="upgrade-a-node-pool"></a>Atualizar um pool de nós
  
 > [!NOTE]
-> As operações de atualização e dimensionamento em um cluster ou pool de nós são mutuamente exclusivas. Você não pode ter um cluster ou pool de nós simultaneamente para atualizar e dimensionar. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Leia mais sobre isso em nosso [Guia de solução de problemas](https://aka.ms/aks-pending-upgrade).
+> As operações de atualização e dimensionamento em um cluster ou pool de nós não podem ocorrer simultaneamente, se uma tentativa de erro for retornada. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Leia mais sobre isso em nosso [Guia de solução de problemas](https://aka.ms/aks-pending-upgrade).
 
-Quando o cluster AKs foi criado na primeira etapa, um `--kubernetes-version` de *1.13.10* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós inicial. Há diferentes comandos para atualizar a versão kubernetes do plano de controle e o pool de nós que são explicados [abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Quando o cluster AKs foi inicialmente criado na primeira etapa, um `--kubernetes-version` de *1.13.10* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós padrão. Os comandos nesta seção explicam como atualizar um único pool de nós específico. A relação entre a atualização da versão kubernetes do plano de controle e o pool de nós é explicada na [seção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > A versão da imagem do sistema operacional do pool de nós está vinculada à versão kubernetes do cluster. Você só obterá atualizações de imagem do sistema operacional, seguindo uma atualização de cluster.
 
-Vamos atualizar o *mynodepool* para kubernetes *1.13.10*. Use o comando [AZ AKs node pool upgrade][az-aks-nodepool-upgrade] para atualizar o pool de nós, conforme mostrado no exemplo a seguir:
+Como há dois pools de nós neste exemplo, devemos usar [AZ AKs nodepool upgrade][az-aks-nodepool-upgrade] para atualizar um pool de nós. Vamos atualizar o *mynodepool* para kubernetes *1.13.10*. Use o comando [AZ AKs nodepool upgrade][az-aks-nodepool-upgrade] para atualizar o pool de nós, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -239,16 +239,14 @@ Como prática recomendada, você deve atualizar todos os pools de nós em um clu
 Um cluster AKS tem dois objetos de recurso de cluster. A primeira é uma versão kubernetes do plano de controle. O segundo é um pool de agentes com uma versão kubernetes. Um plano de controle é mapeado para um ou vários pools de nós e cada um tem sua própria versão kubernetes. O comportamento de uma operação de atualização depende de qual recurso é direcionado e qual versão da API subjacente é chamada.
 
 1. A atualização do plano de controle requer o uso do`az aks upgrade`
-   * Se o cluster tiver um único pool de agentes, o plano de controle e o pool de agente único serão atualizados juntos
-   * Se o cluster tiver vários pools de agentes, somente o plano de controle será atualizado
+   * Isso também atualizará todos os pools de nós no cluster
 1. Atualizando com o`az aks nodepool upgrade`
    * Isso atualizará apenas o pool de nós de destino com a versão especificada do kubernetes
 
 A relação entre as versões do kubernetes mantidas por pools de nós também deve seguir um conjunto de regras.
 
-1. Não é possível fazer downgrade do plano de controle ou da versão kubernetes do pool de nós.
-1. Se uma versão de kubernetes do plano de controle não for especificada, o padrão será a versão atual do plano de controle existente.
-1. Se uma versão de kubernetes do pool de nós não for especificada, o padrão será a versão do plano de controle.
+1. Não é possível fazer downgrade do plano de controle nem de uma versão kubernetes do pool de nós.
+1. Se uma versão de kubernetes do pool de nós não for especificada, o padrão usado será retornado para a versão do plano de controle.
 1. Você pode atualizar ou dimensionar um plano de controle ou pool de nós em um determinado momento, não é possível enviar ambas as operações simultaneamente.
 1. Uma versão de kubernetes do pool de nós deve ser a mesma versão principal que o plano de controle.
 1. Uma versão de kubernetes do pool de nós pode ser no máximo duas (2) versões secundárias inferiores ao plano de controle, nunca maior.
@@ -428,7 +426,7 @@ O Agendador kubernetes pode usar os conteúdo e os Tolerations para restringir q
 
 Para obter mais informações sobre como usar os recursos agendados do kubernetes avançados, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][taints-tolerations]
 
-Neste exemplo, aplique um o seu nó baseado em GPU usando o comando de [nó kubectl][kubectl-taint] Especifique o nome do nó baseado em GPU da saída do comando anterior `kubectl get nodes` . O o o comparado é aplicado como um *valor chave:* e, em seguida, uma opção de agendamento. O exemplo a seguir usa o par *SKU = GPU* e define pods, caso contrário, tem a capacidade *NoSchedule* :
+Neste exemplo, aplique um o seu nó baseado em GPU usando o comando de [nó kubectl][kubectl-taint] Especifique o nome do nó baseado em GPU da saída do comando anterior `kubectl get nodes` . O o o comparado é aplicado como um *valor chave:* e, em seguida, uma opção de agendamento. O exemplo a seguir usa o par *SKU = GPU* e define pods, caso contrário, tem a capacidade NoSchedule:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -486,7 +484,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Somente os pods que têm esse seu gpunodepool aplicado podem ser agendados em nós no *am*. Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
+Somente os pods que têm esse seu *gpunodepool*aplicado podem ser agendados em nós no am. Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gerenciar pools de nós usando um modelo do Resource Manager
 

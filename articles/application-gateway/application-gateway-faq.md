@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194469"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858541"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -56,7 +56,7 @@ O gateway de aplicativo é uma implantação dedicada em sua rede virtual.
 
 ### <a name="does-application-gateway-support-http-to-https-redirection"></a>O gateway de aplicativo dá suporte ao redirecionamento de HTTP para HTTPS?
 
-Há suporte para o redirecionamento. Consulte [visão geral](application-gateway-redirect-overview.md)do redirecionamento do gateway de aplicativo.
+Há suporte para o redirecionamento. Consulte [visão geral do redirecionamento do gateway de aplicativo](application-gateway-redirect-overview.md).
 
 ### <a name="in-what-order-are-listeners-processed"></a>Em que ordem os ouvintes são processados?
 
@@ -120,7 +120,7 @@ Use o Gerenciador de tráfego para distribuir o tráfego entre vários gateways 
 
 ### <a name="does-application-gateway-support-autoscaling"></a>O gateway de aplicativo dá suporte ao dimensionamento automático?
 
-Sim, o SKU do gateway de aplicativo v2 dá suporte ao dimensionamento automático. Para obter mais informações, consulte dimensionamento automático [e gateway de aplicativo com redundância de zona](application-gateway-autoscaling-zone-redundant.md).
+Sim, o SKU do gateway de aplicativo v2 dá suporte ao dimensionamento automático. Para obter mais informações, consulte [dimensionamento automático e gateway de aplicativo com redundância de zona](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>A redução ou redução manual causa tempo de inatividade?
 
@@ -353,7 +353,7 @@ No portal, na folha do menu de um gateway de aplicativo, selecione **log de ativ
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Posso definir alertas com o gateway de aplicativo?
 
-Sim. No gateway de aplicativo, os alertas são configurados nas métricas. Para obter mais informações, consulte métricas do [Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) e [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sim. No gateway de aplicativo, os alertas são configurados nas métricas. Para obter mais informações, consulte [métricas do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) e [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Como fazer analisar as estatísticas de tráfego para o gateway de aplicativo?
 
@@ -372,6 +372,6 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424227"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844698"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Conceitos da visualização do compartilhamento de dados do Azure 
 
@@ -31,9 +31,9 @@ Um compartilhamento de dados é um grupo de DataSets que são compartilhados com
 
 ## <a name="share-subscription"></a>Compartilhar assinatura 
 
-Uma assinatura de compartilhamento é criada quando um consumidor de dados aceita um convite de compartilhamento de dados de um provedor de dados. Os provedores de dados podem exibir as assinaturas de compartilhamento ativas navegando até os compartilhamentos **enviados** em sua conta de compartilhamento de dados do Azure e selecionando **assinaturas de compartilhamento**.
+Uma assinatura de compartilhamento é criada quando um consumidor de dados aceita um convite de compartilhamento de dados de um provedor de dados. Os provedores de dados podem exibir as assinaturas de compartilhamento ativas navegando até os **compartilhamentos enviados** em sua conta de compartilhamento de dados do Azure e selecionando **assinaturas de compartilhamento**.
 
-Um consumidor de dados pode verificar se eles têm uma assinatura de compartilhamento ativa navegando até os compartilhamentos **recebidos** e exibindo o status de seus compartilhamentos recebidos. 
+Um consumidor de dados pode verificar se eles têm uma assinatura de compartilhamento ativa navegando até os **compartilhamentos recebidos** e exibindo o status de seus compartilhamentos recebidos. 
 
 ## <a name="snapshot"></a>Instantâneo
 
@@ -53,7 +53,9 @@ Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo
 
 Um provedor de dados pode convidar vários destinatários para seu compartilhamento de dados. Eles podem fazer isso adicionando destinatários ao compartilhamento de dados. Os convites também podem ser adicionados após a criação de um compartilhamento de dados. 
 
-Um provedor de dados pode excluir um convite após ele ser enviado. Observe que, se um provedor de dados excluir um convite depois que ele tiver sido aceito, o consumidor de dados ainda poderá ter uma assinatura de compartilhamento ativa. Se o provedor de dados excluir um convite e ele ainda não tiver sido aceito, o consumidor de dados não poderá aceitá-lo. 
+Um provedor de dados pode excluir um convite após ele ser enviado se ele não tiver sido aceito. Se o provedor de dados excluir um convite e ele ainda não tiver sido aceito, o consumidor de dados não poderá aceitá-lo. 
+
+Os convites podem ser reenviados até 5 vezes por dia. 
 
 ## <a name="recipient"></a>Destinatário
 

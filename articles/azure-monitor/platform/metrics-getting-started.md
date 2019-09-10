@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Explorador de métricas do Azure
-description: Saiba como criar seu primeiro gráfico de métricas com o Explorador de métricas do Azure.
+title: Introdução ao Gerenciador de métricas do Azure
+description: Saiba como criar seu primeiro gráfico de métrica com o Azure Metrics Explorer.
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,66 +8,69 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ceaefffaf04a3ab266cde300e8c4b93a5e804796
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595447"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861090"
 ---
-# <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Explorador de métricas do Azure
+# <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Metrics Explorer do Azure
 
-## <a name="where-do-i-start"></a>Por onde começar
-Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que permite que o desenho de gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Utilize o Explorador de métricas para investigar o estado de funcionamento e a utilização dos seus recursos. Comece pela seguinte ordem:
+## <a name="where-do-i-start"></a>Onde começo
+Azure Monitor métricas Explorer é um componente do portal do Microsoft Azure que permite plotar gráficos, correlacionar visualmente tendências e investigar picos e quedas nos valores de métricas. Use o Metrics Explorer para investigar a integridade e a utilização de seus recursos. Iniciar na seguinte ordem:
 
-1. [Escolher um recurso e uma métrica](#create-your-first-metric-chart) e verá um gráfico básico. Em seguida, [selecionar um intervalo de tempo](#select-a-time-range) que é relevante para a sua investigação.
+1. [Escolha um recurso e uma métrica](#create-your-first-metric-chart) e você verá um gráfico básico. Em seguida, [Selecione um intervalo de tempo](#select-a-time-range) que seja relevante para sua investigação.
 
-1. Tente [aplicar os filtros de dimensão e divisão](#apply-dimension-filters-and-splitting). Os filtros e divisão permitem-lhe analisar quais segmentos da métrica contribuem para o valor da métrica geral e identificar valores atípicos possíveis.
+1. Tente [aplicar filtros de dimensão e divisão](#apply-dimension-filters-and-splitting). Os filtros e a divisão permitem que você analise quais segmentos da métrica contribuem para o valor de métrica geral e identificam possíveis exceções.
 
-1. Uso [definições avançadas](#advanced-chart-settings) para personalizar o gráfico antes de afixar nos dashboards. [Configurar alertas](alerts-metric-overview.md) para receber notificações quando o valor da métrica excede ou cai abaixo de um limiar.
+1. Use [as configurações avançadas](#advanced-chart-settings) para personalizar o gráfico antes de fixar os painéis. [Configure alertas](alerts-metric-overview.md) para receber notificações quando o valor da métrica exceder ou cair abaixo de um limite.
 
-## <a name="create-your-first-metric-chart"></a>Crie seu primeiro gráfico de métricas
+## <a name="create-your-first-metric-chart"></a>Criar seu primeiro gráfico de métrica
 
-Para criar um gráfico de métricas, do recurso, grupo de recursos, subscrição ou exibição de Monitor do Azure, abra a **métricas** separador e siga estes passos:
+Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatura ou Azure Monitor exibição, abra a guia **métricas** e siga estas etapas:
 
-1. Utilizando o selecionador de recursos, selecione o recurso para o qual pretende ver as métricas. (O recurso está pré-selecionada se abriu **métricas** no contexto de um recurso específico).
+1. Usando o seletor de recursos, selecione o recurso para o qual você deseja ver as métricas. (O recurso será pré-selecionado se você tiver aberto as **métricas** no contexto de um recurso específico).
 
-    > ![Selecionar um recurso](./media/metrics-getting-started/resource-picker.png)
+    > ![Selecione um recurso](./media/metrics-getting-started/resource-picker.png)
 
-2. Para alguns recursos, tem de escolher um espaço de nomes. O espaço de nomes é apenas uma forma de organizar as métricas para que pode encontrá-los facilmente. Por exemplo, contas de armazenamento têm espaços de nomes separados para armazenar as métricas de ficheiros, tabelas, Blobs e filas. Muitos tipos de recursos tem apenas um espaço de nomes.
+2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar métricas para que você possa encontrá-las facilmente. Por exemplo, contas de armazenamento têm namespaces separados para armazenar arquivos, tabelas, BLOBs e métricas de filas. Muitos tipos de recursos têm apenas um namespace.
 
-3. Selecione uma métrica de uma lista de métricas disponíveis.
+3. Selecione uma métrica em uma lista de métricas disponíveis.
 
-    > ![Selecione uma métrica](./media/metrics-getting-started/metric-picker.png)
+    > ![Selecionar uma métrica](./media/metrics-getting-started/metric-picker.png)
 
-4. Opcionalmente, pode alterar a agregação de métricas. Por exemplo, pode desejar seu gráfico para mostrar os valores mínimo, máximos ou médios da métrica.
+4. Opcionalmente, você pode alterar a agregação de métrica. Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
 > [!NOTE]
-> Utilize o **adicionar métrica** botão e repita estes passos, se quiser ver várias métricas desenhadas no mesmo gráfico. Para vários gráficos numa vista, selecione o **adicionar gráfico** botão na parte superior.
+> Use o botão **Adicionar métrica** e repita essas etapas se desejar ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
 
-## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
+## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
 
-Por predefinição, o gráfico mostra as mais recentes 24 horas de dados de métricas. Utilize o **Seletor de hora** painel para alterar o intervalo de tempo, ampliar ou reduzir o tempo limite no gráfico. 
+Por padrão, o gráfico mostra as 24 horas mais recentes de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
 
-![Painel de intervalo de tempo de alteração](./media/metrics-getting-started/time-picker.png)
+![Alterar painel de intervalo de tempo](./media/metrics-getting-started/time-picker.png)
+
+> [!NOTE]
+> Use o **pincel de tempo** para investigar uma área interessante do gráfico (pico ou DIP). Coloque o ponteiro do mouse no início da área, clique e mantenha o botão esquerdo do mouse, arraste para o outro lado da área e, em seguida, solte o botão. O gráfico será ampliado nesse intervalo de tempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 
-[Filtragem](metrics-charts.md#apply-filters-to-charts) e [divisão](metrics-charts.md#apply-splitting-to-a-chart) são poderosas ferramentas de diagnóstico para as métricas que têm dimensões. Estas funcionalidades mostram o valor geral da métrica de impacto de segmentos de métrica ("valores de dimensão") como várias e permitem-lhe identificar valores atípicos possíveis.
+[Filtragem](metrics-charts.md#apply-filters-to-charts) e [divisão](metrics-charts.md#apply-splitting-to-a-chart) são ferramentas de diagnóstico poderosas para as métricas que têm dimensões. Esses recursos mostram como vários segmentos de métrica ("valores de dimensão") impactam o valor geral da métrica e permitem que você identifique possíveis exceções.
 
-- **Filtragem** permite-lhe escolher quais valores de dimensão estão incluídos no gráfico. Por exemplo, pode querer mostrar pedidos com êxito quando a criação de gráficos a *tempo de resposta do servidor* métrica. Precisaria aplicar o filtro no *sucesso de pedido* dimensão. 
+- A **filtragem** permite que você escolha quais valores de dimensão serão incluídos no gráfico. Por exemplo, talvez você queira mostrar solicitações bem-sucedidas ao representar o gráfico da métrica de *tempo de resposta do servidor* . Você precisaria aplicar o filtro no *sucesso da dimensão de solicitação* . 
 
-- **A divisão** controles se o gráfico exibe separado para cada valor de uma dimensão as linhas ou agrega os valores numa única linha. Por exemplo, pode ver uma linha para um tempo de resposta médio em todas as instâncias de servidor ou ver linhas separadas para cada servidor. Precisaria aplicam-se de que a divisão no *instância de servidor* dimensão para ver as linhas separadas.
+- **Dividir** controles se o gráfico exibe linhas separadas para cada valor de uma dimensão ou agrega os valores em uma única linha. Por exemplo, você pode ver uma linha para um tempo médio de resposta em todas as instâncias de servidor ou ver linhas separadas para cada servidor. Você precisaria aplicar a divisão na dimensão de *instância do servidor* para ver linhas separadas.
 
-Ver [exemplos dos gráficos](metric-chart-samples.md) que tem filtragem e a divisão de aplicadas. O artigo mostra-lhe que os passos foram utilizados para configurar os gráficos.
+Veja [exemplos dos gráficos](metric-chart-samples.md) que têm a filtragem e a divisão aplicada. O artigo mostra as etapas usadas para configurar os gráficos.
 
-## <a name="advanced-chart-settings"></a>Definições do gráfico avançado
+## <a name="advanced-chart-settings"></a>Configurações avançadas do gráfico
 
-Pode personalizar o estilo do gráfico, título e modificar as definições do gráfico avançado. Quando terminar com a personalização, afixá-la a um dashboard para guardar o seu trabalho. Também pode configurar alertas de métricas. Siga [documentação do produto](metrics-charts.md) saber mais sobre estes e outros recursos avançados do Explorador de métricas do Azure Monitor.
+Você pode personalizar o estilo do gráfico, o título e modificar as configurações avançadas do gráfico. Quando terminar com a personalização, fixe-a em um painel para salvar seu trabalho. Você também pode configurar alertas de métricas. Siga a [documentação do produto](metrics-charts.md) para saber mais sobre esses e outros recursos avançados do Azure monitor métricas Explorer.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre funcionalidades avançadas do Explorador de métricas](metrics-charts.md)
-* [Resolução de problemas do Explorador de métricas](metrics-troubleshoot.md)
-* [Ver uma lista de métricas disponíveis para serviços do Azure](metrics-supported.md)
-* [Veja exemplos de gráficos configurados](metric-chart-samples.md)
+* [Saiba mais sobre os recursos avançados do Metrics Explorer](metrics-charts.md)
+* [Solução de problemas Metrics Explorer](metrics-troubleshoot.md)
+* [See a list of available metrics for Azure services](metrics-supported.md) (Ver uma lista de métricas disponíveis para serviços do Azure)
+* [See examples of configured charts](metric-chart-samples.md) (Ver exemplos de gráficos configurados)

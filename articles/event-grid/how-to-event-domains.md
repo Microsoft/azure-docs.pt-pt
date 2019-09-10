@@ -1,55 +1,67 @@
 ---
-title: Gerir grandes conjuntos de tópicos do Azure Event Grid com domínios de eventos
-description: Mostra como gerenciar grandes conjuntos de tópicos do Azure Event Grid e publicar eventos aos mesmos com domínios de evento.
+title: Gerenciar grandes conjuntos de tópicos na grade de eventos do Azure com domínios de evento
+description: Mostra como gerenciar grandes conjuntos de tópicos na grade de eventos do Azure e publicar eventos para eles usando domínios de evento.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.date: 07/11/2019
+ms.openlocfilehash: 9d7cef35ef6d1138b037f7c520f21bee86567aa8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137850"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842574"
 ---
-# <a name="manage-topics-and-publish-events-using-event-domains"></a>Tópicos de gerir e publicar eventos através de domínios de eventos
+# <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerenciar tópicos e publicar eventos usando domínios de evento
 
 Este artigo mostra como:
 
-* Criar um domínio do Event Grid
-* Subscrever tópicos do event grid
+* Criar um domínio de grade de eventos
+* Tópicos de assinatura para a grade de eventos
 * Listar chaves
-* Publicar eventos para um domínio
+* Publicar eventos em um domínio
 
-Para saber mais sobre os domínios de eventos, veja [compreender os domínios de eventos para o gerenciamento de tópicos do Event Grid](event-domains.md).
+Para saber mais sobre domínios de evento, consulte [entender domínios de evento para gerenciar tópicos de grade de eventos](event-domains.md).
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="create-an-event-domain"></a>Criar um domínio de eventos
+## <a name="install-preview-feature"></a>Instale a funcionalidade de pré-visualização
 
-Para gerir grandes conjuntos de tópicos, crie um domínio de evento.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-Para a CLI do Azure, utilize:
+## <a name="create-an-event-domain"></a>Criar um domínio de evento
+
+Para gerenciar grandes conjuntos de tópicos, crie um domínio de evento.
+
+# <a name="azure-clitabazurecli"></a>[CLI do Azure](#tab/azurecli)
 
 ```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
   -l <location>
 ```
 
-Para o PowerShell, utilize:
-
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
 ```
+---
 
-A criação com êxito devolve os valores seguintes:
+A criação bem-sucedida retorna os seguintes valores:
 
 ```json
 {
@@ -66,15 +78,16 @@ A criação com êxito devolve os valores seguintes:
 }
 ```
 
-Tenha em atenção a `endpoint` e `id` à medida que são necessários para gerir o domínio e publicar eventos.
+Observe o `endpoint` e `id` como eles são necessários para gerenciar o domínio e publicar eventos.
 
-## <a name="manage-access-to-topics"></a>Gerir o acesso aos tópicos
+## <a name="manage-access-to-topics"></a>Gerenciar o acesso a tópicos
 
-Gerir o acesso aos tópicos é feita por meio [atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Atribuição de função usa o controlo de acesso baseado em funções para limitar as operações em recursos do Azure para os utilizadores autorizados num determinado âmbito.
+O gerenciamento de acesso a tópicos é feito por meio da [atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). A atribuição de função usa o controle de acesso baseado em função para limitar as operações nos recursos do Azure a usuários autorizados em um determinado escopo.
 
-Grelha de eventos tem duas funções incorporadas, que pode utilizar para atribuir utilizadores particulares acesso sobre vários tópicos dentro de um domínio. Estas funções são `EventGrid EventSubscription Contributor (Preview)`, que permite a criação e eliminação das subscrições, e `EventGrid EventSubscription Reader (Preview)`, que permite que apenas para a lista de subscrições de eventos.
+A grade de eventos tem duas funções internas, que podem ser usadas para atribuir acesso a usuários específicos em vários tópicos em um domínio. Essas funções são `EventGrid EventSubscription Contributor (Preview)`, que permitem a criação e exclusão de assinaturas, e `EventGrid EventSubscription Reader (Preview)`, que só permite a listagem de assinaturas de evento.
 
-Os seguintes limites de comando da CLI do Azure `alice@contoso.com` para criar e eliminar subscrições de eventos apenas no tópico `demotopic1`:
+# <a name="azure-clitabazurecli"></a>[CLI do Azure](#tab/azurecli)
+Os seguintes CLI do Azure limites `alice@contoso.com` de comando para criar e excluir assinaturas de evento somente no tópico: `demotopic1`
 
 ```azurecli-interactive
 az role assignment create \
@@ -83,7 +96,8 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-Os seguintes limites de comando do PowerShell `alice@contoso.com` para criar e eliminar subscrições de eventos apenas no tópico `demotopic1`:
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+Os seguintes limites `alice@contoso.com` de comando do PowerShell para criar e excluir assinaturas de evento somente no `demotopic1`tópico:
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment `
@@ -91,18 +105,19 @@ New-AzureRmRoleAssignment `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
+---
 
-Para obter mais informações sobre a gestão de acesso para operações do Event Grid, veja [Event Grid segurança e autenticação](./security-authentication.md).
+Para obter mais informações sobre como gerenciar o acesso para operações de grade de eventos, consulte [segurança e autenticação da grade de eventos](./security-authentication.md).
 
 ## <a name="create-topics-and-subscriptions"></a>Criar tópicos e subscrições
 
-O serviço do Event Grid cria e gere o tópico correspondente num domínio com base na chamada para criar uma subscrição de evento para um tópico de domínio automaticamente. Não existe passo separado para criar um tópico num domínio. Da mesma forma, quando a última subscrição de evento para um tópico é excluída, o tópico é eliminado também.
+O serviço de grade de eventos cria e gerencia automaticamente o tópico correspondente em um domínio com base na chamada para criar uma assinatura de evento para um tópico de domínio. Não há nenhuma etapa separada para criar um tópico em um domínio. Da mesma forma, quando a última assinatura de evento de um tópico é excluída, o tópico também é excluído.
 
-Subscrever um tópico num domínio é igual a subscrição a qualquer outro recurso do Azure. Para o ID de recurso de origem, especifique o ID de domínio do evento devolvido ao criar o domínio anteriormente. Para especificar o tópico que pretende subscrever, adicione `/topics/<my-topic>` ao final do ID de recurso de origem. Para criar uma subscrição de evento de âmbito de domínio que recebe a todos os eventos no domínio, especifique o ID de evento de domínio sem especificar qualquer tópico.
+Assinar um tópico em um domínio é o mesmo que assinar qualquer outro recurso do Azure. Para a ID do recurso de origem, especifique a ID de domínio do evento retornada ao criar o domínio anteriormente. Para especificar o tópico que você deseja assinar, adicione `/topics/<my-topic>` ao final da ID do recurso de origem. Para criar uma assinatura de evento de escopo de domínio que receba todos os eventos no domínio, especifique a ID de domínio do evento sem especificar nenhum tópico.
 
-Normalmente, é concedido ao utilizador aceder na que secção anterior cria a subscrição. Para simplificar este artigo, crie a subscrição. 
+Normalmente, o usuário ao qual você concedeu acesso na seção anterior criaria a assinatura. Para simplificar este artigo, você cria a assinatura. 
 
-Para a CLI do Azure, utilize:
+# <a name="azure-clitabazurecli"></a>[CLI do Azure](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -111,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-Para o PowerShell, utilize:
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -120,16 +135,18 @@ New-AzureRmEventGridSubscription `
   -Endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-Se precisar de um ponto final de teste para subscrever os eventos, sempre pode implementar um [aplicação web pré-criados](https://github.com/Azure-Samples/azure-event-grid-viewer) que apresenta os eventos de entrada. Pode enviar seus eventos ao seu Web site de teste em `https://<your-site-name>.azurewebsites.net/api/updates`.
+---
+
+Se você precisar de um ponto de extremidade de teste para inscrever seus eventos no, sempre será possível implantar um [aplicativo Web pré-criado](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe os eventos de entrada. Você pode enviar seus eventos para seu site de teste `https://<your-site-name>.azurewebsites.net/api/updates`em.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-As permissões que estão definidas para um tópico são armazenadas no Azure Active Directory e tem de ser eliminadas explicitamente. A eliminar uma subscrição de evento não revogar um acesso de utilizadores para criar subscrições de eventos, se tiver acesso de escrita sobre um tópico.
+As permissões definidas para um tópico são armazenadas em Azure Active Directory e devem ser excluídas explicitamente. A exclusão de uma assinatura de evento não revogará o acesso de um usuário para criar assinaturas de evento se eles tiverem acesso de gravação em um tópico.
 
 
-## <a name="publish-events-to-an-event-grid-domain"></a>Publicar eventos para um domínio de grelha de eventos
+## <a name="publish-events-to-an-event-grid-domain"></a>Publicar eventos em um domínio da grade de eventos
 
-A publicação de eventos a um domínio é o mesmo que [publicar um tópico personalizado](./post-to-custom-topic.md). No entanto, em vez de publicação para o tópico personalizado, publicar todos os eventos para o ponto final de domínio. Os dados de eventos do JSON, vai especificar o tópico que pretende que os eventos para ir para. A matriz de eventos a seguir iria resultar em eventos com `"id": "1111"` para o tópico `demotopic1` ao evento com `"id": "2222"` seriam enviados para o tópico `demotopic2`:
+Publicar eventos em um domínio é o mesmo que [publicar em um tópico personalizado](./post-to-custom-topic.md). No entanto, em vez de publicar no tópico personalizado, você publica todos os eventos no ponto de extremidade do domínio. Nos dados de evento JSON, você especifica o tópico para o qual deseja que os eventos sejam acessados. A matriz de eventos a seguir resultaria em evento `"id": "1111"` com o `demotopic1` tópico while, `"id": "2222"` enquanto o evento with seria `demotopic2`enviado ao tópico:
 
 ```json
 [{
@@ -158,7 +175,8 @@ A publicação de eventos a um domínio é o mesmo que [publicar um tópico pers
 }]
 ```
 
-Para obter o ponto de final de domínio com a CLI do Azure, utilize
+# <a name="azure-clitabazurecli"></a>[CLI do Azure](#tab/azurecli)
+Para obter o ponto de extremidade de domínio com CLI do Azure, use
 
 ```azurecli-interactive
 az eventgrid domain show \
@@ -166,7 +184,7 @@ az eventgrid domain show \
   -n <my-domain>
 ```
 
-Para obter as chaves para um domínio, utilize:
+Para obter as chaves para um domínio, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -174,7 +192,8 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Para obter o ponto de extremidade do domínio com o PowerShell, utilize
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+Para obter o ponto de extremidade de domínio com o PowerShell, use
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomain `
@@ -182,33 +201,17 @@ Get-AzureRmEventGridDomain `
   -Name <my-domain>
 ```
 
-Para obter as chaves para um domínio, utilize:
+Para obter as chaves para um domínio, use:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
+---
 
-E, em seguida, utilizar o seu método preferido de fazer com que um HTTP POST para publicar seus eventos ao seu domínio do Event Grid.
+Em seguida, use seu método favorito para fazer um HTTP POST para publicar seus eventos em seu domínio da grade de eventos.
 
-## <a name="search-lists-of-topics-or-subscriptions"></a>Listas de pesquisa de tópicos ou subscrições
+## <a name="next-steps"></a>Passos seguintes
 
-Para fazer a pesquisa e gerenciamento de grandes quantidades de tópicos ou subscrições, as APIs do Event Grid suportam listagem e de paginação.
-
-### <a name="using-cli"></a>Com a CLI
-
-Para utilizar Certifique-se de que está a utilizar a versão de extensão da CLI do Azure Event Grid 0.4.1 ou mais recente.
-
-```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
-az eventgrid topic list \
-    --odata-query "contains(name, 'my-test-filter')"
-```
-
-## <a name="next-steps"></a>Passos Seguintes
-
-* Para obter mais informações sobre conceitos de alto nível em domínios de eventos e por que eles são úteis, consulte a [descrição geral conceptual dos domínios de evento](event-domains.md).
+* Para obter mais informações sobre conceitos de alto nível em domínios de evento e por que eles são úteis, consulte a [visão geral conceitual dos domínios de evento](event-domains.md).

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011527"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844981"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 
@@ -24,7 +24,7 @@ Este artigo ensina como usar o serviço de Azure Machine Learning para implantar
 A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para fazer previsões. O uso de GPUs em vez de CPUs oferece vantagens de desempenho na computação altamente paralelizáveis.
 
 > [!IMPORTANT]
-> A inferência de GPU só tem suporte no serviço kubernetes do Azure.
+> Para implantações de serviço Web, a inferência de GPU só tem suporte no serviço kubernetes do Azure. Para a inferência usando um __pipeline de Machine Learning__, há suporte para GPUs somente na computação Azure Machine Learning. Para obter mais informações sobre como usar pipelines de ML, consulte [executar previsões de lote](how-to-run-batch-predictions.md). 
 
 > [!TIP]
 > Embora os trechos de código neste artigo usee um modelo TensorFlow, você pode aplicar as informações a qualquer estrutura de Machine Learning que ofereça suporte a GPUs.
@@ -268,7 +268,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-Para obter mais informações sobre como criar um aplicativo cliente, consulte [criar cliente para consumir o serviço Web](how-to-consume-web-service.md)implantado.
+Para obter mais informações sobre como criar um aplicativo cliente, consulte [criar cliente para consumir o serviço Web implantado](how-to-consume-web-service.md).
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 

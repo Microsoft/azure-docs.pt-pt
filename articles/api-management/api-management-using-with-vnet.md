@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 09/09/2019
 ms.author: apimpm
-ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 44fd3f0381c25f2fe0a3e9dc4cf5b8c685486ae0
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305235"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861152"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede roteável que não seja da Internet para a qual você controla o acesso. Essas redes podem ser conectadas às suas redes locais usando várias tecnologias de VPN. Para saber mais sobre as redes virtuais do Azure, comece com as informações aqui: [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ Para executar as etapas descritas neste artigo, você deve ter:
 >
 
 > [!IMPORTANT]
-> Se você remover o gerenciamento de API de uma VNET ou alterar aquela em que ela está implantada, a VNET usada anteriormente poderá permanecer bloqueada por até duas horas. Durante esse período, não será possível excluir a VNET ou implantar um novo recurso nele.
+> Se você remover o gerenciamento de API de uma VNET ou alterar aquela em que ela está implantada, a VNET usada anteriormente poderá permanecer bloqueada por até seis horas. Durante esse período, não será possível excluir a VNET ou implantar um novo recurso nele. Esse comportamento é verdadeiro para clientes que usam a API-versão 2018-01-01 e anterior. Clientes que usam a API-Version 2019-01-01 e posterior, a VNET é liberada assim que o serviço de gerenciamento de API associado é excluído.
 
 ## <a name="enable-vnet-powershell"> </a>Habilitar conexão VNET usando cmdlets do PowerShell
 Você também pode habilitar a conectividade VNET usando os cmdlets do PowerShell

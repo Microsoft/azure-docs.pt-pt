@@ -11,18 +11,19 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 0286c82c0b4378e24fa46d0327bd6a5b26037496
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 79632a2b5862538ef702cec01a60aada14d8dbce
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813653"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860481"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar, explorar e implantar experimentos automatizados de aprendizado de máquina na portal do Azure (versão prévia)
 
  Neste artigo, você aprenderá a criar, explorar e implantar experimentos automatizados de aprendizado de máquina no portal do Azure sem uma única linha de código. O aprendizado de máquina automatizado automatiza o processo de seleção do melhor algoritmo a ser usado para seus dados específicos, para que você possa gerar um modelo de aprendizado de máquina rapidamente. [Saiba mais sobre o aprendizado de máquina automatizado](concept-automated-ml.md).
 
  Se você preferir uma experiência mais baseada em código, também poderá [configurar seus experimentos de aprendizado de máquina automatizados no Python](how-to-configure-auto-train.md) com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,6 +40,8 @@ Navegue até o painel esquerdo do seu espaço de trabalho. Selecione Machine Lea
  Se esta for a primeira vez que você faz qualquer experimento, você verá a tela **Bem-vindo à Machine Learning automatizada** . 
 
 Caso contrário, você verá o painel **automatizado do Machine Learning** com uma visão geral de todos os seus experimentos de aprendizado de máquina automatizados, incluindo aqueles criados com o SDK. Aqui você pode filtrar e explorar suas execuções por data, nome do experimento e status de execução.
+
+Você também pode acessar o Machine Learning automatizado na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
 ## <a name="create-an-experiment"></a>Criar uma experimentação
 
@@ -194,7 +197,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 Agora você tem um serviço Web operacional para gerar previsões!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.

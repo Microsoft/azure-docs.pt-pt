@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4d3fc90a722b9f4043e891a14b542e6b90c94c55
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5cd0f88173abb65a120aa305206505af51d9f9e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881041"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861369"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
 
-A avaliação e recomendações do Endpoint Protection na central de segurança do Azure detecta e fornece avaliação de integridade de versões [com suporte](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) das soluções do Endpoint Protection. Este tópico explica os cenários que geram as duas recomendações a seguir para soluções do Endpoint Protection pela central de segurança do Azure.
+A avaliação e recomendações do Endpoint Protection na central de segurança do Azure detecta e fornece avaliação de integridade de versões [com suporte](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) das soluções do Endpoint Protection. Este tópico explica os cenários que geram as duas recomendações a seguir para soluções do Endpoint Protection pela central de segurança do Azure.
 
 * **Instalar soluções do Endpoint Protection em sua máquina virtual**
 * **Resolver problemas de integridade do Endpoint Protection em seus computadores**

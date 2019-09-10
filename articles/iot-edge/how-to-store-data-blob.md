@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1a48088d0d7ef1e14614629340ee477833535861
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 7d504bae16b5b9b10debd916ef8888e90e79364e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390399"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844167"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazene dados na borda com o armazenamento de BLOBs do Azure no IoT Edge
 
@@ -77,20 +77,20 @@ Use as propriedades desejadas do módulo para definir **deviceToCloudUploadPrope
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-O nome dessa configuração é`deviceToCloudUploadProperties`
+O nome dessa configuração é `deviceToCloudUploadProperties`. Se você estiver usando o simulador de IoT Edge, defina os valores para as variáveis de ambiente relacionadas para essas propriedades, que podem ser encontradas na seção explicação.
 
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
 | carregar | true, false | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Permite que você escolha a ordem na qual os dados são copiados para o Azure. Defina como `OldestFirst` por padrão. A ordem é determinada pela hora da última modificação do blob. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`é uma cadeia de conexão que permite especificar a conta de armazenamento para a qual você deseja que os dados sejam carregados. Especifique `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Adicione o EndpointSuffix apropriado do Azure em que os dados serão carregados, varia para o Azure global, o Azure governamental e o Microsoft Azure Stack. <br><br> Você pode optar por especificar a cadeia de conexão SAS do armazenamento do Azure aqui. Mas você precisa atualizar essa propriedade quando ela expirar. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite que você especifique os nomes de contêiner que deseja carregar no Azure. Esse módulo permite que você especifique nomes de contêiner de origem e de destino. Se você não especificar o nome do contêiner de destino, ele atribuirá automaticamente o nome `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`do contêiner como. Você pode criar cadeias de caracteres de modelo para o nome do contêiner de destino, confira a coluna de valores possíveis. <br>*% h-> nome do Hub IoT (3-50 caracteres). <br>*% d-> IoT Edge ID do dispositivo (1 a 129 caracteres). <br>*% m-> nome do módulo (1 a 64 caracteres). <br>*% c-> nome do contêiner de origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do contêiner é de 63 caracteres, enquanto atribui automaticamente o nome do contêiner de destino se o tamanho do contêiner exceder 63 caracteres, ele cortará cada seção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) como 15 personagens. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite que você especifique os nomes de contêiner que deseja carregar no Azure. Esse módulo permite que você especifique nomes de contêiner de origem e de destino. Se você não especificar o nome do contêiner de destino, ele atribuirá automaticamente o nome `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`do contêiner como. Você pode criar cadeias de caracteres de modelo para o nome do contêiner de destino, confira a coluna de valores possíveis. <br>*% h-> nome do Hub IoT (3-50 caracteres). <br>*% d-> IoT Edge ID do dispositivo (1 a 129 caracteres). <br>*% m-> nome do módulo (1 a 64 caracteres). <br>*% c-> nome do contêiner de origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do contêiner é de 63 caracteres, enquanto atribui automaticamente o nome do contêiner de destino se o tamanho do contêiner exceder 63 caracteres, ele cortará cada seção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) como 15 personagens. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | Defina como `false` por padrão. Quando definido como `true`, ele excluirá automaticamente os dados quando o carregamento para o armazenamento em nuvem for concluído. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-O nome dessa configuração é`deviceAutoDeleteProperties`
+O nome dessa configuração é `deviceAutoDeleteProperties`. Se você estiver usando o simulador de IoT Edge, defina os valores para as variáveis de ambiente relacionadas para essas propriedades, que podem ser encontradas na seção explicação.
 
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
@@ -263,7 +263,7 @@ Não suportado:
 
 ## <a name="release-notes"></a>Notas de Versão
 
-Aqui estão as [notas de versão no Hub do Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo
+Aqui estão as [notas de versão no Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) do Docker para este módulo
 
 ## <a name="feedback"></a>Comentários
 
@@ -271,7 +271,7 @@ Seus comentários são importantes para que possamos tornar este módulo e seus 
 
 Você pode entrar em contato conosco emabsiotfeedback@microsoft.com
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [implantar o armazenamento de BLOBs do Azure no IOT Edge](how-to-deploy-blob.md)
 

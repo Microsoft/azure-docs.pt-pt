@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d819479c5e4bdbf8287dc7408c0f7813f5e32b13
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900185"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860452"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Acompanhar métricas e implantar modelos com o MLflow e o serviço de Azure Machine Learning (versão prévia)
 
@@ -39,7 +39,7 @@ O diagrama a seguir ilustra isso com o acompanhamento de MLflow, você pode faze
  O acompanhamento de MLflow oferece funcionalidades de log de métricas e armazenamento de artefatos que estão disponíveis apenas de outra forma por meio do [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | Implantação de & de rastreamento de MLflow | Azure Machine Learning SDK do Python |  CLI do Azure Machine Learning | Portal do Azure|
+| | Implantação de & de rastreamento de MLflow | Azure Machine Learning SDK do Python |  CLI do Azure Machine Learning | Página de aterrissagem do portal do Azure ou do espaço de trabalho (visualização)|
 |---|---|---|---|---|
 | Gerenciar espaço de trabalho |   | ✓ | ✓ | ✓ |
 | Usar armazenamentos de dados  |   | ✓ | ✓ | |
@@ -203,7 +203,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Exibir métricas e artefatos em seu espaço de trabalho
 
-As métricas e os artefatos do log MLflow são mantidos em seu espaço de trabalho. Para exibi-las a qualquer momento, navegue até o espaço de trabalho e localize o experimento pelo nome na [portal do Azure](https://portal.azure.com) ou executando o código abaixo. 
+As métricas e os artefatos do log MLflow são mantidos em seu espaço de trabalho. Para exibi-las a qualquer momento, navegue até o espaço de trabalho e localize o experimento pelo nome na [portal do Azure](https://portal.azure.com) ou na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).  Ou execute o código abaixo. 
 
 ```python
 run.get_metrics()
@@ -375,6 +375,6 @@ Se você não planeja usar as métricas registradas e os artefatos em seu espaç
 
 O [MLflow com os notebooks do Azure ml](https://aka.ms/azureml-mlflow-examples) demonstram e se expandem sobre os conceitos apresentados neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Gerencie seus modelos](concept-model-management-and-deployment.md).
 * Monitore seus modelos de produção para descompasso de [dados](how-to-monitor-data-drift.md).

@@ -9,23 +9,23 @@ ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
 ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67184653"
 ---
-A tabela seguinte mostra o limite de utilização para o escalão de preço do Azure Maps S0. Limite de utilização depende do escalão de preço. 
+A tabela a seguir mostra o limite de uso para o tipo de preço S0 do Azure Maps. O limite de uso depende do tipo de preço. 
 
-| Resource                              | Limite de escalão de preço S0 |
+| Resource                              | Limite do tipo de preço S0 |
 |---------------------------------------|:---------------------:|
 | Taxa máxima de pedidos por subscrição |   50 pedidos por segundo  |
 
 
-A tabela seguinte mostra o limite de tamanho de dados para o Azure Maps. O serviço de dados do Azure Maps está disponível apenas no escalão S1.
+A tabela a seguir mostra o limite de tamanho de dados para mapas do Azure. O serviço de dados do Azure Maps está disponível apenas no tipo de preço S1.
 
 | Resource                              | Limite |
 |---------------------------------------|:---------------------:|
 | Tamanho máximo dos dados |   50 MB  |
 
-Para obter mais informações sobre o Azure Maps escalões de preço, consulte [preços do Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).
+Para obter mais informações sobre os tipos de preço do Azure Maps, consulte [preços do Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

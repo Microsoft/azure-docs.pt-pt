@@ -1,8 +1,8 @@
 ---
-title: Configurar a sua conta para a transmissão em fluxo offline do conteúdo de PlayReady protegido - Azure
-description: Este artigo mostra como configurar a sua conta de Media Services do Azure para transmissão em fluxo offline PlayReady para Windows 10.
+title: Configurar sua conta para streaming offline de conteúdo protegido do PlayReady – Azure
+description: Este artigo mostra como configurar sua conta dos serviços de mídia do Azure para o PlayReady de streaming para Windows 10 offline.
 services: media-services
-keywords: Android de modo Offline, ExoPlayer, DASH, DRM, Widevine
+keywords: DASH, DRM, modo offline Widevine, ExoPlayer, Android
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 76008cdf0121ac3c9e4a2fc30d2e9fbcc561ff1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939527"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844792"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10  
+# <a name="offline-playready-streaming-for-windows-10"></a>Streaming do PlayReady offline para Windows 10  
 
-> [!div class="op_single_selector" title1="Selecione a versão dos serviços de multimédia que está a utilizar:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
 > * [Versão 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Versão 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Serviços de multimédia do Azure suportam offline download/reprodução com proteção DRM. Este artigo aborda o suporte offline de clientes de 10/PlayReady de serviços de multimédia do Azure para Windows. Pode ler sobre o suporte de modo offline para iOS/FairPlay e dispositivos Android/Widevine nos seguintes artigos:
+Os serviços de mídia do Azure dão suporte a download/reprodução offline com proteção DRM. Este artigo aborda o suporte offline dos serviços de mídia do Azure para clientes Windows 10/PlayReady. Você pode ler sobre o suporte do modo offline para dispositivos iOS/FairPlay e Android/Widevine nos seguintes artigos:
 
 - [Offline FairPlay Streaming for iOS](media-services-protect-hls-with-offline-fairplay.md) (Transmissão Offline do FairPlay para iOS)
-- [Offline Widevine para transmissão em fluxo para Android](offline-widevine-for-android.md)
+- [Streaming de Widevine offline para Android](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Descrição geral
 
-Esta secção fornece algumas informações básicas sobre a reprodução de modo offline, especialmente por que motivo:
+Esta seção fornece alguns planos de fundo sobre reprodução em modo offline, especialmente por que:
 
-* Em alguns países/regiões, disponibilidade de Internet e/ou de largura de banda é continua a ser limitada. Os utilizadores podem optar por transferir primeiro para conseguir ver o conteúdo na resolução de alto o suficiente para a experiência de visualização satisfatória. Neste caso, mais freqüentemente, o problema não é a disponibilidade de rede, em vez disso, é a largura de banda de rede limitada. Fornecedores OTT/OVP Pedimos para suporte ao modo offline.
-* Como divulgadas na conferência de acionistas Netflix 2016 P3, transferência do conteúdo é um "recurso solicitado lema freqüentemente" e "estamos abertos ao mesmo" disse por Reed Hastings, CEO da Netflix.
-* Alguns fornecedores de conteúdo pode não permitir a entrega de licenças DRM além do limite de um país/região. Se um usuário precisa ir exterior e ainda quiser ver conteúdo, é necessário o offline download.
+* Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet ainda é limitada. Os usuários podem optar por baixar primeiro para poder assistir conteúdo em resolução alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, com mais frequência, o problema não é a disponibilidade da rede, em vez disso, a largura de banda da rede é limitada. Os provedores de OTT/OVP estão solicitando suporte ao modo offline.
+* Como divulgado em Netflix 2016 T3, a conferência de acionistas, o download de conteúdo é um "recurso solicitado", e "Estamos abertos", dito por Reed Hastings, Netflix CEO.
+* Alguns provedores de conteúdo podem impedir a entrega de licença do DRM além da borda de um país/região. Se um usuário precisar viajar para o exterior e ainda quiser assistir ao conteúdo, será necessário fazer o download offline.
  
-O desafio que enfrentamos na implementação do modo offline é a seguinte:
+O desafio que enfrentamos na implementação do modo offline é o seguinte:
 
-* MP4 é suportada por muitos leitores, ferramentas de codificador, mas não existe nenhum vínculo entre o contentor de MP4 e DRM;
-* A longo prazo, CFF com CENC é a melhor opção. No entanto, hoje em dia, o ecossistema de suporte de ferramentas/player ainda não está lá. É necessário uma solução, hoje em dia.
+* Há suporte para MP4 em muitos players, ferramentas de codificador, mas não há associação entre o contêiner MP4 e o DRM;
+* A longo prazo, o CFF com CENC é a maneira de ir. No entanto, hoje, o ecossistema de suporte de ferramentas/jogador ainda não está lá. Precisamos de uma solução, hoje.
  
-A idéia é: transmissão em fluxo uniforme ([PIFF](https://go.microsoft.com/?linkid=9682897)) formato de ficheiro com h264 taxa de bits/AAC tem um vínculo com PlayReady (AES-128 CTR). Smooth streaming .ismv arquivo individual (partindo do princípio de áudio é muxed vídeo) em si é um fMP4 e pode ser utilizado para a reprodução. Se der um conteúdo de transmissão em fluxo uniforme através da encriptação do PlayReady, cada ficheiro .ismv torna-se um PlayReady protegido real de MP4 fragmentado. Podemos escolher um ficheiro de .ismv com a velocidade de transmissão preferencial e renomeá-lo como. mp4 para download.
+A ideia é: formato de arquivo de Smooth streaming ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) com H264/AAC tem uma associação com PLAYREADY (AES-128 CTR). O arquivo. ismv de Smooth streaming individual (supondo que o áudio é muxed em vídeo) é um fMP4 e pode ser usado para reprodução. Se um conteúdo de Smooth streaming passar pela criptografia PlayReady, cada arquivo. ismv se tornará um MP4 fragmentado protegido pelo PlayReady. Podemos escolher um arquivo. ismv com a taxa de bits preferida e renomeá-lo como. MP4 para download.
 
-Existem duas opções para alojar o PlayReady protegidas MP4 para transferência progressiva:
+Há duas opções para hospedar o MP4 protegido do PlayReady para download progressivo:
 
-* Um pode colocar este MP4 no mesmo elemento de serviço de contentor/suporte de dados e tire partido dos serviços de multimédia do Azure ponto final para transferência progressiva; de transmissão em fluxo
-* É possível usar o localizador SAS para transferência progressiva diretamente a partir do armazenamento do Azure, ignorando os serviços de multimédia do Azure.
+* Um pode colocar esse MP4 no mesmo contêiner/ativo de serviço de mídia e aproveitar o ponto de extremidade de streaming dos serviços de mídia do Azure para download progressivo;
+* Um pode usar o localizador SAS para download progressivo diretamente do armazenamento do Azure, ignorando os serviços de mídia do Azure.
  
-Pode usar dois tipos de entrega de licenças do PlayReady:
+Você pode usar dois tipos de entrega de licença do PlayReady:
 
-* Serviço de entrega de licença PlayReady nos serviços de multimédia do Azure;
-* Servidores de licença do PlayReady alojados em qualquer lugar.
+* Serviço de entrega de licença do PlayReady nos serviços de mídia do Azure;
+* Servidores de licença PlayReady hospedados em qualquer lugar.
 
-Seguem-se dois conjuntos de recursos de teste, primeiro com disponibilização de licença PlayReady no AMS ao segundo aquele com meu servidor de licenças do PlayReady alojada numa VM do Azure:
+Abaixo estão dois conjuntos de ativos de teste, o primeiro usando a entrega de licença do PlayReady no AMS, enquanto o segundo usa meu servidor de licença do PlayReady hospedado em uma VM do Azure:
 
-Asset #1:
+#1 do ativo:
 
-* URL de transferência progressiva: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
-Asset #2:
+#2 do ativo:
 
-* URL de transferência progressiva: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (no local): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (local):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
-Para fins de teste de reprodução, usei uma aplicação Universal do Windows no Windows 10. Na [exemplos do Windows 10 Universal](https://github.com/Microsoft/Windows-universal-samples), há um exemplo de leitor básico chamado [exemplo de transmissão em fluxo adaptável](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Tudo o que precisamos fazer é adicionar o código para nós escolher o vídeo transferido e utilizá-lo como a origem, em vez de origem de transmissão em fluxo adaptável. As alterações são no botão de manipulador de eventos de clique:
+Para testes de reprodução, usei um aplicativo universal do Windows no Windows 10. Em [exemplos universais do Windows 10](https://github.com/Microsoft/Windows-universal-samples), há um exemplo de player básico chamado [amostra de streaming adaptável](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Tudo o que precisamos fazer é adicionar o código para que possamos escolher o vídeo baixado e usá-lo como a origem, em vez da fonte de streaming adaptável. As alterações estão no manipulador de eventos de clique do botão:
 
 ```csharp
 private async void LoadUri_Click(object sender, RoutedEventArgs e)
@@ -115,16 +115,16 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 }
 ```
 
- ![Reprodução de modo offline PlayReady protegidos fMP4](./media/offline-playready/offline-playready1.jpg)
+ ![Reprodução em modo offline de fMP4 protegido do PlayReady](./media/offline-playready/offline-playready1.jpg)
 
-Uma vez que o vídeo estiver com proteção PlayReady, a captura de ecrã não será capaz de incluir o vídeo.
+Como o vídeo está sob a proteção do PlayReady, a captura de tela não poderá incluir o vídeo.
 
-Em resumo, alcançámos modo offline nos serviços de multimédia do Azure:
+Em resumo, atingimos o modo offline nos serviços de mídia do Azure:
 
-* Transcodificação de conteúdo e encriptação PlayReady podem ser feitos em serviços de multimédia do Azure ou outras ferramentas;
-* Conteúdo pode ser hospedado em serviços de multimédia do Azure ou o armazenamento do Azure para transferência progressiva;
-* Entrega de licenças do PlayReady pode ser dos serviços de multimédia do Azure ou em outro lugar;
-* O conteúdo de transmissão em fluxo uniforme preparado ainda podem ser utilizados para transmissão em fluxo online por meio de TRAÇO ou uniforme com PlayReady como o DRM.
+* A transcodificação de conteúdo e a criptografia PlayReady podem ser feitas nos serviços de mídia do Azure ou outras ferramentas;
+* O conteúdo pode ser hospedado nos serviços de mídia do Azure ou no armazenamento do Azure para download progressivo;
+* A entrega de licença do PlayReady pode ser dos serviços de mídia do Azure ou em outro lugar;
+* O conteúdo de Smooth streaming preparado ainda pode ser usado para streaming online via DASH ou Smooth com PlayReady como o DRM.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

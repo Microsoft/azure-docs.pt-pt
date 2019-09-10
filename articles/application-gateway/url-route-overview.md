@@ -1,35 +1,30 @@
 ---
 title: Descrição geral do encaminhamento de conteúdos baseado em URL do Gateway de Aplicação do Azure
-description: Este artigo fornece uma descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting.
-documentationcenter: na
+description: Este artigo fornece uma visão geral do roteamento de conteúdo baseado em URL Aplicativo Azure gateway, configuração de UrlPathMap e regra PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 4/23/2018
+ms.date: 09/10/2019
 ms.author: victorh
-ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 0dfeb6a80cbf227f20b24def7641882ad0444489
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61361967"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844589"
 ---
-# <a name="azure-application-gateway-url-path-based-routing-overview"></a>Descrição geral do encaminhamento baseado no caminho do URL do Gateway de Aplicação do Azure
+# <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
 O Encaminhamento Baseado no Caminho do URL permite-lhe encaminhar o tráfego para agrupamentos de servidores de back-end com base nos Caminhos de URL. 
 
 Um dos cenários consiste em encaminhar pedidos de diferentes tipos de conteúdo para diversos agrupamentos de servidores de back-end.
 
-No exemplo a seguir, o Gateway de aplicação está a enviar tráfego para contoso.com a partir de três agrupamentos de servidor back-end por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
+No exemplo a seguir, o gateway de aplicativo está servindo o tráfego para contoso.com de três pools de servidores back-end, por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
 
-![imageURLroute](./media/url-route-overview/figure1.png)
+![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Pedidos para <http://contoso.com/video/*> são encaminhados para VideoServerPool, e <http://contoso.com/images/*> são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
+As solicitações de\:http//contoso.com/Video/* são roteadas para VideoServerPool e\:http//contoso.com/images/* são roteadas para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
 
 > [!IMPORTANT]
 > As regras são processadas pela ordem em que são apresentadas no portal. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.
@@ -67,8 +62,37 @@ O elemento urlPathMap é utilizado para especificar padrões de Caminho para map
 }]
 ```
 
-> [!NOTE]
-> PathPattern: Esta definição é uma lista de padrões de caminho corresponder. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia introduzida na ferramenta de correspondência de caminhos não inclui texto depois do primeiro ? ou #, sendo que esses carateres não são aqui permitidos.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern é uma lista de padrões de caminho para correspondência. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia de caracteres alimentada para o correspondente de caminho não inclui nenhum texto após o primeiro? ou #, e esses caracteres não são permitidos aqui. Caso contrário, todos os caracteres permitidos em uma URL são permitidos em PathPattern.
+
+Os padrões com suporte dependem de você implantar o Application Gateway v1 ou v2:
+
+#### <a name="v1"></a>v1
+
+As regras de caminho não diferenciam maiúsculas de minúsculas.
+
+|padrão de caminho v1  |Tem suporte?  |
+|---------|---------|
+|`/images/*`     |sim|
+|`/images*`     |não|
+|`/images/*.jpg`     |não|
+|`/*.jpg`     |não|
+|`/Repos/*/Comments/*`     |não|
+|`/CurrentUser/Comments/*`     |sim|
+
+#### <a name="v2"></a>v2
+
+As regras de caminho diferenciam maiúsculas de minúsculas.
+
+|padrão de caminho v2  |Tem suporte?  |
+|---------|---------|
+|`/images/*`     |sim|
+|`/images*`     |sim|
+|`/images/*.jpg`     |não|
+|`/*.jpg`     |não|
+|`/Repos/*/Comments/*`     |não|
+|`/CurrentUser/Comments/*`     |sim|
 
 Pode dar saída a um [modelo do Resource Manager através do encaminhamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 
@@ -99,4 +123,4 @@ Fragmento da regra PathBasedRouting:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de saber mais sobre o encaminhamento de conteúdo baseado em URL, aceda a [Criar um gateway de aplicação com encaminhamento baseado em URL](tutorial-url-route-powershell.md) para criar um gateway de aplicação com regras de encaminhamento do URL.
+Depois de saber mais sobre o encaminhamento de conteúdo baseado em URL, aceda a [Criar um gateway de aplicação com encaminhamento baseado em URL](create-url-route-portal.md) para criar um gateway de aplicação com regras de encaminhamento do URL.

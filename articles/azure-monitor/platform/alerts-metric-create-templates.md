@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0e7d25f2bc8ec32965de912f212bf77df1ee3c2c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 70da3a518746d1989e8807cee9bc7c87cc634c27
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971480"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873289"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -129,13 +129,30 @@ Salve o JSON abaixo como simplestaticmetricalert. JSON para fins deste passo a p
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -377,13 +394,25 @@ Salve o JSON abaixo como simpledynamicmetricalert. JSON para fins deste passo a 
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -588,13 +617,30 @@ Salve o JSON abaixo como advancedstaticmetricalert. JSON para fins deste passo a
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -802,13 +848,25 @@ Salve o JSON abaixo como advanceddynamicmetricalert. JSON para fins deste passo 
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -1112,13 +1170,29 @@ Salve o JSON abaixo como All-VMs-no-Resource-Group-static. JSON para o propósit
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -1424,13 +1498,25 @@ Salve o JSON abaixo como All-VMs-no-Resource-Group-Dynamic. JSON para fins deste
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -1731,13 +1817,29 @@ Salve o JSON abaixo como todos-VMs-in-Subscription-static. JSON para fins deste 
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2040,13 +2142,25 @@ Salve o JSON abaixo como All-VMs-in-Subscription-Dynamic. JSON para fins deste p
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2344,13 +2458,30 @@ Salve o JSON abaixo como lista de VMs-static. JSON para fins deste passo a passo
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H""
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2656,13 +2787,25 @@ Salve o JSON abaixo como lista de VMs-Dynamic. JSON para fins deste passo a pass
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+             "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+             "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2954,7 +3097,7 @@ az group deployment create \
     --parameters @availabilityalert.parameters.json
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [alertas no Azure](alerts-overview.md)
 - Saiba como [criar um grupo de ação com modelos do Resource Manager](action-groups-create-resource-manager-template.md)

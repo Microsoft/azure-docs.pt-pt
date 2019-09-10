@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68779066"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873401"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
 
 > [!NOTE]
-> A partir do início de junho de 2017, o Centro de Segurança irá utilizar o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [migração de plataforma do Centro de segurança do Azure](security-center-platform-migration.md). As informações neste artigo representam a funcionalidade do Centro de Segurança após a transição para o Agente de Monitorização da Microsoft.
+> A central de segurança usa o Microsoft Monitoring Agent para coletar e armazenar dados. Para obter mais informações, consulte [migração de plataforma do Centro de segurança do Azure](security-center-platform-migration.md).
 >
 >
 
@@ -63,7 +63,7 @@ Não. Os espaços de trabalho criados pela central de segurança, enquanto confi
 - **Escalão gratuito** – Centro de segurança ativa a solução de "SecurityCenterFree" na área de trabalho predefinida. Não são cobradas no escalão gratuito.
 - **Escalão Standard** – Centro de segurança ativa a solução de "Segurança" na área de trabalho predefinida.
 
-Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as alterações ao armazenamento de dados de segurança e faturação rateada entram partir Junho de 2017.
+Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > O tipo de preço do log Analytics de espaços de trabalho criados pela central de segurança não afeta a cobrança da central de segurança.
@@ -161,7 +161,7 @@ Pode desativar aprovisionamento automático das suas subscrições na política 
 Pode querer desativar aprovisionamento automático, se o seguinte se aplica a:
 
 - Instalação automática do agente pelo centro de segurança aplica-se para a subscrição completa.  Não é possível aplicar a instalação automática para um subconjunto das VMs. Se existirem VMs críticas que não podem ser instaladas com o Microsoft Monitoring Agent, em seguida, deve optar pelo aprovisionamento automático fora.
-- A instalação da extensão Microsoft Monitoring Agent (MMA) atualiza a versão do agente. Isso se aplica a um agente direto e a um agente do SCOM (no último, o SCOM e o MMA compartilham bibliotecas comuns de tempo de execução, que serão atualizadas no processo). Se o agente do SCOM instalado é o versão 2012 e é atualizado, capacidades de capacidade de gerenciamento podem ser perdidas quando o servidor do SCOM também é a versão 2012. Considere desativar aprovisionamento automático, se o agente do SCOM instalado é a versão 2012.
+- A instalação da extensão Microsoft Monitoring Agent (MMA) atualiza a versão do agente. Isso se aplica a um agente direto e a um agente do SCOM (no último, o SCOM e o MMA compartilham bibliotecas comuns de tempo de execução, que serão atualizadas no processo). Se o agente do SCOM instalado é o versão 2012 e é atualizado, capacidades de capacidade de gerenciamento podem ser perdidas quando o servidor do SCOM também é a versão 2012. Considere a possibilidade de recusar o provisionamento automático se o agente SCOM instalado for a versão 2012.
 - Se tiver uma área de trabalho personalizada externa para a subscrição (uma área de trabalho centralizada), em seguida, deve desativar aprovisionamento automático. Pode instalar a extensão do Microsoft Monitoring Agent e ligá-lo a área de trabalho sem Centro de segurança substituindo a ligação manualmente.
 - Se quiser evitar a criação de várias áreas de trabalho por subscrição e tiver a área de trabalho personalizada dentro da subscrição, em seguida, tem duas opções:
 
@@ -329,7 +329,7 @@ A latência no Centro de segurança verifica a existência de vulnerabilidades, 
 Normalmente, o Centro de segurança verifica a existência de novos dados a cada hora e atualiza as recomendações em conformidade. 
 
 > [!NOTE]
-> A partir do início de junho de 2017, o Centro de Segurança irá utilizar o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [migração de plataforma do Centro de segurança do Azure](security-center-platform-migration.md). As informações neste artigo representam a funcionalidade do Centro de Segurança após a transição para o Agente de Monitorização da Microsoft.
+> A central de segurança usa o Microsoft Monitoring Agent para coletar e armazenar dados. Para obter mais informações, consulte [migração de plataforma do Centro de segurança do Azure](security-center-platform-migration.md).
 >
 >
 

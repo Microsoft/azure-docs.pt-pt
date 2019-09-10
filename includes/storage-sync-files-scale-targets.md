@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68968918"
 ---
 | Resource | Destino | Limite rígido |

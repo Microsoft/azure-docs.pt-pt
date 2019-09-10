@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/08/2019
 ms.author: diberry
-ms.openlocfilehash: ee185ca5d2e2cdda89945f0fc1e7aae32030c1be
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
-ms.translationtype: HT
+ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803890"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844766"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -43,7 +43,7 @@ O proprietário não pode escolher um subconjunto de aplicativos para migrar e o
 A migração não é: 
 
 * Um processo que coleta colaboradores e move ou adiciona automaticamente o recurso de criação do Azure. Você, como o proprietário do aplicativo, precisa concluir esta etapa. Esta etapa requer permissões para o recurso apropriado.
-* Um processo para criar e atribuir um recurso de tempo de execução de previsão. Se você precisar de um recurso de tempo de execução de previsão, isso será [um processo separado](luis-how-to-azure-subscription.md##create-resources-in-the-azure-portal) e não será alterado. 
+* Um processo para criar e atribuir um recurso de tempo de execução de previsão. Se você precisar de um recurso de tempo de execução de previsão, isso será [um processo separado](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) e não será alterado. 
 
 ## <a name="how-are-the-apps-migrating"></a>Como os aplicativos são migrados?
 
@@ -62,7 +62,9 @@ Você pode atrasar o processo de migração cancelando a janela. Periodicamente,
 
 * **Opcionalmente**, faça backup dos aplicativos da lista de aplicativos do portal do Luis exportando cada aplicativo ou usando a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)de exportação.
 * **Opcionalmente**, salve a lista de collaborator's de cada aplicativo. Essa lista de emails é fornecida como parte do processo de migração.
-* **Necessário**, você precisa ter uma [assinatura do Azure](https://azure.microsoft.com/free/). Uma parte do processo de assinatura requer informações de cobrança. No entanto, você pode usar tipos de preço gratuitos (F0) ao usar o LUIS. Você pode, eventualmente, achar que precisa de uma camada paga, à medida que seu uso aumenta. 
+* **Necessário**, você precisa ter uma [assinatura do Azure](https://azure.microsoft.com/free/). Uma parte do processo de assinatura requer informações de cobrança. No entanto, você pode usar o`F0`tipo de preço gratuito () ao usar o Luis. 
+
+A **criação de seu aplicativo Luis é gratuita**, indicada pela `F0` camada. Saiba [mais sobre os tipos de preço](luis-boundaries.md#key-limits).
 
 Se você não tiver uma assinatura do Azure, [Inscreva-](https://azure.microsoft.com/free/)se. 
 

@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 09/06/2019
 ms.author: dapine
-ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 752613becb92711866d520e6fcd46ed3a320353f
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564100"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860266"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar contêineres do Docker facial
 
-O  ambiente de tempo de execução de contêiner facial `docker run` é configurado usando os argumentos de comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+O ambiente de tempo de execução de contêiner facial `docker run` é configurado usando os argumentos de comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -122,7 +122,7 @@ Os contêineres de face não usam montagens de entrada ou de saída para armazen
 
 A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o local de montagem do [computador host](face-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | Cadeia | Os contêineres de face não usam isso.|
 |Opcional| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -139,7 +139,9 @@ Substitua {_argument_name_} pelos seus próprios valores:
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
 |{API_KEY} | A chave do ponto de extremidade do recurso de serviços cognitivas. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | O valor do ponto de extremidade, incluindo roteamento de região e face.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{ENDPOINT_URI} | O valor da URL do ponto de extremidade.|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](face-how-to-install-containers.md#billing).

@@ -1,6 +1,6 @@
 ---
-title: Ativar InifinBand com SR-IOV - máquinas virtuais do Azure | Documentos da Microsoft
-description: Saiba como ativar InfiniBand com SR-IOV.
+title: Habilitar InifinBand com SR-IOV-máquinas virtuais do Azure | Microsoft Docs
+description: Saiba como habilitar o InfiniBand com SR-IOV.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -12,25 +12,25 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7218fceae71969f204c6c25ba4793a7c94341693
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797527"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858477"
 ---
-# <a name="enable-infiniband-with-sr-iov"></a>Ativar InfiniBand com SR-IOV
+# <a name="enable-infiniband-with-sr-iov"></a>Habilitar InfiniBand com SR-IOV
 
-A forma mais simples e recomendada para configurar a sua imagem VM personalizada com InfiniBand (IB) é adicionar a extensão InfiniBandDriverLinux ou InfiniBandDriverWindows VM à sua implementação.
-Saiba como utilizar estas extensões VM com [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+A maneira mais simples e recomendada de começar com VMs IaaS para HPC é usar a imagem do sistema operacional de VM CentOS-HPC 7,6. Se você estiver usando sua imagem de VM personalizada, a maneira mais fácil de configurá-la com InfiniBand (IB) é adicionar a extensão de VM InfiniBandDriverLinux ou InfiniBandDriverWindows à sua implantação.
+Saiba como usar essas extensões de VM com o [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) e o [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Configurar manualmente o InfiniBand SR-iov ativado VMs (atualmente série HB e HC), siga os passos abaixo. Estes passos destinam-se apenas ao RHEL/CentOS. Para Ubuntu (16.04 e 18.04) e SLES (12 SP4 e 15), os controladores de caixa de entrada funcionam bem.
+Para configurar manualmente o InfiniBand em VMs habilitadas para SR-IOV (atualmente, HB e HC Series), siga as etapas abaixo. Estas etapas são apenas para RHEL/CentOS. Para Ubuntu (16, 4 e 18, 4) e SLES (12 SP4 e 15), os drivers de caixa de entrada funcionam bem.
 
-## <a name="manually-install-ofed"></a>Instalar manualmente o OFED
+## <a name="manually-install-ofed"></a>Instalar o OFED manualmente
 
-Instale os controladores MLNX_OFED mais recente para ConnectX-5 partir [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
+Instale os drivers MLNX_OFED mais recentes para o ConnectX-5 do [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
-Para RHEL/CentOS (o exemplo abaixo 7,6):
+Para RHEL/CentOS (exemplo abaixo para 7,6):
 
 ```bash
 sudo yum install -y kernel-devel python-devel
@@ -41,9 +41,9 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
-Para Windows, transfira e instale os controladores de WinOF-2 para ConnectX-5 de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+Para o Windows, baixe e instale os drivers WinOF-2 para ConnectX-5 de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
 
-## <a name="enable-ipoib"></a>Ativar IPoIB
+## <a name="enable-ipoib"></a>Habilitar IPoIB
 
 ```bash
 sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
@@ -57,9 +57,9 @@ fi
 
 ## <a name="assign-an-ip-address"></a>Atribuir um endereço IP
 
-Atribua um endereço IP para a interface de ib0, através de um:
+Atribua um endereço IP à interface ib0 usando:
 
-- Atribua manualmente o endereço IP para a Interface de ib0 (como raiz).
+- Atribua manualmente o endereço IP à interface ib0 (como raiz).
 
     ```bash
     ifconfig ib0 $(sed '/rdmaIPv4Address=/!d;s/.*rdmaIPv4Address="\([0-9.]*\)".*/\1/' /var/lib/waagent/SharedConfig.xml)/16
@@ -67,7 +67,7 @@ Atribua um endereço IP para a interface de ib0, através de um:
 
 OU
 
-- Utilize WALinuxAgent para atribuir o endereço IP e torná-lo a manter.
+- Use WALinuxAgent para atribuir o endereço IP e fazer com que ele persista.
 
     ```bash
     yum install -y epel-release
@@ -84,4 +84,4 @@ OU
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.
+Saiba mais sobre o [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.

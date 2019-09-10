@@ -1,44 +1,46 @@
 ---
-title: 'Início rápido: Detetar rostos numa imagem com a API REST do Azure e o node. js'
+title: 'Início rápido: Detectar faces em uma imagem com a API REST do Azure e node. js'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá utilizar a API de REST de Face do Azure com node. js para detetar rostos numa imagem.
+description: Neste guia de início rápido, você usará a API REST do Azure face com node. js para detectar rostos em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: aade8552e7fd39a61334c1c6c7c9ca62085961be
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7035689f3813a94c7e24e4c6138016b11c1a4ef3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603264"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859124"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início rápido: Detetar rostos numa imagem usando a API de REST de rostos e o node. js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início rápido: Detectar faces em uma imagem usando a API REST de face e o Node. js
 
-Neste início rápido, irá utilizar a API de REST de Face do Azure com node. js para detetar rostos humanos numa imagem.
+Neste guia de início rápido, você usará a API REST do Azure face com node. js para detectar faces humanas em uma imagem.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
-- Um editor de código, tais como [Visual Studio Code](https://code.visualstudio.com/download)
+- Um editor de códigos como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Configurar o ambiente de nó
 
-Aceda à pasta onde pretende criar o seu projeto e criar um novo arquivo, *facedetection.js*. Em seguida, instale o `requests` módulo a este projeto. Isso permite que seus scripts fazer pedidos HTTP.
+Vá para a pasta na qual você gostaria de criar seu projeto e crie um novo arquivo, *facedetection. js*. Em seguida, `requests` instale o módulo para este projeto. Isso permite que seus scripts façam solicitações HTTP.
 
 ```shell
 npm install request --save
 ```
 
-## <a name="write-the-nodejs-script"></a>Escrever o script de node. js
+## <a name="write-the-nodejs-script"></a>Gravar o script node. js
 
-Cole o código seguinte para *facedetection.js*. Estes campos especificam como se pode ligar para o serviço de rostos e onde obter os dados de entrada. Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de assinatura e poderá ter de alterar o `uriBase` , para que ele contém o identificador de região correto de cadeias de caracteres (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todas as regiões pontos de extremidade). Talvez deseje alterar a `imageUrl` campo para apontar para a sua própria imagem de entrada.
+Cole o código a seguir em *facedetection. js*. Esses campos especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o `subscriptionKey` campo com o valor de sua chave de assinatura e precisará alterar a cadeia de `uriBase` caracteres para que ela contenha a cadeia de caracteres de ponto de extremidade correta. Talvez você queira alterar o `imageUrl` campo para apontar para sua própria imagem de entrada.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
 'use strict';
@@ -51,13 +53,13 @@ const subscriptionKey = '<Subscription Key>';
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
 // westus, replace "westcentralus" in the URL below with "westus".
-const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
+const uriBase = 'https://<My Endpoint String>.com/face/v1.0/detect';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 ```
 
-Em seguida, adicione o seguinte código para chamar a API Face e obter dados de atributo de face da imagem de entrada. O `returnFaceAttributes` campo especifica atributos de qual face a obter. Talvez deseje alterar essa cadeia de caracteres consoante o uso pretendido.
+Em seguida, adicione o código a seguir para chamar o API de Detecção Facial e obter dados de atributo facial da imagem de entrada. O `returnFaceAttributes` campo especifica quais atributos de face recuperar. Talvez você queira alterar essa cadeia de caracteres dependendo do uso pretendido.
 
 
 ```javascript
@@ -90,15 +92,15 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="save-and-run-the-script"></a>Salve e execute o script
+## <a name="save-and-run-the-script"></a>Salvar e executar o script
 
-Depois de fazer as alterações, abra uma linha de comandos e execute o ficheiro com o `node` comando.
+Depois de fazer as alterações, abra um prompt de comando e execute o arquivo com o `node` comando.
 
 ```
 node facedetection.js
 ```
 
-Deverá ver as informações de face apresentadas como dados JSON na janela da consola. Por exemplo:
+Você deve ver as informações de face exibidas como dados JSON na janela do console. Por exemplo:
 
 ```json
 [
@@ -279,9 +281,9 @@ Deverá ver as informações de face apresentadas como dados JSON na janela da c
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, Escrevi um script de node. js que chama a API de rostos do Azure para detetar rostos numa imagem e retornar seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
+Neste guia de início rápido, você escreveu um script node. js que chama o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

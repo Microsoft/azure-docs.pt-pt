@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: 81e8601ac83d43bde0767e38eb387f489d76125b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165248"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873555"
 ---
 # <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Segurança da empresa para o serviço de Azure Machine Learning
 
@@ -40,7 +40,7 @@ O Azure Machine Learning dá suporte a duas formas de autenticação para servi�
 |Método de autenticação|Azure Container Instances|AKS|
 |---|---|---|
 |Chave|Desabilitado por padrão| Habilitado por padrão|
-|Certificado de| Não disponível| Desabilitado por padrão |
+|Certificado de| Indisponível| Desabilitado por padrão |
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
@@ -125,14 +125,14 @@ Para obter mais informações sobre identidades gerenciadas, consulte [identidad
 | ----- | ----- |
 | Área de trabalho | Contribuinte |
 | Conta de armazenamento | Contribuinte de Dados do Armazenamento de Blobs |
-| Key Vault | Acesso a todas as chaves, segredos, certificados |
-| Registo de Contentores do Azure | Contribuinte |
+| Cofre de chaves | Acesso a todas as chaves, segredos, certificados |
+| Azure Container Registry | Contribuinte |
 | Grupo de recursos que contém o espaço de trabalho | Contribuinte |
 | Grupo de recursos que contém o cofre de chaves (se for diferente daquele que contém o espaço de trabalho) | Contribuinte |
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerenciada aos recursos mencionados na tabela anterior. Você pode restaurar o acesso usando a operação de ressincronização de chaves.
 
-O serviço de Azure Machine Learning cria um aplicativo adicional (o nome começa `aml-`com) com o acesso no nível de colaborador em sua assinatura para cada região do espaço de trabalho. Por exemplo, se você tiver um espaço de trabalho no leste dos EUA e outro espaço de trabalho em Europa Setentrional na mesma assinatura, você verá dois desses aplicativos. Esses aplicativos permitem que o serviço Azure Machine Learning para ajudá-lo a gerenciar recursos de computação.
+O serviço de Azure Machine Learning cria um aplicativo adicional (o nome começa `aml-` com `Microsoft-AzureML-Support-App-`ou) com acesso no nível de colaborador em sua assinatura para cada região do espaço de trabalho. Por exemplo, se você tiver um espaço de trabalho no leste dos EUA e outro espaço de trabalho em Europa Setentrional na mesma assinatura, você verá dois desses aplicativos. Esses aplicativos permitem que o serviço Azure Machine Learning para ajudá-lo a gerenciar recursos de computação.
 
 ## <a name="network-security"></a>Segurança da rede
 
@@ -158,7 +158,7 @@ Para obter informações sobre como regenerar as chaves de acesso para as contas
 
 O serviço de Azure Machine Learning armazena métricas e metadados na instância Azure Cosmos DB associada a uma assinatura da Microsoft gerenciada pelo serviço Azure Machine Learning. Todos os dados armazenados no Azure Cosmos DB são criptografados em repouso com chaves gerenciadas pela Microsoft.
 
-#### <a name="azure-container-registry"></a>Registo de Contentores do Azure
+#### <a name="azure-container-registry"></a>Azure Container Registry
 
 Todas as imagens de contêiner no registro (registro de contêiner do Azure) são criptografadas em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e a descriptografa imediatamente quando o serviço de Azure Machine Learning efetua pull da imagem.
 

@@ -7,18 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b716cbf3efb044da68d4dd1dcb724369855d1ed1
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173654"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843868"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
 
 A ingestão de streaming é destinada a cenários que exigem baixa latência com um tempo de ingestão de menos de 10 segundos para dados de volume variados. Ele é usado para a otimização do processamento operacional de muitas tabelas, em um ou mais bancos de dados em que o fluxo de dado em cada tabela é relativamente pequeno (poucos registros por segundo), mas o volume de ingestão de dados geral é alto (milhares de registros por segundo).
 
-Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a quantidade de dados aumentar para mais de 1 MB por segundo por tabela. Leia [visão geral](/azure/data-explorer/ingest-data-overview) de ingestão de dados para saber mais sobre os vários métodos de ingestão.
+Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a quantidade de dados aumentar para mais de 1 MB por segundo por tabela. Leia [visão geral de ingestão de dados](/azure/data-explorer/ingest-data-overview) para saber mais sobre os vários métodos de ingestão.
 
 > [!NOTE]
 > A ingestão de streaming não dá suporte aos seguintes recursos:
@@ -39,17 +39,17 @@ Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a q
  
     ![ingestão de streaming em](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. Na [interface do usuário da Web](https://dataexplorer.azure.com/), defina a política de ingestão de [streaming](/azure/kusto/concepts/streamingingestionpolicy) em tabela (s) ou banco (s) de dados que receberão o streaming de dado. 
+1. Na [interface do usuário da Web](https://dataexplorer.azure.com/), defina a [política de ingestão de streaming](/azure/kusto/concepts/streamingingestionpolicy) em tabela (s) ou banco (s) de dados que receberão o streaming de dado. 
 
     > [!TIP]
     > Se a política for definida no nível de banco de dados, todas as tabelas no banco de dados serão habilitadas para ingestão de streaming.
 
-## <a name="supported-streaming-ingestion-types"></a>Tipos de ingestão de streaming com suporte
+## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Usar a ingestão de streaming para ingerir dados para o cluster
 
 Há dois tipos de ingestão de streaming com suporte:
 
 * [Hub de eventos](/azure/data-explorer/ingest-data-event-hub) usado como uma fonte de dados
-* A ingestão personalizada exige que você escreva um aplicativo que usa uma das bibliotecas de cliente do Azure Data Explorer. Consulte [exemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) de ingestão de streaming para um aplicativo de exemplo.
+* A ingestão personalizada exige que você escreva um aplicativo que usa uma das bibliotecas de cliente do Azure Data Explorer. Consulte [exemplo de ingestão de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) para um aplicativo de exemplo.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Escolha o tipo de ingestão de streaming apropriado
 
@@ -63,7 +63,7 @@ Há dois tipos de ingestão de streaming com suporte:
 > [!WARNING]
 > Desabilitar a ingestão de streaming pode levar algumas horas.
 
-1. Remova a política de ingestão de [streaming](/azure/kusto/concepts/streamingingestionpolicy) de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming dispara a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no repositório de coluna (extensões ou fragmentos). A movimentação de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e da utilização de CPU e memória do cluster.
+1. Remova a [política de ingestão de streaming](/azure/kusto/concepts/streamingingestionpolicy) de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming dispara a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no repositório de coluna (extensões ou fragmentos). A movimentação de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e da utilização de CPU e memória do cluster.
 1. Na portal do Azure, vá para o cluster de Data Explorer do Azure. Em **configurações**, selecione **configurações**. 
 1. No painel **configurações** , selecione **desativado** para desabilitar a **ingestão de streaming**.
 1. Selecione **Guardar**.
@@ -72,12 +72,12 @@ Há dois tipos de ingestão de streaming com suporte:
 
 ## <a name="limitations"></a>Limitações
 
-* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Para um único nó D11, a carga recomendada é de até 20 solicitações por segundo. Para um único nó D14, a carga recomendada é de até 150 solicitações por segundo.
+* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Para um único nó D14, a carga recomendada é de até 150 solicitações por segundo.
 * Atualmente, o suporte é apenas para SKUs de 8 e 16 núcleos (D13, D14, L8 e L16).
 * A limitação de tamanho de dados por solicitação de ingestão é 4 MB.
 * As atualizações de esquema, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até 5 minutos para o serviço de ingestão de streaming.
 * Habilitar a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, o usa parte do disco SSD local das máquinas de cluster para dados de ingestão de streaming e reduz o armazenamento disponível para cache ativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Consultar dados no Azure Data Explorer](web-query-data.md)

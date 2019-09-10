@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194606"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872186"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -42,7 +42,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 
 - Regra com mais de cinco expressões
 - A regra de relatórios diretos
-- Definindo a precedência de [operador](groups-dynamic-membership.md#operator-precedence)
+- Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
 - [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
@@ -178,7 +178,7 @@ Os valores usados em uma expressão podem consistir em vários tipos, incluindo:
 
 * Cadeias
 * Booliano – verdadeiro, falso
-* Números
+* números
 * Matrizes – matriz de números, matriz de cadeia de caracteres
 
 Ao especificar um valor dentro de uma expressão, é importante usar a sintaxe correta para evitar erros. Algumas dicas de sintaxe são:
@@ -358,6 +358,11 @@ O nome da propriedade personalizada pode ser encontrado no diretório consultand
 ## <a name="rules-for-devices"></a>Regras para dispositivos
 
 Você também pode criar uma regra que Selecione objetos de dispositivo para associação em um grupo. Você não pode ter usuários e dispositivos como membros do grupo. O atributo **OrganizationalUnit** não está mais listado e não deve ser usado. Essa cadeia de caracteres é definida pelo Intune em casos específicos, mas não é reconhecida pelo Azure AD, portanto, nenhum dispositivo é adicionado aos grupos com base nesse atributo.
+
+> [!NOTE]
+> systemlabels é um atributo somente leitura que não pode ser definido com o Intune.
+>
+> Para o Windows 10, o formato correto do atributo deviceOSVersion é o seguinte: (Device. deviceOSVersion-EQ "10,0 (17763)"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
 
 Os atributos de dispositivo a seguir podem ser usados.
 

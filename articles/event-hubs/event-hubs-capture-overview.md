@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1531ed86c36182daad61f139ced3a814634e8b6e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68326170"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845257"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturar eventos através dos Hubs de eventos do Azure no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake
 Os Hubs de eventos do Azure permite-lhe capturar automaticamente os dados de transmissão em fluxo nos Hubs de eventos num [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [o armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-scalability.md#throughput-units). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
@@ -141,7 +141,7 @@ Observe que a captura não consome a cota de saída, pois é cobrada separadamen
 
 Pode criar uma subscrição do Azure Event Grid com um espaço de nomes de Hubs de eventos como origem. O tutorial a seguir mostra como criar uma assinatura de grade de eventos com um hub de eventos como uma fonte e um aplicativo Azure Functions como um coletor: [Processar e migrar dados capturados dos hubs de eventos para um SQL data warehouse usando a grade de eventos e Azure Functions](store-captured-data-data-warehouse.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Captura de Hubs de eventos é a maneira mais fácil obter dados no Azure. Utilizar o Azure Data Lake, o Azure Data Factory e o Azure HDInsight, pode efetuar o processamento de batch e outras análises com ferramentas familiares e plataformas à sua escolha, em qualquer escala precisa.
 
@@ -156,7 +156,7 @@ Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.9.0/java/avro-tools-1.9.0.jar
+[Avro Tools]: https://www.apache.org/dist/avro/stable/java/avro-1.9.1-javadoc.jar
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

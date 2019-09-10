@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533533"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844253"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -20,7 +20,7 @@ Ao criar ou gerenciar clusters do AKS (serviço kubernetes do Azure), ocasionalm
 
 ## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>Em geral, onde encontro informações sobre a depuração de problemas do kubernetes?
 
-Experimente o [guia oficial para solucionar problemas](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)de clusters do kubernetes.
+Experimente o [guia oficial para solucionar problemas de clusters do kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
 Há também um [Guia de solução de problemas](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), publicado por um engenheiro da Microsoft para solucionar problemas de pods, nós, clusters e outros recursos.
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou recebendo um erro de "cota excedido" durante a criação ou a atualização. O que devo fazer? 
@@ -55,7 +55,7 @@ Infelizmente, não há suporte para habilitar o controle de acesso baseado em fu
 
 ## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um cluster com o RBAC habilitado usando o CLI do Azure com os padrões ou o portal do Azure, e agora vejo muitos avisos no painel do kubernetes. O painel usado para funcionar sem avisos. O que devo fazer?
 
-O motivo para os avisos no painel é que o cluster agora está habilitado com RBAC e o acesso a ele foi desabilitado por padrão. Em geral, essa abordagem é uma boa prática porque a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser habilitar o painel, siga as etapas nesta postagem no [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+O motivo para os avisos no painel é que o cluster agora está habilitado com RBAC e o acesso a ele foi desabilitado por padrão. Em geral, essa abordagem é uma boa prática porque a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser habilitar o painel, siga as etapas nesta [postagem no blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo me conectar ao painel. O que devo fazer?
 
@@ -79,7 +79,7 @@ Esse erro ocorre quando os clusters entram em um estado de falha por vários mot
 
 1. Até que o cluster esteja fora `failed` do `upgrade` estado e `scale` as operações não tenham sucesso. As resoluções e problemas de raiz comuns incluem:
     * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
-    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede)** insuficientes. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
+    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
 2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou dimensionar o estado em que meu cluster está sendo atualizado no momento ou com falha na atualização
@@ -132,3 +132,12 @@ Com base na saída do status do cluster:
 * Se o cluster estiver em qualquer estado de provisionamento diferente de *êxito* ou *falha*, aguarde até que a operação (*atualização/atualização/criação/dimensionamento/exclusão/migração*) seja encerrada. Quando a operação anterior for concluída, tente novamente a operação de cluster mais recente.
 
 * Se o cluster tiver uma falha de atualização, siga as etapas descritas estou [recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Estou recebendo erros de que minha entidade de serviço não foi encontrada quando tento criar um novo cluster sem passar um existente.
+
+Ao criar um cluster AKS, ele requer uma entidade de serviço para criar recursos em seu nome. O AKS oferece a capacidade de ter um novo criado no momento da criação do cluster, mas isso requer que Azure Active Directory propague totalmente a nova entidade de serviço em um tempo razoável para que o cluster tenha sucesso na criação. Quando essa propagação demorar muito, o cluster falhará na validação para criar, pois ele não pode encontrar uma entidade de serviço disponível para fazer isso. 
+
+Use as seguintes soluções alternativas para isso:
+1. Use uma entidade de serviço existente que já propagada entre regiões e exista para passar para AKS no momento da criação do cluster.
+2. Se você estiver usando scripts de automação, adicione atrasos entre a criação da entidade de serviço e a criação do cluster AKS.
+3. Se estiver usando portal do Azure, retorne para as configurações de cluster durante a criação e repita a página de validação após alguns minutos.

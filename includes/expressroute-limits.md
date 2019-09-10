@@ -9,27 +9,27 @@ ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67622117"
 ---
-| Resource | Limite de máximo/predefinido |
+| Resource | Limite máximo/padrão |
 | --- | --- |
-| Circuitos do ExpressRoute por subscrição |10 |
-| Circuitos do ExpressRoute por região por subscrição, com o Azure Resource Manager |10 |
-| Número máximo de rotas anunciadas para peering privado do Azure com o ExpressRoute Standard |4,000 |
-| Número máximo de rotas anunciadas para peering privado do Azure com o suplemento ExpressRoute Premium |10,000 |
-| Número máximo de rotas anunciadas nos peering privado do Azure do espaço de endereço VNet para uma ligação do ExpressRoute |200 |
-| Número máximo de rotas anunciadas para peering da Microsoft com o ExpressRoute Standard |200 |
-| Número máximo de rotas anunciadas para peering da Microsoft com o suplemento ExpressRoute Premium |200 |
-| Número máximo de circuitos do ExpressRoute ligado à mesma rede virtual na mesma localização de peering |4 |
-| Número máximo de circuitos do ExpressRoute ligado à mesma rede virtual em diferentes localizações de peering |4 |
-| Número de ligações de rede virtual permitidos por circuito do ExpressRoute |Consulte a [número de redes virtuais por circuito ExpressRoute](#vnetpercircuit) tabela.  |
+| Circuitos de ExpressRoute por assinatura |10 |
+| Circuitos de ExpressRoute por região por assinatura, com Azure Resource Manager |10 |
+| Número máximo de rotas anunciadas para o emparelhamento privado do Azure com o padrão de ExpressRoute |4,000 |
+| Número máximo de rotas anunciadas para o emparelhamento privado do Azure com o complemento Premium do ExpressRoute |10,000 |
+| Número máximo de rotas anunciadas do emparelhamento privado do Azure do espaço de endereço da VNet para uma conexão do ExpressRoute |200 |
+| Número máximo de rotas anunciadas para o emparelhamento da Microsoft com o padrão de ExpressRoute |200 |
+| Número máximo de rotas anunciadas para o emparelhamento da Microsoft com o complemento Premium do ExpressRoute |200 |
+| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual no mesmo local de emparelhamento |4 |
+| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual em locais de emparelhamento diferentes |4 |
+| Número de links de rede virtual permitidos por circuito de ExpressRoute |Consulte o [número de redes virtuais por tabela de circuito do ExpressRoute](#vnetpercircuit) .  |
 
-#### <a name="vnetpercircuit"></a> Número de redes virtuais por circuito do ExpressRoute
-| **Tamanho do circuito** | **Número de ligações de rede virtual para o Standard** | **Número de ligações de rede virtual com o suplemento Premium** |
+#### <a name="vnetpercircuit"></a>Número de redes virtuais por circuito de ExpressRoute
+| **Tamanho do circuito** | **Número de links de rede virtual para Standard** | **Número de links de rede virtual com complemento Premium** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |
@@ -40,6 +40,6 @@ ms.locfileid: "67622117"
 | 5 Gbps |10 |75 |
 | 10 Gbps |10 |100 |
 | 40 Gbps * |10 |100 |
-| Gbps de 100 * |10 |100 |
+| 100 Gbps * |10 |100 |
 
-**Apenas o Direct de ExpressRoute 100 Gbps*
+**100 Gbps ExpressRoute somente direto*

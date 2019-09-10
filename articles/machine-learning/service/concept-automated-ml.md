@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165201"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860909"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -47,7 +47,7 @@ Usando **Azure Machine Learning Service**, você pode projetar e executar seus e
 
 1. **Configure o destino de computação para treinamento de modelo**, como seu [computador local, Azure Machine Learning computações, VMS remotas ou Azure Databricks](how-to-set-up-training-targets.md).  Saiba mais sobre o treinamento automatizado [em um recurso remoto](how-to-auto-train-remote.md).
 
-1. **Configure os parâmetros automatizados de aprendizado de máquina** que determinam quantas iterações em diferentes modelos, configurações de hiperparâmetro, pré-processamento avançado/personalização e quais métricas examinar ao determinar o melhor modelo.  Você pode definir as configurações para o teste de treinamento automático [no portal do Azure](how-to-create-portal-experiments.md) ou [com o SDK](how-to-configure-auto-train.md).
+1. **Configure os parâmetros automatizados de aprendizado de máquina** que determinam quantas iterações em diferentes modelos, configurações de hiperparâmetro, pré-processamento avançado/personalização e quais métricas examinar ao determinar o melhor modelo.  Você pode definir as configurações de teste de treinamento automático no [portal do Azure](how-to-create-portal-experiments.md), [a página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com)ou [com o SDK](how-to-configure-auto-train.md). 
 
 1. **Envie a execução de treinamento.**
 
@@ -55,7 +55,7 @@ Usando **Azure Machine Learning Service**, você pode projetar e executar seus e
 
 Durante o treinamento, o serviço de Azure Machine Learning cria um número de pipelines paralelos que tentam algoritmos e parâmetros diferentes. Ele será interrompido quando atingir os critérios de saída definidos no experimento.
 
-Você também pode inspecionar as informações de execução registradas, que [contêm](how-to-understand-automated-ml.md) as métricas coletadas durante a execução. A execução de treinamento produz um objeto serializado do`.pkl` Python (arquivo) que contém o modelo e o pré-processamento de dados.
+Você também pode inspecionar as informações de execução registradas, que [contêm as métricas](how-to-understand-automated-ml.md) coletadas durante a execução. A execução de treinamento produz um objeto serializado do`.pkl` Python (arquivo) que contém o modelo e o pré-processamento de dados.
 
 Embora a criação de modelos seja automatizada, você também pode [aprender como os recursos importantes ou relevantes são](how-to-configure-auto-train.md#explain) para os modelos gerados.
 
@@ -105,7 +105,7 @@ Saiba mais e veja um exemplo de [Machine Learning automatizado para previsão de
 O aprendizado de máquina automatizado dá suporte a modelos Ensemble, que são habilitados por padrão. O Ensemble Learning melhora os resultados do Machine Learning e o desempenho de previsão combinando vários modelos em oposição ao uso de modelos únicos. As iterações Ensemble são exibidas como as iterações finais da sua execução. O Machine Learning automatizado usa os métodos Ensemble de votação e empilhamento para combinar modelos:
 
 * **Votação**: prevê com base na média ponderada das probabilidades de classe prevista (para tarefas de classificação) ou destinos de regressão previstos (para tarefas de regressão).
-* Empilhamento: a empilhamento combina modelos heterogêneos e treina um meta-modelo com base na saída dos modelos individuais. Os metamodelos padrão atuais são LogisticRegression para tarefas de classificação e ElasticNet para tarefas de regressão/previsão.
+* **Empilhamento**: a empilhamento combina modelos heterogêneos e treina um meta-modelo com base na saída dos modelos individuais. Os metamodelos padrão atuais são LogisticRegression para tarefas de classificação e ElasticNet para tarefas de regressão/previsão.
 
 O [algoritmo de seleção Caruana Ensemble](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) com inicialização Ensemble classificada é usado para decidir quais modelos usar dentro do Ensemble. Em um alto nível, esse algoritmo Inicializa o Ensemble com até 5 modelos com as melhores pontuações individuais e verifica se esses modelos estão dentro do limite de 5% da melhor pontuação para evitar uma Ensemble inicial inadequada. Em seguida, para cada iteração Ensemble, um novo modelo é adicionado ao Ensemble existente e a pontuação resultante é calculada. Se um novo modelo tiver melhorado a pontuação Ensemble existente, o Ensemble será atualizado para incluir o novo modelo.
 
@@ -133,7 +133,7 @@ Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automat
 + Siga o [tutorial: Treinar automaticamente um modelo de regressão com o Machine Learning automatizado do Azure](tutorial-auto-train-models.md)
 
 + Defina as configurações para o teste de treinamento automático:
-  + Na interface portal do Azure, [Use estas etapas](how-to-create-portal-experiments.md).
+  + Na interface portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia), [Use estas etapas](how-to-create-portal-experiments.md).
   + Com o SDK do Python, [Use estas etapas](how-to-configure-auto-train.md).
 
 + Saiba como treinar automaticamente usando dados de série temporal, [Use estas etapas](how-to-auto-train-forecast.md).

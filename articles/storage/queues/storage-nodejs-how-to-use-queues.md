@@ -1,5 +1,5 @@
 ---
-title: Como usar o armazenamento de fila do node. js – armazenamento do Azure
+title: Usar o armazenamento de filas do Azure do node. js – armazenamento do Azure
 description: Saiba como usar o serviço Fila do Azure para criar e excluir filas e inserir, obter e excluir mensagens. Exemplos escritos em node. js.
 author: mhopkins-msft
 ms.service: storage
@@ -8,12 +8,13 @@ ms.date: 12/08/2016
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13da3adc1a3f95f9fdb29eb181eb9759e175cffe
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 83aecc9c05fec5869a82930f2d687ac907981c00
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721270"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858676"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Como utilizar o Armazenamento de filas do Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -104,7 +105,7 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Inserir uma mensagem em uma fila
-Para inserir uma mensagem em uma fila, use o Método CreateMessage para criar uma nova mensagem e adicioná-la à fila.
+Para inserir uma mensagem em uma fila, use o método **CreateMessage** para criar uma nova mensagem e adicioná-la à fila.
 
 ```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
@@ -138,7 +139,7 @@ O processamento de uma mensagem é um processo de duas etapas:
 1. Remover a mensagem da fila.
 2. Exclua a mensagem.
 
-Para remover uma mensagem da fila,use GetMessages. Isso torna as mensagens invisíveis na fila, portanto, nenhum outro cliente pode processá-las. Depois que o aplicativo tiver processado uma mensagem, chame **deleteMessage** para excluí-la da fila. O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
+Para remover uma mensagem da fila, use **GetMessages**. Isso torna as mensagens invisíveis na fila, portanto, nenhum outro cliente pode processá-las. Depois que o aplicativo tiver processado uma mensagem, chame **deleteMessage** para excluí-la da fila. O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, results, response){
@@ -155,10 +156,10 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 ```
 
 > [!NOTE]
-> Por padrão, uma mensagem é ocultada apenas por 30 segundos, após a qual ela fica visível para outros clientes. Você pode especificar um valor diferente usando `options.visibilityTimeout` o com GetMessages.
+> Por padrão, uma mensagem é ocultada apenas por 30 segundos, após a qual ela fica visível para outros clientes. Você pode especificar um valor diferente usando `options.visibilityTimeout` o com **GetMessages**.
 > 
 > [!NOTE]
-> O uso de GetMessages quando não há mensagens na fila não retornará um erro, no entanto, nenhuma mensagem será retornada.
+> O uso de **GetMessages** quando não há mensagens na fila não retornará um erro, no entanto, nenhuma mensagem será retornada.
 > 
 > 
 
@@ -185,7 +186,7 @@ Há duas maneiras de personalizar a recuperação de mensagens de uma fila:
 * `options.numOfMessages`-Recuperar um lote de mensagens (até 32.)
 * `options.visibilityTimeout`-Definir um tempo limite de invisibilidade mais longo ou menor.
 
-O exemplo a seguir usa o método GetMessages para obter 15 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade para cinco minutos para todas as mensagens retornadas por esse método.
+O exemplo a seguir usa o método **GetMessages** para obter 15 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade para cinco minutos para todas as mensagens retornadas por esse método.
 
 ```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
@@ -301,7 +302,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-O exemplo a seguir obtém a ACL atualpara MyQueue e, em seguida, adiciona as novas políticas usando **setQueueAcl**. Esta abordagem permite:
+O exemplo a seguir obtém a ACL atual para **MyQueue**e, em seguida, adiciona as novas políticas usando **setQueueAcl**. Esta abordagem permite:
 
 ```javascript
 var extend = require('extend');
