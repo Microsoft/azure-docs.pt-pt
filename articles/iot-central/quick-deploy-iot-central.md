@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 0d5f04d9c0cc6dcd8a784ae7a816d93e2aab30aa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eb6759d95ab0fb7afd3b6179babf052dfb029ff2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099474"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873438"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -37,7 +37,7 @@ Para criar uma nova aplicação do Azure IoT Central:
    - As aplicações **Pay As You Go** são cobradas por dispositivo, sendo os primeiros cinco gratuitos. Se você criar um aplicativo **pago conforme o uso** , precisará selecionar seu *diretório*, sua *assinatura do Azure*e uma *região*:
       - O *diretório* é o Azure Active Directory (AD) para criar seu aplicativo. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se você não tiver um Azure AD, um será criado para você quando você criar uma assinatura do Azure.
       - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. O IoT Central aprovisiona os recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criá-la na [página de inscrição do Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
-      - A *região* é a localização física na qual pretende criar a aplicação. Por norma, deve escolher a região que está fisicamente mais perto dos dispositivos, de modo a obter um desempenho ideal. Pode ver as regiões em que o Azure IoT Central está disponível na página [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/). Depois de escolher uma região, você não poderá mover o aplicativo para uma região diferente posteriormente.
+      - *Região* é o local físico ou [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar seu aplicativo. Normalmente, você deve escolher a região que está fisicamente mais próxima de seus dispositivos para obter o desempenho ideal. Você pode ver as regiões nas quais o Azure IoT Central está disponível na página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) . Depois de escolher uma região, você não poderá mover o aplicativo para uma região diferente posteriormente.
 
       Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
@@ -53,7 +53,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Clique em **Criar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma aplicação do IoT Central. O passo seguinte sugerido é:
 

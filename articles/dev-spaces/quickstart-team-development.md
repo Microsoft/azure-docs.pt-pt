@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Team kubernetes Development com contêineres e microservices no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: f4a0a4858c890c94e3983c3dc9b10d739dc1352d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0abfe655e30b62829a7d353b6da85bb51e378f6d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772572"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842597"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolvimento em equipe no kubernetes usando o Azure Dev Spaces
 
@@ -146,12 +146,12 @@ Use o `azds space list` comando para listar todos os espaços de desenvolvimento
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 Use o `azds list-uris` para exibir as URLs para o aplicativo de exemplo no espaço atualmente selecionado que é *dev/azureuser2*.
@@ -202,6 +202,9 @@ Navegue até o serviço *bikesharingweb* para o espaço de desenvolvimento de *d
 
 ![Aplicativo de exemplo de compartilhamento de bicicletas de Azure Dev Spaces atualizado](media/quickstart-team-development/bikeshare-update.png)
 
+> [!NOTE]
+> Quando você navega até o serviço durante a `azds up`execução, os rastreamentos de solicitação HTTP também são exibidos na saída `azds up` do comando. Esses rastreamentos podem ajudá-lo a solucionar problemas e depurar seu serviço. Você pode desabilitar esses rastreamentos `--disable-http-traces` usando o `azds up`durante a execução.
+
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>Verificar se outros espaços de desenvolvimento estão inalterados
 
 Se o `azds up` comando ainda estiver em execução, pressione *Ctrl + c*.
@@ -228,7 +231,7 @@ Para que essas alterações sejam refletidas em *dev* e *dev/azureuser1*, você 
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento de colaboração ao trabalhar com diferentes versões ou ramos do seu código em diferentes espaços.
 

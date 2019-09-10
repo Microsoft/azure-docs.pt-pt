@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 381af2989a7622501462e574d05b54eea8416518
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: a3b57fd7acba4d45b0bd519a21ae74f91291fd77
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543435"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873231"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Início rápido: Configurar um pipeline de CI/CD para um aplicativo Java com Azure DevOps Projects
 
-Azure DevOps Projects apresenta uma experiência simplificada que cria recursos do Azure e configura um pipeline de integração contínua (CI) e entrega contínua (CD) para seu aplicativo Java no Azure Pipelines.  
+Neste artigo de início rápido, você usa Azure DevOps Projects "experiência simplificada para configurar um pipeline de integração contínua (CI) e entrega contínua (CD) para seu aplicativo Java no Azure Pipelines. Você também pode usar Azure DevOps Projects para criar outros recursos do Azure.  
 
 Se você não tiver uma assinatura do Azure, poderá obter uma gratuitamente por meio de [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -74,7 +74,7 @@ DevOps Projects cria um repositório git no Azure Repos ou no GitHub. Para exibi
 1. À esquerda do painel de DevOps Projects, selecione o link para o Branch mestre.  
 Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para exibir a URL de clone do repositório , selecione clonar na parte superior direita do navegador.   
+1. Para exibir a URL de clone do repositório, selecione **clonar** na parte superior direita do navegador.   
     Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
 
 1. No lado esquerdo do navegador, vá para o arquivo **src/main/webapp/index.html** .

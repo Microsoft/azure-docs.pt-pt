@@ -6,14 +6,14 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: da853cd92797c6ec778043ddc39c7854d8f5e832
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d772f66d14e0c0ab5ac73603e8faeb7e31e9891f
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774722"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843775"
 ---
-# <a name="what-is-azure-hpc-cache"></a>O que é o cache do HPC do Azure?
+# <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
 O cache do HPC do Azure acelera o acesso aos seus dados para tarefas HPC (computação de alto desempenho). Ao armazenar arquivos em cache no Azure, ele torna a escalabilidade da computação em nuvem disponível mesmo para fluxos de trabalho em que os dados são armazenados em links de WAN, como em seu ambiente NAS (armazenamento conectado à rede) do datacenter local.
 
@@ -56,10 +56,10 @@ O cache do HPC do Azure está disponível nessas regiões do Azure:
 * Sudeste Asiático
 * EUA Oeste 2
 
-Verifique a [página do produto de cache HPC do Azure](<https://azure.microsoft.com/services/hpc-cache>) para obter as informações de disponibilidade mais recentes.
+Verifique a [página do produto de cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Leia a [página do produto cache HPC do Azure](<https://azure.microsoft.com/services/hpc-cache>) para saber mais sobre seus recursos
+* Leia a [página do produto cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para saber mais sobre seus recursos
 * Saiba mais sobre os [pré-requisitos](hpc-cache-prereqs.md) do produto
 * [Criar um cache HPC do Azure](hpc-cache-create.md) do portal do Azure

@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 822bbd004035d9745535942c508cae6702e5b99b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 99514002f0a259b7e981c2db498e72865d4f1bd4
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278119"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858648"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -32,7 +32,7 @@ O serviço de Azure Machine Learning fornece um ambiente baseado em nuvem que vo
 
 Explore e prepare dados, treine e teste modelos e implante-os usando ferramentas avançadas, como:
 + Uma [interface visual](ui-tutorial-automobile-price-train-score.md) na qual você pode arrastar-n-drop modules para criar seus experimentos e, em seguida, implantar modelos
-+ [Jupyter notebooks](https://jupyter.org) em que você usa os [SDKs](https://docs.microsoft.com/azure/machine-learning/service/#reference) para escrever seu próprio código, como [esses blocos de anotações de exemplo](https://aka.ms/aml-notebooks)
++ [Jupyter notebooks](https://jupyter.org) em que você usa os [SDKs](https://docs.microsoft.com/azure/machine-learning) para escrever seu próprio código, como [esses blocos de anotações de exemplo](https://aka.ms/aml-notebooks)
 + [Extensão de Visual Studio Code](how-to-vscode-tools.md)
 
 
@@ -48,7 +48,7 @@ Se você escrever código ou usar a interface visual, poderá acompanhar várias
 
 ### <a name="code-first-experience"></a>Experiência de primeiro código
 
-Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK do Azure Machine Learning Python</a> e, em seguida, escale horizontalmente para a nuvem. Com muitos [destinos de computação](how-to-set-up-training-targets.md)disponíveis, como Azure Machine Learning computação e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)e com [serviços avançados de ajuste](how-to-tune-hyperparameters.md)de hiperparâmetro, você pode criar modelos melhores mais rapidamente usando o poder da nuvem.
+Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK do Azure Machine Learning Python</a> e, em seguida, escale horizontalmente para a nuvem. Com muitos [destinos de computação](how-to-set-up-training-targets.md)disponíveis, como Azure Machine Learning computação e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)e com [serviços avançados de ajuste de hiperparâmetro](how-to-tune-hyperparameters.md), você pode criar modelos melhores mais rapidamente usando o poder da nuvem.
 
 Você também pode [automatizar o treinamento e o ajuste do modelo](tutorial-auto-train-models.md) usando o SDK.
 
@@ -66,11 +66,11 @@ Para treinamento sem código, tente:
 
 Quando você tem o modelo correto, pode usá-lo facilmente em um serviço Web, em um dispositivo IoT ou em Power BI. Para obter mais informações, consulte o artigo sobre [como implantar e onde](how-to-deploy-and-where.md).
 
-Em seguida, você pode gerenciar seus modelos implantados usando o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou o [portal do Azure](https://portal.azure.com/).
+Em seguida, você pode gerenciar seus modelos implantados usando o [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk), a [portal do Azure](https://portal.azure.com/) ou sua [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
 Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-consume-web-service.md) ou de [forma assíncrona](how-to-run-batch-predictions.md) em grandes quantidades de dados.
 
-E com pipelines avançados de [aprendizado de máquina](concept-ml-pipelines.md), você pode colaborar em cada etapa de preparação de dados, treinamento de modelo e avaliação, por meio da implantação. Os pipelines permitem que você:
+E com [pipelines](concept-ml-pipelines.md)avançados de aprendizado de máquina, você pode colaborar em cada etapa de preparação de dados, treinamento de modelo e avaliação, por meio da implantação. Os pipelines permitem que você:
 
 * Automatizar o processo de aprendizado de máquina de ponta a ponta na nuvem
 * Reutilizar componentes e executar novamente as etapas novamente quando necessário
@@ -93,7 +93,7 @@ Aqui está uma comparação rápida.
 |Módulos para interface| Muitos | Conjunto inicial de módulos populares|
 |Treinamento de destinos de computação| Destino de computação proprietário, somente suporte de CPU| Dá suporte a Azure Machine Learning computação, GPU ou CPU.<br/>(Outros cálculos com suporte no SDK)|
 |Destinos de computação de implantação| Formato de serviço da Web proprietário, não personalizável | Opções de segurança corporativa & serviço kubernetes do Azure. <br/>([Outros cálculos](how-to-deploy-and-where.md) com suporte no SDK) |
-|Treinamento de modelo automatizado e ajuste de hiperparâmetro | Não | Ainda não está na interface visual. <br/> (Com suporte no SDK e portal do Azure.) |
+|Treinamento de modelo automatizado e ajuste de hiperparâmetro | Não | Ainda não está na interface visual. <br/> (Com suporte no SDK e na página de aterrissagem do portal do Azure/Workspace.) |
 
 Experimente a interface visual (versão prévia) com [o tutorial: Prever o preço do automóvel com a](ui-tutorial-automobile-price-train-score.md)interface visual.
 
@@ -104,9 +104,9 @@ Experimente a interface visual (versão prévia) com [o tutorial: Prever o preç
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado. Ou [ative os benefícios](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)para assinantes do MSDN, que fornecem créditos todos os meses que você pode usar para serviços pagos do Azure.
+Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado. Ou [ative os benefícios para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), que fornecem créditos todos os meses que você pode usar para serviços pagos do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Crie um Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md) para começar.
 

@@ -15,17 +15,18 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 10e5c31b4fbeb8af0235a067c57c3b209fe892af
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 769fef25fea39cf978463f47438630c798f25900
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171312"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873279"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início rápido: Criar um aplicativo Java no serviço de Azure App no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com aplicação de patches automática através do sistema operativo Linux. Este guia de início rápido mostra como usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [plug-in do Maven para Azure app Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo War (Java Web Archive).
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com aplicação de patches automática através do sistema operativo Linux. Este guia de início rápido mostra como usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [plug-in do Maven para Azure app Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo War (Java Web Archive) no sistema operacional Linux.
+
 > [!NOTE]
 >
 > A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e o eclipse. Confira nossos documentos semelhantes em [Azure Toolkit for IntelliJ início rápido](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Azure Toolkit for Eclipse início rápido](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
@@ -141,7 +142,7 @@ Confirm (Y/N)? : Y
 
 Navegue para `pom.xml` novamente para ver se a configuração do plug-in está atualizada, você pode modificar outras configurações do serviço de aplicativo diretamente em seu arquivo POM, se necessário, algumas comuns estão listadas abaixo:
 
- Propriedade | Necessário | Descrição | Version
+ Propriedade | Requerido | Descrição | Version
 ---|---|---|---
 `<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores com suporte `v1`são `v2`:,. | 1.5.2
 `<resourceGroup>` | true | Grupo de recursos do Azure para seu aplicativo Web. | 0.1.0 +
@@ -175,7 +176,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicativo empresarial Java com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)

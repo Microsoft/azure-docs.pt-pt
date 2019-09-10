@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 11a5955d516d3a4144d9b63eec78d9c5741aaab9
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 90ccd6c827371d9bf72391e2b24c7dcef31f36c9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "67615272"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844623"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
@@ -36,7 +36,7 @@ No canto superior esquerdo da portal do Azure, selecione **+ criar um** > **cont
 Para criar um cluster do AKS, execute os passos seguintes:
 
 1. Na página **noções básicas** , configure as seguintes opções:
-   - *DETALHES DO PROJETO*: Selecione uma assinatura do Azure e, em seguida, selecione ou crie um grupo derecursos do Azure, como MyResource Group. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
+   - *DETALHES DO PROJETO*: Selecione uma assinatura do Azure e, em seguida, selecione ou crie um grupo de recursos do Azure, como *MyResource*Group. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
    - *DETALHES DO CLUSTER*: Selecione uma região, uma versão kubernetes e um prefixo de nome DNS para o cluster AKS.
    - **Pool de nós primário**: selecione um tamanho de VM para os nós AKs. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS. 
        - Selecione o número de nós a implementar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
@@ -46,13 +46,15 @@ Para criar um cluster do AKS, execute os passos seguintes:
      Selecione **avançar: Dimensionar** ao concluir.
 
 2. Na página **escala** , mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: autenticação**.
+> [!CAUTION]
+> A criação de novas entidades de serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, fazendo com que a entidade de serviço não encontrou erros e falhas de validação no portal do Azure. Se você tiver obtido isso, visite [aqui](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) para obter mitigações.
 3. Na página **autenticação** , configure as seguintes opções:
    - Crie uma nova entidade de serviço deixando o campo de **entidade de serviço** com a **entidade de serviço padrão (novo)** . Ou você pode escolher *Configurar a entidade de serviço* para usar uma existente. Se você usar um existente, será necessário fornecer a ID e o segredo do cliente SPN.
    - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos kubernetes implantados em seu cluster AKS.
 
-    Por padrão, a rede *básica* é usada e Azure monitor para contêineres está habilitado. Clique em revisar **+ criar** e em **criar** quando a validação for concluída.
+    Por padrão, a rede *básica* é usada e Azure monitor para contêineres está habilitado. Clique em **revisar + criar** e em **criar** quando a validação for concluída.
 
-Leva alguns minutos para criar o cluster AKS. Quando a implantação for concluída, clique em **ir para recurso**ou navegue até o grupo de recursos de cluster AKs,como MyResource Group, e selecione o recurso AKs, como *myAKSCluster*. O painel do cluster AKS é mostrado, como neste exemplo:
+Leva alguns minutos para criar o cluster AKS. Quando a implantação for concluída, clique em **ir para recurso**ou navegue até o grupo de recursos de cluster AKs, como *MyResource*Group, e selecione o recurso AKs, como *myAKSCluster*. O painel do cluster AKS é mostrado, como neste exemplo:
 
 ![Exemplo de dashboard do AKS no portal do Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -85,7 +87,7 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Um arquivo de manifesto kubernetes define um estado desejado para o cluster, como quais imagens de contêiner executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Esse manifesto inclui duas implantações de [kubernetes][kubernetes-deployment] – uma para os aplicativos Python de exemplo do Azure e a outra para uma instância Redis. Dois [Serviços Kubernetess][kubernetes-service] também são criados – um serviço interno para a instância do Redis e um serviço externo para acessar o aplicativo Azure vote da Internet.
+Um arquivo de manifesto kubernetes define um estado desejado para o cluster, como quais imagens de contêiner executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Esse manifesto inclui duas [implantações de kubernetes][kubernetes-deployment] – uma para os aplicativos Python de exemplo do Azure e a outra para uma instância Redis. Dois [Serviços Kubernetess][kubernetes-service] também são criados – um serviço interno para a instância do Redis e um serviço externo para acessar o aplicativo Azure vote da Internet.
 
 > [!TIP]
 > Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em cenários mais reais, você pode usar [Azure dev Spaces][azure-dev-spaces] para iterar e depurar rapidamente seu código diretamente no cluster AKs. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.

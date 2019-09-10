@@ -9,13 +9,13 @@ ms.date: 06/05/2019
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: ea87e51e66985f860cd6d10595a32facde1dc639
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67133745"
 ---
-Existe um número máximo de cada tipo de objeto do Azure Policy. Uma entrada de _Âmbito_ significa a subscrição ou o [grupo de gestão](../articles/governance/management-groups/overview.md).
+Há uma contagem máxima para cada tipo de objeto para Azure Policy. Uma entrada de _Âmbito_ significa a subscrição ou o [grupo de gestão](../articles/governance/management-groups/overview.md).
 
 | Onde | O quê | Contagem máxima |
 |---|---|---|
