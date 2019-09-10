@@ -1,56 +1,56 @@
 ---
-title: Microsoft Azure Disco do Data Box requisitos do sistema | Microsoft Docs
-description: Saiba mais sobre os requisitos de software e rede para seu Disco do Azure Data Box
+title: Requisitos de sistema do Microsoft Azure Data Box Disk| Microsoft Docs
+description: Saiba mais sobre o software e os requisitos de rede para o Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240226"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307685"
 ---
 ::: zone target="docs"
 
-# <a name="azure-data-box-disk-system-requirements"></a>Disco do Azure Data Box requisitos do sistema
+# <a name="azure-data-box-disk-system-requirements"></a>Requisitos de sistema do Azure Data Box Disk
 
-Este artigo descreve os requisitos de sistema importantes para sua solução Microsoft Azure Disco do Data Box e para os clientes que se conectam ao Disco do Data Box. Recomendamos que você revise as informações cuidadosamente antes de implantar sua Disco do Data Box e, em seguida, reveja-as conforme necessário durante a implantação e a operação subsequente.
+Este artigo descreve os requisitos de sistema importantes para a sua solução Microsoft Azure Data Box Disk e para os clientes que se ligam ao Data Box Disk. Recomendamos que reveja cuidadosamente as informações antes de implementar o Data Box Disk e, em seguida, reveja-as conforme necessário durante a implementação e a operação subsequente.
 
-Os requisitos do sistema incluem as plataformas com suporte para clientes que se conectam a discos, contas de armazenamento com suporte e tipos de armazenamento.
+Os requisitos de sistema incluem as plataformas suportadas para os clientes que se ligam aos discos, contas de armazenamento suportadas e tipos de armazenamento.
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-# <a name="review-prerequisites"></a>Examinar pré-requisitos
+## <a name="review-prerequisites"></a>Rever pré-requisitos
 
-1. Você deve ter ordenado seu disco do data box usando o [tutorial: Ordene seu Disco do Azure Data Box](data-box-disk-deploy-ordered.md). Você recebeu seus discos e um cabo de conexão por disco.
-2. Você tem um computador cliente disponível do qual você pode copiar os dados. O computador cliente tem de:
+1. Terá de ter encomendado o Data Box Disk através do [Tutorial: Encomende o Azure Data Box Disk](data-box-disk-deploy-ordered.md). Recebeu os seus discos e um cabo de ligação por disco.
+2. Tem um computador cliente disponível a partir do qual pode copiar os dados. O computador cliente tem de:
 
-    - Execute um sistema operacional com suporte.
-    - Ter outros softwares necessários instalados.
+    - Executar um sistema operativo suportado.
+    - Ter outro software necessário instalado.
 
 ::: zone-end
 
-## <a name="supported-operating-systems-for-clients"></a>Sistemas operacionais com suporte para clientes
+## <a name="supported-operating-systems-for-clients"></a>Sistemas operativos suportados para clientes
 
-Aqui está uma lista dos sistemas operacionais com suporte para a operação de desbloqueio de disco e de cópia de dados por meio dos clientes conectados à Disco do Data Box.
+Aqui está uma lista dos sistemas operativos suportados para a operação de desbloqueio de disco e de cópia de dados por meio dos clientes ligados ao Data Box Disk.
 
 | **Sistema operativo** | **Versões testadas** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows (64 bits) |7, 8, 10 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8,11, 9 <br> 7.0 <br> 6,5, 6,9, 7,0, 7,5 |  
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
-## <a name="other-required-software-for-windows-clients"></a>Outros softwares necessários para clientes Windows
+## <a name="other-required-software-for-windows-clients"></a>Outro software necessário para clientes Windows
 
-Para o cliente do Windows, o a seguir também deve ser instalado.
+Para clientes Windows, também deve ser instalado o seguinte.
 
 | **Software**| **Versão** |
 | --- | --- |
@@ -59,48 +59,47 @@ Para o cliente do Windows, o a seguir também deve ser instalado.
 | Windows Management Framework |5.0|
 | BitLocker| - |
 
-## <a name="other-required-software-for-linux-clients"></a>Outros softwares necessários para clientes Linux
+## <a name="other-required-software-for-linux-clients"></a>Outro software necessário para clientes Linux
 
-Para o cliente Linux, o conjunto de ferramentas Disco do Data Box instala o seguinte software necessário:
+Para clientes Linux, o conjunto de ferramentas do Data Box Disk instala o seguinte software necessário:
 
-- desbloqueio
+- dislocker
 - OpenSSL
 
-::: zone target="docs"
+## <a name="supported-connection"></a>Ligação suportada
 
-## <a name="supported-connection"></a>Conexão com suporte
+O computador cliente que contém os dados tem de ter uma porta USB 3.0 ou posterior. Os discos ligam-se a este cliente através do cabo disponibilizado.
 
-O computador cliente que contém os dados deve ter uma porta USB 3,0 ou posterior. Os discos se conectam a este cliente usando o cabo fornecido.
+## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
-## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
-
-Aqui está uma lista dos tipos de armazenamento com suporte para o Disco do Data Box.
+Aqui está uma lista dos tipos de armazenamento suportados para o Data Box Disk.
 
 | **Conta de armazenamento** | **Notas** |
 | --- | --- |
 | Clássica | Standard |
-| Fins Gerais  |Standardization Há suporte para v1 e v2. Há suporte para as camadas quente e fria. |
-| Conta de armazenamento de BLOBs | |
+| Fins Gerais  |Standard; quer a V1 como a V2 são suportadas. São suportados tanto os escalões de acesso frequente, como os de acesso esporádico. |
+| Conta de armazenamento de blobs | |
 
 >[!NOTE]
-> Não há suporte para contas de Gen 2 Azure Data Lake Storage.
+> As contas do Azure Data Lake Storage Gen 2 não são suportadas.
 
 
-## <a name="supported-storage-types-for-upload"></a>Tipos de armazenamento com suporte para upload
+## <a name="supported-storage-types-for-upload"></a>Tipos de armazenamento suportados para carregamento
 
-Aqui está uma lista dos tipos de armazenamento com suporte para carregar no Azure usando Disco do Data Box.
+Aqui está uma lista dos tipos de armazenamento suportados para carregamento no Azure através do Data Box Disk.
 
-| **Formato de arquivo** | **Notas** |
+| **Formato do ficheiro** | **Notas** |
 | --- | --- |
 | Blob de blocos do Azure | |
 | Blob de páginas do Azure  | |
 | Ficheiros do Azure  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>Passo seguinte
 
-* [Implantar seu Disco do Azure Data Box](data-box-disk-deploy-ordered.md)
+* [Implementar o Azure Data Box Disk](data-box-disk-deploy-ordered.md)
 
 ::: zone-end
 

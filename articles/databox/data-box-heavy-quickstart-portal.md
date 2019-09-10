@@ -1,6 +1,6 @@
 ---
-title: Início rápido para Microsoft Azure Data Box Heavy | Microsoft Docs
-description: Saiba como implantar rapidamente seu Azure Data Box Heavy no portal do Azure
+title: Início Rápido do Microsoft Azure Data Box Heavy| Microsoft Docs
+description: Saiba como implementar rapidamente o Azure Data Box Heavy no portal do Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -10,53 +10,53 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70241382"
 ---
 ::: zone target = "docs"
 
-# <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Início rápido: Implantar Azure Data Box Heavy usando o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Início Rápido: Implementar o Azure Data Box Heavy com o portal do Azure
 
-Este guia de início rápido descreve como implantar o Azure Data Box Heavy usando o portal do Azure. As etapas incluem como conectar, configurar e copiar dados para Data Box Heavy para que ele seja carregado no Azure. O início rápido é efetuado no portal do Azure e na IU da Web local do dispositivo.
+Este início rápido descreve como implementar o Azure Data Box Heavy com o portal do Azure. Os passos incluem como ligar os cabos, configurar e copiar os dados para o Data Box Heavy, para que este os carregue para o Azure. O início rápido é efetuado no portal do Azure e na IU da Web local do dispositivo.
 
-Para obter instruções detalhadas de implantação e acompanhamento passo a [passo, acesse tutorial: Ordem Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
+Para uma implementação passo a passo detalhada e instruções de controlo, aceda ao [Tutorial: Encomendar o Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os seguintes pré-requisitos de configuração para o site de instalação, o serviço de Data Box e o dispositivo antes de implantar o dispositivo.
+Conclua os pré-requisitos de configuração seguintes para o local de instalação, o dispositivo e o serviço Data Box antes de implementar o dispositivo.
 
-### <a name="for-installation-site"></a>Para o site de instalação
+### <a name="for-installation-site"></a>Para o local de instalação
 
 Antes de começar, certifique-se de que:
 
-- O dispositivo pode se ajustar a todos os seus entryways. As dimensões do dispositivo são: largura: 26 "comprimento: 48 "altura: 28 ".
-- Você tem acesso ao dispositivo por meio de um elevador ou uma rampa se planeja instalar o em um andar diferente do chão.
-- Você tem duas pessoas para lidar com o dispositivo. O dispositivo pesa aproximadamente cerca de 500 kg. e vem em rodas.
-- Você tem um site simples no datacenter com proximidade com uma conexão de rede disponível que pode acomodar um dispositivo com essa superfície.
+- O dispositivo passa em todas as portas de entrada. As dimensões do dispositivo são: largura: 66 cm; comprimento: 122 cm; altura: 71 cm.
+- Possui um elevador ou de uma rampa de acesso se planear instalar o dispositivo num piso que não seja o rés-do-chão.
+- Dispõe de duas pessoas para mover o dispositivo. O dispositivo pesa aproximadamente 226 kg e inclui rodas.
+- Tem um local plano no datacenter próximo de uma ligação de rede disponível que possa acomodar um dispositivo com estas dimensões.
 
 ### <a name="for-service"></a>Para o serviço
 
 Antes de começar, certifique-se de que:
 
 - Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
-- A assinatura usada para o serviço de Data Box é o [Microsoft Enterprise Agreement (ea), o](https://azure.microsoft.com/pricing/enterprise-agreement/) [CSP (provedor de soluções de nuvem)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)ou o [Microsoft Azure sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- Você tem acesso de proprietário ou colaborador à assinatura para criar uma ordem de Data Box Heavy.
+- A subscrição utilizada para o serviço Data Box é uma das seguintes: [Contrato Enterprise (EA) da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/), [Fornecedor de Soluções Cloud (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+- Tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box Heavy.
 
 ### <a name="for-device"></a>Para o dispositivo
 
 Antes de começar, certifique-se de que:
 
-- Você analisou as [diretrizes de segurança para seu data Box Heavy](data-box-safety.md).
-- Você tem um computador host conectado à rede do datacenter. Data Box Heavy copiará os dados deste computador. O computador host deve executar um [sistema operacional com suporte](data-box-heavy-system-requirements.md).
-- Você tem um laptop com cabo RJ-45 para se conectar à interface do usuário local e configurar o dispositivo. Use o laptop para configurar cada nó do dispositivo uma vez.
-- Seu datacenter tem rede de alta velocidade e você tem pelo menos conexão de 1 10 GbE.
-- É necessário um cabo de 1 40 Gbps ou um cabo de 10 Gbps por nó de dispositivo. Escolha os cabos que são compatíveis com a interface de rede Mellanox MCX314A-BCCT:
-    - Para o cabo de 40 Gbps, a extremidade do dispositivo do cabo precisa ser QSFP +.
-    - Para o cabo de 10 Gbps, você precisa de um cabo SFP + que se conecte a um comutador de 10 G em uma extremidade, com um adaptador QSFP + para SFP + (ou o adaptador QSA) para o final que se conecta ao dispositivo.
-- Os cabos de alimentação são incluídos em uma bandeja na parte posterior do dispositivo.
+- Reviu as [diretrizes de segurança do Data Box Heavy](data-box-safety.md).
+- Tem um computador anfitrião ligado à rede do datacenter. O Data Box Heavy irá copiar os dados desse computador. O computador anfitrião deve ser executado num [sistema operativo suportado](data-box-heavy-system-requirements.md).
+- Tem um portátil com cabo RJ-45 para se ligar à IU local e configurar o dispositivo. Utilize o portátil para configurar cada nó do dispositivo uma vez.
+- O datacenter tem rede de alta velocidade e tem, pelo menos, uma ligação de 10 GbE.
+- Precisa de um cabo de 40 Gbps ou de 10 Gbps por nó de dispositivo. Escolha cabos que sejam compatíveis com a interface de rede Mellanox MCX314A-BCCT:
+    - Para o cabo de 40 Gbps, a extremidade do cabo que liga ao dispositivo tem de ser QSFP+.
+    - Para o cabo de 10 Gbps, precisa de um cabo SFP+ que se ligue a um comutador de 10 G numa extremidade, com um adaptador QSFP+ para SFP+ (ou o adaptador QSA) para a extremidade que liga ao dispositivo.
+- Os cabos de alimentação estão incluídos numa bandeja na parte traseira do dispositivo.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -69,7 +69,7 @@ Este passo demora cerca de 5 minutos.
 
 1. Crie um novo recurso do Azure Data Box no portal do Azure.
 2. Selecione uma subscrição existente ativada para este serviço e escolha o tipo de transferência, como **Importar**. Indique o **País de origem** onde os dados residem e a **Região de destino do Azure** para a transferência de dados.
-3. Selecione **Data Box Heavy**. A capacidade utilizável máxima é de 770 TB e você pode criar vários pedidos para tamanhos de dados maiores.
+3. Selecione **Data Box Heavy**. A capacidade máxima utilizável é de 770 TB e pode criar várias encomendas para tamanhos de dados superiores.
 4. Introduza os detalhes da encomenda e as informações de envio. Se o serviço estiver disponível na sua região, indique os endereços de e-mail de notificação, reveja o resumo e, em seguida, crie a encomenda.
 
 Assim que a encomenda for criada, o dispositivo é preparado para envio.
@@ -78,84 +78,84 @@ Assim que a encomenda for criada, o dispositivo é preparado para envio.
 
 ::: zone target = "chromeless"
 
-# <a name="cable-and-connect-to-your-device"></a>Cabo e conecte-se ao seu dispositivo
+# <a name="cable-and-connect-to-your-device"></a>Instalar os cabos e ligar ao dispositivo
 
-Depois de revisar os pré-requisitos, você ligará o cabo e se conectará ao seu dispositivo.
+Depois de rever os pré-requisitos, vai instalar os cabos e ligar-se ao dispositivo.
 
 ::: zone-end
 
-## <a name="cable-for-power"></a>Cabo para energia
+## <a name="cable-for-power"></a>Cabo de alimentação
 
-Esta etapa leva cerca de 5 minutos.
+Este passo demora cerca de 5 minutos.
 
-Ao receber a Data Box Heavy, execute as etapas a seguir para conectar o dispositivo para ligar e ligar o dispositivo.
+Quando receber o Data Box Heavy, siga os passos abaixo para instalar os cabos para ligar e ativar o dispositivo.
 
 1. Se existirem quaisquer evidências de que o dispositivo foi adulterado ou está danificado, não prossiga. Contacte o Suporte da Microsoft para enviar-lhe um dispositivo de substituição.
-2. Mova o dispositivo para o site de instalação e bloqueie as rodas traseiras.
-3. Conecte todos os quatro cabos de alimentação às fontes de alimentação na parte traseira do dispositivo.
-4. Use os botões de energia no plano frontal para ativar os nós de dispositivo.
+2. Mova o dispositivo para o local de instalação e bloqueie as rodas traseiras.
+3. Ligue todos os quatro cabos de alimentação às fontes de energia na parte traseira do dispositivo.
+4. Utilize os botões para ligar/desligar no plano frontal para ativar os nós do dispositivo.
 
-## <a name="cable-first-node-for-network"></a>Primeiro nó do cabo para rede
+## <a name="cable-first-node-for-network"></a>Ligar o cabo do primeiro nó à rede
 
-Esta etapa leva cerca de 10-15 minutos para ser concluída.
+Este passo demora entre 10 a 15 minutos.
 
 1. Utilize o cabo de rede RJ-45 CAT 6 para ligar o seu computador anfitrião à porta de gestão (MGMT) no dispositivo.
-2. Use o cabo twinax QSFP + cobre para conectar pelo menos 1 40 Gbps (preferencial em 1 Gbps) adaptador de rede, DATA 1 ou DATA 2 para dados. Se estiver usando um comutador de 10 Gbps, use um cabo de Cobre Twinax SFP + Copper com um adaptador QSFP + to SFP + (o adaptador QSA) para conectar a interface de rede 40-Gbps para dados.
+2. Utilize o cabo de cobre QSFP+ Twinax para ligar uma interface de rede de, pelo menos, 40 Gbps (em vez da de 1 Gbps), DATA1 ou DATA2 para os dados. Se estiver a utilizar um comutador de 10 Gbps, utilize um cabo de cobre Twinax SFP+ com um adaptador QSFP+ para SFP+ (o adaptador QSA) para ligar a interface de rede de 40 Gbps para os dados.
 3. Instale os cabos do dispositivo conforme mostrado abaixo.  
 
-    ![Data Box Heavy cabeado](media/data-box-heavy-quickstart-portal/data-box-heavy-ports-cabled.png)  
+    ![Cabos do Data Box Heavy instalados](media/data-box-heavy-quickstart-portal/data-box-heavy-ports-cabled.png)  
 
 ## <a name="configure-first-node"></a>Configurar o primeiro nó
 
 Este passo demora entre 5 a 7 minutos.
 
-1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com). A mesma senha é usada para ambos os nós do dispositivo.
-2. Atribua um endereço IP estático de 192.168.100.5 e a sub-rede 255.255.255.0 ao adaptador Ethernet no computador que você está usando para se conectar ao Data Box Heavy. Aceda à IU da Web local do dispositivo em `https://192.168.100.10`. A ligação pode demorar até 5 minutos depois de ligar o dispositivo.
+1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com). A mesma palavra-passe é utilizada para ambos os nós do dispositivo.
+2. Atribua um endereço IP estático 192.168.100.5 e a sub-rede 255.255.255.0 ao adaptador Ethernet no computador que está a utilizar para ligar ao Data Box Heavy. Aceda à IU da Web local do dispositivo em `https://192.168.100.10`. A ligação pode demorar até 5 minutos depois de ligar o dispositivo.
 3. Inicie sessão com a palavra-passe do portal do Azure. Verá um erro que indica um problema com o certificado de segurança do site. Siga as instruções específicas do browser para avançar para a página Web.
-4. Por padrão, as configurações de rede para as interfaces (exceto o MGMT) são configuradas como DHCP. Se necessário, você pode configurar essas interfaces como estáticas e fornecer um endereço IP.
+4. Por predefinição, as definições de rede das interfaces (excluindo a MGMT) estão configuradas como DHCP. Se necessário, pode configurar estas interfaces como estática e fornecer um endereço IP.
 
-## <a name="cable-and-configure-the-second-node"></a>Cabo e configurar o segundo nó
+## <a name="cable-and-configure-the-second-node"></a>Instalar os cabos e configurar o segundo nó
 
-Esta etapa leva cerca de 15-20 minutos para ser concluída.
+Este passo demora entre 15 a 20 minutos.
 
-Siga as etapas usadas para o primeiro nó a cabo e configure o segundo nó no dispositivo.  
+Siga os passos utilizados para o primeiro nó para instalar os cabos e configurar o segundo nó no dispositivo.  
 
 
 ::: zone target = "docs"
 
 ## <a name="copy-data"></a>Copiar dados
 
-O tempo para concluir essa operação depende do tamanho dos dados e da velocidade da rede sobre a qual os dados são copiados.
+O tempo de conclusão desta operação depende do tamanho dos dados e da velocidade da rede sobre a qual os dados são copiados.
  
-1. Copie os dados para ambos os nós de dispositivo usando as interfaces de dados 40-Gbps em paralelo.
+1. Copie os dados para ambos os nós do dispositivo através das interfaces de dados de 40 Gbps em paralelo.
 
-    - Se estiver usando um host do Windows, use uma ferramenta de cópia de arquivo compatível com SMB, como o [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - Se estiver a utilizar um sistema anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
     - Para o anfitrião NFS, utilize o comando `cp` ou `rsync` para copiar os dados.
-2. Conecte-se aos compartilhamentos no dispositivo usando o`\\<IP address of your device>\ShareName`caminho:. Para obter as credenciais de acesso de compartilhamento, vá para a página **conectar & Copiar** na interface do usuário da Web local do data Box Heavy.
-3. Verifique se os nomes de compartilhamento e pasta e os dados seguem as diretrizes descritas nos [limites de serviço de armazenamento e data Box Heavy do Azure](data-box-heavy-limits.md).
+2. Ligue-se às partilhas no dispositivo através do caminho:`\\<IP address of your device>\ShareName`. Para obter as credenciais de acesso às partilhas, aceda à página **Ligar e copiar** na IU da Web local do Data Box Heavy.
+3. Confirme que os nomes das partilhas e das pastas e os dados cumprem as diretrizes descritas nos [Limites de serviços do Armazenamento do Microsoft Azure e do Data Box Heavy](data-box-heavy-limits.md).
 
-## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
+## <a name="prepare-to-ship"></a>Preparar para enviar
 
 O tempo de conclusão desta operação depende do tamanho dos dados.
 
-1. Depois que a cópia de dados for concluída sem erros, vá para **preparação para o envio** página na interface do usuário da Web local e inicie a preparação do envio.
-2. Depois que a **preparação para o envio** for concluída com êxito em ambos os nós, desative o dispositivo da interface do usuário da Web local.
+1. Uma vez concluída a cópia dos dados sem erros, aceda à página **Preparação para envio** na IU da Web local e comece a preparação para envio.
+2. Uma vez concluída a **Preparação para envio** com êxito em ambos os nós, desligue o dispositivo da IU da Web local.
 
 ## <a name="ship-to-azure"></a>Enviar para o Azure
 
-Esta operação leva cerca de 15-20 minutos para ser concluída.
+Esta operação demora entre 15 a 20 minutos.
 
-1. Remova os cabos e devolva-os para a bandeja na parte posterior do dispositivo.
-2. Agende um recebimento com sua operadora regional.
-3. Entre em contato com [Data Box operações](mailto:DataBoxOps@microsoft.com) para informar sobre a retirada e para obter o rótulo de remessa de devolução.
-4. O rótulo de remessa de devolução deve estar visível no painel de limpeza frontal do dispositivo.
+1. Remova os cabos e coloque-os na bandeja na parte traseira do dispositivo.
+2. Agende uma recolha com a transportadora regional.
+3. Contacte as [Operações do Data Box](mailto:DataBoxOps@microsoft.com) para fornecer as informações sobre a recolha e para obter a guia de remessa de devolução.
+4. A guia de remessa de devolução deve estar visível no painel transparente frontal do dispositivo.
 
 ## <a name="verify-data"></a>Verificar os dados
 
 O tempo de conclusão desta operação depende do tamanho dos dados.
 
-1. Quando o dispositivo de Data Box Heavy está conectado à rede de datacenter do Azure, os dados são carregados automaticamente no Azure.
-2. Data Box serviço notifica que a cópia de dados foi concluída por meio do portal do Azure.
+1. Quando o dispositivo do Data Box Heavy está ligado à rede do datacenter do Azure, os dados são carregados automaticamente para o Azure.
+2. O serviço Data Box notifica-o de que a cópia de dados está concluída através do portal do Azure.
 
     1. Consulte os registos de erros para verificar a existência de quaisquer falhas e executar as ações apropriadas.
     2. Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem.
@@ -164,15 +164,15 @@ O tempo de conclusão desta operação depende do tamanho dos dados.
 
 Este passo demora entre 2 a 3 minutos.
 
-- Você pode cancelar a ordem de Data Box Heavy no portal do Azure antes de o pedido ser processado. Assim que a encomenda estiver processada, não é possível cancelá-la. A encomenda avança até atingir a fase de conclusão. Para cancelar a encomenda, aceda a **Descrição geral** e clique em **Cancelar** na barra de comandos.
+- Pode cancelar a encomenda do Data Box Heavy no portal do Azure antes de ser processada. Assim que a encomenda estiver processada, não é possível cancelá-la. A encomenda avança até atingir a fase de conclusão. Para cancelar a encomenda, aceda a **Descrição geral** e clique em **Cancelar** na barra de comandos.
 
 - Pode eliminar a encomenda assim que o estado for apresentado como **Concluído** ou **Cancelado** no portal do Azure. Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você implantou um Data Box Heavy para ajudar a importar seus dados para o Azure. Para saber mais sobre o gerenciamento de Azure Data Box Heavy, avance para o tutorial a seguir:
+Neste início rápido, implementou um Data Box Heavy para ajudar a importar os dados para o Azure. Para saber mais sobre a gestão do Azure Data Box Heavy, avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
-> [Usar o portal do Azure para administrar Data Box Heavy](data-box-portal-admin.md)
+> [Utilizar o portal do Azure para administrar o Data Box Heavy](data-box-portal-admin.md)
 
 ::: zone-end

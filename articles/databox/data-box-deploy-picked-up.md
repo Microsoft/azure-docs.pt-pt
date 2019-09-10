@@ -1,5 +1,5 @@
 ---
-title: Tutorial para enviar Azure Data Box de volta | Microsoft Docs
+title: Tutorial para enviar o Azure Data Box de volta | Microsoft Docs
 description: Aprenda a enviar o Azure Data Box para a Microsoft
 services: databox
 author: alkohli
@@ -10,21 +10,21 @@ ms.date: 8/27/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70241437"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Retornar Azure Data Box e verificar o carregamento de dados no Azure
+# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verificar os dados carregados para o Azure
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-# <a name="return-data-box-and-verify-data-upload-to-azure"></a>Retornar Data Box e verificar o carregamento de dados no Azure
+# <a name="return-data-box-and-verify-data-upload-to-azure"></a>Devolver o Data Box e verificar os dados carregados para o Azure
 
 ::: zone-end
 
@@ -36,19 +36,19 @@ Neste tutorial, irá obter informações sobre tópicos, como:
 
 > [!div class="checklist"]
 > * Pré-requisitos
-> * preparação para envioPreparação para envio
+> * Preparar para enviar
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminação de dados do Data Box
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se:
+Antes de começar, confirme que:
 
-- Você concluiu o [tutorial: Copie dados para Azure Data Box e verifique](data-box-deploy-copy-data.md). 
-- Trabalhos de cópia concluídos. Preparação para o envio não poderá ser executado se os trabalhos de cópia estiverem em andamento.
+- Concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificar](data-box-deploy-copy-data.md). 
+- As tarefas de cópia foram concluídas. A preparação para envio não poderá ser executada se as tarefas de cópia estiverem em curso.
 
-## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
+## <a name="prepare-to-ship"></a>Preparar para enviar
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
@@ -56,16 +56,16 @@ Antes de começar, verifique se:
 
 ::: zone target="chromeless"
 
-Após a conclusão da cópia de dados, você prepara e envia o dispositivo. Quando o dispositivo atinge o datacenter do Azure, os dados são carregados automaticamente no Azure.
+Após a conclusão da cópia de dados, prepare e envie o dispositivo. Quando o dispositivo chegar ao datacenter do Azure, os dados são carregados automaticamente para o Azure.
 
-## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
+## <a name="prepare-to-ship"></a>Preparar para enviar
 
-Antes de se preparar para enviar, verifique se os trabalhos de cópia estão concluídos.
+Antes da preparação para envio, verifique se as tarefas de cópia foram concluídas.
 
 1. Aceda à página **Preparar para enviar** na IU da Web local e comece a preparação do envio. 
 2. Desative o dispositivo a partir da IU da Web local. Remova os cabos do dispositivo. 
 
-As próximas etapas são determinadas por onde você está retornando o dispositivo.
+A localização a partir da qual pretende devolver o dispositivo determina os passos seguintes.
 
 ::: zone-end
 
@@ -73,37 +73,37 @@ As próximas etapas são determinadas por onde você está retornando o disposit
 
 ## <a name="ship-data-box-back"></a>Enviar o Data Box de volta
 
-Verifique se a cópia de dados para o dispositivo foi concluída e **preparação para o envio** execução foi bem-sucedida. Com base na região em que você está enviando o dispositivo, o procedimento é diferente.
+Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparação para envio** foi executada com êxito. O procedimento é diferente com base na região a partir da qual envia o dispositivo.
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Envie para nós, Canadá, Europa
+## <a name="ship-in-us-canada-europe"></a>Envio nos EUA, Canadá, Europa
 
-Siga as etapas abaixo se retornar o dispositivo nos EUA, no Canadá ou na Europa.
+Se quiser devolver o dispositivo nos EUA, Canadá ou Europa, siga os passos abaixo.
 
-1. Verifique se o dispositivo está desligado e se os cabos foram removidos. 
+1. Confirme que o dispositivo está desligado e os cabos foram removidos. 
 2. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-3. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se o rótulo estiver danificado ou perdido ou não for exibido na tela de E-Ink, entre em contato com Suporte da Microsoft. Se o suporte sugerir, você poderá ir para **visão geral > baixar o rótulo de envio** no portal do Azure. Baixe o rótulo de envio e afixado no dispositivo. 
-4. Agendar uma retirada com UPS se retornar o dispositivo. Para agendar uma retirada:
+3. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a guia estiver danificada, tiver sido perdida ou não aparecer na apresentação da E-ink, contacte o Suporte da Microsoft. Se a equipa do Suporte o sugerir, poderá aceder a **Visão geral > Transferir guia de remessa** no portal do Azure. Transfira a guia de remessa e cole-a no dispositivo. 
+4. Se estiver a devolver o dispositivo, contacte a UPS para agendar uma recolha. Para agendar uma recolha:
 
-    - Chame o no-break local (número gratuito de ligação específica de país/região).
-    - Em sua chamada, entre em contato com o número de rastreamento de remessa reversa, conforme mostrado na exibição de E-Ink ou no rótulo impresso.
-    - Se o número de rastreamento não estiver entre aspas, o UPS exigirá que você pague um encargo adicional durante a retirada.
+    - Ligue para o ponto UPS local (número gratuito específico do seu país/região).
+    - Durante a chamada, indique o número de rastreio do envio de devolução mostrado na apresentação da E-ink ou na guia impressa.
+    - Se não indicar o número de rastreio, terá de pagar uma taxa adicional à UPS na recolha.
 
-    Em vez de agendar a retirada, você também pode remover o Data Box no local de distribuição mais próximo.
+    Em vez de agendar a recolha, também pode entregar o Data Box na localização de entrega mais próxima.
 4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de controlo.
 
 
-## <a name="ship-in-australia"></a>Lançamento na Austrália
+## <a name="ship-in-australia"></a>Envio na Austrália
 
-Os data centers do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para enviar na Austrália.
+Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para os envios na Austrália.
 
 
-1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de retorno.
-2. Verifique se a cópia de dados para o dispositivo foi concluída e **preparação para o envio execução** foi bem-sucedida.
+1. Mantenha a embalagem original utilizada para enviar o dispositivo para a devolução.
+2. Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparação para envio** foi executada com êxito.
 3. Desligue o dispositivo e remova os cabos.
-4. Coloque o spool e posicione com segurança o cabo de alimentação que foi fornecido com o dispositivo na parte posterior do dispositivo.
-5. Envie por email Quantium soluções para solicitar uma retirada. Consulte o número de referência de serviço especificado na portal do Azure. Use o seguinte modelo de email:- *solicitação de rótulo de remessa reversa com código Tau*. Certifique-se de incluir os seguintes detalhes no email: 
+4. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
+5. Envie um e-mail para a Quantium Solutions para solicitar a recolha. Mencione o número de referência do serviço especificado na portal do Azure. Utilize o seguinte modelo de e-mail: – *Solicitação de guia de remessa reversa com código TAU*. Confirme que inclui os seguintes detalhes no e-mail: 
 
     ```
     To: Azure@quantiumsolutions.com
@@ -115,27 +115,27 @@ Os data centers do Azure na Austrália têm uma notificação de segurança adic
     - Contact number:
     - Requested pickup date: mm/dd
     ```
-6. As soluções Quantium Austrália enviarão um email para um rótulo de envio de devolução.
-7. Imprima o rótulo de retorno e o afixa na caixa de envio.
-8. Passe o pacote para a Courier.
+6. A Quantium Solutions Australia enviará por e-mail uma guia de remessa de devolução.
+7. Imprima a guia de devolução e cole-a na embalagem de envio.
+8. Entregue o pacote à transportadora.
 
-Se necessário, você pode enviar por email o suporte Azure@quantiumsolutions.com de solução de Quantium em ou telefone.
+Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions através do e-mail Azure@quantiumsolutions.com ou por telefone.
 
-Para consulta em relação ao seu pedido por telefone:
+Para questões relativas à encomenda por telefone:
 
-- Envie um email para retirada primeiro.
-- Forneça o nome do seu pedido no telefone.
+- Envie, primeiro, um e-mail para recolha.
+- Forneça o nome da encomenda por telefone.
 
-## <a name="ship-in-japan"></a>Lançamento no Japão 
+## <a name="ship-in-japan"></a>Envio no Japão 
 
-1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de retorno.
+1. Mantenha a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Desligue o dispositivo e remova os cabos.
-3. Coloque o spool e posicione com segurança o cabo de alimentação que foi fornecido com o dispositivo na parte posterior do dispositivo.
-4. Grave as informações de nome e endereço da sua empresa na nota de consignação como as informações do remetente.
-5. Envie uma solução de Quantium de email usando o modelo de email a seguir.
+3. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
+4. Escreva o nome e o endereço da sua empresa na nota de expedição como as informações do remetente.
+5. Utilize o modelo que se segue para enviar um e-mail à Quantium Solutions.
 
-    - Se a nota de consignação do Chakubarai do Japão não tiver sido incluída ou estiver ausente, observe que neste email. As soluções Quantium do Japão solicitarão o lançamento do Japão para trazer a nota de consignação na retirada.
-    - Se você tiver vários pedidos, envie um email para garantir a retirada individual.
+    - Caso a nota de expedição Chakubarai da Japan Post não tenha sido incluída ou esteja em falta, indique-o neste e-mail. A Quantium Solutions Japan irá solicitar à Japan Post que apresente a nota de expedição na recolha.
+    - Se tiver várias encomendas, envie um e-mail para garantir a recolha individual.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -149,11 +149,11 @@ Para consulta em relação ao seu pedido por telefone:
     d. 17：00-19：00 
     ```
 
-3. Receba uma confirmação por email das soluções Quantium depois de ter reservado uma retirada. A confirmação por email também inclui informações sobre a nota de consignação do Chakubarai.
+3. Depois de marcar uma recolha, recebe uma confirmação por e-mail da Quantium Solutions. Esta confirmação também inclui informações sobre a nota de expedição Chakubarai.
 
-Se necessário, você pode entrar em contato com o suporte da solução Quantium (idioma japonês) nas seguintes informações: 
+Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japonês) por: 
 
-- Email:Customerservice.JP@quantiumsolutions.com 
+- E-mail：Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
 ::: zone target="docs"
@@ -166,26 +166,26 @@ Depois de a verificação estar concluída, o Data Box é ligado à rede no data
 
 Quando a cópia for concluída, o estado da encomenda será atualizado para **Completed (Concluído)** .
 
-Verifique se os dados são carregados no Azure antes de excluí-los da origem. Seus dados podem estar em:
+Confirme se os dados foram carregados para o Azure antes de os eliminar da origem. Os dados podem estar:
 
-- Suas contas de armazenamento do Azure. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
+- Na(s) conta(s) do Armazenamento do Microsoft Azure. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
 
   - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
 
-- Seus grupos de recursos de disco gerenciado. Ao criar discos gerenciados, os VHDs são carregados como BLOBs de páginas e convertidos em discos gerenciados. Os discos gerenciados são anexados aos grupos de recursos especificados no momento da criação do pedido. 
+- No(s) grupo(s) de recursos dos discos geridos. Ao criar discos geridos, os VHDs são carregados como blobs de páginas e convertidos em discos geridos. Os discos geridos são anexados aos grupos de recursos especificados no momento da criação da encomenda. 
 
-    - Se sua cópia para discos gerenciados no Azure tiver sido bem-sucedida, você poderá ir para os **detalhes do pedido** no portal do Azure e anotar os grupos de recursos especificados para discos gerenciados.
+    - Se a cópia para os discos geridos no Azure tiver sido realizada com êxito, poderá aceder aos **Detalhes da encomenda** no portal do Azure e anotar os grupos de recursos especificados para os discos geridos.
 
-        ![Identificar grupos de recursos de disco gerenciado](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
+        ![Identificar os grupos de recursos dos discos geridos](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
 
-        Vá para o grupo de recursos observado e localize os discos gerenciados.
+        Aceda ao grupo de recursos anotado e localize os discos geridos.
 
-        ![Disco gerenciado anexado a grupos de recursos](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
+        ![Disco gerido anexado a grupos de recursos](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
-    - Se você copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de preparo como um blob de páginas, mas a conversão de VHD em disco gerenciado falhará. Acesse sua conta de **armazenamento** de preparo > BLOBs e, em seguida, selecione o SSD Standard de contêiner apropriado, HDD Standard ou SSD Premium. Os VHDs são carregados como BLOBs de páginas em sua conta de armazenamento de preparo.
+    - Se copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de teste como um blob de páginas, mas a conversão do VHD em disco gerido falhará. Aceda à **Conta de armazenamento > Blobs** de teste e, em seguida, selecione o contentor apropriado – SSD Standard, HDD Standard ou SSD Premium. Os VHDs são carregados como blobs de páginas na conta de armazenamento de teste.
 
 ::: zone-end
 
@@ -203,13 +203,13 @@ Após o carregamento para o Azure, o Data Box elimina os dados dos discos de aco
 
 ::: zone target="docs"
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
 > * Pré-requisitos
-> * preparação para envioPreparação para envio
+> * Preparar para enviar
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminação de dados do Data Box

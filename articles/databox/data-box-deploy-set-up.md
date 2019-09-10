@@ -1,5 +1,5 @@
 ---
-title: Tutorial para configurar o Azure Data Box | Microsoft Docs
+title: Tutorial para configurar o Azure Data Box| Microsoft Docs
 description: Saiba como instalar os cabos e ligar o Azure Data Box
 services: databox
 author: alkohli
@@ -10,21 +10,21 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 528be96f95523089c78562814c292fb0f40849e1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70240246"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cabo e conecte-se à sua Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligar ao Azure Data Box
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-# <a name="cable-and-connect-to-your-device"></a>Cabo e conecte-se ao seu dispositivo
+# <a name="cable-and-connect-to-your-device"></a>Instalar os cabos e ligar ao dispositivo
 
 ::: zone-end
 
@@ -42,10 +42,10 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, certifique-se de que:
 
-1. Você concluiu o [tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+1. Concluiu o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
 2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. 
     - Existe uma etiqueta de envio na bolsa transparente afixada ao dispositivo sob a etiqueta atual. Mantenha esta etiqueta segura, uma vez que a vai utilizar para o envio de devolução.
-    - Algumas regiões na Europa podem receber o dispositivo empacotado em uma caixa. Certifique-se de descompactar o dispositivo e salvar a caixa de remessa de retorno.
+    - Algumas regiões da Europa podem receber o dispositivo embalado numa caixa. Retire o dispositivo da embalagem e guarde a caixa de envio para devolução.
 3. Reviu as [diretrizes de segurança do Data Box](data-box-safety.md).
 4. Recebeu um cabo de alimentação ligado à terra para utilizar com o seu dispositivo de armazenamento de 100 TB.
 5. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
@@ -53,7 +53,7 @@ Antes de começar, certifique-se de que:
     - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
 6. Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
 7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
-    - Um ou mais cabos 10 GbE SFP + twinax de cobre ou SFP + fibra (use com dados 1, interfaces de rede de dados 2). Data Box tem o adaptador Mellanox ConnectX®-3 pro EN Dual-Port 10GBASE-T Adapters w/PCI Express 3,0 de rede, para que os cabos compatíveis com essa interface funcionem. Por exemplo, um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP + 3M foi usado para testes internos. Para obter mais informações, consulte a [lista de cabos com suporte e comutadores de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - Um ou mais cabos de fibra de ótica SFP+ ou de cobre Twinax SFP+ de 10 GbE (utilize com as interfaces de rede DATA1, DATA2). O Data Box possui Adaptadores 10GBASE-T com Duas Portas Mellanox ConnectX®-3 Pro EN com interface de rede PCI Express 3.0, para que os cabos compatíveis com esta interface funcionem. Por exemplo, foi utilizado um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP + 3Mo para os testes internos. Para obter mais informações, veja a [lista de cabos e comutadores suportados da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
@@ -63,14 +63,14 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 
 1. Inspecione o dispositivo em busca de qualquer evidência de adulteração ou outros danos óbvios. Se o dispositivo estiver adulterado ou gravemente danificado, não continue. Entre em contacto com o Suporte da Microsoft de imediato para ajudá-lo a avaliar se o dispositivo está a funcionar corretamente e se é preciso enviar um de substituição.
 2. Leve o dispositivo para a localização onde pretende ligá-lo à corrente. Coloque o dispositivo numa superfície plana. O dispositivo também pode ser colocado numa prateleira de rack comum.
-3. Ligue os cabos de alimentação e de rede. Apresentamos abaixo o plano posterior de um dispositivo ligado para uma configuração comum. Dependendo do seu ambiente, você pode escolher entre outras [Opções](data-box-cable-options.md)de cabeamento.
+3. Ligue os cabos de alimentação e de rede. Apresentamos abaixo o plano posterior de um dispositivo ligado para uma configuração comum. Dependendo do seu ambiente, pode escolher entre outras [opções de cablagem](data-box-cable-options.md).
     
     ![Plano posterior do dispositivo Data Box com os cabos instalados](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Ligue o cabo de alimentação à localização de entrada de alimentação identificada. A outra extremidade do cabo de alimentação deve ser ligada a uma unidade de distribuição de alimentação.
     2. Utilize o cabo RJ-45 CAT 6 para ligar a porta MGMT numa extremidade e um portátil na outra extremidade.            
     3. Utilize o cabo RJ-45 CAT 6A para ligar à porta DATA 3 numa extremidade. A porta DATA 3 está configurada como 10 GbE se ligar através do cabo RJ-45 CAT 6A e como 1 GbE se ligar através do cabo RJ-45 CAT 6.
-    4. Dependendo das interfaces de rede que você deseja conectar para transferência de dados, use até 2 10-GbE SFP + twinax de cobre ou SFP + fibra ótica para conectar as portas DATA 1 e DATA 2, respectivamente. 
+    4. Dependendo das interfaces de rede que quer ligar para a transferência de dados, utilize até dois cabos de fibra ótica SFP+ ou de cobre Twinax SFP+ de 10 GbE para ligar as portas DATA1 e DATA2, respetivamente. 
     5. As outras extremidades dos cabos das portas de dados estão ligadas ao computador anfitrião através de um comutador de 10 GbE.
 
 4. Localize o botão para ligar/desligar no painel frontal operativo do dispositivo. Ligue o dispositivo.
@@ -81,7 +81,7 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 
 ::: zone target="chromeless"
 
-Depois de receber o dispositivo, você precisará conectar-se ao dispositivo e conectá-lo. 
+Depois de receber o dispositivo, tem de instalar os cabos e ligar-se ao dispositivo. 
 
 ## <a name="cable-your-device"></a>Instalação dos cabos do dispositivo
 
@@ -114,7 +114,7 @@ Depois de receber o dispositivo, você precisará conectar-se ao dispositivo e c
 Execute os passos seguintes para configurar o dispositivo com a IU da Web local e a IU do portal.
 
 1. Configure o adaptador Ethernet no portátil que está a utilizar para ligar ao dispositivo com um endereço IP estático 192.168.100.5 e sub-rede 255.255.255.0. 
-2. Conecte-se à porta de gerenciamento do seu dispositivo e acesse sua interface\:do usuário da Web local em https//192.168.100.10. Este processo pode demorar até 5 minutos depois de ligar o dispositivo.
+2. Ligue-se à porta MGMT do dispositivo e aceda à IU da Web local em https\://192.168.100.10. Este processo pode demorar até 5 minutos depois de ligar o dispositivo.
 3. Clique em **Details** (Detalhes) e, em seguida, clique em **Go on to the webpage** (Avançar para a página Web).
 
    ![Ligar à IU da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
@@ -141,7 +141,7 @@ Quando a configuração do dispositivo estiver concluída, pode ligar às partil
 
 ::: zone target="chromeless"
 
-## <a name="connect-your-device"></a>Ligue o seu dispositivo
+## <a name="connect-your-device"></a>Ligar o dispositivo
 
 1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com).
 2. Atribua um endereço IP estático 192.168.100.5 e a sub-rede 255.255.255.0 ao adaptador Ethernet no computador que está a utilizar para ligar ao Data Box. Aceda à IU da Web local do dispositivo em `https://192.168.100.10`. A ligação pode demorar até 5 minutos depois de ligar o dispositivo. 

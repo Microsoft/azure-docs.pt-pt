@@ -5,38 +5,38 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "67184923"
 ---
-O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não não possível aceder as partilhas depois de iniciar este processo.
+O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não é possível aceder às partilhas depois de iniciar este processo.
 
 > [!IMPORTANT]
-> Preparação para envio é necessária, como sinalizadores de dados que não estão em conformidade com as convenções de nomenclatura do Azure. A ignorar este passo foi resultem em dados de potenciais falhas de carregamento devido a dados não autorizadas.
+> A preparação para envio é necessária, pois sinaliza os dados que não estão em conformidade com as convenções de nomenclatura do Azure. Ignorar este passo pode resultar em possíveis falhas no carregamento dos dados devido à não conformidade dos dados.
 
-1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. Por predefinição, as somas de verificação são calculadas, enquanto os dados estão a ser copiados. Preparação para envio conclui o cálculo de soma de verificação e cria a lista de ficheiros ( *ficheiros - BOM*). O cálculo de soma de verificação pode demorar horas a dias dependendo do tamanho dos seus dados. 
+1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. Por predefinição, as somas de verificação são calculadas enquanto os dados estão a ser copiados. A preparação para envio conclui o cálculo da soma de verificação e cria a lista de ficheiros (*ficheiros -BOM*). O cálculo de soma de verificação pode demorar horas ou dias, consoante o tamanho dos dados. 
    
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
-    Se por algum motivo quiser interromper a preparação do dispositivo, clique em **parar preparação**. Pode retomar a preparação para envio posterior.
+    Se, por qualquer motivo, quiser parar a preparação do dispositivo, clique em **Parar preparação**. Pode retomar a preparação para envio mais tarde.
         
-    ![Preparação para envio 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
+    ![Preparar para enviar 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
     
-2. A preparação para envio é iniciado e as partilhas de dispositivo offline. Verá um lembrete para transferir a etiqueta quando o dispositivo está pronto.
+2. A preparação para envio e iniciada e as partilhas do dispositivo ficam offline. Verá um lembrete para transferir a guia de remessa assim que o dispositivo estiver pronto.
 
-    ![Baixe o lembrete de etiqueta de envio](media/data-box-prepare-to-ship/download-shipping-label-reminder.png)
+    ![Lembrete para transferir a guia de remessa](media/data-box-prepare-to-ship/download-shipping-label-reminder.png)
 
-3. Atualizações do Estado do dispositivo *pronto para enviar* e o dispositivo está bloqueado depois de concluída a preparação do dispositivo.
+3. O estado do dispositivo é atualizado para *Pronto para enviar* e o dispositivo fica bloqueado depois de concluída a preparação do dispositivo.
         
-    ![Preparação para envio 3](media/data-box-prepare-to-ship/prepare-to-ship3.png)
+    ![Preparar para enviar 3](media/data-box-prepare-to-ship/prepare-to-ship3.png)
 
-    Se desejar copiar mais dados para o dispositivo, pode desbloquear o dispositivo, copiar mais dados e execução de preparação para envio de novamente.
+    Se quiser copiar mais dados para o dispositivo, poderá desbloquear o dispositivo, copiar mais dados e executar a preparação para envio novamente.
 
-    Se houver erros neste passo, terá de transferir o registo de erros e resolva os erros. Depois dos erros são resolvidos, execute **preparação para envio**.
+    Se ocorrerem erros neste passo, terá de transferir o registo de erros e resolver os erros. Depois de os erros estarem resolvidos, execute a **Preparação para envio**.
 
-4. Após a preparação para envio concluída com sucesso (sem nenhum erro), baixe a lista de ficheiros (também conhecido como manifesto) copiada nesse processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure. Para obter mais informações, consulte [ficheiros de inspecionar BOM durante a preparação para envio](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
+4. Depois de a preparação para envio estar concluída com êxito (sem erros), transfira a lista de ficheiros (também conhecida como o manifesto) copiada neste processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure. Para obter mais informações, veja [Inspecionar ficheiros BOM durante a Preparação para envio](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

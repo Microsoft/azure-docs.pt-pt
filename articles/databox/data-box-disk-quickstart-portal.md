@@ -11,21 +11,21 @@ ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70232905"
 ---
 ::: zone target="docs"
 
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início rápido: Implantar Disco do Azure Data Box usando o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início Rápido: Implementar o Azure Data Box com o portal do Azure
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-## <a name="get-started-with-azure-data-box-disk"></a>Introdução ao Disco do Azure Data Box 
+## <a name="get-started-with-azure-data-box-disk"></a>Introdução ao Azure Data Box Disk 
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ ms.locfileid: "70232905"
 
 Este início rápido descreve como implementar o Azure Data Box Disk através do portal do Azure. Os passos incluem como criar uma encomenda, receber discos, desembalar, ligar e copiar dados para discos para serem carregados para o Azure.
 
-Para obter instruções detalhadas de implantação e acompanhamento passo a [passo, acesse tutorial: Order Disco do Azure Data Box](data-box-disk-deploy-ordered.md). 
+Para uma implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Encomende o Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ::: zone target="chromeless"
 
-Este guia orienta você pelas etapas de uso do Disco do Azure Data Box no portal do Azure. Este guia ajuda a responder as perguntas a seguir.
+Este guia orienta-o pelos passos da utilização do Azure Data Box Disk no portal do Azure. Este guia ajuda a responder às seguintes perguntas.
 
 ::: zone-end
 
@@ -63,11 +63,11 @@ Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](h
 
 > [!div class="checklist"]
 >
-> - **Examine os pré-requisitos**: Verifique o número de discos e cabos, sistema operacional e outros softwares.
-> - **Conectar e desbloquear**: Conecte o dispositivo e desbloqueie o disco para copiar os dados.
-> - **Copie os dados para o disco e valide**: Copie dados para os discos nas pastas precriadas.
-> - **Retorne os discos**: Retorne os discos para o datacenter do Azure onde os dados são carregados em sua conta de armazenamento.
-> - **Verifique os dados no Azure**: Verifique se os dados foram carregados em sua conta de armazenamento antes de excluí-los do servidor de dados de origem.
+> - **Rever pré-requisitos**: Verifique o número de discos e cabos, o sistema operativo e outro software.
+> - **Ligar e desbloquear**: Ligue o dispositivo e desbloqueie o disco para copiar os dados.
+> - **Copiar dados para o disco e validar**: Copie os dados para os discos nas pastas pré-criadas.
+> - **Devolver os discos**: Devolva os discos para o centro de dados do Azure onde os dados são carregados para a sua conta de armazenamento.
+> - **Verificar os dados no Azure**: Verifique se os dados foram carregados para a sua conta de armazenamento antes de os eliminar do servidor de dados de origem.
 
 ::: zone-end
 
@@ -104,25 +104,25 @@ Este passo demora cerca de 5 minutos.
 
     1. No portal do Azure, aceda a **Geral > Detalhes do Dispositivo** e obtenha a chave de acesso.
     2. Transfira e extraia a ferramenta de desbloqueio do Data Box Disk específica do sistema no computador utilizado para copiar os dados para discos. 
-    3. Execute a ferramenta de desbloqueio do Data Box Disk e indique a chave de acesso. Para qualquer reinserção de discos, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não utilize a caixa de diálogo do BitLocker ou a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, vá para [desbloquear discos no cliente Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [desbloquear discos no cliente Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
+    3. Execute a ferramenta de desbloqueio do Data Box Disk e indique a chave de acesso. Para qualquer reinserção de discos, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não utilize a caixa de diálogo do BitLocker ou a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, aceda a [Desbloquear discos num cliente Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos num cliente Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. A letra de unidade atribuída ao disco é apresentada pela ferramenta. Anote a letra de unidade do disco. Esta será utilizada nos passos subsequentes.
 
 ## <a name="copy-data-and-validate"></a>Copiar os dados e validar
 
 O tempo de conclusão desta operação depende do tamanho dos dados.
 
-1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *azurefile*, *ManagedDisk*e *DataBoxDiskImport* . Arraste e cole para copiar os dados que têm de ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e solte dados como VHD/VHDX para a pasta *PageBlob* e os dados apropriados para o *azurefile*. Copie os VHDs que você deseja carregar como discos gerenciados para uma pasta em *ManagedDisk*.
+1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* e *DataBoxDiskImport*. Arraste e cole para copiar os dados que têm de ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e cole os dados como VHD/VHDX para a pasta *PageBlob* e os dados adequados para *AzureFile*. Copie os VHDs que pretende carregar como discos geridos para uma pasta em *ManagedDisk*.
 
-    É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas *BlockBlob* e *PageBlob*. Um compartilhamento de arquivos é criado para uma subpasta no *azurefile*.
+    É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas *BlockBlob* e *PageBlob*. É criada uma partilha de ficheiros para uma subpasta em *AzureFile*.
 
-    Todos os ficheiros nas pastas *BlockBlob* e *PageBlob* são copiados para um contentor predefinido `$root` na conta de armazenamento do Azure. Copie os arquivos em uma pasta dentro *do azurefile*. Todos os arquivos copiados diretamente para a pasta *do azurefile* falham e são carregados como BLOBs de blocos.
+    Todos os ficheiros nas pastas *BlockBlob* e *PageBlob* são copiados para um contentor predefinido `$root` na conta de armazenamento do Azure. Copie os ficheiros para uma pasta dentro do *AzureFile*. Todos os ficheiros copiados diretamente para a pasta *AzureFile* falham e são carregados como blobs de blocos.
 
     > [!NOTE]
-    > - Todos os contêineres, BLOBs e arquivos devem estar em conformidade com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Se estas regras não forem seguidas, o carregamento de dados para o Azure falhará.
-    > - Verifique se os arquivos não excedem ~ 4,75 TiB para BLOBs de bloco, ~ 8 TiB para BLOBs de página e ~ 1 TiB para arquivos do Azure.
+    > - Todos os contentores, blobs e ficheiros devem cumprir as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Se estas regras não forem seguidas, o carregamento de dados para o Azure falhará.
+    > - Garanta que os ficheiros não excedem ~4,75 TiB para blobs de blocos, ~8 TiB para blobs de páginas e ~1 TiB para Ficheiros do Azure.
 
-2. **(Opcional, mas recomendado)** Após a conclusão da cópia, é altamente recomendável que, no mínimo, você `DataBoxDiskValidation.cmd` execute o fornecido na pasta *DataBoxDiskImport* e selecione a opção 1 para validar os arquivos. Também recomendamos que o tempo seja possibilitado, você usa a opção 2 para também gerar somas de verificação para validação (pode levar tempo dependendo do tamanho dos dados). Essas etapas minimizam as chances de falhas ao carregar os dados no Azure.
-3. Remova a unidade com segurança.
+2. **(Opcional, mas recomendado)** Após a conclusão da cópia, é altamente recomendável que, no mínimo, execute `DataBoxDiskValidation.cmd` na pasta *DataBoxDiskImport* e selecione a opção 1 para validar os ficheiros. Também recomendamos que, se o tempo permitir, utilize a opção 2 para gerar também somas de verificação para validação (pode levar tempo consoante o tamanho dos dados). Estes passos minimizam as hipóteses de falhas ao carregar os dados para o Azure.
+3. Remova a unidade em segurança.
 
 ## <a name="ship-to-azure"></a>Enviar para o Azure
 

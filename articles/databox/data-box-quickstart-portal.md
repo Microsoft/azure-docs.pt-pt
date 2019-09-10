@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70241356"
 ---
 ::: zone target="docs"
 
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implantar Azure Data Box usando o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: Implementar o Azure Data Box com o portal do Azure
 
 ::: zone-end
 
@@ -32,13 +32,13 @@ ms.locfileid: "70241356"
 
 Este início rápido descreve como implementar o Azure Data Box com o portal do Azure. Os passos incluem como instalar os cabos, configurar e copiar os dados para o Data Box, para que este os carregue para o Azure. O início rápido é efetuado no portal do Azure e na IU da Web local do dispositivo.
 
-Para obter instruções detalhadas de implantação e acompanhamento passo a [passo, acesse tutorial: Ordem Azure Data Box](data-box-deploy-ordered.md)
+Para uma implementação passo a passo detalhada e instruções de controlo, aceda ao [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md)
 
 ::: zone-end 
 
 ::: zone target="chromeless"
 
-Este guia descreve como implantar o Azure Data Box usando o portal do Azure. As etapas incluem examinar os pré-requisitos, o cabo e conectar seu dispositivo e copiar dados para o dispositivo para que ele seja carregado no Azure.
+Este guia descreve como implementar o Azure Data Box com o portal do Azure. Os passos incluem examinar os pré-requisitos, instalar os cabos e ligar o dispositivo e copiar dados para o dispositivo para que estes sejam carregados para o Azure.
 
 ::: zone-end
 
@@ -70,18 +70,18 @@ Antes de começar:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você tem:
+Antes de começar, confirme se:
 
-1. Concluído o [tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
-2. Recebeu sua Data Box e o status do pedido no portal é **entregue**. 
-3. Revisou as [diretrizes de segurança do data Box](data-box-safety.md).
-4. Recebeu um cabo de alimentação com aterramento para usar com seu dispositivo de armazenamento 100-TB.
-5. Acesso a um computador host que tem os dados que você deseja copiar para Data Box. O computador anfitrião tem de
+1. Concluiu o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
+2. Recebeu o Data Box e o estado da encomenda no portal é **Entregue**. 
+3. Reviu as [diretrizes de segurança do Data Box](data-box-safety.md).
+4. Recebeu um cabo de alimentação ligado à terra para utilizar com o dispositivo de armazenamento de 100 TB.
+5. Tem acesso a um computador anfitrião com os dados que quer copiar para o Data Box. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
     - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
-6. Acesso a uma superfície plana para posicionar o Data Box. Para colocar o dispositivo simples ou verticalmente em uma prateleira de rack padrão, você precisa de um slot de 7U em seu rack.
-7. O adquiriu os seguintes cabos para conectar o Data Box ao computador host.
-    - Um ou mais cabos 10 GbE SFP + twinax de cobre ou SFP + fibra (use com dados 1, interfaces de rede de dados 2). Para obter mais informações, consulte a [lista de cabos com suporte e comutadores de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) que são compatíveis com adaptador mellanox ConnectX®-3 pro en Dual-Port 10Gbase-T Adapters w/PCI Express 3,0 network interface.
+6. Tem uma superfície plana para colocar o Data Box. Para colocar o dispositivo na horizontal ou na vertical num bastidor padrão, precisará de um bloco de 7U no bastidor.
+7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
+    - Um ou mais cabos de fibra de ótica SFP+ ou de cobre Twinax SFP+ de 10 GbE (utilize com as interfaces de rede DATA1, DATA2). Para obter mais informações, veja a [lista de cabos e comutadores suportados da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) que são compatíveis com os Adaptadores 10GBASE-T com Duas Portas Mellanox ConnectX®-3 Pro EN com interface de rede PCI Express 3.0.
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
@@ -176,7 +176,7 @@ Este passo demora entre 2 a 3 minutos.
 
 - Pode eliminar a encomenda assim que o estado for apresentado como **Concluído** ou **Cancelado** no portal do Azure. Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou um Azure Data Box para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box, avance para o tutorial seguinte: 
 
