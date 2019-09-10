@@ -13,7 +13,7 @@ ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: ff267a524001802f8bcd0903fcb7119bab16ef11
 ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/09/2019
 ms.locfileid: "70813325"

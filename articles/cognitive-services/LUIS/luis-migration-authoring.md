@@ -13,7 +13,7 @@ ms.date: 09/08/2019
 ms.author: diberry
 ms.openlocfilehash: ee185ca5d2e2cdda89945f0fc1e7aae32030c1be
 ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/08/2019
 ms.locfileid: "70803890"

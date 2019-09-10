@@ -9,7 +9,7 @@ ms.date: 04/12/2019
 ms.author: helohr
 ms.openlocfilehash: 3e9ee3f5dd04ef838f78b9731885b7ea48e6c99d
 ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/09/2019
 ms.locfileid: "70811316"
