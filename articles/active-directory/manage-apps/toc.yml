@@ -228,10 +228,14 @@
               href: Customize-application-attributes.md
             - name: Filtros de âmbito
               href: define-conditional-rules-for-provisioning-user-accounts.md
+            - name: Ignorar eliminação de utilizadores fora do âmbito
+              href: skip-out-of-scope-deletions.md
             - name: Verificar o estado de aprovisionamento
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Comunicar sobre o aprovisionamento automático de utilizadores
               href: check-status-user-account-provisioning.md
+            - name: Exportar e importar configuração
+              href: export-import-provisioning-configuration.md
         - name: Resolver problemas de aprovisionamento de utilizadores
           items:
             - name: Resolver problemas de aprovisionamento de utilizadores

@@ -360,7 +360,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como desenvolver [seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
-> [Funções](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)[](tutorial-deploy-custom-vision.md) [Machine Learning](tutorial-deploy-machine-learning.md)serviço de visão personalizada
-> 
-> 
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)
