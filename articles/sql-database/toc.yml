@@ -6,6 +6,8 @@
       href: sql-database-technical-overview.md
     - name: Que opção do SQL devo escolher?
       href: sql-database-paas-vs-sql-server-iaas.md
+    - name: Comparação de funcionalidades
+      href: sql-database-features.md
     - name: Notas de versão
       href: sql-database-release-notes.md
     - name: Atualizações de migração de IP do gateway
@@ -390,10 +392,8 @@
               href: sql-database-advisor.md
     - name: Funcionalidades de bases de dados
       items:
-        - name: Documentação de funcionalidade de base de dados SQL
+        - name: Descrição geral
           href: sql-database-features-index.yml
-        - name: Comparação de funcionalidades do SQL
-          href: sql-database-features.md
         - name: Capacidades de vários modelos
           href: sql-database-multi-model-features.md
         - name: Dentro da memória
@@ -534,6 +534,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Carregar e mover dados
       items:
+        - name: Restauro para um ponto anterior no tempo
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: Mover recurso para uma nova região
           href: sql-database-move-resources-across-regions.md
         - name: Copiar uma base de dados no Azure

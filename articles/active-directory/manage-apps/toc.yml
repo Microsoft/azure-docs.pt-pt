@@ -346,6 +346,10 @@
       items:
         - name: Escrever expressões para mapeamentos de atributos
           href: functions-for-customizing-application-data.md
+    - name: Agente de Aprovisionamento do Azure AD Connect
+      items:
+        - name: Histórico de versões do Agente de Aprovisionamento
+          href: provisioning-agent-release-version-history.md
     - name: Proxy de Aplicações para aplicações no local
       items:
         - name: Histórico de versões do Proxy de Aplicação
