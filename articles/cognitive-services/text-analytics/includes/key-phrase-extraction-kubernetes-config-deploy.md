@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: e29aec66d9986b509a5133f5ebe8a99a00f7b9cf
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e79717b15cabe815debfa9fd960c0b2623e8088e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051867"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70847721"
 ---
 ## <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Implantar o contêiner de Extração de Frases-chave em um cluster AKS
 
@@ -119,7 +119,7 @@ ms.locfileid: "70051867"
     kubectl get services
     ```
 
-    A saída do status de execução do serviço de *sentimentos* no pod:
+    A saída do status de execução do serviço *keyphrase* no pod:
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

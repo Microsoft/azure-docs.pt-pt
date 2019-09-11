@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
 ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68717456"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
@@ -54,7 +54,7 @@ Se você ainda não tem uma referência no SDK Application Insights:
   * [Projeto Java](../../azure-monitor/app/java-get-started.md)
   * [Projeto do node. js](../../azure-monitor/app/nodejs.md)
   * [JavaScript em cada página da Web](../../azure-monitor/app/javascript.md) 
-* No código do seu dispositivo ou servidor Web, inclua:
+* No seu dispositivo ou código do servidor Web, inclua:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 

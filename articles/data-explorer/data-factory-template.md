@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: acfcee6e8308bc508bd709c40bd1794beab3130f
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5a6aebd276ef8658da9ca763be7da5c38a9c772a
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804733"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873425"
 ---
 # <a name="use-azure-data-factory-template-for-bulk-copy-from-database-to-azure-data-explorer"></a>Usar o modelo de Azure Data Factory para cópia em massa do banco de dados para o Azure Data Explorer
 
@@ -38,19 +38,19 @@ O **ControlTableDataset** indica quais dados serão copiados da origem para o de
 
 Exemplo de formato de tabela de origem SQL Server:
     
-    ```sql   
-    CREATE TABLE control_table (
-        PartitionId int,
-        SourceQuery varchar(255),
-        ADXTableName varchar(255)
-    );
-    ```
+```sql   
+CREATE TABLE control_table (
+PartitionId int,
+SourceQuery varchar(255),
+ADXTableName varchar(255)
+);
+```
     
-        |Propriedade  |Descrição  | Exemplo
-        |---------|---------| ---------|
-        |PartitionId   |   copiar ordem | 1  |  
-        |SourceQuery   |   consulta que indica quais dados serão copiados durante o tempo de execução do pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-        |ADXTableName  |  nome da tabela de destino | MyAdxTable       |  
+|Propriedade  |Descrição  | Exemplo
+|---------|---------| ---------|
+|PartitionId   |   copiar ordem | 1  |  
+|SourceQuery   |   consulta que indica quais dados serão copiados durante o tempo de execução do pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|ADXTableName  |  nome da tabela de destino | MyAdxTable       |  
 
 Se o seu **ControlTableDataset** estiver em um formato diferente, crie um **ControlTableDataset** comparável para seu formato.
 
@@ -98,7 +98,7 @@ Se o seu **ControlTableDataset** estiver em um formato diferente, crie um **Cont
 
 Agora você pode usar a **cópia em massa do banco de dados para o modelo de data Explorer do Azure** para copiar com eficiência grandes quantidades de data de seus bancos de dados e tabelas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o procedimento para [copiar dados para o Azure data Explorer usando Azure data Factory](data-factory-load-data.md).
 
