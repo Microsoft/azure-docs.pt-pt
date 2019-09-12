@@ -3,7 +3,7 @@ title: Documentação do Personalizador
 summary: Saiba como utilizar o Personalizador para permitir que a sua aplicação escolha a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/09/2019
+  ms.date: 09/10/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Personalizador
   titleSuffix: Azure Cognitive Services
   description: O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
-  ms.openlocfilehash: 7c73472231b563c1efa583e356774f755abea3bf
-  ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+  ms.openlocfilehash: fd1b4a7c093beeb8d33579accee9178744b6fe50
+  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70845416"
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70882898"
 landingContent:
 - title: Acerca do Personalizador
   linkLists:
@@ -33,18 +33,18 @@ landingContent:
       url: where-can-you-use-personalizer.md
     - text: Ética e utilização responsável
       url: ethics-responsible-use.md
+- title: Criar e utilizar o ciclo do Personalizador
+  linkLists:
+  - linkListType: concept
+    links:
     - text: Escolher funcionalidades e ações para personalizar
       url: concepts-features.md
     - text: Como calcular uma recompensa
       url: concept-rewards.md
-    - text: Avaliações offline
-      url: concepts-offline-evaluation.md
   - linkListType: how-to-guide
     links:
-    - text: Analisar o êxito com a avaliação offline
-      url: how-to-offline-evaluation.md
-- title: Desenvolver com o Personalizador
-  linkLists:
+    - text: Como criar e configurar o Personalizador
+      url: how-to-settings.md
   - linkListType: quickstart
     links:
     - text: Utilizar o .NET
@@ -53,26 +53,34 @@ landingContent:
       url: python-quickstart-commandline-feedback-loop.md
     - text: Node.js
       url: quickstart-command-line-feedback-loop-nodejs-sdk.md
-  - linkListType: how-to-guide
+- title: Desenvolver com o Personalizador
+  linkLists:
+  - linkListType: get-started
     links:
-    - text: Como criar e configurar o Personalizador
-      url: how-to-settings.md
-  - linkListType: reference
+    - text: Desenvolver o ciclo do Personalizador com .Net
+      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: Pacote NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+    - text: Documentação de referência do NuGet
+      url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+  - linkListType: get-started
+    links:
+    - text: Desenvolver o ciclo do Personalizador com Node.js
+      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+    - text: Pacote NPM
+      url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+  - linkListType: get-started
+    links:
+    - text: Desenvolver o ciclo do Personalizador com Python
+      url: python-quickstart-commandline-feedback-loop.md
+    - text: Pacote Pypi
+      url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+  - linkListType: get-started
     links:
     - text: Exemplos de Código
       url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
     - text: APIs REST
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
-    - text: Pacote NuGet
-      url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
-    - text: Pacote NPM
-      url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
-    - text: Pacote Pypi
-      url: https://pypi.org/project/azure-cognitiveservices-personalizer/
-  - linkListType: concept
-    links:
-    - text: Escalabilidade e desempenho
-      url: concepts-scalability-performance.md
 - title: Acerca da Aprendizagem por reforço
   linkLists:
   - linkListType: overview
@@ -89,6 +97,20 @@ landingContent:
       url: concept-active-learning.md
     - text: Recompensas
       url: concept-rewards.md
+- title: Avaliar e melhorar o serviço
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Melhorar o ciclo com avaliações offline
+      url: concepts-offline-evaluation.md
+    - text: Aprendizagem ativa
+      url: concept-active-learning.md
+    - text: Escalabilidade e desempenho
+      url: concepts-scalability-performance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analisar o êxito com a avaliação offline
+      url: how-to-offline-evaluation.md
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

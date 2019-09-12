@@ -1,0 +1,183 @@
+### YamlMime:Hub
+title: Documentação dos Serviços Cognitivos do Azure
+summary: Aprenda a criar algoritmos inteligentes e suportados em aplicações, sites e bots para ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores.
+metadata:
+  title: Documentação dos Serviços Cognitivos do Azure
+  description: Aprenda a criar algoritmos inteligentes e suportados em aplicações, sites e bots para ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores.
+  ms.service: cognitive-services
+  ms.topic: hub-page
+  brand: azure
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.date: 09/10/2019
+  ms.openlocfilehash: 0ddceb45db81ae31685cf48a6789d47d54818f3a
+  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70886115"
+highlightedContent:
+  items:
+  - title: O que são os Serviços Cognitivos?
+    itemType: overview
+    url: ./welcome.md
+  - title: Serviços Cognitivos e aprendizagem automática
+    itemType: concept
+    url: ./cognitive-services-and-machine-learning.md
+  - title: Criar um recurso dos Serviços Cognitivos
+    itemType: how-to-guide
+    url: ./cognitive-services-apis-create-account.md
+  - title: Suporte de linguagens nos Serviços Cognitivos
+    itemType: reference
+    url: ./language-support.md
+  - title: Utilizar os Serviços Cognitivos nos Contentores
+    itemType: concept
+    url: ./cognitive-services-container-support.md
+  - title: Autenticar um pedido
+    itemType: how-to-guide
+    url: ./authentication.md
+conceptualContent:
+  items:
+  - title: Visão
+    summary: Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.
+    links:
+    - url: ./computer-vision/index.yml
+      itemType: overview
+      text: Imagem Digitalizada
+    - url: ./Custom-Vision-Service/index.yml
+      itemType: overview
+      text: Visão Personalizada
+    - url: ./face/index.yml
+      itemType: overview
+      text: Rostos
+    - url: ./form-recognizer/index.yml
+      itemType: overview
+      text: Reconhecimento de Formato (Pré-visualização)
+    - url: ./form-recognizer/index.yml
+      itemType: overview
+      text: Reconhecedor de Tinta Digital (Pré-visualização)
+    - url: ./ink-recognizer/index.yml
+      itemType: overview
+      text: Indexador de Vídeos
+  - title: Idioma
+    summary: Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.
+    links:
+    - url: ./immersive-reader/index.yml
+      itemType: overview
+      text: Leitura Avançada (Pré-visualização)
+    - url: ./luis/index.yml
+      itemType: overview
+      text: Compreensão de Idiomas (LUIS)
+    - url: ./qnamaker/index.yml
+      itemType: overview
+      text: QnA Maker
+    - url: ./text-analytics/index.yml
+      itemType: overview
+      text: Análise de Texto
+    - url: ./translator/index.yml
+      itemType: overview
+      text: Texto do Tradutor
+  - title: Voz
+    summary: Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.
+    links:
+    - url: ./speech-service/index.yml
+      itemType: overview
+      text: Serviços de Voz
+    - url: ./speaker-recognition/home.md
+      itemType: overview
+      text: Reconhecimento de Orador (Pré-visualização)
+    - url: ./speech/home.md
+      itemType: overview
+      text: Voz do Bing (A descontinuar)
+    - url: ./translator-speech/overview.md
+      itemType: overview
+      text: Tradução de Voz (A descontinuar)
+  - title: Serviços de Decisão
+    summary: Crie aplicações que obtenham recomendações para assegurar uma tomada de decisões informada e eficiente.
+    links:
+    - url: ./anomaly-detector/index.yml
+      itemType: overview
+      text: Detetor de Anomalias (Pré-visualização)
+    - url: ./content-moderator/index.yml
+      itemType: overview
+      text: Content Moderator
+    - url: ./personalizer/index.yml
+      itemType: overview
+      text: Personalizador (Pré-visualização)
+  - title: Pesquisa
+    summary: Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.
+    links:
+    - url: ./Bing-Autosuggest/index.yml
+      itemType: overview
+      text: Pesquisa com Sugestão Automática
+    - url: ./bing-custom-search/index.yml
+      itemType: overview
+      text: Pesquisa Personalizada
+    - url: ./bing-entities-search/index.yml
+      itemType: overview
+      text: Pesquisa de Entidades
+    - url: ./bing-image-search/index.yml
+      itemType: overview
+      text: Pesquisa de Imagens
+    - url: ./bing-local-business-search/index.yml
+      itemType: overview
+      text: Pesquisa de Negócios Locais (Pré-visualização)
+    - url: ./bing-news-search/index.yml
+      itemType: overview
+      text: Pesquisa de Notícias
+    - url: ./bing-spell-check/index.yml
+      itemType: overview
+      text: Verificação Ortográfica
+    - url: ./Bing-Video-Search/index.yml
+      itemType: overview
+      text: Pesquisa de Vídeos
+    - url: ./bing-visual-search/index.yml
+      itemType: overview
+      text: Pesquisa Visual
+    - url: ./bing-web-search/index.yml
+      itemType: overview
+      text: Pesquisa na Web
+  - title: Contentores
+    summary: O suporte de contentores nos Serviços Cognitivos do Azure permite que os programadores utilizem as mesmas APIs avançadas que estão disponíveis no Azure. Além disso, permite grande flexibilidade em relação ao local onde implementar e alojar os serviços fornecidos com os contentores de Docker.
+    links:
+    - url: ./cognitive-services-container-support.md
+      itemType: overview
+      text: Contentores para os Serviços Cognitivos
+    - url: ./containers/container-reuse-recipe.md
+      itemType: overview
+      text: Criar contentores para reutilização
+    - url: ./containers/azure-container-instance-recipe.md
+      itemType: how-to-guide
+      text: Implementar e executar um contentor na Instância de Contentor do Azure
+    - url: ./containers/azure-kubernetes-recipe.md
+      itemType: how-to-guide
+      text: Implementar no Azure Kubernetes Service
+    - url: ./containers/docker-compose-recipe.md
+      itemType: how-to-guide
+      text: Utilizar o Docker Compose para implementar vários contentores
+additionalContent:
+  sections:
+  - items:
+    - title: Recursos adicionais
+      links:
+      - text: CLI do Azure
+        url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      - text: PowerShell
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+    - title: APIs REST
+      links:
+      - text: Gestão de Serviços Cognitivos
+        url: https://docs.microsoft.com/rest/api/cognitiveservices/
+    - title: SDKs
+      links:
+      - text: .Net
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+      - text: Ir
+        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+      - text: Java
+        url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+      - text: Node.js
+        url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+      - text: Python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python

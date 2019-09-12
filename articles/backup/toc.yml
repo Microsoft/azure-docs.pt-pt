@@ -80,8 +80,8 @@
       href: backup-azure-backup-server-import-export-.md
     - name: Substituir a sua biblioteca de unidades de banda
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Atributos de Segurança Comuns do Azure
-      href: backup-security-attributes.md
+    - name: Controlos de segurança incorporados
+      href: backup-security-controls.md
 - name: Procedimento
   items:
     - name: Servidor do Backup do Azure
