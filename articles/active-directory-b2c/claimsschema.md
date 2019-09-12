@@ -21,7 +21,7 @@ ms.locfileid: "67847040"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. Esquema de declarações é o local onde você declara suas declarações. Uma declaração pode ser nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém a **** lista de elementos ClaimType. O **** elemento ClaimType contém o atributo **ID** , que é o nome da declaração.
+O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. Esquema de declarações é o local onde você declara suas declarações. Uma declaração pode ser nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém a lista de elementos ClaimType. O elemento ClaimType contém o atributo **ID** , que é o nome da declaração.
 
 ```XML
 <BuildingBlocks>
@@ -40,13 +40,13 @@ O elemento **ClaimsSchema** define os tipos de declaração que podem ser refere
 
 ## <a name="claimtype"></a>ClaimType
 
-O **** elemento ClaimType contém o seguinte atributo:
+O elemento ClaimType contém o seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
-O **** elemento ClaimType contém os seguintes elementos:
+O elemento ClaimType contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
@@ -74,7 +74,7 @@ O elemento **Protocol** contém os seguintes atributos:
 | Name | Sim | O nome de um protocolo válido com suporte pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
 | PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
-No exemplo a seguir, quando a estrutura de experiência de identidade interage com um provedor de identidade SAML2 ou um aplicativo de terceira **** parte confiável, a Declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`de sobrenome é mapeada para, com OpenIdConnect e OAuth2, `family_name` a declaração é mapeada para .
+No exemplo a seguir, quando a estrutura de experiência de identidade interage com um provedor de identidade SAML2 ou um aplicativo de terceira parte confiável, a Declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`de sobrenome é mapeada para, com OpenIdConnect e OAuth2, `family_name` a declaração é mapeada para .
 
 ```XML
 <ClaimType Id="surname">
@@ -216,7 +216,7 @@ A estrutura de experiência de identidade renderiza a declaração de endereço 
 
 ## <a name="userinputtype"></a>UserInputType
 
-O Azure AD B2C dá suporte a uma variedade de tipos de entrada de usuário, como uma caixa de texto, uma senha e uma lista suspensa que podem ser usados ao inserir manualmente os dados de declaração para o tipo de declaração. Você deve especificar o **** userinputtype ao coletar informações do usuário usando um [perfil técnico autodeclarado](self-asserted-technical-profile.md).
+O Azure AD B2C dá suporte a uma variedade de tipos de entrada de usuário, como uma caixa de texto, uma senha e uma lista suspensa que podem ser usados ao inserir manualmente os dados de declaração para o tipo de declaração. Você deve especificar o userinputtype ao coletar informações do usuário usando um [perfil técnico autodeclarado](self-asserted-technical-profile.md).
 
 ### <a name="textbox"></a>TextBox
 

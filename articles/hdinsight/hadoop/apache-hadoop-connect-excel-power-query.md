@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c1255296854fd28cca4427b6cac04de7dc7919d8
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: de72daa6d34ea54517d5a21d7467a62d8097581c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810911"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882650"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conectar o Excel ao Apache Hadoop usando Power Query
 Um dos principais recursos da solução de Big data da Microsoft é a integração dos componentes do Microsoft business intelligence (BI) com clusters Apache Hadoop no Azure HDInsight. Um exemplo primário é a capacidade de conectar o Excel à conta de armazenamento do Azure que contém os dados associados ao cluster Hadoop usando o suplemento Microsoft Power Query para Excel. Este artigo orienta você sobre como configurar e usar Power Query para consultar dados associados a um cluster Hadoop gerenciado com o HDInsight.
@@ -21,14 +21,14 @@ Um dos principais recursos da solução de Big data da Microsoft é a integraç�
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter os seguintes itens:
 
-* **Cluster HDInsight an**. Para configurar um, consulte [Introdução ao Azure HDInsight] [HDInsight-Get-Started].
+* **Cluster HDInsight an**. Para configurar um, consulte Introdução [ao Azure HDInsight](./apache-hadoop-linux-tutorial-get-started.md).
 * **Uma estação de trabalho** que esteja executando o Windows 7, o windows Server 2008 R2 ou um sistema operacional posterior.
 * **Office 2016, office 2013 Professional Plus, office 365 ProPlus, Excel 2013 autônomo ou Office 2010 Professional Plus**.
 
 ## <a name="install-power-query"></a>Instalar Power Query
 Power Query pode importar dados que tenham sido gerados ou que tenha sido gerado por um trabalho do Hadoop em execução em um cluster HDInsight.
 
-No Excel 2016, o Power Query foi integrado à faixa de de dados na seção obter & transformação. Para versões mais antigas do Excel, baixe Microsoft Power Query para Excel no [centro de download da Microsoft][powerquery-download] e instale-o.
+No Excel 2016, o Power Query foi integrado à faixa de de dados na seção obter & transformação. Para versões mais antigas do Excel, baixe Microsoft Power Query para Excel no [centro de download da Microsoft](https://go.microsoft.com/fwlink/?LinkID=286689) e instale-o.
 
 ## <a name="import-hdinsight-data-into-excel"></a>Importar dados do HDInsight para o Excel
 O suplemento Power Query para Excel facilita a importação de dados do cluster HDInsight para o Excel, em que as ferramentas de BI, como o PowerPivot e Power Map, podem ser usadas para inspecionar, analisar e apresentar os dados.
@@ -43,13 +43,13 @@ O suplemento Power Query para Excel facilita a importação de dados do cluster 
 
      - Clique no **menu dados** , clique em **obter dados** na faixa de **& obter dados de transformação** , clique em **do Azure**e, em seguida, clique em **do Azure HDInsight (HDFS)** .
 
-       ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
 
    - Excel 2013/2010
 
      - Clique no menu **Power Query** , clique em **do Azure**e, em seguida, clique em **de Microsoft Azure HDInsight**.
    
-       ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
        
        **Nota:** Se você não vir o menu de **Power Query** , vá para **arquivo** > **Opções** > **suplementos**e selecione suplementos de **com** na caixa suspensa **gerenciar** na parte inferior da página. Selecione o botão **go...** e verifique se a caixa do Power Query para o suplemento do Excel foi verificada.
        
@@ -59,10 +59,11 @@ O suplemento Power Query para Excel facilita a importação de dados do cluster 
 6. No painel **navegador** à esquerda do editor de consultas, clique duas vezes no nome do contêiner de armazenamento de BLOBs. Por padrão, o nome do contêiner é o mesmo nome que o nome do cluster.
 7. Localizar **HiveSampleData.txt** no **nome** coluna (o caminho da pasta é **../ hive/armazém/hivesampletable/** ) e, em seguida, clique em **binário** à esquerda do HiveSampleData.txt. HiveSampleData. txt vem com todo o cluster. Opcionalmente, você pode usar seu próprio arquivo.
    
-    ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
+    ![HDI.PowerQuery.ImportData](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+
 8. Se desejar, você poderá renomear os nomes das colunas. Quando estiver pronto, clique em **fechar & carregar**.  Os dados foram carregados em sua pasta de trabalho:
    
-    ![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
+    ![HDI.PowerQuery.ImportedTable](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, você aprendeu a usar Power Query para recuperar dados do HDInsight para o Excel. Da mesma forma, você pode recuperar dados do HDInsight no banco de dados SQL do Azure. Também é possível carregar dados no HDInsight. Para saber mais, confira os seguintes artigos:
@@ -74,9 +75,3 @@ Neste artigo, você aprendeu a usar Power Query para recuperar dados do HDInsigh
 * [Conecte-se ao Azure HDInsight e execute Apache Hive consultas usando o data Lake Tools para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Use a ferramenta Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * [Carregar dados no HDInsight](./../hdinsight-upload-data.md).
-
-[image-hdi-powerquery-hdi-source]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.png
-[image-hdi-powerquery-importdata]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importdata.png
-[image-hdi-powerquery-imported-table]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importedtable.PNG
-
-[powerquery-download]: https://go.microsoft.com/fwlink/?LinkID=286689

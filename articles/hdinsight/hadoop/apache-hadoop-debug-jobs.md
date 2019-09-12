@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: e5ae05b2ad1dc03bad210b1f67834865afd49df3
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810891"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882441"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Analisar registos do Apache Hadoop
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analisar logs de Apache Hadoop no Azure HDInsight
 
 Cada cluster Apache Hadoop no Azure HDInsight tem uma conta de armazenamento do Azure usada como o sistema de arquivos padrão. A conta de armazenamento é referida como a conta de armazenamento padrão. O cluster usa o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento padrão para armazenar seus logs.  Para descobrir a conta de armazenamento padrão para o cluster, consulte [gerenciar clusters de Apache Hadoop no HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Os logs são mantidos na conta de armazenamento mesmo depois que o cluster é excluído.
 
@@ -312,7 +312,7 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure qua
 * **Descrição**: Configuração de cluster inválida. A configuração da conta WASB necessária não foi encontrada em contas externas.  
 * **Mitigação**: Verifique se a conta existe e se está corretamente especificada na configuração e repita a operação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)

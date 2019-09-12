@@ -32,11 +32,11 @@ Para começar a obter clientes potenciais, o conector de gerenciamento de leads 
 
 Aqui estão as instruções passo a passo sobre como conectar cada um dos possíveis destinos de cliente potencial:
 
-****  - [Clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) no Dynamics CRM Online para obter as instruções sobre como configurar o Dynamics CRM Online para obter clientes potenciais.
+ - [Clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) no Dynamics CRM Online para obter as instruções sobre como configurar o Dynamics CRM Online para obter clientes potenciais.
 
-**** Clique aqui para obter as instruções para configurar a configuração de Lead do marketo para obter clientes potenciais.[](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)  - 
+Clique aqui para obter as instruções para configurar a configuração de Lead do marketo para obter clientes potenciais.[](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)  - 
 
-**** Salesforce - [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) para obter instruções para configurar sua instância do Salesforce para obter clientes potenciais.
+Salesforce - [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) para obter instruções para configurar sua instância do Salesforce para obter clientes potenciais.
 
 **Tabela do Azure** – [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) para obter as instruções para configurar sua conta de armazenamento do Azure para obter clientes potenciais em uma tabela do Azure.
 
