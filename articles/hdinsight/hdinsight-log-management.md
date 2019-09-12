@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623901"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879450"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -81,7 +81,7 @@ Para abrir uma lista de exibições de serviço, selecione o painel **modos de e
 
 ![Pilha e versões](./media/hdinsight-log-management/stack-versions.png)
 
-Usando a interface do usuário do amAmbari, você pode baixar a configuração para qualquer serviço (ou todos) em execução em um host (ou nó) específico no cluster.  Selecione o menu hosts e, em seguida, o link para o host de interesse. Na página desse host, selecione o botão **ações do host** e, em seguida, **Baixe as configurações do cliente**. 
+Usando a interface do usuário do amAmbari, você pode baixar a configuração para qualquer serviço (ou todos) em execução em um host (ou nó) específico no cluster.  Selecione o menu **hosts** e, em seguida, o link para o host de interesse. Na página desse host, selecione o botão **ações do host** e, em seguida, **Baixe as configurações do cliente**. 
 
 ![Configurações do cliente host](./media/hdinsight-log-management/client-configs.png)
 
@@ -93,7 +93,7 @@ As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight
 
 A próxima etapa é examinar os arquivos de log de execução do trabalho para os vários serviços.  Os serviços podem incluir o Apache HBase, o Apache Spark e muitos outros. Um cluster Hadoop produz um grande número de logs detalhados, portanto, determinar quais logs são úteis (e quais não são) pode ser demorado.  Compreender o sistema de registro em log é importante para o gerenciamento direcionado de arquivos de log.  Este é um exemplo de arquivo de log.
 
-![Exemplo de arquivo de log do HDInsight](./media/hdinsight-log-management/logs.png)
+![Exemplo de arquivo de log do HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Acessar os arquivos de log do Hadoop
 
@@ -148,7 +148,7 @@ Depois de determinar quais arquivos de log podem ser excluídos, você pode ajus
 
 Para determinados arquivos de log, você pode usar uma abordagem de arquivamento de arquivo de log de menor preço. Para Azure Resource Manager logs de atividades, você pode explorar essa abordagem usando o portal do Azure.  Configure o arquivamento dos logs do ARM selecionando o link **log de atividades**no portal do Azure para sua instância do HDInsight.  Na parte superior da página de pesquisa do log de atividades, selecione o item de menu **Exportar** para abrir o painel **Exportar log de atividades** .  Preencha a assinatura, a região, se deseja exportar para uma conta de armazenamento e quantos dias para manter os logs. Nesse mesmo painel, você também pode indicar se deseja exportar para um hub de eventos. 
 
-![Exportar arquivos de log](./media/hdinsight-log-management/archive.png)
+![Exportar arquivos de log](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 Como alternativa, você pode fazer script de arquivamento de log com o PowerShell.  Para obter um exemplo de script do PowerShell, consulte [arquivar logs de automação do Azure no armazenamento de BLOBs do Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
@@ -172,7 +172,7 @@ Você também pode verificar se o log de depuração está habilitado para um ou
 
 Para coletar os logs de todos os nós para um local central, você pode criar um fluxo de dados, como ingerir todas as entradas de log em Solr.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitoramento e prática de registro em log para o HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Acessar Apache Hadoop logs de aplicativo do YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

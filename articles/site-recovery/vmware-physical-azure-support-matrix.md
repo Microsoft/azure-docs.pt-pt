@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617651"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910443"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -30,7 +30,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**servidor** | **Requirement** | **Detalhes**
+**servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 vCenter Server | Versão 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 hosts vSphere | Versão 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
@@ -43,7 +43,7 @@ O servidor de configuração é um computador local que executa Site Recovery co
 - Para VMs do VMware, você define o servidor de configuração baixando um modelo OVF para criar uma VM VMware.
 - Para servidores físicos, você configura manualmente o computador do servidor de configuração.
 
-**Componente** | **Requirement**
+**Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -232,7 +232,7 @@ Managed disks | Sim
 
 As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requirement** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verifique os [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falhará se não houver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falhará se não houver suporte.
@@ -245,6 +245,10 @@ VHD compartilhado | Não suportado. | A verificação falhará se não houver su
 Disco FC | Não suportado. | A verificação falhará se não houver suporte.
 BitLocker | Não suportado. | O BitLocker deve ser desabilitado antes de habilitar a replicação para um computador. |
 o nome da VM | De 1 a 63 caracteres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina em Site Recovery.
+
+## <a name="resource-group-limits"></a>Limites de grupo de recursos
+
+Para entender o número de máquinas virtuais que podem ser protegidas em um único grupo de recursos, consulte o artigo sobre [limites e cotas de assinatura](https://docs.microsoft.com/azure/azure-subscription-service-limits#resource-group-limits)
 
 ## <a name="churn-limits"></a>Limites de rotatividade
 
@@ -293,7 +297,7 @@ Serviço de mobilidade | Instalado na VM VMware ou servidores físicos que você
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba como preparar o](tutorial-prepare-azure.md) Azure para recuperação de desastres de VMs VMware.
 
 [9.27 UR]: https://support.microsoft.com/en-in/help/4513507/update-rollup-38-for-azure-site-recovery

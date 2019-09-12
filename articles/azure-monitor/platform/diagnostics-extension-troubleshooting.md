@@ -56,7 +56,7 @@ Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no portal
 
 Aqui, o **PartitionKey** da tabela é a ID de recurso, a máquina virtual ou o conjunto de dimensionamento de máquinas virtuais. **RowKey** é o nome da métrica (também conhecido como o nome do contador de desempenho).
 
-Se a ID do recurso estiver incorreta, verifique o **diagnóstico** **configuração** > de**métricas** > ResourceId para ver se a ID do recurso está definida corretamente. ****
+Se a ID do recurso estiver incorreta, verifique o **diagnóstico** **configuração** > de**métricas** > ResourceId para ver se a ID do recurso está definida corretamente.
 
 Se não houver dados para a métrica específica, verifique **configuração** > de diagnóstico**PerformanceCounter** para ver se a métrica (contador de desempenho) está incluída. Habilitamos os seguintes contadores por padrão:
 - \Processor(_Total)\% Processor Time
@@ -72,7 +72,7 @@ Se não houver dados para a métrica específica, verifique **configuração** >
 - \Process (WaWorkerHost)\% tempo do processador
 - \Process (WaWorkerHost) \Bytes privados bytes
 - Falhas de \Memory\Page/s
-- \.Tempo de memória do __ .NET CLR\% (global) no GC
+- \.Tempo de memória do.NET CLR\% (global) no GC
 - \LogicalDisk (C:) \Bytes de gravação de bytes/s
 - \LogicalDisk (C:) \Bytes de leitura de bytes/s
 - \LogicalDisk (D:) \Bytes de gravação de bytes/s

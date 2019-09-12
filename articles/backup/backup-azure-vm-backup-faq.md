@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827581"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909787"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -120,6 +120,12 @@ Para a VM do Azure de disco gerenciado, a restauração para os conjuntos de dis
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como obtemos desempenho de restauração mais rápido?
 A capacidade de [restauração instantânea](backup-instant-restore-capability.md) ajuda em backups mais rápidos e restaurações instantâneas a partir dos instantâneos.
+
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>O que acontece quando alteramos as configurações do cofre de chaves para a VM criptografada?
+
+Depois de alterar as configurações de keyvault para a VM criptografada, os backups continuarão a funcionar com o novo conjunto de detalhes, no entanto, após a restauração de um ponto de recuperação antes da alteração, você precisará restaurar os segredos em um keyvault antes de criar a VM a partir de  fosse. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Operações como segredo/chave revertida não exigem essa etapa e o mesmo keyvault pode ser usado após a restauração.
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 

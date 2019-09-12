@@ -3,17 +3,17 @@ title: Conectar um Raspberry Pi ao seu aplicativo de IoT Central doC#Azure () | 
 description: Como desenvolvedor de dispositivos, como conectar um Raspberry Pi ao aplicativo IoT Central do Azure usando C#o.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/15/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 9395fa5ba5ae8dfa6ff03aabd1a27942ca4fa60a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7a66925dceee4bf90bc6a5cd155f99347bbd124e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195182"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886011"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conectar um Raspberry Pi ao seu aplicativo de IoT Central doC#Azure ()
 
@@ -28,7 +28,7 @@ Este artigo descreve como, como desenvolvedor de dispositivos, conectar um Raspb
 Para concluir as etapas neste artigo, você precisa dos seguintes componentes:
 
 * Um aplicativo IoT Central do Azure criado no modelo de aplicativo **devkits de exemplo** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-* Um dispositivo Raspberry Pi que executa o sistema operacional Raspbian. O Raspberry Pi deve ser capaz de se conectar à Internet. Para obter mais informações, consulte Configurando [o Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
+* Um dispositivo Raspberry Pi que executa o sistema operacional Raspbian. O Raspberry Pi deve ser capaz de se conectar à Internet. Para obter mais informações, consulte [Configurando o Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>Aplicativo **devkits de exemplo**
 
@@ -358,7 +358,7 @@ Alternar configurações
 
 | Type            | Display name | Nome do campo | Tipo de dados                              |
 | --------------- | ------------ | ---------- | -------------------------------------- |
-| Propriedade do dispositivo | Número do chip   | dieNumber  | número                                 |
+| Propriedade do dispositivo | Número do chip   | dieNumber  | number                                 |
 | Location        | Location     | location   | {Lat: float, Long: float, Alt?: float} |
 
 ## <a name="next-steps"></a>Passos Seguintes

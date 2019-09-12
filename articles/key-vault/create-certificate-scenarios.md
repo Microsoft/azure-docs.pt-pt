@@ -1,47 +1,47 @@
 ---
 title: Monitorizar e gerir a criação do certificados
-description: Cenários que demonstram uma variedade de opções para a criação, monitorização e interagir com a criação do certificado processam com o Key Vault.
+description: Cenários que demonstram uma variedade de opções para criar, monitorar e interagir com o processo de criação de certificado com Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729230"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880845"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorizar e gerir a criação do certificados
 Aplica-se a: Azure
 
 O seguinte 
 
-Os cenários / operações descritas neste artigo são:
+Os cenários/operações descritos neste artigo são:
 
-- Pedir um certificado de KV com um emissor suportado
-- Obter pedido pendente - estado do pedido é "inProgress"
-- Obter pedido pendente - estado do pedido é "concluído"
-- Obter pedido - pedido pendente "Cancelado" ou "Falha" de estado pendente
-- Obter pedido - pedido pendente estado for "eliminado" ou "substituído" pendente
-- Criar (ou importar) quando pendentes pedido existe - estado é "inProgress"
-- Intercalar pedido pendente é criado com um emissor (DigiCert, por exemplo)
-- Pedir um cancelamento, enquanto o estado do pedido pendente é "inProgress"
-- Eliminar um objeto com solicitação pendente
-- Criar um certificado de KV manualmente
-- Intercalar quando é criado um pedido pendente - a criação manual de certificados
+- Solicitar um certificado KV com um emissor com suporte
+- Obter status de solicitação-solicitação pendente é "InProgress"
+- Obter solicitação pendente-o status da solicitação é "concluído"
+- Obter solicitação pendente-o status da solicitação pendente é "cancelado" ou "falha"
+- Obter solicitação pendente-o status da solicitação pendente é "excluído" ou "substituído"
+- Criar (ou importar) quando houver uma solicitação pendente-o status é "InProgress"
+- Mesclar quando a solicitação pendente for criada com um emissor (DigiCert, por exemplo)
+- Solicitar um cancelamento enquanto o status da solicitação pendente for "InProgress"
+- Excluir um objeto de solicitação pendente
+- Criar um certificado KV manualmente
+- Mesclar quando uma solicitação pendente for criada-criação manual de certificado
 
-## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Pedir um certificado de KV com um emissor suportado 
+## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Solicitar um certificado KV com um emissor com suporte 
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-Os exemplos a seguir exigem um objeto com o nome "mydigicert" já esteja disponível no seu Cofre de chaves com o fornecedor de emissor como DigiCert. O emissor do certificado é uma entidade representada no Cofre de chave de Azure (KV) como um recurso de CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado de KV; nome do emissor, fornecedor, credenciais e outros detalhes administrativos.
+Os exemplos a seguir exigem que um objeto chamado "mydigicert" já esteja disponível no cofre de chaves com o provedor de emissor como DigiCert. O emissor do certificado é uma entidade representada em Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
 
 ### <a name="request"></a>Pedir
 
@@ -78,21 +78,21 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-## <a name="get-pending-request---request-status-is-inprogress"></a>Obter pedido pendente - estado do pedido é "inProgress"
+## <a name="get-pending-request---request-status-is-inprogress"></a>Obter status de solicitação-solicitação pendente é "InProgress"
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Pedir
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
-> Se *request_id* é especificada na consulta, ele atua como um filtro. Se o *request_id* na consulta e no objeto pendente são diferentes, é devolvido um código de estado de http de 404.
+> Se *request_id* for especificado na consulta, ele agirá como um filtro. Se o *request_id* na consulta e no objeto pendente forem diferentes, um código de status http 404 será retornado.
 
 ### <a name="response"></a>Resposta
 
@@ -112,19 +112,19 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-## <a name="get-pending-request---request-status-is-complete"></a>Obter pedido pendente - estado do pedido é "concluído"
+## <a name="get-pending-request---request-status-is-complete"></a>Obter solicitação pendente-o status da solicitação é "concluído"
 
 ### <a name="request"></a>Pedir
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Resposta
 
@@ -144,19 +144,19 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Obter pedido - pedido pendente "Cancelado" ou "Falha" de estado pendente
+## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Obter solicitação pendente-o status da solicitação pendente é "cancelado" ou "falha"
 
 ### <a name="request"></a>Pedir
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Resposta
 
@@ -181,21 +181,21 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```
 
 > [!NOTE]
-> O valor do *errorcode* pode ser "Erro de emissor do certificado" ou "Pedido rejeitado" com base no erro de emissor ou utilizador, respetivamente.
+> O valor de *ErrorCode* pode ser "erro do emissor do certificado" ou "solicitação rejeitada" com base no erro de emissor ou usuário, respectivamente.
 
-## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Obter pedido - pedido pendente estado for "eliminado" ou "substituído" pendente
-Um objeto pendente pode ser eliminado ou substituído por uma operação de importação/criar quando não o respetivo estado é "inProgress".
+## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Obter solicitação pendente-o status da solicitação pendente é "excluído" ou "substituído"
+Um objeto pendente pode ser excluído ou substituído por uma operação de criação/importação quando seu status não é "InProgress".
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Pedir
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+OBTER`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Resposta
 
@@ -210,21 +210,21 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
 ```
 
-## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Criar (ou importar) quando pendentes pedido existe - estado é "inProgress"
-Um objeto pendente tem quatro Estados possíveis; "inprogress", "cancelada", "failed" ou "concluído".
+## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Criar (ou importar) quando houver uma solicitação pendente-o status é "InProgress"
+Um objeto pendente tem quatro Estados possíveis; "InProgress", "cancelado", "falha" ou "concluído".
 
-Quando o estado de um pedido pendente está "inprogress", criar (e importar) operações irão falhar com um código de estado de http de 409 (conflito).
+Quando um estado de solicitação pendente for "InProgress", as operações de criação (e importação) falharão com um código de status http 409 (conflito).
 
 Para corrigir um conflito:
 
-- Se o certificado está a ser criado manualmente, pode concluir o certificado de KV por fazer uma mesclagem ou eliminar o objeto pendente.
+- Se o certificado estiver sendo criado manualmente, você poderá concluir o certificado KV fazendo uma mesclagem ou exclusão no objeto pendente.
 
-- Se o certificado está a ser criado com um emissor, pode esperar até que o certificado de conclusão, falha ou é cancelado. Em alternativa, pode eliminar o objeto pendente.
+- Se o certificado estiver sendo criado com um emissor, você poderá aguardar até que o certificado seja concluído, falhe ou seja cancelado. Como alternativa, você pode excluir o objeto pendente.
 
 > [!NOTE]
-> A eliminar um objeto pendente pode ou não pode cancelar a x509 pedido de certificado com o fornecedor.
+> A exclusão de um objeto pendente pode ou não cancelar a solicitação de certificado X509 com o provedor.
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -256,12 +256,12 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```
 
-## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Intercalar pedido pendente é criada com um emissor
-Merge não é permitido quando um objeto pendente é criado com um emissor, mas é permitido quando o estado é "inProgress". 
+## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Mesclar quando a solicitação pendente for criada com um emissor
+A mesclagem não é permitida quando um objeto pendente é criado com um emissor, mas é permitido quando seu estado é "InProgress". 
 
-Se o pedido para criar o x509 certificado falha ou cancela por algum motivo, e se uma x509 certificado pode ser obtido por meio de fora de banda, uma operação de intercalação pode ser feita para concluir o certificado de KV.
+Se a solicitação para criar o certificado X509 falhar ou cancelar por algum motivo, e se um certificado X509 puder ser recuperado por meios fora de banda, uma operação de mesclagem poderá ser feita para concluir o certificado KV.
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -287,19 +287,19 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 ```
 
-## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Pedir um cancelamento, enquanto o estado do pedido pendente é "inProgress"
-Só pode ser pedido um cancelamento. Um pedido pode ou não pode ser cancelado. Se um pedido não for "inProgress", é devolvido um Estado de http de 400 (pedido incorreto).
+## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Solicitar um cancelamento enquanto o status da solicitação pendente for "InProgress"
+Um cancelamento só pode ser solicitado. Uma solicitação pode ou não ser cancelada. Se uma solicitação não for "InProgress", um status HTTP de 400 (solicitação inválida) será retornado.
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Pedir
-PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+DISTRIBUÍDO`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+DISTRIBUÍDO`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ```json
 {
@@ -325,21 +325,21 @@ StatusCode: 200, ReasonPhrase: 'OK'
 }
 ```
 
-## <a name="delete-a-pending-request-object"></a>Eliminar um objeto com solicitação pendente
+## <a name="delete-a-pending-request-object"></a>Excluir um objeto de solicitação pendente
 
 > [!NOTE]
-> A eliminar o objeto pendente pode ou não pode cancelar a x509 pedido de certificado com o fornecedor.
+> Excluir o objeto pendente pode ou não cancelar a solicitação de certificado X509 com o provedor.
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Pedir
-ELIMINAR `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+APAGAR`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-ELIMINAR `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+APAGAR`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Resposta
 
@@ -357,10 +357,10 @@ StatusCode: 200, ReasonPhrase: 'OK'
 }
 ```
 
-## <a name="create-a-kv-certificate-manually"></a>Criar um certificado de KV manualmente
-Pode criar um certificado emitido com uma autoridade de certificação da sua preferência através de um processo de criação manual. Defina o nome do emissor como "Desconhecido" ou não especificar o campo emissor.
+## <a name="create-a-kv-certificate-manually"></a>Criar um certificado KV manualmente
+Você pode criar um certificado emitido com uma CA de sua escolha por meio de um processo de criação manual. Defina o nome do emissor como "desconhecido" ou não especifique o campo emissor.
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -398,9 +398,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Intercalar quando é criado um pedido pendente - a criação manual de certificados
+## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Mesclar quando uma solicitação pendente for criada-criação manual de certificado
 
-|Método|URI do pedido|
+|Método|URI de pedido|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -413,9 +413,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Nome do elemento|Necessário|Tipo|Version|Descrição|
+|Nome do elemento|Requerido|Type|Version|Descrição|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Sim|array|\<Introdução ao versão >|Cadeia de certificados X509 como base matriz de cadeia 64.|
+|x5c|Sim|array|\<Apresentando a versão >|Cadeia de certificados X509 como matriz de cadeia de caracteres de base 64.|
 
 ### <a name="response"></a>Resposta
 

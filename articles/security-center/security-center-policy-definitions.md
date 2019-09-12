@@ -2,24 +2,18 @@
 title: Definições de política do Azure monitoradas na central de segurança do Azure | Microsoft Docs
 description: Definições de política do Azure monitoradas na central de segurança do Azure.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 56e6285501529f26e3622e2f773dbd373c169c10
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990493"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910358"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança do Azure monitoradas pela central de segurança
 Este artigo fornece uma lista de definições de Azure Policy que você pode monitorar na central de segurança do Azure. Para obter mais informações sobre políticas de segurança, consulte [trabalhando com políticas de segurança](tutorial-security-policy.md).
@@ -50,7 +44,7 @@ Para saber mais sobre as políticas internas que são monitoradas pela central d
 |Os logs de diagnóstico no Azure Data Lake Store devem ser habilitados|Auditar a habilitação de logs e mantê-los em um ano. Isso cria trilhas de atividade para investigação quando ocorre um incidente de segurança ou sua rede é comprometida.|
 |Os logs de diagnóstico no Data Lake Analytics devem ser habilitados|Auditar a habilitação de logs e mantê-los por até um ano. Isso cria trilhas de atividade para investigação quando ocorre um incidente de segurança ou sua rede é comprometida.|
 |As contas de armazenamento devem ser migradas para novos recursos do AzureRM|Use Azure Resource Manager para suas contas de armazenamento para fornecer aprimoramentos de segurança. Estas incluem: <br>-Controle de acesso mais forte (RBAC)<br>-Melhor auditoria<br>-Implantação e governança com base em Azure Resource Manager<br>-Acesso a identidades gerenciadas<br>-Acesso a Azure Key Vault para segredos<br>-Autenticação baseada no Azure AD<br>-Suporte para marcas e grupos de recursos para facilitar o gerenciamento da segurança|
-|As máquinas virtuais devem ser migradas para novos recursos do AzureRM|Use Azure Resource Manager para suas máquinas virtuais para fornecer aprimoramentos de segurança.  Estas incluem: <br>-Controle de acesso mais forte (RBAC)<br>-Melhor auditoria<br>-Implantação e governança com base em Azure Resource Manager<br>-Acesso a identidades gerenciadas<br>-Acesso a Azure Key Vault para segredos<br>-Autenticação baseada no Azure AD<br>-Suporte para marcas e grupos de recursos para facilitar o gerenciamento da segurança|
+|As máquinas virtuais devem ser migradas para novos recursos do AzureRM|Use Azure Resource Manager para suas máquinas virtuais para fornecer aprimoramentos de segurança. Estas incluem: <br>-Controle de acesso mais forte (RBAC)<br>-Melhor auditoria<br>-Implantação e governança com base em Azure Resource Manager<br>-Acesso a identidades gerenciadas<br>-Acesso a Azure Key Vault para segredos<br>-Autenticação baseada no Azure AD<br>-Suporte para marcas e grupos de recursos para facilitar o gerenciamento da segurança|
 |As regras de alerta de métrica devem ser configuradas em contas do lote|Auditar a configuração de regras de alerta de métricas em contas do lote do Azure para habilitar a métrica necessária.|
 |Os logs de diagnóstico em contas do lote devem ser habilitados|Auditar a habilitação de logs e mantê-los por até um ano. Isso cria trilhas de atividade para investigação quando ocorre um incidente de segurança ou sua rede é comprometida.|
 |A criptografia deve ser habilitada em variáveis de conta de automação|É importante habilitar a criptografia de ativos de variável de conta de automação do Azure ao armazenar dados confidenciais.|

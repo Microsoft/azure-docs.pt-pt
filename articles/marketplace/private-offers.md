@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3d97fd167f0f946239d4de24bb180796ebb498d3
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013624"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885866"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 
@@ -29,11 +29,11 @@ Os clientes corporativos usam cada vez mais Marketplaces online para localizar, 
 
 As ofertas privadas permitem que os editores aproveitem a escala e a disponibilidade global de um Marketplace público, com a flexibilidade e o controle necessários para negociar e fornecer configurações e negócios personalizados. Juntos, esses recursos abrem a porta para a adoção forte da empresa de Marketplaces de nuvem.  As empresas agora podem comprar e vender de maneiras que esperam e exigem.
 
-As ofertas privadas agora estão disponíveis para máquinas virtuais, Aplicativo Azure (implementado como modelos de solução ou aplicativos gerenciados) e ofertas de aplicativos SaaS. Como as ofertas públicas, as ofertas privadas podem ser criadas e gerenciadas por meio do [portal do Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Os clientes podem ter acesso concedido ou revogado a ofertas privadas em minutos.
+As ofertas privadas agora estão disponíveis para máquinas virtuais, Aplicativo Azure (implementado como modelos de solução ou aplicativos gerenciados) e ofertas de aplicativos SaaS. Como as ofertas públicas, as ofertas privadas podem ser criadas e gerenciadas por meio do [portal do Cloud Partner](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  Os clientes podem ter acesso concedido ou revogado a ofertas privadas em minutos.
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>Criando ofertas privadas usando SKUs e planos
 
-Para *ofertas novas ou existentes com SKUs ou planos públicos*, os editores podem criar facilmente novas variações privadas, criando novas SKUs ou planos e marcando-as como particulares.  Os SKUs e os planos [privados](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) são componentes de uma oferta e só são visíveis e compráveisdos pelos clientes de destino. Os planos e SKUs particulares podem reutilizar as imagens base e/ou oferecer metadados já publicados para um plano ou SKU público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem base e oferecer metadados. Para as ofertas de máquina virtual e aplicativo do Azure somente, quando uma SKU privada compartilha uma imagem base com um SKU público, todas as alterações na imagem base da oferta serão propagadas em todas as SKUs públicas e privadas usando essa imagem base.
+Para *ofertas novas ou existentes com SKUs ou planos públicos*, os editores podem criar facilmente novas variações privadas, criando novas SKUs ou planos e marcando-as como particulares.  Os SKUs e os planos [privados](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) são componentes de uma oferta e só são visíveis e compráveisdos pelos clientes de destino. Os planos e SKUs particulares podem reutilizar as imagens base e/ou oferecer metadados já publicados para um plano ou SKU público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem base e oferecer metadados. Para as ofertas de máquina virtual e aplicativo do Azure somente, quando uma SKU privada compartilha uma imagem base com um SKU público, todas as alterações na imagem base da oferta serão propagadas em todas as SKUs públicas e privadas usando essa imagem base.
 
 Para *novas ofertas que incluem apenas SKUs particulares ou planos*, os editores podem criar suas ofertas como qualquer outra oferta e, em seguida, marcar os SKUs ou planos como particulares. As ofertas que têm apenas os SKUs ou os planos privados não poderão ser descobertos ou acessíveis por meio do [Azure Marketplace](https://azuremarketplace.microsoft.com) ou pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estão associados à oferta.
 
@@ -52,4 +52,4 @@ Ofertas privadas também serão exibidas nos resultados da pesquisa. Basta procu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você quiser aproveitar esses novos recursos, você pode começar a vender no [Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Para começar a usar as ofertas privadas, siga as etapas no guia [SKUs e planos privados](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) .

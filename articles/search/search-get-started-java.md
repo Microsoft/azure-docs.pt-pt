@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido do Java: Criar, carregar e consultar índices em Java'
+title: 'Início rápido: Criar um índice de pesquisa em Java usando APIs REST-Azure Search'
 description: Explica como criar um índice, carregar dados e executar consultas usando Java e as APIs REST do Azure Search.
 author: lisaleib
 manager: nitinme
@@ -10,15 +10,15 @@ ms.service: search
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/11/2019
-ms.openlocfilehash: eec22d14c2d71a94f21a2403463315d477032ede
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 09/10/2019
+ms.openlocfilehash: 455f3dfdce93d0b39960f9ec87b0938060f87687
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186724"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881568"
 ---
-# <a name="quickstart-create-load-and-query-indexes-using-azure-search-rest-apis-with-java"></a>Início rápido: Criar, carregar e consultar índices usando Azure Search APIs REST com Java
+# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>Início rápido: Criar um índice de Azure Search em Java usando APIs REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -76,7 +76,7 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 ### <a name="specify-maven-dependencies"></a>Especificar dependências do Maven
 
 1. Selecione**configurações**de **arquivo** > .
-1. Na janela **configurações** , selecione **compilação, execução, implantação** > **ferramentas** > de compilação**Maven** > importando.
+1. Na janela **configurações** , selecione **compilação, execução, implantação** > **ferramentas** > de compilação**Maven** > **importando**.
 1. Marque a caixa de seleção **Importar projetos Maven automaticamente** e clique em **OK** para fechar a janela. Os plug-ins do Maven e outras dependências agora serão sincronizados automaticamente quando você atualizar o arquivo pom. xml na próxima etapa.
 
     ![Opções de importação do Maven nas configurações do IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
@@ -827,7 +827,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido do Java, você trabalhou em uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Se você estiver familiarizado com os conceitos básicos, recomendamos os seguintes artigos para um aprendizado mais profundo.
 

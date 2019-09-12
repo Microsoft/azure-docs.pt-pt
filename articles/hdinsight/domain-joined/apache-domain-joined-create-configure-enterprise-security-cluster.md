@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: bb6a3cff46c975ae6b59f0c6f97e37037f638620
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
-ms.translationtype: MT
+ms.openlocfilehash: f83fbda9f211b094a95e557a6b9d727d508927bd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845919"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885749"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters Enterprise Security Package no Azure HDInsight
 
@@ -25,7 +25,7 @@ Este guia destina-se a complementar o [uso de Enterprise Security Package no HDI
 
 Antes de usar esse processo em seu próprio ambiente, a instalação Active Directory e o DNS (serviços de nomes de domínio). Além disso, habilite Azure Active Directory e sincronize contas de usuário locais para Azure Active Directory.
 
-![Diagrama de arquitetura](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
+![Diagrama da arquitetura](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
 
 ## <a name="create-on-premises-environment"></a>Criar um ambiente local
 
@@ -156,7 +156,7 @@ Descrição geral: Agora você configurará seu locatário do Azure AD para que 
 
     1. Clique em **usar configurações expressas** e conclua a instalação.
 
-        ![Utilizar definições rápidas](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image054.png)
+        ![Utilizar definições rápidas](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0054.png)
 
 ### <a name="configure-sync-with-on-premises-domain-controller"></a>Configurar a sincronização com o controlador de domínio local
 
@@ -168,9 +168,9 @@ Descrição geral: Agora você configurará seu locatário do Azure AD para que 
 1. Na página de **configuração de entrada do Azure ad** , clique em **Avançar**.
     ![Configuração de entrada do Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 1. Na tela pronto para configurar, clique em **instalar**.
-    ![install](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image064.png)
+    ![Instalar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 1. Quando a tela **configuração concluída** for exibida, clique em **sair**.
-    ![configuração concluída](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
+    ![Configuração concluída](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Após a conclusão da sincronização, confirme se os usuários que você criou no Active Directory de IAAS são sincronizados com Azure Active Directory.
     1. Inicie sessão no Portal do Azure.
@@ -213,11 +213,11 @@ Para obter mais informações, consulte [habilitar Azure Active Directory Domain
     1. Selecione a sua subscrição.
     1. Especifique o grupo de recursos **HDIFabrikam-centralus** e o **local** de **EUA Central**.
 
-        ![detalhes básicos do Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image084.png)
+        ![Azure AD-detalhes básicos do DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
 
 1. Na tela **rede** concluída, selecione a rede (**HDIFabrikam-VNET**) e a sub-rede (**AADDS**) que você criou com o script do PowerShell anterior. Ou você pode usar a opção **criar novo** para criar uma rede virtual agora.
 
-    ![selecionar rede](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
+    ![Selecionar rede](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
 1. Na tela **grupo de administradores** , você deverá ver uma notificação de que um grupo chamado **Administradores do AAD DC** já foi criado para administrar esse grupo. Opcionalmente, você pode modificar a associação desse grupo, mas ele não é necessário para as etapas deste artigo. Clique em **OK**.
 
@@ -225,7 +225,7 @@ Para obter mais informações, consulte [habilitar Azure Active Directory Domain
 
 1. Na tela **sincronização** , habilite sincronização completa selecionando **tudo** e clique em **OK**.
 
-    ![Habilitar sincronização](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image090.png)
+    ![Habilitar sincronização](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png)
 
 1. Na tela **Resumo** , verifique os detalhes do Azure AD-DS e clique em **OK**.
 
@@ -239,7 +239,7 @@ As etapas nesta seção ajudarão você a configurar sua rede virtual do Azure A
 
 1. Localize os endereços IP dos seus servidores DNS personalizados. Clique no recurso AD-DS do **HDIFabrikam.com** , clique em **Propriedades** em **gerenciar**   e examine os endereços IP listados em **endereço IP na rede virtual**.
 
-    ![Localizar endereços IP de DNS personalizados para o Azure AD-DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image096.png)
+    ![Localizar endereços IP de DNS personalizados para o Azure AD-DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
 
 1. Configure **HDIFabrikam-AADDSVNET** para IPS `10.0.0.4` personalizados e `10.0.0.5`.
 
@@ -248,7 +248,7 @@ As etapas nesta seção ajudarão você a configurar sua rede virtual do Azure A
 
 1. Em nosso cenário, o Azure AD-DS foi configurado para usar os endereços IP 10.0.0.4 e 10.0.0.5, definindo o mesmo endereço IP na VNet AADDS como mostrado na imagem abaixo.
 
-    ![Exibir servidores DNS personalizados](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image098.png)
+    ![Exibir servidores DNS personalizados](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0098.png)
 
 ## <a name="securing-ldap-traffic"></a>Protegendo o tráfego LDAP
 
@@ -282,7 +282,7 @@ Verifique se o certificado está instalado no repositório pessoal\'do computado
 
 1. Na página **Exportar chave** privada, clique em **Sim, exportar a chave privada**. A chave privada é necessária para que as mensagens criptografadas sejam lidas do computador em que a chave será importada.
 
-    ![Exportar chave privada](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image103.png)
+    ![Exportar chave privada](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. Na página **formato** do arquivo de exportação, deixe as configurações padrão e clique em **Avançar**. 
 1. Na página **senha** , digite uma senha para a chave privada, selecione **TripleDES-SHA1** para **criptografia** e clique em **Avançar**.
@@ -313,11 +313,11 @@ Verifique se o certificado está instalado no repositório pessoal\'do computado
         | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
-    ![regra de segurança de entrada](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
+    ![Regra de segurança de entrada](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
 1. `HDIFabrikamManagedIdentity`é a identidade gerenciada atribuída pelo usuário, a função colaborador de serviços de domínio do HDInsight está habilitada para a identidade gerenciada que permitirá que essa identidade Leia, crie, modifique e exclua operações de serviços de domínio.
 
-    ![criar identidade gerenciada atribuída pelo usuário](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
+    ![Criar a identidade gerida atribuída pelo utilizador](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
 ## <a name="creating-enterprise-security-package-enabled-hdinsight-cluster"></a>Criando Enterprise Security Package cluster HDInsight habilitado
 
@@ -347,7 +347,7 @@ Esta etapa requer os seguintes pré-requisitos:
     1. Selecione **personalizado** e insira `10.0.0.4` e `10.0.0.5`.
     1. Clique em **Guardar**.
 
-        ![salvar configurações personalizadas de DNS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
+        ![Salvar configurações personalizadas de DNS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. Crie um novo cluster HDInsight Spark habilitado para ESP.
     1. Clique em **personalizado (tamanho, configurações, aplicativos)** .
@@ -365,18 +365,18 @@ Esta etapa requer os seguintes pré-requisitos:
 
 1. Entre na interface do usuário do amAmbari para o cluster recém-criado `https://CLUSTERNAME.azurehdinsight.net` em usando seu nome `hdiadmin@hdifabrikam.com` de usuário e senha de administrador.
 
-    ![entrar no Ambari](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image135.jpg)
+    ![entrar no Ambari](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 
 1. Clique em **funções** no painel do cluster.
 1. Na página **funções** , insira o grupo **hdiusergroup** para atribuí-lo à função de **administrador de cluster** em **atribuir funções a eles**.
 
-    ![atribuir função de administrador de cluster ao hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
+    ![Atribuir função de administrador de cluster ao hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
-1. Abra o cliente SSH e faça logon no cluster usando o **hdiuser** que você criou anteriormente no Active Directory local.
+1. Abra o cliente SSH e entre no cluster usando o **hdiuser** que você criou anteriormente no Active Directory local.
 
-    ![fazer logon no cluster com o SSH](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
+    ![Entrar no cluster com o SSH](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
 
-Se você conseguir fazer logon com essa conta, você configurou o cluster do ESP corretamente para sincronizar com o Active Directory local.
+Se for possível entrar com essa conta, você terá configurado o cluster do ESP corretamente para sincronizar com o Active Directory local.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

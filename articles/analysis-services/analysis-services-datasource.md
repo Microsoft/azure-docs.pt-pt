@@ -1,120 +1,120 @@
 ---
-title: Origens de dados suportadas no Azure Analysis Services | Documentos da Microsoft
-description: Descreve as origens de dados suportadas para modelos de dados no Azure Analysis Services.
+title: Fontes de dados com suporte no Azure Analysis Services | Microsoft Docs
+description: Descreve as fontes de dados com suporte para modelos de dados no Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/10/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142550"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899419"
 ---
-# <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
-Origens de dados e conectores mostradas em obter dados ou o Assistente de importação no Visual Studio são apresentadas para o Azure Analysis Services e o SQL Server Analysis Services. No entanto, nem todas as origens de dados e conectores mostrados são suportadas no Azure Analysis Services. Os tipos de origens de dados, que pode ligar a dependem muitos fatores, tais como modelam o nível de compatibilidade, conectores de dados disponíveis, tipo de autenticação, fornecedores e suporte de gateway de dados no local. 
+As fontes de dados e conectores mostrados no Assistente para obter dados ou importação no Visual Studio são mostrados para Azure Analysis Services e SQL Server Analysis Services. No entanto, nem todas as fontes de dados e conectores mostrados têm suporte no Azure Analysis Services. Os tipos de fontes de dados aos quais você pode se conectar dependem de vários fatores, como nível de compatibilidade de modelo, conectores de dados disponíveis, tipo de autenticação, provedores e suporte a gateway de dados local. 
 
 ## <a name="azure-data-sources"></a>Origens de dados do Azure
 
 |Origem de dados  |Dentro da memória  |DirectQuery  |
 |---------|---------|---------|
-|Base de dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
+|Banco de dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
 |Azure SQL Data Warehouse     |   Sim      |   Sim       |
-|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
+|Armazenamento de BLOBs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
 |Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não      |
-|O Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não       |
+|Azure Data Lake Store (GEN1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não       |
 |Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não       |
 ||||
 
-<a name="tab1400a">1</a> -1400 em tabela e apenas a modelos superior.   
-<a name="azsqlmanaged">2</a> -instância gerida da base de dados SQL do azure é suportada. Uma vez que uma instância gerida é executado dentro de VNet do Azure com um endereço IP privado, um Gateway de dados no local é necessário. O Azure SQL Database Managed Instance com um ponto final público não é atualmente suportada.   
-<a name="databricks">3</a> - azure Databricks com o Spark conector não é atualmente suportado.   
-<a name="gen2">4</a> -ADLS Gen2 não é atualmente suportada.
+<a name="tab1400a">1</a> -somente modelos tabulares 1400 e superiores.   
+Há suporte para <a name="azsqlmanaged">2</a> -instância gerenciada do banco de dados SQL do Azure. Como a instância gerenciada é executada na VNet do Azure com um endereço IP privado, o ponto de extremidade público deve ser habilitado na instância. Se não estiver habilitado, um gateway de dados local será necessário.    
+Não há <a name="databricks">suporte para o</a> Azure Databricks usando o conector do Spark no momento.   
+Não há suporte para <a name="gen2">4</a> -ADLS Gen2 no momento.
 
 
-**Fornecedor**   
-Dentro da memória e os modelos do DirectQuery ligar a origens de dados do Azure utilizam o fornecedor de dados do .NET Framework para o SQL Server.
+**Operador**   
+Modelos na memória e DirectQuery que se conectam a fontes de dados do Azure usam .NET Framework Provedor de Dados para SQL Server.
 
 ## <a name="on-premises-data-sources"></a>Origens de dados no local
 
-A ligar no local origens de dados de e o servidor do Azure requerem um gateway no local. Quando utilizar um gateway, os fornecedores de 64 bits são necessários.
+Conectar-se a fontes de dados locais do e do Azure como servidor requer um gateway local. Ao usar um gateway, são necessários provedores de 64 bits.
 
-### <a name="in-memory-and-directquery"></a>Dentro da memória e DirectQuery
+### <a name="in-memory-and-directquery"></a>Na memória e DirectQuery
 
-|Origem de dados | Fornecedor de dentro da memória | Fornecedor de DirectQuery |
+|Origem de dados | Provedor na memória | Provedor DirectQuery |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o fornecedor de dados do .NET Framework para o SQL Server | Fornecedor de dados do .NET framework para o SQL Server |
-| Armazém de dados do SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o fornecedor de dados do .NET Framework para o SQL Server | Fornecedor de dados do .NET framework para o SQL Server |
-| Oracle | Fornecedor OLE DB para Oracle, o provedor de dados Oracle para .NET |Fornecedor de dados do Oracle para .NET |
-| Teradata |Fornecedor OLE DB para Teradata, fornecedor de dados do Teradata para .NET |Fornecedor de dados do Teradata para .NET |
+| SQL Server |SQL Server Native Client 11,0, provedor de OLE DB da Microsoft para SQL Server, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
+| Armazém de dados do SQL Server |SQL Server Native Client 11,0, provedor de OLE DB da Microsoft para SQL Server, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
+| Oracle | Provedor de OLE DB para Oracle, Oracle Provedor de Dados para .NET |Oracle Provedor de Dados para .NET |
+| Teradata |Provedor de OLE DB para Teradata, Teradata Provedor de Dados para .NET |Provedor de Dados Teradata para .NET |
 | | | |
 
-### <a name="in-memory-only"></a>Na memória apenas
+### <a name="in-memory-only"></a>Somente na memória
 
 |Origem de dados  |  
 |---------|
-|Base de dados de acesso     |  
+|Banco de dados do Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
-|Analytics Platform System     |  
-|Ficheiro CSV  |
+|Sistema de plataforma de análise     |  
+|Arquivo CSV  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
-|Livro do Excel     |  
+|Pasta de trabalho do Excel     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
 |Pasta<sup>[1](#tab1400b)</sup>     |
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
-|Um documento JSON<sup>[1](#tab1400b)</sup>     |  
-|Linhas de binário<sup>[1](#tab1400b)</sup>     | 
+|Documento JSON<sup>[1](#tab1400b)</sup>     |  
+|Linhas do binário<sup>[1](#tab1400b)</sup>     | 
 |Base de Dados MySQL     | 
-|OData Feed<sup>[1](#tab1400b)</sup>     |  
+|Feed do OData<sup>[1](#tab1400b)</sup>     |  
 |Consulta ODBC     | 
 |OLE DB     |   
-|Base de dados Postgre SQL<sup>[1](#tab1400b)</sup>    | 
+|Banco de dados PostgreSQL<sup>[1](#tab1400b)</sup>    | 
 |Objetos do Salesforce<sup>[1](#tab1400b)</sup> |  
-|Salesforce Reports<sup>[1](#tab1400b)</sup> |
+|Relatórios do Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Base de dados Sybase     |  
-|Ficheiro TXT  |
+|Arquivo TXT  |
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> -1400 em tabela e apenas a modelos superior.   
-<a name="filesSP">2</a> -não são suportados ficheiros no SharePoint no local.
+<a name="tab1400b">1</a> -somente modelos tabulares 1400 e superiores.   
+<a name="filesSP">2</a> -não há suporte para os arquivos no SharePoint local.
 
-## <a name="specifying-a-different-provider"></a>Especificar um fornecedor diferente
+## <a name="specifying-a-different-provider"></a>Especificando um provedor diferente
 
-Modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes, ao ligar a determinadas origens de dados. Em alguns casos, os modelos em tabela, ligar a origens de dados utilizar fornecedores nativos, como o SQL Server Native Client (SQLNCLI11) podem devolver um erro. Se utilizar fornecedores nativos que não seja SQLOLEDB, poderá ver a mensagem de erro: **O fornecedor 'SQLNCLI11.1' não está registada**. Em alternativa, se tem um modelo DirectQuery, ligação a origens de dados no local e utilizar fornecedores nativos, poderá ver a mensagem de erro: **Erro ao criar o conjunto de linhas OLE DB. Sintaxe incorreta perto de "LIMIT"** .
+Os modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes ao se conectar a determinadas fontes de dados. Em alguns casos, os modelos de tabela que se conectam a fontes de dados usando provedores nativos como SQL Server Native Client (SQLNCLI11) podem retornar um erro. Se estiver usando provedores nativos diferentes de SQLOLEDB, você poderá ver a mensagem de erro: **O provedor ' sqlncli 11.1 ' não está registrado**. Ou, se você tiver um modelo DirectQuery conectando-se a fontes de dados locais e usar provedores nativos, poderá ver a mensagem de erro: **Erro ao criar OLE DB conjunto de linhas. Sintaxe incorreta próxima a '** Limit '.
 
-Ao migrar um modelo de tabela do SQL Server Analysis Services no local para o Azure Analysis Services, poderá ser necessário alterar o fornecedor.
+Ao migrar um modelo de tabela de SQL Server Analysis Services local para Azure Analysis Services, pode ser necessário alterar o provedor.
 
-**Para especificar um fornecedor**
+**Para especificar um provedor**
 
-1. No SSDT > **Explorador de modelos tabulares** > **origens de dados**, uma ligação de origem de dados com o botão direito e, em seguida, clique em **Editar origem de dados**.
-2. Na **ligação editar**, clique em **avançadas** para abrir a janela de propriedades de avanço.
-3. Na **definir propriedades avançadas** > **fornecedores**, em seguida, selecione o provedor apropriado.
+1. No SSDT >**fontes de dados**do **Gerenciador** > de modelos de tabela, clique com o botão direito do mouse em uma conexão de fonte de dados e clique em **Editar fonte de dados**.
+2. Em **Editar conexão**, clique em **avançado** para abrir a janela Propriedades avançadas.
+3. Em **definir propriedades** > avançadas**provedores**, selecione o provedor apropriado.
 
 ## <a name="impersonation"></a>Representação
-Em alguns casos, poderá ser necessário especificar uma conta de representação diferentes. Conta de representação pode ser especificada no Visual Studio (SSDT) ou o SSMS.
+Em alguns casos, pode ser necessário especificar uma conta de representação diferente. A conta de representação pode ser especificada no Visual Studio (SSDT) ou no SSMS.
 
-Para origens de dados no local:
+Para fontes de dados locais:
 
-* Se utilizar a autenticação de SQL, representação deve ser a conta de serviço.
-* Se utilizar a autenticação do Windows, defina Windows utilizador/palavra-passe. Para o SQL Server, autenticação do Windows com uma conta de representação específico só é suportada para modelos de dados na memória.
+* Se estiver usando a autenticação do SQL, a representação deverá ser a conta de serviço.
+* Se estiver usando a autenticação do Windows, defina usuário/senha do Windows. Para SQL Server, a autenticação do Windows com uma conta de representação específica tem suporte apenas para modelos de dados na memória.
 
-Para origens de dados de cloud:
+Para fontes de dados de nuvem:
 
-* Se utilizar a autenticação de SQL, representação deve ser a conta de serviço.
+* Se estiver usando a autenticação do SQL, a representação deverá ser a conta de serviço.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Gateway no local](analysis-services-gateway.md)   
-[Gerir o seu servidor](analysis-services-manage.md)   
+[Gateway local](analysis-services-gateway.md)   
+[Gerenciar seu servidor](analysis-services-manage.md)   
 

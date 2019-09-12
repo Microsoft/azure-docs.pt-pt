@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a3f9768043c9acef9640b8e286611de94e44a7ff
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941941"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910495"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Armazene dados críticos para os negócios no armazenamento de BLOBs do Azure
 
@@ -53,7 +53,7 @@ A exclusão de contêiner e conta também não será permitida se houver BLOBs p
 ### <a name="time-based-retention"></a>Retenção baseada em tempo
 
 > [!IMPORTANT]
-> Uma política de retenção baseada em tempo deve estar bloqueada para que o blob esteja em um estado compatível imutável (gravação e exclusão protegida) para SEC 17a-4 (f) e outra conformidade regulatória. É recomendável que você bloqueie a política em um período de tempo razoável, normalmente menos de 24 horas. O estado inicial de uma política de retenção baseada em tempo é *desbloqueado*, permitindo que você teste o recurso e faça alterações na política antes de bloqueá-lo. Embora o estado desbloqueado forneça proteção contra imutabilidade, não é recomendável usar o estado desbloqueado para qualquer outra finalidade que não seja a avaliação de recursos de curto prazo. 
+> Uma política de retenção baseada em tempo deve estar *bloqueada* para que o blob esteja em um estado compatível imutável (gravação e exclusão protegida) para SEC 17a-4 (f) e outra conformidade regulatória. É recomendável que você bloqueie a política em um período de tempo razoável, normalmente menos de 24 horas. O estado inicial de uma política de retenção baseada em tempo é *desbloqueado*, permitindo que você teste o recurso e faça alterações na política antes de bloqueá-lo. Embora o estado *desbloqueado* forneça proteção contra imutabilidade, não é recomendável usar o estado *desbloqueado* para qualquer outra finalidade que não seja a avaliação de recursos de curto prazo. 
 
 Quando uma política de retenção baseada em tempo é aplicada em um contêiner, todos os BLOBs no contêiner permanecerão no estado imutável durante o período de retenção *efetivo* . O período de retenção efetivo para BLOBs existentes é igual à diferença entre a hora da modificação do blob e o intervalo de retenção especificado pelo usuário.
 
@@ -175,7 +175,7 @@ Sim. Para documentar a conformidade, a Microsoft manteve uma importante empresa 
 
 **O recurso se aplica apenas a blobs de blocos ou a páginas e a blobs de acréscimo também?**
 
-O armazenamento imutável pode ser usado com qualquer tipo de blob como definido no nível de contêiner, mas recomendamos que você use WORM para contêineres que armazenam principalmente blobs de bloco. Ao contrário de blobs de bloco, todos os blobs de página e blobs de acréscimo precisam ser criados fora de um contêiner de WORM e, em seguida, copiados no. Depois de copiar esses BLOBs em um contêiner de WORM, não são permitidos acréscimos adicionais a um blob de acréscimo ou alterações em um blob de páginas. Portanto, a definição de uma política de WORM em um contêiner que armazena VHDs (BLOBs de páginas) para qualquer máquina virtual ativa é fortemente desencorajada, pois bloqueará o disco da VM.
+O armazenamento imutável pode ser usado com qualquer tipo de blob como definido no nível de contêiner, mas recomendamos que você use WORM para contêineres que armazenam principalmente blobs de bloco. Ao contrário de blobs de bloco, todos os blobs de página e blobs de acréscimo precisam ser criados fora de um contêiner de WORM e, em seguida, copiados no. Depois de copiar esses BLOBs em um contêiner de WORM, não são permitidos *acréscimos* adicionais a um blob de acréscimo ou alterações em um blob de páginas. Portanto, a definição de uma política de WORM em um contêiner que armazena VHDs (BLOBs de páginas) para qualquer máquina virtual ativa é fortemente desencorajada, pois bloqueará o disco da VM.
 
 **É necessário criar uma nova conta de armazenamento para usar esse recurso?**
 
@@ -189,7 +189,7 @@ Sim, um contêiner pode ter um controle legal e uma política de retenção base
 
 Não, a retenção legal é apenas o termo geral usado para uma política de retenção não baseada em tempo. Ele não precisa ser usado apenas para procedimentos relacionados a litígios. As políticas de retenção legal são úteis para desabilitar a substituição e as exclusões para proteger dados importantes do WORM corporativo, em que o período de retenção é desconhecido. Você pode usá-lo como uma política corporativa para proteger suas cargas de trabalho de WORMs de missão crítica ou usá-las como uma política de preparo antes que um gatilho de evento personalizado exija o uso de uma política de retenção baseada em tempo. 
 
-**Posso remover uma política de retenção baseada em tempo bloqueada ou uma retenção legal?**
+**Posso remover uma política de retenção baseada em tempo _bloqueada_ ou uma retenção legal?**
 
 Somente políticas de retenção baseadas em tempo desbloqueadas podem ser removidas de um contêiner. Quando uma política de retenção baseada em tempo é bloqueada, ela não pode ser removida; somente as extensões de período de retenção efetivas são permitidas. As marcas de retenção legal podem ser excluídas. Quando todas as marcas legais são excluídas, a retenção legal é removida.
 
@@ -211,7 +211,7 @@ No caso de não pagamento, as políticas de retenção de dados normais serão a
 
 **Oferecem um período de avaliação gratuita ou de tolerância para experimentar a funcionalidade?**
 
-Sim. Quando uma política de retenção baseada em tempo é criada pela primeira vez, ela está em um estado desbloqueado. Nesse estado, você pode fazer qualquer alteração desejada no intervalo de retenção, como aumentar ou diminuir e até mesmo excluir a política. Depois que a política estiver bloqueada, ela permanecerá bloqueada até que o intervalo de retenção expire. Essa política bloqueada impede a exclusão e a modificação no intervalo de retenção. É altamente recomendável que você use o estado desbloqueado somente para fins de avaliação e bloqueie a política em um período de 24 horas. Essas práticas ajudam você a cumprir com a SEC 17a-4 (f) e outras regulamentações.
+Sim. Quando uma política de retenção baseada em tempo é criada pela primeira vez, ela está em um estado *desbloqueado* . Nesse estado, você pode fazer qualquer alteração desejada no intervalo de retenção, como aumentar ou diminuir e até mesmo excluir a política. Depois que a política estiver bloqueada, ela permanecerá bloqueada até que o intervalo de retenção expire. Essa política bloqueada impede a exclusão e a modificação no intervalo de retenção. É altamente recomendável que você use o estado *desbloqueado* somente para fins de avaliação e bloqueie a política em um período de 24 horas. Essas práticas ajudam você a cumprir com a SEC 17a-4 (f) e outras regulamentações.
 
 **Posso usar a exclusão reversível juntamente com políticas de blob imutáveis?**
 

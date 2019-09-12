@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: cdc16c2ea01d14edc236d0d6a0897e0dd9578924
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68717456"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909803"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
 
@@ -584,7 +584,7 @@ Registre um evento de diagnóstico, como inserir ou sair de um método.
 ---|---
 `message` | Dados de diagnóstico. Pode ser muito mais longo do que um nome.
 `properties` | Mapa de cadeia de caracteres para cadeia de caracteres: Dados adicionais usados para [Filtrar exceções](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) no Portal. O padrão é vazio.
-`severityLevel` | Valores com suporte: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
+`severityLevel` | Valores com suporte: [SeverityLevel.ts](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 Você pode pesquisar o conteúdo da mensagem, mas (diferentemente dos valores da propriedade) não é possível filtrá-lo.
 

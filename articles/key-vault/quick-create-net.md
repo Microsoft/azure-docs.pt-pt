@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c67b24d57117a248559424497939a04ce347658c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 8bc1e4d5eae76796e82195b4ef34ddefc54302b9
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308945"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910330"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início rápido: Biblioteca de cliente Azure Key Vault para .NET
 
@@ -156,7 +156,7 @@ Adicione as seguintes diretivas à parte superior do seu código:
 
 ### <a name="authenticate-to-your-key-vault"></a>Autenticar no cofre de chaves
 
-Este início rápido do .NET se baseia em variáveis de ambiente para armazenar credenciais que não devem, porém, colocar em código. 
+Este início rápido do .NET depende de variáveis de ambiente para armazenar credenciais que não devem ser colocadas no código. 
 
 Antes de compilar e executar seu aplicativo, use o `setx` comando para definir as `akvClientId`variáveis `akvClientSecret`de `akvTenantId`ambiente, `akvSubscriptionId` , e para os valores que você anotou acima.
 

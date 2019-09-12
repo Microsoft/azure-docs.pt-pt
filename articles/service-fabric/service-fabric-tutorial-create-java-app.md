@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 56a68f852e9eee3303540d6ebd180608935c6135
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 57c9bd8caf6e8762ed07ac5e6f4ff16171569723
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172070"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900675"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Criar um aplicativo com um serviço de front-end de API Java e um serviço de back-end com estado no Azure Service Fabric
 
-Este tutorial é a primeira parte de uma série. Quando tiver terminado, terá uma aplicação de Voto com um front-end para a Web em Java que guarda os resultados das votações num serviço back-end com estado no cluster. Esta série de tutoriais requer que tenha um computador de programador Mac OSX ou Linux. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-java-quickstart) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Além disso, considere seguir o guia [de início rápido para Java Reliable Services.](service-fabric-quickstart-java-reliable-services.md)
-
+Este tutorial é a primeira parte de uma série. Quando terminar, você terá um aplicativo de votação com um front-end da Web do Java que salva os resultados da votação em um serviço de back-end com estado no Azure Service Fabric. Esta série de tutoriais requer que tenha um computador de programador Mac OSX ou Linux. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-java-quickstart) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Além disso, considere seguir o guia [de início rápido para Java Reliable Services.](service-fabric-quickstart-java-reliable-services.md)
 
 ![Aplicação de Voto Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 

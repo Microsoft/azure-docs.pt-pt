@@ -30,7 +30,7 @@ Para obter detalhes sobre solicitações de webhook, consulte [referência de es
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até o registro de contêiner no qual você deseja criar um webhook.
-1. Em **Serviços**, selecione **** WebHooks.
+1. Em **Serviços**, selecioneWebHooks.
 1. Selecione **Adicionar** na barra de ferramentas do webhook.
 1. Conclua o formulário *criar webhook* com as seguintes informações:
 

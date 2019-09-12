@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278184"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879056"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
@@ -138,8 +138,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> Para o procedimento de validação cruzada (CV), os dados de série temporal podem violar as suposições estatísticas básicas da estratégia de validação cruzada de K-fold canônico, portanto, o aprendizado de máquina automatizado implementa um procedimento de validação de origem sem interrupção para criar partições de validação cruzada para dados de série temporal. Para usar este procedimento, especifique o `n_cross_validations` parâmetro `AutoMLConfig` no objeto. Você pode ignorar a validação e usar seus próprios conjuntos de validação `X_valid` com `y_valid` os parâmetros e.
+Consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obter exemplos de código detalhado de configuração de previsão avançada, incluindo:
+
+* detecção de feriados e personalização
+* validação cruzada de origem sem interrupção
+* retardo configurável
+* recursos agregados de janela sem interrupção
 
 ### <a name="view-feature-engineering-summary"></a>Exibir Resumo de engenharia de recursos
 

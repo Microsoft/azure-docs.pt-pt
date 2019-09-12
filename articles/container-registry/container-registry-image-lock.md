@@ -67,7 +67,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Bloquear uma imagem por Resumo do manifesto
 
-Para bloquear uma imagem myrepositório/MyImage identificada pelo resumo do manifesto (SHA-256 hash, `sha256:...`representado como), execute o comando a seguir. ** (Para localizar o resumo do manifesto associado a uma ou mais marcas de imagem, execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] .)
+Para bloquear uma imagem myrepositório/MyImage identificada pelo resumo do manifesto (SHA-256 hash, `sha256:...`representado como), execute o comando a seguir. (Para localizar o resumo do manifesto associado a uma ou mais marcas de imagem, execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] .)
 
 ```azurecli
 az acr repository update \

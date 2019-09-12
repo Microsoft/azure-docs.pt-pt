@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d697cd49363139cfeae2753a4f1ae40fca6e6b2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802502"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881523"
 ---
 # <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
@@ -25,7 +25,7 @@ ms.locfileid: "70802502"
 
 Para poder fazer qualquer coisa com Fala Personalizada, você precisará de uma conta do Azure e uma assinatura de serviços de fala. Depois de ter uma conta, você pode preparar seus dados, treinar e testar seus modelos, inspecionar a qualidade do reconhecimento, avaliar a precisão e, por fim, implantar e usar o modelo de fala em texto personalizado.
 
-Este diagrama realça as partes que compõem o [portal de fala personalizada](https://speech.microsoft.com/customspeech). Use os links abaixo para saber mais sobre cada etapa.
+Este diagrama realça as partes que compõem o [portal de fala personalizada](https://aka.ms/customspeech). Use os links abaixo para saber mais sobre cada etapa.
 
 ![Realça os diferentes componentes que compõem o portal de Fala Personalizada.](./media/custom-speech/custom-speech-overview.png)
 
@@ -61,7 +61,7 @@ Conteúdo como dados, modelos, testes e pontos de extremidade são organizados e
 
 Para criar seu primeiro projeto, selecione a fala de **fala para texto/Personalizada**e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você deverá ver quatro guias: **Dados**, **teste**, **treinamento**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)

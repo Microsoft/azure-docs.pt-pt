@@ -3,18 +3,18 @@ title: Diretrizes de limitação do Azure Key Vault
 description: Limitação do Key Vault limita o número de chamadas simultâneas para impedir o uso excessivo de recursos.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695237"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883042"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -31,7 +31,7 @@ Se tiver um caso comercial válido para limites de limitação mais elevados, en
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Como limitar a sua aplicação em resposta a limites de serviço
 
-Seguem-se **melhores práticas** deve implementar quando seu serviço está limitado:
+Veja a seguir as **práticas recomendadas** que você deve implementar quando o serviço for limitado:
 - Reduza o número de operações por pedido.
 - Reduza a frequência de pedidos.
 - Evite as repetições imediatas. 
@@ -112,7 +112,7 @@ Código que implementa um término exponencial é mostrado abaixo.
 ```
 
 
-Usando este código num cliente C\# aplicativo é simples. A exemplo a seguir mostra como, usando a classe HttpClient.
+O uso desse código em um aplicativo\# cliente C é simples. O exemplo a seguir mostra como, usando a classe HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

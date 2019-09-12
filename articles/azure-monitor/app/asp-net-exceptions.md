@@ -215,7 +215,7 @@ Há vários casos que os filtros de exceção não podem manipular. Por exemplo:
 * Exceção lançada durante a inicialização do aplicativo.
 * Exceção lançada em tarefas em segundo plano.
 
-Todas as ** exceções manipuladas pelo aplicativo ainda precisam ser rastreadas manualmente.
+Todas as exceções manipuladas pelo aplicativo ainda precisam ser rastreadas manualmente.
 Exceções sem tratamento originadas de controladores normalmente resultam em uma resposta de 500 "erro interno do servidor". Se essa resposta for construída manualmente como resultado da exceção manipulada (ou nenhuma exceção), ela será controlada na telemetria de solicitação correspondente `ResultCode` com 500, no entanto Application insights SDK não consegue rastrear a exceção correspondente.
 
 ### <a name="prior-versions-support"></a>Suporte a versões anteriores
@@ -307,7 +307,7 @@ Há vários casos que os filtros de exceção não podem manipular. Por exemplo:
 * Exceção lançada durante a inicialização do aplicativo.
 * Exceção lançada em tarefas em segundo plano.
 
-Todas as ** exceções manipuladas pelo aplicativo ainda precisam ser rastreadas manualmente.
+Todas as exceções manipuladas pelo aplicativo ainda precisam ser rastreadas manualmente.
 Exceções sem tratamento originadas de controladores normalmente resultam em uma resposta de 500 "erro interno do servidor". Se essa resposta for construída manualmente como resultado da exceção manipulada (ou nenhuma exceção), ela será rastreada em uma telemetria de solicitação `ResultCode` correspondente com 500, no entanto Application insights SDK não consegue rastrear a exceção correspondente.
 
 ### <a name="prior-versions-support"></a>Suporte a versões anteriores

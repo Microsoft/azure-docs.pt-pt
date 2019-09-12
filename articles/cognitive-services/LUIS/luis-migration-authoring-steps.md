@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: aa0c34a361ce191618d7b84e7a96557f2344284a
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7a6091ac1a0d54d997c40fe284d58426ecadf765
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803940"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898863"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Etapas para migrar para o recurso de criação do Azure
 
@@ -100,6 +100,10 @@ O processo de migração estará disponível se você for o proprietário de qua
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
 Saiba [como adicionar colaboradores](luis-how-to-collaborate.md). 
+
+## <a name="troubleshooting-errors-with-the-migration-process"></a>Solucionando erros com o processo de migração
+
+Se você receber um `MissingSubscriptionRegistration` erro no portal do Luis com uma barra de notificação vermelha durante o processo de migração, crie um recurso de serviço cognitiva no [portal do Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [CLI do Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre as [causas desse erro](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

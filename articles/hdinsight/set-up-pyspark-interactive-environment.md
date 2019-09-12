@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 8e90be5a38ff40b748c11539e1d5c6558d198b62
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d220d81b8dc57541113f7ef1e477bb77d394e206
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814229"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879284"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para Visual Studio Code
 
@@ -43,7 +43,7 @@ Usamos o comando **Python/Pip** para criar um ambiente virtual em seu caminho in
 
 Se você encontrar uma mensagem de erro, instale os pacotes necessários executando os seguintes comandos:
 
-   ![Versão de Pip do Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![pacote libkrb5](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev
@@ -55,7 +55,7 @@ sudo apt-get install python-dev
 
 Reinicie vs Code e, em seguida, volte para o editor de script **que está executando o HDInsight: PySpark Interactive**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="demo"></a>Demonstração
 * HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
