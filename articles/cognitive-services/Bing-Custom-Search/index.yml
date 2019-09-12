@@ -6,14 +6,14 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Saiba como utilizar o portal e a API de Pesquisa Personalizada do Bing para criar uma experiência de pesquisa personalizada
   services: cognitive-services
-  author: v-deken
+  author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
-  ms.author: v-deken
+  ms.author: aahill
 abstract:
   description: Utilize a API de Pesquisa Personalizada do Bing para criar uma instância de pesquisa para os tópicos que lhe interessam. Especifique os domínios e as páginas Web a pesquisar e ajuste as classificações de pesquisa para personalizar totalmente a sua experiência de pesquisa.
 sections:

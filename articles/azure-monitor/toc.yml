@@ -770,8 +770,6 @@
                   href: log-query/get-started-portal.md
                 - name: Tutorial das consultas de registo
                   href: log-query/get-started-queries.md
-                - name: Experiência de registos simples
-                  href: log-query/simple-logs.md
             - name: Dados de registo
               items:
                 - name: Estrutura dos dados de registo
@@ -1037,8 +1035,6 @@
               href: insights/solutions-resources-views.md
             - name: Melhores práticas
               href: insights/solutions-best-practices.md
-            - name: Recolher dados de monitorização a partir de um runbook
-              href: platform/runbook-datacollect.md
 - name: Referência
   items:
     - name: Limites do serviço

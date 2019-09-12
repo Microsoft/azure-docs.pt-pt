@@ -5,8 +5,8 @@ metadata:
   title: 'Documentação do HSM Dedicado do Azure - Tutoriais, Referência da API | Microsoft Docs'
   meta.description: 'Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
   services: dedicated-hsm
-  author: barclayn
-  manager: barbkess
+  author: msmbaldwin
+  manager: rkarlin
   layout: LandingPage
   ms.assetid: null
   ms.service: dedicated-hsm
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/21/2018
-  ms.author: barclayn
+  ms.author: mbaldwin
 abstract:
   description: Saiba mais sobre a funcionalidade HSM Dedicado e se é aplicável ao seu ambiente.
 sections:

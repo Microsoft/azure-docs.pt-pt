@@ -1,5 +1,5 @@
 - name: Documentação dos Serviços Cognitivos do Azure
-  href: index.md
+  href: index.yml
 - name: Descrição geral
   expanded: true
   items:
