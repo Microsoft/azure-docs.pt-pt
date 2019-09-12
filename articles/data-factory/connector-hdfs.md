@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: e1b8da52870af80b2f9e34ee26d80d9b71d39851
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839827"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813084"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -41,7 +41,7 @@ Especificamente, esse conector HDFS dá suporte a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para copiar dados de um HDFS que não é acessível publicamente, você precisa configurar um Integration Runtime hospedado internamente. Confira o artigo [Integration Runtime auto-hospedado](concepts-integration-runtime.md) para saber mais detalhes.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Verifique se o Integration Runtime pode acessar **todos** os [servidor de nó de nome]: [porta do nó de nome] e [servidores de nó de dados]: [porta do nó de dados] do cluster Hadoop. O padrão [porta do nó de nome] é 50070 e o padrão [porta do nó de dados] é 50075.
@@ -63,7 +63,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do HDFS:
 | authenticationType | Valores permitidos são: **Anônimo**ou **Windows**. <br><br> Para usar a **autenticação Kerberos** para o conector HDFS, consulte [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local de acordo. |Sim |
 | userName |Nome de usuário para autenticação do Windows. Para a autenticação Kerberos, `<username>@<domain>.com`especifique. |Sim (para autenticação do Windows) |
 | password |Senha para autenticação do Windows. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (para autenticação do Windows) |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo: usando a autenticação anônima**
 
@@ -113,12 +113,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do HDFS:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
 
-- Para **parquet, texto delimitado e formato binário**, consulte a seção [parquet, texto delimitado e o conjunto de DataSet de formato binário](#format-based-dataset) .
-- Para outros formatos, como o **formato Orc/Avro/JSON**, consulte outra seção do [conjunto](#other-format-dataset) de exemplo.
+- Para **parquet, texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e DataSet de formato binário](#format-based-dataset) .
+- Para outros formatos, como o **formato Orc**, consulte outra seção do conjunto de um [formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Parquet, texto delimitado e conjunto de DataSet de formato binário
+### <a name="format-based-dataset"></a>Parquet, texto delimitado, JSON, Avro e conjunto de DataSet de formato binário
 
-Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte [formato de parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md) e artigo de [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte. As propriedades a seguir têm suporte para HDFS `location` em configurações em conjunto de conjuntos de base de formato:
+Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), [formato de Avro](format-avro.md) e artigo de [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte. As propriedades a seguir têm suporte para HDFS `location` em configurações em conjunto de conjuntos de base de formato:
 
 | Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -157,7 +157,7 @@ Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte
 
 ### <a name="other-format-dataset"></a>Outro conjunto de DataSet de formato
 
-Para copiar dados do HDFS no **formato Orc/Avro/JSON**, há suporte para as seguintes propriedades:
+Para copiar dados do HDFS no **formato Orc**, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -166,8 +166,8 @@ Para copiar dados do HDFS no **formato Orc/Avro/JSON**, há suporte para as segu
 | fileName |  **Filtro de nome ou o caráter universal** para o ficheiro ou ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro de. |Não |
 | modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última modificação. Os ficheiros serão selecionados, se sua hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você desejar fazer o filtro de arquivo de grandes quantidades de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de os.  Quando `modifiedDatetimeStart` tem o valor de datetime mas `modifiedDatetimeEnd` má hodnotu NULL, significa que os ficheiros cujo último atributo modificado é maior que ou igual a com o valor de datetime será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de datetime mas `modifiedDatetimeStart` for nulo, significa que os ficheiros cujo último atributo modificado é menor do que o valor de datetime será selecionado.| Não |
 | modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última modificação. Os ficheiros serão selecionados, se sua hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você desejar fazer o filtro de arquivo de grandes quantidades de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de os.  Quando `modifiedDatetimeStart` tem o valor de datetime mas `modifiedDatetimeEnd` má hodnotu NULL, significa que os ficheiros cujo último atributo modificado é maior que ou igual a com o valor de datetime será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de datetime mas `modifiedDatetimeStart` for nulo, significa que os ficheiros cujo último atributo modificado é menor do que o valor de datetime será selecionado.| Não |
-| format | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formato de arquivo:TextFormat **, JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
-| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **Gzip**,deflate, **bzip2**e **ZipDeflate**.<br/>Os níveis com suporte são: **Ideal** e **mais rápido**. |Não |
+| format | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formato de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**.<br/>Os níveis com suporte são: **Ideal** e **mais rápido**. |Não |
 
 >[!TIP]
 >Para copiar todos os ficheiros numa pasta, especifique **folderPath** apenas.<br>Para copiar um único ficheiro com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de ficheiros numa pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro de carateres universais.
@@ -208,12 +208,12 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="hdfs-as-source"></a>HDFS como fonte
 
-- Para copiar de **parquet, texto delimitado e formato binário**, consulte a seção [parquet, texto delimitado e fonte de formato binário](#format-based-source) .
-- Para copiar de outros formatos, como o **formato Orc/Avro/JSON**, consulte [outra seção fonte de formato](#other-format-source) .
+- Para copiar de **parquet, de texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e fonte de formato binário](#format-based-source) .
+- Para copiar de outros formatos, como o **formato Orc**, consulte [outra seção fonte de formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, texto delimitado e fonte de formato binário
+#### <a name="format-based-source"></a>Parquet, texto delimitado, JSON, Avro e fonte de formato binário
 
-Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte o [formato parquet](format-parquet.md), o [formato de texto delimitado](format-delimited-text.md) e o artigo de [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e nas configurações com suporte. As propriedades a seguir têm suporte para HDFS `storeSettings` em configurações na fonte de cópia baseada em formato:
+Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), formato de [Avro](format-avro.md) e artigo de [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e com suporte Configurações. As propriedades a seguir têm suporte para HDFS `storeSettings` em configurações na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Necessário                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -230,7 +230,7 @@ Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte
 | maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 
 > [!NOTE]
-> Para o formato de texto parquet/delimitado, a fonte da atividade de cópia do tipo FileSystemProvider mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
+> Para o formato de texto parquet/delimitado, a fonte da atividade de cópia do tipo **FileSystemProvider** mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Example:**
 
@@ -278,7 +278,7 @@ Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte
 
 #### <a name="other-format-source"></a>Outra fonte de formato
 
-Para copiar dados do HDFS no **formato Orc/Avro/JSON**, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados do HDFS no **formato Orc**, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -465,7 +465,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
     2. Configure recursos avançados clicando em **Exibir** > **recursos avançados**.
 
-    3. Localize a conta para a qual você deseja criar mapeamentos e clique com o botão direito do mouse para exibir mapeamentos de **nome** > clique na guia **nomes Kerberos** .
+    3. Localize a conta para a qual você deseja criar mapeamentos e clique com o botão direito do mouse para exibir **mapeamentos de nome** > clique na guia **nomes Kerberos** .
 
     4. Adicione uma entidade de segurança do realm.
 
