@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 877fc3a4e29fc1753d7b4f92091b34d4b2537846
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9071b41ab39c62f639b62a439e4d2530a7d7e11b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810322"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880052"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do Azure HDInsight (versão prévia)
 
@@ -85,7 +85,7 @@ Para habilitar o recurso de dimensionamento automático com dimensionamento base
     * Número **mínimo** de nós de trabalho.  
     * Número **máximo** de nós de trabalho.  
 
-    ![Habilitar dimensionamento automático baseado em carga de nó de trabalho](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Habilitar dimensionamento automático baseado em carga de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 O número inicial de nós de trabalho deve estar entre o mínimo e o máximo, inclusive. Esse valor define o tamanho inicial do cluster quando ele é criado. O número mínimo de nós de trabalho deve ser maior que zero.
 

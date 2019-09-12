@@ -7,19 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5ae12742c2ad50d5bf1caaf14ae2f6d34bd6d3a2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716751"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880782"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface do usuário no Azure Active Directory B2C
 
-A capacidade de você marcar e personalizar a interface do usuário (IU) que Azure Active Directory (Azure AD) B2C serve para seus aplicativos é importante para fornecer uma experiência direta ao seu cliente. Essas experiências incluem inscrição, entrada, edição de perfil e redefinição de senha. Este artigo fornece informações para ajudá-lo a personalizar a interface do usuário de seus aplicativos.
+A capacidade de você marcar e personalizar a interface do usuário (IU) que Azure Active Directory B2C (Azure AD B2C) serve aos seus aplicativos é importante para fornecer uma experiência direta ao cliente. Essas experiências incluem inscrição, entrada, edição de perfil e redefinição de senha. Este artigo fornece informações para ajudá-lo a personalizar a interface do usuário de seus aplicativos.
 
 Dependendo de suas necessidades quando se trata dessas experiências, você personaliza a interface do usuário de seu aplicativo de maneiras diferentes. Por exemplo:
 
@@ -118,7 +118,7 @@ A tabela a seguir lista os fragmentos HTML que Azure ad B2C mescla `<div id="api
 | Inscrição na conta local | Contém um formulário para a inscrição de conta local com base em um endereço de email ou um nome de usuário. O formulário pode conter diferentes controles de entrada, como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
 | Inscrição em conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou o Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
 | Inscrição ou entrada unificada | O lida com a inscrição e a entrada de clientes que podem usar provedores de identidade social, como Facebook, Google ou contas locais. |
-| Autenticação multifator | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
+| Multi-Factor Authentication | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
 | Erro | Fornece informações de erro para o cliente. |
 
 
@@ -132,8 +132,11 @@ O conteúdo pode ser extraído de locais diferentes com base na localidade usada
 
 Para obter exemplos de personalização, baixe e examine esses [arquivos de modelo de exemplo](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se você estiver usando fluxos de usuário, você pode começar a personalizar sua interface de usuário com o tutorial: [Personalize a interface do usuário de seus aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md).
-- Se você estiver usando políticas personalizadas, poderá começar a personalizar a interface do usuário com o artigo: [Personalize a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Se você estiver usando **fluxos de usuário**, você pode começar a personalizar sua interface de usuário com o tutorial:
 
+    [Personalize a interface do usuário de seus aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md).
+- Se você estiver usando **políticas personalizadas**, poderá começar a personalizar a interface do usuário com o artigo:
+
+    [Personalize a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

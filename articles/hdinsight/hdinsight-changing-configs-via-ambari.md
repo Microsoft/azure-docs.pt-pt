@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 57e5eef8563bca0e27024d6ff5a46b983273df07
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: 5c533c3b0005528eae646744e8e720e2c54436e1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810657"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880255"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usar o Apache Ambari para otimizar as configurações do cluster HDInsight
 
@@ -146,7 +146,7 @@ Por padrão, o hive segue um conjunto de regras para encontrar um plano de execu
 
 Para habilitar o CBO, navegue até a guia **configurações** do hive e pesquise `parameter hive.cbo.enable`e, em seguida, alterne o botão de alternância para **ativado**.
 
-![Configuração do CBO](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![Configuração do CBO](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 Os parâmetros de configuração adicionais a seguir aumentam o desempenho de consulta do hive quando o CBO está habilitado:
 
@@ -451,7 +451,7 @@ O uso do buffer de alocação local do Memstore é `hbase.hregion.memstore.mslab
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerenciar clusters HDInsight com a interface do usuário da Web do Apache amAmbari](hdinsight-hadoop-manage-ambari.md)
 * [API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

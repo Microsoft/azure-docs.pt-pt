@@ -233,7 +233,7 @@ Configure sua solução de acordo com as diretrizes nas seções a seguir.
 -   O StorSimple dá suporte aos backups completos e incrementais do Backup Exec. Recomendamos que você não use backups sintéticos e diferenciais.
 -   Os arquivos de dados de backup devem conter dados somente para um trabalho específico. Por exemplo, nenhum acréscimo de mídia entre trabalhos diferentes é permitido.
 -   Desabilitar a verificação de trabalho. Se necessário, a verificação deve ser agendada após o trabalho de backup mais recente. É importante entender que esse trabalho afeta a janela de backup.
--   Selecione **armazenamento** > suas**Propriedades** **de** >  **** detalhesdo > disco. Desligue o **espaço em disco de alocação prévia**.
+-   Selecione **armazenamento** > suas**Propriedades** **de** > detalhesdo > disco. Desligue o **espaço em disco de alocação prévia**.
 
 Para obter as configurações mais recentes de Backup Exec e as práticas recomendadas para implementar esses requisitos, consulte [o site da Veritas](https://www.veritas.com).
 
@@ -323,7 +323,7 @@ A sequência a seguir pressupõe que o Backup Exec e o host de destino são conf
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Para atribuir volumes do StorSimple a um trabalho Backup Exec Backup
 
-1.  No console de gerenciamento do Backup Exec, selecione **host** >  ****  > backup**backup to Disk**.
+1.  No console de gerenciamento do Backup Exec, selecione **host** >  > backup**backup to Disk**.
 
     ![Console de gerenciamento do Backup Exec, selecione host, backup e backup em disco](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8c50068914c1519a5522372310bd0f5863a94b39
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4e589e694c728cfbd2237a138ad9a2f2bf2342dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735776"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900158"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight
 
@@ -54,7 +54,7 @@ Informações importantes do cluster incluem:
 
 O portal do Azure pode fornecer essas informações:
 
-![Informações de portal do Azure do HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![Informações de portal do Azure do HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
 Você também pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
@@ -259,7 +259,7 @@ Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluste
 5. Continue até que todas as etapas sejam executadas sem erros.
 6. Quando terminar de depurar o cluster de teste, exclua-o.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 * [Analisar logs do HDInsight](hdinsight-debug-jobs.md)

@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191791"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883400"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificar o status de publicação da sua oferta do Marketplace comercial
 
@@ -98,6 +98,9 @@ Este relatório contém descrições de todas as políticas que falharam, juntam
 ## <a name="preview-creation"></a>Criação de visualização
 
 Durante a etapa de **criação de visualização** , criamos uma versão de sua oferta acessível apenas para o público que você especificou na seção de visualização de sua oferta.
+
+>[!Note]
+> Não use esta etapa para dar às pessoas fora da visibilidade da sua organização uma oferta. Em vez disso, use a opção **oferta privada** . Neste ponto, sua oferta não foi totalmente testada e validada e não está pronta para distribuição externa.
 
 ## <a name="publisher-approval"></a>Aprovação do Publicador
 

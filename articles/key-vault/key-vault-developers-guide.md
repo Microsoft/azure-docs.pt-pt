@@ -1,159 +1,159 @@
 ---
-title: Guia do programador do Cofre de chaves do Azure
-description: Os programadores podem utilizar o Azure Key Vault para gerir chaves criptográficas dentro do ambiente do Microsoft Azure.
+title: Guia do desenvolvedor de Azure Key Vault
+description: Os desenvolvedores podem usar Azure Key Vault para gerenciar chaves de criptografia no ambiente de Microsoft Azure.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 72ec3080658b98376952f72f746c1b53fdf7de77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca640b058a1d91d15c5accb9367936368511a3ef
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704327"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881603"
 ---
-# <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
+# <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor de Azure Key Vault
 
-Key Vault permite-lhe aceder de forma segura informações confidenciais em seus aplicativos:
+Key Vault permite que você acesse com segurança informações confidenciais de dentro de seus aplicativos:
 
-- Chaves e segredos estão protegidos sem ter de escrever o código por conta própria e facilmente pode utilizá-los a partir das suas aplicações.
-- É possível ter seus próprios de clientes e gerir as suas próprias chaves para que pode se concentrar em fornecer as principais funcionalidades de software. Dessa forma, as aplicações não possui a responsabilidade ou um potencial encargo para chaves de inquilino dos seus clientes e segredos.
-- Seu aplicativo pode usar as chaves para assinatura e encriptação ainda mantém a gestão de chaves externas à sua aplicação, permitindo que a sua solução adequada como uma aplicação distribuída geograficamente.
-- No momento do lançamento de Setembro de 2016 do Cofre de chaves, seus aplicativos agora podem gerir certificados do Key Vault. Para obter mais informações, consulte [sobre chaves, segredos e certificados](/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Chaves e segredos são protegidos sem precisar escrever o código por conta própria e você pode usá-los facilmente de seus aplicativos.
+- Você pode ter seus clientes e gerenciar suas próprias chaves para que possa se concentrar em fornecer os principais recursos de software. Dessa forma, seus aplicativos não terão a responsabilidade ou a responsabilidade potencial das chaves de locatário e dos segredos de seus clientes.
+- Seu aplicativo pode usar chaves para assinatura e criptografia, mas mantém o gerenciamento de chaves externo do seu aplicativo, permitindo que sua solução seja adequada como um aplicativo distribuído geograficamente.
+- A partir da versão de setembro de 2016 do Key Vault, seus aplicativos agora podem gerenciar Key Vault certificados. Para obter mais informações, consulte [sobre chaves, segredos e certificados](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
-Para obter mais informações sobre o Azure Key Vault, consulte [o que é o Key Vault](key-vault-whatis.md).
+Para obter mais informações gerais sobre Azure Key Vault, consulte [o que é Key Vault](key-vault-whatis.md).
 
-## <a name="public-previews"></a>Pré-visualizações públicas
+## <a name="public-previews"></a>Visualizações públicas
 
-Periodicamente, Lançamos uma pré-visualização pública de um novo recurso do Key Vault. Experimente estas e informe-no que pensa azurekeyvault@microsoft.com, nosso endereço de e-mail de comentários.
+Periodicamente, lançamos uma visualização pública de um novo recurso Key Vault. Experimente-os e diga-nos o que você imagina azurekeyvault@microsoft.compor meio de nosso endereço de email de comentários.
 
-### <a name="storage-account-keys---july-10-2017"></a>Chaves de conta de armazenamento - 10 de Julho de 2017
+### <a name="storage-account-keys---july-10-2017"></a>Chaves de conta de armazenamento-10 de julho de 2017
 
 >[!NOTE]
->Para esta atualização do Cofre de chaves do Azure apenas a **chaves de conta de armazenamento** funcionalidade está em pré-visualização.
+>Para esta atualização de Azure Key Vault somente o recurso de **chaves de conta de armazenamento** está em versão prévia.
 
-Esta pré-visualização inclui a nossa funcionalidade de chaves de conta de armazenamento nova, disponível através dessas interfaces; [.NET / c#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) e [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
+Essa visualização inclui nosso novo recurso de chaves de conta de armazenamento, disponível por meio dessas interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) e [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
 
-Para obter mais informações sobre o novo recurso de chaves de conta de armazenamento, consulte [descrição geral do chaves de conta de armazenamento do Azure Key Vault](key-vault-ovw-storage-keys.md).
+Para obter mais informações sobre o novo recurso de chaves de conta de armazenamento, consulte [Azure Key Vault visão geral das chaves de conta de armazenamento](key-vault-ovw-storage-keys.md).
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>Os meus vídeos
 
-Este vídeo mostra como criar seu próprio Cofre de chaves e como usá-lo da aplicação de exemplo "Hello Key Vault".
+Este vídeo mostra como criar seu próprio cofre de chaves e como usá-lo no aplicativo de exemplo ' Olá Key Vault '.
 
-- [Programador do Key Vault - guia de início rápido](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
+- [Key Vault Developer – guia de início rápido](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
 
-Recursos mencionados acima vídeo:
+Recursos mencionados no vídeo acima:
 
 - [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Código de exemplo do Cofre de chaves do Azure](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure Key Vault código de exemplo](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
-## <a name="creating-and-managing-key-vaults"></a>Criar e gerir cofres de chaves
+## <a name="creating-and-managing-key-vaults"></a>Criando e gerenciando cofres de chaves
 
-O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. Identidades geridas para recursos do Azure torna a resolver esse problema mais simples, fornecendo serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. 
+O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. Identidades gerenciadas para recursos do Azure facilitam a solução desse problema, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. 
 
-Para obter mais informações sobre identidades geridas para recursos do Azure, consulte [a visão geral de identidades geridas](../active-directory/managed-identities-azure-resources/overview.md). Para obter mais informações sobre como trabalhar com o AAD, consulte [integrar aplicações com o Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Para obter mais informações sobre identidades gerenciadas para recursos do Azure, consulte [a visão geral de identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md). Para obter mais informações sobre como trabalhar com o AAD, consulte [integrando aplicativos com Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
-Antes de trabalhar com chaves, segredos ou certificados no seu Cofre de chaves, terá de criar e gerir o seu Cofre de chaves através da CLI, PowerShell, modelos do Resource Manager ou REST, conforme descrito nos seguintes artigos:
+Antes de trabalhar com chaves, segredos ou certificados no cofre de chaves, você criará e gerenciará seu cofre de chaves por meio da CLI, do PowerShell, dos modelos do Resource Manager ou do REST, conforme descrito nos seguintes artigos:
 
-- [Criar e gerir cofres de chave com a CLI](key-vault-manage-with-cli2.md)
-- [Criar e gerir cofres de chave com o PowerShell](key-vault-overview.md)
-- [Criar um cofre de chaves e adicionar um segredo por meio de um modelo Azure Resource Manager](../azure-resource-manager/resource-manager-template-keyvault.md)
-- [Criar e gerir cofres de chave com REST](/rest/api/keyvault/)
+- [Criar e gerenciar cofres de chaves com a CLI](key-vault-manage-with-cli2.md)
+- [Criar e gerenciar cofres de chaves com o PowerShell](key-vault-overview.md)
+- [Criar um cofre de chaves e adicionar um segredo por meio de um modelo de Azure Resource Manager](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Criar e gerenciar cofres de chaves com REST](/rest/api/keyvault/)
 
 
-## <a name="coding-with-key-vault"></a>Criando códigos com o Cofre de chaves
+## <a name="coding-with-key-vault"></a>Codificando com Key Vault
 
-O sistema de gestão do Cofre de chaves para os programadores consiste em várias interfaces. Esta secção contém links para todos os idiomas, bem como alguns exemplos de código. 
+O sistema de gerenciamento de Key Vault para programadores consiste em várias interfaces. Esta seção contém links para todos os idiomas, bem como alguns exemplos de código. 
 
-### <a name="supported-programming-and-scripting-languages"></a>Suporte de programação e linguagens de script
+### <a name="supported-programming-and-scripting-languages"></a>Linguagens de script e programação com suporte
 
 #### <a name="rest"></a>REST
 
-Todos os seus recursos do Cofre de chaves estão acessíveis através da interface REST; os cofres, chaves, segredos, etc. 
+Todos os seus recursos de Key Vault podem ser acessados por meio da interface REST; cofres, chaves, segredos, etc. 
 
-[Referência da API REST do Cofre de chaves](/rest/api/keyvault/).
+[Key Vault referência da API REST](/rest/api/keyvault/).
 
 #### <a name="net"></a>.NET
 
-[Referência da .NET API para o Key Vault](/dotnet/api/microsoft.azure.keyvault).
+[Referência da API do .net para Key Vault](/dotnet/api/microsoft.azure.keyvault).
 
-Para obter mais informações sobre a versão 2.x do SDK do .NET, consulte a [notas de versão](key-vault-dotnet2api-release-notes.md).
+Para obter mais informações sobre a versão 2. x do SDK do .NET, consulte as [notas de versão](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
-[Java SDK para o Cofre de chaves](/java/api/overview/azure/keyvault)
+[SDK do Java para Key Vault](/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
-No node. js, a API de gestão do Cofre de chaves e a API de objeto do Cofre de chaves estão separados. O seguinte artigo de descrição geral fornece acesso a ambos. 
+No node. js, a API de gerenciamento de Key Vault e a API de objeto de Key Vault são separadas. O seguinte artigo de visão geral fornece acesso a ambos. 
 
-[Módulos de Cofre de chaves do Azure para node. js](/nodejs/api/overview/azure/key-vault)
+[Módulos Azure Key Vault para node. js](/nodejs/api/overview/azure/key-vault)
 
 #### <a name="python"></a>Python
 
-[Bibliotecas de Cofre de chaves do Azure para Python](/python/api/overview/azure/key-vault)
+[Bibliotecas de Azure Key Vault para Python](/python/api/overview/azure/key-vault)
 
-#### <a name="azure-cli-2"></a>CLI 2 do Azure
+#### <a name="azure-cli-2"></a>CLI do Azure 2
 
-[CLI do Azure para o Cofre de chaves](/cli/azure/keyvault)
+[CLI do Azure para Key Vault](/cli/azure/keyvault)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[O Azure PowerShell para o Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
+[Azure PowerShell para Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>Guias de introdução rápidos
+### <a name="quick-start-guides"></a>Guias de introdução rápida
 
-- [Criar Cofre de chaves](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Introdução ao Key Vault em node. js](https://github.com/Azure-Samples/key-vault-node-getting-started)
+- [Criar Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+- [Introdução ao Key Vault no node. js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Exemplos de código
 
-Para obter exemplos de conclusão com o Key Vault com as suas aplicações, consulte:
+Para obter exemplos completos usando Key Vault com seus aplicativos, consulte:
 
-- [Exemplos de código do Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault) -exemplos de código para o Azure Key Vault. 
-- [Utilizar o Azure Key Vault a partir de uma aplicação Web](quick-create-net.md) -tutorial para ajudá-lo utilizar o Azure Key Vault a partir de uma aplicação web no Azure. 
+- [Exemplos de código de Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault) -exemplos de código para Azure Key Vault. 
+- [Use Azure Key Vault de um aplicativo Web](quick-create-net.md) -tutorial para ajudá-lo a aprender a usar Azure Key Vault de um aplicativo Web no Azure. 
 
 ## <a name="how-tos"></a>Procedimentos
 
-Os artigos e os cenários que se seguem fornecem diretrizes específicas de tarefas para trabalhar com o Azure Key Vault:
+Os seguintes artigos e cenários fornecem diretrizes específicas para tarefas para trabalhar com Azure Key Vault:
 
-- [ID de inquilino do Cofre de chaves de alteração depois de subscrição mover](key-vault-subscription-move-fix.md) - quando mover a sua subscrição do Azure do inquilino A para o inquilino B, seus cofres de chaves existentes estão inacessíveis pelos principais (utilizadores e aplicações) no inquilino correção de B. utilizar este guia.
-- [Aceder ao Cofre de chaves protegido por firewall](key-vault-access-behind-firewall.md) - para aceder a um cofre de chaves, a aplicação de cliente do Cofre de chaves tem de ser capaz de aceder a vários pontos finais para várias funcionalidades.
-- [Como gerar e Transfer HSM-Protected chaves para o Azure Key Vault](key-vault-hsm-protected-keys.md) -Isto ajudará a planejar, gerar e, em seguida, transferir suas próprias chaves protegidas por HSM para utilizar com o Azure Key Vault.
-- [Como transmitir valores seguros (por exemplo, palavras-passe) durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md) - quando precisa passar um valor seguro (como uma palavra-passe) como um parâmetro durante a implementação, pode armazenar esse valor como um segredo num Azure Key Vault e o valor em outro recurso de referência Modelos do gestor.
-- [Como utilizar o Key Vault para gestão de chaves extensível com o SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -permite que o conector do SQL Server para o Cofre de chaves do Azure SQL Server e SQL-em-um-VM para tirar partido do serviço Azure Key Vault como um fornecedor de gestão de chaves extensível (EKM) para proteger seus chaves de encriptação para ligação de aplicações; Encriptação de dados transparente, a encriptação de cópia de segurança e encriptação de nível de coluna.
-- [Como implementar certificados em VMs do Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) – uma aplicação na cloud em execução numa VM nas necessidades do Azure um certificado. Como obtém este certificado para esta VM hoje em dia?
-- [Como configurar o Cofre de chaves com auditoria e rotação de chaves de ponta a ponta](key-vault-key-rotation-log-monitoring.md) – esta mostra-lhe como configurar a rotação de chaves e auditoria com o Azure Key Vault.
-- [Implementar o certificado da aplicação Web do Azure através do Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fornece instruções passo a passo para implementar certificados armazenados no Cofre de chaves, como parte da [certificado do serviço de aplicações](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) oferta.
-- [Conceder permissão para muitos aplicativos para aceder a um cofre de chaves](key-vault-group-permissions-for-apps.md) política de controlo de acesso do Key Vault suporta até 1024 entradas. No entanto pode criar um grupo de segurança do Azure Active Directory. Adicionar todos os principais de serviço associado a este grupo de segurança e, em seguida, conceder acesso a este grupo de segurança para o Key Vault.
-- Para obter mais orientações de tarefa específica sobre como integrar e utilizar cofres de chave com o Azure, consulte [exemplos de modelo do Azure Resource Manager Ryan Jones para o Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
-- [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](key-vault-soft-delete-cli.md) orienta-o através da utilização e o ciclo de vida de um cofre de chaves e vários objetos de Cofre de chaves com eliminação de forma recuperável ativada.
-- [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](key-vault-soft-delete-powershell.md) orienta-o através da utilização e o ciclo de vida de um cofre de chaves e vários objetos de Cofre de chaves com eliminação de forma recuperável ativada.
+- [Alterar a ID de locatário do cofre de chaves após a movimentação da assinatura](key-vault-subscription-move-fix.md) -quando você move sua assinatura do Azure do locatário a para o locatário b, seus cofres de chaves existentes são inacessíveis pelas entidades (usuários e aplicativos) no locatário b. corrija isso usando este guia.
+- [Acessando Key Vault por trás do firewall](key-vault-access-behind-firewall.md) -para acessar um cofre de chaves, seu aplicativo cliente do cofre de chaves precisa ser capaz de acessar vários pontos de extremidade para várias funcionalidades.
+- [Como gerar e transferir chaves protegidas por HSM para Azure Key Vault](key-vault-hsm-protected-keys.md) -isso o ajudará a planejar, gerar e transferir suas próprias chaves protegidas por HSM para usar com Azure Key Vault.
+- [Como passar valores seguros (como senhas) durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md) -quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, você pode armazenar esse valor como um segredo em um Azure Key Vault e fazer referência ao valor em outro gerenciador de recursos modelo.
+- [Como usar Key Vault para o gerenciamento extensível de chaves com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -a Conector do SQL Server para Azure Key Vault permite que o SQL Server e o SQL-in-a-VM aproveitem o serviço Azure Key Vault como um provedor EKM (gerenciamento extensível de chaves) para proteger seu link de chaves de criptografia para aplicativos; Transparent Data Encryption, criptografia de backup e criptografia em nível de coluna.
+- [Como implantar certificados em VMs de Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) -um aplicativo de nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado nesta VM hoje mesmo?
+- [Como configurar Key Vault com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md) – explica como configurar a rotação de chaves e a auditoria com Azure Key Vault.
+- [A implantação de um certificado de aplicativo Web do Azure por meio de Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fornece instruções passo a passo para implantar certificados armazenados no Key Vault como parte da oferta de [certificado do serviço de aplicativo](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) .
+- [Conceder permissão a muitos aplicativos para acessar um cofre de chaves](key-vault-group-permissions-for-apps.md) Key Vault política de controle de acesso dá suporte a até 1024 entradas. No entanto, você pode criar um grupo de segurança Azure Active Directory. Adicione todas as entidades de serviço associadas a esse grupo de segurança e, em seguida, conceda acesso a esse grupo de segurança para Key Vault.
+- Para obter mais diretrizes específicas de tarefas sobre como integrar e usar cofres de chaves com o Azure, consulte [Ryan Jones ' Azure Resource Manager exemplos de modelo para Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- [Como usar Key Vault exclusão reversível com a CLI](key-vault-soft-delete-cli.md) orienta o uso e o ciclo de vida de um cofre de chaves e de vários objetos do cofre de chaves com a exclusão reversível habilitada.
+- [Como usar Key Vault exclusão reversível com o PowerShell](key-vault-soft-delete-powershell.md) orienta o uso e o ciclo de vida de um cofre de chaves e de vários objetos do cofre de chaves com a exclusão reversível habilitada.
 
-## <a name="integrated-with-key-vault"></a>Integrado com o Cofre de chaves
+## <a name="integrated-with-key-vault"></a>Integrado com o Key Vault
 
-Os artigos sejam sobre outros cenários e serviços que usam ou integram com o Key Vault.
+Estes artigos são sobre outros cenários e serviços que usam ou integram com Key Vault.
 
-- [O Azure Disk Encryption](../security/azure-security-disk-encryption.md) tira partido da norma da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) recurso do Windows e o [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funcionalidade do Linux para fornecer encriptação de volume para o sistema operacional e os discos de dados. A solução está integrada no Azure Key Vault para ajudar a controlar e gerir as chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves, garantindo que todos os dados nos discos da máquina virtual são encriptados em inatividade no armazenamento do Azure.
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) fornece a opção para a encriptação de dados que são armazenados na conta. Gestão de chaves, o Data Lake Store disponibiliza dois modos para gerir as chaves de encriptação mestra (MEKs), que são necessárias para desencriptar todos os dados que são armazenados na Store de Lake dados. Pode optar por permitir que os Data Lake Store faça a gestão de MEKs para, ou optar por manter a propriedade de MEKs com a sua conta do Azure Key Vault. Especifique o modo de gestão de chaves ao criar uma conta do Data Lake Store.
-- [O Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) permite-lhe para o Gestor de sua própria chave de inquilino. Por exemplo, em vez da Microsoft gerir a sua chave de inquilino (predefinição), pode gerenciar sua própria chave de inquilino para cumprir regulamentos específicos que se aplicam à sua organização. Gerir a sua própria chave de inquilino também é conhecido como traga a sua própria chave ou BYOK.
+- [Azure Disk Encryption](../security/azure-security-disk-encryption.md) aproveita o recurso de [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados. A solução é integrada com Azure Key Vault para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves, garantindo que todos os dados nos discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure.
+- [Azure data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) fornece a opção para a criptografia de dados armazenados na conta. Para o gerenciamento de chaves, Data Lake Store fornece dois modos para gerenciar suas chaves de criptografia mestras (MEKs), que são necessárias para descriptografar todos os dados armazenados no Data Lake Store. Você pode permitir que Data Lake Store gerenciar o MEKs para você ou optar por manter a propriedade do MEKs usando sua conta de Azure Key Vault. Você especifica o modo de gerenciamento de chaves ao criar uma conta de Data Lake Store.
+- A [proteção de informações do Azure](/azure/information-protection/plan-implement-tenant-key) permite que você Manager sua própria chave de locatário. Por exemplo, em vez de Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciar sua própria chave de locatário para obedecer a regulamentos específicos que se aplicam à sua organização. Gerenciar sua própria chave de locatário também é conhecido como trazer sua própria chave, ou BYOK.
 
-## <a name="key-vault-overviews-and-concepts"></a>Visões gerais do Key Vault e conceitos
+## <a name="key-vault-overviews-and-concepts"></a>Visões gerais e conceitos do Key Vault
 
-- [Comportamento de eliminação de forma recuperável do Key Vault](key-vault-ovw-soft-delete.md) descreve uma funcionalidade que permite a recuperação de objetos eliminados, se a eliminação foi acidental ou intencional.
-- [Cliente do Cofre de chaves limitação](key-vault-ovw-throttling.md) descreve os conceitos básicos de limitação e oferece uma abordagem para a sua aplicação.
-- [Descrição geral do chaves de conta de armazenamento do Key Vault](key-vault-ovw-storage-keys.md) descreve as chaves de contas de armazenamento do Azure de integração do Cofre de chaves.
-- [Mundos de segurança do Cofre de chaves](key-vault-ovw-security-worlds.md) descreve as relações entre regiões e áreas de segurança.
+- [Key Vault comportamento de exclusão reversível](key-vault-ovw-soft-delete.md) descreve um recurso que permite a recuperação de objetos excluídos, independentemente de a exclusão ser acidental ou intencional.
+- [Key Vault limitação de cliente](key-vault-ovw-throttling.md) orienta você aos conceitos básicos de limitação e oferece uma abordagem para seu aplicativo.
+- [Key Vault visão geral das chaves de conta de armazenamento](key-vault-ovw-storage-keys.md) descreve as chaves de contas de armazenamento do Azure de integração do Key Vault.
+- [Key Vault mundos de segurança](key-vault-ovw-security-worlds.md) descreve as relações entre regiões e áreas de segurança.
 
-## <a name="social"></a>Redes sociais
+## <a name="social"></a>Social
 
-- [Blog do Cofre de chaves](https://aka.ms/kvblog)
-- [Fórum do Cofre de chaves](https://aka.ms/kvforum)
+- [Blog de Key Vault](https://aka.ms/kvblog)
+- [Fórum de Key Vault](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>Bibliotecas de suporte
 
-- [Biblioteca do Microsoft Azure Key Vault Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece **IKey** e **IKeyResolver** interfaces para a localização de chaves a partir dos identificadores e realizar operações com chaves.
-- [Extensões do Microsoft Azure Key Vault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornece recursos expandidos para o Azure Key Vault.
+- [Microsoft Azure biblioteca de Key Vault Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece interfaces **iKey** e **IKeyResolver** para localizar chaves de identificadores e executar operações com chaves.
+- [Microsoft Azure extensões de Key Vault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornecem recursos estendidos para Azure Key Vault.

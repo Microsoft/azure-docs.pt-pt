@@ -1,101 +1,101 @@
 ---
-title: Segurança do Cofre de chaves do Azure | Documentos da Microsoft
-description: Gerir permissões de acesso para o Azure Key Vault, chaves e segredos. Abrange o modelo de autenticação e autorização para o Cofre de chaves e como proteger o seu Cofre de chaves.
+title: Segurança do Azure Key Vault | Microsoft Docs
+description: Gerencie permissões de acesso para Azure Key Vault, chaves e segredos. Aborda o modelo de autenticação e autorização para Key Vault e como proteger o cofre de chaves.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: barclayn
+ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 5b32e4897e718e0e411caf9ba76b036f1352bde0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715263"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884782"
 ---
-# <a name="azure-key-vault-security"></a>Segurança do Cofre de chaves do Azure
+# <a name="azure-key-vault-security"></a>Segurança de Azure Key Vault
 
-É necessário proteger chaves de encriptação e segredos, como certificados, cadeias de ligação e palavras-passe na cloud, para que está a utilizar o Azure Key Vault. Uma vez que estiver armazenando confidenciais e dados críticos da empresa, terá de tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nas mesmas. Este artigo, falarei sobre alguns dos conceitos que deve considerar ao projetar a segurança do Azure Key Vault.
+Você precisa proteger chaves de criptografia e segredos como certificados, cadeias de conexão e senhas na nuvem para que você esteja usando Azure Key Vault. Como você está armazenando dados confidenciais e críticos para os negócios, você precisa tomar medidas para maximizar a segurança de seus cofres e os dados armazenados neles. Este artigo abordará alguns dos conceitos que você deve considerar ao projetar sua segurança de Azure Key Vault.
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
-Quando cria um cofre de chaves numa subscrição do Azure, é automaticamente associado com o inquilino do Azure AD da subscrição. Qualquer pessoa tentar gerir ou obter conteúdo a partir de um cofre tem de ser autenticada pelo Azure AD.
+Quando você cria um cofre de chaves em uma assinatura do Azure, ele é automaticamente associado ao locatário do Azure AD da assinatura. Qualquer pessoa que tentar gerenciar ou recuperar conteúdo de um cofre deve ser autenticada pelo Azure AD.
 
 - A autenticação estabelece a identidade do chamador.
-- Autorização determina as operações que o chamador pode realizar. Autorização no Key Vault utiliza uma combinação de [controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) e políticas de acesso do Azure Key Vault.
+- A autorização determina quais operações o chamador pode executar. A autorização no Key Vault usa uma combinação de RBAC ( [controle de acesso baseado em função](../role-based-access-control/overview.md) ) e políticas de acesso de Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Visão geral do modelo de acesso
 
-Acesso aos cofres ocorre por meio de duas interfaces ou planos. Estes planos são o plano de gestão e o plano de dados.
+O acesso aos cofres ocorre por meio de duas interfaces ou planos. Esses planos são o plano de gerenciamento e o plano de dados.
 
-- O *plano de gestão* é onde gere Key Vault em si e é a interface usada para criar e eliminar cofres. Também pode ler as propriedades do Cofre de chaves e gerir políticas de acesso.
-- O *plano de dados* permite-lhe trabalhar com os dados armazenados num cofre de chaves. Pode adicionar, eliminar e modificar as chaves, segredos e certificados.
+- O *plano de gerenciamento* é onde você gerencia Key Vault ele mesmo e é a interface usada para criar e excluir cofres. Você também pode ler as propriedades do cofre de chaves e gerenciar políticas de acesso.
+- O *plano de dados* permite que você trabalhe com os dados armazenados em um cofre de chaves. Você pode adicionar, excluir e modificar chaves, segredos e certificados.
 
-Para aceder a um cofre de chaves num plano, todos os chamadores (utilizadores ou aplicações) têm sejam autenticados e autorizados. Ambos os planos utilizam o Azure Active Directory (Azure AD) para autenticação. Para autorização, o plano de gestão utiliza o controlo de acesso baseado em funções (RBAC) e o plano de dados utiliza uma política de acesso do Cofre de chaves.
+Para acessar um cofre de chaves em qualquer plano, todos os chamadores (usuários ou aplicativos) devem ser autenticados e autorizados. Ambos os planos usam Azure Active Directory (AD do Azure) para autenticação. Para autorização, o plano de gerenciamento usa o RBAC (controle de acesso baseado em função) e o plano de dados usa uma política de acesso Key Vault.
 
-O modelo de um mecanismo único para a autenticação para ambos os planos tem várias vantagens:
+O modelo de um único mecanismo de autenticação para ambos os planos tem vários benefícios:
 
-- As organizações podem controlar o acesso centralmente a todos os cofres de chaves na sua organização.
-- Se um utilizador sai, perde imediatamente o acesso a todos os cofres da organização.
-- As organizações podem personalizar a autenticação utilizando as opções no Azure AD, tal como para ativar a autenticação multifator para aumentar a segurança
+- As organizações podem controlar o acesso centralmente a todos os cofres de chaves em sua organização.
+- Se um usuário deixar, ele perderá instantaneamente o acesso a todos os cofres de chaves na organização.
+- As organizações podem personalizar a autenticação usando as opções no Azure AD, como para habilitar a autenticação multifator para aumentar a segurança
 
-### <a name="managing-administrative-access-to-key-vault"></a>Gerir o acesso administrativo para o Key Vault
+### <a name="managing-administrative-access-to-key-vault"></a>Gerenciando o acesso administrativo ao Key Vault
 
-Quando cria um cofre de chaves num grupo de recursos, gerir o acesso ao utilizar o Azure AD. Conceder aos utilizadores ou grupos a capacidade de gerir cofres de chaves num grupo de recursos. Pode conceder acesso a um nível de âmbito específico através da atribuição de funções RBAC adequadas. Para conceder acesso a um utilizador para gerir cofres de chaves, atribui um predefinidos `key vault Contributor` função ao utilizador com um âmbito específico. Os seguintes níveis de âmbitos podem ser atribuídos a uma função RBAC:
+Ao criar um cofre de chaves em um grupo de recursos, você gerencia o acesso usando o Azure AD. Você concede aos usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Você pode conceder acesso em um nível de escopo específico atribuindo as funções RBAC apropriadas. Para conceder acesso a um usuário para gerenciar cofres de chaves, você atribui uma `key vault Contributor` função predefinida para o usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função de RBAC:
 
-- **Subscrição**: Uma função RBAC atribuída ao nível da subscrição se aplica a todos os grupos de recursos e recursos nessa subscrição.
-- **Grupo de recursos**: Uma função RBAC atribuída ao nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
-- **Recurso específico**: Uma função RBAC atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre de chaves específico.
+- **Subscrição**: Uma função RBAC atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
+- **Grupo de recursos**: Uma função RBAC atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
+- **Recurso específico**: Uma função RBAC atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
 
-Existem várias funções predefinidas. Se uma função predefinida não atender a suas necessidades, pode definir sua própria função. Para obter mais informações, consulte [RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md).
+Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, [consulte RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
-> Se um utilizador tiver `Contributor` permissões para um plano de gestão do Cofre de chaves, o utilizador pode conceder próprios acesso para o plano de dados ao definir uma política de acesso do Cofre de chaves. Deve controlar rigorosamente quem tem `Contributor` acesso à função para seus cofres de chaves. Certifique-se de que só pessoas autorizadas podem aceder e gerir cofres de chaves, chaves, segredos e certificados.
+> Se um usuário tiver `Contributor` permissões para um plano de gerenciamento do cofre de chaves, o usuário poderá conceder a si mesmo o acesso ao plano de dados definindo uma política de acesso de Key Vault. Você deve controlar rigidamente quem tem `Contributor` acesso de função para seus cofres de chaves. Certifique-se de que apenas pessoas autorizadas possam acessar e gerenciar seus cofres de chaves, chaves, segredos e certificados.
 
 <a id="data-plane-access-control"></a>
-### <a name="controlling-access-to-key-vault-data"></a>Controlar o acesso a dados do Key Vault
+### <a name="controlling-access-to-key-vault-data"></a>Controlando o acesso a dados de Key Vault
 
-Políticas de acesso do Cofre de chaves concedem permissões em separado para chaves, segredos ou certificados. Pode conceder um acesso de utilizadores apenas a chaves e não a segredos. Permissões de acesso para chaves, segredos e certificados são geridas ao nível do cofre.
+Key Vault políticas de acesso concedem permissões separadamente a chaves, segredos ou certificado. Você pode conceder a um usuário acesso apenas a chaves e não a segredos. Permissões de acesso para chaves, segredos e certificados são gerenciadas no nível do cofre.
 
 > [!IMPORTANT]
-> Políticas de acesso do Cofre de chaves não suportam permissões granulares, ao nível do objeto, como uma chave específica, o segredo ou o certificado. Quando um utilizador tem permissão para criar e eliminar chaves, eles podem executar essas operações em todas as chaves no Cofre de chaves.
+> Key Vault políticas de acesso não dão suporte a permissões granulares em nível de objeto, como uma chave, um segredo ou um certificado específico. Quando um usuário recebe permissão para criar e excluir chaves, ele pode executar essas operações em todas as chaves nesse cofre de chaves.
 
-Para definir políticas de acesso para um cofre de chaves, utilize o [portal do Azure](https://portal.azure.com/), o [CLI do Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), ou o [APIs de REST de gestão do Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Para definir políticas de acesso para um cofre de chaves, use o [portal do Azure](https://portal.azure.com/), o [CLI do Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs)ou as [APIs REST de gerenciamento de Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
-Pode restringir o acesso do plano de dados usando [pontos finais de serviço de rede virtual para o Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Pode configurar [firewalls e regras de rede virtual](key-vault-network-security.md) para uma camada adicional de segurança.
+Você pode restringir o acesso ao plano de dados usando [pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Você pode configurar [firewalls e regras de rede virtual](key-vault-network-security.md) para uma camada adicional de segurança.
 
 ## <a name="network-access"></a>Acesso à rede
 
-Pode reduzir a exposição dos seus cofres ao especificar que endereços IP tem acesso aos mesmos. Os pontos de extremidade de serviço de rede virtual para o Azure Key Vault permitem-lhe restringir o acesso a uma rede virtual especificada. Os pontos de extremidade também permitem-lhe restringir o acesso a uma lista de intervalos de endereços IPv4 (protocolo IP versão 4). Acesso é negado por qualquer utilizador ligar ao seu Cofre de chaves de fora essas origens.
+Você pode reduzir a exposição de seus cofres especificando quais endereços IP têm acesso a eles. Os pontos de extremidade de serviço de rede virtual para Azure Key Vault permitem restringir o acesso a uma rede virtual especificada. Os pontos de extremidade também permitem restringir o acesso a uma lista de intervalos de endereços IPv4 (protocolo IP versão 4). Qualquer usuário que se conecta ao cofre de chaves de fora dessas fontes tem o acesso negado.
 
-Depois de firewall regras estão em vigor, os utilizadores apenas podem ler dados do Key Vault quando os pedidos provêm de redes virtuais permitidas ou intervalos de endereços IPv4. Isso também se aplica a aceder ao Cofre de chaves do portal do Azure. Embora os usuários podem navegar para um cofre de chaves do portal do Azure, eles poderão não conseguir listar chaves, segredos ou certificados se os respetivos computadores cliente não está na lista de permitidos. Isso também afeta o Seletor de Cofre de chave por outros serviços do Azure. Os utilizadores poderão ver a lista de cofres de chaves, mas não listar as chaves, se as regras de firewall impedem os respetivos computadores cliente.
+Depois que as regras de firewall estiverem em vigor, os usuários só poderão ler dados de Key Vault quando suas solicitações se originarem de redes virtuais permitidas ou intervalos de endereços IPv4. Isso também se aplica ao acesso a Key Vault do portal do Azure. Embora os usuários possam navegar para um cofre de chaves do portal do Azure, eles podem não ser capazes de listar chaves, segredos ou certificados se o computador cliente não estiver na lista de permissões. Isso também afeta o seletor de Key Vault por outros serviços do Azure. Os usuários podem ver a lista de cofres de chaves, mas não as chaves de lista, se as regras de firewall impedirem seu computador cliente.
 
-Para obter mais informações sobre o Azure Key Vault a revisão de endereço de rede [pontos finais de serviço de rede Virtual para o Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+Para obter mais informações sobre Azure Key Vault endereço de rede revisar [pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
 
 ## <a name="monitoring"></a>Monitorização
 
-Registo do Cofre de chave guarda informações sobre as atividades executadas no seu cofre. Registos do Cofre de chaves:
+Key Vault log salva informações sobre as atividades executadas em seu cofre. Logs de Key Vault:
 
-- Autenticado todos os pedidos de REST API, incluindo pedidos falhados
-  - Operações na chave de cofre em si. Estas operações incluem a criação, eliminação, políticas de acesso de definição e atualizar atributos do Cofre de chaves, como etiquetas.
-  - Operações sobre chaves e segredos no Cofre de chaves, incluindo:
-    - Criar, modificar ou eliminação dessas chaves ou segredos.
-    - Assinatura, verificar, encriptar, desencriptar, encapsulamento e chaves de abertura, obter segredos, listagem de chaves e segredos (e suas versões).
-- Pedidos não autenticados que resultam numa resposta 401. Os exemplos são os pedidos que não tenham um token de portador incorretamente formulados ou expirados, ou que tenham um token inválido.
+- Todas as solicitações da API REST autenticadas, incluindo solicitações com falha
+  - Operações no próprio cofre de chaves. Essas operações incluem criação, exclusão, definição de políticas de acesso e atualização de atributos do Key Vault, como marcas.
+  - Operações em chaves e segredos no cofre de chaves, incluindo:
+    - Criando, modificando ou excluindo essas chaves ou segredos.
+    - Assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
+- Pedidos não autenticados que resultam numa resposta 401. Exemplos são solicitações que não têm um token de portador, malformados ou expirados, ou que têm um token inválido.
 
-Informações de registo podem ser acedidas em 10 minutos após a operação de Cofre de chaves. Cabe-lhe para que possa gerir os seus registos na sua conta de armazenamento. 
+As informações de log podem ser acessadas em 10 minutos após a operação do cofre de chaves. Cabe a você gerenciar seus logs em sua conta de armazenamento. 
 
 - Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
 - Elimine os registos que já não pretende manter na sua conta de armazenamento.
 
-De recomendação no gerenciamento seguro de armazenamento de contas de rever o [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md)
+Para obter recomendações sobre o gerenciamento seguro de contas de armazenamento, examine o [Guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md)
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- [Pontos finais de serviço de rede virtual para o Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
-- [RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md)
-- [Pontos finais de serviço de rede virtual para o Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+- [Pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+- [RBAC Funções internas](../role-based-access-control/built-in-roles.md)
+- [pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907959"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910566"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 A central de segurança do Azure analisa o estado de segurança de seus recursos do Azure, servidores não Azure e máquinas virtuais. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -108,7 +108,6 @@ Existem quatro tipos de ícones representados nesta lista:
 O ícone apresentado em cada recomendação ajuda-o a identificar rapidamente a VM e o computador que precisa de atenção e o tipo de recomendação. Você também pode usar os filtros para pesquisar a lista por **tipo de recurso** e por **severidade**.
 
 Para fazer uma busca detalhada nas recomendações de segurança para cada VM, clique na VM.
-Aqui verá os detalhes de segurança para o computador ou VM. Na parte inferior, pode ver a ação recomendada e a gravidade de cada problema.
 ![Serviços cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Serviços em nuvem
@@ -125,7 +124,7 @@ Para ver uma explicação mais prescritiva sobre esta recomendação, clique em 
 ![Atualizar a versão do SO](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>Serviços aplicacionais
-Você precisa habilitar o serviço de aplicativo em sua assinatura para exibir as informações do serviço de aplicativo. Para obter instruções sobre como habilitar esse recurso, consulte [proteger o serviço de aplicativo com a central de segurança do Azure](security-center-app-services.md).
+Para exibir as informações do serviço de aplicativo, você deve habilitar o serviço de aplicativo em sua assinatura. Para obter instruções sobre como habilitar esse recurso, consulte [proteger o serviço de aplicativo com a central de segurança do Azure](security-center-app-services.md).
 [!NOTE]
 > Monitorização do serviço de aplicações está em pré-visualização e disponível apenas no escalão Standard do Centro de segurança.
 
@@ -170,7 +169,7 @@ Para instalar o Microsoft Monitoring Agent:
 
    ![Instalar o MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Se você quiser definir novos conjuntos de dimensionamento para instalar automaticamente o Microsoft Monitoring Agent:
+Para definir novos conjuntos de dimensionamento para instalar automaticamente o Microsoft Monitoring Agent:
 1. Vá para Azure Policy e clique em **definições**.
 2. Procure a política **implantar log Analytics agente para conjuntos de dimensionamento de máquinas virtuais do Windows** e clique nele.
 3. Clique em **Atribuir**.
@@ -223,18 +222,18 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 |Machine|30|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|
 |Machine|1|As máquinas virtuais devem ser migradas para novos recursos do AzureRM|Use Azure Resource Manager para que suas máquinas virtuais forneçam aprimoramentos de segurança como: RBAC (controle de acesso mais forte), melhor auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso ao key Vault para segredos, Autenticação baseada no Azure AD e suporte para marcas e grupos de recursos para facilitar o gerenciamento da segurança. |
 |Machine|30|Vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade|As máquinas virtuais para o qual é implementar uma solução de terceiros de 3 de avaliação do vulnerabilidade estão a ser continuamente avaliadas em relação a aplicação e vulnerabilidades do SO. Sempre que encontram-se estas vulnerabilidades, elas estão disponíveis para obter mais informações, como parte da recomendação.|
-|Conjunto de dimensões da máquina virtual |4|Os logs de diagnóstico em conjuntos de dimensionamento de máquinas virtuais devem ser habilitados|Habilite os logs e mantenha-os por até um ano. Isso permite que você recrie trilhas de atividade para fins de investigação. Isso é útil quando ocorre um incidente de segurança ou sua rede é comprometida.|
-|Conjunto de dimensões da máquina virtual|35|Vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas|Corrija vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais para protegê-las contra ataques. |
-|Conjunto de dimensões da máquina virtual|5|Corrigir falhas de integridade do Endpoint Protection em conjuntos de dimensionamento de máquinas virtuais|Corrija as falhas de integridade da proteção de ponto de extremidade em seus conjuntos de dimensionamento de máquinas virtuais para protegê-las contra ameaças e vulnerabilidades. |
-|Conjunto de dimensões da máquina virtual|10|O Endpoint Protection deve ser instalado em máquinas virtuais|Instale uma solução de proteção de ponto de extremidade em seus conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ameaças e vulnerabilidades. |
-|Conjunto de dimensões da máquina virtual|40|As atualizações do sistema em conjuntos de dimensionamento de máquinas virtuais devem ser instaladas|Instale as atualizações críticas e de segurança do sistema ausentes para proteger seus conjuntos de dimensionamento de máquinas virtuais Windows e Linux. |
+|Conjunto de dimensionamento da máquina virtual |4|Os logs de diagnóstico em conjuntos de dimensionamento de máquinas virtuais devem ser habilitados|Habilite os logs e mantenha-os por até um ano. Isso permite que você recrie trilhas de atividade para fins de investigação. Isso é útil quando ocorre um incidente de segurança ou sua rede é comprometida.|
+|Conjunto de dimensionamento da máquina virtual|35|Vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas|Corrija vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais para protegê-las contra ataques. |
+|Conjunto de dimensionamento da máquina virtual|5|Corrigir falhas de integridade do Endpoint Protection em conjuntos de dimensionamento de máquinas virtuais|Corrija as falhas de integridade da proteção de ponto de extremidade em seus conjuntos de dimensionamento de máquinas virtuais para protegê-las contra ameaças e vulnerabilidades. |
+|Conjunto de dimensionamento da máquina virtual|10|O Endpoint Protection deve ser instalado em máquinas virtuais|Instale uma solução de proteção de ponto de extremidade em seus conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ameaças e vulnerabilidades. |
+|Conjunto de dimensionamento da máquina virtual|40|As atualizações do sistema em conjuntos de dimensionamento de máquinas virtuais devem ser instaladas|Instale as atualizações críticas e de segurança do sistema ausentes para proteger seus conjuntos de dimensionamento de máquinas virtuais Windows e Linux. |
  
 
 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 

@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: android
 author: jwargo
 manager: patniko
-editor: spelluru
-ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
@@ -14,14 +12,14 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 06/19/2019
 ms.author: jowargo
-ms.openlocfilehash: f6a6bc9b1d4826796299d073e0edfbfcede948e7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 7a3a9affc0fd5e83c7f6046e70d198cce08cb3e1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274916"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886049"
 ---
-# <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Notification Hubs utilizando o Baidu
+# <a name="deprecated-get-started-with-notification-hubs-using-baidu"></a>Preterido Introdução aos Notification Hubs utilizando o Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -122,9 +120,9 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
 
     ![Hubs de Notificação do Azure – Novo Projeto Baidu](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2. Introduza um nome de aplicação e certifique-se de que a versão do SDK mínimo necessário está definida como API 16: Android 4.1. **Certifique-se também de que o seu nome do pacote (应用包名) é igual ao do Portal Push da Cloud do Baidu**
+2. Insira um nome de aplicativo e verifique se a versão mínima necessária do SDK está definida como API 16: Android 4.1. **Certifique-se também de que o seu nome do pacote (应用包名) é igual ao do Portal Push da Cloud do Baidu**
 
-    ![Hubs de notificação do Azure – Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![Hubs de notificação do Azure – Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Hubs de notificação do Azure-Baidu](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) min SDK1 ![hubs de notificação do Azure-Baidu min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
 3. Clique em Seguinte e continue a seguir o assistente até aparecer a janela Criar Atividade. Certifique-se de que a opção Atividade Vazia está selecionada e, por fim, selecione Concluir para criar uma nova Aplicação Android.
 
@@ -149,7 +147,7 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
     }
     ```
 
-    Para evitar o conflito de lista, adicione o seguinte código do projeto `Manifest.xml` ficheiro:
+    Para evitar o conflito de lista, adicione o seguinte código ao arquivo do `Manifest.xml` projeto:
 
     ```xml
     <manifest package="YOUR.PACKAGE.NAME"
@@ -168,11 +166,11 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
 
     ![Hubs de Notificação do Azure – Bibliotecas do SDK do Baidu](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
-7. Do projeto `libs` pasta, clique direito na `pushervice-x.y.z.jar` ficheiro; selecione **adicionar como biblioteca** por incluir esta biblioteca no projeto.
+7. Na pasta do `libs` projeto, clique com o `pushervice-x.y.z.jar` botão direito do mouse no arquivo; selecione **Adicionar como biblioteca** para incluir essa biblioteca no projeto.
 
     ![Hubs de Notificação do Azure – Adicionar Como Biblioteca do Baidu](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
 
-8. Abra o projeto Android `AndroidManifest.xml` de ficheiros e adicionar as permissões necessárias para o SDK Baidu. **Substitua `YOURPACKAGENAME` pelo nome do pacote**.
+8. Abra o arquivo do projeto `AndroidManifest.xml` do Android e adicione as permissões exigidas pelo SDK do Baidu. **Substitua `YOURPACKAGENAME` pelo nome do pacote**.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -480,11 +478,11 @@ Para ser mais simples, este tutorial utiliza uma aplicação de consola como dem
 
 Seguem-se diferentes abordagens para enviar notificações:
 
-* **REST Interface**:  Pode suportar notificações em qualquer plataforma de back-end utilizando a [REST interface](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
-* **Os Hubs de notificação do Microsoft Azure SDK para .NET**: No Gestor de pacotes Nuget para Visual Studio, execute [Install-Package notificationhubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-* **Node.js**: [Como utilizar os Hubs de notificação do node. js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Aplicações móveis**: Para obter um exemplo de como enviar notificações de um back-end de aplicações de Mobile do serviço de aplicações do Azure que está integrado com os Hubs de notificação, consulte [adicionar notificações push à sua aplicação móvel](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java / PHP**: Para obter um exemplo de como enviar notificações com as APIs REST, consulte "Como utilizar os Hubs de notificação de Java/PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **Interface REST**:  Você pode dar suporte à notificação em qualquer plataforma de back-end usando a [interface REST](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **SDK do .net hubs de notificações do Microsoft Azure**: No Gerenciador de pacotes NuGet para Visual Studio, execute [install-Package Microsoft. Azure. NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+* **Node.js**: [Como usar os hubs de notificação do node. js](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Aplicativos móveis**: Para obter um exemplo de como enviar notificações de um back-end de aplicativos móveis do serviço de Azure App que está integrado com os hubs de notificação, consulte [Adicionar notificações por push ao seu aplicativo móvel](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Java / PHP**: Para obter um exemplo de como enviar notificações usando as APIs REST, consulte "como usar hubs de notificação de Java/PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [php](notification-hubs-php-push-notification-tutorial.md)).
 
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(Opcional) Envie notificações a partir de uma aplicação de consola do .NET.
 

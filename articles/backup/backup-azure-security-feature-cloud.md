@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 938c65371b05807c774c9f2d73d4c27efe706c47
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 173e261266bffd042e12b327e26fda3a4e55ea4b
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143573"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898994"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
-As preocupações sobre problemas de segurança, como malware, ransomware e intrusão, estão aumentando. Esses problemas de segurança podem ser dispendiosos, em termos de dinheiro e dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão. Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o backup de uma VM (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Esses 14 dias adicionais de retenção de dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para o cliente.
+As preocupações em relação a problemas de segurança, como software maligno, ransomware e intrusão, estão a aumentar. Estes problemas de segurança podem ser dispendiosos, tanto em termos de dinheiro como de dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão. Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o backup de uma VM (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Esses 14 dias adicionais de retenção de dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para o cliente.
 
 > [!NOTE]
 > A exclusão reversível só protege os dados de backup excluídos. Se uma VM for excluída sem um backup, o recurso de exclusão reversível não preservará os dados. Todos os recursos devem ser protegidos com o backup do Azure para garantir a resiliência completa.
@@ -26,7 +26,7 @@ As preocupações sobre problemas de segurança, como malware, ransomware e intr
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-A exclusão reversível tem suporte no momento na região do EUA Central ocidental.
+A exclusão reversível tem suporte no momento na região EUA Central ocidental e Ásia Oriental.
 
 ### <a name="soft-delete-for-vms"></a>Exclusão reversível para VMs
 
@@ -58,7 +58,7 @@ Neste ponto, você também pode restaurar a VM selecionando **restaurar VM** do 
    ![Captura de tela de portal do Azure, opção restaurar VM](./media/backup-azure-security-feature-cloud/restore-vm.png)
 
 > [!NOTE]
-> O coletor de lixo só executará e limpará os pontos de recuperação expirados depois que o usuário executar a operação de retomada de **backup** .
+> O coletor de lixo só executará e limpará os pontos de recuperação expirados depois que o usuário executar a operação de **retomada de backup** .
 
 5. Depois que o processo de reinicialização for concluído, o status retornará "parar backup com reter dados" e você poderá escolher **retomar backup**. A operação **retomar backup** retorna o item de backup no estado ativo, associado a uma política de backup selecionada pelo usuário que define os agendamentos de backup e retenção.
 
@@ -134,6 +134,6 @@ Não, o suporte ao PowerShell ou à CLI não está disponível no momento.
 
 Não. Atualmente, há suporte para a exclusão reversível em máquinas virtuais do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Leia sobre [atributos de segurança para o backup do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes).
+* Leia sobre os [controles de segurança para o backup do Azure](backup-security-controls.md).

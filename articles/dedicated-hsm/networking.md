@@ -2,8 +2,8 @@
 title: Considerações sobre o funcionamento em rede - HSM dedicada do Azure | Documentos da Microsoft
 description: Descrição geral do funcionamento em rede considerações aplicáveis a implementações de HSM dedicados do Azure
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: barclayn
-ms.openlocfilehash: 042ecabe38969a6a26c27622b8c3d25193b3e7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118039"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881279"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de HSM dedicados do Azure
 
@@ -39,7 +39,7 @@ Antes de aprovisionar um dispositivo de HSM dedicados, os clientes terão primei
 
 ### <a name="subnets"></a>Sub-redes
 
-Sub-redes segmentar a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que coloca nos mesmos. HSMs dedicados são implementados numa sub-rede na rede virtual. Cada dispositivo HSM dedicado que é implementado na sub-rede do cliente irão receber um endereço IP privado desta sub-rede. A sub-rede na qual o dispositivo HSM está implementado tem de ser explicitamente delegada para o serviço: Microsoft.HardwareSecurityModules/dedicatedHSMs. Esta ação garante determinadas permissões para o serviço HSM para a implementação para a sub-rede. Delegação de HSMs dedicados impõe algumas restrições de política na sub-rede. Grupos de segurança de rede (NSGs) e rotas definidas pelo utilizador (UDRs) não são atualmente suportadas em sub-redes do delegado. Como resultado, depois de uma sub-rede é delegada para HSMs dedicados, ele só pode ser utilizado para implementar recursos HSM. Implementação de quaisquer outros recursos de cliente para a sub-rede irá falhar.
+Sub-redes segmentar a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que coloca nos mesmos. HSMs dedicados são implementados numa sub-rede na rede virtual. Cada dispositivo HSM dedicado que é implementado na sub-rede do cliente irão receber um endereço IP privado desta sub-rede. A sub-rede na qual o dispositivo HSM é implantado precisa ser delegada explicitamente ao serviço: Microsoft.HardwareSecurityModules/dedicatedHSMs. Esta ação garante determinadas permissões para o serviço HSM para a implementação para a sub-rede. Delegação de HSMs dedicados impõe algumas restrições de política na sub-rede. Grupos de segurança de rede (NSGs) e rotas definidas pelo utilizador (UDRs) não são atualmente suportadas em sub-redes do delegado. Como resultado, depois de uma sub-rede é delegada para HSMs dedicados, ele só pode ser utilizado para implementar recursos HSM. Implementação de quaisquer outros recursos de cliente para a sub-rede irá falhar.
 
 
 ### <a name="expressroute-gateway"></a>Gateway do ExpressRoute
@@ -60,7 +60,7 @@ Uma rede privada Virtual do ponto a site é a forma mais simples de uma ligaçã
 
 ### <a name="site-to-site-vpn"></a>VPN site a Site
 
-Uma rede privada Virtual do site a site permite a comunicação segura entre baseada no Azure HSMs dedicados e no local IT. Um motivo para fazer isso é ter um recurso de backup para o HSM no local e que precisam de uma ligação entre os dois para executar a cópia de segurança.
+Uma rede privada Virtual do site a site permite a comunicação segura entre baseada no Azure HSMs dedicados e no local IT. Um motivo para fazer isso é ter um recurso de backup para o HSM local e precisar de uma conexão entre os dois para executar o backup.
 
 ## <a name="connecting-virtual-networks"></a>Ligar redes virtuais
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar, carregar e consultar um índice usando portal do Azure-Azure Search'
+title: 'Início rápido: Criar um índice de pesquisa usando portal do Azure-Azure Search'
 description: Use o assistente para importar dados no portal do Azure para criar, carregar e consultar seu primeiro índice em Azure Search.
 author: lobrien
 manager: nitinme
@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: c2950b35f207f772f1190a2f8f104098eeb43375
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656352"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884561"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Início rápido: Criar um índice de Azure Search usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -91,9 +91,9 @@ Os campos têm tipos de dados e atributos. As caixas de verificação na parte s
 * **Filtrável**, **classificável**e **facetable** determinam se os campos são usados em uma estrutura de navegação de filtro, classificação ou facetada.
 * **Pesquisável** significa que um campo está incluído na pesquisa de texto completo. As cadeias são pesquisáveis. Os campos numéricos e booleanos são frequentemente marcados como não pesquisáveis.
 
-Os requisitos de armazenamento não variam como resultado de sua seleção. Por exemplo, se você definir o atributo recuperável em vários campos, os requisitos de armazenamento não vão para cima.
+Os requisitos de armazenamento não variam como resultado de sua seleção. Por exemplo, se você definir o atributo **recuperável** em vários campos, os requisitos de armazenamento não vão para cima.
 
-Por predefinição, o assistente verifica a origem de dados relativamente a identificadores exclusivos como a base do campo de chaves. As cadeias de *caracteres* são atribuídas como **recuperáveis** e **pesquisáveis**. Os *inteiros* são atribuídos como **recuperáveis**, **filtráveis**, **classificável**e **face**.
+Por predefinição, o assistente verifica a origem de dados relativamente a identificadores exclusivos como a base do campo de chaves. As *cadeias de caracteres* são atribuídas como **recuperáveis** e **pesquisáveis**. Os *inteiros* são atribuídos como **recuperáveis**, **filtráveis**, **classificável**e **face**.
 
 1. Aceite as predefinições. 
 
@@ -117,7 +117,7 @@ Clique em **Enviar** para criar e executar o indexador simultaneamente.
 
 ## <a name="monitor-progress"></a>Monitorar o progresso
 
-O assistente deve levá-lo para a lista de indexadores onde você pode monitorar o progresso. Para navegação automática, vá para a página Visão geral e cliqueem indexadores.
+O assistente deve levá-lo para a lista de indexadores onde você pode monitorar o progresso. Para navegação automática, vá para a página Visão geral e clique em **indexadores**.
 
 Pode levar alguns minutos para o portal atualizar a página, mas você deve ver o indexador recém-criado na lista, com o status indicando "em andamento" ou êxito, juntamente com o número de documentos indexados.
 
@@ -143,7 +143,7 @@ Para compreender claramente o que pode e não pode editar durante o design do í
 
 Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a página de consulta [**Explorador de procura**](search-explorer.md) incorporada. Fornece uma caixa de pesquisa para que possa testar as cadeias de consulta arbitrária.
 
-**O Gerenciador de pesquisa** está equipado apenas para lidar com solicitações da [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita sintaxe para sintaxe de [consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e analisador de [consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis na [API REST do documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) das.
+**O Gerenciador de pesquisa** está equipado apenas para lidar com solicitações da [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita sintaxe para [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis na [API REST do documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) das.
 
 > [!TIP]
 > Os passos seguintes são demonstrados a partir dos 6m08 segundos do [vídeo Azure Search Overview](https://channel9.msdn.com/Events/Connect/2016/138) (Descrição geral do Azure Search).
@@ -219,7 +219,7 @@ O detetor de ocorrências refere-se à formatação no texto que corresponde à 
 
 #### <a name="example-highlighter-searchbeachhighlightdescription"></a>Exemplo (marcador): `search=beach&highlight=Description`
 
-* Neste exemplo, é mais fácil localizar a palavra-chave formatada no campo Descrição.
+* Neste exemplo *, é mais* fácil localizar a palavra-chave formatada no campo Descrição.
 
 #### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Exemplo (análise linguística): `search=beaches&highlight=Description`
 
@@ -273,7 +273,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode utilizar as ferramentas programáticas para explorar mais o Azure Search:
 

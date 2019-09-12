@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872186"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909770"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -99,8 +99,8 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 | país |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Country-EQ "valor") |
 | companyName | Qualquer valor de cadeia de caracteres ou *nulo* | (user.companyName -eq "value") |
 | Departamento |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Department-EQ "valor") |
-| displayName |Qualquer valor de cadeia de caracteres |(user.displayName -eq "value") |
-| employeeId |Qualquer valor de cadeia de caracteres |(user.employeeId -eq "value")<br>(User. employeeId-ne *NULL*) |
+| displayName |qualquer valor de cadeia de caracteres |(user.displayName -eq "value") |
+| employeeId |qualquer valor de cadeia de caracteres |(user.employeeId -eq "value")<br>(User. employeeId-ne *NULL*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Qualquer valor de cadeia de caracteres ou *nulo* |(user.givenName -eq "value") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou *nulo* |(User. jobTitle-EQ "valor") |
@@ -119,14 +119,14 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 | Apelido |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sobrenome-EQ "valor") |
 | telephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. telephoneNumber-EQ "valor") |
 | usageLocation |Código de país de duas letras |(user.usageLocation -eq "US") |
-| userPrincipalName |Qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro convidado *nulo* |(User. UserType-EQ "membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades do tipo coleção de cadeia de caracteres
 
 | properties | Valores permitidos | Utilização |
 | --- | --- | --- |
-| otherMails |Qualquer valor de cadeia de caracteres |(User. otherMails-contém "alias@domain") |
+| otherMails |qualquer valor de cadeia de caracteres |(User. otherMails-contém "alias@domain") |
 | proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(User. proxyAddresses-contém "SMTP: alias@domain") |
 
 Para as propriedades usadas para regras de dispositivo, consulte [regras para dispositivos](#rules-for-devices).
@@ -376,7 +376,7 @@ Os atributos de dispositivo a seguir podem ser usados.
  deviceManufacturer | qualquer valor de cadeia de caracteres | (device.deviceManufacturer -eq "Samsung")
  deviceModel | qualquer valor de cadeia de caracteres | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, empresa, desconhecido | (Device. deviceOwnership-EQ "empresa")
- enrollmentProfileName | Perfil de registro de dispositivo da Apple ou nome do perfil do Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | verdadeiro falso | (Device. isenraizadad-EQ true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

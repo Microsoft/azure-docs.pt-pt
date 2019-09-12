@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: b869841818e49ced0c2ef1f3d06b44871da504ac
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: bd67dbd16d058f43baf8a7d9699b3576f6277718
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542598"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900202"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -30,7 +30,7 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 
 [Grupo ANS no Reino Unido](https://www.ans.co.uk/)
 
-[Redes aryaka Networks](https://www.aryaka.com/)
+[Redes aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)
 
 [BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
 
@@ -38,19 +38,21 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://www.intercloud.com/)
+[InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
 
 [IIJ](https://www.iij.ad.jp/en/)
 
+[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+
 [ixreach](https://www.ixreach.com/)
 
-[Megaport](https://www.megaport.com/)
+[Megaport](https://www.megaport.com/services/microsoft-expressroute/)
 
 [Serviços de nuvem Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
-[Tata Communications](https://www.tatacommunications.com/)
+[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 
-[Vandis](https://www.vandis.com/)
+[Vandis](https://www.vandis.com/services/azure-migration/)
 
 ## <a name="expressroute"></a>Parceiros do ExpressRoute
 

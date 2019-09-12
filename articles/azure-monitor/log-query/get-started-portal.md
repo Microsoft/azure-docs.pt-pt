@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348079"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899519"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introdução ao Log Analytics no Azure Monitor
 
@@ -131,7 +131,7 @@ Por padrão, Log Analytics aplica o intervalo de hora das _últimas 24 horas_ . 
 
 Ao selecionar um intervalo de tempo personalizado, os valores selecionados estão em UTC, que podem ser diferentes do seu fuso horário local.
 
-Se a consulta contiver explicitamente um filtro para TimeGenerated, o título do seletor de tempo mostrará _definido em consulta_. A seleção manual será desabilitada para evitar um conflito.
+Se a consulta contiver explicitamente um filtro para _TimeGenerated_, o título do seletor de tempo mostrará _definido em consulta_. A seleção manual será desabilitada para evitar um conflito.
 
 
 ## <a name="charts"></a>Gráficos
@@ -148,7 +148,7 @@ Por padrão, os resultados são exibidos em uma tabela. Clique em _gráfico_ par
 
 ![Gráfico de barras](media/get-started-portal/bar-chart.png)
 
-Os resultados são mostrados em um gráfico de barras empilhadas. Clique em _coluna_ empilhada e selecione _pizza_ para mostrar outra exibição dos resultados:
+Os resultados são mostrados em um gráfico de barras empilhadas. Clique em _coluna empilhada_ e selecione _pizza_ para mostrar outra exibição dos resultados:
 
 ![Gráfico circular](media/get-started-portal/pie-chart.png)
 
@@ -162,7 +162,7 @@ Em um gráfico de tempo, se houver um pico repentino ou uma etapa em seus dados,
 ![Diagnóstico inteligente](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Afixar ao dashboard
-Para fixar um diagrama ou tabela em um dos seus painéis compartilhados do Azure, clique no ícone de pino.
+Para fixar um diagrama ou tabela em um dos seus painéis compartilhados do Azure, clique no ícone de pino. Observe que esse ícone foi movido para a parte superior da janela de Log Analytics, diferente da captura de tela abaixo.
 
 ![Afixar ao dashboard](media/get-started-portal/pin-dashboard.png)
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tyfox
-ms.openlocfilehash: 2035f5c7666d93068fd8007555bfe1aadae58ff1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3f4ccd8de1f26ea898b0e7ec4bb57aa20b1be209
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67873924"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885357"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerenciar clusters de Apache Hadoop no HDInsight usando Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -89,7 +89,7 @@ O impacto da alteração do número de nós de dados para cada tipo de cluster c
 
     A interface do usuário da Web do Storm está disponível no cluster HDInsight:
 
-    ![Rebalanceamento de escala do HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![Rebalanceamento de escala do HDInsight Storm](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     Aqui está um exemplo de como usar o comando da CLI para reequilibrar a topologia do Storm:
 

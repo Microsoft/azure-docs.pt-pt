@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0dfeb6a80cbf227f20b24def7641882ad0444489
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844589"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910013"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -83,7 +83,7 @@ As regras de caminho não diferenciam maiúsculas de minúsculas.
 
 #### <a name="v2"></a>v2
 
-As regras de caminho diferenciam maiúsculas de minúsculas.
+As regras de caminho não diferenciam maiúsculas de minúsculas.
 
 |padrão de caminho v2  |Tem suporte?  |
 |---------|---------|

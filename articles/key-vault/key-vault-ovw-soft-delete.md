@@ -1,90 +1,90 @@
 ---
-title: Eliminação de forma recuperável de Cofre de chaves do Azure | Documentos da Microsoft
+title: Exclusão reversível de Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 330337620f1732b9ccecfb2c95a0b4495476f97b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89b7dc639a3140f17a62087c5ba0d05fb6df4d7f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720522"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883129"
 ---
-# <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure
+# <a name="azure-key-vault-soft-delete-overview"></a>Visão geral da exclusão reversível Azure Key Vault
 
-Funcionalidade de eliminação de forma recuperável do Key Vault permite que a recuperação dos cofres eliminados e objetos de cofre, conhecidos como eliminação de forma recuperável. Especificamente, vamos abordar os seguintes cenários:
+O recurso de exclusão reversível do Key Vault permite a recuperação dos cofres excluídos e dos objetos de cofre, conhecidos como exclusão reversível. Especificamente, abordamos os seguintes cenários:
 
-- Suporte para eliminação recuperável de um cofre de chaves
-- Suporte para eliminação recuperável de objetos de Cofre de chaves (ex. as chaves, segredos e certificados)
+- Suporte para exclusão recuperável de um cofre de chaves
+- Suporte para exclusão recuperável de objetos do cofre de chaves (por exemplo, chaves, segredos, certificados)
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-A funcionalidade de eliminação de forma recuperável está inicialmente disponível através da [REST](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) e [.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
+O recurso de exclusão reversível está inicialmente disponível por meio do [REST](/rest/api/keyvault/), da [CLI](key-vault-soft-delete-cli.md), do [PowerShell](key-vault-soft-delete-powershell.md) e do [.NET/C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
 
 ## <a name="scenarios"></a>Cenários
 
-O Azure Key Vaults são recursos controlados, geridos pelo Azure Resource Manager. O Azure Resource Manager também especifica um comportamento bem definido para eliminação, que requer que uma operação de eliminação com êxito deve resultar nesse recurso não deixa de poder a estar acessível. A funcionalidade de eliminação de forma recuperável aborda a recuperação do objeto excluído, se a eliminação foi acidental ou intencional.
+Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource Manager. Azure Resource Manager também especifica um comportamento bem definido para exclusão, o que exige que uma operação de exclusão bem-sucedida deva fazer com que o recurso não fique mais acessível. O recurso de exclusão reversível resolve a recuperação do objeto excluído, independentemente de a exclusão ser acidental ou intencional.
 
-1. O cenário típico, um utilizador pode ter acidentalmente eliminado um cofre de chaves ou de um objeto do Cofre de chaves; se que cofre ou chave de objeto do Cofre de chaves fosse ser recuperada por um período predeterminado, o utilizador pode anular a eliminação e recuperar os seus dados.
+1. No cenário típico, um usuário pode ter excluído inadvertidamente um cofre de chaves ou um objeto de cofre de chaves; Se esse Key Vault ou o objeto do cofre de chaves fossem recuperáveis por um período predeterminado, o usuário poderá desfazer a exclusão e recuperar seus dados.
 
-2. Num cenário diferente, um utilizador não autorizado pode tentar eliminar um cofre de chaves ou de um objeto de Cofre de chaves, como uma chave no interior de um cofre, para fazer com que uma interrupção do negócio. Separar a eliminação do Cofre de chaves ou de objeto do Cofre de chaves a eliminação real dos dados subjacentes pode ser utilizado como uma medida de segurança, por exemplo, restringindo permissões de eliminação de dados para outro, fidedigno função. Essa abordagem requer efetivamente quórum para uma operação que caso contrário, poderá resultar numa perda de dados de imediato.
+2. Em um cenário diferente, um usuário não autorizado pode tentar excluir um cofre de chaves ou um objeto de cofre de chaves, como uma chave dentro de um cofre, para causar uma interrupção nos negócios. A separação da exclusão do cofre de chaves ou do objeto do cofre de chaves da exclusão real dos dados subjacentes pode ser usada como medida de segurança por, por exemplo, restringindo permissões na exclusão de dados para uma função diferente e confiável. Essa abordagem exige efetivamente o quorum para uma operação que, de outra forma, pode resultar em uma perda de dados imediata.
 
-### <a name="soft-delete-behavior"></a>Comportamento de eliminação de forma recuperável
+### <a name="soft-delete-behavior"></a>Comportamento de exclusão reversível
 
-Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o objeto do Cofre de chaves é uma eliminação de forma recuperável, com eficiência que contém os recursos para um período de retenção especificado (90 dias), dando a aparência que o objeto é eliminado. O serviço ainda mais fornece um mecanismo para recuperar o objeto excluído, desfazendo, essencialmente, a eliminação. 
+Com esse recurso, a operação de exclusão em um cofre de chaves ou objeto de cofre de chaves é uma exclusão reversível, mantendo efetivamente os recursos para um determinado período de retenção (90 dias), enquanto dá a aparência de que o objeto é excluído. O serviço fornece ainda mais um mecanismo para recuperar o objeto excluído, essencialmente desfazendo a exclusão. 
 
-É um comportamento opcional do Cofre de chaves de eliminação de forma recuperável sendo **não ativada por predefinição** nesta versão. Ele pode ser ativado através de [CLI](key-vault-soft-delete-cli.md) ou [Powershell](key-vault-soft-delete-powershell.md).
+A exclusão reversível é um comportamento opcional de Key Vault e **não é habilitada por padrão** nesta versão. Ele pode ser ativado via [CLI](key-vault-soft-delete-cli.md) ou [PowerShell](key-vault-soft-delete-powershell.md).
 
-### <a name="purge-protection"></a>Remover proteção 
+### <a name="purge-protection"></a>Limpar proteção 
 
-Quando remover a proteção está num cofre ou não é possível limpar um objeto no estado de eliminado, até que tenha passado o período de retenção de 90 dias. Estes cofres e os objetos podem ainda ser recuperados, os clientes de garantir que a política de retenção será seguida. 
+Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que o período de retenção de 90 dias tenha passado. Esses cofres e objetos ainda podem ser recuperados, garantindo aos clientes que a política de retenção será seguida. 
 
-Remover a proteção é um comportamento opcional do Key Vault sendo **não ativada por predefinição**. Ele pode ser ativado através de [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) ou [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+A proteção de limpeza é um comportamento opcional de Key Vault e **não é habilitada por padrão**. Ele pode ser ativado via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
-### <a name="permitted-purge"></a>Remoção permitida
+### <a name="permitted-purge"></a>Limpeza permitida
 
-Permanentemente a eliminar, remoção, um cofre de chaves é possível através de uma operação de publicação do recurso de proxy e exija privilégios especiais. Em geral, apenas o proprietário da subscrição será capaz de remover um cofre de chaves. A operação de publicação aciona a eliminação de imediata e irrecuperável desse cofre. 
+A exclusão permanente, a limpeza de um cofre de chaves é possível por meio de uma operação POST no recurso de proxy e requer privilégios especiais. Em geral, somente o proprietário da assinatura poderá limpar um cofre de chaves. A operação POST aciona a exclusão imediata e irrecuperável desse cofre. 
 
 As exceções são:
-- Quando a subscrição do Azure foi marcada como *undeletable*. Neste caso, apenas o serviço, em seguida, pode executar a eliminação real e faz isso como um processo agendado. 
-- Quando a-- enable--proteção contra remoção sinalizador estiver ativado no próprio cofre. Neste caso, o Key Vault aguardará durante 90 dias do quando o objeto secreto original foi marcado para eliminação eliminar permanentemente o objeto.
+- Quando a assinatura do Azure tiver sido marcada como *undeletable*. Nesse caso, somente o serviço pode executar a exclusão real e faz isso como um processo agendado. 
+- Quando o sinalizador--enable-remove-Protection está habilitado no cofre em si. Nesse caso, Key Vault aguardará 90 dias a partir do momento em que o objeto secreto original foi marcado para exclusão para excluir permanentemente o objeto.
 
-### <a name="key-vault-recovery"></a>Recuperação de Cofre de chaves
+### <a name="key-vault-recovery"></a>Recuperação do cofre de chaves
 
-Após eliminar um cofre de chaves, o serviço cria um recurso de proxy na subscrição, adicionar metadados suficiente para a recuperação. O recurso de proxy é um objeto armazenado, disponível na mesma localização que o Cofre de chaves eliminado. 
+Após a exclusão de um cofre de chaves, o serviço cria um recurso de proxy na assinatura, adicionando metadados suficientes para recuperação. O recurso de proxy é um objeto armazenado, disponível no mesmo local que o cofre de chaves excluído. 
 
-### <a name="key-vault-object-recovery"></a>Recuperação de objeto do Cofre de chaves
+### <a name="key-vault-object-recovery"></a>Recuperação de objeto do cofre de chaves
 
-Após a eliminação de um objeto de Cofre de chaves, como uma chave, o serviço irá colocar o objeto num Estado eliminado, tornando inacessível para quaisquer operações de obtenção. Enquanto estiver neste estado, o objeto do Cofre de chaves pode apenas ser apresentado, recuperados ou forçadamente/permanentemente eliminado. 
+Ao excluir um objeto do cofre de chaves, como uma chave, o serviço coloca o objeto em um estado excluído, tornando-o inacessível para qualquer operação de recuperação. Enquanto estiver nesse estado, o objeto do cofre de chaves só poderá ser listado, recuperado ou forçado/excluído permanentemente. 
 
-Ao mesmo tempo, o Key Vault agendará a eliminação dos dados subjacentes correspondente para o Cofre de chaves eliminado ou o objeto do Cofre de chaves para execução após um intervalo de retenção predeterminado. O registo DNS correspondentes para o Cofre também é retido durante o intervalo de retenção.
+Ao mesmo tempo, Key Vault agendará a exclusão dos dados subjacentes correspondentes ao cofre de chaves ou objeto do cofre de chaves excluído para execução após um intervalo de retenção predeterminado. O registro DNS correspondente ao cofre também é retido durante o intervalo de retenção.
 
-### <a name="soft-delete-retention-period"></a>Período de retenção de eliminação de forma recuperável
+### <a name="soft-delete-retention-period"></a>Período de retenção de exclusão reversível
 
-Recursos de eliminado de forma recuperável são retidos durante um determinado período de tempo, 90 dias. Durante o intervalo de retenção de eliminação de forma recuperável, situações seguintes:
+Os recursos com exclusão reversível são retidos por um determinado período de tempo, 90 dias. Durante o intervalo de retenção de exclusão reversível, o seguinte se aplica:
 
-- Pode listar todos os cofres de chaves e os objetos de Cofre de chaves no estado de eliminação de forma recuperável para a sua subscrição, bem como informações de recuperação e eliminação de acesso sobre eles.
-    - Apenas os utilizadores com permissões especiais podem listar os cofres eliminados. Recomendamos que nossos usuários criar uma função personalizada com estas permissões especiais para os cofres de manipulação de eliminado.
-- Não é possível criar um cofre de chaves com o mesmo nome na mesma localização; do mesmo modo, um objeto do Cofre de chaves não é possível criar um cofre de determinado se o Cofre de chaves contém um objeto com o mesmo nome e o que está num Estado eliminado 
-- Apenas um utilizador especificamente com privilégios pode restaurar um cofre de chaves ou o objeto do Cofre de chaves ao emitir um comando de recuperar o recurso de proxy correspondente.
-    - O utilizador, o membro da função personalizada, que tem o privilégio de criar um cofre de chaves no grupo de recursos pode restaurar o cofre.
-- Apenas um utilizador especificamente com privilégios a forçar pode eliminar um cofre de chaves ou o objeto do Cofre de chaves ao emitir um comando de eliminação do recurso de proxy correspondente.
+- Você pode listar todos os cofres de chaves e objetos do cofre de chaves no estado de exclusão reversível para sua assinatura, bem como informações de exclusão e recuperação de acesso sobre eles.
+    - Somente usuários com permissões especiais podem listar cofres excluídos. Recomendamos que nossos usuários criem uma função personalizada com essas permissões especiais para lidar com cofres excluídos.
+- Um cofre de chaves com o mesmo nome não pode ser criado no mesmo local; de forma correspondente, um objeto do cofre de chaves não poderá ser criado em um determinado cofre se esse cofre de chaves contiver um objeto com o mesmo nome e que estiver em um estado excluído 
+- Somente um usuário com privilégios específicos pode restaurar um cofre de chaves ou um objeto do cofre de chaves emitindo um comando de recuperação no recurso de proxy correspondente.
+    - O usuário, membro da função personalizada, que tem o privilégio para criar um cofre de chaves no grupo de recursos pode restaurar o cofre.
+- Somente um usuário com privilégios específicos pode forçar a exclusão de um cofre de chaves ou objeto de cofre de chaves emitindo um comando delete no recurso de proxy correspondente.
 
-A menos que um cofre de chaves ou o objeto do Cofre de chaves é recuperado, no final do intervalo de retenção, o serviço executa uma limpeza do Cofre de chaves eliminado de forma recuperável ou o objeto do Cofre de chaves e o respetivo conteúdo. Eliminação do recurso não pode ser reagendada.
+A menos que um cofre de chaves ou um objeto do cofre de chaves seja recuperado, ao final do intervalo de retenção, o serviço executará uma limpeza do cofre de chaves ou do objeto do cofre de chaves com exclusão reversível e seu conteúdo. A exclusão de recursos não pode ser reagendada.
 
-### <a name="billing-implications"></a>Implicações de faturação
+### <a name="billing-implications"></a>Implicações de cobrança
 
-Em geral, quando um objeto (um cofre de chaves ou uma chave ou um segredo) está no Estado eliminado, existem apenas duas operações possíveis: "Remover" e 'recover'. Todas as outras operações irão falhar. Por conseguinte, mesmo que o objeto existe, não operações podem ser efetuadas e, por conseguinte, não irá ocorrer nenhuma utilização, assim, nenhuma fatura. No entanto, está a seguir exceções:
+Em geral, quando um objeto (um cofre de chaves ou uma chave ou um segredo) está em estado excluído, há apenas duas operações possíveis: ' limpar ' e ' recuperar '. Todas as outras operações falharão. Portanto, embora o objeto exista, nenhuma operação pode ser executada e, portanto, nenhum uso ocorrerá, portanto, nenhuma fatura. No entanto, há exceções a seguir:
 
-- ações "Remover" e 'recover' contam para operações do Cofre de chaves normal e serão cobradas.
-- Se o objeto é uma chave de HSM, a cobrança de "HSM para chave protegida por" por versão da chave encargo mensal será aplicada se uma versão da chave tiver sido utilizada nos últimos 30 dias. Depois disso, uma vez que o objeto está num Estado eliminado, não existem operações podem ser executadas em relação a ele, então, sem custos serão aplicadas.
+- as ações ' limpar ' e ' recuperar ' serão consideradas para operações normais do cofre de chaves e serão cobradas.
+- Se o objeto for uma chave HSM, a cobrança "chave protegida por HSM" por versão de chave por custo mensal será aplicada se uma versão de chave tiver sido usada nos últimos 30 dias. Depois disso, como o objeto está no estado excluído, nenhuma operação pode ser executada em relação a ele, portanto, nenhum encargo será aplicado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os seguintes guias de dois oferecem os cenários de utilização principal para utilizar a eliminação de forma recuperável.
+Os dois guias a seguir oferecem os principais cenários de uso para usar a exclusão reversível.
 
 - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](key-vault-soft-delete-powershell.md) 
 - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](key-vault-soft-delete-cli.md)

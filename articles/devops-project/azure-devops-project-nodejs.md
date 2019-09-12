@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: eeab0433310892f27b9cb2d2eb6f64e17e6f14ef
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 407b0a270e667e195a6b9e8dbcd3753fb71b9699
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991728"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899627"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para node. js com Azure DevOps Projects 
 
@@ -72,7 +71,7 @@ DevOps Projects cria um repositório git no Azure Repos ou no GitHub. Execute as
 1. À esquerda do painel de DevOps Projects, selecione o link para o Branch mestre.  
 Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para exibir a URL de clone do repositório , selecione clonar na parte superior direita do navegador.   
+1. Para exibir a URL de clone do repositório, selecione **clonar** na parte superior direita do navegador.   
     Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
 
 1. No lado esquerdo do navegador, vá para o arquivo **views/index. Pug** .

@@ -1,32 +1,25 @@
-items:
 - name: Documentação do Storage do Azure
   href: index.yml
 - name: Descrição geral
-  items:
-  - name: Introdução
-    href: ./common/storage-introduction.md
-  - name: Escolha os Blobs, Ficheiros ou Discos
-    href: ./common/storage-decide-blobs-files-disks.md
   expanded: true
+  items:
+    - name: Introdução
+      href: ./common/storage-introduction.md
+    - name: 'Escolha os Blobs, Ficheiros ou Discos'
+      href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobs
-  href: ./blobs/storage-blobs-overview.md
+  href: ./blobs/index.yml?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Armazenamento do Data Lake Ger2
-  href: ./blobs/data-lake-storage-introduction.md
+  href: ./blobs/index.yml?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Ficheiros
-  href: ./files/storage-files-introduction.md
+  href: ./files/index.yml?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Filas
-  href: ./queues/storage-queues-introduction.md
+  href: ./queues/index.yml?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Tabelas
   href: ./tables/table-storage-overview.md
 - name: Discos
   items:
-  - name: Windows
-    href: ../virtual-machines/windows/managed-disks-overview.md
-  - name: Linux
-    href: ../virtual-machines/linux/managed-disks-overview.md
-ms.openlocfilehash: 44904cb09b3865da6040fa581cf43dccf722db20
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329836"
+    - name: Windows
+      href: ../virtual-machines/windows/managed-disks-overview.md
+    - name: Linux
+      href: ../virtual-machines/linux/managed-disks-overview.md

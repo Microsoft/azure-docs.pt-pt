@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240720"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910536"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conectar de local para CloudSimple usando o ExpressRoute
 
@@ -23,7 +23,7 @@ Se você já tiver uma conexão do ExpressRoute do Azure de um local externo (co
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Um bloco de endereço de rede **/29** é necessário para estabelecer alcance global conexão do local.  O espaço de endereço/29 é usado para a rede de trânsito entre circuitos do ExpressRoute.  A rede de trânsito não deve se sobrepor a nenhuma das redes virtuais do Azure, redes locais ou redes de nuvem privada CloudSimple.
+Um bloco de endereço de rede **/29** é necessário para estabelecer alcance global conexão do local.  O espaço de endereço/29 é usado para a rede de trânsito entre circuitos do ExpressRoute.  A rede de trânsito não deve se sobrepor a nenhuma de suas redes virtuais do Azure, redes locais ou redes de nuvem privada CloudSimple.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Um bloco de endereço de rede **/29** é necessário para estabelecer alcance gl
 
 ## <a name="scenarios"></a>Cenários
 
-Conectar sua rede local à sua rede de nuvem privada permite que você use a nuvem privada de várias maneiras, incluindo as seguintes:
+Conectar sua rede local à sua rede de nuvem privada permite que você use a nuvem privada de várias maneiras, incluindo os seguintes cenários:
 
 * Acesse sua rede de nuvem privada sem criar uma conexão VPN site a site.
 * Use seu Active Directory local como uma fonte de identidade em sua nuvem privada.
@@ -43,6 +43,7 @@ Conectar sua rede local à sua rede de nuvem privada permite que você use a nuv
 ## <a name="connecting-expressroute-circuits"></a>Conectando circuitos do ExpressRoute
 
 Para estabelecer a conexão do ExpressRoute, você deve criar uma autorização no circuito do ExpressRoute e fornecer as informações de autorização para CloudSimple.
+
 
 ### <a name="create-expressroute-authorization"></a>Criar autorização de ExpressRoute
 
@@ -70,6 +71,11 @@ Para estabelecer a conexão do ExpressRoute, você deve criar uma autorização 
     * Subtipo do problema: **Criar conexão do ExpressRoute para o local**
     * Forneça a ID de recurso e a chave de autorização que você copiou e salvou no painel de detalhes.
     * Forneça um/29 espaço de endereço de rede para a rede de trânsito.
+    * Você está enviando a rota padrão por meio do ExpressRoute?
+    * O tráfego de nuvem privada deve usar a rota padrão enviada por meio do ExpressRoute?
+
+    > [!IMPORTANT]
+    > O envio de rota padrão permite enviar todo o tráfego da Internet da nuvem privada usando sua conexão de Internet local.  Para desabilitar a rota padrão configurada na nuvem privada e usar a rota padrão de conexão local, forneça os detalhes no tíquete de suporte.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

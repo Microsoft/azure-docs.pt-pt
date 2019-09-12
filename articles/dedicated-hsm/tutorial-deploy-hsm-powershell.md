@@ -3,8 +3,8 @@ title: Tutorial implementar numa rede virtual existente com o PowerShell - HSM d
 description: Tutorial que mostra como implementar um HSM dedicado com o PowerShell numa rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 581ce6d75df8f42bb72bbfc93e85684d97620e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mbaldwin
+ms.openlocfilehash: 53fb4fa344839957a3f98275d174bbb787fa5e38
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158999"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880999"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – implementar HSMs numa rede virtual existente com o PowerShell
 
@@ -40,7 +40,7 @@ Este tutorial concentra-se num par de HSMs e o Gateway do ExpressRoute necessár
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-HSM dedicada do Azure não está atualmente disponível no portal do Azure, portanto toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Este tutorial irá utilizar o PowerShell no Azure Cloud Shell. Se estiver familiarizado com o PowerShell, siga instruções de introdução aqui: [O Azure PowerShell Get Started](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+HSM dedicada do Azure não está atualmente disponível no portal do Azure, portanto toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Este tutorial irá utilizar o PowerShell no Azure Cloud Shell. Se você for novo no PowerShell, siga as instruções de introdução aqui: [Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)começar.
 
 Pressupostos:
 
@@ -190,7 +190,7 @@ Este comando deve demorar cerca de 20 minutos a concluir. O "-verbose" opção u
 
 ![Estado de aprovisionamento](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Quando concluída com êxito, mostrado pela "provisioningState": "Com êxito", pode iniciar sessão na sua máquina virtual existente e utilizar o SSH para garantir a disponibilidade do dispositivo HSM.
+Quando concluído com êxito, mostrado por "provisioningState": "Êxito", você pode entrar em sua máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verificar a implementação
 
@@ -217,7 +217,7 @@ O ssh ferramenta é utilizada para ligar à máquina virtual. O comando seria se
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 A palavra-passe a utilizar é a partir do ficheiro de parâmetro.
-Uma vez iniciada sessão na VM do Linux pode iniciar sessão para o HSM com o endereço IP privado encontrado no portal para o recurso \<prefixo > hsm_vnic.
+Depois de conectado à VM Linux, você pode fazer logon no HSM usando o endereço IP privado encontrado no portal para o prefixo de recurso \<> hsm_vnic.
 
 ```powershell
 
