@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: bf877b9422581cd77349a2a9eddf0ab262977062
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 9ee39bcc7a1024ff511d0f374c06e1a4e43015b4
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734766"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917634"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar Apache Spark streaming estruturado com Apache Kafka no HDInsight
 
@@ -116,7 +116,7 @@ O Apache Kafka no HDInsight não fornece acesso aos mediadores Kafka através da
 
 O diagrama seguinte mostra como a comunicação flui entre o Spark e o Kafka:
 
-![Diagrama de clusters do Spark e Kafka numa rede virtual do Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Diagrama de clusters do Spark e Kafka numa rede virtual do Azure](./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
 > O serviço Kafka está limitado à comunicação na rede virtual. Outros serviços em cluster, como SSH e Ambari, podem ser acedidos através da Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, veja [Portas e URIs utilizados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -125,7 +125,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
 1. Utilize o botão seguinte para iniciar sessão no Azure e abrir o modelo no Portal do Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-kafka-spark-structured-streaming/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     O modelo do Azure Resource Manager está localizado em **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json** .
 
@@ -328,7 +328,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 > 
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você aprendeu a usar [Apache Spark streaming estruturado](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) para gravar e ler dados de [Apache Kafka](https://kafka.apache.org/) no HDInsight. Use o link a seguir para aprender a usar o [Apache Storm](https://storm.apache.org/) com o Kafka.
 

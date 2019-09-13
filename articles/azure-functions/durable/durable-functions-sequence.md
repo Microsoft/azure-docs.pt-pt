@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1168963c0698c6bdafe20babe2e5143585bf90a8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087113"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933261"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções no exemplo de sequência de Durable Functions de saudação
 
-O encadeamento de funções refere-se ao padrão de executar uma sequência de funções em uma ordem específica. Geralmente, a saída de uma função precisa ser aplicada à entrada de outra função. Este artigo descreve a sequência de encadeamento que você cria ao concluir o Durable Functions início rápido ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Para obter mais informações sobre Durable Functions, consulte [padrões de durable Functions e conceitos técnicos](durable-functions-concepts.md).
+O encadeamento de funções refere-se ao padrão de executar uma sequência de funções em uma ordem específica. Geralmente, a saída de uma função precisa ser aplicada à entrada de outra função. Este artigo descreve a sequência de encadeamento que você cria ao concluir o Durable Functions início rápido ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Para obter mais informações sobre Durable Functions, consulte [Durable Functions visão geral](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -141,7 +141,7 @@ Como você pode ver, o `runtimeStatus` da instância é `output` *concluído* e 
 > [!NOTE]
 > O ponto de extremidade HTTP POST que iniciou a função de orquestrador é implementado no aplicativo de exemplo como uma função de gatilho HTTP chamada "HttpStart". Você pode implementar uma lógica inicial semelhante para outros tipos de gatilho, `queueTrigger`como `eventHubTrigger`, ou `timerTrigger`.
 
-Examine os logs de execução da função. A `E1_HelloSequence` função foi iniciada e concluída várias vezes devido ao comportamento de reprodução descrito na [visão geral](durable-functions-concepts.md). Por outro lado, havia apenas três execuções de, uma `E1_SayHello` vez que essas execuções de função não são reproduzidas.
+Examine os logs de execução da função. A `E1_HelloSequence` função foi iniciada e concluída várias vezes devido ao comportamento de reprodução descrito no tópico de [confiabilidade da orquestração](durable-functions-orchestrations.md#reliability) . Por outro lado, havia apenas três execuções de, uma `E1_SayHello` vez que essas execuções de função não são reproduzidas.
 
 ## <a name="visual-studio-sample-code"></a>Código de exemplo do Visual Studio
 

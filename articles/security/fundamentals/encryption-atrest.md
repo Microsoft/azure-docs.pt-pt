@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3cacdad2986de257ae345f4baa9d14ea6c894b2
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 78062dd92d20da365bb4f3d9c21cc4d576bae01f
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873184"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918871"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso
 
@@ -39,7 +39,7 @@ A criptografia em repouso é a codificação (criptografia) de dados quando ela 
 - Uma chave de criptografia simétrica é usada para criptografar dados conforme eles são gravados no armazenamento.
 - A mesma chave de criptografia é usada para descriptografar os dados, pois eles são pronto para uso na memória.
 - Os dados podem ser particionados e chaves diferentes podem ser usadas para cada partição.
-- As chaves devem ser armazenadas em um local seguro com controle de acesso baseado em identidade e políticas de auditoria. As chaves de criptografia de dados geralmente são criptografadas com criptografia assimétrica para limitar o acesso.
+- As chaves devem ser armazenadas em um local seguro com controle de acesso baseado em identidade e políticas de auditoria. As chaves de criptografia de dados geralmente são criptografadas com uma chave de criptografia de chave em Azure Key Vault para limitar ainda mais o acesso.
 
 Na prática, os principais cenários de controle e gerenciamento de chaves, bem como garantias de escala e disponibilidade, exigem construções adicionais. Microsoft Azure conceitos e componentes de criptografia em repouso são descritos abaixo.
 
@@ -71,12 +71,12 @@ As permissões para usar as chaves armazenadas no Azure Key Vault, seja para ger
 
 ### <a name="key-hierarchy"></a>Hierarquia de chave
 
-Mais de uma chave de criptografia é usada em uma implementação de criptografia em repouso. A criptografia assimétrica é útil para estabelecer a confiança e a autenticação necessárias para o gerenciamento e o acesso à chave. A criptografia simétrica é mais eficiente para criptografia e descriptografia em massa, permitindo uma criptografia mais forte e melhor desempenho. Limitar o uso de uma única chave de criptografia diminui o risco de que a chave seja comprometida e o custo de nova criptografia quando uma chave deve ser substituída. Os modelos de criptografia do Azure em repouso usam uma hierarquia de chave composta pelos seguintes tipos de chaves:
+Mais de uma chave de criptografia é usada em uma implementação de criptografia em repouso. O armazenamento de uma chave de criptografia no Azure Key Vault garante o acesso de chave seguro e o gerenciamento central de chaves. No entanto, o acesso local do serviço a chaves de criptografia é mais eficiente para criptografia e descriptografia em massa do que interagir com Key Vault para cada operação de dados, permitindo uma criptografia mais forte e melhor desempenho. Limitar o uso de uma única chave de criptografia diminui o risco de que a chave seja comprometida e o custo de nova criptografia quando uma chave deve ser substituída. Os modelos de criptografias em repouso do Azure usam uma hierarquia de chave composta pelos seguintes tipos de chaves para atender a todas essas necessidades:
 
 - **DEK (chave de criptografia de dados)** – uma chave de aes256s simétrica usada para criptografar uma partição ou um bloco de dados.  Um único recurso pode ter muitas partições e muitas chaves de criptografia de dados. A criptografia de cada bloco de dados com uma chave diferente torna os ataques de análise de criptografia mais difíceis. O acesso ao DEKs é necessário para o provedor de recursos ou instância do aplicativo que está Criptografando e descriptografando um bloco específico. Quando um DEK é substituído por uma nova chave, somente os dados em seu bloco associado devem ser criptografados novamente com a nova chave.
-- Chave **de criptografia de chave (Kek)** – uma chave de criptografia assimétrica usada para criptografar as chaves de criptografia de dados. O uso de uma chave de criptografia de chave permite que as próprias chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Uma entidade pode ser um agente de acesso ao DEK para limitar o acesso de cada DEK a uma partição específica. Como o KEK é necessário para descriptografar o DEKs, o KEK é efetivamente um único ponto pelo qual DEKs pode ser efetivamente excluído pela exclusão do KEK.
+- Chave de **criptografia de chave (Kek)** – uma chave de criptografia usada para criptografar as chaves de criptografia de dados. O uso de uma chave de criptografia de chave que nunca deixa Key Vault permite que as próprias chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Uma entidade pode ser um agente de acesso ao DEK para limitar o acesso de cada DEK a uma partição específica. Como o KEK é necessário para descriptografar o DEKs, o KEK é efetivamente um único ponto pelo qual DEKs pode ser efetivamente excluído pela exclusão do KEK.
 
-As chaves de criptografia de dados, criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode obter quaisquer chaves de criptografia de dados criptografadas com essa chave. Há suporte para diferentes modelos de armazenamento de chaves. Discutiremos cada modelo em mais detalhes posteriormente na próxima seção.
+As chaves de criptografia de dados, criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode descriptografar essas chaves de criptografia de dados. Há suporte para diferentes modelos de armazenamento de chaves. Discutiremos cada modelo em mais detalhes posteriormente na próxima seção.
 
 ## <a name="data-encryption-models"></a>Modelos de criptografia de dados
 
@@ -150,7 +150,9 @@ Quando a criptografia do lado do servidor com chaves gerenciadas pelo serviço �
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Azure Key Vault
 
-Para cenários em que o requisito é criptografar os dados em repouso e controlar as chaves de criptografia, os clientes podem usar a criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Key Vault. Alguns serviços podem armazenar apenas a chave de criptografia de chave raiz em Azure Key Vault e armazenar a chave de criptografia de dados criptografados em um local interno mais próximo dos dados. Nesse cenário, os clientes podem trazer suas próprias chaves para Key Vault (BYOK – Bring Your Own Key) ou gerar novas e usá-las para criptografar os recursos desejados. Enquanto o provedor de recursos executa as operações de criptografia e descriptografia, ele usa a chave configurada como a chave raiz para todas as operações de criptografia.
+Para cenários em que o requisito é criptografar os dados em repouso e controlar as chaves de criptografia, os clientes podem usar a criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Key Vault. Alguns serviços podem armazenar apenas a chave de criptografia de chave raiz em Azure Key Vault e armazenar a chave de criptografia de dados criptografados em um local interno mais próximo dos dados. Nesse cenário, os clientes podem trazer suas próprias chaves para Key Vault (BYOK – Bring Your Own Key) ou gerar novas e usá-las para criptografar os recursos desejados. Enquanto o provedor de recursos executa as operações de criptografia e descriptografia, ele usa a chave de criptografia de chave configurada como a chave raiz para todas as operações de criptografia.
+
+A perda de chaves de criptografia de chave significa perda de dados. Por esse motivo, as chaves não devem ser excluídas. O backup das chaves deve ser feito sempre que for criado ou girado. [A exclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser habilitada em qualquer cofre que armazene chaves de criptografia de chave. Em vez de excluir uma chave, defina habilitado como falso ou defina a data de expiração.
 
 ##### <a name="key-access"></a>Acesso à chave
 

@@ -1,46 +1,46 @@
 ---
-title: Melhores práticas para utilizar o Key Vault, Azure Key Vault | Documentos da Microsoft
-description: Este documento explica algumas das melhores práticas para utilizar o Key Vault
+title: Práticas recomendadas para usar o Key Vault-Azure Key Vault | Microsoft Docs
+description: Este documento explica algumas das práticas recomendadas para usar Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-key-vault
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 654a9bb772c8a7426a335c98dfeca69515b9ce67
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65227928"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881629"
 ---
-# <a name="best-practices-to-use-key-vault"></a>Melhores práticas para utilizar o Key Vault
+# <a name="best-practices-to-use-key-vault"></a>Práticas recomendadas para usar Key Vault
 
-## <a name="control-access-to-your-vault"></a>Controlar o acesso ao seu Cofre
+## <a name="control-access-to-your-vault"></a>Controlar o acesso ao seu cofre
 
-O Azure Key Vault é um serviço cloud que salvaguarda as chaves de encriptação e os segredos, como certificados, cadeias de ligação e palavras-passe. Uma vez que estes dados são confidenciais e crítico para a empresa, terá de proteger o acesso aos seus cofres de chaves ao permitir que apenas aplicativos autorizados e utilizadores. Isso [artigo](key-vault-secure-your-key-vault.md) fornece uma descrição geral do modelo de acesso do Cofre de chaves. Ele explica a autenticação e autorização e descreve como proteger o acesso aos seus cofres de chaves.
+Azure Key Vault é um serviço de nuvem que protege chaves de criptografia e segredos como certificados, cadeias de conexão e senhas. Como esses dados são confidenciais e críticos para os negócios, você precisa proteger o acesso aos seus cofres de chaves, permitindo apenas aplicativos e usuários autorizados. Este [artigo](key-vault-secure-your-key-vault.md) fornece uma visão geral do modelo de acesso Key Vault. Ele explica a autenticação e a autorização e descreve como proteger o acesso aos seus cofres de chaves.
 
-Sugestões ao controlar o acesso ao seu Cofre são os seguintes:
-1. Bloquear o acesso à sua subscrição, grupo de recursos e os cofres de chave (RBAC)
-2. Criar políticas de acesso para cada Cofre
-3. Utilizar o principal de acesso do menor privilégio para conceder acesso
-4. Ativar a Firewall e [pontos finais de serviço VNET](key-vault-overview-vnet-service-endpoints.md)
+As sugestões ao controlar o acesso ao cofre são as seguintes:
+1. Bloquear o acesso à sua assinatura, grupo de recursos e cofres de chaves (RBAC)
+2. Criar políticas de acesso para cada cofre
+3. Use a entidade de acesso de privilégios mínimos para conceder acesso
+4. Ativar [pontos de extremidade de serviço de rede virtual](key-vault-overview-vnet-service-endpoints.md) e firewall
 
-## <a name="use-separate-key-vault"></a>Utilizar o Cofre de chave separado
+## <a name="use-separate-key-vault"></a>Usar Key Vault separadas
 
-A nossa recomendação é usar um cofre por aplicação por ambiente (desenvolvimento, pré-produção e produção). Isto ajuda-o a não partilham os segredos em ambientes e também reduz o risco em caso de uma violação.
+Nossa recomendação é usar um cofre por aplicativo por ambiente (desenvolvimento, pré-produção e produção). Isso ajuda você a não compartilhar segredos entre ambientes e também reduz a ameaça em caso de uma violação.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Criar cópia de segurança
 
-Certifique-se de que voltar regular cumulativos de atualizações para seus [cofre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) no update/delete/criação de objetos dentro de um cofre.
+Certifique-se de fazer backups regulares de seu [cofre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) em atualizar/excluir/criar objetos em um cofre.
 
-## <a name="turn-on-logging"></a>Ativar o registo
+## <a name="turn-on-logging"></a>Ativar registro em log
 
-[Ativar o registo](key-vault-logging.md) para o cofre. Também posso configurar alertas.
+[Ative o registro em log](key-vault-logging.md) para seu cofre. Configure também alertas.
 
 ## <a name="turn-on-recovery-options"></a>Ativar opções de recuperação
 
-1. Ative [eliminação de forma recuperável](key-vault-ovw-soft-delete.md).
-2. Ative a proteção contra remoção para proteção contra força a eliminação do segredo do / cofre mesmo após a eliminação de forma recuperável estiver ativada.
+1. Ative a [exclusão reversível](key-vault-ovw-soft-delete.md).
+2. Ative a proteção de limpeza se você quiser se proteger contra a exclusão forçada do segredo/cofre mesmo depois que a exclusão reversível estiver ativada.

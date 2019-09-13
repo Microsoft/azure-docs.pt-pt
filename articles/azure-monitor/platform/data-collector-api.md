@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 09/10/2019
 ms.author: bwren
-ms.openlocfilehash: a34faeb42fce0a1ee7960f71ffce176492495f9c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 746166713a6d7d90afb77fb03cf86b311178c5f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744517"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899653"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para Azure Monitor com a API do coletor de dados HTTP (visualização pública)
 Este artigo mostra como usar a API do coletor de dados HTTP para enviar dados de log para Azure Monitor de um cliente de API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada por Azure Monitor.  Os exemplos são fornecidos para PowerShell C#, e Python.
@@ -145,7 +145,7 @@ Para identificar o tipo de dados de uma propriedade, Azure Monitor adiciona um s
 | Booleano |_b |
 | Double |_d |
 | Data/hora |_t |
-| GUID |_g |
+| GUID (armazenado como uma cadeia de caracteres) |_g |
 
 O tipo de dados que Azure Monitor usa para cada propriedade depende se o tipo de registro para o novo registro já existe.
 
@@ -477,7 +477,7 @@ Embora a API do coletor de dados deva abranger a maioria das suas necessidades d
 | Opcional | Descrição | Mais adequado para |
 |---|---|---|
 | [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo no Application Insights | Application Insights, normalmente instrumentados por meio de um SDK dentro de seu aplicativo, oferece a capacidade de enviar dados personalizados por meio de eventos personalizados. | <ul><li> Dados que são gerados em seu aplicativo, mas não são selecionados pelo SDK por meio de um dos tipos de dados padrão (solicitações, dependências, exceções e assim por diante).</li><li> Dados que costumam ser correlacionados a outros dados de aplicativo no Application Insights </li></ul> |
-| [API do coletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) em Logs de Azure monitor | A API do coletor de dados em logs de Azure Monitor é uma maneira completamente aberta de ingerir dados. Todos os dados formatados em um objeto JSON podem ser enviados aqui. Depois de enviado, ele será processado e estará disponível nos logs para serem correlacionados a outros dados nos logs ou a outros dados de Application Insights. <br/><br/> É bem fácil carregar os dados como arquivos em um blob de blob do Azure, de onde esses arquivos serão processados e carregados em Log Analytics. Consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para obter uma implementação de exemplo desse pipeline. | <ul><li> Dados que não são necessariamente gerados em um aplicativo instrumentado dentro de Application Insights.</li><li> Os exemplos incluem tabelas de pesquisa e de fatos, dados de referência, estatísticas pré-configuradas e assim por diante. </li><li> Destinado a dados que serão referenciados entre outros dados de Azure Monitor (Application Insights, outros tipos de dados de logs, central de segurança, Azure Monitor para contêineres/VMs e assim por diante). </li></ul> |
+| API do coletor de dados em logs de Azure Monitor | A API do coletor de dados em logs de Azure Monitor é uma maneira completamente aberta de ingerir dados. Todos os dados formatados em um objeto JSON podem ser enviados aqui. Depois de enviado, ele será processado e estará disponível nos logs para serem correlacionados a outros dados nos logs ou a outros dados de Application Insights. <br/><br/> É bem fácil carregar os dados como arquivos em um blob de blob do Azure, de onde esses arquivos serão processados e carregados em Log Analytics. Consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para obter uma implementação de exemplo desse pipeline. | <ul><li> Dados que não são necessariamente gerados em um aplicativo instrumentado dentro de Application Insights.</li><li> Os exemplos incluem tabelas de pesquisa e de fatos, dados de referência, estatísticas pré-configuradas e assim por diante. </li><li> Destinado a dados que serão referenciados entre outros dados de Azure Monitor (Application Insights, outros tipos de dados de logs, central de segurança, Azure Monitor para contêineres/VMs e assim por diante). </li></ul> |
 | [Data Explorer do Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que capacita Application Insights análise e Azure Monitor logs. Agora disponível ("GA"), usar a plataforma de dados em sua forma bruta oferece flexibilidade total (mas exigindo a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema e assim por diante). O ADX fornece muitas [Opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) , incluindo arquivos [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dados que não serão correlacionados a outros dados em Application Insights ou logs. </li><li> Os dados que exigem recursos avançados de ingestão ou processamento não estão disponíveis atualmente nos logs de Azure Monitor. </li></ul> |
 
 

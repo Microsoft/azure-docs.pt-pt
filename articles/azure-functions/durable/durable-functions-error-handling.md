@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734313"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933416"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros em Durable Functions (Azure Functions)
 
-Orquestrações de função duráveis são implementadas no código e podem usar os recursos de tratamento de erros da linguagem de programação. Com isso em mente, realmente não há nenhum novo conceito que você precisa saber sobre a incorporação de tratamento de erros e a compensação em suas orquestrações. No entanto, há alguns comportamentos que você deve estar atento.
+Orquestrações de função duráveis são implementadas no código e podem usar os recursos internos de tratamento de erros da linguagem de programação. Na verdade, não há nenhum novo conceito que você precise aprender para adicionar o tratamento de erros e a compensação às suas orquestrações. No entanto, há alguns comportamentos que você deve estar atento.
 
 ## <a name="errors-in-activity-functions"></a>Erros em funções de atividade
 
@@ -139,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Se a chamada à função **CreditAccount** falhar para a conta de destino, a função de orquestrador compensará isso creditando os fundos de volta para a conta de origem.
+Se a primeira chamada de função **CreditAccount** falhar, a função de orquestrador compensa creditando os fundos de volta para a conta de origem.
 
 ## <a name="automatic-retry-on-failure"></a>Nova tentativa automática em caso de falha
 
@@ -192,14 +192,14 @@ module.exports = df.orchestrator(function*(context) {
 
 A `CallActivityWithRetryAsync` API (.net) `callActivityWithRetry` ou (JavaScript) usa um `RetryOptions` parâmetro. As chamadas de suborquestração `CallSubOrchestratorWithRetryAsync` usando a API ( `callSubOrchestratorWithRetry` .net) ou (JavaScript) podem usar essas mesmas políticas de repetição.
 
-Há várias opções para personalizar a política de repetição automática. Entre eles, incluem-se:
+Há várias opções para personalizar a política de repetição automática:
 
 * **Número máximo de tentativas**: O número máximo de tentativas de repetição.
 * **Primeiro intervalo de repetição**: A quantidade de tempo de espera antes da primeira tentativa de repetição.
 * **Coeficiente de retirada**: O coeficiente usado para determinar a taxa de aumento de retirada. O padrão é 1.
 * **Intervalo máximo de repetição**: A quantidade máxima de tempo de espera entre as tentativas de repetição.
 * **Tempo limite de repetição**: A quantidade máxima de tempo para passar por novas tentativas. O comportamento padrão é repetir indefinidamente.
-* **Identificador**: Um retorno de chamada definido pelo usuário pode ser especificado, o que determina se deve ser feita uma nova tentativa ou não.
+* **Identificador**: Um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida.
 
 ## <a name="function-timeouts"></a>Tempos limite da função
 
@@ -296,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 Se uma função de orquestrador falhar com uma exceção sem tratamento, os detalhes da exceção serão registrados e a instância será concluída com um `Failed` status.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre orquestrações do eternas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Saiba como diagnosticar problemas](durable-functions-diagnostics.md)

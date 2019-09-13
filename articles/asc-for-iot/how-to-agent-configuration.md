@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596335"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933890"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
 
@@ -87,28 +87,28 @@ Para usar um valor de propriedade padrão, remova a propriedade do objeto de con
 
 1. No Hub IoT, localize e selecione o dispositivo que você deseja alterar.
 
-2. Clique em seu dispositivo e, em seguida, no módulo **azureiotsecurity** .
+1. Clique em seu dispositivo e, em seguida, no módulo **azureiotsecurity** .
 
-3. Clique em **identidade do módulo**...
+1. Clique em **identidade do módulo**...
 
-4. Edite as propriedades que você deseja alterar no módulo de segurança.
+1. Edite as propriedades que você deseja alterar no módulo de segurança.
    
    Por exemplo, para configurar eventos de conexão como prioridade alta e coletar eventos de alta prioridade a cada 7 minutos, use a configuração a seguir.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+            "highPriorityMessageFrequency": {
+                "value": "PT7M"
+            },
+            "eventPriorityConnectionCreate": {
+                "value": "High"
+            }
         }
-      } 
-    }, 
+    }
     ```
 
-5. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ### <a name="using-a-default-value"></a>Usando um valor padrão
 
@@ -120,7 +120,7 @@ A tabela a seguir contém as propriedades controláveis da central de segurança
 
 Os valores padrão estão disponíveis no esquema adequado no [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
+| Name| State | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Obrigatório: falso |Valores válidos: Duração no formato ISO 8601 |Valor padrão: PT7M |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
 |lowPriorityMessageFrequency |Obrigatório: falso|Valores válidos: Duração no formato ISO 8601 |Valor padrão: PT5H |Tempo máximo antes que as mensagens de baixa prioridade sejam enviadas.| 

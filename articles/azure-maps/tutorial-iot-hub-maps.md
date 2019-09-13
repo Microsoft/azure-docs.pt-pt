@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 7c3f72c3ce6acfb63e682b479519dba02a9900eb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844906"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933207"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementar análise espacial de IoT usando mapas do Azure
 
@@ -104,7 +104,7 @@ Para concluir as etapas deste tutorial, primeiro você precisa criar um grupo de
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps 
 
-Para implementar a lógica de negócios com base na análise espacial do Azure Maps, precisamos criar uma conta do Azure Maps no grupo de recursos que criamos. Siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys) para criar uma assinatura de conta do Azure Maps com o tipo de preço S1 e consulte os [detalhes de autenticação](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) para saber como obter sua chave de assinatura.
+Para implementar a lógica de negócios com base na análise espacial do Azure Maps, precisamos criar uma conta do Azure Maps no grupo de recursos que criamos. Siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura de conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
 
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -167,7 +167,7 @@ Abra o aplicativo de postmaster e siga as etapas abaixo para carregar a cerca ge
     
     O valor "geojson" em relação `dataFormat` ao parâmetro no caminho da URL representa o formato dos dados que estão sendo carregados.
 
-3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela sua chave de assinatura do Azure Maps.
+3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela chave de assinatura primária do Azure Maps.
    
     ![Chave-valor params do postmaster](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Azure Functions é um serviço de computação sem servidor que nos permite exec
 6. Copie o [código c#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) em sua função e clique em **salvar**.
  
 7. No script c#, substitua os seguintes parâmetros:
-    * Substitua o **SUBSCRIPTION_KEY** pela chave de assinatura da conta do Azure Maps.
+    * Substitua o **SUBSCRIPTION_KEY** pela chave de assinatura primária da conta do Azure Maps.
     * Substitua o **UDID** pelo UDID da cerca geográfica que você carregou, 
     * A função **CreateBlobAsync** no script cria um blob por evento na conta de armazenamento de dados. Substitua **ACCESS_KEY**, **ACCOUNT_NAME** e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento e pelo nome da conta e pelo contêiner de armazenamento de dados.
 
@@ -280,7 +280,7 @@ O mapa abaixo mostra quatro pontos em que o veículo estava fora da cerca geogr�
 
 ![mapa de violação](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para explorar as APIs do Azure Maps usadas neste tutorial, consulte:
 

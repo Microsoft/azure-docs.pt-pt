@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: e52ce4411a2fa1969db196ba2e32bb485f71f8b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311622"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931233"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do hub de eventos para o Azure Data Explorer
 
@@ -124,7 +124,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: GZip |
     | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**. Necessário para JSON, JSON MULTILINHA ou AVRO, e opcional para outros formatos.|
     | | |
 

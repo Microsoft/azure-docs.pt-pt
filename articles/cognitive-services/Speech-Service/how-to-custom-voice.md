@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 10d76bc1dd52f04cceb9f0952a755c55d90c6896
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562803"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881488"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
-Voz personalizada é um conjunto de ferramentas online que permitem que você crie uma voz de um tipo reconhecível para sua marca. Tudo o que é necessário para começar são alguns arquivos de áudio e as transcrições associadas. Siga os links abaixo para começar a criar uma experiência personalizada de conversão de texto em fala.
+[Voz personalizada](https://aka.ms/customvoice) é um conjunto de ferramentas online que permitem que você crie uma voz de um tipo reconhecível para sua marca. Tudo o que é necessário para começar são alguns arquivos de áudio e as transcrições associadas. Siga os links abaixo para começar a criar uma experiência personalizada de conversão de texto em fala.
 
 ## <a name="whats-in-custom-voice"></a>O que há em voz personalizada?
 
 Antes de começar com a voz personalizada, você precisará de uma conta do Azure e uma assinatura de serviços de fala. Depois de criar uma conta, você pode preparar seus dados, treinar e testar seus modelos, avaliar a qualidade da voz e, por fim, implantar seu modelo de voz personalizado.
 
-O diagrama a seguir realça as etapas para criar um modelo de voz personalizado usando o portal de voz personalizado. Use os links para saber mais.
+O diagrama a seguir realça as etapas para criar um modelo de voz personalizado usando o [portal de voz personalizado](https://aka.ms/customvoice). Use os links para saber mais.
 
 ![Diagrama de arquitetura de voz personalizada](media/custom-voice/custom-voice-diagram.png)
 

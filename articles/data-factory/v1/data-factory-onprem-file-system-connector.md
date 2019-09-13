@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92274f63db78d53bdd0fa3fd440977422be3b4a1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: eea0b930ab26e3f4d816fed69ccf8e987e6d33c7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036290"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881343"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de arquivos local usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -85,7 +85,7 @@ Você pode vincular um sistema de arquivos local a um data factory do Azure com 
 | Cenário | Host na definição de serviço vinculado | folderPath na definição de DataSet |
 | --- | --- | --- |
 | Pasta local no computador do gateway de Gerenciamento de Dados: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\\* |D:\\ \\ (para gerenciamento de dados gateway 2,0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gerenciamento de Dados gateway 2,0) |. \\ oupasta\\subpasta (para gerenciamento de dados gateway 2,0 e versões posteriores)\\ \\ <br/><br/>D:\\ \\\\ou d:\\subpasta dapasta\\(para a versão do gateway abaixo de 2,0)\\ |
-| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\meuservidorshare\\ *ou\\meuservidorshare\\Foldersubpasta\\\\\\ \\\\\\* |\\\\\\\\compartilhamento\\de meuservidor\\ |. \\ oupasta\\subpasta \\ \\ |
+| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\\* |\\\\\\\\compartilhamento\\de meuservidor\\ |. \\ oupasta\\subpasta \\ \\ |
 
 >[!NOTE]
 >Durante a criação de através da interface do Usuário, não precisa de barra invertida duplo de entrada (`\\`) para o escape tal como faz via JSON, especifique a barra invertida única.
@@ -134,8 +134,8 @@ A seção typeproperties é diferente para cada tipo de conjunto de texto. Ele f
 | fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando **filename** não for especificado para um conjunto de resultados de saída e **preserveHierarchy** não for especificado no coletor de atividade, o nome do arquivo gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt`Exemplo Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são `*` : (vários caracteres) `?` e (caractere único).<br/><br/>Exemplo 1: "FileFilter": "*. log"<br/>Exemplo 2: "FileFilter": 2014-1-?. localizado<br/><br/>Observe que FileFilter é aplicável a um conjunto de dados de FileShare de entrada. |Não |
 | partitionedBy |Você pode usar partitionedBy para especificar um folderPath/fileName dinâmico para dados de série temporal. Um exemplo é folderPath parametrizado para cada hora dos dados. |Não |
-| format | Há suporte para os seguintes tipos de formato:TextFormat **, JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**,deflate, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > Você não pode usar fileName e FileFilter simultaneamente.
@@ -174,11 +174,11 @@ Neste exemplo, {Slice} é substituído pelo valor da variável de sistema Data F
 Neste exemplo, ano, mês, dia e hora de SliceStart são extraídos em variáveis separadas que as propriedades folderPath e fileName usam.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa das seções & propriedades disponíveis para definir as atividades, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . Propriedades como nome, descrição, conjuntos de dados de entrada e saída e políticas estão disponíveis para todos os tipos de atividades. Enquanto que as propriedades disponíveis na seção typeproperties da atividade variam de acordo com cada tipo de atividade.
+Para obter uma lista completa das seções & propriedades disponíveis para definir as atividades, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . Propriedades como nome, descrição, conjuntos de dados de entrada e saída e políticas estão disponíveis para todos os tipos de atividades. Enquanto que as propriedades disponíveis na seção **typeproperties** da atividade variam de acordo com cada tipo de atividade.
 
-Para a atividade de cópia, elas variam de acordo com os tipos de fontes e coletores. Se você estiver movendo dados de um sistema de arquivos local, defina o tipo de origem na atividade de cópia como FileSystemName. Da mesma forma, se você estiver movendo dados para um sistema de arquivos local, defina o tipo de coletor na atividade de cópia como **FileSystemSink**. Esta seção fornece uma lista das propriedades com suporte por FileSystemName e FileSystemSink.
+Para a atividade de cópia, elas variam de acordo com os tipos de fontes e coletores. Se você estiver movendo dados de um sistema de arquivos local, defina o tipo de origem na atividade de cópia como **FileSystemName**. Da mesma forma, se você estiver movendo dados para um sistema de arquivos local, defina o tipo de coletor na atividade de cópia como **FileSystemSink**. Esta seção fornece uma lista das propriedades com suporte por FileSystemName e FileSystemSink.
 
-O FileSystemName dá suporte às seguintes propriedades:
+O **FileSystemName** dá suporte às seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
@@ -195,12 +195,12 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 
 | valor recursivo | valor de copyBehavior | Comportamento resultante |
 | --- | --- | --- |
-| true |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura que a origem:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
-| true |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos de arquivo1 + arquivo2 + arquivo3 + Arquivo4 + arquivo 5 são mesclados em um arquivo com um nome de arquivo gerado automaticamente. |
-| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos de arquivo1 + arquivo2 são mesclados em um arquivo com um nome de arquivo gerado automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para file1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| true |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>A pasta de destino Pasta1 é criada com a mesma estrutura que a origem:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>O Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
+| true |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>O Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos de arquivo1 + arquivo2 + arquivo3 + Arquivo4 + arquivo 5 são mesclados em um arquivo com um nome de arquivo gerado automaticamente. |
+| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>A pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>A pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>A pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos de arquivo1 + arquivo2 são mesclados em um arquivo com um nome de arquivo gerado automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para file1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e compactação com suporte
 Consulte [formatos de arquivo e compactação no artigo Azure data Factory](data-factory-supported-file-and-compression-formats.md) sobre detalhes.
@@ -215,7 +215,7 @@ Este exemplo mostra como copiar dados de um sistema de arquivos local para o arm
 * Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * Um [conjunto](data-factory-create-datasets.md) de dados de entrada do tipo [FileShare](#dataset-properties).
 * Um [conjunto](data-factory-create-datasets.md) de uma saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* Um [pipeline](data-factory-create-pipelines.md) com a atividade de cópia [](#copy-activity-properties) que usa o FileSystemName e o [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Um [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa o [FileSystemName](#copy-activity-properties) e o [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 O exemplo a seguir copia dados de série temporal de um sistema de arquivos local para o armazenamento de BLOBs do Azure a cada hora. As propriedades JSON que são usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -382,7 +382,7 @@ Os dados são gravados em um novo BLOB a cada hora (frequência: hora, intervalo
 
 **Uma atividade de cópia em um pipeline com origem do sistema de arquivos e coletor de blob:**
 
-O pipeline contém uma atividade de cópia que é configurada para usar os conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como FileSystemName e o tipo de **coletor** é definido como **BlobSink**.
+O pipeline contém uma atividade de cópia que é configurada para usar os conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como **FileSystemName**e o tipo de **coletor** é definido como **BlobSink**.
 
 ```JSON
 {
@@ -437,7 +437,7 @@ O exemplo a seguir mostra:
 * Um serviço vinculado do tipo [OnPremisesFileServer](#linked-service-properties).
 * Um conjunto de dados de entrada do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
 * Um conjunto de uma saída do tipo [FileShare](#dataset-properties).
-* Um pipeline com uma atividade de cópia que [](data-factory-azure-sql-connector.md##copy-activity-properties) usa sqlsource e [FileSystemSink](#copy-activity-properties).
+* Um pipeline com uma atividade de cópia que usa [sqlsource](data-factory-azure-sql-connector.md##copy-activity-properties) e [FileSystemSink](#copy-activity-properties).
 
 O exemplo copia dados de série temporal de uma tabela SQL do Azure para um sistema de arquivos local a cada hora. As propriedades JSON que são usadas nesses exemplos são descritas em seções após os exemplos.
 
@@ -571,7 +571,7 @@ Os dados são copiados para um novo arquivo a cada hora. FolderPath e fileName p
 
 **Uma atividade de cópia em um pipeline com fonte SQL e coletor de sistema de arquivos:**
 
-O pipeline contém uma atividade de cópia que é configurada para usar os conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como sqlsource e o tipo de **coletor** é definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
+O pipeline contém uma atividade de cópia que é configurada para usar os conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como **sqlsource**e o tipo de **coletor** é definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
 
 ```JSON
 {

@@ -8,12 +8,12 @@ services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: yahajiza
-ms.openlocfilehash: ec36bef9c2b65a5c88a52621bbf3a1db708c235c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1b71d8bd0f0417c7dc408c580a1c73ac654743ce
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880504"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932863"
 ---
 # <a name="manage-models-in-the-repository"></a>Gerenciar modelos no repositório
 
@@ -41,7 +41,7 @@ No [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolution
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O CLI do Azure fornece comandos para gerenciar modelos de capacidade de dispositivo e interfaces nos repositórios de modelo público e da empresa de IoT Plug and Play.
+O CLI do Azure fornece comandos para gerenciar modelos de capacidade de dispositivo e interfaces nos repositórios de modelo público e da empresa de IoT Plug and Play. Para obter mais informações, consulte o guia de instruções [instalar e usar a extensão de IOT do Azure para CLI do Azure](./howto-install-pnp-cli.md) .
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -49,7 +49,7 @@ Para abrir a exibição do **repositório de modelos** no Visual Studio Code.
 
 1. Abra Visual Studio Code, use **Ctrl + Shift + P**, digite e selecione **a plug and Play de IOT: Abra o repositório**de modelos.
 
-1. Você pode optar por **abrir o repositório de modelos públicos** ou **abrir o repositório de modelos organizacionais**. Para o repositório de modelos da empresa, você precisa inserir a cadeia de conexão do repositório de modelos. Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia cadeias de **conexão** do **repositório da sua empresa**.
+1. Você pode optar por **abrir o repositório de modelos públicos** ou **abrir o repositório de modelos organizacionais**. Para o repositório de modelos da empresa, você precisa inserir a cadeia de conexão do repositório de modelos. Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia **cadeias de conexão** do **repositório da sua empresa**.
 
 1. Uma nova guia abre a exibição do **repositório de modelos** .
 

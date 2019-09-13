@@ -7,18 +7,21 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7b64c4cbb1253a12e82f56ea08587e091d5340a9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 3157fd1e9790beb2230f8dee5b2d10afc4beff69
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231798"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918678"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapeamento de controle da amostra do IRS 1075 Blueprint
 
 O artigo a seguir detalha como a amostra do plano gráfico do IRS 1075 do Azure Blueprints é mapeada para os controles IRS 1075. Para obter mais informações sobre os controles, consulte [IRS 1075](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
 Os seguintes mapeamentos são para os controles **IRS 1075** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione **a\] \[visualização: Audite os controles do IRS 1075 e implante extensões de VM específicas** para dar suporte à iniciativa de política interna de requisitos de auditoria.
+
+> [!IMPORTANT]
+> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/irs-1075/control-mapping.md).
 
 ## <a name="9321-ac-2-account-management"></a>Gerenciamento de conta 9.3.2.1 AC-2
 
@@ -320,7 +323,7 @@ A proteção avançada contra ameaças para o armazenamento do Azure detecta ten
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico IRS 1075, visite os artigos a seguir para saber mais sobre o plano gráfico e como implantar esse exemplo:
 
@@ -329,7 +332,7 @@ Agora que você analisou o mapeamento de controle do plano gráfico IRS 1075, vi
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

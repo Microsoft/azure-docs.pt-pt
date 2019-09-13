@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478863"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933075"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de repositório usando mapas do Azure
 
@@ -31,11 +31,11 @@ Este tutorial orienta você pelo processo de criação de um localizador de repo
 
 <a id="Intro"></a>
 
-Vá direto para o exemplo ou [código-fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)do localizador de [Live Store](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) . 
+Vá direto para o exemplo ou [código-fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)do [localizador de Live Store](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) . 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas deste tutorial, primeiro você precisa [criar sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e [obter a chave de assinatura para sua conta](./tutorial-search-location.md#getkey).
+Para concluir as etapas deste tutorial, primeiro você precisa [criar sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e seguir as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
 
 ## <a name="design"></a>Design
 
@@ -82,7 +82,7 @@ Você pode [baixar a pasta de trabalho do Excel](https://github.com/Azure-Sample
 
 Observando a captura de tela dos dados, podemos fazer as seguintes observações:
     
-* As informações de local são armazenadas usando as colunas Addressing, **City**, **Municipal** (County), **AdminDivision** (estado/província), **PostCode** (CEP) e **país** .  
+* As informações de local são armazenadas usando as colunas **Addressing**, **City**, **Municipal** (County), **AdminDivision** (estado/província), **PostCode** (CEP) e **país** .  
 * As colunas de **latitude** e **longitude** contêm as coordenadas de cada local da loja de café da contoso. Se você não tiver informações de coordenadas, poderá usar os serviços de pesquisa no Azure Maps para determinar as coordenadas de local.
 * Algumas colunas adicionais contêm metadados relacionados às cafeterias: um número de telefone, as colunas booleanas para a acessibilidade Wi-Fi e o acesso a rodas, além de armazenar horários de abertura e fechamento no formato de 24 horas. Você pode criar suas próprias colunas que contêm metadados que são mais relevantes para seus dados de localização.
 
@@ -401,7 +401,7 @@ Neste ponto, tudo está configurado na interface do usuário. Agora, precisamos 
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código a *index. js*. O código a seguir inicializa o mapa, adiciona um ouvinte de [eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) que aguarda até que a página termine de ser carregada, conecta eventos para monitorar o carregamento do mapa e ativa o botão de pesquisa e o botão meu local.
+1. Adicione código a *index. js*. O código a seguir inicializa o mapa, adiciona um [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) que aguarda até que a página termine de ser carregada, conecta eventos para monitorar o carregamento do mapa e ativa o botão de pesquisa e o botão meu local.
 
    Quando o usuário seleciona o botão de pesquisa ou quando o usuário pressiona ENTER depois de inserir um local na caixa de pesquisa, uma pesquisa difusa em relação à consulta do usuário é iniciada. Transmita uma matriz de valores de país ISO 2 para `countrySet` a opção de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
   
@@ -417,7 +417,7 @@ Neste ponto, tudo está configurado na interface do usuário. Agora, precisamos 
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -949,7 +949,7 @@ Se você redimensionar a janela do navegador para menos de 700 pixels de largura
 
 ![Captura de tela da versão do localizador da loja para pequenas telas](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprenderá a criar um localizador de armazenamento básico usando o Azure Maps. O localizador de repositório criado neste tutorial pode ter toda a funcionalidade necessária. Você pode adicionar recursos ao seu localizador de armazenamento ou usar recursos mais avançados para uma experiência de usuário personalizada: 
 

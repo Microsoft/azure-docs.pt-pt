@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/04/2019
+ms.date: 09/06/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3cbaf76489058624e56bec50b37eeb18a99ba7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1cf3eead3a56297efa3bea90ef48eb464ad63da0
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812513"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898521"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -48,7 +48,12 @@ Este artigo mostra como listar um aplicativo na Galeria de aplicativos do Azure 
 
 - Para SSO de senha, verifique se o aplicativo dá suporte à autenticação de formulário para que o cofre de senha possa ser feito para que o logon único funcione conforme o esperado.
 
+- Para solicitações automáticas de provisionamento de usuário, o aplicativo deve ser listado na galeria com o recurso de logon único habilitado usando SAML 2.0/WS-enalimentado. Você pode solicitar o SSO e o provisionamento de usuário juntos no portal, se ele ainda não estiver listado.
+
 - Precisa de uma conta permanente para teste com pelo menos 2 usuários registrados.
+
+> [!NOTE]
+> Estamos executando com alto número de solicitações de conector SCIM, portanto, vamos parar de fazer novas solicitações em nosso portal. Aguarde suas solicitações até um aviso adicional. Lamentamos esse atraso e qualquer inconveniente que isso possa ter causado.
 
 ## <a name="submit-the-request-in-the-portal"></a>Enviar a solicitação no portal
 
@@ -86,7 +91,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, primeiro você 
 
   ![Linha do tempo de listagem de SAML 2,0 ou aplicativo WS-enalimentado na Galeria](./media/howto-app-gallery-listing/saml.png)
 
-  * Se você quiser adicionar seu aplicativo para listar na Galeria usando **saml 2,0** ou **WS-enalimentado**, selecione **SAML 2.0/WS-alimentado** como acima.
+  * Se você quiser adicionar seu aplicativo para listar na Galeria usando **saml 2,0** ou **WS-** enalimentado, selecione **SAML 2.0/WS-alimentado** como acima.
   * Se você tiver problemas com relação ao acesso, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Implementando o SSO usando o SSO de senha

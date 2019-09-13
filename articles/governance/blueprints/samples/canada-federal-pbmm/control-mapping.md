@@ -7,18 +7,21 @@ ms.date: 08/21/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 96b58a84befcd4a5661804b1265eae119f09977f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232827"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918771"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra do Canadá Federal PBMM Blueprint
 
 O artigo a seguir fornece detalhes sobre como a amostra do plano gráfico do plano gráfico do Azure com o governo federal protegido B, de integridade média, de disponibilidade média (PBMM) é mapeada para os controles federais PBMM do Canadá. Para obter mais informações sobre os controles, consulte [Canadá Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
 
 Os mapeamentos a seguir são para os controles **federais PBMM do Canadá** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione **a\] \[visualização: Auditar a iniciativa de** política interna dos controles PBMM federais do Canadá.
+
+> [!IMPORTANT]
+> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md).
 
 ## <a name="location-constraints"></a>Restrições de local
 
@@ -306,11 +309,11 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

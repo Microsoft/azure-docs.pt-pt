@@ -1,18 +1,18 @@
 ---
-title: O que há de novo no Azure Site Recovery | Microsoft Docs
+title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos introduzidos no Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146905"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933940"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -24,16 +24,56 @@ Você pode seguir e assinar Site Recovery notificações de atualização no can
 
 Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a versão mais recente lançada. Eles são resumidos na tabela a seguir.
 
-**Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos serviços de recuperação** 
---- | --- | --- | --- | ---
+**Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos serviços de recuperação**
+--- | --- | --- | --- | --- | ---
+[ROLLUP 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [ROLLUP 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [ROLLUP 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [ROLLUP 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
 [ROLLUP 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-[ROLLUP 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
         
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
+
+
+## <a name="updates-september-2019"></a>Atualizações (setembro de 2019)
+
+### <a name="update-rollup-40"></a>Pacote cumulativo de atualizações 40
+
+O [pacote cumulativo](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) de atualizações 40 fornece as seguintes atualizações.
+
+**Atualização** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
+
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre da VM do Azure
+
+Os novos recursos para a recuperação de desastres de VM do Azure são resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**Limpeza após o failback** | Após o failover para o Azure secundário e, em seguida, o failback para a região primária, Site Recovery limpa automaticamente os computadores na região secundária. Não há necessidade de excluir manualmente as VMS e NICs.
+**O failover de teste retém o endereço IP** | Agora você pode reter o endereço IP da VM de origem durante uma análise de recuperação de desastre e escolher um endereço IP estático para um failover de teste.
+
+## <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
+
+Os recursos adicionados neste mês são resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+Novos alertas do servidor de processo | Adicionamos novos alertas do servidor de processo. [Saiba mais](vmware-physical-azure-monitor-process-server.md). 
+
+## <a name="hyper-v-disaster-recovery"></a>Recuperação de desastres do Hyper-V
+
+Os recursos adicionados neste mês são resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+Conta de armazenamento | O Site Recovery agora dá suporte ao uso de uma conta de armazenamento com RBAC (controle de acesso baseado em função) habilitado. [Saiba mais](../storage/common/storage-account-manage.md#access-control) sobre o controle de acesso para contas de armazenamento. 
 
 
 ## <a name="updates-august-2019"></a>Atualizações (agosto de 2019)
@@ -371,6 +411,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Mantenha-se atualizado com nossas atualizações na página [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .

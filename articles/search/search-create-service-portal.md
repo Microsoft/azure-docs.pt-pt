@@ -1,22 +1,22 @@
 ---
-title: Criar um serviço de Azure Search no portal-Azure Search
+title: 'Início rápido: Criar um serviço de Azure Search no portal-Azure Search'
 description: Provisionar um recurso de Azure Search no portal do Azure. Escolha grupos de recursos, regiões e a SKU ou tipo de preço.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649949"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883850"
 ---
-# <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
+# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>Início rápido: Criar um serviço do Azure Search no portal
 
 Azure Search é um recurso autônomo usado para conectar uma experiência de pesquisa em aplicativos personalizados. Embora Azure Search se integre facilmente com outros serviços do Azure, você também pode usá-lo como um componente autônomo, ou integrá-lo a aplicativos em servidores de rede ou com software em execução em outras plataformas de nuvem.
 
@@ -42,7 +42,7 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 ## <a name="select-a-subscription"></a>Selecione uma subscrição
 
-Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. Azure Search pode detectar automaticamente o armazenamento de tabelas e BLOBs do Azure, banco de dados SQL [](search-indexer-overview.md)e Azure Cosmos DB para indexação por meio de indexadores, mas somente para serviços na mesma assinatura.
+Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. Azure Search pode detectar automaticamente o armazenamento de tabelas e BLOBs do Azure, banco de dados SQL e Azure Cosmos DB para indexação por meio de [*indexadores*](search-indexer-overview.md), mas somente para serviços na mesma assinatura.
 
 ## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 
@@ -78,7 +78,7 @@ Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em tod
 
 Você pode minimizar ou evitar encargos de largura de banda escolhendo o mesmo local para vários serviços. Por exemplo, se você estiver indexando os dados fornecidos por outro serviço do Azure (armazenamento do Azure, Azure Cosmos DB, Azure SQL Database), a criação de seu serviço de Azure Search na mesma região evita cobranças de largura de banda (não há encargos para dados de saída quando os serviços estão em a mesma região).
 
-Além disso, se você estiver usando os aprimoramentos de AI de pesquisa cognitiva, crie seu serviço na mesma região que o recurso de serviços cognitivas. A colocalização *de Azure Search e serviços cognitivas na mesma região é um requisito para o enriquecimento de ia*.
+Além disso, se você estiver usando os aprimoramentos de AI de pesquisa cognitiva, crie seu serviço na mesma região que o recurso de serviços cognitivas. A *colocalização de Azure Search e serviços cognitivas na mesma região é um requisito para o enriquecimento de ia*.
 
 > [!Note]
 > A Índia central não está disponível no momento para novos serviços. Para serviços que já estão na Índia central, você pode escalar verticalmente sem restrições e o serviço tem suporte total nessa região. A restrição nessa região é temporária e limitada apenas a novos serviços. Removeremos esta observação quando a restrição não se aplicar mais.

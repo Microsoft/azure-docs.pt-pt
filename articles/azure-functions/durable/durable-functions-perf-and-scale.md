@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ed0fe22903412d4164fb3a85dbd9afafdc7023e6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53f561283d4d07d58bd03b59a24a30d8010caaf0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098007"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933280"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala em Durable Functions (Azure Functions)
 
@@ -46,7 +46,7 @@ Há uma fila de item de trabalho por Hub de tarefa em Durable Functions. É uma 
 
 Há várias *filas de controle* por Hub de tarefas em Durable functions. Uma *fila de controle* é mais sofisticada do que a fila de itens de trabalho mais simples. Filas de controle são usadas para disparar as funções de orquestrador com estado. Como as instâncias de função do orquestrador são singletons com estado, não é possível usar um modelo de consumidor concorrente para distribuir carga entre VMs. Em vez disso, as mensagens do Orchestrator têm balanceamento de carga entre as filas de controle. Mais detalhes sobre esse comportamento podem ser encontrados nas seções subsequentes.
 
-As filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de orquestração. Os exemplos incluem [mensagens de controle](durable-functions-instance-management.md)do Orchestrator, mensagens de *resposta* da função de atividade e mensagens de timer. Até 32 mensagens serão removidas da fila de controle em uma única sondagem. Essas mensagens contêm dados de carga, bem como metadados, incluindo a qual instância de orquestração ela se destina. Se várias mensagens removidas da fila forem destinadas à mesma instância de orquestração, elas serão processadas como um lote.
+As filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de orquestração. Os exemplos incluem [mensagens de controle do Orchestrator](durable-functions-instance-management.md), mensagens de *resposta* da função de atividade e mensagens de timer. Até 32 mensagens serão removidas da fila de controle em uma única sondagem. Essas mensagens contêm dados de carga, bem como metadados, incluindo a qual instância de orquestração ela se destina. Se várias mensagens removidas da fila forem destinadas à mesma instância de orquestração, elas serão processadas como um lote.
 
 ### <a name="queue-polling"></a>Sondagem de fila
 
@@ -87,7 +87,7 @@ Se não for especificado, a `AzureWebJobsStorage` conta de armazenamento padrão
 
 ## <a name="orchestrator-scale-out"></a>Expansão do Orchestrator
 
-As funções de atividade são sem estado e são dimensionadas automaticamente adicionando VMs. As funções de orquestrador, por outro lado, são particionadas em uma ou mais filas de controle. O número de filas de controle é definido no arquivo **host. JSON** . O trecho de código host. JSON de exemplo `durableTask/partitionCount` a seguir `3`define a propriedade como.
+As funções de atividade são sem estado e são dimensionadas automaticamente adicionando VMs. As funções de orquestrador, por outro lado, são *particionadas* em uma ou mais filas de controle. O número de filas de controle é definido no arquivo **host. JSON** . O trecho de código host. JSON de exemplo `durableTask/partitionCount` a seguir `3`define a propriedade como.
 
 ### <a name="functions-1x"></a>Funções 1.x
 
@@ -224,9 +224,9 @@ Ao planejar o uso de Durable Functions para um aplicativo de produção, é impo
 * **Processamento de eventos externos**: Esse cenário representa uma única instância de função de orquestrador que aguarda [eventos externos](durable-functions-external-events.md), um de cada vez.
 
 > [!TIP]
-> Diferentemente do fan-out, as operações de Fan-in são limitadas a uma única VM. Se o seu aplicativo usar o padrão Fan-out, de Fan-in e você estiver preocupado com o desempenho do Fan-in, considere subdividir a função de atividade Fan [](durable-functions-sub-orchestrations.md)-out em várias suborquestrações.
+> Diferentemente do fan-out, as operações de Fan-in são limitadas a uma única VM. Se o seu aplicativo usar o padrão Fan-out, de Fan-in e você estiver preocupado com o desempenho do Fan-in, considere subdividir a função de atividade Fan-out em várias [suborquestrações](durable-functions-sub-orchestrations.md).
 
-A tabela a seguir mostra os números de taxa de transferência máximos esperados para os cenários descritos anteriormente. "Instance" refere-se a uma única instância de uma função de orquestrador em execução em uma única VM pequena ([a1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) no serviço Azure app. Em todos os casos, supõe-se que as [sessões estendidas](#orchestrator-function-replay) estão habilitadas. Os resultados reais podem variar dependendo da CPU ou do trabalho de e/s executado pelo código da função.
+A tabela a seguir mostra os números de taxa de transferência *máximos* esperados para os cenários descritos anteriormente. "Instance" refere-se a uma única instância de uma função de orquestrador em execução em uma única VM pequena ([a1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) no serviço Azure app. Em todos os casos, supõe-se que as [sessões estendidas](#orchestrator-function-replay) estão habilitadas. Os resultados reais podem variar dependendo da CPU ou do trabalho de e/s executado pelo código da função.
 
 | Cenário | Débito máximo |
 |-|-|
@@ -243,4 +243,4 @@ Se você não estiver vendo os números de taxa de transferência esperados e o 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Create your first durable function in C#](durable-functions-create-first-csharp.md) (Criar a sua primeira função durável em C#)
+> [Saiba mais sobre recuperação de desastres e distribuição geográfica](durable-functions-disaster-recovery-geo-distribution.md)

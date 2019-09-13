@@ -3,8 +3,8 @@ title: Tutorial implementar numa rede virtual existente com a CLI do Azure - HSM
 description: Tutorial que mostra como implementar um HSM dedicados, com a CLI numa rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 84beac4eca44a274eecc032e4816e3ff57aeafe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mbaldwin
+ms.openlocfilehash: 1d8649fc271801748723f484515f5fd2f708f95e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60688461"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881039"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implementar HSMs numa rede virtual existente com a CLI
 
@@ -38,7 +38,7 @@ Este tutorial concentra-se num par de HSMs e Gateway do ExpressRoute necessária
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-HSM dedicada do Azure não está atualmente disponível no portal do Azure. Toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Neste tutorial, irá utilizar a interface (CLI) da linha de comandos no Azure Cloud Shell. Se estiver familiarizado com a CLI do Azure, siga instruções de introdução aqui: [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+HSM dedicada do Azure não está atualmente disponível no portal do Azure. Toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Neste tutorial, irá utilizar a interface (CLI) da linha de comandos no Azure Cloud Shell. Se você for novo no CLI do Azure, siga as instruções de introdução aqui: [CLI do Azure introdução ao 2,0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Pressupostos:
 
@@ -177,7 +177,7 @@ Esta implementação deve levar aproximadamente 25 e 30 minutos a ser concluída
 
 ![Estado de aprovisionamento](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Quando a implementação é concluída com êxito "provisioningState": "Foi concluída com êxito" serão apresentados. Pode ligar à máquina virtual existente e utilizar o SSH para garantir a disponibilidade do dispositivo HSM.
+Quando a implantação for concluída com êxito "provisioningState": "Succeeded" será exibido. Pode ligar à máquina virtual existente e utilizar o SSH para garantir a disponibilidade do dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verificar a implementação
 

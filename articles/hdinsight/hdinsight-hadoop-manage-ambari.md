@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442059"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885319"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário do Apache amAmbari Web
 
@@ -76,7 +76,7 @@ Alertas diferentes de **OK** fazem com que a entrada **# Alerts** na parte super
 
 Os alertas são organizados em vários grupos padrão, que podem ser exibidos na página **alertas** .
 
-![página de alertas](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![Página de alertas](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 Você pode gerenciar os grupos usando o menu **ações** e selecionando **gerenciar grupos de alertas**.
 
@@ -90,17 +90,17 @@ Por fim, a seleção de __gerenciar configurações de alerta__ no menu __açõe
 
 ### <a name="cluster"></a>Cluster
 
-A  guia métricas do painel contém uma série de widgets que facilitam o monitoramento do status do cluster em um relance. Vários widgets, como o **uso da CPU**, fornecem informações adicionais quando clicados.
+A guia **métricas** do painel contém uma série de widgets que facilitam o monitoramento do status do cluster em um relance. Vários widgets, como o **uso da CPU**, fornecem informações adicionais quando clicados.
 
-![painel com métricas](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![painel com métricas](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 A guia **calor** exibe as métricas como calor coloridas, indo de verde para vermelho.
 
-![painel com calor](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![painel com calor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 Para obter mais informações sobre os nós no cluster, selecione **hosts**. Em seguida, selecione o nó específico em que você está interessado.
 
-![detalhes do host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![Detalhes do host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
 ### <a name="services"></a>Serviços
 
@@ -133,16 +133,16 @@ A seleção de qualquer um desses links abre uma nova guia no navegador, que exi
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari usuários, grupos e permissões
 
-Há suporte para o trabalho com usuários, grupos e permissões ao usar um cluster HDInsight ingressado no [domínio](./domain-joined/hdinsight-security-overview.md) . Para obter informações sobre como usar a interface do usuário de gerenciamento do Ambari em um cluster ingressado no domínio, consulte [gerenciar clusters HDInsight ingressados no domínio](./domain-joined/hdinsight-security-overview.md).
+Há suporte para o trabalho com usuários, grupos e permissões ao usar um cluster HDInsight [ingressado no domínio](./domain-joined/hdinsight-security-overview.md) . Para obter informações sobre como usar a interface do usuário de gerenciamento do Ambari em um cluster ingressado no domínio, consulte [gerenciar clusters HDInsight ingressados no domínio](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Não altere a senha do Watchdog do Ambari (hdinsightwatchdog) em seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar ações de script ou executar operações de dimensionamento com o cluster.
 
 ### <a name="hosts"></a>Anfitriões
 
-A  página hosts lista todos os hosts no cluster. Para gerenciar hosts, siga estas etapas.
+A página **hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga estas etapas.
 
-![página de hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![página de hosts](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > Adicionar, encerrar e recomissionar um host não deve ser usado com clusters HDInsight.
@@ -211,7 +211,7 @@ Os Ambari views permitem que os desenvolvedores conectem elementos da interface 
 
 As operações Ambari a seguir não têm suporte no HDInsight:
 
-* __Movendo o serviço do coletor de métricas__. Ao exibir informações sobre o serviço do coletor de métricas, uma das ações disponíveis no menu ações de serviço é __mover o coletor__de métricas. Não há suporte para isso com o HDInsight.
+* __Movendo o serviço do coletor de métricas__. Ao exibir informações sobre o serviço do coletor de métricas, uma das ações disponíveis no menu ações de serviço é __mover o coletor de métricas__. Não há suporte para isso com o HDInsight.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

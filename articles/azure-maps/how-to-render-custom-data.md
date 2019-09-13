@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638810"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915765"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
 
@@ -27,7 +27,8 @@ Para renderizar os pinos, rótulos e sobreposições de geometria personalizados
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps
 
-Para concluir os procedimentos deste artigo, primeiro você precisa [criar uma conta do Azure Maps](how-to-manage-account-keys.md) no tipo de preço S1.
+Para concluir os procedimentos deste artigo, primeiro você precisa criar uma conta do Azure Maps seguindo as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguir as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para recuperar uma chave de assinatura primária para sua conta.
+
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Renderizar anotações com rótulos e uma imagem personalizada
 

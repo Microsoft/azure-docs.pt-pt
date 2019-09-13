@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736430"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898721"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o catálogo de dados do Azure
 Este artigo fornece respostas para perguntas frequentes relacionadas ao serviço do catálogo de dados do Azure.
@@ -52,6 +52,15 @@ Para obter uma lista de fontes de dados com suporte no momento, consulte [Catál
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Como fazer solicitar suporte para outra fonte de dados?
 Para enviar solicitações de recursos e outros comentários, vá para o [Catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Por que eu obtenho um catálogo de erros *já existe* quando tento criar um novo catálogo?
+
+Quando você adquire o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365/Power BI é gerenciada na página de administração do Office 365. 
+
+No entanto, esse tipo de catálogo de dados não tem uma **opção de administrador** e não é visível no **portal do Azure**. Você não pode excluir este tipo de catálogo de dados. Da mesma forma, você não tem permissão para renomear o catálogo de dados e não pode movê-lo para outra região. 
+
+Contas de usuários que recebem uma licença de Power BI Pro automática têm acesso ao catálogo de dados devido ao contrato de licença quando eles se inscreveram no Office 365 E5 com a licença de Power BI Pro. Esse tipo de usuário tem acesso completo aos ativos do catálogo de dados sem privilégios administrativos. Esse tipo de usuário *não* faz parte da função de **usuário de catálogo** no catálogo de dados do Azure.
+
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Como fazer introdução ao catálogo de dados?
 A melhor maneira de começar é [introdução com o catálogo de dados](data-catalog-get-started.md). Este artigo é uma visão geral de ponta a ponta dos recursos do serviço.
@@ -116,7 +125,7 @@ Estamos trabalhando ativamente para expandir os recursos do catálogo de dados. 
 Se você quiser incluir metadados de coluna/esquema, visualizações ou perfis de dados, para fontes de dados em que esses metadados não são extraídos pela ferramenta de registro de fonte de dados, você pode usar a API do catálogo de dados para adicionar esses metadados. Para obter informações adicionais, consulte [API REST do catálogo de dados do Azure](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Como fazer restringir a visibilidade de ativos de dados registrados, para que apenas determinadas pessoas possam descobri-los?
-Selecione os ativos de dados no catálogo de dados e, em seguida, clique no botão apropriar- **se** . Os proprietários de ativos de dados no catálogo de dados podem alterar as configurações de visibilidade para permitir que todos os usuários descubram os ativos de propriedade ou restringir a visibilidade a usuários específicos. Para obter informações adicionais, consulte [gerenciar ativos de dados no catálogo de dados do Azure](data-catalog-how-to-manage.md).
+Selecione os ativos de dados no catálogo de dados e, em seguida, clique no botão **apropriar-se** . Os proprietários de ativos de dados no catálogo de dados podem alterar as configurações de visibilidade para permitir que todos os usuários descubram os ativos de propriedade ou restringir a visibilidade a usuários específicos. Para obter informações adicionais, consulte [gerenciar ativos de dados no catálogo de dados do Azure](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Como fazer atualizar o registro de um ativo de dados para que as alterações na fonte de dados sejam refletidas no catálogo?
 Para atualizar os metadados de ativos de dados que já estão registrados no catálogo, basta registrar novamente a fonte de dados que contém os ativos. As alterações na fonte de dados, como colunas que estão sendo adicionadas ou removidas de tabelas ou exibições, são atualizadas no catálogo, mas todas as anotações fornecidas pelos usuários são mantidas.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382940"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915986"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerenciar senhas de aplicativo de sua página de informações de segurança (versão prévia)
 
@@ -30,11 +30,9 @@ Determinados aplicativos, como o Outlook 2010, não dão suporte à verificaçã
 
 Ao usar senhas de aplicativo, é importante lembrar:
 
-- As senhas de aplicativo são geradas automaticamente e inseridas apenas uma vez por aplicativo.
+- As senhas de aplicativo são geradas automaticamente e devem ser criadas e inseridas uma vez por aplicativo.
 
 - Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
-
-- Use uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, crie uma única senha para todos os aplicativos em seu laptop e, em seguida, outra senha única para todos os aplicativos na área de trabalho.
 
     >[!Note]
     >Os clientes do Office 2013 (incluindo o Outlook) dão suporte a novos protocolos de autenticação e podem ser usados com a verificação em duas etapas. Esse suporte significa que, após a verificação em duas etapas ser ativada, você não precisará mais de senhas de aplicativo para clientes do Office 2013. Para obter mais informações, consulte o artigo [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .

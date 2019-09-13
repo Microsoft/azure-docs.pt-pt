@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 07/01/2019
-ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ed2ba70b803940700044e900a1b2bb6607c0f051
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860991"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934051"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
-Para acessar fontes de dados locais de seus aplicativos lógicos, crie um recurso de gateway de dados local no portal do Azure. Seus aplicativos lógicos podem usar os [conectores locais](../logic-apps/logic-apps-gateway-install.md#supported-connections). Este artigo mostra como criar o recurso de gateway do Azure *depois* de [baixar e instalar o gateway no computador local](../logic-apps/logic-apps-gateway-install.md). Para saber mais sobre como funciona o gateway, veja [como funciona o gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Para acessar fontes de dados locais de seus aplicativos lógicos, crie um recurso de gateway de dados local no portal do Azure. Seus aplicativos lógicos podem usar os [conectores locais](../connectors/apis-list.md#on-premises-connectors). Este artigo mostra como criar o recurso de gateway do Azure *depois* de [baixar e instalar o gateway em um computador local](../logic-apps/logic-apps-gateway-install.md). Para obter mais informações sobre o gateway, consulte [como funciona o gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > Para se conectar às redes virtuais do Azure, considere criar um [*ambiente de serviço de integração*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) em vez disso. 
@@ -29,6 +29,27 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 * [Microsoft Flow gateway de dados local](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Microsoft PowerApps gateway de dados local](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services Gateway de dados local](../analysis-services/analysis-services-gateway.md)
+
+<a name="supported-connections"></a>
+
+## <a name="supported-data-sources"></a>Origens de dados suportadas
+
+Para aplicativos lógicos do Azure, o gateway de dados local dá suporte a [conectores locais](../connectors/apis-list.md#on-premises-connectors) para essas fontes de dados:
+
+* BizTalk Server 2016
+* Sistema de ficheiros
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* SharePoint Server
+* SQL Server
+* Teradata
+
+Embora o próprio gateway não incorra em custos adicionais, o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) se aplica a esses conectores e a outras operações nos aplicativos lógicos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -136,9 +157,16 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
+**P**: Por que não vejo minha instalação de gateway Quando crio o recurso de gateway no Azure? <br/>
+**A**: Esse problema pode ocorrer por esses motivos:
+
+* A instalação do gateway já está registrada e reivindicada por outro recurso de gateway no Azure. As instalações de gateway não aparecem na lista de instâncias depois que os recursos de gateway são criados para eles. Para verificar os registros de gateway no portal do Azure, examine todos os recursos do Azure com o tipo de **gateways de dados local** para *todas as* assinaturas do Azure.
+
+* A identidade do Azure AD para a pessoa que instalou o gateway é diferente da pessoa que se conectou ao portal do Azure. Verifique se você está conectado com a mesma identidade que instalou o gateway.
+
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger as suas aplicações lógicas](./logic-apps-securing-a-logic-app.md)
 * [Exemplos e cenários comuns para aplicativos lógicos](./logic-apps-examples-and-scenarios.md)

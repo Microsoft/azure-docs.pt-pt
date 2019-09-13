@@ -7,12 +7,12 @@ ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d02dca4438b55d51cccb5cc1b55679eb72b73991
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f048262003a3567175c40ebf4ee744c41e11b5f9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232813"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918699"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
 
@@ -21,8 +21,8 @@ O artigo a seguir fornece detalhes sobre como a amostra do plano gráfico de ben
 Os mapeamentos a seguir são para as recomendações de **benchmark v 1.1.0 do Microsoft Azure Foundations do CIS** . Use a navegação à direita para ir diretamente para um mapeamento de recomendação específico.
 Muitas das recomendações mapeadas são implementadas com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione as recomendações de auditoria de versão  **\[prévia\] do CIS Microsoft Azure Foundations benchmark v 1.1.0 e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
 
-> [!NOTE]
-> A amostra Blueprint completa estará disponível em breve. A iniciativa de Azure Policy associada está disponível agora.
+> [!IMPORTANT]
+> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
 
 ## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1,1 garantir que a autenticação multifator esteja habilitada para todos os usuários privilegiados
 
@@ -209,7 +209,7 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 - Aplicação Web só deve estar acessível através de HTTPS
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você examinou o mapeamento de controle do plano de referência do CIS Microsoft Azure Foundations, visite o seguinte artigo para saber mais sobre o plano gráfico ou visite Azure Policy no portal do Azure para atribuir a iniciativa:
 
@@ -219,7 +219,7 @@ Agora que você examinou o mapeamento de controle do plano de referência do CIS
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 09/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233224"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933123"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -36,49 +36,52 @@ Para obter informações sobre como configurar Azure Monitor para VMs, consulte 
 
 Esta seção descreve os critérios de integridade padrão para monitorar as VMs do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para enviar um alerta quando detectam uma condição não íntegra.
 
-### <a name="windows-vms"></a>VMs do Windows
+| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operator | Limiar | Alertar no estado | Severity | Categoria da carga de trabalho | 
+|--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
+| Disco lógico online | 5 | 15 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
+| Espaço livre em disco lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
+| % De inodes livres no disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
+| % De espaço livre no disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
+| Status do adaptador de rede | 5 | 15 | <> | 1 (verdadeiro) | Aviso | Sev2 | Linux | 
+| Memória de megabytes disponíveis do sistema operacional | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
+| Média de disco Disco seg/leitura | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Média de disco Disco seg/transferência | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Média de disco Disco seg/escritas | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Status do disco | 5 | 25 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
+| Porcentagem total de tempo do processador do sistema operacional | 5 | 10 | >= | 95% | Crítico | Sev1 | Linux | 
+| Porcentagem de utilização total da CPU | 5 | 10 | >= | 95% | Crítico | Sev1 | Windows | 
+| Erro ou corrupção do sistema de arquivos | 60 | 60 | <> | 4 | Crítico | Sev1 | Windows | 
+| Média de segundos de disco lógico por leitura | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
+| Média de segundos de disco lógico por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
+| Média de segundos de disco lógico por gravação (disco lógico) | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
+| Comprimento da fila de disco atual (disco lógico) | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
+| Espaço livre em disco lógico (MB) | 15 | 60 | > | aviso de 500 MB<br> 300 MB crítico | Crítico | Sev1<br> Sev2 | Windows | 
+| Espaço livre em disco lógico (%) | 15 | 60 | > | aviso de 10%<br> 5% crítico | Crítico | Sev1<br> Sev2 | Windows |
+| Porcentagem de tempo ocioso do disco lógico | 15 | 360 | <= | 20% | Aviso | Sev2 | Windows | 
+| Porcentagem de largura de banda usada lida | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
+| Porcentagem total de largura de banda usada | 5 | 60 | >= | 75% | Aviso | Sev2 | Windows | 
+| Porcentagem de largura de banda usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
+| Integridade do serviço de cliente DHCP | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Integridade do serviço cliente DNS | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Integridade do serviço log de eventos do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Integridade do serviço de firewall do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Integridade do serviço RPC | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Integridade do serviço do servidor | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Integridade do serviço de Gerenciamento Remoto do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
+| Megabytes disponíveis de memória | 5 | 10 | < | 100 MB | Crítico | Sev1 | Windows | 
+| Entradas de tabela livres da página do sistema | 5 | 10 | <= | 5000 | Crítico | Sev1 | Windows | 
+| Páginas de memória por segundo | 5 | 10 | >= | 5\.000/s | Aviso | Sev1 | Windows | 
+| Porcentagem de memória confirmada em uso | 5 | 10 | > | 80% | Crítico | Sev1 | Windows | 
+| Média de segundos de disco por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
+| Média de segundos de disco por gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
+| Comprimento da fila de disco atual | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
+| Porcentagem de tempo ocioso do disco | 5 | 60 | >= | 20% | Aviso | Sev2 | Windows | 
 
-- Megabytes disponíveis de memória
-- Média de segundos de disco por gravação (disco lógico)
-- Média de segundos de disco por gravação (disco)
-- Média de segundos de disco lógico por leitura
-- Média de segundos de disco lógico por transferência
-- Média de segundos de disco por leitura
-- Média de segundos de disco por transferência
-- Comprimento da fila de disco atual (disco lógico)
-- Comprimento da fila de disco atual (disco)
-- Porcentagem de tempo ocioso do disco
-- Erro ou corrupção do sistema de arquivos
-- Espaço livre em disco lógico (%) Pequena
-- Espaço livre em disco lógico (MB) baixo
-- Porcentagem de tempo ocioso do disco lógico
-- Páginas de memória por segundo
-- Porcentagem de largura de banda usada lida
-- Porcentagem total de largura de banda usada
-- Porcentagem de largura de banda usada
-- Porcentagem de memória confirmada em uso
-- Porcentagem de tempo ocioso do disco
-- Integridade do serviço de cliente DHCP
-- Integridade do serviço cliente DNS
-- Integridade do serviço RPC
-- Integridade do serviço do servidor
-- Porcentagem de utilização total da CPU
-- Integridade do serviço log de eventos do Windows
-- Integridade do serviço de firewall do Windows
-- Integridade do serviço de Gerenciamento Remoto do Windows
+>[!NOTE]
+>A duração de Lookback representa a frequência com que a janela olhar de volta verifica os valores de métrica, como nos últimos cinco minutos.  
 
-### <a name="linux-vms"></a>VMs do Linux
-
-- Média de disco Disco seg/transferência
-- Média de disco Disco seg/leitura
-- Média de disco Disco seg/escritas
-- Integridade do disco
-- Espaço livre em disco lógico
-- % De espaço livre no disco lógico
-- % De inodes livres no disco lógico
-- Integridade do adaptador de rede
-- Porcentagem total de tempo do processador
-- Megabytes disponíveis do sistema operacional de memória
+>[!NOTE]
+>A frequência representa a frequência com que o alerta de métrica verifica se as condições são atendidas, como a cada um minuto.  É a taxa na qual o critério de integridade é executado e lookback é a duração em que o critério de integridade é avaliado. Por exemplo, o critério de integridade está avaliando se a **utilização da CPU da** condição é maior do que 95% com uma frequência de 5 minutos e permanece maior que 95% por 15 minutos (3 ciclos de avaliação consecutivos) e, em seguida, o estado é atualizado para crítico gravidade se ela ainda não estava.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -90,11 +93,11 @@ Antes de usar o recurso de integridade para uma única VM ou grupo de VMs, é im
 
 ### <a name="view-health-directly-from-a-vm"></a>Exibir a integridade diretamente de uma VM
 
-Para exibir a integridade de uma VM do Azure, selecione insights **(versão prévia)** no painel esquerdo da VM. Na página de informações da VM, a guia **integridade** é aberta por padrão e mostra a exibição de integridade da VM.
+Para exibir a integridade de uma VM do Azure, selecione **insights (versão prévia)** no painel esquerdo da VM. Na página de informações da VM, a guia **integridade** é aberta por padrão e mostra a exibição de integridade da VM.
 
 ![Visão geral do Azure Monitor para VMs Health de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health-01.png)
 
-Na seção **integridade da VM** convidada, a tabela mostra o acúmulo de integridade dos componentes de desempenho monitorados pelos critérios de integridade para a VM e o número total de alertas de integridade da VM gerados por componentes não íntegros. Esses componentes incluem **CPU**, **memória**, **disco**e **rede**. Expanda a divisa ao lado de integridade da VM convidada para exibir a integridade de seus componentes.
+Na seção **integridade da VM convidada** , a tabela mostra o acúmulo de integridade dos componentes de desempenho monitorados pelos critérios de integridade para a VM e o número total de alertas de integridade da VM gerados por componentes não íntegros. Esses componentes incluem **CPU**, **memória**, **disco**e **rede**. Expanda a divisa ao lado de integridade da VM convidada para exibir a integridade de seus componentes.
 
 ![Azure Monitor para VMs o status de integridade do componente de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health-02.png)
 
@@ -166,7 +169,7 @@ Para qualquer um dos itens na lista, você pode clicar no estado de integridade 
 
 Na página **máquinas virtuais** , se você selecionar o nome de uma VM sob a coluna **nome da VM**, você será direcionado para a página **instância de VM** . Esta página fornece mais detalhes sobre os alertas e problemas de critérios de integridade que estão afetando a VM selecionada. Filtre os detalhes do estado de integridade selecionando o ícone **estado de integridade** no canto superior esquerdo da página para ver quais componentes não estão íntegros. Você também pode exibir os alertas de integridade da VM gerados por um componente não íntegro categorizado pela severidade do alerta.
 
-Na exibição de **lista de VMs** , selecione o nome de uma VM para abrir a página de **integridade** dessa VM, da mesma forma como se você selecionou insights **(visualização)** diretamente da VM.
+Na exibição de **lista de VMs** , selecione o nome de uma VM para abrir a página de **integridade** dessa VM, da mesma forma como se você selecionou **insights (visualização)** diretamente da VM.
 
 ![Informações de VM de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health.png)
 
@@ -197,7 +200,7 @@ Inicie o diagnóstico de integridade usando os seguintes métodos:
 
 * Por estado de integridade de rollup para todas as VMs da perspectiva da VM agregada no Azure Monitor:
 
-    1. Na página **integridade** , selecione o ícone do estado de integridade **crítico**, de **aviso**, **ÍNTEGRO**ou **desconhecido** na seção integridade da **VM**convidada.
+    1. Na página **integridade** , selecione o ícone do estado de integridade **crítico**, de **aviso**, **ÍNTEGRO**ou **desconhecido** na seção **integridade da VM convidada**.
     2. Vá para a página que lista todas as VMs que correspondem a essa categoria filtrada.
     3. Selecione o valor na coluna **estado de integridade** para abrir o diagnóstico de integridade com escopo para essa VM.
 
@@ -339,13 +342,13 @@ Para identificar o *monitorid* para critérios de integridade específicos, o ex
 
 1. Em uma janela de terminal, digite **armclient. exe login**. Isso solicitará que você entre no Azure.
 
-2. Digite o seguinte comando para recuperar todo o critério de integridade ativo em uma VM específica e identificar o valor da propriedade monitorid:
+2. Digite o seguinte comando para recuperar todo o critério de integridade ativo em uma VM específica e identificar o valor da propriedade *monitorid* :
 
     ```
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
     ```
 
-    O exemplo a seguir mostra a saída do comando *ARMCLIENT Get* . Anote o valor de Monitorid. Esse valor é necessário para a próxima etapa, onde devemos especificar a ID dos critérios de integridade e modificar sua propriedade para criar um alerta.
+    O exemplo a seguir mostra a saída do comando *ARMCLIENT Get* . Anote o valor de *monitorid*. Esse valor é necessário para a próxima etapa, onde devemos especificar a ID dos critérios de integridade e modificar sua propriedade para criar um alerta.
 
     ```
     "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/monitors/ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
@@ -390,7 +393,7 @@ Para identificar o *monitorid* para critérios de integridade específicos, o ex
     armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
-4. Insira o comando GET usado na etapa 2 para verificar se o valor da propriedade está definidocomo desabilitado.
+4. Insira o comando GET usado na etapa 2 para verificar se o valor da propriedade está definido como **desabilitado**.
 
 #### <a name="associate-an-action-group-with-health-criteria"></a>Associar um grupo de ação a critérios de integridade
 

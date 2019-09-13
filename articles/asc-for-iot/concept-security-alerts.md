@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 99ffa49a8e379f6c3a2139c082cd23f95c126e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ccf1c912dbf982fde1eb5cde4cde6556fc88bc1
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597242"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933920"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Central de segurança do Azure para alertas de segurança de IoT
 
@@ -34,7 +34,7 @@ Para obter mais detalhes, consulte [criar alertas personalizados](quickstart-cre
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas internos para dispositivos IoT
 
-| Severity | Nome | Origem de Dados | Descrição | Etapas de correção sugeridas|                  
+| Severity | Name | Origem de Dados | Descrição | Etapas de correção sugeridas|                  
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alta     | Logon local bem-sucedido                                 | Agente       | Êxito na conexão local com o dispositivo detectado | Verifique se o usuário conectado é uma parte autorizada.  |
 | Alta     | Tentativa de bruteforce bem-sucedida  | Agente       | Várias tentativas de logon malsucedidas foram identificadas, seguidas por um logon bem-sucedido. A tentativa de ataque de bruteforce pode ter êxito no dispositivo. | Examine o alerta bruteforce SSH e a atividade nos dispositivos. <br>Se a atividade for mal-intencionada:<br> Distribuir a redefinição de senha para contas comprometidas.<br> Investigue e corrija (se encontrados) os dispositivos para malware.  |
@@ -79,14 +79,14 @@ Para obter mais detalhes, consulte [criar alertas personalizados](quickstart-cre
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Alertas internos para o Hub IoT
 
-| Severity | Nome                                                                         | Descrição | Correção sugerida|
+| Severity | Name                                                                         | Descrição | Correção sugerida|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | Médio   | Novo certificado adicionado a um hub IoT                                    |Um certificado denominado \'% {DescCertificateName}\' foi adicionado ao Hub \'IOT% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.| 1. Verifique se o certificado foi adicionado por uma parte autorizada. <br> 2. Se ele não foi adicionado por uma parte autorizada, remova o certificado e encaminhe o alerta para a equipe de segurança organizacional.  |
 | Médio   | Certificado excluído de um hub IoT                                    | Um certificado denominado \'% {DescCertificateName}\' foi excluído do Hub \'IOT% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar uma atividade mal-intencionada.| 1. Verifique se o certificado foi removido por uma parte autorizada. <br> 2. Se o certificado não tiver sido removido por uma parte autorizada, adicione o certificado de volta e encaminhe o alerta para a equipe de segurança organizacional. |
 | Médio   | Tentativa malsucedida de adicionar um certificado a um hub IoT     | Houve uma tentativa malsucedida de adicionar o \'certificado% {DescCertificateName}\' ao Hub \'IOT% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.|   Certifique-se de que as permissões para alterar certificados sejam concedidas somente a partes autorizadas.  |
 | Médio   | Tentativa malsucedida de excluir um certificado de um hub IoT | Houve uma tentativa malsucedida de excluir o \'certificado% {DescCertificateName}\' do Hub \'IOT% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada. |Certifique-se de que as permissões para alterar certificados sejam concedidas somente a uma parte autorizada.
-| Baixa      | Tentativa de adicionar ou editar uma configuração de diagnóstico de um hub IoT detectada    | Foi detectada uma tentativa de adicionar ou editar as configurações de diagnóstico de um hub IoT. As configurações de diagnóstico permitem recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela pode indicar atividade mal-intencionada.  |
-| Baixa      | Tentativa de excluir uma configuração de diagnóstico de um hub IoT detectada       | Houve% {DescAttemptStatusMessage}\' tentativa de adicionar ou editar a configuração \'de diagnóstico% {DescDiagnosticSettingName\' } do Hub \'IOT% {DescIoTHubName\'}. A configuração de diagnóstico permite recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela poderá indicar uma atividade mal-intencionada. |1. Verifique se o certificado foi removido por uma parte autorizada.<br> 2. Se o certificado não tiver sido removido por uma parte autorizada, adicione o certificado de volta e escale o alerta para sua equipe de segurança de informações.
+| Baixa      | Tentativa de adicionar ou editar uma configuração de diagnóstico de um hub IoT detectada    | Foi detectada uma tentativa de adicionar ou editar as configurações de diagnóstico de um hub IoT. As configurações de diagnóstico permitem recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela pode indicar atividade mal-intencionada.  |1. Verifique se o certificado foi removido por uma parte autorizada.<br> 2. Se o certificado não tiver sido removido por uma parte autorizada, adicione o certificado de volta e escale o alerta para sua equipe de segurança de informações.
+| Baixa      | Tentativa de excluir uma configuração de diagnóstico de um hub IoT detectada       | Houve% {DescAttemptStatusMessage}\' tentativa de adicionar ou editar a configuração \'de diagnóstico% {DescDiagnosticSettingName\' } do Hub \'IOT% {DescIoTHubName\'}. A configuração de diagnóstico permite recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela poderá indicar uma atividade mal-intencionada. |Verifique se as permissões para alterar as configurações de diagnóstico são concedidas somente a uma parte autorizada.
 |
 
 ## <a name="next-steps"></a>Passos Seguintes

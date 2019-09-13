@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: dcd9095a1e5010a3d0dd5ea7ad884e36e24c7c1d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814007"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915389"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar trabalhos de streaming de alta disponibilidade Apache Spark com o YARN
 
@@ -29,7 +29,7 @@ O streaming do Spark representa um fluxo contínuo de dados usando um *fluxo de 
 
 O núcleo do Spark usa RDDs (conjuntos de fonte *distribuídos resilientes* ). O RDDs distribui dados em vários nós no cluster, em que cada nó geralmente mantém seus dados completamente na memória para obter o melhor desempenho. Cada RDD representa eventos coletados em um intervalo de lote. Quando o intervalo de lote expira, o Spark streaming produz um novo RDD contendo todos os dados nesse intervalo. Esse conjunto contínuo de RDDs é coletado em um DStream. Um aplicativo de streaming do Spark processa os dados armazenados em cada RDD do lote.
 
-![DStream Spark](./media/apache-spark-streaming-high-availability/DStream.png)
+![DStream Spark](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Trabalhos de streaming estruturado do Spark
 
@@ -117,7 +117,7 @@ Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis
     // to be able to recover on restart, store all offsets in an external database
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Visão geral de streaming de Apache Spark](apache-spark-streaming-overview.md)
 * [Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bcc29902628f4e7051d6a838d2e9ac145df9e45e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810690"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916936"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar utilizadores para as Vistas do Apache Ambari
 
@@ -30,7 +30,7 @@ Se você ainda não tiver feito isso, siga [estas instruções](./domain-joined/
 
 Para acessar a **página de gerenciamento do Ambari** na [interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md), navegue até. **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** Insira o nome de usuário e a senha do administrador de cluster que você definiu ao criar o cluster. Em seguida, no painel do Ambari, selecione **gerenciar Ambari** abaixo do menu **admin** :
 
-![Gerenciar Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+![Gerenciar Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Conceder permissões para Apache Hive exibições
 
@@ -38,36 +38,36 @@ O Ambari vem com instâncias de exibição para [Apache Hive](https://hive.apach
 
 1. Na página Gerenciamento, selecione o link **exibições** no título do menu **exibições** à esquerda.
 
-    ![Link de exibições](./media/hdinsight-authorize-users-to-ambari/views-link.png)
+    ![Link de exibições](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
 2. Na página exibições, expanda a linha do **Hive** . Há uma exibição padrão do hive que é criada quando o serviço do hive é adicionado ao cluster. Você também pode criar mais instâncias de exibição do hive, conforme necessário. Selecione uma exibição do hive:
 
-    ![Exibições-exibição do hive](./media/hdinsight-authorize-users-to-ambari/views-hive-view.png)
+    ![Exibições-exibição do hive](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
 3. Role para a parte inferior da página de exibição. Na seção *permissões* , você tem duas opções para conceder aos usuários de domínio suas permissões para a exibição:
 
-**Conceder permissão a esses usuários** ![Conceder permissão a esses usuários](./media/hdinsight-authorize-users-to-ambari/add-user-to-view.png)
+**Conceder permissão a esses usuários** ![Conceder permissão a esses usuários](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Conceder permissão a esses grupos** ![Conceder permissão a esses grupos](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
+**Conceder permissão a esses grupos** ![Conceder permissão a esses grupos](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. Para adicionar um usuário, selecione o botão **Adicionar usuário** .
 
    * Comece a digitar o nome de usuário e você verá uma lista suspensa de nomes definidos anteriormente.
 
-     ![Preenchimento automático do usuário](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![Preenchimento automático do usuário](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
    * Selecione ou termine de digitar, o nome de usuário. Para adicionar esse nome de usuário como um novo usuário, selecione o botão **novo** .
 
    * Para salvar as alterações, marque a **caixa de seleção azul**.
 
-     ![Inserido pelo usuário](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![Inserido pelo usuário](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Para adicionar um grupo, selecione o botão **Adicionar grupo** .
 
    * Comece a digitar o nome do grupo. O processo de selecionar um nome de grupo existente ou adicionar um novo grupo é o mesmo para adicionar usuários.
    * Para salvar as alterações, marque a **caixa de seleção azul**.
 
-     ![Grupo inserido](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Grupo inserido](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
 Adicionar usuários diretamente a uma exibição é útil quando você deseja atribuir permissões a um usuário para usar essa exibição, mas não deseja que eles sejam membros de um grupo que tenha permissões adicionais. Para reduzir a quantidade de sobrecarga administrativa, pode ser mais simples atribuir permissões a grupos.
 
@@ -77,7 +77,7 @@ As instâncias de exibição do [Apache tez](https://tez.apache.org/) permitem q
 
 Para atribuir usuários e grupos a uma instância de exibição do tez, expanda a linha **tez** na página exibições, conforme descrito anteriormente.
 
-![Exibições-exibição tez](./media/hdinsight-authorize-users-to-ambari/views-tez-view.png)
+![Exibições-exibição tez](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
 Para adicionar usuários ou grupos, repita as etapas de 3-5 na seção anterior.
 
@@ -93,11 +93,11 @@ Há cinco funções de segurança para usuários e grupos, listadas em ordem de 
 
 Para gerenciar funções, vá para a **página de gerenciamento do Ambari**e, em seguida, selecione o link **funções** no grupo de menus *clusters* à esquerda.
 
-![Link do menu de funções](./media/hdinsight-authorize-users-to-ambari/roles-link.png)
+![Link do menu de funções](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
 Para ver a lista de permissões dadas a cada função, clique no ponto de interrogação azul ao lado do cabeçalho da tabela **funções** na página funções.
 
-![Permissões de link do menu funções](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "Permissões de link do menu funções")
+![Permissões de link do menu funções](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Permissões de link do menu funções")
 
 Nessa página, há duas exibições diferentes que você pode usar para gerenciar funções para usuários e grupos: Bloquear e listar.
 
@@ -105,7 +105,7 @@ Nessa página, há duas exibições diferentes que você pode usar para gerencia
 
 O modo de exibição de bloco exibe cada função em sua própria linha e fornece as opções **atribuir funções a esses usuários** e **atribuir funções a essas grupos** , conforme descrito anteriormente.
 
-![Exibição de bloco de funções](./media/hdinsight-authorize-users-to-ambari/roles-block-view.png)
+![Exibição de bloco de funções](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
 ### <a name="list-view"></a>Exibição de lista
 
@@ -125,7 +125,7 @@ A exibição de lista fornece recursos de edição rápida em duas categorias: U
 
 Atribuímos as permissões "hiveuser1" do usuário de domínio do Azure AD às exibições Hive e tez. Quando iniciamos a interface do usuário da Web do amAmbari e inserem as credenciais de domínio do usuário (nome de usuário do Azure AD no formato de email e senha), o usuário é redirecionado para a página de exibições do Ambari. A partir daqui, o usuário pode selecionar qualquer exibição acessível. O usuário não pode visitar nenhuma outra parte do site, incluindo o painel, os serviços, os hosts, os alertas ou as páginas de administrador.
 
-![Usuário somente com exibições](./media/hdinsight-authorize-users-to-ambari/user-views-only.png)
+![Usuário somente com exibições](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
 
 ## <a name="log-in-to-ambari-as-a-cluster-user"></a>Faça logon no Ambari como um usuário de cluster
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 7e77a5a6891335139737ba3ef377c55b6694f043
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383391"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883658"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -64,11 +64,11 @@ O serviço de personalização tem duas APIs:
 
 ![Sequência básica de eventos para personalização](media/what-is-personalizer/personalization-intro.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Quickstart: Criar um loop de comentários emC#](csharp-quickstart-commandline-feedback-loop.md)
-* [Quickstart: Criar um loop de comentários no node. js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
-* [Quickstart: Criar um loop de comentários no Python](python-quickstart-commandline-feedback-loop.md)
+* [O que há de novo no Personalizador?](whats-new.md)
+* [Como funciona o personalizador?](how-personalizer-works.md)
+* [O que é o reforço Learning?](concepts-reinforcement-learning.md)
 * [Saiba mais sobre os recursos e as ações para a solicitação de classificação](concepts-features.md)
 * [Saiba como determinar a pontuação da solicitação de recompensa](concept-rewards.md)
 * [Usar a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

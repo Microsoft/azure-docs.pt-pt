@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 23cbab927c994024ba733a0cfd7a15c58a2970a7
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861287"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914828"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -98,7 +98,7 @@ Para executar um cluster AKS que dá suporte a um balanceador de carga com o SKU
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
     --generate-ssh-keys
@@ -347,7 +347,7 @@ kubectl delete -f sample.yaml
 kubectl delete -f standard-lb.yaml
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kubernetess][kubernetes-services].
 

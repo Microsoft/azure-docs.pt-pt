@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991023"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918973"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testar um trabalho de Azure Stream Analytics com dados de exemplo
 
-No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local.
+No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local no portal do Azure. Você também pode testar as consultas localmente de seus dados de exemplo locais ou dados dinâmicos no [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) e [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
 
 ## <a name="sample-incoming-data-from-input"></a>Exemplo de dados de entrada de entrada
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: ea7d2c451127283f2af204de2c961747880e1bfe
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494907"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931118"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente o idioma falado com o modelo de identificação de idioma
 
@@ -23,7 +23,7 @@ O Video Indexer dá suporte à identificação automática de idioma (tampa), qu
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Escolhendo a identificação automática de idioma na indexação
 
-Ao indexar ou [](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) reindexar um vídeo usando a API, escolha a `auto detect` opção no `sourceLanguage` parâmetro.
+Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando a API, escolha a `auto detect` opção no `sourceLanguage` parâmetro.
 
 Ao usar o portal, acesse os vídeos da sua **conta** no [Video indexer](https://www.videoindexer.ai/) Home Page e passe o mouse sobre o nome do vídeo que você deseja reindexar. No canto inferior direito, clique no botão reindexar. No diálogo **reindexar vídeo** , escolha *detecção automática* na caixa suspensa **idioma da origem do vídeo** .
 
@@ -59,4 +59,5 @@ O idioma dominante do modelo está disponível no JSON do insights `sourceLangua
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descrição Geral](video-indexer-overview.md)
+* [Descrição Geral](video-indexer-overview.md)
+* [Identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: c7d8b946fc587d58f13e16c1d7d806390e712104
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879555"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932482"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
@@ -83,15 +83,15 @@ Clique duas vezes em um dispositivo na página Visão geral para exibir o próxi
 
 ### <a name="device"></a>Dispositivo
 
-Esta seção inclui as guias **identidade do dispositivo**, telemetria e dispositivos de **entrelaçamento** .
+Esta seção inclui as guias **identidade do dispositivo**, **telemetria**e **dispositivos de entrelaçamento** .
 
 - Você pode exibir e atualizar as informações de identidade do dispositivo na guia **identidade do dispositivo** .
-- Se um dispositivo estiver conectado e enviando dados ativamente, você poderá exibir a telemetria na guia telemetria.
-- Você pode acessar as informações de FileUp do dispositivo na guia de **dispositivo** de entrelaçamento.
+- Se um dispositivo estiver conectado e enviando dados ativamente, você poderá exibir a telemetria na guia **telemetria** .
+- Você pode acessar as informações de FileUp do dispositivo na guia de **dispositivo de entrelaçamento** .
 
 ### <a name="digital-twin"></a>Entrelaçar digital
 
-Você pode usar a ferramenta para exibir a instância de cópia digital do dispositivo. Para um dispositivo de Plug and Play IoT, todas as interfaces associadas ao modelo de capacidade de dispositivo são exibidas neste artigo. Selecione uma interface para expandir seus primitivos de [plug and Play IOT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)correspondentes.
+Você pode usar a ferramenta para exibir a instância de cópia digital do dispositivo. Para um dispositivo de Plug and Play IoT, todas as interfaces associadas ao modelo de capacidade de dispositivo são exibidas neste artigo. Selecione uma interface para expandir seus [primitivos de plug and Play IOT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)correspondentes.
 
 #### <a name="properties"></a>properties
 
@@ -103,7 +103,7 @@ Você pode exibir as propriedades somente leitura definidas em uma interface na 
 1. Visualize o conteúdo a ser enviado para o dispositivo.
 1. Envie a alteração.
 
-Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização**, **êxito**ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade** relatada. Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
+Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização**, **êxito**ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade relatada** . Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
 
 #### <a name="commands"></a>Comandos
 
@@ -116,8 +116,8 @@ Para enviar um comando para um dispositivo, vá para a página **comandos** :
 
 #### <a name="telemetry"></a>Telemetria
 
-Para exibir a telemetria da interface selecionada, acesse sua página de telemetria.
+Para exibir a telemetria da interface selecionada, acesse sua página de **telemetria** .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo de instruções, você aprendeu a instalar e usar o Azure IoT Explorer para interagir com seus dispositivos de Plug and Play de IoT. Uma próxima etapa sugerida é aprender a [gerenciar modelos](./howto-manage-models.md).
+Neste artigo de instruções, você aprendeu a instalar e usar o Azure IoT Explorer para interagir com seus dispositivos de Plug and Play de IoT. Uma próxima etapa sugerida é aprender a [instalar e usar a extensão CLI do Azure](./howto-install-pnp-cli.md).

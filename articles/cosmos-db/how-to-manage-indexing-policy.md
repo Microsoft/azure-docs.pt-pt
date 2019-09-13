@@ -4,27 +4,342 @@ description: Saiba como gerenciar políticas de indexação no Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: a6c1ec6d58939336fb8a982e3ab1b9be20d4e0a5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ede4266457aaa76bdd9f1141df5c2981bb722326
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172157"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915919"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
 
-No Azure Cosmos DB, os dados são indexados seguindo [políticas](index-policy.md) de indexação que são definidas para cada contêiner. A política de indexação padrão para contêineres recém-criados impõe índices de intervalo para qualquer cadeia de caracteres ou número e índices espaciais para qualquer objeto geojson do tipo Point. Essa política pode ser substituída:
+No Azure Cosmos DB, os dados são indexados seguindo [políticas](index-policy.md) de indexação que são definidas para cada contêiner. A política de indexação padrão para contêineres recém-criados impõe índices de intervalo para qualquer cadeia de caracteres ou número. Essa política pode ser substituída por sua própria política de indexação personalizada.
+
+## <a name="indexing-policy-examples"></a>Exemplos de política de indexação
+
+Aqui estão alguns exemplos de políticas de indexação mostradas em seu formato JSON, que é como elas são expostas no portal do Azure. Os mesmos parâmetros podem ser definidos por meio da CLI do Azure ou de qualquer SDK.
+
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de recusa para excluir seletivamente alguns caminhos de propriedade
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*"
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+```
+
+Essa política de indexação é equivalente à seguinte que define ```kind```manualmente, ```dataType```e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number",
+                        "precision": -1
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String",
+                        "precision": -1
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+```
+
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Política de aceitação para incluir seletivamente alguns caminhos de propriedade
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*"
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+```
+
+Essa política de indexação é equivalente à seguinte que define ```kind```manualmente, ```dataType```e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+```
+
+> [!NOTE] 
+> Geralmente, é recomendável usar uma política de indexação de **recusa** para permitir que Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
+
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usando um índice espacial somente em um caminho de propriedade específico
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "spatialIndexes": [
+        {
+            "path": "/path/to/geojson/property/?",
+            "types": [
+                "Point",
+                "Polygon",
+                "MultiPolygon",
+                "LineString"
+            ]
+        }
+    ]
+}
+```
+
+## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação composta
+
+Além de incluir ou excluir caminhos para propriedades individuais, você também pode especificar um índice composto. Se você quiser executar uma consulta que tenha uma `ORDER BY` cláusula para várias propriedades, um [índice composto](index-policy.md#composite-indexes) nessas propriedades será necessário. Além disso, os índices compostos terão um benefício de desempenho para consultas que têm um filtro e têm uma cláusula ORDER BY em propriedades diferentes.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice composto definido para (nome ASC, idade DESC):
+
+```json
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+O índice composto acima em nome e idade é necessário para consulta #1 e #2 de consulta:
+
+#1 de consulta:
+
+```sql
+    SELECT *
+    FROM c
+    ORDER BY c.name ASC, c.age DESC
+```
+
+#2 de consulta:
+
+```sql
+    SELECT *
+    FROM c
+    ORDER BY c.name DESC, c.age ASC
+```
+
+Esse índice composto beneficiará a consulta #3 e #4 de consulta e otimizará os filtros:
+
+#3 de consulta:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Tim"
+ORDER BY c.name DESC, c.age ASC
+```
+
+#4 de consulta:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Tim" AND c.age > 18
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Índice composto definido para (nome ASC, idade ASC) e (nome ASC, idade DESC):
+
+Você pode definir vários índices compostos diferentes na mesma política de indexação.
+
+```json
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ],
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Índice composto definido para (nome ASC, idade ASC):
+
+É opcional especificar a ordem. Se não for especificado, a ordem será crescente.
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
+
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Excluindo todos os caminhos de propriedade, mas mantendo a indexação ativa
+
+Essa política pode ser usada em situações em que o [recurso TTL (vida útil)](time-to-live.md) está ativo, mas nenhum índice secundário é necessário (para usar Azure Cosmos DB como um armazenamento de chave-valor puro).
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [],
+        "excludedPaths": [{
+            "path": "/*"
+        }]
+    }
+```
+
+### <a name="no-indexing"></a>Sem indexação
+
+Esta política desativará a indexação. Se `indexingMode` é definido como `none`, você não pode definir um TTL no contêiner.
+
+```json
+    {
+        "indexingMode": "none"
+    }
+```
+
+## <a name="updating-indexing-policy"></a>Atualizando política de indexação
+
+No Azure Cosmos DB, a política de indexação pode ser atualizada usando qualquer um dos métodos abaixo:
 
 - da portal do Azure
-- usando o CLI do Azure
+- Usando o CLI do Azure
 - usando um dos SDKs
 
 Uma [atualização de política](index-policy.md#modifying-the-indexing-policy) de indexação dispara uma transformação de índice. O progresso dessa transformação também pode ser acompanhado dos SDKs.
 
 > [!NOTE]
-> Como parte da atualização do SDK e do portal, estamos desenvolvendo a política de índice para se alinhar com um novo layout de índice que distribuímos para novos contêineres. Com esse novo layout, todos os tipos de dados primitivos são indexados como intervalo com precisão total (-1). Portanto, os tipos e a precisão de índice não são mais expostos ao usuário. No futuro, os usuários precisarão simplesmente adicionar caminhos à seção includedPaths e ignorar indexKinds e Precision. Essa alteração não tem impacto sobre o desempenho e você pode continuar a atualizar a política de indexação usando a mesma sintaxe. Você pode continuar a usar todos os exemplos em nossa documentação existente para atualizar a política de índice.
+> Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Durante a reindexação, as consultas podem retornar resultados parciais à medida que o índice está sendo atualizado.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -342,247 +657,7 @@ Atualizar o contêiner com alterações
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## <a name="indexing-policy-examples"></a>Exemplos de política de indexação
-
-Aqui estão alguns exemplos de políticas de indexação mostradas em seu formato JSON, que é como elas são expostas no portal do Azure. Os mesmos parâmetros podem ser definidos por meio da CLI do Azure ou de qualquer SDK.
-
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de recusa para excluir seletivamente alguns caminhos de propriedade
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    },
-                    {
-                        "kind": "Range",
-                        "dataType": "String"
-                    },
-                    {
-                        "kind": "Spatial",
-                        "dataType": "Point"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/path/to/single/excluded/property/?"
-            },
-            {
-                "path": "/path/to/root/of/multiple/excluded/properties/*"
-            }
-        ]
-    }
-```
-
-### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Política de aceitação para incluir seletivamente alguns caminhos de propriedade
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/path/to/included/property/?",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    }
-                ]
-            },
-            {
-                "path": "/path/to/root/of/multiple/included/properties/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/*"
-            }
-        ]
-    }
-```
-
-Nota: Geralmente, é recomendável usar uma política de indexação de **recusa** para permitir que Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
-
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usando um índice espacial somente em um caminho de propriedade específico
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    },
-                    {
-                        "kind": "Range",
-                        "dataType": "String"
-                    }
-                ]
-            },
-            {
-                "path": "/path/to/geojson/property/?",
-                "indexes": [
-                    {
-                        "kind": "Spatial",
-                        "dataType": "Point"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": []
-    }
-```
-
-### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Excluindo todos os caminhos de propriedade, mas mantendo a indexação ativa
-
-Essa política pode ser usada em situações em que o [recurso TTL (vida útil)](time-to-live.md) está ativo, mas nenhum índice secundário é necessário (para usar Azure Cosmos DB como um armazenamento de chave-valor puro).
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [],
-        "excludedPaths": [{
-            "path": "/*"
-        }]
-    }
-```
-
-### <a name="no-indexing"></a>Sem indexação
-```
-    {
-        "indexingMode": "none"
-    }
-```
-
-## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação composta
-
-Além de incluir ou excluir caminhos para propriedades individuais, você também pode especificar um índice composto. Se você quiser executar uma consulta que tenha uma `ORDER BY` cláusula para várias propriedades, um [índice composto](index-policy.md#composite-indexes) nessas propriedades será necessário.
-
-### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice composto definido para (nome ASC, idade DESC):
-```
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-Esse índice composto seria capaz de dar suporte às duas consultas a seguir:
-
-#1 de consulta:
-```sql
-    SELECT *
-    FROM c
-    ORDER BY name asc, age desc    
-```
-
-#2 de consulta:
-```sql
-    SELECT *
-    FROM c
-    ORDER BY name desc, age asc
-```
-
-### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Índice composto definido para (nome ASC, idade ASC) e (nome ASC, idade DESC):
-
-Você pode definir vários índices compostos diferentes na mesma política de indexação. 
-```
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"ascending"
-                }
-            ],
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-### <a name="composite-index-defined-for-name-asc-age-asc"></a>Índice composto definido para (nome ASC, idade ASC):
-
-É opcional especificar a ordem. Se não for especificado, a ordem será crescente.
-```
-{  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                },
-                {  
-                    "path":"/age",
-                }
-            ]
-        ]
-}
-```
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia mais sobre a indexação nos seguintes artigos:
 

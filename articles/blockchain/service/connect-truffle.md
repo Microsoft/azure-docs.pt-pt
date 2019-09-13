@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 822402f548fe0fc866051a9c77adef6e37c3fa75
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240901"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932585"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>Início rápido: Usar Truffle para se conectar a um nó de transação
+# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>Início rápido: Utilizar o Truffle para ligar a um nó de transação
 
 Truffle é um ambiente de desenvolvimento blockchain que você pode usar para se conectar a um nó de transação do serviço Blockchain do Azure.
 
@@ -25,7 +25,7 @@ Truffle é um ambiente de desenvolvimento blockchain que você pode usar para se
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Criar um membro Blockchain do Azure](create-member.md)
+* Início [rápido completo: Crie um membro do blockchain usando o](create-member.md) portal do Azure [ou o início rápido: Criar um membro Blockchain do serviço Blockchain do Azure usando CLI do Azure](create-member-cli.md)
 * Instale o [Truffle](https://github.com/trufflesuite/truffle). O Truffle exige que várias ferramentas sejam instaladas, incluindo [node. js](https://nodejs.org), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Instale o [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). O Python é necessário para o Web3.
 
@@ -124,7 +124,7 @@ Use *Web3* para se conectar ao nó de transação.
 
 Neste guia de início rápido, você criou um projeto Truffle para se conectar ao nó de transação padrão do serviço Blockchain do Azure.
 
-Experimente o próximo tutorial para usar o kit de desenvolvimento do Azure Blockchain para Ethereum e Truffle para executar uma função de contrato inteligente por meio de uma transação em uma rede consórcio Blockchain.
+Experimente o próximo tutorial para usar o kit de desenvolvimento do Azure Blockchain para Ethereum e Truffle para criar, compilar, implantar e executar uma função de contrato inteligente por meio de uma transação.
 
 > [!div class="nextstepaction"]
-> [Usar contratos inteligentes no serviço Blockchain do Azure](send-transaction.md)
+> [Use Visual Studio Code para criar, compilar e implantar contratos inteligentes](send-transaction.md)

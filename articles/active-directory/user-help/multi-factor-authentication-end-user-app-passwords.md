@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088412"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914924"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativo para verificação em duas etapas
 
@@ -28,11 +28,9 @@ ms.locfileid: "70088412"
 
 Ao usar senhas de aplicativo, é importante lembrar:
 
-- As senhas de aplicativo são geradas automaticamente e inseridas apenas uma vez por aplicativo.
+- As senhas de aplicativo são geradas automaticamente e devem ser criadas e inseridas uma vez por aplicativo.
 
 - Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
-
-- Use uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, crie uma única senha para todos os aplicativos em seu laptop e, em seguida, outra senha única para todos os aplicativos na área de trabalho.
 
     >[!Note]
     >Os clientes do Office 2013 (incluindo o Outlook) dão suporte a novos protocolos de autenticação e podem ser usados com a verificação em duas etapas. Esse suporte significa que, após a verificação em duas etapas ser ativada, você não precisará mais de senhas de aplicativo para clientes do Office 2013. Para obter mais informações, consulte o artigo [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .

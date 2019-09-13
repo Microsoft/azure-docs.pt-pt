@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 868efad58e14fd817729f0aa9ac785bc0f960867
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74f33a1ce1026424a6cdb97699223aeb5ff8277f
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087023"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933134"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestrações em Durable Functions (Azure Functions)
 
@@ -118,7 +118,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+> [!NOTE]
+> As suborquestrações devem ser definidas no mesmo aplicativo de funções que a orquestração pai. Se você precisar chamar e aguardar orquestrações em outro aplicativo de funções, considere usar o suporte interno para APIs HTTP e o padrão de consumidor de sondagem HTTP 202. Para obter mais informações, consulte o tópico [recursos http](durable-functions-http-features.md) .
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba quais são os hubs de tarefas e como configurá-los](durable-functions-task-hubs.md)
+> [Saiba como definir um status de orquestração personalizado](durable-functions-custom-orchestration-status.md)

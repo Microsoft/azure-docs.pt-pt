@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 23c10fbed751e05fea2a95030c720f622e195f40
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 875db0d34932dca1c7eae7e3650acf01856c6413
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534235"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934432"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -24,7 +24,7 @@ Essa solução aproveita as APIs nativas do SQL para fazer backups de seus banco
 
 * Depois de especificar o SQL Server VM que você deseja proteger e consultar os bancos de dados nele, o serviço de backup do Azure instalará uma extensão de backup de carga de trabalho na VM `AzureBackupWindowsWorkload` pela extensão de nome.
 * Essa extensão consiste em um coordenador e um plug-in do SQL. Embora o coordenador seja responsável por disparar fluxos de trabalho para várias operações, como configurar backup, backup e restauração, o plug-in é responsável pelo fluxo de dados real.
-* Para poder descobrir bancos de dados nessa VM, o backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL. O backup do Azure aproveita `NT AUTHORITY\SYSTEM` a conta para a pesquisa/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](backup-azure-sql-database.md).
+* Para poder descobrir bancos de dados nessa VM, o backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL. O backup do Azure aproveita `NT AUTHORITY\SYSTEM` a conta para a pesquisa/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](#set-vm-permissions).
 * Depois de disparar configurar a proteção nos bancos de dados selecionados, o serviço de backup configura o coordenador com os agendamentos de backup e outros detalhes da política, que a extensão armazena em cache localmente na VM.
 * No horário agendado, o coordenador se comunica com o plug-in e começa a transmitir os dados de backup do SQL Server usando o VDI.  
 * O plug-in envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de um local de preparo. Os dados são criptografados e armazenados pelo serviço de backup do Azure nas contas de armazenamento.
@@ -58,13 +58,12 @@ O backup do Azure anunciou recentemente o suporte para [servidores de EOS SQL](h
 2. .NET Framework 4.5.2 e acima precisam ser instalados na VM
 3. Não há suporte para backup para bancos de dados FCI e espelhados
 
-Os usuários não serão cobrados por esse recurso até o momento em que ele estiver disponível. Todas as outras [Considerações sobre recursos e limitações](#feature-consideration-and-limitations) também se aplicam a essas versões. Indique os [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção nos SQL servers 2008 e 2008 R2, que incluem a definição da [chave do registro](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (essa etapa não será necessária quando o recurso estiver disponível).
-
+Os usuários não serão cobrados por esse recurso até o momento em que ele estiver disponível. Todas as outras [Considerações sobre recursos e limitações](#feature-consideration-and-limitations) também se aplicam a essas versões. Indique os [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção nos SQL servers 2008 e 2008 R2.
 
 ## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recursos
 
 - SQL Server Backup pode ser configurado no portal do Azure ou no **PowerShell**. Não há suporte para a CLI.
-- Há suporte para a solução em ambos os [](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) tipos de implantações-Azure Resource Manager VMs e VMs clássicas.
+- Há suporte para a solução em ambos os tipos de [implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) -Azure Resource Manager VMs e VMs clássicas.
 - A VM em execução SQL Server requer conectividade com a Internet para acessar os endereços IP públicos do Azure.
 - Não há suporte para SQL Server **FCI (instância de cluster de failover)** e SQL Server instância de cluster de failover AlwaysOn.
 - Não há suporte para operações de backup e restauração para bancos de dados espelho e instantâneos de banco de dados.
@@ -143,7 +142,7 @@ Para todas as outras versões, corrija as permissões com as seguintes etapas:
 
       ![Abra a pasta segurança/logons para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. Clique com o botão direito do mouse na pasta logons e selecione **novo logon**. Em **logon-novo**, selecione **Pesquisar**.
+  3. Clique com o botão direito do mouse na pasta **logons** e selecione **novo logon**. Em **logon-novo**, selecione **Pesquisar**.
 
       ![Na caixa de diálogo logon – novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -155,7 +154,7 @@ Para todas as outras versões, corrija as permissões com as seguintes etapas:
 
       ![Certifique-se de que a função de servidor sysadmin esteja selecionada](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
-  6. Agora, associe o banco de dados ao cofre dos serviços de recuperação. Na portal do Azure, na lista **servidores protegidos** , clique com o botão direito do mouse no servidor que está em um estado de erro > redescobrir **bancos**de os.
+  6. Agora, associe o banco de dados ao cofre dos serviços de recuperação. Na portal do Azure, na lista **servidores protegidos** , clique com o botão direito do mouse no servidor que está em um estado de erro > **redescobrir bancos**de os.
 
       ![Verifique se o servidor tem as permissões apropriadas](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -190,7 +189,7 @@ Adicione logons **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** 
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (1-7 acima) para adicionar o logon do NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existir, verifique se ele tem a função de servidor sysadmin e, sob status, ele concede a permissão para se conectar ao mecanismo de banco de dados e fazer logon como habilitado.
-9. Depois de conceder a permissão, redescubra os **bancos** de todos no Portal: Carga **->** de trabalho **->** de infraestrutura de backup do cofre na VM do Azure:
+9. Depois de conceder a permissão, **redescubra os bancos** de todos no Portal: Carga **->** de trabalho **->** de infraestrutura de backup do cofre na VM do Azure:
 
     ![Redescobrir bancos de os no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
@@ -230,7 +229,7 @@ catch
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre como](backup-sql-server-database-azure-vms.md) fazer backup de bancos de dados do SQL Server.
 * [Saiba mais sobre como](restore-sql-database-azure-vm.md) restaurar bancos de dados de SQL Server de backup.

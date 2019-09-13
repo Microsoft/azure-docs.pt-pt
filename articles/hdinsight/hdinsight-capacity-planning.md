@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734670"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916566"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -96,9 +96,6 @@ Você é cobrado pelo tempo de vida de um cluster. Se houver apenas alguns momen
 
 Às vezes, podem ocorrer erros devido à execução paralela de vários mapas e à redução de componentes em um cluster de vários nós. Para ajudar a isolar o problema, experimente o teste distribuído executando vários trabalhos simultâneos em um único cluster de nó de trabalho e, em seguida, expanda essa abordagem para executar vários trabalhos simultaneamente em clusters que contenham mais de um nó. Para criar um cluster HDInsight de nó único no Azure, use a opção *personalizado (tamanho, configurações, aplicativos)* e use um valor de 1 para o *número de nós de trabalho* na seção **tamanho do cluster** ao provisionar um novo cluster no Portal.
 
-Você também pode instalar um ambiente de desenvolvimento de nó único no computador local e testar a solução ali. O Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas em Hadoop que são úteis para o desenvolvimento inicial, prova de conceito e teste. Para obter mais informações, consulte [sandbox Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
-
-Para identificar o problema em um cluster local de um único nó, você pode executar novamente os trabalhos com falha e ajustar os dados de entrada ou usar os DataSets menores. A forma como você executa esses trabalhos depende da plataforma e do tipo de aplicativo.
 
 ## <a name="quotas"></a>Quotas
 

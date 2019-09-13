@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3b93b0cd5053db7d8a2b6aebd30d32f542670d90
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5cb5ce82dcd5a1c22dd05c7bd6cc9485f413752e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098125"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933783"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado no Durable Functions (Azure Functions)
 
@@ -341,7 +341,7 @@ Os clientes receberão a seguinte resposta:
 > [!WARNING]
 > A carga de status personalizada é limitada a 16 KB de texto JSON UTF-16 porque ele precisa ser capaz de se ajustar em uma coluna de armazenamento de tabelas do Azure. Os desenvolvedores podem usar o armazenamento externo se precisarem de uma carga maior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre APIs HTTP no Durable Functions](durable-functions-http-api.md)
+> [Saiba mais sobre temporizadores duráveis](durable-functions-timers.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ad67b17d76e811d5977955c40f444c4b7c0a01e3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478838"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916312"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Localizar trajetos para diferentes meios de deslocação com o Azure Maps
 
@@ -28,7 +28,7 @@ Este tutorial mostra como utilizar a sua conta do Azure Maps e o serviço de rot
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar, siga os passos do primeiro tutoria para [criar a sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e [obter a chave da subscrição para a sua conta](./tutorial-search-location.md#getkey).
+Antes de prosseguir, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura da conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
 
 ## <a name="create-a-new-map"></a>Criar um novo mapa
 

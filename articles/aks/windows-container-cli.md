@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: ee798ba624aaf9f21886edab36185fb1b6ae67f2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387341"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914883"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização-criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -42,7 +42,7 @@ Você deve adicionar um pool de nós adicional depois de criar o cluster que pod
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI do AKS-Preview
 
-Para usar contêineres do Windows Server, você precisa da extensão da CLI do *AKs* versão 0.4.1 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
+Para usar contêineres do Windows Server, você precisa da extensão da CLI do *AKs* versão 0.4.12 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 

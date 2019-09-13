@@ -1,6 +1,6 @@
 ---
 title: Monitorizar uma aplicação Web ASP.NET com o Azure Application Insights | Microsoft Docs
-description: Fornece instruções para configurar rapidamente uma aplicação Web ASP.NET para monitorização com o Application Insights
+description: Fornece instruções para configurar rapidamente um aplicativo Web ASP.NET para monitoramento com Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,23 +10,23 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442215"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916135"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
 Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação Web quanto à disponibilidade, ao desempenho e à utilização.  Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique.  Com as informações que recolher com o Application Insights sobre o desempenho e a eficácia da sua aplicação, pode tomar decisões informadas para manter e melhorar a sua aplicação.
 
-Este início rápido mostra como adicionar o Application Insights a uma aplicação Web ASP.NET existente e iniciar a análise das estatísticas em direto, um dos vários métodos que pode utilizar para analisar a sua aplicação. Se não tiver uma aplicação web ASP.NET, pode criar uma seguindo o [criar um guia de introdução da aplicação Web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md).
+Este início rápido mostra como adicionar o Application Insights a uma aplicação Web ASP.NET existente e iniciar a análise das estatísticas em direto, um dos vários métodos que pode utilizar para analisar a sua aplicação. Se você não tiver um aplicativo Web ASP.NET, poderá criar um seguindo o guia de [início rápido criar um aplicativo web ASP.net](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido:
 
-- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
-1. Abra o projeto no Visual Studio 2019.
+1. Abra seu projeto no Visual Studio 2019.
 2. Selecione **Configurar o Application Insights** no menu Projeto. O Visual Studio adiciona o Application Insights SDK à sua aplicação.
 
     > [!IMPORTANT]
@@ -47,7 +47,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 4. Selecione a sua subscrição e clique em **Registo**.
 
-5. Execute a sua aplicação selecionando **Iniciar Depuração** no menu **Depurar** ou premindo a tecla F5.
+5. Selecione **projeto** >  > **gerenciar pacotes** > NuGet**origem do pacote: NuGet.org** **Atualizar** os pacotes do SDK Application insights para a versão estável mais recente.
+
+6. Execute a sua aplicação selecionando **Iniciar Depuração** no menu **Depurar** ou premindo a tecla F5.
 
 ## <a name="confirm-app-configuration"></a>Confirmar a configuração da aplicação
 
@@ -61,7 +63,7 @@ O Application Insights recolhe dados de telemetria da sua aplicação, independe
 
 Agora, pode abrir o Application Insights no portal do Azure para ver os vários detalhes sobre a sua aplicação em execução.
 
-1. Expanda a **serviços ligados** pasta (ícone de nuvem e plug) no Solution Explorer, em seguida, clique com botão direito no **Application Insights** pasta e clique em **abrir Portal do Application Insights** .  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
+1. Expanda a pasta **Serviços conectados** (ícone de nuvem e plug-in) na Gerenciador de soluções clique com o botão direito do mouse na pasta **Application insights** e clique em **abrir portal de Application insights**.  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
 
     ![Mapeamento de Aplicações](media/quick-monitor-portal/04-overview.png)
 
@@ -69,11 +71,11 @@ Agora, pode abrir o Application Insights no portal do Azure para ver os vários 
 
     ![Mapeamento de Aplicações](media/quick-monitor-portal/05-appmap.png)
 
-3. Clique nas **análise da aplicação** ícone ![mapa da aplicação](media/quick-monitor-portal/app-viewinlogs-icon.png) **vista nos registos (análise)** em um dos componentes da aplicação. Esta ação abre **registos (análise)** , que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no ícone ![do **app Analytics** na exibição](media/quick-monitor-portal/app-viewinlogs-icon.png) mapa do aplicativo **nos logs (análise)** em um dos componentes do aplicativo. Isso abre **logs (análise)** , que fornece uma linguagem de consulta avançada para a análise de todos os dados coletados pelo Application insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
     ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Clique em **Stream de métricas em direto** à esquerda em investigar. Isto mostra estatísticas em direto sobre a sua aplicação em execução. Inclui informações como o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. Também pode inspecionar métricas críticas de desempenho, tais como processador e memória.
+4. Clique em **Live Metrics Stream** à esquerda em investigar. Isto mostra estatísticas em direto sobre a sua aplicação em execução. Inclui informações como o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. Também pode inspecionar métricas críticas de desempenho, tais como processador e memória.
 
     ![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
@@ -104,15 +106,15 @@ Para saber mais, visite o repositório do GitHub para o nosso [SDK de JavaScript
 
 ## <a name="video"></a>Vídeo
 
-* Externo vídeo passo a passo sobre [configuração do Application Insights com uma aplicação .NET do zero](https://www.youtube.com/watch?v=blnGAVgMAfA).
+* Vídeo passo a passo externo sobre como [configurar Application insights com um aplicativo .net do zero](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, siga os passos abaixo.
+Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste início rápido, ativou a aplicação para monitorização pelo Azure Application Insights.  Continue para os tutoriais para saber como utilizá-lo para monitorizar as estatísticas e detetar problemas na sua aplicação.
+## <a name="next-steps"></a>Passos seguintes
+Neste guia de início rápido, você habilitou seu aplicativo para monitoramento pelo Aplicativo Azure insights.  Continue para os tutoriais para saber como utilizá-lo para monitorizar as estatísticas e detetar problemas na sua aplicação.
 
 > [!div class="nextstepaction"]
 > [Azure Application Insights](tutorial-runtime-exceptions.md)

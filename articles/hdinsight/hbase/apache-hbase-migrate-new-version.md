@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: 546d491c24198d5f7a92765876e5f6919ca32020
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 75158fbe5604c6fcf54c2fa08636cb87dfd9da80
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735794"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917449"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster do Apache HBase para uma nova versão
 
@@ -180,7 +180,7 @@ Para atualizar o cluster do Apache HBase no Azure HDInsight, conclua as seguinte
 5. Para garantir que todos os dados recentes no memstore sejam liberados, execute o script anterior novamente.
 6. Entre no [Apache Ambari](https://ambari.apache.org/) no cluster antigo (https://OLDCLUSTERNAME.azurehdidnsight.net) e pare os serviços do HBase. Quando você receber uma solicitação para confirmar que deseja parar os serviços, marque a caixa para ativar o modo de manutenção do HBase. Para obter mais informações sobre como se conectar ao e usar o Ambari, consulte [gerenciar clusters HDInsight usando a interface do usuário da Web do amAmbari](../hdinsight-hadoop-manage-ambari.md).
 
-    ![No Ambari, clique em serviços > HBase > parar em ações de serviço](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![No Ambari, clique em serviços > HBase > parar em ações de serviço](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
     ![Marque a caixa de seleção Ativar o modo de manutenção para HBase e, em seguida, confirme](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
@@ -211,7 +211,7 @@ Para atualizar o cluster do Apache HBase no Azure HDInsight, conclua as seguinte
 12. Inicie a ingestão para ver se tudo está funcionando conforme o esperado.
 13. Se o novo cluster for satisfatório, exclua o cluster original.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o [Apache HBase](https://hbase.apache.org/) e atualizar os clusters HDInsight, consulte os seguintes artigos:
 

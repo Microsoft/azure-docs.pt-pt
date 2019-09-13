@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872681"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909837"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -680,7 +680,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
      Depois que os segredos estiverem disponíveis e os detalhes de criptografia estiverem definidos no disco do sistema operacional, para anexar os discos gerenciados restaurados, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o keyvault de origem **/chave/segredo não estiverem disponíveis** , restaure a chave e os segredos para o Key Vault usando o procedimento em [Restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
+   * **VMs gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault de origem/chave/segredo não estiverem disponíveis** , restaure a chave e os segredos para o Key Vault usando o procedimento em [Restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
 
    O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
 
@@ -716,6 +716,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
     ```
 
 7. Extensão de ADE Push.
+   Se as extensões de ADE não forem enviadas por push, os discos de dados serão marcados como não criptografados, portanto, é obrigatório que as etapas abaixo sejam executadas:
 
    * **Para VM com o Azure ad** – use o seguinte comando para habilitar manualmente a criptografia para os discos de dados  
 
@@ -746,6 +747,8 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> Certifique-se de excluir manualmente os arquivos JASON criados como parte do processo de disco de restauração de VM criptografado.
 
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Restaurar arquivos de um backup de VM do Azure
@@ -829,6 +832,6 @@ Depois que os arquivos necessários forem copiados, use [Disable-AzRecoveryServi
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você preferir usar o PowerShell para se envolver com os recursos do Azure, consulte o artigo do PowerShell, [implantar e gerenciar o backup do Windows Server](backup-client-automation.md). Se você gerenciar backups do DPM, consulte o artigo [implantar e gerenciar backup do DPM](backup-dpm-automation.md).

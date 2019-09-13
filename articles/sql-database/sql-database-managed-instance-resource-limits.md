@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845377"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930613"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -58,6 +58,7 @@ A instância gerenciada tem duas camadas de serviço: Uso Geral e Comercialmente
 | Número máximo de bancos de dados por instância | 100 | 100 |
 | Número máximo de arquivos de banco de dados por instância | Até 280 | 32.767 arquivos por banco de dados |
 | Tamanho máximo do arquivo | 8 TB | 4 TB |
+| Tamanho máximo do arquivo de log | 2 TB | 2 TB |
 | IOPS de dados/log (aproximado) | 500-7.500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
 | Limite de produtividade de gravação de log | 3 MB/s por vCore<br/>Máximo de 22 MB/s por instância | 4 MB/s por vCore<br/>Máximo de 48 MB/s por instância|
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
@@ -66,8 +67,6 @@ A instância gerenciada tem duas camadas de serviço: Uso Geral e Comercialmente
 | OLTP dentro da memória | Não suportado | Disponível |
 | Máx. de sessões | 30000 | 30000 |
 | [Réplicas somente leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
-| Preço/cobrança | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | 
-| Modelos de desconto | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
 > [!NOTE]
 > - Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">Sys. master_files</a> para determinar o total de espaço usado por bancos de dados. Os logs de erros não são persistidos e não são incluídos no tamanho. Os backups não são incluídos no tamanho do armazenamento.

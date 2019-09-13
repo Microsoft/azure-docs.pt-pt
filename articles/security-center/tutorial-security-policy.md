@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314926"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910364"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -131,7 +131,7 @@ Conceitos importantes no Azure Policy:
 
 - Uma **atribuição** é um aplicativo de uma iniciativa ou uma política para um escopo específico (grupo de gerenciamento, assinatura, etc.) 
 
-A central de segurança tem uma iniciativa interna que inclui todas as suas políticas de segurança. Para avaliar as políticas da central de segurança em seus recursos do Azure, você deve criar uma atribuição no grupo de gerenciamento ou assinatura que deseja avaliar.  
+A central de segurança tem uma iniciativa interna que inclui todas as suas políticas de segurança. Para avaliar as políticas da central de segurança em seus recursos do Azure, você deve criar uma atribuição no grupo de gerenciamento ou assinatura que deseja avaliar.
 
 A iniciativa interna tem todas as políticas da central de segurança habilitadas por padrão. Você pode optar por desabilitar determinadas políticas da iniciativa interna, por exemplo, você pode aplicar todas as políticas da central de segurança, exceto o **Firewall do aplicativo Web**, alterando o valor do parâmetro de efeito da política para **desabilitado**. 
 
@@ -228,13 +228,13 @@ Este exemplo mostra como remover uma atribuição:
 |Atualizações do sistema |Monitorar atualizações do sistema ausentes na central de segurança do Azure |systemUpdatesMonitoringEffect|
 |Encriptação do armazenamento |Auditoria de criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
 |Acesso à rede JIT |Monitorar o acesso possível de rede JIT (just in time) na central de segurança do Azure |jitNetworkAccessMonitoringEffect |
-|Controlos de aplicações adaptáveis |Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controlos de aplicação adaptável |Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitorar o acesso à rede permissivo na central de segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorar vulnerabilidades do sistema operacional na central de segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint protection |Monitorar Endpoint Protection ausentes na central de segurança do Azure |endpointProtectionMonitoringEffect |
-|Encriptação de disco |Monitorar discos de VM não criptografados na central de segurança do Azure |diskEncryptionMonitoringEffect|
+|Proteção de ponto final |Monitorar Endpoint Protection ausentes na central de segurança do Azure |endpointProtectionMonitoringEffect |
+|Encriptação de discos |Monitorar discos de VM não criptografados na central de segurança do Azure |diskEncryptionMonitoringEffect|
 |Avaliação de vulnerabilidades |Monitorar vulnerabilidades de VM na central de segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
-|Firewall de aplicação Web |Monitorar aplicativo Web desprotegido na central de segurança do Azure |webApplicationFirewallMonitoringEffect |
+|Firewall de aplicações Web |Monitorar aplicativo Web desprotegido na central de segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorar pontos de extremidade de rede desprotegidos na central de segurança do Azure| |
 
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 09/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f3b093b8d5f772bad759d3384405f4ca9f0cee15
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035220"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933763"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -66,7 +66,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Estas incluem:
 
-- **Exceções** não capturadas em seu aplicativo, incluindo informações sobre
+- **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha
     - Detalhes da exceção e mensagem que acompanha o erro
     - Número de colunas de & de linha de erro
@@ -103,7 +103,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 | Name | Predefinição | Descrição |
 |------|---------|-------------|
-| instrumentationKey | nulo | **Necessário**<br>Chave de instrumentação que você obteve do portal do Azure. |
+| InstrumentationKey | nulo | **Necessário**<br>Chave de instrumentação que você obteve do portal do Azure. |
 | accountId | nulo | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
 | sessionRenewalMs | 1,8 milhões | Uma sessão será registrada se o usuário estiver inativo por esse período de tempo em milissegundos. O padrão é 30 minutos |
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
@@ -143,14 +143,14 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 Por padrão, esse SDK **não** tratará da alteração de rota baseada em estado que ocorre em aplicativos de página única. Para habilitar o controle de alterações de rota automático para seu aplicativo de página única `enableAutoRouteTracking: true` , você pode adicionar à sua configuração de instalação.
 
-Atualmente, oferecemos um [plug-in reajam](#react-extensions) separado que você pode inicializar com esse SDK. Ele também realizará o controle de alterações de rota para você, além de coletar [outra telemetria específica de reagir](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js).
+Atualmente, oferecemos um [plug-in reajam](#react-extensions) separado que você pode inicializar com esse SDK. Ele também realizará o controle de alterações de rota para você, além de coletar [outra telemetria específica de reagir](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
 
 ## <a name="react-extensions"></a>Extensões de reagir
 
 | Extensões |
 |---------------|
-| [Reagir](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js)|
-| [Reagir nativo](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native)|
+| [Reagir](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [Reagir nativo](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Explorar dados do navegador/cliente
 

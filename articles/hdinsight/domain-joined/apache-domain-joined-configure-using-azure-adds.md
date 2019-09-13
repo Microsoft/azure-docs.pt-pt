@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 83e9e1364293601337f854f083bbb279361e29c5
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: aa18c4a078edf579e8d9c4c09df99100dfcea148
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810996"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918307"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package configurações com Azure Active Directory Domain Services no HDInsight
 
@@ -74,7 +74,7 @@ Depois que a identidade gerenciada for criada e receber a função correta, o ad
 
 Depois de habilitar o Azure AD-DS, um servidor DNS (serviço de nomes de domínio) local é executado nas VMs (máquinas virtuais) do AD. Configure seu Azure AD-VNET (rede virtual) DS para usar esses servidores DNS personalizados. Para localizar os endereços IP corretos, selecione **Propriedades** na categoria **gerenciar** e examine os endereços IP listados abaixo do **endereço IP na rede virtual**.
 
-![Localizar endereços IP para servidores DNS locais](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+![Localizar endereços IP para servidores DNS locais](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
 Altere a configuração dos servidores DNS na VNET do Azure AD-DS para usar esses IPs personalizados selecionando **servidores DNS** na categoria **configurações** . Em seguida, clique no botão de opção ao lado de **personalizado**, insira o primeiro endereço IP na caixa de texto abaixo e clique em **salvar**. Adicione outros endereços IP usando as mesmas etapas.
 
@@ -120,7 +120,7 @@ A identidade gerenciada que você criou pode ser escolhida no menu suspenso iden
 
 ![Identidade gerenciada Active Directory Domain Services do Azure HDInsight ESP](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para configurar políticas do hive e executar consultas do hive, consulte [Configurar políticas de Apache Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md).
 * Para usar o SSH para se conectar a clusters HDInsight com o ESP, consulte [usar SSH com Apache Hadoop baseado em Linux no HDInsight do Linux, UNIX ou os X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

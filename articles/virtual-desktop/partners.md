@@ -7,27 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ddfe5c855b6cd0171494f1af20dc5eb4ae571a6e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036129"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918982"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
 Este artigo lista os parceiros da área de trabalho virtual do Windows em ordem alfabética.
-
-## <a name="active-cypher"></a>Criptografia ativo
-
-![Logotipo do Active criptografia](./media/partners/active-cypher.png)
-
-O Active criptografia é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que o equipa com tecnologia de criptografia para ajudar a proteger a empresa contra violações e perda de dados. Com o Active criptografia, a tecnologia de criptografia inovadora dá suporte à estratégia geral de proteção de arquivo para executar a área de trabalho virtual do Windows no Azure.
-
-Quando usado com a área de trabalho virtual do Windows, o Active criptografia fornece recursos adicionais para habilitar a acessibilidade e a mobilidade de dados do usuário, impedindo a perda acidental de dados. Com o Active criptografia, as políticas de segurança de grupo existentes e as permissões na proteção de informações do Azure podem ser usadas para criptografar arquivos de usuário ao usar a área de trabalho virtual do Windows.
-
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
-- [Acesse o site do parceiro.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 
@@ -95,7 +84,7 @@ Workspot estende o valor da área de trabalho virtual do Windows simplificando o
 - [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P)
 - [Acesse o site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre a área de trabalho virtual do Windows.](overview.md)
 - [Crie um locatário na área de trabalho virtual do Windows.](tenant-setup-azure-active-directory.md)

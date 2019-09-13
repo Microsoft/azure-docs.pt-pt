@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68405986"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879742"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade de clusters de Apache Hadoop no HDInsight
 
@@ -106,7 +106,7 @@ A interface do usuário da Web do `https://CLUSTERNAME.azurehdinsight.net`amAmba
 
 Quando você chegar à página Ambari, os serviços instalados serão listados à esquerda da página.
 
-![Serviços instalados](./media/hdinsight-high-availability-linux/services.png)
+![Serviços instalados](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o status. Todos os alertas relacionados a um serviço podem ser exibidos usando o link **alertas** na parte superior da página.  O Ambari oferece vários alertas predefinidos.
 
@@ -153,13 +153,13 @@ Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
 Você pode selecionar cada serviço para exibir mais informações sobre ele.
 
-Enquanto a página de serviço fornece informações sobre o status e a configuração de cada serviço, ela não fornece informações sobre em qual nó de cabeçalho o serviço está sendo executado. Para exibir essas informações, use o link hosts na parte superior da página. Essa página exibe os hosts no cluster, incluindo os nós de cabeçalho.
+Enquanto a página de serviço fornece informações sobre o status e a configuração de cada serviço, ela não fornece informações sobre em qual nó de cabeçalho o serviço está sendo executado. Para exibir essas informações, use o link **hosts** na parte superior da página. Essa página exibe os hosts no cluster, incluindo os nós de cabeçalho.
 
-![lista de hosts](./media/hdinsight-high-availability-linux/hosts.png)
+![lista de hosts](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Selecionar o link para um dos nós de cabeçalho exibe os serviços e os componentes em execução nesse nó.
 
-![Status do componente](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Status do componente](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Para obter mais informações sobre como usar o Ambari, consulte [monitorar e gerenciar o HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -241,7 +241,7 @@ Para obter uma lista de comandos disponíveis, `help` digite `sftp>` no prompt.
 
 Na interface do usuário da Web do amAmbari, selecione o serviço para o qual você deseja exibir os logs (por exemplo, YARN). Em seguida, use **links rápidos** para selecionar em qual nó de cabeçalho exibir os logs.
 
-![Usando links rápidos para exibir logs](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Usando links rápidos para exibir logs](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho do nó
 
@@ -251,13 +251,13 @@ Ao criar um cluster, você pode especificar o tamanho dos nós. As informações
 
 * **Portal do Azure**: Ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 
-    ![Imagem do assistente de criação de cluster com seleção de tamanho de nó](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Imagem do assistente de criação de cluster com seleção de tamanho de nó](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
 * **CLI do Azure**: Ao usar o comando [AZ hdinsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `--headnode-size`parâmetros, `--workernode-size`e `--zookeepernode-size` .
 
 * **Azure PowerShell**: Ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `-HeadNodeSize`parâmetros, `-WorkerNodeSize`e `-ZookeeperNodeSize` .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use os links a seguir para saber mais sobre as coisas mencionadas neste documento.
 

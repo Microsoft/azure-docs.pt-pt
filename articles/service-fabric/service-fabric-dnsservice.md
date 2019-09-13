@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 94b2b807eb68d628165ca8fa4011b8f3e41d3c6d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599637"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931179"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O serviço DNS é um serviço de sistema opcional que você pode habilitar em seu cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -28,7 +28,7 @@ Muitos serviços, especialmente serviços em contêineres, são endereçáveis p
 
 O serviço DNS mapeia nomes DNS para nomes de serviço que, por sua vez, são resolvidos pelo Serviço de Nomenclatura para retornar o ponto de extremidade de serviço. O nome DNS para o serviço é fornecido no momento da criação. O diagrama a seguir mostra como o serviço DNS funciona para serviços sem estado.
 
-![pontos de extremidade de serviço](./media/service-fabric-dnsservice/stateless-dns.png)
+![Pontos de extremidade de serviço](./media/service-fabric-dnsservice/stateless-dns.png)
 
 A partir do Service Fabric versão 6,3, o protocolo DNS Service Fabric foi estendido para incluir um esquema para endereçar serviços com estado particionados. Essas extensões possibilitam a resolução de endereços IP de partição específicos usando uma combinação de nome DNS de serviço com estado e o nome da partição. Há suporte para todos os três esquemas de particionamento:
 
@@ -133,7 +133,7 @@ Abra o projeto no Visual Studio ou seu editor favorito e abra o arquivo Applicat
 ```
 Depois que o aplicativo for implantado, a instância de serviço no Service Fabric Explorer mostrará o nome DNS dessa instância, conforme mostrado na figura a seguir: 
 
-![pontos de extremidade de serviço](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![Pontos de extremidade de serviço](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
 O exemplo a seguir define o nome DNS para um serviço com `statefulsvc.app`estado como. O serviço usa um esquema de particionamento nomeado. Observe que os nomes de partição são letras minúsculas. Esse é um requisito para partições que serão destinadas a consultas DNS; para obter mais informações, consulte [fazendo consultas DNS em uma partição de serviço com estado](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
@@ -179,7 +179,7 @@ As consultas DNS direcionadas a uma partição são formatadas da seguinte manei
 Em que:
 
 - O *primeiro rótulo de-serviço-particionado-Service-DnsName* é a primeira parte do nome DNS do serviço.
-- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "-". Para saber mais, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "--". Para saber mais, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* é o nome da partição. 
 - *PartitionSuffix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é uma cadeia de caracteres vazia. Para saber mais, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Restante-partitiond-Service-DnsName* é a parte restante do seu nome DNS do serviço.

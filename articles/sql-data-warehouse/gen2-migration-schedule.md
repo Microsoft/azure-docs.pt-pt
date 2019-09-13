@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827222"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900325"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar seu data warehouse para o Gen2
 
@@ -45,12 +45,12 @@ A tabela a seguir resume por região quando a camada de computação Gen2 inferi
 | Ásia Oriental |Disponível |Completo |
 | East US |Disponível |Completo |
 | EUA Leste 2 |Disponível |Completo |
-| França Central |Disponível |Em curso |
+| França Central |Disponível |Em andamento |
 | Alemanha Central |\* |\* |
 | Alemanha Oeste-Central |1º de setembro de 2019|1 de outubro de 2019 |
 | Índia Central |Disponível |Completo |
 | Índia do Sul |Disponível |Completo |
-| Oeste da Índia |1º de julho de 2019 |Em curso |
+| Oeste da Índia |1º de julho de 2019 |Em andamento |
 | Leste do Japão |Disponível |Completo |
 | Oeste do Japão |Disponível |Completo |
 | Coreia do Sul Central |Disponível |Completo |
@@ -61,9 +61,9 @@ A tabela a seguir resume por região quando a camada de computação Gen2 inferi
 | EUA Centro-Sul |Disponível |Completo |
 | Sudeste Asiático |Disponível |Completo |
 | Norte dos E.A.U. |20 de julho de 2019 |Completo |
-| Reino Unido Sul |Disponível |Em curso |
-| Reino Unido Oeste |Disponível |Em curso |
-| EUA Centro-Oeste |1º de setembro de 2019 |1 de outubro de 2019|
+| Reino Unido Sul |Disponível |Em andamento |
+| Reino Unido Oeste |Disponível |Em andamento |
+| EUA Centro-Oeste |1º de novembro de 2019 |1º de dezembro de 2019|
 | Europa Ocidental |Disponível |Completo |
 | EUA Oeste |Disponível |Completo |
 | EUA Oeste 2 |Disponível |Completo |

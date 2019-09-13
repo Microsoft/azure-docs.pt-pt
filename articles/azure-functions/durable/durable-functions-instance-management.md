@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0df6f5f9728a8e48a3257e56ddf8ad23906dc92c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735179"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933321"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias no Durable Functions no Azure
 
@@ -31,9 +31,6 @@ No Durable Functions, você tem opções de como deseja implementar cada uma des
 O método [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) `startNew` `DurableOrchestrationClient` ou no (JavaScript) inicia uma nova instância. Você adquire instâncias dessa classe usando a `orchestrationClient` associação. Internamente, esse método enfileira uma mensagem na fila de controle, que dispara o início de uma função com o nome especificado que usa a `orchestrationTrigger` Associação de gatilho.
 
 Esta operação assíncrona é concluída quando o processo de orquestração é agendado com êxito. O processo de orquestração deve começar dentro de 30 segundos. Se demorar mais, você verá um `TimeoutException`.
-
-> [!WARNING]
-> Ao desenvolver localmente em JavaScript `WEBSITE_HOSTNAME` , defina a variável de ambiente como `localhost:<port>` (por exemplo `localhost:7071`,) para usar métodos `DurableOrchestrationClient`em. Para obter mais informações sobre esse requisito, consulte o [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
@@ -361,7 +358,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>Enviar eventos para instâncias
 
-Em alguns cenários, é importante que suas funções de orquestrador possam esperar e ouvir eventos externos. Isso inclui [funções](durable-functions-concepts.md#monitoring) e funções de monitor que estão aguardando a [interação humana](durable-functions-concepts.md#human).
+Em alguns cenários, é importante que suas funções de orquestrador possam esperar e ouvir eventos externos. Isso inclui [funções](durable-functions-overview.md#monitoring) e funções de monitor que estão aguardando a [interação humana](durable-functions-overview.md#human).
 
 Envie notificações de eventos para executar instâncias usando o método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) ou o `raiseEvent` método da `DurableOrchestrationClient` classe (JavaScript). As instâncias que podem lidar com esses eventos são aquelas que estão aguardando uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET `waitForExternalEvent` ) ou (JavaScript).
 
@@ -541,7 +538,7 @@ Se você tiver uma falha de orquestração por um motivo inesperado, poderá *re
 
 Use a API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.net) `rewindAsync` ou (JavaScript) para colocar a orquestração de volta no estado de *execução* . Execute novamente a atividade ou as falhas de execução de suborquestração que causaram a falha de orquestração.
 
-Por exemplo, digamos que você tenha um fluxo de trabalho que envolva uma série de [aprovações humanas](durable-functions-concepts.md#human). Suponha que haja uma série de funções de atividade que notifique alguém de que sua aprovação é necessária e aguarde a resposta em tempo real. Depois que todas as atividades de aprovação receberam respostas ou atingiram o tempo limite, suponha que outra atividade falhe devido a uma configuração incorreta do aplicativo, como uma cadeia de conexão de banco de dados inválida. O resultado é uma falha de orquestração profunda no fluxo de trabalho. Com a `RewindAsync` API (.net) `rewindAsync` ou (JavaScript), um administrador de aplicativos pode corrigir o erro de configuração e rebobinar a orquestração com falha de volta para o estado imediatamente antes da falha. Nenhuma das etapas de interação humana precisa ser reaprovada e a orquestração agora pode ser concluída com êxito.
+Por exemplo, digamos que você tenha um fluxo de trabalho que envolva uma série de [aprovações humanas](durable-functions-overview.md#human). Suponha que haja uma série de funções de atividade que notifique alguém de que sua aprovação é necessária e aguarde a resposta em tempo real. Depois que todas as atividades de aprovação receberam respostas ou atingiram o tempo limite, suponha que outra atividade falhe devido a uma configuração incorreta do aplicativo, como uma cadeia de conexão de banco de dados inválida. O resultado é uma falha de orquestração profunda no fluxo de trabalho. Com a `RewindAsync` API (.net) `rewindAsync` ou (JavaScript), um administrador de aplicativos pode corrigir o erro de configuração e rebobinar a orquestração com falha de volta para o estado imediatamente antes da falha. Nenhuma das etapas de interação humana precisa ser reaprovada e a orquestração agora pode ser concluída com êxito.
 
 > [!NOTE]
 > O recurso de *retrocesso* não dá suporte à rebobinagem de instâncias de orquestração que usam temporizadores duráveis.
@@ -661,4 +658,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como usar as APIs HTTP para o gerenciamento de instâncias](durable-functions-http-api.md)
+> [Saiba como lidar com controle de versão](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Referência de API HTTP interna para gerenciamento de instância](durable-functions-http-api.md)

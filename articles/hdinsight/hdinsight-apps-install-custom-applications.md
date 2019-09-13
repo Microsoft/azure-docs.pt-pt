@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 22a2eddcd94f6082d248450d825c5ba12b31571e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 372ff752f27360058c4a2c2722e24efe15202dd8
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810338"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916692"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos de Apache Hadoop personalizados no Azure HDInsight
 
@@ -45,7 +45,7 @@ Ficheiros necessários para implementar esta aplicação (Hue):
 
 1. Clique na imagem seguinte para iniciar sessão no Azure e abrir o modelo do Azure Resource Manager no Portal do Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     Este botão abre um modelo do Azure Resource Manager no Portal do Azure.  O modelo do Resource Manager está localizado [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)em.  Para saber como escrever esse modelo do Resource Manager, consulte [MSDN: Instalar um aplicativo](https://msdn.microsoft.com/library/mt706515.aspx)do HDInsight.
 2. No painel **Parâmetros**, introduza o seguinte:
@@ -60,7 +60,7 @@ Ficheiros necessários para implementar esta aplicação (Hue):
 
 1. Clique na imagem seguinte para iniciar sessão no Azure e abrir o modelo do Azure Resource Manager no Portal do Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     Este botão abre um modelo do Azure Resource Manager no Portal do Azure.  O modelo do Resource Manager está localizado [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)em.  Para saber como escrever esse modelo do Resource Manager, consulte [MSDN: Instalar um aplicativo](https://msdn.microsoft.com/library/mt706515.aspx)do HDInsight.
 2. Siga a instrução para criar o cluster e instalar a Hue. Para obter mais informações sobre a criação de clusters do HDInsight, consulte [Criar clusters do Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
@@ -88,12 +88,12 @@ Em caso de falha na instalação de uma aplicação, pode ver as mensagens de er
 
     Abra o cluster a partir do portal e clique em Aplicações no painel Definições:
 
-    ![aplicações do hdinsight erro de instalação da aplicação](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+    ![aplicações do hdinsight erro de instalação da aplicação](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
 * Ação de script do HDInsight: Se a mensagem de erro dos aplicativos do HDInsight indicar uma falha de ação de script, mais detalhes sobre a falha de script serão apresentados no painel Ações de script.
 
     Clique em Ação de Script no painel Definições. O histórico de ações de script apresenta as mensagens de erro
 
-    ![aplicações do hdinsight erro de ação de script](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    ![aplicações do hdinsight erro de ação de script](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
 * Interface do usuário da Web do amAmbari: Se o script de instalação foi a causa da falha, use a interface do usuário da Web do amAmbari para verificar os logs completos sobre os scripts de instalação.
 
     Para obter mais informações, consulte [Resolução de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
@@ -119,7 +119,7 @@ Através do Azure PowerShell, pode eliminar o cluster ou o grupo de recursos. Co
 ### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 Com a CLI do Azure, pode eliminar o cluster ou o grupo de recursos. Consulte [Eliminar clusters ao utilizar a CLI do Azure](hdinsight-administer-use-command-line.md#delete-clusters).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [INGLÊS Instalar um aplicativo](https://msdn.microsoft.com/library/mt706515.aspx)do hdinsight: saiba como desenvolver modelos do Resource Manager para implantar aplicativos do hdinsight.
 * [Instalar aplicativos do HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar um aplicativo do HDInsight em seus clusters.
 * [Publicar aplicativos do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.

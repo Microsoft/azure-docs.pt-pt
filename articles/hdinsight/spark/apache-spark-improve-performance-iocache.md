@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: a078fc205403983f4f6484f6a7ccde7f99c4dd58
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734535"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915361"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight (versão prévia)
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight 
 
 O cache de e/s é um serviço de cache de dados para o Azure HDInsight que melhora o desempenho de trabalhos de Apache Spark. O cache de e/s também funciona com as cargas de trabalho do [Apache tez](https://tez.apache.org/) e [Apache Hive](https://hive.apache.org/) , que podem ser executadas em clusters [Apache Spark](https://spark.apache.org/) . O cache de e/s usa um componente de cache de código aberto chamado RubiX. RubiX é um cache de disco local para uso com Big Data mecanismos de análise que acessam dados de sistemas de armazenamento em nuvem. O RubiX é exclusivo entre sistemas de cache, pois usa SSDs (unidades de estado sólido) em vez de reservar a memória operacional para fins de cache. O serviço de cache de e/s inicia e gerencia servidores de metadados RubiX em cada nó de trabalho do cluster. Ele também configura todos os serviços do cluster para uso transparente do cache RubiX.
 

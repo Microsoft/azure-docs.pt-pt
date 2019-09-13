@@ -2,19 +2,19 @@
 title: Orquestrações de eternas no Durable Functions-Azure
 description: Saiba como implementar orquestrações eternas usando a extensão Durable Functions para Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 788693698e75a24269e29c54e03af35c1853f1f6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735213"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933371"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternass no Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ As *orquestrações de eternas* são funções de orquestrador que nunca termina
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
-Conforme explicado em [ponto de verificação e reprodução](durable-functions-checkpointing-and-replay.md), a estrutura de tarefa durável controla o histórico de cada orquestração de função. Esse histórico cresce continuamente, desde que a função de orquestrador continue a agendar um novo trabalho. Se a função de orquestrador entrar em um loop infinito e agendar o trabalho continuamente, esse histórico poderá aumentar de forma muito grande e causar problemas de desempenho significativos. O conceito de *orquestração eternas* foi projetado para atenuar esses tipos de problemas em aplicativos que precisam de loops infinitos.
+Conforme explicado no tópico do [histórico de orquestração](durable-functions-orchestrations.md#orchestration-history) , o Framework de tarefa durável controla o histórico de cada orquestração de função. Esse histórico cresce continuamente, desde que a função de orquestrador continue a agendar um novo trabalho. Se a função de orquestrador entrar em um loop infinito e agendar o trabalho continuamente, esse histórico poderá aumentar de forma muito grande e causar problemas de desempenho significativos. O conceito de *orquestração eternas* foi projetado para atenuar esses tipos de problemas em aplicativos que precisam de loops infinitos.
 
 ## <a name="resetting-and-restarting"></a>Redefinindo e reiniciando
 
@@ -98,7 +98,7 @@ Se uma função de orquestrador precisar ser concluída, tudo o que você precis
 
 Se uma função de orquestrador estiver em um loop infinito e precisar ser interrompida, use o método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) para interrompê-la. Para obter mais informações, consulte [Gerenciamento de instâncias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)

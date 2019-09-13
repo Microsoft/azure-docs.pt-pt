@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/15/2019
-ms.openlocfilehash: 6e7157f4e40dbc585d19affaf0c12af2e6ba60c1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 69f897d1f279279c067eeff30ac711f85d3bb89b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813908"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915211"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções de OutOfMemoryError para Apache Spark no Azure HDInsight
 
@@ -119,11 +119,11 @@ Você pode aumentar a memória do servidor de histórico do Spark `SPARK_DAEMON_
 
 Você pode fazer isso de dentro da interface do usuário do navegador do Ambari selecionando a seção Spark2/config/Advanced Spark2-env.
 
-![Seção spark2-env avançada](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+![Seção spark2-env avançada](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
 Adicione a seguinte propriedade para alterar a memória do servidor de histórico do Spark de 1g `SPARK_DAEMON_MEMORY=4g`para 4G:.
 
-![Propriedade do Spark](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+![Propriedade do Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 Certifique-se de reiniciar todos os serviços afetados do Ambari.
 
@@ -242,7 +242,7 @@ Exclua todas as entradas usando as etapas detalhadas abaixo.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6aca340994f10bd546a25e577258d90d7b7b1368
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860933"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930745"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -25,7 +25,7 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
 
 ## <a name="2019-09-09"></a>2019-09-09
 
-### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Nova experiência na Web para espaços de trabalho do Azure Machine Learning (versão prévia)
+### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>Nova experiência na Web (versão prévia) para espaços de trabalho Azure Machine Learning 
 A nova experiência na Web permite que cientistas de dados e engenheiros de dados concluam seu ciclo de vida de aprendizado de máquina de ponta a ponta de preparando e visualizando dados para treinar e implantar modelos em um único local. 
 
 ![Interface do usuário do Azure Machine Learning Workspace (versão prévia)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
@@ -34,7 +34,7 @@ A nova experiência na Web permite que cientistas de dados e engenheiros de dado
 
 Usando essa nova interface de Azure Machine Learning, agora você pode:
 + Gerencie seus notebooks ou conecte-se ao Jupyter
-+ Executar experimentos de ML automatizados
++ [Executar experimentos de ML automatizados](tutorial-first-experiment-automated-ml.md)
 + [Criar conjuntos de itens de arquivos locais, repositórios de armazenamento & arquivos da Web](how-to-create-register-datasets.md)
 + Explorar & preparar conjuntos de valores para a criação do modelo
 + Monitorar descompasso de dados para seus modelos 
@@ -1096,6 +1096,6 @@ A [versão 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclui os se
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [serviço de Azure Machine Learning](../service/overview-what-is-azure-ml.md).

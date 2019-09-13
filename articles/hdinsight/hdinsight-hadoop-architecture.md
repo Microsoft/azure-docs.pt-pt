@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: d41d671cf773bdab20c3f105c7d1abb6c7bde840
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 66e0654162d3d0ac68d8fc1622358b36268569cf
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810243"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916501"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
@@ -45,9 +45,9 @@ O NodeManagers executa as tarefas que compõem o aplicativo e, em seguida, relat
 
 Todos os tipos de cluster HDInsight implantam YARN. O ResourceManager é implantado para alta disponibilidade com uma instância primária e secundária, que é executada no primeiro e segundo nós de cabeçalho no cluster, respectivamente. Somente a instância do ResourceManager está ativa por vez. As instâncias do NodeManager são executadas nos nós de trabalho disponíveis no cluster.
 
-![YARN no HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
+![YARN no HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o MapReduce no Apache Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

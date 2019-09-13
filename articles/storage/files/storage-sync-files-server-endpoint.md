@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3a4a77a9b4cdd30c04de4c4eb9d8731c1ea0616c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699255"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932624"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto de extremidade do Sincronização de Arquivos do Azure Server
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso transformando os servidores do Windows em um cache rápido do compartilhamento de arquivos do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -37,7 +37,7 @@ As informações a seguir são necessárias em **Adicionar ponto de extremidade 
 
 - **Servidor registrado**: O nome do servidor ou cluster no qual criar o ponto de extremidade do servidor.
 - **Caminho**: O caminho no Windows Server a ser sincronizado como parte do grupo de sincronização.
-- **Camadas de nuvem**: Uma opção para habilitar ou desabilitar a disposição em camadas de nuvem. Quando habilitado, a disposição em camadas da *nuvem irá* recriar os arquivos para seus compartilhamentos de arquivos do Azure. Isso converte os compartilhamentos de arquivos locais em um cache, em vez de uma cópia completa do conjunto de recursos, para ajudá-lo a gerenciar a eficiência do espaço em seu servidor.
+- **Camadas de nuvem**: Uma opção para habilitar ou desabilitar a disposição em camadas de nuvem. Quando habilitado, a disposição *em camadas da nuvem irá* recriar os arquivos para seus compartilhamentos de arquivos do Azure. Isso converte os compartilhamentos de arquivos locais em um cache, em vez de uma cópia completa do conjunto de recursos, para ajudá-lo a gerenciar a eficiência do espaço em seu servidor.
 - **Espaço livre no volume**: a quantidade de espaço livre a ser reservada no volume que o ponto de extremidade do servidor reside. Por exemplo, se o espaço livre do volume for definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será em camadas para os arquivos do Azure. Independentemente de a disposição em camadas da nuvem estar habilitada, o compartilhamento de arquivos do Azure sempre terá uma cópia completa dos dados no grupo de sincronização.
 
 Selecione **criar** para adicionar o ponto de extremidade do servidor. Os arquivos dentro de um namespace de um grupo de sincronização agora serão mantidos em sincronia. 
@@ -50,10 +50,15 @@ Se desejar interromper o uso de Sincronização de Arquivos do Azure para um det
 
 Para garantir que todos os arquivos em camadas sejam recuperados antes de remover o ponto de extremidade do servidor, desabilite a camada de nuvem no ponto de extremidade do servidor e execute o seguinte cmdlet do PowerShell para recuperar todos os arquivos em camadas no namespace do ponto de extremidade do servidor:
 
-```powershell
+```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
+Se `-Order CloudTieringPolicy` você especificar, os arquivos modificados mais recentemente serão relembrados primeiro.
+Outros parâmetros opcionais, mas úteis a serem considerados, são:
+* `-ThreadCount`determina a quantidade de arquivos que podem ser recuperados em paralelo.
+* `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.
+* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre tentativas de recuperação e sempre deve ser usado em combinação com o parâmetro anterior.
 
 > [!Note]  
 > Se o volume local que hospeda o servidor não tiver espaço livre suficiente para recuperar todos os dados em camadas, o `Invoke-StorageSyncFileRecall` cmdlet falhará.  

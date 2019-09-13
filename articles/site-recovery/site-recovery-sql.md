@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742329"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934840"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastre para SQL Server
 
@@ -111,7 +111,7 @@ Algumas tecnologias BCDRs, como o SQL Always On, não oferecem suporte nativo ao
 
     ![Captura de tela da janela rotulada Content_AG mostrando nomes e status do servidor](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Crie um balanceador de carga. Para cada ouvinte de grupo de disponibilidade, crie um endereço IP do pool de IPS de front-end. Além disso, adicione a VM SQL Server ao pool de back-end.
+1. Verifique se o balanceador de carga na rede de failover tem um endereço IP, do pool de endereços IP de front-end que corresponde a cada ouvinte de grupo de disponibilidade e com a VM SQL Server no pool de back-end.
 
      ![Captura de tela da janela chamada "SQL-AlwaysOn-LB-frontend IP pool](./media/site-recovery-sql/create-load-balancer1.png)
 
@@ -159,7 +159,7 @@ A replicação Site Recovery para SQL Server é coberta pelo benefício de recup
 
 Site Recovery é independente de aplicativo. Site Recovery pode ajudar a proteger qualquer versão do SQL Server implantada em um sistema operacional com suporte. Para obter mais informações, consulte a [matriz de suporte para recuperação](vmware-physical-azure-support-matrix.md#replicated-machines) de máquinas replicadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a [arquitetura de site Recovery](site-recovery-components.md).
 * Para SQL Server no Azure, saiba mais sobre [soluções de alta disponibilidade](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) para recuperação em uma região secundária do Azure.

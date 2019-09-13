@@ -4,20 +4,20 @@ description: Saiba como configurar e alterar a política de indexação padrão 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467881"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914178"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
 No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item, impondo índices de intervalo para qualquer cadeia de caracteres ou número e índices espaciais para qualquer objeto geojson do tipo Point. Isso permite que você obtenha alto desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
 
-Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo*de indexação e incluir ou excluir os *caminhos de propriedade*.
+Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação*e incluir ou excluir os *caminhos de propriedade*.
 
 > [!NOTE]
 > O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB.
@@ -27,12 +27,13 @@ Em algumas situações, talvez você queira substituir esse comportamento autom�
 O Azure Cosmos DB dá suporte a dois modos de indexação:
 
 - **Consistente**: Se a política de indexação de um contêiner estiver definida como consistente, o índice será atualizado de forma síncrona à medida que você criar, atualizar ou excluir itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
-
 - **Nenhum**: Se a política de indexação de um contêiner estiver definida como nenhum, a indexação será efetivamente desabilitada nesse contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ajudar a acelerar as operações de inserção em massa.
+
+Além disso, você deve definir a propriedade **automática** na política de indexação como **true**. Definir essa propriedade como true permite que Azure Cosmos DB indexe automaticamente os documentos conforme eles são gravados.
 
 ## <a name="including-and-excluding-property-paths"></a>Incluindo e excluindo caminhos de propriedade
 
-Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode diminuir a quantidade de armazenamento usada pelo seu contêiner e melhorar a latência de operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral](index-overview.md#from-trees-to-property-paths) da indexação com as seguintes adições:
+Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode diminuir a quantidade de armazenamento usada pelo seu contêiner e melhorar a latência de operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral da indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
 - um caminho que leva a um valor escalar (cadeia de caracteres ou número) termina com`/?`
 - os elementos de uma matriz são abordados em `/[]` conjunto por meio da `/0`notação (em vez de, `/1` etc.)
@@ -40,6 +41,7 @@ Uma política de indexação personalizada pode especificar caminhos de propried
 
 Dando o mesmo exemplo novamente:
 
+```
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -51,21 +53,17 @@ Dando o mesmo exemplo novamente:
             { "city": "Athens" }
         ]
     }
+```
 
 - o `headquarters`caminho `employees` do é`/headquarters/employees/?`
+
 - o `locations`' `country` caminho ' é`/locations/[]/country/?`
+
 - o caminho para qualquer coisa `headquarters` em é`/headquarters/*`
 
-Quando um caminho é incluído explicitamente na política de indexação, ele também precisa definir quais tipos de índice devem ser aplicados a esse caminho e para cada tipo de índice, o tipo de dados ao qual este índice se aplica:
+Por exemplo, poderíamos incluir o `/headquarters/employees/?` caminho. Esse caminho garantiria que indexamos a propriedade Employees, mas não indexo JSON aninhado adicional dentro dessa propriedade.
 
-| Tipo de índice | Tipos de dados de destino permitidos |
-| --- | --- |
-| Intervalo | Cadeia de caracteres ou número |
-| Espacial | Ponto, LineString ou polígono |
-
-Por exemplo, `/headquarters/employees/?` poderíamos incluir o caminho e especificar que um `Range` índice deve ser aplicado nesse caminho para ambos os `String` valores e `Number` .
-
-### <a name="includeexclude-strategy"></a>Estratégia de inclusão/exclusão
+## <a name="includeexclude-strategy"></a>Estratégia de inclusão/exclusão
 
 Qualquer política de indexação deve incluir o caminho `/*` raiz como um caminho incluído ou excluído.
 
@@ -76,41 +74,165 @@ Qualquer política de indexação deve incluir o caminho `/*` raiz como um camin
 
 - A propriedade do sistema "ETag" é excluída da indexação por padrão, a menos que a ETag seja adicionada ao caminho incluído para indexação.
 
-Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-examples) para obter exemplos de política de indexação.
+Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
+
+- `kind`pode ser `range` ou `hash`. A funcionalidade de índice de intervalo fornece toda a funcionalidade de um índice de hash, portanto, é recomendável usar um índice de intervalo.
+
+- `precision`é um número definido no nível de índice para caminhos incluídos. Um valor indica `-1` o máximo de precisão. É recomendável sempre definir esse valor `-1`como.
+
+- `dataType`pode ser `String` ou `Number`. Isso indica os tipos de propriedades JSON que serão indexadas.
+
+Quando não for especificado, essas propriedades terão os seguintes valores padrão:
+
+| **Nome da propriedade**     | **Valor padrão** |
+| ----------------------- | -------------------------------- |
+| `kind`   | `range` |
+| `precision`   | `-1`  |
+| `dataType`    | `String` e `Number` |
+
+Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-examples) para obter exemplos de política de indexação para incluir e excluir caminhos.
+
+## <a name="spatial-indexes"></a>Índices espaciais
+
+Ao definir um caminho espacial na política de indexação, você deve definir qual índice ```type``` deve ser aplicado a esse caminho. Os tipos possíveis para índices espaciais incluem:
+
+* Empresas
+
+* Polygon
+
+* MultiPolygon
+
+* LineString
+
+Azure Cosmos DB, por padrão, não criará nenhum índice espacial. Se você quiser usar funções internas SQL espaciais, deverá criar um índice espacial nas propriedades necessárias. Consulte [esta seção](geospatial.md) para obter exemplos de política de indexação para adicionar índices espaciais.
 
 ## <a name="composite-indexes"></a>Índices compostos
 
-Consulta se `ORDER BY` duas ou mais propriedades exigem um índice composto. Atualmente, os índices compostos são utilizados apenas por várias `ORDER BY` consultas. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+As consultas que têm `ORDER BY` uma cláusula com duas ou mais propriedades exigem um índice composto. Você também pode definir um índice composto para melhorar o desempenho de várias consultas de igualdade e de intervalo. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
 
 Ao definir um índice composto, você especifica:
 
 - Dois ou mais caminhos de propriedade. A sequência na qual os caminhos de propriedade são definidos é importante.
+
 - A ordem (crescente ou decrescente).
 
-As seguintes considerações são usadas ao usar índices compostos:
+> [!NOTE]
+> Ao adicionar um índice composto, como com outros tipos de índice, as consultas podem retornar resultados inconsistentes à medida que o índice está sendo atualizado.
 
-- Se os caminhos do índice composto não corresponderem à sequência das propriedades na cláusula ORDER BY, o índice composto não poderá dar suporte à consulta
+### <a name="order-by-queries-on-multiple-properties"></a>ORDENAr por consultas em várias propriedades:
 
-- A ordem dos caminhos de índice composto (crescente ou decrescente) também deve corresponder à ordem na cláusula ORDER BY.
+As seguintes considerações são usadas ao usar índices compostos para consultas com uma `ORDER BY` cláusula com duas ou mais propriedades:
 
-- O índice composto também dá suporte a uma cláusula ORDER BY com a ordem oposta em todos os caminhos.
+- Se os caminhos do índice composto não corresponderem à sequência das propriedades na `ORDER BY` cláusula, o índice composto não poderá dar suporte à consulta.
 
-Considere o exemplo a seguir em que um índice composto é definido nas propriedades a, b e c:
+- A ordem dos caminhos de índice composto (crescente ou decrescente) também deve corresponder `order` ao `ORDER BY` na cláusula.
 
-| **Índice composto**     | **Consulta `ORDER BY` de exemplo**      | **Com suporte do índice?** |
+- O índice composto também dá suporte `ORDER BY` a uma cláusula com a ordem oposta em todos os caminhos.
+
+Considere o exemplo a seguir em que um índice composto é definido nas propriedades Name, age e _ts:
+
+| **Índice composto**     | **Consulta `ORDER BY` de exemplo**      | **Com suporte do índice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
-| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
+| ```(name ASC, age ASC)```    | ```SELECT * FROM c ORDER BY c.name DESC, c.age DESC``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c ORDER BY c.name ASC, c.age DESC``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC, timestamp ASC``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
 Você deve personalizar a política de indexação para que possa atender a `ORDER BY` todas as consultas necessárias.
 
+### <a name="queries-with-filters-on-multiple-properties"></a>Consultas com filtros em várias propriedades
+
+Se uma consulta tiver filtros em duas ou mais propriedades, poderá ser útil criar um índice composto para essas propriedades.
+
+Por exemplo, considere a seguinte consulta que tem um filtro de igualdade em duas propriedades:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+```
+
+Essa consulta será mais eficiente, levando menos tempo e consumindo menos RU, se for capaz de aproveitar um índice composto em (nome ASC, idade ASC).
+
+Consultas com filtros de intervalo também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de intervalo único. Os filtros de `>`intervalo `<`incluem `<=`, `>=`,, `!=`e. O filtro de intervalo deve ser definido por último no índice composto.
+
+Considere a seguinte consulta com filtros de igualdade e de intervalo:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+```
+
+Essa consulta será mais eficiente com um índice composto em (nome ASC, idade ASC). No entanto, a consulta não utilizará um índice composto em (age ASC, Name ASC) porque os filtros de igualdade devem ser definidos primeiro no índice composto.
+
+As seguintes considerações são usadas ao criar índices compostos para consultas com filtros em várias propriedades
+
+- As propriedades no filtro da consulta devem corresponder às do índice composto. Se uma propriedade estiver no índice composto, mas não estiver incluída na consulta como um filtro, a consulta não usará o índice composto.
+- Se uma consulta tiver propriedades adicionais no filtro que não foram definidas em um índice composto, uma combinação de índices compostos e de intervalo será usada para avaliar a consulta. Isso exigirá menos RU do que usar exclusivamente índices de intervalo.
+- Se uma propriedade tiver um filtro de intervalo`>`( `<` `<=`, `>=`,, ou `!=`), essa propriedade deverá ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de intervalo, ela não usará o índice composto.
+- Ao criar um índice composto para otimizar consultas com vários filtros, o `ORDER` do índice composto não terá impacto sobre os resultados. Esta propriedade é opcional.
+- Se você não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta ainda terá sucesso. No entanto, o custo de RU da consulta pode ser reduzido com um índice composto.
+
+Considere os seguintes exemplos em que um índice composto é definido nas propriedades Name, age e timestamp:
+
+| **Índice composto**     | **Consulta de exemplo**      | **Com suporte do índice composto?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+
+### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Consultas com um filtro, bem como uma cláusula ORDER BY
+
+Se uma consulta filtrar em uma ou mais propriedades e tiver propriedades diferentes na cláusula order by, poderá ser útil adicionar as propriedades no filtro à `ORDER BY` cláusula.
+
+Por exemplo, ao adicionar as propriedades no filtro à cláusula ORDER BY, a consulta a seguir pode ser reescrita para aproveitar um índice composto:
+
+Consulta usando índice de intervalo:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+```
+
+Consultar usando índice composto:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+```
+
+As mesmas otimizações de padrão e consulta podem ser generalizadas para consultas com vários filtros de igualdade:
+
+Consulta usando índice de intervalo:
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+```
+
+Consultar usando índice composto:
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+```
+
+As seguintes considerações são usadas ao criar índices compostos para otimizar uma consulta com um filtro e `ORDER BY` uma cláusula:
+
+* Se a consulta filtrar em Propriedades, elas deverão ser incluídas primeiro na `ORDER BY` cláusula.
+* Se você não definir um índice composto em uma consulta com um filtro em uma propriedade e uma cláusula separada `ORDER BY` usando uma propriedade diferente, a consulta ainda terá sucesso. No entanto, o custo de ru da consulta pode ser reduzido com um índice composto, especialmente se a propriedade `ORDER BY` na cláusula tiver uma cardinalidade alta.
+* Todas as considerações para a criação de `ORDER BY` índices compostos para consultas com várias propriedades, bem como consultas com filtros em várias propriedades ainda se aplicam.
+
+
+| **Índice composto**                      | **Consulta `ORDER BY` de exemplo**                                  | **Com suporte do índice composto?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 ## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
 
-A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e em vigor (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho. 
+A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e em vigor (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
 
 > [!NOTE]
 > Enquanto a reindexação está em andamento, as consultas podem não retornar todos os resultados correspondentes e farão isso sem retornar erros. Isso significa que os resultados da consulta podem não ser consistentes até que a transformação do índice seja concluída. É possível acompanhar o progresso da transformação de índice [usando um dos SDKs](how-to-manage-indexing-policy.md).
@@ -130,15 +252,7 @@ Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o 
 - nenhum caminho incluído e
 - `/*`como o único caminho excluído.
 
-## <a name="obsolete-attributes"></a>Atributos obsoletos
-
-Ao trabalhar com políticas de indexação, você pode encontrar os seguintes atributos que agora são obsoletos:
-
-- `automatic`é um booliano definido na raiz de uma política de indexação. Ele agora é ignorado e pode ser definido como `true`, quando a ferramenta que você está usando exigir.
-- `precision`é um número definido no nível de índice para caminhos incluídos. Ele agora é ignorado e pode ser definido como `-1`, quando a ferramenta que você está usando exigir.
-- `hash`é um tipo de índice que agora é substituído pelo tipo de intervalo.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre a indexação nos seguintes artigos:
 

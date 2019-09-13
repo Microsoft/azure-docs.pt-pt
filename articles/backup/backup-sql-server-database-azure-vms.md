@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872895"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934851"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -36,8 +36,7 @@ Antes de fazer backup de um banco de dados SQL Server, verifique os seguintes cr
 1. Identifique ou crie um [cofre dos serviços de recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região ou localidade que a VM que hospeda a instância de SQL Server.
 2. Verifique se a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Certifique-se de que os bancos de dados do SQL Server seguem as [diretrizes de nomenclatura para o backup do Azure](#database-naming-guidelines-for-azure-backup).
-4. Especificamente para o SQL 2008 e 2008 R2, [adicione a chave do registro](#add-registry-key-to-enable-registration) para habilitar o registro do servidor. Esta etapa não será necessária quando o recurso estiver disponível para o público geral.
-5. Verifique se você não tem outras soluções de backup habilitadas para o banco de dados. Desabilite todos os outros backups de SQL Server antes de fazer backup do banco de dados.
+4. Verifique se você não tem outras soluções de backup habilitadas para o banco de dados. Desabilite todos os outros backups de SQL Server antes de fazer backup do banco de dados.
 
 > [!NOTE]
 > Você pode habilitar o backup do Azure para uma VM do Azure e também para um banco de dados SQL Server em execução na VM sem conflito.
@@ -98,22 +97,6 @@ Evite usar os seguintes elementos em nomes de banco de dados:
 
 A alias está disponível para caracteres sem suporte, mas é recomendável evitá-los. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
-### <a name="add-registry-key-to-enable-registration"></a>Adicionar chave do registro para habilitar o registro
-
-1. Abrir regedit
-2. Crie o caminho do diretório do registro: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (você precisará criar o TestHook ' Key ' em WorkloadBackup que, por sua vez, precisa ser criado na Microsoft).
-3. No caminho do diretório do registro, crie um novo ' valor da cadeia de caracteres ' com o nome da cadeia de caracteres **AzureBackupEnableWin2K8R2SP1** e o valor: **True**
-
-    ![RegEdit para habilitar o registro](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-Como alternativa, você pode automatizar essa etapa executando o arquivo. reg com o seguinte comando:
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -175,7 +158,7 @@ Como descobrir bancos de dados em execução em uma VM:
    Para otimizar as cargas de backup, o backup do Azure define um número máximo de bancos de dados em um trabalho de backup para 50.
 
      * Para proteger mais de 50 bancos de dados, configure vários backups.
-     * Para [habilitar](#enable-auto-protection) a instância inteira ou o grupo de disponibilidade Always on, na lista suspensa autoproteger, selecione **ativado**e, em seguida, selecione **OK**.
+     * Para [habilitar](#enable-auto-protection) a instância inteira ou o grupo de disponibilidade Always on, na lista suspensa **autoproteger** , selecione **ativado**e, em seguida, selecione **OK**.
 
     > [!NOTE]
     > O recurso de [proteção automática](#enable-auto-protection) não só habilita a proteção em todos os bancos de dados existentes de uma vez, mas também protege automaticamente quaisquer novos bancos de dados adicionados a essa instância ou ao grupo de disponibilidade.  
@@ -262,18 +245,6 @@ Para criar uma política de backup:
 
 14. Depois de concluir as edições na política de backup, selecione **OK**.
 
-
-### <a name="modify-policy"></a>Modificar política
-Modifique a política para alterar a frequência de backup ou o período de retenção.
-
-> [!NOTE]
-> Qualquer alteração no período de retenção será aplicada de forma retrospectiva a todos os pontos de recuperação mais antigos além dos novos.
-
-No painel do cofre, vá para **gerenciar** > **políticas de backup** e escolha a política que você deseja editar.
-
-  ![Gerenciar política de backup](./media/backup-azure-sql-database/modify-backup-policy.png)
-
-
 ## <a name="enable-auto-protection"></a>Habilitar proteção automática  
 
 Você pode habilitar a proteção automática para fazer backup automático de todos os bancos de dados existentes e futuros para uma instância SQL Server autônoma ou para um grupo de disponibilidade Always On.
@@ -285,7 +256,7 @@ Você pode habilitar a proteção automática para fazer backup automático de t
 Para habilitar a proteção automática:
 
   1. Em **itens para backup**, selecione a instância para a qual você deseja habilitar a proteção automática.
-  2. Selecione a lista suspensa em AutoProtect, escolha **ativado**e, em seguida, selecione **OK**.
+  2. Selecione a lista suspensa em **AutoProtect**, escolha **ativado**e, em seguida, selecione **OK**.
 
       ![Habilitar a proteção automática no grupo de disponibilidade](./media/backup-azure-sql-database/enable-auto-protection.png)
 

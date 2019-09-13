@@ -5,23 +5,23 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227774"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934120"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
 
 As secções seguintes abordam a criação de um novo back-end de ASP.NET WebAPI. Este processo tem três objetivos principais:
 
-- **Autenticar clientes**: Adicionar um manipulador de mensagens para autenticar pedidos de cliente e associar o utilizador com o pedido.
-- **Registar para obter notificações utilizando o back-end de WebAPI**: Adicionar um controlador para processar registos novos para um dispositivo de cliente receber notificações. O nome de utilizador autenticado é adicionado automaticamente ao registo como uma [etiqueta](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
-- **Enviar notificações para clientes**: Adicionar um controlador para fornecer uma forma para que os utilizadores acione um envio seguro para dispositivos e clientes associados à etiqueta.
+- **Autenticar clientes**: Você adiciona um manipulador de mensagens para autenticar solicitações de cliente e associar o usuário à solicitação.
+- **Registre-se para receber notificações usando o back-end WebAPI**: Você adiciona um controlador para lidar com novos registros para um dispositivo cliente receber notificações. O nome de utilizador autenticado é adicionado automaticamente ao registo como uma [etiqueta](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Enviar notificações aos clientes**: Você adiciona um controlador para fornecer uma maneira para os usuários dispararem um envio por push seguro para dispositivos e clientes associados à marca.
 
 Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 
@@ -59,7 +59,7 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 
     ![A janela Configurar Aplicação Web do Microsoft Azure][B5]
 
-    Se não vir esta página para configurar plano do app service, continue o tutorial. Pode configurá-lo ao publicar a aplicação mais tarde. 
+    Se você não vir esta página para configurar o plano do serviço de aplicativo, continue com o tutorial. Você pode configurá-lo enquanto publica o aplicativo mais tarde. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autenticar clientes no back-end de WebAPI
 
@@ -140,7 +140,7 @@ Nesta secção, crie uma nova classe de processadores de mensagens com o nome **
     ```
 
     > [!NOTE]
-    > Nota de segurança: O `AuthenticationTestHandler` classe fornecer uma autenticação verdadeira. É utilizada apenas para imitar a autenticação básica e não é segura. Tem de implementar um mecanismo de autenticação segura nos seus serviços e aplicações de produção.
+    > Observação de segurança: A `AuthenticationTestHandler` classe não fornece autenticação verdadeira. É utilizada apenas para imitar a autenticação básica e não é segura. Tem de implementar um mecanismo de autenticação segura nos seus serviços e aplicações de produção.
 5. Para registar o processador de mensagens, adicione o seguinte código ao fim do método `Register` na classe **App_Start/WebApiConfig.cs**:
 
     ```csharp
@@ -185,6 +185,9 @@ Nesta secção, adicione um controlador novo ao back-end de WebAPI para processa
         }
     }
     ```
+    > [!IMPORTANT]
+    > Insira o **nome** e o **DefaultFullSharedAccessSignature** do seu hub antes de continuar. 
+    
 7. Em seguida, crie um controlador novo com o nome **RegisterController**. No Explorador de Soluções, clique com o botão direito do rato na pasta **Controladores**, selecione **Adicionar** e, em seguida, selecione **Controlador**.
 
 8. Selecione **Controlador da API Web 2 – Vazio** e, em seguida, selecione **Adicionar**.

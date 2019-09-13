@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: f7dce448b01c211441fd1e0fd530ff6ad062c303
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114877"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918793"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -82,7 +82,7 @@ Primeiro, crie o grupo de recursos para conter os recursos para este tutorial:
 Agora, crie a VNet:
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte perguntas frequentes sobre o [Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte [perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. No home page de portal do Azure, selecione **criar um recurso**.
 2. Em **rede**, selecione **rede virtual**.
@@ -102,7 +102,7 @@ Agora, crie a VNet:
 4. Para **nome**, digite **VNet-spoke**.
 5. Para **espaço de endereço**, digite **10.6.0.0/16**.
 6. Em **Subscrição**, selecione a sua subscrição.
-7. Para **grupo de recursos**, selecione **Test-FW-RG**.
+7. Para **grupo de recursos**, selecione **FW-Hybrid-Test**.
 8. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
 9. Em **Sub-rede**, para **Nome**, escreva **SN-Workload**.
 10. Para **intervalo de endereços**, digite **10.6.0.0/24**.
@@ -218,7 +218,7 @@ Agora, crie o gateway de VPN para a rede virtual do Hub. As configurações de r
 8. Para **SKU**, selecione **básico**.
 9. Para **rede virtual**, selecione **VNet-Hub**.
 10. Para **endereço IP público**, selecione **criar novo**e digite **VNet-Hub-GW-Pip** para o nome.
-11. Aceite os padrões restantes e, em seguida, selecione revisar **+ criar**.
+11. Aceite os padrões restantes e, em seguida, selecione **revisar + criar**.
 12. Examine a configuração e, em seguida, selecione **criar**.
 
 ### <a name="create-a-vpn-gateway-for-the-on-premises-virtual-network"></a>Criar um gateway de VPN para a rede virtual local
@@ -235,7 +235,7 @@ Agora, crie o gateway de VPN para a rede virtual local. As configurações de re
 8. Para **SKU**, selecione **básico**.
 9. Para **rede virtual**, selecione **VNet-local**.
 10. Para **endereço IP público**, selecione **criar novo**e digite **VNET-onlocal-GW-Pip** para o nome.
-11. Aceite os padrões restantes e, em seguida, selecione revisar **+ criar**.
+11. Aceite os padrões restantes e, em seguida, selecione **revisar + criar**.
 12. Examine a configuração e, em seguida, selecione **criar**.
 
 ### <a name="create-the-vpn-connections"></a>Criar as ligações VPN
@@ -312,7 +312,7 @@ Em seguida, crie duas rotas:
 10. Depois que a tabela de rotas for criada, selecione-a para abrir a página tabela de rotas.
 11. Selecione **rotas** na coluna esquerda.
 12. Selecione **Adicionar**.
-13. Para o nome da rota,digite tospoke.
+13. Para o nome da rota, digite **tospoke**.
 14. Para o prefixo de endereço, digite **10.6.0.0/16**.
 15. Para tipo do próximo salto, selecione **dispositivo virtual**.
 16. Para endereço do próximo salto, digite o endereço IP privado do firewall que você anotou anteriormente.
@@ -341,7 +341,7 @@ Agora, crie a rota padrão da sub-rede do spoke.
 2. Depois que a tabela de rotas for criada, selecione-a para abrir a página tabela de rotas.
 3. Selecione **rotas** na coluna esquerda.
 4. Selecione **Adicionar**.
-5. Para o nome da rota,digite tospoke.
+5. Para o nome da rota, digite **tospoke**.
 6. Para o prefixo de endereço, digite **0.0.0.0/0**.
 7. Para tipo do próximo salto, selecione **dispositivo virtual**.
 8. Para endereço do próximo salto, digite o endereço IP privado do firewall que você anotou anteriormente.
@@ -454,7 +454,7 @@ Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regr
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 

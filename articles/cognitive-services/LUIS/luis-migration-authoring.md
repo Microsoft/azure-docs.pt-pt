@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844766"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932836"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -35,7 +35,8 @@ Por exemplo, se você tiver dois tipos de aplicativos LUIS que você está crian
 
 A migração inclui:
 
-* **Todos** os aplicativos do proprietário.
+* Todos os usuários de LUIS, proprietários e colaboradores.
+* **Todos os** aplicativos.
 * Uma migração **unidirecional** .
 
 O proprietário não pode escolher um subconjunto de aplicativos para migrar e o processo não é reversível. 
@@ -87,14 +88,18 @@ Você pode adicionar colaboradores ao recurso de criação do _portal do Azure_,
 
 ## <a name="migration-for-the-app-contributor"></a>Migração para o colaborador do aplicativo
 
+Cada usuário do LUIS precisa migrar, incluindo colaboradores/contribuidores. 
+
 ### <a name="before-the-app-is-migrated"></a>Antes que o aplicativo seja migrado
 
 Você pode optar por exportar um aplicativo no qual você é um colaborador e, em seguida, importar o aplicativo de volta para o LUIS. O processo de importação cria um novo aplicativo com uma nova ID do aplicativo, para o qual você é o proprietário.
 
 ### <a name="after-the-app-is-migrated"></a>Depois que o aplicativo for migrado
 
-Após o processo de migração, se precisar de acesso ao aplicativo original, você precisará ser adicionado ao recurso de criação do Azure como um colaborador pelo proprietário do aplicativo.  
+O proprietário do aplicativo precisa [Adicionar seu email ao recurso de criação do Azure como um colaborador](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
 
-## <a name="next-steps"></a>Passos Seguintes
+Após o processo de migração, todos os aplicativos que você possui estão disponíveis na página **meus aplicativos** do portal do Luis.  
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como migrar seu aplicativo para um recurso de criação](luis-migration-authoring-steps.md)

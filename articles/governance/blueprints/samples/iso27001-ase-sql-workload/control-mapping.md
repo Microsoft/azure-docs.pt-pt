@@ -7,18 +7,21 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 26cb4a23b051f6182d1cd4e12c148ef8a378f415
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b200be22d46ba0c84969367181a8ac85d1a20add
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231791"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918666"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra do esquema de carga de trabalho do ISO 27001 ASE/SQL
 
 O artigo a seguir fornece detalhes sobre como o exemplo de plantas de carga de trabalho do ISO 27001 ASE/SQL de plantas do Azure é mapeado para os controles ISO 27001. Para obter mais informações sobre os controles, consulte [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
 Os mapeamentos a seguir são para os controles **ISO 27001:2013** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione  **\[os controles ISO 27001:2013 de auditoria de versão prévia\] e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+
+> [!IMPORTANT]
+> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
 
 ## <a name="a612-segregation-of-duties"></a>Uma diferenciação de. 6.1.2 de funções
 
@@ -29,7 +32,7 @@ Ter apenas um proprietário de assinatura do Azure não permite redundância adm
 
 ## <a name="a821-classification-of-information"></a>Uma classificação. 8.2.1 de informações
 
-O [serviço de avaliação](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) de vulnerabilidades do SQL do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificá-los. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) para auditar que vulnerabilidades identificadas durante a verificação da avaliação de vulnerabilidade do SQL são corrigidas.
+O [serviço de avaliação de vulnerabilidades do SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificá-los. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) para auditar que vulnerabilidades identificadas durante a verificação da avaliação de vulnerabilidade do SQL são corrigidas.
 
 - \[Versão\]prévia: Monitorar resultados da avaliação de vulnerabilidade do SQL na central de segurança do Azure
 
@@ -201,7 +204,7 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 - Auditoria de habilitação de somente conexões seguras para o cache Redis
 - Auditar a transferência segura para contas de armazenamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você examinou o mapeamento de controle do exemplo de esquema de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL, visite os seguintes artigos para saber mais sobre a arquitetura e como implantar este exemplo:
 
@@ -211,7 +214,7 @@ Agora que você examinou o mapeamento de controle do exemplo de esquema de carga
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

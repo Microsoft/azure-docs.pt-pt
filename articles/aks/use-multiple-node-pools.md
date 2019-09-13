@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8edb361000110da16ce2a230d8768b204076ad21
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844282"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915847"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -35,7 +35,7 @@ Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurad
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI do AKS-Preview
 
-Para usar vários pools de nós, você precisa da extensão da CLI do *AKs* versão 0.4.1 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
+Para usar vários pools de nós, você precisa da extensão da CLI do *AKs* versão 0.4.12 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -98,7 +98,7 @@ az group create --name myResourceGroup --location eastus
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
@@ -617,7 +617,7 @@ Para excluir o próprio cluster, use o comando [AZ Group Delete][az-group-delete
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a criar e gerenciar vários pools de nós em um cluster AKS. Para obter mais informações sobre como controlar os pods nos pools de nós, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][operator-best-practices-advanced-scheduler].
 

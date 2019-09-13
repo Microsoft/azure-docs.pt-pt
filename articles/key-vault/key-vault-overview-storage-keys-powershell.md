@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 530f38289afb3fce85bbb025e7b699862eedbadc
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 7968c045a59e86ecb89c0cc797936210b9cfb07d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382704"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883281"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault conta de armazenamento gerenciado-PowerShell
 
@@ -166,7 +166,7 @@ Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Exemplos de chave de conta de armazenamento gerenciado](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

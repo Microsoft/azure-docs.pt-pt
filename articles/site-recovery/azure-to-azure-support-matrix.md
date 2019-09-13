@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 950ad6d5f55186b63f879bac3f0675c501b57276
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736045"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934444"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -72,6 +72,7 @@ Esta tabela resume o suporte para a conta de armazenamento de cache usada pelo S
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
 Contas de armazenamento v2 de uso geral (camada quente e fria) | Suportadas | O uso de GPv2 não é recomendado porque os custos de transação para v2 são consideravelmente maiores que as contas de armazenamento v1.
+Armazenamento Premium | Não suportado | As contas de armazenamento standard são usadas para o armazenamento em cache, para ajudar a otimizar os custos.
 Firewalls de armazenamento do Azure para redes virtuais  | Suportadas | Se você estiver usando a conta de armazenamento de cache habilitada para firewall ou a conta de armazenamento de destino, verifique se você [' permitir serviços confiáveis da Microsoft '](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -243,7 +244,7 @@ Balanceador de carga interno | Suportadas | Associe o balanceador de carga pré-
 Endereço IP público | Suportadas | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na NIC | Suportadas | Associe o NSG à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na sub-rede | Suportadas | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
-Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM com failover.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede em > **configurações** > de **itens replicados**e**interfaces de rede**de**rede** > .
+Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM com failover.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede em**configurações** > de **itens** > replicados e**interfaces de rede**de**rede** > .
 Endereço IP dinâmico | Suportadas | Se a NIC na origem tiver um endereçamento IP dinâmico, a NIC na VM com failover também será dinâmica por padrão.<br/><br/> Você pode modificar isso para um endereço IP fixo, se necessário.
 Vários endereços IP | Não suportado | Quando você faz failover de uma VM que tem uma NIC com vários endereços IP, somente o endereço IP primário da NIC na região de origem é mantido. Para atribuir vários endereços IP, você pode adicionar VMs a um [plano de recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano ou pode fazer a alteração manualmente ou com um script após o failover. 
 Gestor de Tráfego     | Suportadas | Você pode pré-configurar o Gerenciador de tráfego para que o tráfego seja roteado para o ponto de extremidade na região de origem regularmente e para o ponto de extremidade na região de destino em caso de failover.
@@ -258,6 +259,6 @@ Funcionamento em rede acelerado | Suportadas | A rede acelerada deve estar habil
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Leia as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.
 - Implante a recuperação de desastres [replicando VMs do Azure](site-recovery-azure-to-azure.md).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861406"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934090"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -54,7 +54,7 @@ Você pode adicionar, editar ou remover uma política usando qualquer um dos seg
 Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.  
 
 > [!NOTE]
-> Se você habilitar regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento de ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções. O bypass necessário é: `AzureServices`. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se você habilitar regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento de ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -431,7 +431,7 @@ A plataforma executa a política de ciclo de vida uma vez por dia. Depois de con
 Quando um blob é movido de uma camada de acesso para outra, sua hora da última modificação não é alterada. Se você reidratar manualmente um blob arquivado na camada quente, ele seria movido de volta para a camada de arquivo pelo mecanismo de gerenciamento do ciclo de vida. Desabilite a regra que afeta esse blob temporariamente para impedir que ele seja arquivado novamente. Copie o blob para outro local se ele precisar permanecer na camada quente permanentemente. Habilite novamente a regra quando o blob puder ser movido com segurança de volta para a camada de arquivo morto. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como recuperar dados após a exclusão acidental:
 

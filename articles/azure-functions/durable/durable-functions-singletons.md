@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d9bf9687f60e649fee98869ef263117177ad5efd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba35999d5a7193ba691b14005dc8271120ac2be7
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097935"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933234"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores singleton em Durable Functions (Azure Functions)
 
@@ -113,9 +113,6 @@ module.exports = async function(context, req) {
 
 Por padrão, as IDs de instância são GUIDs gerados aleatoriamente. Mas, nesse caso, a ID da instância é passada em dados de rota da URL. O código chama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) ou `getStatus` (JavaScript) para verificar se uma instância com a ID especificada já está em execução. Caso contrário, uma instância será criada com essa ID.
 
-> [!WARNING]
-> Ao desenvolver localmente em JavaScript, será necessário definir a variável `WEBSITE_HOSTNAME` de ambiente como, por `localhost:<port>`exemplo, `localhost:7071`para usar métodos em `DurableOrchestrationClient`. Para obter mais informações sobre esse requisito, consulte o [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 > [!NOTE]
 > Há uma possível condição de corrida neste exemplo. Se duas instâncias do **HttpStartSingle** forem executadas simultaneamente, ambas as chamadas de função relatarão êxito, mas apenas uma instância de orquestração será iniciada de fato. Dependendo dos seus requisitos, isso pode ter efeitos colaterais indesejáveis. Por esse motivo, é importante garantir que duas solicitações não possam executar essa função de gatilho simultaneamente.
 
@@ -124,4 +121,4 @@ Os detalhes de implementação da função de orquestrador não são realmente i
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como chamar suborquestrações](durable-functions-sub-orchestrations.md)
+> [Saiba mais sobre os recursos HTTP nativos de orquestrações](durable-functions-http-features.md)

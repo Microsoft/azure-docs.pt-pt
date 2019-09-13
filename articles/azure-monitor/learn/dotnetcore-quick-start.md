@@ -1,6 +1,6 @@
 ---
 title: Início rápido com o Azure Application Insights | Microsoft Docs
-description: Fornece instruções para configurar rapidamente uma aplicação Web do ASP.NET Core para monitorização com o Application Insights
+description: Fornece instruções para configurar rapidamente um aplicativo Web ASP.NET Core para monitoramento com Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,30 +10,30 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 313e0c6cb487ed986c38610131c4bc19f2eeb846
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428502"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916188"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
 Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação Web quanto à disponibilidade, ao desempenho e à utilização. Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique. 
 
-Este início rápido orienta-o ao processo de adicionar o Application Insights SDK para um aplicativo de web do ASP.NET Core existente. Para saber mais sobre como configurar o Application Insights sem Check-Out do Visual Studio [artigo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+Este guia de início rápido orienta você na adição do SDK do Application Insights a um aplicativo Web ASP.NET Core existente. Para saber mais sobre como configurar Application Insights sem o Visual Studio, faça check-in deste [artigo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
-- [Instalar o Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- [Instale o Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
   - Desenvolvimento ASP.NET e Web
   - Desenvolvimento do Azure
 - [Instale o SDK .NET Core 2.0](https://www.microsoft.com/net/core)
 - Irá precisar de uma subscrição do Azure e de uma aplicação Web .NET Core existente.
 
-Se não tiver uma aplicação web ASP.NET Core, pode usar o nosso guia passo a passo para [criar uma aplicação ASP.NET Core e adicionar o Application Insights.](../../azure-monitor/app/asp-net-core.md)
+Se você não tiver um aplicativo Web ASP.NET Core, poderá usar nosso guia passo a passo para [criar um aplicativo ASP.NET Core e adicionar Application insights.](../../azure-monitor/app/asp-net-core.md)
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -48,7 +48,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 1. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**.
 
    > [!NOTE]
-   >Se esta for a primeira vez que a criação de um recurso do Application Insights pode saber mais, visite o [criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
+   >Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o documento [criar um Application insights recurso](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
     É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
@@ -66,11 +66,13 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
     ![Adicionar Telemetria do Application Insights](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
-2. Clique nas **começar** botão
+2. Clique no **botão introdução**
 
-3. Selecione a sua conta e subscrição > selecione o **recurso existente** que criou no portal do Azure > clique em **registar**.
+3. Selecione sua conta e assinatura > selecione o **recurso existente** que você criou no portal do Azure > clique em **registrar**.
 
-4. Selecione **Depurar** > **Iniciar sem Depuração** (Ctrl + F5) para Iniciar a sua aplicação
+4. Selecione **projeto** >  > **gerenciar pacotes** > NuGet**origem do pacote: NuGet.org** **Atualizar** os pacotes do SDK Application insights para a versão estável mais recente.
+
+5. Selecione **Depurar** > **Iniciar sem Depuração** (Ctrl + F5) para Iniciar a sua aplicação
 
     ![Menu de Descrição Geral do Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
@@ -79,7 +81,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Iniciar a monitorização no portal do Azure
 
-1. Volte a abrir o Application Insights **descrição geral** página no portal do Azure ao selecionar **home page** e em recursos recentes, selecione o recurso que criou anteriormente, para ver os detalhes sobre a sua execução atualmente aplicação.
+1. Reabra a página de **visão geral** do Application Insights na portal do Azure selecionando **página inicial** e, em recursos recentes, selecione o recurso que você criou anteriormente para exibir detalhes sobre o aplicativo em execução no momento.
 
    ![Menu de Descrição Geral do Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
@@ -87,25 +89,25 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Mapeamento de Aplicações](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Clique nas **análise da aplicação** ícone ![ícone do mapa da aplicação](./media/dotnetcore-quick-start/006.png) **ver na análise**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no ícone de **análise** de ![aplicativo ícones mapa](./media/dotnetcore-quick-start/006.png) **de aplicativo exibir no Analytics**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/dotnetcore-quick-start/6analytics.png)
 
-4. Retorno para o **descrição geral** página e examinar os Dashboards de KPI.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. 
+4. Volte para a página **visão geral** e examine os painéis de KPI.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. 
 
    ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. Sobre o lado esquerdo clique em **métricas**. Utilize o Explorador de métricas para investigar o estado de funcionamento e a utilização do seu recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, pode fazer um gráfico que apresenta o tempo de carregamento de página do browser média ao selecionar um "Tempo de carregamento de páginas do Browser" na lista pendente da métricas e "Média" de agregação. Para saber mais sobre o Explorador de métricas do Azure visite [introdução ao Explorador de métricas do Azure](../../azure-monitor/platform/metrics-getting-started.md).
+5. No lado esquerdo, cliqueem métricas. Use o Metrics Explorer para investigar a integridade e a utilização do recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, você pode criar um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "tempo de carregamento de página do navegador" no menu suspenso métricas e "Méd" da agregação. Para saber mais sobre o Azure Metrics Explorer visite [a introdução ao azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-     ![Separador de métricas: Gráfico de tempo de carregamento de página browser médio](./media/dotnetcore-quick-start/8metrics.png)
+     ![Guia métricas: Gráfico de tempo médio de carregamento de página do navegador](./media/dotnetcore-quick-start/8metrics.png)
 
 ## <a name="video"></a>Vídeo
 
-- Externo vídeo passo a passo sobre [configuração do Application Insights com o Visual Studio e .NET Core](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) do zero.
-- Externo vídeo passo a passo sobre [configuração do Application Insights com o .NET Core e o Visual Studio Code](https://youtu.be/ygGt84GDync) do zero.
+- Vídeo passo a passo externo sobre como [configurar Application insights com o .NET Core e o Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) do zero.
+- Vídeo passo a passo externo sobre como [configurar Application insights com o .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync) do zero.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, siga os passos abaixo.
+Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
 
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.

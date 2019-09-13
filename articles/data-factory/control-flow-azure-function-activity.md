@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 292fe858b85faef69b9df2dbdf54e7061ed56fa2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a3499637fb5320afe80bf4eefa634173db31f1b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142514"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931853"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade do Azure Functions no Azure Data Factory
 
@@ -44,7 +44,7 @@ O tipo de retorno da função do Azure deve ser válido `JObject`. (Tenha em men
 | name  | Nome da atividade no pipeline  | Cadeia | sim |
 | type  | O tipo de atividade é ' AzureFunctionActivity ' | Cadeia | sim |
 | serviço vinculado | O serviço vinculado da função do Azure para o Aplicativo de funções do Azure correspondente  | Referência de serviço vinculado | sim |
-| nome da função  | Nome da função no Aplicativo de funções do Azure que esta atividade chama | Cadeia | sim |
+| Nome da função  | Nome da função no Aplicativo de funções do Azure que esta atividade chama | Cadeia | sim |
 | method  | Método de API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST" E "PUT"   | sim |
 | cabeçalho  | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "headers": {"Accept-Language": "en-US", "Content-Type": "Application/JSON"} | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
 | corpo  | corpo enviado junto com a solicitação para o método de API de função  | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
@@ -62,7 +62,7 @@ A atividade de funções do Azure também dá suporte a **consultas**. Uma consu
 
 Azure Functions o `functionTimeout` tempo limite após 230 segundos, independentemente da configuração que você definiu nas configurações. Para obter mais informações, consulte [este artigo](../azure-functions/functions-versions.md#timeout). Para contornar esse comportamento, siga um padrão assíncrono ou use Durable Functions. A vantagem do Durable Functions é que eles oferecem seu próprio mecanismo de controle de estado, portanto, você não precisará implementar o seu.
 
-Saiba mais sobre Durable Functions neste [artigo](../azure-functions/durable/durable-functions-overview.md). Você pode configurar uma atividade do Azure function para chamar a função durável, que retornará uma resposta com um URI diferente, como [Este exemplo](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Como `statusQueryGetUri` o retorna o status http 202 enquanto a função está em execução, você pode sondar o status da função usando uma atividade da Web. Basta configurar uma atividade da Web com o `url` campo definido como `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Quando a função durável for concluída, a saída da função será a saída da atividade da Web.
+Saiba mais sobre Durable Functions neste [artigo](../azure-functions/durable/durable-functions-overview.md). Você pode configurar uma atividade do Azure function para chamar a função durável, que retornará uma resposta com um URI diferente, como [Este exemplo](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Como `statusQueryGetUri` o retorna o status http 202 enquanto a função está em execução, você pode sondar o status da função usando uma atividade da Web. Basta configurar uma atividade da Web com o `url` campo definido como `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Quando a função durável for concluída, a saída da função será a saída da atividade da Web.
 
 
 ## <a name="sample"></a>Exemplo

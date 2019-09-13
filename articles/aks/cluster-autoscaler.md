@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 7dd3c3904115db4fa3978f39b86023bf9fb0805c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390054"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914856"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Visualização – dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
@@ -32,7 +32,7 @@ Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou 
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI do AKS-Preview
 
-Para usar o dimensionamento do cluster, você precisa da extensão da CLI do *AKs* versão 0.4.4 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
+Para usar o dimensionamento do cluster, você precisa da extensão da CLI do *AKs* versão 0.4.12 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -90,7 +90,7 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --enable-vmss \
+  --vm-set-type VirtualMachineScaleSets \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 996a084fd653b2100d94313e8801d915b4bf2cf3
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 25615ae8bc9bc8cadbe973f3a1859c2d43b067a9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348173"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915567"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Práticas recomendadas para usar o Azure Maps Serviço de Pesquisa
 
@@ -27,7 +27,7 @@ O Azure Maps [serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/sea
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta e chave do Maps. Para obter informações sobre como criar uma conta e recuperar uma chave, consulte [como gerenciar sua conta e chaves do Azure Maps](how-to-manage-account-keys.md).
+Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta e chave do Maps. Para obter informações sobre como criar uma conta, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para recuperar uma chave de assinatura primária para sua conta.
 
 > [!Tip]
 > Para consultar o serviço de pesquisa, você pode usar o [aplicativo de postmaster](https://www.getpostman.com/apps) para criar chamadas REST ou pode usar qualquer ambiente de desenvolvimento de API que preferir.
@@ -37,7 +37,7 @@ Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta
 
 Quando você procura um endereço completo ou parcial usando o Azure Maps Serviço de Pesquisa, ele usa o termo de pesquisa e retorna as coordenadas de longitude e latitude do endereço. Esse processo é chamado de geocodificação. A capacidade de geocódigo em um país depende da cobertura de dados de estrada e da precisão de geocodificação do serviço de geocodificação.
 
-Consulte [cobertura](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage) de geocodificação para saber mais sobre os recursos de geocodificação do Azure Maps por país/região.
+Consulte [cobertura de geocodificação](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage) para saber mais sobre os recursos de geocodificação do Azure Maps por país/região.
 
 ### <a name="limit-search-results"></a>Limitar os resultados da pesquisa
 
@@ -686,7 +686,7 @@ Vamos dar uma olhada na estrutura de resposta abaixo. Os tipos de resultado dos 
 
 ### <a name="geometry"></a>Geometry
 
-Quando o tipo de resposta é **Geometry**, ele pode incluir a ID geometry retornada no objeto DataSources em "Geometry" e "ID". Por exemplo, [obter serviço de polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) permite solicitar os dados de geometria no formato geojson, como um esboço de cidade ou aeroporto para um conjunto de entidades. Você pode usar esses dados de limite para o [isolamento geográfico](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) ou [Pesquisar por dentro da geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
+Quando o tipo de resposta é **Geometry**, ele pode incluir a ID geometry retornada no objeto **DataSources** em "Geometry" e "ID". Por exemplo, [obter serviço de polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) permite solicitar os dados de geometria no formato geojson, como um esboço de cidade ou aeroporto para um conjunto de entidades. Você pode usar esses dados de limite para o [isolamento geográfico](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) ou [Pesquisar por dentro da geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 
 
 As respostas de [endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) ou de pesquisa de API [difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) podem incluir a **ID de geometria** retornada no objeto de fontes de origem em "Geometry" e "ID".

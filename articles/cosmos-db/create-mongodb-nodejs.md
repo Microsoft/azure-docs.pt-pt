@@ -1,5 +1,5 @@
 ---
-title: Conectar um aplicativo MongoDB do node. js a Azure Cosmos DB
+title: 'Início rápido: Conectar um aplicativo MongoDB do node. js a Azure Cosmos DB'
 description: Este guia de início rápido demonstra como conectar um aplicativo MongoDB existente gravado no node. js para Azure Cosmos DB.
 author: rimman
 ms.author: rimman
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.openlocfilehash: 0ff15c29fb7d71919b54cbcd73ead30a8673e0f7
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543091"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931809"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Início rápido: Migrar um aplicativo Web node. js do MongoDB existente para Azure Cosmos DB 
 
@@ -250,7 +251,7 @@ git commit -m "configured MongoDB connection string"
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu como criar uma conta do cosmos, criar uma coleção e executar um aplicativo de console. Agora você pode importar dados adicionais para o banco de Cosmos. 
 

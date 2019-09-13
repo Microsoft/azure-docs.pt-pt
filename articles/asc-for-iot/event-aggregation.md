@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2019
 ms.author: mlottner
-ms.openlocfilehash: a8f751d0a40a8d8e1555549c200a9a7ca8ef0661
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600621"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933904"
 ---
 # <a name="security-agent-event-aggregation"></a>Agregação de eventos do agente de segurança
 
@@ -28,7 +28,7 @@ A central de segurança do Azure para agentes de segurança de IoT coleta dados 
 
 Para reduzir a cota e os custos adicionais enquanto mantém seus dispositivos protegidos, a central de segurança do Azure para agentes IoT agrega esses tipos de eventos.
 
-A agregação **de** eventos é ativada por padrão e, embora não seja recomendado, pode ser desativada **manualmente a qualquer** momento.
+A agregação **de eventos é ativada** por padrão e, embora não seja recomendado, pode ser **desativada manualmente a qualquer** momento.
 
 Atualmente, a agregação está disponível para os seguintes tipos de eventos:
 * ProcessCreate
@@ -36,7 +36,7 @@ Atualmente, a agregação está disponível para os seguintes tipos de eventos:
 * ProcessTerminate (somente Windows)
 
 ## <a name="how-does-event-aggregation-work"></a>Como funciona a agregação de eventos?
-Quando a agregação de eventos **é deixada**, a central de segurança do Azure para agentes IOT agrega eventos para o período de intervalo ou a janela de tempo.
+Quando a agregação de **eventos é deixada**, a central de segurança do Azure para agentes IOT agrega eventos para o período de intervalo ou a janela de tempo.
 Depois que o período de intervalo tiver passado, o agente enviará os eventos agregados para a nuvem do Azure para análise posterior.
 Os eventos agregados são armazenados na memória até serem enviados para a nuvem do Azure.
 
@@ -59,6 +59,7 @@ Após a análise, a central de segurança do Azure para IoT cria alertas de segu
 
 A hora de início da agregação, a hora de término e a contagem de acesso para cada evento são registradas no campo **ExtraDetails** de evento dentro log Analytics para uso durante as investigações. 
 
+Cada evento agregado representa um período de 24 horas de alertas coletados. Usando o menu de opções de evento no canto superior esquerdo de cada evento, você pode **descartar** cada evento agregado individual.    
 
 ## <a name="event-aggregation-twin-configuration"></a>Configuração de configurações de agregação de eventos
 Faça alterações na configuração da central de segurança do Azure para a agregação de eventos de IoT dentro do [objeto de configuração do agente](how-to-agent-configuration.md) da identidade de módulo de **azureiotsecurity** do módulo.
@@ -85,7 +86,7 @@ Faça alterações na configuração da central de segurança do Azure para a ag
 | aggregationIntervalProcessTerminate | PT1H|
 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre a central de segurança do Azure para agregação do agente de segurança de IoT e as opções de configuração de evento disponíveis.
 

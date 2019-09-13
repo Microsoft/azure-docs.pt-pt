@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ec4cb58692cd98a799f1dc58f60b11a0552829c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279492"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934928"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Perguntas Mais Frequentes (FAQ)
 
-Este artigo responde às perguntas frequentes sobre as migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no fórum de migrações para [Azure](https://aka.ms/AzureMigrateForum).
+Este artigo responde às perguntas frequentes sobre as migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Geral
 
@@ -26,6 +26,37 @@ Consulte a [lista para VMware](https://docs.microsoft.com/azure/migrate/migrate-
 ### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Qual é a diferença entre migrações e Azure Site Recovery do Azure?
 
 As migrações para Azure fornecem um hub centralizado para iniciar a migração, executar e acompanhar a descoberta e a avaliação de máquinas e cargas de trabalho e executar e acompanhar a migração de máquinas e cargas de trabalho para o Azure. [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) é uma solução de recuperação de desastre. A migração de servidor de migrações para Azure usa Azure Site Recovery no back-end para habilitar cenários de migração para a migração de comparação entre computadores locais e com o deslocamento de precisão.
+
+### <a name="how-do-i-delete-an-azure-migrate-project"></a>Como fazer excluir um projeto de migrações para Azure
+
+Para excluir um projeto de migrações para Azure e seus recursos associados, incluindo sites, cofres de serviços de recuperação, cofres de migração, cofres de chaves, projetos de avaliação, etc., vá para a página "grupos de recursos" na portal do Azure, selecione o grupo de recursos no qual o projeto de migração foi criado e selecione "Mostrar tipos ocultos". Em seguida, selecione o projeto migrar e seus recursos associados listados abaixo e exclua-os. Como alternativa, se o grupo de recursos for usado exclusivamente pelo projeto de migração e seus recursos associados, você poderá excluir o grupo de recursos inteiro. Observe que essa lista é uma lista completa de todos os tipos de recursos criados para todos os cenários (descoberta, avaliação e migração). Você encontrará apenas os recursos que foram criados para seu cenário no grupo de recursos.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-vmware-or-physical-servers-resource-type"></a>Recursos criados para servidores descobertos, avaliados ou migrados no VMware ou em servidores físicos [Resource (Type)]:
+
+- "Appliancename" kV (Key Vault)
+- Site "Appliance" (Microsoft. OffAzure/VMwareSites)
+- "ProjectName" (Microsoft. Migration/migrateprojects)
+- Projeto "ProjectName" (Microsoft. Migrate/assessmentProjects)
+- Rsvault "ProjectName" (cofre dos serviços de recuperação)
+- "ProjectName"-MigrateVault-* (cofre dos serviços de recuperação)
+- migrateappligwsa * (conta de armazenamento)
+- migrateapplilsa * (conta de armazenamento)
+- migrateapplicsa * (conta de armazenamento)
+- migrateapplikv * (cofre de chaves)
+- migrateapplisbns16041 (namespace do barramento de serviço)
+
+Nota: Exclua contas de armazenamento e cofres de chaves com cuidado, pois elas podem conter dados de aplicativo e chaves de segurança, respectivamente.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-hyper-v-resource-type"></a>Recursos criados para servidores descobertos, avaliados ou migrados no Hyper-V [recurso (tipo)]:
+
+- "ProjectName" (Microsoft. Migration/migrateprojects)
+- Projeto "ProjectName" (Microsoft. Migrate/assessmentProjects)
+- HyperV * kV (cofre de chaves)
+- Site HyperV * (Microsoft. OffAzure/HyperVSites)
+- "ProjectName"-MigrateVault-* (cofre dos serviços de recuperação) 
+
+Nota: Exclua o cofre de chaves com cuidado, pois ele pode conter chaves de segurança.
+
 
 ## <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -152,7 +183,7 @@ A visualização de dependências permite que você avalie grupos de VMs para mi
 
 ### <a name="do-i-need-to-pay-to-use-dependency-visualization"></a>Preciso pagar para usar a visualização de dependência?
 
-Não. Para obter mais informações, consulte preços de migrações para [Azure](https://azure.microsoft.com/pricing/details/azure-migrate/).
+Não. Para obter mais informações, consulte [preços de migrações para Azure](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>É necessário instalar qualquer coisa para a visualização de dependência?
 
@@ -200,5 +231,5 @@ Você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azu
 
 A migração de servidor de migrações para Azure usa o mecanismo de replicação Site Recovery para a migração baseada em agente de VMs VMware, a migração de VMs do Hyper-V e a migração de servidores físicos para o Azure. A opção sem agente para migrar VMs VMware é originalmente incorporada à migração de servidor.
 
-## <a name="next-steps"></a>Passos seguintes
-Leia a [visão geral](migrate-services-overview.md)de migrações para Azure.
+## <a name="next-steps"></a>Passos Seguintes
+Leia a [visão geral de migrações para Azure](migrate-services-overview.md).

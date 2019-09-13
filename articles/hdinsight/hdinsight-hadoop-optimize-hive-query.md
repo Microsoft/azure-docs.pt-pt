@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d545cd997b35cfa5e7fec58b17507ce63097fd20
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809250"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898769"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar Apache Hive consultas no Azure HDInsight
 
@@ -29,11 +29,11 @@ Aumentar o número de nós de trabalho em um cluster HDInsight permite que o tra
 
 * No momento em que você cria um cluster, você pode especificar o número de nós de trabalho usando o portal do Azure, Azure PowerShell ou a interface de linha de comando.  Para obter mais informações, veja [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters do HDInsight). A captura de tela a seguir mostra a configuração do nó de trabalho no portal do Azure:
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
     
 * Após a criação, você também pode editar o número de nós de trabalho para expandir ainda mais um cluster sem recriar um:
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Para obter mais informações sobre o dimensionamento do HDInsight, consulte [dimensionar clusters hdinsight](hdinsight-scaling-best-practices.md)
 
@@ -41,7 +41,7 @@ Para obter mais informações sobre o dimensionamento do HDInsight, consulte [di
 
 [Apache tez](https://tez.apache.org/) é um mecanismo de execução alternativo para o mecanismo MapReduce. Os clusters HDInsight baseados em Linux têm o tez habilitado por padrão.
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 O tez é mais rápido porque:
 
@@ -65,7 +65,7 @@ As operações de e/s são o principal afunilamento de desempenho para executar 
 
 O particionamento do hive é implementado reorganizando os dados brutos em novos diretórios. Cada partição tem seu próprio diretório de arquivos. O particionamento é definido pelo usuário. O diagrama a seguir ilustra o particionamento de uma tabela Hive pelo *ano*da coluna. Um novo diretório é criado para cada ano.
 
-![Particionamento do hive][image-hdi-optimize-hive-partitioning_1]
+![Particionamento do hive](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Algumas considerações sobre particionamento:
 
@@ -191,13 +191,9 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 * **Otimização de junção:** otimização do planejamento de execução de consulta do hive para melhorar a eficiência das junções e reduzir a necessidade de dicas de usuário. Para obter mais informações, consulte [otimização de junção](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Aumentar**os redutores.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu vários métodos comuns de otimização de consulta do hive. Para saber mais, confira os seguintes artigos:
 
 * [Usar Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)
 * [Analisar dados de atraso de voo usando a consulta interativa no HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analisar dados do Twitter usando o Apache Hive no HDInsight](hdinsight-analyze-twitter-data-linux.md)
-
-
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

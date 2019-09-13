@@ -1,65 +1,65 @@
 ---
-title: Recursos de Azure dados de cliente do Cofre de chaves - Azure Key Vault | Documentos da Microsoft
-description: Saiba mais sobre os dados do cliente no Cofre de chaves
+title: Azure Key Vault recursos de dados do cliente – Azure Key Vault | Microsoft Docs
+description: Saiba mais sobre os dados do cliente em Key Vault
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: f044c0da1cb1ed3f3c7f118764cc0e685cb3998f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 67e1aeab4211249075b51bd0138d7875756a3483
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687039"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883317"
 ---
-# <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
+# <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault recursos de dados do cliente
 
-O Azure Key Vault recebe dados de clientes durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento gerido. Esses dados de cliente são diretamente visíveis no portal do Azure e através da API REST. Dados dos clientes podem ser editados ou eliminados por atualizar ou eliminar o objeto que contém os dados.
+Azure Key Vault recebe dados do cliente durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas. Esses dados do cliente são diretamente visíveis na portal do Azure e por meio da API REST. Os dados do cliente podem ser editados ou excluídos atualizando ou excluindo o objeto que contém os dados.
 
-Aceder aos registos de sistema são gerados quando um utilizador ou aplicação acede ao Cofre de chaves. Registos de acesso detalhadas estão disponíveis para clientes que utilizam as informações do Azure.
+Os logs de acesso do sistema são gerados quando um usuário ou aplicativo acessa Key Vault. Os logs de acesso detalhado estão disponíveis para clientes que usam o Azure insights.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="identifying-customer-data"></a>Identificar os dados do cliente
+## <a name="identifying-customer-data"></a>Identificando dados do cliente
 
-As seguintes informações identificam os dados de cliente no Azure Key Vault:
+As informações a seguir identificam os dados do cliente dentro do Azure Key Vault:
 
-- Políticas de acesso para o Azure Key Vault contenham IDs de objeto que representa os utilizadores, grupos ou aplicações
-- Assuntos de certificado podem incluir endereços de e-mail ou outro utilizador ou identificadores organizacionais
-- Contactos do certificado podem conter endereços de e-mail do utilizador, nomes ou números de telefone
-- Emissores de certificados podem conter endereços de e-mail, nomes, números de telefone, as credenciais da conta e detalhes institucionais
-- Etiquetas arbitrárias podem ser aplicadas a objetos no Azure Key Vault. Estes objetos incluem cofres, chaves, segredos, certificados e contas de armazenamento. As etiquetas utilizadas podem conter dados pessoais
-- Registos de acesso do Cofre de chaves do Azure contêm os IDs de objeto [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md)e endereços IP para cada chamada à REST API
-- Registos de diagnóstico do Azure Key Vault podem conter IDs de objeto e endereços IP para chamadas da REST API
+- Políticas de acesso para Azure Key Vault conter IDs de objeto que representam usuários, grupos ou aplicativos
+- As entidades do certificado podem incluir endereços de email ou outros identificadores organizacionais ou de usuário
+- Os contatos de certificado podem conter endereços de email do usuário, nomes ou números de telefone
+- Os emissores de certificado podem conter endereços de email, nomes, números de telefone, credenciais de conta e detalhes organizacionais
+- Marcas arbitrárias podem ser aplicadas a objetos no Azure Key Vault. Esses objetos incluem cofres, chaves, segredos, certificados e contas de armazenamento. As marcas usadas podem conter dados pessoais
+- Azure Key Vault logs de acesso contêm IDs de objeto, [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md)e endereços IP para cada chamada à API REST
+- Azure Key Vault logs de diagnóstico podem conter IDs de objeto e endereços IP para chamadas à API REST
 
 ## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
 
-O mesmo REST APIs, experiência de Portal e SDKs utilizados para criar cofres, chaves, segredos, certificados e contas de armazenamento gerido, também são possível atualizar e eliminar estes objetos.
+As mesmas APIs REST, experiência do portal e SDKs usados para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas, também são capazes de atualizar e excluir esses objetos.
 
-Eliminação de forma recuperável permite-lhe recuperar dados eliminados durante 90 dias após a eliminação. Ao utilizar a eliminação de forma recuperável, os dados podem ser eliminados permanentemente antes dos 90 dias, período de retenção expira, executando uma operação de remoção. Se o cofre ou a subscrição tiver sido configurada para bloquear remover operações, não é possível eliminar permanentemente os dados até que tenha passado o período de retenção agendado.
+A exclusão reversível permite recuperar dados excluídos por 90 dias após a exclusão. Ao usar a exclusão reversível, os dados podem ser excluídos permanentemente antes do período de retenção de 90 dias expiram executando uma operação de limpeza. Se o cofre ou a assinatura tiver sido configurado para bloquear operações de limpeza, não será possível excluir dados permanentemente até que o período de retenção agendado tenha passado.
 
 ## <a name="exporting-customer-data"></a>Exportar dados do cliente
 
-As APIs REST do mesmo, experiência do portal e SDKs que são utilizados para criar cofres, chaves, segredos e certificados e também a geridos de contas de armazenamento permitem-lhe ver e exportar esses objetos.
+As mesmas APIs REST, a experiência do portal e os SDKs usados para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas também permitem que você exiba e exporte esses objetos.
 
-O Azure Key Vault, o registo de acesso é uma funcionalidade opcional que pode ser ativada para gerar registos para cada chamada à REST API. Estes registos serão transferidos para uma conta de armazenamento na sua subscrição em que aplicar a política de retenção que cumpre os requisitos da sua organização.
+O log de acesso do Azure Key Vault é um recurso opcional que pode ser ativado para gerar logs para cada chamada à API REST. Esses logs serão transferidos para uma conta de armazenamento em sua assinatura na qual você aplicará a política de retenção que atende aos requisitos da sua organização.
 
-O Azure Key Vault os registos de diagnóstico que contêm dados pessoais podem ser obtidos ao fazer um pedido de exportação no portal de privacidade do utilizador. Este pedido deve ser feito pelo administrador de inquilinos.
+Azure Key Vault logs de diagnóstico que contêm dados pessoais podem ser recuperados fazendo uma solicitação de exportação no portal de privacidade do usuário. Essa solicitação deve ser feita pelo administrador de locatários.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Registo do Cofre de Chaves do Azure](key-vault-logging.md)
 
-- [Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure](key-vault-soft-delete-cli.md)
+- [Visão geral da exclusão reversível Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Operações de chave de Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Operações de Azure Key Vault chave](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
-- [Operações secretas do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Azure Key Vault operações secretas](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
-- [Certificados do Key Vault e as políticas do Azure](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Azure Key Vault certificados e políticas](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
 
-- [Operações de conta de armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Azure Key Vault operações de conta de armazenamento](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

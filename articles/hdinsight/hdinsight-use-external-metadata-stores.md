@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 38e33c0e138b115010b22cc3510b93be98546b50
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1e922dfd879c7323d467dca8c4017c5ede2c8659
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735877"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916549"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar repositórios de metadados externos no Azure HDInsight
 
@@ -70,6 +70,7 @@ Aqui estão algumas práticas recomendadas de metastore do Hive do HDInsight ger
 - Monitore seu metastore para obter desempenho e disponibilidade usando as ferramentas de monitoramento do banco de dados SQL do Azure, como os logs de portal do Azure ou Azure Monitor.
 - Quando uma nova versão mais recente do Azure HDInsight é criada em um banco de dados de metastore personalizado existente, o sistema atualiza o esquema do metastore, que é irreversível sem restaurar o banco de dados do backup.
 - Se você compartilhar um metastore em vários clusters, verifique se todos os clusters são da mesma versão do HDInsight. Versões diferentes do hive usam esquemas de banco de dados de metastore diferentes. Por exemplo, você não pode compartilhar um metastore em clusters do hive 1,2 e com versão do hive 2,1. 
+- No HDInsight 4,0, o Spark e o hive usam catálogos independentes para acessar tabelas SparkSQL ou Hive. Uma tabela criada pelo Spark reside no catálogo do Spark. Uma tabela criada pelo Hive reside no catálogo do hive. Isso é diferente do HDInsight 3,6, em que o hive e o Spark compartilham o catálogo comum. A integração do hive e do Spark no HDInsight 4,0 depende do conector de depósito do hive (HWC). O HWC funciona como uma ponte entre o Spark e o hive. [Saiba mais sobre o conector do depósito do hive](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 
 ##  <a name="apache-oozie-metastore"></a>Metastore do Apache Oozie
 
@@ -77,6 +78,6 @@ O Apache Oozie é um sistema de coordenação de fluxo de trabalho que gerencia 
 
 Para obter instruções sobre como criar um metastore do Oozie com o banco de dados SQL do Azure, consulte [usar o Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](./hdinsight-hadoop-provision-linux-clusters.md)

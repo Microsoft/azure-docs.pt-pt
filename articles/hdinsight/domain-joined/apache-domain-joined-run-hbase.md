@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 39b87347212aef36bcced1a5b297f2f9e89bcc47
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734919"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885151"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas do Apache HBase no HDInsight com Enterprise Security Package
 
@@ -100,7 +100,7 @@ Crie uma política de Ranger para **sales_user1** e **marketing_user1**.
 
 2. A tela **lista de políticas** exibirá todas as políticas de Ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique em **Adicionar nova política**.
 
-    ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Lista de políticas do HBase do Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. Na tela **criar política** , insira os seguintes valores:
 
@@ -119,7 +119,7 @@ Crie uma política de Ranger para **sales_user1** e **marketing_user1**.
    * `*`indica zero ou mais ocorrências de caracteres.
    * `?`indica um único caractere.
 
-   ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Política de criação de vendas do Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Aguarde um momento enquanto o Ranger sincroniza com o Azure AD, se um utilizador de domínio não for preenchido automaticamente em **Selecionar Utilizador**.
@@ -138,7 +138,7 @@ Crie uma política de Ranger para **sales_user1** e **marketing_user1**.
    |Selecionar Utilizador  | marketing_user1 |
    |Permissões  | Leitura |
 
-   ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Política do Apache Ranger criar marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Clique em **Adicionar** para guardar a política.
 

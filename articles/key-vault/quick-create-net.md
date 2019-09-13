@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 8bc1e4d5eae76796e82195b4ef34ddefc54302b9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
-ms.translationtype: HT
+ms.openlocfilehash: e57b5a49ac0c99fa81e54134e74964bf38418e4d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910330"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934895"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início rápido: Biblioteca de cliente Azure Key Vault para .NET
 
@@ -118,7 +118,7 @@ Essa operação retornará uma série de pares de chave/valor.
 }
 ```
 
-Anote o clientId, clientSecret, SubscriptionId e tenantid, pois usaremos-os na etapa [autenticar para o cofre de chaves](#authenticate-to-your-key-vault) abaixo.
+Anote o clientId e o clientSecret, pois eles serão usados na etapa [autenticar para o cofre de chaves](#authenticate-to-your-key-vault) abaixo.
 
 Você também precisará da appID da entidade de serviço. Você pode encontrá-lo executando [AZ ad SP List](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) com o `--show-mine` parâmetro:
 
@@ -164,10 +164,6 @@ Antes de compilar e executar seu aplicativo, use o `setx` comando para definir a
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Sempre que você chamar `setx`, deverá obter uma resposta de "êxito: O valor especificado foi salvo. "
@@ -178,7 +174,7 @@ Atribua essas variáveis de ambiente a cadeias de caracteres em seu código e, e
 
 ### <a name="save-a-secret"></a>Salvar um segredo
 
-Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu keyvault usando o [método SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) isso requer a URL do cofre de chaves, que está no formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Ele também requer um nome para o segredo – estamos usando "MySecret".  Talvez você queira atribuir essas cadeias de caracteres a variáveis para resue.
+Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu keyvault usando o [método SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) isso requer a URL do cofre de chaves, que está no formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Ele também requer um nome para o segredo – estamos usando "MySecret".  Talvez você queira atribuir essas cadeias de caracteres a uma variável para reutilização.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 
@@ -208,7 +204,7 @@ az group delete -g "myResourceGroup" -l "EastUS"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Consulte [todo o aplicativo de console no GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
 

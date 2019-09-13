@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d9c546064589e82cfef367978ebea98c2c202307
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e38f118e10c9d0e2347edb7cbaa5d7b68a0e63f2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087295"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933399"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Manipulando eventos externos em Durable Functions (Azure Functions)
 
@@ -198,13 +198,10 @@ Internamente, `RaiseEventAsync` (.net) ou `raiseEvent` (JavaScript) enfileira um
 > [!WARNING]
 > Ao desenvolver localmente em JavaScript, será necessário definir a variável `WEBSITE_HOSTNAME` de ambiente como, por `localhost:<port>`exemplo, `localhost:7071`para usar métodos em `DurableOrchestrationClient`. Para obter mais informações sobre esse requisito, consulte o [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como configurar orquestrações de eternas](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Executar um exemplo que aguarda eventos externos](durable-functions-phone-verification.md)
+> [Saiba como implementar o tratamento de erros](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [Executar um exemplo que aguarda interação humana](durable-functions-phone-verification.md)

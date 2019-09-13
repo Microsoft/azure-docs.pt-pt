@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 56f021d9caf1faa090c080aeba7ccbf2484dd14e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a6b625325e2adfe441d8abd2012f100780b659b4
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880628"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910037"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Cortar uma imagem com o SDK do Pesquisa Visual do Bing paraC#
 
@@ -88,9 +88,9 @@ A aplicação concluída devolve:
 |VisualSearch WebSearchURL    |         |
 |ImageById WebSearchURL     |         |  
 |RelatedSearches WebSearchURL     |         |
-|Entidade-> WebSearchUrl     | [https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&amp;CID=03DCF882D7386A442137F49BD6596BEF&amp;rd=1&amp;h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&amp;v=1&amp;r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&amp;p=DevEx,5380.1](https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5380.1)        |
-|TopicResults -> WebSearchUrl    |  [https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&amp;CID=03DCF882D7386A442137F49BD6596BEF&amp;rd=1&amp;h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&amp;v=1&amp;r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&amp;p=DevEx,5382.1](https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1)        |
-|ImageResults-> WebSearchUrl    |  [https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&amp;CID=03DCF882D7386A442137F49BD6596BEF&amp;rd=1&amp;h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&amp;v=1&amp;r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&amp;p=DevEx,5384.1](https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5384.1)        |
+|Entidade-> WebSearchUrl     | https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3A%2F%2Fwww.Bing.com%2fsearch%3Fq%3dSatya%2bNadella&p=DevEx,5380.1        |
+|TopicResults -> WebSearchUrl    |  https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3A%2F%2Fwww.Bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1        |
+|ImageResults-> WebSearchUrl    |  https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3A%2F%2Fwww.Bing.com%2fimages%2fsearch%3Fq%3dSatya%2bNadella&p=DevEx,5384.1        |
 
 Como mostrado acima, o `Entity` ActionType contém uma consulta de pesquisa do Bing que retorna informações sobre uma pessoa, lugar ou coisa reconhecível. Os tipos `TopicResults` e `ImageResults` contêm consultas de imagens relacionadas. Os URLs na lista ligam aos resultados da pesquisa do Bing.
 

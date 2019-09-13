@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326612"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883581"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Visão geral da terminação SSL e SSL de ponta a ponta com o gateway de aplicativo
 
@@ -72,7 +72,7 @@ Se os certificados dos membros no pool de back-end não forem assinados por auto
 
 > [!NOTE] 
 >
-> O certificado adicionado à **configuração de http de back-end** para autenticar os servidores de back-end pode ser  o mesmo que o certificado adicionado ao ouvinte para terminação SSL no gateway de aplicativo ou diferente para aumentar a segurança.
+> O certificado adicionado à **configuração de http de back-end** para autenticar os servidores de back-end pode ser o mesmo que o certificado adicionado ao ouvinte para terminação SSL no gateway de aplicativo ou diferente para aumentar a segurança.
 
 ![cenário de SSL ponto a ponto][1]
 
@@ -95,7 +95,7 @@ Os certificados de autenticação foram preteridos e substituídos por certifica
    
 > [!NOTE] 
 >
-> Para que um certificado SSL seja confiável, esse certificado do servidor de back-end deve ter sido emitido por uma autoridade de certificação incluída no repositório confiável do gateway permissão. se o certificado não tiver sido emitido por uma AC confiável, o gateway de aplicativo irá, então, verificar Veja se o certificado da AC emissora foi emitido por uma AC confiável e assim por diante até que uma AC confiável seja encontrada (ponto em que uma conexão confiável, segura será estabelecida) ou nenhuma AC confiável possa ser encontrada (ponto em que o gateway permissão marcará o unhe de back-end althy). Portanto, é recomendável que o certificado do servidor back-end contenha as CAs raiz e de intermidi.
+> Para que um certificado SSL seja confiável, esse certificado do servidor back-end deve ter sido emitido por uma autoridade de certificação incluída no repositório confiável do gateway de aplicativo. se o certificado não tiver sido emitido por uma autoridade de certificação confiável, o gateway de aplicativo verificará para ver se o certificado da AC emissora foi emitido por uma AC confiável e assim por diante até que uma autoridade de certificação confiável seja encontrada (nesse ponto, uma conexão confiável e segura será estabelecida) ou nenhuma AC confiável poderá ser encontrada (ponto em que o gateway de aplicativo marcará o back-end não íntegro). Portanto, é recomendável que o certificado do servidor back-end contenha as CAs raiz e de intermidi.
 
 - Se o certificado for auto-assinado ou assinado por intermediários desconhecidos, para habilitar o SSL de ponta a ponta no SKU v2, um certificado raiz confiável deverá ser definido. O gateway de aplicativo só se comunicará com back-ends cujo certificado raiz do certificado de servidor corresponda a uma da lista de certificados raiz confiáveis na configuração de http de back-end associada ao pool.
 

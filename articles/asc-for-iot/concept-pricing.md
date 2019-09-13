@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596513"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933790"
 ---
 # <a name="pricing-and-associated-costs"></a>Custos associados e preços
 
@@ -62,13 +62,14 @@ A tabela a seguir fornece um resumo dos custos associados e as implicações de 
 |     | Utilização | Comentário |
 | --- | --- | --- |
 | **Consumo de cota do Hub IoT** |  |
-| [Exportar](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabalho do dispositivo (exportação de entrelaçamento) | Uma vez por dia | Desabilitar _coleta de metadados_ de entrelaçamento |
+| [Exportar](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabalho do dispositivo (exportação de entrelaçamento) | Uma vez por dia | Desabilitar _coleta de metadados de entrelaçamento_ |
 | **Armazenamento Log Analytics** |  |
 | Alertas e recomendação de dispositivo| Recomendação e alertas de segurança gerados pelo serviço | Não opcional |
 | Dados brutos de segurança| Dados brutos de segurança de dispositivos IoT, coletados por agentes de segurança | Desabilitar _eventos de segurança de dispositivo bruto de armazenamento_ |
+|
 
 >[!Important]
-> A recusa tem implicações graves nos recursos de segurança disponíveis.
+> A recusa tem implicações graves na central de segurança do Azure para a disponibilidade do recurso de segurança de IoT. 
   
 | Opção ativa de não participação | Implicações |
 | --- | --- |

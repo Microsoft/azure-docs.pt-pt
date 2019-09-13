@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/11/2019
 ms.author: diberry
-ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277434"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934692"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar sua base de dados de conhecimento
 
@@ -72,6 +72,9 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver as perguntas 
 1. Localize o serviço QnA Maker e, em seguida, alterne o **aprendizado ativo**. 
 
     [![Na página Configurações de serviço, alterne o recurso de aprendizado ativo. Se não for possível alternar o recurso, talvez seja necessário atualizar seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+
+    > [!Note]
+    > A versão exata na imagem anterior é mostrada apenas como um exemplo. Sua versão pode ser diferente. 
 
     Quando o **aprendizado ativo** é habilitado, a base de dados de conhecimento sugere novas perguntas em intervalos regulares com base em perguntas enviadas pelo usuário. Você pode desabilitar o **aprendizado ativo** alternando a configuração novamente.
 
@@ -196,7 +199,7 @@ O corpo JSON tem várias configurações:
 |`feedbackRecords`|array|Lista de comentários.|
 |`userId`|Cadeia de caracteres|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
 |`userQuestion`|Cadeia de caracteres|Texto exato da consulta do usuário. Necessário.|
-|`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`qnaID`|number|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -390,7 +393,7 @@ Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar i
 
 Para obter as práticas recomendadas ao usar o aprendizado ativo, consulte [práticas recomendadas](../Concepts/best-practices.md#active-learning).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
  
 > [!div class="nextstepaction"]
 > [Usar metadados com a API GenerateAnswer](metadata-generateanswer-usage.md)

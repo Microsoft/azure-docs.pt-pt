@@ -1,29 +1,29 @@
 ---
-title: Criar clusters do Apache Hadoop com o .NET - Azure HDInsight
-description: Saiba como criar clusters do Apache Hadoop, Apache HBase, Apache Storm ou do Apache Spark no Linux para o HDInsight com o SDK de .NET do HDInsight.
-author: mamccrea
+title: Criar clusters Apache Hadoop usando o .NET – Azure HDInsight
+description: Saiba como criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no Linux para HDInsight usando o SDK do .NET do HDInsight.
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.author: mamccrea
-ms.openlocfilehash: d560c61339bd608ab9385f99583613526156ca41
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.author: hrasheed
+ms.openlocfilehash: fccb29167dc04bf75a85935eeb57b0420b151f64
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508048"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916492"
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight com o SDK .NET
+# <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Saiba como criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster no cluster de HDInsight do Azure com o SDK .NET.
+Saiba como criar um cluster [Apache Hadoop](https://hadoop.apache.org/) no cluster HDInsight do Azure usando o SDK do .net.
 
 > [!IMPORTANT]  
-> Os passos neste documento criam um cluster com o nó de um trabalho. Se pretender mais do que 32 nós de trabalho, durante a criação de cluster ou ao dimensionar o cluster após a criação, tem de selecionar um tamanho de nó principal com, pelo menos, 8 núcleos e 14GB de ram.
+> As etapas neste documento criam um cluster com um nó de trabalho. Se você planejar mais de 32 nós de trabalho, seja na criação do cluster ou dimensionando o cluster após a criação, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 >
 > Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -38,9 +38,9 @@ Saiba como criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster no clus
 ## <a name="create-clusters"></a>Criar clusters
 
 1. Abra o Visual Studio.
-2. Crie uma nova aplicação de consola do Visual c#.
-3. Partir do **ferramentas** menu, clique em **Gestor de pacotes NuGet**e, em seguida, clique em **Package Manager Console**.
-4. Execute o seguinte comando na consola para instalar os pacotes:
+2. Crie um novo aplicativo C# de console Visual.
+3. No menu **ferramentas** , clique em **Gerenciador de pacotes NuGet**e em **console do Gerenciador de pacotes**.
+4. Execute o seguinte comando no console para instalar os pacotes:
 
     ```powershell
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -48,8 +48,8 @@ Saiba como criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster no clus
     Install-Package Microsoft.Azure.Management.HDInsight
     ```
 
-    Estes comandos adicionam bibliotecas .NET e referências aos mesmos no projeto atual do Visual Studio.
-5. No Explorador de soluções, faça duplo clique em **Program.cs** para abri-lo, cole o seguinte código e fornecer valores para as variáveis:
+    Esses comandos adicionam bibliotecas .NET e referências a eles ao projeto atual do Visual Studio.
+5. Em Gerenciador de Soluções, clique duas vezes em **Program.cs** para abri-lo, Cole o código a seguir e forneça valores para as variáveis:
 
     ```csharp
     using System;
@@ -184,14 +184,14 @@ Saiba como criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster no clus
     }
     ```
 
-6. Substitua os valores de membro de classe.
-7. Prima **F5** para executar a aplicação. Uma janela de console deve abrir e exibir o estado do aplicativo. São-lhe pedido que introduza as credenciais de conta do Azure. Pode demorar alguns minutos a criar um cluster do HDInsight, normalmente, cerca de 15.
+6. Substitua os valores de membro da classe.
+7. Prima **F5** para executar a aplicação. Uma janela de console deve abrir e exibir o status do aplicativo. Você será solicitado a inserir suas credenciais de conta do Azure. Pode levar vários minutos para criar um cluster HDInsight, normalmente em cerca de 15.
 
-## <a name="use-bootstrap"></a>Arranque de utilização
+## <a name="use-bootstrap"></a>Usar inicialização
 
-Utilizar o arranque, pode configurar definições de adição durante a criação de cluster.  Para obter mais informações, consulte [clusters do HDInsight personalizar com o arranque de](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Usando a inicialização, você pode configurar as definições de adição durante as criações do cluster.  Para obter mais informações, consulte [Personalizar clusters HDInsight usando a inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-Modificar o exemplo na [criar clusters](#create-clusters) para configurar uma definição de Apache Hive:
+Modifique o exemplo em [Criar clusters](#create-clusters) para definir uma configuração de Apache Hive:
 
 ```csharp
 static void Main(string[] args)
@@ -316,11 +316,11 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="use-script-action"></a>Utilize a ação de Script
+## <a name="use-script-action"></a>Usar ação de script
 
-Com a ação de Script, pode configurar definições adicionais durante a criação de cluster.  Para obter mais informações, consulte [HDInsight baseado em Linux personalizar clusters com ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+Usando a ação de script, você pode definir configurações adicionais durante as criações de cluster.  Para obter mais informações, consulte [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Modificar o exemplo na [criar clusters](#create-clusters) para chamar uma ação de Script para instalar o r:
+Modifique o exemplo em [Criar clusters](#create-clusters) para chamar uma ação de script para instalar o R:
 
 ```csharp
 static void Main(string[] args)
@@ -369,30 +369,30 @@ static void Main(string[] args)
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que criou com êxito um cluster do HDInsight, utilize o seguinte para aprender a trabalhar com o seu cluster. 
+Agora que você criou um cluster HDInsight com êxito, use o seguinte para aprender a trabalhar com o cluster. 
 
-### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
-* [Utilizar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilizar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
-* [Utilizar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
+### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
+* [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 * [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolver aplicações de Java para o Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Desenvolver aplicativos Java para o Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="apache-storm-clusters"></a>Clusters do Apache Storm
-* [Desenvolver topologias de Java para Apache Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Utilizar componentes de Python no Apache Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Implementar e monitorizar topologias Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+### <a name="apache-storm-clusters"></a>Clusters Apache Storm
+* [Desenvolver topologias Java para Apache Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Usar componentes do Python no Apache Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Implantar e monitorar topologias com Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="apache-spark-clusters"></a>Clusters do Apache Spark
+### <a name="apache-spark-clusters"></a>Clusters Apache Spark
 * [Criar uma aplicação autónoma com o Scala](spark/apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Executar trabalhos remotamente em um cluster Apache Spark usando o Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever os resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>Executar tarefas
-* [Executar tarefas do Apache Hive no HDInsight com o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Executar tarefas do Apache Sqoop no HDInsight com o .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [Executar tarefas do Apache Oozie no HDInsight](hdinsight-use-oozie-linux-mac.md)
+* [Executar Apache Hive trabalhos no HDInsight usando o SDK do .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Executar trabalhos do Apache Sqoop no HDInsight usando o SDK do .NET](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
+* [Executar trabalhos do Apache Oozie no HDInsight](hdinsight-use-oozie-linux-mac.md)
 

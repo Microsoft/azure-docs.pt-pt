@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809420"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885503"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as ferramentas de Azure Data Lake para Visual Studio com a área restrita Hortonworks
 
@@ -185,7 +185,7 @@ Data Lake ferramentas também permitem que você exiba facilmente as informaçõ
 
 Você pode exibir as propriedades de um banco de dados ou tabela. A seleção de **Propriedades** exibe detalhes do item selecionado na janela Propriedades. Por exemplo, consulte as informações mostradas na captura de tela a seguir:
 
-![Captura de tela de janela Propriedades](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Captura de tela de janela Propriedades](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>Criar uma tabela
 
@@ -197,7 +197,7 @@ Em seguida, você pode criar a tabela usando um formulário. Na parte inferior d
 
 ![Captura de tela do formulário usado para criar uma tabela](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Aprendendo a ropes da área restrita do Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Tutorial de Apache Hadoop-introdução ao HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

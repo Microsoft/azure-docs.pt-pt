@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4dfcde96957bb8fce3731e38eee62554795d795f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844887"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918823"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -211,13 +211,16 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Leste da Austrália |LRS     |Não    |Sim|
 |Sudeste da Austrália|LRS     |Não    |Ainda não|
 |Índia Central  |LRS     |Não    |Ainda não|
+|East US        |LRS     |Não    |Ainda não|
 |França Central |LRS, ZRS|Não    |LRS-Sim, ZRS-ainda não|
 |Sul de França   |LRS     |Não    |Sim|
 |Sul da Índia    |LRS     |Não    |Ainda não|
 |Sudeste Asiático |LRS, ZRS|Não    |Sim|
 |EUA Centro-Oeste|LRS     |Não    |Ainda não|
 |Europa Ocidental    |LRS, ZRS|Não    |Sim|
+|EUA Oeste        |LRS     |Não    |Ainda não|
 |EUA Oeste 2      |LRS, ZRS|Não    |Sim|
+
 
 \* Para regiões sem suporte ao portal, você ainda pode usar o PowerShell ou a CLI (interface de linha de comando) do Azure para criar mais de 5 compartilhamentos TiB. Como alternativa, crie um novo compartilhamento por meio do portal sem especificar a cota. Isso criará um compartilhamento com o tamanho padrão de 100 TiB, que pode ser atualizado posteriormente por meio do PowerShell ou CLI do Azure.
 
@@ -269,7 +272,7 @@ Há muitas opções fáceis para transferir dados em massa de um compartilhament
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

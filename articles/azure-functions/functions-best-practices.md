@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097545"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933042"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a confiabilidade do Azure Functions
 
 Este artigo fornece orientação para melhorar o desempenho e a confiabilidade de seus aplicativos de funções sem [servidor](https://azure.microsoft.com/solutions/serverless/) . 
 
-## <a name="general-best-practices"></a>Práticas recomendadas gerais
+## <a name="general-best-practices"></a>Melhores práticas gerais
 
 Veja a seguir as práticas recomendadas de como criar e arquitetar suas soluções sem servidor usando Azure Functions.
 
@@ -36,7 +36,7 @@ Sempre que possível, refatore funções grandes em conjuntos de funções menor
 
 ### <a name="cross-function-communication"></a>Comunicação entre funções
 
-[Durable Functions](durable/durable-functions-concepts.md) e [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) são criados para gerenciar transições de estado e comunicação entre várias funções.
+[Durable Functions](durable/durable-functions-overview.md) e [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) são criados para gerenciar transições de estado e comunicação entre várias funções.
 
 Se não estiver usando Durable Functions ou aplicativos lógicos para integrar com várias funções, geralmente é uma prática recomendada usar filas de armazenamento para comunicação entre funções.  O principal motivo é que as filas de armazenamento são mais baratas e muito mais fáceis de provisionar. 
 
@@ -71,7 +71,7 @@ Aproveite as medidas defensivas já fornecidas para os componentes que você usa
 
 ## <a name="scalability-best-practices"></a>Práticas recomendadas de escalabilidade
 
-Há vários fatores que afetam a escala de instâncias do seu aplicativo de funções. Os detalhes são fornecidos na documentação para dimensionamento de [função](functions-scale.md).  Veja a seguir algumas práticas recomendadas para garantir a escalabilidade ideal de um aplicativo de funções.
+Há vários fatores que afetam a escala de instâncias do seu aplicativo de funções. Os detalhes são fornecidos na documentação para [dimensionamento de função](functions-scale.md).  Veja a seguir algumas práticas recomendadas para garantir a escalabilidade ideal de um aplicativo de funções.
 
 ### <a name="share-and-manage-connections"></a>Compartilhar e gerenciar conexões
 
@@ -115,7 +115,7 @@ As configurações no arquivo de hosts se aplicam a todas as funções dentro do
 
 Outras opções de configuração de host podem ser encontradas [no documento de configuração do host](functions-host-json.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2019
+ms.date: 09/11/2019
 ms.author: magoedte
-ms.openlocfilehash: d2aa25af4ebf721d04ada46ffab37107bf73113b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861110"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916056"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -93,10 +93,10 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 14, 4, 16, 4, 18, 4 | X | X | X |
-|CentOS Linux 6, 7 | X | X | X |
+|Ubuntu 18, 4, 16, 4 | X | X | X |
+|CentOS Linux 7, 6 | X | X | X |
 |SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 8, 9,4 | X<sup>1</sup> | | X |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> funcionalidade do desempenho do Azure Monitor para VMs está disponível apenas a partir do Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
 
@@ -110,45 +110,51 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 > - Versões kernel não padrão, como extensão de endereço físico (PAE) e Xen, não são suportadas para qualquer distribuição de Linux. Por exemplo, um sistema com a cadeia de versão do *2.6.16.21-0.8-xen* não é suportada.
 > - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
 > - Há suporte para o kernel CentOSPlus.
+> - O kernel do Linux deve ser corrigido para a vulnerabilidade Spectre. Consulte seu fornecedor de distribuição do Linux para obter mais detalhes.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
 | 7,6 | 3.10.0-957 |
+| 7.5 | 3.10.0-862 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="centosplus"></a>CentOSPlus
+
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4,18 * |
-| Ubuntu 16.04.3 | o kernel 4.15. * |
-| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
-| 14.04 | 3.13.\*<br>4.4.\* |
+| 18, 4 | 5,0 (inclui kernel ajustado pelo Azure)<br>4,18 *<br>4,15* |
+| 16.04.3 | 4,15. * |
+| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| Versão do SO | Versão de kernel
+| Versão do SO | Versão de kernel |
 |:--|:--|
-|12 SP2 | 4.4. * |
+|12 SP4 | 4,12. * (inclui kernel ajustado para o Azure) |
 |12 SP3 | 4.4. * |
-|12 SP4 | 4.4. * |
-|12 SP4 | Kernel ajustado pelo Azure |
+|12 SP2 | 4.4. * |
+
+#### <a name="debian"></a>Debian 
+
+| Versão do SO | Versão de kernel |
+|:--|:--|
+| 9 | 4,9 | 
 
 ### <a name="the-microsoft-dependency-agent"></a>O agente do Microsoft Dependency
 
@@ -252,6 +258,6 @@ Para obter mais informações sobre a recolha de dados e a utilização, consult
 
 Agora que você habilitou o monitoramento para sua VM, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md). Para ver dependências de aplicações detetadas, consulte [vista do Azure Monitor para o mapa de VMs](vminsights-maps.md).

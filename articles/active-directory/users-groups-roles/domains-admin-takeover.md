@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a756f0d9fe3669ab9d0f2b4576a35be5d2112a87
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872207"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914778"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -43,7 +43,7 @@ Alguns produtos que incluem o SharePoint e o OneDrive, como o Office 365, não d
 
 3. No email de confirmação de Power BI, selecione **Sim, sou eu**.
 
-4. Entre no centro de [Administração do Microsoft 365](https://admin.microsoft.com) com a conta de usuário do Power bi. Você recebe uma mensagem que instrui você a **se tornar o administrador** do nome de domínio que já foi verificado no locatário não gerenciado. Selecione **Sim, quero ser o administrador**.
+4. Entre no centro de [Administração do Microsoft 365](https://portal.office.com/admintakeover) com a conta de usuário do Power bi. Você recebe uma mensagem que instrui você a **se tornar o administrador** do nome de domínio que já foi verificado no locatário não gerenciado. Selecione **Sim, quero ser o administrador**.
   
    ![primeira captura de tela para tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -176,7 +176,7 @@ Cmdlet | Utilização
 
 Um desafio bem-sucedido retorna ao prompt sem erro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)

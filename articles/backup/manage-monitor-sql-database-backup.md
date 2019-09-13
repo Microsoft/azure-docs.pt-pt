@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019039"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934773"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar o backup de bancos de dados SQL Server
 
@@ -140,6 +140,32 @@ Cancele o registro de uma instância de SQL Server depois de desabilitar a prote
 4. Clique com o botão direito do mouse no servidor protegido e selecione **Cancelar registro**.
 
    ![Selecione Excluir](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## <a name="modify-policy"></a>Modificar política
+Modifique a política para alterar a frequência de backup ou o período de retenção.
+
+> [!NOTE]
+> Qualquer alteração no período de retenção será aplicada de forma retrospectiva a todos os pontos de recuperação mais antigos além dos novos.
+
+No painel do cofre, vá para **gerenciar** > **políticas de backup** e escolha a política que você deseja editar.
+
+  ![Gerenciar política de backup](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![Modificar política de backup](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+A modificação da política afetará todos os itens de backup associados e disparará os trabalhos de **configuração de proteção** correspondentes. 
+
+#### <a name="inconsistent-policy"></a>Política inconsistente 
+
+Às vezes, uma operação de modificação de política pode levar a uma versão de política **inconsistente** para alguns itens de backup. Isso ocorre quando o trabalho de **configuração de proteção** correspondente falha para o item de backup depois que uma operação de modificação de política é disparada. Ele aparece da seguinte maneira na exibição do item de backup:
+ 
+  ![Política inconsistente](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+Você pode corrigir a versão da política para todos os itens impactados em um único clique:
+
+  ![Corrigir a política inconsistente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrar novamente a extensão na VM SQL Server
 

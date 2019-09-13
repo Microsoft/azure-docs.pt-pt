@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53900bcade3f7a283309f5ee1c624c742a62ad3f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 306382a7dede44a0f1db53373e14e81cb54098ca
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812453"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914742"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -77,7 +77,7 @@ No momento, não há suporte para o ingresso do Azure AD híbrido se seu ambient
 
 No momento, não há suporte para o ingresso do Azure AD híbrido ao usar o VDI (Virtual Desktop Infrastructure).
 
-O ingresso no Azure AD híbrido tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com a junção híbrida do Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte.
+O ingresso no Azure AD híbrido tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com a junção híbrida do Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte. A partir da versão 10 1903 do WIndows, TPMs 1,2 não são usadas para o ingresso híbrido do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
 
 O ingresso no Azure AD híbrido não tem suporte no Windows Server que executa a função de controlador de domínio (DC).
 

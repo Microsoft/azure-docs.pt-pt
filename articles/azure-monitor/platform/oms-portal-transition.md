@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 126d96cbd85f4e91de5a6393be02a15240b51ade
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035591"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915872"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -50,7 +50,7 @@ Embora a maioria dos recursos continue a funcionar sem executar nenhuma migraç�
 Consulte as [perguntas comuns para a transição do portal do OMS para Portal do Azure para log Analytics usuários](oms-portal-faq.md) para obter informações sobre como fazer a transição para o portal do Azure. 
 
 ## <a name="user-access-and-role-migration"></a>Acesso de usuário e migração de função
-O gerenciamento de acesso portal do Azure é mais rico e mais potente do que o gerenciamento de acesso no portal do OMS. Consulte [projetando seu Azure Monitor espaço de trabalho de logs] design-logs-deployment.md) para obter detalhes de gerenciamento de acesso no Log Analytics.
+O gerenciamento de acesso portal do Azure é mais rico e mais potente do que o gerenciamento de acesso no portal do OMS. Consulte [criando seu espaço de trabalho de logs de Azure monitor](design-logs-deployment.md) para obter detalhes de gerenciamento de acesso no log Analytics.
 
 > [!NOTE]
 > As versões anteriores deste artigo declararam que as permissões seriam automaticamente convertidas do portal do OMS para o portal do Azure. Essa conversão automática não está mais planejada e você deve executar a conversão por conta própria.
@@ -110,5 +110,5 @@ Você pode continuar a contar com as configurações de diagnóstico para enviar
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
 Se você [conectou seu grupo de gerenciamento de Operations Manager ao log Analytics](om-agents.md), ele continuará funcionando sem alterações. Para novas conexões, no entanto, você deve seguir as diretrizes no [pacote de gerenciamento do Microsoft System Center Operations Manager para configurar o Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [perguntas comuns para a transição do portal do OMS para Portal do Azure para log Analytics usuários](oms-portal-faq.md) para obter diretrizes sobre como migrar do portal do OMS para o portal do Azure.

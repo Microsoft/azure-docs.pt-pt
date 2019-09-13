@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860909"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882028"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -98,7 +98,12 @@ A criação de previsões é parte integrante de qualquer empresa, seja ela de r
 
 Um experimento de série temporal automatizado é tratado como um problema de regressão multivariado. Os valores de série temporal anteriores são "dinamizados" para se tornarem dimensões adicionais para o regressor junto com outros previsões. Essa abordagem, ao contrário dos métodos de série temporal clássica, tem uma vantagem de incorporar naturalmente várias variáveis contextuais e sua relação entre si durante o treinamento. O ML automatizado aprende um modelo único, mas geralmente ramificado internamente para todos os itens no conjunto de e horizontes de previsão. Por isso, mais dados estão disponíveis para estimar os parâmetros de modelo e a generalização para uma série não vista se torna possível.
 
-Saiba mais e veja um exemplo de [Machine Learning automatizado para previsão de série temporal](how-to-auto-train-forecast.md).
+Saiba mais e veja um exemplo de [Machine Learning automatizado para previsão de série temporal](how-to-auto-train-forecast.md). Ou então, consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obter exemplos de código detalhados de configuração de previsão avançada, incluindo:
+
+* detecção de feriados e personalização
+* validação cruzada de origem sem interrupção
+* retardo configurável
+* recursos agregados de janela sem interrupção
 
 ## <a name="ensemble"></a>Modelos de Ensemble
 

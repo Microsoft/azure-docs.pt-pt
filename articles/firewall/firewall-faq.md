@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: da5880d27e5dd51d3a5f90b7cd6cf2e7dec50f89
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114766"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932749"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do firewall do Azure
 
@@ -86,7 +86,7 @@ Consulte [preços do firewall do Azure](https://azure.microsoft.com/pricing/deta
 
 ## <a name="how-can-i-stop-and-start-azure-firewall"></a>Como posso parar e iniciar o Firewall do Azure?
 
-Você pode usar Azure PowerShell desalocar e alocar métodos.
+Você pode usar Azure PowerShell *desalocar* e *alocar* métodos.
 
 Por exemplo:
 
@@ -150,6 +150,9 @@ Se você configurar * **. contoso.com**, ele permitirá *anyvalue*. contoso.com,
 ## <a name="what-does-provisioning-state-failed-mean"></a>O que *é o estado de provisionamento: Falha* ao significar?
 
 Sempre que uma alteração de configuração é aplicada, o Firewall do Azure tenta atualizar todas as suas instâncias de back-end subjacentes. Em casos raros, uma dessas instâncias de back-end pode falhar ao atualizar com a nova configuração e o processo de atualização é interrompido com um estado de provisionamento com falha. O Firewall do Azure ainda está operacional, mas a configuração aplicada pode estar em um estado inconsistente, em que algumas instâncias têm a configuração anterior, em que outras têm a regra atualizada definida. Se isso acontecer, tente atualizar sua configuração mais uma vez até que a operação seja bem-sucedida e o firewall esteja em um estado de provisionamento *bem-sucedido* .
+
+### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Como o Firewall do Azure lida com falhas não planejadas e de manutenção planejada?
+O Firewall do Azure consiste em vários nós de back-end em uma configuração ativo-ativo.  Para qualquer manutenção planejada, temos a lógica de descarga de conexão para atualizar nós normalmente.  As atualizações são planejadas fora do horário comercial para cada uma das regiões do Azure para limitar ainda mais o risco de interrupção.  Para problemas não planejados, criamos uma instância de um novo nó para substituir o nó com falha.  A conectividade com o novo nó é normalmente restabelecida dentro de 10 segundos a partir do momento da falha.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Há um limite de caracteres para um nome de firewall?
 

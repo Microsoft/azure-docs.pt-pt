@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814071"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885105"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Otimizar tarefas do Apache Spark
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar Apache Spark trabalhos no HDInsight
 
 Saiba como otimizar [Apache Spark](https://spark.apache.org/) configuração de cluster para sua carga de trabalho específica.  O desafio mais comum é a pressão de memória, devido a configurações incorretas (especialmente executores de tamanho errado), operações de execução longa e tarefas que resultam em operações cartesianas. Você pode acelerar os trabalhos com o cache apropriado e permitindo a [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitore e examine as execuções de trabalho do Spark de longa execução e de consumo de recursos.
 

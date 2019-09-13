@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 3b9001b9c7fa81b86c70d5c07a33a54bae539add
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736451"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899897"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar um aplicativo de escala de aplicativos do Maven para Apache Spark no HDInsight usando IntelliJ
 
@@ -177,27 +177,27 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
     2. Na janela **estrutura do projeto** , navegue até **artefatos** > **o símbolo de mais +**  > **jar** > **de módulos com dependências...** .
 
-        ![Criar o JAR](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![Criar JAR1](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
     3. Na janela **criar jar de módulos** , selecione o ícone de pasta na caixa de texto **classe principal** .
 
     4. Na janela **Selecionar classe principal** , selecione a classe que aparece por padrão e, em seguida, selecione **OK**.
 
-        ![Criar o JAR](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![Criar JAR2](./media/apache-spark-create-standalone-application/create-jar-2.png)
 
     5. Na janela **criar jar de módulos** , verifique se a opção **extrair para o Jar de destino** está selecionada e, em seguida, selecione **OK**.  Esta definição cria um único JAR com todas as dependências.
 
-        ![Criar o JAR](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![Criar JAR3](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
     6. A guia **layout de saída** lista todos os jars incluídos como parte do projeto Maven. Pode selecionar e eliminar aqueles em que a aplicação de Scala não tem dependências diretas. Na aplicação que está a criar aqui, pode remover todos menos o último (**SparkSimpleApp compile output**). Selecione os jars a serem excluídos e, em seguida, **-** selecione o símbolo negativo.
 
-        ![Criar o JAR](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![Criar JAR4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
 
         Verifique se a caixa de seleção **incluir no Build do projeto** está selecionada, o que garante que o jar seja criado toda vez que o projeto for compilado ou atualizado. Selecione **aplicar** e **OK**.
 
     7. Para criar o Jar, **navegue para** > compilar compilar**artefatos** > **Build**. O projeto será compilado em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
 
-        ![Criar o JAR](./media/apache-spark-create-standalone-application/output.png)
+        ![saída](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>Executar o aplicativo no cluster de Apache Spark
 

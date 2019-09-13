@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5416a603fdf2cc5e21444e16560d662c9603f9d8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c0f5d3264d953498af61c6e8d36dadee7dd61931
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859102"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915519"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrar atividade no Azure Data Factory
 Você pode usar uma atividade de filtro em um pipeline para aplicar uma expressão de filtro a uma matriz de entrada. 
@@ -101,7 +101,6 @@ Neste exemplo, o pipeline tem duas atividades: **Filter** e **foreach**. A ativi
                 "defaultValue": [1, 2, 3, 4, 5, 6]
             }
         },
-
         "variables": {
             "test": {
                 "type": "String"
@@ -112,7 +111,7 @@ Neste exemplo, o pipeline tem duas atividades: **Filter** e **foreach**. A ativi
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679112"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913981"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guia de programação do Event Hubs do Azure
 Este artigo aborda alguns cenários comuns em escrever código usando o Event Hubs do Azure. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -140,7 +140,10 @@ A classe [EventProcessorHost][] também implementa um mecanismo de pontos de ver
 
 ## <a name="publisher-revocation"></a>Revogação do publicador
 
-Para além das funcionalidades avançadas de tempo de execução do [EventProcessorHost][], os Event Hubs permitem a revogação do publicador para bloquear publicadores específicos enviem eventos para um hub de eventos. Esses recursos são úteis se um token do publicador tiver ficado comprometido ou se uma atualização de software é fazendo com que elas se comportem inapropriadamente. Nestas situações, a identidade do publicador, que faz parte do respetivo token SAS, pode ser bloqueada a partir dos eventos de publicação.
+Além dos recursos avançados de tempo de execução do host do processador de eventos, o serviço de hubs de eventos habilita a [revogação do editor](/rest/api/eventhub/revoke-publisher) para impedir que editores específicos enviem evento para um hub de eventos. Esses recursos são úteis se um token do publicador tiver ficado comprometido ou se uma atualização de software é fazendo com que elas se comportem inapropriadamente. Nestas situações, a identidade do publicador, que faz parte do respetivo token SAS, pode ser bloqueada a partir dos eventos de publicação.
+
+> [!NOTE]
+> Atualmente, somente a API REST dá suporte a esse recurso ([revogação de Publicador](/rest/api/eventhub/revoke-publisher)).
 
 Para obter mais informações sobre a revogação do publicador e sobre como enviar Hubs de Eventos como um publicador, veja o exemplo de [Event Hubs Large Scale Secure Publishing (Publicação Segura em Larga Escala dos Hubs de Eventos)](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

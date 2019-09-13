@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: fd794662ef41112cb04bdfde087253c8abdb6983
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5e342418dc6cc9ed0a3bbbfaad42801d5ffe9e9d
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079372"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900242"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
@@ -38,14 +38,18 @@ As VMs de geração 2 usam a nova arquitetura de inicialização baseada em UEFI
 As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure agora oferece suporte à versão de visualização 2 para a seguinte série de VMs selecionada:
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
+* [Série DC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
 * Série [Dsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) e [série Dsv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Série Esv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Série Fsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
 * [Série GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
+* [Série HB](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hb-series)
+* [Série HC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hc-series)
 * Série [ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [série Lsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Série Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * Série [NCv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) e [série NCv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [Série ND](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
+* [Série NVv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imagens de VM de geração 2 no Azure Marketplace
 
@@ -55,6 +59,8 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
+* SUSE Linux Enterprise Server 15 SP1
+* SUSE Linux Enterprise Server 12 SP4
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Local vs. VMs do Azure geração 2
 
@@ -122,6 +128,21 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **Há uma diferença de preço entre as VMs de geração 1 e de geração 2?**  
    Não.
 
+* **Tenho um arquivo. vhd da minha VM de geração 2 local. Posso usar esse arquivo. VHD para criar uma VM de geração 2 no Azure?**
+  Sim, você pode colocar seu arquivo. VHD de geração 2 no Azure e usá-lo para criar uma VM de geração 2. Use as seguintes etapas para fazer isso:
+    1. Carregue o. VHD em uma conta de armazenamento na mesma região em que você gostaria de criar sua VM.
+    1. Crie um disco gerenciado com base no arquivo. vhd. Defina a propriedade de geração do HyperV como v2. Os comandos do PowerShell a seguir definem a propriedade de geração do HyperV ao criar um disco gerenciado.
+
+        ```powershell
+        $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
+        $osDiskName = 'gen2Diskfrmgenvhd'  #<Provide a name for your disk>
+        $diskconfig = New-AzDiskConfig -Location '<location>' -DiskSizeGB 127 -AccountType Standard_LRS -OsType Windows -HyperVGeneration "V2" -SourceUri $sourceUri -CreateOption 'Import'
+        New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
+        ```
+
+    1. Quando o disco estiver disponível, crie uma VM anexando esse disco. A VM criada será uma VM de geração 2.
+    Quando a VM de geração 2 é criada, você pode, opcionalmente, generalizar a imagem dessa VM. Ao generalizar a imagem, você pode usá-la para criar várias VMs.
+
 * **Como fazer aumentar o tamanho do disco do sistema operacional?**  
   OS discos do sistema operacional com mais de 2 TB são novos para VMs de geração 2. Por padrão, OS discos do sistema operacional são menores que 2 TB para VMs de geração 2. Você pode aumentar o tamanho do disco até um máximo recomendado de 4 TB. Use o CLI do Azure ou o portal do Azure para aumentar o tamanho do disco do sistema operacional. Para obter informações sobre como expandir discos programaticamente, consulte [redimensionar um disco](expand-os-disk.md).
 
@@ -147,7 +168,7 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **Posso migrar uma VM da geração 1 para a geração 2?**  
     Não, você não pode alterar a geração de uma VM depois de criá-la. Se você precisar alternar entre gerações de VM, crie uma nova VM de uma geração diferente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre as [máquinas virtuais de geração 2 no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 

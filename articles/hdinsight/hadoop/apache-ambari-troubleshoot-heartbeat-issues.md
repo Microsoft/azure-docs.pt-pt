@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: 0b20bb5265dd5fa139a691fcb21aaa1795ff352c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 09/11/2019
+ms.openlocfilehash: 6b1c30ab218b47e080935d2959cb3f701806ac68
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735975"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918143"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de pulsação do Apache Ambari no Azure HDInsight
 
@@ -21,7 +21,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 ### <a name="issue"></a>Problema
 
-O agente Ambari tem alta utilização da CPU, o que resulta em alertas da interface do usuário do Ambari que, para alguns nós, a pulsação do agente do Ambari é perdida.
+O agente Ambari tem alta utilização da CPU, o que resulta em alertas da interface do usuário do Ambari que, para alguns nós, a pulsação do agente do Ambari é perdida. O alerta de pulsação perdida geralmente é transitório. 
 
 ### <a name="cause"></a>Causa
 
@@ -84,7 +84,7 @@ Os alertas são causados pelo agente do Ambari não estar em execução.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

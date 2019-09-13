@@ -1,76 +1,76 @@
 ---
 title: Autenticação, Pedidos e Respostas
-description: Autenticar com o AD para utilizar o Key Vault
+description: Autenticar no AD para usar o Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4160d6ce324cf419cd4b9a61b68bb39b0443321c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b4f198d596ddcb475e123c355c38ada784d21d3
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694725"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884009"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
-O Azure Key Vault suporta o formato JSON solicitações e respostas. Pedidos para o Azure Key Vault são direcionados para um através do URL do Azure Key Vault válido que HTTPS com parâmetros de URL e JSON codificados corpos de solicitação e resposta.
+O Azure Key Vault dá suporte a solicitações e respostas formatadas em JSON. As solicitações para os Azure Key Vault são direcionadas para uma URL de Azure Key Vault válida usando HTTPS com alguns parâmetros de URL e corpos de solicitação e resposta codificada em JSON.
 
-Este tópico aborda informações específicas para o serviço Azure Key Vault. Para obter informações gerais sobre como utilizar as interfaces REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
+Este tópico aborda as especificações do serviço de Azure Key Vault. Para obter informações gerais sobre como usar as interfaces REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
 
 ## <a name="request-url"></a>URL do Pedido  
- Operações de gestão de chaves utilizam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes utilizam HTTP POST. Os clientes que não é possível suportar a verbos HTTP específicos também podem utilizar o HTTP POST com o cabeçalho de pedido de HTTP X para especificar o verbo pretendido; pedidos que normalmente não requerem um corpo devem incluir um corpo vazio ao utilizar o HTTP POST, por exemplo, quando a utilização do POST, em vez de eliminar.  
+ As operações de gerenciamento de chaves usam HTTP DELETE, GET, PATCH, PUT e operações HTTP POST e criptográfica em relação aos objetos de chave existentes usam HTTP POST. Os clientes que não dão suporte a verbos HTTP específicos também podem usar HTTP POST usando o cabeçalho X-HTTP-REQUEST para especificar o verbo pretendido; as solicitações que normalmente não exigem um corpo devem incluir um corpo vazio ao usar HTTP POST, por exemplo, ao usar POST em vez de DELETE.  
 
- Para trabalhar com objetos no Azure Key Vault, seguem URLs de exemplo:  
+ Para trabalhar com objetos no Azure Key Vault, veja a seguir as URLs de exemplo:  
 
-- Para criar uma chave chamada TESTKEY em utilização um cofre de chaves- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Para criar uma chave chamada TESTKEY em um Key Vault use-`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Para importar uma chave chamada IMPORTEDKEY numa utilização do Cofre de chaves- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Para importar uma chave chamada IMPORTEDKEY para um Key Vault use-`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- Para obter um segredo chamado MYSECRET em utilização um cofre de chaves- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Para obter um segredo chamado MySecret em um Key Vault use-`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- Para inscrever-se um resumo com uma chave chamada TESTKEY em utilização um cofre de chaves- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Para assinar um resumo usando uma chave chamada TESTKEY em um Key Vault use-`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  A autoridade para um pedido para um cofre de chaves é sempre da seguinte forma,  `https://{keyvault-name}.vault.azure.net/`  
+  A autoridade de uma solicitação para uma Key Vault é sempre a seguinte:`https://{keyvault-name}.vault.azure.net/`  
 
-  As chaves são sempre armazenadas no caminho /keys, segredos sempre são armazenados no caminho /secrets.  
+  As chaves são sempre armazenadas no caminho/Keys, os segredos são sempre armazenados no caminho/Secrets.  
 
 ## <a name="api-version"></a>Versão da API  
- O serviço de Cofre de chaves do Azure suporta o controlo de versões de protocolo para proporcionar compatibilidade com clientes de nível inferior, embora nem todos os recursos estarão disponíveis para esses clientes. Os clientes têm de utilizar o `api-version` consultar o parâmetro de cadeia de caracteres para especificar a versão do protocolo que eles oferecem suporte à medida que não têm predefinições.  
+ O serviço de Azure Key Vault dá suporte ao controle de versão de protocolo para fornecer compatibilidade com clientes de nível inferior, embora nem todos os recursos estejam disponíveis para esses clientes. Os clientes devem usar `api-version` o parâmetro de cadeia de caracteres de consulta para especificar a versão do protocolo que eles suportam, pois não há nenhum padrão.  
 
- As versões de protocolo do Azure Key Vault, siga uma data de numeração esquema usando um {YYYY}. {MM}. Formato de {DD}.  
+ As versões do protocolo Azure Key Vault seguem um esquema de numeração de data usando um {YYYY}. {MM}. Formato {DD}.  
 
 ## <a name="request-body"></a>Corpo do Pedido  
- De acordo com a especificação de HTTP, operações de GET não tem de ter um corpo de pedido e operações POST e PUT tem de ter um corpo de pedido. O corpo em operações de eliminação é opcional no HTTP.  
+ De acordo com a especificação HTTP, as operações GET não devem ter um corpo de solicitação, e as operações POST e PUT devem ter um corpo de solicitação. O corpo em operações de exclusão é opcional em HTTP.  
 
- Salvo indicação em contrário na descrição da operação, o tipo de conteúdo de corpo de pedido tem de ser application/json e tem de conter um compatível de objeto JSON serializado para o tipo de conteúdo.  
+ Salvo indicação em contrário, na descrição da operação, o tipo de conteúdo do corpo da solicitação deve ser Application/JSON e deve conter um objeto JSON serializado em conformidade com o tipo de conteúdo.  
 
- Salvo indicação em contrário na descrição da operação, o cabeçalho de pedido Accept tem de conter o tipo de suporte de dados de aplicação/json.  
+ Salvo indicação em contrário, na descrição da operação, o cabeçalho da solicitação Accept deve conter o tipo de mídia Application/JSON.  
 
-## <a name="response-body"></a>Corpo da resposta  
- Salvo indicação em contrário na descrição da operação, o tipo de conteúdo de corpo de resposta de operações com êxito ou falhadas será application/json e contém informações de erro detalhadas.  
+## <a name="response-body"></a>Corpo da Resposta  
+ Salvo indicação em contrário, na descrição da operação, o tipo de conteúdo do corpo da resposta de operações bem-sucedidas e com falha será Application/JSON e conterá informações de erro detalhadas.  
 
-## <a name="using-http-post"></a>Utilizando o HTTP POST  
- Alguns clientes talvez não consiga utilizam determinados verbos HTTP, como o PATCH ou DELETE. O Azure Key Vault suporta HTTP POST como uma alternativa para estes clientes desde que o cliente também inclui o cabeçalho "X-HTTP-METHOD" para o verbo específico, o HTTP original. Suporte para HTTP POST será mencionado para cada uma das API definida neste documento.  
+## <a name="using-http-post"></a>Usando HTTP POST  
+ Alguns clientes podem não ser capazes de usar determinados verbos HTTP, como PATCH ou DELETE. O Azure Key Vault dá suporte a HTTP POST como uma alternativa para esses clientes, desde que o cliente também inclua o cabeçalho "X-HTTP-METHOD" para especificar o verbo HTTP original. O suporte para HTTP POST é observado para cada API definida neste documento.  
 
 ## <a name="error-responses"></a>Respostas de erro  
- Tratamento de erros irá utilizar códigos de estado HTTP. Resultados de comuns são:  
+ O tratamento de erros usará códigos de status HTTP. Os resultados típicos são:  
 
-- 2xx – êxito: Utilizado para operação normal. O corpo da resposta irá conter o resultado esperado  
+- 2xx – êxito: Usado para operação normal. O corpo da resposta conterá o resultado esperado  
 
-- 3xx – redirecionamento: O 304 "Não modificado" podem ser devolvido para satisfazer um GET condicional. Outros códigos 3xx podem ser utilizados no futuro para indicar as alterações DNS e o caminho.  
+- 3xx – redirecionamento: O 304 "não modificado" pode ser retornado para atender a um GET condicional. Outros códigos 3xx podem ser usados no futuro para indicar alterações de DNS e de caminho.  
 
-- 4xx – erro do cliente: Utilizado para pedidos incorretos, chaves em falta, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta irá conter a explicação de erro detalhadas.  
+- 4xx – erro do cliente: Usado para solicitações inválidas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta conterá uma explicação detalhada do erro.  
 
-- 5XX – erro de servidor: Utilizado para erros de servidor interno. O corpo da resposta irá conter informações de erro resumido.  
+- 5xx – Erro do servidor: Usado para erros de servidor interno. O corpo da resposta conterá informações de erro resumidas.  
 
-  O sistema foi concebido para funcionar por trás de uma firewall ou proxy. Por conseguinte, um cliente pode receber outros códigos de erro.  
+  O sistema foi projetado para trabalhar atrás de um proxy ou firewall. Portanto, um cliente pode receber outros códigos de erro.  
 
-  O Azure Key Vault também retorna informações de erro no corpo da resposta quando ocorrer um problema. O corpo da resposta é o formato JSON e assume a forma:  
+  Azure Key Vault também retorna informações de erro no corpo da resposta quando ocorre um problema. O corpo da resposta é formatado em JSON e assume o formato:  
 
 ```  
 
@@ -87,12 +87,12 @@ Este tópico aborda informações específicas para o serviço Azure Key Vault. 
 
 ```  
 
-## <a name="authentication"></a>Autenticação  
- Todos os pedidos para o Azure Key Vault tem de ser autenticado. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos com OAuth2 [[especificação RFC6749](https://tools.ietf.org/html/rfc6749)]. 
+## <a name="authentication"></a>Authentication  
+ Todas as solicitações para Azure Key Vault devem ser autenticadas. O Azure Key Vault dá suporte a tokens de acesso Azure Active Directory que podem ser obtidos usando OAuth2 [[especificação rfc6749](https://tools.ietf.org/html/rfc6749)]. 
  
- Para obter mais informações sobre a registar a aplicação e da autenticação a utilizar o Azure Key Vault, consulte [registar a sua aplicação de cliente com o Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ Para obter mais informações sobre como registrar seu aplicativo e autenticar para usar Azure Key Vault, consulte [registrar seu aplicativo cliente com o Azure ad](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
- Tokens de acesso têm de ser enviados para o serviço usando o cabeçalho de autorização de HTTP:  
+ Tokens de acesso devem ser enviados para o serviço usando o cabeçalho de autorização HTTP:  
 
 ```  
 PUT /keys/MYKEY?api-version=<api_version>  HTTP/1.1  
@@ -100,7 +100,7 @@ Authorization: Bearer <access_token>
 
 ```  
 
- Quando não é fornecido um token de acesso, ou quando um token não é aceite pelo serviço, um erro de HTTP 401 será retornado ao cliente e irá incluir o cabeçalho WWW-Authenticate, por exemplo:  
+ Quando um token de acesso não é fornecido ou quando um token não é aceito pelo serviço, um erro HTTP 401 será retornado ao cliente e incluirá o cabeçalho WWW-Authenticate, por exemplo:  
 
 ```  
 401 Not Authorized  
@@ -110,9 +110,9 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
  Os parâmetros no cabeçalho WWW-Authenticate são:  
 
--   Autorização: O endereço do serviço de autorização de OAuth2 que pode ser utilizado para obter um token de acesso para o pedido.  
+-   Nesse O endereço do serviço de autorização OAuth2 que pode ser usado para obter um token de acesso para a solicitação.  
 
--   recurso: O nome do recurso a utilizar no pedido de autorização.  
+-   Kit O nome do recurso a ser usado na solicitação de autorização.  
 
 ## <a name="see-also"></a>Consultar Também  
  [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

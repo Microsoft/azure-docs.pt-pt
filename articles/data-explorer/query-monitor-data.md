@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8e61f52282bcbc62a3eb069272cd7c1f3e329d3b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43d91bff6b8b67e79a9549c1524f918166c9adc4
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172694"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934000"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consultar dados em Azure Monitor usando o Data Explorer do Azure (versão prévia)
 
@@ -107,7 +107,7 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 ![Consulta cruzada do proxy de Data Explorer do Azure](media/adx-proxy/cross-query-adx-proxy.png)
 
-Usar o [ `join` operador](/azure/kusto/query/joinoperator), em vez de Union, pode exigir uma dica para executá-lo em um cluster nativo do Azure data Explorer (e não no proxy). 
+Usar o [ `join` operador](/azure/kusto/query/joinoperator), em vez de Union, pode exigir [`hint`](/azure/kusto/query/joinoperator#join-hints) um para executá-lo em um cluster nativo do Azure data Explorer (e não no proxy). 
 
 ## <a name="additional-syntax-examples"></a>Exemplos de sintaxe adicionais
 
@@ -120,6 +120,6 @@ As seguintes opções de sintaxe estão disponíveis ao chamar os clusters de Ap
 |Cluster que contém todos os aplicativos/espaços de trabalho na assinatura e que são membros deste grupo de recursos    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
 |Cluster que contém apenas o recurso definido nesta assinatura      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Escrever consultas](write-queries.md)

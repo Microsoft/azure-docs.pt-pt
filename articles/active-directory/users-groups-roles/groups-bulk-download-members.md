@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f00a2c7425ec15ec29a5d3b40c7e2b41750e05
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
-ms.translationtype: HT
+ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910900"
+ms.locfileid: "70914797"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Baixar em massa membros de um grupo (versão prévia) no Azure Active Directory
 
@@ -29,7 +29,7 @@ Usando o portal do Azure Active Directory (AD do Azure), você pode fazer o down
 
 ## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
 
-Cada atividade em massa para criar uma lista de membros do grupo pode ser executada por até uma hora. Isso permite a criação e o download de uma lista de pelo menos 500.000 membros.
+Cada atividade em massa para baixar uma lista de membros do grupo pode ser executada por até uma hora. Isso permite que você baixe uma lista de pelo menos 500.000 membros.
 
 ## <a name="to-bulk-download-group-membership"></a>Para baixar em massa a associação ao grupo
 

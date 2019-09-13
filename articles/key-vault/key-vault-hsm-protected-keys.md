@@ -2,19 +2,19 @@
 title: Como gerar e transferir chaves protegidas por HSM para Azure Key Vault Azure Key Vault | Microsoft Docs
 description: Use este artigo para ajudá-lo a planejar, gerar e transferir suas próprias chaves protegidas por HSM para usar com o Azure Key Vault. Também conhecido como BYOK ou traga sua própria chave.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: barclayn
-ms.openlocfilehash: 16aebf2bb2e0c4d495aa8e3a45d3398a9aa9b9ed
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.author: mbaldwin
+ms.openlocfilehash: 3cd8cd0b72f1b3ccea557ce0e12394081329dc5b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575048"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883298"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves protegidas por HSM para Azure Key Vault
 
@@ -64,11 +64,11 @@ Consulte a tabela a seguir para obter uma lista de pré-requisitos para BYOK (tr
 
 Você usará as cinco etapas a seguir para gerar e transferir sua chave para um Azure Key Vault HSM:
 
-* [Etapa 1: Prepare sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation)
-* [Etapa 2: Preparar sua estação de trabalho desconectada](#step-2-prepare-your-disconnected-workstation)
-* [Etapa 3: Gerar sua chave](#step-3-generate-your-key)
-* [Etapa 4: Preparar sua chave para transferência](#step-4-prepare-your-key-for-transfer)
-* [Etapa 5: Transferir sua chave para Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
+* [Passo 1: Prepare sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation)
+* [Passo 2: Preparar sua estação de trabalho desconectada](#step-2-prepare-your-disconnected-workstation)
+* [Passo 3: Gerar sua chave](#step-3-generate-your-key)
+* [Passo 4: Preparar sua chave para transferência](#step-4-prepare-your-key-for-transfer)
+* [Passo 5: Transferir sua chave para Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
 ## <a name="step-1-prepare-your-internet-connected-workstation"></a>Passo 1: Prepare sua estação de trabalho conectada à Internet
 

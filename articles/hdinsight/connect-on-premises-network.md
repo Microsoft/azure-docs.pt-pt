@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404539"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918552"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -67,11 +67,11 @@ Essas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma m
   
 2. No menu à esquerda, navegue até **+ criar um recurso** > **computação** > **Ubuntu Server 18, 4 LTS**.
 
-    ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. Na guia __noções básicas__ , insira as seguintes informações:  
   
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Subscription |Selecione sua assinatura apropriada.|
     |Resource group |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
@@ -84,13 +84,13 @@ Essas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma m
     |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha para o **tipo de autenticação**.  Insira o valor apropriado.|
     |Portas de entrada públicas|Selecione **permitir portas selecionadas**. Em seguida, selecione **SSH (22)** na lista suspensa **selecionar portas de entrada** .|
 
-    ![Configuração básica da máquina virtual](./media/connect-on-premises-network/vm-basics.png)
+    ![Configuração básica da máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Deixe outras entradas com os valores padrão e, em seguida, selecione a guia **rede** .
 
 4. Na guia **rede** , insira as seguintes informações:
 
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Rede virtual | Selecione a rede virtual que você criou anteriormente.|
     |Subnet | Selecione a sub-rede padrão para a rede virtual que você criou anteriormente. __Não__ selecione a sub-rede usada pelo gateway de VPN.|
@@ -109,7 +109,7 @@ Depois que a máquina virtual tiver sido criada, você receberá uma notificaç�
 
 2. Observe os valores para **endereço IP público/rótulo de nome DNS** e **endereço IP privado** para uso posterior.
 
-   ![Endereços IP públicos e privados](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Endereços IP públicos e privados](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Instalar e configurar o BIND (software DNS)
 
@@ -247,7 +247,7 @@ Para configurar a rede virtual para usar o servidor DNS personalizado em vez do 
 
 Na seção anterior, você configurou o servidor DNS personalizado para encaminhar solicitações para o servidor DNS local. Em seguida, você deve configurar o servidor DNS local para encaminhar solicitações para o servidor DNS personalizado.
 
-Para obter etapas específicas sobre como configurar o servidor DNS, consulte a documentação do software do servidor DNS. Procure as etapas de como configurar um encaminhador __condicional__.
+Para obter etapas específicas sobre como configurar o servidor DNS, consulte a documentação do software do servidor DNS. Procure as etapas de como configurar um __encaminhador condicional__.
 
 Um encaminhamento condicional apenas encaminha solicitações para um sufixo DNS específico. Nesse caso, você deve configurar um encaminhador para o sufixo DNS da rede virtual. As solicitações para esse sufixo devem ser encaminhadas para o endereço IP do servidor DNS personalizado. 
 
@@ -332,7 +332,7 @@ Para se conectar diretamente ao HDInsight por meio da rede virtual, use as segui
     >
     > Por exemplo, o Apache Ambari está ativo apenas em um nó de cabeçalho por vez. Se você tentar acessar o Ambari em um nó de cabeçalho e ele retornar um erro 404, ele será executado no outro nó de cabeçalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre como usar o HDInsight em uma rede virtual, consulte [planejar uma implantação de rede virtual para clusters do Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 

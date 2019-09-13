@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4d314c033df70cf0ea9a6d248b73aaed42aa4020
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882122"
+ms.locfileid: "70917754"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usar a exibição do Ambari hive do Apache com o Apache Hadoop no HDInsight
 
@@ -34,11 +34,11 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
 
 3. Na lista de exibições, selecione __exibição do hive__.
 
-    ![A exibição do hive selecionada](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![A exibição do hive selecionada](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     A página de exibição do hive é semelhante à imagem a seguir:
 
-    ![Imagem da planilha de consulta para a exibição do hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Imagem da planilha de consulta para a exibição do hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. Na guia __consulta__ , Cole as seguintes instruções HiveQL na planilha:
 
@@ -104,7 +104,7 @@ Para exibir a interface do usuário do amTez para a consulta, selecione a guia *
 
 A guia __trabalhos__ exibe um histórico de consultas de Hive.
 
-![Imagem do histórico de trabalhos](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Imagem do histórico de trabalhos](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tabelas de banco de dados
 
@@ -116,7 +116,7 @@ Você pode usar a guia __tabelas__ para trabalhar com tabelas em um banco de dad
 
 Na guia **consulta** , você pode, opcionalmente, salvar consultas. Depois de salvar uma consulta, você pode reutilizá-la na guia __consultas salvas__ .
 
-![Imagem da guia consultas salvas](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Imagem da guia consultas salvas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > As consultas salvas são armazenadas no armazenamento de cluster padrão. Você pode encontrar as consultas salvas no caminho `/user/<username>/hive/scripts`. Eles são armazenados como arquivos de texto `.hql` sem formatação.

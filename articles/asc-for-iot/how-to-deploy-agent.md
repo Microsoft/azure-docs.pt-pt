@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: ffc6ea447ae90649be0455abbed6245c078e518d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596355"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933649"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecionar e implantar um agente de segurança em seu dispositivo IoT
 
@@ -78,7 +78,7 @@ Responda às seguintes perguntas sobre seus dispositivos IoT para selecionar o a
 
 - Você está usando uma distribuição do Linux com arquitetura x64?
 
-    Você pode usar qualquer tipo de agente. <br>
+    Ambos os tipos de agente podem ser usados. <br>
     [Implante um agente de segurança baseado em C para Linux](how-to-deploy-linux-c.md) e/ou [implante C#um agente de segurança baseado em um para Linux](how-to-deploy-linux-cs.md).
 
 Ambos os tipos de agente oferecem o mesmo conjunto de recursos e oferecem suporte a opções de configuração semelhantes.
@@ -97,10 +97,10 @@ A lista a seguir inclui todas as plataformas com suporte no momento.
 |C#|Ubuntu 18.04    |x64|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Build básico do Windows 10 IoT 17763 |x64|
+|C#|Windows 10 IoT Core, Build 17763    |x64|
 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as opções de configuração, prossiga para o guia de instruções para a configuração do agente. 
 > [!div class="nextstepaction"]

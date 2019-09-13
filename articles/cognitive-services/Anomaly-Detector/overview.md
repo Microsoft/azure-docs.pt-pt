@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 03/26/2019
+ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854782"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934867"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -76,6 +76,11 @@ Após a inscrição:
 * Consulte este artigo [serviço de detecção de anomalias da série temporal na Microsoft](https://arxiv.org/abs/1906.03821) (aceito por KDD 2019) para os algoritmos Sr-CNN de ponta desenvolvidos pela Microsoft.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="join-the-anomaly-detector-community"></a>Participe da Comunidade do detector de anomalias
+
+* Junte-se ao [grupo de consultores do detector de anomalias no Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
+* Consulte o [conteúdo gerado pelo usuário](user-generated-content.md) selecionado
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,15 +8,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
-ms.author: sstein
+ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 09/04/2019
+ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173436"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934209"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados SQL do Azure
 
@@ -72,7 +72,8 @@ Para criar uma cópia de banco de dados, você precisará estar nas seguintes fu
 - SQL Server função colaborador ou
 - Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
 
-   Microsoft. SQL/servidores/bancos de dados/ler Microsoft. SQL/servidores/bancos de dados/gravar
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes funções
 
@@ -80,7 +81,23 @@ Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes
 - SQL Server função colaborador ou
 - Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
 
-   Microsoft. SQL/servidores/bancos de dados/ler Microsoft. SQL/servidores/bancos de dados/gravar
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
+   
+Para gerenciar a cópia de banco de dados usando portal do Azure, você também precisará das seguintes permissões:
+
+&nbsp;&nbsp; Microsoft.Resources/subscriptions/&nbsp; Resources/Read   
+&nbsp;&nbsp; Microsoft.Resources/subscriptions/&nbsp; Resources/Write   
+&nbsp;&nbsp; Microsoft.Resources/&nbsp; implantações/leitura   
+&nbsp;&nbsp; Microsoft.Resources/&nbsp; Implantations/Write   
+&nbsp;&nbsp; Microsoft.Resources/Implantations&nbsp; /operationstatuses/Read    
+
+Se você quiser ver as operações em implantações no grupo de recursos no portal, operações em vários provedores de recursos, incluindo operações SQL, você precisará dessas funções RBAC adicionais: 
+
+&nbsp;&nbsp; Microsoft.Resources/subscriptions/resourcegroups/Implantations&nbsp; /Operations/Read   
+&nbsp;&nbsp; Microsoft.Resources/subscriptions/resourcegroups/Implantations&nbsp; /operationstatuses/Read
+
+
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copiar um banco de dados usando Transact-SQL
 

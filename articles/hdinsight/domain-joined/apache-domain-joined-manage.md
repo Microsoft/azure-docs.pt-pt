@@ -4,16 +4,16 @@ description: Saiba como gerenciar clusters do Azure HDInsight com o Enterprise S
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811018"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918922"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerenciar clusters HDInsight com Enterprise Security Package
 Aprenda os usuários e as funções no Enterprise Security Package do HDInsight (ESP) e como gerenciar clusters ESP.
@@ -34,7 +34,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Ap
    
 3. Você pode ver um cluster vinculado usando o **cluster de lista**de comandos. Agora você pode enviar um script para esse cluster vinculado.
 
-   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster.png "cluster vinculado")
+   ![cluster vinculado](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "cluster vinculado")
 
 4. Você também pode desvincular um cluster ao inserir **o HDInsight: Desvincular um cluster** da paleta de comandos.
 
@@ -60,7 +60,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambar
 
 4. Você também pode desvincular um cluster do **Azure Explorer**.
    
-   ![IntelliJ de cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
+   ![IntelliJ de cluster desvinculado](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Utilizar o Eclipse para ligar a um cluster associado a um domínio
 
@@ -71,7 +71,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambar
 
 2. Insira o **nome do cluster**, o nome de **usuário** e a **senha**e clique no botão OK para vincular o cluster. Opcionalmente, insira a conta de armazenamento, a chave de armazenamento e, em seguida, selecione contêiner de armazenamento para o Gerenciador de armazenamento funcionar no modo de exibição de árvore à esquerda
    
-   ![caixa de diálogo Vincular cluster Eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![caixa de diálogo Vincular cluster Eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > Usamos a chave de armazenamento vinculada, o nome de usuário e a senha se o cluster fizer logon na assinatura do Azure e vinculado a um cluster.
@@ -83,7 +83,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambar
 
 4. Você também pode desvincular um cluster do **Azure Explorer**.
    
-   ![eclipse do cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
+   ![eclipse do cluster desvinculado](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Acesse os clusters com Enterprise Security Package.
 

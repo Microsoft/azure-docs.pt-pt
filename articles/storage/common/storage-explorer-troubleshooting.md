@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934977"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935349"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas Gerenciador de Armazenamento do Azure
 
@@ -30,7 +30,7 @@ Se você estiver tendo problemas para acessar os recursos de armazenamento usand
 
 Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
 
-#### <a name="read-listget-storage-accounts"></a>Leitura Listar/Obter Conta(s) de Armazenamento
+#### <a name="read-listget-storage-accounts"></a>Leitura Listar/obter conta (s) de armazenamento
 
 Você deve ter permissão para listar contas de armazenamento. Você pode obter essa permissão ao receber a função de "leitor".
 
@@ -71,7 +71,7 @@ Os erros de certificado são causados por uma das duas situações a seguir:
 Quando Gerenciador de Armazenamento vê um certificado autoassinado ou não confiável, não é mais possível saber se a mensagem HTTPS recebida foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá instruir Gerenciador de Armazenamento a confiar seguindo as seguintes etapas:
 
 1. Obter uma cópia de X. 509 (. cer) codificada em base 64 do certificado
-2. Clique em **Editar** > **certificados** > SSL**importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer
+2. Clique em Editar **certificados SSL** → → **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer
 
 Esse problema também pode ser o resultado de vários certificados (raiz e intermediária). Ambos os certificados devem ser adicionados para superar o erro.
 
@@ -86,7 +86,7 @@ Se não tiver certeza de onde o certificado é proveniente, você pode tentar es
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procure certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, procure em qualquer lugar que `("s:")` o assunto e `("i:")` o emissor sejam os mesmos.
 5. Quando você encontrar todos os certificados autoassinados, para cada um, copie e cole tudo de e incluindo **-----iniciar-----de certificado** para **----------de certificado final** para um novo arquivo. cer.
-6. Abra Gerenciador de armazenamento, clique em **Editar** > **certificados** > SSL**importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
+6. Abra Gerenciador de Armazenamento, clique em Editar **certificados SSL** → → **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
 
 Se você não encontrar certificados autoassinados usando as etapas anteriores, entre em contato conosco por meio da ferramenta de comentários para obter mais ajuda. Você também pode optar por iniciar Gerenciador de armazenamento na linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, Gerenciador de Armazenamento irá ignorar os erros de certificado.
 
@@ -196,7 +196,7 @@ Se você tiver ferramentas de rede, como o Fiddler para Windows, poderá diagnos
 * Verifique o número da porta usado pela sua ferramenta de rede.
 * Insira a URL do host local e o número da porta da ferramenta de rede como configurações de proxy em Gerenciador de Armazenamento. Quando feito corretamente, a ferramenta de rede inicia o log de solicitações de rede feitas por Gerenciador de Armazenamento para pontos de extremidade de serviço e gerenciamento. Por exemplo, insira https://cawablobgrs.blob.core.windows.net/ para o ponto de extremidade de BLOB em um navegador e você receberá uma resposta semelhante à seguinte, que sugere que o recurso existe, embora você não possa acessá-lo.
 
-![exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
+![Exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
 ### <a name="contact-proxy-server-admin"></a>Contatar o administrador do servidor proxy
 
@@ -214,6 +214,58 @@ Se você estiver conectado ao Azure por meio de um proxy, verifique se as config
 Se você receber essa mensagem de erro, é possível que você não tenha as permissões necessárias para obter as chaves para sua conta de armazenamento. Para confirmar se esse é o caso, vá para o portal e localize sua conta de armazenamento. Você pode fazer isso rapidamente clicando com o botão direito do mouse no nó da sua conta de armazenamento e clicando em "abrir no portal". Depois de fazer isso, vá para a folha "chaves de acesso". Se você não tiver permissões para exibir chaves, verá uma página com a mensagem "você não tem acesso". Para contornar esse problema, você pode obter a chave de conta de outra pessoa e anexá-la com nome e chave, ou pode pedir a alguém uma SAS para a conta de armazenamento e usá-la para anexar a conta de armazenamento.
 
 Se você vir as chaves de conta, execute um problema no GitHub para que possamos ajudá-lo a resolver o problema.
+
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Ocorreu um erro ao adicionar uma nova conexão: TypeError: Não é possível ler a propriedade ' version ' de undefined
+
+Se você receber essa mensagem de erro ao tentar adicionar uma conexão personalizada, é possível que os dados de conexão armazenados no Gerenciador de credenciais local estejam corrompidos.
+Para contornar esse problema, você pode tentar excluir as conexões locais corrompidas e, em seguida, adicioná-las novamente.
+
+1. Iniciar Gerenciador de Armazenamento. No menu superior, vá para ajuda → alternar Ferramentas para Desenvolvedores.
+2. Na janela aberta, vá para a guia aplicativo → armazenamento local (lado esquerdo) → file://
+3. Dependendo do tipo de conexão com o qual você está tendo problemas, procure sua chave e copie seu valor para um editor de texto. O valor é uma matriz de seus nomes de conexão personalizados.
+    * Contas de armazenamento
+        * `StorageExplorer_CustomConnections_Accounts_v1`
+    * Contêineres de BLOB
+        * `StorageExplorer_CustomConnections_Blobs_v1`
+        * `StorageExplorer_CustomConnections_Blobs_v2`
+    * Partilhas de Ficheiros
+        * `StorageExplorer_CustomConnections_Files_v1`
+    * Filas
+        * `StorageExplorer_CustomConnections_Queues_v1`
+    * Tabelas
+        * `StorageExplorer_CustomConnections_Tables_v1`
+4. Depois de salvar os nomes de conexão atuais, defina o valor no Ferramentas para Desenvolvedores como `[]`.
+
+Se desejar preservar as conexões que não estão corrompidas, você poderá executar as etapas a seguir para localizar as conexões corrompidas. Se você não se lembrar de perder todas as conexões existentes, poderá ignorar as etapas a seguir e seguir as instruções específicas da plataforma para limpar os dados de conexão.
+
+1. No editor de texto, adicione novamente cada nome de conexão de volta ao Ferramentas para Desenvolvedores e verifique se a conexão ainda está funcionando.
+2. Se uma conexão estiver funcionando corretamente, ela não estará corrompida e você poderá deixá-la lá com segurança. Se uma conexão não estiver funcionando, remova seu valor da Ferramentas para Desenvolvedores e registre-a para que você possa adicioná-la novamente mais tarde.
+3. Repita até que você tenha examinado todas as suas conexões.
+
+Depois de passar por todas as suas conexões, para todos os nomes de conexões que não são adicionados de volta, você precisa limpar seus dados corrompidos (se houver) e adicioná-los de volta por meio de etapas normais usando Gerenciador de Armazenamento.
+
+# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+
+1. Abra "Gerenciador de credenciais" abrindo o menu iniciar e procure "Gerenciador de credenciais".
+2. Na janela aberta, vá para "credenciais do Windows".
+3. Em ' credenciais genéricas ', procure entradas com a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo `StorageExplorer_CustomConnections_Accounts_v1/account1`,).
+4. Remova essas entradas e adicione as conexões de volta.
+
+# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+
+1. Abra o Spotlight (barra de espaço de comando) e pesquise por ' acesso ao conjunto de chaves '.
+2. Procure entradas com a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Exclua essas entradas e adicione as conexões de volta.
+
+# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+
+O gerenciamento de credenciais locais varia dependendo da distribuição do Linux. Se sua distribuição do Linux não fornecer uma ferramenta interna de GUI para o gerenciamento de credenciais local, você poderá instalar uma ferramenta de terceiros para gerenciar suas credenciais locais. Por exemplo, você pode usar o [macavalo](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta de GUI de software livre para gerenciar as credenciais locais do Linux.
+
+1. Abra sua ferramenta de gerenciamento de credenciais local, localize suas credenciais salvas.
+2. Procure entradas com a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Exclua essas entradas e adicione as conexões de volta.
+
+Se você ainda se deparar com esse erro depois de realizar essas etapas, ou se quiser compartilhar o que considera corrompido as conexões, [abra um problema](https://github.com/microsoft/AzureStorageExplorer/issues) em nossa página do github.
 
 ## <a name="issues-with-sas-url"></a>Problemas com a URL SAS
 
@@ -233,15 +285,15 @@ Se você anexou acidentalmente usando uma URL SAS inválida e não puder desanex
 
 ## <a name="linux-dependencies"></a>Dependências do Linux
 
-<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
+Gerenciador de Armazenamento 1.10.0 e posterior está disponível como um snap do repositório de snap. O snap Gerenciador de Armazenamento instala todas as suas dependências automaticamente e atualiza quando uma nova versão do snap está disponível. Instalar o Gerenciador de Armazenamento snap é o método recomendado de instalação.
 
-Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+Gerenciador de Armazenamento requer o uso de um Gerenciador de senhas, que pode precisar ser conectado manualmente antes que Gerenciador de Armazenamento funcione corretamente. Você pode se conectar Gerenciador de Armazenamento ao Gerenciador de senhas do seu sistema com o seguinte comando:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+Você também pode baixar o aplicativo como um arquivo. tar. gz, mas precisará instalar as dependências manualmente.
 
 > [!IMPORTANT]
 > Gerenciador de Armazenamento conforme fornecido no download. tar. gz só tem suporte para distribuições do Ubuntu. Outras distribuições não foram verificadas e podem exigir pacotes adicionais ou alternativos.
@@ -313,7 +365,7 @@ Se o botão "abrir no Explorer" na portal do Azure não funcionar para você, ve
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se nenhuma das soluções funcionar para você, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Você também pode acessar rapidamente o GitHub usando o botão "relatar problema ao GitHub" no canto inferior esquerdo.
 

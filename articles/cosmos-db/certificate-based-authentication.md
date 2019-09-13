@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9d06cf334f08ba6ec9c47450d21d33733900ebe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 594367db838266a6d11f4fbf3b763b024f8e14d4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356571"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882840"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificado para uma identidade do Azure AD para acessar chaves de uma conta de Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Nesta etapa, você registrará um aplicativo Web de exemplo em sua conta do Azur
 
    * **Nome** – forneça um nome para seu aplicativo, pode ser qualquer nome, como "sampleApp".
    * **Tipos de conta com suporte** – escolha **contas neste diretório organizacional somente (diretório padrão)** para permitir que recursos em seu diretório atual acessem este aplicativo. 
-   * **URL** de redirecionamento – escolha aplicativo do tipo **Web** e forneça uma URL onde seu aplicativo está hospedado, podendo ser qualquer URL. Para este exemplo, você pode fornecer uma URL de teste como `https://sampleApp.com` está Ok, mesmo que o aplicativo não exista.
+   * **URL de redirecionamento** – escolha aplicativo do tipo **Web** e forneça uma URL onde seu aplicativo está hospedado, podendo ser qualquer URL. Para este exemplo, você pode fornecer uma URL de teste como `https://sampleApp.com` está Ok, mesmo que o aplicativo não exista.
 
    ![Registrando um aplicativo Web de exemplo](./media/certificate-based-authentication/register-sample-web-app.png)
 
@@ -231,6 +231,6 @@ Semelhante à seção anterior, você pode exibir o log de atividades da sua con
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Proteger as chaves Cosmos do Azure usando Azure Key Vault](access-secrets-from-keyvault.md)
+* [Proteger as chaves do Azure Cosmos com o Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Atributos de segurança do Azure Cosmos DB](cosmos-db-security-attributes.md)
+* [Controles de segurança para Azure Cosmos DB](cosmos-db-security-controls.md)

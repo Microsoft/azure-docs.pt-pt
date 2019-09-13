@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 02/23/2019
-ms.openlocfilehash: 809abcf1046a5fe2c351ec56f4efd5bb0a737427
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
-ms.translationtype: HT
+ms.openlocfilehash: 8709d88c4d21a40ac8ebb27e5c1669d8f5fa3555
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910509"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934230"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Camadas de serviço do banco de dados SQL do Azure
 
@@ -34,7 +34,7 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 
 | | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para Empresas |
 |:---:|:---:|:---:|:---:|:---:|
-| **Melhor para** | |  A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | Aplicativos de dados com requisitos de capacidade de dados maiores e a capacidade de dimensionar automaticamente o armazenamento e dimensionar a computação de forma fluida. | Aplicativos OLTP com alta taxa de transação e e/s de latência mais baixa. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
+| **Melhor para** | |  A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | Aplicativos de dados com requisitos de capacidade de dados grandes, a capacidade de dimensionar automaticamente o armazenamento de até 100 TB e dimensionar a computação de forma fluida. | Aplicativos OLTP com alta taxa de transação e e/s de latência mais baixa. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
 |  **Disponível no tipo de recurso:** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados individual | Banco de dados individual/pool elástico/instância gerenciada |
 | **Tamanho da computação**|Banco de dados individual/pool elástico | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
 | | Instância gerida | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
@@ -48,12 +48,17 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 | | Instância gerida  | [24 GB por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | Até 4 TB- [limitado pelo tamanho do armazenamento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **Produtividade de e/s** | Base de dados individual | [500 IOPS por vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | O IOPs efetivo dependerá da carga de trabalho. | [4000 IOPS por vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)|
 | | Instância gerida | [100-250 MB/s e 500-7500 IOPS por arquivo](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [1375 IOPS por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-| **Taxa de transferência de gravação** | Base de dados individual | [1,875 MB/s por vCore (máximo de 30 MB/s](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho. | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| **Taxa de transferência de gravação de log** | Base de dados individual | [1,875 MB/s por vCore (máximo de 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
 | | Instância gerida | [3 MB/s por vCore (máximo de 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [4 MB/s por VCORE (máx. 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-|**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> 99,995% (banco de dados individual com redundância de zona) |
+|**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Únicos**|Todos|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
-|**OLTP na memória** | | N/A | Disponível | N/A |
-|**Réplicas somente leitura internas**| | 0 | 1 | 0 - 4 |
+|**OLTP na memória** | | N/A | N/A | Disponível |
+|**Réplicas somente leitura**| | 0  | 0 - 4 | 1 (interno, incluído no preço) |
+|**Preço/cobrança** | Base de dados individual | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
+|| Instância Gerida | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | N/A | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | 
+|**Modelos de desconto**| | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
+
+Para obter mais informações, consulte as diferenças detalhadas entre as camadas de serviço [em um banco de dados único (VCORE)](sql-database-vcore-resource-limits-single-databases.md), [pools de banco de dados único (VCORE](sql-database-dtu-resource-limits-single-databases.md)), banco de dados [individual (DTU](sql-database-dtu-resource-limits-single-databases.md)), [pools de banco de dados único (DTU)](sql-database-dtu-resource-limits-single-databases.md)e [instância gerenciada](sql-database-managed-instance-resource-limits.md) Pages.
 
 > [!NOTE]
 > Para obter informações sobre a camada de serviço de hiperescala no modelo de compra baseado em vCore, consulte [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [recursos e modelos de compra do banco de dados SQL do Azure](sql-database-purchase-models.md).
@@ -87,7 +92,7 @@ O armazenamento de backups de banco de dados é alocado para dar suporte a recur
 - **PITR**: Os backups de banco de dados individuais são copiados para o [armazenamento com redundância geográfica (ra-grs) de acesso de leitura](../storage/common/storage-designing-ha-apps-with-ragrs.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novos backups são criados. O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações, que são copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção para backups. Você pode configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho do banco de dados é fornecido sem custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups.
 - **LTR**: O banco de dados SQL oferece a opção de configurar a retenção de longo prazo de backups completos por até 10 anos. Se você configurar uma política EPD, esses backups serão armazenados automaticamente no armazenamento RA-GRS, mas você poderá controlar a frequência com que os backups são copiados. Para atender aos diferentes requisitos de conformidade, você pode selecionar períodos de retenção diferentes para backups semanais, mensais e/ou anuais. A configuração escolhida determina a quantidade de armazenamento que será usada para backups EPD. Para estimar o custo do armazenamento EPD, você pode usar a calculadora de preços EPD. Para obter mais informações, consulte [retenção de longo prazo do banco de dados SQL](sql-database-long-term-retention.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter detalhes sobre os tamanhos de computação específicos e os tamanhos de armazenamento disponíveis para um único banco de dados nas camadas de serviço de uso geral e crítico para os negócios, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md).
 - Para obter detalhes sobre os tamanhos de computação e tamanhos de armazenamento específicos disponíveis para pools elásticos nas camadas de serviço de uso geral e crítico para os negócios, consulte [limites de recursos baseados em vCore do banco de dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).

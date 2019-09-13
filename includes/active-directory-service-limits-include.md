@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 421e88374a4ca03311fa77a6568a676aa9ffafa5
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "67148452"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919723"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).
 
@@ -26,7 +26,7 @@ Aqui estão as restrições de utilização e outros limites de serviço do serv
 | Aplicações |No máximo, cem utilizadores podem ser proprietários de uma única aplicação. |
 | Grupos |<ul><li>No máximo, cem utilizadores podem ser proprietários de um único grupo.</li><li>Não existe um limite no número de objetos que podem ser membros de um único grupo.</li><li>Um utilizador pode ser membro de qualquer número de grupos.</li><li>O número de membros de um grupo que pode sincronizar a partir do Active Directory no local para o Azure Active Directory com o Azure AD Connect está limitado a 50 000 membros.</li></ul> |
 | Proxy da aplicação | <ul><li>Um máximo de 500 de transações por segundo por aplicativo de proxy de aplicativo</li><li>Um máximo de 750 transações por segundo para o locatário</li></ul><br/>Uma transação é definida como uma única solicitação HTTP e uma resposta para um recurso exclusivo. Quando limitado, os clientes receberão uma resposta de 429 (muitas solicitações). |
-| Painel de Acesso |<ul><li>Não existe nenhum limite para o número de aplicações apresentado no Painel de Acesso por utilizador. Isto aplica-se aos utilizadores aos quais foram atribuídas licenças para o Azure AD Premium ou o Enterprise Mobility Suite.</li><li>Um máximo de dez mosaicos de aplicação é apresentado no Painel de Acesso para cada utilizador. Este limite aplica-se aos utilizadores aos quais foram atribuídas licenças para as edições Azure AD Gratuito ou Azure AD Básico do Azure Active Directory. Exemplos de mosaicos de aplicação incluem o Box, Salesforce ou Dropbox. Este limite não se aplica às contas de administrador.</li></ul> |
+| Painel de Acesso |<ul><li>Não existe nenhum limite para o número de aplicações apresentado no Painel de Acesso por utilizador. Isto aplica-se aos utilizadores aos quais foram atribuídas licenças para o Azure AD Premium ou o Enterprise Mobility Suite.</li><li>Um máximo de dez mosaicos de aplicação é apresentado no Painel de Acesso para cada utilizador. Esse limite se aplica a usuários que recebem licenças para Azure AD Gratuito plano de licença. Exemplos de mosaicos de aplicação incluem o Box, Salesforce ou Dropbox. Este limite não se aplica às contas de administrador.</li></ul> |
 | Relatórios | Pode ser visto um máximo de 1000 linhas ou transferido em qualquer relatório. Quaisquer dados adicionais são truncados. |
 | Unidades administrativas | Um objeto não pode ser um membro de mais de 30 unidades administrativas. |
 | Funções e permissões de administrador | <ul><li>Um grupo não pode ser adicionado como [proprietário](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Um grupo não pode ser atribuído a uma [função](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>A capacidade dos usuários de ler informações de diretório de outros usuários não pode ser restrita fora do comutador de todo o locatário para desabilitar o acesso de todos os usuários não administradores a todas as informações de diretório (não recomendado). Mais informações sobre as permissões padrão [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pode levar até 15 minutos ou sair/entrar antes que as adições e as revogações de associação de função de administrador entrem em vigor.</li></ul> |

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541925"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915143"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -43,7 +43,7 @@ Ao desenvolver módulos IoT Edge, é importante entender a diferença entre a m�
 
 Este tutorial destina-se a dispositivos Windows que executam o IoT Edge. Os dispositivos Windows IoT Edge usam contêineres do Windows. É recomendável usar o Visual Studio para desenvolver para dispositivos Windows, portanto, esse tutorial será usado. Você também pode usar Visual Studio Code, embora haja diferenças no suporte entre as duas ferramentas.
 
-A tabela a seguir lista os cenários de desenvolvimento com suporte para contêineres do **Windows** no Visual Studio Code e no Visual Studio.
+A tabela a seguir lista os cenários de desenvolvimento com suporte para **contêineres do Windows** no Visual Studio Code e no Visual Studio.
 
 |   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
@@ -142,7 +142,7 @@ A extensão de ferramentas de Azure IoT Edge fornece modelos de projeto para tod
 Depois que o novo projeto for carregado na janela do Visual Studio, Reserve um tempo para se familiarizar com os arquivos que criou: 
 
 * Um projeto IoT Edge chamado **CSharpTutorialApp**.
-    * A pasta modules contém ponteiros para os módulos incluídos no projeto. Nesse caso, deve ser apenas IotEdgeModule1. 
+    * A pasta **modules** contém ponteiros para os módulos incluídos no projeto. Nesse caso, deve ser apenas IotEdgeModule1. 
     * O arquivo **Deployment. Template. JSON** é um modelo para ajudá-lo a criar um manifesto de implantação. Um *manifesto de implantação* é um arquivo que define exatamente quais módulos você deseja que sejam implantados em um dispositivo, como eles devem ser configurados e como eles podem se comunicar entre si e com a nuvem. 
 * Um projeto de módulo IoT Edge chamado **IotEdgeModule1**.
     * O arquivo **Program.cs** contém o código C# de módulo padrão que vem com o modelo de projeto. O módulo padrão usa a entrada de uma origem e a transmite ao Hub IoT. 
@@ -192,15 +192,15 @@ O código C# de exemplo que vem com o modelo de projeto usa a [classe ModuleClie
 
 5. Abra o arquivo **Deployment. Template. JSON** .
 
-6. Localize a Propriedade Modules do $edgeAgent propriedades desejadas. 
+6. Localize a propriedade **modules** do $edgeAgent propriedades desejadas. 
 
-   Deve haver dois módulos listados aqui. O primeiro é **tempSensor**, que é incluído em todos os modelos por padrão para fornecer dados de temperatura simulados que você pode usar para testar seus módulos. O segundo é o módulo **IotEdgeModule1** que você criou como parte deste projeto.
+   Deve haver dois módulos listados aqui. O primeiro é **SimulatedTemperatureSensor**, que é incluído em todos os modelos por padrão para fornecer dados de temperatura simulados que você pode usar para testar seus módulos. O segundo é o módulo **IotEdgeModule1** que você criou como parte deste projeto.
 
    Esta propriedade modules declara quais módulos devem ser incluídos na implantação para seu dispositivo ou dispositivos. 
 
-7. Localize a Propriedade Routes do $edgeHub propriedades desejadas. 
+7. Localize a propriedade **Routes** do $edgeHub propriedades desejadas. 
 
-   Uma das funções se o módulo Hub IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na Propriedade Routes. A primeira rota, **IotEdgeModule1ToIoTHub**, usa um caractere curinga ( **\*** ) para incluir qualquer mensagem proveniente de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IOT. A segunda rota, **sensorToIotEdgeModule1**, pega as mensagens provenientes do módulo tempSensor e as roteia para a fila de entrada *Entrada1* do módulo IotEdgeModule1. 
+   Uma das funções se o módulo Hub IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na Propriedade Routes. A primeira rota, **IotEdgeModule1ToIoTHub**, usa um caractere curinga ( **\*** ) para incluir qualquer mensagem proveniente de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IOT. A segunda rota, **sensorToIotEdgeModule1**, pega as mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *Entrada1* do módulo IotEdgeModule1. 
 
    ![Examinar rotas em Deployment. Template. JSON](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -284,14 +284,14 @@ Você verificou que as imagens de contêiner criadas são armazenadas no registr
 
 4. Expanda os detalhes de seu dispositivo IoT Edge no Cloud Explorer para ver os módulos em seu dispositivo.
 
-5. Use o botão **Atualizar** para atualizar o status do dispositivo para ver que os módulos TempSensor e IotEdgeModule1 são implantados no dispositivo. 
+5. Use o botão **Atualizar** para atualizar o status do dispositivo para ver que os módulos SimulatedTemperatureSensor e IotEdgeModule1 são implantados no dispositivo. 
 
 
    ![Exibir módulos em execução no seu dispositivo IoT Edge](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## <a name="view-messages-from-device"></a>Exibir mensagens do dispositivo
 
-O código IotEdgeModule1 recebe mensagens por meio de sua fila de entrada e as passa por meio de sua fila de saída. O manifesto de implantação declarava rotas que passaram mensagens de tempSensor para IotEdgeModule1 e, em seguida, mensagens encaminhadas do IotEdgeModule1 para o Hub IoT. As ferramentas de Azure IoT Edge para o Visual Studio permitem que você veja mensagens à medida que elas chegam no Hub IoT de seus dispositivos individuais. 
+O código IotEdgeModule1 recebe mensagens por meio de sua fila de entrada e as passa por meio de sua fila de saída. O manifesto de implantação declarava rotas que passaram mensagens de SimulatedTemperatureSensor para IotEdgeModule1 e, em seguida, mensagens encaminhadas do IotEdgeModule1 para o Hub IoT. As ferramentas de Azure IoT Edge para o Visual Studio permitem que você veja mensagens à medida que elas chegam no Hub IoT de seus dispositivos individuais. 
 
 1. No Visual Studio Cloud Explorer, selecione o nome do dispositivo de IoT Edge que você implantou. 
 
@@ -315,7 +315,7 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
    iotedge list
    ```
 
-   Você deve ver quatro módulos: os dois módulos de tempo de execução IoT Edge, tempSensor e IotEdgeModule1. Todos os quatro devem estar listados como em execução.
+   Você deve ver quatro módulos: os dois módulos de tempo de execução IoT Edge, SimulatedTemperatureSensor e IotEdgeModule1. Todos os quatro devem estar listados como em execução.
 
 * Inspecione os logs de um módulo específico:
 
@@ -325,7 +325,7 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
 
    Módulos IoT Edge diferenciam maiúsculas de minúsculas. 
 
-   Os logs de tempSensor e IotEdgeModule1 devem mostrar as mensagens que estão processando. O módulo edgeAgent é responsável por iniciar os outros módulos, de modo que seus logs terão informações sobre a implementação do manifesto de implantação. Se qualquer módulo não estiver listado ou não estiver em execução, os logs do edgeAgent provavelmente terão os erros. O módulo edgeHub é responsável por comunicações entre os módulos e o Hub IoT. Se os módulos estiverem em execução, mas as mensagens não chegarem ao seu hub IoT, os logs do edgeHub provavelmente terão os erros. 
+   Os logs de SimulatedTemperatureSensor e IotEdgeModule1 devem mostrar as mensagens que estão processando. O módulo edgeAgent é responsável por iniciar os outros módulos, de modo que seus logs terão informações sobre a implementação do manifesto de implantação. Se qualquer módulo não estiver listado ou não estiver em execução, os logs do edgeAgent provavelmente terão os erros. O módulo edgeHub é responsável por comunicações entre os módulos e o Hub IoT. Se os módulos estiverem em execução, mas as mensagens não chegarem ao seu hub IoT, os logs do edgeHub provavelmente terão os erros. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

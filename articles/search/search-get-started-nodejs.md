@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido do node. js: Criar, carregar e consultar índices usando Azure Search APIs REST-Azure Search'
+title: 'Início rápido: Criar um índice de pesquisa no node. js usando APIs REST-Azure Search'
 description: Exemplo de Node. js para Azure Search, demonstrando como criar, carregar dados e consultar a partir do JavaScript.
 author: lobrien
 manager: nitinme
@@ -8,16 +8,16 @@ services: search
 ms.service: search
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: b22a6371522674895465afac88e68f556ab09bcb
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656294"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881510"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Início rápido: Criar um índice de Azure Search no node. js
+# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>Início rápido: Criar um índice de Azure Search no node. js usando APIs REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -39,7 +39,7 @@ Os serviços, as ferramentas e os dados a seguir são usados neste guia de iníc
 + Uma estrutura de índice de exemplo e documentos correspondentes são fornecidos neste artigo ou no diretório de [ **início rápido** do repositório](https://github.com/Azure-Samples/azure-search-javascript-samples/).
 + [Crie um serviço de Azure Search](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido.
 
-Aconselhável
+Recomendação:
 
 * [Visual Studio Code](https://code.visualstudio.com).
 * Extensões [melhores](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) e [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) para VSCode.
@@ -453,7 +453,7 @@ Não se esqueça dessa chamada final `run()`para! É o ponto de entrada para seu
 
 Observe que `AzureSearchClient.indexExistsAsync()` e `AzureSearchClient.deleteIndexAsync()` não usam parâmetros. Essas funções chamam `AzureSearchClient.request()` sem `bodyJson` argumento. Em `AzureSearchClient.request()`, `bodyJson === null` `indexExistsAsync()` desde o, a`init` estrutura é definida para ser apenas o verbo http ("Get" para e "Delete" para `deleteIndexAsync()`) e os cabeçalhos, que especificam a chave de solicitação. `true`  
 
-Por outro lado, `AzureSearchClient.createIndexAsync(indexDefinition)` o método assume um parâmetro. A `run` função no `index.js`, passa o conteúdo do arquivo **hotels_quickstart_index. JSON** para o `AzureSearchClient.createIndexAsync(indexDefinition)` método. O `createIndexAsync()` método passa essa definição para `AzureSearchClient.request()`. No `AzureSearchClient.request()`, como `bodyJson === null` `init` `body` agora `false`é, a estrutura inclui não apenas o verbo http ("Put") e os cabeçalhos, mas define o para os dados de definição de índice.
+Por outro lado, `AzureSearchClient.createIndexAsync(indexDefinition)` o _método assume_ um parâmetro. A `run` função no `index.js`, passa o conteúdo do arquivo **hotels_quickstart_index. JSON** para o `AzureSearchClient.createIndexAsync(indexDefinition)` método. O `createIndexAsync()` método passa essa definição para `AzureSearchClient.request()`. No `AzureSearchClient.request()`, como `bodyJson === null` `init` `body` agora `false`é, a estrutura inclui não apenas o verbo http ("Put") e os cabeçalhos, mas define o para os dados de definição de índice.
 
 ### <a name="prepare-and-run-the-sample"></a>Preparar e executar o exemplo
 
@@ -600,7 +600,7 @@ const run = async () => {
 }
 ```
 
-Execute o programa novamente com `node index.js`. Você verá um conjunto de mensagens um pouco diferente daqueles vistos na etapa 1. Desta vez, o índice existe e você deve ver a mensagem sobre como excluí-lo antes que o aplicativo crie o novo índice e posta dados nele. 
+Execute o programa novamente com `node index.js`. Você verá um conjunto de mensagens um pouco diferente daqueles vistos na etapa 1. Desta vez, _o índice existe_ e você deve ver a mensagem sobre como excluí-lo antes que o aplicativo crie o novo índice e posta dados nele. 
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 

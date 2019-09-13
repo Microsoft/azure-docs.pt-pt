@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694294"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916170"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Localização geográfica e manipulação de endereço IP
 
@@ -36,10 +36,9 @@ Esse comportamento é por design para ajudar a evitar a coleta desnecessária de
 
 Embora o comportamento padrão seja minimizar a coleta de dados pessoais, ainda oferecemos a flexibilidade para coletar e armazenar dados de endereço IP. Antes de optar por armazenar quaisquer dados pessoais, como endereços IP, é altamente recomendável verificar se isso não interrompe os requisitos de conformidade ou as normas locais às quais você pode estar sujeito. Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
-## <a name="storing-partial-ip-address-data"></a>Armazenando dados de endereço IP parcial
+## <a name="storing-ip-address-data"></a>Armazenando dados de endereço IP
 
-Para habilitar a coleta de IP parcial e o armazenamento, `DisableIpMasking` a propriedade do componente Application insights deve ser definida como `true`. Essa propriedade pode ser definida por meio de modelos de Azure Resource Manager ou chamando a API REST. Os endereços IP serão registrados com o último octeto zerado.
-
+Para habilitar a coleta e o armazenamento de IP, `DisableIpMasking` a propriedade do componente Application insights deve ser definida como `true`. Essa propriedade pode ser definida por meio de modelos de Azure Resource Manager ou chamando a API REST. 
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
@@ -92,7 +91,7 @@ Se você só precisa modificar o comportamento de um único recurso Application 
 
     Nesse caso, nada de novo está sendo comprado, estamos apenas atualizando a configuração do recurso de Application Insights existente.
 
-6. Depois que a implantação for concluída, novos dados de telemetria serão registrados com os três primeiros octetos preenchidos com o IP e o último octeto zerado.
+6. Depois que a implantação for concluída, novos dados de telemetria serão registrados.
 
     Se você fosse selecionar e editar o modelo novamente, só veria o modelo padrão e não veria sua propriedade recém-adicionada e seu valor associado. Se você não estiver vendo os dados de endereço IP e quiser `"DisableIpMasking": true` confirmar que está definido. Execute o PowerShell a seguir: (Substitua `Fabrikam-dev` pelo nome do grupo de recursos e do recurso apropriado.)
     
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicializador de telemetria
 
-Se você precisar registrar o endereço IP inteiro em vez de apenas os três primeiros octetos, poderá usar um inicializador de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar o endereço IP para um campo personalizado que não será mascarado.
+Se precisar de uma alternativa mais flexível do `DisableIpMasking` que registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 

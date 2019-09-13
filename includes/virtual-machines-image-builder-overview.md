@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c881c95fb860befbc978aba5a6c73375dce235fe
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166763"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919726"
 ---
 As imagens de VM (máquina virtual) padronizadas permitem que as organizações migrem para a nuvem e garantam a consistência nas implantações. As imagens normalmente incluem configurações predefinidas de segurança e configuração e software necessário. Configurar seu próprio pipeline de geração de imagens requer tempo, infraestrutura e configuração, mas com o construtor de imagem de VM do Azure, basta fornecer uma configuração simples que descreva sua imagem, enviá-la ao serviço, e a imagem seja criada e distribuída.
  
@@ -47,7 +47,7 @@ O AIB dará suporte a imagens do sistema operacional base do Azure Marketplace:
 - Ubuntu 16.04
 - RHEL 7,6
 - CentOS 7,6
-- Windows 10 RS5 enterprize/Professional/Enterprise para área de trabalho virtual (EVD) 
+- Windows 10 RS5 Enterprise/Professional/Enterprise para área de trabalho virtual (EVD) 
 - Windows 2016
 - Windows 2019
 
@@ -104,7 +104,7 @@ O Image Builder cria uma VM usando um tamanho de VM D1v2 e o armazenamento e a r
  
 O construtor de imagens do Azure distribuirá a imagem para as regiões escolhidas, o que pode incorrer em encargos de saída de rede.
  
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
  
 Para experimentar o construtor de imagens do Azure, consulte os artigos para criar imagens do [Linux](../articles/virtual-machines/linux/image-builder.md) ou do [Windows](../articles/virtual-machines/windows/image-builder.md) .
  

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9543e67d0f98836f760ac840fa12ec5718da037e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086049"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932977"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são Microsoft Flow, aplicativos lógicos, funções e trabalhos Web?
 
@@ -33,7 +33,7 @@ Todos estes serviços podem resolver problemas de integração e automatizar pro
 
 Os aplicativos Microsoft Flow e lógicos são os serviços de integração do *Designer primeiro* que podem criar fluxos de trabalho. Ambos os serviços integram-se com diversas aplicações empresariais e SaaS. 
 
-Microsoft Flow é criado sobre os aplicativos lógicos. Eles compartilham o mesmo designer de fluxo de trabalho [](../connectors/apis-list.md)e os mesmos conectores. 
+Microsoft Flow é criado sobre os aplicativos lógicos. Eles compartilham o mesmo designer de fluxo de trabalho e os mesmos [conectores](../connectors/apis-list.md). 
 
 Microsoft Flow capacita qualquer operador do Office a executar integrações simples (por exemplo, um processo de aprovação em uma biblioteca de documentos do SharePoint) sem passar pelos desenvolvedores ou por ele. Os aplicativos lógicos também podem habilitar integrações avançadas (por exemplo, processos B2B) em que as práticas de segurança e DevOps do Azure de nível empresarial são necessárias. É normal um fluxo de trabalho do negócio se tornar cada vez mais complexo ao longo do tempo. Da mesma forma, você pode começar com um fluxo primeiro e, em seguida, convertê-lo em um aplicativo lógico, conforme necessário.
 
@@ -52,7 +52,7 @@ A tabela a seguir ajuda a determinar se Microsoft Flow ou aplicativos lógicos s
 
 O Functions e o Logic Apps são serviços do Azure que permitem cargas de trabalho sem servidor. Azure Functions é um serviço de computação sem servidor, enquanto os aplicativos lógicos do Azure fornecem fluxos de trabalho sem servidor. Ambos podem criar *orquestrações*complexas. Uma orquestração é uma coleção de funções ou passos, chamados *ações* no Logic Apps, que são executados para cumprir tarefas complexas. Por exemplo, para processar um lote de pedidos, você pode executar muitas instâncias de uma função em paralelo, aguardar até que todas as instâncias sejam concluídas e, em seguida, executar uma função que computa um resultado na agregação.
 
-Nas Funções do Azure, vai desenvolver orquestrações ao escrever código e utilizar a [extensão Durable Functions](durable/durable-functions-concepts.md). Para o Logic Apps, crie orquestrações ao utilizar um GUI ou editar os ficheiros de configuração.
+Nas Funções do Azure, vai desenvolver orquestrações ao escrever código e utilizar a [extensão Durable Functions](durable/durable-functions-overview.md). Para o Logic Apps, crie orquestrações ao utilizar um GUI ou editar os ficheiros de configuração.
 
 Pode combinar serviços ao criar uma orquestração, chamar funções de aplicações lógicas e chamar aplicações lógicas de funções. Selecione como criar cada orquestração com base nas capacidades dos serviços ou nas suas preferências pessoais. A seguinte tabela lista algumas das principais diferenças entre estes serviços:
  
@@ -73,7 +73,7 @@ Tal como as Funções do Azure, o Serviço de Aplicações do Azure WebJobs com 
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs e o SDK do WebJobs
 
-Você pode usar o recurso webjobs do serviço de aplicativo para executar um script ou código no contexto de um aplicativo Web do serviço de aplicativo. O *SDK do WebJobs* é uma arquitetura concebida para o WebJobs que simplifica o código que escreveu para responder a eventos em serviços do Azure. Por exemplo, você pode responder à criação de um blob de imagem no armazenamento do Azure criando uma imagem em miniatura. O SDK do WebJobs é executado como uma aplicação da consola .NET, a qual pode implementar num WebJob. 
+Você pode usar o recurso *webjobs* do serviço de aplicativo para executar um script ou código no contexto de um aplicativo Web do serviço de aplicativo. O *SDK do WebJobs* é uma arquitetura concebida para o WebJobs que simplifica o código que escreveu para responder a eventos em serviços do Azure. Por exemplo, você pode responder à criação de um blob de imagem no armazenamento do Azure criando uma imagem em miniatura. O SDK do WebJobs é executado como uma aplicação da consola .NET, a qual pode implementar num WebJob. 
 
 O WebJobs e o SDK do WebJobs funcionam melhor em conjunto, mas pode utilizar o WebJobs sem o SDK do WebJobs e vice-versa. Um WebJob pode executar qualquer programa ou script que execute na sandbox do Serviço de Aplicações. Uma aplicação de consola do SDK do WebJobs pode ser executada em qualquer local onde as aplicações de consolas se executam, como nos servidores no local.
 
@@ -123,7 +123,7 @@ Você pode obter mais informações sobre o Integration Services usando os segui
 * [Webcast ao vivo de aplicativos lógicos](https://aka.ms/logicappslive)
 * [Microsoft Flow perguntas frequentes](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Comece por criar o seu primeiro fluxo, aplicação lógica ou aplicação de funções. Selecione qualquer um dos seguintes links:
 

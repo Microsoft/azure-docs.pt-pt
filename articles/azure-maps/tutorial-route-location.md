@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd75ca1fbad358e80a2c040b5ead8c50611489e2
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 52355a8896f4891e99d07e2b4106cede77a1f8df
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478880"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916214"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -27,7 +27,7 @@ Este tutorial mostra como utilizar a sua conta do Azure Maps e o SDK do Route Se
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar, siga os passos do tutorial anterior para [criar a sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e [obter a chave de subscrição para a sua conta](./tutorial-search-location.md#getkey).
+Antes de prosseguir, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura de conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
 
 <a id="getcoordinates"></a>
 
@@ -164,7 +164,7 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
     });
     ```
 
-    Esse código cria dois [objetos de ponto geojson](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos inicial e final da rota e adiciona os pontos à fonte de código. É adicionada uma propriedade `title` e `icon` a cada ponto. O último bloco define o modo de exibição de câmera usando as informações de latitude e longitude dos pontos inicial e final, usando a [](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) Propriedade setcamera do mapa.
+    Esse código cria dois [objetos de ponto geojson](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos inicial e final da rota e adiciona os pontos à fonte de código. É adicionada uma propriedade `title` e `icon` a cada ponto. O último bloco define o modo de exibição de câmera usando as informações de latitude e longitude dos pontos inicial e final, usando a propriedade [setcamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Agora o mapa é centralizado em Seattle e você pode ver o pino azul marcando o ponto de partida e o pino azul arredondado marcando o ponto de conclusão.
 
@@ -209,7 +209,7 @@ Esta seção mostra como usar a API do serviço de roteiro do Azure Maps para lo
 
     ![Route Service e Controlo de Mapas do Azure](./media/tutorial-route-location/map-route.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

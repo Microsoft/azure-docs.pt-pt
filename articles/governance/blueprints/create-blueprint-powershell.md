@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bfd2d1215e7673f7ff73a0c875973e45362ce6b0
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d2069819203e821b42ea2f70e38f27b49053639e
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231903"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910045"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início rápido: Definir e atribuir um Azure Blueprint com o PowerShell
 
@@ -28,6 +28,10 @@ Aprender a criar e atribuir esquemas permite a definição de padrões comuns pa
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se ele ainda não estiver instalado, siga as instruções em [Adicionar o módulo AZ. Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **AZ. Blueprint** da galeria do PowerShell.
+
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
 O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
@@ -35,7 +39,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 > [!NOTE]
 > Ao usar o PowerShell, o objeto _Blueprint_ é criado primeiro. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
 
-1. Crie o objeto _esquema_ inicial. O parâmetro blueprintfile usa um arquivo JSON que inclui propriedades sobre o plano gráfico, todos os grupos de recursos a serem criados e todos os parâmetros de nível Blueprint. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
+1. Crie o objeto _esquema_ inicial. O parâmetro **blueprintfile** usa um arquivo JSON que inclui propriedades sobre o plano gráfico, todos os grupos de recursos a serem criados e todos os parâmetros de nível Blueprint. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
    - Arquivo JSON-Blueprint. JSON
 
@@ -110,7 +114,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      > Use o FileName _Blueprint. JSON_ ao criar suas definições de plantas programaticamente.
      > Esse nome de arquivo é usado ao chamar [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
 
-     O objeto Blueprint é criado na assinatura padrão por padrão. Para especificar o grupo de gerenciamento, use o parâmetro **ManagementGroupId**. Para especificar a assinatura, use oparâmetro SubscriptionId.
+     O objeto Blueprint é criado na assinatura padrão por padrão. Para especificar o grupo de gerenciamento, use o parâmetro **ManagementGroupId**. Para especificar a assinatura, use o parâmetro **SubscriptionId**.
 
 1. Adicione a atribuição de função no momento da subscrição. O **artefatofile** define o _tipo_ de artefato, as propriedades se alinham ao identificador de definição de função e as identidades de entidade são passadas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo usa a função interna _colaborador_ com um GUID de `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
@@ -397,7 +401,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](./concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).

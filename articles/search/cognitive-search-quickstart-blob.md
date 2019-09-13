@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um índice aprimorado de ia no portal do Azure-Azure Search'
+title: 'Início rápido: Aprenda a aprimoramento de AI de pesquisa cognitiva em portal do Azure Azure Search'
 description: Capacidade de extração de dados, linguagem natural e processamento de imagem em um Azure Search Portal de indexação, usando o portal do Azure e os dados de exemplo.
 manager: nitinme
 author: HeidiSteen
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: 72546e6327fc3286455482943dcaedbd5a8e2943
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744740"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881103"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de indexação de ia usando habilidades cognitivas no Azure Search
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de enriquecimento de ia usando habilidades cognitivas no Azure Search
 
 O Azure Search integra-se com [Serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/), adicionando extração de conteúdo, NLP (processamento de linguagem natural) e habilidades de processamento de imagem a um pipeline de indexação de Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
 
