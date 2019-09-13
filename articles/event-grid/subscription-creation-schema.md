@@ -50,9 +50,9 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata com um destes nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipos de eventos registrados para a origem do evento. Predefinição corresponde a todos os tipos de eventos. |
-| subjectBeginsWith | cadeia | Uma correspondência de prefixo filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
-| subjectEndsWith | cadeia | Uma correspondência de sufixo de filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
-| isSubjectCaseSensitive | cadeia | Controlos de maiúsculas e minúsculas correspondente para filtros. |
+| subjectBeginsWith | string | Uma correspondência de prefixo filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
+| subjectEndsWith | string | Uma correspondência de sufixo de filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
+| isSubjectCaseSensitive | string | Controlos de maiúsculas e minúsculas correspondente para filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de subscrições de exemplo
