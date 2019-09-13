@@ -306,7 +306,7 @@ Verifique se o certificado está instalado no repositório pessoal\'do computado
         |---|---|
         | Source | Any |
         | Source port ranges | * |
-        | Destino | Any |
+        | Destination | Any |
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
