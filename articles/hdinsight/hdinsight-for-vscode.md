@@ -296,7 +296,7 @@ Envie um arquivo e observe que a pasta. vscode é adicionada automaticamente à 
     | proxyUser | Usuário a representar ao executar o trabalho | Cadeia |
     | className | Classe principal do aplicativo Java/Spark | Cadeia |
     | args | Argumentos de linha de comando para o aplicativo | lista de cadeias de caracteres |
-    | Jars | Jars a serem usados nesta sessão | lista de cadeias de caracteres | 
+    | jars | Jars a serem usados nesta sessão | lista de cadeias de caracteres | 
     | pyFiles | Arquivos Python a serem usados nesta sessão | lista de cadeias de caracteres |
     | files | arquivos a serem usados nesta sessão | lista de cadeias de caracteres |
     | driverMemory | Quantidade de memória a ser usada para o processo de driver | Cadeia |
@@ -317,7 +317,7 @@ Envie um arquivo e observe que a pasta. vscode é adicionada automaticamente à 
     | id | ID de sessão | Int | 
     | appId | ID do aplicativo desta sessão | Cadeia |
     | appInfo | Informações detalhadas do aplicativo | Mapa de chave = Val |
-    | registo | Linhas de log | lista de cadeias de caracteres |
+    | log | Linhas de log | lista de cadeias de caracteres |
     | state |Estado do lote | Cadeia |
 
     >[!NOTE]
