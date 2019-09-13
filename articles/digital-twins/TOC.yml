@@ -19,7 +19,7 @@
           href: tutorial-facilities-udf.md
         - name: Notificar com o Logic Apps
           href: tutorial-facilities-events.md
-        - name: Visualizar eventos com o TSI
+        - name: Visualizar eventos com o Time Series Insights
           href: tutorial-facilities-analyze.md
 - name: Conceitos
   items:

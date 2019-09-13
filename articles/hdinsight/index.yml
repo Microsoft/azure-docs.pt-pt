@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: 7de62064fab800f1735371873a821499b06a8276
-  ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+  ms.openlocfilehash: 360e243c76472380bb85a858f73024fe89be2a76
+  ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/06/2019
-  ms.locfileid: "70743231"
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70916422"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:
@@ -208,7 +208,7 @@ landingContent:
       url: ./storm/apache-storm-overview.md
   - linkListType: quickstart
     links:
-    - text: Criar e monitorizar a topologia do Apache Storm
+    - text: Criar uma topologia do Apache Storm
       url: ./storm/apache-storm-quickstart.md
   - linkListType: tutorial
     links:

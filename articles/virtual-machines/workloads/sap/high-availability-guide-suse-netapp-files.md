@@ -786,7 +786,7 @@ Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P
 
 ## <a name="install-database"></a>Instalar banco de dados
 
-Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada banco de dados com suporte para esta instalação. Para obter mais informações sobre como instalar SAP HANA no Azure,. For a list of supported databases, see [SAP Note 1928533][1928533]consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha].
+Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada banco de dados com suporte para esta instalação. Para obter mais informações sobre como instalar SAP HANA no Azure,consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha].. For a list of supported databases, see [SAP Note 1928533][1928533]
 
 * Executar a instalação da instância do banco de dados SAP
 

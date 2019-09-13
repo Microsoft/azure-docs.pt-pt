@@ -21,6 +21,8 @@
       href: quickstart-js-vscode.md
 - name: Tutoriais
   items:
+    - name: Encadeamento de funções
+      href: durable-functions-sequence.md
     - name: Fan-in/fan-out
       href: durable-functions-cloud-backup.md
     - name: Monitores
@@ -37,46 +39,56 @@
       href: ../functions-cli-samples.md
 - name: Conceitos
   items:
-    - name: Padrões e conceitos
-      href: durable-functions-concepts.md
-    - name: Tipos e funcionalidades de funções
+    - name: Tipos de função
       href: durable-functions-types-features-overview.md
-    - name: Enlaces
-      href: durable-functions-bindings.md
+    - name: Orquestrações
+      href: durable-functions-orchestrations.md
+    - name: Restrições de código do orquestrador
+      href: durable-functions-code-constraints.md
+    - name: Sub-orquestrações
+      href: durable-functions-sub-orchestrations.md
+    - name: Estado de orquestração personalizado
+      href: durable-functions-custom-orchestration-status.md
     - name: Temporizadores
       href: durable-functions-timers.md
     - name: Eventos externos
       href: durable-functions-external-events.md
-    - name: Sub-orquestrações
-      href: durable-functions-sub-orchestrations.md
+    - name: Processamento de erros
+      href: durable-functions-error-handling.md
+    - name: Orquestrações externas
+      href: durable-functions-eternal-orchestrations.md
+    - name: Orquestrações singleton
+      href: durable-functions-singletons.md
+    - name: Funcionalidades de HTTP
+      href: durable-functions-http-features.md
+    - name: Entidades com estado
+      href: durable-functions-entities.md
     - name: Hubs de tarefas
       href: durable-functions-task-hubs.md
-    - name: Execução fiável
-      href: durable-functions-checkpointing-and-replay.md
+    - name: Gestão de instâncias
+      href: durable-functions-instance-management.md
     - name: Controlo de versões
       href: durable-functions-versioning.md
+    - name: Desempenho e dimensionamento
+      href: durable-functions-perf-and-scale.md
+    - name: Elevada disponibilidade
+      href: durable-functions-disaster-recovery-geo-distribution.md
+- name: Referência
+  items:
+    - name: Definições de host.json
+      href: 'durable-functions-bindings.md#host-json'
+    - name: Enlaces
+      href: durable-functions-bindings.md
+    - name: API HTTP
+      href: durable-functions-http-api.md
 - name: Guias de procedimentos
   items:
-    - name: Planear e conceber
-      items:
-        - name: Encadeamento de funções
-          href: durable-functions-sequence.md
-        - name: Orquestrações externas
-          href: durable-functions-eternal-orchestrations.md
-        - name: Orquestrações singleton
-          href: durable-functions-singletons.md
-        - name: Desempenho e dimensionamento
-          href: durable-functions-perf-and-scale.md
-        - name: Elevada disponibilidade
-          href: durable-functions-disaster-recovery-geo-distribution.md
     - name: Programar
       items:
         - name: Criar no portal do Azure
           href: durable-functions-create-portal.md
         - name: Gerir ligações
           href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Processamento de erros
-          href: durable-functions-error-handling.md
         - name: Teste de unidade
           href: durable-functions-unit-testing.md
         - name: Criar como WebJobs
@@ -89,24 +101,14 @@
           href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
         - name: Executar a partir do pacote
           href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-    - name: Gerir
-      items:
-        - name: Gestão de instâncias
-          href: durable-functions-instance-management.md
     - name: Monitorizar
-      items:
-        - name: Monitorizar funções
-          href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Estado de orquestração personalizado
-          href: durable-functions-custom-orchestration-status.md
-    - name: Resolução de problemas
       items:
         - name: Diagnóstico
           href: durable-functions-diagnostics.md
-- name: Referência
-  items:
-    - name: API HTTP
-      href: durable-functions-http-api.md
+        - name: Monitorização
+          href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+        - name: Preços
+          href: durable-functions-billing.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

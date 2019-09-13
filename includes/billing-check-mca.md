@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: d163c88469ec767c8e0d18f5978ecb61f7997c8b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490301"
 ---
-Verifique o tipo de contrato para determinar se tem acesso a uma conta de cobrança para um contrato de cliente da Microsoft.
+Verifique o tipo de contrato para determinar se tem acesso a uma conta de faturação de um Contrato de Cliente Microsoft.
  
 1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
  
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
  
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
+   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
  
-3. Se tiver acesso a apenas um âmbito de faturação, selecione **propriedades** no lado esquerdo. Tem acesso a uma conta de cobrança para um contrato de cliente da Microsoft se é o tipo de conta de faturação **contrato de cliente da Microsoft**.
+3. Se tiver acesso a apenas um âmbito de faturação, selecione **Propriedades** no lado esquerdo. Tem acesso a uma conta de faturação de um Contrato de Cliente Microsoft se o tipo de conta de faturação for **Contrato de Cliente Microsoft**.
  
-    ![Captura de ecrã que mostra o contrato de cliente da microsoft na página de propriedades](./media/billing-check-mca/billing-mca-property.png)
+    ![Captura de ecrã que mostra o contrato de cliente Microsoft na página de propriedades](./media/billing-check-mca/billing-mca-property.png)
  
-4. Se tiver acesso ao âmbito de faturação de vários, verifique o tipo da coluna de conta de faturação. Tem acesso a uma conta de cobrança para um contrato de cliente da Microsoft se for o tipo de conta de faturação para qualquer um dos âmbitos **contrato de cliente da Microsoft**.
+4. Se tiver acesso a vários âmbitos de faturação, verifique o tipo na coluna com as contas de faturação. Tem acesso a uma conta de faturação de um Contrato de Cliente Microsoft se o tipo de conta de faturação de qualquer um dos âmbitos for **Contrato de Cliente Microsoft**.
  
-    ![Captura de ecrã que mostra o contrato de cliente da microsoft na faturação página de lista de conta](./media/billing-check-mca/billing-mca-in-the-list.png)
+    ![Captura de ecrã que mostra o contrato de cliente Microsoft na página com a lista de contas de faturação](./media/billing-check-mca/billing-mca-in-the-list.png)
  

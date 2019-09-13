@@ -1,31 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação de Pré-visualização do Azure Digital Twins
+summary: Saiba como utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial. Veja o Início Rápido e os Tutoriais para monitorizar um edifício inteligente imaginário, aprender conceitos aprofundados e criar uma solução de IoT da próxima geração que modele o seu ambiente físico.
 metadata:
-  title: 'Documentação de Pré-visualização do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs'
+  title: Documentação de Pré-visualização do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs
   description: Utilize o Azure Digital Twins para criar soluções espaciais inteligentes.
-  author: dsk-2015
-  manager: timlt
-  ms.service: digital-twins
   services: digital-twins
+  ms.service: digital-twins
+  ms.subservice: digital-twins
   ms.topic: landing-page
-  ms.date: 10/15/2018
-  ms.author: dkshir
-abstract:
-  description: 'Saiba como utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial. Veja o Início Rápido e os Tutoriais para monitorizar um edifício inteligente imaginário, aprender conceitos aprofundados e criar uma solução de IoT da próxima geração que modele o seu ambiente físico.'
-sections:
-  - title: Início Rápido de 5 Minutos
-    items:
-      - type: paragraph
-        text: Saiba como <a href="quickstart-view-occupancy-dotnet">encontrar salas disponíveis com boa qualidade de ar com os exemplos em .NET do Azure Digital Twins</a>.
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: Saiba como personalizar e utilizar a sua solução do Azure Digital Twins para monitorizar as suas instalações.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Aprovisionar um edifício de exemplo</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitorizar as condições no seu edifício</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-events">Receber notificações do seu edifício</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analisar eventos do seu edifício</a>
+  ms.collection: collection
+  author: KingdomOfEnds
+  ms.author: v-adgera
+  ms.date: 09/03/2019
+  ms.openlocfilehash: 090a18b77de3ca89ecd054ce28ec9e8b0a17dd1f
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70930709"
+landingContent:
+- title: Acerca do Azure Digital Twins
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Digital Twins?
+      url: about-digital-twins.md
+  - linkListType: concept
+    links:
+    - text: Compreender o modelo de objetos e o gráfico de inteligência espacial do Digital Twins
+      url: concepts-objectmodel-spatialgraph.md
+  - linkListType: video
+    links:
+    - text: Introdução ao Azure Digital Twins
+      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Encontrar salas disponíveis
+      url: quickstart-view-occupancy-dotnet.md
+  - linkListType: tutorial
+    links:
+    - text: Implementar e configurar
+      url: tutorial-facilities-setup.md
+    - text: Aprovisionar e monitorizar condições
+      url: tutorial-facilities-udf.md
+    - text: Notificar com o Logic Apps
+      url: tutorial-facilities-events.md
+    - text: Visualizar eventos com o TSI
+      url: tutorial-facilities-analyze.md
+- title: Programar com o Azure Digital Twins
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Entrada de conectividade e telemetria de dispositivo
+      url: concepts-device-ingress.md
+    - text: Processamento de dados e funções definidas pelo utilizador
+      url: concepts-user-defined-functions.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar o Postman
+      url: how-to-configure-postman.md
+    - text: Criar funções definidas pelo utilizador
+      url: how-to-user-defined-functions.md
+- title: Referência da API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Biblioteca de cliente de funções definidas pelo utilizador
+      url: reference-user-defined-functions-client-library.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar o Swagger do Digital Twins
+      url: how-to-use-swagger.md
