@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240305"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914037"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70240305"
 
 ::: zone target = "chromeless"
 
-## <a name="copy-data-to-azure-data-box-heavy"></a>Copiar dados para o Azure Data Box Heavy
+# <a name="copy-data-to-azure-data-box-heavy"></a>Copiar dados para o Azure Data Box Heavy
 
 ::: zone-end
 
@@ -150,7 +150,7 @@ Assim que estiver ligado às partilhas do Data Box Heavy, o passo seguinte é co
 
 Antes de começar a cópia de dados, reveja as seguintes considerações:
 
-- Verifique se copia os dados para partilhas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie os VHDs para o blob de páginas.
+- Verifique se copia os dados para as partilhas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie os VHDs para o blob de páginas.
 
     Se o formato de dados não corresponder ao tipo de partilha apropriado, num passo posterior, o carregamento de dados para o Azure falhará.
 -  Ao copiar os dados, confirme se o tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box Heavy](data-box-heavy-limits.md).
@@ -162,7 +162,7 @@ Antes de começar a cópia de dados, reveja as seguintes considerações:
   Nestes casos, não é possível determinar o resultado final.
 - Crie sempre uma pasta para os ficheiros que quer copiar na partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada nas partilhas dos blobs de blocos e dos blobs de páginas representa um contentor para o qual os dados são carregados como blobs. Não pode copiar ficheiros diretamente para a pasta *raiz* na conta de armazenamento.
 
-Depois de se ter ligado à partilha SMB, inicie a cópia de dados.
+Depois de ligar à partilha SMB, inicie a cópia dos dados.
 
 1. Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:
     
@@ -333,7 +333,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Utilizar o serviço d
 3. Em seguida, pode copiar os dados através das ferramentas SMB ou NFS.
 4. Repita estes passos para se ligar e copiar os dados para o segundo nó do Data Box Heavy.
 
-Para obter instruções passo a passo, aceda ao [Tutorial: Utilize o Data Box Heavy para importar dados como discos geridos no Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+Para obter instruções passo a passo, aceda ao [Tutorial: Utilizar o Data Box Heavy para importar dados como discos geridos no Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 

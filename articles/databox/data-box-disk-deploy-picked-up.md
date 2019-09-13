@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390413"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910107"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para 
 
 A localização a partir da qual pretende devolver o dispositivo determina os passos seguintes. As instruções são diferentes para os E.U.A./Canadá, a União Europeia (UE), a Austrália ou os países da Ásia.
 
-### <a name="pick-up-in-us-canada"></a>Recolha nos E.U.A. ou no Canadá
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[Nos E.U.A. ou Canadá](#tab/in-us-or-canada)
 
 Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos abaixo.
 
@@ -68,7 +68,7 @@ Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos aba
     - Se não indicar o número de rastreio, terá de pagar uma taxa adicional à UPS na recolha.
     - Em vez de agendar a recolha, também pode entregar o Data Box Disk na localização de entrega mais próxima.
 
-### <a name="pick-up-in-europe"></a>Recolha na Europa
+### <a name="in-europetabin-europe"></a>[Na Europa](#tab/in-europe)
 
 Se pretender devolver o dispositivo na Europa, siga os passos abaixo.
 
@@ -81,7 +81,7 @@ Se pretender devolver o dispositivo na Europa, siga os passos abaixo.
 4. Aceda ao site da DHL Express do seu país/região e selecione **Book a Courier Collection (Agendar uma Recolha por Estafeta) > eReturn Shipment (Envio eReturn)** .    
 3. Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
 
-### <a name="pick-up-in-australia"></a>Recolha na Austrália
+### <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
 
 Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para recolhas na Austrália.
 
@@ -89,9 +89,9 @@ Os datacenters do Azure na Austrália têm uma notificação de segurança adici
 3. Afixe a guia à caixa. 
 4. Marque uma recolha online através da ligação https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="pick-up-in-asia"></a>Recolha na Ásia
+### <a name="in-japan-koreatabin-japan-korea"></a>[No Japão, Coreia do Sul](#tab/in-japan-korea)
 
-As instruções de recolha são diferentes para o Japão, a Coreia e Singapura.
+Eis as instruções de recolha para o Japão e Coreia do Sul.
 
 #### <a name="pick-up-in-japan"></a>Recolha no Japão
 
@@ -115,7 +115,7 @@ As instruções de recolha são diferentes para o Japão, a Coreia e Singapura.
 
 3. Depois de marcar uma recolha, recebe uma confirmação por e-mail da Quantium Solutions. Esta confirmação também inclui informações sobre a nota de expedição Chakubarai.
 
-Se necessário, pode entrar em contacto com o Apoio ao Cliente da Quantium Solutions (em japonês) através das seguintes informações: 
+Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japonês) por: 
 
 - E-mail：Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
@@ -134,7 +134,8 @@ Se necessário, pode entrar em contacto com o Apoio ao Cliente da Quantium Solut
     3. Se o estafeta não efetuar a recolha, ligue para a linha direta da *Quantium Solutions International* para combinar uma alternativa. 
     4. Se efetuar o pedido por telefone, recebe uma confirmação verbal.
 
-#### <a name="pick-up-in-singapore"></a>Recolha em Singapura
+
+### <a name="in-singaporetabin-singapore"></a>[Em Singapura](#tab/in-singapore)
 
 1. Imprima a guia de remessa e afixe-a à caixa. Se a guia estiver danificada ou a tiver perdido:
     - Aceda a **Descrição Geral > Transferir guia de remessa** e obtenha uma guia de remessa para devolução.

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241437"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898182"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparaç
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Envio nos EUA, Canadá, Europa
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[Nos E.U.A., Canadá, Europa](#tab/in-us-canada-europe)
 
 Se quiser devolver o dispositivo nos EUA, Canadá ou Europa, siga os passos abaixo.
 
@@ -94,7 +94,7 @@ Se quiser devolver o dispositivo nos EUA, Canadá ou Europa, siga os passos abai
 4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de controlo.
 
 
-## <a name="ship-in-australia"></a>Envio na Austrália
+## <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
 
 Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para os envios na Austrália.
 
@@ -126,7 +126,7 @@ Para questões relativas à encomenda por telefone:
 - Envie, primeiro, um e-mail para recolha.
 - Forneça o nome da encomenda por telefone.
 
-## <a name="ship-in-japan"></a>Envio no Japão 
+## <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan) 
 
 1. Mantenha a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Desligue o dispositivo e remova os cabos.
@@ -183,7 +183,7 @@ Confirme se os dados foram carregados para o Azure antes de os eliminar da orige
 
         Aceda ao grupo de recursos anotado e localize os discos geridos.
 
-        ![Disco gerido anexado a grupos de recursos](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
+        ![Disco gerido anexado aos grupos de recursos](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
     - Se copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de teste como um blob de páginas, mas a conversão do VHD em disco gerido falhará. Aceda à **Conta de armazenamento > Blobs** de teste e, em seguida, selecione o contentor apropriado – SSD Standard, HDD Standard ou SSD Premium. Os VHDs são carregados como blobs de páginas na conta de armazenamento de teste.
 
