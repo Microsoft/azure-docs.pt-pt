@@ -35,15 +35,15 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| destination | objeto | O objeto que define o ponto final. |
-| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
+| destination | object | O objeto que define o ponto final. |
+| filter | object | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| endpointType | cadeia | O tipo de ponto final para a subscrição (webhook/HTTP, Hub de eventos ou fila). | 
-| endpointUrl | cadeia | O URL de destino para eventos nesta subscrição de evento. | 
+| endpointType | string | O tipo de ponto final para a subscrição (webhook/HTTP, Hub de eventos ou fila). | 
+| endpointUrl | string | O URL de destino para eventos nesta subscrição de evento. | 
 
 ### <a name="filter-object"></a>objeto de filtro
 
