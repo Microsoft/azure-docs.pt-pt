@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: d45842a4c61f871a479c91f7b192de8e567f9821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862021"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962639"
 ---
 # <a name="animated-character-detection-preview"></a>Detecção de caracteres animados (versão prévia)
 
@@ -91,8 +91,7 @@ Se você possui uma conta paga Video Indexer, você precisa conectar uma conta d
     1. Depois de digitar o novo nome, clique no ícone de verificação ao lado do novo nome. Isso salva o novo nome no modelo em Video Indexer.
     1. Depois de concluir a edição de todos os nomes desejados, você precisará treinar o modelo.
 
-        * Contas de avaliação: Abra a página personalização e clique na guia caracteres animados e clique no modelo de botão de **treinamento** que você tem.
-        * Contas pagas: Abra a página personalização e clique na guia caracteres animados. Para o modelo relevante, clique no link **Editar no visão personalizada** . Em seguida, você será encaminhado para a página do modelo em Visão Personalizada. Clique no botão "treinar" para treinar o modelo. 
+        Abra a página personalização e clique na guia **caracteres animados** . Para o modelo relevante, clique no link **Editar no visão personalizada** . Em seguida, você será encaminhado para a página do modelo em Visão Personalizada. Clique no botão **treinar** para treinar seu modelo. 
     1. Uma vez treinado, qualquer vídeo que será indexado ou reindexado com esse modelo reconhecerá os caracteres treinados. 
     Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
@@ -172,6 +171,6 @@ Consulte os caracteres animados no arquivo JSON gerado.
 * Os caracteres que parecem ser pequenos ou distantes no vídeo podem não ser identificados corretamente se a qualidade do vídeo for ruim.
 * A recomendação é usar um modelo por conjunto de caracteres animados (por exemplo, por uma série animada).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

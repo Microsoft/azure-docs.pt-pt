@@ -1,22 +1,17 @@
 ---
 title: Práticas recomendadas para modelos de Azure Resource Manager
 description: Descreve as abordagens recomendadas para a criação de modelos de Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar modelos.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/16/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 361fcc6b60e863ee43d348cedd6b1571f3f563a2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812898"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983811"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
 
@@ -47,7 +42,8 @@ Quando você implanta recursos em um grupo de recursos, o grupo de recursos arma
 Se a região do grupo de recursos estiver temporariamente indisponível, você não poderá atualizar recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos em outras regiões ainda funcionarão conforme o esperado, mas você não poderá atualizá-los. Para minimizar o risco, localize o grupo de recursos e os recursos na mesma região.
 
 ## <a name="parameters"></a>Parâmetros
-As informações contidas nesta seção podem ser úteis quando você trabalha com [parâmetros](resource-group-authoring-templates.md#parameters).
+
+As informações contidas nesta seção podem ser úteis quando você trabalha com [parâmetros](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Recomendações gerais para parâmetros
 
@@ -102,7 +98,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
 
 * Use `allowedValues` com moderação. Use-o somente quando você tiver certeza de que alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
-* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo **detemplate** ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo detemplate ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Recomendações de segurança para parâmetros
 
@@ -149,7 +145,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
 
 ## <a name="variables"></a>Variáveis
 
-As informações a seguir podem ser úteis quando você trabalha com [variáveis](resource-group-authoring-templates.md#variables):
+As informações a seguir podem ser úteis quando você trabalha com [variáveis](template-variables.md):
 
 * Use o camel case para nomes de variáveis.
 
@@ -243,7 +239,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    * [Permitir acesso externo à sua VM usando o PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Permitir acesso externo à sua VM Linux usando CLI do Azure](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a função **uniquestring** gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
+* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a função uniquestring gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
 
    ```json
    "parameters": {
@@ -286,7 +282,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
 
 ## <a name="outputs"></a>outputs
 
-Se você usar um modelo para criar endereços IP públicos, inclua uma [seção Outputs](resource-group-authoring-templates.md#outputs) que retorne os detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
+Se você usar um modelo para criar endereços IP públicos, inclua uma [seção Outputs](template-outputs.md) que retorne os detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
 
 ```json
 "outputs": {
@@ -301,7 +297,7 @@ Se você usar um modelo para criar endereços IP públicos, inclua uma [seção 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a estrutura do arquivo de modelo do Resource Manager, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [desenvolver modelos de Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).

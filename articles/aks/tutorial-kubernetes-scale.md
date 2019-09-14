@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019194"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965139"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -70,7 +70,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Dimensionar pods automaticamente
 
-O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods numa implementação, consoante a utilização da CPU ou de outras métricas selecionadas. O [servidor][metrics-server] de métricas é usado para fornecer a utilização de recursos para kubernetes e é implantado automaticamente em clusters AKS versões 1,10 e superiores. Para ver a versão do seu cluster AKS, use o comando [AZ AKs show][az-aks-show] , conforme mostrado no exemplo a seguir:
+O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods numa implementação, consoante a utilização da CPU ou de outras métricas selecionadas. O [servidor de métricas][metrics-server] é usado para fornecer a utilização de recursos para kubernetes e é implantado automaticamente em clusters AKS versões 1,10 e superiores. Para ver a versão do seu cluster AKS, use o comando [AZ AKs show][az-aks-show] , conforme mostrado no exemplo a seguir:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
@@ -94,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo a seguir usa o comando [kubectl AutoScale][kubectl-autoscale] para fazer o dimensionamento automático do número de pods na implantação *Azure-vote-front* . Se a utilização da CPU exceder 50%, o dimensionador AutoScale aumentará até um máximo de *10* instâncias. Um mínimo de *3* instâncias é então definido para a implantação:
+O exemplo a seguir usa o comando [kubectl AutoScale][kubectl-autoscale] para fazer o dimensionamento automático do número de pods na implantação *Azure-vote-front* . Se a utilização média da CPU em todos os pods exceder 50% de seu uso solicitado, o dimensionador AutoScale aumenta o pods até um máximo de *10* instâncias. Um mínimo de *3* instâncias é então definido para a implantação:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

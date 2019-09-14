@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 09/12/2019
 ms.author: roiyz
-ms.openlocfilehash: 8c63df2d9a7e398fb9b67edd3b57a3ba06cbe7a1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 200a5e93c24f6aa4ecf9d76cffac261d83498d02
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084333"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958841"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Recursos e extensões de máquina virtual do Azure
 As extensões de VM (máquina virtual) do Azure são aplicativos pequenos que fornecem tarefas de configuração e automação de pós-implantação em VMs do Azure, você pode usar imagens existentes e, em seguida, personalizá-las como parte de suas implantações, o que o torna fora dos negócios personalizados criação de imagem.
@@ -50,7 +50,31 @@ Você não precisa se conectar a uma VM diretamente para instalar ou excluir a e
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Qualquer outra coisa que eu deva pensar para extensões?
 As extensões instalam aplicativos, como qualquer aplicativo, há alguns requisitos, para extensões, há uma lista de sistemas operacionais Windows e Linux com suporte e você precisa ter os agentes de VM do Azure instalados. Alguns aplicativos de extensão de VM individuais podem ter seus próprios pré-requisitos ambientais, como o acesso a um ponto de extremidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="troubleshoot-extensions"></a>Resolver problemas relacionados com as extensões
+
+As informações de solução de problemas para cada extensão podem ser encontradas na seção **solução de problemas e suporte** na visão geral da extensão. Aqui está uma lista das informações de solução de problemas disponíveis:
+
+| Espaço de Nomes | Resolução de problemas |
+|-----------|-----------------|
+| Microsoft. Azure. Monitoring. dependencyagent. dependencyagentlinux | [Dependência de Azure Monitor para Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| Microsoft. Azure. Monitoring. dependencyagent. dependencyagentwindows | [Dependência Azure Monitor para Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. azurediskencryptionforlinux | [Azure Disk Encryption para Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. azurediskencryption | [Azure Disk Encryption para Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| Microsoft. COMPUTE. customscriptextension | [Script personalizado para Windows](custom-script-windows.md#troubleshoot-and-support) |
+| Microsoft. ostcextensions. às customscriptforlinux | [Configuração de estado desejado para Linux](dsc-linux.md#troubleshoot-and-support) |
+| Microsoft. PowerShell. DSC | [Configuração de estado desejado para o Windows](dsc-windows.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverlinux | [Extensão de driver NVIDIA GPU para Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverwindows | [Extensão de driver NVIDIA GPU para Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. iaasantimalware da | [Extensão antimalware para Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| Microsoft. enterprisecloud. Monitoring. omsagentforlinux | [Azure Monitor para Linux](oms-linux.md#troubleshoot-and-support)
+| Microsoft. enterprisecloud. Monitoring. extensão microsoftmonitoringagent | [Azure Monitor para Windows](oms-windows.md#troubleshoot-and-support) |
+| stackify. linuxagent. Extension. stackifylinuxagentextension | [Stackify retrace para Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux. Microsoft. ostcextensions | [Redefinir senha (VMAccess) para Linux](vmaccess.md#troubleshoot-and-support) |
+| Microsoft. recoveryservices. vmsnapshot | [Instantâneo para Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| Microsoft. recoveryservices. vmsnapshot | [Instantâneo para Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
+
+
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre como o agente e as extensões do Linux funcionam, consulte [recursos e extensões de VM do Azure para Linux](features-linux.md).
 * Para obter mais informações sobre como o agente convidado do Windows e as extensões funcionam, consulte [extensões e recursos de VM do Azure para Windows](features-windows.md).  
 * Para instalar o agente convidado do Windows, consulte [visão geral do agente de máquina virtual do Windows do Azure](agent-windows.md).  

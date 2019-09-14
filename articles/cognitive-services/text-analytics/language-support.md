@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: e14cb56db6e45fe86ecd5e73766c47d29dd23fa1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305486"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984229"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte a idiomas e regiões para o API de Análise de Texto
 
@@ -48,7 +48,7 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Árabe      | `ar`          |           |             | ✔ \*                     | |
 | Checo       | `cs`          |           |             | ✔ \*                     | |
-| Chinês-simplificado | `zh-CN`|           |             | ✔         |    |
+| Chinês-simplificado | `zh-CN`| ✔ \***     |             | ✔         |    |
 | Dinamarquês      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Neerlandês       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | Português     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
@@ -58,7 +58,7 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 | Grego       | `el`          | ✔ \*     |             |            |     |
 | Húngaro   | `hu`          |           |             |  ✔ \*          |     | 
 | Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Japonês    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Japonês    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norueguês (bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polaco      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
@@ -71,7 +71,9 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 
 \*O suporte ao idioma está em versão prévia
 
-\*\*O [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e a [vinculação de entidade](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para esse idioma.    
+\*\*O [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e a [vinculação de entidade](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para esse idioma.  
+
+\** * Disponível na [Visualização pública do análise de sentimento v3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
 ## <a name="see-also"></a>Consulte também
 

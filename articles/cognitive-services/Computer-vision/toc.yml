@@ -7,6 +7,14 @@
       href: Home.md
 - name: Inícios rápidos
   items:
+    - name: Utilizar o SDK de cliente
+      items:
+        - name: SDK .NET
+          href: quickstarts-sdk/csharp-sdk.md
+        - name: SDK Python
+          href: quickstarts-sdk/python-sdk.md
+        - name: SDK Java
+          href: quickstarts-sdk/java-sdk.md
     - name: Utilizar a API REST
       items:
         - name: Analisar uma imagem remota
@@ -75,18 +83,6 @@
           items:
             - name: Python
               href: QuickStarts/python-domain.md
-    - name: Utilizar o SDK .NET
-      items:
-        - name: Analisar uma imagem
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: Gerar uma miniatura
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: Extrair texto
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
-    - name: Utilizar o SDK Python
-      href: quickstarts-sdk/python-sdk.md
-    - name: Utilizar o SDK Java
-      href: quickstarts-sdk/java-sdk.md
 - name: Tutoriais
   items:
     - name: Gerar metadados para imagens

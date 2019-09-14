@@ -1,7 +1,7 @@
 ---
-title: Deteção de objetos - o de imagem digitalizada
+title: Detecção de objeto-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Aprenda conceitos relacionados com a funcionalidade de deteção de objeto da API de imagem digitalizada - utilização e limites.
+description: Aprenda os conceitos relacionados ao recurso de detecção de objetos do API da Pesquisa Visual Computacional-uso e limites.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0625d8371b9ecaaadd05e302413054948fd4b27b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368058"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967043"
 ---
-# <a name="detect-common-objects-in-images"></a>Detetar objetos comuns em imagens
+# <a name="detect-common-objects-in-images"></a>Detectar objetos comuns em imagens
 
-Deteção de objetos é semelhante à [marcação](concept-tagging-images.md), mas a API devolve as coordenadas da caixa delimitadora (em pixéis) para cada objeto encontrado. Por exemplo, se uma imagem contiver um cachorro, gato e person, a operação de deteção irá listar esses objetos, juntamente com suas coordenadas na imagem. Pode utilizar esta funcionalidade para processar as relações entre os objetos numa imagem. Ele também permite determinar se existem várias instâncias da mesma marca numa imagem.
+A detecção de objeto é semelhante à [marcação](concept-tagging-images.md), mas a API retorna as coordenadas da caixa delimitadora (em pixels) para cada objeto encontrado. Por exemplo, se uma imagem contiver um cachorro, um gato e uma pessoa, a operação de detecção listará esses objetos junto com suas coordenadas na imagem. Você pode usar essa funcionalidade para processar as relações entre os objetos em uma imagem. Ele também permite que você determine se há várias instâncias da mesma marca em uma imagem.
 
-A API de detectar se aplica etiquetas com base nos objetos ou vivos identificados na imagem. Atualmente, não existe nenhuma relação formal entre a taxonomia de etiquetagem e a taxonomia de deteção de objeto. Num nível conceitual, a API de detetar apenas localiza objetos e vivos, enquanto a API de marca também pode incluir contextuais termos como "fechado", que não podem ser localizados com delimitação de caixas.
+A API Detect aplica marcas com base nos objetos ou nas coisas de vida identificadas na imagem. Atualmente, não há nenhuma relação formal entre a taxonomia de marcação e a taxonomia de detecção de objeto. Em um nível conceitual, a API de detecção encontra apenas objetos e coisas de vida, enquanto a API de marca também pode incluir termos contextuais como "interno", que não podem ser localizados com caixas delimitadoras.
 
-## <a name="object-detection-example"></a>Exemplo de deteção de objeto
+## <a name="object-detection-example"></a>Exemplo de detecção de objeto
 
-A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando detetar objetos na imagem de exemplo.
+A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao detectar objetos na imagem de exemplo.
 
-![Uma mulher com um dispositivo Microsoft Surface numa cozinha](./Images/windows-kitchen.jpg)
+![Uma mulher usando um dispositivo Microsoft Surface em uma cozinha](./Images/windows-kitchen.jpg)
 
 ```json
 {
@@ -89,15 +89,15 @@ A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando d
 
 ## <a name="limitations"></a>Limitações
 
-É importante ter em conta as limitações de deteção de objetos para que possa evitar ou atenuar os efeitos de falsos negativos (objetos em falta) e os detalhes limitados.
+É importante observar as limitações da detecção de objetos para que você possa evitar ou atenuar os efeitos de falsos negativos (objetos perdidos) e detalhes limitados.
 
-* Objetos geralmente não são detetados que estejam pequeno (menos de 5% da imagem).
-* Objetos geralmente não são detetados se são dispostos em conjunto (uma pilha de pratos, por exemplo).
-* Objetos não são diferenciados pela marca ou nomes de produto (diferentes tipos de sodas em prateleiras da loja, por exemplo). No entanto, pode obter informações de marca partir de uma imagem com o [sua marca deteção](concept-brand-detection.md) funcionalidade.
+* Os objetos geralmente não são detectados se forem pequenos (menos de 5% da imagem).
+* Os objetos geralmente não são detectados se eles são organizados juntos (uma pilha de pratos, por exemplo).
+* Os objetos não são diferenciados por nomes de marca ou produto (tipos diferentes de sodas em uma prateleira de loja, por exemplo). No entanto, você pode obter informações de marca de uma imagem usando o recurso de [detecção de marca](concept-brand-detection.md) .
 
 ## <a name="use-the-api"></a>Utilizar a API
 
-A funcionalidade de deteção de objeto é parte da [analisar imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Pode chamar esta API através de um SDK nativo ou por meio de chamadas REST. Incluem `Objects` no **visualFeatures** parâmetro de consulta. Em seguida, quando receber a resposta JSON completa, simplesmente analisar a cadeia para o conteúdo do `"objects"` secção.
+O recurso de detecção de objeto faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Objects` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o `"objects"` conteúdo da seção.
 
-* [Quickstart: Analisar uma imagem (SDK do .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
-* [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+* [Quickstart: SDK do Pesquisa Visual Computacional .NET)](./quickstarts-sdk/csharp-sdk.md)
+* [Quickstart: Analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)

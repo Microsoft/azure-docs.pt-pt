@@ -1,110 +1,110 @@
 ---
-title: Comece com a API de reconhecimento de voz do Bing utilizando a ambiente de trabalho biblioteca de c# | Documentos da Microsoft
+title: Introdução à API de reconhecimento de Fala do Bing usando a biblioteca C# de desktops | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Desenvolva aplicativos básicos do Windows que utilizam a API de reconhecimento de voz do Bing para converter áudio falado em texto.
+description: Desenvolva aplicativos básicos do Windows que usam a API de reconhecimento de Fala do Bing para converter áudio falado em texto.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3160ccc1c8741d87fcee94a6face48551a79052d
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515359"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966907"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Início rápido: Utilizar o reconhecimento de voz do Bing API em C&#35; para .NET no Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Início rápido: Usar a API de reconhecimento de Fala do Bing&#35; no C para .net no Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Esta página mostra como desenvolver uma aplicação básica do Windows que utiliza a API de reconhecimento de voz para converter áudio falado em texto. Usando a biblioteca de cliente permite a transmissão em fluxo em tempo real, que significa que quando a aplicação cliente envia áudio para o serviço, em simultâneo e de forma assíncrona recebe novamente os resultados de reconhecimento parcial.
+Esta página mostra como desenvolver um aplicativo básico do Windows que usa a API de reconhecimento de fala para converter áudio falado em texto. O uso da biblioteca de cliente permite streaming em tempo real, o que significa que quando o aplicativo cliente envia áudio para o serviço, ele recebe de forma assíncrona os resultados de reconhecimento parciais.
 
-Os programadores que pretendem utilizar o serviço de voz a partir de aplicações que são executados em qualquer dispositivo podem utilizar a ambiente de trabalho biblioteca de c#. Para usar a biblioteca, instale o [pacote de NuGet Microsoft.ProjectOxford.SpeechRecognition x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) de uma plataforma de 32 bits e o [pacote NuGet Microsoft.ProjectOxford.SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) para um plataforma de 64 bits. Para a biblioteca de cliente, referência da API, consulte [Microsoft fala c# a área de trabalho biblioteca](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+Os desenvolvedores que desejam usar o serviço de fala de aplicativos executados em qualquer dispositivo C# podem usar a biblioteca de desktops. Para usar a biblioteca, instale o [pacote NuGet Microsoft. ProjectOxford. SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) para uma plataforma de 32 bits e o [pacote NuGet Microsoft. ProjectOxford. SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) para uma plataforma de 64 bits. Para obter a referência de API da biblioteca de cliente, consulte [Microsoft Speech C# desktop library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
-As secções seguintes descrevem como instalar, criar e executar o aplicativo de exemplo do c# com a ambiente de trabalho biblioteca de c#.
+As seções a seguir descrevem como instalar, compilar e executar o aplicativo C# de exemplo usando a biblioteca C# de desktops.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-O exemplo a seguir foi desenvolvido para o Windows 8 e posteriores e .NET Framework 4.5 + usando [Visual Studio 2015, edição de Comunidade](https://www.visualstudio.com/products/visual-studio-community-vs).
+O exemplo a seguir foi desenvolvido para Windows 8 + e .NET Framework 4.5 + usando o [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### <a name="get-the-sample-application"></a>Obter a aplicação de exemplo
+### <a name="get-the-sample-application"></a>Obter o aplicativo de exemplo
 
-Clonar o exemplo a partir da [exemplo de ambiente de trabalho biblioteca fala c#](https://github.com/microsoft/cognitive-speech-stt-windows) repositório.
+Clone o exemplo do repositório [de C# exemplo do Speech desktop library](https://github.com/microsoft/cognitive-speech-stt-windows) .
 
-### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Subscrever a API de reconhecimento de voz e obter uma chave de subscrição de avaliação gratuita
+### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Assine a API de reconhecimento de fala e obtenha uma chave de assinatura de avaliação gratuita
 
-A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford). Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
+O Speech API faz parte de serviços cognitivas (anteriormente Oxford de projeto). Você pode obter chaves de assinatura de avaliação gratuita da página de [assinatura de serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/) . Depois de selecionar a Speech API, selecione **obter chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão vinculadas à mesma cota, para que você possa usar qualquer chave.
 
 > [!IMPORTANT]
-> * Obter uma chave de subscrição. Antes de utilizar as bibliotecas de cliente de voz, tem de ter uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
+> * Obtenha uma chave de assinatura. Antes de usar as bibliotecas de cliente de fala, você deve ter uma [chave de assinatura](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Utilize a sua chave de subscrição. Com o fornecido c# aplicativo de exemplo de ambiente de trabalho, cole a chave de subscrição na caixa de texto quando executar o exemplo. Para obter mais informações, consulte [executar o aplicativo de exemplo](#step-3-run-the-sample-application).
+> * Use sua chave de assinatura. Com o aplicativo C# de exemplo da área de trabalho fornecido, Cole sua chave de assinatura na caixa de texto quando você executa o exemplo. Para obter mais informações, consulte [executar o aplicativo de exemplo](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Passo 1: Instalar a aplicação de exemplo
+## <a name="step-1-install-the-sample-application"></a>Passo 1: Instalar o aplicativo de exemplo
 
 1. Inicie o Visual Studio 2015 e selecione **arquivo** > **abrir** > **projeto/solução**.
 
-2. Procure a pasta onde guardou os ficheiros transferidos da API de reconhecimento de voz. Selecione **voz** > **Windows**e, em seguida, selecione a pasta de exemplo WP.
+2. Navegue até a pasta em que você salvou os arquivos de API de reconhecimento de fala baixados. Selecione**janelas**de **fala** > e, em seguida, selecione a pasta exemplo-wp.
 
-3. Faça duplo clique para abrir o ficheiro de solução de 2015 do Visual Studio (. sln) com o nome SpeechToText-WPF-Samples.sln. A solução é aberta no Visual Studio.
+3. Clique duas vezes para abrir o arquivo de solução (. sln) do Visual Studio 2015 chamado SpeechToText-WPF-Samples. sln. A solução é aberta no Visual Studio.
 
-## <a name="step-2-build-the-sample-application"></a>Passo 2: Criar a aplicação de exemplo
+## <a name="step-2-build-the-sample-application"></a>Passo 2: Compilar o aplicativo de exemplo
 
-1. Se quiser usar *reconhecimento com a intenção*, tem primeiro de inscrever-se a [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Em seguida, utilize o URL de ponto final da sua aplicação LUIS para definir o valor da chave `LuisEndpointUrl` no ficheiro App. config na pasta de exemplos/SpeechRecognitionServiceExample. Para obter mais informações sobre o URL de ponto final da aplicação LUIS, consulte [publicar a sua aplicação](../../luis/luis-get-started-create-app.md#publish-your-app).
+1. Se você quiser usar o *reconhecimento com a intenção*, primeiro será necessário inscrever-se para o [serviço reconhecimento vocal inteligente (Luis)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Em seguida, use a URL do ponto de extremidade do seu aplicativo Luis para definir `LuisEndpointUrl` o valor da chave no arquivo app. config na pasta Samples/SpeechRecognitionServiceExample. Para obter mais informações sobre a URL do ponto de extremidade do aplicativo LUIS, consulte [publicar seu aplicativo](../../luis/luis-get-started-create-app.md#publish-your-app).
 
    > [!TIP]
-   > Substitua a `&` caráter no URL de ponto final do LUIS com `&amp;` para se certificar de que o URL é corretamente interpretado pelo analisador XML.
+   > Substitua o `&` caractere na URL do ponto de extremidade `&amp;` Luis por para garantir que a URL seja interpretada corretamente pelo analisador XML.
 
-2. Prima Ctrl + Shift + B ou selecione **criar** no menu da faixa de opções. Em seguida, selecione **compilar solução**.
+2. Pressione Ctrl + Shift + B ou selecione **criar** no menu da faixa de opções. Em seguida, selecione **Compilar solução**.
 
 ## <a name="step-3-run-the-sample-application"></a>Passo 3: Executar o exemplo de aplicação
 
-1. Depois de concluída a compilação, prima F5 ou selecione **iniciar** no menu da faixa de opções para executar o exemplo.
+1. Depois que a compilação for concluída, pressione F5 ou selecione **Iniciar** no menu faixa de opções para executar o exemplo.
 
-2. Vá para o **conversão de voz do projeto Oxford em texto de exemplo** janela. Cole a chave de subscrição para o **colar a chave de subscrição aqui para iniciar** caixa de texto, como mostrado. Para manter a sua chave de subscrição no seu PC ou portátil, selecione **Guardar chave**. Para eliminar a chave de subscrição do sistema, selecione **eliminar chave** removê-lo a partir do seu PC ou computador portátil.
+2. Vá para a janela de **exemplo do Project Oxford Speech to Text** . Cole sua chave de assinatura na caixa de texto **colar sua chave de assinatura aqui para iniciar** , conforme mostrado. Para persistir sua chave de assinatura em seu PC ou laptop, selecione **salvar chave**. Para excluir a chave de assinatura do sistema, selecione **Excluir chave** para removê-la do seu PC ou laptop.
 
-   ![Chave de colar da reconhecimento de voz](../Images/SpeechRecog_paste_key.PNG)
+   ![Chave de colagem de reconhecimento de fala](../Images/SpeechRecog_paste_key.PNG)
 
-3. Sob **origem de reconhecimento de voz**, escolha uma das origens de seis voz, enquadram-se em duas categorias principais de entrada:
+3. Em **fonte de reconhecimento de fala**, escolha uma das seis fontes de fala, que se enquadram em duas categorias de entrada principais:
 
-   * Utilize o microfone do seu computador ou um microfone anexado para capturar voz.
-   * Reproduza um arquivo de áudio.
+   * Use o microfone do computador ou um microfone conectado para capturar a fala.
+   * Reproduzir um arquivo de áudio.
 
    Cada categoria tem três modos de reconhecimento:
 
-    * **Modo de ShortPhrase**: Uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e um resultado final com várias opções de múltipla.
-    * **Modo de LongDictation**: Uma expressão até dois minutos longa. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e finais, com base em onde o servidor indica as pausas das frases.
-    * **Deteção de intenção**: O servidor devolve informações estruturadas adicionais sobre a conversão de voz de entrada. Para utilizar a deteção de intenção, precisa primeiro preparar um modelo com o [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **Modo de ShortPhrase**: Um expressão de até 15 segundos de comprimento. À medida que os dados são enviados para o servidor, o cliente recebe vários resultados parciais e um resultado final com várias opções n-melhores.
+    * **Modo de LongDictation**: Um expressão de até dois minutos de duração. À medida que os dados são enviados para o servidor, o cliente recebe vários resultados parciais e vários resultados finais, com base em onde o servidor indica pausas de sentença.
+    * **Detecção de intenção**: O servidor retorna informações estruturadas adicionais sobre a entrada de fala. Para usar a detecção de intenção, primeiro você precisa treinar um modelo usando [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-Utilize arquivos de áudio de exemplo com este aplicativo de exemplo. Encontre os ficheiros no repositório que transferiu com este exemplo sob a pasta de exemplos/SpeechRecognitionServiceExample. Esses arquivos de áudio de exemplo são executados automaticamente se não existem outros ficheiros são escolhidos Quando seleciona **arquivo wav de utilização para o modo de Shortphrase** ou **arquivo wav de utilização para o modo de Longdictation** como sua voz de entrada. Atualmente, apenas WAV formato de áudio é suportado.
+Use arquivos de áudio de exemplo com este aplicativo de exemplo. Localize os arquivos no repositório que você baixou com este exemplo na pasta Samples/SpeechRecognitionServiceExample. Esses arquivos de áudio de exemplo são executados automaticamente se nenhum outro arquivo for escolhido quando você selecionar **usar arquivo WAV para o modo Shortphrase** ou **usar o arquivo WAV para o modo Longdictation** como sua entrada de fala. Atualmente, há suporte apenas para o formato de áudio WAV.
 
-![Conversão de voz em interface de texto](../Images/HelloJones.PNG)
+![Fala para interface de texto](../Images/HelloJones.PNG)
 
-## <a name="samples-explained"></a>Exemplos de explicado
+## <a name="samples-explained"></a>Exemplos explicados
 
 ### <a name="recognition-events"></a>Eventos de reconhecimento
 
-* **Eventos de resultados parciais**: Este evento é chamado sempre que o serviço de voz prevê o que poderá ser dizendo, até mesmo antes de acabar de fala (se usar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se usar `DataRecognitionClient`).
-* **Eventos de erro**: Chamado quando o serviço Deteta um erro.
-* **Eventos de intenção**: Chamado nos clientes de "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado numa intenção do JSON estruturada.
-* **Resultar eventos**:
-  * No `ShortPhrase` modo, este evento é chamado e retorna os resultados de múltipla depois de concluir a falar.
-  * No `LongDictation` modo, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica as pausas das frases.
-  * **Para cada uma das opções múltipla**, são devolvidas um valor de confiança e algumas maneiras diferentes do texto reconhecido. Para obter mais informações, consulte [formato de saída](../Concepts.md#output-format).
+* **Eventos de resultados parciais**: Esse evento é chamado sempre que o serviço de fala prevê o que você deve dizer, mesmo antes de terminar de falar (se `MicrophoneRecognitionClient`você usar) ou terminar de enviar dados ( `DataRecognitionClient`se você usar).
+* **Eventos de erro**: Chamado quando o serviço detecta um erro.
+* **Eventos de intenção**: Chamado em clientes "WithIntent" (somente no modo ShortPhrase) depois que o resultado do reconhecimento final é analisado em uma intenção estruturada de JSON.
+* **Eventos de resultado**:
+  * No `ShortPhrase` modo, esse evento é chamado e retorna os n-melhores resultados depois de terminar de falar.
+  * No `LongDictation` modo, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica as pausas de sentença.
+  * **Para cada uma das n melhores opções**, um valor de confiança e algumas formas diferentes do texto reconhecido são retornados. Para obter mais informações, consulte [formato de saída](../Concepts.md#output-format).
 
-Manipuladores de eventos são já ter mencionados que o código no formulário de comentários do código.
+Manipuladores de eventos já são apontados no código na forma de comentários de código.
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-* [Referência da biblioteca de área de trabalho Microsoft Speech](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
-* [Comece com a API de reconhecimento de voz de Microsoft em Java no Android](GetStartedJavaAndroid.md)
-* [Comece com a API de reconhecimento de voz de Microsoft no Objective-C no iOS](Get-Started-ObjectiveC-iOS.md)
-* [Comece com a API de reconhecimento de voz de Microsoft em JavaScript](GetStartedJSWebsockets.md)
-* [Comece com a API de reconhecimento de voz de Microsoft através de REST](GetStartedREST.md)
+* [Referência da Microsoft Speech desktop library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
+* [Introdução à API de reconhecimento de fala da Microsoft em Java no Android](GetStartedJavaAndroid.md)
+* [Introdução à API de reconhecimento de fala da Microsoft em Objective-C no iOS](Get-Started-ObjectiveC-iOS.md)
+* [Introdução à API de reconhecimento de fala da Microsoft em JavaScript](GetStartedJSWebsockets.md)
+* [Introdução à API de reconhecimento de fala da Microsoft via REST](GetStartedREST.md)

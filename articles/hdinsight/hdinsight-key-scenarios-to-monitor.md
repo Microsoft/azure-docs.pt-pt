@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 936307399b658b75962e6969820215f9808d053f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879693"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961093"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -36,11 +36,11 @@ Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, 
 
 Você também verá colunas que mostram o número de núcleos e a quantidade de RAM para cada host, além do uso do disco e da média de carga.
 
-![Guia hosts](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Guia hosts](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Selecione qualquer um dos nomes de host para obter uma visão detalhada dos componentes em execução nesse host e suas métricas. As métricas são mostradas como uma linha do tempo selecionável de uso da CPU, carga, uso do disco, uso de memória, uso da rede e números de processos.
 
-![Detalhes do host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![Detalhes do host](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 Consulte [gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre como configurar alertas e exibir métricas.
 
@@ -56,7 +56,7 @@ Quando vários locatários compartilham um cluster grande, há competição para
 
 O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para exibir informações sobre suas filas, entre na interface do usuário da Web do amAmbari e selecione **Gerenciador de filas do yarn** no menu superior.
 
-![Gerenciador de filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![Gerenciador de filas do YARN](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 A página Gerenciador de filas do YARN mostra uma lista de suas filas à esquerda, juntamente com a porcentagem de capacidade atribuída a cada uma.
 
@@ -64,11 +64,11 @@ A página Gerenciador de filas do YARN mostra uma lista de suas filas à esquerd
 
 Para obter uma visão mais detalhada de suas filas, no painel do Ambari, selecione o serviço **yarn** na lista à esquerda. Em seguida, no menu suspenso **links rápidos** , selecione **interface do usuário do Resource Manager** abaixo do nó ativo.
 
-![Link do menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Link do menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 Na interface do usuário do Resource Manager, selecione **Agendador** no menu à esquerda. Você verá uma lista de suas filas sob *filas de aplicativos*. Aqui você pode ver a capacidade usada para cada uma de suas filas, o quão bem os trabalhos são distribuídos entre eles e se algum trabalho tem restrições de recursos.
 
-![Menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 

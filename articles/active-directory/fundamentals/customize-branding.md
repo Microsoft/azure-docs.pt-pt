@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561714"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959044"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -29,7 +29,7 @@ Utilize o logótipo e esquemas de cores personalizada da sua organização para 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de início de sessão do Azure AD
 Pode personalizar sua do Azure AD início de sessão páginas, que são apresentados quando os utilizadores iniciam sessão aplicações de inquilino específico da sua organização, tal como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou quando passar uma variável de domínio, tal como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como,\.www Office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada.
+Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como,\.www Office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada. Depois que o usuário tiver entrado, a identidade visual poderá levar 15 minutos ou mais para aparecer. 
 
 > [!NOTE]
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se especificar um logótipo de faixa com nenhuma imagem de fundo, a página de início de sessão irá mostrar o logótipo com uma imagem de fundo predefinido do site de destino (por exemplo, o Office 365).<br><br>Além disso, imagem corporativa a página de início de sessão não passa para contas Microsoft pessoais. Se os usuários ou convidados empresariais iniciar sessão com uma conta Microsoft pessoal, a página de início de sessão não reflete a imagem corporativa da sua organização.

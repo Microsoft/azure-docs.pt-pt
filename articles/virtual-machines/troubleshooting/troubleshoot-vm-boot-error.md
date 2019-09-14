@@ -1,5 +1,5 @@
 ---
-title: Erro de inicialização da máquina virtual do Azure
+title: Erro de arranque de Máquina Virtual do Azure
 description: Falha na inicialização da máquina virtual porque a máquina virtual entrou em um console de resgate
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 14bf7b289f3d03dd1437a18b0b5bd35fdec567ea
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143313"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984829"
 ---
 # <a name="vm-boot-error"></a>Erro de arranque da VM
 
@@ -48,7 +48,7 @@ Siga as etapas de mitigação abaixo, dependendo do erro que você receber:
 
     2. Em seguida, execute o seguinte comando para regenerar sua configuração:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Se o arquivo ausente for `/boot/grub/menu.lst`, esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos possam ser adiados. Você precisará criar um servidor antigo e testar para garantir que os comandos corretos sejam fornecidos.
+   * Se o arquivo ausente for `/boot/grub/menu.lst`, esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos pudessem ser diferentes. Você precisará criar um servidor antigo e testar para garantir que os comandos corretos sejam fornecidos.
 
 ### <a name="error---no-such-partition"></a>Erro-nenhuma partição desse tipo
 

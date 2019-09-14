@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d7618d2542b1c1d83ed7328c8a32d80f2d0e66a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699531"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984890"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início rápido: Criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/).
@@ -44,9 +44,9 @@ Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com bas
 - [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Utilizar uma partilha de ficheiros do Azure a partir do portal do Azure
-Todos os pedidos realizados através do Portal do Azure são feitos com a API REST File, o que lhe permite criar, modificar e eliminar ficheiros e diretórios em clientes que não tenham acesso SMB. É possível trabalhar diretamente com o protocolo REST de arquivo diretamente (ou seja, programando chamadas HTTP REST por conta própria), mas a maneira mais comum (além de usar o portal do Azure) para usar o protocolo REST de arquivo é usar o [módulo Azure PowerShell](storage-how-to-use-files-powershell.md), o [CLI do Azure ](storage-how-to-use-files-cli.md), ou um SDK de armazenamento do Azure, que fornece um excelente wrapper em relação ao protocolo REST de arquivo na linguagem de script/programação de sua escolha. 
+Todos os pedidos realizados através do Portal do Azure são feitos com a API REST File, o que lhe permite criar, modificar e eliminar ficheiros e diretórios em clientes que não tenham acesso SMB. É possível trabalhar diretamente com o protocolo REST de arquivo (ou seja, programando chamadas HTTP REST por conta própria), mas a maneira mais comum (além de usar o portal do Azure) para usar o protocolo REST de arquivo é usar o [módulo Azure PowerShell](storage-how-to-use-files-powershell.md), a [CLI do Azure](storage-how-to-use-files-cli.md) ou um SDK de armazenamento do Azure, que fornece um excelente wrapper em relação ao protocolo REST de arquivo na linguagem de script/programação de sua escolha. 
 
-Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer trabalhar com a partilha de ficheiros do Azure através do protocolo SMB, pois permite-lhes utilizar as aplicações e ferramentas existentes, mas existem vários motivos pelos quais é vantajoso utilizar a API REST de Ficheiros em vez do SMB, tais como:
+Esperamos que a maioria dos usuários dos arquivos do Azure desejem trabalhar com o compartilhamento de arquivos do Azure no protocolo SMB, pois isso permite que eles usem os aplicativos e as ferramentas existentes que esperam poder usar, mas há várias razões pelas quais é vantajoso usar o AP REST de arquivo I em vez de SMB, como:
 
 - Se precisar de fazer uma alteração rápida à partilha de ficheiros do Azure enquanto viaja, por exemplo, a partir de um portátil, tablet ou dispositivo móvel sem acesso SMB.
 - Se precisar de executar um script ou aplicação a partir de um cliente que não pode montar uma partilha SMB, como clientes no local que não têm a porta 445 desbloqueada.
@@ -81,7 +81,7 @@ Pode transferir uma cópia do ficheiro que carregou ao clicar com o botão direi
 ## <a name="clean-up-resources"></a>Limpar recursos
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [O que são os Ficheiros do Azure?](storage-files-introduction.md)

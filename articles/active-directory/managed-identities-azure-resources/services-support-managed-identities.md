@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136537"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959920"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -33,7 +33,7 @@ Os seguintes serviços do Azure dão suporte a identidades gerenciadas para recu
 | Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Sistema atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização | 
-| Utilizador atribuído | Pré-visualização | Pré-visualização | Pré-visualização | Pré-visualização |
+| Utilizador atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para máquinas virtuais do Azure (em regiões onde disponível):
 
@@ -48,7 +48,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para máquinas
 |Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Sistema atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
-| Utilizador atribuído | Pré-visualização | Pré-visualização | Pré-visualização | Pré-visualização |
+| Utilizador atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para conjuntos de dimensionamento de máquinas virtuais do Azure (em regiões onde disponível):
 
@@ -210,7 +210,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 | Nuvem | ID de recurso | State |
 |--------|------------|--------|
-| Global do Azure | `https://eventhubs.azure.net` | Pré-visualização |
+| Global do Azure | `https://eventhubs.azure.net` | Disponível |
 | Azure Government |  | Não Disponível |
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
@@ -219,7 +219,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 | Nuvem | ID de recurso | State |
 |--------|------------|--------|
-| Global do Azure | `https://servicebus.azure.net`  | Pré-visualização |
+| Global do Azure | `https://servicebus.azure.net`  | Disponível |
 | Azure Government |  | Não Disponível |
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |

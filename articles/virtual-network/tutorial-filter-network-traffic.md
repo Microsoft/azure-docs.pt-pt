@@ -1,7 +1,7 @@
 ---
-title: Filtrar o tráfego de rede - tutorial - Portal do Azure
+title: Filtrar o tráfego de rede-tutorial-portal do Azure
 titlesuffix: Azure Virtual Network
-description: Neste tutorial, irá aprender a filtrar o tráfego de rede a uma sub-rede, com um grupo de segurança de rede, através do portal do Azure.
+description: Neste tutorial, você aprende a filtrar o tráfego de rede para uma sub-rede, com um grupo de segurança de rede, usando o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242725"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984895"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede com o portal do Azure
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede usando o portal do Azure
 
 Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste tutorial, ficará a saber como:
 
@@ -35,7 +35,7 @@ Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-filter-ne
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -66,18 +66,18 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | Definição        | Valor                                                         |
     | ---            | ---                                                           |
     | Name           | myAsgWebServers                                               |
-    | Subscrição   | Selecione a sua subscrição.                                     |
-    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Location       | EUA Leste                                                       |
+    | Subscription   | Selecione a sua subscrição.                                     |
+    | Resource group | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
+    | Location       | East US                                                       |
 
 4. Conclua o passo 3 novamente, com os seguintes valores:
 
     | Definição        | Valor                                                         |
     | ---            | ---                                                           |
     | Name           | myAsgMgmtServers                                              |
-    | Subscrição   | Selecione a sua subscrição.                                     |
-    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Location       | EUA Leste                                                       |
+    | Subscription   | Selecione a sua subscrição.                                     |
+    | Resource group | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
+    | Location       | East US                                                       |
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -88,9 +88,9 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     |Definição|Valor|
     |---|---|
     |Name|myNsg|
-    |Subscrição| Selecione a sua subscrição.|
+    |Subscription| Selecione a sua subscrição.|
     |Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione *myResourceGroup*.|
-    |Location|EUA Leste|
+    |Location|East US|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associar o grupo de segurança de rede à sub-rede
 
@@ -123,7 +123,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgMgmtServers** para **Grupo de segurança de aplicações**. |
     | Intervalos de portas de destino | Introduza 3389                                                                                                      |
     | Protocol                | Selecione TCP                                                                                                      |
-    | Prioridade                | Introduza 110                                                                                                       |
+    | Priority                | Introduza 110                                                                                                       |
     | Name                    | Allow-RDP-All                                                                                                   |
 
     Neste tutorial, o RDP (porta 3389) está exposto à Internet para a VM atribuída ao grupo de segurança de aplicações *myAsgMgmtServers*. Em ambientes de produção, em vez de expor a porta 3389 à Internet, recomenda-se que ligue aos recursos do Azure que quer gerir com uma VPN ou da ligação de rede privada.
@@ -140,27 +140,29 @@ Crie duas VMs na rede virtual.
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+3. Insira, ou selecione, as informações a seguir e aceite os padrões para as configurações restantes:
 
     |Definição|Valor|
     |---|---|
+    |Subscription| Selecione a sua subscrição.|
+    |Resource group| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
     |Name|myVmWeb|
+    |Location| Selecione **E.U.A. Leste**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscrição| Selecione a sua subscrição.|
-    |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-    |Location| Selecione **E.U.A. Leste**|
+
+   
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
-5. Em **Definições**, selecione os seguintes valores, aceite as restantes predefinições e, em seguida, selecione **OK**:
+5. Em **rede**, selecione os valores a seguir e aceite os padrões restantes:
 
     |Definição|Valor|
     |---|---|
-    |Rede virtual |Selecione **myVirtualNetwork**|
-    |Grupo de segurança de rede | Selecione **Avançadas**.|
-    |Grupo de segurança de rede (firewall)| Selecione **(novo) myVmWeb-nsg** e, em **Escolher grupo de segurança de rede**, selecione **Nenhum**. |
+    |Rede virtual |Selecione **myVirtualNetwork**.|
+    |Grupo de segurança de rede NIC |Selecione **Avançadas**.|
+    |Portas de entrada públicas|Selecione **nenhum**. |
 
-6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.
+6. Selecione **revisão + criar** na parte inferior, canto esquerdo, selecione **criar** para iniciar a implantação da VM.
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 

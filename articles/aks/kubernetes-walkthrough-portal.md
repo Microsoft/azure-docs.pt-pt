@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 90ccd6c827371d9bf72391e2b24c7dcef31f36c9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 8d42395bc4f813fecf3820024539999a1129921b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844623"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983800"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
@@ -52,7 +52,7 @@ Para criar um cluster do AKS, execute os passos seguintes:
    - Crie uma nova entidade de serviço deixando o campo de **entidade de serviço** com a **entidade de serviço padrão (novo)** . Ou você pode escolher *Configurar a entidade de serviço* para usar uma existente. Se você usar um existente, será necessário fornecer a ID e o segredo do cliente SPN.
    - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos kubernetes implantados em seu cluster AKS.
 
-    Por padrão, a rede *básica* é usada e Azure monitor para contêineres está habilitado. Clique em **revisar + criar** e em **criar** quando a validação for concluída.
+Por padrão, a rede *básica* é usada e Azure monitor para contêineres está habilitado. Clique em **revisar + criar** e em **criar** quando a validação for concluída.
 
 Leva alguns minutos para criar o cluster AKS. Quando a implantação for concluída, clique em **ir para recurso**ou navegue até o grupo de recursos de cluster AKs, como *MyResource*Group, e selecione o recurso AKs, como *myAKSCluster*. O painel do cluster AKS é mostrado, como neste exemplo:
 

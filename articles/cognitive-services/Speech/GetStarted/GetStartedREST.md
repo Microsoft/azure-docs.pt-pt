@@ -1,88 +1,88 @@
 ---
-title: Comece com a API de reconhecimento de voz do Bing utilizando o REST | Documentos da Microsoft
+title: Introdução à API de reconhecimento de Fala do Bing usando REST | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Utilize REST para aceder à API de reconhecimento de fala em serviços cognitivos da Microsoft para converter áudio falado em texto.
+description: Use REST para acessar a API de reconhecimento de fala nos serviços cognitivas da Microsoft para converter áudio falado em texto.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e962a12c6c27737f95e78e80036e51bac41147d5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515140"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965774"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início rápido: Utilizar a API de REST de reconhecimento de voz do Bing
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início rápido: Usar a API REST de reconhecimento de Fala do Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Com o serviço de voz do Bing com base na cloud, pode desenvolver aplicativos com a API de REST para converter áudio falado em texto.
+Com o serviço de Fala do Bing baseado em nuvem, você pode desenvolver aplicativos usando a API REST para converter áudio falado em texto.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Subscrever a API de voz e obter uma chave de subscrição de avaliação gratuita
+### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Assine o Speech API e obtenha uma chave de assinatura de avaliação gratuita
 
-A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford). Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
+O Speech API faz parte de serviços cognitivas (anteriormente Oxford de projeto). Você pode obter chaves de assinatura de avaliação gratuita da página de [assinatura de serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/) . Depois de selecionar a Speech API, selecione **obter chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão vinculadas à mesma cota, para que você possa usar qualquer chave.
 
 > [!IMPORTANT]
->* Obter uma chave de subscrição. Antes de poder aceder a API REST, tem de ter uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
+>* Obtenha uma chave de assinatura. Antes de poder acessar a API REST, você deve ter uma [chave de assinatura](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Utilize a sua chave de subscrição. Nos exemplos a seguir REST, substitua YOUR_SUBSCRIPTION_KEY sua própria chave de subscrição.
+>* Use sua chave de assinatura. Nos exemplos de REST a seguir, substitua YOUR_SUBSCRIPTION_KEY por sua própria chave de assinatura.
 >
->* Consulte a [autenticação](../how-to/how-to-authentication.md) página para saber como obter uma chave de subscrição.
+>* Consulte a página de [autenticação](../how-to/how-to-authentication.md) para saber como obter uma chave de assinatura.
 
 ### <a name="prerecorded-audio-file"></a>Arquivo de áudio pré-gravados
 
-Neste exemplo, utilizamos um arquivo de áudio gravado para ilustrar como usar a API REST. Grave um arquivo de áudio de mesmo dizendo que uma frase curta. Por exemplo, digamos que "O que é a meteorologia como hoje?" ou "Find filmes engraçados ver". A API de reconhecimento de voz também suporta a entrada do microfone externo.
+Neste exemplo, usamos um arquivo de áudio gravado para ilustrar como usar a API REST. Registre um arquivo de áudio de você mesmo dizendo uma frase curta. Por exemplo, digamos "Qual é o clima como hoje?" ou "Encontre filmes divertidos para assistir". A API de reconhecimento de fala também dá suporte à entrada de microfone externa.
 
 > [!NOTE]
-> O exemplo requer que o áudio é registado como um arquivo WAV com **PCM canal único (mono), 16 KHz**.
+> O exemplo requer que o áudio seja registrado como um arquivo WAV com o **mono (PCM Single Channel), 16 kHz**.
 
-## <a name="build-a-recognition-request-and-send-it-to-the-speech-recognition-service"></a>Criar um pedido de reconhecimento e enviá-lo para o serviço de reconhecimento de fala
+## <a name="build-a-recognition-request-and-send-it-to-the-speech-recognition-service"></a>Criar uma solicitação de reconhecimento e enviá-la para o serviço de reconhecimento de fala
 
-A próxima etapa para reconhecimento de fala é para enviar um pedido POST para os pontos finais de HTTP de voz com o cabeçalho de pedido adequado e o corpo.
+A próxima etapa para o reconhecimento de fala é enviar uma solicitação POST para os pontos de extremidade HTTP de fala com o cabeçalho e o corpo de solicitação apropriados.
 
 ### <a name="service-uri"></a>URI de serviço
 
-O serviço de reconhecimento de fala URI é definido com base na [modos de reconhecimento](../concepts.md#recognition-modes) e [idiomas de reconhecimento](../concepts.md#recognition-languages):
+O URI do serviço de reconhecimento de fala é definido com base nos [modos de reconhecimento](../concepts.md#recognition-modes) e nos [idiomas de reconhecimento](../concepts.md#recognition-languages):
 
 ```HTTP
 https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
 ```
 
-`<RECOGNITION_MODE>` Especifica o modo de reconhecimento e tem de ser um dos seguintes valores: `interactive`, `conversation`, ou `dictation`. É um caminho de recurso necessário no URI. Para obter mais informações, consulte [modos de reconhecimento](../concepts.md#recognition-modes).
+`<RECOGNITION_MODE>`Especifica o modo de reconhecimento e deve ser um dos seguintes valores: `interactive`, `conversation`ou `dictation`. É um caminho de recurso necessário no URI. Para obter mais informações, consulte [modos de reconhecimento](../concepts.md#recognition-modes).
 
-`<LANGUAGE_TAG>` é um parâmetro necessário na cadeia de consulta. Define o idioma de destino para a conversão de áudio: por exemplo, `en-US` para inglês (Estados Unidos). Para obter mais informações, consulte [idiomas de reconhecimento](../concepts.md#recognition-languages).
+`<LANGUAGE_TAG>`é um parâmetro obrigatório na cadeia de caracteres de consulta. Ele define o idioma de destino para conversão de áudio: por `en-US` exemplo, para inglês (Estados Unidos). Para obter mais informações, consulte [linguagens de reconhecimento](../concepts.md#recognition-languages).
 
-`<OUTPUT_FORMAT>` é um parâmetro opcional na cadeia de consulta. Os valores permitidos são `simple` e `detailed`. Por predefinição, o serviço retorna resultados no `simple` formato. Para obter mais informações, consulte [formato de saída](../concepts.md#output-format).
+`<OUTPUT_FORMAT>`é um parâmetro opcional na cadeia de caracteres de consulta. Seus valores permitidos são `simple` e `detailed`. Por padrão, o serviço retorna resultados no `simple` formato. Para obter mais informações, consulte [formato de saída](../concepts.md#output-format).
 
-Alguns exemplos de serviço URIs estão listados na tabela seguinte.
+Alguns exemplos de URIs de serviço são listados na tabela a seguir.
 
 | Modo de reconhecimento  | Idioma | Formato de saída | URI de serviço |
 |---|---|---|---|
-| `interactive` | pt-BR | Predefinição | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Detalhadas | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `interactive` | pt-BR | Predefinição | https:\//Speech.Platform.Bing.com/Speech/Recognition/Interactive/cognitiveservices/v1?language=pt-br |
+| `conversation` | en-US | Detalhado | https:\//Speech.Platform.Bing.com/Speech/Recognition/Conversation/cognitiveservices/v1?language=en-US&Format=detailed |
 | `dictation` | FR-FR | Simples | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> O URI de serviço é necessário apenas quando a sua aplicação utilizar REST APIs para chamar o serviço de reconhecimento de fala. Se utilizar um da [bibliotecas de cliente](GetStartedClientLibraries.md), normalmente, não precisa de saber qual URI é utilizado. As bibliotecas de cliente podem utilizar o serviço de diferente URIs, que são aplicáveis apenas para uma biblioteca de cliente específico. Para obter mais informações, consulte a biblioteca de cliente da sua preferência.
+> O URI de serviço é necessário somente quando seu aplicativo usa APIs REST para chamar o serviço de reconhecimento de fala. Se você usar uma das [bibliotecas de cliente](GetStartedClientLibraries.md), normalmente não precisará saber qual URI é usado. As bibliotecas de cliente podem usar URIs de serviço diferentes, que são aplicáveis somente para uma biblioteca de cliente específica. Para obter mais informações, consulte a biblioteca de cliente de sua escolha.
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
-Os seguintes campos tem de ser definidos no cabeçalho do pedido:
+Os campos a seguir devem ser definidos no cabeçalho da solicitação:
 
-- `Ocp-Apim-Subscription-Key`: Sempre que chamar o serviço, tem de passar a chave de subscrição a `Ocp-Apim-Subscription-Key` cabeçalho. Serviço de voz também suporta a autorização de passar tokens em vez de chaves de subscrição. Para obter mais informações, veja [Autenticação](../How-to/how-to-authentication.md).
-- `Content-type`: O `Content-type` campo descreve o formato e o codec do fluxo de áudio. Atualmente, apenas arquivo WAV e a codificação do PCM Mono 16000 é suportada. O valor de tipo de conteúdo para esse formato é `audio/wav; codec=audio/pcm; samplerate=16000`.
+- `Ocp-Apim-Subscription-Key`: Cada vez que você chama o serviço, você deve passar sua chave de assinatura no `Ocp-Apim-Subscription-Key` cabeçalho. O Speech Service também dá suporte à passagem de tokens de autorização em vez de chaves de assinatura. Para obter mais informações, veja [Autenticação](../How-to/how-to-authentication.md).
+- `Content-type`: O `Content-type` campo descreve o formato e o codec do fluxo de áudio. Atualmente, há suporte apenas para o arquivo WAV e a codificação PCM mono 16000. O valor do tipo de conteúdo para esse formato `audio/wav; codec=audio/pcm; samplerate=16000`é.
 
-O campo `Transfer-Encoding` é opcional. Se definir este campo para `chunked`, pode chop o áudio em pequenos segmentos. Para obter mais informações, consulte [segmentado transferência](../How-to/how-to-chunked-transfer.md).
+O campo `Transfer-Encoding` é opcional. Se você definir esse campo como `chunked`, poderá Chop o áudio em pequenas partes. Para obter mais informações, consulte [transferência em partes](../How-to/how-to-chunked-transfer.md).
 
-Segue-se um cabeçalho de pedido de exemplo:
+Este é um cabeçalho de solicitação de exemplo:
 
 ```HTTP
 POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -94,12 +94,12 @@ Transfer-Encoding: chunked
 Expect: 100-continue
 ```
 
-### <a name="send-a-request-to-the-service"></a>Enviar um pedido para o serviço
+### <a name="send-a-request-to-the-service"></a>Enviar uma solicitação para o serviço
 
-O exemplo seguinte mostra como enviar um pedido de reconhecimento de voz para pontos finais REST de voz. Ele usa o `interactive` modo de reconhecimento.
+O exemplo a seguir mostra como enviar uma solicitação de reconhecimento de fala para pontos de extremidade REST de fala. Ele usa o `interactive` modo de reconhecimento.
 
 > [!NOTE]
-> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_SUBSCRIPTION_KEY` com sua própria chave de subscrição.
+> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua própria chave de assinatura.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -127,10 +127,10 @@ $RecoResponse
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
-O exemplo utiliza o curl no Linux com o bash. Se não estiver disponível na sua plataforma, precisará de instalar o curl. O exemplo também funciona em Cygwin no Windows, do Git Bash, zsh e outros shells.
+O exemplo usa a ondulação no Linux com bash. Se ele não estiver disponível em sua plataforma, talvez seja necessário instalar a ondulação. O exemplo também funciona em Cygwin no Windows, git bash, zsh e outros shells.
 
 > [!NOTE]
-> Manter o `@` antes do nome de arquivo de áudio ao substituir `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados, como ele indica que o valor de `--data-binary` é um nome de ficheiro em vez de dados.
+> Mantenha o `@` antes do nome do arquivo de áudio `YOUR_AUDIO_FILE` ao substituir pelo caminho para o arquivo de áudio pré-gravados, como indica que o valor de `--data-binary` é um nome de arquivo em vez de dados.
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -176,14 +176,14 @@ using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess
 
 ---
 
-## <a name="process-the-speech-recognition-response"></a>Processar a resposta de reconhecimento de voz
+## <a name="process-the-speech-recognition-response"></a>Processar a resposta de reconhecimento de fala
 
-Depois de processar o pedido, o serviço de voz retorna os resultados numa resposta como formato JSON.
+Após o processamento da solicitação, o serviço de fala retorna os resultados em uma resposta como formato JSON.
 
 > [!NOTE]
-> Se o código anterior retorna um erro, consulte [resolução de problemas](../troubleshooting.md) para localizar a causa possível.
+> Se o código anterior retornar um erro, consulte [solução de problemas](../troubleshooting.md) para localizar a causa possível.
 
-O fragmento de código seguinte mostra um exemplo de como é possível ler a resposta do fluxo.
+O trecho de código a seguir mostra um exemplo de como você pode ler a resposta do fluxo.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -194,7 +194,7 @@ ConvertTo-Json $RecoResponse
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
-Neste exemplo, o curl diretamente devolve a mensagem de resposta numa cadeia de caracteres. Se quiser mostrá-lo no formato JSON, pode utilizar ferramentas adicionais, por exemplo, jq.
+Neste exemplo, a ondulação retorna diretamente a mensagem de resposta em uma cadeia de caracteres. Se você quiser mostrá-lo no formato JSON, poderá usar ferramentas adicionais, por exemplo, JQ.
 
 ```
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
@@ -245,17 +245,17 @@ OK
 
 A API REST tem algumas limitações:
 
-- Suporta a transmissão de áudio apenas de 15 segundos.
-- Ele não dá suporte resultados intermédios durante o reconhecimento. Os utilizadores recebem apenas o resultado final de reconhecimento.
+- Ele dá suporte a fluxo de áudio de até 15 segundos.
+- Ele não dá suporte a resultados intermediários durante o reconhecimento. Os usuários recebem apenas o resultado de reconhecimento final.
 
-Para remover essas limitações, utilize a voz [bibliotecas de cliente](GetStartedClientLibraries.md). Ou pode trabalhar diretamente com o [protocolo WebSocket de voz](../API-Reference-REST/websocketprotocol.md).
+Para remover essas limitações, use as [bibliotecas de cliente](GetStartedClientLibraries.md)de fala. Ou você pode trabalhar diretamente com o [protocolo WebSocket de fala](../API-Reference-REST/websocketprotocol.md).
 
 ## <a name="whats-next"></a>Passos seguintes
 
-- Para ver como utilizar a API REST em c#, Java, etc., vê-los [aplicações de exemplo](../samples.md).
-- Para localizar e corrigir erros, veja [resolução de problemas](../troubleshooting.md).
-- Para utilizar as funcionalidades mais avançadas, veja como começar, utilizando voz [bibliotecas de cliente](GetStartedClientLibraries.md).
+- Para ver como usar a API REST no C#, Java, etc., consulte esses aplicativos de [exemplo](../samples.md).
+- Para localizar e corrigir erros, consulte [solução de problemas](../troubleshooting.md).
+- Para usar recursos mais avançados, consulte como começar usando as [bibliotecas de cliente](GetStartedClientLibraries.md)de fala.
 
 ### <a name="license"></a>Licença
 
-Todos os exemplos e SDKs de serviços cognitivos são licenciados com a licença do MIT. Para obter mais informações, consulte [licença](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Todos os SDKs e exemplos de serviços cognitivas são licenciados com a licença MIT. Para obter mais informações, consulte [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

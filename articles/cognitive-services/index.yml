@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/10/2019
-  ms.openlocfilehash: 0ddceb45db81ae31685cf48a6789d47d54818f3a
-  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.date: 09/12/2019
+  ms.openlocfilehash: 2bb26de076096ff47d38ddb12b1bc17f4aeafb34
+  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70886115"
+  ms.lasthandoff: 09/13/2019
+  ms.locfileid: "70965448"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -54,10 +54,10 @@ conceptualContent:
     - url: ./form-recognizer/index.yml
       itemType: overview
       text: Reconhecimento de Formato (Pré-visualização)
-    - url: ./form-recognizer/index.yml
+    - url: ./ink-recognizer/index.yml
       itemType: overview
       text: Reconhecedor de Tinta Digital (Pré-visualização)
-    - url: ./ink-recognizer/index.yml
+    - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: Indexador de Vídeos
   - title: Idioma

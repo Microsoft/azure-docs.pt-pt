@@ -1,64 +1,64 @@
 ---
-title: Serviço de voz do Bing do Microsoft | Documentos da Microsoft
+title: Serviço de Fala do Bing da Microsoft | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Utilize a API de voz de Microsoft para adicionar ações orientadas por voz às suas aplicações, incluindo interação em tempo real com os utilizadores.
+description: Use o Microsoft Speech API para adicionar ações controladas por fala aos seus aplicativos, incluindo a interação em tempo real com os usuários.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff9de2557583eecd5ddb2acd97b445a93abc5fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515080"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966653"
 ---
-# <a name="what-is-bing-speech"></a>O que é de voz do Bing?
+# <a name="what-is-bing-speech"></a>O que é Fala do Bing?
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-API de voz o Bing de Microsoft baseado na nuvem fornece aos desenvolvedores uma forma fácil de criar funcionalidades poderosas com funcionalidade de voz em seus aplicativos, como controle de comandos de voz, caixa de diálogo de utilizador com conversa natural de voz e transcrição de voz e ditado. A API de voz de Microsoft oferece suporte a ambos *conversão de voz em texto* e *texto em voz* conversão.
+O Microsoft API de Fala do Bing baseado em nuvem fornece aos desenvolvedores uma maneira fácil de criar recursos avançados habilitados para fala em seus aplicativos, como controle de comando de voz, caixa de diálogo de usuário usando conversa de fala natural e transcrição de fala e ditado. O Microsoft Speech API dá suporte à conversão *de fala em texto* e *conversão de texto em fala* .
 
-- **Conversão de voz em texto** API converte voz humana em texto que pode ser utilizado como entrada ou de comandos para controlar a sua aplicação.
-- **Texto em voz** API converte texto em fluxos de áudio que podem ser reproduzidos para o utilizador da sua aplicação.
+- **Fala para texto** A API converte a fala humana em texto que pode ser usada como entrada ou comandos para controlar seu aplicativo.
+- **Conversão de texto em fala** A API converte texto em fluxos de áudio que podem ser reproduzidos para o usuário do seu aplicativo.
 
-## <a name="speech-to-text-speech-recognition"></a>Conversão de voz em texto (reconhecimento de voz)
+## <a name="speech-to-text-speech-recognition"></a>Fala para texto (reconhecimento de fala)
 
-API de reconhecimento de voz de Microsoft *converte* fluxos de áudio em texto que seu aplicativo pode apresentar ao utilizador ou agir como comando de entrada. Ele fornece duas formas para os programadores adicionarem voz às suas aplicações: REST APIs **ou** bibliotecas de clientes baseada na Websocket.
+A API de reconhecimento de fala da Microsoft *transcreve* fluxos de áudio em texto que seu aplicativo pode exibir para o usuário ou agir como entrada de comando. Ele fornece duas maneiras para os desenvolvedores adicionarem fala aos seus aplicativos: APIs REST **ou** bibliotecas de cliente baseadas em WebSocket.
 
-- [REST APIs](GetStarted/GetStartedREST.md): Os desenvolvedores podem usar chamadas HTTP a partir das suas aplicações para o serviço para o reconhecimento de fala.
-- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): Para recursos avançados, os desenvolvedores podem transferir as bibliotecas de cliente do Microsoft Speech e vincular a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando linguagens diferentes (c#, Java, JavaScript, ObjectiveC). Ao contrário das REST APIs, as bibliotecas de cliente utilizam o protocolo baseado em Websocket.
+- [APIs REST](GetStarted/GetStartedREST.md): Os desenvolvedores podem usar chamadas HTTP de seus aplicativos para o serviço para reconhecimento de fala.
+- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): Para recursos avançados, os desenvolvedores podem baixar as bibliotecas de cliente do Microsoft Speech e vinculá-las a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando diferentes idiomasC#(, Java, JavaScript, ObjectiveC). Ao contrário das APIs REST, as bibliotecas de cliente utilizam o protocolo baseado em WebSocket.
 
 | Casos de utilização | [APIs REST](GetStarted/GetStartedREST.md) | [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Converter um áudio falado resumo, por exemplo, os comandos (comprimento áudio < 15 s) sem resultados intermediárias | Sim | Sim |
-| Converta um áudio longo (> 15 s) | Não | Sim |
-| Áudio de Stream com resultados provisórias pretendido | Não | Sim |
-| Compreender o texto convertido de áudio a utilizar o LUIS | Não | Sim |
+| Converter um áudio falado curto, por exemplo, comandos (comprimento de áudio < 15 s) sem resultados provisórios | Sim | Sim |
+| Converter um áudio longo (> 15 s) | Não | Sim |
+| Transmitir áudio com resultados provisórios desejados | Não | Sim |
+| Entender o texto convertido de áudio usando LUIS | Não | Sim |
 
-Qualquer que seja desenvolvedores abordagem escolha (REST APIs ou bibliotecas de cliente), o serviço de voz de Microsoft suporta o seguinte:
+Seja qual for a abordagem que os desenvolvedores escolhem (APIs REST ou bibliotecas de cliente), o serviço de fala da Microsoft oferece suporte ao seguinte:
 
-- Avançadas tecnologias de reconhecimento de voz da Microsoft que são utilizadas pelo Cortana, ditado do Office, Translator do Office e outros produtos da Microsoft.
-- Reconhecimento contínuo em tempo real. A API de reconhecimento de fala permite que os usuários a transcrição de áudio em texto em tempo real e oferece suporte para receber os resultados intermediários das palavras que tem sido reconhecidos até agora. O serviço de voz também suporta a deteção de fim da voz. Além disso, os utilizadores podem escolher capacidades de formatação adicionais, como o uso e pontuação, linguagem inapropriada da máscara e normalização do texto.
-- Suporta com resultados de reconhecimento de voz para otimização *interativo*, *conversação*, e *ditado* cenários. Para cenários de utilizador que necessitam de modelos de linguagem personalizados e modelos acústicos, [serviço de voz personalizada](../custom-speech-service/cognitive-services-custom-speech-home.md) permite-lhe criar modelos de voz adaptadas às suas aplicações e os seus utilizadores.
-- Suporta muitos idiomas em múltiplos dialetos. Para obter a lista completa das linguagens suportadas em cada modo de reconhecimento, consulte [idiomas de reconhecimento](api-reference-rest/supportedlanguages.md).
-- Integração com compreensão de idiomas. Além de converter o entrada de áudio em texto, o *conversão de voz em texto* fornece aos aplicativos uma capacidade adicional para compreender o que significa que o texto. Ele usa o [Service(LUIS) inteligente de compreensão de linguagem](../LUIS/what-is-luis.md) para extrair intenções e entidades do texto reconhecido.
+- Tecnologias avançadas de reconhecimento de fala da Microsoft que são usadas pela Cortana, o ditado do Office, o Office Translator e outros produtos da Microsoft.
+- Reconhecimento contínuo em tempo real. A API de reconhecimento de fala permite aos usuários transcrever áudio em texto em tempo real e dá suporte para receber os resultados intermediários das palavras que foram reconhecidas até o momento. O serviço de fala também oferece suporte à detecção de fim de fala. Além disso, os usuários podem escolher recursos de formatação adicionais, como maiúsculas e minúsculas, mascaramento de profanação e normalização de texto.
+- Dá suporte a resultados de reconhecimento de fala otimizados para cenários *interativos*, de *conversa*e de *ditado* . Para cenários de usuário que exigem modelos de linguagem e modelos acústicos personalizados, [fala personalizada serviço](../custom-speech-service/cognitive-services-custom-speech-home.md) permite que você crie modelos de fala personalizados para seu aplicativo e seus usuários.
+- Suporte a muitos idiomas falados em vários dialetos. Para obter a lista completa de idiomas com suporte em cada modo de reconhecimento, consulte [linguagens de reconhecimento](api-reference-rest/supportedlanguages.md).
+- Integração com o reconhecimento de linguagem. Além de converter o áudio de entrada em texto, a *fala em texto* fornece aos aplicativos um recurso adicional para entender o que significa o texto. Ele usa o [Luis (serviço inteligente reconhecimento vocal)](../LUIS/what-is-luis.md) para extrair intenções e entidades do texto reconhecido.
+
+### <a name="next-steps"></a>Passos seguintes
+
+- Comece a usar o serviço de reconhecimento de fala da Microsoft com [APIs REST](GetStarted/GetStartedREST.md) ou [bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md).
+- Confira os [aplicativos de exemplo](samples.md) em sua linguagem de programação preferida.
+- Vá para a seção de referência para localizar detalhes [do Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) e referências de API.
+
+## <a name="text-to-speech-speech-synthesis"></a>Conversão de texto em fala (síntese de fala)
+
+*Conversão de texto em fala* As APIs usam REST para converter texto estruturado em um fluxo de áudio. As APIs fornecem conversão rápida de texto em fala em várias vozes e linguagens. Além disso, os usuários também têm a capacidade de alterar características de áudio, como pronúncia, volume, pitch, etc. usando marcas SSML.
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-- Começar a utilizar o serviço de reconhecimento de voz de Microsoft com [REST APIs](GetStarted/GetStartedREST.md) ou [bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md).
-- Confira [aplicações de exemplo](samples.md) sua preferencial na linguagem de programação.
-- Vá para a secção de referência para encontrar [protocolo de voz de Microsoft](API-Reference-REST/websocketprotocol.md) detalhes e referências de API.
-
-## <a name="text-to-speech-speech-synthesis"></a>Texto em fala (sintetização de voz)
-
-*Texto em voz* APIs utilizam REST para converter o texto estruturado numa transmissão de áudio. As APIs oferecem conversão de texto em voz rápida em várias vozes e linguagens. Além dos utilizadores também têm a capacidade de alterar as características de áudio como pronúncia, o volume, o argumento de venda etc. as etiquetas SSML a utilizar.
-
-### <a name="next-steps"></a>Passos Seguintes
-
-- Introdução ao utilizar o serviço de texto em voz da Microsoft: [Referência da API de texto em voz](api-reference-rest/bingvoiceoutput.md). Para obter a lista completa de linguagens e vozes suportados pelo texto em voz, consulte [localidades suportados e tipos de voz](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Introdução ao uso do Microsoft Text to Speech Service: [Referência de API de conversão de texto em fala](api-reference-rest/bingvoiceoutput.md). Para obter a lista completa de idiomas e vozes com suporte pelo Conversão de Texto em Fala, consulte [localidades com suporte e fontes de voz](api-reference-rest/bingvoiceoutput.md#SupLocales).

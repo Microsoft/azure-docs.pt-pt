@@ -1,41 +1,43 @@
 ---
-title: Gateway de dados no local utilize para origens de dados de rede Virtual do Azure | Documentos da Microsoft
-description: Saiba como configurar um servidor para utilizar um gateway para origens de dados na VNet.
+title: Usar o gateway de dados local para fontes de dados de rede virtual do Azure | Microsoft Docs
+description: Saiba como configurar um servidor para usar um gateway para fontes de dados na VNet.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 675d8ecd3d6a3310a9b102df37df18bed02df3de
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534170"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958811"
 ---
-# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utilizar o gateway para origens de dados numa rede Virtual do Azure (VNet)
+# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usar o gateway para fontes de dados em uma VNet (rede virtual) do Azure
 
-Este artigo descreve os **AlwaysUseGateway** propriedade do servidor para utilização quando são de origens de dados num [rede Virtual do Azure (VNet)](../virtual-network/virtual-networks-overview.md).
+Este artigo descreve a propriedade de servidor **AlwaysUseGateway** para uso quando as fontes de dados estão em uma [VNet (rede virtual) do Azure](../virtual-network/virtual-networks-overview.md).
 
-## <a name="server-access-to-vnet-data-sources"></a>Acesso ao servidor para origens de dados de VNet
+## <a name="server-access-to-vnet-data-sources"></a>Acesso do servidor a fontes de dados VNet
 
-Se as origens de dados são acedidas através de uma VNet, tem de ligar o servidor Azure Analysis Services para essas origens de dados como se fossem locais, em seu próprio ambiente. Pode configurar o **AlwaysUseGateway** propriedade do servidor para especificar o servidor para aceder a todos os dados de origem de dados por meio de um [gateway no local](analysis-services-gateway.md). 
+Se suas fontes de dados forem acessadas por meio de uma VNet, seu servidor de Azure Analysis Services deverá se conectar a essas fontes de dados como se elas fossem locais, em seu próprio ambiente. Você pode configurar a propriedade de servidor **AlwaysUseGateway** para especificar o servidor para acessar todas as fontes de dados por meio de um [Gateway local](analysis-services-gateway.md). 
+
+Instância Gerenciada do Banco de Dados SQL do Azure fontes de dados são executadas na VNet do Azure com um endereço IP privado. Se o ponto de extremidade público estiver habilitado na instância, um gateway não será necessário. Se o ponto de extremidade público não estiver habilitado, um gateway de dados local será necessário e a propriedade AlwaysUseGateway deverá ser definida como true.
 
 > [!NOTE]
-> Esta propriedade é eficaz apenas quando uma [gateway de dados no local](analysis-services-gateway.md) está instalado e configurado. O gateway pode ser na VNet.
+> Essa propriedade só é eficaz quando um [Gateway de dados local](analysis-services-gateway.md) é instalado e configurado. O gateway pode estar na VNet.
 
 ## <a name="configure-alwaysusegateway-property"></a>Configurar a propriedade AlwaysUseGateway
 
-1. No SSMS > servidor > **propriedades** > **geral**, selecione **propriedades Mostrar avançadas (todos)** .
-2. Na **ASPaaS\AlwaysUseGateway**, selecione **verdadeiro**.
+1. No SSMS > Server > **Propriedades** > **geral**, selecione **mostrar propriedades avançadas (todas)** .
+2. No **ASPaaS\AlwaysUseGateway**, selecione **true**.
 
-    ![Utilize sempre a propriedade de gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
+    ![Sempre usar propriedade de gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
 ## <a name="see-also"></a>Consulte também
-[Ligar a origens de dados no local](analysis-services-gateway.md)   
-[Instalar e configurar um gateway de dados no local](analysis-services-gateway-install.md)   
-[Rede Virtual do Azure (VNET)](../virtual-network/virtual-networks-overview.md)   
+[Conectando-se a fontes de dados locais](analysis-services-gateway.md)   
+[Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)   
+[Rede virtual do Azure (VNET)](../virtual-network/virtual-networks-overview.md)   
 

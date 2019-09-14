@@ -1,33 +1,33 @@
 ---
-title: Idiomas suportados - API de voz do tradutor
+title: Idiomas com suporte-API de Tradução de Fala
 titlesuffix: Azure Cognitive Services
-description: Ver os idiomas suportados pela API de voz do Translator.
+description: Exibir idiomas com suporte no API de Tradução de Fala.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ed8f693e4dc0344a0117ae9d6992b925992ef0c4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2f5b48f2dbc2d109c03613676c6a119fd971603b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446915"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965431"
 ---
-# <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas suportados pela API de voz do Translator
+# <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas com suporte no API de Tradução de Fala
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Os seguintes idiomas são suportados para tradução de voz. Se ambos os idiomas são suportados para tradução de voz, conversão de voz para a conversão de voz ou de voz em texto estão disponíveis. Se o idioma de destino não é suportado para a tradução de voz, apenas a voz para tradução de texto está disponível.
+Os idiomas a seguir têm suporte para tradução de fala. Se os dois idiomas tiverem suporte para tradução de fala, a fala para fala ou fala para texto está disponível. Se o idioma de destino não tiver suporte para tradução de fala, somente a tradução de fala para texto estará disponível.
 
 | Idiomas de voz    |
 |:----------- |
 | Árabe (Standard moderno)      |
-| Português (Brasil)     |
+| Português do Brasil     |
 | Chinês (Mandarim)      |
 | Português      |
 | Francês      |
@@ -37,7 +37,7 @@ Os seguintes idiomas são suportados para tradução de voz. Se ambos os idiomas
 | Russo      |
 | Espanhol      |
 
-A API de voz do Translator suporta os seguintes idiomas como um idioma de destino para a conversão de voz em tradução de texto.
+O API de Tradução de Fala dá suporte aos seguintes idiomas como um idioma de destino para conversão de fala em texto.
 
 | Idioma de texto    | Código do idioma |
 |:----------- |:-------------:|
@@ -105,16 +105,16 @@ A API de voz do Translator suporta os seguintes idiomas como um idioma de destin
 | Galês      | `cy`          |
 | Yucatec Maya      | `yua`          |
 
-## <a name="access-the-list-programmatically"></a>Aceder à lista por meio de programação
+## <a name="access-the-list-programmatically"></a>Acessar a lista programaticamente
 
-Pode acessar a lista de idiomas suportados programaticamente usando o recurso de idiomas. A lista fornece o código de idioma, bem como o nome do idioma em inglês, ou qualquer outro idioma suportado. Esta lista é atualizada automaticamente pelo serviço de voz do Translator à medida que novos idiomas forem disponíveis.
+Você pode acessar a lista de idiomas com suporte programaticamente usando o recurso de idiomas. A lista fornece o código de idioma, bem como o nome do idioma em inglês, ou qualquer outro idioma com suporte. Essa lista é atualizada automaticamente pelo serviço de Tradução de Fala à medida que novos idiomas são disponibilizados.
 
-O recurso de idiomas devolve a lista de idiomas suportados para conversão de voz, o texto e o texto em voz. O recurso de idiomas não exija autenticação.
+O recurso de idiomas retorna a lista de idiomas com suporte para fala, texto e texto para fala. O recurso de idiomas não requer autenticação.
 
 [Visite a referência de API para experimentar o método de idiomas](languages-reference.md)
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Aceder à lista no site do Microsoft Translator
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>Acessar a lista no site do Microsoft Translator
 
-Para examinar os idiomas, o site do Microsoft Translator mostra todos os idiomas suportados pelo texto de tradutor e APIs de voz. Esta lista não inclui informações específicas de desenvolvedor como códigos de idioma.
+Para uma visão rápida dos idiomas, o site do Microsoft Translator mostra todos os idiomas com suporte nas APIs de Tradução de Texto e fala. Essa lista não inclui informações específicas do desenvolvedor, como códigos de idioma.
 
 [Consulte a lista de idiomas](https://www.microsoft.com/translator/languages.aspx)

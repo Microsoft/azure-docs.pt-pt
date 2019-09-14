@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 4e9a6a9ca435971d64ec8f59203a518287e6db4e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879450"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961017"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -79,11 +79,11 @@ O Apache Ambari simplifica o gerenciamento, a configuração e o monitoramento d
 
 Para abrir uma lista de exibições de serviço, selecione o painel **modos de exibição Ambari** na página portal do Azure para o HDInsight.  Essa lista varia, dependendo de quais bibliotecas você instalou.  Por exemplo, você pode ver YARN Queue Manager, Hive View e tez View.  Selecione qualquer link de serviço para ver as informações de configuração e de serviço.  A página **pilha e versão** da interface do usuário do Ambari fornece informações sobre o histórico de versão de serviço e configuração de serviços de cluster. Para navegar até esta seção da interface do usuário do amAmbari, selecione o menu **admin** e, em seguida, **pilhas e versões**.  Selecione a guia **versões** para ver as informações de versão do serviço.
 
-![Pilha e versões](./media/hdinsight-log-management/stack-versions.png)
+![Pilha e versões](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Usando a interface do usuário do amAmbari, você pode baixar a configuração para qualquer serviço (ou todos) em execução em um host (ou nó) específico no cluster.  Selecione o menu **hosts** e, em seguida, o link para o host de interesse. Na página desse host, selecione o botão **ações do host** e, em seguida, **Baixe as configurações do cliente**. 
+Usando a interface do usuário do amAmbari, você pode baixar a configuração para qualquer serviço (ou todos) em execução em um host (ou nó) específico no cluster.  Selecione o menu **hosts** e, em seguida, o link para o host de interesse. Na página desse host, selecione o botão **ações do host** e, em seguida, **Baixe as configurações do cliente**.
 
-![Configurações do cliente host](./media/hdinsight-log-management/client-configs.png)
+![Configurações do cliente host](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>Exibir os logs de ação de script
 

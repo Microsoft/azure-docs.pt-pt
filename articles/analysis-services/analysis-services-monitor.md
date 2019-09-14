@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596080"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958971"
 ---
 # <a name="monitor-server-metrics"></a>Monitorizar as métricas do servidor
 
@@ -55,14 +55,18 @@ Use esta tabela para determinar quais métricas são melhores para seu cenário 
 |MemoryLimitLow|Memória: Limite de memória baixo|Bytes|Average|Limite de memória baixo, do arquivo de configuração.|
 |MemoryLimitVertiPaq|Memória: Limite de memória VertiPaq|Bytes|Average|Limite na memória, do arquivo de configuração.|
 |MemoryUsage|Memória: Utilização da Memória|Bytes|Average|Uso de memória do processo do servidor conforme usado no cálculo do preço de memória de limpeza. Igual ao contador Process\PrivateBytes mais o tamanho dos dados mapeados na memória, ignorando qualquer memória, que foi mapeada ou alocada pelo mecanismo analítico na memória (VertiPaq) que excede o limite de memória do mecanismo.|
+|private_bytes_metric|Bytes Privados |Bytes|Average|A quantidade total de memória que o processo do mecanismo de Analysis Services e os processos de contêiner do mashup alocaram, não incluindo a memória compartilhada com outros processos.|
+|virtual_bytes_metric|Bytes virtuais |Bytes|Average|O tamanho atual do espaço de endereço virtual que Analysis Services processo do mecanismo e os processos de contêiner do mashup estão usando.|
+|mashup_engine_private_bytes_metric|Bytes privados do mecanismo M |Bytes|Average|A quantidade total de processos de contêiner de mashup de memória alocados, não incluindo a memória compartilhada com outros processos.|
+|mashup_engine_virtual_bytes_metric|Bytes virtuais do mecanismo M |Bytes|Average|O tamanho atual dos processos de contêiner do mashup de espaço de endereço virtual está usando.|
 |Quota|Memória: Quota|Bytes|Average|Cota de memória atual, em bytes. A cota de memória também é conhecida como concessão de memória ou reserva de memória.|
 |QuotaBlocked|Memória: Cota bloqueada|Count|Average|Número atual de solicitações de cota que são bloqueadas até que outras cotas de memória sejam liberadas.|
 |VertiPaqNonpaged|Memória: VertiPaq não paginável|Bytes|Average|Bytes de memória bloqueados no conjunto de trabalho para uso pelo mecanismo na memória.|
 |VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Average|Bytes de memória paginável em uso para dados na memória.|
 |ProcessingPoolJobQueueLength|Tamanho da fila de trabalhos do pool de processamento|Count|Average|Número de trabalhos que não são de e/s na fila do pool de threads de processamento.|
-|RowsConvertedPerSec|A processar: Linhas convertidas por segundo|CountPerSecond|Average|Taxa de linhas convertidas durante o processamento.|
-|RowsReadPerSec|A processar: Linhas lidas por segundo|CountPerSecond|Average|Taxa de linhas lidas de todos os bancos de dados relacionais.|
-|RowsWrittenPerSec|A processar: Linhas gravadas por segundo|CountPerSecond|Average|Taxa de linhas gravadas durante o processamento.|
+|RowsConvertedPerSec|Processamento Linhas convertidas por segundo|CountPerSecond|Average|Taxa de linhas convertidas durante o processamento.|
+|RowsReadPerSec|Processamento Linhas lidas por segundo|CountPerSecond|Average|Taxa de linhas lidas de todos os bancos de dados relacionais.|
+|RowsWrittenPerSec|Processamento Linhas gravadas por segundo|CountPerSecond|Average|Taxa de linhas gravadas durante o processamento.|
 |qpu_metric|QPU|Count|Average|QPU. Intervalo de 0-100 para S1, 0-200 para S2 e 0-400 para S4|
 |QueryPoolBusyThreads|Threads ocupados do pool de consulta|Count|Average|Número de threads ocupados no pool de threads de consulta.|
 |SuccessfullConnectionsPerSec|Conexões com êxito por segundo|CountPerSecond|Average|Taxa de conclusões de conexão com êxito.|

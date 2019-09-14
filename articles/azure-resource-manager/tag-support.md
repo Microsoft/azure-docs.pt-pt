@@ -4,14 +4,14 @@ description: Mostra quais tipos de recursos do Azure dão suporte a marcas. Forn
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8bcbd7b14de497cb6a8bb5cf12de4ec8c555b97b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194729"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983910"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
@@ -21,7 +21,6 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 Ir para um namespace do provedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft. AADDomainServices](#microsoftaaddomainservices)
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
@@ -29,6 +28,7 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. atestador](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -62,14 +62,12 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -112,7 +110,6 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. ManagedLab](#microsoftmanagedlab)
 > - [Microsoft. Managedservices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -180,13 +177,6 @@ Ir para um namespace do provedor de recursos:
 > | DomainServices/oucontainer | Não |Não |
 > | DomainServices/ReplicaSets | Sim |Sim |
 
-## <a name="microsoftaaddomainservices"></a>Microsoft. AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
-> | ------------- | ----------- | ----------- |
-> | domínios | Não |Não |
-
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tableFixed"]
@@ -231,8 +221,8 @@ Ir para um namespace do provedor de recursos:
 > | alertsMetaData | Não |Não |
 > | alertsSummary | Não |Não |
 > | alertsSummaryList | Não |Não |
-> | receber | Não |Não |
-> | smartDetectorAlertRules | Não |Não |
+> | Receber | Não |Não |
+> | smartDetectorAlertRules | Sim |Sim |
 > | smartDetectorRuntimeEnvironments | Não |Não |
 > | smartGroups | Não |Não |
 
@@ -259,6 +249,13 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | configurationStores | Sim |Sim |
 > | configurationStores/eventGridFilters | Não |Não |
+
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
+> | ------------- | ----------- | ----------- |
+> | Primavera | Sim |Sim |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -328,6 +325,10 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
+> | hybridDataManagers | Sim |Sim |
+> | postgresInstances | Sim |Sim |
+> | sqlBigDataClusters | Sim |Sim |
+> | SQLInstances | Sim |Sim |
 > | sqlServerRegistrations | Sim |Sim |
 > | sqlServerRegistrations/sqlservers | Não |Não |
 
@@ -354,11 +355,28 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | Não |Não |
 > | billingAccounts/contratos | Não |Não |
+> | billingAccounts/billingPermissions | Não |Não |
 > | billingAccounts/billingProfiles | Não |Não |
+> | billingAccounts/billingProfiles/billingPermissions | Não |Não |
+> | billingAccounts/billingProfiles/billingRoleAssignments | Não |Não |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | Não |Não |
 > | billingAccounts/billingProfiles/billingSubscriptions | Não |Não |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | Não |Não |
+> | billingAccounts/billingProfiles/clientes | Não |Não |
 > | billingAccounts/billingProfiles/invoices | Não |Não |
 > | billingAccounts/billingProfiles/invoices/pricesheet | Não |Não |
 > | billingAccounts/billingProfiles/invoiceSections | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/produtos | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/produtos/transferência | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/Products/updateAutoRenew | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/transações | Não |Não |
+> | billingAccounts/billingProfiles/invoiceSections/transferências | Não |Não |
 > | billingAccounts/BillingProfiles/patchOperations | Não |Não |
 > | billingAccounts/billingProfiles/paymentMethods | Não |Não |
 > | billingAccounts/billingProfiles/políticas | Não |Não |
@@ -366,10 +384,17 @@ Ir para um namespace do provedor de recursos:
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | Não |Não |
 > | billingAccounts/billingProfiles/products | Não |Não |
 > | billingAccounts/billingProfiles/transactions | Não |Não |
+> | billingAccounts/billingRoleAssignments | Não |Não |
+> | billingAccounts/billingRoleDefinitions | Não |Não |
 > | billingAccounts/billingSubscriptions | Não |Não |
+> | billingAccounts/createBillingRoleAssignment | Não |Não |
 > | billingAccounts/createInvoiceSectionOperations | Não |Não |
 > | billingAccounts/clientes | Não |Não |
 > | billingAccounts/clientes/billingSubscriptions | Não |Não |
+> | billingAccounts/clientes/initiateTransfer | Não |Não |
+> | billingAccounts/clientes/produtos | Não |Não |
+> | billingAccounts/clientes/transações | Não |Não |
+> | billingAccounts/clientes/transferências | Não |Não |
 > | billingAccounts/departments | Não |Não |
 > | billingAccounts/enrollmentAccounts | Não |Não |
 > | billingAccounts/faturas | Não |Não |
@@ -392,11 +417,11 @@ Ir para um namespace do provedor de recursos:
 > | billingAccounts/produtos | Não |Não |
 > | billingAccounts/transactions | Não |Não |
 > | billingPeriods | Não |Não |
-> | billingPermissions | Não |Não |
+> | BillingPermissions | Não |Não |
 > | billproperty | Não |Não |
-> | billingRoleAssignments | Não |Não |
-> | billingRoleDefinitions | Não |Não |
-> | createBillingRoleAssignment | Não |Não |
+> | BillingRoleAssignments | Não |Não |
+> | BillingRoleDefinitions | Não |Não |
+> | CreateBillingRoleAssignment | Não |Não |
 > | departamentos | Não |Não |
 > | enrollmentAccounts | Não |Não |
 > | faturas | Não |Não |
@@ -404,6 +429,7 @@ Ir para um namespace do provedor de recursos:
 > | transfers/acceptTransfer | Não |Não |
 > | transferências/declineTransfer | Não |Não |
 > | transferências/operationStatus | Não |Não |
+> | transferências/validateTransfer | Não |Não |
 > | validateAddress | Não |Não |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -514,7 +540,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | técnicas | Não |Não |
+> | Técnicas | Não |Não |
 > | domainNames | Sim |Sim |
 > | domainNames/capabilities | Não |Não |
 > | domainNames/internalLoadBalancers | Não |Não |
@@ -529,7 +555,7 @@ Ir para um namespace do provedor de recursos:
 > | quotas | Não |Não |
 > | resourceType | Não |Não |
 > | validateSubscriptionMoveAvailability | Não |Não |
-> | virtualMachines | Sim |Sim |
+> | VirtualMachines | Sim |Sim |
 > | virtualMachines/diagnosticSettings | Não |Não |
 > | virtualMachines/metricDefinitions | Não |Não |
 > | virtualMachines/métricas | Não |Não |
@@ -546,7 +572,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | técnicas | Não |Não |
+> | Técnicas | Não |Não |
 > | expressRouteCrossConnections | Não |Não |
 > | expressRouteCrossConnections/peerings | Não |Não |
 > | gatewaySupportedDevices | Não |Não |
@@ -562,7 +588,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | técnicas | Não |Não |
+> | Técnicas | Não |Não |
 > | discos | Não |Não |
 > | imagens | Não |Não |
 > | osImages | Não |Não |
@@ -570,12 +596,16 @@ Ir para um namespace do provedor de recursos:
 > | publicImages | Não |Não |
 > | quotas | Não |Não |
 > | storageAccounts | Sim |Sim |
+> | storageAccounts/blobServices | Não |Não |
+> | storageAccounts/fileServices | Não |Não |
 > | storageAccounts/metricDefinitions | Não |Não |
 > | storageAccounts/métricas | Não |Não |
+> | storageAccounts/queueServices | Não |Não |
 > | storageAccounts/services | Não |Não |
 > | storageAccounts/services/diagnosticSettings | Não |Não |
 > | storageAccounts/serviços/metricDefinitions | Não |Não |
 > | storageAccounts/serviços/métricas | Não |Não |
+> | storageAccounts/tableServices | Não |Não |
 > | storageAccounts/vmImages | Não |Não |
 > | vmImages | Não |Não |
 
@@ -616,7 +646,7 @@ Ir para um namespace do provedor de recursos:
 > | sharedVMImages | Sim |Sim |
 > | sharedVMImages/versions | Sim |Sim |
 > | instantâneos | Sim |Sim |
-> | virtualMachines | Sim |Sim |
+> | VirtualMachines | Sim |Sim |
 > | virtualMachines/extensões | Sim |Sim |
 > | virtualMachines/metricDefinitions | Não |Não |
 > | virtualMachines/scriptJobs | Não |Não |
@@ -720,13 +750,13 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | Alertas | Não |Não |
-> | BillingAccounts | Não |Não |
+> | billingAccounts | Não |Não |
 > | Orçamentos | Não |Não |
 > | CloudConnectors | Não |Não |
 > | Conectores | Sim |Sim |
 > | Departamentos | Não |Não |
 > | Dimensões | Não |Não |
-> | EnrollmentAccounts | Não |Não |
+> | enrollmentAccounts | Não |Não |
 > | Exportações | Não |Não |
 > | ExternalBillingAccounts | Não |Não |
 > | ExternalBillingAccounts/alertas | Não |Não |
@@ -746,25 +776,6 @@ Ir para um namespace do provedor de recursos:
 > | Definições | Não |Não |
 > | showbackRules | Não |Não |
 > | Vistas | Não |Não |
-
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
-> | ------------- | ----------- | ----------- |
-> | hubs | Sim |Sim |
-> | hubs/authorizationPolicies | Não |Não |
-> | hubs/conectores | Não |Não |
-> | hubs/conectores/mapeamentos | Não |Não |
-> | hubs/interações | Não |Não |
-> | hubs/kpi | Não |Não |
-> | hubs/links | Não |Não |
-> | hubs/perfis | Não |Não |
-> | hubs/roleAssignments | Não |Não |
-> | hubs/funções | Não |Não |
-> | hubs/suggestTypeSchema | Não |Não |
-> | hubs/exibições | Não |Não |
-> | hubs/widgetTypes | Não |Não |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
@@ -810,15 +821,12 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | catálogos | Sim |Sim |
 > | catálogos de | Sim |Sim |
+> | datacatalogs/fontes de fonte | Não |Não |
+> | datacatalogs/fontes de pesquisa/verificações | Não |Não |
+> | datacatalogs/fontes/exames/conjuntos de valores | Não |Não |
+> | datacatalogs/fontes/exames/gatilhos | Não |Não |
 > | datacatalogs/scantargets | Não |Não |
 > | datacatalogs/scantargets/DataSets | Não |Não |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
-> | ------------- | ----------- | ----------- |
-> | connectionManagers | Sim |Sim |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -936,7 +944,6 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | applicationgroups | Sim |Sim |
 > | applicationgroups/aplicativos | Não |Não |
-> | applicationgroups/assignedusers | Não |Não |
 > | applicationgroups/startmenuitems | Não |Não |
 > | hostpools | Sim |Sim |
 > | hostpools/sessionhosts | Não |Não |
@@ -949,7 +956,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | ElasticPools | Sim |Sim |
+> | elasticPools | Sim |Sim |
 > | ElasticPools/IotHubTenants | Sim |Sim |
 > | IotHubs | Sim |Sim |
 > | IotHubs/eventGridFilters | Não |Não |
@@ -968,7 +975,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | controladores | Sim |Sim |
+> | Controladores | Sim |Sim |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1081,8 +1088,9 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
+> | autoManagedVmConfigurationProfiles | Sim |Sim |
 > | guestConfigurationAssignments | Não |Não |
-> | antivírus | Não |Não |
+> | Antivírus | Não |Não |
 > | softwareUpdateProfile | Não |Não |
 > | softwareUpdates | Não |Não |
 
@@ -1207,6 +1215,7 @@ Ir para um namespace do provedor de recursos:
 > | hostingEnvironments | Sim |Sim |
 > | integrationAccounts | Sim |Sim |
 > | integrationServiceEnvironments | Sim |Sim |
+> | integrationServiceEnvironments/managedApis | Sim |Sim |
 > | isolatedEnvironments | Sim |Sim |
 > | fluxos | Sim |Sim |
 
@@ -1234,13 +1243,6 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | Identidades | Não |Não |
 > | userAssignedIdentities | Sim |Sim |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
-> | ------------- | ----------- | ----------- |
-> | labaccounts | Sim |Sim |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. Managedservices
 
@@ -1348,8 +1350,11 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
+> | holographicsBroadcastAccounts | Sim |Sim |
+> | objectUnderstandingAccounts | Sim |Sim |
 > | remoteRenderingAccounts | Sim |Sim |
 > | spatialAnchorsAccounts | Sim |Sim |
+> | surfaceReconstructionAccounts | Sim |Sim |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1475,6 +1480,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
+> | clusters | Sim |Sim |
 > | dispositivos | Não |Não |
 > | linkTargets | Não |Não |
 > | storageInsightConfigs | Não |Não |
@@ -1501,6 +1507,8 @@ Ir para um namespace do provedor de recursos:
 > | legacyPeerings | Não |Não |
 > | peerAsns | Não |Não |
 > | peerings | Sim |Sim |
+> | peeringServiceProviders | Não |Não |
+> | peeringServices | Sim |Sim |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1518,7 +1526,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | consoles | Não |Não |
-> | painéis | Sim |Sim |
+> | Painéis | Sim |Sim |
 > | UserSettings | Não |Não |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
@@ -1561,7 +1569,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | contas | Não |Não |
-> | colec | Sim |Sim |
+> | Colec | Sim |Sim |
 > | coleções/aplicativos | Não |Não |
 > | coleções/SecurityPrincipals | Não |Não |
 > | templateImages | Não |Não |
@@ -1596,21 +1604,18 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | implementações | Não |Não |
+> | implementações | Sim |Não |
 > | implantações/operações | Não |Não |
 > | Vincule | Não |Não |
 > | notifyResourceJobs | Não |Não |
 > | Fornecedores | Não |Não |
-> | resourceGroups | Não |Não |
+> | resourceGroups | Sim |Não |
 > | recursos | Não |Não |
 > | subscrições | Não |Não |
 > | assinaturas/provedores | Não |Não |
-> | subscriptions/resourceGroups | Não |Não |
-> | subscriptions/resourcegroups/resources | Não |Não |
 > | assinaturas/recursos | Não |Não |
 > | assinaturas/TagNames | Não |Não |
 > | subscriptions/tagNames/tagValues | Não |Não |
-> | tags | Não |Não |
 > | locatários | Não |Não |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1626,7 +1631,6 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | fluxos | Sim |Sim |
 > | gratuitas | Sim |Sim |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1661,6 +1665,7 @@ Ir para um namespace do provedor de recursos:
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | Não |Não |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Não |Não |
 > | jitNetworkAccessPolicies | Não |Não |
+> | networkData | Não |Não |
 > | playbookConfigurations | Sim |Sim |
 > | políticas | Não |Não |
 > | preços | Não |Não |
@@ -1693,7 +1698,8 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | agregações | Não |Não |
 > | alertRules | Não |Não |
-> | indicadores | Não |Não |
+> | alertRuleTemplates | Não |Não |
+> | Indicadores | Não |Não |
 > | bolsas | Não |Não |
 > | dataconnecters | Não |Não |
 > | entidades | Não |Não |
@@ -1919,6 +1925,7 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | cancelar | Não |Não |
 > | CreateSubscription | Não |Não |
+> | ativar | Não |Não |
 > | mudar o nome | Não |Não |
 > | SubscriptionDefinitions | Não |Não |
 > | SubscriptionOperations | Não |Não |
@@ -1940,7 +1947,7 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | dedicatedCloudNodes | Sim |Sim |
 > | dedicatedCloudServices | Sim |Sim |
-> | virtualMachines | Sim |Sim |
+> | VirtualMachines | Sim |Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
@@ -2014,6 +2021,6 @@ Ir para um namespace do provedor de recursos:
 > | monitores | Não |Não |
 > | notificationSettings | Não |Não |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como aplicar marcas a recursos, consulte [usar marcas para organizar os recursos do Azure](resource-group-using-tags.md).

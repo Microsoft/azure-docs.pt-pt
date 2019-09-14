@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ce44be5bae5aaa8f86d04068cce1c4bc919b0893
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126964"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983771"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: Triagem de aplicativos distribuídos
 
@@ -270,8 +270,8 @@ Para fornecer comentários, use a opção comentários.
 
 ![MapLink-1 imagem](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como a correlação funciona em Application Insights consulte o [artigo de correlação de https://docs.microsoft.com/azure/application-insights/application-insights-correlation) telemetria] (.
+* Para saber mais sobre como a correlação funciona em Application Insights consulte o [artigo correlação de telemetria](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
 * A [experiência de diagnóstico de transação de ponta a ponta](transaction-diagnostics.md) correlaciona a telemetria do lado do servidor em todos os seus Application insights componentes monitorados em uma única exibição.
 * Para cenários de correlação avançada em ASP.NET Core e ASP.NET, consulte o artigo [rastrear operações personalizadas](custom-operations-tracking.md) .

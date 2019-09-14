@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880170"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962738"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
@@ -26,7 +26,6 @@ Para acessar as ferramentas de análise do Partner Center, abra o painel **[anal
 |[Solicitar](#orders-dashboard)|Informações sobre seus pedidos em um formato gráfico e baixável|
 |[Utilizam](#customer-dashboard)|Informações sobre seus clientes, incluindo tendências de crescimento, apresentadas em um formato gráfico e baixável|
 |[Downloads](#downloads-dashboard)|Uma lista de suas solicitações de download nos últimos 30 dias|
-|[Classificações e análises](#ratings-and-reviews)| Informações sobre classificações e análises que seus clientes deixam para as ofertas adquiridas.
 
 ## <a name="summary-dashboard"></a>Painel de resumo
 
@@ -286,38 +285,3 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | Nome do Fornecedor| Cliente| O nome do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP.|
 | SKU| Encomenda| Nome do SKU, conforme definido durante a publicação. Uma oferta pode ter muitas SKUs, mas uma SKU só pode ser associada a uma única oferta.||
 | Data de término da avaliação| Encomenda| A data em que o período de avaliação para esta ordem será encerrado ou finalizado.||
-
-## <a name="ratings-and-reviews"></a>Classificações e análises
-
-À medida que os clientes navegam, pesquisam e compram ofertas em ambos os Marketplaces, eles podem deixar classificações e análises para as ofertas adquiridas. Eles são capazes de enviar novas classificações ou revisões e atualizar ou excluir classificações ou revisões já enviadas. As revisões são lançadas no Azure Marketplace ou AppSource na guia revisões da página de exibição do produto da oferta. Os clientes podem incluir seus nomes para classificações ou análises, ou podem postar anonimamente.  
-
-> [!NOTE]
-> Os clientes podem fazer alterações apenas nas classificações e análises que elas possuem.
-
-O **painel de análise de & de classificações** exibe as tendências e as ideias das atividades do cliente. Ele fornece representações gráficas de:
-
-- Avaliações & revisões  
-- Examinar comentários
-
-### <a name="marketplace-storefront-tabs"></a>Guias de vitrine do Marketplace
-
-Os editores podem exibir suas métricas de oferta separadamente nas guias do AppSource & Azure Marketplace. Para exibir as métricas de oferta específicas, selecione **oferta** na lista suspensa:
-
-![Menu suspenso da oferta de análise do Partner Center](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>Resumo de classificações e avaliações
-
-A seção de resumo classificações & revisões exibe as métricas abaixo para um intervalo de datas selecionado:
-
-- **Classificação média:** Classificação média ponderada em estrela de todas as classificações enviadas pelos clientes para a oferta selecionada.
-- **Divisão de classificação:** Divisão da classificação por estrelas pela contagem de clientes que enviaram classificações. O gráfico de barras é empilhado com classificações reais e revisadas (contagem de classificação atualizada).
-- **Total de classificações:** Contagem geral de classificações enviadas. Essa contagem também inclui classificações com e sem revisões.
-- **Classificações com revisões:** Contagem de revisões enviadas.
-
-![Resumo de análise de avaliações e avaliações do Partner Center](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>Examinar comentários
-
-As revisões são exibidas em ordem cronológica para quando elas foram lançadas. O modo de exibição padrão exibe todas as revisões. Você pode filtrar por meio das revisões por classificação por estrelas usando o **filtro** no menu suspenso. Você também pode pesquisar palavras-chave que aparecem na revisão.  
-
-![Comentários da análise do Partner Center analisar](./media/analyze-reviews.png)

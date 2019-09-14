@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: ab5f8c35334b6b6c56b0ebe8714d04ad5c7c8084
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402776"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960399"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conectar-se a Apache Kafka no HDInsight por meio de uma rede virtual do Azure
 
@@ -252,7 +252,7 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes do Kafka 
 
 3. Para exibir a configuração do Kafka __, selecione configurações__ no meio superior.
 
-    ![Links de configuração para Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Links de configuração para Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. Para localizar a configuração __Kafka-env__ , insira `kafka-env` no campo __filtro__ no canto superior direito.
 
@@ -270,11 +270,11 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes do Kafka 
 
 6. Para configurar a interface que o Kafka Ouve, insira `listeners` no campo de __filtro__ no canto superior direito.
 
-7. Para configurar o Kafka para escutar em todas as interfaces de rede, altere o  valor no campo ouvintes para `PLAINTEXT://0.0.0.0:9092`.
+7. Para configurar o Kafka para escutar em todas as interfaces de rede, altere o valor no campo __ouvintes__ para `PLAINTEXT://0.0.0.0:9092`.
 
 8. Para salvar as alterações de configuração, use o botão __salvar__ . Insira uma mensagem de texto que descreva as alterações. Selecione __OK__ depois que as alterações tiverem sido salvas.
 
-    ![Botão salvar configuração](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Botão salvar configuração](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Para evitar erros ao reiniciar o Kafka, use o botão __ações de serviço__ e selecione __ativar o modo de manutenção__. Selecione OK para concluir esta operação.
 
@@ -282,7 +282,7 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes do Kafka 
 
 10. Para reiniciar o Kafka, use o botão __reiniciar__ e selecione __reiniciar todos os afetados__. Confirme a reinicialização e use o botão __OK__ depois que a operação for concluída.
 
-    ![Botão reiniciar com reiniciar todos os afetados realçado](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Botão reiniciar com reiniciar todos os afetados realçado](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. Para desabilitar o modo de manutenção, use o botão __ações de serviço__ e selecione desligar o __modo de manutenção__. Selecione **OK** para concluir esta operação.
 

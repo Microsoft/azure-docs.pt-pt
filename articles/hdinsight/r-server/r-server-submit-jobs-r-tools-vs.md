@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 0ae717487f1538536601c8578e744d976798bf76
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899942"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967884"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
@@ -55,7 +55,8 @@ O RTVS aprimora o seu fluxo de trabalho de R oferecendo ferramentas como a repl 
 5. Abra o `1-Getting Started with R.R` arquivo `A first look at R` na pasta da solução.
 6. Iniciando na parte superior do arquivo, pressione Ctrl + Enter para enviar cada linha, uma de cada vez, para a janela de R Interativo. Algumas linhas podem levar algum tempo à medida que instalam pacotes.
     * Como alternativa, você pode selecionar todas as linhas no arquivo do R (Ctrl + A) e, em seguida, executar todos (Ctrl + Enter) ou selecionar o ícone executar interativo na barra de ferramentas.
-        ![Executar interativo](./media/r-server-submit-jobs-r-tools-vs/execute-interactive.png)
+
+        ![Executar interativo](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. Depois de executar todas as linhas no script, você verá uma saída semelhante a esta:
 
@@ -82,20 +83,20 @@ Usando um Microsoft ml Server/Microsoft R Client de um computador com Windows eq
     # Create the Spark Cluster compute context
     mySparkCluster <- RxSpark(
           sshUsername = mySshUsername,
-      sshHostname = mySshHostname,
-      sshSwitches = mySshSwitches,
-      sshProfileScript = mySshProfileScript,
-      consoleOutput = TRUE,
-      hdfsShareDir = myHdfsShareDir,
-      shareDir = myShareDir,
-      sshClientDir = mySshClientDir
+          sshHostname = mySshHostname,
+          sshSwitches = mySshSwitches,
+          sshProfileScript = mySshProfileScript,
+          consoleOutput = TRUE,
+          hdfsShareDir = myHdfsShareDir,
+          shareDir = myShareDir,
+          sshClientDir = mySshClientDir
     )
-    
+
     # Set the current compute context as the Spark compute context defined above
     rxSetComputeContext(mySparkCluster)
     ```
-    
-    ![Configurando o contexto do Spark](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
+
+   ![Configurando o contexto do Spark](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Execute os seguintes comandos na janela R Interativo:
 
@@ -107,13 +108,12 @@ Usando um Microsoft ml Server/Microsoft R Client de um computador com Windows eq
 
     Deverá ver um resultado semelhante ao seguinte:
 
-    ![Execução bem-sucedida do comando RX](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
-
+    ![Execução](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) bem-sucedida do comando RX a
 1. Verifique se o `people.json` arquivo `/user/RevoShare/newUser` foi copiado com êxito da pasta de dados de exemplo para a pasta recém-criada: `rxHadoopCopy`
 
     1. No painel de cluster de serviços de am do HDInsight no Azure, selecione **contas de armazenamento** no menu à esquerda.
 
-        ![Contas de armazenamento](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![Contas de armazenamento](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Selecione a conta de armazenamento padrão para o cluster, anotando o nome do contêiner/diretório.
 
@@ -123,7 +123,7 @@ Usando um Microsoft ml Server/Microsoft R Client de um computador com Windows eq
 
     4. Selecione o nome do contêiner do cluster, navegue até a pasta do **usuário** (talvez seja necessário clicar em *carregar mais* na parte inferior da lista), em seguida, selecione *RevoShare*, em seguida, **newuser**. O `people.json` arquivo deve ser exibido `newUser` na pasta.
 
-        ![Arquivo copiado](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
+        ![Arquivo copiado](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. Depois de terminar de usar o contexto de Apache Spark atual, você deverá interrompê-lo. Você não pode executar vários contextos de uma vez.
 
@@ -131,7 +131,7 @@ Usando um Microsoft ml Server/Microsoft R Client de um computador com Windows eq
     rxStopEngine(mySparkCluster)
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Opções de contexto de computação para serviços de ML no HDInsight](r-server-compute-contexts.md)
 * A [combinação do scaler e do sparkr](../hdinsight-hadoop-r-scaler-sparkr.md) fornece um exemplo de previsões de atraso de voo aérea.

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 419505404214d60a2c928770a34384f80c8446cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: 99e61cef55bd97704063e4d2da90909d0376c327
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935874"
+ms.locfileid: "70961455"
 ---
 # <a name="entity-functions-preview"></a>Funções de entidade (visualização)
 
@@ -32,7 +32,7 @@ As entidades (às vezes chamadas de *instâncias*de entidade) são acessadas por
 
 Por exemplo, uma função de entidade de *contador* pode ser usada para manter a pontuação em um jogo online. Cada instância do jogo terá uma ID de entidade exclusiva, `@Counter@Game1`como, `@Counter@Game2`e assim por diante. Todas as operações direcionadas a uma entidade específica exigem a especificação de uma ID de entidade como um parâmetro.
 
-## <a name="programing-models"></a>Modelos de programação
+## <a name="programming-models"></a>Modelos de programação
 
 As entidades duráveis dão suporte a dois modelos de programação diferentes. O primeiro modelo é um modelo "funcional" dinâmico em que a entidade é definida por uma única função. O segundo modelo é um modelo orientado a objeto em que a entidade é definida por uma classe e métodos. Esses modelos e os modelos de programação para interagir com entidades são descritos nas próximas seções.
 
@@ -331,7 +331,7 @@ No entanto, há algumas diferenças importantes que valem a pena observar:
 * Entidades duráveis podem ser usadas em conjunto com orquestrações duráveis e oferecem suporte a mecanismos de bloqueio distribuídos.
 * Os padrões de solicitação/resposta em entidades são limitados a orquestrações. Para a comunicação de *cliente para entidade* e *entidade para entidade* , somente mensagens unidirecionais (também conhecidas como "sinalização") são permitidas, como no modelo de ator original. Esse comportamento impede deadlocks distribuídos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os hubs de tarefas](durable-functions-task-hubs.md)

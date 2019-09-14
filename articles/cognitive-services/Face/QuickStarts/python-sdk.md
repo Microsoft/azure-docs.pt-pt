@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376144"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966916"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: Biblioteca de cliente facial para Python
 
@@ -283,9 +283,9 @@ Se você migrou dados usando o recurso de instantâneo neste guia de início rá
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você aprendeu a usar a biblioteca de detecção de aparência para Java para tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
+Neste guia de início rápido, você aprendeu a usar a biblioteca de face para o Python para tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
 > [!div class="nextstepaction"]
 > [Referência de API de Detecção Facial (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

@@ -17,12 +17,12 @@ ms.date: 07/29/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b2d80d21822758991ad8b3bc1d3bb44e2257f4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129812"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983506"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -50,7 +50,7 @@ Este tópico fornece uma visão geral do relatório de provisionamento.
 
 Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de provisionamento. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. 
 
-## <a name="provisioning-logs"></a>Logs de provisionamento
+## <a name="provisioning-logs"></a>Registos de aprovisionamento
 
 Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
@@ -85,7 +85,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
-![Informações detalhadas](./media/concept-provisioning-logs/detailed-information.png "Informações detalhadas")
+![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrar atividades de provisionamento

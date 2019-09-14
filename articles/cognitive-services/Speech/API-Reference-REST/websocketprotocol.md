@@ -1,34 +1,34 @@
 ---
-title: Protocolo de WebSocket de voz do Bing | Documentos da Microsoft
+title: Fala do Bing protocolo WebSocket | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Documentação do protocolo de voz do Bing com base em WebSockets
+description: Documentação do protocolo para Fala do Bing com base em WebSockets
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7f51d49624d5019bec058a2d12f6ca2f1366938
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515329"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966876"
 ---
-# <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
+# <a name="bing-speech-websocket-protocol"></a>Fala do Bing protocolo WebSocket
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Voz do Bing é uma plataforma com base na cloud que inclui os algoritmos mais avançados disponíveis para converter áudio falado em texto. O protocolo de voz do Bing define a [programa de configuração de ligação](#connection-establishment) entre aplicativos de cliente e o serviço e as mensagens de reconhecimento de voz trocadas entre contrapartes ([cliente originado pela mensagens](#client-originated-messages) e [originado de serviço de mensagens](#service-originated-messages)). Além disso, [mensagens de telemetria](#telemetry-schema) e [tratamento de erros](#error-handling) são descritos.
+Fala do Bing é uma plataforma baseada em nuvem que apresenta os algoritmos mais avançados disponíveis para converter áudio falado em texto. O protocolo Fala do Bing define a [configuração de conexão](#connection-establishment) entre aplicativos cliente e o serviço e as mensagens de reconhecimento de fala trocadas entre as contrapartes ([mensagens originadas pelo cliente](#client-originated-messages) e [mensagens originadas pelo serviço](#service-originated-messages) ). Além disso, [mensagens de telemetria](#telemetry-schema) e [tratamento de erros](#error-handling) são descritos.
 
-## <a name="connection-establishment"></a>Estabelecimento da conexão
+## <a name="connection-establishment"></a>Estabelecimento de conexão
 
-O protocolo de serviço de voz segue a especificação de padrão de WebSocket [IETF RFC 6455](https://tools.ietf.org/html/rfc6455). Uma conexão WebSocket começa como um pedido HTTP que contém os cabeçalhos HTTP que indicam o desejo do cliente para atualizar a ligação para um WebSocket em vez de utilizar a semântica HTTP. O servidor indica a sua disposição para participar a conexão WebSocket, retornando um HTTP `101 Switching Protocols` resposta. Após a troca deste handshake, o cliente e o serviço mantenha aberto, o soquete e começam a utilizar um protocolo baseado em mensagens para enviar e receber informações.
+O protocolo de serviço de fala segue a especificação padrão do WebSocket [IETF RFC 6455](https://tools.ietf.org/html/rfc6455). Uma conexão WebSocket começa como uma solicitação HTTP que contém cabeçalhos HTTP que indicam o desejo do cliente de atualizar a conexão para um WebSocket em vez de usar a semântica HTTP. O servidor indica sua disposição para participar da conexão WebSocket, retornando uma resposta `101 Switching Protocols` http. Após a troca desse Handshake, o cliente e o serviço mantêm o Soquete aberto e começam a usar um protocolo baseado em mensagem para enviar e receber informações.
 
-Para iniciar o handshake do WebSocket, a aplicação cliente envia um pedido HTTPS GET para o serviço. Ele inclui padrão cabeçalhos de atualização de WebSocket, juntamente com outros cabeçalhos que são específicos para voz.
+Para iniciar o handshake do WebSocket, o aplicativo cliente envia uma solicitação HTTPS GET para o serviço. Ele inclui cabeçalhos de atualização do WebSocket padrão junto com outros cabeçalhos que são específicos para a fala.
 
 ```HTTP
 GET /speech/recognition/interactive/cognitiveservices/v1 HTTP/1.1
@@ -53,21 +53,21 @@ Set-Cookie: SpeechServiceToken=AAAAABAAWTC8ncb8COL; expires=Wed, 17 Aug 2016 15:
 Date: Wed, 17 Aug 2016 15:03:52 GMT
 ```
 
-Todos os pedidos de voz exigem a [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) encriptação. Não é suportada a utilização de pedidos de voz não encriptada. É suportada a versão do TLS seguinte:
+Todas as solicitações de fala exigem a criptografia [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) . Não há suporte para o uso de solicitações de fala não criptografadas. Há suporte para a seguinte versão de TLS:
 
-* TLS 1.2
+* TLS 1,2
 
-### <a name="connection-identifier"></a>Identificador de ligação
+### <a name="connection-identifier"></a>Identificador de conexão
 
-Serviço de voz requer que todos os clientes incluem um ID exclusivo para identificar a ligação. Os clientes *tem* incluem a *X ConnectionId* cabeçalho durante o arranque um handshake WebSocket. O *X ConnectionId* cabeçalho tem de ser um [Identificador exclusivo universalmente](https://en.wikipedia.org/wiki/Universally_unique_identifier) valor (UUID). Solicitações de atualização de WebSocket que não incluem o *X ConnectionId*, não especifique um valor para o *X ConnectionId* cabeçalho, ou não incluem válido valor UUID são rejeitados pelo serviço com um HTTP `400 Bad Request` resposta.
+O serviço de fala requer que todos os clientes incluam uma ID exclusiva para identificar a conexão. Os clientes *devem* incluir o cabeçalho *X-ConnectionID* quando iniciarem um handshake do WebSocket. O cabeçalho *X-ConnectionID* deve ser um valor de UUID ( [identificador universal exclusivo](https://en.wikipedia.org/wiki/Universally_unique_identifier) ). Solicitações de atualização de WebSocket que não incluem o *X-ConnectionID*, não especificam um valor para o cabeçalho *x-ConnectionID* ou não incluem um valor UUID válido são rejeitadas pelo serviço com uma resposta http `400 Bad Request` .
 
 ### <a name="authorization"></a>Autorização
 
-Além dos cabeçalhos de handshake do WebSocket padrão, os pedidos de voz solicitar uma *autorização* cabeçalho. Pedidos de ligação sem esse cabeçalho são rejeitados pelo serviço com um HTTP `403 Forbidden` resposta.
+Além dos cabeçalhos de handshake WebSocket padrão, as solicitações de fala exigem um cabeçalho de *autorização* . As solicitações de conexão sem esse cabeçalho são rejeitadas pelo serviço com `403 Forbidden` uma resposta http.
 
-O *autorização* cabeçalho tem de conter um token de acesso do JSON Web Token (JWT).
+O cabeçalho *Authorization* deve conter um token de acesso JSON Web token (JWT).
 
-Para obter informações sobre como inscrever-se e obter chaves de API que são usadas para recuperar os tokens de acesso do JWT válidos, consulte a [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página.
+Para obter informações sobre como assinar e obter chaves de API que são usadas para recuperar Tokens de acesso JWT válidos, consulte a página de [assinatura de serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/) .
 
 A chave de API é passada para o serviço de token. Por exemplo:
 
@@ -76,119 +76,119 @@ POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 Content-Length: 0
 ```
 
-As seguintes informações de cabeçalho são necessárias para acesso de token.
+As informações de cabeçalho a seguir são necessárias para acesso ao token.
 
 | Name | Formato | Descrição |
 |----|----|----|
-| OCP-Apim-Subscription-Key | ASCII | A chave de subscrição |
+| OCP-Apim-Subscription-Key | ASCII | Chave de subscrição |
 
-O serviço de token devolve o token de acesso do JWT como `text/plain`. Em seguida, o JWT é passado como um `Base64 access_token` para o handshake como um *autorização* cabeçalho com a cadeia de prefixo `Bearer`. Por exemplo:
+O serviço de token retorna o token de acesso `text/plain`JWT como. Em seguida, o JWT é passado `Base64 access_token` como um para o handshake como um cabeçalho de *autorização* prefixado `Bearer`com a cadeia de caracteres. Por exemplo:
 
 `Authorization: Bearer [Base64 access_token]`
 
-### <a name="cookies"></a>Cookies
+### <a name="cookies"></a>Arar
 
-Os clientes *tem* suportar cookies HTTP, conforme especificado na [RFC 6265](https://tools.ietf.org/html/rfc6265).
+Os clientes *devem* oferecer suporte a cookies http, conforme especificado no [RFC 6265](https://tools.ietf.org/html/rfc6265).
 
 ### <a name="http-redirection"></a>Redirecionamento de HTTP
 
-Os clientes *tem* suportam os mecanismos de redirecionamento padrão especificados pela [a especificação de protocolo HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Os clientes *devem* oferecer suporte aos mecanismos de redirecionamento padrão especificados pela [especificação do protocolo http](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
-### <a name="speech-endpoints"></a>Pontos finais de voz
+### <a name="speech-endpoints"></a>Pontos de extremidade de fala
 
-Os clientes *tem* utilizar um ponto final adequado do serviço de voz. O ponto final baseia-se sobre o modo de reconhecimento e idioma. A tabela mostra alguns exemplos.
+Os clientes *devem* usar um ponto de extremidade apropriado do serviço de fala. O ponto de extremidade é baseado no modo de reconhecimento e no idioma. A tabela mostra alguns exemplos.
 
 | Modo | Path | URI de serviço |
 | -----|-----|-----|
 | Interativo | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| ditado | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Comandos | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
-Para obter mais informações, consulte a [URI de serviço](../GetStarted/GetStartedREST.md#service-uri) página.
+Para obter mais informações, consulte a página [URI de serviço](../GetStarted/GetStartedREST.md#service-uri) .
 
-### <a name="report-connection-problems"></a>Problemas de ligação do relatório
+### <a name="report-connection-problems"></a>Relatar problemas de conexão
 
-Os clientes imediatamente devem reportar todos os problemas encontrados ao efetuar uma nova ligação. O protocolo de mensagens para ligações com falha de geração de relatórios é descrito em [telemetria de falha de ligação](#connection-failure-telemetry).
+Os clientes devem relatar imediatamente todos os problemas encontrados ao fazer uma conexão. O protocolo de mensagem para relatar conexões com falha é descrito em [telemetria de falha de conexão](#connection-failure-telemetry).
 
-### <a name="connection-duration-limitations"></a>Limitações de duração de ligação
+### <a name="connection-duration-limitations"></a>Limitações de duração da conexão
 
-Em comparação com ligações de HTTP do serviço web típico, ligações de WebSocket da última uma *longo* tempo. Serviço de voz coloca limitações na duração das ligações de WebSocket para o serviço:
+Quando comparado com conexões HTTP de serviço Web típicas, as conexões WebSocket duram *muito* tempo. O serviço de fala impõe limitações na duração das conexões WebSocket com o serviço:
 
- * A duração máxima para qualquer conexão WebSocket Active Directory é 10 minutos. Uma ligação está ativa se o serviço ou o cliente envia as mensagens WebSocket através dessa ligação. O serviço encerra a conexão sem aviso quando é atingido o limite. Os clientes devem desenvolver cenários de usuário que não requerem a ligação ao permanecem ativos em ou próximo o tempo de vida máximo de ligação.
+ * A duração máxima de qualquer conexão de WebSocket ativa é de 10 minutos. Uma conexão estará ativa se o serviço ou o cliente enviar mensagens WebSocket por essa conexão. O serviço encerra a conexão sem aviso quando o limite é atingido. Os clientes devem desenvolver cenários de usuário que não exigem que a conexão permaneça ativa em ou próximo do tempo de vida máximo da conexão.
 
- * A duração máxima para qualquer ligação inativa do WebSocket é de 180 segundos. Uma ligação está inativa se nem o serviço nem o cliente enviou uma mensagem de WebSocket através da ligação. Após ter sido atingido o tempo de vida máximo inativo, o serviço termina a conexão WebSocket inativa.
+ * A duração máxima de qualquer conexão de WebSocket inativa é de 180 segundos. Uma conexão ficará inativa se nem o serviço nem o cliente enviou uma mensagem WebSocket pela conexão. Após o tempo de vida máximo inativo ser atingido, o serviço encerra a conexão de WebSocket inativa.
 
 ## <a name="message-types"></a>Tipos de mensagem
 
-Depois de uma conexão WebSocket é estabelecida entre o cliente e o serviço, o cliente e o serviço podem enviar mensagens. Esta secção descreve o formato dessas mensagens WebSocket.
+Depois que uma conexão WebSocket é estabelecida entre o cliente e o serviço, o cliente e o serviço podem enviar mensagens. Esta seção descreve o formato dessas mensagens WebSocket.
 
-[IETF RFC 6455](https://tools.ietf.org/html/rfc6455) Especifica que as mensagens WebSocket podem transmitir dados através de uma mensagem de texto ou uma codificação binária. As codificações de duas utilizam diferentes formatos de on-the-wire. Cada formato é otimizado para eficiente de codificação, transmissão e decodificação da carga da mensagem.
+O [IETF RFC 6455](https://tools.ietf.org/html/rfc6455) especifica que as mensagens WebSocket podem transmitir dados usando um texto ou uma codificação binária. As duas codificações usam diferentes formatos durante a transmissão. Cada formato é otimizado para codificação, transmissão e decodificação eficientes da carga da mensagem.
 
 ### <a name="text-websocket-messages"></a>Mensagens de WebSocket de texto
 
-As mensagens WebSocket do texto implica um payload de informações textuais, que consiste numa seção de cabeçalhos e um corpo separados pelo par de familiar de double-símbolo de retorno de nova linha usado para mensagens HTTP. E, como mensagens HTTP, as mensagens WebSocket do texto especificar cabeçalhos na *name: valor* formato separados por um par de nova linha do retorno de carro único. Qualquer texto incluído numa mensagem SMS WebSocket *tem* utilizar [UTF-8](https://tools.ietf.org/html/rfc3629) codificação.
+Mensagens de WebSocket de texto carregam uma carga de informações textuais que consiste em uma seção de cabeçalhos e um corpo separado pelo conhecido par de novas linhas de retorno de carro usado para mensagens HTTP. E, como mensagens HTTP, mensagens de WebSocket de texto especificam cabeçalhos em *nome:* formato de valor separado por um par de novas linhas de retorno de carro único. Qualquer texto incluído em uma mensagem de WebSocket de texto *deve* usar a codificação [UTF-8](https://tools.ietf.org/html/rfc3629) .
 
-Mensagens de WebSocket de texto tem de especificar um caminho de mensagem no cabeçalho *caminho*. O valor deste cabeçalho tem de ser um dos tipos de mensagem de protocolo de voz definidos mais adiante neste documento.
+Mensagens de WebSocket de texto devem especificar um caminho de mensagem no *caminho*do cabeçalho. O valor desse cabeçalho deve ser um dos tipos de mensagem do protocolo de fala definidos mais adiante neste documento.
 
 ### <a name="binary-websocket-messages"></a>Mensagens de WebSocket binárias
 
-Mensagens de WebSocket binárias implica um payload de binário. O protocolo de serviço de voz, áudio é transmitido para e recebido do serviço através da utilização de mensagens binárias do WebSocket. Todas as outras mensagens são mensagens de WebSocket de texto.
+Mensagens de WebSocket binárias carregam uma carga binária. No protocolo de serviço de fala, o áudio é transmitido para e recebido do serviço usando mensagens de WebSocket binárias. Todas as outras mensagens são mensagens de WebSocket de texto.
 
-Como as mensagens WebSocket de texto, binárias WebSocket mensagens consistem num cabeçalho e uma seção de corpo. Especificar os primeiros 2 bytes de mensagem de WebSocket binário, além [big-endian](https://en.wikipedia.org/wiki/Endianness) ordem, o tamanho de número inteiro de 16 bits da seção do cabeçalho. O tamanho de seção de cabeçalho mínima é 0 byte. O tamanho máximo é de 8.192 bytes. O texto nos cabeçalhos de mensagens binárias do WebSocket *tem* utilizar [US-ASCII](https://tools.ietf.org/html/rfc20) codificação.
+Como mensagens de WebSocket de texto, mensagens de WebSocket binárias consistem em um cabeçalho e uma seção de corpo. Os primeiros 2 bytes da mensagem de WebSocket binária especificam, em ordem [big-endian](https://en.wikipedia.org/wiki/Endianness) , o tamanho inteiro de 16 bits da seção de cabeçalho. O tamanho mínimo da seção de cabeçalho é 0 bytes. O tamanho máximo é de 8.192 bytes. O texto nos cabeçalhos de mensagens do WebSocket binários *deve* usar [a codificação US-ASCII](https://tools.ietf.org/html/rfc20) .
 
-Cabeçalhos numa mensagem do WebSocket binário são codificados no mesmo formato como em mensagens de WebSocket de texto. O *: valor de nome* formato é separado por um par de nova linha do retorno de carro único. Mensagens de WebSocket binárias tem de especificar um caminho de mensagem no cabeçalho *caminho*. O valor deste cabeçalho tem de ser um dos tipos de mensagem de protocolo de voz definidos mais adiante neste documento.
+Os cabeçalhos em uma mensagem de WebSocket binária são codificados no mesmo formato que as mensagens de WebSocket de texto. O formato *nome: valor* é separado por um par de nova linha de retorno de carro único. Mensagens de WebSocket binárias devem especificar um caminho de mensagem no *caminho*do cabeçalho. O valor desse cabeçalho deve ser um dos tipos de mensagem do protocolo de fala definidos mais adiante neste documento.
 
-Texto e mensagens de WebSocket binárias são utilizadas no protocolo de serviço de voz.
+As mensagens de texto e WebSocket binários são usadas no protocolo de serviço de fala.
 
-## <a name="client-originated-messages"></a>Mensagens originadas de cliente
+## <a name="client-originated-messages"></a>Mensagens originadas pelo cliente
 
-Depois da ligação é estabelecida, o cliente e o serviço podem começar a enviar mensagens. Esta secção descreve o formato e o payload de mensagens que aplicações cliente enviam para o serviço de voz. A secção [originado de serviço de mensagens](#service-originated-messages) apresenta as mensagens que têm origem no serviço de voz e são enviadas para as aplicações cliente.
+Depois que a conexão é estabelecida, o cliente e o serviço podem começar a enviar mensagens. Esta seção descreve o formato e a carga de mensagens que os aplicativos cliente enviam ao serviço de fala. A seção [mensagens originadas pelo serviço](#service-originated-messages) apresenta as mensagens originadas no serviço de fala e são enviadas para os aplicativos cliente.
 
-As principais mensagens enviadas pelo cliente para os serviços são `speech.config`, `audio`, e `telemetry` mensagens. Antes de considerá-lo cada mensagem em detalhes, o comum necessária de cabeçalhos de mensagens para todas estas mensagens são descritos.
+As mensagens principais enviadas pelo cliente para os serviços são `speech.config`, `audio`e `telemetry` mensagens. Antes de considerarmos cada mensagem em detalhes, os cabeçalhos de mensagens necessários comuns para todas essas mensagens são descritos.
 
-### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
+### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessários
 
-Os seguintes cabeçalhos são necessários para todas as mensagens originadas de cliente.
+Os cabeçalhos a seguir são necessários para todas as mensagens originadas pelo cliente.
 
 | Cabeçalho | Value |
 |----|----|
-| Path | O caminho de mensagem conforme especificado neste documento |
-| X-RequestId | UUID no formato de "no-dash" |
-| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
+| Path | O caminho da mensagem conforme especificado neste documento |
+| X-RequestId | UUID no formato "no-Dash" |
+| X-carimbo de data/hora | Carimbo de data/hora de relógio UTC do cliente no formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Cabeçalho X-RequestId
 
-Pedidos de origem do cliente são identificados exclusivamente pelos *X-RequestId* cabeçalho da mensagem. Este cabeçalho é necessário para todas as mensagens originadas de cliente. O *X-RequestId* valor do cabeçalho tem de ser um UUID na forma de "não-dash", por exemplo, *123e4567e89b12d3a456426655440000*. Ele *não é possível* estar no formato canônico *123e4567-e89b-12d3-a456-426655440000*. Pedidos sem uma *X-RequestId* cabeçalho ou com um valor de cabeçalho que utiliza o formato incorreto para o UUIDs não fazer com que o serviço terminar a conexão WebSocket.
+As solicitações originadas pelo cliente são identificadas exclusivamente pelo cabeçalho da mensagem *X-RequestId* . Esse cabeçalho é necessário para todas as mensagens originadas pelo cliente. O valor do cabeçalho *X-RequestId* deve ser um UUID no formulário "no-Dash", por exemplo, *123e4567e89b12d3a456426655440000*. Ele *não pode* estar no formato canônico *123e4567-e89b-12d3-A456-426655440000*. Solicitações sem um cabeçalho *X-RequestId* ou com um valor de cabeçalho que usa o formato incorreto para UUIDs fazem com que o serviço encerre a conexão WebSocket.
 
-#### <a name="x-timestamp-header"></a>Cabeçalho X-Timestamp
+#### <a name="x-timestamp-header"></a>Cabeçalho X-timestamp
 
-Cada mensagem enviada para o serviço de voz por uma aplicação cliente *tem* incluem um *X Timestamp* cabeçalho. O valor para este cabeçalho é o tempo quando o cliente envia a mensagem. Pedidos sem uma *X Timestamp* cabeçalho ou com um valor de cabeçalho que utiliza o formato errado fazer com que o serviço terminar a conexão WebSocket.
+Cada mensagem enviada para o serviço de fala por um aplicativo cliente *deve* incluir um cabeçalho *X-timestamp* . O valor desse cabeçalho é a hora em que o cliente envia a mensagem. Solicitações sem um cabeçalho *X-timestamp* ou com um valor de cabeçalho que usa o formato incorreto fazem com que o serviço encerre a conexão WebSocket.
 
-O *X Timestamp* o valor de cabeçalho deve ter o formato 'aaaa'-'MM'-'dd' HH': 'mm':'ss '.' fffffffZ "onde 'fffffff' é uma fração de segundo. Por exemplo, "12,5" significa "12 + 5/10 segundos e"12.526"significa" 12 mais segundos 526/1000". Este formato é compatível com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e, ao contrário do HTTP padrão *data* cabeçalho, ele pode fornecer resolução de milissegundos. Aplicativos cliente podem arredondar os carimbos de data / hora para o milissegundo mais próximo. Para se certificar de que o relógio do dispositivo com precisão controla tempo ao utilizar as aplicações cliente ter uma [servidor de protocolo NTP (Network Time)](https://en.wikipedia.org/wiki/Network_Time_Protocol).
+O valor do cabeçalho *X-timestamp* deve estar no formato ' YYYY'-'MM'-'dd'T'HH ': ' mm ': ' ss '. ' fffffffZ ', em que ' fffffff ' é uma fração de um segundo. Por exemplo, ' 12,5 ' significa ' 12 + 5/10 segundos ' e ' 12,526 ' significa ' 12 mais 526/1000 segundos '. Esse formato está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e, ao contrário do cabeçalho de *Data* http padrão, pode fornecer resolução de milissegundos. Os aplicativos cliente podem arredondar carimbos de data/hora para o milissegundo mais próximo. Os aplicativos cliente precisam garantir que o relógio do dispositivo acompanhe com precisão o tempo usando um [servidor protocolo NTP (NTP)](https://en.wikipedia.org/wiki/Network_Time_Protocol).
 
-### <a name="message-speechconfig"></a>mensagem `speech.config`
+### <a name="message-speechconfig"></a>Mensagem`speech.config`
 
-Serviço de voz tem de saber as características da sua aplicação para fornecer o melhor reconhecimento de voz possíveis. Os dados de características necessárias incluem informações sobre o dispositivo e o sistema operacional que capacita a sua aplicação. Fornecer estas informações no `speech.config` mensagem.
+O serviço de fala precisa saber as características do seu aplicativo para fornecer o melhor reconhecimento de fala possível. Os dados das características necessárias incluem informações sobre o dispositivo e o sistema operacional que alimentam seu aplicativo. Você fornece essas informações na `speech.config` mensagem.
 
-Os clientes *tem* enviar um `speech.config` mensagem imediatamente depois de estes estabeleçam a ligação ao serviço de voz e antes de enviar qualquer `audio` mensagens. Terá de enviar um `speech.config` mensagem apenas uma vez por conexão.
+Os clientes *devem* enviar `speech.config` uma mensagem imediatamente depois de estabelecerem a conexão com o serviço de fala e `audio` antes de enviar qualquer mensagem. Você precisa enviar uma `speech.config` mensagem apenas uma vez por conexão.
 
 | Campo | Descrição |
 |----|----|
-| Codificação de mensagens do WebSocket | Text |
-| Body | O payload como uma estrutura JSON |
+| Codificação de mensagem WebSocket | Text |
+| Body | A carga como uma estrutura JSON |
 
-#### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
+#### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessários
 
 | Nome do cabeçalho | Value |
 |----|----|
 | Path | `speech.config` |
-| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
-| Content-Type | application/json; charset=utf-8 |
+| X-carimbo de data/hora | Carimbo de data/hora de relógio UTC do cliente no formato ISO 8601 |
+| Tipo de conteúdo | application/json; charset=utf-8 |
 
-Tal como acontece com todas as mensagens originadas de cliente no protocolo serviço de voz, o `speech.config` mensagem *tem* incluem uma *X Timestamp* cabeçalho que regista o tempo de relógio de cliente UTC quando a mensagem foi enviada para o serviço. O `speech.config` mensagem *não* exigir uma *X-RequestId* cabeçalho porque esta mensagem não está associada a um pedido de voz específico.
+Assim como ocorre com todas as mensagens originadas pelo cliente no protocolo de serviço `speech.config` de fala, a mensagem *deve* incluir um cabeçalho *X-timestamp* que registra a hora UTC do cliente quando a mensagem foi enviada ao serviço. A `speech.config` mensagem *não requer um* cabeçalho *X-RequestId* porque essa mensagem não está associada a uma solicitação de fala específica.
 
-#### <a name="message-payload"></a>Payload de mensagem
-O payload do `speech.config` mensagem é uma estrutura JSON que contém informações sobre a aplicação. O exemplo seguinte mostra essas informações. Informações de contexto do cliente e o dispositivo estão incluídas nos *contexto* elemento da estrutura JSON.
+#### <a name="message-payload"></a>Carga da mensagem
+A carga da `speech.config` mensagem é uma estrutura JSON que contém informações sobre o aplicativo. O exemplo a seguir mostra essas informações. As informações de contexto de cliente e dispositivo são incluídas no elemento de *contexto* da estrutura JSON.
 
 ```JSON
 {
@@ -211,67 +211,67 @@ O payload do `speech.config` mensagem é uma estrutura JSON que contém informa�
 }
 ```
 
-##### <a name="system-element"></a>Elemento de sistema
+##### <a name="system-element"></a>Elemento System
 
-O elemento de ter do `speech.config` mensagem contém a versão do software SDK utilizados pela aplicação cliente ou dispositivo de voz. O valor está sob a forma *major.minor.build.branch*. Pode omitir os *ramo* componente se não for aplicável.
+O elemento System. Version da `speech.config` mensagem contém a versão do software do SDK de fala usado pelo dispositivo ou aplicativo cliente. O valor está no formato *Major. secundária. Build. Branch*. Você pode omitir o componente de *ramificação* se ele não for aplicável.
 
-##### <a name="os-element"></a>Elemento do SO
+##### <a name="os-element"></a>Elemento do sistema operacional
 
 | Campo | Descrição | Utilização |
 |-|-|-|
-| os.platform | O sistema operacional plataforma que aloja a aplicação, por exemplo, Windows, Android, iOS ou Linux |Necessário |
-| os.name | O nome de produto do sistema operacional, por exemplo, o Debian ou o Windows 10 | Necessário |
-| os.version | A versão do sistema operacional na forma *major.minor.build.branch* | Necessário |
+| os. Platform | A plataforma do sistema operacional que hospeda o aplicativo, por exemplo, Windows, Android, iOS ou Linux |Requerido |
+| os.name | O nome do produto do sistema operacional, por exemplo, Debian ou Windows 10 | Requerido |
+| sistema operacional. versão | A versão do sistema operacional no formato *principal. secundária. Build. Branch* | Requerido |
 
 ##### <a name="device-element"></a>Elemento de dispositivo
 
 | Campo | Descrição | Utilização |
 |-|-|-|
-| device.manufacturer | O fabricante de hardware do dispositivo | Necessário |
-| device.model | O modelo do dispositivo | Necessário |
-| device.version | A versão de software do dispositivo fornecida pelo fabricante do dispositivo. Este valor Especifica uma versão do dispositivo que pode ser controlado pelo fabricante. | Necessário |
+| dispositivo. fabricante | O fabricante do hardware do dispositivo | Requerido |
+| dispositivo. modelo | O modelo do dispositivo | Requerido |
+| dispositivo. versão | A versão do software do dispositivo fornecida pelo fabricante do dispositivo. Esse valor especifica uma versão do dispositivo que pode ser rastreada pelo fabricante. | Requerido |
 
-### <a name="message-audio"></a>mensagem `audio`
+### <a name="message-audio"></a>Mensagem`audio`
 
-Aplicações de cliente com capacidade de voz enviam áudio para o serviço de voz ao converter o fluxo de áudio numa série de segmentos de áudio. Cada parte de áudio acarreta um segmento do áudio falado que está a ser transcrito pelo serviço. O tamanho máximo de um único segmento de áudio é 8.192 bytes. As mensagens de transmissão de áudio são *as mensagens WebSocket binário*.
+Os aplicativos cliente habilitados para fala enviam áudio para o serviço de fala convertendo o fluxo de áudio em uma série de partes de áudio. Cada bloco de áudio transporta um segmento do áudio falado que deve ser transcrita pelo serviço. O tamanho máximo de uma única parte de áudio é de 8.192 bytes. As mensagens de fluxo de áudio são *mensagens de WebSocket binárias*.
 
-Os clientes utilizam o `audio` mensagem a enviar um segmento de áudio para o serviço. Os clientes áudio do microfone em segmentos de leitura e enviam esses segmentos para o serviço de voz para transcrição. A primeira `audio` mensagem tem de conter um cabeçalho de bem formado corretamente Especifica que o áudio está em conformidade com um dos formatos de codificação suportados pelo serviço. Adicionais `audio` mensagens contêm somente o áudio binário transmitir dados lidos do microfone.
+Os clientes usam `audio` a mensagem para enviar uma parte de áudio para o serviço. Os clientes lêem áudio do microfone em partes e enviam essas partes para o serviço de fala para transcrição. A primeira `audio` mensagem deve conter um cabeçalho bem formado que especifica corretamente que o áudio está em conformidade com um dos formatos de codificação com suporte no serviço. Mensagens `audio` adicionais contêm apenas os dados de fluxo de áudio binários lidos do microfone.
 
-Os clientes podem, opcionalmente, envie um `audio` mensagem com um corpo de comprimento zero. Esta mensagem indica ao serviço que o cliente sabe que o usuário parado falando, a expressão for concluído e o microfone está desativado.
+Os clientes podem, opcionalmente `audio` , enviar uma mensagem com um corpo de comprimento zero. Essa mensagem informa ao serviço que o cliente sabe que o usuário parou de falar, o expressão foi concluído e o microfone está desligado.
 
-Serviço de voz utiliza a primeira `audio` mensagem que contém um identificador exclusivo do pedido para sinalizar o início de um novo ciclo de solicitação/resposta ou *ativar*. Depois do serviço recebe um `audio` mensagem com um novo identificador de solicitação, ele descarta todas as mensagens em fila ou mensagens que estão associadas a qualquer ativar anterior.
+O serviço de fala usa `audio` a primeira mensagem que contém um identificador de solicitação exclusivo para sinalizar o início de um novo ciclo de solicitação/resposta ou *Ativar*. Depois que o serviço recebe `audio` uma mensagem com um novo identificador de solicitação, ele descarta todas as mensagens enfileiradas ou não enviadas associadas a nenhuma rodada anterior.
 
 | Campo | Descrição |
 |-------------|----------------|
-| Codificação de mensagens do WebSocket | Binário |
-| Body | Os dados binários para o segmento de áudio. Tamanho máximo é de 8.192 bytes. |
+| Codificação de mensagem WebSocket | Binary |
+| Body | Os dados binários da parte de áudio. O tamanho máximo é de 8.192 bytes. |
 
-#### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
+#### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessários
 
-Os seguintes cabeçalhos são necessários para todos os `audio` mensagens.
+Os cabeçalhos a seguir são necessários para `audio` todas as mensagens.
 
 | Cabeçalho         |  Value     |
 | ------------- | ---------------- |
 | Path | `audio` |
-| X-RequestId | UUID no formato de "no-dash" |
-| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
-| Content-Type | O tipo de conteúdo de áudio. O tipo tem de ser *áudio/x-wav* (PCM) ou *áudio/silk* (SILK). |
+| X-RequestId | UUID no formato "no-Dash" |
+| X-carimbo de data/hora | Carimbo de data/hora de relógio UTC do cliente no formato ISO 8601 |
+| Tipo de conteúdo | O tipo de conteúdo de áudio. O tipo deve ser *Audio/x-WAV* (PCM) ou *Audio/Silk* (Silk). |
 
-#### <a name="supported-audio-encodings"></a>Codificações suportadas de áudio
+#### <a name="supported-audio-encodings"></a>Codificações de áudio com suporte
 
-Esta secção descreve os codecs de áudio suportados pelo serviço de voz.
+Esta seção descreve os codecs de áudio com suporte no serviço de fala.
 
 ##### <a name="pcm"></a>PCM
 
-Serviço de voz aceita áudio de modulação (PCM) de código do pulse descomprimidos. Áudio é enviado para o serviço no [WAV](https://en.wikipedia.org/wiki/WAV) formatar, para que o áudio primeiro colocar partes *tem* contêm válido [formato de ficheiro de intercâmbio de recurso](https://en.wikipedia.org/wiki/Resource_Interchange_File_Format) cabeçalho (RIFF). Se um cliente inicia uma vez com um segmento de áudio que faz *não* incluir um cabeçalho RIFF válido, o serviço rejeita o pedido e encerra a conexão WebSocket.
+O serviço de fala aceita áudio PCM (modulação de código de pulso) não compactado. O áudio é enviado para o serviço no formato [WAV](https://en.wikipedia.org/wiki/WAV) , portanto, a primeira parte de áudio *deve* conter um cabeçalho riff ( [formato de arquivo de intercâmbio de recursos](https://en.wikipedia.org/wiki/Resource_Interchange_File_Format) ) válido. Se um cliente iniciar uma rodada com uma parte de áudio que não *inclua um* cabeçalho riff válido, o serviço rejeitará a solicitação e encerrará a conexão WebSocket.
 
-Áudio do PCM *tem* amostragem em 16 kHz com 16 bits por amostra e um canal (*riff-16khz-16 bits-mono-pcm*). Serviço de voz não suporta fluxos de áudio estéreo e rejeita os fluxos de áudio que não utilizam a taxa de bits especificado, a taxa de exemplo ou o número de canais.
+O áudio PCM *deve* ser amostrado em 16 kHz com 16 bits por amostra e um canal (*riff-16kHz-16 bits-mono-PCM*). O serviço de fala não dá suporte a fluxos de áudio estéreo e rejeita fluxos de áudio que não usam a taxa de bits especificada, a taxa de amostragem ou o número de canais.
 
 ##### <a name="opus"></a>Opus
 
-Opus é um codec de áudio aberto, isenta de royalties e altamente versátil. Serviço de voz Opus oferece suporte a uma taxa de bits constante de `32000` ou `16000`. Apenas os `OGG` contentor para Opus é atualmente suportada especificada pelo `audio/ogg` tipo mime.
+O Opus é um codec de áudio aberto, livre de royalties e altamente versátil. O serviço de fala dá suporte a Opus em uma `32000` taxa `16000`de bits constante de ou. No momento `OGG` `audio/ogg` , só há suporte para o contêiner para Opus que é especificado pelo tipo MIME.
 
-Para utilizar Opus, modifique o [exemplo de JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html#L101) e altere o `RecognizerSetup` método para retornar.
+Para usar o Opus, modifique o [exemplo de JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html#L101) e `RecognizerSetup` altere o método a ser retornado.
 
 ```javascript
 return SDK.CreateRecognizerWithCustomAudioSource(
@@ -287,52 +287,52 @@ return SDK.CreateRecognizerWithCustomAudioSource(
           ));
 ```
 
-#### <a name="detect-end-of-speech"></a>Detectar a fim de voz
+#### <a name="detect-end-of-speech"></a>Detectar fim da fala
 
-Os seres humanos não explicitamente sinalizar quando eles terminaram de fala. Qualquer aplicativo que aceita a voz como entrada tem duas opções para manipular o final de voz numa transmissão de áudio: deteção de final de voz e deteção de fim da voz de cliente do serviço. Estas duas opções, deteção de fim da voz de serviço, normalmente, fornece uma melhor experiência de utilizador.
+Os seres humanos não sinalizam explicitamente quando terminam de falar. Qualquer aplicativo que aceita a fala como entrada tem duas opções para lidar com o fim da fala em um fluxo de áudio: detecção de fim de fala de serviço e detecção de fim de fala do cliente. Dessas duas opções, a detecção de fim de fala de serviço geralmente fornece uma melhor experiência do usuário.
 
-##### <a name="service-end-of-speech-detection"></a>Deteção do serviço fim da voz
+##### <a name="service-end-of-speech-detection"></a>Detecção de fim de fala de serviço
 
-Para criar a experiência de voz automatizada ideal, aplicativos, permitir que o serviço detetar quando o utilizador terminar a falar. Os clientes enviam áudio do microfone como *áudio* segmentos até que o serviço Deteta silêncio e responde com uma `speech.endDetected` mensagem.
+Para criar a experiência de fala prática ideal, os aplicativos permitem que o serviço detecte quando o usuário terminou de falar. Os clientes enviam áudio do microfone como partes de *áudio* até que o serviço detecte silêncio e `speech.endDetected` responda de volta com uma mensagem.
 
-##### <a name="client-end-of-speech-detection"></a>Deteção de fim da voz de cliente
+##### <a name="client-end-of-speech-detection"></a>Detecção de fim de fala do cliente
 
-Aplicações de cliente que permitem ao usuário final de voz de alguma forma de sinalizar também podem permitir que o serviço que sinal. Por exemplo, uma aplicação cliente pode ter uma "Stop" ou o botão "Mute (mudo)", que o usuário poderá pressionar. Sinalizar final de voz, aplicativos cliente enviam um *áudio* mensagem de segmentos com um corpo de comprimento zero. Serviço de voz interpreta esta mensagem, como o fim do fluxo de áudio de entrada.
+Os aplicativos cliente que permitem ao usuário sinalizar o fim da fala de alguma forma também podem fornecer o serviço que está sinalizando. Por exemplo, um aplicativo cliente pode ter um botão "parar" ou "mudo" que o usuário pode pressionar. Para sinalizar o fim da fala, os aplicativos cliente enviam uma mensagem de bloco de *áudio* com um corpo de comprimento zero. O serviço de fala interpreta essa mensagem como o fim do fluxo de áudio de entrada.
 
-### <a name="message-telemetry"></a>mensagem `telemetry`
+### <a name="message-telemetry"></a>Mensagem`telemetry`
 
-Aplicações de cliente *tem* reconhece o final de cada vez através do envio de telemetria sobre o ativar para o serviço de voz. Fim de ativar confirmação permite que o serviço de voz para se certificar de que todas as mensagens necessárias para a conclusão do pedido e a respetiva resposta foram corretamente recebidas pelo cliente. Fim de ativar confirmação também permite que o serviço de voz verificar se as aplicações cliente estão a funcionar conforme esperado. Estas informações são inestimáveis se precisar de ajuda para a aplicação com capacidade de voz de resolução de problemas.
+Os aplicativos cliente *devem* reconhecer o final de cada vez enviando telemetria sobre a opção para o serviço de fala. A confirmação de encerramento permite que o serviço de fala garanta que todas as mensagens necessárias para a conclusão da solicitação e sua resposta foram recebidas corretamente pelo cliente. A confirmação de encerramento também permite que o serviço de fala Verifique se os aplicativos cliente estão sendo executados conforme o esperado. Essas informações são inestimávels se você precisar de ajuda para solucionar problemas de seu aplicativo habilitado para fala.
 
-Os clientes tem de confirmar o fim de uma vez através do envio de um `telemetry` mensagem logo após a receção um `turn.end` mensagem. Os clientes tentam devem reconhecer a `turn.end` logo que possível. Se um aplicativo cliente não conseguir reconhecer o fim de ativar, o serviço de voz pode terminar a ligação com um erro. Os clientes devem enviar apenas um `telemetry` mensagem para cada solicitação e resposta identificado pela *X-RequestId* valor.
+Os clientes devem reconhecer o fim de uma rodada enviando uma `telemetry` mensagem logo depois de receber `turn.end` uma mensagem. Os clientes devem tentar reconhecer o `turn.end` assim que possível. Se um aplicativo cliente falhar ao reconhecer o encerramento, o serviço de fala poderá encerrar a conexão com um erro. Os clientes devem enviar apenas `telemetry` uma mensagem para cada solicitação e resposta identificadas pelo valor *X-RequestId* .
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `telemetry` |
-| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
-| Content-Type | `application/json` |
-| Body | Uma estrutura JSON que contém informações de cliente sobre a mão |
+| X-carimbo de data/hora | Carimbo de data/hora de relógio UTC do cliente no formato ISO 8601 |
+| Tipo de conteúdo | `application/json` |
+| Body | Uma estrutura JSON que contém informações de cliente sobre a opção |
 
-O esquema para o corpo da `telemetry` mensagem é definida no [esquema de telemetria](#telemetry-schema) secção.
+O esquema para o corpo da `telemetry` mensagem é definido na seção esquema de [telemetria](#telemetry-schema) .
 
-#### <a name="telemetry-for-interrupted-connections"></a>Telemetria para ligações interrompidas
+#### <a name="telemetry-for-interrupted-connections"></a>Telemetria para conexões interrompidas
 
-Se a ligação de rede falha por algum motivo durante uma folheada e o cliente faz *não* receber um `turn.end` mensagem do serviço, o cliente envia um `telemetry` mensagem. Esta mensagem descreve o pedido falhado da próxima vez que o cliente faz uma ligação ao serviço. Os clientes não precisam de imediatamente estabelecer ligação ao enviar o `telemetry` mensagem. A mensagem pode ser colocado na memória intermédia no cliente e enviada por uma conexão de futura solicitada pelo utilizador. O `telemetry` mensagem para o pedido falhado *tem* utilizar os *X-RequestId* valor no pedido com falha. Poderão ser enviadas para o serviço assim que for estabelecida uma ligação, sem ter de esperar para enviar ou receber para outras mensagens.
+Se a conexão de rede falhar por algum motivo durante uma vez e o cliente *não receber* uma `turn.end` mensagem do serviço, o cliente enviará uma `telemetry` mensagem. Essa mensagem descreve a solicitação com falha na próxima vez que o cliente fizer uma conexão com o serviço. Os clientes não precisam tentar uma conexão imediatamente para enviar a `telemetry` mensagem. A mensagem pode ser armazenada em buffer no cliente e enviada por uma conexão futura solicitada pelo usuário. A `telemetry` mensagem para a solicitação com falha *deve* usar o valor *X-RequestId* da solicitação com falha. Ele pode ser enviado para o serviço assim que uma conexão é estabelecida, sem aguardar para enviar ou receber outras mensagens.
 
-## <a name="service-originated-messages"></a>Mensagens originadas de serviço
+## <a name="service-originated-messages"></a>Mensagens originadas no serviço
 
-Esta secção descreve as mensagens que têm origem no serviço de voz e são enviadas para o cliente. Serviço de voz mantém um registo de recursos de cliente e gera as mensagens necessárias por cada cliente, portanto, não que todos os clientes recebem todas as mensagens que são descritas aqui. Para fins de brevidade, as mensagens são referenciadas pelo valor da *caminho* cabeçalho. Por exemplo, fazemos referência a uma mensagem de texto do WebSocket com o *caminho* valor `speech.hypothesis` como uma mensagem de speech.hypothesis.
+Esta seção descreve as mensagens originadas no serviço de fala e são enviadas ao cliente. O serviço de fala mantém um registro dos recursos do cliente e gera as mensagens exigidas por cada cliente, portanto, nem todos os clientes recebem todas as mensagens descritas aqui. Para fins de brevidade, as mensagens são referenciadas pelo valor do cabeçalho do *caminho* . Por exemplo, nos referimos a uma mensagem de texto WebSocket com `speech.hypothesis` o valor *path* como uma mensagem Speech. hipótese.
 
-### <a name="message-speechstartdetected"></a>mensagem `speech.startDetected`
+### <a name="message-speechstartdetected"></a>Mensagem`speech.startDetected`
 
-O `speech.startDetected` mensagem indica que o serviço de voz detetado fala no fluxo de áudio.
+A `speech.startDetected` mensagem indica que o serviço de fala detectou a fala no fluxo de áudio.
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `speech.startDetected` |
-| Content-Type | application/json; charset=utf-8 |
-| Body | A estrutura JSON que contém informações sobre as condições de quando foi detetado o início da voz. O *deslocamento* campo nesta estrutura Especifica o deslocamento (em unidades de 100 nanossegundos) quando a conversão de voz foi detetada no fluxo de áudio, em relação ao início da transmissão em fluxo. |
+| Tipo de conteúdo | application/json; charset=utf-8 |
+| Body | A estrutura JSON que contém informações sobre as condições quando o início da fala foi detectado. O campo de *deslocamento* nessa estrutura especifica o deslocamento (em unidades 100-nanossegundos) quando a fala foi detectada no fluxo de áudio, em relação ao início do fluxo. |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -346,19 +346,19 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-### <a name="message-speechhypothesis"></a>mensagem `speech.hypothesis`
+### <a name="message-speechhypothesis"></a>Mensagem`speech.hypothesis`
 
-Durante o reconhecimento de fala, o serviço de voz periodicamente gera hipóteses sobre as palavras o serviço reconhecido. Serviço de voz envia essas hipóteses para o cliente aproximadamente a cada 300 milissegundos. O `speech.hypothesis` é adequado *apenas* para melhorar a experiência de voz do utilizador. Não tem de efetuar qualquer dependência sobre o conteúdo ou a precisão do texto nessas mensagens.
+Durante o reconhecimento de fala, o serviço de fala gera periodicamente as mesmas informações sobre as palavras que o serviço reconheceu. O serviço de fala envia essas percursos para o cliente aproximadamente a cada 300 milissegundos. O `speech.hypothesis` é adequado *apenas* para aprimorar a experiência de fala do usuário. Você não deve assumir nenhuma dependência do conteúdo ou exatidão do texto nessas mensagens.
 
- O `speech.hypothesis` mensagem é aplicável para os clientes que têm alguma capacidade de processamento de texto e pretendem fornecer comentários de quase em tempo real desse reconhecimento em curso para a pessoa que está a falar.
+ A `speech.hypothesis` mensagem é aplicável a esses clientes que têm algum recurso de renderização de texto e desejam fornecer comentários quase em tempo real sobre o reconhecimento em andamento para a pessoa que está falando.
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `speech.hypothesis` |
-| X-RequestId | UUID no formato de "no-dash" |
-| Content-Type | application/json |
-| Body | A estrutura JSON de hipótese de voz |
+| X-RequestId | UUID no formato "no-Dash" |
+| Tipo de conteúdo | application/json |
+| Body | A estrutura JSON de hipótese de fala |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -374,24 +374,24 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-O *deslocamento* elemento Especifica o deslocamento (em unidades de 100 nanossegundos) quando a expressão foi reconhecida, em relação ao início do fluxo de áudio.
+O elemento *offset* especifica o deslocamento (em unidades 100-nanossegundos) quando a frase foi reconhecida, em relação ao início do fluxo de áudio.
 
-O *duração* elemento Especifica a duração (em unidades de 100 nanossegundos) desta frase de voz.
+O elemento *Duration* especifica a duração (em unidades de 100 a nanossegundos) dessa frase de fala.
 
-Os clientes não pode fazer suposições sobre a frequência, a temporização ou o texto contido numa hipótese de voz ou a consistência de texto em qualquer hipóteses de voz de dois. Os hipóteses são apenas instantâneos para o processo de transcrição no serviço. Não representam um acúmulo estável de transcrição. Por exemplo, uma primeira hipótese de voz pode conter as palavras "brincar bem", e a segunda hipótese pode conter as palavras "encontrar engraçado." Serviço de voz não executa qualquer processamento posterior (por exemplo, capitalização, pontuação) no texto a hipótese de voz.
+Os clientes não devem fazer suposições sobre a frequência, o tempo ou o texto contido em uma hipótese de fala ou a consistência do texto em duas hipóteses de fala. As mesmas são apenas instantâneos no processo de transcrição no serviço. Eles não representam uma acumulação estável de transcrição. Por exemplo, uma primeira hipótese de fala pode conter as palavras "diversão divertida", e a segunda hipótese pode conter as palavras "localizar engraçado". O serviço de fala não executa nenhum pós-processamento (por exemplo, maiúsculas e minúsculas, pontuação) no texto na hipótese de fala.
 
-### <a name="message-speechphrase"></a>mensagem `speech.phrase`
+### <a name="message-speechphrase"></a>Mensagem`speech.phrase`
 
-Quando o serviço de voz determina a que tem informações suficientes para produzir um resultado de reconhecimento que não será alterado, o serviço produz um `speech.phrase` mensagem. Serviço de voz produz esses resultados depois de detetar que o utilizador foi concluída uma frase ou expressão.
+Quando o serviço de fala determina que ele tem informações suficientes para produzir um resultado de reconhecimento que não será alterado, `speech.phrase` o serviço produz uma mensagem. O serviço de fala produz esses resultados depois de detectar que o usuário concluiu uma frase ou frase.
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `speech.phrase` |
-| Content-Type | application/json |
-| Body | A frase de voz estrutura JSON |
+| Tipo de conteúdo | application/json |
+| Body | A estrutura JSON de frase de fala |
 
-O esquema JSON de frase de voz contém os seguintes campos: `RecognitionStatus`, `DisplayText`, `Offset`, e `Duration`. Para obter mais informações sobre estes campos, consulte [respostas de transcrição](../concepts.md#transcription-responses).
+O esquema JSON de frase de fala inclui os seguintes `RecognitionStatus`campos `DisplayText`: `Offset`,, `Duration`e. Para obter mais informações sobre esses campos, consulte [respostas de transcrição](../concepts.md#transcription-responses).
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -408,16 +408,16 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-### <a name="message-speechenddetected"></a>mensagem `speech.endDetected`
+### <a name="message-speechenddetected"></a>Mensagem`speech.endDetected`
 
-O `speech.endDetected` mensagem Especifica que a aplicação cliente deverá ser interrompida áudio para o serviço de transmissão em fluxo.
+A `speech.endDetected` mensagem Especifica que o aplicativo cliente deve parar de transmitir áudio para o serviço.
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `speech.endDetected` |
-| Body | A estrutura JSON que contém o deslocamento quando o final de voz foi detetado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é utilizado para reconhecimento. |
-| Content-Type | application/json; charset=utf-8 |
+| Body | A estrutura JSON que contém o deslocamento quando o fim da fala foi detectado. O deslocamento é representado no deslocamento das unidades 100-nanossegundos a partir do início do áudio usado para reconhecimento. |
+| Tipo de conteúdo | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -431,17 +431,17 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-O *deslocamento* elemento Especifica o deslocamento (em unidades de 100 nanossegundos) quando a expressão foi reconhecida, em relação ao início do fluxo de áudio.
+O elemento *offset* especifica o deslocamento (em unidades 100-nanossegundos) quando a frase foi reconhecida, em relação ao início do fluxo de áudio.
 
-### <a name="message-turnstart"></a>mensagem `turn.start`
+### <a name="message-turnstart"></a>Mensagem`turn.start`
 
-O `turn.start` sinaliza o início de uma mão da perspectiva do serviço. O `turn.start` mensagem sempre é a primeira mensagem de resposta recebidos para qualquer pedido. Se não receber uma `turn.start` da mensagem, partem do princípio de que o estado da ligação de serviço é inválido.
+O `turn.start` sinaliza o início de uma rodada da perspectiva do serviço. A `turn.start` mensagem é sempre a primeira mensagem de resposta recebida para qualquer solicitação. Se você não receber uma `turn.start` mensagem, assuma que o estado da conexão de serviço é inválido.
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `turn.start` |
-| Content-Type | application/json; charset=utf-8 |
+| Tipo de conteúdo | application/json; charset=utf-8 |
 | Body | Estrutura JSON |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
@@ -458,17 +458,17 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-O corpo do `turn.start` mensagem é uma estrutura JSON que contém o contexto para o início do ativar. O *contexto* elemento contém um *serviceTag* propriedade. Esta propriedade especifica um valor de etiqueta que o serviço está associada a ativar. Este valor pode ser usado pela Microsoft se necessitar de ajuda para resolver problemas de falhas na sua aplicação.
+O corpo da `turn.start` mensagem é uma estrutura JSON que contém o contexto para o início da rodada. O elemento *Context* contém uma propriedade *serviceTag* . Esta propriedade especifica um valor de marca que o serviço associou com a rodada. Esse valor pode ser usado pela Microsoft se você precisar de ajuda para solucionar falhas em seu aplicativo.
 
-### <a name="message-turnend"></a>mensagem `turn.end`
+### <a name="message-turnend"></a>Mensagem`turn.end`
 
-O `turn.end` sinaliza o término de uma mão da perspectiva do serviço. O `turn.end` mensagem sempre é a última mensagem de resposta recebidos para qualquer pedido. Os clientes podem utilizar a receção desta mensagem como um sinal para atividades de limpeza e fazer a transição para um estado inativo. Se não receber uma `turn.end` da mensagem, partem do princípio de que o estado da ligação de serviço é inválido. Nesses casos, feche a ligação existente para o serviço e voltar a ligar.
+O `turn.end` sinaliza o fim de uma rodada da perspectiva do serviço. A `turn.end` mensagem é sempre a última mensagem de resposta recebida para qualquer solicitação. Os clientes podem usar o recebimento dessa mensagem como um sinal para as atividades de limpeza e fazer a transição para um estado ocioso. Se você não receber uma `turn.end` mensagem, assuma que o estado da conexão de serviço é inválido. Nesses casos, feche a conexão existente com o serviço e reconecte-se.
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Text |
+| Codificação de mensagem WebSocket | Text |
 | Path | `turn.end` |
-| Body | Nenhuma |
+| Body | Nenhum |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -479,13 +479,13 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 ## <a name="telemetry-schema"></a>Esquema de telemetria
 
-O corpo da *telemetria* mensagem é uma estrutura JSON que contém informações de cliente sobre uma folheada ou uma tentativa de ligação. A estrutura é constituída por carimbos de hora do cliente que registam quando ocorrem eventos de cliente. Cada carimbo de data / hora tem de estar no formato ISO 8601 conforme descrito na seção intitulada "Cabeçalho de X-Timestamp". *Telemetria* mensagens que não especifique todos os campos obrigatórios na estrutura JSON ou que não utilize o formato de carimbo de data / hora correta podem fazer com que o serviço para terminar a ligação ao cliente. Os clientes *tem* de indicar valores válidos para campos obrigatórios tudo. Os clientes *deve* fornecer valores para os campos opcionais sempre que adequado. Os valores mostrados nos exemplos nesta secção são apenas para ilustração.
+O corpo da mensagem de *telemetria* é uma estrutura JSON que contém informações de cliente sobre uma conexão ou tentativa. A estrutura é composta de carimbos de data/hora do cliente que registram quando ocorrem eventos de cliente. Cada carimbo de data/hora deve estar no formato ISO 8601, conforme descrito na seção intitulada "X-timestamp Header". As mensagens de *telemetria* que não especificam todos os campos obrigatórios na estrutura JSON ou que não usam o formato de carimbo de data/hora correto podem fazer com que o serviço encerre a conexão com o cliente. Os clientes *devem* fornecer valores válidos para todos os campos obrigatórios. Os clientes *devem* fornecer valores para campos opcionais sempre que apropriado. Os valores mostrados nos exemplos nesta seção são apenas para fins ilustrativos.
 
-Esquema de telemetria está dividida nas seguintes partes: recebido carimbos de data / hora de mensagem e as métricas. O formato e a utilização de cada parte é especificado nas seções a seguir.
+O esquema de telemetria é dividido nas seguintes partes: carimbos e métricas de tempo de mensagem recebidos. O formato e o uso de cada parte são especificados nas seções a seguir.
 
-### <a name="received-message-time-stamps"></a>Carimbos de data / hora de mensagem recebida
+### <a name="received-message-time-stamps"></a>Carimbos de data/hora da mensagem recebida
 
-Os clientes têm de incluir valores de tempo de receção para todas as mensagens que ele recebe após estabelecer ligação ao serviço. Estes valores devem registrar a hora quando o cliente *recebido* cada mensagem a partir da rede. O valor não deve gravar qualquer outra altura. Por exemplo, o cliente não deve registrar a hora quando ele *agia* na mensagem. Carimbos de data / hora da mensagem recebida é especificadas numa matriz de *: valor de nome* pares. Especifica o nome do par do *caminho* valor da mensagem. O valor do par de Especifica o tempo de cliente quando a mensagem foi recebida. Em alternativa, se tiver mais do que uma mensagem, o nome especificado foi recebida, o valor do par de é uma matriz de carimbos de data / hora que indica quando essas mensagens foram recebidas.
+Os clientes devem incluir valores de tempo de recebimento para todas as mensagens recebidas após a conexão bem-sucedida com o serviço. Esses valores devem registrar a hora em que o cliente *recebeu* cada mensagem da rede. O valor não deve gravar nenhum outro horário. Por exemplo, o cliente não deve registrar a hora quando ele foi *aprovado* na mensagem. Os carimbos de data/hora da mensagem recebida são especificados em uma matriz de pares *nome: valor* . O nome do par especifica o valor do *caminho* da mensagem. O valor do par especifica a hora do cliente quando a mensagem foi recebida. Ou, se mais de uma mensagem do nome especificado tiver sido recebida, o valor do par será uma matriz de carimbos de data/hora que indica quando essas mensagens foram recebidas.
 
 ```JSON
   "ReceivedMessages": [
@@ -496,86 +496,86 @@ Os clientes têm de incluir valores de tempo de receção para todas as mensagen
   ]
 ```
 
-Os clientes *tem* confirma o recebimento de todas as mensagens enviadas pelo serviço, incluindo carimbos de data / hora para essas mensagens no corpo do JSON. Se um cliente falhar confirmar a receção de uma mensagem, o serviço pode terminar a ligação.
+Os clientes *devem* reconhecer o recebimento de todas as mensagens enviadas pelo serviço, incluindo carimbos de data/hora para essas mensagens no corpo JSON. Se um cliente não conseguir reconhecer o recebimento de uma mensagem, o serviço poderá encerrar a conexão.
 
 ### <a name="metrics"></a>Métricas
 
-Os clientes devem incluir informações sobre eventos que ocorreram durante a vida útil de um pedido. As métricas seguintes são suportadas: `Connection`, `Microphone`, e `ListeningTrigger`.
+Os clientes devem incluir informações sobre eventos que ocorreram durante o tempo de vida de uma solicitação. Há suporte para as seguintes métricas `Connection`: `Microphone`, e `ListeningTrigger`.
 
-### <a name="metric-connection"></a>Métrica `Connection`
+### <a name="metric-connection"></a>Medidas`Connection`
 
-O `Connection` métrica Especifica os detalhes sobre as tentativas de ligação pelo cliente. A métrica tem de incluir carimbos de data / hora de quando a conexão WebSocket foi iniciada e concluída. O `Connection` métrica é necessária *apenas para o ativar primeiro de uma conexão*. Se subsequentes não é necessários para incluir esta informação. Se um cliente faz várias tentativas de ligação antes de uma ligação é estabelecida, informações sobre *todos os* as tentativas de ligação devem ser incluídas. Para obter mais informações, consulte [telemetria de falha de ligação](#connection-failure-telemetry).
+A `Connection` métrica especifica detalhes sobre tentativas de conexão pelo cliente. A métrica deve incluir carimbos de data/hora de quando a conexão WebSocket foi iniciada e concluída. A `Connection` métrica é necessária *apenas para a primeira vez de uma conexão*. As ativações subsequentes não são necessárias para incluir essas informações. Se um cliente fizer várias tentativas de conexão antes que uma conexão seja estabelecida, as informações sobre *todas* as tentativas de conexão deverão ser incluídas. Para obter mais informações, consulte [telemetria de falha de conexão](#connection-failure-telemetry).
 
 | Campo | Descrição | Utilização |
 | ----- | ----------- | ----- |
-| Name | `Connection` | Necessário |
-| Id | O valor do identificador de ligação que foi utilizado na *X ConnectionId* cabeçalho para este pedido de ligação | Necessário |
-| Iniciar | A hora quando o cliente enviou um pedido de ligação | Necessário |
-| fim | O tempo quando o cliente recebeu a notificação de que a ligação foi estabelecida com êxito ou, em casos de erro, rejeitado, recusado ou falha | Necessário |
-| Erro | Uma descrição do erro que ocorreu, se aplicável. Se a ligação foi concluída com êxito, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
+| Name | `Connection` | Requerido |
+| ID | O valor do identificador de conexão que foi usado no cabeçalho *X-ConnectionID* para esta solicitação de conexão | Requerido |
+| Start | A hora em que o cliente enviou a solicitação de conexão | Requerido |
+| fim | A hora em que o cliente recebeu a notificação de que a conexão foi estabelecida com êxito ou, em casos de erro, rejeitado, recusado ou com falha | Requerido |
+| Erro | Uma descrição do erro que ocorreu, se houver. Se a conexão tiver sido bem-sucedida, os clientes deverão omitir esse campo. O comprimento máximo desse campo é de 50 caracteres. | Necessário para casos de erro, omitido caso contrário |
 
-A descrição do erro deve ter um máximo de 50 carateres e o ideal é que deve ser um dos valores listados na tabela seguinte. Se a condição de erro não corresponder a um dos seguintes valores, os clientes podem utilizar uma descrição sucinta da condição de erro, utilizando [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) sem espaço em branco. A capacidade de enviar um *telemetria* mensagem requer uma ligação ao serviço, por isso, apenas transitório ou podem ser comunicadas as condições de erro temporário na *telemetria* mensagem. Condições de erro que *permanentemente* bloquear um cliente de estabelecer uma ligação para o serviço de impedir que o cliente enviar qualquer mensagem para o serviço, incluindo *telemetria* mensagens.
+A descrição do erro deve ter no máximo 50 caracteres e, idealmente, deve ser um dos valores listados na tabela a seguir. Se a condição de erro não corresponder a um desses valores, os clientes poderão usar uma descrição sucinta da condição de erro usando [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) sem espaço em branco. A capacidade de enviar uma mensagem de *telemetria* requer uma conexão com o serviço, portanto, somente condições de erro transitórias ou temporárias podem ser relatadas na mensagem de *telemetria* . Condições de erro que bloqueiam *permanentemente* um cliente de estabelecer uma conexão com o serviço impedem que o cliente envie qualquer mensagem para o serviço, incluindo mensagens de *telemetria* .
 
 | Erro | Utilização |
 | ----- | ----- |
-| DNSfailure | O cliente não foi possível ligar ao serviço devido a uma falha DNS na pilha de rede. |
-| NoNetwork | O cliente tentada uma ligação, mas a pilha de rede reportou que não existe nenhuma rede física estava disponível. |
-| NoAuthorization | A ligação de cliente falhou ao tentar adquirir um token de autorização para a ligação. |
-| NoResources | O cliente ficou sem algum recurso local (por exemplo, memória) ao tentar estabelecer uma ligação. |
-| Proibido | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `403 Forbidden` código de estado sobre a solicitação de atualização do WebSocket. |
-| Não autorizado | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `401 Unauthorized` código de estado sobre a solicitação de atualização do WebSocket. |
-| BadRequest | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `400 Bad Request` código de estado sobre a solicitação de atualização do WebSocket. |
-| ServerUnavailable | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `503 Server Unavailable` código de estado sobre a solicitação de atualização do WebSocket. |
-| ServerError | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um `HTTP 500` código de estado de erro interno no pedido de atualização de WebSocket. |
-| Tempo limite | Pedido de ligação do cliente excedido o tempo limite sem uma resposta do serviço. O *final* campo contém a hora quando o cliente excedeu o tempo e parado a aguardar a ligação. |
-| ClientError | O cliente terminada a ligação devido a um erro interno de cliente. |
+| DNSfailure | O cliente não pôde se conectar ao serviço devido a uma falha de DNS na pilha de rede. |
+| Nonetwork | O cliente tentou uma conexão, mas a pilha de rede relatou que nenhuma rede física estava disponível. |
+| Noauthorização | Falha na conexão do cliente ao tentar adquirir um token de autorização para a conexão. |
+| Noresources | O cliente ficou sem algum recurso local (por exemplo, memória) ao tentar fazer uma conexão. |
+| Proibido | O cliente não pôde se conectar ao serviço porque o serviço retornou um código `403 Forbidden` de status HTTP na solicitação de atualização do WebSocket. |
+| Não autorizado | O cliente não pôde se conectar ao serviço porque o serviço retornou um código `401 Unauthorized` de status HTTP na solicitação de atualização do WebSocket. |
+| BadRequest | O cliente não pôde se conectar ao serviço porque o serviço retornou um código `400 Bad Request` de status HTTP na solicitação de atualização do WebSocket. |
+| ServerUnavailable | O cliente não pôde se conectar ao serviço porque o serviço retornou um código `503 Server Unavailable` de status HTTP na solicitação de atualização do WebSocket. |
+| ServerError | O cliente não pôde se conectar ao serviço porque o serviço retornou um `HTTP 500` código de status de erro interno na solicitação de atualização do WebSocket. |
+| Tempo limite | A solicitação de conexão do cliente atingiu o tempo limite sem uma resposta do serviço. O campo *final* contém a hora em que o cliente esgotou o tempo limite e parou de esperar pela conexão. |
+| ClientError | O cliente encerrou a conexão devido a algum erro interno do cliente. |
 
-### <a name="metric-microphone"></a>Métrica `Microphone`
+### <a name="metric-microphone"></a>Medidas`Microphone`
 
-O `Microphone` métrica é necessária para todos os folheio de voz. Esta métrica mede o tempo no cliente durante o qual entrada de áudio está a ser utilizada ativamente para um pedido de voz.
+A `Microphone` métrica é necessária para todos os folheios de fala. Essa métrica mede o tempo no cliente durante o qual a entrada de áudio está sendo usada ativamente para uma solicitação de fala.
 
-Utilize os exemplos a seguir como diretrizes para gravação *começar* tempo valores para o `Microphone` métrica na aplicação de cliente:
+Use os exemplos a seguir como diretrizes para registrar valores de hora de `Microphone` início para a métrica em seu aplicativo cliente:
 
-* Uma aplicação de cliente requer que um utilizador deve premir um botão de físico para iniciar o microfone. Após o pressionamento do botão, o aplicativo cliente lê a entrada do microfone e envia-os para o serviço de voz. O *começar* valor para o `Microphone` métrica regista o tempo após o envio de botão, quando o microfone é inicializado e pronto para fornecer comentários. O *final* valor para o `Microphone` métrica regista o tempo quando a aplicação cliente parado a transmissão em fluxo de áudio para o serviço depois que recebeu o `speech.endDetected` mensagem do serviço.
+* Um aplicativo cliente requer que um usuário precise pressionar um botão físico para iniciar o microfone. Depois que o botão é pressionado, o aplicativo cliente lê a entrada do microfone e a envia para o serviço de fala. O valor *inicial* da `Microphone` métrica registra o tempo após o envio do botão quando o microfone é inicializado e está pronto para fornecer entrada. O valor *final* da `Microphone` métrica registra a hora em que o aplicativo cliente parou de transmitir áudio para o serviço depois de receber `speech.endDetected` a mensagem do serviço.
 
-* Uma aplicação cliente utiliza um spotter de palavra-chave que está a escutar "sempre". Apenas depois do spotter de palavra-chave Deteta uma frase de Acionador falado faz o aplicativo cliente recolher a entrada do microfone e enviá-lo para o serviço de voz. O *começar* valor para o `Microphone` métrica regista o tempo quando o spotter de palavra-chave notificado o cliente para começar a utilizar a entrada do microfone. O *final* valor para o `Microphone` métrica regista o tempo quando a aplicação cliente parado a transmissão em fluxo de áudio para o serviço depois que recebeu o `speech.endDetected` mensagem do serviço.
+* Um aplicativo cliente usa uma palavra-chave spotter que é "sempre" escutando. Somente depois que a palavra-chave spotter detecta uma frase de gatilho falada, o aplicativo cliente coleta a entrada do microfone e a envia para o serviço de fala. O valor *inicial* da `Microphone` métrica registra a hora em que a palavra-chave spotter notificou o cliente a começar a usar a entrada do microfone. O valor *final* da `Microphone` métrica registra a hora em que o aplicativo cliente parou de transmitir áudio para o serviço depois de receber `speech.endDetected` a mensagem do serviço.
 
-* Uma aplicação cliente tem acesso a um fluxo constante de áudio e executa a deteção de silêncio/voz nesse fluxo de áudio num *módulo de deteção de voz*. O *começar* valor para o `Microphone` métrica regista o tempo quando o *módulo de deteção de voz* notificado o cliente para começar a utilizar a entrada do fluxo de áudio. O *final* valor para o `Microphone` métrica regista o tempo quando a aplicação cliente parado a transmissão em fluxo de áudio para o serviço depois que recebeu o `speech.endDetected` mensagem do serviço.
+* Um aplicativo cliente tem acesso a um fluxo de áudio constante e executa detecção de silêncio/fala no fluxo de áudio em um *módulo de detecção de fala*. O valor *inicial* da `Microphone` métrica registra a hora em que o *módulo detecção de fala* notificou o cliente a começar a usar a entrada do fluxo de áudio. O valor *final* da `Microphone` métrica registra a hora em que o aplicativo cliente parou de transmitir áudio para o serviço depois de receber `speech.endDetected` a mensagem do serviço.
 
-* Um aplicativo cliente está a processar o segundo mão de um pedido de ativar multi e é informado por uma mensagem de resposta do serviço para ativar o microfone para coletar entradas para a segunda vez. O *começar* valor para o `Microphone` métrica regista o tempo quando a aplicação de cliente permite que o microfone e começa com a entrada dessa origem de áudio de. O *final* valor para o `Microphone` métrica regista o tempo quando a aplicação cliente parado a transmissão em fluxo de áudio para o serviço depois que recebeu o `speech.endDetected` mensagem do serviço.
+* Um aplicativo cliente está processando a segunda vez de uma solicitação de troca múltipla e é informado por uma mensagem de resposta de serviço para ativar o microfone a fim de coletar entrada para a segunda rodada. O valor *inicial* da `Microphone` métrica registra a hora em que o aplicativo cliente habilita o microfone e começa a usar a entrada dessa fonte de áudio. O valor *final* da `Microphone` métrica registra a hora em que o aplicativo cliente parou de transmitir áudio para o serviço depois de receber `speech.endDetected` a mensagem do serviço.
 
-O *final* tempo valor para o `Microphone` métrica regista o tempo quando a aplicação cliente parado a transmissão em fluxo de entrada de áudio. Na maioria das situações, este evento ocorre logo após o cliente recebido a `speech.endDetected` mensagem do serviço. Aplicações cliente poderão Certifique-se de que eles estão corretamente estando em conformidade com o protocolo, assegurando que o *final* tempo valor para o `Microphone` métrica ocorre mais tarde do que o valor de tempo de receção para o `speech.endDetected` mensagem. E, porque normalmente existe um atraso entre o fim de uma vez e o início da outra vez, os clientes podem verificar conformidade com o protocolo, assegurando que o *começar* tempo do `Microphone` métrica para qualquer ativar subsequente corretamente regista o tempo quando o cliente *iniciado* usando o microfone para entrada de áudio de fluxo para o serviço.
+O valor de hora de término `Microphone` da métrica registra a hora em que o aplicativo cliente parou de transmitir a entrada de áudio. Na maioria das situações, esse evento ocorre logo após o cliente ter `speech.endDetected` recebido a mensagem do serviço. Os aplicativos cliente podem verificar se estão adequadamente em conformidade com o protocolo, garantindo que o valor `Microphone` de hora de término da métrica ocorra depois do valor do `speech.endDetected` tempo de recebimento da mensagem. E, como geralmente há um atraso entre o final de uma vez e o início de outra rodada, os clientes podem verificar a conformidade do protocolo garantindo que a hora de `Microphone` início da métrica para qualquer um dos subseqüentes registra corretamente o tempo quando o o cliente *começou* a usar o microfone para transmitir a entrada de áudio para o serviço.
 
 | Campo | Descrição | Utilização |
 | ----- | ----------- | ----- |
-| Name | Microfone | Necessário |
-| Iniciar | A hora quando o cliente à utilização de entrada de áudio do microfone ou outro transmissão de áudio ou recebido um acionador de spotter a palavra-chave | Necessário |
-| fim | A hora quando o cliente parado com o fluxo de microfone ou de áudio | Necessário |
-| Erro | Uma descrição do erro que ocorreu, se aplicável. Se as operações de microfone foram bem-sucedidas, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
+| Name | Phone | Requerido |
+| Start | A hora em que o cliente começou a usar a entrada de áudio do microfone ou outro fluxo de áudio ou recebeu um gatilho da palavra-chave spotter | Requerido |
+| fim | A hora em que o cliente parou de usar o microfone ou o fluxo de áudio | Requerido |
+| Erro | Uma descrição do erro que ocorreu, se houver. Se as operações do microfone tiverem sido bem-sucedidas, os clientes deverão omitir esse campo. O comprimento máximo desse campo é de 50 caracteres. | Necessário para casos de erro, omitido caso contrário |
 
-### <a name="metric-listeningtrigger"></a>Métrica `ListeningTrigger`
-O `ListeningTrigger` métrica mede o tempo de quando o usuário executa a ação que inicia a entrada de voz. O `ListeningTrigger` métrica é opcional, mas os clientes que podem fornecer esta métrica são encorajados a fazer isso.
+### <a name="metric-listeningtrigger"></a>Medidas`ListeningTrigger`
+A `ListeningTrigger` métrica mede a hora em que o usuário executa a ação que inicia a entrada de fala. A `ListeningTrigger` métrica é opcional, mas os clientes que podem fornecer essa métrica são incentivados a fazer isso.
 
-Utilize os exemplos a seguir como diretrizes para gravação *começar* e *final* tempo valores para o `ListeningTrigger` métrica na aplicação de cliente.
+Use os exemplos a seguir como diretrizes para registrar valores de hora de *início* e `ListeningTrigger` de *término* para a métrica em seu aplicativo cliente.
 
-* Uma aplicação de cliente requer que um utilizador deve premir um botão de físico para iniciar o microfone. O *iniciar* valor para esta métrica regista o tempo do envio de botão. O *final* valor regista o tempo quando termina, o envio de botão.
+* Um aplicativo cliente requer que um usuário precise pressionar um botão físico para iniciar o microfone. O valor *inicial* dessa métrica registra a hora do envio por push do botão. O valor *final* registra a hora de término do envio do botão.
 
-* Uma aplicação cliente utiliza um spotter de palavra-chave que está a escutar "sempre". Depois da palavra-chave spotter Deteta uma frase de Acionador falado, a aplicação cliente lê a entrada do microfone e envia-os para o serviço de voz. O *iniciar* valor para esta métrica regista o tempo quando o spotter de palavra-chave recebido áudio que, em seguida, foi detetado como a frase de Acionador. O *final* valor regista o tempo quando a última palavra da frase acionador foi dito pelo usuário.
+* Um aplicativo cliente usa uma palavra-chave spotter que é "sempre" escutando. Depois que a palavra-chave spotter detecta uma frase de gatilho falada, o aplicativo cliente lê a entrada do microfone e a envia para o serviço de fala. O valor *inicial* dessa métrica registra a hora em que a palavra-chave spotter recebeu o áudio que foi detectado como a frase do gatilho. O valor *final* registra a hora em que a última palavra da frase do gatilho foi falada pelo usuário.
 
-* Uma aplicação cliente tem acesso a um fluxo constante de áudio e executa a deteção de silêncio/voz nesse fluxo de áudio num *módulo de deteção de voz*. O *começar* valor para esta métrica regista o tempo que o *módulo de deteção de voz* recebido áudio que, em seguida, foi detectado como sendo de voz. O *final* valor regista o tempo quando a *módulo de deteção de voz* detetado voz.
+* Um aplicativo cliente tem acesso a um fluxo de áudio constante e executa detecção de silêncio/fala no fluxo de áudio em um *módulo de detecção de fala*. O valor *inicial* dessa métrica registra a hora em que o *módulo detecção de fala* recebeu áudio que foi detectado como fala. O valor *final* registra a hora em que o *módulo detecção de fala* detectou a fala.
 
-* Um aplicativo cliente está a processar o segundo mão de um pedido de ativar multi e é informado por uma mensagem de resposta do serviço para ativar o microfone para coletar entradas para a segunda vez. O aplicativo cliente deve *não* incluem um `ListeningTrigger` métrica desta vez.
+* Um aplicativo cliente está processando a segunda vez de uma solicitação de troca múltipla e é informado por uma mensagem de resposta de serviço para ativar o microfone a fim de coletar entrada para a segunda rodada. O aplicativo cliente *não* deve incluir uma `ListeningTrigger` métrica para essa rodada.
 
 | Campo | Descrição | Utilização |
 | ----- | ----------- | ----- |
 | Name | ListeningTrigger | Opcional |
-| Iniciar | A hora de início o acionador de escuta do cliente | Necessário |
-| fim | O tempo em que o acionador de escuta do cliente foi concluído | Necessário |
-| Erro | Uma descrição do erro que ocorreu, se aplicável. Se a operação de Acionador foi concluída com êxito, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
+| Start | A hora em que o gatilho de escuta do cliente foi iniciado | Requerido |
+| fim | A hora em que o gatilho de escuta de cliente foi concluído | Requerido |
+| Erro | Uma descrição do erro que ocorreu, se houver. Se a operação do gatilho foi bem-sucedida, os clientes devem omitir esse campo. O comprimento máximo desse campo é de 50 caracteres. | Necessário para casos de erro, omitido caso contrário |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
-O exemplo seguinte mostra uma mensagem de telemetria com métricas e ReceivedMessages partes:
+O exemplo a seguir mostra uma mensagem de telemetria com partes ReceivedMessages e métricas:
 
 ```HTML
 Path: telemetry
@@ -613,75 +613,75 @@ X-Timestamp: 2016-08-16T15:03:54.183Z
 
 ## <a name="error-handling"></a>Processamento de erros
 
-Esta secção descreve os tipos de mensagens de erro e condições que seu aplicativo precisar gerenciar.
+Esta seção descreve os tipos de mensagens de erro e condições que seu aplicativo precisa manipular.
 
 ### <a name="http-status-codes"></a>Códigos de estado HTTP
 
-Durante a solicitação de atualização de WebSocket, o serviço de voz pode devolver qualquer um dos códigos de estado HTTP padrão, tais como `400 Bad Request`, etc. A aplicação tem de processar corretamente nestas condições de erro.
+Durante a solicitação de atualização do WebSocket, o `400 Bad Request`serviço de fala pode retornar qualquer um dos códigos de status HTTP padrão, como, etc. Seu aplicativo deve lidar corretamente com essas condições de erro.
 
 #### <a name="authorization-errors"></a>Erros de autorização
 
-Se a autorização incorreta é fornecido durante a atualização de WebSocket, o serviço de voz retorna um HTTP `403 Forbidden` código de estado. Entre as condições que podem acionar este código de erro são:
+Se a autorização incorreta for fornecida durante a atualização do WebSocket, o serviço `403 Forbidden` de fala retornará um código de status http. Entre as condições que podem disparar esse código de erro estão:
 
-* Em falta *autorização* cabeçalho
+* Cabeçalho de *autorização* ausente
 
 * Token de autorização inválido
 
-* Token de autorização expirada
+* Token de autorização expirado
 
-O `403 Forbidden` mensagem de erro não indica um problema com o serviço de voz. Esta mensagem de erro indica um problema com a aplicação cliente.
+A `403 Forbidden` mensagem de erro não indica um problema com o serviço de fala. Essa mensagem de erro indica um problema com o aplicativo cliente.
 
-### <a name="protocol-violation-errors"></a>Erro de violação do protocolo
+### <a name="protocol-violation-errors"></a>Erros de violação de protocolo
 
-Se o serviço de voz detetar quaisquer violações de protocolo de um cliente, o serviço termina a conexão WebSocket após ser devolvido um *código de estado* e *motivo* para a finalização. Aplicações de cliente podem utilizar estas informações para resolver problemas e corrija as violações.
+Se o serviço de fala detectar quaisquer violações de protocolo de um cliente, o serviço encerrará a conexão WebSocket depois de retornar um *código de status* e um *motivo* para o encerramento. Os aplicativos cliente podem usar essas informações para solucionar problemas e corrigir as violações.
 
 #### <a name="incorrect-message-format"></a>Formato de mensagem incorreto
 
-Se um cliente envia um texto ou mensagem binária para o serviço que não está codificado no formato correto nessa especificação, o serviço fecha a conexão com um *dados de Payload inválido 1007* código de estado.
+Se um cliente envia uma mensagem de texto ou binária ao serviço que não está codificado no formato correto fornecido nesta especificação, o serviço fecha a conexão com um código de status de *dados de carga inválido 1007* .
 
-O serviço retorna este código de estado para uma variedade de motivos, conforme mostrado nos exemplos a seguir:
+O serviço retorna esse código de status por vários motivos, conforme mostrado nos exemplos a seguir:
 
-* "Formato de mensagem incorreto. Mensagem binária tem o prefixo de tamanho de cabeçalho inválido." O cliente enviou uma mensagem binária que tem um prefixo de tamanho de cabeçalho inválido.
+* "Formato de mensagem incorreto. A mensagem binária tem um prefixo de tamanho de cabeçalho inválido. " O cliente enviou uma mensagem binária que tem um prefixo de tamanho de cabeçalho inválido.
 
-* "Formato de mensagem incorreto. Mensagem binária tem um tamanho de cabeçalho inválido." O cliente enviou uma mensagem binária que um tamanho de cabeçalho inválido especificado.
+* "Formato de mensagem incorreto. A mensagem binária tem tamanho de cabeçalho inválido. " O cliente enviou uma mensagem binária que especificou um tamanho de cabeçalho inválido.
 
-* "Formato de mensagem incorreto. Falha de cabeçalhos de mensagens binária decodificação em UTF-8." O cliente enviou uma mensagem binária que contém os cabeçalhos que não foram corretamente codificados em UTF-8.
+* "Formato de mensagem incorreto. Falha na decodificação de cabeçalhos de mensagens binárias em UTF-8. " O cliente enviou uma mensagem binária que contém cabeçalhos que não foram codificados corretamente em UTF-8.
 
-* "Formato de mensagem incorreto. Mensagem de texto não contém dados." O cliente enviou uma mensagem de texto que não contém nenhum dado de corpo.
+* "Formato de mensagem incorreto. A mensagem de texto não contém dados. " O cliente enviou uma mensagem de texto que não contém nenhum dado de corpo.
 
-* "Formato de mensagem incorreto. Falha na mensagem de texto decodificação em UTF-8." O cliente enviou uma mensagem de texto que não foi corretamente codificada em UTF-8.
+* "Formato de mensagem incorreto. Falha na decodificação de mensagem de texto em UTF-8. " O cliente enviou uma mensagem de texto que não foi codificada corretamente em UTF-8.
 
-* "Formato de mensagem incorreto. Mensagem de texto não contém nenhum separador de cabeçalho." O cliente enviou uma mensagem de texto que não continha um separador de cabeçalho ou utilizado o separador de cabeçalho errado.
+* "Formato de mensagem incorreto. A mensagem de texto não contém nenhum separador de cabeçalho. " O cliente enviou uma mensagem de texto que não continha um separador de cabeçalho ou usou o separador de cabeçalho incorreto.
 
-#### <a name="missing-or-empty-headers"></a>Cabeçalhos em falta ou vazios
+#### <a name="missing-or-empty-headers"></a>Cabeçalhos ausentes ou vazios
 
-Se um cliente envia uma mensagem que não tem os cabeçalhos necessários *X-RequestId* ou *caminho*, o serviço fecha a conexão com um *erro de protocolo de 1002* código de estado. A mensagem é "cabeçalho em falta/vazio. {Nome do cabeçalho}."
+Se um cliente enviar uma mensagem que não tem os cabeçalhos necessários *X-RequestId* ou *Path*, o serviço fechará a conexão com um código de status de *erro de protocolo 1002* . A mensagem é "cabeçalho ausente/vazio. {Nome do cabeçalho}. "
 
-#### <a name="requestid-values"></a>Valores de RequestId
+#### <a name="requestid-values"></a>Valores RequestId
 
-Se um cliente envia uma mensagem que especifica um *X-RequestId* cabeçalho com um formato incorreto, o serviço fecha a conexão e retorna um *erro de protocolo de 1002* estado. A mensagem é "pedido inválido. O valor de cabeçalho X-RequestId não foi especificado no formato do UUID de não-dash."
+Se um cliente enviar uma mensagem que especifica um cabeçalho *X-RequestId* com um formato incorreto, o serviço fechará a conexão e retornará um status de *erro de protocolo 1002* . A mensagem é "solicitação inválida. O valor do cabeçalho X-RequestId não foi especificado no formato UUID no-Dash. "
 
 #### <a name="audio-encoding-errors"></a>Erros de codificação de áudio
 
-Se um cliente envia um segmento de áudio que inicia uma folheada e o formato de áudio ou codificação não está em conformidade com a especificação necessária, o serviço fecha a conexão e retorna um *dados de Payload inválido 1007* código de estado. A mensagem indica que o formato de origem de erros de codificação.
+Se um cliente envia uma parte de áudio que inicia uma rodada e o formato ou a codificação de áudio não está de acordo com a especificação necessária, o serviço fecha a conexão e retorna um código de status de *dados de carga inválido 1007* . A mensagem indica a origem do erro de codificação de formato.
 
 #### <a name="requestid-reuse"></a>Reutilização de RequestId
 
-Depois de uma vez concluída, se um cliente envia uma mensagem que reutiliza o identificador de pedido a partir dessa vez, o serviço fecha a conexão e retorna um *erro de protocolo de 1002* código de estado. A mensagem é "pedido inválido. Reutilização de identificadores de pedido não é permitida."
+Após a conclusão de uma ativação, se um cliente enviar uma mensagem que reutiliza o identificador de solicitação dessa vez, o serviço fechará a conexão e retornará um código de status de *erro de protocolo 1002* . A mensagem é "solicitação inválida. A reutilização de identificadores de solicitação não é permitida. "
 
-## <a name="connection-failure-telemetry"></a>Telemetria de falha de ligação
+## <a name="connection-failure-telemetry"></a>Telemetria de falha de conexão
 
-Para garantir a melhor experiência de utilizador possível, os clientes devem informar o serviço de voz dos carimbos de data / hora para os pontos de verificação importantes dentro de uma ligação ao utilizar o *telemetria* mensagem. É igualmente importante que os clientes informam o serviço de ligações que foram tentada, mas falha.
+Para garantir a melhor experiência possível do usuário, os clientes devem informar o serviço de fala dos carimbos de data/hora para pontos de verificação importantes em uma conexão usando a mensagem de *telemetria* . É igualmente importante que os clientes informem o serviço de conexões que foram tentadas, mas que falharam.
 
-Para cada tentativa de ligação que falharam, os clientes criam um *telemetria* mensagem com um único *X-RequestId* valor do cabeçalho. Uma vez que o cliente não foi possível estabelecer uma ligação, o *ReceivedMessages* campo no corpo JSON pode ser omitido. Apenas os `Connection` entrada no *métricas* campo está incluído. Esta entrada inclui o início e de carimbos de data / hora de fim, bem como a condição de erro que ocorreu.
+Para cada tentativa de conexão que falhou, os clientes criam uma mensagem de *telemetria* com um valor de cabeçalho *X-RequestId* exclusivo. Como o cliente não pôde estabelecer uma conexão, o campo *ReceivedMessages* no corpo JSON pode ser omitido. Somente a `Connection` entrada no campo de *métricas* é incluída. Essa entrada inclui os carimbos de data e hora de início e término, bem como a condição de erro que foi encontrada.
 
-### <a name="connection-retries-in-telemetry"></a>Tentativas de ligação na telemetria
+### <a name="connection-retries-in-telemetry"></a>Tentativas de conexão na telemetria
 
-Clientes devem distinguir *repetições* partir *várias tentativas de ligação* pelo evento que aciona a tentativa de ligação. Tentativas de ligação que são executadas por meio de programação sem qualquer intervenção do utilizador são as repetições. Várias tentativas de ligação que são executadas em resposta à entrada do usuário são várias tentativas de ligação. Os clientes dar a cada tentativa de ligação de utilizador que acionou um exclusivo *X-RequestId* e *telemetria* mensagem. Os clientes reutilizar os *X-RequestId* para repetições programáticas. Se várias repetições foram feitas por uma tentativa de ligação único, cada tentativa de repetição é incluída como um `Connection` entrada no *telemetria* mensagem.
+Os clientes devem distinguir *repetições* de *várias tentativas de conexão* pelo evento que dispara a tentativa de conexão. As tentativas de conexão executadas programaticamente sem nenhuma entrada do usuário são repetições. Várias tentativas de conexão que são executadas em resposta à entrada do usuário são várias tentativas de conexão. Os clientes fornecem a cada conexão disparada pelo usuário a tentativa de uma única mensagem *X-RequestId* e *telemetria* . Os clientes reutilizam o *X-RequestId* para tentativas programáticas. Se várias repetições forem feitas para uma única tentativa de conexão, cada tentativa de repetição será incluída `Connection` como uma entrada na mensagem de *telemetria* .
 
-Por exemplo, suponha que um usuário participa como palestrante o acionador de palavra-chave para iniciar uma ligação e a primeira tentativa de ligação falhar devido a erros DNS. No entanto, uma segunda tentativa é feita por meio de programação pelo cliente é bem sucedida. Uma vez que o cliente repetida a ligação sem exigir a intervenção adicional do usuário, o cliente utiliza um único *telemetria* mensagem com várias `Connection` entradas para descrever a ligação.
+Por exemplo, suponha que um usuário fala o gatilho de palavra-chave para iniciar uma conexão e a primeira tentativa de conexão falha devido a erros de DNS. No entanto, uma segunda tentativa feita por meio de programação pelo cliente é realizada com sucesso. Como o cliente repetiu a conexão sem a necessidade de entrada adicional do usuário, o cliente usa uma única mensagem de *telemetria* com várias `Connection` entradas para descrever a conexão.
 
-Como outro exemplo, suponha que um usuário participa como palestrante o acionador de palavra-chave para iniciar uma ligação e esta tentativa de ligação falha após três tentativas. O cliente, em seguida, dá, paradas tentando se conectar ao serviço e informa o utilizador que algo saiu errado. O utilizador fala, em seguida, o acionador de palavra-chave novamente. Desta vez, vamos supor que o cliente se liga ao serviço. Depois de ligar, o cliente enviará imediatamente uma *telemetria* mensagem para o serviço que contém três `Connection` entradas que descrevem as falhas de ligação. Após a receção a `turn.end` mensagem, o cliente envia outra *telemetria* mensagem que descreve a ligação com êxito.
+Como outro exemplo, suponha que um usuário fala o gatilho de palavra-chave para iniciar uma conexão e essa tentativa de conexão falha após três tentativas. Em seguida, o cliente abre, para de tentar se conectar ao serviço e informa ao usuário que algo deu errado. O usuário então fala o gatilho de palavra-chave novamente. Desta vez, suponha que o cliente se conecte ao serviço. Após a conexão, o cliente envia imediatamente uma mensagem de *telemetria* para o serviço `Connection` que contém três entradas que descrevem as falhas de conexão. Depois de receber `turn.end` a mensagem, o cliente envia outra mensagem de *telemetria* que descreve a conexão bem-sucedida.
 
 ## <a name="error-message-reference"></a>Referência de mensagem de erro
 
@@ -689,22 +689,22 @@ Como outro exemplo, suponha que um usuário participa como palestrante o acionad
 
 | Código de estado de HTTP | Descrição | Resolução de problemas |
 | - | - | - |
-| 400 pedido inválido | O cliente enviou um pedido de ligação de WebSocket que estava incorreto. | Verifique que especificou todos os parâmetros necessários e os cabeçalhos HTTP e que os valores estão corretos. |
-| 401 não autorizado | O cliente não incluía as informações de autorização necessário. | Verifique se está a enviar o *autorização* cabeçalho na conexão WebSocket. |
-| 403 Proibido | O cliente enviadas informações de autorização, mas era inválida. | Verifique que não está a enviar um valor inválido ou expirado *autorização* cabeçalho. |
-| 404 Não Encontrado | O cliente tentado aceder a um caminho de URL que não é suportado. | Verifique que está a utilizar o URL correto para a conexão WebSocket. |
-| Erro de servidor 500 | O serviço encontrou um erro interno e não foi possível satisfazer o pedido. | Na maioria dos casos, este erro é transitório. Repita o pedido. |
-| 503 Serviço Indisponível | O serviço não estava disponível para processar o pedido. | Na maioria dos casos, este erro é transitório. Repita o pedido. |
+| 400 solicitação inadequada | O cliente enviou uma solicitação de conexão WebSocket que estava incorreta. | Verifique se você forneceu todos os parâmetros e cabeçalhos HTTP necessários e se os valores estão corretos. |
+| 401 não autorizado | O cliente não incluiu as informações de autorização necessárias. | Verifique se você está enviando o cabeçalho de *autorização* na conexão WebSocket. |
+| 403 Proibido | O cliente enviou informações de autorização, mas ele era inválido. | Verifique se você não está enviando um valor expirado ou inválido no cabeçalho de *autorização* . |
+| 404 Não Encontrado | O cliente tentou acessar um caminho de URL que não tem suporte. | Verifique se você está usando a URL correta para a conexão WebSocket. |
+| Erro do servidor 500 | O serviço encontrou um erro interno e não pôde atender à solicitação. | Na maioria dos casos, esse erro é transitório. Repita a solicitação. |
+| 503 Serviço Indisponível | O serviço não estava disponível para lidar com a solicitação. | Na maioria dos casos, esse erro é transitório. Repita a solicitação. |
 
-### <a name="websocket-error-codes"></a>Códigos de erro do WebSocket
+### <a name="websocket-error-codes"></a>Códigos de erro de WebSocket
 
-| Código de WebSocketsStatus | Descrição | Resolução de problemas |
+| Código WebSocketsStatus | Descrição | Resolução de problemas |
 | - | - | - |
-| Fechamento normal de 1000 | O serviço fechou a ligação de WebSocket sem erros. | Se o fechamento de WebSocket foi inesperado, lidos novamente a documentação para se certificar de que compreende como e quando o serviço pode terminar a conexão WebSocket. |
-| Erro de protocolo de 1002 | O cliente não conseguiu cumprir os requisitos de protocolo. | Certifique-se de que compreender a documentação do protocolo e clareza sobre os requisitos. Leia a documentação anterior sobre as razões de erro para ver se está a violar os requisitos do protocolo. |
-| 1007 de Payload inválido de dados | O cliente enviou um payload inválido numa mensagem de protocolo. | Verifique a última mensagem enviada para o serviço de erros. Leia a documentação anterior sobre erros de payload. |
-| Erro de servidor 1011 | O serviço encontrou um erro interno e não foi possível satisfazer o pedido. | Na maioria dos casos, este erro é transitório. Repita o pedido. |
+| Fechamento normal de 1000 | O serviço fechou a conexão WebSocket sem erro. | Se o fechamento do WebSocket for inesperado, leia novamente a documentação para garantir que você saiba como e quando o serviço pode encerrar a conexão WebSocket. |
+| Erro de protocolo 1002 | Falha do cliente ao aderir aos requisitos de protocolo. | Verifique se você entendeu a documentação do protocolo e se está claro sobre os requisitos. Leia a documentação anterior sobre os motivos de erro para ver se você está violando os requisitos de protocolo. |
+| 1007 dados de carga inválidos | O cliente enviou uma carga inválida em uma mensagem de protocolo. | Verifique a última mensagem que você enviou para o serviço para erros. Leia a documentação anterior sobre erros de carga. |
+| Erro do servidor 1011 | O serviço encontrou um erro interno e não pôde atender à solicitação. | Na maioria dos casos, esse erro é transitório. Repita a solicitação. |
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-Veja uma [JavaScript SDK](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) ou seja, uma implementação do protocolo WebSocket com base no serviço de voz.
+Veja um [SDK do JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) que é uma implementação do protocolo de serviço de fala baseado em WebSocket.

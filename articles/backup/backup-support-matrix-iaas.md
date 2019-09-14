@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872900"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983781"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 Você pode usar o [serviço de backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e VMs (máquinas virtuais) do Azure. Este artigo resume as configurações de suporte e as limitações ao fazer backup de VMs do Azure com o backup do Azure.
@@ -180,7 +180,7 @@ Vários endereços IP reservados |    Suportado. <br/><br/> [Saiba mais](backup-
 VMs com vários adaptadores de rede  | Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre como restaurar VMs com configurações de rede especiais.
 VMs com endereços IP públicos    | Suportado.<br/><br/> Associe um endereço IP público existente à NIC ou crie um endereço e associe-o à NIC após a restauração.
 Grupo de segurança de rede (NSG) na NIC/sub-rede. |   Suportado.
-Endereço de IP Reservado (estático) | Não suportado.<br/><br/> Não é possível fazer backup de uma VM com um endereço IP reservado e nenhum ponto de extremidade definido.
+Endereço IP estático | Não suportado.<br/><br/> Uma nova VM que é criada a partir de um ponto de restauração recebe um endereço IP dinâmico.<br/><br/> Para VMs clássicas, não é possível fazer backup de uma VM com um endereço IP reservado e nenhum ponto de extremidade definido.
 Endereço IP dinâmico |    Suportado.<br/><br/> Se a NIC na VM de origem usar o endereçamento de IP dinâmico, por padrão, a NIC na VM restaurada também a usará.
 Gestor de Tráfego do Azure   | Suportado.<br/><br/>Se a VM com backup estiver no Gerenciador de tráfego, adicione manualmente a VM restaurada à mesma instância do Gerenciador de tráfego.
 DNS do Azure | Suportado.
@@ -235,7 +235,7 @@ VMs locais/do Azure com o DPM | ![Sim][green] | ![Sim][green]
 VMs locais/do Azure com MABS | ![Sim][green] | ![Sim][green]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Fazer backup de VMs do Azure](backup-azure-arm-vms-prepare.md).
 - [Faça backup de computadores Windows diretamente](tutorial-backup-windows-server-to-azure.md), sem um servidor de backup.

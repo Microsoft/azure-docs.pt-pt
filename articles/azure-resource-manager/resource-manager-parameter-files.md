@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69893805"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983935"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar arquivo de parâmetro do Resource Manager
 
@@ -187,7 +187,7 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 
 ## <a name="file-name"></a>Nome de ficheiro
 
-A Convenção geral para nomear o arquivo de parâmetro é adicionar **.** Parameters ao nome do modelo. Por exemplo, se seu modelo for denominado **azuredeploy. JSON**, o arquivo de parâmetro será chamado **azuredeploy. Parameters. JSON**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
+A Convenção geral para nomear o arquivo de parâmetro é adicionar **. Parameters** ao nome do modelo. Por exemplo, se seu modelo for denominado **azuredeploy. JSON**, o arquivo de parâmetro será chamado **azuredeploy. Parameters. JSON**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
 
 Para implantar em ambientes diferentes, crie mais de um arquivo de parâmetro. Ao nomear o arquivo de parâmetro, adicione uma maneira de identificar seu uso. Por exemplo, use **azuredeploy. Parameters-dev. JSON** e **azuredeploy. Parameters-prod. JSON**
 
@@ -200,10 +200,10 @@ No entanto, quando você usa um arquivo de parâmetro externo, não pode passar 
 
 ## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetro
 
-Se o modelo incluir um parâmetro com o mesmo nome de um dos parâmetros no comando do PowerShell, o PowerShell apresentará o parâmetro do seu modelo com osufixo detemplate. Por exemplo, um parâmetro chamado **ResourceGroupName** em seu modelo está em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**. Você pode evitar essa confusão usando nomes de parâmetros que não são usados para comandos de implantação.
+Se o modelo incluir um parâmetro com o mesmo nome de um dos parâmetros no comando do PowerShell, o PowerShell apresentará o parâmetro do seu modelo com o sufixo **detemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** em seu modelo está em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**. Você pode evitar essa confusão usando nomes de parâmetros que não são usados para comandos de implantação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para entender como definir parâmetros em seu modelo, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
 - Para obter mais informações sobre como usar valores de um cofre de chaves, consulte [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](resource-manager-keyvault-parameter.md).
-
+- Para obter mais informações sobre parâmetros, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).

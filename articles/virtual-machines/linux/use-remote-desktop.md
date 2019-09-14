@@ -11,21 +11,21 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 1189faf64dc3619d0e4581641c2c66d0b527754a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 96f1f98f95bb726864553c81245e250cf907fb05
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813440"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961548"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar Área de Trabalho Remota para se conectar a uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure geralmente são gerenciadas na linha de comando usando uma conexão SSH (Secure Shell). Quando for novo no Linux ou para cenários de solução de problemas rápidos, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([Xfce](https://www.xfce.org)) e uma área de trabalho remota ([xrdp](https://www.xrdp.org)) para sua VM Linux usando o modelo de implantação do Gerenciador de recursos.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo requer uma VM do Ubuntu 16, 4 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
+Este artigo requer uma VM do Ubuntu 18, 4 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
 - O [CLI do Azure](quick-create-cli.md)
 - O [portal do Azure](quick-create-portal.md)
@@ -34,7 +34,7 @@ Este artigo requer uma VM do Ubuntu 16, 4 LTS existente no Azure. Se você preci
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de área de trabalho em sua VM Linux
 A maioria das VMs do Linux no Azure não tem um ambiente de área de trabalho instalado por padrão. As VMs do Linux são normalmente gerenciadas usando conexões SSH em vez de um ambiente de área de trabalho. Há vários ambientes de área de trabalho no Linux que você pode escolher. Dependendo de sua escolha de ambiente de área de trabalho, pode consumir de um a 2 GB de espaço em disco e levar de 5 a 10 minutos para instalar e configurar todos os pacotes necessários.
 
-O exemplo a seguir instala o ambiente de área de trabalho leve do [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 16, 4 LTS. Os comandos para outras distribuições variam ligeiramente ( `yum` use para instalar em Red Hat Enterprise Linux e configurar `selinux` as regras apropriadas, `zypper` ou use para instalar no Suse, por exemplo).
+O exemplo a seguir instala o ambiente de área de trabalho leve do [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 18, 4 LTS. Os comandos para outras distribuições variam ligeiramente ( `yum` use para instalar em Red Hat Enterprise Linux e configurar `selinux` as regras apropriadas, `zypper` ou use para instalar no Suse, por exemplo).
 
 Primeiro, SSH para sua VM. O exemplo a seguir conecta-se à VM chamada *MyVM.westus.cloudapp.Azure.com* com o nome de usuário de *azureuser*. Use seus próprios valores:
 
@@ -136,7 +136,7 @@ Outras distribuições do Linux, como Red Hat Enterprise Linux e SUSE, podem ter
 Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não vir nenhum evento no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não poderá acessar a VM. Examine as regras do grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para obter mais informações, consulte [solucionar problemas de conectividade do aplicativo](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como criar e usar chaves SSH com VMs do Linux, consulte [criar chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
 
 Para obter informações sobre como usar o SSH do Windows, consulte [como usar chaves SSH com o Windows](ssh-from-windows.md).

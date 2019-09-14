@@ -4,14 +4,14 @@ description: Descreve a estrutura e as propriedades de modelos de Azure Resource
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306848"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984103"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Entender a estrutura e a sintaxe de modelos de Azure Resource Manager
 
@@ -84,6 +84,8 @@ As propriedades disponíveis para um parâmetro são:
 | maxLength |Não |O comprimento máximo para parâmetros de cadeia de caracteres, Cadeia de caracteres segura e tipo de matriz, esse valor é inclusivo. |
 | description |Não |Descrição do parâmetro que é exibido aos usuários por meio do Portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
 
+Para obter exemplos de como usar parâmetros, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
+
 ## <a name="variables"></a>Variáveis
 
 Na seção variáveis, você constrói valores que podem ser usados em todo o modelo. Você não precisa definir variáveis, mas elas geralmente simplificam seu modelo, reduzindo expressões complexas.
@@ -116,6 +118,8 @@ O exemplo a seguir mostra as opções disponíveis para definir uma variável:
 ```
 
 Para obter informações sobre `copy` como usar o para criar vários valores para uma variável, consulte [Iteration Variable](resource-group-create-multiple.md#variable-iteration).
+
+Para obter exemplos de como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
 
 ## <a name="functions"></a>Functions
 
@@ -159,6 +163,8 @@ Ao definir uma função de usuário, há algumas restrições:
 | valor do parâmetro |Não |Tipo do valor do parâmetro. Os tipos e valores permitidos são **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject**e **array**. |
 | tipo de saída |Sim |Tipo do valor de saída. Os valores de saída dão suporte aos mesmos tipos de parâmetros de entrada de função. |
 | saída-valor |Sim |Expressão de linguagem do modelo que é avaliada e retornada da função. |
+
+Para obter exemplos de como usar funções personalizadas, consulte [funções definidas pelo usuário no modelo Azure Resource Manager](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Recursos
 
@@ -228,7 +234,7 @@ Você define recursos com a seguinte estrutura:
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componente de URI definidas em RFC3986. Os serviços do Azure que expõem o nome do recurso a partes externas validam o nome para verificar se não há uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
 | location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer um dos locais disponíveis, mas, normalmente, faz sentido escolher um que esteja próximo de seus usuários. Normalmente, também faz sentido posicionar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos requer um local, mas alguns tipos (como uma atribuição de função) não exigem um local. Consulte [definir local do recurso](resource-location.md). |
 | tags |Não |Marcas associadas ao recurso. Aplique marcas para organizar os recursos de forma lógica em sua assinatura. |
-| feitos |Não |Suas notas para documentar os recursos em seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
+| Feitos |Não |Suas notas para documentar os recursos em seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
 | copiar |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é Parallel. Especifique o modo Serial quando não quiser que todos ou os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não |Recursos que devem ser implantados antes do recurso ser implantado. O Gerenciador de recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, eles são implantados em paralelo. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Lista apenas os recursos que são implantados neste modelo. Os recursos que não estão definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem retardar a implantação e criar dependências circulares. Para obter orientação sobre como definir dependências, consulte [definindo dependências em modelos de Azure Resource Manager](resource-group-define-dependencies.md). |
 | properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são os mesmos que os valores fornecidos no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Você também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
@@ -259,6 +265,8 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 | condition |Não | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para essa implantação. Quando não especificado, o valor padrão é `true`. |
 | type |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se você especificar **SecureString** para o tipo de saída, o valor não será exibido no histórico de implantação e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e referencie o segredo no arquivo de parâmetro. Para obter mais informações, consulte [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](resource-manager-keyvault-parameter.md). |
 | value |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
+
+Para obter exemplos de como usar saídas, consulte [saídas no modelo Azure Resource Manager](template-outputs.md).
 
 <a id="comments" />
 
@@ -357,7 +365,7 @@ No VS Code, você pode definir o modo de linguagem como JSON com comentários. O
 
    ![Selecionar modo de linguagem](./media/resource-group-authoring-templates/select-json-comments.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).

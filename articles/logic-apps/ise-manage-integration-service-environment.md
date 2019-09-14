@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: 8f10e3d3fd7c67d1e803e8f85c9918c91bb81d59
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 6a6b096911ac8596fe29aeb4596f1da6d5266794
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517465"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967826"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerenciar seu ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
-Para verificar a integridade da rede para o seu [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) e gerenciar os aplicativos lógicos, conexões, contas de integração e conectores personalizados que existem no ISE, siga as etapas neste tópico.
+Para verificar a integridade da rede para o seu [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) e gerenciar os aplicativos lógicos, conexões, contas de integração e conectores que existem no ISE, siga as etapas neste tópico. Para adicionar esses artefatos ao ISE, consulte [Adicionar artefatos ao seu ambiente do serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Exibir seu ISE
 
@@ -46,31 +46,49 @@ No menu do ISE, em **configurações**, selecione **integridade da rede**. Esse 
 
 ## <a name="manage-your-logic-apps"></a>Gerenciar seus aplicativos lógicos
 
+Você pode exibir e gerenciar os aplicativos lógicos que estão no ISE.
+
 1. No menu do ISE, em **configurações**, selecione **aplicativos lógicos**.
 
-   ![Localizar aplicativos lógicos](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
+   ![Exibir aplicativos lógicos](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
-1. Para remover aplicativos lógicos do ISE quando não forem mais necessários, selecione esses aplicativos lógicos e, em seguida, selecione **excluir**.
+1. Para remover os aplicativos lógicos que você não precisa mais no ISE, selecione esses aplicativos lógicos e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
 
 <a name="find-api-connections"></a>
 
 ## <a name="manage-api-connections"></a>Gerenciar conexões de API
 
-1. Para exibir as conexões de API que foram criadas por aplicativos lógicos em execução no ISE, no menu do ISE, em **configurações**, selecione **conexões de API**.
+Você pode exibir e gerenciar as conexões que foram criadas pelos aplicativos lógicos em execução no ISE.
 
-   ![Localizar conexões de API](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+1. No menu do ISE, em **configurações**, selecione **conexões de API**.
 
-1. Para remover conexões do ISE quando elas não forem mais necessárias, selecione essas conexões e, em seguida, selecione **excluir**.
+   ![Exibir conexões de API](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+
+1. Para remover as conexões que você não precisa mais no ISE, selecione essas conexões e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
+
+<a name="manage-api-connectors"></a>
+
+## <a name="manage-ise-connectors"></a>Gerenciar conectores do ISE
+
+Você pode exibir e gerenciar os conectores de API que são implantados no ISE.
+
+1. No menu do ISE, em **configurações**, selecione **conectores gerenciados**.
+
+   ![Exibir conectores gerenciados](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
+
+1. Para remover os conectores que você não deseja disponibilizar no ISE, selecione esses conectores e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
 
 <a name="find-custom-connectors"></a>
 
 ## <a name="manage-custom-connectors"></a>Gerenciar conectores personalizados
 
-1. Para exibir conectores personalizados que foram criados no ISE, no menu do ISE, em **configurações**, selecione **conectores personalizados**.
+Você pode exibir e gerenciar os conectores personalizados que você implantou no ISE.
+
+1. No menu do ISE, em **configurações**, selecione **conectores personalizados**.
 
    ![Localizar conectores personalizados](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
-1. Para remover conectores personalizados do ISE quando não forem mais necessários, selecione esses conectores e, em seguida, selecione **excluir**.
+1. Para remover conectores personalizados que não são mais necessários no ISE, selecione esses conectores e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
 
 <a name="find-integration-accounts"></a>
 
@@ -82,6 +100,6 @@ No menu do ISE, em **configurações**, selecione **integridade da rede**. Esse 
 
 1. Para remover contas de integração do ISE quando não forem mais necessárias, selecione as contas de integração e, em seguida, selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [se conectar a redes virtuais do Azure de aplicativos lógicos isolados](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)

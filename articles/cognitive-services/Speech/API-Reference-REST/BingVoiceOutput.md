@@ -1,36 +1,36 @@
 ---
-title: Texto em voz API do serviço de voz da Microsoft | Documentos da Microsoft
+title: API de Conversão de Texto em Fala do serviço de fala da Microsoft | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Utilize o texto em voz, API para fornecer a conversão de texto para voz em tempo real de várias vozes e linguagens
+description: Use a API de texto para fala para fornecer conversão de texto para fala em tempo real em uma variedade de vozes e idiomas
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515428"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966861"
 ---
-# <a name="bing-text-to-speech-api"></a>API do Bing texto em voz
+# <a name="bing-text-to-speech-api"></a>API de conversão de texto em fala do Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>Introdução
 
-Com o texto em voz API do Bing, a aplicação pode enviar solicitações HTTP para um servidor na nuvem, em que o texto de forma instantânea é sintetizado em voz humano e retornado como um arquivo de áudio. Esta API pode ser usada em vários contextos diferentes para fornecer a conversão de texto para voz em tempo real numa variedade de diferentes vozes e linguagens.
+Com a API de texto para fala do Bing, seu aplicativo pode enviar solicitações HTTP para um servidor de nuvem, em que o texto é resumido instantaneamente na fala de som humano e retornado como um arquivo de áudio. Essa API pode ser usada em muitos contextos diferentes para fornecer conversão em tempo real de texto em fala em uma variedade de diferentes vozes e idiomas.
 
-## <a name="VoiceSynReq"></a>Pedido de síntese de voz
+## <a name="VoiceSynReq"></a>Solicitação de síntese de voz
 
 ### <a name="Subscription"></a>Token de autorização
 
-Cada solicitação de síntese de voz exige um token de acesso do JSON Web Token (JWT). O token de acesso do JWT é transmitido no cabeçalho do pedido de voz. O token tem uma hora de expiração de 10 minutos. Para obter informações sobre subscrever e obter chaves de API que são usadas para recuperar os tokens de acesso do JWT válidos, consulte [subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/).
+Cada solicitação de síntese de voz requer um token de acesso JWT (token Web JSON). O token de acesso JWT é transmitido no cabeçalho da solicitação de fala. O token tem um tempo de expiração de 10 minutos. Para obter informações sobre a assinatura e a obtenção de chaves de API que são usadas para recuperar Tokens de acesso JWT válidos, consulte [cognitiva Services Subscription](https://azure.microsoft.com/try/cognitive-services/).
 
 A chave de API é passada para o serviço de token. Por exemplo:
 
@@ -39,46 +39,46 @@ POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 Content-Length: 0
 ```
 
-Segue-se as informações de cabeçalho necessário para acesso de token.
+As informações de cabeçalho necessárias para acesso de token são as seguintes.
 
 Name| Formato | Descrição
 ----|----|----
-OCP-Apim-Subscription-Key | ASCII | A chave de subscrição
+OCP-Apim-Subscription-Key | ASCII | Chave de subscrição
 
-O serviço de token devolve o token de acesso do JWT como `text/plain`. Em seguida, o JWT é passado como um `Base64 access_token` para o ponto final de voz como um cabeçalho de autorização com a cadeia de prefixo `Bearer`. Por exemplo:
+O serviço de token retorna o token de acesso `text/plain`JWT como. Em seguida, o JWT é passado `Base64 access_token` como um para o ponto de extremidade de fala como um cabeçalho de `Bearer`autorização prefixado com a cadeia de caracteres. Por exemplo:
 
 `Authorization: Bearer [Base64 access_token]`
 
-Os clientes tem de utilizar o seguinte ponto de extremidade para aceder ao serviço de texto para voz:
+Os clientes devem usar o ponto de extremidade a seguir para acessar o serviço de conversão de texto em fala:
 
 `https://speech.platform.bing.com/synthesize`
 
 >[!NOTE]
->Até que tiver adquirido um token de acesso com a sua chave de subscrição, conforme descrito anteriormente, esta ligação gera um `403 Forbidden` erro de resposta.
+>Até que você tenha adquirido um token de acesso com sua chave de assinatura, conforme descrito anteriormente `403 Forbidden` , esse link gera um erro de resposta.
 
 ### <a name="Http"></a>Cabeçalhos HTTP
 
-A tabela seguinte mostra os cabeçalhos HTTP que são utilizados para pedidos de síntese de voz.
+A tabela a seguir mostra os cabeçalhos HTTP que são usados para solicitações de síntese de voz.
 
 Cabeçalho |Value |Comentários
 ----|----|----
-Content-Type | aplicação/ssml + xml | O tipo de conteúdo de entrada.
-X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** brutos-16 khz-16 bits-mono-pcm <br>**3.** áudio-16 khz-16 kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** áudio-16 khz-128kbitrate-mono-mp3 <br> **7.** áudio-16 khz-64kbitrate-mono-mp3 <br> **8.** áudio-16 khz-32kbitrate-mono-mp3 | O formato de áudio de saída.
-X-Search-AppId | Um GUID (hex apenas, sem traços) | Um ID que identifica exclusivamente o aplicativo cliente. Isso pode ser o ID de loja de aplicações. Se não estiver disponível, o ID pode ser gerado para um aplicativo de usuário.
-X-Search-ClientID | Um GUID (hex apenas, sem traços) | Um ID que identifica exclusivamente uma instância de aplicação para cada instalação.
-User-Agent | Nome da aplicação | O nome da aplicação é necessário e tem de ter menos de 255 carateres.
-Authorization | Token de autorização |  Consulte a <a href="#Subscription">token de autorização</a> secção.
+Tipo de conteúdo | aplicativo/SSML + XML | O tipo de conteúdo de entrada.
+X-Microsoft-OutputFormat | **1.** SSML-16kHz-16 bits-mono-TTS <br> **2.** RAW-16kHz-16 bits-mono-PCM <br>**3.** Audio-16kHz-16kbps-mono-Siren <br> **4.** riff-16kHz-16kbps-mono-Siren <br> **5.** riff-16kHz-16 bits-mono-PCM <br> **6.** Audio-16kHz-128kbitrate-mono-mp3 <br> **7.** Audio-16kHz-64kbitrate-mono-mp3 <br> **8.** Audio-16kHz-32kbitrate-mono-mp3 | O formato de áudio de saída.
+X-Search-AppId | Um GUID (somente Hex, sem traços) | Uma ID que identifica exclusivamente o aplicativo cliente. Pode ser a ID da loja para aplicativos. Se um não estiver disponível, a ID poderá ser gerada pelo usuário para um aplicativo.
+X-Search-ClientID | Um GUID (somente Hex, sem traços) | Uma ID que identifica exclusivamente uma instância do aplicativo para cada instalação.
+Agente do usuário | Nome da aplicação | O nome do aplicativo é necessário e deve ter menos de 255 caracteres.
+Autorização | Token de autorização |  Consulte a seção <a href="#Subscription">token de autorização</a> .
 
 ### <a name="InputParam"></a>Parâmetros de entrada
 
-Pedidos para o API do Bing texto em voz são feitos através de chamadas HTTP POST. Os cabeçalhos estão especificados na secção anterior. O corpo contém uma entrada de Speech Synthesis Markup Language (SSML) que representa o texto a ser sintetizado. Para obter uma descrição da marcação utilizada para controlar os aspectos de voz, como o idioma e o género do falante, consulte a [especificação do W3C SSML](https://www.w3.org/TR/speech-synthesis/).
+As solicitações para a API de texto para fala do Bing são feitas usando chamadas HTTP POST. Os cabeçalhos são especificados na seção anterior. O corpo contém uma entrada de linguagem de marcação de síntese de fala (SSML) que representa o texto a ser sintetizado. Para obter uma descrição da marcação usada para controlar aspectos de fala, como o idioma e o sexo do palestrante, consulte a [especificação do W3C do SSML](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
->O tamanho máximo da entrada SSML suportada é 1024 carateres, incluindo todas as etiquetas.
+>O tamanho máximo da entrada SSML com suporte é de 1.024 caracteres, incluindo todas as marcas.
 
-###  <a name="SampleVoiceOR"></a>Exemplo: pedido de saída de voz
+###  <a name="SampleVoiceOR"></a>Exemplo: solicitação de saída de voz
 
-Segue-se um exemplo de um pedido de saída de voz:
+Um exemplo de uma solicitação de saída de voz é o seguinte:
 
 ```HTTP
 POST /synthesize
@@ -96,11 +96,11 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="VoiceOutResponse"></a>Resposta de saída de voz
 
-O API do Bing texto em voz utiliza HTTP POST para enviar áudio volta ao cliente. A resposta da API contém o fluxo de áudio e o codec e corresponder o formato de saída pedida. O áudio devolvido para uma determinada solicitação não pode exceder os 15 segundos.
+A API de conversão de texto em fala do Bing usa HTTP POST para enviar o áudio de volta para o cliente. A resposta da API contém o fluxo de áudio e o codec e corresponde ao formato de saída solicitado. O áudio retornado para uma determinada solicitação não deve exceder 15 segundos.
 
 ### <a name="SuccessfulRecResponse"></a>Exemplo: resposta de síntese bem-sucedida
 
-O código a seguir é um exemplo de uma resposta JSON para um pedido de síntese de voz concluída com êxito. Os comentários e a formatação do código são para efeitos deste exemplo apenas e são omitidos da resposta real.
+O código a seguir é um exemplo de uma resposta JSON para uma solicitação de síntese de voz bem-sucedida. Os comentários e a formatação do código são apenas para fins deste exemplo e são omitidos da resposta real.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -112,7 +112,7 @@ Response audio payload
 
 ### <a name="RecFailure"></a>Exemplo: falha de síntese
 
-O código de exemplo seguinte mostra uma resposta JSON a uma falha de consulta de síntese de voz:
+O código de exemplo a seguir mostra uma resposta JSON para uma falha de consulta de síntese de voz:
 
 ```HTTP
 HTTP/1.1 400 XML parser error
@@ -124,10 +124,10 @@ Content-Length: 0
 
 Erro | Descrição
 ----|----
-Pedido HTTP/400 inválido | Um parâmetro necessário está em falta, vazios ou nulos ou o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Uma das razões para obter a resposta "inválida" é passar um valor de cadeia de caracteres que excede o comprimento permitido. Uma breve descrição do parâmetro problemático está incluída.
-HTTP/Erro 401 não autorizado | O pedido não está autorizado.
-HTTP/413 RequestEntityTooLarge  | A entrada SSML é maior do que o que é suportado.
-/ Erros de HTTP 502 BadGateway | Existe um problema relacionado com a rede ou um problema do lado do servidor.
+HTTP/400 solicitação inadequada | Um parâmetro necessário está ausente, vazio ou nulo ou o valor passado para um parâmetro obrigatório ou opcional é inválido. Um motivo para obter a resposta "inválida" é passar um valor de cadeia de caracteres que seja maior que o comprimento permitido. Uma breve descrição do parâmetro problemático está incluída.
+HTTP/401 não autorizado | O pedido não está autorizado.
+HTTP/413 RequestEntityTooLarge  | A entrada SSML é maior do que o que tem suporte.
+HTTP/502 BadGateway | Há um problema relacionado à rede ou um problema no lado do servidor.
 
 Um exemplo de uma resposta de erro é o seguinte:
 
@@ -139,11 +139,11 @@ Content-Type: text/plain; charset=UTF-8
 Voice name not supported
 ```
 
-## <a name="ChangeSSML"></a>Alterar a saída de voz por meio de SSML
+## <a name="ChangeSSML"></a>Alterando a saída de voz via SSML
 
-API de voz de Microsoft suporta SSML 1.0, conforme definido no W3C [Speech Synthesis Markup Language (SSML) versão 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Esta secção mostra exemplos de alterar a determinadas características da saída gerada de voz, como fala de velocidade, pronúncia etc., através de etiquetas SSML.
+O texto para Speech API da Microsoft dá suporte a SSML 1,0, conforme definido na [versão 1,0 da linguagem de marcação de síntese de fala (SSML)](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)do W3C. Esta seção mostra exemplos de como alterar determinadas características da saída de voz gerada, como taxa de fala, pronúncia etc., usando marcas SSML.
 
-1. Adicionar a garantia de reparação
+1. Adicionando quebra
 
    ```
    <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
@@ -173,26 +173,26 @@ API de voz de Microsoft suporta SSML 1.0, conforme definido no W3C [Speech Synth
    <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
    ```
 
-6. Contour prosody de alteração
+6. Alterar contorno de Prosody
 
    ```
    <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
    ```
 
 > [!NOTE]
-> Tenha em atenção os dados de áudio tem de ser k de 8 ou 16 wav de k arquivado no seguinte formato: **Código CRC** (CRC 32): 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Sinalizador de formato de áudio**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Contagem de amostras**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamanho do corpo binário**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Corpo binário**: n bytes.
+> Observe que os dados de áudio têm que ser 8K ou 16K WAV arquivados no seguinte formato: **Código CRC** (CRC-32): 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Sinalizador de formato de áudio**: 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Contagem de amostras**: 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamanho do corpo binário**: 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Corpo binário**: n bytes.
 
-## <a name="SampleApp"></a>Exemplo de aplicação
+## <a name="SampleApp"></a>Aplicativo de exemplo
 
-Para obter detalhes de implementação, consulte a [Visual C#aplicação de exemplo de texto para discurso do .NET](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
+Para obter detalhes de implementação, consulte o [aplicativo de exemplo de conversão de texto em fala do Visual C#.net](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
 
-## <a name="SupLocales"></a>Regiões suportadas e tipos de voz
+## <a name="SupLocales"></a>Localidades e fontes de voz com suporte
 
-A tabela seguinte identifica algumas das regiões suportadas e tipos de voz relacionados.
+A tabela a seguir identifica algumas das localidades com suporte e fontes de voz relacionadas.
 
 Região | Género | Mapeamento de nome de serviço
 ---------|--------|------------
-ar-por exemplo * | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)"
+ar-ex * | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)"
 ar SA | Masculino | "Microsoft Server voz texto para voz de voz (ar-SA, Naayf)"
 bg-BG | Masculino | "Microsoft Server voz texto em voz voz (bg-BG, Ivan)"
 ES de AC | Feminino | "Microsoft Server voz texto em voz voz (AC-ES, HerenaRUS)"
@@ -200,11 +200,11 @@ cs-CZ | Masculino | "Microsoft Server voz texto para voz de voz (cs-CZ, Jakub)"
 da-DK | Feminino | "Microsoft Server voz texto para voz de voz (da-DK, HelleRUS)"
 Alemanha-AT | Masculino | "Microsoft Server voz texto para voz de voz (Alemanha-AT, Michael)"
 Alemanha-CH | Masculino | "Microsoft Server voz texto para voz de voz (Alemanha-CH, Karsten)"
-de-DE | Feminino | "Microsoft Server voz texto para voz de voz (de-DE, Hedda)"
+de-DE | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, Hedda)"
 de-DE | Feminino | "Microsoft Server voz texto para voz de voz (de-DE, HeddaRUS)"
-de-DE | Masculino | "Microsoft Server voz texto para voz de voz (de-DE, Stefan, Apollo)"
+de-DE | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, Rodrigo, Apollo)"
 el GR | Masculino | "Microsoft Server voz texto para voz de voz (el-GR, Stefanos)"
-EN-AU | Feminino | "Microsoft Server voz texto para voz de voz (en-AU, Catherine)"
+EN-AU | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-AU, Catherine)"
 EN-AU | Feminino | "Microsoft Server voz texto para voz de voz (en-AU, HayleyRUS)"
 en-CA | Feminino | "Microsoft Server voz texto para voz de voz (en-CA, Linda)"
 en-CA | Feminino | "Microsoft Server voz texto para voz de voz (en-CA, HeatherRUS)"
@@ -271,15 +271,15 @@ zh-TW | Feminino | "Microsoft Server voz texto para voz de voz (zh-TW, Yating, A
 zh-TW | Feminino | "Microsoft Server voz texto para voz de voz (zh-TW, HanHanRUS)"
 zh-TW | Masculino | "Microsoft Server voz texto para voz de voz (zh-TW, Zhiwei, Apollo)"
 
- \* ar-por exemplo, oferece suporte a Árabe padrão modernos (MSA).
+ \* ar-ex dá suporte a Modern padrão árabe (MSA).
 
 > [!NOTE]
-> Tenha em atenção que os nomes de serviço anteriores **voz de servidor texto para voz de voz da Microsoft (cs-CZ, Vit)** e **Microsoft Server voz texto para voz de voz (en-IE, Shaun)** serão preteridas após 3/31/2018 no ordem para otimizar os recursos da API de voz do Bing. Atualize o seu código com os nomes de atualizado.
+> Observe que os nomes de serviço anteriores do **Microsoft Server speech conversão de texto em fala voz (CS-CZ, Vit)** e **o microsoft Server Speech conversão de texto em fala Voice (EN-IE, Shaun)** serão preteridos após 3/31/2018, a fim de otimizar os API de fala do Bing técnicas. Atualize seu código com os nomes atualizados.
 
-## <a name="TrouNSupport"></a>Resolução de problemas e suporte
+## <a name="TrouNSupport"></a>Solução de problemas e suporte
 
-Publicar todas as perguntas e questões para o [serviço de voz do Bing](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) fórum do MSDN. Inclua detalhes completos, como:
+Poste todas as perguntas e problemas no fórum do [fala do Bing serviço](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) do MSDN. Inclua detalhes completos, como:
 
-* Um exemplo da cadeia de caracteres completos do pedido.
-* Se aplicável, a saída completa de uma solicitação com falha, o que inclui sessão IDs.
-* A percentagem de pedidos que estão a falhar.
+* Um exemplo da cadeia de caracteres de solicitação completa.
+* Se aplicável, a saída completa de uma solicitação com falha, que inclui IDs de log.
+* A porcentagem de solicitações que estão falhando.

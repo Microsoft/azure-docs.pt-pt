@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899900"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961608"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações nativas de P2S de autenticação de certificado do Azure
 
@@ -149,7 +149,7 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
 7. Na seção **cliente** da conexão, para **autenticação**, selecione **certificado/chave privada**. Para **certificado** e **chave privada**, escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, selecione **solicitar um endereço IP interno**. Em seguida, clique em **adicionar**.
 
    ![solicitar um endereço IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
-8. Ative a conexão.
+8. **Ative a conexão.**
 
 ## <a name="linuxinstallcli"></a>Linux (CLI do strongSwan)
 
@@ -199,7 +199,7 @@ Se você ainda não gerou certificados, use as seguintes etapas:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Retorne ao artigo para [concluir a configuração do P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

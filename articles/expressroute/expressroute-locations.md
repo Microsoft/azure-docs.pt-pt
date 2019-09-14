@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/09/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: b7672ff83dac31968dff7ef7a66ff40b36b69d59
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 502975df94fb61371dfa688806dfe1e1cc5aac70
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845186"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967114"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -157,7 +157,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Suportadas |Suportadas |Dallas, + Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Suportado |Suportado |São Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Suportado |Suportadas |Amsterdã, Chicago, Dallas, RAE de Hong Kong, Londres, Mumbai, vale do silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.c. |
-| **Viasat** | Suportadas | Suportadas | Washington DC2 |
+| **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Suportadas | Suportadas | Washington DC2 |
 | **[NZ de grupo Vocus](https://www.vocus.co.nz/business/cloud-data-centres)** | Suportadas | Suportadas | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportadas |Suportadas |Amsterdam2, Londres, Cingapura |
 | **Vodafone Idea** | Suportadas | Suportadas | Mumbai, Mumbai2 |
@@ -221,7 +221,7 @@ Se você for remoto e não tiver conectividade de fibra ou se quiser explorar ou
 
 * Intelsat
 * [EAS](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* Viasat
+* [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="connectivity-through-additional-service-providers"></a>Conectividade por meio de provedores de serviço adicionais
 

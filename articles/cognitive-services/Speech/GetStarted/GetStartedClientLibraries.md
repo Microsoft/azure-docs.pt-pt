@@ -1,46 +1,46 @@
 ---
-title: Comece com a API de reconhecimento de voz do Bing ao utilizar bibliotecas de cliente | Documentos da Microsoft
+title: Introdução à API de reconhecimento de Fala do Bing usando bibliotecas de cliente | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Utilize as bibliotecas de cliente de voz do Bing nos serviços cognitivos da Microsoft para desenvolver aplicações que converta áudio falado em texto.
+description: Use as bibliotecas de cliente Fala do Bing no Microsoft cognitiva Services para desenvolver aplicativos que convertidam áudio falado em texto.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 89eb18a2b4af76f6489442dc66ab12d0840e92c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ea0c9e7104b29456749c7f1af2a671b32a8fde2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515235"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966851"
 ---
-# <a name="get-started-with-bing-speech-service-client-libraries"></a>Comece com bibliotecas de cliente do serviço de voz do Bing
+# <a name="get-started-with-bing-speech-service-client-libraries"></a>Introdução às bibliotecas de cliente do serviço Fala do Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Além de verificar os pedidos HTTP diretos através de uma API REST, o serviço de voz do Bing fornece aos desenvolvedores com bibliotecas de cliente de voz em diferentes idiomas. As bibliotecas de cliente de voz:
+Além de fazer solicitações HTTP diretas por meio de uma API REST, o serviço de Fala do Bing fornece aos desenvolvedores bibliotecas de cliente de fala em diferentes idiomas. As bibliotecas de cliente de fala:
 
-- Suporte capacidades mais avançadas no reconhecimento de fala, por exemplo, os resultados intermediários em tempo real, a transmissão de áudio há muito tempo (até 10 minutos) e reconhecimento contínuo.
-- Fornecem uma API simples e idiomático no idioma de sua preferência.
-- Oculta detalhes de comunicação de nível baixo.
+- Dê suporte a recursos mais avançados no reconhecimento de fala, como resultados intermediários em tempo real, fluxo de áudio longo (até 10 minutos) e reconhecimento contínuo.
+- Forneça uma API simples e idiomática no idioma de sua preferência.
+- Ocultar detalhes de comunicação de baixo nível.
 
-Atualmente, as bibliotecas de cliente de voz do Bing seguintes estão disponíveis:
+Atualmente, as seguintes Fala do Bing bibliotecas de cliente estão disponíveis:
 
-- [C# a área de trabalho biblioteca](GetStartedCSharpDesktop.md)
-- [Biblioteca de serviço c#](GetStartedCSharpServiceLibrary.md)
+- [C#biblioteca de desktops](GetStartedCSharpDesktop.md)
+- [C#biblioteca de serviços](GetStartedCSharpServiceLibrary.md)
 - [Biblioteca JavaScript](GetStartedJSWebsockets.md)
-- [Biblioteca de Java para Android](GetStartedJavaAndroid.md)
-- [Biblioteca de Objective-C para iOS](Get-Started-ObjectiveC-iOS.md)
+- [Biblioteca Java para Android](GetStartedJavaAndroid.md)
+- [Biblioteca Objective-C para iOS](Get-Started-ObjectiveC-iOS.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- O [amostras](../samples.md) página fornece exemplos de completos para utilizar bibliotecas de cliente de voz.
-- Se precisar de uma biblioteca de cliente que ainda não é suportada, pode criar seu próprio SDK. Implementar o [protocolo WebSocket de voz](../API-Reference-REST/websocketprotocol.md) na plataforma e utilize a linguagem da sua preferência.
+- A página de [exemplos](../samples.md) fornece amostras completas para usar as bibliotecas de cliente de fala.
+- Se precisar de uma biblioteca de cliente que ainda não tenha suporte, você poderá criar seu próprio SDK. Implemente o [protocolo de WebSocket de fala](../API-Reference-REST/websocketprotocol.md) na plataforma e use a linguagem de sua escolha.
 
 ## <a name="license"></a>Licença
 
-Todos os exemplos e SDKs de serviços cognitivos são licenciados com a licença do MIT. Para obter mais informações, consulte [licença](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Todos os SDKs e exemplos de serviços cognitivas são licenciados com a licença MIT. Para obter mais informações, consulte [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

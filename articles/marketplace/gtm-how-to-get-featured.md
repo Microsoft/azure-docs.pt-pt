@@ -1,50 +1,50 @@
 ---
-title: Go-To-Market Services - como aparecer em marketplace | Azure
-description: Go-To-Market Services - esta secção descreve como obter uma listagem em destaque no Azure Marketplace
+title: Serviços de entrada no mercado-como obter destaque no Marketplace | Azure
+description: Serviços de entrada no mercado – esta seção descreve como obter uma listagem em destaque no Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5194bdcd5b77b0527ccdefc1af85bf03bdac2cab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938180"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962759"
 ---
-# <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como obter destaque no AppSource e o Azure Marketplace
+# <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como entrar em destaque no AppSource e no Azure Marketplace
 
-O Azure Marketplace e AppSource têm **aplicações em destaque** seções, onde pode obter a aplicação em destaque:
+O Azure Marketplace e o AppSource têm seções de **aplicativos em destaque** , onde você pode obter seu aplicativo em destaque:
 
-* Em primeiro lugar, se tiver uma versão de avaliação ou uma transação oferecem, pode utilizar o benefício de "promoção de categoria" por meio de benefícios Go-to-Market.
-* Em segundo lugar, reveja a lista de práticas recomendadas e dos critérios abaixo para obter um ponto.
+* Primeiro, se você tiver uma oferta de avaliação ou de transação, poderá usar o benefício de "promoção de categoria" por meio dos [benefícios do Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
+* Em segundo lugar, examine a lista de melhores práticas e os critérios abaixo para ganhar um ponto.
 
-O algoritmo de seleção de aplicações em destaque gera uma pontuação igual a uma aplicação pela Microsoft, assim como a pontuação de crédito de uma pessoa nos EUA.  A seleção semanal de aplicações em destaque irá basear-se um cálculo de desempenho de aplicações e serviços.
+O algoritmo de seleção de aplicativos em destaque gera uma pontuação para um aplicativo pela Microsoft, assim como a pontuação de crédito de uma pessoa nos EUA.  A seleção semanal de aplicativos em destaque será baseada em um cálculo do desempenho do aplicativo e do serviço.
 
-## <a name="steps-to-take"></a>Passos a realizar
+## <a name="steps-to-take"></a>Etapas a serem executadas
 
-Pode efetuar os seguintes itens de ação para melhorar a sua pontuação:
+Você pode executar os seguintes itens de ação para melhorar sua Pontuação:
 
-1. *Certifique-se de que a sua aplicação ou serviço adequadamente é categorizado*: Escolha três categorias que representam a sua aplicação ou capacidades do serviço.
-2. *Mercado de aplicações do Azure: aumente o seu consumo do Azure-over-um mês.* Se for capaz de alcançar de 1.000 horas de utilização do Azure por mês, irá aumentar significativamente suas chances de que está a ser em destaque.
-3. *Aplicações do AppSource: aumente as aquisições para a sua oferta.* Se for capaz de obter 10 aquisições por mês, irá aumentar significativamente suas chances de que está a ser em destaque. 
-4. *Consiga o estado de pronto de venda conjunta*: concluir os requisitos para a ready de venda conjunta.
-5. *Melhorar a qualidade da sua oferta*: veja [conteúdo de listagem diretrizes](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation) para obter informações sobre como modificar a sua oferta
-6. Publicar várias ofertas no Marketplace: são listados todas as suas principais aplicações e serviços? Tem uma experiência de avaliação?
-7. Encoraje os clientes podem escrever as revisões.
+1. *Verifique se seu aplicativo ou serviço está categorizado adequadamente*: escolha três categorias que representam os recursos do aplicativo ou do serviço.
+2. *Aplicativos do Azure Marketplace: Aumente seu mês de consumo do Azure por mês.* Se for possível alcançar 1.000 horas de uso do Azure por mês, você aumentará bastante suas chances de serem apresentadas.
+3. *Aplicativos AppSource: aumente as aquisições que chegam à sua oferta.* Se for possível alcançar 10 aquisições por mês, você aumentará muito suas chances de serem apresentadas. 
+4. *Obtenha o status pronto para venda conjunta*: conclua os requisitos para as vendas prontas para venda.
+5. *Aprimore a qualidade de sua oferta*: consulte as [diretrizes de listagem de conteúdo](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation) para obter informações sobre como modificar sua oferta
+6. Publicar várias ofertas no Marketplace: todos os seus aplicativos e serviços principais estão listados? Você tem uma experiência de avaliação?
+7. Incentive seus clientes a escreverem análises.
 
-Promoções de aplicações em destaque operam em separado do algoritmo de pesquisa.
+As promoções de aplicativos em destaque operam separadamente do algoritmo de pesquisa.
 
 >[!Note]
->Se sua solução é não ser corretamente apresentados nos resultados da pesquisa, enviar um pedido de suporte através do menu de ajuda na [Cloud Partner Portal](https://cloudpartner.azure.com/).
+>Se sua solução não aparecer corretamente nos resultados da pesquisa, arquivo um tíquete de suporte por meio do menu ajuda no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-O suporte GTM também inclui uma biblioteca inteira de modelos de ajuda autónoma, conteúdo da web, treinamento e ferramentas para ajudá-lo ainda mais promovem suas listagens e o seu negócio.
+O suporte do GTM também inclui uma biblioteca completa de modelos de auto-ajuda, conteúdo da Web, treinamento e ferramentas para ajudá-lo a promover ainda mais suas listagens e seus negócios.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os serviços GTM do marketplace, aceda à [serviços Go-to-market](https://partner.microsoft.com/reach-customers/gtm).
+Saiba mais sobre os [benefícios do seu Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar e configurar a sua oferta.
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164842"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966978"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para Java
 
@@ -106,7 +106,7 @@ As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK
 |Name|Descrição|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Essa classe vem do objeto de cliente e lida diretamente com todas as operações de imagem, como análise de imagem, detecção de texto e geração de miniaturas.
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Essa classe vem do objeto de cliente e lida diretamente com todas as operações de imagem, como análise de imagem, detecção de texto e geração de miniaturas.|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Você especifica um conjunto de valores de VisualFeatureTypes dependendo de suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -172,17 +172,17 @@ O código a seguir obtém a categoria detectada da imagem. Consulte [categorizar
 
 ### <a name="get-image-tags"></a>Obter marcas de imagem
 
-O código a seguir obtém o conjunto de marcas detectadas na imagem. Consulte [marcas de conteúdo](../concept-tagging-images.md) para obter mais detalhes
+O código a seguir obtém o conjunto de marcas detectadas na imagem. Consulte [marcas de conteúdo](../concept-tagging-images.md) para obter mais detalhes.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### <a name="get-faces"></a>Obter rostos
+### <a name="detect-faces"></a>Detetar rostos
 
 O código a seguir retorna as faces detectadas na imagem com suas coordenadas de retângulo e seleciona atributos de face. Consulte [detecção facial](../concept-detecting-faces.md) para obter mais detalhes.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="get-adult-or-racy-content"></a>Obter conteúdo adulto ou erótico
+### <a name="detect-adult-or-racy-content"></a>Detectar conteúdo adulto ou erótico
 
 O código a seguir imprime a presença detectada de conteúdo adulto ou erótico na imagem. Consulte [conteúdo adulto e erótico](../concept-detecting-adult-content.md) para obter mais detalhes.
 
@@ -206,6 +206,12 @@ O código a seguir analisa dados sobre os pontos de referência detectados na im
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
+### <a name="get-the-image-type"></a>Obter o tipo de imagem
+
+O código a seguir imprime informações sobre o tipo&mdash;de imagem, seja Clip-Art ou desenho de linha.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Você pode compilar o aplicativo com:
@@ -227,7 +233,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a usar o Pesquisa Visual Computacional biblioteca Java para realizar tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/04/2019
-  ms.openlocfilehash: 83286e559211d0b7066a23f925f3d9d27afbe87e
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.openlocfilehash: e5f784b7411d3e5454efd586d91953b03ff8a05a
+  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70934027"
+  ms.lasthandoff: 09/13/2019
+  ms.locfileid: "70967018"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -37,7 +37,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-hand-text-sdk.md
+      url: quickstarts-sdk/csharp-sdk.md
     - text: Utilizar o SDK Python
       url: quickstarts-sdk/python-sdk.md
 - title: Detetar objetos em imagens
@@ -49,7 +49,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-analyze-sdk.md
+      url: quickstarts-sdk/csharp-sdk.md
     - text: Utilizar o SDK Python
       url: quickstarts-sdk/python-sdk.md
     - text: Utilizar o SDK Java
@@ -63,7 +63,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-analyze-sdk.md
+      url: quickstarts-sdk/csharp-sdk.md
     - text: Utilizar o SDK Python
       url: quickstarts-sdk/python-sdk.md
     - text: Utilizar o SDK Java
@@ -92,6 +92,8 @@ landingContent:
       url: concept-detecting-faces.md
   - linkListType: quickstart
     links:
+    - text: Utilizar o SDK .NET
+      url: quickstarts-sdk/csharp-sdk.md
     - text: Utilizar o SDK Python
       url: quickstarts-sdk/python-sdk.md
     - text: Utilizar o SDK Java

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 09/12/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 5b46c5b2e8f613d351442fdf3c8ae5ee2198f2da
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933988"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966537"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Início rápido: Usar a metamáscara para conectar e implantar um contrato inteligente
 
@@ -62,20 +62,13 @@ Você precisa do endereço do ponto de extremidade do serviço Blockchain do Azu
 Remix é um ambiente de desenvolvimento de solidez baseado em navegador. Usando o metamask e o remix juntos, você pode implantar e executar ações em contratos inteligentes.
 
 1. No seu browser, navegue até `https://remix.ethereum.org`.
-1. Selecione **Executar**. 
-
-    Metamask define seu **ambiente** como **Web3 injetado** e **conta** em sua rede.
-
-    ![Guia executar](./media/connect-metamask/injected-web3.png)
-
-1. Selecione **criar novo arquivo**.
+1. Selecione **novo arquivo** na guia **início** em **arquivo**.
 
     Nomeie o novo arquivo `simple.sol`.
 
     ![Criar ficheiro](./media/connect-metamask/create-file.png)
 
     Selecione **OK**.
-
 1. No editor de remix, Cole o código **simples do contrato inteligente** a seguir.
 
     ```solidity
@@ -99,14 +92,18 @@ Remix é um ambiente de desenvolvimento de solidez baseado em navegador. Usando 
     ```
 
     O **contrato simples** declara uma variável de estado denominada **Balance**. Há duas funções definidas. A função **Add** adiciona um número ao **saldo**. A função **Get** retorna o valor do **saldo**.
-
-1. Para compilar o contrato, selecione **compilar > começar a compilar**. Se for bem-sucedido, será exibida uma caixa verde com o nome do contrato.
+1. Para compilar o contrato, primeiro selecione o painel do compilador de solidez e, em seguida, selecione **Compilar simples. sol**. 
 
     ![Organizar](./media/connect-metamask/compile.png)
 
-1. Para executar o contrato, selecione a guia **executar** . Selecione o contrato **simples** e, em seguida, **implantar**.
+1. Selecione o painel **implantar & executar** e, em seguida, defina o **ambiente** como **injetado Web3** para se conectar por meio de metamask ao membro do blockchain.
 
-    ![RPC personalizado](./media/connect-metamask/deploy.png)
+    ![Guia executar](./media/connect-metamask/injected-web3.png)
+
+1. Selecione o contrato **simples** e, em seguida, **implantar**.
+
+    ![Implementação](./media/connect-metamask/deploy.png)
+
 
 1. Uma notificação de metamáscara é exibida alertando você sobre fundos insuficientes para executar a transação.
 
@@ -125,13 +122,13 @@ Remix é um ambiente de desenvolvimento de solidez baseado em navegador. Usando 
 
     Há duas ações **Adicionar** e **obter** esse mapa para as funções definidas no contrato.
 
-1. Para executar uma transação de **adição** no blockchain, insira um número para adicionar e selecione **Adicionar**.
+1. Para executar uma transação de **adição** no blockchain, insira um número para adicionar e selecione **Adicionar**. Você pode obter uma mensagem de falha de estimativa de gás de remix. Você está enviando a transação para um blockchain privado que não requer gás. Selecione **Enviar transação** para forçar a transação.
 1. Semelhante a quando você implantou o contrato, uma notificação de metamáscara é exibida alertando você sobre fundos insuficientes para executar a transação.
 
     Como essa é uma rede privada em um consórcio, podemos definir o preço de gás como zero.
 
 1.  Selecione a **taxa de gás > editar > avançado**, defina o **preço de gás** como 0 e selecione **salvar**.
-1. Selecione **confirmar** para executar a transação no blockchain.
+1. Selecione **confirmar** para enviar a transação para o blockchain.
 1. Selecione **obter** ação. Esta é uma chamada para dados do nó de consulta. Uma transação não é necessária.
 1. No painel de depuração do remix, você pode ver detalhes sobre as transações no blockchain.
 

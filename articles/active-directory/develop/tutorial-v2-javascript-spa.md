@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c11fc43098346d8afa9557f0de9df1c0a739bcc
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 61790954393923bbf330ad3a534d1d33d1a44bbc
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172022"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983485"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API de Microsoft Graph de um aplicativo de página única do JavaScript (SPA)
 
@@ -118,49 +118,49 @@ Este guia usa a biblioteca a seguir:
 
 Adicione o seguinte código ao seu `index.html` arquivo dentro das `<script></script>` marcas:
 
-    ```javascript
-    var msalConfig = {
-        auth: {
-            clientId: "Enter_the_Application_Id_here"
-            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
-        },
-        cache: {
-            cacheLocation: "localStorage",
-            storeAuthStateInCookie: true
-        }
-    };
+   ```JavaScript
+   var msalConfig = {
+       auth: {
+           clientId: "Enter_the_Application_Id_here",
+           authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+       },
+       cache: {
+           cacheLocation: "localStorage",
+           storeAuthStateInCookie: true
+       }
+   };
 
-    var graphConfig = {
-        graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
-    };
+   var graphConfig = {
+       graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
+   };
 
-    // this can be used for login or token request, however in more complex situations
-    // this can have diverging options
-    var requestObj = {
+   // this can be used for login or token request, however in more complex situations
+   // this can have diverging options
+   var requestObj = {
         scopes: ["user.read"]
-    };
+   };
 
-    var myMSALObj = new Msal.UserAgentApplication(msalConfig);
-    // Register Callbacks for redirect flow
-    myMSALObj.handleRedirectCallback(authRedirectCallBack);
+   var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+   // Register Callbacks for redirect flow
+   myMSALObj.handleRedirectCallback(authRedirectCallBack);
 
 
-    function signIn() {
+   function signIn() {
 
-        myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
-            //Login Success
-            showWelcomeMessage();
-            acquireTokenPopupAndCallMSGraph();
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
+       myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
+           //Login Success
+           showWelcomeMessage();
+           acquireTokenPopupAndCallMSGraph();
+       }).catch(function (error) {
+           console.log(error);
+       });
+   }
 
-    function acquireTokenPopupAndCallMSGraph() {
-        //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
-        myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+   function acquireTokenPopupAndCallMSGraph() {
+       //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+       myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
-        }).catch(function (error) {
+       }).catch(function (error) {
             console.log(error);
             // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
             // Call acquireTokenPopup(popup window)
@@ -171,92 +171,92 @@ Adicione o seguinte código ao seu `index.html` arquivo dentro das `<script></sc
                     console.log(error);
                 });
             }
-        });
-    }
+       });
+   }
 
 
-    function graphAPICallback(data) {
-        document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
-    }
+   function graphAPICallback(data) {
+       document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
+   }
 
 
-    function showWelcomeMessage() {
-        var divWelcome = document.getElementById('WelcomeMessage');
-        divWelcome.innerHTML = 'Welcome ' + myMSALObj.getAccount().userName + "to Microsoft Graph API";
-        var loginbutton = document.getElementById('SignIn');
-        loginbutton.innerHTML = 'Sign Out';
-        loginbutton.setAttribute('onclick', 'signOut();');
-    }
+   function showWelcomeMessage() {
+       var divWelcome = document.getElementById('WelcomeMessage');
+       divWelcome.innerHTML = 'Welcome ' + myMSALObj.getAccount().userName + "to Microsoft Graph API";
+       var loginbutton = document.getElementById('SignIn');
+       loginbutton.innerHTML = 'Sign Out';
+       loginbutton.setAttribute('onclick', 'signOut();');
+   }
 
 
-    //This function can be removed if you do not need to support IE
-    function acquireTokenRedirectAndCallMSGraph() {
-         //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
-         myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
-             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
-         }).catch(function (error) {
-             console.log(error);
-             // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
-             // Call acquireTokenRedirect
-             if (requiresInteraction(error.errorCode)) {
-                 myMSALObj.acquireTokenRedirect(requestObj);
-             }
-         });
-     }
-
-
-    function authRedirectCallBack(error, response) {
-        if (error) {
+   //This function can be removed if you do not need to support IE
+   function acquireTokenRedirectAndCallMSGraph() {
+        //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+        myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+            callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
+        }).catch(function (error) {
             console.log(error);
-        }
-        else {
-            if (response.tokenType === "access_token") {
-                callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
-            } else {
-                console.log("token type is:" + response.tokenType);
+            // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
+            // Call acquireTokenRedirect
+            if (requiresInteraction(error.errorCode)) {
+                myMSALObj.acquireTokenRedirect(requestObj);
             }
-        }
-    }
+        });
+   }
 
-    function requiresInteraction(errorCode) {
-        if (!errorCode || !errorCode.length) {
-            return false;
-        }
-        return errorCode === "consent_required" ||
-            errorCode === "interaction_required" ||
-            errorCode === "login_required";
-    }
 
-    // Browser check variables
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf('MSIE ');
-    var msie11 = ua.indexOf('Trident/');
-    var msedge = ua.indexOf('Edge/');
-    var isIE = msie > 0 || msie11 > 0;
-    var isEdge = msedge > 0;
-    //If you support IE, our recommendation is that you sign-in using Redirect APIs
-    //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
-    // can change this to default an experience outside browser use
-    var loginType = isIE ? "REDIRECT" : "POPUP";
+   function authRedirectCallBack(error, response) {
+       if (error) {
+           console.log(error);
+       }
+       else {
+           if (response.tokenType === "access_token") {
+               callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
+           } else {
+               console.log("token type is:" + response.tokenType);
+           }
+       }
+   }
 
-    if (loginType === 'POPUP') {
+   function requiresInteraction(errorCode) {
+       if (!errorCode || !errorCode.length) {
+           return false;
+       }
+       return errorCode === "consent_required" ||
+           errorCode === "interaction_required" ||
+           errorCode === "login_required";
+   }
+
+   // Browser check variables
+   var ua = window.navigator.userAgent;
+   var msie = ua.indexOf('MSIE ');
+   var msie11 = ua.indexOf('Trident/');
+   var msedge = ua.indexOf('Edge/');
+   var isIE = msie > 0 || msie11 > 0;
+   var isEdge = msedge > 0;
+   //If you support IE, our recommendation is that you sign-in using Redirect APIs
+   //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
+   // can change this to default an experience outside browser use
+   var loginType = isIE ? "REDIRECT" : "POPUP";
+
+   if (loginType === 'POPUP') {
         if (myMSALObj.getAccount()) {// avoid duplicate code execution on page load in case of iframe and popup window.
             showWelcomeMessage();
             acquireTokenPopupAndCallMSGraph();
         }
-    }
-    else if (loginType === 'REDIRECT') {
-        document.getElementById("SignIn").onclick = function () {
+   }
+   else if (loginType === 'REDIRECT') {
+       document.getElementById("SignIn").onclick = function () {
             myMSALObj.loginRedirect(requestObj);
-        };
-        if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
+       };
+       if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
             showWelcomeMessage();
             acquireTokenRedirectAndCallMSGraph();
         }
-    } else {
-        console.error('Please set a valid login type');
-    }
-    ```
+   } else {
+       console.error('Please set a valid login type');
+   }
+   ```
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
@@ -332,14 +332,14 @@ Adicione o seguinte código ao seu `index.html` arquivo dentro das `<script></sc
 1. Acesse a página da plataforma de identidade da Microsoft para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 1. Quando a página **registrar um aplicativo** for exibida, insira um nome para seu aplicativo.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
-1. Na seção **URI** de redirecionamento, selecione a plataforma **Web** na lista suspensa e defina o valor para a URL do aplicativo que se baseia em seu servidor Web.
+1. Na seção **URI de redirecionamento** , selecione a plataforma **Web** na lista suspensa e defina o valor para a URL do aplicativo que se baseia em seu servidor Web.
 
    Para obter informações sobre como definir e obter a URL de redirecionamento para o Node. js e o Visual Studio, consulte a seção "definir uma URL de redirecionamento para o Node. js" e [definir uma URL de redirecionamento para o Visual Studio](#set-a-redirect-url-for-visual-studio).
 
 1. Selecione **Registar**.
 1. Na página **visão geral** do aplicativo, observe o valor da **ID do aplicativo (cliente)** para uso posterior.
 1. Este início rápido requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) esteja habilitado. No painel esquerdo do aplicativo registrado, selecione **autenticação**.
-1. Em **Configurações avançadas**, em **concessão implícita**, marque as caixas de seleção tokens de **ID** e tokens de **acesso** . Tokens de ID e tokens de acesso são necessários porque esse aplicativo deve conectar usuários e chamar uma API.
+1. Em **Configurações avançadas**, em **concessão implícita**, marque as caixas de seleção **tokens de ID** e **tokens de acesso** . Tokens de ID e tokens de acesso são necessários porque esse aplicativo deve conectar usuários e chamar uma API.
 1. Selecione **Guardar**.
 
 > #### <a name="set-a-redirect-url-for-nodejs"></a>Definir uma URL de redirecionamento para node. js
@@ -347,7 +347,7 @@ Adicione o seguinte código ao seu `index.html` arquivo dentro das `<script></sc
 >
 > Para configurar uma URL de redirecionamento nas informações de registro do aplicativo, alterne de volta para o painel de **registro do aplicativo** e siga um destes procedimentos:
 >
-> - Defina *`http://localhost:30662/`* como a **URL**de redirecionamento.
+> - Defina *`http://localhost:30662/`* como a **URL de redirecionamento**.
 > - Se você estiver usando uma porta TCP personalizada, use *`http://localhost:<port>/`* (onde  *\<a porta >* é o número da porta TCP personalizada).
 >
 > #### <a name="set-a-redirect-url-for-visual-studio"></a>Definir uma URL de redirecionamento para o Visual Studio
@@ -359,7 +359,7 @@ Adicione o seguinte código ao seu `index.html` arquivo dentro das `<script></sc
 >    ![O projeto JavaScriptSPA janela Propriedades](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)
 >
 > 1. Copie o valor da **URL** .
-> 1. Volte para o painel de **registro do aplicativo** e cole o valor copiado como a URL de redirecionamento.
+> 1. Volte para o painel de **registro do aplicativo** e cole o valor copiado como a URL de **redirecionamento**.
 
 #### <a name="configure-your-javascript-spa"></a>Configurar seu JavaScript SPA
 

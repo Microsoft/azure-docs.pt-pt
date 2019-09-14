@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883972"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966952"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usar seu modelo com a API de previsão
 
@@ -38,14 +38,12 @@ Depois que o modelo tiver sido publicado com êxito, você verá que um rótulo 
 
 ## <a name="get-the-url-and-prediction-key"></a>Obter o URL e a chave de predição
 
-Depois que o modelo tiver sido publicado, você poderá recuperar as informações necessárias selecionando __URL de previsão__ . Isso abrirá uma caixa de diálogo com informações para usar a API de previsão, incluindo a __URL de previsão__ e a __chave de previsão__ .
+Depois que o modelo tiver sido publicado, você poderá recuperar as informações necessárias selecionando __URL de previsão__. Isso abrirá uma caixa de diálogo com informações para usar a API de previsão, incluindo a __URL de previsão__ e a __chave de previsão__.
 
 ![A guia desempenho é mostrada com um retângulo vermelho ao redor do botão URL de previsão.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![A guia desempenho é mostrada com um retângulo vermelho ao redor do valor da URL de previsão para usar um arquivo de imagem e o valor da chave de previsão.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> Sua __chave de previsão__ também pode ser encontrada na página [portal do Azure](https://portal.azure.com) para o recurso visão personalizada Azure associado ao seu projeto, na folha __chaves__ .
 
 Neste guia, você usará uma imagem local, portanto, copie a URL em **se você tiver um arquivo de imagem** em um local temporário. Copie também o valor da __chave de previsão__ correspondente.
 
@@ -53,7 +51,7 @@ Neste guia, você usará uma imagem local, portanto, copie a URL em **se você t
 
 1. No Visual Studio, crie um novo C# aplicativo de console.
 
-1. Utilize o seguinte código como o corpo do ficheiro __Program.cs__ .
+1. Utilize o seguinte código como o corpo do ficheiro __Program.cs__.
 
     ```csharp
     using System;

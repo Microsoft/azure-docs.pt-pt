@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390265"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984271"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -47,7 +47,6 @@ Usar a vinculação de entidades em várias linguagens requer o uso de uma base 
 | Quantidade      | Número        | "6", "six"     |
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2.º", "segundo"     |
-| Quantidade      | NumberRange   | "4 a 8"     |
 | Quantidade      | Idade           | "dia de 90 dias antigos", "30 anos de idade"    |
 | Quantidade      | Currency      | "10,99 $"     |
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
@@ -59,7 +58,6 @@ Usar a vinculação de entidades em várias linguagens requer o uso de uma base 
 | DateTime      | TimeRange     | "18:00 às 19:00"     |
 | DateTime      | Duration      | "1 minuto e 45 segundos"   |
 | DateTime      | Definir           | "todas as terças"     |
-| DateTime      | fuso horário      |    |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565767"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967048"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -75,6 +75,6 @@ Assim como acontece com todos os serviços cognitivas, os desenvolvedores que us
 
 Comece a usar o Pesquisa Visual Computacional seguindo um guia de início rápido:
 
-- [Quickstart: Analisar uma imagem](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Quickstart: Extrair texto manuscrito](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Quickstart: Gerar uma miniatura](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Quickstart: SDK do .NET Pesquisa Visual Computacional](quickstarts-sdk/csharp-sdk.md)
+- [Quickstart: Pesquisa Visual Computacional SDK do Python](quickstarts-sdk/python-sdk.md)
+- [Quickstart: Pesquisa Visual Computacional SDK do Java](quickstarts-sdk/java-sdk.md)

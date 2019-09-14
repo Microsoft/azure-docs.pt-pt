@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 4ce40fdf36f7d66e60e15955318e43f1f24f275f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 15d0a584d88045f6020162a88124cd9d6a4735bf
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515839"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984009"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -36,7 +36,7 @@ A tabela a seguir descreve os limites de recursos para Azure NetApp Files:
 |  Número de volumes por pool de capacidade     |    500   |    Sim     |
 |  Número de instantâneos por volume       |    255     |    Não        |
 |  Número de sub-redes delegadas a Azure NetApp Files (Microsoft. NetApp/volumes) por rede virtual do Azure    |   1   |    Não    |
-|  Número de IPs simultâneos em uma VNet (incluindo VNets emparelhados) que podem acessar Azure NetApp Files   |    1000   |    Não   |
+|  Número de IPs em uma VNet (incluindo VNets emparelhadas) que podem acessar Azure NetApp Files   |    1000   |    Sim   |
 |  Tamanho mínimo de um pool de capacidade única   |  4 TiB     |    Não  |
 |  Tamanho máximo de um pool de capacidade única    |  500 TiB   |   Não   |
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
@@ -53,8 +53,8 @@ Do plano de navegação portal do Azure:
 2. Clique em **+ nova solicitação de suporte**.
 3. Na guia noções básicas, forneça as seguintes informações: 
     1. Tipo de problema: Selecione **limites de serviço e assinatura (cotas)** .
-    2. Subscrições: Selecione a assinatura para o recurso que você precisa que a cota tenha aumentado.
-    3. Tipo de cota: Selecionar **armazenamento: Limites**de Azure NetApp files.
+    2. Assinaturas Selecione a assinatura para o recurso que você precisa que a cota tenha aumentado.
+    3. Tipo de quota: Selecionar **armazenamento: Limites**de Azure NetApp files.
     4. Clique **em Avançar: Soluções**.
 4. Na guia detalhes:
     1. Na caixa Descrição, forneça as seguintes informações para o tipo de recurso correspondente:

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bc914d27e9bea15a625dd2cd196401d733f8cfb8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275942"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962100"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados para um índice de Azure Search usando Azure Data Factory
 
@@ -164,7 +164,7 @@ Azure Search serviço dá suporte à gravação de documentos como um lote. Um l
 ]
 ```
 
-### <a name="data-type-support"></a>Suporte ao tipo de dados
+## <a name="data-type-support"></a>Suporte ao tipo de dados
 
 A tabela a seguir especifica se um tipo de dados Azure Search tem suporte ou não.
 
@@ -179,5 +179,7 @@ A tabela a seguir especifica se um tipo de dados Azure Search tem suporte ou nã
 | String Array | N |
 | GeographyPoint | N |
 
-## <a name="next-steps"></a>Passos Seguintes
+Atualmente, outros tipos de dados, por exemplo, complexType, não são suportados. Para obter uma lista completa de tipos de dados com suporte do Azure serach, consulte [tipos de dados com suporte (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 0dd4447736469644875dff914c6284b087be87d0
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e831b94099a8bdf96710fc8ae8915938bbe997c4
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910227"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984518"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -99,7 +99,8 @@ Você verá a tela de **introdução** , já que este é seu primeiro experiment
         Formato de arquivo| Delimitados
         Delimitador| Vírgula
         Codificação| UTF-8
-        Cabeçalhos de coluna| Todos os arquivos têm os mesmos cabeçalhos ignoram linhas | Nenhum
+        Cabeçalhos de coluna| Todos os arquivos têm os mesmos cabeçalhos
+        Ignorar linhas | Nenhum
 
         >[!NOTE]
         > Se qualquer uma das configurações neste formulário for atualizada, a versão prévia atualizará adequadamente.

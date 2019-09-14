@@ -4,15 +4,16 @@ description: Aprenda as diretrizes para atualizar seu cluster do Azure HDInsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: f4458b33edb9d55c30de8c5168668743abb33161
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a62da0d27d21589f7b75a89cc184ce9f456f1fed
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811637"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960709"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualizar o cluster HDInsight para uma versão mais recente
 Para aproveitar os recursos mais recentes do HDInsight, recomendamos que os clusters HDInsight sejam atualizados para a versão mais recente. Siga as diretrizes abaixo para atualizar as versões do cluster HDInsight.
@@ -23,7 +24,7 @@ Para aproveitar os recursos mais recentes do HDInsight, recomendamos que os clus
 ## <a name="upgrade-tasks"></a>Tarefas de atualização
 O fluxo de trabalho para atualizar o cluster HDInsight é o seguinte.
 
-![Diagrama de fluxo de trabalho de atualização](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
+![Diagrama de fluxo de trabalho de atualização](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Leia cada seção deste documento para entender as alterações que podem ser necessárias ao atualizar o cluster HDInsight.
 2. Crie um cluster como um ambiente de garantia de teste/qualidade. Para obter mais informações sobre como criar um cluster, consulte [saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)

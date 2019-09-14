@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884457"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962861"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas do Azure e AppSource Marketplace
 
@@ -36,7 +36,7 @@ O processo de criação de uma nova oferta difere muito nos tipos de oferta, por
 
 O *Test Drive* é um recurso do Marketplace que fornece aos clientes uma opção de demonstração "Experimente antes de comprar" para cada oferta, portanto habilitada.  A capacidade do Test Drive é limitada ao seguinte subconjunto de tipos de oferta: [Aplicativos do Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 para compromisso com o cliente](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 para finanças e operações](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [aplicativos SaaS](./saas-app/cpp-saas-offer.md)e [máquinas virtuais](./virtual-machine/cpp-virtual-machine-offer.md).  Esse recurso requer que o Publicador crie um modelo de Test Drive, personalizado para sua oferta.  Para obter mais informações, consulte a seção [Test Drive](./test-drive/what-is-test-drive.md).
 
-Você pode procurar as ofertas existentes do Marketplace que têm demonstrações de Test Drive aplicando o [filtro de Test Drive](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+Você pode procurar as ofertas existentes do Marketplace que têm demonstrações de Test Drive aplicando o [filtro de Test Drive](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Tipos de oferta do Azure Marketplace e AppSource
