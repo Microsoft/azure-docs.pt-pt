@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 87df37cc6baa863bb0b068bdfeb9cde873e38836
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 87a585f821f7b41c689899818627d863394fe844
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952087"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003100"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs do Hyper-V para o Azure
 
-Este artigo descreve como preparar a avaliação e a migração de VMs do Hyper-V locais para o Azure com as migrações para [Azure](migrate-services-overview.md).
+Este artigo descreve como preparar a avaliação e a migração de VMs do Hyper-V locais para o Azure com as [migrações para Azure](migrate-services-overview.md).
 
 As migrações para [Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
 
@@ -99,7 +99,7 @@ Para se preparar para a avaliação do Hyper-V, faça o seguinte:
 1. Verifique as configurações do host Hyper-V.
 2. Configure a comunicação remota do PowerShell em cada host, para que o dispositivo de migrações para Azure possa executar comandos do PowerShell no host, em uma conexão do WinRM.
 3. Se os discos de VM estiverem localizados no armazenamento SMB remoto, a delegação de credenciais será necessária. 
-    - Habilite a delegação de CredSSP para que o dispositivo de migrações para Azure possa atuar como o cliente, delegando credenciais a um host. T
+    - Habilite a delegação de CredSSP para que o dispositivo de migrações para Azure possa atuar como o cliente, delegando credenciais a um host.
     - Você permite que cada host atue como um delegado para o dispositivo, conforme descrito abaixo.
     - Posteriormente, ao configurar o dispositivo, você habilitará a delegação no dispositivo.
 4. Examine os requisitos do dispositivo e o acesso à URL/porta necessário para o dispositivo.
@@ -113,7 +113,7 @@ Você pode definir essas configurações manualmente usando os procedimentos a s
 
 O script valida os hosts Hyper-V e define as configurações necessárias para descobrir e avaliar as VMs do Hyper-V. Veja o que ele faz:
 
-- Verifica se você está executando no script em uma versão do PowerShell com suporte.
+- Verifica se você está executando o script em uma versão do PowerShell com suporte.
 - Verifica se você (o usuário que está executando o script) tem privilégios administrativos no host Hyper-V.
 - Permite que você crie uma conta de usuário local (não administrador) que é usada para o serviço migrações para Azure se comunicar com o host Hyper-V. Essa conta de usuário é adicionada a esses grupos no host:
     - Usuários de gerenciamento remoto

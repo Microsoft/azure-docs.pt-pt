@@ -20,7 +20,7 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - href: /azure/key-vault/key-vault-whatis
+          - href: /azure/key-vault/key-vault-overview
             html: <p>Aprenda os conceitos básicos relacionados com o Azure Key Vault.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_article.svg'

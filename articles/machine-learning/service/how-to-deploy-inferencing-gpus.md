@@ -1,7 +1,7 @@
 ---
 title: Implantar um modelo para inferência com GPU
-titleSuffix: Azure Machine Learning service
-description: Este artigo ensina como usar o serviço de Azure Machine Learning para implantar um modelo de aprendizado profundo Tensorflow habilitado para GPU como um serviço Web. solicitações de inferência de serviço e pontuação.
+titleSuffix: Azure Machine Learning
+description: Este artigo ensina como usar Azure Machine Learning para implantar um modelo de aprendizado profundo Tensorflow habilitado para GPU como um serviço Web. solicitações de inferência de serviço e pontuação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844981"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002775"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 
-Este artigo ensina como usar o serviço de Azure Machine Learning para implantar um modelo habilitado para GPU como um serviço Web. As informações neste artigo se baseiam na implantação de um modelo no serviço de kubernetes do Azure (AKS). O cluster AKS fornece um recurso de GPU que é usado pelo modelo para inferência.
+Este artigo ensina como usar Azure Machine Learning para implantar um modelo habilitado para GPU como um serviço Web. As informações neste artigo se baseiam na implantação de um modelo no serviço de kubernetes do Azure (AKS). O cluster AKS fornece um recurso de GPU que é usado pelo modelo para inferência.
 
 A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para fazer previsões. O uso de GPUs em vez de CPUs oferece vantagens de desempenho na computação altamente paralelizáveis.
 
@@ -34,7 +34,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md).
+* Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
 * Um ambiente de desenvolvimento do Python com o SDK do Azure Machine Learning instalado. Para obter mais informações, consulte [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -51,7 +51,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 Para se conectar a um espaço de trabalho existente, use o seguinte código:
 
 > [!IMPORTANT]
-> Esse trecho de código espera que a configuração do espaço de trabalho seja salva no diretório atual ou em seu pai. Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e gerenciar Azure Machine Learning espaços de trabalho de serviço](how-to-manage-workspace.md).   Para obter mais informações sobre como salvar a configuração no arquivo, consulte [criar um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
+> Esse trecho de código espera que a configuração do espaço de trabalho seja salva no diretório atual ou em seu pai. Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e gerenciar espaços de trabalho do Azure Machine Learning](how-to-manage-workspace.md).   Para obter mais informações sobre como salvar a configuração no arquivo, consulte [criar um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -93,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > O Azure cobrará você desde que o cluster AKS exista. Certifique-se de excluir o cluster AKS quando tiver terminado.
 
-Para obter mais informações sobre como usar o AKS com o serviço Azure Machine Learning, consulte [como implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
+Para obter mais informações sobre como usar o AKS com Azure Machine Learning, consulte [como implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Gravar o script de entrada
 

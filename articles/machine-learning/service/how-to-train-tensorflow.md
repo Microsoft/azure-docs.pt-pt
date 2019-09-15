@@ -1,7 +1,7 @@
 ---
 title: Treinar uma rede neural de aprendizado profundo com TensorFlow
-titleSuffix: Azure Machine Learning service
-description: Saiba como executar scripts de treinamento do TensorFlow em escala usando o serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba como executar scripts de treinamento do TensorFlow em escala usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b65a9b7440922d2b1d7a02a79cc6d0811a1d9fc
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 52c675369fa70d1b1113f34b9b0dda2126547e0a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639348"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002506"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Crie um modelo de aprendizado profundo TensorFlow em escala com Azure Machine Learning
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O [espaço de trabalho de serviço do Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
 
 Crie um objeto de espaço de `config.json` trabalho a partir do arquivo criado na [seção pré-requisitos](#prerequisites).
 
@@ -139,7 +139,7 @@ Para obter mais informações sobre destinos de computação, consulte o artigo 
 
 O [estimador do TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornece uma maneira simples de iniciar um trabalho de treinamento do TensorFlow em um destino de computação.
 
-O estimador TensorFlow é implementado por meio [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando](how-to-train-ml-models.md) o estimador
+O estimador TensorFlow é implementado por meio [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando o estimador](how-to-train-ml-models.md)
 
 Se o script de treinamento precisar de pacotes PIP ou Conda adicionais para execução, você poderá ter os pacotes instalados na imagem do Docker resultante passando seus nomes pelos `pip_packages` argumentos `conda_packages` e.
 
@@ -201,9 +201,9 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Formação distribuída
 
-O [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimador também dá suporte ao treinamento distribuído em clusters de CPU e GPU. Você pode executar facilmente trabalhos TensorFlow distribuídos e o serviço de Azure Machine Learning gerenciará a orquestração para você.
+O [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimador também dá suporte ao treinamento distribuído em clusters de CPU e GPU. Você pode executar facilmente trabalhos TensorFlow distribuídos e Azure Machine Learning gerenciará a orquestração para você.
 
-Azure Machine Learning serviço dá suporte a dois métodos de treinamento distribuído no TensorFlow:
+O Azure Machine Learning suporta dois métodos de formação distribuída no TensorFlow:
 
 - Treinamento distribuído [baseado em MPI](https://www.open-mpi.org/) usando a estrutura [Horovod](https://github.com/uber/horovod)
 - [TensorFlow distribuído](https://www.tensorflow.org/deploy/distributed) nativo usando o método de servidor de parâmetros

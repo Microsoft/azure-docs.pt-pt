@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 62fcc19f3cfe9109097d1f2a70d785060b5bdc53
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727360"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003945"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -61,7 +61,7 @@ Os três modelos de criptografia do lado do servidor oferecem diferentes caracte
 
 Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](/azure/security/azure-security-disk-encryption), que usa a tecnologia do [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e o [DM](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
 
-As chaves de criptografia e os segredos são protegidos em sua [assinatura do Azure Key Vault](../../key-vault/key-vault-whatis.md). Usando o serviço de backup do Azure, você pode fazer backup e restaurar VMs (máquinas virtuais) criptografadas que usam a configuração KEK (chave de criptografia de chave).
+As chaves de criptografia e os segredos são protegidos em sua [assinatura do Azure Key Vault](../../key-vault/key-vault-overview.md). Usando o serviço de backup do Azure, você pode fazer backup e restaurar VMs (máquinas virtuais) criptografadas que usam a configuração KEK (chave de criptografia de chave).
 
 ### <a name="azure-storage-service-encryption"></a>Encriptação do Serviço de Armazenamento do Azure
 
@@ -119,7 +119,7 @@ O Azure oferece muitos mecanismos para manter os dados privados à medida que el
 
 ### <a name="tlsssl-encryption-in-azure"></a>Criptografia TLS/SSL no Azure
 
-A Microsoft usa [o protocolo](https://en.wikipedia.org/wiki/Transport_Layer_Security) TLS para proteger dados quando está viajando entre os serviços de nuvem e os clientes. Os data centers da Microsoft negociam uma conexão TLS com sistemas cliente que se conectam aos serviços do Azure. O TLS fornece autenticação forte, privacidade de mensagens e integridade (permitindo a detecção de adulteração de mensagem, interceptação e falsificação), interoperabilidade, flexibilidade de algoritmo e facilidade de implantação e uso.
+[A Microsoft usa o protocolo](https://en.wikipedia.org/wiki/Transport_Layer_Security) TLS para proteger dados quando está viajando entre os serviços de nuvem e os clientes. Os data centers da Microsoft negociam uma conexão TLS com sistemas cliente que se conectam aos serviços do Azure. O TLS fornece autenticação forte, privacidade de mensagens e integridade (permitindo a detecção de adulteração de mensagem, interceptação e falsificação), interoperabilidade, flexibilidade de algoritmo e facilidade de implantação e uso.
 
 [Sigilo de encaminhamento perfeito](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protege as conexões entre os sistemas cliente dos clientes e os serviços de nuvem da Microsoft por chaves exclusivas. As conexões também usam comprimentos de chave de criptografia de 2.048 bits baseados em RSA. Essa combinação torna difícil para alguém interceptar e acessar dados em trânsito.
 
@@ -201,7 +201,7 @@ Sem a proteção adequada e o gerenciamento das chaves, a criptografia é inutil
 
 Key Vault alivia as organizações da necessidade de configurar, aplicar patches e manter os HSMs (módulos de segurança de hardware) e o software de gerenciamento de chaves. Ao usar Key Vault, você mantém o controle. A Microsoft nunca vê suas chaves e os aplicativos não têm acesso direto a elas. Você também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança de rede do Azure](network-overview.md)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946353"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004133"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo MQTT
 
@@ -48,7 +48,7 @@ A tabela a seguir contém links para exemplos de código para cada idioma com su
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Sempre dá suporte a MQTT por padrão |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migrando um aplicativo de dispositivo do AMQP para o MQTT
 
@@ -58,13 +58,15 @@ Ao fazer isso, certifique-se de verificar os seguintes itens:
 
 * AMQP retorna erros para muitas condições, enquanto MQTT encerra a conexão. Como resultado, sua lógica de tratamento de exceções pode exigir algumas alterações.
 
-* O MQTT não oferece suporte às operações de rejeição ao receber [mensagens da nuvem para o dispositivo](iot-hub-devguide-messaging.md). Se o aplicativo de back-end precisar receber uma resposta do aplicativo do dispositivo, considere o uso de [métodos diretos](iot-hub-devguide-direct-methods.md).
+* O MQTT não oferece suporte às operações de *rejeição* ao receber [mensagens da nuvem para o dispositivo](iot-hub-devguide-messaging.md). Se o aplicativo de back-end precisar receber uma resposta do aplicativo do dispositivo, considere o uso de [métodos diretos](iot-hub-devguide-direct-methods.md).
+
+* AMQP não tem suporte no SDK do Python
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Usando o protocolo MQTT diretamente (como um dispositivo)
 
 Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se conectar aos pontos de extremidade do dispositivo público usando o protocolo MQTT na porta 8883. No pacote do **Connect** , o dispositivo deve usar os seguintes valores:
 
-* Para o campo **ClientID** , use DeviceID.
+* Para o campo **ClientID** , use **DeviceID**.
 
 * Para o campo **nome** de usuário `{iothubhostname}/{device_id}/?api-version=2018-06-30`, use `{iothubhostname}` , em que é o CNAME completo do Hub IOT.
 
@@ -89,7 +91,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
   
 2. Clique com o botão direito do mouse no dispositivo e selecione **gerar token SAS para o dispositivo**.
   
-3. Defina o **tempo** de expiração e pressione ' Enter '.
+3. Defina o **tempo de expiração** e pressione ' Enter '.
   
 4. O token SAS é criado e copiado para a área de transferência.
 
@@ -99,7 +101,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
 
 2. Clique em **token SAS** (canto superior direito).
 
-3. Em **SASTokenForm**, selecione seu dispositivo na lista suspensa DeviceID. Defina seu **TTL**.
+3. Em **SASTokenForm**, selecione seu dispositivo na lista suspensa **DeviceID** . Defina seu **TTL**.
 
 4. Clique em **gerar** para criar seu token.
 
@@ -113,7 +115,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
 
 Para pacotes MQTT Connect e Disconnect, o Hub IoT emite um evento no canal de **monitoramento de operações** . Esse evento tem informações adicionais que podem ajudá-lo a solucionar problemas de conectividade.
 
-O aplicativo do dispositivo pode especificar uma mensagem **será** exibida no pacote do **Connect** . O aplicativo do dispositivo deve `devices/{device_id}/messages/events/` usar `devices/{device_id}/messages/events/{property_bag}` ou como o nome do tópico **será** para definir as mensagens a serem encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um pacote de desconexão não tiver sido recebido anteriormente do dispositivo, o Hub IoT enviará a mensagem fornecida no pacote **Connect** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade de **eventos** padrão ou um ponto de extremidade personalizado definido pelo roteamento do Hub IOT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **será** atribuída a ela.
+O aplicativo do dispositivo pode especificar uma mensagem **será** exibida no pacote do **Connect** . O aplicativo do dispositivo deve `devices/{device_id}/messages/events/` usar `devices/{device_id}/messages/events/{property_bag}` ou como o nome do tópico **será** para **definir as mensagens** a serem encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um pacote de **desconexão** não tiver sido recebido anteriormente do dispositivo **, o Hub** IOT enviará a mensagem fornecida no pacote **Connect** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade de **eventos** padrão ou um ponto de extremidade personalizado definido pelo roteamento do Hub IOT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **será** atribuída a ela.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Usando o protocolo MQTT diretamente (como um módulo)
 
@@ -247,7 +249,7 @@ Para receber mensagens do Hub IOT, um dispositivo deve assinar usando `devices/{
 
 O dispositivo não recebe nenhuma mensagem do Hub IOT até que tenha se inscrito com êxito em seu ponto de extremidade específico do dispositivo, representado pelo filtro `devices/{device_id}/messages/devicebound/#` de tópico. Depois que uma assinatura tiver sido estabelecida, o dispositivo receberá mensagens da nuvem para o dispositivo que foram enviadas a ela após o horário da assinatura. Se o dispositivo se conectar com o sinalizador **CleanSession** definido como **0**, a assinatura será persistida em diferentes sessões. Nesse caso, na próxima vez que o dispositivo se conectar com o **CleanSession 0** , ele receberá todas as mensagens pendentes enviadas a ele enquanto estiver desconectado. Se o dispositivo usar o sinalizador **CleanSession** definido como **1** no entanto, ele não receberá nenhuma mensagem do Hub IOT até assinar seu ponto de extremidade do dispositivo.
 
-O Hub IOT entrega mensagens com o **nome** `devices/{device_id}/messages/devicebound/`do tópico `devices/{device_id}/messages/devicebound/{property_bag}` ou quando há propriedades de mensagem. `{property_bag}`contém pares de chave/valor codificados de URL de propriedades de mensagem. Somente as propriedades do aplicativo e as propriedades do sistema de usuário configurável (como **MessageId** ou CorrelationId) são incluídas no recipiente de propriedades. Os nomes de Propriedade do sistema **$** têm o prefixo, as propriedades do aplicativo usam o nome da propriedade original sem prefixo.
+O Hub IOT entrega mensagens com o **nome** `devices/{device_id}/messages/devicebound/`do tópico `devices/{device_id}/messages/devicebound/{property_bag}` ou quando há propriedades de mensagem. `{property_bag}`contém pares de chave/valor codificados de URL de propriedades de mensagem. Somente as propriedades do aplicativo e as propriedades do sistema de usuário configurável (como **MessageId** ou **CorrelationId**) são incluídas no recipiente de propriedades. Os nomes de Propriedade do sistema **$** têm o prefixo, as propriedades do aplicativo usam o nome da propriedade original sem prefixo.
 
 Quando um aplicativo de dispositivo assina um tópico com o **QoS 2**, o Hub IOT concede o nível 1 de QoS máximo no pacote **SUBACK** . Depois disso, o Hub IoT entrega mensagens para o dispositivo usando a QoS 1.
 
@@ -275,7 +277,7 @@ O corpo da resposta contém a seção de propriedades do dispositivo de texto, c
 
 Os códigos de status possíveis são:
 
-|Estado | Descrição |
+|State | Descrição |
 | ----- | ----------- |
 | 204 | Êxito (nenhum conteúdo é retornado) |
 | 429 | Muitas solicitações (limitadas), de acordo com a [limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md) |
@@ -306,7 +308,7 @@ O corpo da mensagem de solicitação contém um documento JSON que contém novos
 
 Os códigos de status possíveis são:
 
-|Estado | Descrição |
+|State | Descrição |
 | ----- | ----------- |
 | 200 | Êxito |
 | 400 | Solicitação inadequada. JSON malformado |
@@ -346,7 +348,7 @@ Quando um dispositivo está conectado, o Hub IOT envia notificações para o `$i
 Para atualizações de propriedade, `null` os valores significam que o membro do objeto JSON está sendo excluído. Além disso, observe `$version` que indica a nova versão da seção de propriedades desejadas de a.
 
 > [!IMPORTANT]
-> O Hub IoT gera notificações de alteração somente quando os dispositivos estão conectados. Certifique-se de implementar o fluxo de reconexão do [dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) para manter as propriedades desejadas sincronizadas entre o Hub IOT e o aplicativo do dispositivo.
+> O Hub IoT gera notificações de alteração somente quando os dispositivos estão conectados. Certifique-se de implementar o [fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) para manter as propriedades desejadas sincronizadas entre o Hub IOT e o aplicativo do dispositivo.
 
 Para obter mais informações, consulte [Guia do desenvolvedor do dispositivo gêmeos](iot-hub-devguide-device-twins.md).
 

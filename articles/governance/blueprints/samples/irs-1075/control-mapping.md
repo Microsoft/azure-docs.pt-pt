@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 3157fd1e9790beb2230f8dee5b2d10afc4beff69
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 55c7a1d4878423e7e19dac72a8341fd1340c62e4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918678"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001923"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapeamento de controle da amostra do IRS 1075 Blueprint
 
@@ -323,7 +323,7 @@ A proteção avançada contra ameaças para o armazenamento do Azure detecta ten
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico IRS 1075, visite os artigos a seguir para saber mais sobre o plano gráfico e como implantar esse exemplo:
 

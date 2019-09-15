@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: ae9aaea91f62a7e79835e65a5a9f9c76017afdb1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934388"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003862"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Tutorial: Usar Azure Key Vault com uma máquina virtual do Windows no Python
 
@@ -32,7 +32,7 @@ Este tutorial mostra-lhe como:
 > * Habilitar uma identidade gerenciada.
 > * Atribua permissões à identidade da VM.
 
-Antes de começar, leia [Key Vault conceitos básicos](key-vault-whatis.md#basic-concepts). 
+Antes de começar, leia [Key Vault conceitos básicos](basic-concepts.md). 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -46,7 +46,7 @@ Para Windows, Mac e Linux:
 
 O Azure Key Vault armazena as credenciais com segurança, portanto, elas não são exibidas no seu código. No entanto, você precisa autenticar-se no Azure Key Vault para recuperar suas chaves. Para autenticar no Key Vault, você precisa de uma credencial. É um dilema de Bootstrap clássico. O Identidade de Serviço Gerenciada (MSI) resolve esse problema fornecendo uma _identidade de Bootstrap_ que simplifica o processo.
 
-Quando você habilita o MSI para um serviço do Azure, como máquinas virtuais do Azure, serviço Azure App ou Azure Functions, o Azure cria uma [entidade de serviço](key-vault-whatis.md#basic-concepts). O MSI faz isso para a instância do serviço no Azure Active Directory (Azure AD) e injeta as credenciais da entidade de serviço nessa instância. 
+Quando você habilita o MSI para um serviço do Azure, como máquinas virtuais do Azure, serviço Azure App ou Azure Functions, o Azure cria uma [entidade de serviço](basic-concepts.md). O MSI faz isso para a instância do serviço no Azure Active Directory (Azure AD) e injeta as credenciais da entidade de serviço nessa instância. 
 
 ![MSI](media/MSI.png)
 
@@ -81,7 +81,7 @@ Para criar um cofre de chaves no grupo de recursos que você criou na etapa ante
 
 * Nome do cofre de chaves: uma cadeia de 3 a 24 caracteres que pode conter apenas números (0-9), letras (a-z, A-Z) e hifens (-)
 * Nome do grupo de recursos
-* Localização: **E.U.A. Oeste**
+* Local **E.U.A. Oeste**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -179,7 +179,7 @@ O código anterior mostra como fazer operações com Azure Key Vault em uma máq
 
 Quando eles não forem mais necessários, exclua a máquina virtual e o cofre de chaves.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [API REST do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885170"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003663"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados de Apache Spark usando Power BI no HDInsight
 
@@ -46,7 +46,7 @@ O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior
 
     O resultado tem o seguinte aspeto:
 
-    ![Mostrar tabelas no Spark](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![Mostrar tabelas no Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     Se tiver fechado o bloco de notas antes de iniciar este tutorial, `hvactemptable` é limpa, pelo que não é incluída na saída.  Só as tabelas do Hive que estejam armazenadas na metastore (indicadas com **False** (Falso), na coluna **isTemporary**) podem ser acedidas a partir das ferramentas de BI. Neste tutorial, vai ligar à tabela **hvac** que criou.
 
@@ -59,7 +59,7 @@ O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior
 
     O resultado tem o seguinte aspeto:
 
-    ![Mostrar linhas da tabela hvac no Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![Mostrar linhas da tabela hvac no Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)** . Encerre o bloco de notas para libertar os recursos.
 
@@ -127,31 +127,32 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
 O serviço Power BI permite-lhe partilhar relatórios e dashboards em toda a sua organização. Nesta secção, vai publicar primeiro o conjunto de dados e o relatório. Em seguida, vai afixar o relatório a um dashboard. Normalmente, os dashboards são utilizados para se concentrarem num subconjunto de dados num relatório; tem apenas uma visualização no seu relatório, mas, ainda assim, é útil seguir os passos.
 
 1. Abra o Power BI Desktop.
-2. No separador **Home** (Base), clique em **Publish** (Publicar).
+
+1. No separador **Home** (Base), clique em **Publish** (Publicar).
 
     ![Publicar a partir do Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicar a partir do Power BI Desktop")
 
-2. Selecione uma área de trabalho na qual publicar o conjunto de dados e o relatório e clique em **Select** (Selecionar). Na imagem seguinte, está selecionada a área de trabalho **My Workspace** predefinida.
+1. Selecione uma área de trabalho na qual publicar o conjunto de dados e o relatório e clique em **Select** (Selecionar). Na imagem seguinte, está selecionada a área de trabalho **My Workspace** predefinida.
 
     ![Selecionar a área de trabalho na qual publicar o conjunto de dados e o relatório](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selecionar a área de trabalho na qual publicar o conjunto de dados e o relatório") 
 
-3. Após a publicação bem-sucedida, clique em **Open 'BuildingTemperature.pbix' in Power BI** (Abrir “BuildingTemperature.pbix” no Power BI).
+1. Após a publicação bem-sucedida, clique em **Open 'BuildingTemperature.pbix' in Power BI** (Abrir “BuildingTemperature.pbix” no Power BI).
 
     ![Publicar com êxito, clique para introduzir credenciais](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicar com êxito, clique para introduzir credenciais") 
 
-4. No serviço Power BI, clique em **Enter credentials** (Introduzir credenciais).
+1. No serviço Power BI, clique em **Enter credentials** (Introduzir credenciais).
 
     ![Introduzir as credenciais no serviço Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Introduzir as credenciais no serviço Power BI")
 
-5. Clique em **Editar credenciais**.
+1. Clique em **Editar credenciais**.
 
     ![Editar credenciais no serviço Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Editar credenciais no serviço Power BI")
 
-6. Introduza as informações de conta de início de sessão do HDInsight e clique em **Sign in** (Iniciar sessão). O nome predefinido da conta é *admin*.
+1. Introduza as informações de conta de início de sessão do HDInsight e clique em **Sign in** (Iniciar sessão). O nome predefinido da conta é *admin*.
 
     ![Iniciar sessão no cluster do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Iniciar sessão no cluster do Spark")
 
-7. No painel do lado esquerdo, aceda a **Workspaces** (Áreas de Trabalho) > **My Workspace** (As Minhas Áreas de Trabalho) > **REPORTS** (RELATÓRIOS) e clique em **BuildingTemperature**.
+1. No painel do lado esquerdo, aceda a **Workspaces** (Áreas de Trabalho) > **My Workspace** (As Minhas Áreas de Trabalho) > **REPORTS** (RELATÓRIOS) e clique em **BuildingTemperature**.
 
     ![Relatório mostrado em “relatórios” no painel do lado esquerdo](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Relatório mostrado em “relatórios” no painel do lado esquerdo")
 
@@ -159,15 +160,15 @@ O serviço Power BI permite-lhe partilhar relatórios e dashboards em toda a sua
 
     O elemento visual que criou no Power BI Desktop está agora disponível no serviço Power BI. 
 
-8. Coloque o cursor sobre a visualização e clique no ícone de alfinete no canto superior direito.
+1. Coloque o cursor sobre a visualização e clique no ícone de alfinete no canto superior direito.
 
     ![Relatório no serviço Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Relatório no serviço Power BI")
 
-9. Selecione "New dashboard" (“Novo dashboard”), introduza o nome `Building temperature` e clique em **Pin** (Afixar).
+1. Selecione "New dashboard" (“Novo dashboard”), introduza o nome `Building temperature` e clique em **Pin** (Afixar).
 
     ![Afixar ao dashboard novo](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Afixar ao dashboard novo")
 
-10. No relatório, clique em **Go to dashboard** (Aceder ao dashboard). 
+1. No relatório, clique em **Go to dashboard** (Aceder ao dashboard).
 
 O elemento visual é afixado ao dashboard. Pode adicionar outros elementos visuais ao relatório e afixá-los ao mesmo dashboard. Para obter mais informações sobre relatórios e painéis, consulte [relatórios em Power bi](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) e [painéis em Power bi](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

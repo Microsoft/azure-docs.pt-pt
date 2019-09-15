@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098632"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999050"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -88,7 +88,7 @@ Os princípios e padrões para o perímetro de rede estão disponíveis há déc
 Veja a seguir as práticas recomendadas para gerenciar o perímetro de identidade.
 
 **Prática recomendada**: Proteja suas chaves e credenciais para proteger sua implantação de PaaS.   
-**Detalhe**: Perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada na qual as chaves e os segredos podem ser armazenados em HSMs (módulos de segurança de hardware). O [Azure Key Vault](../../key-vault/key-vault-whatis.md) protege suas chaves e segredos criptografando chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos. pfx e senhas usando chaves que são protegidas por hsms.
+**Detalhe**: Perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada na qual as chaves e os segredos podem ser armazenados em HSMs (módulos de segurança de hardware). O [Azure Key Vault](../../key-vault/key-vault-overview.md) protege suas chaves e segredos criptografando chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos. pfx e senhas usando chaves que são protegidas por hsms.
 
 **Prática recomendada**: Não coloque as credenciais e outros segredos no código-fonte ou no GitHub.   
 **Detalhe**: A única coisa pior do que perder suas chaves e credenciais é ter uma parte não autorizada ter acesso a elas. Os invasores podem aproveitar as tecnologias de bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque a chave e os segredos nesses repositórios de código público.
@@ -133,7 +133,7 @@ A seguir estão as práticas recomendadas para usar o serviço de aplicativo.
 **Detalhe**: Restringir o acesso é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Você pode usar o RBAC para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [introdução ao gerenciamento de acesso](/azure/role-based-access-control/overview).
 
 **Prática recomendada**: Proteja suas chaves.   
-**Detalhe**: Azure Key Vault ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços de nuvem. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados,. Arquivos PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para maior segurança, pode importar ou gerar chaves nos HSMs. Consulte [Azure Key Vault](/azure/key-vault/key-vault-whatis) para saber mais. Você também pode usar Key Vault para gerenciar seus certificados TLS com renovação automática.
+**Detalhe**: Azure Key Vault ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços de nuvem. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados,. Arquivos PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para maior segurança, pode importar ou gerar chaves nos HSMs. Consulte [Azure Key Vault](/azure/key-vault/key-vault-overview) para saber mais. Você também pode usar Key Vault para gerenciar seus certificados TLS com renovação automática.
 
 **Prática recomendada**: Restrinja os endereços IP de origem de entrada.   
 **Detalhe**: O [ambiente do serviço de aplicativo](/azure/app-service/environment/intro) tem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio de grupos de segurança de rede. As redes virtuais permitem que você coloque recursos do Azure em uma rede roteável que não seja da Internet para a qual você controla o acesso. Para saber mais, consulte [integrar seu aplicativo a uma rede virtual do Azure](/azure/app-service/web-sites-integrate-with-vnet).
@@ -154,17 +154,17 @@ O [WAF (firewall do aplicativo Web)](/azure/frontdoor/waf-overview) é um recurs
 ## <a name="monitor-the-performance-of-your-applications"></a>Monitorar o desempenho de seus aplicativos
 O monitoramento é o ato de coletar e analisar dados para determinar o desempenho, a integridade e a disponibilidade do seu aplicativo. Uma estratégia de monitorização efetiva ajuda-o a compreender o funcionamento em detalhe dos componentes da sua aplicação. Ele ajuda a aumentar seu tempo de atividade notificando você sobre problemas críticos para que você possa resolvê-los antes que eles se tornem problemas. Ele também ajuda a detectar anomalias que podem estar relacionadas à segurança.
 
-Use [aplicativo Azure](https://azure.microsoft.com/documentation/services/application-insights) insights para monitorar a disponibilidade, o desempenho e o uso do seu aplicativo, seja ele hospedado na nuvem ou no local. Usando Application Insights, você pode rapidamente identificar e diagnosticar erros em seu aplicativo sem esperar que um usuário os relate. Com as informações que recolher, pode fazer escolhas informadas sobre a manutenção e as melhorias da aplicação.
+Use [aplicativo Azure insights](https://azure.microsoft.com/documentation/services/application-insights) para monitorar a disponibilidade, o desempenho e o uso do seu aplicativo, seja ele hospedado na nuvem ou no local. Usando Application Insights, você pode rapidamente identificar e diagnosticar erros em seu aplicativo sem esperar que um usuário os relate. Com as informações que recolher, pode fazer escolhas informadas sobre a manutenção e as melhorias da aplicação.
 
 O Application Insights tem um vasto conjunto ferramentas para interagir com os dados que recolhe. O Application Insights armazena os dados num repositório comum. Ele pode aproveitar a funcionalidade compartilhada, como alertas, painéis e análise profunda com a linguagem de consulta Kusto.
 
 ## <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
-A validação de defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste](pen-testing.md) de penetração de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
+A validação de defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste de penetração](pen-testing.md) de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
 
 O teste de difusão é um método para localizar falhas de programa (erros de código) fornecendo dados de entrada malformados para interfaces de programa (pontos de entrada) que analisam e consomem esses dados. A [detecção de riscos de segurança da Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada em nuvem que você pode usar para procurar bugs e outras vulnerabilidades de segurança em seu software antes de implantá-lo no Azure. A ferramenta foi projetada para detectar vulnerabilidades antes de implantar o software para que você não precise corrigir um bug, lidar com panes ou responder a um ataque após o lançamento do software.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, nos concentramos nas vantagens de segurança de uma implantação de PaaS do Azure e nas práticas recomendadas de segurança para aplicativos em nuvem. Em seguida, conheça as práticas recomendadas para proteger suas soluções Web e móveis de PaaS usando serviços específicos do Azure. Começaremos com o serviço Azure App, o banco de dados SQL do Azure e o Azure SQL Data Warehouse e o armazenamento do Azure. Como artigos sobre práticas recomendadas para outros serviços do Azure se tornam disponíveis, os links serão fornecidos na lista a seguir:
 
 - [Serviço de Aplicações do Azure](paas-applications-using-app-services.md)

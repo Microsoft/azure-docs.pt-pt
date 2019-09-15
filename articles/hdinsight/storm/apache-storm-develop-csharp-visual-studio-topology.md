@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915165"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003831"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver C# topologias para Apache Storm usando as ferramentas de data Lake para o Visual Studio
 
@@ -135,7 +135,7 @@ Para obter um exemplo de topologia que usa esse componente e funciona com o Stor
 
 2. Na janela **novo projeto** , expanda**modelos** **instalados** > e selecione **Azure data Lake**. Na lista de modelos, selecione **aplicativo Storm**. Na parte inferior da tela, digite **WordCount** como o nome do aplicativo.
 
-    ![Captura de tela da janela novo projeto](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Captura de tela da janela novo projeto](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. Depois de criar o projeto, você deverá ter os seguintes arquivos:
 
@@ -338,7 +338,7 @@ Para obter um exemplo de topologia que usa esse componente e funciona com o Stor
 
 Esgotamentos e parafusos são organizados em um grafo, que define como os dados fluem entre os componentes. Para essa topologia, o grafo é o seguinte:
 
-![Diagrama de como os componentes são organizados](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagrama de como os componentes são organizados](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 As frases são emitidas do Spout e são distribuídas para instâncias do parafuso do divisor. O parafuso do divisor divide as frases em palavras, que são distribuídas para o parafuso do contador.
 
@@ -461,7 +461,6 @@ Para obter um exemplo de uma topologia híbrida, crie um projeto e selecione **e
   > [!NOTE]  
   > Esta versão também demonstra como usar o código Clojure de um arquivo de texto como um componente Java.
 
-
 Para alternar a topologia que é usada quando o projeto é enviado, mova a `[Active(true)]` instrução para a topologia que você deseja usar antes de enviá-la ao cluster.
 
 > [!NOTE]  
@@ -571,15 +570,15 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
    > [!NOTE]
    > Lembre-se de alterar o **tipo de saída** para **biblioteca de classes** antes de implantar a topologia em um cluster.
 
-2. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **novo item**. Selecione **classe**e insira **LocalTest.cs** como o nome da classe. Por fim, clique em **Adicionar**.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **novo item**. Selecione **classe**e insira **LocalTest.cs** como o nome da classe. Por fim, clique em **Adicionar**.
 
-3. Abra **LocalTest.cs**e adicione a seguinte instrução **using** na parte superior:
+1. Abra **LocalTest.cs**e adicione a seguinte instrução **using** na parte superior:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Use o código a seguir como o conteúdo da classe **LocalTest** :
+1. Use o código a seguir como o conteúdo da classe **LocalTest** :
 
     ```csharp
     // Drives the topology components
@@ -681,9 +680,9 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
     Console.ReadKey();
     ```
 
-2. Salve as alterações e, em seguida, clique em **F5** ou selecione **depurar** > **Iniciar Depuração** para iniciar o projeto. Uma janela do console deve aparecer e o status do log como o andamento dos testes. Quando os **testes terminarem** aparecer, pressione qualquer tecla para fechar a janela.
+1. Salve as alterações e, em seguida, clique em **F5** ou selecione **depurar** > **Iniciar Depuração** para iniciar o projeto. Uma janela do console deve aparecer e o status do log como o andamento dos testes. Quando os **testes terminarem** aparecer, pressione qualquer tecla para fechar a janela.
 
-3. Use o **Windows Explorer** para localizar o diretório que contém o projeto. Por exemplo: **C:\Users\<your_user_name > \Documents\Visual Studio 2013 \ Projects\WordCount\WordCount**. Nesse diretório, abra **bin**e clique em **depurar**. Você deve ver os arquivos de texto que foram produzidos quando os testes foram executados: Sentences. txt, Counter. txt e Splitter. txt. Abra cada arquivo de texto e inspecione os dados.
+1. Use o **Windows Explorer** para localizar o diretório que contém o projeto. Por exemplo: **C:\Users\<your_user_name > \Documents\Visual Studio 2013 \ Projects\WordCount\WordCount**. Nesse diretório, abra **bin**e clique em **depurar**. Você deve ver os arquivos de texto que foram produzidos quando os testes foram executados: Sentences. txt, Counter. txt e Splitter. txt. Abra cada arquivo de texto e inspecione os dados.
 
    > [!NOTE]  
    > Os dados de cadeia de caracteres persistem como uma matriz de valores decimais nesses arquivos. Por exemplo, \[[97.103.111]] no arquivo **Splitter. txt** é a palavra *e*.
@@ -736,7 +735,7 @@ Se o `hdinsight-scpwebapi.out` log contiver `FileNotFoundException`um, isso pode
 * O JDK não está no caminho do ambiente de desenvolvimento. Verifique se o JDK está instalado no ambiente de desenvolvimento e se `%JAVA_HOME%/bin` está no caminho.
 * Você não tem uma dependência de Java. Verifique se você está incluindo todos os arquivos. jar necessários como parte do envio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter um exemplo de processamento de dados de hubs de eventos, consulte [processar eventos dos hubs de eventos do Azure com o Storm no HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

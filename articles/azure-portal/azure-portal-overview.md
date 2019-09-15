@@ -1,6 +1,6 @@
 ---
 title: Descrição geral do portal do Azure | Microsoft Docs
-description: Aprenda a navegar do portal do Azure e utilizá-lo para gerir os serviços
+description: Saiba como navegar na portal do Azure e usá-la para gerenciar serviços
 services: azure-portal
 keywords: ''
 author: kfollis
@@ -9,69 +9,75 @@ ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e176a8b16129cd35fc011e14fcb36038f7c0144
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244188"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000346"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure
 
-Este artigo apresenta o portal do Azure, identifica os elementos de página do portal e ajuda-o a familiarizar-se com a experiência de portal de gestão do Azure.
+Este artigo apresenta o portal do Azure, identifica os elementos da página do portal e ajuda você a se familiarizar com a experiência de gerenciamento de portal do Azure.
 
 ## <a name="what-is-the-azure-portal"></a>O que é o portal do Azure?
 
-O portal do Azure é uma consola baseada na web e unificada que fornece uma alternativa para ferramentas de linha de comandos. Com o portal do Azure, pode gerir a sua subscrição do Azure através de uma interface gráfica do usuário. Pode criar, gerir e monitorize tudo, desde aplicações web simples com implementações na cloud complexas, criar dashboards personalizados para uma vista organizada dos recursos e configurar as opções de acessibilidade para a melhor experiência.
+O portal do Azure é um console unificado baseado na Web que fornece uma alternativa para as ferramentas de linha de comando. Com o portal do Azure, você pode gerenciar sua assinatura do Azure usando uma interface gráfica do usuário. Você pode criar, gerenciar e monitorar tudo, desde aplicativos Web simples até implantações de nuvem complexas, criar painéis personalizados para uma exibição organizada de recursos e configurar opções de acessibilidade para obter a melhor experiência.
 
-O portal do Azure destina-se a resiliência e a disponibilidade contínua. Ele tem uma presença em cada datacenter do Azure, tornando resiliente a falhas de centro de dados individuais e também evita slow-downs rede sendo perto dos utilizadores. O portal do Azure atualiza continuamente e requer sem períodos de indisponibilidade para atividades de manutenção.
+A portal do Azure é projetada para resiliência e disponibilidade contínua. Ele tem uma presença em cada Datacenter do Azure, tornando-o resiliente a falhas de datacenter individuais e também evita lentidão na rede, sendo que eles ficam próximos dos usuários. O portal do Azure atualiza continuamente e não requer nenhum tempo de inatividade para atividades de manutenção.
 
 ## <a name="azure-home"></a>Página inicial do Azure
 
-Como um novo assinante aos serviços do Azure, a primeira coisa que vê depois de [iniciar sessão portal](https://portal.azure.com) é **página inicial do Azure**. Este compila de página recursos que o ajudam a obter o máximo partido da sua subscrição do Azure. Incluímos links para gratuita cursos online, documentação, os serviços principais e sites úteis para que permaneça atuais e a gerir alterar para a sua organização. Para obter acesso rápido e fácil de trabalhar em curso, também vamos mostrar uma lista dos seus recursos mais recentemente visitados. Não é possível personalizar essa página, mas pode escolher se pretende ver **página inicial do Azure** ou **Dashboard do Azure** como a vista predefinida. Na primeira vez que iniciar sessão, há uma linha de comandos na parte superior da página onde pode salvar a sua preferência.
+Como um novo assinante dos serviços do Azure, a primeira coisa que você vê depois de [entrar no portal](https://portal.azure.com) é a **página inicial do Azure**. Esta página compila os recursos que o ajudarão a obter o máximo de sua assinatura do Azure. Incluímos links para cursos online gratuitos, documentação, serviços principais e sites úteis para manter o atual e gerenciar alterações para sua organização. Para acesso rápido e fácil ao trabalho em andamento, também mostramos uma lista dos recursos visitados mais recentemente. Você não pode personalizar esta página, mas pode escolher se deseja ver o **Azure Home** ou o **painel do Azure** como sua exibição padrão. Na primeira vez que você entrar, há um prompt na parte superior da página em que você pode salvar sua preferência.
 
-![Captura de ecrã a mostrar Seletor de vistas padrão](./media/azure-portal-overview/azure-portal-default-view.png)
+![Captura de tela mostrando o seletor de exibição padrão](./media/azure-portal-overview/azure-portal-default-view.png)
 
-## <a name="azure-dashboard"></a>Dashboard do Azure
+## <a name="azure-dashboard"></a>Painel do Azure
 
-Dashboards fornecem uma visão direcionada dos recursos na sua subscrição que importa mais para. Demos um dashboard predefinido para começar. Pode personalizar este dashboard para abrir os recursos que utiliza mais numa única vista. Quaisquer alterações efetuadas para a vista predefinida afetam apenas a sua experiência. No entanto, pode criar dashboards adicionais para sua utilização ou publicar os seus dashboards personalizados e partilhá-los com outros utilizadores na sua organização. Para obter mais informações, consulte [criar e partilhar dashboards no portal do Azure](../azure-portal/azure-portal-dashboards.md).
+Os painéis fornecem uma visão focada dos recursos em sua assinatura que são mais importantes para você. Nós lhe fornecemos um painel padrão para você começar. Você pode personalizar esse painel para trazer os recursos que você usa mais em uma única exibição. As alterações feitas no modo de exibição padrão afetam apenas a sua experiência. No entanto, você pode criar painéis adicionais para seu próprio uso ou publicar seus painéis personalizados e compartilhá-los com outros usuários em sua organização. Para obter mais informações, consulte [criar e compartilhar painéis no portal do Azure](../azure-portal/azure-portal-dashboards.md).
 
-## <a name="getting-around-the-portal"></a>Introdução ao portal
+## <a name="getting-around-the-portal"></a>Contornar o portal
 
-É útil entender o layout básico do portal e como interagir com ele. Aqui, Apresentaremos os componentes da interface do usuário e alguma da terminologia que usamos para dar instruções. Para obter uma apresentação mais detalhada do portal, veja a lição de curso [navegue até o portal](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+É útil entender o layout básico do portal e como interagir com ele. Aqui, apresentaremos os componentes da interface do usuário e parte da terminologia que usamos para fornecer instruções. Para obter um tour mais detalhado do portal, consulte a lição do curso [navegar no portal](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
-A barra lateral de portal do Azure e o cabeçalho da página são elementos globais que são sempre presentes. Estas funcionalidades persistentes são a "shell" para a interface de utilizador associada a cada serviço individual ou funcionalidade e o cabeçalho fornece acesso aos controlos globais. A página de configuração (por vezes referida como um "painel") para um recurso também pode ter um painel da esquerda para ajudar a mover entre funcionalidades.
+A barra lateral portal do Azure e o cabeçalho da página são elementos globais que estão sempre presentes. Esses recursos persistentes são o "Shell" para a interface do usuário associada a cada serviço ou recurso individual e o cabeçalho fornece acesso a controles globais. A página de configuração (às vezes chamada de "lâmina") para um recurso também pode ter um painel esquerdo para ajudá-lo a se mover entre os recursos.
 
-A figura abaixo das etiquetas os elementos básicos do portal do Azure, cada um dos quais está descrita na tabela seguinte.
+A figura abaixo rotula os elementos básicos da portal do Azure, cada um dos quais são descritos na tabela a seguir.
 
-![Captura de ecrã que mostra a vista de portal de ecrã inteiro e a chave para elementos de interface do Usuário](./media/azure-portal-overview/azure-portal-fullscreen-map.png)
+![Captura de tela mostrando o modo de exibição do portal inteiro e a chave para elementos da interface do usuário](./media/azure-portal-overview/azure-portal-fullscreen-map.png)
 
 |Chave|Descrição
 |:---:|---|
-|1|Cabeçalho da página. É apresentada na parte superior de todas as páginas de portal e contém elementos global.|
-|2| Pesquisa global. Utilize a barra de pesquisa para encontrar rapidamente um recurso específico, um serviço ou documentação.|
-|3|Controlos globais. Como todos os elementos global, esses recursos manter entre o portal e incluem: Cloud Shell, filtro de subscrição, notificações, definições do portal, ajuda e suporte e envie-nos comentários.|
-|4|Sua conta. Ver informações sobre a sua conta, mudar de diretórios, terminar sessão ou iniciar sessão com uma conta diferente.|
-|5|Barra lateral. A barra lateral é um elemento global que lhe permite navegar entre serviços. A barra lateral pode ser fechada para dar mais atenção para o painel de trabalho.|
-|6|Controlos principal para criar um novo recurso na subscrição atual. Pesquisar ou procurar no Azure Marketplace para o tipo de recurso que pretende criar.|
-|7|Lista de Favoritos. Adicionar ou remover favoritos a partir da **todos os serviços** página.|
-|8|Painel esquerdo. Muitos serviços incluem um menu do painel esquerdo para ajudar a gerir o serviço.|
+|1|Cabeçalho da página. Aparece na parte superior de cada página do portal e contém elementos globais.|
+|2| Pesquisa global. Use a barra de pesquisa para localizar rapidamente um recurso específico, um serviço ou uma documentação.|
+|3|Controles globais. Como todos os elementos globais, esses recursos persistem pelo portal e incluem: Cloud Shell, filtro de assinatura, notificações, configurações do portal, ajuda e suporte e envie-nos comentários.|
+|4|Sua conta. Exiba informações sobre sua conta, alterne para os diretórios, saia ou entre com uma conta diferente.|
+|5|Forma. A barra lateral é um elemento global que ajuda você a navegar entre serviços. A barra lateral pode ser recolhida para dar mais foco ao painel de trabalho.|
+|6|Controle mestre para criar um novo recurso na assinatura atual. Pesquise ou procure o tipo de recurso que você deseja criar no Azure Marketplace.|
+|7|Sua lista de favoritos. Adicionar ou remover favoritos da página **todos os serviços** .|
+|8|Painel esquerdo. Muitos serviços incluem um menu do painel esquerdo para ajudá-lo a gerenciar o serviço.|
 |9|Barra de comandos. Os controles na barra de comandos são contextuais para seu foco atual.|
-|10|Navegação estrutural. Pode utilizar os links de trilha para mover um nível de volta no fluxo de trabalho.|
-|11|Painel de trabalho.  Apresenta os detalhes sobre o recurso que está atualmente em foco.|
+|10|Breadcrumb. Você pode usar os links de navegação estrutural para voltar um nível em seu fluxo de trabalho.|
+|11|Painel de trabalho.  Exibe os detalhes sobre o recurso que está atualmente em foco.|
 
 ## <a name="get-started-with-services"></a>Introdução aos serviços
 
-Se for um novo subscritor, terá de criar um recurso, até que haja algo para gerir. Selecione **+ criar um recurso** para ver os serviços disponíveis no Azure Marketplace. Encontrará aplicativos e serviços de entre centenas de fornecedores de aqui, tudo com certificação para execução no Azure.
+Se você for um novo assinante, precisará criar um recurso antes que haja qualquer coisa a ser gerenciada. Selecione **+ criar um recurso** para exibir os serviços disponíveis no Azure Marketplace. Você encontrará aplicativos e serviços de centenas de provedores aqui, todos certificados para execução no Azure.
 
-Podemos pré-preenchido seus favoritos na barra lateral com ligações para serviços frequentemente utilizados.  Para ver todos os serviços disponíveis, selecione **todos os serviços** na barra lateral.
+Preenchemos previamente seus favoritos na barra lateral com links para os serviços mais usados.  Para exibir todos os serviços disponíveis, selecione **todos os serviços** na barra lateral.
 
 > [!TIP]
-> A maneira mais rápida de encontrar um recurso, serviço ou documentação é usar *pesquisa* no cabeçalho do global. Use os links de trilha para voltar para páginas anteriores.
+> A maneira mais rápida de localizar um recurso, um serviço ou uma documentação é usar a *pesquisa* no cabeçalho global. Use os links de navegação estrutural para voltar às páginas anteriores.
 >
+Assista a este vídeo para ver uma demonstração sobre como usar a pesquisa global no portal do Azure.
+
+
+> [!VIDEO https://www.youtube.com/embed/nZ7WwTZcQbo]
+
+[Como usar a pesquisa global no portal do Azure](https://www.youtube.com/watch?v=nZ7WwTZcQbo)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre onde executar o portal do Azure [browsers e dispositivos suportados](../azure-portal/azure-portal-supported-browsers-devices.md)
+* Saiba mais sobre onde executar portal do Azure em [dispositivos e navegadores com suporte](../azure-portal/azure-portal-supported-browsers-devices.md)
 
-* Conecte-se em trânsito com [aplicação móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* Mantenha-se conectado em qualquer lugar com [aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)

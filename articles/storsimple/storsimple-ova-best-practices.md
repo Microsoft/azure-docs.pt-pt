@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516752"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002807"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple virtual array
 
@@ -45,7 +45,7 @@ Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
 | --- | --- | --- |
 | **Tipo de máquina virtual** |**Geração 2** VM para uso com o Windows Server 2012 ou posterior e uma imagem *. vhdx* . <br></br> **Geração 1** VM para uso com um Windows Server 2008 ou posterior e uma imagem *. vhd* . |Use a máquina virtual versão 8 ao usar a imagem *. vmdk* . |
 | **Tipo de memória** |Configure como **memória estática**. <br></br> Não use a opção **memória dinâmica** . | |
-| **Tipo de disco de dados** |Provisionar como **expansão dinâmica**.<br></br> O **tamanho fixo** leva muito tempo. <br></br> Não use a opção de diferenciação. |Use a opção **provisionamento dinâmico** . |
+| **Tipo de disco de dados** |Provisionar como **expansão dinâmica**.<br></br> O **tamanho fixo** leva muito tempo. <br></br> Não use a opção de **diferenciação** . |Use a opção **provisionamento dinâmico** . |
 | **Modificação do disco de dados** |A expansão ou a redução não são permitidas. Uma tentativa de fazer isso resulta na perda de todos os dados locais no dispositivo. |A expansão ou a redução não são permitidas. Uma tentativa de fazer isso resulta na perda de todos os dados locais no dispositivo. |
 
 ### <a name="sizing"></a>Dimensionamento
@@ -199,7 +199,7 @@ Use as seguintes práticas recomendadas ao configurar o ACRs para volumes do Sto
 ### <a name="data-security-and-encryption"></a>Segurança e encriptação de dados
 A matriz virtual StorSimple tem recursos de segurança e criptografia de dados que garantem a confidencialidade e a integridade de seus dados. Ao usar esses recursos, é recomendável que você siga estas práticas recomendadas: 
 
-* Defina uma chave de criptografia de armazenamento em nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados de sua matriz virtual para a nuvem. Essa chave não será necessária se os dados forem criptografados para começar. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves, como o [Azure Key Vault](../key-vault/key-vault-whatis.md).
+* Defina uma chave de criptografia de armazenamento em nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados de sua matriz virtual para a nuvem. Essa chave não será necessária se os dados forem criptografados para começar. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves, como o [Azure Key Vault](../key-vault/key-vault-overview.md).
 * Ao configurar a conta de armazenamento por meio do serviço de StorSimple Manager, certifique-se de habilitar o modo SSL para criar um canal seguro para a comunicação de rede entre o dispositivo StorSimple e a nuvem.
 * Gere novamente as chaves para suas contas de armazenamento (acessando o serviço de armazenamento do Azure) periodicamente para considerar qualquer alteração no acesso com base na lista de administradores alterada.
 * Os dados em sua matriz virtual são compactados e deduplicados antes de serem enviados para o Azure. Não é recomendável usar o serviço de função de eliminação de duplicação de dados no host do Windows Server.

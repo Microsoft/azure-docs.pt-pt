@@ -1,7 +1,7 @@
 ---
 title: Como implantar modelos em VMs de notebook
-titleSuffix: Azure Machine Learning service
-description: Saiba como implantar seus modelos de serviço de Azure Machine Learning como um serviço Web usando VMs de notebook.
+titleSuffix: Azure Machine Learning
+description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando VMs de notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,26 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: d6b26dfe1eb8ea65dd7c751a148c599123b0f6db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947763"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002815"
 ---
 # <a name="deploy-a-model-to-notebook-vms"></a>Implantar um modelo em VMs de notebook
 
-Saiba como usar o serviço de Azure Machine Learning para implantar um modelo como um serviço Web em sua VM do bloco de anotações. Use as VMs do notebook se uma das seguintes condições for verdadeira:
+Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em sua VM do bloco de anotações. Use as VMs do notebook se uma das seguintes condições for verdadeira:
 
 - Precisa implementar e validar o seu modelo rapidamente.
 - Está a testar um modelo que está em desenvolvimento.
 
 > [!TIP]
-> Implantar um modelo de um Jupyter Notebook em uma VM do notebook, para um serviço Web na mesma VM é uma _implantação local_. Nesse caso, o computador "local" é a VM do notebook. Para obter mais informações sobre implantações, consulte [implantar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
+> Implantar um modelo de um Jupyter Notebook em uma VM do notebook, para um serviço Web na mesma VM é uma _implantação local_. Nesse caso, o computador "local" é a VM do notebook. Para obter mais informações sobre implantações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um Azure Machine Learning espaço de trabalho de serviço com uma VM de notebook em execução. Para obter mais informações, consulte [ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
+- Um espaço de trabalho Azure Machine Learning com uma VM de notebook em execução. Para obter mais informações, consulte [ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="deploy-to-the-notebook-vms"></a>Implantar nas VMs do notebook
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Pipelines do Azure ML para pontuação em lote'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Crie um pipeline de ML para executar a pontuação em lote em um modelo de classificação de imagem. Os pipelines do Machine Learning otimizam seu fluxo de trabalho com velocidade, portabilidade e reutilização para que você possa se concentrar em sua experiência, aprendizado de máquina, em vez de infraestrutura e automação.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: 039dbc435cbffed9fe2a9e9be0053d5eb663e9bb
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: aa280ea71735ce7c4000951e5c11de2913aaebe8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997356"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001609"
 ---
 # <a name="use-azure-machine-learning-pipelines-for-batch-scoring"></a>Usar pipelines de Azure Machine Learning para Pontuação de lote
 
-Neste tutorial, você usa Azure Machine Learning pipelines de serviço para executar um trabalho de pontuação ou inferência de lote. Este trabalho de exemplo usa o modelo de Tensorflow de rede neural pré-treinado de involução [v3](https://arxiv.org/abs/1512.00567) para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configurará um ponto de extremidade REST para que possa disparar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
+Neste tutorial, você usará Azure Machine Learning pipelines para executar um trabalho de pontuação ou inferência de lote. Este trabalho de exemplo usa o modelo de Tensorflow de rede neural pré-treinado de involução [v3](https://arxiv.org/abs/1512.00567) para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configurará um ponto de extremidade REST para que possa disparar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
 
 Os pipelines do Machine Learning otimizam seu fluxo de trabalho com velocidade, portabilidade e reutilização para que você possa se concentrar em sua experiência, aprendizado de máquina, em vez de infraestrutura e automação. [Saiba mais sobre pipelines de ml](concept-ml-pipelines.md).
 
@@ -33,11 +33,11 @@ Neste tutorial, você aprende as seguintes tarefas:
 > * Compilar, executar e publicar um pipeline
 > * Habilitar um ponto de extremidade REST para o pipeline
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua [a parte 1 do tutorial de instalação](tutorial-1st-experiment-sdk-setup.md) se você ainda não tiver um Azure Machine Learning espaço de trabalho de serviço ou uma máquina virtual do notebook.
+* Conclua [a parte 1 do tutorial de instalação](tutorial-1st-experiment-sdk-setup.md) se você ainda não tiver um espaço de trabalho Azure Machine Learning ou uma máquina virtual do notebook.
 * Depois de concluir o tutorial de instalação, abra o bloco de anotações **tutoriais/tutorial-pipeline-batch-Scoring-Classification. ipynb** usando o mesmo servidor de bloco de anotações.
 
 Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obter os pacotes necessários.
@@ -512,7 +512,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não conclua esta seção se você planeja executar outros tutoriais de serviço Azure Machine Learning.
+Não conclua esta seção se você planeja executar outros tutoriais de Azure Machine Learning.
 
 ### <a name="stop-the-notebook-vm"></a>Parar a VM do notebook
 

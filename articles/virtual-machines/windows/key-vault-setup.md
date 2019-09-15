@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: e92ccacbcdc49ae5ea9496c9c8ac7fa90a05e20c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 225ce9fcbb18aa374f413e8e237c911c85cc77a6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079219"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999358"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurar Key Vault para máquinas virtuais no Azure Resource Manager
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-No Azure Resource Manager Stack, os segredos/certificados são modelados como recursos fornecidos pelo provedor de recursos do Key Vault. Para saber mais sobre Key Vault, confira [o que é Azure Key Vault?](../../key-vault/key-vault-whatis.md)
+No Azure Resource Manager Stack, os segredos/certificados são modelados como recursos fornecidos pelo provedor de recursos do Key Vault. Para saber mais sobre Key Vault, confira [o que é Azure Key Vault?](../../key-vault/key-vault-overview.md)
 
 > [!NOTE]
 > 1. Para que Key Vault seja usado com Azure Resource Manager máquinas virtuais, a propriedade **EnabledForDeployment** em Key Vault deve ser definida como true. Você pode fazer isso em vários clientes.

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 952126b76b00ff472181c72b1fd7b1a0e1b14e40
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976353"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000628"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerenciar Key Vault usando o CLI do Azure 
 
@@ -35,7 +35,7 @@ O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. 
 > Este artigo não inclui instruções sobre como escrever o aplicativo do Azure que uma das etapas inclui, que mostra como autorizar um aplicativo a usar uma chave ou um segredo no cofre de chaves.
 >
 
-Para obter uma visão geral do Azure Key Vault, consulte [o que é Azure Key Vault?](key-vault-whatis.md)
+Para obter uma visão geral do Azure Key Vault, consulte [o que é Azure Key Vault?](key-vault-overview.md)
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos

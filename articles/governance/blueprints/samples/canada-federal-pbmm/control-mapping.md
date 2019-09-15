@@ -3,16 +3,16 @@ title: Exemplo-Canadá Federal PBMM Blueprint – mapeamento de controle
 description: O mapeamento de controle do exemplo Federal PBMM Blueprint do Canadá para Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: baafb0fbcf1dba1cadfff1d5f5e02e2df4f34a25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918771"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002900"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra do Canadá Federal PBMM Blueprint
 
@@ -309,7 +309,13 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
+Você analisou o mapeamento de controle do exemplo de Planejamento Federal de PBMM do Canadá. Em seguida, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
+
+> [!div class="nextstepaction"]
+> [Canadá Federal PBMM Blueprint-visão geral](./control-mapping.md)
+> do[Canadá Federal PBMM Blueprint-etapas de implantação](./deploy.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 

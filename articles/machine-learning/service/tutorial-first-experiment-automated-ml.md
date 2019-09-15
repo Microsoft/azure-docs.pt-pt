@@ -1,6 +1,6 @@
 ---
 title: Crie seu primeiro experimento de Machine Learning automatizado
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como treinar e implantar um modelo de classificação com o Machine Learning automatizado na página de aterrissagem do espaço de trabalho Azure Machine Learning (versão prévia).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: e831b94099a8bdf96710fc8ae8915938bbe997c4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f8b9876680899a5d8e87f8a49a0b4ed6c113fb45
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984518"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001858"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -26,7 +26,7 @@ Com o Machine Learning automatizado, você pode automatizar tarefas demoradas. O
 Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Crie um espaço de trabalho de serviço do Azure Machine Learning.
+> * Crie uma área de trabalho do Azure Machine Learning.
 > * Execute um experimento de aprendizado de máquina automatizado.
 > * Exibir detalhes do experimento.
 > * Implemente o modelo.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726766"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999174"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Práticas recomendadas para proteger aplicativos Web e móveis de PaaS usando o armazenamento do Azure
 Neste artigo, discutiremos uma coleção de práticas recomendadas de segurança de armazenamento do Azure para proteger seus aplicativos móveis e Web de PaaS (plataforma como serviço). Essas práticas recomendadas derivam de nossa experiência com o Azure e as experiências de clientes como você.
@@ -71,7 +71,7 @@ Para saber mais sobre o RBAC, consulte:
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Usar criptografia do lado do cliente para dados de alto valor
 A criptografia do lado do cliente permite que você criptografe programaticamente os dados em trânsito antes de carregar no armazenamento do Azure e descriptografe os dados de forma programática ao recuperá-los. Isso fornece criptografia de dados em trânsito, mas também fornece criptografia de dados em repouso. A criptografia do lado do cliente é o método mais seguro de criptografar seus dados, mas exige que você faça alterações programáticas em seu aplicativo e coloque os processos de gerenciamento de chaves em vigor.
 
-A criptografia do lado do cliente também permite que você tenha controle exclusivo sobre suas chaves de criptografia. Você pode gerar e gerenciar suas próprias chaves de criptografia. Ele usa uma técnica de envelope em que a biblioteca de cliente de armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo) que é então encapsulada (criptografada) usando a chave de criptografia de chave (KEK). O KEK é identificado por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e pode ser gerenciado localmente ou armazenado em [Azure Key Vault](/azure/key-vault/key-vault-whatis).
+A criptografia do lado do cliente também permite que você tenha controle exclusivo sobre suas chaves de criptografia. Você pode gerar e gerenciar suas próprias chaves de criptografia. Ele usa uma técnica de envelope em que a biblioteca de cliente de armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo) que é então encapsulada (criptografada) usando a chave de criptografia de chave (KEK). O KEK é identificado por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e pode ser gerenciado localmente ou armazenado em [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 A criptografia do lado do cliente é incorporada às bibliotecas de cliente de armazenamento do Java e do .NET. Consulte [criptografia do lado do cliente e Azure Key Vault para armazenamento do Microsoft Azure](/azure/storage/common/storage-client-side-encryption) para obter informações sobre como criptografar dados em aplicativos cliente e gerar e gerenciar suas próprias chaves de criptografia.
 

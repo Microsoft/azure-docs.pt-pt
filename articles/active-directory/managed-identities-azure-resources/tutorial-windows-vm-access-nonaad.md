@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 180e5544cfdc8fe7d5c3317347901f70667f1c8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6f144eb16c2b898750d699b659fc88b2dd8c12a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66226804"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000038"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault 
 
@@ -109,9 +109,9 @@ Primeiro, utilizamos a identidade gerida atribuída pelo sistema da VM para obte
     
 Depois de recuperar o segredo do Key Vault, pode utilizá-lo para autenticação num serviço que requeira um nome e uma palavra-passe. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault.  Para saber mais sobre o Azure Key Vault, veja:
 
 > [!div class="nextstepaction"]
->[Cofre de Chaves do Azure](/azure/key-vault/key-vault-whatis)
+>[Cofre de Chaves do Azure](/azure/key-vault/key-vault-overview)

@@ -1,84 +1,78 @@
 ---
-title: 'Azure Active Directory Domain Services: Guia de solução de problemas | Microsoft Docs'
-description: Guia de solução de problemas para Azure AD Domain Services
+title: Solução de problemas Azure Active Directory Domain Services | Microsoft Docs '
+description: Saiba como solucionar erros comuns ao criar ou gerenciar Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/13/2019
 ms.author: iainfou
-ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617072"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998718"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services-guia de solução de problemas
-Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os serviços de domínio do Azure Active Directory (AD).
+# <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e etapas de solução de problemas para Azure Active Directory Domain Services
+
+Como parte central da identidade e da autenticação para aplicativos, o Azure Active Directory Domain Services (AD DS do Azure) às vezes tem problemas. Se você tiver problemas, há algumas mensagens de erro comuns e etapas de solução de problemas associadas para ajudá-lo a fazer as coisas serem executadas novamente. A qualquer momento, você também pode [abrir uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+
+Este artigo fornece etapas para solução de problemas comuns no Azure AD DS.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Não é possível habilitar Azure AD Domain Services para seu diretório do Azure AD
-Esta seção ajuda a solucionar erros quando você tenta habilitar o Azure AD Domain Services para seu diretório.
 
-Escolha as etapas de solução de problemas que correspondem à mensagem de erro que você encontrará.
+Se você tiver problemas para habilitar o Azure AD DS, examine os seguintes erros e etapas comuns para resolvê-los:
 
-| **Mensagem de erro** | **Resolução** |
+| **Mensagem de erro de exemplo** | **Resolução** |
 | --- |:--- |
 | *O nome contoso.com já está em uso nesta rede. Especifique um nome que não esteja a ser utilizado.* |[Conflito de nome de domínio na rede virtual](troubleshoot.md#domain-name-conflict) |
 | *Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. O serviço não tem as permissões adequadas para a aplicação designada “Sincronização do Azure AD Domain Services”. Elimine a aplicação designada “Sincronização do Azure AD Domain Services” e, em seguida, tente ativar os Serviços de Domínio do inquilino do Azure AD.* |[Os serviços de domínio não têm as permissões adequadas para o aplicativo de sincronização de Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
-| *Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. A aplicação Serviços de Domínio do seu inquilino do Azure AD não tem as permissões necessárias para ativar os Serviços de Domínio. Elimine a aplicação com o identificador de aplicação d87dcbc6-a371-462e-88e3-28ad15ec4e64 e, em seguida, tente ativar os Serviços de Domínio do seu inquilino do Azure AD.* |[O aplicativo de serviços de domínio não está configurado corretamente em seu locatário](troubleshoot.md#invalid-configuration) |
+| *Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. A aplicação Serviços de Domínio do seu inquilino do Azure AD não tem as permissões necessárias para ativar os Serviços de Domínio. Elimine a aplicação com o identificador de aplicação d87dcbc6-a371-462e-88e3-28ad15ec4e64 e, em seguida, tente ativar os Serviços de Domínio do seu inquilino do Azure AD.* |[O aplicativo de serviços de domínio não está configurado corretamente no seu locatário do Azure AD](troubleshoot.md#invalid-configuration) |
 | *Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. A aplicação do Microsoft Azure AD está desativada no seu inquilino do Azure AD. Ative a aplicação com o identificador de aplicação 00000002-0000-0000-c000-000000000000 e, em seguida, tente ativar os Serviços de Domínio do seu inquilino do Azure AD.* |[O aplicativo Microsoft Graph está desabilitado no seu locatário do Azure AD](troubleshoot.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflito de nome de domínio
-**Mensagem de erro:**
+
+**Mensagem de erro**
 
 *O nome contoso.com já está em uso nesta rede. Especifique um nome que não esteja a ser utilizado.*
 
-**Corre**
+**Resolução**
 
-Certifique-se de que você não tenha um domínio existente com o mesmo nome de domínio disponível nessa rede virtual. Por exemplo, suponha que tem um domínio chamado 'contoso.com' já disponível na rede virtual selecionada. Posteriormente, você tenta habilitar um Azure AD Domain Services domínio gerenciado com o mesmo nome de domínio (ou seja, ' contoso.com ') nessa rede virtual. Você encontra uma falha ao tentar habilitar a Azure AD Domain Services.
+Verifique se você não tem um ambiente de AD DS existente com o mesmo nome de domínio na rede virtual. Por exemplo, você pode ter um domínio AD DS chamado *contoso.com* que é executado em VMs do Azure. Quando você tenta habilitar um domínio gerenciado do Azure AD DS com o mesmo nome de domínio do *contoso.com* na rede virtual, a operação solicitada falha.
 
-Essa falha ocorre devido a conflitos de nome para o nome de domínio nessa rede virtual. Nesta situação, tem de utilizar um nome diferente para configurar o seu domínio gerido dos Serviços de Domínio do Azure AD. Em alternativa, pode anular o aprovisionamento do domínio existente e, em seguida, prosseguir para ativar os Serviços de Domínio do Azure AD.
+Essa falha ocorre devido a conflitos de nome para o nome de domínio na rede virtual. Uma pesquisa DNS verifica se um ambiente de AD DS existente responde no nome de domínio solicitado. Para resolver essa falha, use um nome diferente para configurar seu domínio gerenciado AD DS do Azure ou desprovisionar o domínio AD DS existente e, em seguida, tente habilitar o AD DS do Azure novamente.
 
 ### <a name="inadequate-permissions"></a>Permissões inadequadas
-**Mensagem de erro:**
+
+**Mensagem de erro**
 
 *Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. O serviço não tem as permissões adequadas para a aplicação designada “Sincronização do Azure AD Domain Services”. Elimine a aplicação designada “Sincronização do Azure AD Domain Services” e, em seguida, tente ativar os Serviços de Domínio do inquilino do Azure AD.*
 
-**Corre**
+**Resolução**
 
-Verifique se há um aplicativo com o nome ' Azure AD Domain Services sincronização ' no diretório do Azure AD. Se esse aplicativo existir, exclua-o e reabilite Azure AD Domain Services.
+Verifique se há um aplicativo chamado *Azure AD Domain Services sincronização* no diretório do Azure AD. Se esse aplicativo existir, exclua-o e tente habilitar a AD DS do Azure novamente. Para verificar se há um aplicativo existente e excluí-lo, se necessário, conclua as seguintes etapas:
 
-Execute as seguintes etapas para verificar a presença do aplicativo e excluí-lo, se o aplicativo existir:
-
-1. Navegue até a seção de **aplicativos** do seu diretório do Azure AD no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
-2. Selecione **todos os aplicativos** na lista suspensa **Mostrar** . Selecione **qualquer** no menu suspenso **status de aplicativos** . Selecione **qualquer** no menu suspenso **visibilidade do aplicativo** .
-3. Digite **Azure AD Domain Services sincronização** na caixa de pesquisa. Se o aplicativo existir, clique nele e clique no botão **excluir** na barra de ferramentas para excluí-lo.
-4. Depois de excluir o aplicativo, tente habilitar Azure AD Domain Services novamente.
+1. Na portal do Azure, selecione **Azure Active Directory** no menu de navegação à esquerda.
+1. Selecione **aplicativos empresariais**. Escolha *todos os aplicativos* no menu suspenso **tipo de aplicativo** e, em seguida, selecione **aplicar**.
+1. Na caixa de pesquisa, insira *Azure AD Domain Services sincronização*. Se o aplicativo existir, selecione-o e escolha **excluir**.
+1. Depois de excluir o aplicativo, tente habilitar o Azure AD DS novamente.
 
 ### <a name="invalid-configuration"></a>Configuração inválida
-**Mensagem de erro:**
+
+**Mensagem de erro**
 
 *Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. A aplicação Serviços de Domínio do seu inquilino do Azure AD não tem as permissões necessárias para ativar os Serviços de Domínio. Elimine a aplicação com o identificador de aplicação d87dcbc6-a371-462e-88e3-28ad15ec4e64 e, em seguida, tente ativar os Serviços de Domínio do seu inquilino do Azure AD.*
 
-**Corre**
+**Resolução**
 
-Verifique se você tem um aplicativo com o nome ' AzureActiveDirectoryDomainControllerServices ' (com um identificador de aplicativo de d87dcbc6-a371-462e-88e3-28ad15ec4e64) no seu diretório do Azure AD. Se esse aplicativo existir, você precisará excluí-lo e reabilitar Azure AD Domain Services.
+Verifique se você tem um aplicativo existente chamado *AzureActiveDirectoryDomainControllerServices* com um identificador de aplicativo de *d87dcbc6-a371-462e-88e3-28ad15ec4e64* no seu diretório do Azure AD. Se esse aplicativo existir, exclua-o e tente habilitar a AD DS do Azure novamente.
 
-Use o script do PowerShell a seguir para localizar o aplicativo e excluí-lo.
-
-> [!NOTE]
-> Esse script usa cmdlets **do Azure ad PowerShell versão 2** . Para obter uma lista completa de todos os cmdlets disponíveis e baixar o módulo, leia a [documentação de referência do PowerShell do AzureAD](https://msdn.microsoft.com/library/azure/mt757189.aspx).
->
->
+Use o seguinte script do PowerShell para procurar uma instância de aplicativo existente e excluí-la, se necessário.
 
 ```powershell
 $InformationPreference = "Continue"
@@ -111,57 +105,78 @@ if ($sp -ne $null)
     Write-Information "Deleted the Azure AD Domain Services Sync service principal."
 }
 ```
-<br>
 
 ### <a name="microsoft-graph-disabled"></a>Microsoft Graph desabilitado
-**Mensagem de erro:**
 
-Não foi possível habilitar os serviços de domínio neste locatário do Azure AD. A aplicação do Microsoft Azure AD está desativada no seu inquilino do Azure AD. Habilite o aplicativo com o identificador de aplicativo 00000002-0000-0000-C000-000000000000 e tente habilitar os serviços de domínio para seu locatário do Azure AD.
+**Mensagem de erro**
 
-**Corre**
+*Não foi possível ativar os Serviços de Domínio neste inquilino do Azure AD. A aplicação do Microsoft Azure AD está desativada no seu inquilino do Azure AD. Ative a aplicação com o identificador de aplicação 00000002-0000-0000-c000-000000000000 e, em seguida, tente ativar os Serviços de Domínio do seu inquilino do Azure AD.*
 
-Verifique se você desabilitou um aplicativo com o identificador 00000002-0000-0000-C000-000000000000. Esse aplicativo é o Microsoft Azure AD aplicativo e fornece acesso API do Graph ao seu locatário do Azure AD. Azure AD Domain Services precisa que este aplicativo seja habilitado para sincronizar seu locatário do Azure AD para seu domínio gerenciado.
+**Resolução**
 
-Para resolver esse erro, habilite este aplicativo e tente habilitar os serviços de domínio para seu locatário do Azure AD.
+Verifique se você desabilitou um aplicativo com o identificador *00000002-0000-0000-C000-000000000000*. Esse aplicativo é o Microsoft Azure AD aplicativo e fornece acesso API do Graph ao seu locatário do Azure AD. Para sincronizar seu locatário do Azure AD, esse aplicativo deve ser habilitado.
 
+Para verificar o status desse aplicativo e habilitá-lo, se necessário, conclua as seguintes etapas:
+
+1. Na portal do Azure, selecione **Azure Active Directory** no menu de navegação à esquerda.
+1. Selecione **aplicativos empresariais**. Escolha *todos os aplicativos* no menu suspenso **tipo de aplicativo** e, em seguida, selecione **aplicar**.
+1. Na caixa de pesquisa, digite *00000002-0000-0000-C000-00000000000*. Selecione o aplicativo e, em seguida, escolha **Propriedades**.
+1. Se **habilitado para que os usuários se conectem** estiver definido como *não*, defina o valor como *Sim*e, em seguida, selecione **salvar**.
+1. Após habilitar o aplicativo, tente habilitar o Azure AD DS novamente.
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os utilizadores não conseguem iniciar sessão no domínio gerido pelo Azure AD Domain Services
-Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no domínio gerenciado recém-criado, execute as seguintes etapas de solução de problemas:
 
-* **Entrar usando o formato UPN:** Tente iniciar sessão com o formato UPN (por exemplo, “joeuser@contoso.com”) em vez do formato de SAMAccountName (“CONTOSO\joeuser”). O SAMAccountName pode ser gerado automaticamente para usuários cujo prefixo UPN é muito longo ou é o mesmo que outro usuário no domínio gerenciado. É garantido que o formato UPN seja exclusivo em um locatário do Azure AD.
+Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no domínio gerenciado AD DS do Azure, conclua as seguintes etapas de solução de problemas:
 
-> [!NOTE]
-> É recomendável usar o formato UPN para entrar no Azure AD Domain Services domínio gerenciado.
->
->
+* **Formato das credenciais** -tente usar o formato UPN para especificar as credenciais, `dee@contoso.onmicrosoft.com`como. O formato UPN é a maneira recomendada para especificar credenciais no Azure AD DS. Verifique se esse UPN está configurado corretamente no Azure AD.
 
-* Certifique-se de que [ativou a sincronização de palavras-passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds), em conformidade com os passos descritos no Guia de Introdução.
-* **Contas externas:** Certifique-se de que a conta de utilizador afetada não é uma conta externa do inquilino do Azure AD. Exemplos de contas externas incluem contas da Microsoft (por exemplo,joe@live.com"") ou contas de usuário de um diretório externo do Azure AD. Como Azure AD Domain Services não tem credenciais para essas contas de usuário, esses usuários não podem entrar no domínio gerenciado.
-* **Contas sincronizadas:** Se as contas de usuário afetadas forem sincronizadas de um diretório local, verifique se:
+    O *sAMAccountName* para sua conta, como *CONTOSO\driley* , pode ser gerado automaticamente se houver vários usuários com o mesmo prefixo UPN em seu locatário ou se o prefixo UPN for muito longo. Portanto, o formato *sAMAccountName* para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
 
-  * Você implantou ou atualizou para a [versão mais recente recomendada do Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-  * Você configurou Azure AD Connect para [executar uma sincronização completa](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
-  * Dependendo do tamanho do diretório, pode levar algum tempo para que as contas de usuário e os hashes de credenciais estejam disponíveis no Azure AD Domain Services. Certifique-se de Aguardar tempo suficiente antes de tentar novamente a autenticação.
-  * Se o problema persistir depois de verificar as etapas anteriores, tente reiniciar o serviço de sincronização de Microsoft Azure AD. Em seu computador de sincronização, inicie um prompt de comando e execute os seguintes comandos:
+* **Sincronização de senha** – Verifique se você habilitou a sincronização de senha para [usuários somente de nuvem][cloud-only-passwords] ou para [ambientes híbridos usando Azure ad Connect][hybrid-phs].
+    * **Contas híbridas sincronizadas:** Se as contas de usuário afetadas forem sincronizadas de um diretório local, verifique as seguintes áreas:
+    
+      * Você implantou ou atualizou para a [versão mais recente recomendada do Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+      * Você configurou Azure AD Connect para [executar uma sincronização completa][hybrid-phs].
+      * Dependendo do tamanho do seu diretório, pode levar algum tempo para que as contas de usuário e os hashes de credenciais estejam disponíveis no Azure AD DS. Certifique-se de Aguardar tempo suficiente antes de tentar autenticar no domínio gerenciado.
+      * Se o problema persistir depois de verificar as etapas anteriores, tente reiniciar o serviço de *sincronização de Microsoft Azure ad*. Em sua [VM de gerenciamento][management-vm], abra um prompt de comando e execute os seguintes comandos:
+    
+        ```console
+        net stop 'Microsoft Azure AD Sync'
+        net start 'Microsoft Azure AD Sync'
+        ```
 
-    1. net stop ' Microsoft Azure AD sincronizar '
-    2. net start ' sincronização de Microsoft Azure AD '
-* **Contas somente em nuvem**: Se a conta de usuário afetada for uma conta de usuário somente em nuvem, verifique se o usuário alterou sua senha depois de habilitar a Azure AD Domain Services. Este passo faz com que sejam gerados os hashes de credencial necessários para o Azure AD Domain Services.
-* **Verifique se a conta de usuário está ativa**: Se a conta de um usuário estiver bloqueada, ela não poderá entrar até que sua conta esteja ativa novamente. Cinco tentativas de senha inválidas em 2 minutos no domínio gerenciado fazem com que uma conta de usuário seja bloqueada por 30 minutos. Após 30 minutos, a conta de usuário será desbloqueada automaticamente.
-  * Tentativas de senha inválidas no domínio gerenciado não bloqueiam a conta de usuário no Azure AD. A conta de usuário é bloqueada somente dentro de seu Azure AD Domain Services domínio gerenciado. Verifique o status da conta de usuário usando o console administrativo do Active Directory (ADAC) para o domínio gerenciado do AD DS do Azure, não no Azure AD.
-  * Você também pode [Configurar políticas de senha refinadas que alteram o limite e a duração do bloqueio padrão](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
+    * **Contas somente em nuvem**: Se a conta de usuário afetada for uma conta de usuário somente em nuvem, verifique se o [usuário alterou sua senha depois de habilitar o Azure AD DS][cloud-only-passwords]. Essa redefinição de senha faz com que os hashes de credencial necessários para a Azure AD Domain Services sejam gerados.
+
+* **Verifique se a conta de usuário está ativa**: Por padrão, cinco tentativas de senha inválidas em 2 minutos no domínio gerenciado fazem com que uma conta de usuário seja bloqueada por 30 minutos. O usuário não pode entrar enquanto a conta está bloqueada. Após 30 minutos, a conta de usuário será desbloqueada automaticamente.
+  * Tentativas de senha inválidas no domínio gerenciado AD DS do Azure não bloqueiam a conta de usuário no Azure AD. A conta de usuário é bloqueada somente dentro do domínio gerenciado. Verifique o status da conta de usuário no *Active Directory console administrativo (ADAC)* usando a [VM de gerenciamento][management-vm], não no Azure AD.
+  * Você também pode [Configurar políticas de senha refinadas][password-policy] para alterar o limite e a duração do bloqueio padrão.
+
+* **Contas externas** – Verifique se a conta de usuário afetada não é uma conta externa no locatário do Azure AD. Exemplos de contas externas incluem contas da Microsoft `dee@live.com` como contas de usuário ou de um diretório externo do Azure AD. O Azure AD DS não armazena credenciais para contas de usuário externas para que não possam entrar no domínio gerenciado.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Há um ou mais alertas em seu domínio gerenciado
 
-Consulte como resolver alertas em seu domínio gerenciado visitando o artigo [solucionar problemas de alertas](troubleshoot-alerts.md) .
+Se houver alertas ativos no domínio gerenciado AD DS do Azure, isso poderá impedir que o processo de autenticação funcione corretamente.
+
+Para ver se há alertas ativos, [Verifique o status de integridade de um domínio gerenciado do Azure AD DS][check-health]. Se algum alerta for mostrado, [solucione-o e resolva-os][troubleshoot-alerts].
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os usuários removidos do seu locatário do Azure AD não são removidos do seu domínio gerenciado
-O Azure AD impede a eliminação acidental de objetos de utilizador. Quando elimina uma conta de utilizador do inquilino do Azure AD, o objeto de utilizador correspondente é movido para a Reciclagem. Quando essa operação de exclusão é sincronizada com o domínio gerenciado, ela faz com que a conta de usuário correspondente seja marcada como desabilitada. Esse recurso ajuda a recuperar ou a restaurar a conta de usuário mais tarde.
 
-A conta de usuário permanece no estado desabilitado em seu domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN em seu diretório do Azure AD. Para remover a conta de usuário do seu domínio gerenciado, você precisará forçar a exclusão do seu locatário do Azure AD.
+O Azure AD protege contra a exclusão acidental de objetos de usuário. Quando você exclui uma conta de usuário de um locatário do Azure AD, o objeto de usuário correspondente é movido para a lixeira. Quando essa operação de exclusão é sincronizada com o domínio gerenciado AD DS do Azure, a conta de usuário correspondente é marcada como desabilitada. Esse recurso ajuda a recuperar, ou a restaurar, a conta de usuário.
 
-Para remover totalmente a conta de usuário do seu domínio gerenciado, exclua o usuário permanentemente do seu locatário do Azure AD. Use o `Remove-MsolUser` cmdlet do PowerShell com `-RemoveFromRecycleBin` a opção, conforme descrito neste [artigo do MSDN](/previous-versions/azure/dn194132(v=azure.100)).
+A conta de usuário permanece no estado desabilitado no domínio gerenciado AD DS do Azure, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado AD DS do Azure, você precisará removê-la de modo forçado do locatário do Azure AD.
 
+Para remover totalmente uma conta de usuário de um domínio gerenciado AD DS do Azure, exclua o usuário permanentemente do seu locatário do Azure ad usando o cmdlet [Remove-MsolUser][Remove-MsolUser] do PowerShell com o `-RemoveFromRecycleBin` parâmetro.
 
-## <a name="contact-us"></a>Contacte-nos
-Entre em contato com a equipe de produto Azure Active Directory Domain Services para [compartilhar comentários ou para obter suporte](contact-us.md).
+## <a name="next-steps"></a>Passos Seguintes
+
+Se você ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+
+<!-- INTERNAL LINKS -->
+[cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
+[hybrid-phs]: tutorial-configure-password-hash-sync.md
+[management-vm]: tutorial-create-management-vm.md
+[password-policy]: password-policy.md
+[check-health]: check-health.md
+[troubleshoot-alerts]: troubleshoot-alerts.md
+[Remove-MsolUser]: /powershell/module/MSOnline/Remove-MsolUser
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

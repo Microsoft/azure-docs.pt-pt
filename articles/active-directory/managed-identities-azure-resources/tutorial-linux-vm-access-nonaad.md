@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7a4ce0419e3a5615cc5a6d57fe2f1cfecad2f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26d434069870fbfa52687a3abc7913fd121687a1
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66228574"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000062"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Key Vault 
 
@@ -70,7 +70,7 @@ Para concluir estes passos, precisa de um cliente SSH.  Se estiver a utilizar o
  
 1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**. 
 2. **Ligue** à VM com o cliente SSH que escolher. 
-3. Na janela de terminal, com o CURL, fazer um pedido para as locais identidades geridas para o ponto final de recursos do Azure obter um acesso de token para o Azure Key Vault.  
+3. Na janela do terminal, usando a ONDULAção, faça uma solicitação para as identidades gerenciadas locais para o ponto de extremidade de recursos do Azure para obter um token de acesso para Azure Key Vault.  
  
     O pedido CURL para o token de acesso encontra-se abaixo.  
     
@@ -110,7 +110,7 @@ Depois de recuperar o segredo do Key Vault, pode utilizá-lo para autenticação
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Key Vault.  Para saber mais sobre o Azure Key Vault, veja:
 
 > [!div class="nextstepaction"]
->[Cofre de Chaves do Azure](/azure/key-vault/key-vault-whatis)
+>[Cofre de Chaves do Azure](/azure/key-vault/key-vault-overview)
 
 
 

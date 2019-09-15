@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a3ded11ac6a68e82fba76e7551699f29f3cb6075
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716831"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998424"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ O serviço de gerenciamento de acesso e identidade do cliente (CIAM) no Azure in
 
 Azure AD B2C interage com provedores de identidade, usuários, outros sistemas e com o diretório de usuário local em sequência para obter uma tarefa de identidade. Por exemplo, conecte-se a um usuário, registre um novo usuário ou redefina uma senha. A estrutura de experiência de identidade e uma política (também chamada de um percurso do usuário ou uma política de estrutura confiável) estabelecem uma relação de confiança de várias partes e definem explicitamente os atores, as ações, os protocolos e a sequência de etapas a serem concluídas.
 
-A estrutura de experiência de identidade é uma plataforma do Azure baseada em nuvem, orientada por políticas e totalmente configurável, que orquestra a confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML, WSFed e alguns não padrão, por exemplo, REST As trocas de declarações do sistema para o sistema baseadas em API. A estrutura cria experiências com nome de usuário e em branco que dão suporte a HTML e CSS.
+A estrutura de experiência de identidade é uma plataforma do Azure baseada em nuvem, orientada por políticas, totalmente configurável que orquestra a confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML e alguns não padrão, por exemplo, REST As trocas de declarações do sistema para o sistema baseadas em API. A estrutura cria experiências com nome de usuário e em branco que dão suporte a HTML e CSS.
 
 Uma política personalizada é representada como um ou vários ficheiros com formatação XML que fazem referência entre si numa cadeia hierárquica. Os elementos XML definem o esquema de declarações, transformações de declarações, definições de conteúdo, provedores de declarações, perfis técnicos e etapas de orquestração de jornada do usuário, entre outros elementos. Uma política personalizada pode ser acessada como um ou vários arquivos XML que são executados pela estrutura de experiência de identidade quando invocados por uma terceira parte confiável. Os desenvolvedores que configuram políticas personalizadas devem definir as relações confiáveis com detalhes cuidadosos para incluir pontos de extremidade de metadados, definições exatas de troca de declarações e configurar segredos, chaves e certificados conforme a necessidade de cada provedor de identidade.
 
@@ -63,7 +63,7 @@ Uma política personalizada é representada como um ou vários ficheiros com for
 
 Quando um aplicativo chama o arquivo de política de RP, a estrutura de experiência de identidade no Azure AD B2C adiciona todos os elementos do arquivo base, do arquivo de extensões e, em seguida, do arquivo de política RP para montar a política atual em vigor.  Os elementos do mesmo tipo e nome no arquivo RP substituirão aqueles nas extensões e as extensões serão substituídas pela base.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md)

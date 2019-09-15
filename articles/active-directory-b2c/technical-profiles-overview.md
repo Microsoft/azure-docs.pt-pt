@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716677"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998763"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em Azure Active Directory B2C políticas personalizadas
 
@@ -37,7 +37,6 @@ Um perfil técnico habilita esses tipos de cenários:
 - [Provedor RESTful](restful-technical-profile.md) -chamada para serviços de API REST, como validar entrada do usuário, enriquecer dados do usuário ou integrar com aplicativos de linha de negócios.
 - [SAML2](saml-technical-profile.md) -Federation com qualquer provedor de identidade de protocolo SAML.
 - [Autodeclarado](self-asserted-technical-profile.md) -interagir com o usuário. Por exemplo, colete a credencial do usuário para entrar, renderizar a página de inscrição ou redefinição de senha.
-- **WsFed** -Federation com qualquer provedor de identidade de protocolo WsFed.
 - [Gerenciamento de sessão](active-directory-b2c-reference-sso-custom.md) -manipule tipos diferentes de sessões.
 - **Application insights**
 

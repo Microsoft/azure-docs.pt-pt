@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736027"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003190"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -44,11 +44,11 @@ Apache Spark tem três locais de configuração do sistema:
 Quando você seleciona uma versão específica do Spark, o cluster inclui as definições de configuração padrão.  Você pode alterar os valores de configuração padrão do Spark usando um arquivo de configuração personalizado do Spark.  Um exemplo é mostrado abaixo.
 
 ```
-    spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
-    spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
-    spark.hadoop.parquet.block.size 1099511627776
-    spark.sql.files.maxPartitionBytes 1099511627776
-    spark.sql.files.openCostInBytes 1099511627776
+spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
+spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
+spark.hadoop.parquet.block.size 1099511627776
+spark.sql.files.maxPartitionBytes 1099511627776
+spark.sql.files.openCostInBytes 1099511627776
 ```
 
 O exemplo mostrado acima substitui vários valores padrão para cinco parâmetros de configuração do Spark.  Esses são o codec de compactação, Apache Hadoop tamanho mínimo de divisão do MapReduce e tamanhos de bloco parquet e também os valores padrão da partição SQL e dos tamanhos de arquivo abertos.  Essas alterações de configuração são escolhidas porque os dados e trabalhos associados (neste exemplo, dados de genoma) têm características específicas, que serão executadas melhor usando essas definições de configuração personalizadas.
@@ -63,7 +63,7 @@ A interface do usuário da Web do Apache Ambari é exibida, com uma exibição d
 
 Para ver os valores de configuração para Apache Spark, selecione **histórico de configuração**e, em seguida, selecione **Spark2**.  Selecione a guia **configurações** e, em seguida, `Spark` selecione o `Spark2`link (ou, dependendo de sua versão) na lista de serviços.  Você verá uma lista de valores de configuração para o cluster:
 
-![Configurações do Spark](./media/apache-spark-settings/spark-config.png)
+![Configurações do Spark](./media/apache-spark-settings/spark-configurations.png)
 
 Para ver e alterar valores de configuração individuais do Spark, selecione qualquer link com a palavra "Spark" no título do link.  As configurações do Spark incluem valores de configuração personalizados e avançados nessas categorias:
 
@@ -82,7 +82,7 @@ Se você criar um conjunto não padrão de valores de configuração, também po
 
 O diagrama a seguir mostra os principais objetos Spark: o programa de driver e seu contexto do Spark associado e o Gerenciador de cluster e seus *n* nós de trabalho.  Cada nó de trabalho inclui um executor, um cache e *n* instâncias de tarefa.
 
-![Objetos de cluster](./media/apache-spark-settings/spark-arch.png)
+![Objetos de cluster](./media/apache-spark-settings/hdi-spark-architecture.png)
 
 Os trabalhos do Spark usam recursos de trabalho, especialmente a memória, portanto, é comum ajustar os valores de configuração do Spark para executores de nó de trabalho.
 
@@ -93,7 +93,7 @@ Três parâmetros principais que geralmente são ajustados para ajustar as confi
 
 Outra fonte de informações sobre os recursos que estão a ser utilizados pelos Executores do Apache Spark é a IU da Aplicação Apache Spark.  Na interface do usuário do Spark, selecione a guia **executores** para exibir as exibições de resumo e detalhe da configuração e dos recursos consumidos pelos executores.  Estas vistas podem ajudar a determinar se deve alterar os valores padrão dos executores do Apache Spark para todo o cluster ou para um conjunto específico de execuções de tarefas.
 
-![Executores do Spark](./media/apache-spark-settings/spark-executors.png)
+![Executores do Spark](./media/apache-spark-settings/apache-spark-executors.png)
 
 Como alternativa, você pode usar a API REST do amAmbari para verificar programaticamente as definições de configuração do cluster HDInsight e Spark.  Mais informações estão disponíveis na [referência da API do Apache Ambari no GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -105,7 +105,7 @@ Dependendo da carga de trabalho do Spark, pode determinar que uma configuração
 
 Aqui está um exemplo de dois nós de trabalho com valores de configuração diferentes:
 
-![Configurações de dois nós](./media/apache-spark-settings/executor-config.png)
+![Configurações de dois nós](./media/apache-spark-settings/executor-configuration.png)
 
 A lista a seguir mostra os principais parâmetros de memória do executor Spark.
 
@@ -116,7 +116,7 @@ A lista a seguir mostra os principais parâmetros de memória do executor Spark.
 
 YARN controla a soma máxima da memória usada pelos contêineres em cada nó do Spark. O diagrama a seguir mostra as relações por nó entre objetos de configuração YARN e objetos Spark.
 
-![Gerenciamento de memória YARN Spark](./media/apache-spark-settings/yarn-spark-memory.png)
+![Gerenciamento de memória YARN Spark](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar parâmetros para um aplicativo em execução no Jupyter Notebook
 
@@ -136,15 +136,15 @@ Para aplicativos em execução no notebook Jupyter, use o `%%configure` comando 
 O código a seguir mostra como alterar a configuração de um aplicativo em execução em um notebook Jupyter.
 
 ```
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
 ## <a name="conclusion"></a>Conclusão
 
 Há uma série de definições de configuração de núcleo que você precisa monitorar e ajustar para garantir que seus trabalhos do Spark sejam executados de forma previsível e de alto desempenho. Essas configurações ajudam a determinar a melhor configuração de cluster Spark para suas cargas de trabalho específicas.  Você também precisará monitorar a execução de execuções de trabalho do Spark de execução longa e/ou de consumo de recursos.  Os desafios mais comuns são o centro em relação à pressão de memória devido a configurações incorretas (especialmente executores de tamanho incorreto), operações de longa execução e tarefas, que resultam em operações cartesianas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Apache Hadoop componentes e versões disponíveis com o HDInsight?](../hdinsight-component-versioning.md)
 * [Gerenciar recursos para um cluster Apache Spark no HDInsight](apache-spark-resource-manager.md)

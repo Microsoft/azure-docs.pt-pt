@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 27e5323e2c9fed3886b2ddf175a2c67718ad52d0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959154"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002278"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -231,7 +231,7 @@ Examine os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequ
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Posso configurar manualmente o servidor de configuração em vez de usar um modelo?
 
-Recomendamos que você [crie a VM do servidor de configuração](vmware-azure-deploy-configuration-server.md) usando a versão mais recente do modelo Open Virtual Machine Format (OVF). Se você não puder usar o modelo (por exemplo, se não tiver acesso ao servidor VMware), [Baixe](physical-azure-set-up-source.md) o arquivo de instalação do portal e configure o servidor de configuração.
+Recomendamos que você [crie a VM do servidor de configuração](vmware-azure-deploy-configuration-server.md) usando a versão mais recente do modelo de Open VIRTUALIZATION Format (OVF). Se você não puder usar o modelo (por exemplo, se não tiver acesso ao servidor VMware), [Baixe](physical-azure-set-up-source.md) o arquivo de instalação do portal e configure o servidor de configuração.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar para mais de uma região?
 
@@ -361,7 +361,7 @@ Sim. Você pode automatizar fluxos de trabalho de Site Recovery usando a API RES
 
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Examine](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 - [Configurar](vmware-azure-tutorial.md) Replicação do VMware para o Azure.

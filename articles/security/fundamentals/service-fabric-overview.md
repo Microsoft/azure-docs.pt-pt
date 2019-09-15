@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934577"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998954"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Visão geral da segurança do Azure Service Fabric
 O [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) é uma plataforma de sistemas distribuídos que torna mais fácil empacotar, implantar e gerenciar microservices escalonáveis e confiáveis. Service Fabric resolve os desafios de desenvolver e gerenciar aplicativos em nuvem. Os desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrar na implementação de cargas de trabalho críticas e exigentes que são escalonáveis e confiáveis.
@@ -88,7 +88,7 @@ O fluxo de trabalho de monitoramento e diagnóstico consiste em três etapas:
 
 2.  **Agregação de eventos**: Os eventos gerados precisam ser coletados e agregados antes que possam ser exibidos. Normalmente, recomendamos o uso de [diagnóstico do Azure](../../service-fabric/service-fabric-diagnostics-event-aggregation-wad.md) (semelhante à coleta de logs baseada em agente) ou [EventFlow](../../service-fabric/service-fabric-diagnostics-event-aggregation-eventflow.md) (coleta de log em processo).
 
-3.  **Análise**: Os eventos precisam ser visualizados e estar acessíveis em algum formato, para permitir a análise e a exibição. Há várias plataformas para a análise e a visualização de dados de monitoramento e diagnóstico. É recomendável [Azure monitor logs](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) e [aplicativo Azure](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md) insights porque eles se integram bem com o Service Fabric.
+3.  **Análise**: Os eventos precisam ser visualizados e estar acessíveis em algum formato, para permitir a análise e a exibição. Há várias plataformas para a análise e a visualização de dados de monitoramento e diagnóstico. É recomendável [Azure monitor logs](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) e [aplicativo Azure insights](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md) porque eles se integram bem com o Service Fabric.
 
 Você também pode usar [Azure monitor](../../azure-monitor/overview.md) para monitorar muitos dos recursos do Azure nos quais um Cluster Service Fabric foi criado.
 
@@ -132,7 +132,7 @@ Configure a segurança de cliente para nó usando o ClientIdentities. Você deve
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Gerenciar segredos em aplicativos Service Fabric
 Os segredos podem ser qualquer informação confidencial, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser manipulados em texto sem formatação.
 
-Você pode usar [Azure Key Vault](../../key-vault/key-vault-whatis.md) para gerenciar chaves e segredos. No entanto, o uso de segredos em um aplicativo não depende de uma plataforma de nuvem específica. Você pode implantar aplicativos em um cluster hospedado em qualquer lugar. Há quatro etapas principais neste fluxo:
+Você pode usar [Azure Key Vault](../../key-vault/key-vault-overview.md) para gerenciar chaves e segredos. No entanto, o uso de segredos em um aplicativo não depende de uma plataforma de nuvem específica. Você pode implantar aplicativos em um cluster hospedado em qualquer lugar. Há quatro etapas principais neste fluxo:
 
 1.  Obter um certificado de codificação de dados.
 2.  Instale o certificado em seu cluster.
@@ -155,6 +155,6 @@ As tarefas para configurar as políticas de segurança incluem:
 ## <a name="secure-communication-for-services"></a>Comunicação segura para serviços
 A segurança é um dos aspectos mais importantes da comunicação. A estrutura de aplicativo Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para aprimorar a segurança. Para obter mais informações, consulte [proteger comunicações remotas de serviço para um serviço](../../service-fabric/service-fabric-reliable-services-secure-communication.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações conceituais sobre a segurança do cluster, consulte [criar um Service Fabric cluster usando Azure Resource Manager](../../service-fabric/service-fabric-cluster-creation-via-arm.md) e [criar um Cluster Service Fabric usando o portal do Azure](../../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Para saber mais sobre a segurança de cluster no Service Fabric, consulte [Service Fabric cenários de segurança de cluster](../../service-fabric/service-fabric-cluster-security.md).

@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b451e501b216b02ecb052ee159d0e26343af7901
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e5bfd2fc127774b9630e87ab4f51241e82ed7c87
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910235"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999074"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -61,7 +61,7 @@ Para criar e implantar a imagem do módulo, você precisa do Docker para criar a
     > [!TIP]
     > Pode utilizar um registo do Docker local para o protótipo e fins de testes em vez de um registo de cloud.
 
-A menos que você esteja desenvolvendo seu módulo em C, também precisará da [ferramenta de desenvolvimento do Azure IOT EdgeHub](https://pypi.org/project/iotedgehubdev/) baseada em Python para configurar seu ambiente de desenvolvimento local para depurar, executar e testar sua solução de IOT Edge. Se você ainda não tiver feito isso, instale o [Python (2.7/3.6) e o Pip](https://www.python.org/) e, em seguida, instale o **iotedgehubdev** executando esse comando em seu terminal.
+A menos que você esteja desenvolvendo seu módulo em C, também precisará da [ferramenta de desenvolvimento do Azure IOT EdgeHub](https://pypi.org/project/iotedgehubdev/) baseada em Python para configurar seu ambiente de desenvolvimento local para depurar, executar e testar sua solução de IOT Edge. Se você ainda não tiver feito isso, instale o [Python (2.7/3.6 +) e o Pip](https://www.python.org/) e, em seguida, instale o **iotedgehubdev** executando esse comando em seu terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -269,22 +269,22 @@ Ao depurar módulos usando esse método, seus módulos estão em execução na p
       ptvsd.break_into_debugger()
       ```
 
-     Por exemplo, se você quiser depurar o `receive_message_callback` método, você deve inserir essa linha de código, conforme mostrado abaixo:
+     Por exemplo, se você quiser depurar a `receive_message_listener` função, você deve inserir essa linha de código, conforme mostrado abaixo:
 
       ```python
-      def receive_message_callback(message, hubManager):
+      def receive_message_listener(client):
           ptvsd.break_into_debugger()
-          global RECEIVE_CALLBACKS
-          message_buffer = message.get_bytearray()
-          size = len(message_buffer)
-          print ( "    Data: <<<%s>>> & Size=%d" % (message_buffer[:size].decode ('utf-8'), size) )
-          map_properties = message.properties()
-          key_value_pair = map_properties.get_internals()
-          print ( "    Properties: %s" % key_value_pair )
-          RECEIVE_CALLBACKS += 1
-          print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-          hubManager.forward_event_to_output("output1", message, 0)
-          return IoTHubMessageDispositionResult.ACCEPTED
+          global RECEIVED_MESSAGES
+          while True:
+              message = client.receive_message_on_input("input1")   # blocking call
+              RECEIVED_MESSAGES += 1
+              print("Message received on input1")
+              print( "    Data: <<{}>>".format(message.data) )
+              print( "    Properties: {}".format(message.custom_properties))
+              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+              print("Forwarding message to output1")
+              client.send_message_to_output(message, "output1")
+              print("Message successfully forwarded")
       ```
 
 1. Na paleta de comandos do Visual Studio Code:
@@ -358,7 +358,7 @@ Com as alterações recentes nos mecanismos Docker e Moby para dar suporte a con
 
 Consulte esta [entrada no blog do desenvolvedor IOT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obter mais informações e instruções passo a passo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de criar seu módulo, saiba como [implantar Azure IOT Edge módulos do Visual Studio Code](how-to-deploy-modules-vscode.md).
 

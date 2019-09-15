@@ -1,7 +1,7 @@
 ---
-title: Habilitar o log no serviço Azure Machine Learning
-titleSuffix: Azure Machine Learning service
-description: Saiba como habilitar o log no serviço de Azure Machine Learning usando o pacote de log do Python padrão, bem como usando a funcionalidade específica do SDK.
+title: Habilitar logon Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Saiba como habilitar o registro em log no Azure Machine Learning usando o pacote de log do Python padrão, bem como usando a funcionalidade específica do SDK.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847936"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002758"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Habilitar o log no serviço Azure Machine Learning
+# <a name="enable-logging-in-azure-machine-learning"></a>Habilitar logon Azure Machine Learning
 
 O SDK do Python Azure Machine Learning permite habilitar o registro em log usando o pacote de log do Python padrão, bem como usar a funcionalidade específica do SDK para registro em log local e registro em log em seu espaço de trabalho no Portal. Os logs fornecem aos desenvolvedores informações em tempo real sobre o estado do aplicativo e podem ajudar no diagnóstico de erros ou avisos. Neste artigo, você aprende diferentes maneiras de habilitar o registro em log nas seguintes áreas:
 
@@ -27,7 +27,7 @@ O SDK do Python Azure Machine Learning permite habilitar o registro em log usand
 > * Modelos implantados
 > * Configurações `logging` do Python
 
-[Crie um espaço de trabalho de serviço do Azure Machine Learning](how-to-manage-workspace.md). Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações sobre o SDK.
+[Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md). Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações sobre o SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Modelos de treinamento e log de destino de computação
 

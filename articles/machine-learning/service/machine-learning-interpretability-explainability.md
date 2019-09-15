@@ -1,6 +1,6 @@
 ---
 title: Capacidade de interpretação do modelo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como explicar por que seu modelo faz previsões usando o SDK do Azure Machine Learning. Ele pode ser usado durante o treinamento e a inferência para entender como seu modelo faz previsões.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872393"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002347"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Interpretação de modelo com serviço Azure Machine Learning
+# <a name="model-interpretability-with-azure-machine-learning"></a>Interpretação de modelo com Azure Machine Learning
 
 Neste artigo, você aprenderá a explicar por que seu modelo fez as previsões feitas com os vários pacotes de interpretação da Azure Machine Learning SDK do Python.
 
@@ -58,12 +58,12 @@ A saída é um conjunto de informações sobre como um determinado modelo faz su
 
 Há dois conjuntos de explicadores: Explicadores diretos e meta explicadores no SDK.
 
-Os explicadores diretos vêm de bibliotecas integradas. O SDK encapsula todos os explicadores para que eles exponham um formato de saída e de API comum. Se você se sentir mais confortável diretamente usando esses explicadores, poderá chamá-los diretamente em vez de usar a API comum e o formato de saída. Veja a seguir uma lista dos explicadores diretos disponíveis no SDK:
+Os __explicadores diretos__ vêm de bibliotecas integradas. O SDK encapsula todos os explicadores para que eles exponham um formato de saída e de API comum. Se você se sentir mais confortável diretamente usando esses explicadores, poderá chamá-los diretamente em vez de usar a API comum e o formato de saída. Veja a seguir uma lista dos explicadores diretos disponíveis no SDK:
 
 * **Explicador da árvore de shap**: O explicador de árvore do SHAP, que se concentra no algoritmo de estimativa de valor SHAP tempo polinomial rápido e específico para árvores e conjuntos de árvores.
 * **Explicador profundo do shap**: Com base na explicação do SHAP, o profundo explicador "é um algoritmo de aproximação de alta velocidade para valores de SHAP em modelos de aprendizado profundo que se baseiam em uma conexão com o DeepLIFT descrito no artigo SHAP NIPS. Há suporte para modelos TensorFlow e modelos Keras usando o back-end TensorFlow (também há suporte preliminar para PyTorch) ".
 * **Explicador de kernel shap**: O explicador do kernel do SHAP usa uma regressão linear local especialmente ponderada para estimar valores de SHAP para qualquer modelo.
-* **Explicador**de imitação: O explicador de imitação se baseia na ideia de modelos substitutos globais. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de um modelo de caixa preta o mais precisamente possível. O cientista de dados pode interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LinearExplainableModel), regressão linear (LinearExplainableModel), estocástico Grad descendente modelo explicativo (SGDExplainableModel) e árvore de decisão (DecisionTreeExplainableModel).
+* **Explicador de imitação**: O explicador de imitação se baseia na ideia de modelos substitutos globais. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de um modelo de caixa preta o mais precisamente possível. O cientista de dados pode interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LinearExplainableModel), regressão linear (LinearExplainableModel), estocástico Grad descendente modelo explicativo (SGDExplainableModel) e árvore de decisão (DecisionTreeExplainableModel).
 
 
 * **Explicador de importância do recurso de permuta**: A importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular a quantidade de métricas de desempenho que o interesse diminui. Quanto maior a alteração, mais importante é esse recurso.
@@ -219,7 +219,7 @@ O `explain` pacote foi projetado para funcionar com destinos de computação loc
 
 ### <a name="train-and-explain-remotely"></a>Treinar e explicar remotamente
 
-Embora você possa treinar em vários destinos de computação com suporte pelo serviço Azure Machine Learning, o exemplo nesta seção mostra como fazer isso usando um destino de computação Azure Machine Learning.
+Embora você possa treinar em vários destinos de computação com suporte pelo Azure Machine Learning, o exemplo nesta seção mostra como fazer isso usando um destino de computação Azure Machine Learning.
 
 1. Crie um script de treinamento em um bloco de anotações Jupyter local (por exemplo, run_explainer. py).
 
@@ -474,7 +474,7 @@ O explicador pode ser implantado junto com o modelo original e pode ser usado no
 
 1. Implantar a imagem em um destino de computação:
 
-   1. Criar um arquivo de Pontuação (antes desta etapa, siga as etapas em [implantar modelos com o serviço de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) para registrar seu modelo de previsão original)
+   1. Criar um arquivo de Pontuação (antes desta etapa, siga as etapas em [implantar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) para registrar seu modelo de previsão original)
 
         ```python
         %%writefile score.py
@@ -601,4 +601,4 @@ O explicador pode ser implantado junto com o modelo original e pode ser usado no
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para ver uma coleção de notebooks Jupyter que demonstram as instruções acima, consulte os notebooks de [exemplo de interpretação de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+Para ver uma coleção de notebooks Jupyter que demonstram as instruções acima, consulte os [notebooks de exemplo de interpretação de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

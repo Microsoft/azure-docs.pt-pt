@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036037"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003553"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ para tradução de SQL
 
@@ -68,7 +68,7 @@ O provedor LINQ incluído no SDK do .NET do SQL dá suporte aos seguintes operad
 - **Funções matemáticas**: Dá suporte à conversão `Abs`do `Acos`.NET `Asin`, `Atan` ,`Floor` ,,,`Pow`,,,,,, `Ceiling` `Cos` `Exp` `Log` `Log10` `Round` ,,,`Truncate` , e para as funções internas do SQL equivalentes. `Sign` `Sin` `Sqrt` `Tan`
 - **Funções de cadeia de caracteres**: Dá suporte à conversão `Concat`do `Contains`.NET `Count`, `EndsWith` ,`StartsWith` ,,,`ToUpper`,,,,,,`IndexOf` `Replace` `Reverse` `SubString` `ToLower` `TrimEnd` e`TrimStart` para as funções internas do SQL equivalentes.
 - **Funções de matriz**: Dá suporte à conversão `Concat`do `Contains`.net, `Count` e para as funções internas do SQL equivalentes.
-- **Funções de extensão**geoespaciais: Dá suporte à conversão de `Distance`métodos `IsValid`stub `IsValidDetailed`,, `Within` , e às funções internas SQL equivalentes.
+- **Funções de extensão geoespaciais**: Dá suporte à conversão de `Distance`métodos `IsValid`stub `IsValidDetailed`,, `Within` , e às funções internas SQL equivalentes.
 - **Função de extensão da função definida pelo usuário**: Dá suporte à conversão do método `UserDefinedFunctionProvider.Invoke` stub para a função definida pelo usuário correspondente.
 - **Diversos**: Dá suporte à `Coalesce` conversão de operadores condicionais e. Pode ser `Contains` convertido em cadeia de caracteres Contains, ARRAY_CONTAINS ou SQL no, dependendo do contexto.
 
@@ -322,7 +322,7 @@ Uma consulta aninhada aplica a consulta interna a cada elemento do contêiner ex
   ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dados de documento de modelo](modeling-data.md)

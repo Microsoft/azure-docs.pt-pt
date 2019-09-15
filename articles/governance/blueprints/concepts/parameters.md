@@ -7,12 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231950"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004075"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando plantas dinâmicas por meio de parâmetros
 
@@ -239,7 +239,7 @@ A configuração de **parâmetros dinâmicos** durante a atribuição é feita i
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a lista de [funções de plantas](../reference/blueprint-functions.md).
-- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

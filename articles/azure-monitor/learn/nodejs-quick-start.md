@@ -1,5 +1,5 @@
 ---
-title: Início rápido com o Azure Application Insights | Microsoft Docs
+title: 'Início rápido: Monitorize com o Azure Application Insights'
 description: Fornece instruções para configurar rapidamente uma Aplicação Web Node.js para monitorização com o Application Insights
 services: application-insights
 keywords: ''
@@ -7,15 +7,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f7c8e4e240d4278257da9df5cea67a7e55eb1019
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 3312822d3e4f74a2db39712d61880c8dd0dd8d5e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543066"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001174"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Node.js
 
@@ -133,7 +133,7 @@ Para saber mais sobre a monitorização de Node.js, veja a [Documentação adici
 Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
 
 1. No menu à esquerda na portal do Azure, selecione **grupos de recursos** e, em seguida, selecione grupo de **recursos**.
-2. Na página do grupo de recursos, selecione **excluir**, digite MyResource Group na caixa de texto e, em seguida, selecione **excluir**.
+2. Na página do grupo de recursos, selecione **excluir**, digite **MyResource** Group na caixa de texto e, em seguida, selecione **excluir**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 87acc6e8c561349b734bd9cd98300b65e730abe7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928079"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000973"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades e os controles de segurança a serem considerados quando você cria aplicativos para a nuvem. Os recursos de treinamento, juntamente com as perguntas de segurança e os conceitos a serem considerados durante as fases de design e de requisitos do Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para criar um aplicativo mais seguro.
@@ -155,7 +155,7 @@ Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Falsificação               | Authentication        | [Exigir conexões HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Adulteração              | Integridade             | Validar certificados SSL/TLS. Os aplicativos que usam SSL/TLS devem verificar completamente os certificados X. 509 das entidades a que se conectam. Use Azure Key Vault certificados para [gerenciar seus certificados X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Repúdio            | Não repudiação       | Habilite o [monitoramento e o diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)do Azure.|
+| Repúdio            | Não repúdio       | Habilite o [monitoramento e o diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)do Azure.|
 | Divulgação de Informações | Confidencialidade       | Criptografe dados confidenciais [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service (DoS)      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. A [proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md#next-steps), combinada com as práticas recomendadas de design de aplicativo, fornece defesa contra ataques de DDoS.|
 | Elevação de privilégio | Autorização         | Use Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
@@ -242,7 +242,7 @@ A melhor maneira de se defender contra esse tipo de ataque é pedir ao usuário 
 
 Perder chaves e credenciais é um problema comum. A única coisa pior do que perder suas chaves e credenciais é ter uma parte não autorizada ter acesso a elas. Os invasores podem aproveitar as técnicas automatizadas e manuais para encontrar chaves e segredos armazenados em repositórios de código como o GitHub. Não coloque chaves e segredos nesses repositórios de código públicos ou em qualquer outro servidor.
 
-Sempre coloque suas chaves, certificados, segredos e cadeias de conexão em uma solução de gerenciamento de chaves. Você pode usar uma solução centralizada na qual chaves e segredos são armazenados em HSMs (módulos de segurança de hardware). O Azure fornece um HSM na nuvem com [Azure Key Vault](../../key-vault/key-vault-whatis.md).
+Sempre coloque suas chaves, certificados, segredos e cadeias de conexão em uma solução de gerenciamento de chaves. Você pode usar uma solução centralizada na qual chaves e segredos são armazenados em HSMs (módulos de segurança de hardware). O Azure fornece um HSM na nuvem com [Azure Key Vault](../../key-vault/key-vault-overview.md).
 
 Key Vault é um *repositório secreto*: é um serviço de nuvem centralizado para armazenar os segredos do aplicativo. Key Vault mantém seus dados confidenciais protegidos, mantendo os segredos do aplicativo em um único local central e fornecendo acesso seguro, controle de permissões e registro em log de acesso.
 
@@ -277,7 +277,7 @@ Quando você coloca comentários em seu código, certifique-se de não salvar ne
 
 Basicamente, suponha que tudo em seu projeto de desenvolvimento será um conhecimento público quando for implantado. Evite incluir dados confidenciais de qualquer tipo no projeto.
 
-Discutimos anteriormente [Azure Key Vault](../../key-vault/key-vault-whatis.md). Você pode usar Key Vault para armazenar segredos como chaves e senhas em vez de codificá-los embutidamente. Quando você usa Key Vault em combinação com identidades gerenciadas para recursos do Azure, seu aplicativo Web do Azure pode acessar valores de configuração secretas com facilidade e segurança sem armazenar segredos no controle do código-fonte ou na configuração. Para saber mais, confira [gerenciar segredos em seus aplicativos de servidor com o Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Discutimos anteriormente [Azure Key Vault](../../key-vault/key-vault-overview.md). Você pode usar Key Vault para armazenar segredos como chaves e senhas em vez de codificá-los embutidamente. Quando você usa Key Vault em combinação com identidades gerenciadas para recursos do Azure, seu aplicativo Web do Azure pode acessar valores de configuração secretas com facilidade e segurança sem armazenar segredos no controle do código-fonte ou na configuração. Para saber mais, confira [gerenciar segredos em seus aplicativos de servidor com o Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementar medidas de falha segura
 
@@ -316,7 +316,7 @@ Verifique se você não registra dados confidenciais que um usuário envia para 
 
 Certifique-se de que o aplicativo monitore eventos de gerenciamento de usuários, como logons de usuário bem-sucedidos e com falha, redefinições de senha, alterações de senha, bloqueio de conta e registro de usuário. O registro desses eventos ajuda você a detectar e reagir a comportamentos potencialmente suspeitos. Ele também permite que você Reúna dados de operações, como quem está acessando o aplicativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nos artigos a seguir, recomendamos os controles de segurança e as atividades que podem ajudá-lo a desenvolver e implantar aplicativos seguros.
 
 - [Desenvolva aplicativos seguros](secure-develop.md)

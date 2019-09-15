@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 37ea126952451eae81c548a11f70b9a258808d34
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6dfbcc7a3e76842546326742d801c913451855f3
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147357"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001131"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (Python)
 
@@ -35,6 +35,9 @@ Ao final deste tutorial, você executará o aplicativo de console do Python:
 * **FileUpload.py**, que carrega um arquivo no armazenamento usando o SDK do dispositivo Python.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+> [!NOTE]
+> Este guia usa o SDK do Python v1 preterido, pois o recurso de upload de arquivo ainda não foi implementado no novo SDK do v2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,7 +138,7 @@ Agora você está pronto para executar o aplicativo.
     python FileUpload.py
     ```
 
-2. A captura de tela a seguir mostra a saída do aplicativo FileUpload:
+2. A captura de tela a seguir mostra a saída do aplicativo **FileUpload** :
 
     ![Saída do aplicativo Simulated-Device](./media/iot-hub-python-python-file-upload/1.png)
 
@@ -143,7 +146,7 @@ Agora você está pronto para executar o aplicativo.
 
     ![Arquivo carregado](./media/iot-hub-python-python-file-upload/2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar a explorar os recursos e cenários do Hub IoT com os seguintes artigos:
 

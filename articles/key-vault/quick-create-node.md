@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2010
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259231"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003503"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Início rápido: Definir e recuperar um segredo de Azure Key Vault usando um aplicativo Web de nó 
 
@@ -27,7 +27,7 @@ Este guia de início rápido mostra como armazenar um segredo no Azure Key Vault
 * Ative uma [identidade gerida](../active-directory/managed-service-identity/overview.md) para a aplicação Web.
 * Conceda as permissões exigidas para a aplicação ler dados do cofre de chaves.
 
-Antes de prosseguir, verifique se você está familiarizado com os [conceitos básicos para Key Vault](key-vault-whatis.md#basic-concepts).
+Antes de prosseguir, verifique se você está familiarizado com os [conceitos básicos para Key Vault](basic-concepts.md).
 
 > [!NOTE]
 > O Key Vault é um repositório central para armazenar segredos de forma programática. Mas para tal, primeiro as aplicações e os utilizadores têm de autenticar para o Key Vault, ou seja, apresentar um segredo. Ao manter as práticas recomendadas de segurança, esse primeiro segredo precisa ser girado periodicamente. 
@@ -178,7 +178,7 @@ Anote a saída do comando anterior. Deverá estar no formato:
           "type": "SystemAssigned"
         }
         
-Em seguida, execute o seguinte comando usando o nome do seu cofre de chaves e o valorde PrincipalId:
+Em seguida, execute o seguinte comando usando o nome do seu cofre de chaves e o valor de **PrincipalId**:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set

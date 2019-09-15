@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847040"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999092"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,7 +42,7 @@ O elemento **ClaimsSchema** define os tipos de declaração que podem ser refere
 
 O elemento ClaimType contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
@@ -53,7 +53,7 @@ O elemento ClaimType contém os seguintes elementos:
 | DisplayName | 0:1 | O título que é exibido para os usuários em várias telas. O valor pode ser [localizado](localization.md). |
 | Tipo de dados | 0:1 | O tipo da declaração. Os tipos de dados Boolean, Date, dateTime, int, Long, String, StringCollection, alternativeSecurityIdCollection podem ser usados. |
 | DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim** . Use este elemento para especificar o nome padrão para um protocolo.  |
-| Mascara | 0:1 | Uma cadeia opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
+| Máscara | 0:1 | Uma cadeia opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os usuários entenderem sua finalidade. O valor pode ser [localizado](localization.md). |
 | UserInputType | 0:1 | O tipo de controle de entrada que deve estar disponível para o usuário ao inserir manualmente os dados de declaração para o tipo de declaração. Consulte os tipos de entrada de usuário definidos mais adiante nesta página. |
 | Restrição | 0:1 | As restrições de valor para essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado](localization.md). |
@@ -69,9 +69,9 @@ O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
 O elemento **Protocol** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido com suporte pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| Name | Sim | O nome de um protocolo válido com suporte pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando a estrutura de experiência de identidade interage com um provedor de identidade SAML2 ou um aplicativo de terceira parte confiável, a Declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`de sobrenome é mapeada para, com OpenIdConnect e OAuth2, `family_name` a declaração é mapeada para .
@@ -100,11 +100,11 @@ Como resultado, o token JWT emitido por Azure ad B2C emite `family_name` um nome
 }
 ```
 
-### <a name="mask"></a>Mascara
+### <a name="mask"></a>Máscara
 
 O elemento **Mask** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O `Regex` valor indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o `Regex` valor for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
 | `Regex` | Não | Se **`Type`** for definido como `Regex`, especifique a expressão regular a ser usada.
@@ -144,7 +144,7 @@ A estrutura de experiência de identidade renderiza apenas a primeira letra do e
 
 O elemento **Restriction** pode conter o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | MergeBehavior | Não | O método usado para mesclar valores de enumeração com um ClaimType em uma política pai com o mesmo identificador. Use esse atributo quando você substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O `Append` valor é uma coleção de dados que devem ser acrescentados ao final da coleção especificada na política pai. O `Prepend` valor é uma coleção de dados que deve ser adicionada antes da coleção especificada na política pai. O `ReplaceAll` valor é uma coleção de dados especificada na política pai que deve ser ignorada. |
 
@@ -159,7 +159,7 @@ O elemento **Restriction** contém os seguintes elementos:
 
 O elemento **Enumeration** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | Text | Sim | A cadeia de caracteres de exibição mostrada para o usuário na interface do usuário para essa opção. |
 |Value | Sim | O valor de declaração associado à seleção dessa opção. |
@@ -188,7 +188,7 @@ Lista de cidade suspensa com um valor padrão definido como Nova York:
 
 O elemento **Pattern** pode conter os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | RegularExpression | Sim | A expressão regular que alega esse tipo deve corresponder para ser válida. |
 | Texto | Não | O padrão ou a expressão regular para esta declaração. |
@@ -354,7 +354,7 @@ O tipo de entrada de usuário **ReadOnly** é usado para fornecer um campo ReadO
 ```
 
 
-### <a name="paragraph"></a>Retorno
+### <a name="paragraph"></a>Parágrafo
 
 O tipo de entrada de usuário de **parágrafo** é usado para fornecer um campo que mostra texto somente em uma marca de parágrafo. Por exemplo, &lt;p&gt;Text&lt;/p&gt;.
 

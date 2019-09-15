@@ -1,6 +1,6 @@
 ---
 title: Iniciar, monitorar e cancelar execuções de treinamento em Python
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como iniciar, definir o status, marcar e organizar seus experimentos de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 6615b5c277577ee2238434591c61362885f2fec6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376299"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002737"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorar e cancelar execuções de treinamento em Python
 
@@ -33,9 +33,9 @@ Este artigo mostra exemplos das seguintes tarefas:
 
 Você precisará dos seguintes itens:
 
-* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
-* Um [espaço de trabalho de serviço do Azure Machine Learning](how-to-manage-workspace.md).
+* Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
 * O SDK do Azure Machine Learning para Python (versão 1.0.21 ou posterior). Para instalar ou atualizar para a versão mais recente do SDK, consulte [instalar ou atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -45,7 +45,7 @@ Você precisará dos seguintes itens:
     print(azureml.core.VERSION)
     ```
 
-* O [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e a [extensão da CLI para Azure Machine Learning Service](reference-azure-machine-learning-cli.md).
+* A [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e a [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## <a name="start-a-run-and-its-logging-process"></a>Iniciar uma execução e seu processo de registro em log
 
@@ -79,7 +79,7 @@ Para iniciar uma execução do seu experimento, use as seguintes etapas:
     az login
     ```
 
-1. Anexe uma configuração de espaço de trabalho à pasta que contém o script de treinamento. Substitua `myworkspace` pelo espaço de trabalho do serviço Azure Machine Learning. Substitua `myresourcegroup` pelo grupo de recursos do Azure que contém seu espaço de trabalho:
+1. Anexe uma configuração de espaço de trabalho à pasta que contém o script de treinamento. Substitua `myworkspace` por seu espaço de trabalho do Azure Machine Learning. Substitua `myresourcegroup` pelo grupo de recursos do Azure que contém seu espaço de trabalho:
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -253,7 +253,7 @@ print(parent_run.get_children())
 
 ## <a name="tag-and-find-runs"></a>Marcar e localizar execuções
 
-No Azure Machine Learning Service, você pode usar as propriedades e marcas para ajudar a organizar e consultar suas execuções para obter informações importantes.
+No Azure Machine Learning, você pode usar as propriedades e marcas para ajudar a organizar e consultar suas execuções para obter informações importantes.
 
 ### <a name="add-properties-and-tags"></a>Adicionar propriedades e marcas
 

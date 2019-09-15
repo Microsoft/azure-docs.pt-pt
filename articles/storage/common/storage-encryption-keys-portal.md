@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 892cbe66222626a6847ad7a5b6c990d23991c182
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030956"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002255"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do portal do Azure
 
@@ -73,4 +73,4 @@ Ao criar uma nova versão de uma chave, você precisará atualizar a conta de ar
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
-- [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

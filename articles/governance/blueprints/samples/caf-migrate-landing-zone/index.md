@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: dc30aeae842cf9c3cd39422517ed49773c524f1e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 81bde54c65cf3ed25da634c38b7b99e72a187e00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232832"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002452"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Descrição geral do exemplo de esquema Zona de destino de migração do Microsoft Cloud Adoption Framework para o Azure
 
@@ -29,7 +29,7 @@ O exemplo de esquema Zona de destino de migração do CAF implementa recursos de
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma governação segura, completamente monitorizada e preparada para empresas. Este ambiente é composto por:
 
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) utilizada para alojar segredos utilizados para os Certificados, Chaves e Segredos implementados no ambiente de serviços partilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para alojar segredos utilizados para os Certificados, Chaves e Segredos implementados no ambiente de serviços partilhados
 - Uma implementação do [Log Analytics](../../../../azure-monitor/overview.md) para garantir que todos os serviços e ações são registados numa localização central desde o momento em que inicia a sua migração
 - Uma implementação do [Centro de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão standard) que fornece proteção contra ameaças para as suas cargas de trabalho migradas.
 - Uma implementação da [Rede Virtual do Azure](../../../../virtual-network/virtual-networks-overview.md) para fornecer uma rede isolada e sub-redes para a sua máquina virtual.

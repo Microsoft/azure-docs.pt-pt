@@ -1,23 +1,23 @@
 ---
-title: Operadores de consulta SQL para o Azure Cosmos DB
-description: Saiba mais sobre os operadores SQL para o Azure Cosmos DB.
+title: Operadores de consulta SQL para Azure Cosmos DB
+description: Saiba mais sobre operadores SQL para Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: eecc1522f8c260286c7dd7fc4c2e58d5d8caa8fb
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 899355ad7331a3df8cd5d647a573dc15e3a0bb14
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342651"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003384"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
 
-Este artigo fornece detalhes sobre os vários operadores suportados pelo Azure Cosmos DB.
+Este artigo fornece detalhes sobre os vários operadores com suporte pelo Azure Cosmos DB.
 
-## <a name="equality-and-comparison-operators"></a>Igualdade e operadores de comparação
+## <a name="equality-and-comparison-operators"></a>Operadores de igualdade e comparação
 
 A tabela seguinte mostra o resultado de comparações de igualdade na API do SQL entre quaisquer dois tipos JSON.
 
@@ -31,13 +31,13 @@ A tabela seguinte mostra o resultado de comparações de igualdade na API do SQL
 | **Objeto** | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido |
 | **Matriz** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** |
 
-Para os operadores de comparação, como `>`, `>=`, `!=`, `<`, e `<=`, comparação em tipos de ou entre dois objetos ou matrizes produz `Undefined`.  
+Para operadores de comparação como `>` `!=`, `>=` `<`,, e `<=`, a comparação entre os tipos ou entre dois objetos ou matrizes produz `Undefined`.  
 
-Se for o resultado da expressão escalar `Undefined`, o item não está incluído no resultado, porque `Undefined` não é igual a `true`.
+Se o resultado da expressão escalar for `Undefined`, o item não será incluído no resultado, porque `Undefined` não é igual `true`a.
 
 ## <a name="logical-and-or-and-not-operators"></a>Lógicos (AND, OR e não) operadores
 
-Operadores lógicos operam em valores booleanos. As tabelas seguintes mostram as tabelas de verdade lógicas para esses operadores:
+Operadores lógicos operam em valores booleanos. As tabelas a seguir mostram as tabelas lógicas da verdade para esses operadores:
 
 **OU o operador**
 
@@ -66,37 +66,37 @@ Operadores lógicos operam em valores booleanos. As tabelas seguintes mostram as
 
 ## <a name="-operator"></a>* operador
 
-O operador especial * projetos todo o item como está. Quando utilizado, tem de ser o único campo previsto. Uma consulta, como `SELECT * FROM Families f` for válido, mas `SELECT VALUE * FROM Families f` e `SELECT *, f.id FROM Families f` não são válidos.
+O operador especial * projeta o item inteiro como está. Quando utilizado, tem de ser o único campo previsto. Uma consulta como `SELECT * FROM Families f` é válida, `SELECT *, f.id FROM Families f` mas `SELECT VALUE * FROM Families f` não é válida.
 
-## <a name="-and--operators"></a>? e?? Operadores
+## <a name="-and--operators"></a>? e?? Operações
 
-Pode utilizar o ternária (?) e Coalesce operadores (?) para criar expressões condicionais, como em linguagens como o C# e JavaScript. 
+Você pode usar os operadores ternário (?) e de União (??) para criar expressões condicionais, como em linguagens C# de programação como o e o JavaScript. 
 
-Pode utilizar o? operador de construir novas propriedades JSON em tempo real. Por exemplo, a seguinte consulta classifica os níveis de nível para o `elementary` ou `other`:
+Você pode usar o? operador para construir novas propriedades JSON em tempo real. Por exemplo, a consulta a seguir classifica os níveis `elementary` de `other`nível em ou:
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-Também pode aninhar chamadas para o? operador, tal como a seguinte consulta: 
+Você também pode aninhar chamadas para o? como na consulta a seguir: 
 
 ```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-Tal como acontece com outros operadores de consulta, o? operador exclui itens, se as propriedades referenciadas estão em falta ou os tipos que está a ser comparados são diferentes.
+Como ocorre com outros operadores de consulta, o? o operador exclui itens se as propriedades referenciadas estiverem ausentes ou os tipos que estão sendo comparados forem diferentes.
 
-Utilize o?? operador para procurar com eficiência uma propriedade num item ao consultar os dados semiestruturados ou tipo misto. Por exemplo, a consulta seguinte devolve `lastName` se estiver presente, ou `surname` se `lastName` não estiver presente.
+Usar o?? para verificar com eficiência uma propriedade em um item ao consultar dados semiestruturados ou de tipo misto. Por exemplo, a consulta a seguir `lastName` retorna se presente, `surname` ou `lastName` se não estiver presente.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [palavras-chave](sql-query-keywords.md)
 - [Cláusula SELECT](sql-query-select.md)

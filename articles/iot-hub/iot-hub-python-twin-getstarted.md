@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: d729ab4b3f42f5d353309023cf07ae5e212e02ec
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 565330528638bb6c8e0458a9761e2cf9fa4e3d2a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147605"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001461"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução ao dispositivo gêmeos (Python)
 
@@ -56,7 +56,7 @@ Nesta seção, você criará um aplicativo de console do Python que adiciona met
    ```
 
    > [!NOTE]
-   > Os pacotes Pip para Azure-iothub-Service-Client e Azure-iothub-Device-Client estão atualmente disponíveis apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   > O pacote Pip para Azure-iothub-Service-Client está disponível no momento apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
    >
 
 2. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery.py** .
@@ -128,7 +128,7 @@ Nesta seção, você criará um aplicativo de console do Python que adiciona met
             print ( "IoTHub sample stopped" )
     ```
 
-    O objeto **Registry** expõe todos os métodos necessários para interagir com o dispositivo gêmeos do serviço. O código inicializa o objeto **do registro** primeiro e, em seguida, atualizao dispositivo de atualização para DeviceID e, finalmente, executa duas consultas. O primeiro seleciona apenas o dispositivo gêmeos de dispositivos localizados na fábrica **Redmond43** e o segundo refina a consulta para selecionar apenas os dispositivos que também estão conectados por meio da rede celular.
+    O objeto **Registry** expõe todos os métodos necessários para interagir com o dispositivo gêmeos do serviço. O código inicializa o objeto **do registro** primeiro e, em seguida, atualiza o dispositivo de atualização para **DeviceID**e, finalmente, executa duas consultas. O primeiro seleciona apenas o dispositivo gêmeos de dispositivos localizados na fábrica **Redmond43** e o segundo refina a consulta para selecionar apenas os dispositivos que também estão conectados por meio da rede celular.
 
 6. Adicione o seguinte código ao final de **AddTagsAndQuery.py** para implementar a função **iothub_service_sample_run** :
 
@@ -155,84 +155,57 @@ Na próxima seção, você cria um aplicativo de dispositivo que relata as infor
 
 Nesta seção, você cria um aplicativo de console do Python que se conecta ao seu hub como **{Device ID}** e, em seguida, atualiza suas propriedades relatadas do seu dispositivo para conter as informações que ele está conectado usando uma rede de celular.
 
-1. Em um prompt de comando em seu diretório de trabalho, instale o **SDK do serviço de Hub IOT do Azure para Python**:
+1. Em um prompt de comando em seu diretório de trabalho, instale o **SDK do dispositivo do Hub IOT do Azure para Python**:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > Os pacotes Pip para Azure-iothub-Service-Client e Azure-iothub-Device-Client estão atualmente disponíveis apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
-   >
 
 2. Usando um editor de texto, crie um novo arquivo **ReportConnectivity.py** .
 
-3. Adicione o código seguinte para importar os módulos necessários do SDK do serviço:
+3. Adicione o seguinte código para importar os módulos necessários do SDK do dispositivo:
 
     ```python
     import time
-    import iothub_client
-    from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
+    import threading
+    from azure.iot.device import IoTHubModuleClient
     ```
 
 4. Adicione o seguinte código. Substitua o `[IoTHub Device Connection String]` valor do espaço reservado pela cadeia de conexão do dispositivo que você copiou no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
-
-    # choose HTTP, AMQP, AMQP_WS or MQTT as transport protocol
-    PROTOCOL = IoTHubTransportProvider.MQTT
-
-    TIMER_COUNT = 5
-    TWIN_CONTEXT = 0
-    SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
 5. Adicione o seguinte código ao arquivo **ReportConnectivity.py** para implementar a funcionalidade do dispositivo gêmeos:
 
     ```python
-    def device_twin_callback(update_state, payload, user_context):
-        print ( "" )
-        print ( "Twin callback called with:" )
-        print ( "    updateStatus: %s" % update_state )
-        print ( "    payload: %s" % payload )
-
-    def send_reported_state_callback(status_code, user_context):
-        print ( "" )
-        print ( "Confirmation for reported state called with:" )
-        print ( "    status_code: %d" % status_code )
+    def twin_update_listener(client):
+        while True:
+            patch = client.receive_twin_desired_properties_patch()  # blocking call
+            print("Twin patch received:")
+            print(patch)
 
     def iothub_client_init():
-        client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-
-        if client.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
-            client.set_device_twin_callback(
-                device_twin_callback, TWIN_CONTEXT)
-
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():
         try:
             client = iothub_client_init()
 
-            if client.protocol == IoTHubTransportProvider.MQTT:
-                print ( "Sending data as reported property..." )
+            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
+            twin_update_listener_thread.daemon = True
+            twin_update_listener_thread.start()
 
-                reported_state = "{\"connectivity\":\"cellular\"}"
-
-                client.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
+            # Send reported 
+            print ( "Sending data as reported property..." )
+            reported_patch = {"connectivity": "cellular"}
+            client.patch_twin_reported_properties(reported_patch)
+            print ( "Reported properties updated" )
 
             while True:
-                print ( "Press Ctrl-C to exit" )
-
-                status_counter = 0
-                while status_counter <= TIMER_COUNT:
-                    status = client.get_send_status()
-                    time.sleep(10)
-                    status_counter += 1 
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error %s from IoTHub" % iothub_error )
-            return
+                time.sleep(1000000)
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
     ```
@@ -244,6 +217,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Device Twins Python client sample..." )
+        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_client_sample_run()
     ```
@@ -268,7 +242,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
 
     ![segunda consulta](./media/iot-hub-python-twin-getstarted/service-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Você adicionou metadados de dispositivo como marcas de um aplicativo de back-end e gravou um aplicativo de dispositivo simulado para relatar informações de conectividade do dispositivo no dispositivo. Você também aprendeu como consultar essas informações usando o registro.
 

@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bcdac2635c9d40bcd0f7605fad7479d5b8cdddba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c18e48d76381bf40e6177feb389a0197aace081d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239217"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000857"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando Azure PowerShell
 
@@ -59,7 +59,7 @@ Os comandos anteriores utilizam as seguintes informações:
 - **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política *VMs de auditoria que não utilizam discos geridos*.
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
 
-Agora, está pronto para identificar recursos incompatíveis para compreender o estado de compatibilidade do seu ambiente.
+Agora você está pronto para identificar recursos sem conformidade para entender o estado de conformidade do seu ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 

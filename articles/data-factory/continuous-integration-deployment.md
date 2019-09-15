@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 4d4fe32b5f457e2b223132006afd20bfe3161bbd
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 08/14/2019
+ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142608"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002409"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>CI/CD (integração e entrega contínuas) no Azure Data Factory
 
@@ -199,7 +199,7 @@ A implantação poderá falhar se você tentar atualizar os gatilhos ativos. Par
 Você pode seguir etapas semelhantes (com a `Start-AzDataFactoryV2Trigger` função) para reiniciar os gatilhos após a implantação.
 
 > [!IMPORTANT]
-> Em cenários de integração e implantação contínuas, o tipo de Integration Runtime em ambientes diferentes deve ser o mesmo. Por exemplo, se você tiver um ir (autohospedado Integration Runtime) no ambiente de desenvolvimento, o mesmo ir deverá ser do tipo *auto-hospedado* em outros ambientes, como o teste e a produção também. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, precisará configurar os tempos de execução de integração como *vinculados internamente* em todos os ambientes, como desenvolvimento, teste e produção.
+> Em cenários de integração e implantação contínuas, o tipo de Integration Runtime em ambientes diferentes deve ser o mesmo. Por exemplo, se você tiver um IR ( *autohospedado* Integration Runtime) no ambiente de desenvolvimento, o mesmo ir deverá ser do tipo *auto-hospedado* em outros ambientes, como o teste e a produção também. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, precisará configurar os tempos de execução de integração como *vinculados internamente* em todos os ambientes, como desenvolvimento, teste e produção.
 
 #### <a name="sample-prepostdeployment-script"></a>Exemplo de script de pré/pós-implantação
 
@@ -661,7 +661,7 @@ Se você tiver configurado o Git, os modelos vinculados serão gerados e salvos 
 
 ![Pasta de modelos do Resource Manager vinculado](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado `ArmTemplate_master.json`, e os modelos filho são nomeados com `ArmTemplate_0.json`o `ArmTemplate_1.json`padrão, e assim por diante. Para usar modelos vinculados em vez do modelo completo do Resource Manager, atualize sua tarefa de CI/CD `ArmTemplate_master.json` para apontar `ArmTemplateForFactory.json` para, em vez de (o modelo completo do Resource Manager). O Gerenciador de recursos também exige que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte Implantando [modelos ARM vinculados com o VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado `ArmTemplate_master.json`, e os modelos filho são nomeados com `ArmTemplate_0.json`o `ArmTemplate_1.json`padrão, e assim por diante. Para usar modelos vinculados em vez do modelo completo do Resource Manager, atualize sua tarefa de CI/CD `ArmTemplate_master.json` para apontar `ArmTemplateForFactory.json` para, em vez de (o modelo completo do Resource Manager). O Gerenciador de recursos também exige que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [implantando modelos ARM vinculados com o VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Lembre-se de adicionar os scripts de Data Factory em seu pipeline de CI/CD antes e depois da tarefa de implantação.
 

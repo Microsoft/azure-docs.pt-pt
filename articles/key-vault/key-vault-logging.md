@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fc0f259a4866f7eb2438938c7a10989db9200aa4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976963"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000671"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -35,7 +35,7 @@ Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves
 > Este artigo fornece Azure PowerShell instruções para atualizar o log de diagnósticos. Você também pode atualizar o log de diagnóstico usando Azure Monitor na seção **logs de diagnóstico** do portal do Azure. 
 >
 
-Para obter informações gerais sobre Key Vault, consulte [o que é Azure Key Vault?](key-vault-whatis.md). Para obter informações sobre onde Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
+Para obter informações gerais sobre Key Vault, consulte [o que é Azure Key Vault?](key-vault-overview.md). Para obter informações sobre onde Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -133,7 +133,7 @@ O que é registado:
 
 ## <a id="access"></a>Aceder aos seus registos
 
-Os logs de Key Vault são armazenados no contêiner insights **-logs-auditevent** na conta de armazenamento que você forneceu. Para exibir os logs, você precisa baixar BLOBs.
+Os logs de Key Vault são armazenados no contêiner **insights-logs-auditevent** na conta de armazenamento que você forneceu. Para exibir os logs, você precisa baixar BLOBs.
 
 Primeiro, crie uma variável para o nome do contentor. Você usará essa variável em todo o restante do guia.
 
@@ -264,7 +264,7 @@ A tabela a seguir lista os nomes de campo e as descrições:
 | **identity** |Identidade do token que foi apresentado na solicitação da API REST. Isso geralmente é um "usuário", uma "entidade de serviço" ou a combinação "usuário + appId", como no caso de uma solicitação resultante de um cmdlet Azure PowerShell. |
 | **Propriedades** |Informações que variam de acordo com a operação (**operationName**). Na maioria dos casos, esse campo contém informações do cliente (a cadeia de caracteres do agente do usuário passada pelo cliente), o URI exato da solicitação da API REST e o código de status HTTP. Além disso, quando um objeto é retornado como resultado de uma solicitação (por exemplo, **keycreate** ou **VaultGet**), ele também contém o URI da chave (como "ID"), o URI do cofre ou o URI do segredo. |
 
-Os valores do campo **operationName** estão no formato objectverbal. Por exemplo:
+Os valores do campo **operationName** estão no formato *objectverbal* . Por exemplo:
 
 * Todas as operações do cofre de `Vault<action>` chaves têm o formato `VaultGet` , `VaultCreate`como e.
 * Todas as operações de chave `Key<action>` têm o formato, `KeySign` como `KeyList`e.

@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8877c29341c95d5cd0fe8e35887c44594e0b6d41
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cee3867449aea1cb1c59ac5a7c3be57291d1aebc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231762"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000145"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 
@@ -36,7 +36,7 @@ Este ambiente é composto por vários serviços do Azure utilizados para fornece
 - [Políticas do Azure](../../../policy/overview.md) para bloquear os serviços que podem ser implementados no ambiente e negar a criação de qualquer recurso de endereço IP público (PIP)
 - Uma rede virtual que contém uma única sub-rede e colocada em modo peering num ambiente de [serviços partilhados](../iso27001-shared/index.md) pré-existente e que força todo o tráfego a passar pela firewall dos [serviços partilhados](../iso27001-shared/index.md). A rede virtual aloja os seguintes recursos:
   - Um [Ambiente do Serviço de Aplicações do Azure](../../../../app-service/environment/intro.md) que pode ser utilizado para alojar uma ou mais aplicações Web, APIs Web ou funções
-  - Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) com um ponto final de serviço VNet, para armazenar segredos utilizados pelas aplicações em execução no ambiente de carga de trabalho
+  - Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) com um ponto final de serviço VNet, para armazenar segredos utilizados pelas aplicações em execução no ambiente de carga de trabalho
   - Uma instância de servidor da [Base de Dados SQL do Azure](../../../../sql-database/sql-database-technical-overview.md) com um ponto final de serviço VNet, para alojar as bases de dados utilizadas para aplicações no ambiente de carga de trabalho
 
 ## <a name="next-steps"></a>Passos seguintes

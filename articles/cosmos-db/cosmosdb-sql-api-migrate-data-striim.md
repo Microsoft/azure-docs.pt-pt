@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 27961413d0dddc165f90ebde1c5e1aee6b8d9fd3
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 36ba9e2d3385184f32876a6d067b58f7c21a90bd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981841"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003277"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta da API do SQL usando Striim
  
@@ -24,7 +24,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 * Se você não tiver uma [assinatura do Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-* Um banco de dados Oracle em execução no local com algum dado.
+* Um banco de dados Oracle em execução local com algum dado.
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Implantar a solução Striim Marketplace
 
@@ -42,7 +42,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
    |Definição | Valor | Descrição |
    | ---| ---| ---|
-   |Tipo de implantação Striim |Autónomo | Striim pode ser executado em tipos de implantação autônomos ou de **cluster** . O modo autônomo implantará o servidor Striim em uma única máquina virtual e você poderá selecionar o tamanho das VMs dependendo do volume de dados. O modo de cluster implantará o servidor Striim em duas ou mais VMs com o tamanho selecionado. Ambientes de cluster com mais de 2 nós oferecem alta disponibilidade e failover automáticos.</br></br> Neste tutorial, você pode selecionar a opção autônomo. Use a VM de tamanho padrão "Standard_F4s".  | 
+   |Tipo de implantação Striim |Autónomo | Striim pode ser executado em tipos de implantação **autônomos** ou de **cluster** . O modo autônomo implantará o servidor Striim em uma única máquina virtual e você poderá selecionar o tamanho das VMs dependendo do volume de dados. O modo de cluster implantará o servidor Striim em duas ou mais VMs com o tamanho selecionado. Ambientes de cluster com mais de 2 nós oferecem alta disponibilidade e failover automáticos.</br></br> Neste tutorial, você pode selecionar a opção autônomo. Use a VM de tamanho padrão "Standard_F4s".  | 
    | Nome do cluster Striim|    < Striim_cluster_Name >|  Nome do cluster Striim.|
    | Striim senha do cluster|   < Striim_cluster_password >|  Senha do cluster.|
 
@@ -68,7 +68,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
 1. Crie uma [conta de API do SQL Azure Cosmos DB](create-cosmosdb-resources-portal.md) usando o portal do Azure.
 
-1. Navegue até o painel de **Data Explorer** em sua conta do cosmos do Azure. Selecione **novo contêiner** para criar um novo contêiner. Suponha que você esteja migrando *produtos* e *pedidos* de dados do banco de dados Oracle para Azure Cosmos DB. Crie um novo banco de dados chamado **StriimDemo** com umcontêiner chamado Orders. Provisione o contêiner com **1000 RUS** (Este exemplo usa 1000 Rus, mas você deve usar a taxa de transferência estimada para sua carga de trabalho) e **/ORDER_ID** como a chave de partição. Esses valores serão diferentes dependendo dos dados de origem. 
+1. Navegue até o painel de **Data Explorer** em sua conta do cosmos do Azure. Selecione **novo contêiner** para criar um novo contêiner. Suponha que você esteja migrando *produtos* e *pedidos* de dados do banco de dados Oracle para Azure Cosmos DB. Crie um novo banco de dados chamado **StriimDemo** com um contêiner chamado **Orders**. Provisione o contêiner com **1000 RUS** (Este exemplo usa 1000 Rus, mas você deve usar a taxa de transferência estimada para sua carga de trabalho) e **/ORDER_ID** como a chave de partição. Esses valores serão diferentes dependendo dos dados de origem. 
 
    ![Criar uma conta da API do SQL](./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png)
 
@@ -128,7 +128,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
    ![Entrar no Striim](./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png)
 
-1. Agora você chegará às home page do Striim. Há três painéis diferentes – dashboards, **aplicativos**e **SourcePreview**. O painel painéis permite que você mova dados em tempo real e visualize-os. O painel aplicativos contém seus pipelines de dados de streaming ou fluxos de dados. No lado direito da página está SourcePreview onde você pode visualizar os dados antes de movê-los.
+1. Agora você chegará às home page do Striim. Há três painéis diferentes – **dashboards**, **aplicativos**e **SourcePreview**. O painel painéis permite que você mova dados em tempo real e visualize-os. O painel aplicativos contém seus pipelines de dados de streaming ou fluxos de dados. No lado direito da página está SourcePreview onde você pode visualizar os dados antes de movê-los.
 
 1. Selecione o painel **aplicativos** , vamos nos concentrar neste painel por enquanto. Há uma variedade de aplicativos de exemplo que você pode usar para aprender sobre o Striim, no entanto, neste artigo, você criará o nosso. Selecione o botão **Adicionar aplicativo** no canto superior direito.
 
@@ -179,7 +179,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
    ![Usar a opção padrão](./media/cosmosdb-sql-api-migrate-data-striim/deploy-using-default-option.png)
 
-1. Após a implantação, você pode visualizar o fluxo para ver os dados que fluem. Selecione o ícone de **onda** e o olho ao lado dele. Selecione o botão implantado na barra de menus superior e selecione **Iniciar aplicativo**.
+1. Após a implantação, você pode visualizar o fluxo para ver os dados que fluem. Selecione o ícone de **onda** e o olho ao lado dele. Selecione o botão **implantado** na barra de menus superior e selecione **Iniciar aplicativo**.
 
    ![Iniciar o aplicativo](./media/cosmosdb-sql-api-migrate-data-striim/start-app.png)
 
@@ -193,7 +193,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
    ![Validar dados migrados no Azure](./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png)
 
-Usando a solução Striim no Azure, você pode migrar dados continuamente para Azure Cosmos DB de várias fontes, como Oracle, Cassandra, MongoDB e várias outras para Azure Cosmos DB. Para quaisquer problemas ao configurar o caminho de migração com Striim, emita uma solicitação de suporte no [site do Striim](https://go2.striim.com/request-support-striim).
+Usando a solução Striim no Azure, você pode migrar dados continuamente para Azure Cosmos DB de várias fontes, como Oracle, Cassandra, MongoDB e várias outras para Azure Cosmos DB. Para saber mais, visite o [site do Striim](https://www.striim.com/), [Baixe uma avaliação gratuita de 30 dias do Striim](https://go2.striim.com/download-free-trial)e para problemas ao configurar o caminho de migração com o Striim, registre uma [solicitação de suporte.](https://go2.striim.com/request-support-striim)
 
 ## <a name="next-steps"></a>Passos seguintes
 

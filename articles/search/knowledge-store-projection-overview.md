@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186242"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004008"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Search
 
@@ -34,7 +34,7 @@ A loja de conhecimento dá suporte a dois tipos de projeções:
 
 + **Objetos**: Quando você precisa de uma representação JSON de seus dados e aprimoramentos, as projeções de objeto são salvas como BLOBs.
 
-Para ver as projeções definidas no contexto, percorra como começar a [usar a loja de conhecimento](knowledge-store-howto.md)
+Para ver as projeções definidas no contexto, percorra como começar a [usar a loja de conhecimento](knowledge-store-howto.md).
 
 ## <a name="projection-groups"></a>Grupos de projeção
 
@@ -51,9 +51,9 @@ Uma restrição imposta em grupos de projeção é o exclusividade mútuo dos ti
 Todo o conteúdo projetado em um único grupo de projeção preserva as relações dentro dos dados. As relações são baseadas em uma chave gerada e cada nó filho retém uma referência ao nó pai. As relações não abrangem grupos de projeção, e tabelas ou objetos criados em um grupo de projeção não têm nenhuma relação com os dados gerados em outros grupos de projeção.
 
 ## <a name="input-shaping"></a>Shaping de entrada
-Obter seus dados na forma ou estrutura corretas é a chave para uso efetivo, ser tabelas ou objetos. A capacidade de Formatar ou estruturar seus dados com base em como você planeja acessar e usá-los é um recurso-chave exposto como a habilidade do modelador dentro do Skill.  
+Obter seus dados na forma ou estrutura corretas é a chave para uso efetivo, ser tabelas ou objetos. A capacidade de Formatar ou estruturar seus dados com base em como você planeja acessar e usá-los é um recurso-chave exposto como a habilidade do **modelador** dentro do Skill.  
 
-As projeções são mais fáceis de definir quando você tem um objeto na árvore de enriquecimento que corresponde ao esquema da projeção. A [habilidade](cognitive-search-skill-shaper.md) atualizada do modelador permite compor um objeto de nós diferentes da árvore de enriquecimento e os pais em um novo nó. A habilidade de Modelador permite que você defina tipos complexos com objetos aninhados.
+As projeções são mais fáceis de definir quando você tem um objeto na árvore de enriquecimento que corresponde ao esquema da projeção. A habilidade atualizada do [modelador](cognitive-search-skill-shaper.md) permite compor um objeto de nós diferentes da árvore de enriquecimento e os pais em um novo nó. A habilidade de **modelador** permite que você defina tipos complexos com objetos aninhados.
 
 Quando você tem uma nova forma definida que contém todos os elementos que precisa para projetar, agora você pode usar essa forma como a origem para suas projeções ou como uma entrada para outra habilidade.
 
@@ -67,13 +67,16 @@ Você pode projetar um único documento em seu índice em várias tabelas, prese
 
 Ao definir uma projeção de tabela `knowledgeStore` dentro do elemento de seu qualificable, comece mapeando um nó na árvore de enriquecimento para a origem da tabela. Normalmente, esse nó é a saída de uma habilidade de **forma** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó escolhido para o projeto pode ser dividido em um projeto em várias tabelas. A definição de tabelas é uma lista de tabelas que você deseja projetar. 
 
+#### <a name="projection-slicing"></a>Fatia de projeção
+Ao definir um grupo de projeção de tabela, um único nó na árvore de enriquecimento pode ser dividido em várias tabelas relacionadas. Adicionar uma tabela com um caminho de origem que é um filho de uma projeção de tabela existente resultará no nó filho que está sendo dividido do nó pai e projetado na nova tabela ainda relacionada. Isso permite que você defina um único nó em uma habilidade de forma que possa ser a origem de todas as suas projeções de tabela.
+
 Cada tabela requer três propriedades:
 
 + TableName O nome da tabela no armazenamento do Azure.
 
 + generatedKeyName: O nome da coluna para a chave que identifica exclusivamente essa linha.
 
-+ original O nó da árvore de enriquecimento da qual você está terceirizando seus aprimoramentos. Normalmente, essa é a saída de uma forma, mas pode ser a saída de qualquer uma das habilidades.
++ Original O nó da árvore de enriquecimento da qual você está terceirizando seus aprimoramentos. Normalmente, essa é a saída de uma forma, mas pode ser a saída de qualquer uma das habilidades.
 
 Aqui está um exemplo de projeções de tabela.
 
@@ -153,8 +156,8 @@ As projeções de objeto são representações de JSON da árvore de enriquecime
 A geração de uma projeção de objeto requer alguns atributos específicos do objeto:
 
 + storageContainer: O contêiner em que os objetos serão salvos
-+ original O caminho para o nó da árvore de enriquecimento que é a raiz da projeção
-+ chaves Um caminho que representa uma chave exclusiva para o objeto a ser armazenado. Ele será usado para criar o nome do blob no contêiner.
++ Original O caminho para o nó da árvore de enriquecimento que é a raiz da projeção
++ Chaves Um caminho que representa uma chave exclusiva para o objeto a ser armazenado. Ele será usado para criar o nome do blob no contêiner.
 
 ## <a name="projection-lifecycle"></a>Ciclo de vida da projeção
 
@@ -166,11 +169,11 @@ Depois que o indexador for executado, você poderá ler os dados projetados nos 
 
 Para análise, a exploração no Power BI é tão simples quanto configurar o armazenamento de tabelas do Azure como a fonte de dados. Você pode criar muito facilmente um conjunto de visualizações em seus dados, aproveitando as relações dentro do.
 
-Como alternativa, se você precisar usar os dados aprimorados em um pipeline de ciência de dados, poderá [carregar os dados de BLOBs em um Dataframe](../machine-learning/team-data-science-process/explore-data-blob.md)do pandas.
+Como alternativa, se você precisar usar os dados aprimorados em um pipeline de ciência de dados, poderá [carregar os dados de BLOBs em um Dataframe do pandas](../machine-learning/team-data-science-process/explore-data-blob.md).
 
 Por fim, se você precisar exportar seus dados da loja de conhecimento, Azure Data Factory terá conectores para exportar os dados e esterrará no banco de dado de sua escolha. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como uma próxima etapa, crie sua primeira loja de conhecimento usando dados de exemplo e instruções.
 

@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 805f9178cb77241b8332fb78687a8409206e5c05
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 6db0879152dfcfd37719c8d22f836da6db7ed79d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231586"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000900"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Início rápido: Criar uma atribuição de política para identificar recursos sem conformidade
 
@@ -64,7 +64,7 @@ Neste início rápido, pode criar uma atribuição de política e atribuir a *VM
 
 1. Clique em **Atribuir**.
 
-Agora, está pronto para identificar recursos incompatíveis para compreender o estado de compatibilidade do seu ambiente.
+Agora você está pronto para identificar recursos sem conformidade para entender o estado de conformidade do seu ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 
@@ -74,7 +74,7 @@ Selecione **conformidade** no lado esquerdo da página. Em seguida, localize a *
 
 Se existirem quaisquer recursos existentes que não estão em conformidade com esta nova atribuição, aparecem em **recursos não compatíveis**.
 
-Quando uma condição é avaliada em relação aos seus recursos existentes e resulta como verdadeira, esses recursos são então marcados como em não conformidade com a política. A tabela seguinte mostra como funcionam os diferentes efeitos de política com a avaliação de condição para o estado de conformidade resultante. Apesar de não ver a lógica de avaliação no portal do Azure, são mostrados os resultados do estado de conformidade. O resultado do estado de conformidade pode ser em conformidade ou em não conformidade.
+Quando uma condição é avaliada em relação aos seus recursos existentes e resulta como verdadeira, esses recursos são então marcados como em não conformidade com a política. A tabela seguinte mostra como funcionam os diferentes efeitos de política com a avaliação de condição para o estado de conformidade resultante. Embora você não veja a lógica de avaliação no portal do Azure, os resultados do estado de conformidade são mostrados. O resultado do estado de conformidade pode ser em conformidade ou em não conformidade.
 
 | **Estado do Recurso** | **Efeito** | **Avaliação da Política** | **Estado de Compatibilidade** |
 | --- | --- | --- | --- |
@@ -96,7 +96,7 @@ Para remover a atribuição de criado, siga estes passos:
 
    ![Excluir uma atribuição da página conformidade](./media/assign-policy-portal/delete-assignment.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, atribuiu uma definição de política a um âmbito e avaliou o respetivo relatório de conformidade.
 A definição de política valida que todos os recursos no âmbito estão em conformidade e identifica quais não estão.

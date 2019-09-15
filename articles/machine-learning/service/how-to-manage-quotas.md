@@ -1,6 +1,6 @@
 ---
 title: Gerir e solicitar quotas de recursos
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Este guia de procedimentos explica as quotas de vários recursos para o Azure Machine Learning e como visualizar e pedir mais quota.
 services: machine-learning
 ms.service: machine-learning
@@ -11,26 +11,26 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2ee819625f772c96ac6c5a771935da17ee05f3aa
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278057"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002694"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
 
-Como com outros serviços do Azure, existem limites em certos recursos associados com o serviço Azure Machine Learning. Esses limites variam de um limite no número de espaços de trabalho que você pode criar para limites na computação subjacente real que é usada para treinamento de modelo ou inferência/Pontuação. 
+Assim como ocorre com outros serviços do Azure, há limites em determinados recursos associados a Azure Machine Learning. Esses limites variam de um limite no número de espaços de trabalho que você pode criar para limites na computação subjacente real que é usada para treinamento de modelo ou inferência/Pontuação. 
 
 Este artigo fornece mais detalhes sobre os limites previamente configurados em vários recursos do Azure para a sua subscrição e também contém ligações úteis para aprimoramentos de quota de pedido para cada tipo de recurso. Estes limites são colocados em vigor para impedir que o orçamento execuções excessiva devido a fraude e que respeite as restrições de capacidade do Azure.
 
-Lembre-se dessas cotas ao projetar e escalar verticalmente seus Azure Machine Learning recursos de serviço para cargas de trabalho de produção. Por exemplo, se o cluster não alcançar o número de destino de nós especificado, você poderá ter atingido um limite de núcleos de computação Azure Machine Learning para sua assinatura. Se quiser aumentar o limite ou quota acima do limite predefinido, abra um pedido de suporte do cliente online sem encargos. Os limites não podem ser aumentados acima do valor de limite máximo mostrado nas tabelas seguintes devido a restrições de capacidade do Azure. Se não houver nenhuma coluna de limite máximo, em seguida, o recurso não tem limites ajustável.
+Lembre-se dessas cotas ao projetar e escalar verticalmente seus recursos de Azure Machine Learning para cargas de trabalho de produção. Por exemplo, se o cluster não alcançar o número de destino de nós especificado, você poderá ter atingido um limite de núcleos de computação Azure Machine Learning para sua assinatura. Se quiser aumentar o limite ou quota acima do limite predefinido, abra um pedido de suporte do cliente online sem encargos. Os limites não podem ser aumentados acima do valor de limite máximo mostrado nas tabelas seguintes devido a restrições de capacidade do Azure. Se não houver nenhuma coluna de limite máximo, em seguida, o recurso não tem limites ajustável.
 
 ## <a name="special-considerations"></a>Considerações especiais
 
 + Uma quota é um limite de crédito, não uma garantia de capacidade. Se tiver necessidades de capacidade em grande escala, contacte o suporte do Azure.
 
-+ A quota é compartilhada entre todos os serviços nas suas subscrições, incluindo o serviço Azure Machine Learning. A única exceção é Azure Machine Learning computação que tem uma cota separada da cota de computação principal. Certifique-se de que calcular a utilização de quota em todos os serviços ao avaliar as suas necessidades de capacidade.
++ Sua cota é compartilhada entre todos os serviços em suas assinaturas, incluindo Azure Machine Learning. A única exceção é Azure Machine Learning computação que tem uma cota separada da cota de computação principal. Certifique-se de que calcular a utilização de quota em todos os serviços ao avaliar as suas necessidades de capacidade.
 
 + Limites predefinidos variam de acordo com a oferta de tipo de categoria, como avaliação gratuita, pay as you go e série, como Dv2, F, G e assim por diante.
 

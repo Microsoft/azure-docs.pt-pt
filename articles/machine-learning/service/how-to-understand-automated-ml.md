@@ -1,6 +1,6 @@
 ---
 title: Entender os resultados de ML automatizados
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como exibir e entender os gráficos e as métricas para cada uma das execuções automatizadas do Machine Learning.
 services: machine-learning
 author: nilesha
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860553"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999433"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 
@@ -28,7 +28,7 @@ Saiba mais sobre:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 * Crie um experimento de aprendizado de máquina automatizado, seja com o SDK, na portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia).
 

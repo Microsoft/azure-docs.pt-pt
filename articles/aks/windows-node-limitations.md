@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233126"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000225"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS)
 
@@ -36,7 +36,7 @@ O suporte ao pool de nós do servidor de janelas inclui algumas limitações que
 
 O kubernetes é historicamente focado em Linux. Muitos exemplos usados no site do upstream [kubernetes.Io][kubernetes] são destinados para uso em nós do Linux. Quando você cria implantações que usam contêineres do Windows Server, as seguintes considerações no nível do sistema operacional se aplicam:
 
-- **Identity** -Linux usa UserID (UID) e GroupId (GID), representados como tipos inteiros. Nomes de usuário e grupo não são canônicos-eles são apenas um alias em */etc/groups* ou */etc/passwd* de volta para uid + gid.
+- **Identidade** – o Linux identifica um usuário por um UID (identificador de usuário inteiro). Um usuário também tem um nome de usuário alfanumérico para fazer logon, que o Linux traduz para a UID do usuário. Da mesma forma, o Linux identifica um grupo de usuários por um GID (identificador de grupo inteiro) e converte um nome de grupo em seu GID correspondente.
     - O Windows Server usa um SID (identificador de segurança binário) maior que é armazenado no banco de dados SAM (Gerenciador de acesso à segurança do Windows). Esse banco de dados não é compartilhado entre o host e os contêineres ou entre contêineres.
 - **Permissões de arquivo** -o Windows Server usa uma lista de controle de acesso baseada em SIDs, em vez de um bitmask de permissões e uid + gid
 - **Caminhos de arquivo** -a Convenção no Windows Server é usar \ em vez de/.
@@ -94,7 +94,7 @@ O suporte ao grupo de contas de serviço gerenciado (gMSA) não está disponíve
 
 Trabalhamos muito para reunir todos os recursos de que você precisa para o Windows no AKS, mas se você encontrar lacunas, o projeto de [AKs-Engine][aks-engine] de software livre fornecerá uma maneira fácil e totalmente personalizável de executar o kubernetes no Azure, incluindo o suporte do Windows. Certifique-se de conferir nosso roteiro de recursos que estão chegando ao [roteiro do AKS][aks-roadmap].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nós que executa o Windows Server em AKs][windows-node-cli].
 

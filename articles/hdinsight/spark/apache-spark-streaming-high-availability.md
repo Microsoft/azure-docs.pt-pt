@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915389"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002935"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar trabalhos de streaming de alta disponibilidade Apache Spark com o YARN
 
@@ -21,7 +21,7 @@ ms.locfileid: "70915389"
 
 O streaming do Spark cria trabalhos de longa execução durante os quais você pode aplicar transformações aos dados e, em seguida, enviar por push os resultados para sistemas de sistema, bancos de dados, painéis e o console. O streaming do Spark processa micro lotes de dados, coletando primeiro um lote de eventos em um intervalo de tempo definido. Em seguida, esse lote é enviado para processamento e saída. Os intervalos de tempo de lote geralmente são definidos em frações de um segundo.
 
-![Streaming do Spark](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Streaming do Spark](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -57,7 +57,7 @@ Para criar um aplicativo que processa cada evento uma vez (e apenas uma vez), co
 
 No HDInsight, o trabalho do cluster é coordenado por *outro negociador de recursos* (Yarn). A criação de alta disponibilidade para o Spark streaming inclui técnicas para streaming do Spark e também para componentes YARN.  Uma configuração de exemplo usando YARN é mostrada abaixo. 
 
-![Arquitetura do YARN](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![Arquitetura do YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 As seções a seguir descrevem as considerações de design para essa configuração.
 
@@ -117,7 +117,7 @@ Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis
     // to be able to recover on restart, store all offsets in an external database
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral de streaming de Apache Spark](apache-spark-streaming-overview.md)
 * [Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)

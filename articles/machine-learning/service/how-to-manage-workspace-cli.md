@@ -1,7 +1,7 @@
 ---
 title: Criar espaços de trabalho com CLI do Azure
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o CLI do Azure para criar um novo espaço de trabalho de serviço do Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o CLI do Azure para criar um novo espaço de trabalho do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: f398eb8124f45562ebc3c4238c641a6638811394
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873490"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002636"
 ---
-# <a name="create-a-workspace-for-azure-machine-learning-service-with-azure-cli"></a>Criar um espaço de trabalho para Azure Machine Learning serviço com CLI do Azure
+# <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para Azure Machine Learning com CLI do Azure
 
-Neste artigo, você aprenderá a criar um espaço de trabalho de serviço do Azure Machine Learning usando o CLI do Azure. O CLI do Azure fornece comandos para gerenciar recursos do Azure. A extensão de aprendizado de máquina para a CLI fornece comandos para trabalhar com Azure Machine Learning recursos de serviço.
+Neste artigo, você aprenderá a criar um espaço de trabalho do Azure Machine Learning usando o CLI do Azure. O CLI do Azure fornece comandos para gerenciar recursos do Azure. A extensão de aprendizado de máquina para a CLI fornece comandos para trabalhar com Azure Machine Learning recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **subscrição do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **subscrição do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará do [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -53,7 +53,7 @@ az extension add -n azure-cli-ml
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-O espaço de trabalho de serviço do Azure Machine Learning depende dos seguintes serviços ou entidades do Azure:
+O espaço de trabalho Azure Machine Learning se baseia nos seguintes serviços ou entidades do Azure:
 
 > [!IMPORTANT]
 > Se você não especificar um serviço existente do Azure, um será criado automaticamente durante a criação do espaço de trabalho. Você sempre deve especificar um grupo de recursos.
@@ -68,10 +68,10 @@ O espaço de trabalho de serviço do Azure Machine Learning depende dos seguinte
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-O espaço de trabalho do serviço de Azure Machine Learning deve ser criado dentro de um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um novo. Para __criar um novo grupo de recursos__, use o comando a seguir. Substituir `<resource-group-name>` pelo nome a ser usado para este grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
+O espaço de trabalho Azure Machine Learning deve ser criado dentro de um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um novo. Para __criar um novo grupo de recursos__, use o comando a seguir. Substituir `<resource-group-name>` pelo nome a ser usado para este grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
 
 > [!TIP]
-> Você deve selecionar uma região onde o serviço de Azure Machine Learning está disponível. Para obter informações, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> Você deve selecionar uma região onde Azure Machine Learning está disponível. Para obter informações, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -170,7 +170,7 @@ Para criar um espaço de trabalho que usa recursos existentes, você deve fornec
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > O registro de contêiner deve ter a [conta de administrador](/azure/container-registry/container-registry-authentication#admin-account) habilitada para poder ser usada com um espaço de trabalho de serviço Azure Machine Learning.
+    > O registro de contêiner deve ter a [conta de administrador](/azure/container-registry/container-registry-authentication#admin-account) habilitada para poder ser usada com um espaço de trabalho Azure Machine Learning.
 
 Depois que você tiver as IDs para os recursos que deseja usar com o espaço de trabalho, use o comando base `az workspace create -w <workspace-name> -g <resource-group-name>` e adicione os parâmetros e as IDs para os recursos existentes. Por exemplo, o comando a seguir cria um espaço de trabalho que usa um registro de contêiner existente:
 
@@ -302,7 +302,7 @@ Para compartilhar um espaço de trabalho com outro usuário em sua assinatura, u
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Para obter mais informações sobre o controle de acesso baseado em funções (RBAC) com o serviço Azure Machine Learning, consulte [gerenciar usuários e funções](how-to-assign-roles.md).
+Para obter mais informações sobre o controle de acesso baseado em funções (RBAC) com Azure Machine Learning, consulte [gerenciar usuários e funções](how-to-assign-roles.md).
 
 Para obter mais informações, consulte a documentação de [compartilhamento do espaço de trabalho AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) .
 
@@ -337,6 +337,6 @@ az group delete -g <resource-group-name>
 
 Para obter mais informações, consulte a documentação [AZ ml Workspace Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a extensão de CLI do Azure para aprendizado de máquina, consulte a documentação [AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest) .

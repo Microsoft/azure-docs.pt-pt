@@ -1,25 +1,25 @@
 ---
-title: Trabalhar com matrizes e objetos no Azure Cosmos DB
-description: Saiba mais sobre a criação matriz e objeto sintaxe SQL do Azure Cosmos DB.
+title: Trabalhando com matrizes e objetos no Azure Cosmos DB
+description: Saiba mais sobre a sintaxe SQL de criação de objetos e de matriz para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 338f3b51edf38d20a963992e121b7e2dbd0c6873
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342839"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003924"
 ---
-# <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhar com matrizes e objetos no Azure Cosmos DB
+# <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos no Azure Cosmos DB
 
-Um recurso chave do Azure Cosmos DB SQL API é a criação de matriz e objeto.
+Um recurso importante do Azure Cosmos DB API do SQL é a criação de matriz e objeto.
 
-## <a name="arrays"></a>matrizes
+## <a name="arrays"></a>Storage
 
-Pode construir matrizes, conforme mostrado no exemplo a seguir:
+Você pode construir matrizes, conforme mostrado no exemplo a seguir:
 
 ```sql
     SELECT [f.address.city, f.address.state] AS CityState
@@ -45,7 +45,7 @@ Os resultados são:
     ]
 ```
 
-Também pode utilizar o [expressão de matriz](sql-query-subquery.md#array-expression) construir uma matriz de [da subconsulta](sql-query-subquery.md) resultados. Esta consulta obtém todos os diferentes nomes de filhos numa matriz.
+Você também pode usar a [expressão de matriz](sql-query-subquery.md#array-expression) para construir uma matriz de resultados da [subconsulta](sql-query-subquery.md) . Essa consulta obtém todos os nomes distintos de filhos em uma matriz.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -54,7 +54,7 @@ FROM f
 
 ## <a id="Iteration"></a>Iteração
 
-A API de SQL fornece suporte para iterar através das matrizes JSON, com uma construção nova adicionada através da [palavra-chave](sql-query-keywords.md#in) na origem FROM. No exemplo a seguir:
+A API do SQL fornece suporte para iteração em matrizes JSON, com uma nova construção adicionada por meio da [palavra-chave in](sql-query-keywords.md#in) na fonte from. No exemplo a seguir:
 
 ```sql
     SELECT *
@@ -90,7 +90,7 @@ Os resultados são:
     ]
 ```
 
-A próxima consulta faz a iteração através de `children` no `Families` contentor. A matriz de saída é diferente da consulta precedente. Neste exemplo divide `children`e nivela os resultados numa única matriz:  
+A próxima consulta executa a iteração `children` `Families` no contêiner. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e mescla os resultados em uma única matriz:  
 
 ```sql
     SELECT *
@@ -122,7 +122,7 @@ Os resultados são:
     ]
 ```
 
-Pode filtrar ainda mais em cada entrada individual da matriz, como mostrado no exemplo a seguir:
+Você pode filtrar mais detalhadamente cada entrada individual da matriz, conforme mostrado no exemplo a seguir:
 
 ```sql
     SELECT c.givenName
@@ -138,7 +138,7 @@ Os resultados são:
     }]
 ```
 
-Também pode agregar sobre o resultado de uma iteração de matriz. Por exemplo, a consulta seguinte conta o número de elementos subordinados entre todas as famílias:
+Você também pode agregar o resultado de uma iteração de matriz. Por exemplo, a consulta a seguir conta o número de filhos entre todas as famílias:
 
 ```sql
     SELECT COUNT(child)
@@ -158,5 +158,5 @@ Os resultados são:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução](sql-query-getting-started.md)
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Associações](sql-query-join.md)
+- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Junções](sql-query-join.md)

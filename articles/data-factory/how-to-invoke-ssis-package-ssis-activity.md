@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2fe8da1c4d49f5b57f907a5940ec9c445d0d1f7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 9057cefa5108924c57dbc85bbb895b31e804a51c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984323"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000645"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade executar pacote do SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote SQL Server Integration Services (SSIS) no pipeline Azure Data Factory (ADF) usando a atividade executar pacote do SSIS. 
@@ -269,7 +269,7 @@ Nesta etapa, você cria um pipeline com uma atividade executar pacote do SSIS. A
    }
    ```
 
-Para executar pacotes armazenados em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure, você pode inserir os valores para as propriedades de local do pacote/log da seguinte maneira.
+   Para executar pacotes armazenados em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure, você pode inserir os valores para as propriedades de local do pacote/log da seguinte maneira.
 
    ```json
    {
@@ -318,7 +318,7 @@ Para executar pacotes armazenados em sistemas de arquivos/compartilhamentos de a
    }
    ```
 
-Para executar pacotes em projetos armazenados em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure, você pode inserir os valores para a propriedade local do pacote da seguinte maneira.
+   Para executar pacotes em projetos armazenados em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure, você pode inserir os valores para a propriedade local do pacote da seguinte maneira.
 
    ```json
    {

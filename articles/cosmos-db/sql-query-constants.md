@@ -1,17 +1,17 @@
 ---
-title: Constantes SQL no Azure Cosmos DB
-description: Saiba mais sobre as constantes SQL no Azure Cosmos DB
+title: Constantes do SQL no Azure Cosmos DB
+description: Saiba mais sobre as constantes do SQL no Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ed337c8330eb8b3e4ad97c92cca1d0c5977f9588
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342676"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002035"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta do Azure Cosmos DB SQL  
 
@@ -26,7 +26,7 @@ ms.locfileid: "67342676"
 |**valor booleano**|Valores: **false**, **verdadeiro**.|  
 |**Número**|Um precisão dupla número de vírgula flutuante, padrão IEEE 754.|  
 |**Cadeia de caracteres**|Uma seqüência de caracteres Unicode de zero ou mais. Cadeias de caracteres devem estar entre aspas simples ou duplas.|  
-|**Matriz**|Uma seqüência de elementos de zero ou mais. Cada elemento pode ser um valor de qualquer tipo de dados escalares, exceto **indefinido**.|  
+|**Matriz**|Uma seqüência de elementos de zero ou mais. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
 |**Objeto**|Um conjunto fora de ordem de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode, o valor pode ser de qualquer tipo de dados escalares, exceto **indefinido**.|  
   
 ## <a name="bk_syntax"></a>Sintaxe
@@ -59,7 +59,7 @@ ms.locfileid: "67342676"
   
 ```  
   
-##  <a name="bk_arguments"></a> argumentos
+##  <a name="bk_arguments"></a>Argumentos
   
 * `<undefined_constant>; Undefined`  
   
@@ -107,7 +107,7 @@ ms.locfileid: "67342676"
 |-|-|-|  
 |\\'|apóstrofe (')|U+0027|  
 |\\"|aspas (")|U+0022|  
-|\\\ |solidus inversa (\\)|U+0B95 + 005C|  
+|\\\ |barra invertida (\\)|U+0B95 + 005C|  
 |\\/|solidus (/)|U+0B95 + 002F|  
 |\b|RETROCESSO|U+0008|  
 |\f|formulário de feed|U+000C|  
@@ -118,5 +118,5 @@ ms.locfileid: "67342676"
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Dados de documento do modelo](modeling-data.md)
+- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Dados de documento de modelo](modeling-data.md)

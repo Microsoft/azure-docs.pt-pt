@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33128cbece3b217778182b3831b02e2f3f654f3b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c01f695210ebbd69a26b957e846ff645b1dea5bb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853219"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999015"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de verificação de integração da plataforma Microsoft Identity
 
@@ -66,7 +66,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Se seu aplicativo estiver registrado em um diretório, minimize e monitore manualmente a lista de proprietários de registro de aplicativo. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Não habilite o suporte para o [fluxo de concessão implícita OAuth2](v2-oauth2-implicit-grant-flow.md) , a menos que seja explicitamente necessário. Saiba mais sobre o cenário válido [aqui](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Não use o [ROPC (fluxo de credenciais de senha) do proprietário do recurso](v2-oauth-ropc.md), que lida diretamente com as senhas dos usuários. Esse fluxo requer um alto grau de confiança e exposição do usuário e deve ser usado somente quando outros fluxos mais seguros não podem ser usados. |
-| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Proteja e gerencie suas credenciais de aplicativo. Use [credenciais de certificado](active-directory-certificate-credentials.md), não credenciais de senha (segredos de cliente). Se você precisar usar uma credencial de senha, não a defina manualmente. Não armazene credenciais no código ou na configuração e nunca permita que elas sejam manipuladas por seres humanos. Se possível, use [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ou [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) para armazenar e girar suas credenciais regularmente. |
+| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Proteja e gerencie suas credenciais de aplicativo. Use [credenciais de certificado](active-directory-certificate-credentials.md), não credenciais de senha (segredos de cliente). Se você precisar usar uma credencial de senha, não a defina manualmente. Não armazene credenciais no código ou na configuração e nunca permita que elas sejam manipuladas por seres humanos. Se possível, use [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ou [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) para armazenar e girar suas credenciais regularmente. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Verifique se seu aplicativo solicita as permissões de privilégios mínimos. Solicite apenas permissões que seu aplicativo precisa, e somente quando você precisar deles. Entenda os diferentes [tipos de permissões](v1-permissions-and-consent.md#types-of-permissions). Usar permissões de aplicativo somente se necessário; Use permissões delegadas sempre que possível. Para obter uma lista completa de permissões de Microsoft Graph, consulte esta [referência de permissões](https://docs.microsoft.com/graph/permissions-reference). |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Se você estiver protegendo uma API usando a plataforma de identidade da Microsoft, pense cuidadosamente nas permissões que ele deve expor. Considere qual é a granularidade certa para sua solução e quais permissões exigem o consentimento do administrador. Verifique as permissões esperadas nos tokens de entrada antes de tomar decisões de autorização. |
 

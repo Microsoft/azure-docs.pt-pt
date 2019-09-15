@@ -1,21 +1,21 @@
 ---
-title: Cláusula SELECT na Azure Cosmos DB
-description: Saiba mais sobre a cláusula SQL SELECT para o Azure Cosmos DB. Utilize o SQL como uma linguagem de consulta JSON do Azure Cosmos DB.
+title: Cláusula SELECT no Azure Cosmos DB
+description: Saiba mais sobre a cláusula SQL SELECT para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: 84d0212f7f212b4554b506726e027fe51f795eea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342601"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003525"
 ---
 # <a name="select-clause"></a>Cláusula SELECT
 
-É composta por todas as consultas de uma cláusula SELECT e opcionais [FROM](sql-query-from.md) e [onde](sql-query-where.md) cláusulas como, por padrões ANSI SQL. Normalmente, a origem na cláusula FROM é enumerada e a cláusula WHERE aplica-se um filtro na origem para obter um subconjunto de itens JSON. A cláusula SELECT, em seguida, os valores JSON de pedidos na lista de seleção de projetos.
+Cada consulta consiste em uma cláusula SELECT e em cláusulas opcional from e [Where](sql-query-where.md) , por padrões [de](sql-query-from.md) SQL ANSI. Normalmente, a origem na cláusula FROM é enumerada e a cláusula WHERE aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em seguida, a cláusula SELECT projeta os valores JSON solicitados na lista de seleção.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  Especifica que as duplicatas de propriedades previstas devem ser removidas.  
+  Especifica que duplicatas de propriedades projetadas devem ser removidas.  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e pode ser 
   
 ## <a name="examples"></a>Exemplos
 
-A seguinte, SELECIONE consulta exemplo devolve `address` partir `Families` cujo `id` corresponde ao `AndersenFamily`:
+O exemplo de consulta Select a `address` seguir `Families` retorna `id` de `AndersenFamily`cujas correspondências:
 
 ```sql
     SELECT f.address
@@ -98,8 +98,8 @@ Os resultados são:
     }]
 ```
 
-### <a name="quoted-property-accessor"></a>Acessador de propriedade com aspas
-Pode acessar propriedades usando a propriedade delimitados por aspas operator []. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar uma propriedade que contém espaços, carateres especiais, ou que tenha o mesmo nome que uma palavra-chave SQL ou uma palavra reservada.
+### <a name="quoted-property-accessor"></a>Acessador de propriedade entre aspas
+Você pode acessar as propriedades usando o operador de propriedade entre aspas []. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Pode acessar propriedades usando a propriedade delimitados por aspas operator []
 
 ### <a name="nested-properties"></a>Propriedades aninhadas
 
-O exemplo a seguir duas propriedades aninhadas, de projetos `f.address.state` e `f.address.city`.
+O exemplo a seguir projeta duas propriedades `f.address.state` aninhadas e. `f.address.city`
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -125,9 +125,9 @@ Os resultados são:
       "city": "Seattle"
     }]
 ```
-### <a name="json-expressions"></a>Expressões de JSON
+### <a name="json-expressions"></a>Expressões JSON
 
-Projeção também oferece suporte a expressões de JSON, conforme mostrado no exemplo a seguir:
+A projeção também oferece suporte a expressões JSON, conforme mostrado no exemplo a seguir:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a cláusula SELECT tem de criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula utiliza o nome da variável implícita argumento `$1`. A seguinte consulta devolve duas variáveis de argumento implícita: `$1` e `$2`.
+No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome `$1`da variável de argumento implícito. A consulta a seguir retorna duas variáveis de argumento `$1` implícitas: e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -173,5 +173,5 @@ Os resultados são:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução](sql-query-getting-started.md)
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula WHERE](sql-query-where.md)

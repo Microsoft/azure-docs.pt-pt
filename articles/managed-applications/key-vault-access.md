@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Cofre de chaves do Azure com aplicações geridas | Documentos da Microsoft
-description: Mostra como utilizar o acesso aos segredos no Azure Key Vault ao implementar aplicações geridas
+title: Usar o Azure Key Vault com aplicativos gerenciados | Microsoft Docs
+description: Mostra como usar segredos de acesso no Azure Key Vault ao implantar aplicativos gerenciados
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
@@ -9,54 +9,54 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a87066425845a7f1043576a858a361e601ba9cc8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588299"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003417"
 ---
-# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segredo do Key Vault acesso ao implementar aplicações geridas do Azure
+# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acessar Key Vault segredo ao implantar aplicativos gerenciados do Azure
 
-Quando precisar passar um valor seguro (como uma palavra-passe) como um parâmetro durante a implementação, pode recuperar o valor de uma [do Azure Key Vault](../key-vault/key-vault-whatis.md). Para aceder ao Cofre de chave ao implementar aplicações geridas, tem de conceder acesso para o **fornecedor de recursos da aplicação** principal de serviço. O serviço de aplicações geridas utiliza esta identidade para executar operações. Para recuperar com êxito um valor de um cofre de chaves durante a implementação, o principal de serviço tem de ser capaz de aceder ao Cofre de chave.
+Quando você precisar passar um valor seguro (como uma senha) como um parâmetro durante a implantação, poderá recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-overview.md). Para acessar o Key Vault ao implantar aplicativos gerenciados, você deve conceder acesso à entidade de serviço do **provedor de recursos do dispositivo** . O serviço de aplicativos gerenciados usa essa identidade para executar operações. Para recuperar com êxito um valor de um Key Vault durante a implantação, a entidade de serviço deve ser capaz de acessar o Key Vault.
 
-Este artigo descreve como configurar o Cofre de chaves para trabalhar com aplicações geridas.
+Este artigo descreve como configurar o Key Vault para trabalhar com aplicativos gerenciados.
 
-## <a name="enable-template-deployment"></a>Ativar a implementação do modelo
+## <a name="enable-template-deployment"></a>Habilitar implantação de modelo
 
-1. No portal, selecione o seu Cofre de chaves.
+1. No portal, selecione seu Key Vault.
 
 1. Selecione **Políticas de acesso**.   
 
-   ![Selecione políticas de acesso](./media/key-vault-access/select-access-policies.png)
+   ![Selecionar políticas de acesso](./media/key-vault-access/select-access-policies.png)
 
 1. Selecione **Clicar para mostrar as políticas de acesso avançadas**.
 
-   ![Mostrar as políticas de acesso avançadas](./media/key-vault-access/advanced.png)
+   ![Mostrar políticas de acesso avançadas](./media/key-vault-access/advanced.png)
 
-1. Selecione **ativar o acesso ao Azure Resource Manager para a implementação de modelo**. Em seguida, selecione **Guardar**.
+1. Selecione **habilitar acesso a Azure Resource Manager para implantação de modelo**. Em seguida, selecione **Guardar**.
 
-   ![Ativar a implementação do modelo](./media/key-vault-access/enable-template.png)
+   ![Habilitar implantação de modelo](./media/key-vault-access/enable-template.png)
 
-## <a name="add-service-as-contributor"></a>Adicionar o serviço como contribuinte
+## <a name="add-service-as-contributor"></a>Adicionar serviço como colaborador
 
 1. Selecione **controlo de acesso (IAM)** .
 
-   ![Selecione o controlo de acesso](./media/key-vault-access/access-control.png)
+   ![Selecionar controle de acesso](./media/key-vault-access/access-control.png)
 
 1. Selecione **adicionar atribuição de função**.
 
-   ![Selecione adicionar](./media/key-vault-access/add-access-control.png)
+   ![Selecione Adicionar](./media/key-vault-access/add-access-control.png)
 
-1. Selecione **contribuinte** para a função. Procure **fornecedor de recursos da aplicação** e selecione-o nas opções disponíveis.
+1. Selecione **colaborador** para a função. Pesquise **provedor de recursos do dispositivo** e selecione-o nas opções disponíveis.
 
-   ![Pesquisar por fornecedor](./media/key-vault-access/search-provider.png)
+   ![Pesquisar provedor](./media/key-vault-access/search-provider.png)
 
 1. Selecione **Guardar**.
 
-## <a name="reference-key-vault-secret"></a>Segredo do Key Vault de referência
+## <a name="reference-key-vault-secret"></a>Segredo de Key Vault de referência
 
-Para passar um segredo a partir de um cofre de chave para um modelo na sua aplicação gerida, tem de utilizar um [modelo ligado](../azure-resource-manager/resource-group-linked-templates.md) e referenciar o Cofre de chaves nos parâmetros para o modelo ligado. Forneça o ID de recurso do Key Vault e o nome do segredo do.
+Para passar um segredo de um Key Vault para um modelo em seu aplicativo gerenciado, você deve usar um [modelo vinculado](../azure-resource-manager/resource-group-linked-templates.md) e referenciar o Key Vault nos parâmetros para o modelo vinculado. Forneça a ID de recurso do Key Vault e o nome do segredo.
 
 ```json
 "resources": [{
@@ -87,8 +87,8 @@ Para passar um segredo a partir de um cofre de chave para um modelo na sua aplic
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Configurou o seu Cofre de chaves para ser acessível durante a implementação de uma aplicação gerida.
+Você configurou seu Key Vault para ser acessível durante a implantação de um aplicativo gerenciado.
 
-* Para obter informações sobre a transmissão de um valor de um cofre de chave como um parâmetro de modelo, consulte [do Azure com o Key Vault para transmitir o valor do parâmetro segura durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-* Para obter exemplos de aplicação gerida, veja [aplicativos gerenciados de projetos de exemplo para o Azure](sample-projects.md).
+* Para obter informações sobre como passar um valor de um Key Vault como um parâmetro de modelo, consulte [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+* Para obter exemplos de aplicativos gerenciados, consulte [projetos de exemplo para aplicativos gerenciados do Azure](sample-projects.md).
 * Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).

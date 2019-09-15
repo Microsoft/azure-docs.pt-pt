@@ -1,7 +1,7 @@
 ---
 title: Treinar a rede neural de aprendizado profundo com Keras
-titleSuffix: Azure Machine Learning service
-description: Saiba como treinar e registrar um modelo de classificação de rede neural Keras profundo em execução no TensorFlow usando o serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba como treinar e registrar um modelo de classificação de rede neural Keras profundo em execução no TensorFlow usando o Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,20 +11,20 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7646330d9d89d5257a991b5095b7b6814aa3ba9
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: efa9b8f4f5cba36bfb2557b7be33ec9519b1d804
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966822"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999376"
 ---
-# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Treinar e registrar um modelo de classificação Keras com o serviço Azure Machine Learning
+# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Treinar e registrar um modelo de classificação Keras com Azure Machine Learning
 
-Este artigo mostra como treinar e registrar um modelo de classificação Keras criado em TensorFlow usando o serviço Azure Machine Learning. Ele usa o popular [conjunto de MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos usando uma DNN (rede neural profunda) criada usando a [biblioteca Keras Python](https://keras.io) em execução na parte superior do [TensorFlow](https://www.tensorflow.org/overview).
+Este artigo mostra como treinar e registrar um modelo de classificação Keras criado em TensorFlow usando Azure Machine Learning. Ele usa o popular [conjunto de MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos usando uma DNN (rede neural profunda) criada usando a [biblioteca Keras Python](https://keras.io) em execução na parte superior do [TensorFlow](https://www.tensorflow.org/overview).
 
-Keras é uma API de rede neural de alto nível capaz de executar a parte superior de outras estruturas de DNN populares para simplificar o desenvolvimento. Com o serviço Azure Machine Learning, você pode expandir rapidamente os trabalhos de treinamento usando recursos de computação em nuvem elástico. Você também pode acompanhar suas execuções de treinamento, modelos de versão, implantar modelos e muito mais.
+Keras é uma API de rede neural de alto nível capaz de executar a parte superior de outras estruturas de DNN populares para simplificar o desenvolvimento. Com o Azure Machine Learning, você pode expandir rapidamente os trabalhos de treinamento usando recursos de computação em nuvem elástico. Você também pode acompanhar suas execuções de treinamento, modelos de versão, implantar modelos e muito mais.
 
-Se você estiver desenvolvendo um modelo de Keras do zero ou estiver trazendo um modelo existente para a nuvem, Azure Machine Learning serviço poderá ajudá-lo a criar modelos prontos para produção.
+Se você estiver desenvolvendo um modelo de Keras do zero ou estiver trazendo um modelo existente para a nuvem, Azure Machine Learning poderá ajudá-lo a criar modelos prontos para produção.
 
 Consulte o [artigo conceitual](concept-deep-learning-vs-machine-learning.md) para obter informações sobre as diferenças entre o aprendizado de máquina e o aprendizado profundo.
 
@@ -68,7 +68,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O [espaço de trabalho de serviço do Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
 
 Crie um objeto de espaço de `config.json` trabalho a partir do arquivo criado na [seção pré-requisitos](#prerequisites).
 
@@ -142,7 +142,7 @@ Para obter mais informações sobre destinos de computação, consulte o artigo 
 
 O [estimador TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornece uma maneira simples de iniciar trabalhos de treinamento do TensorFlow no destino de computação. Como o Keras é executado na parte superior do TensorFlow, você pode usar o estimador TensorFlow e importar a `pip_packages` biblioteca Keras usando o argumento.
 
-O estimador TensorFlow é implementado por meio [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Além disso, crie um `script_params` dicionário que contenha as configurações de hiperparâmetro DNN. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando](how-to-train-ml-models.md) o estimador
+O estimador TensorFlow é implementado por meio [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Além disso, crie um `script_params` dicionário que contenha as configurações de hiperparâmetro DNN. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando o estimador](how-to-train-ml-models.md)
 
 ```Python
 script_params = {
@@ -203,7 +203,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você treinou e registrou um modelo Keras no serviço Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de implantação de modelo.
+Neste artigo, você treinou e registrou um modelo Keras em Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de implantação de modelo.
 
 > [!div class="nextstepaction"]
 > [Como e onde implantar modelos](how-to-deploy-and-where.md)

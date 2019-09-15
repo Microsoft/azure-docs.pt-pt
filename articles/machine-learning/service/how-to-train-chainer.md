@@ -1,6 +1,6 @@
 ---
 title: Treinar rede neural de aprendizado profundo com o chainer
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como executar seus scripts de treinamento do PyTorch em escala empresarial usando a classe de estimador de Azure Machine Learning de encadeamento.  O script de exemplo classifis imagens de dígitos manuscritas para criar uma rede neural de aprendizado profundo usando a Biblioteca Python do sequenciador em execução na parte superior do numpy.
 services: machine-learning
 ms.service: machine-learning
@@ -10,22 +10,22 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966834"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002725"
 ---
-# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Treinar e registrar modelos de encadeamento em escala com o serviço de Azure Machine Learning
+# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Treinar e registrar modelos de encadeamento em escala com Azure Machine Learning
 
-Neste artigo, saiba como executar os scripts de treinamento do [encadeamento](https://chainer.org/) em escala empresarial usando a classe de estimador de Azure Machine Learning de [encadeamento](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) . O script de treinamento de exemplo neste artigo usa o popular [conjunto de MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos usando uma DNN (rede neural profunda) criada usando a Biblioteca Python do Chainer em execução na parte superior do [numpy](https://www.numpy.org/).
+Neste artigo, saiba como executar os scripts de treinamento do [encadeamento](https://chainer.org/) em escala empresarial usando a classe de [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) de Azure Machine Learning de encadeamento. O script de treinamento de exemplo neste artigo usa o popular [conjunto de MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos usando uma DNN (rede neural profunda) criada usando a Biblioteca Python do Chainer em execução na parte superior do [numpy](https://www.numpy.org/).
 
 Se você está treinando um modelo de encadeamento de aprendizado profundo do zero ou está trazendo um modelo existente para a nuvem, você pode usar Azure Machine Learning para escalar trabalhos de treinamento de software livre usando recursos de computação em nuvem elásticos. Você pode criar, implantar, obter uma versão e monitorar modelos de nível de produção com Azure Machine Learning. 
 
 Saiba mais sobre o [aprendizado profundo em relação ao aprendizado de máquina](concept-deep-learning-vs-machine-learning.md).
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,7 +60,7 @@ print("SDK version:", azureml.core.VERSION)
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O [espaço de trabalho de serviço do Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
 
 Crie um objeto de espaço de trabalho `config.json` lendo o arquivo criado na [seção pré-requisitos](#prerequisites):
 
@@ -142,7 +142,7 @@ Para obter mais informações sobre destinos de computação, consulte o artigo 
 
 O [avaliador do encadeamento](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) fornece uma maneira simples de iniciar trabalhos de treinamento de encadeamento em seu destino de computação.
 
-O avaliador do sequenciador é implementado por [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) meio da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando](how-to-train-ml-models.md) o estimador
+O avaliador do sequenciador é implementado por [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) meio da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando o estimador](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import Chainer
@@ -209,7 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, você treinou e registrou um aprendizado profundo, uma rede neural usando o encadeado no serviço de Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de [implantação de modelo](how-to-deploy-and-where.md) .
+Neste artigo, você treinou e registrou uma rede neural de aprendizado profundo usando o chainer em Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de [implantação de modelo](how-to-deploy-and-where.md) .
 
 * [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 

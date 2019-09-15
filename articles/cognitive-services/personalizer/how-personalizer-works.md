@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034379"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002893"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 
@@ -90,31 +90,6 @@ O personalizador é baseado em ciência de ponta e pesquisa na área de [aprendi
 * Notificação & conteúdo do alerta: decida qual texto deve ser usado para alertas a fim de envolver mais usuários.
 * Tempo de alerta de & de notificação: tenha aprendizado personalizado de quando enviar notificações aos usuários para que eles se envolvam mais.
 
-## <a name="checklist-for-applying-personalizer"></a>Lista de verificação para aplicação do personalizador
-
-Você pode aplicar o personalizador em situações em que:
-
-* Você tem uma meta comercial ou de usabilidade para seu aplicativo.
-* Você tem um local em seu aplicativo, em que tomar uma decisão contextual do que mostrar aos usuários melhorará essa meta.
-* A melhor opção pode e deve ser aprendida do comportamento do usuário coletivo e da Pontuação de recompensa total.
-* O uso do aprendizado de máquina para personalização segue as diretrizes e as opções de [uso responsável](ethics-responsible-use.md) para sua equipe.
-* A decisão pode ser expressa como classificação da melhor opção ([ação](concepts-features.md#actions-represent-a-list-of-options) de um conjunto limitado de opções.
-* O quão bem a escolha funcionou pode ser computada pela lógica de negócios, medindo algum aspecto do comportamento do usuário e expressando-o em um número entre-1 e 1.
-* A pontuação de recompensa não traz muitos fatores contratados ou externos, especificamente a duração do experimento é baixa o suficiente para que a pontuação de recompensa possa ser computada enquanto ainda é relevante.
-* Você pode expressar o contexto para a classificação como um dicionário de pelo menos 5 recursos que você imagina que ajudarão a fazer a escolha certa e que não incluem informações de identificação pessoal.
-* Você tem informações sobre cada ação como um dicionário de pelo menos 5 atributos ou recursos que você considera que ajudarão o personalizado a fazer a escolha certa.
-* Você pode reter dados por tempo suficiente para acumular um histórico de pelo menos 100.000 interações.
-
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Considerações de aprendizado de máquina para aplicar personalizador
-
-O personalizador se baseia no reforço Learning, uma abordagem ao aprendizado de máquina que é ensinada pelos comentários que você fornece. 
-
-O personalizador aprenderá melhor em situações em que:
-* Há eventos suficientes para se manter em cima da personalização ideal se o problema se desconectar ao longo do tempo (como preferências de notícias ou de moda). O personalizado se adaptará à mudança contínua no mundo real, mas os resultados não serão ideais se não houver eventos e dados suficientes para aprender com a descoberta e a liquidação de novos padrões. Você deve escolher um caso de uso que ocorra com frequência suficiente. Considere procurar casos de uso que acontecem pelo menos 500 vezes por dia.
-* O contexto e as ações têm recursos suficientes para facilitar o aprendizado.
-* Há menos de 50 ações para a classificação por chamada.
-* Suas configurações de retenção de dados permitem que o personalizado colete dados suficientes para executar avaliações offline e otimização de política. Normalmente, são pelo menos 50.000 pontos de dados.
-
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Como usar o personalizador em um aplicativo Web
 
 Adicionar um loop a um aplicativo Web inclui:
@@ -181,7 +156,7 @@ Em algumas arquiteturas, a sequência acima pode ser difícil de implementar. Ne
 
 Você pode monitorar a eficácia do Personalizar periodicamente executando [avaliações offline](how-to-offline-evaluation.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Entenda [onde você pode usar](where-can-you-use-personalizer.md)o personalizador.
 Executar [avaliações offline](how-to-offline-evaluation.md)

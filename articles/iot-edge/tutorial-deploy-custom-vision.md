@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 145b643999ff6e4af99ec50c9b0120fc9f11a212
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858935"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003917"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -237,35 +237,22 @@ Nesta secção, vai adicionar um módulo novo à mesma CustomVisionSolution e fo
     import os
     import requests
     import json
-
-    import iothub_client
-    # pylint: disable=E0611
-    from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider
-    from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError
-    # pylint: disable=E0401
-
-    # messageTimeout - the maximum time in milliseconds until a message times out.
-    # The timeout period starts at IoTHubModuleClient.send_event_async.
-    MESSAGE_TIMEOUT = 10000
-
-    # Choose HTTP, AMQP or MQTT as transport protocol.  
-    PROTOCOL = IoTHubTransportProvider.MQTT
+    from azure.iot.device import IoTHubModuleClient, Message
 
     # global counters
-    SEND_CALLBACKS = 0
+    SENT_IMAGES = 0
+
+    # global client
+    CLIENT = None
 
     # Send a message to IoT Hub
     # Route output1 to $upstream in deployment.template.json
     def send_to_hub(strMessage):
-        message = IoTHubMessage(bytearray(strMessage, 'utf8'))
-        hubManager.send_event_to_output("output1", message, 0)
-
-    # Callback received when the message that we send to IoT Hub is processed.
-    def send_confirmation_callback(message, result, user_context):
-        global SEND_CALLBACKS
-        SEND_CALLBACKS += 1
-        print ( "Confirmation received for message with result = %s" % result )
-        print ( "   Total calls confirmed: %d \n" % SEND_CALLBACKS )
+        message = Message(bytearray(strMessage, 'utf8'))
+        CLIENT.send_message_to_output(message, "output1")
+        global SENT_IMAGES
+        SENT_IMAGES += 1
+        print( "Total images sent: {}".format(SENT_IMAGES) )
 
     # Send an image to the image classifying server
     # Return the JSON response from the server with the prediction result
@@ -282,28 +269,15 @@ Nesta secção, vai adicionar um módulo novo à mesma CustomVisionSolution e fo
 
         return json.dumps(response.json())
 
-    class HubManager(object):
-        def __init__(self, protocol, message_timeout):
-            self.client_protocol = protocol
-            self.client = IoTHubModuleClient()
-            self.client.create_from_environment(protocol)
-            # set the time until a message times out
-            self.client.set_option("messageTimeout", message_timeout)
-            
-        # Sends a message to an output queue, to be routed by IoT Edge hub. 
-        def send_event_to_output(self, outputQueueName, event, send_context):
-            self.client.send_event_async(
-                outputQueueName, event, send_confirmation_callback, send_context)
-
     def main(imagePath, imageProcessingEndpoint):
         try:
             print ( "Simulated camera module for Azure IoT Edge. Press Ctrl-C to exit." )
 
             try:
-                global hubManager 
-                hubManager = HubManager(PROTOCOL, MESSAGE_TIMEOUT)
-            except IoTHubError as iothub_error:
-                print ( "Unexpected error %s from IoTHub" % iothub_error )
+                global CLIENT
+                CLIENT = IoTHubModuleClient.create_from_edge_environment()
+            except Exception as iothub_error:
+                print ( "Unexpected error {} from IoTHub".format(iothub_error) )
                 return
 
             print ( "The sample is now sending images for processing and will indefinitely.")

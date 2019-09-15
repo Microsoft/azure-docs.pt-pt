@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845426"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004103"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -185,7 +185,7 @@ Para impedir que outras pessoas alterem ou excluam seu aplicativo lógico, você
 
 Durante a execução de um aplicativo lógico, todos os dados são criptografados durante o trânsito usando [TLS (segurança de camada de trânsito)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) e em [repouso](../security/fundamentals/encryption-atrest.md). Quando seu aplicativo lógico terminar de ser executado, você poderá exibir o histórico dessa execução, incluindo as etapas que foram executadas junto com o status, a duração, as entradas e as saídas de cada ação. Esse detalhe rico fornece informações sobre como seu aplicativo lógico foi executado e onde você pode começar a solucionar problemas que surgem.
 
-Quando você acessa o histórico de execução do aplicativo lógico, os aplicativos lógicos autenticam seu acesso e fornecem links para as entradas e saídas das solicitações e respostas na execução do seu aplicativo lógico. No entanto, para ações que lidam com senhas, segredos, chaves ou outras informações confidenciais, você deseja impedir que outras pessoas exibam e acessem esses dados. Por exemplo, se seu aplicativo lógico obtiver um segredo de [Azure Key Vault](../key-vault/key-vault-whatis.md) para usar ao autenticar uma ação http, você deseja ocultar esse segredo da exibição.
+Quando você acessa o histórico de execução do aplicativo lógico, os aplicativos lógicos autenticam seu acesso e fornecem links para as entradas e saídas das solicitações e respostas na execução do seu aplicativo lógico. No entanto, para ações que lidam com senhas, segredos, chaves ou outras informações confidenciais, você deseja impedir que outras pessoas exibam e acessem esses dados. Por exemplo, se seu aplicativo lógico obtiver um segredo de [Azure Key Vault](../key-vault/key-vault-overview.md) para usar ao autenticar uma ação http, você deseja ocultar esse segredo da exibição.
 
 Para controlar o acesso às entradas e saídas no histórico de execução do aplicativo lógico, você tem estas opções:
 
@@ -370,7 +370,7 @@ Para obter mais informações, consulte [proteger parâmetros em definições de
 
 Ao automatizar implantações com [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), você pode definir parâmetros de modelo protegidos, que são avaliados na implantação, `securestring` usando `secureobject` os tipos e. Para definir parâmetros de modelo, use a seção de nível `parameters` superior do modelo, que é separada e diferente da seção da `parameters` sua definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)separado.
 
-Por exemplo, se você usar segredos, poderá definir e usar parâmetros de modelo protegidos que recuperem esses segredos de [Azure Key Vault](../key-vault/key-vault-whatis.md) na implantação. Em seguida, você pode fazer referência ao cofre de chaves e ao segredo em seu arquivo de parâmetro. Para obter mais informações, consulte estes tópicos:
+Por exemplo, se você usar segredos, poderá definir e usar parâmetros de modelo protegidos que recuperem esses segredos de [Azure Key Vault](../key-vault/key-vault-overview.md) na implantação. Em seguida, você pode fazer referência ao cofre de chaves e ao segredo em seu arquivo de parâmetro. Para obter mais informações, consulte estes tópicos:
 
 * [Usar Azure Key Vault para passar valores de parâmetros seguros na implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 * [Proteger os parâmetros em modelos de Azure Resource Manager](#secure-parameters-deployment-template) mais adiante neste tópico
@@ -425,7 +425,7 @@ Para proteger informações confidenciais na definição de fluxo de trabalho do
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Proteger parâmetros em modelos de Azure Resource Manager
 
-Um modelo do Resource Manager para um aplicativo lógico tem `parameters` várias seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros protegidos no nível do modelo e nível de definição de fluxo de trabalho `securestring` usando `secureobject` o tipo ou. Em seguida, você pode armazenar esses valores em [Azure Key Vault](../key-vault/key-vault-whatis.md) e usar o [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) para fazer referência ao cofre de chaves e ao segredo. Em seguida, o modelo recupera essas informações na implantação. Para obter mais informações, consulte [usar Azure Key Vault para passar valores de parâmetros seguros na implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Um modelo do Resource Manager para um aplicativo lógico tem `parameters` várias seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros protegidos no nível do modelo e nível de definição de fluxo de trabalho `securestring` usando `secureobject` o tipo ou. Em seguida, você pode armazenar esses valores em [Azure Key Vault](../key-vault/key-vault-overview.md) e usar o [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) para fazer referência ao cofre de chaves e ao segredo. Em seguida, o modelo recupera essas informações na implantação. Para obter mais informações, consulte [usar Azure Key Vault para passar valores de parâmetros seguros na implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 Aqui estão mais informações sobre estas `parameters` seções:
 

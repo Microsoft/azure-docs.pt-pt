@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996671"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000332"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -26,8 +26,11 @@ Em algumas situações, talvez você queira substituir esse comportamento autom�
 
 O Azure Cosmos DB dá suporte a dois modos de indexação:
 
-- **Consistente**: Se a política de indexação de um contêiner estiver definida como consistente, o índice será atualizado de forma síncrona à medida que você criar, atualizar ou excluir itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
-- **Nenhum**: Se a política de indexação de um contêiner estiver definida como nenhum, a indexação será efetivamente desabilitada nesse contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ajudar a acelerar as operações de inserção em massa.
+- **Consistente**: O índice é atualizado de forma síncrona à medida que você cria, atualiza ou exclui itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
+- **Nenhum**: A indexação está desabilitada no contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ser usado para melhorar o desempenho de operações em massa. Depois que as operações em massa forem concluídas, o modo de índice poderá ser definido como consistente e, em seguida, monitorado usando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) até ser concluído.
+
+> [!NOTE]
+> O Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta executa atualizações no índice em um nível de prioridade muito menor quando o mecanismo não está fazendo nenhum outro trabalho. Isso pode resultar em resultados de consulta **inconsistentes ou incompletos** . Além disso, o uso de indexação lenta no lugar de ' none ' para operações em massa também não fornece nenhum benefício, pois qualquer alteração no modo de índice fará com que o índice seja descartado e recriado. Por esses motivos, é recomendável em relação aos clientes que o utilizam. Para melhorar o desempenho de operações em massa, defina modo de índice como nenhum e, em seguida, retorne ao modo consistente e monitore a `IndexTransformationProgress` Propriedade no contêiner até concluir.
 
 Por padrão, a política de indexação é `automatic`definida como. É possível definir a `automatic` Propriedade na política de indexação como. `true` Definir essa propriedade como `true` permite que o Azure CosmosDB indexe automaticamente os documentos conforme eles são gravados.
 
@@ -252,7 +255,7 @@ Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o 
 - nenhum caminho incluído e
 - `/*`como o único caminho excluído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre a indexação nos seguintes artigos:
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: b54b81a78072664ef47ace917fb3db85a5b1f297
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: d9aeb5130f565c5fc24e2d0ced9c7ce16d2927ef
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147616"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001151"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introdução à identidade e módulo do módulo do Hub IoT (Python)
 
@@ -140,40 +140,43 @@ Este código de exemplo mostra como obter o módulo duplo e atualizar as proprie
 Além do código acima, você pode adicionar o bloco de código abaixo para obter a mensagem de atualização de mensagens em um dispositivo.
 
 ```python
-import random
 import time
-import sys
-import iothub_client
-from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
+import threading
+from azure.iot.device import IoTHubModuleClient
 
-PROTOCOL = IoTHubTransportProvider.AMQP
-CONNECTION_STRING = ""
+CONNECTION_STRING = "{deviceConnectionString}"
 
 
-def module_twin_callback(update_state, payload, user_context):
-    print("")
-    print("Twin callback called with:")
-    print("updateStatus: %s" % update_state)
-    print("context: %s" % user_context)
-    print("payload: %s" % payload)
-
-
-try:
-    module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
-    module_client.set_module_twin_callback(module_twin_callback, 1234)
-
-    print("Waiting for incoming twin messages.  Hit Control-C to exit.")
+def twin_update_listener(client):
     while True:
+        patch = client.receive_twin_desired_properties_patch()  # blocking call
+        print("")
+        print("Twin desired properties patch received:")
+        print(patch)
 
-        time.sleep(1000000)
+def iothub_client_sample_run():
+    try:
+        module_client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
 
-except IoTHubError as iothub_error:
-    print("Unexpected error {0}".format(iothub_error))
-except KeyboardInterrupt:
-    print("module client sample stopped")
+        twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(module_client,))
+        twin_update_listener_thread.daemon = True
+        twin_update_listener_thread.start()
+
+        while True:
+            time.sleep(1000000)
+
+    except KeyboardInterrupt:
+        print("IoTHubModuleClient sample stopped")
+
+
+if __name__ == '__main__':
+    print ( "Starting the IoT Hub Python sample..." )
+    print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+
+    iothub_client_sample_run()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

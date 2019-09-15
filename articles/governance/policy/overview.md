@@ -7,16 +7,16 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0c2d8060756c23cc69325ab88803d0423ba45b9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807438"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002300"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Descrição geral do serviço do Azure Policy
+# <a name="overview-of-the-azure-policy-service"></a>Visão geral do serviço de Azure Policy
 
-Governação valida que sua organização pode atingir as metas através da utilização eficaz e eficiente de IT. Ele atende a essa necessidade criando clareza entre os objetivos empresariais e projetos de TI.
+A governança valida que sua organização pode atingir suas metas por meio de uso eficaz e eficiente de ti. Ele atende a essa necessidade criando clareza entre os objetivos empresariais e projetos de TI.
 
 A sua empresa tem um número significativo de problemas de TI que parece nunca ficarem resolvidos?
 Uma boa governação de TI envolve o planeamento das suas iniciativas e a definição de prioridades num nível estratégico para ajudar a gerir e evitar problemas. Essa necessidade estratégica é onde entra o Azure Policy.
@@ -30,7 +30,7 @@ O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir 
 
 ## <a name="how-is-it-different-from-rbac"></a>Em que medida é diferente do RBAC?
 
-Existem algumas diferenças fundamentais entre o Azure Policy e o controlo de acesso baseado em funções (RBAC). O RBAC concentra-se nas ações do utilizador em âmbitos diferentes. Pode ser adicionado à função de Contribuidor para um grupo de recursos, permitindo-lhe efetuar alterações ao grupo de recursos. Focos de política do Azure nas propriedades dos recursos durante a implementação e para já existentes de recursos. O Azure Policy controla as propriedades, como os tipos ou localizações de recursos. Ao contrário do RBAC, o Azure Policy é um padrão permitir e explícito sistema de negação.
+Há algumas diferenças importantes entre Azure Policy e o RBAC (controle de acesso baseado em função). O RBAC concentra-se nas ações do utilizador em âmbitos diferentes. Pode ser adicionado à função de Contribuidor para um grupo de recursos, permitindo-lhe efetuar alterações ao grupo de recursos. Azure Policy se concentra nas propriedades de recurso durante a implantação e nos recursos já existentes. Azure Policy controla propriedades como os tipos ou locais de recursos. Diferentemente do RBAC, Azure Policy é um sistema de permissão padrão e de negação explícita.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Permissões RBAC no Azure Policy
 
@@ -39,7 +39,7 @@ O Azure Policy tem várias permissões, conhecidas como operações, em dois For
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. O **contribuinte de política de recurso (pré-visualização)** função inclui a maioria das operações de política do Azure. **Proprietário** tem direitos totais. Ambos **contribuinte** e **leitor** pode utilizar a leitura de todas as operações de Azure Policy, mas **contribuinte** também pode acionar a remediação.
+Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. A função **colaborador de política de recurso (versão prévia)** inclui a maioria das operações Azure Policy. **Proprietário** tem direitos totais. O **colaborador** e o **leitor** podem usar todas as operações de Azure Policy de leitura, mas o **colaborador** também pode disparar a correção.
 
 Se nenhuma das Funções incorporadas tiver as permissões exigidas, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
@@ -49,14 +49,14 @@ O percurso de criar e implementar uma política no Azure Policy começa pela cri
 
 No Azure Policy, disponibilizamos várias políticas incorporadas que estão disponíveis por predefinição. Por exemplo:
 
-- **Necessita do SQL Server 12.0**: Valida que todos os servidores SQL utilizam a versão 12.0. O efeito é recusar todos os servidores que não cumpram estes critérios.
-- **SKUs de conta de armazenamento permitidos**: Determina se uma conta de armazenamento que está sendo implantada dentro de um conjunto de tamanhos de SKU. Seu efeito é recusar todas as contas de armazenamento que não cumpram o conjunto de tamanhos SKU definidos.
-- **Tipo de recurso permitido**: Define os tipos de recurso que pode implementar. Seu efeito é recusar todos os recursos que não fazem parte desta lista definida.
-- **Localizações permitidas**: Restringe as localizações disponíveis para novos recursos. O efeito é utilizado para impor os requisitos de geoconformidade.
-- **SKUs de Máquina Virtual permitidos**: Especifica um conjunto de máquina virtual de SKUs que pode implementar.
-- **Aplicar etiqueta e respetivo valor predefinido**: Aplica-se uma etiqueta obrigatória e o respetivo valor predefinido se não for especificado, o pedido de implementar.
-- **Impor etiqueta e respetivo valor**: Impõe uma etiqueta obrigatória e o respetivo valor a um recurso.
-- **Tipos de recurso não permitidos**: Impede que uma lista de tipos de recurso que está sendo implantado.
+- **Exigir SQL Server 12,0**: Valida que todos os SQL Servers usam a versão 12,0. O efeito é recusar todos os servidores que não cumpram estes critérios.
+- **SKUs de conta de armazenamento permitidas**: Determina se uma conta de armazenamento que está sendo implantada está dentro de um conjunto de tamanhos de SKU. Seu efeito é recusar todas as contas de armazenamento que não cumpram o conjunto de tamanhos SKU definidos.
+- **Tipo de recurso permitido**: Define os tipos de recursos que você pode implantar. Seu efeito é recusar todos os recursos que não fazem parte desta lista definida.
+- **Locais permitidos**: Restringe os locais disponíveis para novos recursos. O efeito é utilizado para impor os requisitos de geoconformidade.
+- **SKUs de máquina virtual permitidas**: Especifica um conjunto de SKUs de máquina virtual que você pode implantar.
+- **Aplique a marca e seu valor padrão**: Aplica uma marca necessária e seu valor padrão se não for especificado pela solicitação de implantação.
+- **Impor a marca e seu valor**: Impõe uma marca necessária e seu valor a um recurso.
+- **Tipos de recurso não permitidos**: Impede que uma lista de tipos de recursos seja implantada.
 
 Para implementar estas definições de política (definições incorporadas e personalizadas), terá de atribuí-las. Pode atribuir qualquer uma destas políticas através do portal do Azure, do PowerShell ou da CLI do Azure.
 
@@ -70,7 +70,7 @@ Uma atribuição de política é uma definição de política que foi atribuída
 
 Por exemplo, no âmbito da subscrição, pode atribuir uma política que impede a criação de recursos de rede. Poderia excluir um grupo de recursos nessa subscrição que se destina a infraestrutura de rede. Em seguida, concede acesso a este grupo de recursos de rede para os usuários que confia com a criação de recursos de rede.
 
-Noutro exemplo, pode querer atribuir um recurso de tipo de permitir que a política de lista ao nível do grupo de gestão. Em seguida, atribua uma política mais permissiva (permitindo mais tipos de recursos) num grupo de gestão subordinado ou mesmo diretamente em subscrições. No entanto, este exemplo não funciona porque a política é um sistema de negação explícita. Em vez disso, tem de excluir o grupo de gestão do subordinado ou uma subscrição da atribuição de política ao nível do grupo de gestão. Em seguida, atribua a política mais permissiva no grupo de gestão subordinado ou ao nível da subscrição. Se qualquer política resulta num recurso negado de introdução, em seguida, a única forma de permitir que o recurso é modificar a política de negação.
+Em outro exemplo, talvez você queira atribuir uma política de lista de permissões de tipo de recurso no nível do grupo de gerenciamento. Em seguida, atribua uma política mais permissiva (permitindo mais tipos de recursos) num grupo de gestão subordinado ou mesmo diretamente em subscrições. No entanto, este exemplo não funciona porque a política é um sistema de negação explícita. Em vez disso, tem de excluir o grupo de gestão do subordinado ou uma subscrição da atribuição de política ao nível do grupo de gestão. Em seguida, atribua a política mais permissiva no grupo de gestão subordinado ou ao nível da subscrição. Se qualquer política resulta num recurso negado de introdução, em seguida, a única forma de permitir que o recurso é modificar a política de negação.
 
 Para obter mais informações sobre a configuração de definições e atribuições de política através do portal, veja [Criar uma atribuição de política para identificar recursos não conformes no ambiente do Azure](assign-policy-portal.md). Também estão disponíveis passos para o [PowerShell](assign-policy-powershell.md) e a [CLI do Azure](assign-policy-azurecli.md).
 
@@ -111,13 +111,13 @@ Por exemplo, considere um cenário em que tem uma definição de iniciativa - **
 
 Neste cenário, quando define os parâmetros da iniciativa para **initiativeC**, tem três opções:
 
-- Utilize os parâmetros das definições de política nesta iniciativa: Neste exemplo, *allowedLocations* e *allowedSingleLocation* tornam-se de parâmetros de iniciativa para **initiativeC**.
-- Indicar os valores para os parâmetros das definições de política nesta definição de iniciativa. Neste exemplo, pode fornecer uma lista de localizações para o **parâmetro de policyA – allowedLocations** e o **parâmetro de policyB – allowedSingleLocation**. Também pode fornecer valores quando atribui esta iniciativa.
+- Use os parâmetros das definições de política nesta iniciativa: Neste exemplo, *allowedLocations* e *allowedSingleLocation* se tornam parâmetros de iniciativa para **initiativeC**.
+- Indicar os valores para os parâmetros das definições de política nesta definição de iniciativa. Neste exemplo, você pode fornecer uma lista de locais para o **parâmetro da política – allowedLocations** e o **parâmetro de policyB – allowedSingleLocation**. Também pode fornecer valores quando atribui esta iniciativa.
 - Fornecer uma lista das opções de *valor* que podem ser utilizadas quando atribui esta iniciativa. Quando atribui esta iniciativa, os parâmetros herdados das definições de política na iniciativa apenas podem ter valores desta lista fornecida.
 
 Ao criar opções de valor numa definição de iniciativa, não for possível introduzir um valor diferente durante a atribuição de iniciativa, porque não faz parte da lista.
 
-## <a name="maximum-count-of-azure-policy-objects"></a>Contagem máxima de objetos de política do Azure
+## <a name="maximum-count-of-azure-policy-objects"></a>Contagem máxima de objetos de Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -136,7 +136,7 @@ Por exemplo, tem a definição de política *policyDefA* e criar na definição 
 
 - Quando é avaliada uma atribuição de iniciativa, todas as políticas na iniciativa também são avaliadas. Se precisar de avaliar uma política individualmente, é melhor não incluí-lo numa iniciativa.
 
-## <a name="video-overview"></a>Descrição geral do vídeo
+## <a name="video-overview"></a>Visão geral em vídeo
 
 A seguinte descrição geral do Azure Policy é do Build 2018. Para slides ou download de vídeo, visite [regem o seu ambiente do Azure através da política do Azure](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
 
@@ -146,8 +146,8 @@ A seguinte descrição geral do Azure Policy é do Build 2018. Para slides ou do
 
 Agora que tem uma ideia geral do Azure Policy e de alguns dos principais conceitos, seguem-se os passos sugeridos seguintes:
 
-- [Atribuir uma definição de política com o portal](assign-policy-portal.md).
-- [Atribuir uma definição de política com a CLI do Azure](assign-policy-azurecli.md).
-- [Atribuir uma definição de política com o PowerShell](assign-policy-powershell.md).
-- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](..//management-groups/overview.md).
-- Modo de exibição [regem o seu ambiente do Azure através da política do Azure](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
+- [Atribua uma definição de política usando o portal](assign-policy-portal.md).
+- [Atribua uma definição de política usando o CLI do Azure](assign-policy-azurecli.md).
+- [Atribua uma definição de política usando o PowerShell](assign-policy-powershell.md).
+- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](..//management-groups/overview.md).
+- Exiba [o controle do seu ambiente do Azure por meio do Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
