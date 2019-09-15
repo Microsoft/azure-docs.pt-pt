@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962738"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993726"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
@@ -244,7 +244,7 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | Nome da instância de nuvem: Azure Government | Encomenda| Nuvens Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou o Estados Unidos da América.| |
 | Cidade do cliente| Cliente| O nome da cidade fornecida pelo cliente. A cidade pode ser diferente da cidade na assinatura do Azure de um cliente.||
 | Idioma de comunicação do cliente  | Cliente| A linguagem preferida pelo cliente para comunicação.||
-| Nome da empresa do cliente | Cliente, pedido | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente.|  |
+| Nome da empresa do cliente | Cliente, pedido | O nome da empresa fornecido pelo cliente. O nome pode ser diferente do nome na assinatura do Azure de um cliente.|  |
 | País do cliente | Cliente, pedido | O nome do país fornecido pelo cliente. O país pode ser diferente do país na assinatura do Azure de um cliente.|  |
 | Email do cliente| Cliente| O endereço de email fornecido pelo cliente final. O email pode ser diferente do endereço de email na assinatura do Azure de um cliente.||
 | Nome do cliente| Cliente| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente.| |

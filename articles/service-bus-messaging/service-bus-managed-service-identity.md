@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: a671b2ddd3cfa1237b6d843369e78233960f1c14
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 139ebe02727bab8cc80f6f0c6bbbd2156f025c21
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013200"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70992313"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure
 [Gerido identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade de entre o Azure permite-lhe criar uma identidade segura associada à implementação em que o código da aplicação é executado. Em seguida, pode associar essa identidade com funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure que a aplicação precisa.
@@ -28,10 +28,10 @@ Com identidades geridas, a plataforma do Azure gere esta identidade de tempo de 
 ## <a name="overview"></a>Descrição geral
 Quando uma entidade de segurança (um usuário, grupo ou aplicativo) tenta acessar uma entidade do barramento de serviço, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
 
- 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. 
+ 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token `https://servicebus.azure.net`é.
  1. Em seguida, o token é passado como parte de uma solicitação para o serviço do barramento de serviço para autorizar o acesso ao recurso especificado.
 
-A etapa de autenticação requer que uma solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço do barramento de serviço, consulte autenticar o [acesso aos recursos do barramento de serviço do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](service-bus-managed-service-identity.md). 
+A etapa de autenticação requer que uma solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço do barramento de serviço, consulte [autenticar o acesso aos recursos do barramento de serviço do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](service-bus-managed-service-identity.md). 
 
 A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. O barramento de serviço do Azure fornece funções RBAC que abrangem conjuntos de permissões para recursos do barramento de serviço. As funções atribuídas a uma entidade de segurança determinam as permissões que o principal terá. Para saber mais sobre como atribuir funções RBAC ao barramento de serviço do Azure, consulte [funções RBAC internas para o barramento de serviço do Azure](#built-in-rbac-roles-for-azure-service-bus). 
 
@@ -106,7 +106,7 @@ Para atribuir uma função a um namespace do barramento de serviço, navegue at�
 
 1. Na portal do Azure, navegue até o namespace do barramento de serviço e exiba a **visão geral** do namespace. 
 1. Selecione **controle de acesso (iam)** no menu à esquerda para exibir as configurações de controle de acesso para o namespace do barramento de serviço.
-1.  Selecione a guia atribuições de **função** para ver a lista de atribuições de função.
+1.  Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
 3.  Selecione **Adicionar** para adicionar uma nova função.
 4.  Na página **Adicionar atribuição de função** , selecione as funções do barramento de serviço do Azure que você deseja atribuir. Em seguida, pesquise para localizar a identidade do serviço que você registrou para atribuir a função.
     

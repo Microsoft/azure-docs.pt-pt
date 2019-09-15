@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2547ca3af3039af53cb5fd5b244669b9152c21b3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858815"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993292"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>O que são pipelines de ML no serviço Azure Machine Learning?
 
@@ -86,7 +86,7 @@ Há dois pacotes do Python para pipelines com Azure Machine Learning: [azureml-p
 
 + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).
 
-+ Saiba como [executar previsões em lote em dados grandes](how-to-run-batch-predictions.md).
++ Saiba como [executar previsões em lote em dados grandes](tutorial-pipeline-batch-scoring-classification.md).
 
 + Consulte os [documentos de referência do SDK para pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py).
 

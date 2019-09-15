@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 02/23/2019
-ms.openlocfilehash: 8709d88c4d21a40ac8ebb27e5c1669d8f5fa3555
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934230"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995437"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Camadas de serviço do banco de dados SQL do Azure
 
@@ -46,8 +46,6 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 | | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
 | **Tamanho do TempDB** | Banco de dados individual/pool elástico | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
 | | Instância gerida  | [24 GB por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | Até 4 TB- [limitado pelo tamanho do armazenamento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-| **Produtividade de e/s** | Base de dados individual | [500 IOPS por vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | O IOPs efetivo dependerá da carga de trabalho. | [4000 IOPS por vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)|
-| | Instância gerida | [100-250 MB/s e 500-7500 IOPS por arquivo](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [1375 IOPS por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **Taxa de transferência de gravação de log** | Base de dados individual | [1,875 MB/s por vCore (máximo de 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
 | | Instância gerida | [3 MB/s por vCore (máximo de 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [4 MB/s por VCORE (máx. 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 215660b0f0b8748461849f20e65a3585f939085e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8f684a9c0c40774c8c17a08801997c569be74c8d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858790"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993344"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Criar e acessar conjuntos de os (visualização) no Azure Machine Learning
 
@@ -76,7 +76,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### <a name="create-tabulardatasets"></a>Criar TabularDatasets
+
+TabularDatasets pode ser criado por meio do SDK ou usando a página de aterrissagem do espaço de trabalho (versão prévia).
+
+#### <a name="sdk"></a>SDK 
 
 Use o `from_delimited_files()` método na `TabularDatasetFactory` classe para ler arquivos no formato CSV ou TSV e crie um TabularDataset não registrado. Se você estiver lendo de vários arquivos, os resultados serão agregados em uma representação tabular.
 
@@ -103,7 +108,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|1|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||D
 
+#### <a name="workspace-landing-page"></a>Página de aterrissagem do espaço de trabalho 
+
+Entre na página de [aterrissagem do espaço de trabalho](https://ml.azure.com) para criar um conjunto de um DataSet por meio da experiência na Web. Atualmente, a página de aterrissagem do espaço de trabalho dá suporte apenas à criação de TabularDatasets.
+
+A animação a seguir mostra como criar um conjunto de um DataSet na página de aterrissagem do espaço de trabalho. 
+
+Primeiro, selecione **conjuntos** de itens na seção **ativos** do painel esquerdo. Em seguida, selecione **+ criar conjunto** de um para escolher a origem do conjunto de seus conjuntos de seus. Isso pode ser de arquivos locais, repositório de armazenamento ou URLs da Web públicas. As **configurações e a visualização** e os formulários de **esquema** são preenchidos de forma inteligente com base no tipo de arquivo. Selecione **Avançar** para revisá-los ou para configurar ainda mais seu conjunto de informações antes da criação. Selecione **concluído** para concluir a criação do conjunto de conjuntos. 
+
+![Criar um conjunto de uma com a interface do usuário](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### <a name="create-filedatasets"></a>Criar DataSets
+
 Use o `from_files()` método na `FileDatasetFactory` classe para carregar arquivos em qualquer formato e criar um filedataset não registrado.
 
 ```Python
@@ -134,6 +150,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> Os conjuntos de valores criados por meio da página de aterrissagem do espaço de trabalho são automaticamente registrados no espaço de trabalho. 
+
 ## <a name="version-datasets"></a>Conjuntos de itens de versão
 
 Você pode registrar um novo conjunto de registros com o mesmo nome criando uma nova versão. A versão do conjunto de dados é uma maneira de marcar o estado de seus dados, de modo que você possa aplicar uma versão específica do DataSet para experimentação ou reprodução futura. Cenários típicos para considerar o controle de versão: 
@@ -141,7 +160,7 @@ Você pode registrar um novo conjunto de registros com o mesmo nome criando uma 
 * Ao aplicar as abordagens de preparação de dados ou de engenharia de recursos diferentes.
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
@@ -177,7 +196,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Use o Machine Learning automatizado para [treinar com o TabularDatasets](https://aka.ms/automl-dataset).
 * Para obter mais exemplos de treinamento com conjuntos de informações, consulte os [blocos de anotações de exemplo](https://aka.ms/dataset-tutorial).

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8d42395bc4f813fecf3820024539999a1129921b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983800"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996978"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
@@ -236,7 +236,7 @@ Os contentores *azure-vote-back* e *azure-vote-front* são apresentados, conform
 
 ![Ver o estado de funcionamento dos contentores em execução no AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Para ver os registos relativos ao pod `azure-vote-front`, selecione a ligação **Ver registos de contentor** no lado direito da lista de contentores. Esses registos incluem os fluxos *stdout* e *stderr* do contentor.
+Para ver os logs do `azure-vote-front` Pod, selecione **Exibir logs de contêiner** no menu suspenso da lista de contêineres. Esses registos incluem os fluxos *stdout* e *stderr* do contentor.
 
 ![Ver os registos dos contentores no AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

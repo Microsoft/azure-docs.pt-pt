@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858497"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993456"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
 
@@ -132,7 +132,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 |Auditoria|Exibindo registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
 |Máscara de dados|Adicionando, modificando, excluindo ou exibindo regras de mascaramento de dados|
 |Encriptação de Dados Transparente|Estado de exibição ou status da Transparent Data Encryption|
-|Repositório de dados de consulta (desempenho)|Modificando ou exibindo configurações do repositório de consultas; ajuste automático|
+|Repositório de dados de consulta (desempenho)|Modificando ou exibindo configurações do repositório de consultas|
 |Ajuste automática|Aplicativo e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bancos de dados de Hub e membro que são executados em um agendamento configurável ou são executados manualmente|
@@ -322,7 +322,7 @@ Suponha que o preço unitário de computação seja $0.000073/vCore/segundo.  Em
 
 A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Austrália Central, Leste da China, Norte da China, sul da França, Alemanha central, Alemanha nordeste, Índia ocidental, sul da Coreia, oeste da África do Sul, Norte do Reino Unido, Sul do Reino Unido, Oeste do Reino Unido e EUA Central ocidental.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [início rápido: Crie um banco de dados individual no banco de dados SQL](sql-database-single-database-get-started.md)do Azure usando o portal do Azure.
 - Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

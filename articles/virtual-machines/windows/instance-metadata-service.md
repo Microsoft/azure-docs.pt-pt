@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: bffe6436678a055ac6d861587f048542f15c5f22
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0610648594d09de3f86c5d9eb2f0cae722978cca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079312"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996394"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -263,7 +263,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 
 Os metadados da instância podem ser recuperados no `curl` Windows por meio do programa:
 
-```bash
+```powershell
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
@@ -360,7 +360,7 @@ azEnvironment | Ambiente do Azure em que a VM está sendo executada | 2018-10-01
 customData | Ver [dados personalizados](#custom-data) | 2019-02-01
 location | Região do Azure em que a VM está sendo executada | 2017-04-02
 name | Nome da VM | 2017-04-02
-proporcionar | Informações da oferta para a imagem da VM e estão presentes apenas para imagens implantadas na Galeria de imagens do Azure | 2017-04-02
+Proporcionar | Informações da oferta para a imagem da VM e estão presentes apenas para imagens implantadas na Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento de máquinas virtuais | 2017-08-01
 intenção | [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e publicador para uma VM se sua imagem do Azure Marketplace | 2018-04-02

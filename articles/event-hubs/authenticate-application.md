@@ -8,15 +8,15 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 818bebdb7555d1b515a5c4a3439d11d4a4766e56
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: cce96039ca3883e0ea5ea0b738e0f6e2e079262d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011977"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996204"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar um aplicativo com Azure Active Directory para acessar recursos de hubs de eventos
-O Microsoft Azure fornece gestão de controlo de acesso integrada para os recursos e aplicações com base no Azure Active Directory (Azure AD). Uma vantagem importante de usar o Azure AD com os hubs de eventos do Azure é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará um token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos dos hubs de eventos do Azure.
+O Microsoft Azure fornece gestão de controlo de acesso integrada para os recursos e aplicações com base no Azure Active Directory (Azure AD). Uma vantagem importante de usar o Azure AD com os hubs de eventos do Azure é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O nome do recurso para solicitar um token `https://eventhubs.azure.net/`é. O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará um token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos dos hubs de eventos do Azure.
 
 Quando uma função é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível de assinatura, o grupo de recursos, o namespace de hubs de eventos ou qualquer recurso sob ele. Uma segurança do Azure AD pode atribuir funções a um usuário, a um grupo, a uma entidade de serviço de aplicativo ou a uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -46,7 +46,7 @@ Depois de determinar o escopo apropriado para uma atribuição de função, nave
 
     ![Selecione seu hub de eventos](./media/authenticate-application/select-event-hub.png)
 1. Selecione **controle de acesso (iam)** para exibir as configurações de controle de acesso para o Hub de eventos. 
-1. Selecione a guia atribuições de **função** para ver a lista de atribuições de função. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar atribuição de função**. 
+1. Selecione a guia **atribuições de função** para ver a lista de atribuições de função. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar atribuição de função**. 
 
     ![Botão Adicionar na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
 1. Na página **Adicionar atribuição de função** , execute as seguintes etapas:
@@ -104,7 +104,7 @@ Depois de registrar seu aplicativo e conceder permissões de ti para enviar/rece
 Para obter uma lista de cenários para os quais há suporte para tokens de aquisição, consulte a seção [cenários](https://aka.ms/msal-net-scenarios) do repositório do GITHUB do [MSAL (biblioteca de autenticação da Microsoft) para .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) .
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para saber mais sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)?
 - Para saber como atribuir e gerenciar atribuições de função RBAC com Azure PowerShell, CLI do Azure ou a API REST, consulte estes artigos:
     - [Gerenciar RBAC (controle de acesso baseado em função) com Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

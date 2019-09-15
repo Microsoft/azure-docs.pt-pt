@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512682"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997696"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -33,7 +33,7 @@ A tabela a seguir fornece uma comparação de ultra discos, unidades de estado s
 
 ## <a name="ultra-disk"></a>Ultra Disk
 
-Os ultra discos do Azure fornecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs IaaS do Azure. Alguns benefícios adicionais de ultra discos incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho com transações pesadas. Ultra discos só podem ser usados como discos de dados. É recomendável usar o SSDs Premium como discos do sistema operacional.
+Os ultra discos do Azure fornecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs IaaS do Azure. Alguns benefícios adicionais de ultra discos incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com suas cargas de trabalho, sem a necessidade de reiniciar suas máquinas virtuais (VM). Ultra discos são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho com transações pesadas. Ultra discos só podem ser usados como discos de dados. É recomendável usar o SSDs Premium como discos do sistema operacional.
 
 ### <a name="performance"></a>Desempenho
 
@@ -42,9 +42,9 @@ Ao provisionar um ultra Disk, você pode configurar independentemente a capacida
 Alguns dos principais recursos dos ultra discos são:
 
 - Capacidade do disco: O ultra disks Capacity varia de 4 GiB até 64 TiB.
-- IOPS de disco: Ultra disks dão suporte a limites de IOPS de 300 IOPS/GiB, até um máximo de 160 K IOPS por disco. Para obter o IOPS que você provisionou, verifique se os IOPS de disco selecionados são menores do que o limite de IOPS de VM. O mínimo de IOPS por disco é 2 IOPS/GiB, com um mínimo de linha de base geral de 100 IOPS. Por exemplo, se você tivesse um ultra GiB de 4 discos, terá um mínimo de 100 IOPS, em vez de 8 IOPS.
+- IOPS de disco: Ultra disks dão suporte a limites de IOPS de 300 IOPS/GiB, até um máximo de 160 K IOPS por disco. Para obter o IOPS que você provisionou, verifique se os IOPS de disco selecionados são menores do que o limite de IOPS de VM. O mínimo de IOPS por disco é 2 IOPS/GiB, com um mínimo de linha de base geral de 100 IOPS. Por exemplo, se você tivesse um ultra GiB de 4 discos, terá um mínimo de 100 IOPS, em vez de oito IOPS.
 - Taxa de transferência do disco: Com ultra discos, o limite de taxa de transferência de um único disco é de 256 KiB/s para cada IOPS provisionado, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 bytes por segundo). A taxa de transferência mínima por disco é 4KiB/s para cada IOPS provisionado, com um mínimo de linha de base geral de 1 MBps.
-- Ultra discos dão suporte ao ajuste dos atributos de desempenho de disco (IOPS e taxa de transferência) em tempo de execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento de desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração realmente entre em vigor.
+- Ultra discos dão suporte ao ajuste dos atributos de desempenho de disco (IOPS e taxa de transferência) em tempo de execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento de desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração realmente entre em vigor. Há um limite de quatro operações de redimensionamento de desempenho durante uma janela de 24 horas. É possível que uma operação de redimensionamento de desempenho falhe devido à falta de capacidade de largura de banda de desempenho.
 
 ### <a name="disk-size"></a>Tamanho do disco
 
@@ -71,3 +71,4 @@ Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 - Só pode ser criado como discos vazios  
 - Ainda não há suporte para instantâneos de disco, imagens de VM, conjuntos de disponibilidade, conjuntos de dimensionamento de máquinas virtuais e Azure Disk Encryption
 - Ainda não há suporte para integração com o backup do Azure ou Azure Site Recovery
+- O limite máximo atual para IOPS em VMs GA é 80.000.

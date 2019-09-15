@@ -1,7 +1,7 @@
 ---
 title: Guia de resolução de problemas de implementação
-titleSuffix: Azure Machine Learning service
-description: Saiba como solucionar problemas, resolver e solucionar os erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure usando o serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba como solucionar problemas, resolver e solucionar os erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183551"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997165"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas de implantação Azure Machine Learning serviço kubernetes do Azure e instâncias de contêiner do Azure
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
-Saiba como solucionar ou resolver erros comuns de implantação do Docker com ACI (instâncias de contêiner do Azure) e AKS (serviço de kubernetes do Azure) usando o serviço Azure Machine Learning.
+Saiba como solucionar ou resolver erros comuns de implantação do Docker com ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
 
-Ao implementar um modelo no serviço Azure Machine Learning, o sistema executa um número de tarefas. As tarefas de implementação são:
+Ao implantar um modelo no Azure Machine Learning, o sistema executa várias tarefas. As tarefas de implementação são:
 
 1. Registe o modelo no registo do modelo de área de trabalho.
 
@@ -346,7 +346,7 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -479,7 +479,7 @@ Neste exemplo de texto, o nome do registro `myregistry` é e a imagem é `myimag
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Para anexar VS Code ao PTVSD dentro do contêiner, abra VS Code e use a tecla F5 ou selecione __depurar__. Quando solicitado, selecione o serviço __de Azure Machine Learning: Configuração de depuração__ do Docker. Você também pode selecionar o ícone de depuração na barra lateral, o __serviço Azure Machine Learning: Entrada de depuração__ do Docker no menu suspenso de depuração e, em seguida, use a seta verde para anexar o depurador.
+1. Para anexar VS Code ao PTVSD dentro do contêiner, abra VS Code e use a tecla F5 ou selecione __depurar__. Quando solicitado, selecione o __Azure Machine Learning: Configuração de depuração__ do Docker. Você também pode selecionar o ícone de depuração na barra lateral, o __Azure Machine Learning: Entrada de depuração__ do Docker no menu suspenso de depuração e, em seguida, use a seta verde para anexar o depurador.
 
     ![O ícone de depuração, o botão Iniciar Depuração e o seletor de configuração](media/how-to-troubleshoot-deployment/start-debugging.png)
 

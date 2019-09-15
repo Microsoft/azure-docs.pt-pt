@@ -1,7 +1,7 @@
 ---
 title: Interface visual
-titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre os termos, os conceitos e o fluxo de trabalho que compõem a interface visual (versão prévia) para Azure Machine Learning serviço.
+titleSuffix: Azure Machine Learning
+description: Saiba mais sobre os termos, os conceitos e o fluxo de trabalho que compõem a interface visual (versão prévia) para Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860411"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996514"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>O que é a interface visual para o serviço Azure Machine Learning? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>O que é a interface visual para Azure Machine Learning? 
 
-A interface visual (visualização) para Azure Machine Learning serviço permite preparar dados, treinar, testar, implantar, gerenciar e acompanhar modelos de aprendizado de máquina sem escrever código.
+A interface visual (visualização) para Azure Machine Learning permite preparar dados, treinar, testar, implantar, gerenciar e acompanhar modelos de aprendizado de máquina sem escrever código.
 
 Não há nenhuma programação necessária, você conecta visualmente [conjuntos](#dataset) de os e [módulos](#module) para construir seu modelo.
 
-A interface visual usa seu Azure Machine Learning [espaço de trabalho](concept-workspace.md) de serviço para:
+A interface visual usa seu [espaço de trabalho](concept-workspace.md) Azure Machine Learning para:
 
 + Os artefatos de gravação do [experimento](#experiment) são executados no espaço de trabalho.
 + Acessar [conjuntos](#dataset)de os.

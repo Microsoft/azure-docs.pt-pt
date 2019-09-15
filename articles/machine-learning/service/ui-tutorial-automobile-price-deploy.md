@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implantar um modelo de aprendizado de máquina com a interface visual'
-titleSuffix: Azure Machine Learning service
-description: Saiba como criar uma solução de análise preditiva na interface visual do serviço de Azure Machine Learning. Treine, pontuate e implante um modelo de aprendizado de máquina usando os módulos arrastar e soltar. Este tutorial é a parte dois de uma série de duas partes sobre a previsão de preços de automóvel usando a regressão linear.
+titleSuffix: Azure Machine Learning
+description: Saiba como criar uma solução de análise preditiva na interface visual do Azure Machine Learning. Treine, pontuate e implante um modelo de aprendizado de máquina usando os módulos arrastar e soltar. Este tutorial é a parte dois de uma série de duas partes sobre a previsão de preços de automóvel usando a regressão linear.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858630"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997014"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implantar um modelo de aprendizado de máquina com a interface visual
 
@@ -105,7 +105,7 @@ Navegue até a guia **Doc da API** para encontrar mais detalhes sobre a API.
 
 ## <a name="manage-models-and-deployments"></a>Gerenciar modelos e implantações
 
-Os modelos e as implantações de serviço Web criadas na interface visual também podem ser gerenciados no espaço de trabalho Azure Machine Learning serviço.
+Os modelos e as implantações de serviço Web criadas na interface visual também podem ser gerenciados no espaço de trabalho Azure Machine Learning.
 
 1. Abra seu espaço de trabalho no [portal do Azure](https://portal.azure.com/).  
 
@@ -125,7 +125,7 @@ Você também pode encontrar esses modelos e implantações nas seções **model
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu as principais etapas na criação, implantação e consumo de um modelo de aprendizado de máquina na interface visual. Para saber mais sobre como você pode usar a interface visual para resolver outros tipos de problemas, Confira nossos outros experimentos de exemplo.
 

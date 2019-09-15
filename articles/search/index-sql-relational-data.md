@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: heidist
-ms.openlocfilehash: f6cc119387482e4f5403e91de98916cbe2aaff2a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 60dfae48b0aa1d6e0d9bc8e79d5ff2dedd744fd5
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963502"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993587"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-search"></a>Como modelar dados SQL relacionais para importação e indexação no Azure Search
 
@@ -150,13 +150,13 @@ O exemplo a seguir é semelhante ao exemplo em [como modelar tipos de dados comp
 
 Considerando o conjunto de resultados anterior e o esquema de índice acima, você tem todos os componentes necessários para uma operação de indexação bem-sucedida. O conjunto de dados achatados atende aos requisitos de indexação, mas preserva as informações detalhadas. No índice de Azure Search, os resultados da pesquisa ficarão facilmente em entidades baseadas em Hotel, preservando, ao mesmo tempo, o contexto de salas individuais e seus atributos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Você pode usar o [Assistente para importar dados](search-import-data-portal.md) para indexar um conjunto de linhas semelhante ao descrito neste artigo. O assistente detecta a coleção JSON inserida em *salas* e infere um esquema de índice que fornece a coleção de tipos complexos apropriada. 
+Usando seu próprio conjunto de dados, você pode usar o [Assistente para importar dados](search-import-data-portal.md) para criar e carregar o índice. O assistente detecta a coleção JSON inserida, como a contida em *salas*, e infere um esquema de índice que inclui uma coleção de tipos complexos. 
 
   ![Índice inferido pelo assistente de importação de dados](media/index-sql-relational-data/search-index-rooms-complex-collection.png "Índice inferido pelo assistente de importação de dados")
 
-Para concluir a importação e criar um índice utilizável, você precisaria selecionar a chave e definir os atributos por conta própria. Se você não estiver familiarizado com esse assistente, tente o início rápido a seguir para aprender as etapas básicas.
+Experimente o início rápido a seguir para aprender as etapas básicas do assistente de importação de dados.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Criar um índice de pesquisa usando portal do Azure](search-get-started-portal.md)

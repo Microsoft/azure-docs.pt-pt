@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: d9f0bb7d3817b943b71715eb080dd0b060efa025
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: a4a4eefc1b31e8412392f5ffed404201b98e0386
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990337"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996376"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros de WAN virtual e locais de Hub virtual
 
@@ -40,7 +40,7 @@ Alguns parceiros de conectividade podem estender a automação para incluir a cr
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: Arista, F5 Networks, Fortinet, prata-pico, Velocloud, Versaa, Nuage Nokia.
+Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: Arista, F5 Networks, Fortinet, prata-pico, Velocloud, Nuage Nokia.
 
 ## <a name="locations"></a>Locais
 

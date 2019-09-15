@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: c12e64fc51eb53aebffbef1ad886b7cc404cf699
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 88d140c4890492b6a53c2e73328ab814293550e6
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051242"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994939"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -88,7 +88,7 @@ Contentores de serviços cognitivos do Azure estão publicamente disponíveis at
 
 Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de serviços cognitivos do Azure:
 
-**Mecanismo**do Docker: Você deve ter o mecanismo do Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](../aks/index.yml) ou [Azure Container Instances](../container-instances/index.yml).
+**Mecanismo do Docker**: Você deve ter o mecanismo do Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](../aks/index.yml) ou [Azure Container Instances](../container-instances/index.yml).
 
 Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure.
 
@@ -97,6 +97,8 @@ Docker tem de ser configurado para permitir que os contentores para se ligar com
 Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
 Contentores individuais podem ter seus próprios requisitos, além disso, incluindo requisitos de alocação de memória e de servidor.
+
+[!INCLUDE [Cognitive Services container security](containers/includes/cognitive-services-container-security.md)]
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -116,7 +118,6 @@ Instalar e explorar a funcionalidade fornecida pelo contentores nos serviços co
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
-
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md

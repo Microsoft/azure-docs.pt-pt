@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 13a7769e310bcd0cb28eddbf9dded3fe1d62eec7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860303"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993685"
 ---
-# <a name="publishing-integrated-solutions"></a>Soluções integradas de publicação
+# <a name="publishing-integrated-solutions"></a>Publicando soluções integradas
 
 Uma solução integrada combina várias tecnologias de solução de ponto de ISV junto com a implantação e os serviços de um SI (integrador de sistemas), em uma única oferta agrupada que é listada no Marketplace pelo SI como uma [oferta de serviços de consultoria](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
@@ -89,5 +89,9 @@ Embora haja cinco tipos de serviço disponíveis para ofertas de serviços de co
 ## <a name="going-to-market-with-your-integrated-solution"></a>Indo para o mercado com sua solução integrada 
 
 Depois que sua solução estiver ativa no Azure Marketplace ou no AppSource, você desejará gerar conscientização e geração de demanda por meio de atividades de marketing. Examine as atividades listadas no [plano e linha do tempo do projeto](https://aka.ms/AA5qiuc), incluindo atividades que os parceiros podem conduzir dentro de suas próprias equipes e entre si. Em seguida, acesse os [benefícios do lançamento para o mercado](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) fornecidos aos parceiros que publicaram no Marketplace. Todas as ofertas de soluções integradas estão qualificadas para benefícios em nível de avaliação.
+
+## <a name="next-steps"></a>Próximos Passos
+
+Consulte [soluções integradas](https://docs.microsoft.com/azure/marketplace/integrated-solutions) para obter informações sobre como adquirir uma solução integrada no Marketplace.
 
 ---

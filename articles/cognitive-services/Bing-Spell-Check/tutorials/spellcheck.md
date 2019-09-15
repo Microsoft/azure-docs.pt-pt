@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: dc3a30418615d1c6b30ca4059292425076327f00
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 73466b80915d5eb7228eef397d5aad68d27faa15
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500794"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996837"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Criar uma página da Web Verificação Ortográfica cliente
 
@@ -319,7 +319,7 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)

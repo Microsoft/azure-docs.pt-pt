@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 284c9bb1b9032d2f9caf0ce62c45ffa7cd8bf9d4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476857"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993816"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
@@ -25,7 +25,7 @@ Apache Spark é uma estrutura de processamento paralelo que dá suporte ao proce
 
 O Spark fornece primitivos para a computação de cluster na memória. Os trabalhos do Spark podem carregar e colocar os dados em cache na memória e consultá-los repetidamente. A computação na memória é muito mais rápida do que aplicativos baseados em disco, como o Hadoop, que compartilha dados por meio do HDFS (sistema de arquivos distribuído Hadoop). O Spark também se integra na linguagem de programação Scala, o que lhe possibilita manipular conjuntos de dados distribuídos, como coleções locais. Não é necessário estruturar tudo como operações de mapa e redução.
 
-![MapReduce tradicional vs. Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
+![MapReduce tradicional vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
 Os clusters do Spark no HDInsight oferecem um serviço Spark completamente gerido. Os benefícios da criação de um cluster do Spark no HDInsight estão listados aqui.
 
@@ -57,7 +57,7 @@ Os clusters do Spark no HDInsight também fornecem um [controlador ODBC](https:/
 
 ## <a name="spark-cluster-architecture"></a>Arquitetura de cluster do Spark
 
-![A arquitetura do Spark no HDInsight](./media/apache-spark-overview/spark-architecture.png)
+![A arquitetura do Spark no HDInsight](./media/apache-spark-overview/hdi-spark-architecture.png)
 
 Saber de que forma é que o Spark é executado em clusters do HDInsight permite compreender mais facilmente os respetivos componentes.
 

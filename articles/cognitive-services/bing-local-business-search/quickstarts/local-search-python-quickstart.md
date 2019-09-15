@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/01/2018
-ms.author: rosh
-ms.openlocfilehash: 100d731614e2193c5f858249315f748836323b4c
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: 2ed4ba5081ba91318b56fdc65027664640542ca0
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906259"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994385"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Início rápido: Enviar uma consulta para a API de pesquisa de negócios local do Bing no Python
 
@@ -67,7 +67,7 @@ print (json.dumps(json.loads(result), indent=4))
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Início rápido do Java da pesquisa de negócios local](local-search-java-quickstart.md)
 - [Início rápido de C# pesquisa comercial local](local-quickstart.md)
 - [Início rápido do nó de pesquisa comercial local](local-search-node-quickstart.md)

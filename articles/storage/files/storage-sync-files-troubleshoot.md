@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129199"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996456"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas do Azure File Sync
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -395,6 +395,18 @@ Esse erro ocorre porque o agente de Sincronização de Arquivos do Azure não po
     ```
 2. [Verifique se a conta de armazenamento existe.](#troubleshoot-storage-account)
 3. [Verifique se as configurações de firewall e rede virtual na conta de armazenamento estão configuradas corretamente (se habilitadas)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**Ocorreu um erro desconhecido ao acessar a conta de armazenamento.**  
+
+| | |
+|-|-|
+| **RESULTADO** | 0x80c8308a |
+| **HRESULT (Decimal)** | -2134364022 |
+| **Cadeia de caracteres de erro** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Correção necessária** | Sim |
+
+1. [Verifique se a conta de armazenamento existe.](#troubleshoot-storage-account)
+2. [Verifique se as configurações de firewall e rede virtual na conta de armazenamento estão configuradas corretamente (se habilitadas)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**Falha na sincronização devido a um problema com o banco de dados de sincronização.**  
 

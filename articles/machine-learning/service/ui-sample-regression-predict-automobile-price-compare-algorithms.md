@@ -1,6 +1,6 @@
 ---
 title: 'Exemplo de interface visual #3: regressão para algoritmos de preço e comparação'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Este artigo mostra como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2c45ccf55b1adde7150dee17fd562b24ee4777ba
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990010"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997106"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: Prever o preço e comparar algoritmos
 
@@ -62,7 +62,7 @@ Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de má
 
 Como o objetivo desse experimento é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
 
-Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, regressão de **árvore de decisão aumentada** e regressão de **floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas usamos os valores padrão para esse experimento.
+Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, **regressão de árvore de decisão aumentada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas usamos os valores padrão para esse experimento.
 
 Usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% das informações originais.
 
@@ -70,7 +70,7 @@ Usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entra
 
 Usamos dois conjuntos diferentes de dados escolhidos aleatoriamente para treinar e testar o modelo, conforme descrito na seção anterior. Dividimos o conjunto de informações e usamos conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-Depois que o modelo é treinado, usamos o **modelo de Pontuação** e avaliamos os módulos de **modelo** para gerar resultados previstos e avaliar os modelos. O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Em seguida, passamos as pontuações para **avaliar o modelo** para gerar métricas de avaliação.
+Depois que o modelo é treinado, usamos o **modelo de Pontuação** e **avaliamos** os módulos de modelo para gerar resultados previstos e avaliar os modelos. O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Em seguida, passamos as pontuações para **avaliar o modelo** para gerar métricas de avaliação.
 
 Neste experimento, usamos duas instâncias do modelo de **avaliação** para comparar dois pares de modelos.
 
@@ -80,7 +80,7 @@ Estes são os resultados:
 
 ![Comparar os resultados](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-Esses resultados mostram que o modelo criado com a regressão da **árvore de decisão aumentada** tem um erro de média de minúsculas raiz inferior ao modelo criado na regressão da **floresta de decisão**.
+Esses resultados mostram que o modelo criado com a **regressão da árvore de decisão aumentada** tem um erro de média de minúsculas raiz inferior ao modelo criado na **regressão da floresta de decisão**.
 
 Ambos os algoritmos têm um erro inferior no conjunto de testes de treinamento do que no conjunto de teste não visto.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915847"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996903"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -76,9 +76,9 @@ az provider register --namespace Microsoft.ContainerService
 As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que dão suporte a vários pools de nós:
 
 * Vários pools de nós só estão disponíveis para clusters criados depois que você registrou com êxito o recurso *MultiAgentpoolPreview* para sua assinatura. Você não pode adicionar ou gerenciar pools de nós com um cluster AKS existente criado antes que esse recurso tenha sido registrado com êxito.
-* Não é possível excluir o primeiro pool de nós.
+* Não é possível excluir o pool de nós padrão (primeiro).
 * O complemento de roteamento de aplicativo HTTP não pode ser usado.
-* Você não pode adicionar/atualizar/excluir pools de nós usando um modelo do Resource Manager existente como a maioria das operações. Em vez disso, [use um modelo do Resource Manager separado](#manage-node-pools-using-a-resource-manager-template) para fazer alterações em pools de nós em um cluster AKs.
+* Você não pode adicionar ou excluir pools de nós usando um modelo do Resource Manager existente como a maioria das operações. Em vez disso, [use um modelo do Resource Manager separado](#manage-node-pools-using-a-resource-manager-template) para fazer alterações em pools de nós em um cluster AKs.
 
 Embora esse recurso esteja em versão prévia, as seguintes limitações adicionais se aplicam:
 
@@ -89,6 +89,8 @@ Embora esse recurso esteja em versão prévia, as seguintes limitações adicion
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Para começar, crie um cluster AKS com um único pool de nós. O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado MyResource Group na região *eastus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . A *--kubernetes-Version* de *1.13.10* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do kubernetes com suporte][supported-versions].
+
+É altamente recomendável usar o balanceador de carga SKU padrão ao utilizar vários pools de nós. Leia [este documento](load-balancer-standard.md) para saber mais sobre como usar os balanceadores de carga padrão com o AKs.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +103,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 A criação do cluster demora alguns minutos.
@@ -578,7 +581,7 @@ Pode levar alguns minutos para atualizar o cluster AKS dependendo das configura�
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Atribuir um IP público por nó em um pool de nós
 
 > [!NOTE]
-> Durante a visualização, há uma limitação de usar esse recurso com *Standard Load BALANCER SKU em AKs (versão prévia)* devido a possíveis regras do balanceador de carga em conflito com o provisionamento de VM. Enquanto estiver na visualização, use o *SKU do Load Balancer básico* se você precisar atribuir um IP público por nó.
+> Durante a versão prévia de atribuição de um IP público por nó, ele não pode ser usado com o *Standard Load BALANCER SKU em AKs* devido a possíveis regras do balanceador de carga em conflito com o provisionamento de VM. Enquanto estiver na visualização, use o *SKU do Load Balancer básico* se você precisar atribuir um IP público por nó.
 
 Os nós AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, alguns cenários podem exigir que os nós em um pool de nós tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console do precisa fazer uma conexão direta com uma máquina virtual de nuvem para minimizar os saltos. Isso pode ser feito registrando-se para um recurso de visualização separado, o IP público do nó (versão prévia).
 
@@ -617,7 +620,7 @@ Para excluir o próprio cluster, use o comando [AZ Group Delete][az-group-delete
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu a criar e gerenciar vários pools de nós em um cluster AKS. Para obter mais informações sobre como controlar os pods nos pools de nós, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][operator-best-practices-advanced-scheduler].
 

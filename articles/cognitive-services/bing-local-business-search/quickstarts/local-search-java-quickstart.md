@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/01/2018
-ms.author: rosh
-ms.openlocfilehash: aa10891ca713ad5030670fea3e9fa81c43f81c56
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: 3e71268004ca8fd171835adf289436a65d866fdc
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906300"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994419"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Início rápido: Enviar uma consulta para a API de pesquisa de negócios local do Bing usando o Java
 
@@ -164,7 +164,7 @@ public class LocalSearchCls {
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Início rápido de pesquisa comercial local](local-quickstart.md)
 - [Início rápido do nó de pesquisa comercial local](local-search-node-quickstart.md)
 - [Início rápido do Python de pesquisa comercial local](local-search-python-quickstart.md)

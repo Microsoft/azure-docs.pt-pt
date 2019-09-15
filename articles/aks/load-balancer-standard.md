@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 42323af40ee18a965363321196a04aa75c00aa40
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914828"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996945"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -277,6 +277,8 @@ Navegue até o IP público em um navegador e verifique se você vê o aplicativo
 
 Ao usar um balanceador de carga de SKU *padrão* com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPS públicos de saída gerenciados usando o parâmetro *Load-Balancer – Managed-IP-Count* .
 
+Para atualizar um cluster existente, execute o comando a seguir. Esse parâmetro também pode ser definido em tempo de criação de cluster para ter vários IPs públicos de saída gerenciados.
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
@@ -284,11 +286,15 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-O exemplo acima define o número de IPs públicos de saída gerenciados para *2* para o cluster *MyAKSCluster* no *MyResource*. Você também pode usar o parâmetro *Load-Balancer – Managed-IP-Count* para definir o número inicial de IPS públicos de saída gerenciados ao criar o cluster. O número padrão de IPs públicos de saída gerenciados é 1.
+O exemplo acima define o número de IPs públicos de saída gerenciados para *2* para o cluster *MyAKSCluster* no *MyResource*. 
+
+Você também pode usar o parâmetro *balanceador de carga-gerenciado-IP-Count* para definir o número inicial de IPS públicos de saída gerenciados ao criar o cluster acrescentando `--load-balancer-managed-outbound-ip-count` o parâmetro e definindo-o para o valor desejado. O número padrão de IPs públicos de saída gerenciados é 1.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Opcional-forneça seus próprios IPs públicos ou prefixos para saída
 
-Ao usar um balanceador de carga SKU *padrão* , o cluster AKs cria automaticamente um IP público no mesmo grupo de recursos criado para o cluster AKs e atribui o IP público ao balanceador de carga SKU *padrão* . Como alternativa, você pode atribuir seu próprio IP público.
+Ao usar um balanceador de carga SKU *padrão* , o cluster AKs cria automaticamente um IP público no mesmo grupo de recursos criado para o cluster AKs e atribui o IP público ao balanceador de carga SKU *padrão* . Como alternativa, você pode atribuir seu próprio IP público no momento da criação do cluster ou pode atualizar as propriedades do balanceador de carga de um cluster existente.
+
+Ao trazer vários endereços IP ou prefixos, você pode definir vários serviços de backup ao definir o endereço IP por trás de um único objeto de balanceador de carga. O ponto de extremidade de saída de nós específicos dependerá de qual serviço está associado.
 
 > [!IMPORTANT]
 > Você deve usar IPs públicos de SKU *padrão* para saída com seu SKU *Standard* seu balanceador de carga. Você pode verificar a SKU de seus IPs públicos usando o comando [AZ Network Public-IP show][az-network-public-ip-show] :
@@ -324,8 +330,6 @@ az network public-ip prefix show --resource-group myResourceGroup --name myPubli
 
 O comando acima mostra a ID para o prefixo de IP público *myPublicIPPrefix* no grupo de recursos *MyResource* Group.
 
-Use o comando *AZ AKs Update* com o parâmetro *balanceador de carga-Outbound-IP-Prefixes* com as IDs do comando anterior.
-
 O exemplo a seguir usa o parâmetro *Load-Balancer-Outbound-IP-Prefixes* com as IDs do comando anterior.
 
 ```azurecli-interactive
@@ -338,6 +342,36 @@ az aks update \
 > [!IMPORTANT]
 > Os prefixos IP e IPs públicos devem estar na mesma região e parte da mesma assinatura que o cluster AKS.
 
+### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definir seu próprio IP público ou prefixos no momento da criação do cluster
+
+Talvez você queira trazer seus próprios endereços IP ou prefixos IP para saída no momento da criação do cluster para dar suporte a cenários como pontos de extremidade de saída de lista de permissões. Acrescente os mesmos parâmetros mostrados acima à sua etapa de criação de cluster para definir seus próprios IPs públicos e IP no início do ciclo de vida de um cluster.
+
+Use o comando *AZ AKs Create* com o parâmetro *Load-Balancer-Outbound-IPS* para criar um novo cluster com seus IPs públicos no início.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+Use o comando *AZ AKs Create* com o parâmetro *balanceador de carga-Outbound-IP-Prefixes* para criar um novo cluster com seus prefixos IP públicos no início.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
+
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Limpar a configuração do balanceador de carga SKU padrão
 
 Para remover o aplicativo de exemplo e a configuração do balanceador de carga, use [kubectl Delete][kubectl-delete]:
@@ -347,7 +381,7 @@ kubectl delete -f sample.yaml
 kubectl delete -f standard-lb.yaml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kubernetess][kubernetes-services].
 

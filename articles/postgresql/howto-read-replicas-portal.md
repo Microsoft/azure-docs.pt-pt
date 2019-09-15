@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: bd1317242f84b4d8bd039da89d991a73f6cd3781
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309317"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995442"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
 
@@ -177,6 +177,6 @@ A métrica de **atraso de réplica** mostra o tempo desde a última transação 
  
 3. Para sua **agregação**, selecione **máximo**. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [réplicas de leitura no banco de dados do Azure para PostgreSQL](concepts-read-replicas.md).
-* Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure](howto-read-replicas-cli.md).
+* Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure e na API REST](howto-read-replicas-cli.md).

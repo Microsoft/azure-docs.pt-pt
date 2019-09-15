@@ -1,6 +1,6 @@
 ---
 title: 'Exemplo de interface visual #1: regressão para prever o preço'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como criar um modelo de aprendizado de máquina para prever o preço de um automóvel sem escrever uma única linha de código.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4d41efcaeb93c0843686f9e8ef1b62da5367e071
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990413"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996538"
 ---
 # <a name="sample-1---regression-predict-price"></a>Amostra 1-regressão: Prever o preço
 
@@ -58,7 +58,7 @@ Usamos o módulo **selecionar colunas no conjunto** de módulos para excluir per
 
 Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisa ajustar seus parâmetros para treinar um modelo mais preciso. Em seguida, você precisa avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
 
-Como o objetivo desse experimento é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear. Portanto, usamos a regressão da **floresta de decisão** para esse experimento.
+Como o objetivo desse experimento é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear. Portanto, usamos a **regressão da floresta de decisão** para esse experimento.
 
 Usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% das informações originais.
 
@@ -66,7 +66,7 @@ Usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entra
 
  Dividimos o conjunto de informações e usamos conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-Depois que o modelo é treinado, usamos o **modelo de Pontuação** e avaliamos os módulos de **modelo** para gerar resultados previstos e avaliar os modelos.
+Depois que o modelo é treinado, usamos o **modelo de Pontuação** e **avaliamos** os módulos de modelo para gerar resultados previstos e avaliar os modelos.
 
 O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **modelo de Pontuação** e, em seguida, selecione **Visualizar**.
 

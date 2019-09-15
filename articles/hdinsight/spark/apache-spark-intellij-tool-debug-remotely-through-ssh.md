@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 9690e114f9ae01c4aee71145525fdda2eff4701c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 844901d9c689d5a04312b52101572854f4d7fe6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814179"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994037"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar Apache Spark aplicativos em um cluster HDInsight com Azure Toolkit for IntelliJ por meio de SSH
 
@@ -66,7 +66,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
    d. Selecione **Concluir**.
 
-1. Selecione **src** > **Main** escalar para abrir seu código no projeto. >  Este exemplo usa o script **SparkCore_wasbloTest** .
+1. Selecione **src** >  **Main**escalarparaabrirseucódigonoprojeto. >  Este exemplo usa o script **SparkCore_wasbloTest** .
 
 ### <a name="prerequisite-for-windows"></a>Pré-requisito para o Windows
 Enquanto estiver executando o aplicativo do Spark escala local em um computador Windows, você poderá receber uma exceção, conforme explicado no [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils. exe está ausente no Windows. 
@@ -77,7 +77,7 @@ Para resolver esse erro, [Baixe o executável](https://public-repo-1.hortonworks
 1. Abra o script **SparkCore_wasbloTest** , clique com o botão direito do mouse no editor de scripts e selecione a opção **Executar ' [trabalho do Spark] xxx '** para executar a execução local.
 1. Quando a execução local for concluída, você poderá ver o arquivo de saída salvo em seu **__padrão__** de **dados** > do explorador de projeto atual.
 
-    ![Resultado da execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+    ![Resultado da execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 1. Nossas ferramentas definiram a configuração de execução local padrão automaticamente quando você executa a execução local e a depuração local. Abra a configuração **[Spark no hdinsight] xxx** no canto superior direito, você pode ver o **[Spark no hdinsight] xxx** já criado em **Apache Spark no HDInsight**. Alterne para a guia **executar localmente** .
 
     ![Configuração de execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
@@ -102,7 +102,7 @@ Para resolver esse erro, [Baixe o executável](https://public-repo-1.hortonworks
 1. Na caixa de diálogo **configurações de execução/depuração** , selecione o sinal de **+** adição (). Em seguida, selecione a opção **Apache Spark no HDInsight** .
 
    ![Adicionar nova configuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Alterne para **execução remota na guia cluster** . Insira informações para **nome**, **cluster do Spark**e **nome da classe principal**. Em seguida, clique em **Configuração avançada (depuração remota)** . Nossas ferramentas dão suporte à depuração com **executores**. O **numExectors**, o valor padrão é 5. Você melhor não definiu mais que 3.
+1. Alterne para **execução remota na guia cluster** . Insira informações para **nome**, **cluster do Spark**e **nome da classe principal**. Em seguida, clique em **Configuração avançada (depuração remota)** . Nossas ferramentas dão suporte àdepuração com executores. O **numExectors**, o valor padrão é 5. Você melhor não definiu mais que 3.
 
    ![Executar configurações de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
@@ -114,13 +114,11 @@ Para resolver esse erro, [Baixe o executável](https://public-repo-1.hortonworks
 
 1. Depois de concluir as configurações, você pode executar o projeto no cluster remoto ou executar a depuração remota.
    
-   ![Botão execução remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![Botão execução remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
 
-1. Clique no botão **Desconectar** que os logs de envio não aparecem no painel esquerdo. No entanto, ele ainda está em execução no back-end.
+1. Clique no botão desconectar que os logs de envio não aparecem no painel esquerdo. No entanto, ele ainda está em execução no back-end.
 
-   ![Resultado da execução remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
-
-
+   ![Resultado da execução remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
 
 ### <a name="scenario-2-perform-remote-debugging"></a>Cenário 2: Executar depuração remota
 1. Configure pontos de interrupção e clique no ícone de **depuração remota** . A diferença com o envio remoto é que o nome de usuário/senha do SSH precisa ser configurado.
@@ -148,7 +146,7 @@ Para resolver esse erro, [Baixe o executável](https://public-repo-1.hortonworks
 
 1. Clique com o botão direito do mouse no destino na guia **depurar** e selecione **definir valor**. Em seguida, insira um novo valor para a variável. Em seguida, selecione **Enter** para salvar o valor. 
 
-   ![Definir valor](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Definir valor](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 
 1. Selecione o ícone **retomar programa** para continuar a executar o programa. Desta vez, nenhuma exceção é detectada. Você pode ver que o projeto é executado com êxito sem exceções.
 

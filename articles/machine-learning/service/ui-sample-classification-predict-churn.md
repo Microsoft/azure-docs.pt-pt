@@ -1,6 +1,6 @@
 ---
 title: 'Exemplo de interface visual #5: Classificação para prever a rotatividade + desejo + venda'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Este experimento de exemplo de interface visual mostra a previsão de classificador binário de rotatividade, uma tarefa comum para o gerenciamento de relacionamento com o cliente (CRM).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 054ac3ea5224a4ffea2e7bae9da329ba7bc81233
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016473"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997141"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemplo 5-classificação: Prever a rotatividade, a desejo e a venda vertical 
 
@@ -71,7 +71,7 @@ Visualize a saída do módulo **modelo de avaliação** para ver o desempenho do
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore os outros exemplos disponíveis para a interface visual:
 

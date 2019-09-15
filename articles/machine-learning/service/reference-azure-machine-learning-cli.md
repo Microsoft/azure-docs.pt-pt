@@ -1,7 +1,7 @@
 ---
 title: Extensão da CLI do Machine Learning
-titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre a extensão da CLI do Azure Machine Learning para a CLI do Azure. A CLI do Azure é um utilitário de linha de comandos para várias plataformas que lhe permite trabalhar com os recursos na cloud do Azure. A extensão de Machine Learning permite-lhe trabalhar com o serviço do Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba mais sobre a extensão da CLI do Azure Machine Learning para a CLI do Azure. A CLI do Azure é um utilitário de linha de comandos para várias plataformas que lhe permite trabalhar com os recursos na cloud do Azure. A extensão Machine Learning permite que você trabalhe com Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996737"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997087"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utilizar a extensão da CLI para o serviço Azure Machine Learning
+# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usar a extensão da CLI para Azure Machine Learning
 
-A CLI do Azure Machine Learning é uma extensão para o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), uma interface de linha de comandos para várias plataformas para a plataforma Azure. Essa extensão fornece comandos para trabalhar com o serviço de Azure Machine Learning. Ele permite automatizar suas atividades de aprendizado de máquina. A lista a seguir fornece algumas ações de exemplo que você pode fazer com a extensão CLI:
+A CLI do Azure Machine Learning é uma extensão para o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), uma interface de linha de comandos para várias plataformas para a plataforma Azure. Essa extensão fornece comandos para trabalhar com Azure Machine Learning. Ele permite automatizar suas atividades de aprendizado de máquina. A lista a seguir fornece algumas ações de exemplo que você pode fazer com a extensão CLI:
 
 + Executar experimentações para criar modelos de machine learning
 
@@ -32,7 +32,7 @@ A CLI não é uma substituição para o SDK do Azure Machine Learning. É uma fe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar a CLI, tem de ter uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+* Para utilizar a CLI, tem de ter uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -86,7 +86,7 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Crie uma área de trabalho do serviço do Azure Machine Learning:
++ Criar um espaço de trabalho Azure Machine Learning:
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
@@ -163,7 +163,7 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
 
 ## <a name="environment-management"></a>Gerenciamento de ambiente
 
-Os comandos a seguir demonstram como criar, registrar e listar Azure Machine Learning [ambientes](how-to-configure-environment.md) de serviço para seu espaço de trabalho:
+Os comandos a seguir demonstram como criar, registrar e listar Azure Machine Learning [ambientes](how-to-configure-environment.md) para seu espaço de trabalho:
 
 + Criar arquivos scaffolding para um ambiente:
 
@@ -221,7 +221,7 @@ Os comandos seguintes demonstram como registar um modelo preparado e, em seguida
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
     
-    Para obter mais informações sobre o esquema do arquivo de configuração de inferência, consulte [esquema de configuração](#inferenceconfig)de inferência.
+    Para obter mais informações sobre o esquema do arquivo de configuração de inferência, consulte [esquema de configuração de inferência](#inferenceconfig).
     
     Para obter mais informações sobre o esquema do arquivo de configuração de implantação, consulte [implantação de esquema de configuração](#deploymentconfig).
 

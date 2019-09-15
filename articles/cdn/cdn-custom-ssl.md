@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 10e0f24642d54c43d6c818773d0eb17815ab784b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114499"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996909"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -130,7 +130,7 @@ Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta 
 
     ![Definições da política de acesso](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. Selecione **obter permissões secretas** e, em seguida, obter e listar **permissões de certificado** para permitir que a CDN execute essas permissões para obter e listar os certificados. 
+3. Selecione **permissões de certificado**e marque as caixas de seleção obter **e** **listar** para permitir que a CDN execute essas permissões para obter e listar os certificados.
 
 4. Selecione **OK**. 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Prever o preço do automóvel com a interface visual'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Saiba como treinar, pontuar e implantar um modelo de aprendizado de máquina usando uma interface visual de arrastar e soltar. Este tutorial é a parte um de uma série de duas partes sobre a previsão de preços de automóvel usando a regressão linear.
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891681"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996782"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Prever o preço do automóvel com a interface visual
 
-Neste tutorial de duas partes, você aprende a usar a interface visual do serviço de Azure Machine Learning para desenvolver e implantar uma solução analítica preditiva que prevê o preço de qualquer carro. 
+Neste tutorial de duas partes, você aprende a usar a interface visual do Azure Machine Learning para desenvolver e implantar uma solução analítica preditiva que prevê o preço de qualquer carro. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -41,11 +41,11 @@ Para encontrá-lo, na **página experimentos**, selecione **Adicionar novo**e, e
 
 ## <a name="create-a-new-experiment"></a>Criar uma nova experimentação
 
-Para criar um experimento de interface visual, primeiro você precisa de um espaço de trabalho de serviço de aprendizado de máquina do Azure. Nesta seção, você aprenderá a criar esses dois recursos.
+Para criar um experimento de interface visual, primeiro você precisa de um espaço de trabalho Azure Machine Learning serviço. Nesta seção, você aprenderá a criar esses dois recursos.
 
 ### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
-Se você tiver um espaço de trabalho de serviço Azure Machine Learning, pule para a próxima seção.
+Se você tiver um espaço de trabalho Azure Machine Learning, pule para a próxima seção.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -251,7 +251,7 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor ma
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na parte um deste tutorial, você concluiu estas etapas:
 

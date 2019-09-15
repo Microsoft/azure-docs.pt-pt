@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso aos recursos do Azure através do RBAC e a API de REST - Azure | Documentos da Microsoft
-description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos e aplicações que utilizam o controlo de acesso baseado em funções (RBAC) e a API REST. Isto inclui como listar, conceder e remover acesso.
+title: Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST – Azure | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos usando o RBAC (controle de acesso baseado em função) e a API REST. Isto inclui como listar, conceder e remover acesso.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,59 +12,58 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ee030e8c97cf3033b9d2d76b8125c64ecf8065
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472745"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996477"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gerir o acesso aos recursos do Azure através do RBAC e a API REST
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST
 
-[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Este artigo descreve como gerir o acesso para utilizadores, grupos e aplicações através do RBAC e a API REST.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Este artigo descreve como gerenciar o acesso para usuários, grupos e aplicativos usando o RBAC e a API REST.
 
 ## <a name="list-access"></a>Listar o acesso
 
-No RBAC, para acesso de lista, lista as atribuições de funções. Para listar atribuições de funções, utilize um da [atribuições de funções - lista](/rest/api/authorization/roleassignments/list) REST APIs. Para refinar os resultados, especifique um âmbito e um filtro opcional.
+No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das [atribuições de função-listar](/rest/api/authorization/roleassignments/list) APIs REST. Para refinar os resultados, especifique um escopo e um filtro opcional.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter={filter}
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de funções.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as atribuições de função.
 
-    | Scope | Tipo |
+    | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-    
-       
-     > [!NOTE]
-     > No exemplo acima, que Microsoft. Web é que o fornecedor de recursos é utilizado que refere-se a instância de serviço de aplicações. Da mesma forma pode utilizar qualquer outro fornecedor de recursos e compile o URI de âmbito. Para entender mais, consulte [fornecedores de recursos do Azure e os tipos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) e com suporte [operações de fornecedor de recursos do Azure RM](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
+    | `subscriptions/{subscriptionId1}` | Subscrição |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+
+    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/resource-manager-supported-services.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
      
-1. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de atribuição de função.
+1. Substitua *{Filter}* pela condição que você deseja aplicar para filtrar a lista de atribuição de função.
 
     | Filtro | Descrição |
     | --- | --- |
-    | `$filter=atScope()` | Apresenta uma lista de atribuições de funções para apenas o âmbito especificado, não incluindo as atribuições de funções no subscopes. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Apresenta uma lista de atribuições de funções para um utilizador especificado, grupo ou principal de serviço. |
-    | `$filter=assignedTo('{objectId}')` | Apresenta uma lista de atribuições de funções para um utilizador especificado ou o principal de serviço. Se o utilizador for membro de um grupo que tenha uma atribuição de função, essa atribuição de função também está listada. Este filtro é transitivo para grupos que significa que, se o utilizador é membro de um grupo e esse grupo é um membro de outro grupo que tenha uma atribuição de função, essa atribuição de função também está listada. Este filtro só aceita uma id de objeto para um utilizador ou um principal de serviço. Não é possível passar um id de objeto para um grupo. |
+    | `$filter=atScope()` | Lista as atribuições de função somente para o escopo especificado, não incluindo as atribuições de função em Subescopos. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Lista as atribuições de função para um usuário, grupo ou entidade de serviço especificado. |
+    | `$filter=assignedTo('{objectId}')` | Lista as atribuições de função para um usuário ou entidade de serviço especificada. Se o usuário for membro de um grupo que tem uma atribuição de função, essa atribuição de função também será listada. Esse filtro é transitivo para grupos, o que significa que, se o usuário for membro de um grupo e esse grupo for membro de outro grupo que tenha uma atribuição de função, essa atribuição de função também será listada. Esse filtro só aceita uma ID de objeto para um usuário ou uma entidade de serviço. Não é possível passar uma ID de objeto para um grupo. |
 
 ## <a name="grant-access"></a>Conceder acesso
 
-No RBAC, para conceder acesso, crie uma atribuição de função. Para criar uma atribuição de função, utilize o [atribuições de funções – criar](/rest/api/authorization/roleassignments/create) REST API e especifique a entidade de segurança, a definição de função e o escopo. Para chamar esta API, tem de ter acesso para o `Microsoft.Authorization/roleAssignments/write` operação. Das funções incorporadas, apenas [proprietário](built-in-roles.md#owner) e [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) recebem acesso a esta operação.
+No RBAC, para conceder acesso, crie uma atribuição de função. Para criar uma atribuição de função, use as [atribuições de função-criar](/rest/api/authorization/roleassignments/create) API REST e especifique a entidade de segurança, a definição de função e o escopo. Para chamar essa API, você deve ter acesso à `Microsoft.Authorization/roleAssignments/write` operação. Das funções internas, somente o [proprietário](built-in-roles.md#owner) e o [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) recebem acesso a essa operação.
 
-1. Utilize o [definições de funções – lista](/rest/api/authorization/roledefinitions/list) REST API ou consulte [funções incorporadas](built-in-roles.md) para obter o identificador para a definição de função que pretende atribuir.
+1. Use as [definições de função-lista](/rest/api/authorization/roledefinitions/list) de API REST ou consulte [funções internas](built-in-roles.md) para obter o identificador para a definição de função que você deseja atribuir.
 
-1. Utilize uma ferramenta GUID para gerar um identificador exclusivo que será utilizado para o identificador de atribuição de função. O identificador tem o formato: `00000000-0000-0000-0000-000000000000`
+1. Use uma ferramenta GUID para gerar um identificador exclusivo que será usado para o identificador de atribuição de função. O identificador tem o formato:`00000000-0000-0000-0000-000000000000`
 
-1. Começar com o seguinte pedido e o corpo:
+1. Comece com a seguinte solicitação e corpo:
 
     ```http
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
@@ -73,52 +72,61 @@ No RBAC, para conceder acesso, crie uma atribuição de função. Para criar uma
     ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
         "principalId": "{principalId}"
       }
     }
     ```
-    
-1. No URI, substitua *{âmbito}* com o âmbito para a atribuição de função.
 
-    | Scope | Tipo |
+1. Dentro do URI, substitua *{Scope}* pelo escopo da atribuição de função.
+
+    | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
+    | `subscriptions/{subscriptionId1}` | Subscrição |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
-1. Substitua *{roleAssignmentName}* com o identificador GUID da atribuição de função.
+1. Substitua *{roleAssignmentName}* pelo identificador GUID da atribuição de função.
 
-1. Dentro do corpo do pedido, substitua *{subscriptionId}* com o identificador de subscrição.
+1. No corpo da solicitação, substitua *{Scope}* pelo escopo da atribuição de função.
 
-1. Substitua *{roleDefinitionId}* com o identificador de definição de função.
+    | Scope | Type |
+    | --- | --- |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
+    | `subscriptions/{subscriptionId1}` | Subscrição |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
-1. Substitua *{principalId}* com o identificador de objeto do utilizador, grupo ou principal de serviço que será atribuída a função.
+1. Substitua *{roleDefinitionId}* pelo identificador de definição de função.
 
-## <a name="remove-access"></a>Remover o acesso
+1. Substitua *{PrincipalId}* pelo identificador de objeto do usuário, grupo ou entidade de serviço à qual a função será atribuída.
 
-No RBAC, para remover o acesso, remova uma atribuição de função. Para remover uma atribuição de função, utilize o [atribuições de funções – eliminar](/rest/api/authorization/roleassignments/delete) REST API. Para chamar esta API, tem de ter acesso para o `Microsoft.Authorization/roleAssignments/delete` operação. Das funções incorporadas, apenas [proprietário](built-in-roles.md#owner) e [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) recebem acesso a esta operação.
+## <a name="remove-access"></a>Remover acesso
 
-1. Obter o identificador de atribuição de função (GUID). Este identificador é retornado quando cria pela primeira vez a atribuição de função ou pode obtê-lo, listando as atribuições de funções.
+No RBAC, para remover o acesso, remova uma atribuição de função. Para remover uma atribuição de função, use as [atribuições de função-excluir](/rest/api/authorization/roleassignments/delete) API REST. Para chamar essa API, você deve ter acesso à `Microsoft.Authorization/roleAssignments/delete` operação. Das funções internas, somente o [proprietário](built-in-roles.md#owner) e o [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) recebem acesso a essa operação.
 
-1. Começar com o pedido seguinte:
+1. Obtenha o identificador de atribuição de função (GUID). Esse identificador é retornado quando você cria a atribuição de função pela primeira vez ou pode obtê-la listando as atribuições de função.
+
+1. Comece com a seguinte solicitação:
 
     ```http
     DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para remover a atribuição de função.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para remover a atribuição de função.
 
-    | Scope | Tipo |
+    | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
+    | `subscriptions/{subscriptionId1}` | Subscrição |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
-1. Substitua *{roleAssignmentName}* com o identificador GUID da atribuição de função.
+1. Substitua *{roleAssignmentName}* pelo identificador GUID da atribuição de função.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Implementar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Referência à API REST do Azure](/rest/api/azure/)
-- [Criar funções personalizadas para recursos do Azure com a API REST](custom-roles-rest.md)
+- [Criar funções personalizadas para recursos do Azure usando a API REST](custom-roles-rest.md)

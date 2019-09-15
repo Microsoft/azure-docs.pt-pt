@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297580"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995226"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido 
 
@@ -92,7 +92,7 @@ WamDefaultAuthority: organizations
 
 Examine os campos a seguir e verifique se eles têm os valores esperados:
 
-#### <a name="domainjoined--yes"></a>DomainJoined OK  
+#### <a name="domainjoined--yes"></a>DomainJoined SIM  
 
 Este campo indica se o dispositivo está ingressado em um Active Directory local ou não. Se o valor for **no**, o dispositivo não poderá executar uma junção híbrida do Azure AD.  
 
@@ -100,7 +100,7 @@ Este campo indica se o dispositivo está ingressado em um Active Directory local
 
 Este campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *ingressado no local de trabalho*). Esse valor deve ser **no** para um computador ingressado no domínio que também seja ingressado no Azure ad híbrido. Se o valor for **Sim**, uma conta corporativa ou de estudante foi adicionada antes da conclusão da junção híbrida do Azure AD. Nesse caso, a conta é ignorada ao usar a versão de atualização de aniversário do Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined OK  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined SIM  
 
 Este campo indica se o dispositivo está ingressado no Azure AD. Se o valor for **não**, a junção ao Azure ad ainda não foi concluída. 
 
@@ -396,7 +396,7 @@ Obtenha scripts públicos aqui: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e
 
 ### <a name="retrieve-the-join-status"></a>Recuperar o status de junção 
 
-#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet Sim e AzureADPrt: OK
+#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet Sim e AzureADPrt: SIM
   
 Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao entrar no dispositivo. Se os valores forem **não**, isso pode ser devido:
 
@@ -404,6 +404,9 @@ Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao ent
 - ID de logon alternativa
 - Proxy HTTP não encontrado
 
+## <a name="known-issues"></a>Problemas conhecidos
+- Em Configurações-> contas – > acessar trabalho ou escola, dispositivos ingressados no Azure AD híbrido podem mostrar duas contas diferentes, uma para o Azure AD e outra para o AD local, quando conectadas a hotspots móveis ou a redes WiFi externas. Isso é apenas um problema de interface do usuário e não tem nenhum impacto sobre a funcionalidade. 
+ 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Continuar a [solução de problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)

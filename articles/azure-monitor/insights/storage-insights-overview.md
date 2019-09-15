@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 36f70ebaaf3fe6d841ef700561bbd6a200366c84
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563877"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996247"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorando seu serviço de armazenamento com o Azure Monitor para armazenamento (versão prévia)
 
@@ -38,10 +38,14 @@ Ele oferece:
 
 * **Personalizável** , onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham com seus limites e salvar como sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados no painel do Azure.  
 
-Esse recurso não exige que você habilite ou configure nada, as métricas de armazenamento de suas contas de armazenamento são coletadas por padrão. Se você não estiver familiarizado com as métricas disponíveis no armazenamento do Azure, exiba a descrição e a definição em métricas de armazenamento do Azure examinando as métricas de [armazenamento do Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
+Esse recurso não exige que você habilite ou configure nada, as métricas de armazenamento de suas contas de armazenamento são coletadas por padrão. Se você não estiver familiarizado com as métricas disponíveis no armazenamento do Azure, exiba a descrição e a definição em métricas de armazenamento do Azure examinando as [métricas de armazenamento do Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
 
 >[!NOTE]
 >Não há nenhum encargo para acessar esse recurso e você só será cobrado pelos recursos essenciais Azure Monitor que você configurar ou habilitar, conforme descrito na página de [detalhes de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
+
+>[!NOTE]
+>Azure Monitor para armazenamento não oferece suporte [a contas v1 de uso geral](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>
 
 ## <a name="view-from-azure-monitor"></a>Exibir de Azure Monitor
 
@@ -51,7 +55,7 @@ Para exibir a utilização e a disponibilidade de suas contas de armazenamento e
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção insights, selecione **contas de armazenamento (versão prévia)** .
+2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção **insights** , selecione **contas de armazenamento (versão prévia)** .
 
     ![Exibição de várias contas de armazenamento](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -193,7 +197,7 @@ Você pode executar as mesmas alterações em qualquer uma das pastas de trabalh
 
     ![Editar definições de coluna](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. No painel **Editar configurações de coluna** , selecione na seção **colunas** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity linha do tempo $ | A capacidade usada da conta linha do tempo $** e, no renderizador da **coluna** da lista suspensa, selecione **oculto**. 
+5. No painel **Editar configurações de coluna** , selecione na seção **colunas** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity linha do tempo $ | A capacidade usada da conta linha do tempo $** e, no **renderizador da coluna** da lista suspensa, selecione **oculto**. 
 
 6. Selecione **salvar e fechar** para confirmar sua alteração.
 

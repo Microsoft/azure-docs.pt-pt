@@ -1,7 +1,7 @@
 ---
 title: O que há de novo na versão?
-titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre as atualizações mais recentes para Azure Machine Learning serviço e os SDKs de aprendizado de máquina e preparação de dados do Python.
+titleSuffix: Azure Machine Learning
+description: Saiba mais sobre as atualizações mais recentes para Azure Machine Learning e o aprendizado de máquina e SDKs do Python de preparação de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930745"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993431"
 ---
-# <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
+# <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
-Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
+Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
 
@@ -557,7 +557,7 @@ No portal do Azure, agora você pode:
 + Gráfico dinâmico e atualização de métrica em executar relatórios e páginas de detalhes de execução
 + Atualizado o Visualizador de arquivos para logs, saídas e instantâneos em páginas de detalhes de execução.
 + Nova e aprimorada experiência de criação de relatórios na guia experimentos. 
-+ Foi adicionada a capacidade de baixar o arquivo config. JSON da página Visão geral do espaço de trabalho do serviço de Azure Machine Learning.
++ Foi adicionada a capacidade de baixar o arquivo config. JSON da página Visão geral do espaço de trabalho Azure Machine Learning.
 + Suporte à criação de Machine Learning espaço de trabalho de serviço do espaço de trabalho Azure Databricks 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -576,7 +576,7 @@ Use uma VM de notebook como um ambiente de hospedagem seguro e pronto para a emp
 + [Crie rapidamente uma VM](tutorial-1st-experiment-sdk-setup.md) de notebook pré-configurada que tenha a versão mais recente do SDK do Azure Machine Learning e os pacotes relacionados.
 + O acesso é protegido por meio de tecnologias comprovadas, como HTTPS, autenticação e autorização de Azure Active Directory.
 + Armazenamento em nuvem confiável de blocos de anotações e código em sua conta de armazenamento de BLOBs Workspace do Azure Machine Learning. Você pode excluir com segurança sua VM do bloco de anotações sem perder seu trabalho.
-+ Blocos de anotações de exemplo pré-instalados para explorar e experimentar Azure Machine Learning recursos de serviço.
++ Blocos de anotações de exemplo pré-instalados para explorar e experimentar Azure Machine Learning recursos.
 + Recursos de personalização completa de VMs do Azure, qualquer tipo de VM, qualquer pacote, qualquer driver. 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -873,7 +873,7 @@ Nota: O SDK do Python de preparação de dados `numpy` não `pandas` será mais 
 
 ## <a name="2018-12-04-general-availability"></a>2018-12-04: Disponibilidade Geral
 
-O serviço do Azure Machine Learning está agora em disponibilidade geral.
+Azure Machine Learning agora está disponível para o público geral.
 
 ### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
 Com esta versão, anunciamos uma nova experiência de computação gerenciada por meio da [computação Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Esse destino de computação substitui a computação de ia do lote do Azure para Azure Machine Learning. 
@@ -985,7 +985,7 @@ Saiba mais sobre o SDK de preparação de dados, lendo [referenciar docs](https:
 ## <a name="2018-11-05"></a>11-05 de 2018
 
 ### <a name="azure-portal"></a>Portal do Azure 
-O portal do Azure para o serviço Azure Machine Learning tem as seguintes atualizações:
+O portal do Azure para Azure Machine Learning tem as seguintes atualizações:
   * Um novo **Pipelines** separador para pipelines publicados.
   * Foi adicionado suporte para anexar um cluster do HDInsight existente como um destino de computação.
 
@@ -1098,4 +1098,4 @@ Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta vers
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia a visão geral do [serviço de Azure Machine Learning](../service/overview-what-is-azure-ml.md).
+Leia a descrição geral do [Azure Machine Learning](../service/overview-what-is-azure-ml.md).

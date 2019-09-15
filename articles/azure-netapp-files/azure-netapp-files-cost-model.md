@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030791"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995102"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de custo para os Azure NetApp Files 
 
@@ -73,7 +73,7 @@ O diagrama a seguir ilustra esses conceitos:
     * Os volumes de 1 a 8 recebem uma cota de 60 TiB cada.  A capacidade total usada é de 480 TiB.  
         Cada volume tem um limite de QoS de 3,75 GiB/s de taxa de transferência (60 TiB * 64 MiB/s).  
     * O volume 9 recebe uma cota de 20 TiB.  
-        O volume 9 tem um limite de QoS de 1,25 GiB/s de taxa de transferência (60 TiB * 64 MiB/s).
+        O volume 9 tem um limite de QoS de 1,25 GiB/s de taxa de transferência (20 TiB * 64 MiB/s).
 * O volume 9 é um cenário excedente. Ele tem 25 TiB de consumo real.  
     * Após o período de carência de uma hora, o pool de capacidade será redimensionado para 505 TiB.  
         Ou seja, a capacidade total usada = 8 * 60-cota de TiB para os volumes de 1 a 8 e 25 TiB de consumo real para o volume 9.

@@ -1,6 +1,6 @@
 ---
 title: 'Exemplo de interface visual #6: Classificação para prever atrasos de voo'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Este artigo mostra como criar um modelo de aprendizado de máquina para prever atrasos de voo usando a interface visual do tipo "arrastar e soltar" e o código R personalizado.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3d1363d24aa6e5f8875ba90513a8d9d5b951c9db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990030"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997115"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemplo 6-classificação: Prever atrasos de voo usando o R
 
@@ -37,7 +37,7 @@ Este é o grafo final do experimento:
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Esse experimento usa o conjunto de dados de atrasos de **voo** . Faz parte da coleta de dados TranStats dos EUA Departamento de transporte. O conjunto de dados contém informações de atraso de voo de abril a 2013 de outubro. Antes de carregar os dados na interface visual, ele foi processado previamente da seguinte maneira:
+Esse experimento usa o conjunto de **dados de atrasos de voo** . Faz parte da coleta de dados TranStats dos EUA Departamento de transporte. O conjunto de dados contém informações de atraso de voo de abril a 2013 de outubro. Antes de carregar os dados na interface visual, ele foi processado previamente da seguinte maneira:
 
 * Filtrado para incluir os aeroportos 70 mais ocupados no Estados Unidos continental.
 * Para vôos cancelados, rerotulados como atrasados em mais de 15 minutos.
@@ -63,7 +63,7 @@ As colunas **Carrier**, **OriginAirportID**e **DestAirportID** são salvas como 
 
 ![editar metadados](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Em seguida, use o módulo **selecionar colunas** no conjunto de DataSet para excluir das colunas do conjunto de linhas que são possíveis vazamentores de destino: **DepDelay**, **DepDel15**, **ArrDelay**,cancelado, **ano**. 
+Em seguida, use o módulo **selecionar colunas** no conjunto de DataSet para excluir das colunas do conjunto de linhas que são possíveis vazamentores de destino: **DepDelay**, **DepDel15**, **ArrDelay**, **cancelado**, **ano**. 
 
 Para unir os registros de vôo com os registros meteorológicos por hora, use a hora de partida agendada como uma das chaves de junção. Para fazer a junção, a coluna CSRDepTime deve ser arredondada para a hora mais próxima, que é feita pelo no módulo **Executar script R** . 
 

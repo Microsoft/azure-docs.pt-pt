@@ -1,6 +1,6 @@
 ---
 title: Criar, usar e gerenciar ambientes para treinamento e implantação de modelo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Crie e gerencie ambientes para treinamento e implantação de modelo. Gerencie pacotes do Python e outras configurações para o ambiente.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098957"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996625"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Criar e gerenciar ambientes de treinamento e implantação
 
 Neste artigo, saiba como criar e gerenciar [ambientes](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning para que você possa acompanhar e reproduzir as dependências de software de seus projetos à medida que eles evoluem.
 
-O gerenciamento de dependências de software é uma tarefa comum para os desenvolvedores. Você deseja ser capaz de garantir que as compilações sejam reproduzíveis sem muita configuração manual de software. Com soluções para desenvolvimento local, como PIP e Conda em mente, a classe de ambientes de serviço Azure Machine Learning fornece uma solução para desenvolvimento de nuvem local e distribuída.
+O gerenciamento de dependências de software é uma tarefa comum para os desenvolvedores. Você deseja ser capaz de garantir que as compilações sejam reproduzíveis sem muita configuração manual de software. Com soluções para desenvolvimento local, como PIP e Conda em mente, a classe de ambientes Azure Machine Learning fornece uma solução para desenvolvimento de nuvem local e distribuída.
 
 Os exemplos neste artigo mostram como:
 
@@ -43,7 +43,7 @@ O seguinte ilustra que o mesmo objeto de ambiente pode ser usado em sua configur
 
 ### <a name="types-of-environments"></a>Tipos de ambientes
 
-Os ambientes podem ser amplamente divididos em duas categorias: gerenciadas pelo **usuário** e gerenciadas pelo **sistema**.
+Os ambientes podem ser amplamente divididos em duas categorias: **gerenciadas pelo usuário** e **gerenciadas pelo sistema**.
 
 Para um ambiente gerenciado pelo usuário, você é responsável por configurar seu ambiente e instalar todos os pacotes de que seu script de treinamento precisa no destino de computação. O Conda não verificará seu ambiente nem instalará nada para você. 
 
@@ -52,7 +52,7 @@ Ambientes gerenciados pelo sistema são usados quando você deseja que o [Conda]
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * O SDK do Azure Machine Learning para Python [instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* Um [espaço de trabalho de serviço do Azure Machine Learning](how-to-manage-workspace.md).
+* Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-an-environment"></a>Criar um ambiente
 

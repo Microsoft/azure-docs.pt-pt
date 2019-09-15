@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 90d026c12007d74de176d222e11b48d15c174855
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fef329a46594071b5f1621e9a46140f407eeb415
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500985"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996725"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing e o Python
 
@@ -127,7 +127,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cf72a83035e318d3a937176bbaaebd8e298d3ad2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ff3a19a543f87833420f585bbdf7891cc7589746
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390575"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997195"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -221,7 +221,7 @@ Atualmente, esses tipos têm suporte:
 * `pandas`
 * `numpy`
 * `pyspark`
-* Objeto Python padrão
+* objeto Python padrão
 
 Para usar a geração de esquema, `inference-schema` inclua o pacote em seu arquivo de ambiente Conda.
 
@@ -764,7 +764,7 @@ Para um utilitário que pode criar bibliotecas de cliente a partir da especifica
 ### <a id="azuremlcompute"></a>Inferência de lote
 Azure Machine Learning destinos de computação são criados e gerenciados pelo serviço de Azure Machine Learning. Eles podem ser usados para previsão de lote de pipelines de Azure Machine Learning.
 
-Para obter uma explicação sobre a inferência de lote com Azure Machine Learning computação, consulte [como executar previsões de lote](how-to-run-batch-predictions.md).
+Para obter uma explicação sobre a inferência de lote com Azure Machine Learning computação, consulte [como executar previsões de lote](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a>Inferência de IoT Edge
 O suporte para a implantação no Edge está em versão prévia. Para obter mais informações, consulte [implantar Azure Machine Learning como um módulo IOT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
@@ -804,6 +804,19 @@ Para obter mais exemplos e projetos de exemplo, consulte estes repositórios de 
 
 * [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+## <a name="download-a-model"></a>Baixar um modelo
+Se você quiser baixar seu modelo para usá-lo em seu próprio ambiente de execução, poderá fazer isso com os seguintes comandos SDK/CLI:
+
+SDK
+```python
+model_path = Model(ws,'mymodel').download()
+```
+
+CLI:
+```azurecli-interactive
+az ml model download --model-id mymodel:1 --target-dir model_folder
+```
 
 ## <a name="package-models"></a>Modelos de pacote
 
@@ -945,7 +958,7 @@ Para eliminar um modelo registado, utilize `model.delete()`.
 
 Para obter mais informações, consulte a documentação de [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) e [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)

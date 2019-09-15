@@ -8,12 +8,12 @@ author: axisc
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 0860b1d621d2df5f371638bb48a03fdd8474d12d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014545"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996995"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure
 O barramento de serviço do Azure dá suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para entidades do barramento de serviço (filas, tópicos, assinaturas ou filtros). Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
@@ -21,10 +21,10 @@ O barramento de serviço do Azure dá suporte ao uso de Azure Active Directory (
 ## <a name="overview"></a>Descrição geral
 Quando uma entidade de segurança (um usuário, grupo ou aplicativo) tenta acessar uma entidade do barramento de serviço, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
 
- 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. 
+ 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token `https://servicebus.azure.net`é.
  1. Em seguida, o token é passado como parte de uma solicitação para o serviço do barramento de serviço para autorizar o acesso ao recurso especificado.
 
-A etapa de autenticação requer que uma solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço do barramento de serviço, consulte autenticar o [acesso aos recursos do barramento de serviço do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](service-bus-managed-service-identity.md). 
+A etapa de autenticação requer que uma solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço do barramento de serviço, consulte [autenticar o acesso aos recursos do barramento de serviço do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](service-bus-managed-service-identity.md). 
 
 A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. O barramento de serviço do Azure fornece funções RBAC que abrangem conjuntos de permissões para recursos do barramento de serviço. As funções atribuídas a uma entidade de segurança determinam as permissões que o principal terá. Para saber mais sobre como atribuir funções RBAC ao barramento de serviço do Azure, consulte [funções RBAC internas para o barramento de serviço do Azure](#built-in-rbac-roles-for-azure-service-bus). 
 
@@ -70,7 +70,7 @@ Depois de determinar o escopo apropriado para uma atribuição de função, nave
 1. Na [portal do Azure](https://portal.azure.com/), navegue até o namespace do barramento de serviço. Selecione **controle de acesso (iam)** no menu à esquerda para exibir as configurações de controle de acesso para o namespace. Se você precisar criar um namespace do barramento de serviço, siga as instruções deste artigo: [Crie um namespace de mensagens do barramento de serviço](service-bus-create-namespace-portal.md).
 
     ![Selecione controle de acesso no menu à esquerda](./media/authenticate-application/select-access-control-menu.png)
-1. Selecione a guia atribuições de **função** para ver a lista de atribuições de função. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar atribuição de função**. 
+1. Selecione a guia **atribuições de função** para ver a lista de atribuições de função. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar atribuição de função**. 
 
     ![Botão Adicionar na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
 1. Na página **Adicionar atribuição de função** , execute as seguintes etapas:
@@ -110,7 +110,7 @@ Depois de registrar seu aplicativo, você verá a ID do **aplicativo (cliente)**
 Para obter mais informações sobre como registar uma aplicação com o Azure AD, consulte [integrar aplicações com o Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
 
 > [!IMPORTANT]
-> Anote a Tenantid e a **ApplicationId**. Você precisará desses valores para executar o aplicativo.
+> Anote a **tenantid** e a **ApplicationId**. Você precisará desses valores para executar o aplicativo.
 
 ### <a name="create-a-client-secret"></a>Criar um segredo do cliente   
 O aplicativo precisa de um segredo do cliente para provar sua identidade ao solicitar um token. Para adicionar o segredo do cliente, siga estas etapas.
@@ -128,7 +128,7 @@ O aplicativo precisa de um segredo do cliente para provar sua identidade ao soli
     ![Segredo do cliente](./media/authenticate-application/client-secret.png)
 
 ### <a name="permissions-for-the-service-bus-api"></a>Permissões para a API do barramento de serviço
-Se seu aplicativo for um aplicativo de console, você deverá registrar um aplicativo nativo e adicionar permissões de API para o **Microsoft. ServiceBus** ao conjunto de **permissões necessárias** . Aplicativos nativos também precisam de um redirecionador **-URI** no Azure AD, que serve como um identificador; o URI não precisa ser um destino de rede. Utilize `https://servicebus.microsoft.com` para este exemplo, uma vez que o exemplo de código já utiliza esse URI.
+Se seu aplicativo for um aplicativo de console, você deverá registrar um aplicativo nativo e adicionar permissões de API para o **Microsoft. ServiceBus** ao conjunto de **permissões necessárias** . Aplicativos nativos também precisam de um **redirecionador-URI** no Azure AD, que serve como um identificador; o URI não precisa ser um destino de rede. Utilize `https://servicebus.microsoft.com` para este exemplo, uma vez que o exemplo de código já utiliza esse URI.
 
 ### <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de cliente para aquisição de token  
 Depois de registrar seu aplicativo e conceder permissões de ti para enviar/receber dados no barramento de serviço do Azure, você pode adicionar código ao seu aplicativo para autenticar uma entidade de segurança e adquirir o token 2,0 do OAuth. Para autenticar e adquirir o token, você pode usar uma das [bibliotecas de autenticação da plataforma de identidade da Microsoft](../active-directory/develop/reference-v2-libraries.md) ou outra biblioteca de software livre que dê suporte a OpenID ou Connect 1,0. Seu aplicativo pode, então, usar o token de acesso para autorizar uma solicitação no barramento de serviço do Azure.
@@ -144,7 +144,7 @@ Use a opção de **logon de segredo do cliente** , não a opção de logon de **
 
 Antes de executar o exemplo, edite o arquivo **app. config** e, dependendo do seu cenário, defina os seguintes valores:
 
-- `tenantId`: Defina como valor de tenantid.
+- `tenantId`: Defina como valor de **tenantid** .
 - `clientId`: Defina como valor **ApplicationId** .
 - `clientSecret`: Se você quiser entrar usando o segredo do cliente, crie-o no Azure AD. Além disso, utilize uma aplicação web ou a API em vez de uma aplicação nativa. Além disso, adicione a aplicação em **controlo de acesso (IAM)** no espaço de nomes que criou anteriormente.
 - `serviceBusNamespaceFQDN`: Defina como o nome DNS completo do namespace do barramento de serviço recém-criado; por exemplo, `example.servicebus.windows.net`.
@@ -154,7 +154,7 @@ Antes de executar o exemplo, edite o arquivo **app. config** e, dependendo do se
 Ao executar o aplicativo de console, você será solicitado a selecionar um cenário. Selecione **logon de usuário interativo** digitando seu número e pressionando ENTER. O aplicativo exibe uma janela de logon, solicita seu consentimento para acessar o barramento de serviço e, em seguida, usa o serviço para executar o cenário de envio/recebimento usando a identidade de logon.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para saber mais sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)?
 - Para saber como atribuir e gerenciar atribuições de função RBAC com Azure PowerShell, CLI do Azure ou a API REST, consulte estes artigos:
     - [Gerenciar RBAC (controle de acesso baseado em função) com Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

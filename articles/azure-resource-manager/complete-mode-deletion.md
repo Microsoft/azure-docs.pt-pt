@@ -4,14 +4,14 @@ description: Mostra como os tipos de recurso lidam com a exclusão de modo compl
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 268f6b7f3e7462986e6289088a0716794dc832f1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: d8238dddee041573d9b122e62cec66118c681ef6
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983969"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995270"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações de modo completo
 
@@ -154,6 +154,7 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft. SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -1822,6 +1823,7 @@ Ir para um namespace do provedor de recursos:
 > | servers/restorableDroppedDatabases | Não |
 > | servidores/preobjetivos | Não |
 > | servers/tdeCertificates | Não |
+> | virtualClusters | Não |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 

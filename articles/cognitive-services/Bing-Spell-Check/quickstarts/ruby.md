@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4c324bc013ccf339d19bb9dd7681909c4331db60
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bf038b97335db20349577f754bfa41e1b98ee9b7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500327"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996736"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Ruby
 
@@ -49,7 +49,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 
 ## <a name="send-a-spell-check-request"></a>Enviar uma solicitação de verificação ortográfica
 
-1. Crie um URI do URI do host, do caminho e da cadeia de parâmetros. Defina a consulta para conter o texto que você deseja verificar na verificação ortográfica.
+1. Crie um URI do URI do host, do caminho e da cadeia de parâmetros. Defina sua consulta para conter o texto que você deseja verificar na verificação ortográfica.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -124,7 +124,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)

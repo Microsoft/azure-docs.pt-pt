@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816514"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996606"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
@@ -22,7 +22,7 @@ Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de 
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Compartilhamento com limitação
 
-A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de linha de base 100 (com um potencial de disparo de até 300 por uma hora). Para obter mais informações sobre o provisionamento e sua relação com o IOPS, consulte [](storage-files-planning.md#provisioned-shares) a seção compartilhamentos provisionados do guia de planejamento.
+A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de linha de base 100 (com um potencial de disparo de até 300 por uma hora). Para obter mais informações sobre o provisionamento e sua relação com o IOPS, consulte a seção [compartilhamentos provisionados](storage-files-planning.md#provisioned-shares) do guia de planejamento.
 
 Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar as métricas do Azure no Portal.
 
@@ -85,6 +85,7 @@ Uma causa potencial disso é a falta de suporte a vários canais SMB. Atualmente
 
 - A obtenção de uma VM com um núcleo maior pode ajudar a melhorar a taxa de transferência.
 - A execução do aplicativo cliente de várias VMs aumentará a taxa de transferência.
+
 - Use as APIs REST sempre que possível.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>A taxa de transferência em clientes Linux é significativamente menor quando comparada aos clientes Windows.
@@ -95,8 +96,9 @@ Esse é um problema conhecido com a implementação do cliente SMB no Linux.
 
 ### <a name="workaround"></a>Solução
 
-- Distribuir a carga entre várias VMs
+- Espalhe a carga entre várias VMs.
 - Na mesma VM, use vários pontos de montagem com a opção **nosharesock** e espalhe a carga entre esses pontos de montagem.
+- No Linux, tente montar com a opção **nostrictsync** para evitar forçar a liberação SMB em cada chamada fsync. Para arquivos do Azure, essa opção não interfere em consistentcy de dados, mas pode resultar em metadados de arquivo obsoletos na listagem de diretório (comando**ls-l** ). Consultar diretamente os metadados do arquivo (comando**stat** ) retornará os metadados de arquivo mais atualizados.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Altas latências de metadados cargas de trabalho pesadas envolvendo operações de abertura/fechamento extensivas.
 

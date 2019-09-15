@@ -1,6 +1,6 @@
 ---
-title: O que é o controlo de acesso baseado em funções (RBAC) para recursos do Azure? | Microsoft Docs
-description: Obtenha uma visão geral do controlo de acesso baseado em funções (RBAC) para recursos do Azure. Utilize atribuições de funções para controlar o acesso aos recursos do Azure.
+title: O que é o RBAC (controle de acesso baseado em função) para recursos do Azure? | Microsoft Docs
+description: Obtenha uma visão geral do RBAC (controle de acesso baseado em função) para recursos do Azure. Use atribuições de função para controlar o acesso aos recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275932"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995282"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o controlo de acesso baseado em funções (RBAC) para recursos do Azure?
+# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
 
 A gestão de acesso para recursos na cloud é uma função crítica para qualquer organização que está a utilizar a cloud. O controlo de acesso baseado em funções (RBAC) ajuda-o a gerir quem tem acesso aos recursos do Azure, o que fazem com esses recursos e a que áreas têm acesso.
 
-RBAC é um sistema de autorização, criado sobre [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que fornece gestão de acesso detalhado dos recursos do Azure.
+O RBAC é um sistema de autorização criado em [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que fornece gerenciamento de acesso refinado de recursos do Azure.
 
 ## <a name="what-can-i-do-with-rbac"></a>O que posso fazer com o RBAC?
 
@@ -50,14 +50,14 @@ A forma de controlar o acesso a recursos com o RBAC é criar atribuições de fu
 
 ### <a name="security-principal"></a>Principal de segurança
 
-R *entidade de segurança* é um objeto que representa um utilizador, o grupo, o principal de serviço ou a identidade gerida que está a pedir acesso aos recursos do Azure.
+Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que está solicitando acesso aos recursos do Azure.
 
 ![Principal de segurança para uma atribuição de função](./media/overview/rbac-security-principal.png)
 
 - Utilizador – Um indivíduo que tem um perfil no Azure Active Directory. Também pode atribuir funções a utilizadores noutros inquilinos. Para obter informações sobre utilizadores noutras organizações, veja [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grupo – Um conjunto de utilizadores criado no Azure Active Directory. Quando atribui uma função a um grupo, todos os utilizadores nesse grupo têm essa função. 
 - Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma *identidade de utilizador* (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
-- Identidade gerida - uma identidade no Azure Active Directory automaticamente é gerido pelo Azure. Geralmente usa [geridos identidades](../active-directory/managed-identities-azure-resources/overview.md) durante o desenvolvimento de aplicações na cloud para gerir as credenciais para autenticar-se aos serviços do Azure.
+- Identidade gerenciada-uma identidade no Azure Active Directory que é gerenciada automaticamente pelo Azure. Normalmente, você usa [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) ao desenvolver aplicativos de nuvem para gerenciar as credenciais para autenticação nos serviços do Azure.
 
 ### <a name="role-definition"></a>Definição de função
 
@@ -72,13 +72,13 @@ O Azure inclui várias [funções incorporadas](built-in-roles.md) que pode util
 - [Leitor](built-in-roles.md#reader) – Pode ver os recursos do Azure existentes.
 - [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator) – Permite gerir o acesso do utilizador aos recursos do Azure.
 
-As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite a um utilizador criar e gerir máquinas virtuais. Se as funções incorporadas não atenderem às necessidades específicas da sua organização, pode criar a sua própria [funções personalizadas para recursos do Azure](custom-roles.md).
+As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite a um utilizador criar e gerir máquinas virtuais. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas para recursos do Azure](custom-roles.md).
 
-O Azure tem as operações de dados que permitem-lhe conceder acesso aos dados dentro de um objeto. Por exemplo, se um utilizador tiver acesso a dados de leitura a uma conta de armazenamento, pode ler os blobs ou as mensagens nessa conta de armazenamento. Para obter mais informações, consulte [compreender as definições de funções para recursos do Azure](role-definitions.md).
+O Azure tem operações de dados que permitem que você conceda acesso a dados dentro de um objeto. Por exemplo, se um utilizador tiver acesso a dados de leitura a uma conta de armazenamento, pode ler os blobs ou as mensagens nessa conta de armazenamento. Para obter mais informações, consulte [noções básicas sobre definições de função para recursos do Azure](role-definitions.md).
 
 ### <a name="scope"></a>Scope
 
-*Âmbito* é o conjunto de recursos que o acesso se aplica a. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
+*Escopo* é o conjunto de recursos aos quais o acesso se aplica. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
 No Azure, pode especificar um âmbito a vários níveis: [grupo de gestão](../governance/management-groups/index.md), subscrição, grupo de recursos ou recurso. Os âmbitos são estruturados numa relação de principal-subordinado.
 
@@ -92,23 +92,23 @@ Quando concede acesso a um âmbito principal, os âmbitos secundários herdam es
 
 ### <a name="role-assignments"></a>Atribuições de funções
 
-R *atribuição de função* é o processo de anexar uma definição de função para um utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito para efeitos de conceder acesso. O acesso é concedido ao criar uma atribuição de função e o acesso é revogado ao remover uma atribuição de função.
+Uma *atribuição de função* é o processo de anexar uma definição de função a um usuário, grupo, entidade de serviço ou identidade gerenciada em um determinado escopo com a finalidade de conceder acesso. O acesso é concedido ao criar uma atribuição de função e o acesso é revogado ao remover uma atribuição de função.
 
 O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exemplo, foi atribuída a função [Contribuidor](built-in-roles.md#contributor) ao grupo Marketing para o grupo de recursos de vendas farmacêuticas. Isto significa que os utilizadores no grupo Marketing podem criar ou gerir qualquer recurso do Azure no grupo de recursos de vendas farmacêuticas. Os utilizadores do grupo Marketing não têm acesso aos recursos fora o grupo de recursos de vendas farmacêuticas, a menos que façam parte de outra atribuição de função.
 
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
-Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Pode ter até 2000 atribuições de funções em cada subscrição. Para criar e remover atribuições de funções, precisa de ter a permissão `Microsoft.Authorization/roleAssignments/*`. Esta permissão é concedida através das funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator).
+Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Você pode ter até **2000** atribuições de função em cada assinatura e **500** atribuições de função em cada grupo de gerenciamento. Para criar e remover atribuições de funções, precisa de ter a permissão `Microsoft.Authorization/roleAssignments/*`. Esta permissão é concedida através das funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator).
 
-## <a name="multiple-role-assignments"></a>Várias atribuições de funções
+## <a name="multiple-role-assignments"></a>Atribuições de função múltipla
 
-O que acontece se tiver várias atribuições de funções sobrepostos? RBAC é um modelo de cumulativas, pelo que as permissões efetivas são a adição de atribuições de funções. Considere o exemplo seguinte, onde um usuário é concedido a função de contribuinte no âmbito da subscrição e a função de leitor num grupo de recursos. A adição das permissões de contribuinte e as permissões de leitura é, efetivamente, a função de Contribuidor para o grupo de recursos. Portanto, neste caso, a atribuição de função do leitor não tem impacto.
+E o que acontece se você tiver várias atribuições de função sobrepostas? O RBAC é um modelo aditivo, portanto, suas permissões efetivas são a adição de suas atribuições de função. Considere o exemplo a seguir, em que um usuário recebe a função de colaborador no escopo da assinatura e a função de leitor em um grupo de recursos. A adição das permissões de colaborador e das permissões de leitor é efetivamente a função colaborador do grupo de recursos. Portanto, nesse caso, a atribuição de função de leitor não tem impacto.
 
-![Várias atribuições de funções](./media/overview/rbac-multiple-roles.png)
+![Atribuições de função múltipla](./media/overview/rbac-multiple-roles.png)
 
-## <a name="deny-assignments"></a>Atribuições de negação
+## <a name="deny-assignments"></a>Negar atribuições
 
-Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito para efeitos de negar o acesso. Uma atribuição de função define um conjunto de ações que são *permitido*, enquanto uma atribuição de negar define um conjunto de ações que são *não permitida*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções. Para obter mais informações, consulte [compreender negar atribuições para recursos do Azure](deny-assignments.md).
+Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. De forma semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações Deny a um usuário, grupo, entidade de serviço ou identidade gerenciada em um determinado escopo, com a finalidade de negar o acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções. Para obter mais informações, consulte [entender as atribuições de negação para recursos do Azure](deny-assignments.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>De que forma o RBAC determina se um utilizador tem acesso a um recurso
 
@@ -136,7 +136,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Quickstart: Ver o acesso a um utilizador tem de recursos do Azure no portal do Azure](check-access.md)
+- [Quickstart: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure](check-access.md)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 - [Compreender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- [Adoção do Enterprise Cloud: Gestão de acesso de recursos no Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)
+- [Adoção da nuvem corporativa: Gerenciamento de acesso a recursos no Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)

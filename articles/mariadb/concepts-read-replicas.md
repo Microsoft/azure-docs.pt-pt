@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 6c1104ba340f23a76d5b9b4167f895f5a115152c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 8faa6338179eb1540eb4f9a375bf3bc696c745f3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773295"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995381"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Ler réplicas no banco de dados do Azure para MariaDB
 
@@ -75,7 +75,7 @@ Quando você cria uma réplica, ela não herda as regras de firewall ou o ponto 
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor mestre.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure normal para MariaDB. Para um servidor chamado **myreplication** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando a CLI do MySQL:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure normal para MariaDB. Para um servidor chamado myreplication com o nome de usuário admin myadmin, você pode se conectar à réplica usando a CLI do MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -155,4 +155,4 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](howto-read-replicas-portal.md)
-- Saiba como [criar e gerenciar réplicas de leitura usando o CLI do Azure](howto-read-replicas-cli.md)
+- Saiba como [criar e gerenciar réplicas de leitura usando o CLI do Azure e a API REST](howto-read-replicas-cli.md)

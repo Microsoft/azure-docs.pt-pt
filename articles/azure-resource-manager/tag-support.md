@@ -4,14 +4,14 @@ description: Mostra quais tipos de recursos do Azure dão suporte a marcas. Forn
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8bcbd7b14de497cb6a8bb5cf12de4ec8c555b97b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983910"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996834"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
@@ -151,6 +151,7 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft. SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -1820,6 +1821,7 @@ Ir para um namespace do provedor de recursos:
 > | servers/restorableDroppedDatabases | Não | Não |
 > | servidores/preobjetivos | Não | Não |
 > | servers/tdeCertificates | Não | Não |
+> | virtualClusters | Não | Não |
 
 <a id="sqlnote" />
 

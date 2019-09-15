@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e57b5a49ac0c99fa81e54134e74964bf38418e4d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934895"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996634"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início rápido: Biblioteca de cliente Azure Key Vault para .NET
 
@@ -26,7 +26,6 @@ O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os s
 - Use os HSMs validados pelo FIPS 140-2 nível 2.
 
 [](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault)[](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) -fonte da biblioteca de documentação de referência de API (NuGet) | 
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -120,24 +119,12 @@ Essa operação retornará uma série de pares de chave/valor.
 
 Anote o clientId e o clientSecret, pois eles serão usados na etapa [autenticar para o cofre de chaves](#authenticate-to-your-key-vault) abaixo.
 
-Você também precisará da appID da entidade de serviço. Você pode encontrá-lo executando [AZ ad SP List](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) com o `--show-mine` parâmetro:
-
-```azurecli
-az ad sp list --show-mine
-```
-
-O `appID` é exibido no JSON retornado:
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
-
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao cofre de chaves
 
-Crie uma política de acesso para o cofre de chaves que concede permissão para sua entidade de serviço. Você faz isso com o comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Vamos dar à entidade de serviço Get, listar e definir permissões para chaves e segredos.
+Crie uma política de acesso para o cofre de chaves que concede permissão para sua entidade de serviço passando o clientId para o comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Conceda à entidade de serviço obter, listar e definir permissões para chaves e segredos.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -204,7 +191,7 @@ az group delete -g "myResourceGroup" -l "EastUS"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Consulte [todo o aplicativo de console no GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
 

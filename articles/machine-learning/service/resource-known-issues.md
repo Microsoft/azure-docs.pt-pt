@@ -1,7 +1,7 @@
 ---
 title: Problemas conhecidos & solução de problemas
-titleSuffix: Azure Machine Learning service
-description: Obter uma lista dos problemas conhecidos, soluções alternativas e resolução de problemas do serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Obtenha uma lista dos problemas conhecidos, soluções alternativas e solução de problemas para Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ffbc919333c43c04f461498a513d098ce8fe628f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858684"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996581"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
-Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados ao utilizar o serviço Azure Machine Learning.
+Este artigo ajuda você a encontrar e corrigir erros ou falhas encontrados ao usar Azure Machine Learning.
 
 ## <a name="visual-interface-issues"></a>Problemas de interface visual
 
@@ -87,7 +87,7 @@ Problemas de Databricks e o Azure Machine Learning.
 
 ### <a name="failure-when-installing-packages"></a>Falha ao instalar pacotes
 
-A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do serviço de Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
+A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -143,7 +143,7 @@ Se vá diretamente para ver a sua área de trabalho a partir de uma ligação de
 Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. Para ver alguns logs, visite [portal do Azure](https://portal.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > executar logs do >** .  Você também pode encontrar essas informações na seção **experimentos** da [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
 > [!NOTE]
-> Azure Machine Learning serviço registra informações de uma variedade de fontes durante o treinamento, como AutoML ou o contêiner do Docker que executa o trabalho de treinamento. Muitos desses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
+> Azure Machine Learning registra as informações de uma variedade de fontes durante o treinamento, como AutoML ou o contêiner do Docker que executa o trabalho de treinamento. Muitos desses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
 
 ## <a name="activity-logs"></a>Registos de atividade
 

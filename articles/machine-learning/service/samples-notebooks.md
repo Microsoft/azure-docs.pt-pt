@@ -1,7 +1,7 @@
 ---
 title: Blocos de notas Jupyter do exemplo
-titleSuffix: Azure Machine Learning service
-description: Localize e use os notebooks Jupyter de exemplo para explorar o SDK do Python de serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Encontre e use os notebooks Jupyter de exemplo para explorar o Azure Machine Learning Python para SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860388"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997067"
 ---
-# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explore Azure Machine Learning serviço com blocos de anotações do Jupyter
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorar Azure Machine Learning com notebooks Jupyter
 
 O [repositório do exemplo Azure Machine Learning notebooks](https://github.com/azure/machinelearningnotebooks) inclui os exemplos mais recentes do SDK do Python Azure Machine Learning. Esses blocos de anotações do Juypter foram projetados para ajudá-lo a explorar o SDK e servir como modelos para seus próprios projetos de Machine Learning.
 
@@ -53,9 +53,9 @@ O Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Explore os [notebooks de exemplo](https://aka.ms/aml-notebooks) para descobrir o que Azure Machine Learning serviço pode fazer ou Experimente estes tutoriais:
+Explore os [notebooks de exemplo](https://aka.ms/aml-notebooks) para descobrir o que Azure Machine Learning pode fazer ou Experimente estes tutoriais:
 
 - [Preparar e implementar um modelo de classificação de imagem com MNIST](tutorial-train-models-with-aml.md)
 

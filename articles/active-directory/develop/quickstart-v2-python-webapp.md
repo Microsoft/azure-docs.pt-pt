@@ -1,0 +1,148 @@
+---
+title: Guia de início rápido do aplicativo Web do Python da plataforma Microsoft Identity | Azure
+description: Saiba como implementar a entrada da Microsoft em um aplicativo Web Python usando o OAuth2
+services: active-directory
+documentationcenter: dev-center-name
+author: abhidnya13
+editor: ''
+ms.assetid: 9551f0b5-04f2-44d7-87b5-756409180fe9
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: quickstart
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/11/2019
+ms.author: abpati
+ms.custom: aaddev
+ms.openlocfilehash: 682582c8c695550f7dfdfcc079e1d0bf04828180
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997377"
+---
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Python
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Neste guia de início rápido, você aprenderá a integrar um aplicativo Web Python com a plataforma de identidade da Microsoft. Seu aplicativo entrará em um usuário, obterá um token de acesso para chamar a API de Microsoft Graph e fará uma solicitação para a API de Microsoft Graph.
+
+Quando você tiver concluído o guia, seu aplicativo aceitará entradas de contas pessoais da Microsoft (incluindo outlook.com, live.com e outros) e contas corporativas ou de estudante de qualquer empresa ou organização que usa Azure Active Directory.
+
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-python-webapp/python-quickstart.svg)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para executar este exemplo, será necessário:
+
+- [Python 2.7 +](https://www.python.org/downloads/release/python-2713) ou [Python 3 +](https://www.python.org/downloads/release/python-364/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https:/pythonhosted.org/Flask-Session/), [solicitações](https://2.python-requests.org/en/master/)
+- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
+- Um locatário do Azure Active Directory (Azure AD). Para obter mais informações sobre como obter um locatário do Azure AD, consulte [como obter um locatário do Azure AD.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+
+> [!div renderon="docs"]
+>
+> ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
+>
+> Você tem duas opções para iniciar seu aplicativo de início rápido: Express (opção 1) e manual (opção 2)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
+>
+> 1. Vá para o [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+> 1. Selecione **novo registro**.
+> 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
+> 1. Siga as instruções para baixar e configurar automaticamente seu novo aplicativo.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
+>
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
+>
+> Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
+>
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+> 1. Navegue até a página da plataforma Microsoft Identity para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> 1. Selecione **novo registro**.
+> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
+>      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `python-webapp`.
+>      - Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
+>      - Na seção **URI** de redirecionamento, na lista suspensa, selecione a plataforma **da Web** e defina o valor como `http://localhost:5000/getAToken`.
+>      - Selecione **Registar**. Na página **visão geral** do aplicativo, observe o valor da **ID do aplicativo (cliente)** para uso posterior.
+> 1. No menu à esquerda, escolha **certificados & segredos** e clique em **novo segredo do cliente** na seção **segredos do cliente** :
+>
+>      - Digite uma descrição de chave (do segredo do aplicativo de instância).
+>      - Selecione uma duração de chave de **em 1 ano**.
+>      - Quando você clicar em **Adicionar**, o valor da chave será exibido.
+>      - Copie o valor da chave. Precisará dele mais tarde.
+>
+> [!div class="sxs-lookup" renderon="portal"]
+>
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar seu aplicativo no portal do Azure
+>
+> Para que o exemplo de código para este guia de início rápido funcione, você precisa:
+>
+> 1. Adicione uma URL de resposta `http://localhost:5000/getAToken`como.
+> 1. Crie um segredo do cliente.
+>
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Fazer esta alteração por mim]()
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com este atributo
+
+#### <a name="step-2-download-your-project"></a>Passo 2: Baixe seu projeto
+
+[Baixar o exemplo de código](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
+
+#### <a name="step-3-configure-the-application"></a>Passo 3: Configurar o aplicativo
+
+1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
+1. Se você usar um ambiente de desenvolvimento integrado, abra o exemplo em seu IDE favorito (opcional).
+1. Abra o arquivo **app_config. py** , que pode ser encontrado na pasta raiz e substitua pelo seguinte trecho de código:
+
+```python
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
+CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+SCOPE = ["https://graph.microsoft.com/User.Read"]
+REDIRECT_URI = "http://localhost:5000/getAToken"
+```
+
+> [!div renderon="docs"]
+> Em que:
+>
+> - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
+>   - Se seu aplicativo der suporte **apenas à minha organização**, substitua esse valor pela **ID do locatário** ou pelo nome do **locatário** (por exemplo, contoso.onmicrosoft.com)
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
+> - `Enter_the_Client_Secret_Here`-é o **segredo do cliente** que você criou em **certificados & segredos** para o aplicativo registrado.
+
+#### <a name="step-4-run-the-code-sample"></a>Passo 4: Executar o exemplo de código
+
+- Você precisará instalar o MSAL Python library, Flask Framework, Flask-Sessions para gerenciamento de sessão do lado do servidor e solicitações usando Pip da seguinte maneira:
+
+```Shell
+pip install msal
+pip install flask
+pip install Flask-Session
+pip install requests
+```
+
+- Se a variável de ambiente para Flask já estiver definida: Executar app.py do Shell ou da linha de comando:
+
+```Shell
+python app.py
+```
+
+- Se a variável de ambiente para Flask não estiver definida:
+
+    1. Digite os seguintes comandos no Shell ou na linha de comando navegando até o diretório do projeto:
+
+```Shell
+export FLASK_APP=app.py
+export FLASK_DEBUG=1
+flask run
+```
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

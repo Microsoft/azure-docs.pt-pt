@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
-ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/13/2019
+ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858703"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993171"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 
@@ -133,7 +133,6 @@ Há várias maneiras de exibir as métricas de descompasso:
 
 * Use o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use a [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) função em qualquer `datadrift` objeto Run.
-* Exiba as métricas no portal do Azure em seu modelo.
 * Exiba as métricas na seção **modelos** da página de [aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
 O exemplo de Python a seguir demonstra como plotar métricas de descompasso de dados relevantes. Você pode usar as métricas retornadas para criar visualizações personalizadas:
@@ -159,17 +158,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-A configuração do detector de descompasso de dados pode ser vista na página de detalhes do modelo na portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia).
+A configuração do detector de descompasso de dados pode ser vista em **modelos** na guia **detalhes** na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
-![Configuração de descompasso de dados portal do Azure](media/how-to-monitor-data-drift/drift_config.png)
+![Descompasso portal do Azure dados](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-azure-portal"></a>Exibir resultados em portal do Azure
+## <a name="view-results-in-your-workspace-landing-page"></a>Exibir resultados na página de aterrissagem do espaço de trabalho
 
-Para exibir os resultados em seu espaço de trabalho no [portal do Azure](https://portal.azure.com), navegue até a página modelo. Na guia detalhes do modelo, a configuração de descompasso de dados é mostrada. Uma guia ' descompasso de dados (visualização) ' agora está disponível visualizando as métricas de descompasso de dados. 
+Para exibir os resultados em seu espaço de trabalho na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com), navegue até a página modelo. Na guia detalhes do modelo, a configuração de descompasso de dados é mostrada. Uma guia **descompasso de dados** agora está disponível visualizando as métricas de descompasso de dados. 
 
-![Descompasso portal do Azure dados](media/how-to-monitor-data-drift/drift_ui.png)
+[![descompasso de dados da página inicial do espaço de trabalho](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
-Os resultados também estão disponíveis nos detalhes do modelo na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Recebendo alertas de descompasso
 
@@ -189,7 +187,7 @@ Quando a descompasso de dados afeta negativamente o desempenho do modelo implant
 * Avalie o desempenho do modelo recém-gerado.
 * Implante o novo modelo se o desempenho for melhor do que o modelo de produção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter um exemplo completo de como usar a descompasso de dados, consulte o [notebook de descompasso de dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
 

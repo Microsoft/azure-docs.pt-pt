@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 6b62bee2a6159cfd1aa1d7278f0b1ffa744f3a87
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ebf7b712dda19b396b044235bf194a5dd402ffac
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124011"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996424"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -50,7 +50,7 @@ Para obter a documentação do console serial para Linux, consulte [console seri
 > Se você não estiver vendo nada no console serial, verifique se o diagnóstico de inicialização está habilitado em sua VM ou conjunto de dimensionamento de máquinas virtuais.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Ativar a consola de série em imagens personalizadas ou mais antigas
-As imagens mais recente do Windows Server no Azure têm [consola administrativa especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por predefinição. SAC é suportada em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
+As imagens mais recentes do Windows Server no Azure têm o [console de administração especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitado por padrão. SAC é suportada em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
 
 Para imagens do Windows Server mais antigas (criadas antes de Fevereiro de 2018), pode ativar automaticamente a consola de série por meio do recurso de comando de execução do portal do Azure. No portal do Azure, selecione **executar comando**e, em seguida, selecione o comando chamado **EnableEMS** na lista.
 
@@ -184,7 +184,7 @@ Estamos cientes de alguns problemas com a consola de série. Aqui está uma list
 Problema                             |   Mitigação
 :---------------------------------|:--------------------------------------------|
 Premir **Enter** depois da faixa de ligação não causa um prompt de início de sessão a apresentar. | Para obter mais informações, consulte [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Este erro pode ocorrer se estiver a executar uma VM personalizada, a aplicação protegida ou a configuração de arranque que faz com que o Windows não sejam corretamente ligar para a porta serial. Esse erro também ocorrerá se você estiver executando uma VM do Windows 10, porque somente as VMs do Windows Server estão configuradas para ter o EMS habilitado.
-Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Este erro ocorre se o Console de administração especial não tiver sido ativado para a sua imagem do Windows. Ver [ativar a consola de série em imagens personalizadas ou mais antigas](#enable-the-serial-console-in-custom-or-older-images) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Para obter mais informações, consulte [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
+Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Esse erro ocorrerá se o console de administração especial não tiver sido habilitado para sua imagem do Windows. Ver [ativar a consola de série em imagens personalizadas ou mais antigas](#enable-the-serial-console-in-custom-or-older-images) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Para obter mais informações, consulte [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Não é possível escreva na linha SAC perguntar se a depuração de kernel está ativada. | RDP para a VM e execute `bcdedit /debug {current} off` num prompt de comando elevado. Se não for possível RDP, em vez disso, pode anexar o disco do SO a outra VM do Azure e modificá-lo enquanto anexado como um disco de dados através da execução `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, em seguida, a troca de volta o disco.
 Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere repetido. | Para obter uma solução, executar `Remove-Module PSReadLine` descarregar o módulo de PSReadLine da sessão atual. Esta ação não irá eliminar ou desinstalar o módulo.
 Algumas entradas de teclado produzem estranha SAC saída (por exemplo, **[R**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) seqüências de escape não são suportadas pela linha de comandos da SAC.

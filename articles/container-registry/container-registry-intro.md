@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310660"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994365"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
@@ -31,7 +31,7 @@ Extrair imagens de um registo de contentores do Azure para vários destinos de i
 * **Sistemas de orquestração dimensionáveis** que gerem aplicações em contentores através de clusters de anfitriões, incluindo [Kubernetes](https://kubernetes.io/docs/), [CD/SO](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
 * **Serviços do Azure** que suportam a criação e a execução de aplicações em escala, incluindo o [Azure Kubernetes Service (AKS)](../aks/index.yml), o [Serviço de Aplicações](../app-service/index.yml), o [Batch](../batch/index.yml), o [Service Fabric](/azure/service-fabric/) e outros.
 
-Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, direcione um registro de contêiner de uma ferramenta de integração e entrega contínua, como [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou [Jenkins](https://jenkins.io/).
+Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, direcione um registro de contêiner de uma ferramenta de integração e entrega contínua, como [Azure pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) ou [Jenkins](https://jenkins.io/).
 
 Configure tarefas ACR para recriar automaticamente imagens de aplicativos quando suas imagens base forem atualizadas ou automatizar compilações de imagem quando sua equipe confirmar o código para um repositório git. Crie tarefas de várias etapas para automatizar a criação, o teste e a aplicação de patches de várias imagens de contêiner em paralelo na nuvem.
 

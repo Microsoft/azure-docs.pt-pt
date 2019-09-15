@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899419"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993392"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -42,7 +42,7 @@ Não há suporte para <a name="gen2">4</a> -ADLS Gen2 no momento.
 **Operador**   
 Modelos na memória e DirectQuery que se conectam a fontes de dados do Azure usam .NET Framework Provedor de Dados para SQL Server.
 
-## <a name="on-premises-data-sources"></a>Origens de dados no local
+## <a name="other-data-sources"></a>Outras fontes de dados
 
 Conectar-se a fontes de dados locais do e do Azure como servidor requer um gateway local. Ao usar um gateway, são necessários provedores de 64 bits.
 
@@ -114,7 +114,11 @@ Para fontes de dados de nuvem:
 
 * Se estiver usando a autenticação do SQL, a representação deverá ser a conta de serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="oauth-credentials"></a>Credenciais do OAuth
+
+Para modelos de tabela no nível de compatibilidade 1400 e superior, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
+
+## <a name="next-steps"></a>Passos seguintes
 [Gateway local](analysis-services-gateway.md)   
 [Gerenciar seu servidor](analysis-services-manage.md)   
 
