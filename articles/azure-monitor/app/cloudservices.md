@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67443340"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933001"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 [Application insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) quanto à disponibilidade, ao desempenho, às falhas e ao uso combinando dados de SDKs de Application Insights com dados de [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de seus serviços de nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -63,7 +63,7 @@ Cada recurso pertence a um grupo de recursos. Os grupos de recursos são usados 
 ### <a name="resources-for-components"></a>Recursos para componentes
 Recomendamos que você crie um recurso separado para cada componente do seu aplicativo. Ou seja, você cria um recurso para cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas cria um [painel](../../azure-monitor/app/overview-dashboard.md) que reúne os gráficos de chave de todos os componentes, para que você possa compará-los e monitorá-los juntos em uma única exibição. 
 
-Uma abordagem alternativa é enviar a telemetria de mais de uma função para o mesmo recurso, mas [Adicionar uma propriedade de dimensão a cada item](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) de telemetria que identifica sua função de origem. Nessa abordagem, os gráficos de métricas, como exceções, normalmente mostram uma agregação das contagens das várias funções, mas você pode segmentar o gráfico pelo identificador de função, conforme necessário. Você também pode filtrar pesquisas pela mesma dimensão. Essa alternativa torna um pouco mais fácil exibir tudo ao mesmo tempo, mas também pode levar a uma certa confusão entre as funções.
+Uma abordagem alternativa é enviar a telemetria de mais de uma função para o mesmo recurso, mas [Adicionar uma propriedade de dimensão a cada item de telemetria](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) que identifica sua função de origem. Nessa abordagem, os gráficos de métricas, como exceções, normalmente mostram uma agregação das contagens das várias funções, mas você pode segmentar o gráfico pelo identificador de função, conforme necessário. Você também pode filtrar pesquisas pela mesma dimensão. Essa alternativa torna um pouco mais fácil exibir tudo ao mesmo tempo, mas também pode levar a uma certa confusão entre as funções.
 
 Normalmente, a telemetria do browser está incluída no mesmo recurso que a função da Web do lado do servidor.
 
@@ -78,14 +78,15 @@ Para enviar a telemetria para os recursos apropriados, você pode configurar o S
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Criar um recurso do Application Insights para cada função
 
-Se você decidiu criar um recurso separado para cada função e, talvez, um conjunto separado para cada configuração de compilação, é mais fácil criá-los no portal de Application Insights. Se você criar muitos recursos, poderá automatizar [o processo](../../azure-monitor/app/powershell.md).
+Se você decidiu criar um recurso separado para cada função e, talvez, um conjunto separado para cada configuração de compilação, é mais fácil criá-los no portal de Application Insights. Se você criar muitos recursos, poderá [automatizar o processo](../../azure-monitor/app/powershell.md).
 
 1. Na [portal do Azure][portal], selecione **novo** > **Serviços** > de desenvolvedor**Application insights**.  
 
     ![Painel de Application Insights](./media/cloudservices/01-new.png)
 
-1. Na lista suspensa **tipo de aplicativo** , selecione **aplicativo Web ASP.net**.  
-    Cada recurso é identificado por uma chave de instrumentação. Você pode precisar dessa chave mais tarde se quiser configurar manualmente ou verificar a configuração do SDK.
+1. Na lista suspensa **tipo de aplicativo** , selecione **aplicativo Web ASP.net**.
+
+Cada recurso é identificado por uma chave de instrumentação. Você pode precisar dessa chave mais tarde se quiser configurar manualmente ou verificar a configuração do SDK.
 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar os Diagnósticos do Azure para cada função
@@ -133,8 +134,9 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
     * [Função de trabalho](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Defina o arquivo *ApplicationInsights. config* para ser copiado sempre para o diretório de saída.  
-    Uma mensagem no arquivo *. config* solicita que você coloque a chave de instrumentação lá. No entanto, para aplicativos de nuvem, é melhor defini-lo a partir do arquivo *. cscfg* . Essa abordagem garante que a função seja corretamente identificada no Portal.
+1. Defina o arquivo *ApplicationInsights. config* para ser copiado sempre para o diretório de saída.
+
+   Uma mensagem no arquivo *. config* solicita que você coloque a chave de instrumentação lá. No entanto, para aplicativos de nuvem, é melhor defini-lo a partir do arquivo *. cscfg* . Essa abordagem garante que a função seja corretamente identificada no Portal.
 
 ## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurar Status Monitor para coletar consultas SQL completas (opcional)
 
@@ -171,16 +173,19 @@ Esta etapa só será necessária se você quiser capturar consultas SQL completa
 
 1. Execute seu aplicativo e entre no Azure. 
 
-1. Abra os recursos de Application Insights que você criou.  
-    Os pontos de dados individuais são exibidos na [pesquisa](../../azure-monitor/app/diagnostic-search.md)e os dados agregados são exibidos no [Gerenciador](../../azure-monitor/app/metrics-explorer.md)de métricas. 
+1. Abra os recursos de Application Insights que você criou.
+
+   Os pontos de dados individuais são exibidos na [pesquisa][diagnostic]e os dados agregados são exibidos no [Gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md).
 
 1. Adicione mais telemetria (consulte as próximas seções) e, em seguida, publique seu aplicativo para obter o diagnóstico ao vivo e os comentários de uso. 
 
 Se não houver dados, faça o seguinte:
+
 1. Para exibir eventos individuais, abra o bloco [Pesquisar][diagnostic] .
 1. No aplicativo, abra várias páginas para que ele gere uma telemetria.
 1. Aguarde alguns segundos e clique em **Atualizar**.  
-    Para obter mais informações, consulte [Resolução de problemas][qna].
+
+Para obter mais informações, consulte [Resolução de problemas][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Exibir eventos de Diagnóstico do Azure
 Você pode encontrar as informações de [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) em Application insights nos seguintes locais:
