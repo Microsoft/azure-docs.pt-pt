@@ -84,10 +84,10 @@ Para definir os parâmetros, utilize a seguinte estrutura:
 
 Tipos permitidos são:
 
-* a cadeia de caracteres (qualquer cadeia JSON válida)
-* Int (qualquer JSON número inteiro válido)
+* string (qualquer cadeia JSON válida)
+* int (qualquer JSON número inteiro válido)
 * bool (qualquer JSON booleanos válidos)
-* matriz (qualquer matriz JSON válido)
+* array (qualquer matriz JSON válido)
 
 ## <a name="secrets-as-secure-strings"></a>Segredos como cadeias de caracteres seguras
 Declare segredos como cadeias de caracteres seguras. Aqui é a sintaxe para declarar um parâmetro de cadeia segura dentro do `parameters` secção do **artifactfile.json** ficheiro:
