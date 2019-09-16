@@ -35,10 +35,10 @@ Utilize o seguinte pedido HTTP PUT para criar um novo Azure Balanceador de carga
 
 |Nome  |Em  |Necessário |Tipo |Descrição |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  caminho       |  Verdadeiro       |   string      |  As credenciais de subscrição que identificam de forma exclusiva a subscrição do Microsoft Azure. O ID de subscrição faz parte do URI a cada chamada de serviço.      |
-|resourceGroupName     |     caminho    | Verdadeiro        |  string       |   O nome do grupo de recursos.     |
-|loadBalancerName     |  caminho       |      Verdadeiro   |    string     |    O nome do Balanceador de carga.    |
-|versão de API    |   consulta     |  Verdadeiro       |     string    |  Versão de API do cliente.      |
+|subscriptionId   |  path       |  Verdadeiro       |   string      |  As credenciais de subscrição que identificam de forma exclusiva a subscrição do Microsoft Azure. O ID de subscrição faz parte do URI a cada chamada de serviço.      |
+|resourceGroupName     |     path    | Verdadeiro        |  string       |   O nome do grupo de recursos.     |
+|loadBalancerName     |  path       |      Verdadeiro   |    string     |    O nome do Balanceador de carga.    |
+|api-version    |   query     |  Verdadeiro       |     string    |  Versão de API do cliente.      |
 
 
 
@@ -48,7 +48,7 @@ O único parâmetro exigido é `location`. Se não definir o *SKU* versão, um b
 
 | Nome | Tipo | Descrição |
 | :--- | :--- | :---------- |
-| localização | string | Localização do recurso. Obter uma lista atual de localizações com o [lista de localizações](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operação. |
+| location | string | Localização do recurso. Obter uma lista atual de localizações com o [lista de localizações](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operação. |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Exemplo: Criar e atualizar um Load Balancer básico
