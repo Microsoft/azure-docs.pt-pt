@@ -57,7 +57,7 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | contentEncoding | string | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType estiver definido como Application/JSON. |
 | iothub-connection-device-id | string | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileirar a mensagem em UTC. Para consultar, use `enqueuedTime`. |
-| iothub-interface-name | string | Esse valor é definido pelo usuário e representa o nome da interface de entrelaçamento digital que implementa a mensagem de telemetria. Para consultar, use `$interfaceName`. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
+| iothub-interface-nome | string | Esse valor é definido pelo usuário e representa o nome da interface de entrelaçamento digital que implementa a mensagem de telemetria. Para consultar, use `$interfaceName`. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Conforme descrito nas [mensagens do Hub IOT](iot-hub-devguide-messages-construct.md), há propriedades adicionais do sistema em uma mensagem. Além de **ContentType**, **contentEncoding**e **enqueuedTime**, o **connectionDeviceId** e o **connectionModuleId** também podem ser consultados.
 
