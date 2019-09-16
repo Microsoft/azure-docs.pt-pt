@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277597"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984365"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -62,7 +62,7 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
         > O **local de pesquisa** pode ser diferente do **local do site**.
 
     * Escolha se deseja ou não habilitar **Application insights**. Se **Application Insights** é ativada, a ferramenta QnA Maker recolhe telemetria no tráfego, logs de bate-papo e erros.
-    * Escolha o **local do Application** insights no qual o recurso de Application insights será implantado.
+    * Escolha o **local do Application insights** no qual o recurso de Application insights será implantado.
     * Para medidas de economia de custo, você pode [compartilhar](#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker. 
 
 1. Depois que todos os campos forem validados, selecione **criar**. O processo pode levar alguns minutos para ser concluído.
@@ -86,6 +86,8 @@ Você pode exibir e redefinir suas chaves de assinatura do portal do Azure, em q
     ![Chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Localizar chaves de ponto de extremidade no portal de QnA Maker
+
+O ponto de extremidade está na mesma região que o recurso porque as chaves de ponto de extremidade são usadas para fazer uma chamada para a base de dados de conhecimento.
 
 Chaves de ponto de extremidade podem ser geridas a partir da [portal do QnA Maker](https://qnamaker.ai).
 
@@ -111,6 +113,8 @@ QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e benefic
 |Serviço de Aplicações|X|Não é possível por design|
 |Application Insights|✔|Pode ser compartilhado|
 |Serviço de pesquisa|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; ele não pode ser usado por outros.<br>2. O mapa de sinônimos `synonym-map` pelo nome é reservado para o serviço QnAMaker.<br>3. O número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
+
+Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 
 ### <a name="using-a-single-search-service"></a>Usando um único serviço de pesquisa
 
@@ -201,7 +205,9 @@ Você pode verificar a versão atual em https://www.qnamaker.ai/UserSettings. Se
 
 O serviço de gerenciamento do QnA Maker é usado somente para o portal de QnA Maker e para o processamento de dados inicial. Esse serviço está disponível apenas na região oeste dos EUA. Nenhum dado do cliente é armazenado neste serviço oeste dos EUA.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Criar e publicar uma base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md)

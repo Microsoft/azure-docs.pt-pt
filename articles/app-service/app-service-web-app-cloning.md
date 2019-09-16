@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 0f4915add76ce21064b7a79ae110f608592263bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 47efcfc4bf2b0268d6720b659786300e751e861d
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067151"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983700"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonagem de aplicativo de serviço Azure App usando o PowerShell
 
@@ -50,7 +50,7 @@ Usando o `New-AzWebApp` comando, você pode criar o novo aplicativo na região d
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Para clonar um aplicativo existente, incluindo todos os slots de implantação associados, você `IncludeSourceWebAppSlots` precisa usar o parâmetro. O comando do PowerShell a seguir demonstra o uso desse parâmetro com `New-AzWebApp` o comando:
+Para clonar um aplicativo existente, incluindo todos os slots de implantação associados, você `IncludeSourceWebAppSlots` precisa usar o parâmetro.  Observe que o `IncludeSourceWebAppSlots` parâmetro só tem suporte para clonagem de um aplicativo inteiro, incluindo todos os seus slots. O comando do PowerShell a seguir demonstra o uso desse parâmetro com `New-AzWebApp` o comando:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots

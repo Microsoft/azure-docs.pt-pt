@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
-description: Soluções para problemas comuns com a colaboração do Azure Active Directory B2B
+title: Solução de problemas de colaboração B2B – Azure Active Directory | Microsoft Docs
+description: Soluções para problemas comuns com a colaboração Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,86 +12,86 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767159"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983403"
 ---
-# <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
+# <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas Azure Active Directory colaboração B2B
 
 Aqui estão algumas soluções para problemas comuns com a colaboração B2B do Azure Active Directory (Azure AD).
 
-## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Eu adicionei um utilizador externo, mas não vê-los no meu livro de endereços globais ou no selecionador de pessoas
+## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um usuário externo, mas não os vejo no meu catálogo de endereços global ou no seletor de pessoas
 
-Em casos em que os utilizadores externos não são preenchidos na lista, o objeto poderá demorar alguns minutos a replicar.
+Nos casos em que os usuários externos não são populados na lista, o objeto pode levar alguns minutos para ser replicado.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidados B2B não está visível no selecionador de pessoas do SharePoint Online/OneDrive
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um usuário convidado B2B não está aparecendo no seletor de pessoas do SharePoint Online/OneDrive
 
-A capacidade de pesquisar para utilizadores convidados existentes no selecionador de pessoas de SharePoint Online (SPO) está DESATIVADO por predefinição de acordo com o comportamento herdado.
+A capacidade de Pesquisar usuários convidados existentes no seletor de pessoas do SharePoint Online (SPO) está desativada por padrão para corresponder ao comportamento herdado.
 
-Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade com os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SPO já aprovisionados.
+Você pode habilitar esse recurso usando a configuração ' ShowPeoplePickerSuggestionsForGuestUsers ' no nível do locatário e do conjunto de sites. Você pode definir o recurso usando os cmdlets Set-SPOTenant e Set-SPOSite, que permitem que os membros pesquisem todos os usuários convidados existentes no diretório. As alterações no escopo do locatário não afetam os sites SPO já provisionados.
 
-## <a name="invitations-have-been-disabled-for-directory"></a>Convites foram desativados para o diretório
+## <a name="invitations-have-been-disabled-for-directory"></a>Os convites foram desabilitados para o diretório
 
-Se for notificado de que não tem permissões para convidar utilizadores, certifique-se de que a sua conta de utilizador está autorizada a convidar utilizadores externos em definições do utilizador:
+Se você for notificado de que não tem permissões para convidar usuários, verifique se sua conta de usuário está autorizada a convidar usuários externos em Azure Active Directory > configurações de usuário > usuários externos > Gerenciar configurações de colaboração externas:
 
-![Captura de ecrã que mostra as definições de utilizadores externos](media/troubleshoot/external-user-settings.png)
+![Captura de tela mostrando as configurações de usuários externos](media/troubleshoot/external-user-settings.png)
 
-Se tiver modificado recentemente estas definições ou atribuída a função de utilizador que convida convidados para um utilizador, poderá haver um atraso de 60 de 15 minutos antes das alterações entrem em vigor.
+Se você modificou recentemente essas configurações ou atribuiu a função de convite do convidado a um usuário, pode haver um atraso de 15-60 minutos antes que as alterações entrem em vigor.
 
-## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>O utilizador que eu convidado está a receber um erro durante o resgate
+## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>O usuário que convidou está recebendo um erro durante o resgate
 
 Erros comuns incluem:
 
-### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>Administrador do convidado não permitiu EmailVerified utilizadores de que está a ser criados no seu inquilino
+### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>O administrador do convidado não permitiu a criação de usuários verificados em seu locatário
 
-Ao convidar utilizadores cuja organização está a utilizar o Azure Active Directory, mas em que não existe conta de utilizador específico (por exemplo, o utilizador não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política de impedir que os usuários a ser criada. O utilizador tem de verificar com o seu administrador para determinar se são permitidos a utilizadores externos. Administrador do utilizador externo poderá ter de permitir que os utilizadores de verificado por E-Mail no respetivo domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) permitir que os utilizadores verificado de E-Mail).
+Ao convidar usuários cuja organização está usando Azure Active Directory, mas onde a conta do usuário específico não existe (por exemplo, o usuário não existe no Azure AD contoso.com). O administrador do contoso.com pode ter uma política em vigor, impedindo que os usuários sejam criados. O usuário deve verificar com seu administrador para determinar se usuários externos são permitidos. O administrador do usuário externo pode precisar permitir usuários verificados por email em seu domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sobre como permitir usuários verificados por email).
 
-![Erro a indicar que o inquilino não permite e-mail verificado utilizadores](media/troubleshoot/allow-email-verified-users.png)
+![Erro informando que o locatário não permite usuários verificados por email](media/troubleshoot/allow-email-verified-users.png)
 
-### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Utilizador externo não pode já existir num domínio federado
+### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>O usuário externo já não existe em um domínio federado
 
-Se estiver a utilizar a autenticação de Federação e o utilizador ainda não existir no Azure Active Directory, o utilizador não pode ser convidado.
+Se você estiver usando a autenticação de Federação e o usuário ainda não existir no Azure Active Directory, o usuário não poderá ser convidado.
 
-Para resolver este problema, o administrador do utilizador externo tem de sincronizar a conta de utilizador para o Azure Active Directory.
+Para resolver esse problema, o administrador do usuário externo deve sincronizar a conta do usuário para Azure Active Directory.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como dos faz\#', que não é normalmente um caráter válido, a sincronização com o Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como o '\#', que normalmente não é um caractere válido, é sincronizado com o Azure AD?
 
-"\#" é um caractere reservado no UPNs para colaboração B2B do Azure AD ou utilizadores externos, porque a conta de convidado user@contoso.com torna-se user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Por conseguinte, \# UPNs proveniente no local não são permitidos para iniciar sessão no portal do Azure. 
+"\#" é um caractere reservado em UPNs para colaboração B2B do Azure ad ou usuários externos, pois a conta user@contoso.com convidada se torna user_contoso.@fabrikam.onmicrosoft.comcom # ext #. Portanto, \# em UPNs provenientes do local não têm permissão para entrar no portal do Azure. 
 
-## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar utilizadores externos a um grupo sincronizado
+## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar usuários externos a um grupo sincronizado
 
-Utilizadores externos podem ser adicionados apenas para grupos de "Segurança" ou "atribuído" e não aos grupos que são controlado no local.
+Os usuários externos podem ser adicionados somente a grupos "atribuídos" ou "segurança" e não a grupos que são mestres no local.
 
-## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Meu usuário externo não recebeu uma mensagem de e-mail para resgatar
+## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Meu usuário externo não recebeu um email para resgatar
 
-Mesmo o convidado deve verificar junto do respetivo filtro ISP ou spam para se certificar de que o seguinte endereço é permitido: Invites@microsoft.com
+O convidado deve verificar com seu ISP ou filtro de spam para garantir que o seguinte endereço seja permitido:Invites@microsoft.com
 
-## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Eu tenha em atenção que a mensagem personalizada não é incluída com mensagens de convite às vezes
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Observei que a mensagem personalizada não é incluída com mensagens de convite às vezes
 
-Para cumprir as leis de privacidade, as nossas APIs não incluem mensagens personalizadas no convite de e-mail quando:
+Para obedecer às leis de privacidade, nossas APIs não incluem mensagens personalizadas no convite por email quando:
 
-- O autor do convite não tem um endereço de e-mail no inquilino do convite
-- Quando um principal de serviço de aplicações envia o convite
+- O emissor do convite não tem um endereço de email no locatário que está convidando
+- Quando uma entidade de appservice envia o convite
 
-Se este cenário é importante para si, pode suprimir a nossa e-mail de convite de API e enviá-lo através do mecanismo de e-mail da sua preferência. Consulte a orientador jurídico também sua organização certificar-se de que todos os e-mails que envia que também cumprem as leis de privacidade.
+Se esse cenário for importante para você, você poderá suprimir nosso email de convite de API e enviá-lo por meio do mecanismo de email de sua escolha. Consulte o advogado legal de sua organização para ter certeza de que qualquer email enviado dessa maneira também esteja em conformidade com as leis de privacidade.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Receber um erro de "AADSTS65005" ao tentar iniciar sessão para um recurso do Azure
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Você recebe um erro "AADSTS65005" ao tentar fazer logon em um recurso do Azure
 
-Um utilizador que tem uma conta de convidado não pode iniciar sessão e está a receber a seguinte mensagem de erro:
+Um usuário que tem uma conta de convidado não pode fazer logon e está recebendo a seguinte mensagem de erro:
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-O utilizador tem uma conta de utilizador do Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, existem não global ou da empresa administradores no inquilino.
+O usuário tem uma conta de usuário do Azure e é um locatário viral que foi abandonado ou não gerenciado. Além disso, não há administradores globais ou de empresa no locatário.
 
-Para resolver este problema, tem de assumir o inquilino abandonado. Consulte a [assumir um diretório não gerido como administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Também deve acessar o DNS de acesso à internet para o sufixo de domínio em questão para fornecer provas de direta que está no controle do espaço de nomes. Depois do inquilino é retornado para um estado gerido, discuta com o cliente se deixar os usuários e nome de domínio verificado é a melhor opção para a sua organização.
+Para resolver esse problema, você deve assumir o locatário abandonado. Consulte [assumir um diretório não gerenciado como administrador em Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Você também deve acessar o DNS voltado para a Internet para o sufixo de domínio em questão a fim de fornecer evidências diretas de que você está no controle do namespace. Depois que o locatário for retornado a um estado gerenciado, discuta com o cliente se deixar os usuários e o nome de domínio verificado é a melhor opção para sua organização.
 
-## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um utilizador convidado com um inquilino just-in-time ou "viral" não é possível repor a palavra-passe
+## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um usuário convidado com um locatário just-in-time ou "viral" não pode redefinir sua senha
 
-Se o inquilino de identidade for um just-in-time (JIT) ou o inquilino viral (ou seja, é um inquilino do Azure separado e não gerenciado), apenas o utilizador convidado pode repor a palavra-passe. Por vezes, uma organização será [assuma a gestão de inquilinos virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criadas quando os funcionários utilizam os respetivos endereços de e-mail de trabalho para se inscrever para os serviços. Depois da organização assume-se um inquilino viral, apenas um administrador nessa organização pode repor a palavra-passe do utilizador ou ativar a SSPR. Se necessário, como a organização que o convidou, pode remover a conta de utilizador convidado a partir do seu diretório e volte a enviar um convite.
+Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure separado e não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários viral](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus endereços de email de trabalho para se inscreverem nos serviços. Depois que a organização assume um locatário viral, somente um administrador na organização pode redefinir a senha do usuário ou habilitar o SSPR. Se necessário, como a organização que convida, você pode remover a conta de usuário convidado do seu diretório e reenviar um convite.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Obtenha suporte para a colaboração B2B](get-support.md)
+[Obter suporte para colaboração B2B](get-support.md)

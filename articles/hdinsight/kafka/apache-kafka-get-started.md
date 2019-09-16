@@ -4,15 +4,16 @@ description: Neste guia de início rápido, irá saber como criar um cluster do 
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779532"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960292"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: Criar Apache Kafka cluster no Azure HDInsight usando portal do Azure
 
@@ -38,7 +39,7 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
 2. No menu à esquerda, navegue até **+ criar uma** > **análise** > de recursos**HDInsight**.
    
-    ![Criar um cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![Criar um cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. Em **Informações Básicas**, introduza ou selecione as seguintes informações:
 
@@ -49,7 +50,7 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
     
    Selecione __Tipo de Cluster__ para apresentar a **Configuração do Cluster**.
    
-   ![Cluster do Apache Kafka na configuração básica do HDInsight](./media/apache-kafka-get-started/custom-basics-kafka.png)
+   ![Cluster do Apache Kafka na configuração básica do HDInsight](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. Em __configuração de cluster__, selecione os seguintes valores:
 
@@ -60,7 +61,7 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
     Selecione **selecionar** para salvar as configurações de tipo de cluster e retornar para __noções básicas__.
 
-    ![Selecione o tipo de cluster](./media/apache-kafka-get-started/kafka-cluster-type.png)
+    ![Selecione o tipo de cluster](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. Em __Informações Básicas__, introduza ou selecione as seguintes informações:
 
@@ -98,7 +99,7 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
     A entrada de **discos por nó de trabalho** configura a escalabilidade do Apache Kafka no HDInsight. O Apache Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster para armazenar dados. O Apache Kafka recebe um fluxo intensivo de dados de E/S, pelo que o [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) é utilizado para garantir um elevado débito e uma maior capacidade de armazenamento por nó. O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Apache Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard.
 
-   ![Definir o tamanho do cluster do Apache Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
+   ![Definir o tamanho do cluster do Apache Kafka](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
 10. Em __Definições avançadas__, selecione __Seguinte__ para continuar com as predefinições.
 
@@ -226,7 +227,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
         O Apache Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
-        Para garantir a alta disponibilidade, use a ferramenta de rebalanceamento de [partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH ao nó principal do cluster do Apache Kafka.
+        Para garantir a alta disponibilidade, use a [ferramenta de rebalanceamento de partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH ao nó principal do cluster do Apache Kafka.
 
         Para garantir a maior disponibilidade dos seus dados do Apache Kafka, deve reequilibrar as réplicas de partições do tópico quando:
 

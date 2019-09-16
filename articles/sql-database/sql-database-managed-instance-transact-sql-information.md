@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 29fd82eb0253f2f7f6b9bc8b6a84882e2372124c
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858553"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984979"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -339,7 +339,7 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 - `ALTER ASSEMBLY`Não é possível fazer referência a arquivos. Consulte [ALTER assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Não é possível enviar @file_attachments anexos usando o parâmetro. O sistema de arquivos local e os compartilhamentos de extensão ou o armazenamento de BLOBs do Azure não estão acessíveis neste procedimento.
+ - `sp_send_dbmail`Não é possível enviar @file_attachments anexos usando o parâmetro. O sistema de arquivos local e os compartilhamentos Extertal ou o armazenamento de BLOBs do Azure não estão acessíveis neste procedimento.
  - Consulte os problemas conhecidos relacionados ao `@query` parâmetro e à autenticação.
  
 ### <a name="dbcc"></a>DBCC
@@ -479,9 +479,12 @@ Limitações
 - A restauração `.BAK` do arquivo de um banco de dados que contém qualquer limitação descrita neste documento (por `FILESTREAM` exemplo `FILETABLE` , ou objetos) não pode ser restaurada em instância gerenciada.
 - `.BAK`os arquivos que contêm vários conjuntos de backup não podem ser restaurados. 
 - `.BAK`arquivos que contêm vários arquivos de log não podem ser restaurados.
-- Os backups que contêm bancos de dados maiores que 8 TB, objetos OLTP na memória ativa ou mais de 280 arquivos não podem ser restaurados em uma instância de Uso Geral. 
+- Os backups que contêm bancos de dados maiores que 8 TB, objetos OLTP na memória ativas ou o número de arquivos que excedem 280 arquivos por instância não podem ser restaurados em uma instância de Uso Geral. 
 - Os backups que contêm bancos de dados maiores que 4 TB ou objetos OLTP na memória com o tamanho total maior do que o tamanho descrito nos [limites de recursos](sql-database-managed-instance-resource-limits.md) não podem ser restaurados na instância comercialmente crítico.
 Para obter informações sobre instruções RESTORE, consulte [instruções RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+
+ > [!IMPORTANT]
+ > As mesmas limitações se aplicam à operação de restauração pontual interna. Por exemplo, Uso Geral banco de dados maior que 4 TB não pode ser restaurado na instância Comercialmente Crítico. Comercialmente Crítico banco de dados com arquivos OLTP na memória ou mais de 280 arquivos não podem ser restaurados na instância Uso Geral.
 
 ### <a name="service-broker"></a>Service Broker
 

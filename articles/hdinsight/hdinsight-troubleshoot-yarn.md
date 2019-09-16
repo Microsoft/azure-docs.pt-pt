@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 15ef18663a42153c11a55d4c5963d47f0e2514d6
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573705"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961731"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop YARN usando o Azure HDInsight
 
@@ -33,27 +33,27 @@ Neste exemplo, dois filas existentes (**predefinição** e **thriftsvr**) ambos 
 
 1. Selecione o **vistas Ambari** ícone e, em seguida, selecione o padrão de grade. Em seguida, selecione **Gestor de filas do YARN**.
 
-    ![Selecione o ícone de vistas do Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Selecione o ícone de vistas do Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selecione o **predefinição** fila.
 
-    ![Selecione a fila padrão](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Selecione a fila padrão](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Para o **predefinição** colocar em fila, altere a **capacidade** de 50% a 25%. Para o **thriftsvr** colocar em fila, altere a **capacidade** para 25%.
 
-    ![Alterar a capacidade para 25% para as filas de padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Alterar a capacidade para 25% para as filas de padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Para criar uma nova fila, selecione **adicionar fila**.
 
-    ![Selecione adicionar fila](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Selecione adicionar fila](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Nome da nova fila.
 
-    ![Nome da fila de Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Nome da fila de Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Deixe o **capacidade** valores em 50% e, em seguida, selecione a **ações** botão.
 
-    ![Selecione o botão de ações](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Selecione o botão de ações](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Selecione **guarde e Atualize as filas**.
 
-    ![Selecione salvar e Atualize as filas](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Selecione salvar e Atualize as filas](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 Estas alterações são visíveis imediatamente na IU de agendador do YARN.
 

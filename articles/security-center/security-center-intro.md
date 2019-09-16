@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 762ab2800193aa084b771b7d000b383a7004097e
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882851"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984923"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -32,13 +32,13 @@ A central de segurança do Azure aborda os três desafios de segurança mais urg
 
 -   **Alteração rápida de cargas de trabalho** – é tanto uma força quanto um desafio da nuvem. Por um lado, os usuários finais são capacitados a fazer mais. No outro, como você garante que os serviços em constante mudança que as pessoas estão usando e que a criação sejam de acordo com seus padrões de segurança e sigam as práticas recomendadas de segurança?
 
--   **Ataques cada vez** mais sofisticados – sempre que você executa suas cargas de trabalho, os ataques continuam sendo mais sofisticados. Você precisa proteger suas cargas de trabalho de nuvem pública, que são, na verdade, uma carga de trabalho voltada para a Internet que pode deixá-lo ainda mais vulnerável se você não seguir as práticas recomendadas de segurança.
+-   **Ataques cada vez mais sofisticados** – sempre que você executa suas cargas de trabalho, os ataques continuam sendo mais sofisticados. Você precisa proteger suas cargas de trabalho de nuvem pública, que são, na verdade, uma carga de trabalho voltada para a Internet que pode deixá-lo ainda mais vulnerável se você não seguir as práticas recomendadas de segurança.
 
 -   As **habilidades de segurança estão em um fornecimento curto** : o número de alertas de segurança e sistemas de alerta ultrapassa o número de administradores com o plano de fundo necessário e a experiência para garantir que seus ambientes estejam protegidos. Manter-se atualizado com os ataques mais recentes é um desafio constante, o que torna impossível permanecer em vigor, enquanto o mundo da segurança é uma primeira constante mudança.
 
 Para ajudá-lo a se proteger contra esses desafios, a central de segurança fornece as ferramentas para:
 
--   **Fortaleça a postura de segurança**: A central de segurança avalia seu ambiente e permite que você compreenda o status de seus recursos, eles são seguros ou não?
+-   **Fortaleça a postura de segurança**: A central de segurança avalia seu ambiente e permite que você compreenda o status de seus recursos e se eles são seguros.
 
 -   **Proteger contra ameaças**: A central de segurança avalia suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de detecção de ameaças.
 
@@ -142,7 +142,7 @@ A central de segurança fornece integração nativa e integrada com os recursos 
 
 Coleta de log extensiva – os logs do Windows e do Linux são todos utilizados no mecanismo de análise de segurança e usados para criar recomendações e alertas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - O escalão de preço Gratuito do Centro de Segurança está ativado com a sua subscrição do Azure. Para tirar partido da gestão de segurança avançada e das capacidades de deteção de ameaças, tem de atualizar para o escalão de preço Standard. A camada Standard pode ser tentada gratuitamente. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.

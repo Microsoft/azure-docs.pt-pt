@@ -1,45 +1,45 @@
 ---
-title: Autenticar a voz do Bing | Documentos da Microsoft
+title: Autenticar para Fala do Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Pedido de autenticação a utilizar a API de voz do Bing
+description: Solicitar autenticação para usar o API de Fala do Bing
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1e708ff29293b87935d0d191ba44ad4a11917a0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515059"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965662"
 ---
-# <a name="authenticate-to-the-speech-api"></a>Autenticar para a API de voz
+# <a name="authenticate-to-the-speech-api"></a>Autenticar no Speech API
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Voz do Bing suporta autenticação com:
+O Fala do Bing dá suporte à autenticação usando:
 
 - Uma chave de subscrição.
 - Um token de autorização.
 
-## <a name="use-a-subscription-key"></a>Utilizar uma chave de subscrição
+## <a name="use-a-subscription-key"></a>Usar uma chave de assinatura
 
-Para utilizar o serviço de voz, tem de subscrever primeiro a API de voz que faz parte dos serviços cognitivos (anteriormente o projeto Oxford). Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
+Para usar o serviço de fala, você deve primeiro assinar o Speech API que faz parte dos serviços cognitivas (anteriormente, o projeto Oxford). Você pode obter chaves de assinatura de avaliação gratuita da página de [assinatura de serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/) . Depois de selecionar a Speech API, selecione **obter chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão vinculadas à mesma cota, para que você possa usar qualquer chave.
 
-Para utilização a longo prazo ou uma quota maior, inscreva-se para uma [conta do Azure](https://azure.microsoft.com/free/).
+Para uso de longo prazo ou uma cota maior, Inscreva-se para uma [conta do Azure](https://azure.microsoft.com/free/).
 
-Para utilizar a API de REST de voz, tem de passar a chave de subscrição no `Ocp-Apim-Subscription-Key` campo no cabeçalho do pedido.
+Para usar a API REST de fala, você precisa passar a chave de assinatura no `Ocp-Apim-Subscription-Key` campo no cabeçalho da solicitação.
 
 Name| Formato| Descrição
 ----|-------|------------
 OCP-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
-Segue-se um exemplo de um cabeçalho de pedido:
+Veja a seguir um exemplo de um cabeçalho de solicitação:
 
 ```HTTP
 POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -52,18 +52,18 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> Se usar [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) na sua aplicação, certifique-se de que pode obter o token de autorização com a sua chave de subscrição, conforme descrito na secção seguinte. As bibliotecas de cliente utilizam a chave de subscrição para obter um token de autorização e, em seguida, utilizar o token para autenticação.
+> Se você usar [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) em seu aplicativo, verifique se você pode obter o token de autorização com sua chave de assinatura, conforme descrito na seção a seguir. As bibliotecas de cliente usam a chave de assinatura para obter um token de autorização e, em seguida, usam o token para autenticação.
 
-## <a name="use-an-authorization-token"></a>Utilizar um token de autorização
+## <a name="use-an-authorization-token"></a>Usar um token de autorização
 
-Em alternativa, pode utilizar um token de autorização para a autenticação como prova de autenticação/autorização. Para obter token, tem primeiro de obter uma chave de assinatura da API de voz, conforme descrito no [secção anterior](#use-a-subscription-key).
+Como alternativa, você pode usar um token de autorização para autenticação como prova de autenticação/autorização. Para obter esse token, primeiro você deve obter uma chave de assinatura do Speech API, conforme descrito na [seção anterior](#use-a-subscription-key).
 
 ### <a name="get-an-authorization-token"></a>Obter um token de autorização
 
-Depois de ter uma chave de subscrição válida, envie um pedido POST para o serviço de tokens dos serviços cognitivos. Em resposta, recebe o token de autorização como um JSON Web Token (JWT).
+Depois que você tiver uma chave de assinatura válida, envie uma solicitação POST para o serviço de token de serviços cognitivas. Na resposta, você recebe o token de autorização como um JWT (token Web JSON).
 
 > [!NOTE]
-> O token tem um término do período de 10 minutos. Para renovar o token, consulte a secção seguinte.
+> O token tem uma expiração de 10 minutos. Para renovar o token, consulte a seção a seguir.
 
 O URI do serviço de token está localizado aqui:
 
@@ -71,7 +71,7 @@ O URI do serviço de token está localizado aqui:
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-O exemplo de código seguinte mostra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com sua própria chave de subscrição:
+O exemplo de código a seguir mostra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua própria chave de assinatura:
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -91,7 +91,7 @@ $OAuthToken
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
-O exemplo utiliza o curl no Linux com o bash. Se não estiver disponível na sua plataforma, precisará de instalar o curl. O exemplo também funciona em Cygwin no Windows, do Git Bash, zsh e outros shells.
+O exemplo usa a ondulação no Linux com bash. Se ele não estiver disponível em sua plataforma, talvez seja necessário instalar a ondulação. O exemplo também funciona em Cygwin no Windows, git bash, zsh e outros shells.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -138,7 +138,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 
 ---
 
-Segue-se um pedido POST de exemplo:
+Este é um exemplo de solicitação POST:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
@@ -149,16 +149,16 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
-Se não é possível obter uma autorização token do serviço de token, verifique se a sua chave de subscrição é válida. Se estiver a utilizar uma chave de avaliação gratuita, vá para o [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página, clique em "Início de sessão" para iniciar sessão com a conta que utilizou para aplicar a chave de avaliação gratuita e verificar se a chave de subscrição expirou ou excede o quota.
+Se você não puder obter um token de autorização do serviço de token, verifique se sua chave de assinatura ainda é válida. Se você estiver usando uma chave de avaliação gratuita, vá para a página de [assinatura de serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/) , clique em "fazer logon" para fazer logon usando a conta que você usou para aplicar a chave de avaliação gratuita e verifique se a chave de assinatura expirou ou excede a cota.
 
-### <a name="use-an-authorization-token-in-a-request"></a>Utilizar um token de autorização num pedido
+### <a name="use-an-authorization-token-in-a-request"></a>Usar um token de autorização em uma solicitação
 
-Sempre que chamar a API de voz, tem de transmitir o token de autorização no `Authorization` cabeçalho. O `Authorization` cabeçalho tem de conter um token de acesso do JWT.
+Cada vez que você chama o Speech API, você precisa passar o token de autorização no `Authorization` cabeçalho. O `Authorization` cabeçalho deve conter um token de acesso JWT.
 
-O exemplo seguinte mostra como utilizar um token de autorização, quando chama a API de REST de voz.
+O exemplo a seguir mostra como usar um token de autorização quando você chama a API REST de fala.
 
 > [!NOTE]
-> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_ACCESS_TOKEN` com o token de autorização que obteve no passo anterior [obter um token de autorização](#get-an-authorization-token).
+> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_ACCESS_TOKEN` pelo token de autorização que você obteve na etapa anterior [obter um token de autorização](#get-an-authorization-token).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -233,9 +233,9 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### <a name="renew-an-authorization-token"></a>Renovar um token de autorização
 
-O token de autorização expira após um determinado período de tempo (atualmente de 10 minutos). Terá de renovar o token de autorização antes de expirar.
+O token de autorização expira após um determinado período de tempo (10 minutos no momento). Você precisa renovar o token de autorização antes que ele expire.
 
-O código a seguir é uma implementação de exemplo em c# de como renovar o token de autorização:
+O código a seguir é uma implementação de C# exemplo em como renovar o token de autorização:
 
 ```cs
     /*

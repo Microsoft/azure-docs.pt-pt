@@ -1,27 +1,27 @@
 ---
-title: Introdução ao serviço de voz de Microsoft | Documentos da Microsoft
+title: Introdução ao serviço de fala da Microsoft | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Utilize o serviço de voz de Microsoft.
+description: Use o serviço de fala da Microsoft.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7b7a286bb3f38982f6c55e37e186c524a8a92266
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 847d9f53e725ef2edc92dadf08ecb167528b6fd9
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515273"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965914"
 ---
-# <a name="get-started-with-bing-speech"></a>Obter uma introdução de voz do Bing
+# <a name="get-started-with-bing-speech"></a>Introdução ao Fala do Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Para utilizar o serviço de reconhecimento de fala da Microsoft para converter áudio em texto, consulte o reconhecimento de fala [REST APIs](GetStartedREST.md) ou o [bibliotecas de cliente](GetStartedClientLibraries.md).
+Para usar o serviço de reconhecimento de fala da Microsoft para converter áudio em texto, consulte as [APIs REST](GetStartedREST.md) do reconhecimento de fala ou as [bibliotecas de cliente](GetStartedClientLibraries.md).
 
-Para utilizar o serviço de texto para voz da Microsoft, consulte a [referência de texto em voz, API](../api-reference-rest/bingvoiceoutput.md).
+Para usar o serviço de conversão de texto em fala da Microsoft, consulte a [referência de API de conversão de texto em fala](../api-reference-rest/bingvoiceoutput.md).

@@ -1,36 +1,36 @@
 ---
-title: Como escolher o modo de reconhecimento de voz do Bing | Documentos da Microsoft
+title: Como escolher o modo de reconhecimento de Fala do Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Como escolher o melhor modo de reconhecimento de voz do Bing.
+description: Como escolher o melhor modo de reconhecimento no Fala do Bing.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 99e69691d9904285ecff356523813b426c98fca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1860acb571c837a5eb4c75be69a96d1b22682118
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515024"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965681"
 ---
-# <a name="bing-speech-recognition-modes"></a>Modos de reconhecimento de voz do Bing
+# <a name="bing-speech-recognition-modes"></a>Modos de reconhecimento de Fala do Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-A voz do Bing às APIs de texto suportam vários modos de reconhecimento de fala. Escolha o modo que produz os melhores resultados de reconhecimento para a sua aplicação.
+As APIs de Conversão de Fala em Texto do Bing dão suporte a vários modos de reconhecimento de fala. Escolha o modo que produz os melhores resultados de reconhecimento para seu aplicativo.
 
 | Modo | Descrição |
 |---|---|
-| *interativo* | Reconhecimento de "Comando e controlo" para cenários de aplicações do utilizador interativo. Os utilizadores falam frases curtas que se destina a ser comandos para um aplicativo. |
-| *dictation* | Reconhecimento contínuo para cenários de ditado. Os utilizadores falam frases mais tempo do que são apresentadas como texto. Os utilizadores adotam um estilo de fala mais formal. |
-| *conversation* | Reconhecimento contínuo para fotografar conversações entre seres humanos. Os utilizadores adotam um estilo de fala menos formal e podem se alternam entre frases mais tempo e frases mais curtos.
+| *interativo* | Reconhecimento de "comando e controle" para cenários de aplicativos de usuários interativos. Os usuários falam frases curtas pretendidas como comandos para um aplicativo. |
+| *comandos* | Reconhecimento contínuo de cenários de ditado. Os usuários falam frases mais longas que são exibidas como texto. Os usuários adotam um estilo de fala mais formal. |
+| *escreve* | Reconhecimento contínuo para transcrever conversas entre seres humanos. Os usuários adotam um estilo de fala menos formal e podem alternar entre frases mais longas e frases mais curtas.
 
 > [!NOTE]
-> Esses modos são aplicáveis quando utiliza a [REST APIs](../GetStarted/GetStartedREST.md). O [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) utilizar parâmetros diferentes para especificar o modo de reconhecimento. Para obter mais informações, consulte a biblioteca de cliente da sua preferência.
+> Esses modos são aplicáveis quando você usa as [APIs REST](../GetStarted/GetStartedREST.md). As [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) usam parâmetros diferentes para especificar o modo de reconhecimento. Para obter mais informações, consulte a biblioteca de cliente de sua escolha.
 
-Para obter mais informações, consulte a [modos de reconhecimento](../concepts.md#recognition-modes) página.
+Para obter mais informações, consulte a página [modos de reconhecimento](../concepts.md#recognition-modes) .

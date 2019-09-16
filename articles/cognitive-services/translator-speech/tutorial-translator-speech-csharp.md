@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: API de voz do tradutorC#'
+title: 'Tutorial: API de Tradução de FalaC#'
 titleSuffix: Azure Cognitive Services
 description: Utilize a API de Voz do Microsoft Translator para traduzir textos em tempo real.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3853dd810182948e12b578c33b8cb91bef4b1cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 669322aefb152729cc120abc0d7a52ce9d1151da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445588"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965290"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicativo de voz de tradutor noC#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Tradução de Fala aplicativo noC#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -34,13 +34,13 @@ Está [disponível no GitHub](https://github.com/MicrosoftTranslator/SpeechTrans
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este tutorial, terá de qualquer edição do Visual 2019 Studio, incluindo a edição de Comunidade.
+Para este tutorial, você precisa de qualquer edição do Visual Studio 2019, incluindo a Community Edition.
 
 A solução do Visual Studio também cria um instalador para a aplicação. Precisa do [WiX Toolset](http://wixtoolset.org/) e da [Extensão WiX Toolset Visual Studio](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) para suportar esta funcionalidade.
 
 Também precisa de uma chave de subscrição para o serviço Tradução de Voz, que pode obter no dashboard do Microsoft Azure. Está disponível um escalão de preço gratuito que lhe permite traduzir até dez horas de voz por mês sem custos. Este escalão é suficiente para o tutorial.
 
-De terceiros [JSON.NET biblioteca](https://www.newtonsoft.com/json) (a partir de Newtonsoft) também é necessário. Esta assemblagem é instalada automaticamente pelo NuGet se ambas as caixas de verificação de Restauro de Pacote estiverem selecionadas nas opções do Visual Studio.
+A [biblioteca JSON.net](https://www.newtonsoft.com/json) de terceiros (de Newtonsoft) também é necessária. Esta assemblagem é instalada automaticamente pelo NuGet se ambas as caixas de verificação de Restauro de Pacote estiverem selecionadas nas opções do Visual Studio.
 
 ## <a name="trying-the-translation-app"></a>Experimentar a aplicação de tradução
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d98a5f04f60cb7d933ea91e0657f6067fb1c59a8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598683"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962806"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Pré-requisitos para gerenciar contas no Portal do Cloud Partner 
 
@@ -21,7 +21,7 @@ Antes de usar o [portal do Cloud Partner](https://cloudpartner.azure.com/) para 
 
 ## <a name="account-terms-and-guidelines"></a>Termos e diretrizes da conta
 
-Examine atentamente seus direitos e responsabilidades na [contrato de serviços Microsoft](https://www.microsoft.com/servicesagreement) e os [termos de uso da Microsoft antes de](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) criar uma conta.  
+Examine atentamente seus direitos e responsabilidades na [contrato de serviços Microsoft](https://www.microsoft.com/servicesagreement) e os [termos de uso da Microsoft antes de](https://www.microsoft.com/us-en/legal/intellectualproperty/copyright/default.aspx) criar uma conta.  
 
 Escolha o nome da conta com cuidado.  Ele representa sua organização, portanto, não deve conter nenhuma palavra com copyright ou contenciosos.  Por exemplo, a Microsoft proíbe o uso de seus termos protegidos por direitos autorais, como "Azure" e "Microsoft", em nomes de conta.  Para obter mais informações, consulte [diretrizes para o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
 
@@ -44,6 +44,6 @@ A tabela a seguir lista as etapas necessárias para o registro completo como um 
 \*Essas etapas são necessárias para as ofertas do Azure Marketplace Transact, mas são altamente recomendadas para todas as ofertas.  Depois de estabelecer um conta Microsoft e registrá-lo como desenvolvedor da Microsoft, você pode acessar outros recursos de clientes e desenvolvedores da Microsoft, bem como ofertas de parceiros opcionais.  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de concluir as etapas de registro, você poderá entrar no [portal do Cloud Partner](https://cloudpartner.azure.com/).  Você pode usar este portal para e gerenciar perfis de Publicador e gerenciar contas de usuário.

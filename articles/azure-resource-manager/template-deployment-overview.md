@@ -4,14 +4,14 @@ description: Descreve como usar modelos de Azure Resource Manager para a implant
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61e9bbabee969280c07521edb05d67ba68c0c58e
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802001"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965302"
 ---
 # <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -21,43 +21,35 @@ Para atender a esses desafios, você pode automatizar implantações e usar a pr
 
 Para implementar a infraestrutura como código para suas soluções do Azure, use Azure Resource Manager modelos. O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite que você declare o que pretende implantar sem precisar escrever a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
-## <a name="benefits-of-resource-manager-templates"></a>Benefícios dos modelos do Resource Manager
+## <a name="why-choose-resource-manager-templates"></a>Por que escolher modelos do Resource Manager?
 
-Os modelos do Resource Manager oferecem os seguintes benefícios:
+Se você estiver tentando decidir entre usar modelos do Resource Manager e uma das outras infraestruturas como serviços de código, considere as seguintes vantagens de usar modelos:
 
-* Implante, gerencie e monitore todos os recursos de sua solução como um grupo, em vez de manipular esses recursos individualmente.
+* **Sintaxe declarativa**: Os modelos do Resource Manager permitem criar e implantar uma infraestrutura inteira do Azure de forma declarativa. Por exemplo, você pode implantar não apenas máquinas virtuais, mas também a infraestrutura de rede, os sistemas de armazenamento e quaisquer outros recursos que você possa precisar.
 
-* Implante repetidamente sua solução em todo o ciclo de vida de desenvolvimento e tenha confiança de que seus recursos sejam implantados em um estado consistente.
+* **Resultados repetíveis**: Implante repetidamente sua infraestrutura em todo o ciclo de vida de desenvolvimento e tenha confiança de que seus recursos sejam implantados de maneira consistente. Os modelos são idempotentes, o que significa que você pode implantar o mesmo modelo muitas vezes e obter os mesmos tipos de recursos no mesmo estado. Você pode desenvolver um modelo que representa o estado desejado, em vez de desenvolver muitos modelos separados para representar atualizações.
 
-* Gerencie sua infraestrutura por meio de modelos declarativos em vez de scripts.
-
-Se você estiver tentando decidir entre usar modelos do Resource Manager ou uma das outras infraestruturas como serviços de código, considere os seguintes modelos de vantagens em relação a esses serviços:
-
-* Os novos serviços e recursos do Azure estão imediatamente disponíveis em modelos. Assim que um provedor de recursos apresenta novos recursos, você pode implantar esses recursos por meio de modelos. Com outra infraestrutura como serviços de código, você precisa esperar que terceiros implementem interfaces para os novos recursos.
-
-* As implantações de modelo são tratadas por meio de um único envio do modelo, em vez de vários comandos imperativos. O Resource Manager orquestra a implantação de recursos interdependentes para que eles sejam criados na ordem correta. Ele analisa o modelo e determina a ordem correta para a implantação com base nas referências entre os recursos.
+* **Orquestração**: Você não precisa se preocupar com as complexidades das operações de ordenação. O Resource Manager orquestra a implantação de recursos interdependentes para que eles sejam criados na ordem correta. Quando possível, o Resource Manager implanta recursos em paralelo para que suas implantações sejam concluídas mais rapidamente do que as implantações seriais. Você implanta o modelo por meio de um comando, em vez de vários comandos imperativos.
 
    ![Comparação de Implantação de modelo](./media/template-deployment-overview/template-processing.png)
 
-* As implantações de modelo são controladas no portal do Azure. Você pode examinar o histórico de implantação e obter informações sobre a implantação do modelo. Você pode ver o modelo que foi implantado, os valores de parâmetro passados e todos os valores de saída. Outra infraestrutura como serviços de código não é rastreada por meio do Portal.
+* **Validação interna**: Seu modelo é implantado somente após a aprovação da validação. O Gerenciador de recursos verifica o modelo antes de iniciar a implantação para garantir que a implantação terá sucesso. Sua implantação é menos provável de parar em um estado de meia-conclusão.
+
+* **Arquivos modulares**: Você pode dividir seus modelos em componentes menores e reutilizáveis e vinculá-los no momento da implantação. Você também pode aninhar um modelo dentro de outros modelos.
+
+* **Criar qualquer recurso do Azure**: Você pode usar imediatamente novos serviços e recursos do Azure em modelos. Assim que um provedor de recursos apresenta novos recursos, você pode implantar esses recursos por meio de modelos. Você não precisa aguardar que as ferramentas ou os módulos sejam atualizados antes de usar os novos serviços.
+
+* **Implantações controladas**: No portal do Azure, você pode examinar o histórico de implantação e obter informações sobre a implantação do modelo. Você pode ver o modelo que foi implantado, os valores de parâmetro passados e todos os valores de saída. Outra infraestrutura como serviços de código não é rastreada por meio do Portal.
 
    ![Histórico de implementações](./media/template-deployment-overview/deployment-history.png)
 
-* As implantações de modelo passam por uma validação preliminar. O Gerenciador de recursos verifica o modelo antes de iniciar a implantação para garantir que a implantação terá sucesso. Sua implantação é menos provável de parar em um estado de meia-conclusão.
+* **Política como código**: [Azure Policy](../governance/policy/overview.md) é uma política como estrutura de código para automatizar a governança. Se você estiver usando políticas do Azure, a correção de política será feita em recursos sem conformidade quando implantada por meio de modelos.
 
-* Se você estiver usando [políticas do Azure](../governance/policy/overview.md), a correção de política será feita em recursos sem conformidade quando implantada por meio de modelos.
+* **Plantas de implantação**: Você pode aproveitar os [planos gráficos](../governance/blueprints/overview.md) fornecidos pela Microsoft para atender aos padrões normativos e de conformidade. Esses planos gráficos incluem modelos predefinidos para várias arquiteturas.
 
-* A Microsoft fornece [plantas](../governance/blueprints/overview.md) de implantação para atender aos padrões normativos e de conformidade. Esses planos gráficos incluem modelos predefinidos para várias arquiteturas.
+* **Código exportável**: Você pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para uma implantação específica. Visualizar o [modelo exportado](export-template-portal.md) é uma forma útil de saber mais sobre a sintaxe do modelo.
 
-## <a name="idempotent"></a>Idempotente
-
-Idempotente simplesmente significa que você pode executar as mesmas operações muitas vezes e obter o mesmo resultado. A implantação de um modelo do Resource Manager é idempotente. Você pode implantar o mesmo modelo muitas vezes e obter os mesmos tipos de recursos no mesmo estado. Esse conceito é importante porque significa que você obtém resultados consistentes se reimplanta um modelo em um grupo de recursos existente ou implanta um modelo de um novo grupo de recursos.
-
-Vamos supor que você tenha implantado três recursos em um grupo de recursos e, em seguida, decida que precisa adicionar um quarto recurso. Em vez de criar um novo modelo que contenha apenas o novo recurso, você pode adicionar o quarto recurso ao modelo existente. Quando você implanta o novo modelo no grupo de recursos que já tinha três recursos, o Resource Manager descobre quais ações executar.
-
-Se o recurso existir no grupo de recursos e a solicitação não contiver atualizações para as propriedades, nenhuma ação será executada. Se o recurso existir, mas as propriedades tiverem sido alteradas, o recurso existente será atualizado. Se o recurso não existir, o novo recurso será criado.
-
-Você tem certeza de que, quando a implantação é concluída, os recursos estão sempre no estado esperado.
+* **Ferramentas de criação**: Você pode criar modelos com [Visual Studio Code](resource-manager-tools-vs-code.md) e a extensão de ferramenta de modelo. Você Obtém o IntelliSense, o realce de sintaxe, a ajuda online e muitas outras funções de linguagem.
 
 ## <a name="template-file"></a>Arquivo de modelo
 
@@ -74,20 +66,6 @@ O modelo tem as seguintes seções:
 * [Recursos](resource-group-authoring-templates.md#resources) -especifique os recursos a serem implantados.
 
 * [Saídas](template-outputs.md) – retornam valores dos recursos implantados.
-
-## <a name="template-features"></a>Recursos de modelo
-
-O Gerenciador de recursos analisa as dependências para garantir que os recursos sejam criados na ordem correta. A maioria das dependências é determinada implicitamente. No entanto, você pode definir explicitamente uma dependência para garantir que um recurso seja implantado antes de outro recurso. Para obter mais informações, consulte [Definir dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md).
-
-Você pode adicionar um recurso ao seu modelo e, opcionalmente, implantá-lo. Normalmente, você passa um valor de parâmetro que indica se o recurso precisa ser implantado. Para obter mais informações, consulte [implantação condicional em modelos do Resource Manager](conditional-resource-deployment.md).
-
-Em vez de blocos repetitivos de JSON muitas vezes em seu modelo, você pode usar um elemento de cópia para especificar mais de uma instância de uma variável, propriedade ou recurso. Para obter mais informações, consulte [recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager](resource-group-create-multiple.md).
-
-## <a name="export-templates"></a>Exportar modelos
-
-Você pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para uma implantação específica. Visualizar o [modelo exportado](export-template-portal.md) é uma forma útil de saber mais sobre a sintaxe do modelo.
-
-Quando cria uma solução a partir do portal, esta inclui automaticamente um modelo de implementação. Não precisa de criar o modelo a partir do zero porque pode começar com o modelo para a sua solução e personalizá-lo de modo a satisfazer as suas necessidades específicas. Para obter um exemplo, [consulte início rápido: Crie e implante modelos de Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
 
 ## <a name="template-deployment-process"></a>Processo de Implantação de modelo
 
@@ -146,6 +124,7 @@ Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos li
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
-* Para começar a desenvolver o modelo, consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](resource-manager-tools-vs-code.md).
-* Para obter uma introdução ao serviço do Gerenciador de recursos, incluindo seus recursos de gerenciamento, consulte [Azure Resource Manager visão geral](resource-group-overview.md).
-
+* Para definir dependências explicitamente para que um recurso seja implantado antes de outro recurso, consulte [definindo dependências em modelos de Azure Resource Manager](resource-group-define-dependencies.md).
+* Você pode adicionar um recurso ao seu modelo e, opcionalmente, implantá-lo. Para obter mais informações, consulte [implantação condicional em modelos do Resource Manager](conditional-resource-deployment.md).
+* Em vez de blocos repetitivos de JSON muitas vezes em seu modelo, você pode especificar mais de uma instância de uma variável, propriedade ou recurso. Para obter mais informações, consulte [recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager](resource-group-create-multiple.md).
+* Para saber mais sobre como exportar modelos [, consulte início rápido: Crie e implante modelos de Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

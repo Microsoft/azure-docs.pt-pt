@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559100"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962525"
 ---
 # <a name="personalizer-settings"></a>Configurações do personalizador
 
@@ -35,7 +35,7 @@ Crie um recurso personalizado para cada loop de comentários.
 1. Encontre seu recurso personalizador. 
 1. Na seção **Gerenciamento de recursos** , selecione **configurações**.
 
-    Antes de deixar o portal do Azure, copie uma das suas chaves de recurso da página **chaves** . Você precisará disso para usar o [SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)do personalizador.
+    Antes de deixar o portal do Azure, copie uma das suas chaves de recurso da página **chaves** . Você precisará disso para usar o [SDK do personalizador](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Definir configurações de recompensa para o loop de comentários com base no caso de uso
 
@@ -67,7 +67,7 @@ O modelo mais recente, treinado a partir de recompensar chamadas de API de cada 
 
 As frequências de atualização de modelo alto são úteis para situações em que você deseja controlar com mais precisão as alterações nos comportamentos do usuário. Os exemplos incluem sites que são executados em notícias ao vivo, conteúdo viral ou oferta de produtos ao vivo. Você pode usar uma frequência de 15 minutos nesses cenários. Para a maioria dos casos de uso, uma frequência de atualização mais baixa é eficaz. As frequências de atualização de um minuto são úteis ao depurar o código de um aplicativo usando o personalizador, fazer demonstrações ou testar interativamente aspectos de aprendizado de máquina.
 
-![Frequência de atualização de modelo define com que frequência um novo modelo personalizado é retreinado.](media/settings/configure-model-update-frequency-settings.png)
+![Frequência de atualização de modelo define com que frequência um novo modelo personalizado é retreinado.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 Depois de alterar essa configuração, certifique-se de selecionar **salvar**.
 
@@ -88,7 +88,7 @@ Na seção do gerenciamento de recursos para **modelo e política**, examine a c
 Na seção do gerenciamento de recursos para **modelo e política**, importe uma nova política de aprendizado ou exporte a política de aprendizado atual.
 Você pode obter arquivos de política de aprendizado de exportações anteriores ou baixar as políticas otimizadas descobertas durante as avaliações offline. Fazer alterações manuais nesses arquivos afetará o desempenho do aprendizado de máquina e a precisão das avaliações offline, e a Microsoft não conseguirá comprovar a precisão do aprendizado e das avaliações de máquina, ou exceções de serviço resultantes de políticas editadas manualmente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 <!--
 [How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

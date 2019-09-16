@@ -1,46 +1,46 @@
 ---
-title: Método de idiomas de API de voz do Translator
+title: Método de idiomas API de Tradução de Fala
 titleSuffix: Azure Cognitive Services
-description: Use o método de idiomas de API de voz do Translator.
+description: Use o método de idiomas API de Tradução de Fala.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4abe6330d0359f7d7c922facecaaf1a8b1fc7174
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 46ac3928238382f56db5a799226bd3d9243b7ca2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446962"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966402"
 ---
-# <a name="translator-speech-api-languages"></a>API de voz de tradutor: Languages
+# <a name="translator-speech-api-languages"></a>API de Tradução de Fala: Languages
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Voz do Translator continuamente expande a lista de idiomas suportados pelo seus serviços. Utilize esta API para descobrir o conjunto de idiomas atualmente disponíveis para utilização com o serviço de voz do Translator.
+Tradução de Fala estende continuamente a lista de idiomas com suporte em seus serviços. Use essa API para descobrir o conjunto de idiomas disponíveis no momento para uso com o serviço de Tradução de Fala.
 
-Exemplos de código a fim de demonstrar o uso da API para obter os idiomas disponíveis estão disponíveis a partir da [site do Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
+Exemplos de código que demonstram o uso da API para obter os idiomas disponíveis estão disponíveis no [site GitHub do Microsoft Translator](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementação
 
-### <a name="get-languages"></a>OBTER /languages
+### <a name="get-languages"></a>OBTER/Languages
 
-Uma grande variedade de idiomas está disponível para transcrição de voz, Traduza texto transcrito e produzir fala sintetizada da tradução.
+Um amplo conjunto de idiomas está disponível para transcrever a fala, para traduzir o texto transcrita e para produzir fala sintetizada da tradução.
 
-Um cliente utiliza o `scope` parâmetro para definir quais conjuntos de idiomas está interessada na consulta.
+Um cliente usa o `scope` parâmetro de consulta para definir em quais conjuntos de idiomas ele está interessado.
 
-* **Conversão de voz para texto:** Utilize o parâmetro de consulta `scope=speech` para obter o conjunto de idiomas disponíveis para a transcrição de voz em texto.
-* **Tradução de texto:** Utilize o parâmetro de consulta `scope=text` para obter o conjunto de idiomas disponíveis para traduzir texto transcrito.
-* **Voz:**  Utilize o parâmetro de consulta `scope=tts` para recuperar o conjunto de idiomas e vozes disponíveis para sintetizar o texto traduzido novamente em voz.
+* **Conversão de fala em texto:** Use o parâmetro `scope=speech` de consulta para recuperar o conjunto de idiomas disponíveis para transcrever a fala em texto.
+* **Tradução de texto:** Use o parâmetro `scope=text` de consulta para recuperar o conjunto de idiomas disponíveis para traduzir o texto transcrevedo.
+* **Conversão de texto em fala:**  Use o parâmetro `scope=tts` de consulta para recuperar o conjunto de idiomas e vozes disponíveis para sintetizar o texto traduzido de volta à fala.
 
-Um cliente pode obter vários conjuntos em simultâneo ao especificar uma lista separada por vírgulas de opções. Por exemplo, `scope=speech,text,tts`.
+Um cliente pode recuperar vários conjuntos simultaneamente, especificando uma lista separada por vírgulas de opções. Por exemplo, `scope=speech,text,tts`.
 
-Uma resposta com êxito é um objeto JSON com uma propriedade para cada pedido de conjunto.
+Uma resposta bem-sucedida é um objeto JSON com uma propriedade para cada conjunto solicitado.
 
 ```
 {
@@ -56,16 +56,16 @@ Uma resposta com êxito é um objeto JSON com uma propriedade para cada pedido d
 }
 ```
 
-Uma vez que um cliente pode utilizar o `scope` deve ser devolvido o parâmetro de consulta para selecionar quais conjuntos de idiomas suportados, uma resposta real só pode incluir um subconjunto de todas as propriedades mostrado acima.
+Como um cliente pode usar o `scope` parâmetro de consulta para selecionar quais conjuntos de idiomas com suporte devem ser retornados, uma resposta real pode incluir apenas um subconjunto de todas as propriedades mostradas acima.
 
-Segue-se o valor fornecido com cada propriedade.
+O valor fornecido com cada propriedade é o seguinte.
 
-### <a name="speech-to-text-speech"></a>Conversão de voz em texto (conversão de voz)
+### <a name="speech-to-text-speech"></a>Conversão de fala em texto (fala)
 
-O valor associado a propriedade de voz em texto, `speech`, é um dicionário de valor (chave) pares. Cada chave identifica um idioma suportado para conversão de voz em texto. A chave é o identificador de que o cliente passa para a API. O valor associado à chave é um objeto com as seguintes propriedades:
+O valor associado à propriedade de fala-para-texto, `speech`, é um dicionário de pares (chave, valor). Cada chave identifica um idioma com suporte para conversão de fala em texto. A chave é o identificador que o cliente passa para a API. O valor associado à chave é um objeto com as seguintes propriedades:
 
-* `name`: Nome a apresentar da linguagem.
-* `language`: Etiqueta de idioma do idioma escrito associada. Consulte "Transações de texto", abaixo.
+* `name`: Nome de exibição do idioma.
+* `language`: Marca de idioma do idioma escrito associado. Consulte "transação de texto" abaixo.
 Um exemplo é:
 
 ```
@@ -76,12 +76,12 @@ Um exemplo é:
 }
 ```
 
-### <a name="text-translation-text"></a>Tradução de texto (texto)
+### <a name="text-translation-text"></a>Conversão de texto (texto)
 
-O valor associado a `text` propriedade também é um dicionário em que cada chave identifica um idioma suportado para a tradução de texto. O valor associado à chave descreve a linguagem:
+O valor associado `text` à propriedade também é um dicionário em que cada chave identifica um idioma com suporte para tradução de texto. O valor associado à chave descreve o idioma:
 
-* `name`: Nome a apresentar da linguagem.
-* `dir`: Direcionalidade que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
+* `name`: Nome de exibição do idioma.
+* `dir`: Direcionalidade, que `rtl` é para idiomas da direita para a esquerda `ltr` ou para linguagens da esquerda para a direita.
 
 Um exemplo é:
 
@@ -93,16 +93,16 @@ Um exemplo é:
 }
 ```
 
-### <a name="text-to-speech-tts"></a>Voz (tts)
+### <a name="text-to-speech-tts"></a>Conversão de texto em fala (TTS)
 
-O valor associado a propriedade de texto para voz, tts, também é um dicionário em que cada chave identifica uma voz suportada. Atributos de um objeto de voz são:
+O valor associado à propriedade de conversão de texto em fala, TTS, também é um dicionário em que cada chave identifica uma voz com suporte. Os atributos de um objeto de voz são:
 
-* `displayName`: Nome a apresentar para a voz.
-* `gender`: Sexo de voz (male ou female).
-* `locale`: Etiqueta de idioma de voz com subtag do idioma primário e subtag de região.
-* `language`: Etiqueta de idioma do idioma escrito associada.
-* `languageName`: Nome a apresentar da linguagem.
-* `regionName`: Nome a apresentar da região para este idioma.
+* `displayName`: Nome de exibição da voz.
+* `gender`: Sexo da voz (masculino ou feminino).
+* `locale`: Marca de idioma da voz com o idioma principal Subtag e a região Subtag.
+* `language`: Marca de idioma do idioma escrito associado.
+* `languageName`: Nome de exibição do idioma.
+* `regionName`: Nome de exibição da região para este idioma.
 
 Um exemplo é:
 
@@ -121,35 +121,35 @@ Um exemplo é:
 ```
 
 ### <a name="localization"></a>Localização
-O serviço devolve todos os nomes no idioma do cabeçalho Accept-Language, para todos os idiomas suportados na tradução de texto.
+O serviço retorna todos os nomes no idioma do cabeçalho ' Accept-Language ' para todos os idiomas com suporte na tradução de texto.
 
-### <a name="response-class-status-200"></a>Classe de resposta (estado 200)
-Objeto que descreve o conjunto de idiomas suportados.
+### <a name="response-class-status-200"></a>Classe de resposta (status 200)
+Objeto que descreve o conjunto de idiomas com suporte.
 
 Valor de ModelExample:
 
-Langagues {voz (object, opcional), texto (object, opcional), tts (object, opcional)}
+Langagues {fala (objeto, opcional), texto (objeto, opcional), TTS (objeto, opcional)}
 
 ### <a name="headers"></a>Cabeçalhos
 
-|Cabeçalho|Descrição|Tipo|
+|Cabeçalho|Descrição|Type|
 :--|:--|:--|
-X-RequestId|Valor gerado pelo servidor para identificar o pedido e utilizada para fins de resolução de problemas.|string|
+X-RequestId|Valor gerado pelo servidor para identificar a solicitação e usado para fins de solução de problemas.|Cadeia de caracteres|
 
 ### <a name="parameters"></a>Parâmetros
 
 |Parâmetro|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|
-|versão de API    |Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|query|string|
-|scope  |Conjuntos de idiomas suportados ou vozes para devolver ao cliente. Este parâmetro for especificado como uma lista separada por vírgulas de palavras-chave. As palavras-chave seguintes estão disponíveis:<ul><li>`speech`: Fornece o conjunto de idiomas suportados para transcrição de voz.</li><li>`tts`: Fornece o conjunto de vozes suportado para conversão de voz de texto.</li><li>`text`: Fornece o conjunto de idiomas suportados para a tradução de texto.</li></ul>Se não for especificado um valor, o valor de `scope` assume a predefinição `text`.|query|string|
-|X-ClientTraceId    |Um GUID gerado pelo cliente utilizado para rastrear um pedido. Para facilitar a resolução de problemas relacionados, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo.|cabeçalho|string|
-|Accept-Language    |Alguns dos campos na resposta são nomes de idiomas ou regiões. Utilize este parâmetro para definir o idioma em que os nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Selecione uma etiqueta na lista de identificadores de idioma devolvida com o `text` âmbito. Para os idiomas sem suporte, os nomes são fornecidos em inglês.<br/>Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.|cabeçalho|string|
+|versão de API    |Versão da API solicitada pelo cliente. Os valores permitidos são `1.0`:.|query|Cadeia de caracteres|
+|scope  |Conjuntos de idiomas com suporte ou vozes para retornar ao cliente. Esse parâmetro é especificado como uma lista separada por vírgulas de palavras-chave. As seguintes palavras-chave estão disponíveis:<ul><li>`speech`: Fornece o conjunto de idiomas com suporte para transcrever a fala.</li><li>`tts`: Fornece o conjunto de vozes com suporte para conversão de texto-fala.</li><li>`text`: Fornece o conjunto de idiomas com suporte para traduzir texto.</li></ul>Se um valor não for especificado, o valor de `scope` padrão `text`será.|query|Cadeia de caracteres|
+|X-ClientTraceId    |Um GUID gerado pelo cliente usado para rastrear uma solicitação. Para facilitar a solução de problemas, os clientes devem fornecer um novo valor com cada solicitação e registrar em log.|cabeçalho|Cadeia de caracteres|
+|Aceitar idioma    |Alguns dos campos na resposta são nomes de idiomas ou regiões. Use esse parâmetro para definir o idioma no qual os nomes são retornados. O idioma é especificado fornecendo uma marca de linguagem BCP 47 bem formada. Selecione uma marca na lista de identificadores de idioma retornados com o `text` escopo. Para idiomas sem suporte, os nomes são fornecidos no idioma inglês.<br/>Por exemplo, use o valor `fr` para solicitar nomes em francês ou use o valor `zh-Hant` para solicitar nomes em Chinês tradicional.|cabeçalho|Cadeia de caracteres|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de status HTTP|Reason|
 |:--|:--|
-|400|Pedido incorreto. Verifique os parâmetros de entrada para garantir que são válidos. O objeto de resposta inclui uma descrição mais detalhada do erro.|
-|429|Demasiados pedidos.|
-|500|Ocorreu um erro. Se o erro persistir, relatá-lo com o identificador de rastreio de cliente (X-ClientTraceId) ou o identificador (X-RequestId) do pedido.|
-|503|Servidor temporariamente indisponível. Tente novamente o pedido. Se o erro persistir, relatá-lo com o identificador de rastreio de cliente (X-ClientTraceId) ou o identificador (X-RequestId) do pedido.|
+|400|Solicitação inadequada. Verifique os parâmetros de entrada para garantir que eles sejam válidos. O objeto de resposta inclui uma descrição mais detalhada do erro.|
+|429|Número excessivo de solicitações.|
+|500|Ocorreu um erro. Se o erro persistir, informe-o com o identificador de rastreamento do cliente (X-ClientTraceId) ou o identificador de solicitação (X-RequestId).|
+|503|Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, informe-o com o identificador de rastreamento do cliente (X-ClientTraceId) ou o identificador de solicitação (X-RequestId).|
