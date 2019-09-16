@@ -77,11 +77,11 @@ Os seguintes tipos de dados têm suporte em modelos criados com a biblioteca do 
 | bool |boolean |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET |deslocamento de data e hora |
-| GUID\_DO EDM |GUID |
+| EDM\_GUID |GUID |
 | EDM\_BINARY |binary |
-| DECLARAR\_STRUCT |tipo de dados complexo |
+| DECLARE\_STRUCT |tipo de dados complexo |
 
-Vamos começar com o último tipo de dados. O **Declare\_struct** permite que você defina tipos de dados complexos, que são agrupamentos dos outros tipos primitivos. Esses agrupamentos nos permitem definir um modelo parecido com este:
+Vamos começar com o último tipo de dados. O **DECLARE\_STRUCT** permite que você defina tipos de dados complexos, que são agrupamentos dos outros tipos primitivos. Esses agrupamentos nos permitem definir um modelo parecido com este:
 
 ```C
 DECLARE_STRUCT(TestType,
