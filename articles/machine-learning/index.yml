@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/03/2019
-  ms.openlocfilehash: 58afd4ab8576b78fc3138861c13ac39ae343b04d
-  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.openlocfilehash: 42af6b60d0ef77dd26a93453fd04e28dee5996fe
+  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70308778"
+  ms.lasthandoff: 09/14/2019
+  ms.locfileid: "70993278"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
@@ -51,6 +51,8 @@ landingContent:
       url: service/tutorial-train-models-with-aml.md
     - text: Prever tarifas de táxi com ML automatizado
       url: service/tutorial-auto-train-models.md
+    - text: Utilizar pipelines para classificação de lote
+      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Preparar com o Scikit-learn

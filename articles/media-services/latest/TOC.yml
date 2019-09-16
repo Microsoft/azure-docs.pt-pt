@@ -32,6 +32,10 @@
     - name: Encriptar dinamicamente com o DRM
       displayName: 'PlayReady, Widevine, FairPlay'
       href: protect-with-drm.md
+- name: Amostras
+  items:
+    - name: Amostras de Serviços de Multimédia
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
 - name: Conceitos
   items:
     - name: Descrição geral

@@ -4,6 +4,8 @@
   items:
     - name: Acerca do portal do Azure
       href: azure-portal-overview.md
+    - name: Introdução ao Azure Quickstart Center
+      href: azure-portal-quickstart-center.md
     - name: Dispositivos e browsers suportados
       href: azure-portal-supported-browsers-devices.md
 - name: Conceitos
@@ -25,7 +27,7 @@
     - name: Exportar ou eliminar as definições de utilizador
       href: azure-portal-export-delete-settings.md
     - name: Séries de vídeos de procedimentos do portal do Azure
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
+      href: azure-portal-video-series.md
 - name: Referência
   items:
     - name: Atalhos de teclado

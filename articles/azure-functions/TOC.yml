@@ -98,6 +98,10 @@
       href: functions-premium-plan.md
     - name: Implementações
       href: functions-deployment-technologies.md
+    - name: Eventos e mensagens
+      items:
+        - name: Conceber para entrada idêntica
+          href: functions-idempotent.md
     - name: Acionadores e enlaces
       items:
         - name: Sobre acionadores e enlaces

@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: Conceitos
   items:
+    - name: Conceitos básicos
+      href: basic-concepts.md
     - name: Segurança
       items:
         - name: Descrição geral da segurança
@@ -68,8 +70,6 @@
           href: key-vault-ovw-security-worlds.md
         - name: Proteger o seu cofre de chaves
           href: key-vault-secure-your-key-vault.md
-    - name: O que é o Cofre de Chaves?
-      href: key-vault-whatis.md
     - name: Eliminar de forma recuperável
       href: key-vault-ovw-soft-delete.md
     - name: Limitação
@@ -92,6 +92,8 @@
           href: create-certificate-scenarios.md
 - name: Guias de procedimentos
   items:
+    - name: Utilizar uma identidade gerida do Serviço de Aplicações
+      href: managed-identity.md
     - name: Registo do Azure Key Vault
       href: key-vault-logging.md
     - name: Acesso por trás de firewalls

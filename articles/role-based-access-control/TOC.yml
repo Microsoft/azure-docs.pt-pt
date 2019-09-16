@@ -40,6 +40,8 @@
       items:
         - name: Portal
           href: role-assignments-portal.md
+        - name: Portal - utilizadores convidados
+          href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: CLI do Azure
@@ -72,8 +74,6 @@
       href: change-history-report.md
     - name: Elevar acesso para gerir todas as subscrições
       href: elevate-access-global-admin.md
-    - name: Gerir o acesso de utilizadores externos
-      href: role-assignments-external-users.md
     - name: Administradores clássicos
       href: classic-administrators.md
     - name: Resolução de problemas

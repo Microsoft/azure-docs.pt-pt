@@ -1,19 +1,19 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação sobre Desenvolvimento Seguro
+title: Documentação sobre desenvolvimento seguro
 metadata:
   document_id: null
-  title: Documentação sobre Desenvolvimento Seguro no Microsoft Azure
+  title: Documentação sobre desenvolvimento seguro no Microsoft Azure
   meta.description: Learn how to develop secure apps on Azure.
   services: security
   author: TerryLanfear
-  manager: barbkess
+  manager: rkarlin
   ms.service: security
   ms.subservice: develop
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/29/2019
+  ms.date: 09/14/2019
   ms.author: terrylan
 abstract:
   description: 'Saiba como desenvolver e implementar aplicações seguras no Azure com os nossos exemplos de aplicações, melhores práticas e orientação.'
@@ -27,12 +27,12 @@ sections:
           - href: /azure/security/develop/secure-dev-overview
             html: <p>Desenvolver uma aplicação Web segura no Azure</p>
             image:
-              src: /media/common/i_get-started.svg
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
             title: Introdução
           - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
             html: <p>Principais cinco itens de segurança para aplicações Web</p>
             image:
-              src: /media/common/i_learn-about.svg
+              src: 'https://docs.microsoft.com/media/common/i_learn-about.svg'
             title: Desenvolva as suas competências com o Microsoft Learn
   - title: Exemplos de aplicação seguros
     items:
@@ -41,6 +41,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-web-app">Aplicação Web num contentor do Linux</a>
+          - html: <a href="/azure/security/develop/secure-pci-web-app">Indústria dos cartões de pagamento</a>
   - title: Conceitos
     items:
       - type: list
