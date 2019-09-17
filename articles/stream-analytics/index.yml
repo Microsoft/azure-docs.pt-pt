@@ -1,73 +1,215 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação do Stream Analytics
+### YamlMime:Landing
+title: Documentação do Azure Stream Analytics
+summary: O Azure Stream Analytics é um serviço de análise em tempo real totalmente gerido, concebido para ajudá-lo a analisar e processar fluxos de dados rápidos, que podem ser utilizados para acionar alertas e ações. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.
 metadata:
-  title: 'Documentação do Azure Stream Analytics - Tutoriais, Referência da API'
-  meta.description: 'Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.'
-  services: stream-analytics
-  author: mamccrea
-  ms.author: mamccrea
+  title: Documentação do Azure Stream Analytics
+  description: O Azure Stream Analytics é um serviço de análise em tempo real totalmente gerido, concebido para ajudá-lo a analisar e processar fluxos de dados rápidos, que podem ser utilizados para acionar alertas e ações. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.
+  services: service
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 06/21/2019
-abstract:
-  description: 'O Stream Analytics é um serviço PaaS totalmente gerido para ajudar a analisar e processar fluxos de dados dinâmicos de dispositivos IoT, aplicações, clickstreams, etc. em tempo real e acionar alertas e ações conforme necessário. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/streaming-analytics-thumbnail.png
-      width: 250
-    title: 'Da cloud para o edge inteligente - Obter decisões em tempo real com o Azure Stream Analytics. (1:02:11)'
-    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
-    width: 250
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar a sua primeira tarefa do Azure Stream Analytics:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/stream-analytics.svg
-            text: Portal do Azure
-            href: 'https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: 'https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio
-            href: 'https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio Code
-            href: 'https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code'
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar, gerir e monitorizar tarefas do Azure Stream Analytics:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="stream-analytics-manage-job">Criar uma tarefa do Stream Analytics para analisar dados de chamadas telefónicas e visualizar os resultados num dashboard do Power BI</a>
-          - html: <a href="stream-analytics-with-azure-functions">Executar Funções do Azure a partir de tarefas do Azure Stream Analytics</a>
-          - html: <a href="stream-analytics-javascript-user-defined-functions">Executar funções definidas pelo utilizador do JavaScript nas tarefas do Azure Stream Analytics</a>
-          - html: <a href="stream-analytics-tools-visual-studio-cicd-vsts">Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines</a>
-          - html: '<a href="stream-analytics-edge-csharp-udf">Escrever uma função de C# definida pelo utilizador para uma tarefa do Azure Stream Analytics Edge (Pré-visualização)</a>'
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Pré-visualizações
-            html: '<p><a href="stream-analytics-previews#public-previews">Pré-visualizações públicas</a></p><p><a href="stream-analytics-previews#other-previews">Pré-visualizações privadas</a></p>'
-          - title: Linha de comandos
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
-          - title: Linguagens
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference">Linguagem de Consulta do Stream Analytics</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/streamanalytics">Referência da API REST</a></p>
+  author: mamccrea
+  ms.author: mamccrea
+  ms.date: 09/16/2019
+  ms.openlocfilehash: a4573c9f6938db56eba80da084004a620a54e9e4
+  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/16/2019
+  ms.locfileid: "71018866"
+landingContent:
+- title: Sobre o Azure Stream Analytics
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar uma tarefa com o portal do Azure
+      url: stream-analytics-quick-create-portal.md
+  - linkListType: overview
+    links:
+    - text: O que é Azure Stream Analytics?
+      url: stream-analytics-introduction.md
+    - text: Padrões da solução Azure Stream Analytics
+      url: stream-analytics-solution-patterns.md
+  - linkListType: whats-new
+    links:
+    - text: Níveis de compatibilidade do Stream Analytics
+      url: stream-analytics-compatibility-level.md
+    - text: Funcionalidades de pré-visualização do Stream Analytics
+      url: stream-analytics-previews.md
+  - linkListType: concept
+    links:
+    - text: Escolher uma tecnologia de análise de transmissão em fluxo
+      url: streaming-technologies.md
+    - text: Escolher uma ferramenta de desenvolvimento para as suas tarefas
+      url: feature-comparison.md
+- title: Ligar uma tarefa a uma origem de dados
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Mais informações sobre tipos de entrada
+      url: stream-analytics-add-inputs.md
+  - linkListType: concept
+    links:
+    - text: Dados de entrada de fluxo
+      url: stream-analytics-define-inputs.md
+    - text: Associar dados de referência para pesquisas
+      url: stream-analytics-use-reference-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar dados de referência de uma Base de Dados SQL
+      url: sql-reference-data.md
+    - text: Resolver problemas em ligações de entrada
+      url: stream-analytics-troubleshoot-input.md
+    - text: Processar o Apache Kafka para eventos dos Hubs de Eventos
+      url: ../event-hubs/event-hubs-kafka-stream-analytics.md
+    - text: Processar dados dos Hubs de Eventos do Azure
+      url: ../event-hubs/process-data-azure-stream-analytics.md
+- title: Enviar dados para um sink de saída
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Mais informações sobre tipos de saída
+      url: stream-analytics-define-outputs.md
+  - linkListType: concept
+    links:
+    - text: Saída para Cosmos DB
+      url: stream-analytics-documentdb-output.md
+    - text: Saída para Base de Dados SQL do Azure
+      url: stream-analytics-sql-output-perf.md
+    - text: Criação de partições de saída de blobs personalizados
+      url: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - text: Políticas de processamento de erros de saída
+      url: stream-analytics-output-error-policy.md
+  - linkListType: how-to-guide
+    links:
+    - text: Resolver problemas em ligações de saída
+      url: stream-analytics-troubleshoot-output.md
+- title: Monitorizar e resolver problemas da sua tarefa
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Introdução à monitorização
+      url: stream-analytics-monitoring.md
+    - text: Monitorizar tarefas com o Azure PowerShell
+      url: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+    - text: Criar um monitor de tarefas com o SDK de .NET do Azure
+      url: stream-analytics-monitor-jobs.md
+    - text: Monitorizar e gerir tarefas do Visual Studio
+      url: stream-analytics-monitor-jobs-use-vs.md
+    - text: Utilizar registos de diagnósticos para resolver problemas
+      url: stream-analytics-job-diagnostic-logs.md
+    - text: Depurar com o diagrama de tarefas
+      url: stream-analytics-job-diagram-with-metrics.md
+    - text: Resolver problemas de erros de dados
+      url: data-errors.md
+- title: Rever conceitos temporais
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Padrões de consulta comuns
+      url: stream-analytics-stream-analytics-query-patterns.md
+    - text: Compreender o processamento de tempo no Stream Analytics
+      url: stream-analytics-time-handling.md
+    - text: Ponto de verificação interno e repetição
+      url: stream-analytics-concepts-checkpoint-replay.md
+- title: Transformar dados com consultas do Stream Analytics
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Introdução às funções de janelas
+      url: stream-analytics-window-functions.md
+    - text: Introdução às funções geoespaciais
+      url: stream-analytics-geospatial-functions.md
+    - text: Analisar dados JSON e Avro
+      url: stream-analytics-parsing-json.md
+  - linkListType: how-to-guide
+    links:
+    - text: Resolver problemas da lógica de consulta
+      url: stream-analytics-troubleshoot-query.md
+    - text: Escrever agregações de JavaScript definidas pelo utilizador
+      url: stream-analytics-javascript-user-defined-aggregates.md
+    - text: Desenvolver funções de .NET definidas pelo utilizador para tarefas do IoT Edge
+      url: stream-analytics-edge-csharp-udf-methods.md
+  - linkListType: tutorial
+    links:
+    - text: Executar uma função de JavaScript definida pelo utilizador
+      url: stream-analytics-javascript-user-defined-functions.md
+    - text: Executar uma função de C# definida pelo utilizador numa tarefa do Stream Analytics em Dispositivos Periféricos
+      url: stream-analytics-edge-csharp-udf.md
+- title: Analisar com machine learning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar machine learning para detetar anomalias
+      url: stream-analytics-machine-learning-anomaly-detection.md
+    - text: Realizar a análise de sentimentos com o Azure Machine Learning Studio
+      url: stream-analytics-machine-learning-integration-tutorial.md
+    - text: Dimensionar tarefas com funções do Machine Learning Studio
+      url: stream-analytics-scale-with-machine-learning-functions.md
+- title: Criar e gerir tarefas com ferramentas de programação
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Explorar tarefas com o Visual Studio Code
+      url: vscode-local-run.md
+    - text: Testar consultas com dados de exemplo no Visual Studio Code
+      url: vscode-local-run.md
+    - text: Instalar ferramentas para o Visual Studio
+      url: stream-analytics-tools-for-visual-studio-install.md
+    - text: Testar consultas com dados de exemplo no Visual Studio
+      url: stream-analytics-vs-tools-local-run.md
+    - text: Testar consultas com dados dinâmicos no Visual Studio
+      url: stream-analytics-live-data-local-testing.md
+    - text: Ver tarefas no Visual Studio
+      url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - text: Desenvolver uma tarefa do IoT Edge no Visual Studio
+      url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+- title: Experimentar tutoriais e soluções do Stream Analytics
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar e gerir uma tarefa
+      url: stream-analytics-manage-job.md
+    - text: Acionar uma Função do Azure
+      url: stream-analytics-with-azure-functions.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar soluções com agregação geoespacial e de limites geográficos
+      url: geospatial-scenarios.md
+    - text: Executar tarefas no IoT Edge
+      url: stream-analytics-edge.md
+    - text: Criar uma solução de análise de sentimentos
+      url: stream-analytics-twitter-sentiment-analysis-trends.md
+    - text: Deteção de fraudes em tempo real
+      url: stream-analytics-real-time-fraud-detection.md
+    - text: Criar uma solução de IoT
+      url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - text: Simulação de negociação de alta frequência
+      url: stream-analytics-high-frequency-trading.md
+    - text: Alertar com base em limiares de regras ajustáveis
+      url: stream-analytics-threshold-based-rules.md
+- title: Implementar tarefas do Stream Analytics
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementar uma tarefa com CI/CD com Pipelines do Azure
+      url: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar um pipeline CI/CD com o Visual Studio Code
+      url: setup-cicd-vs-code.md
+    - text: Configurar um pipeline CI/CD com o Visual Studio
+      url: stream-analytics-tools-for-visual-studio-cicd.md
+    - text: Utilizar APIs REST para configurar a CI/CD para tarefas do IoT Edge
+      url: stream-analytics-cicd-api.md
+- title: Dimensionar tarefas do Stream Analytics
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Dimensionar com unidades de transmissão em fluxo
+      url: stream-analytics-streaming-unit-consumption.md
+    - text: Dimensionar com da paralelização de consultas
+      url: stream-analytics-parallelization.md
+    - text: Dimensionar tarefas para aumentar o débito
+      url: stream-analytics-scale-jobs.md
+    - text: Otimizar o processamento através criação de novas partições
+      url: repartition.md
