@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813084"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009179"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -30,7 +30,7 @@ Este artigo descreve como copiar dados do servidor HDFS. Para saber mais sobre o
 
 Este conector HDFS tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Especificamente, esse conector HDFS dá suporte a:
@@ -482,6 +482,10 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
 * Configure o conector HDFS usando a **autenticação do Windows** junto com sua conta de domínio ou entidade de segurança Kerberos para se conectar à fonte de dados HDFS. Verifique a seção [Propriedades do serviço vinculado do HDFS](#linked-service-properties) em detalhes da configuração.
 
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-## <a name="next-steps"></a>Passos Seguintes
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
