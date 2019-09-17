@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 76c50814c66b941310b73e1d2a52867b0da5aa10
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8f190f6b933c61072df9af954c8db01497e35e82
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813595"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010222"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar dados de ou para Azure Data Lake Storage Gen2 usando Azure Data Factory
 
@@ -27,10 +27,11 @@ Este artigo descreve como copiar dados de e para Azure Data Lake Storage Gen2. P
 
 Este conector de Azure Data Lake Storage Gen2 tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com a [origem com suporte ou a matriz de coletor](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Mapeando fluxo de dados](concepts-data-flow-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
+- [Excluir atividade](delete-activity.md)
 
 Especificamente, com esse conector, você pode:
 
@@ -590,6 +591,17 @@ Aqui está um exemplo de configuração JSON (consulte `preserve`):
 
 Saiba mais sobre [transformação de origem](data-flow-source.md) e [transformação de coletor](data-flow-sink.md) no recurso de fluxo de dados de mapeamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+
+Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>Excluir propriedades da atividade
+
+Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](delete-activity.md)
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

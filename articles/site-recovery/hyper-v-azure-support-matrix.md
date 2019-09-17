@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 5d7ac7cf00ee59a06a914d312fd58de00515a0b4
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 75a8207cd214a63258ddb167b887fe83b7aa032a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873333"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008834"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -132,8 +132,8 @@ Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Firewalls de armazenamento do Azure para redes virtuais configuradas na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação) | Não | Não
-Modificando a conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e, em seguida, reabilitar a recuperação de desastres. | Não
+Contas de armazenamento do Azure com firewall habilitado | Não  | Sim. Para armazenamento e cache de destino.
+Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e reabilitar a recuperação de desastres. | Não
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure
@@ -189,5 +189,5 @@ Agente de Serviços de Recuperação do Microsoft Azure | Coordena a replicaçã
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres de VMs do Hyper-V locais.

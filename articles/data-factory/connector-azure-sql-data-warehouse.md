@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c8c2f2adb11a30b438fb41dca07519b2f74baf7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 29f5b9b704bcf4648e9c24516d8eff5429a0ce1d
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813585"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009959"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -28,7 +28,7 @@ Este artigo descreve como copiar dados de e para o Azure SQL Data Warehouse. Par
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector de blob do Azure tem suporte para as seguintes atividades:
+Este conector de SQL Data Warehouse do Azure tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com tabela de [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Mapeando fluxo de dados](concepts-data-flow-overview.md)
@@ -379,7 +379,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 | rejectType        | Especifica se o **rejectValue** opção é um valor literal ou uma percentagem.<br/><br/>Valores permitidos são **valor** (predefinição) e **percentagem**. | Não                                            |
 | rejectSampleValue | Determina o número de linhas para obter antes de PolyBase recalcula a porcentagem das linhas rejeitadas.<br/><br/>Valores permitidos são 1, 2, etc. | Sim, se o **rejectType** é **percentagem**. |
 | useTypeDefault    | Especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção argumentos na [criar ficheiro de formato externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Valores permitidos são **True** e **falso** (predefinição).<br><br> | Não                                            |
-| writeBatchSize    | Número de linhas a serem inseridas na tabela SQL **por lote**. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **número inteiro** (número de linhas). Por padrão, Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não                                            |
+| writeBatchSize    | Número de linhas a serem inseridas na tabela SQL **por lote**. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **número inteiro** (número de linhas). Por padrão, Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não                                            |
 | writeBatchTimeout | Tempo para a operação de inserção de lote ser concluídas antes de atingir o tempo limite de espera. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não                                            |
 | preCopyScript     | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados para o Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregado. | Não                                            |
 | tableOption | Especifica se a tabela do coletor deve ser criada automaticamente se não existir com base no esquema de origem. Não há suporte para a criação de tabela automática quando a cópia preparada está configurada na atividade de cópia. Os valores permitidos são `none` : (padrão) `autoCreate`,. |Não |
@@ -440,7 +440,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
    3. `rowDelimiter`é **Default**, **\n**, **\r\n**ou **\r**.
    4. `nullValue`é deixado como padrão ou definido como **cadeia de caracteres vazia** ("") `treatEmptyAsNull` e é deixado como padrão ou definido como true.
    5. `encodingName`é deixado como padrão ou definido como **UTF-8**.
-   6. `quoteChar`, `escapeChar`, e `skipLineCount` não são especificados. Suporte de PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
+   6. `quoteChar`, `escapeChar`, e `skipLineCount` não são especificados. O polybase oferece suporte à linha de cabeçalho Skip, que pode `firstRowAsHeader` ser configurada como no ADF.
    7. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
 
 3. Se sua origem for uma pasta, `recursive` na atividade de cópia deverá ser definida como true.
@@ -556,7 +556,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 A solução é desmarcar a opção "**usar o padrão do tipo**" (como false) nas configurações do polybase do coletor da atividade de cópia->. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" é uma configuração nativa do polybase que especifica como lidar com valores ausentes em arquivos de texto delimitados quando o polybase recupera dados do arquivo de texto. 
+)" é uma configuração nativa do polybase, que especifica como tratar valores ausentes em arquivos de texto delimitados quando o polybase recupera dados do arquivo de texto. 
 
 **`tableName`no Azure SQL Data Warehouse**
 
@@ -625,6 +625,14 @@ Quando copia dados de ou para o Azure SQL Data Warehouse, os seguintes mapeament
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+
+Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, atividade de cópia no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md##supported-data-stores-and-formats).
