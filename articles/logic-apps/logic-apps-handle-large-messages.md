@@ -119,7 +119,7 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
 
    | Campo de cabeçalho de solicitação de aplicativos lógicos | Value | Type | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | em bloco | Cadeia | Indica que o conteúdo é carregado em partes |
+   | **x-ms-transfer-mode** | em bloco | String | Indica que o conteúdo é carregado em partes |
    | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes do agrupamento |
    ||||
 
@@ -128,7 +128,7 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
    | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho de parte sugerido em bytes |
-   | **Location** | Cadeia | Sim | O local da URL para onde enviar as mensagens de PATCH HTTP |
+   | **Location** | String | Sim | O local da URL para onde enviar as mensagens de PATCH HTTP |
    ||||
 
 3. Seu aplicativo lógico cria e envia mensagens de PATCH HTTP de acompanhamento, cada uma com essas informações:
