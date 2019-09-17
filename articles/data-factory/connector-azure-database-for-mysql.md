@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: jingwang
-ms.openlocfilehash: b6d96ef2d2cdd79bec35f2581876823990e4a971
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c15a60b7329359ee8d3e429159eb178c0c9b4782
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172606"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018769"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados de e para o Azure Database para MySQL usando o Azure Data Factory
 
@@ -26,6 +26,11 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 Esse conector é especializado para o [serviço de banco de dados do Azure para MySQL](../mysql/overview.md). Para copiar dados do banco de dado do MySQL genérico localizado localmente ou na nuvem, use o [conector do MySQL](connector-mysql.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Esse conector do banco de dados do Azure para MySQL tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dados do Azure para MySQL para qualquer armazenamento de dado de coletor com suporte. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Database para MySQL. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -49,7 +54,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do banco de dado
 
 É uma cadeia de ligação típica `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais de propriedades que pode ser definido por seu caso:
 
-| Propriedade | Descrição | Opções | Necessário |
+| Propriedade | Descrição | Opções | Requerido |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Esta opção especifica se o driver usa a criptografia SSL e a verificação ao se conectar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0)/preferencial (1) **(padrão)** /obrigatório (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se um certificado de autoridade de certificação deve ser usado do repositório de confiança do sistema ou de um arquivo PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1)/desabilitado (0) **(padrão)** | Não |
@@ -188,8 +193,7 @@ Para copiar dados para o banco de dado do Azure para MySQL, há suporte para as 
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como: **AzureMySqlSink** | Sim |
 | preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no banco de dado do Azure para MySQL em cada execução. Você pode usar essa propriedade para limpar os dados pré-carregados. | Não |
 | writeBatchSize | Insere os dados na tabela do Azure Database para MySQL quando o tamanho do buffer atinge writeBatchSize.<br>O valor permitido é um inteiro que representa o número de linhas. | Não (o padrão é 10.000) |
-| writeBatchTimeout | Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite.<br> 
-Os valores permitidos são TimeSpan. Um exemplo é 00:30:00 (30 minutos). | Não (o padrão é 00:00:30) |
+| writeBatchTimeout | Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite.<br>Os valores permitidos são TimeSpan. Um exemplo é 00:30:00 (30 minutos). | Não (o padrão é 00:00:30) |
 
 **Example:**
 
@@ -223,6 +227,10 @@ Os valores permitidos são TimeSpan. Um exemplo é 00:30:00 (30 minutos). | Não
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="data-type-mapping-for-azure-database-for-mysql"></a>Mapeamento de tipo de dados para o banco de dado do Azure para MySQL
 

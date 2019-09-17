@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 37e6a3ee9f793a475cf9d775e99da989e82957dc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 4b6e5d90d72e84f3a8a54ea0aadcad687b598b2d
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813480"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010353"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiar dados de e para SQL Server usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -27,6 +27,12 @@ ms.locfileid: "70813480"
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um banco de SQL Server. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector de SQL Server tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
 Você pode copiar dados de um SQL Server banco de dados para qualquer armazenamento de dado de coletor com suporte. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para um SQL Server. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -526,6 +532,14 @@ Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usa
 
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+
+Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="troubleshoot-connection-issues"></a>Resolver problemas de ligação
 

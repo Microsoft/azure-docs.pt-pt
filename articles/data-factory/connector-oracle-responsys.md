@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f6a9e31b6b1869496e499cb7d6f02b55f495adfb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 50887b9bbaed576be7f1027db193efc2ad7b0a06
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720670"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008873"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados de Responsys Oracle com o Azure Data Factory (pré-visualização)
 
@@ -27,6 +27,11 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Oracle Responsys tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados do Oracle Responsys para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -48,9 +53,9 @@ As seguintes propriedades são suportadas para o serviço de Responsys Oracle li
 | endpoint | O ponto final do servidor Respopnsys  | Sim |
 | clientId | O ID de cliente associado à aplicação Responsys.  | Sim |
 | clientSecret | O segredo do cliente associado à aplicação Responsys. Você pode optar por marcar esse campo como uma SecureString para armazená-lo com segurança no ADF ou armazenar a senha em Azure Key Vault e deixar a atividade de cópia do ADF efetuar pull a partir daí ao executar a cópia de dados-Saiba mais em [armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
+| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é true.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
+| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -84,7 +89,7 @@ Para copiar dados do Oracle Responsys, defina a propriedade de tipo de conjunto 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **ResponsysObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
+| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -117,7 +122,7 @@ Para copiar dados do Oracle Responsys, defina o tipo de origem na atividade de c
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **ResponsysSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -148,6 +153,11 @@ Para copiar dados do Oracle Responsys, defina o tipo de origem na atividade de c
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

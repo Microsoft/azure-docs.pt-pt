@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 01712508b15be947f4c3d7df401ad431d9f25455
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 3f637314045210d89f8ac1da5d8675855e5d8b55
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276386"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009042"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar dados do Impala com o Azure Data Factory (pré-visualização)
 
@@ -27,6 +27,11 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e fornecer comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Impala tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados de Impala para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -129,7 +134,7 @@ Para copiar dados de Impala, definir o tipo de origem na atividade de cópia par
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **ImpalaSource**. | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -160,6 +165,11 @@ Para copiar dados de Impala, definir o tipo de origem na atividade de cópia par
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

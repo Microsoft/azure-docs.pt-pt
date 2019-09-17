@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 173e261266bffd042e12b327e26fda3a4e55ea4b
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898994"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018188"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -26,47 +26,47 @@ As preocupações em relação a problemas de segurança, como software maligno,
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-A exclusão reversível tem suporte no momento na região EUA Central ocidental e Ásia Oriental.
+A exclusão reversível tem suporte no momento no EUA Central ocidental, Ásia Oriental, Canadá central, leste do Canadá, França central, sul da França, Coreia central, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, leste da Austrália, leste do Sul da Austrália, Europa Setentrional, oeste dos EUA, oeste dos EUA 2, EUA Central, sul Ásia Oriental, norte EUA Central, Sul EUA Central, leste do Japão, oeste do Japão, sul da Índia, Índia central, Índia ocidental, leste dos EUA 2, Norte da Suíça, Oeste da Suíça e todas as regiões nacionais.
 
 ### <a name="soft-delete-for-vms"></a>Exclusão reversível para VMs
 
 1. Para excluir os dados de backup de uma VM, o backup deve ser interrompido. Na portal do Azure, vá para o cofre dos serviços de recuperação, clique com o botão direito do mouse no item de backup e escolha **parar backup**.
 
-    ![Captura de tela de portal do Azure itens de backup](./media/backup-azure-security-feature-cloud/backup-stopped.png)
+   ![Captura de tela de portal do Azure itens de backup](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
 2. Na janela a seguir, você terá a opção de excluir ou reter os dados de backup. Se você escolher **excluir dados de backup** e **parar o backup**, o backup da VM não será excluído permanentemente. Em vez disso, os dados de backup serão mantidos por 14 dias no estado de exclusão reversível. Se **excluir dados de backup** for escolhido, um alerta de email de exclusão será enviado para a ID de email configurada informando ao usuário que 14 dias permanecem de retenção estendida para dados de backup. Além disso, um alerta por email é enviado no dia de 12 dias informando que há mais dois dias restantes para ressuscitar os dados excluídos. A exclusão é adiada até o dia 15, quando a exclusão permanente ocorre e um alerta de email final é enviado informando sobre a exclusão permanente dos dados.
 
-    ![Captura de tela de portal do Azure, parar o backup Screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
+   ![Captura de tela de portal do Azure, parar o backup Screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
 3. Durante esses 14 dias, no cofre dos serviços de recuperação, a VM com exclusão reversível será exibida com um ícone vermelho de "exclusão reversível" ao lado dele.
 
-    ![Captura de tela de portal do Azure, VM no estado de exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Captura de tela de portal do Azure, VM no estado de exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
-> [!NOTE]
-> Se algum item de backup excluído por software estiver presente no cofre, o cofre não poderá ser excluído nesse momento. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível no cofre.
+   > [!NOTE]
+   > Se algum item de backup excluído por software estiver presente no cofre, o cofre não poderá ser excluído nesse momento. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível no cofre.
 
 4. Para restaurar a VM com exclusão reversível, primeiro ela deve ser restaurada. Para restaurar, escolha a VM com exclusão reversível e, em seguida, clique na opção **restaurar**.
 
-     ![Captura de tela de portal do Azure, restaurar VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+   ![Captura de tela de portal do Azure, restaurar VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-Uma janela será exibida avisando que, se a exclusão for escolhida, todos os pontos de restauração da VM serão restaurados e estarão disponíveis para a execução de uma operação de restauração. A VM será retida em um estado "parar proteção com retenção de dados" com backups pausados e dados de backup retidos para sempre, sem nenhuma política de backup em vigor.
+   Uma janela será exibida avisando que, se a exclusão for escolhida, todos os pontos de restauração da VM serão restaurados e estarão disponíveis para a execução de uma operação de restauração. A VM será retida em um estado "parar proteção com retenção de dados" com backups pausados e dados de backup retidos para sempre, sem nenhuma política de backup em vigor.
 
- ![Captura de tela de portal do Azure, confirmar restaurar VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Captura de tela de portal do Azure, confirmar restaurar VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-Neste ponto, você também pode restaurar a VM selecionando **restaurar VM** do ponto de restauração escolhido.  
+   Neste ponto, você também pode restaurar a VM selecionando **restaurar VM** do ponto de restauração escolhido.  
 
    ![Captura de tela de portal do Azure, opção restaurar VM](./media/backup-azure-security-feature-cloud/restore-vm.png)
 
-> [!NOTE]
-> O coletor de lixo só executará e limpará os pontos de recuperação expirados depois que o usuário executar a operação de **retomada de backup** .
+   > [!NOTE]
+   > O coletor de lixo só executará e limpará os pontos de recuperação expirados depois que o usuário executar a operação de **retomada de backup** .
 
 5. Depois que o processo de reinicialização for concluído, o status retornará "parar backup com reter dados" e você poderá escolher **retomar backup**. A operação **retomar backup** retorna o item de backup no estado ativo, associado a uma política de backup selecionada pelo usuário que define os agendamentos de backup e retenção.
 
-      ![Captura de tela de portal do Azure, opção retomar backup](./media/backup-azure-security-feature-cloud/resume-backup.png)
+   ![Captura de tela de portal do Azure, opção retomar backup](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
 Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backup:
 
-   ![Ciclo de vida do item de backup excluído por software](./media/backup-azure-security-feature-cloud/lifecycle.png)
+![Ciclo de vida do item de backup excluído por software](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
 Para obter mais informações, consulte a seção [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) abaixo.
 
@@ -101,23 +101,23 @@ Não, ele é criado e habilitado por padrão para todos os cofres dos serviços 
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Posso configurar o número de dias pelos quais meus dados serão retidos no estado de exclusão reversível após a conclusão da operação de exclusão?
 
 Não, ele é corrigido para 14 dias de retenção adicional após a operação de exclusão.
-  
+ 
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>É necessário pagar o custo dessa retenção adicional de 14 dias?
 
 Não, essa retenção adicional de 14 dias é gratuita por custo como parte da funcionalidade de exclusão reversível.
-  
+ 
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Posso executar uma operação de restauração quando meus dados estiverem no estado de exclusão reversível?
 
 Não, você precisa restaurar o recurso de exclusão reversível a fim de restaurá-lo. A operação de desfazer exclusão levará o recurso de volta para o **estado parar proteção com manter dados** , em que você pode restaurar para qualquer ponto no tempo. O coletor de lixo permanece pausado nesse estado.
-  
+ 
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Meus instantâneos seguem o mesmo ciclo de vida dos meus pontos de recuperação no cofre?
 
 Sim.
-  
+ 
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso disparar os backups agendados novamente para um recurso excluído de forma reversível?
 
 Não excluir seguido pela operação de retomada irá proteger o recurso novamente. A operação de retomada associa uma política de backup para disparar os backups agendados com o período de retenção selecionado. Além disso, o coletor de lixo é executado assim que a operação de retomada é concluída. Se você quiser executar uma restauração de um ponto de recuperação após sua data de expiração, é recomendável fazer isso antes de disparar a operação de retomada.
-  
+ 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso excluir meu cofre se houver itens com exclusão reversível no cofre?
 
 O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente após 14 dias após a operação de exclusão. Você pode excluir o cofre somente depois que todos os itens excluídos de maneira reversível tiverem sido limpos.  

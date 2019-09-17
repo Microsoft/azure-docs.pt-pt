@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a0d187d31acbea44740295dd3b61f2ec76e021e7
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9f443fc3bb4387f03eb3c9e96cd45fabab2b0813
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967504"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009157"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase com o Azure Data Factory 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do HBase. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do HBase tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados do HBase para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -127,7 +132,7 @@ Para copiar dados do HBase, defina a propriedade de tipo de conjunto de dados pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **HBaseObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
+| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -159,7 +164,7 @@ Para copiar dados do HBase, defina o tipo de origem na atividade de cópia para 
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **HBaseSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -191,5 +196,10 @@ Para copiar dados do HBase, defina o tipo de origem na atividade de cópia para 
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

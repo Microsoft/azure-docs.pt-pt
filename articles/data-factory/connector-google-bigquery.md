@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 61c10055a7f85f849fc366211eb41382c4c3039b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 70eb70d7c63d66601aebf8e05a2b14b582058296
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275201"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009248"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery com o Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Google BigQuery. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Google BigQuery tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados do Google BigQuery para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -162,7 +167,7 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **GoogleBigQuerySource**. | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -193,6 +198,10 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

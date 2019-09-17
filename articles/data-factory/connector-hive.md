@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 40f97c3b31a7e49c9a5ecc790e3cc762572ecaa3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 120aed4277abfb2ea977670c107a4ee759bd3524
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276356"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009148"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de Hive com o Azure Data Factory 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Hive. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do hive tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados de Hive para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -46,14 +51,14 @@ As seguintes propriedades são suportadas para o serviço ligado do Hive:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como: **Hive** | Sim |
-| host | Nome anfitrião ou endereço IP do servidor do Hive, separado por ";" para vários anfitriões (apenas quando serviceDiscoveryMode é ativado).  | Sim |
+| host | Endereço IP ou nome do host do servidor Hive, separados por '; ' para vários hosts (somente quando o Service DiscoveryMode está habilitado).  | Sim |
 | port | A porta TCP que o servidor do Hive utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
 | serverType | O tipo de servidor do Hive. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
 | thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **Binary**, **SASL**, **http** | Não |
 | authenticationType | O método de autenticação utilizado para aceder ao servidor do Hive. <br/>Valores permitidos são: **Anônimo**, **nome de usuário**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | serviceDiscoveryMode | TRUE para indicar a utilizar o serviço de ZooKeeper, false não.  | Não |
 | zooKeeperNameSpace | O espaço de nomes no qual 2 de servidor do Hive são adicionados nós do ZooKeeper.  | Não |
-| useNativeQuery | Especifica se o driver usa consultas nativas de HiveQL ou converte-os num formulário do equivalente no HiveQL.  | Não |
+| useNativeQuery | Especifica se o driver usa consultas HiveQL nativas ou as converte em um formato equivalente em HiveQL.  | Não |
 | username | O nome de utilizador que utiliza para aceder ao servidor do Hive.  | Não |
 | password | A palavra-passe correspondente ao utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | httpPath | O URL de parcial correspondente para o servidor do Hive.  | Não |
@@ -128,7 +133,7 @@ Para copiar dados de Hive, definir o tipo de origem na atividade de cópia para 
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **HiveSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -160,5 +165,10 @@ Para copiar dados de Hive, definir o tipo de origem na atividade de cópia para 
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

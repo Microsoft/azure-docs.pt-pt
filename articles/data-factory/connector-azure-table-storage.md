@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 30685e59f6f8318c66a8500f33e8200743e487aa
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061486"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009892"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o armazenamento de tabelas do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -29,6 +29,11 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector de armazenamento de tabela do Azure tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de tabela. Você também pode copiar dados do armazenamento de tabela para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -190,11 +195,11 @@ Quando cria um URI de assinatura de acesso partilhado, considere os seguintes po
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de uma tabela do Azure.
 
-Para copiar dados de e para a tabela do Azure, defina a propriedade Type do DataSetcomo azuretable. São suportadas as seguintes propriedades.
+Para copiar dados de e para a tabela do Azure, defina a propriedade Type do DataSet como **azuretable**. São suportadas as seguintes propriedades.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definidacomo azuretable. |Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como **azuretable**. |Sim |
 | tableName |O nome da tabela na instância de banco de dados de armazenamento de tabela à qual o serviço vinculado se refere. |Sim |
 
 **Example:**
@@ -325,7 +330,7 @@ No exemplo a seguir, a coluna de origem divisionid é mapeada para a coluna de d
 
 ## <a name="data-type-mapping-for-azure-table"></a>Mapeamento de tipo de dados para a tabela do Azure
 
-Quando você copia dados de e para a tabela do Azure, os seguintes mapeamentos são usados de tipos de dados de tabela do Azure para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você copia dados de e para a tabela do Azure, os seguintes mapeamentos são usados de tipos de dados de tabela do Azure para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 Quando você move dados de e para a tabela do Azure, os seguintes [mapeamentos definidos pela tabela do Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) são usados dos tipos OData de tabela do Azure para o tipo .net e vice-versa.
 
@@ -339,6 +344,10 @@ Quando você move dados de e para a tabela do Azure, os seguintes [mapeamentos d
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
 | Edm.String |Cadeia |Um valor codificado em UTF-16. Os valores de cadeia de caracteres podem ser de até 64 KB. |
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

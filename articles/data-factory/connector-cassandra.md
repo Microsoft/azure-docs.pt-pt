@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 7d3f29327f9a671a631b01ad688da3a523a7b0c8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 91ac76d85422f5f323a833a99b5cc02d9a07889b
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275845"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009467"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -27,6 +27,11 @@ ms.locfileid: "70275845"
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de Cassandra. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Cassandra tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados do Cassandra Database para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -136,7 +141,7 @@ Para copiar dados do Cassandra, defina o tipo de origem na atividade de cópia c
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **CassandraSource** | Sim |
 | query |Use a consulta personalizada para ler os dados. Consulta SQL-92 ou consulta CQL. Consulte [referência de CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique o **nome do keyspace. nome da tabela** para representar a tabela que você deseja consultar. |Não (se "TableName" e "keyspace" no DataSet forem especificados). |
-| consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados para o aplicativo cliente. Cassandra verifica o número especificado de réplicas em busca de dados para atender à solicitação de leitura. Consulte Configurando a [consistência de dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes.<br/><br/>Valores permitidos são: **Um**, **dois**, **três**, **Quorum**, **All**, **LOCAL_QUORUM**, **EACH_QUORUM**e **LOCAL_ONE**. |Não (o padrão `ONE`é) |
+| consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados para o aplicativo cliente. Cassandra verifica o número especificado de réplicas em busca de dados para atender à solicitação de leitura. Consulte [Configurando a consistência de dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes.<br/><br/>Valores permitidos são: **Um**, **dois**, **três**, **Quorum**, **All**, **LOCAL_QUORUM**, **EACH_QUORUM**e **LOCAL_ONE**. |Não (o padrão `ONE`é) |
 
 **Example:**
 
@@ -261,5 +266,9 @@ As tabelas a seguir mostram as tabelas virtuais que renormalizam os dados da lis
 | 3 |A |
 | 3 |E |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

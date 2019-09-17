@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 28c7ca6470e15f4ff1f5e80df2ab63fa19da1544
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 318014ec10bda0fa0ead9787067bb30f57707930
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277798"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008578"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -27,6 +27,11 @@ ms.locfileid: "70277798"
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um banco de dado Oracle. Ele se baseia na [visão geral da atividade de cópia](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector Oracle tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dados Oracle para qualquer armazenamento de dado de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para um Oracle Database. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -163,7 +168,7 @@ Para habilitar a criptografia na conexão Oracle, você tem duas opções:
 ```
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista das propriedades com suporte pelo conjunto de soluções Oracle. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os [](concepts-datasets-linked-services.md), consulte DataSets. 
+Esta seção fornece uma lista das propriedades com suporte pelo conjunto de soluções Oracle. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md). 
 
 Para copiar dados de e para o Oracle, defina a propriedade Type do conjunto como `OracleTable`. São suportadas as seguintes propriedades.
 
@@ -197,7 +202,7 @@ Para copiar dados de e para o Oracle, defina a propriedade Type do conjunto como
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor do Oracle. Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, [](concepts-pipelines-activities.md)consulte pipelines. 
+Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor do Oracle. Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte [pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="oracle-as-source"></a>Oracle como fonte
 
@@ -341,7 +346,7 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
 
 ## <a name="data-type-mapping-for-oracle"></a>Mapeamento de tipo de dados para Oracle
 
-Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados Oracle | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
@@ -370,6 +375,9 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 > [!NOTE]
 > Não há suporte para o intervalo dos tipos de dados ano a mês e intervalo de dia para segundo.
 
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-## <a name="next-steps"></a>Passos Seguintes
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

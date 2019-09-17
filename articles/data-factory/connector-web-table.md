@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0ee573f26f717c0ed8ad36f1a06fe557d423e3c1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: eceb61234e3ae10934e6bb9057f8ddc800c19c94
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274717"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009729"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -33,6 +33,11 @@ A diferença entre esse conector de tabela da Web, o [conector REST](connector-r
 - O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector de tabela da Web tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dado de tabela da Web para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -82,7 +87,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de tabelas da Web.
 
-Para copiar dados de uma tabela da Web, defina a propriedade Type do DataSetpara webtable. São suportadas as seguintes propriedades:
+Para copiar dados de uma tabela da Web, defina a propriedade Type do DataSet para **webtable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -116,7 +121,7 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="web-table-as-source"></a>Tabela da Web como fonte
 
-Para copiar dados da tabela da Web, defina o tipo de fonte na atividade decópia como websource, não há suporte para nenhuma propriedade adicional.
+Para copiar dados da tabela da Web, defina o tipo de fonte na atividade de cópia como **websource**, não há suporte para nenhuma propriedade adicional.
 
 **Example:**
 
@@ -177,6 +182,10 @@ Para obter o índice de uma tabela que você precisa configurar nas [Propriedade
 
 Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) para obter o índice. Consulte [o artigo conectar-se a uma página da Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para obter detalhes. As etapas são semelhantes se você estiver usando [o Microsoft Power bi para desktop](https://powerbi.microsoft.com/desktop/).
 
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

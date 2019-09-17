@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d76b51aa5117e662e9ff17bb91516c758de3071c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: d75fce09f1f90e64463488bc1da8d8bb8c2f1d14
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277713"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009675"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -30,6 +30,11 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 >Para copiar dados de ou para o serviço [de banco do dados do Azure para MySQL](../mysql/overview.md) , use o [conector do banco de dados do Azure especializado para MySQL](connector-azure-database-for-mysql.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector MySQL tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dados MySQL para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -63,7 +68,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do MySQL:
 
 | Propriedade | Descrição | Opções | Requerido |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opção especifica se o driver usa a criptografia SSL e a verificação ao se conectar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0)/preferencial (1) **(padrão)** /obrigatório (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Não |
+| SSLMode | Esta opção especifica se o driver usa a criptografia SSL e a verificação ao se conectar ao MySQL. Por exemplo,`SSLMode=<0/1/2/3/4>`| DISABLED (0)/preferencial (1) **(padrão)** /obrigatório (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se um certificado de autoridade de certificação deve ser usado do repositório de confiança do sistema ou de um arquivo PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1)/desabilitado (0) **(padrão)** | Não |
 
 **Example:**
@@ -267,5 +272,10 @@ Ao copiar dados do MySQL, os seguintes mapeamentos são usados de tipos de dados
 | `varchar` |`String` |
 | `year` |`Int` |
 
-## <a name="next-steps"></a>Passos Seguintes
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

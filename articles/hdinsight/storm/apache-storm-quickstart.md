@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar e monitorizar a topologia do Apache Storm no HDInsight do Azure'
-description: Guia de introdução, saiba como criar e monitorizar uma topologia do Apache Storm no HDInsight do Azure.
+title: 'Início rápido: Criar e monitorar a topologia de Apache Storm no Azure HDInsight'
+description: No início rápido, saiba como criar e monitorar uma topologia de Apache Storm no Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,34 +8,34 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 12001aef970d3b465a7f5c8e0c7af072b8f4ec80
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e48cb53b55cdc4200498a54dba31ae93ca8b31a
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428452"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018594"
 ---
-# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início rápido: Criar e monitorizar uma topologia do Apache Storm no HDInsight do Azure
+# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início rápido: Criar e monitorar uma topologia de Apache Storm no Azure HDInsight
 
 O Apache Storm é um sistema de cálculo dimensionável, tolerante a falhas, distribuído e em tempo real para o processamento de fluxos de dados. Com o Storm no Azure HDInsight, pode criar um cluster do Storm baseado na nuvem que executa a análise de macrodados em tempo real.
 
-Neste início rápido, vai utilizar um exemplo do Apache [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projeto para criar e monitorizar uma topologia do Apache Storm num cluster do Apache Storm existente.
+Neste guia de início rápido, você usa um exemplo do projeto do Apache [Storm-Starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) para criar e monitorar uma topologia de Apache Storm para um cluster apache Storm existente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Storm no HDInsight. Ver [Apache Hadoop criar clusters no portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** para **tipo de Cluster**.
+* Um cluster Apache Storm no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** para o **tipo de cluster**.
 
-* Um cliente SSH. Para obter mais informações, consulte [ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-the-topology"></a>Criar a topologia
 
-1. Ligar ao cluster do Storm. Editar o comando abaixo, substituindo `CLUSTERNAME` com o nome do Storm de cluster e, em seguida, introduza o comando:
+1. Conecte-se ao cluster Storm. Edite o comando a seguir `CLUSTERNAME` substituindo pelo nome do cluster Storm e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. O **WordCount** exemplo está incluído no seu cluster do HDInsight em `/usr/hdp/current/storm-client/contrib/storm-starter/`. A topologia gera frases aleatórias e conta quantas vezes palavras ocorrem. Utilize o seguinte comando para iniciar o **wordcount** topologia no cluster:
+2. O exemplo de **WordCount** está incluído em seu cluster HDInsight `/usr/hdp/current/storm-client/contrib/storm-starter/`em. A topologia gera frases aleatórias e conta quantas vezes as palavras ocorrem. Use o seguinte comando para iniciar a topologia **WordCount** no cluster:
 
     ```bash
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
@@ -43,41 +43,41 @@ Neste início rápido, vai utilizar um exemplo do Apache [storm-starter](https:/
 
 ## <a name="monitor-the-topology"></a>Monitorizar a topologia
 
-O Storm fornece uma interface web para trabalhar com topologias em execução e está incluído no seu cluster do HDInsight.
+O Storm fornece uma interface da Web para trabalhar com topologias em execução e está incluído em seu cluster HDInsight.
 
 Siga estes passos para monitorizar a topologia através da IU do Storm:
 
 1. Para apresentar a IU do Storm, abra um browser para `https://CLUSTERNAME.azurehdinsight.net/stormui`. Substitua `CLUSTERNAME` pelo nome do cluster.
 
-2. Sob **resumo da topologia**, selecione a **wordcount** entrada no **nome** coluna. São apresentadas mais informações sobre a topologia.
+2. Em **Resumo da topologia**, selecione a entrada **WordCount** na coluna **nome** . São apresentadas mais informações sobre a topologia.
 
-    ![Dashboard do Storm com informações de topologia do WordCount do storm-starter.](./media/apache-storm-quickstart/topology-summary.png)
+    ![Dashboard do Storm com informações de topologia do WordCount do storm-starter.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
     A nova página fornece as seguintes informações:
 
     |Propriedade | Descrição |
     |---|---|
-    |Estatísticas de topologia|Informações básicas sobre o desempenho de topologia, organizadas em intervalos de tempo. Selecionar um intervalo de tempo específico altera o intervalo de tempo das informações apresentadas noutras secções da página.|
-    |Spouts|Informações básicas sobre spouts, incluindo o último erro devolvido por cada spout.|
-    |Bolts|Informações básicas sobre bolts.|
-    |Configuração da topologia|Obter informações detalhadas sobre a configuração da topologia.|
+    |Estatísticas de topologia|Informações básicas sobre o desempenho da topologia, organizadas em janelas de tempo. Selecionar um intervalo de tempo específico altera o intervalo de tempo das informações apresentadas noutras secções da página.|
+    |Spouts|Informações básicas sobre esgotamentos, incluindo o último erro retornado por cada Spout.|
+    |Bolts|Informações básicas sobre os parafusos.|
+    |Configuração de topologia|Informações detalhadas sobre a configuração de topologia.|
     |Ativar|Retoma o processamento de uma topologia desativada.|
-    |desativar|Coloca em pausa uma topologia em execução.|
-    |Reequilibrar|Ajusta o paralelismo da topologia. Deve rebalancear as topologias em execução depois de ter alterado o número de nós no cluster. O rebalanceamento ajusta o paralelismo para compensar o número maior/menor de nós no cluster. Para obter mais informações, consulte [compreender o paralelismo de uma topologia do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).|
-    |kill|Termina uma topologia do Storm após o tempo limite especificado.|
+    |Desativar|Pausa uma topologia em execução.|
+    |Reequilibrar|Ajusta o paralelismo da topologia. Deve rebalancear as topologias em execução depois de ter alterado o número de nós no cluster. O rebalanceamento ajusta o paralelismo para compensar o número maior/menor de nós no cluster. Para obter mais informações, consulte [noções básicas sobre o paralelismo de uma topologia de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).|
+    |Cancelar|Encerra uma topologia Storm após o tempo limite especificado.|
 
 3. Nesta página, selecione uma entrada da secção **Spouts** ou **Bolts**. São apresentadas informações sobre o componente selecionado.
 
-    ![Dashboard do Storm com informações sobre os componentes selecionados.](./media/apache-storm-quickstart/component-summary.png)
+    ![Dashboard do Storm com informações sobre os componentes selecionados.](./media/apache-storm-quickstart/hdi-component-summary.png)
 
-    A nova página apresenta as seguintes informações:
+    A nova página exibe as seguintes informações:
 
     |Propriedade | Descrição |
     |---|---|
-    |Estatísticas de spout/Bolt|Informações básicas sobre o desempenho dos componentes, organizadas em intervalos de tempo. Selecionar um intervalo de tempo específico altera o intervalo de tempo das informações apresentadas noutras secções da página.|
-    |Estatísticas de entrada (apenas bolt)|Informações sobre componentes que produzem dados consumidos pelo bolt.|
-    |Estatísticas de saída|Informações sobre dados emitidos por este bolt.|
-    |Executores|Informações sobre as instâncias deste componente.|
+    |Estatísticas de Spout/raio|Informações básicas sobre o desempenho do componente, organizadas em janelas de tempo. Selecionar um intervalo de tempo específico altera o intervalo de tempo das informações apresentadas noutras secções da página.|
+    |Estatísticas de entrada (somente raio)|Informações sobre componentes que produzem dados consumidos pelo parafuso.|
+    |Estatísticas de saída|Informações sobre dados emitidos por este parafuso.|
+    |Executores|Informações sobre instâncias deste componente.|
     |Erros|Erros produzidos por este componente.|
 
 4. Ao visualizar os detalhes de um spout ou bolt, selecione uma entrada na coluna **Porta** na secção **Executores** para ver os detalhes de uma instância específica do componente.
@@ -99,13 +99,13 @@ Regresse à página **Resumo da topologia** para aceder à topologia da contagem
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o início rápido, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o início rápido, talvez você queira excluir o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
-Para eliminar um cluster, veja [eliminar um cluster do HDInsight com o seu browser, o PowerShell ou a CLI do Azure](../hdinsight-delete-cluster.md).
+Para excluir um cluster, consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, utilizou um exemplo do Apache [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projeto para criar e monitorizar uma topologia do Apache Storm num cluster do Apache Storm existente. Avance para o artigo seguinte para aprender as noções básicas de gerenciamento e monitoramento de topologias do Apache Storm.
+Neste guia de início rápido, você usou um exemplo do projeto do Apache [Storm-Starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) para criar e monitorar uma topologia de Apache Storm para um cluster apache Storm existente. Avance para o próximo artigo para aprender as noções básicas de gerenciamento e monitoramento de topologias de Apache Storm.
 
 > [!div class="nextstepaction"]
->[Implementar e gerir topologias do Apache Storm no HDInsight do Azure](./apache-storm-deploy-monitor-topology-linux.md)
+>[Implantar e gerenciar topologias de Apache Storm no Azure HDInsight](./apache-storm-deploy-monitor-topology-linux.md)

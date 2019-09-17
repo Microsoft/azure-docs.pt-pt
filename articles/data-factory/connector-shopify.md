@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: b4bb56155e925f9e19570d89d091342afd594009
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 22f1394bb23568ac563af54f1df0b295f33f30d8
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725970"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010384"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar dados de Shopify com o Azure Data Factory (pré-visualização)
 
@@ -27,6 +27,11 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Shopify tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados de Shopify para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -47,9 +52,9 @@ As seguintes propriedades são suportadas para o serviço de Shopify ligado:
 | type | A propriedade Type deve ser definida como: **Shopify** | Sim |
 | host | O ponto final do servidor Shopify. (ou seja, mystore.myshopify.com)  | Sim |
 | accessToken | O token de acesso de API que pode ser utilizado para aceder aos dados da Shopify. O token não expira se se trata de modo offline. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
+| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é true.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
+| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -110,7 +115,7 @@ Para copiar dados de Shopify, definir o tipo de origem na atividade de cópia pa
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **ShopifySource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -142,5 +147,10 @@ Para copiar dados de Shopify, definir o tipo de origem na atividade de cópia pa
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

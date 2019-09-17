@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 84a82e5fae7c56a13aeb4603079e9378b38785cb
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2e1017192d57031c7b6f439a5cee46f3135415c
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277565"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008811"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados do PostgreSQL usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -27,6 +27,11 @@ ms.locfileid: "70277565"
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dado PostgreSQL. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector PostgreSQL tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dados PostgreSQL para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -58,8 +63,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do PostgreSQL:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| O método o driver usa para encriptar os dados enviados entre o driver e o servidor de base de dados. Por exemplo, `EncryptionMethod=<0/1/6>;`| 0 (sem encriptação) **(predefinição)** / 1 (SSL) / 6 (RequestSSL) | Não |
-| ValidateServerCertificate (VSC) | Determina se o driver valida o certificado que é enviado pelo servidor de base de dados quando estiver ativada a encriptação SSL (método de encriptação = 1). Por exemplo, `ValidateServerCertificate=<0/1>;`| 0 (desativado) **(predefinição)** / 1 (ativado) | Não |
+| EncryptionMethod (EM)| O método o driver usa para encriptar os dados enviados entre o driver e o servidor de base de dados. Por exemplo,`EncryptionMethod=<0/1/6>;`| 0 (sem encriptação) **(predefinição)** / 1 (SSL) / 6 (RequestSSL) | Não |
+| ValidateServerCertificate (VSC) | Determina se o driver valida o certificado que é enviado pelo servidor de base de dados quando estiver ativada a encriptação SSL (método de encriptação = 1). Por exemplo,`ValidateServerCertificate=<0/1>;`| 0 (desativado) **(predefinição)** / 1 (ativado) | Não |
 
 **Example:**
 
@@ -219,6 +224,11 @@ Para copiar dados do PostgreSQL, as propriedades a seguir têm suporte na seçã
 ```
 
 Se você estiver usando `RelationalSource` a fonte digitada, ainda haverá suporte como está, enquanto você é sugerido para usar a nova no futuro.
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

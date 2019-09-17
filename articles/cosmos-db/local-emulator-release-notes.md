@@ -1,37 +1,41 @@
 ---
-title: Download do emulador do Cosmos do Azure e notas de versão
-description: Leia as notas de versão do emulador do Cosmos do Azure e transferi-lo.
+title: Notas de versão e download do emulador Cosmos do Azure
+description: Leia as notas de versão do emulador Cosmos do Azure e baixe-o.
 ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 5985d0d82341c76993ee91b8dff6927edd1ed8b4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 587c730dfa436760d42e614c2dabee117f3b61d3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332120"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018809"
 ---
-# <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utilizar o emulador do Cosmos para o local de desenvolvimento e teste
+# <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o emulador Cosmos do Azure para desenvolvimento e teste local
 
-Este artigo mostra as notas de versão de emulador do Cosmos do Azure com uma lista de atualizações de funcionalidades que foram feitas em cada lançamento. Ele também apresenta a versão mais recente do emulador para transferir e utilizar.
+Este artigo mostra as notas de versão do emulador Cosmos do Azure com uma lista de atualizações de recursos que foram feitas em cada versão. Ele também lista a versão mais recente do emulador para baixar e usar.
 
 ## <a name="download"></a>Transferência
 
 | | |
 |---------|---------|
-|**Download MSI**|[Centro de Transferências da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introdução**|[Desenvolver localmente com o emulador do Cosmos do Azure](local-emulator.md)|
+|**Download do MSI**|[Centro de Transferências da Microsoft](https://aka.ms/cosmosdb-emulator)|
+|**Introdução**|[Desenvolver localmente com o emulador Cosmos do Azure](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="246"></a>2.4.6
+
+- Esta versão fornece paridade com os recursos do serviço Cosmos do Azure a partir de julho de 2019, com as exceções indicadas em [desenvolver localmente com o emulador Cosmos do Azure](local-emulator.md). Ele também corrige vários bugs relacionados ao desligamento do emulador quando invocado por linha de comando e substituições de endereço IP interno para clientes SDK usando conectividade de modo direto.
+
 ### <a name="243"></a>2.4.3
 
-- A iniciar o serviço de MongoDB, por predefinição desativada. Apenas o ponto de extremidade do SQL está ativado como predefinição. O utilizador tem de iniciar o ponto de extremidade manualmente utilizando o emulador "/ EnableMongoDbEndpoint" opção da linha de comandos. Agora, é como todos os outros pontos finais de serviço, como Gremlin, Cassandra e tabela.
-- Foi corrigido um erro no emulador ao iniciar com "/ AllowNetworkAccess" em que os pontos de extremidade do Gremlin, Cassandra e a tabela não eram o processamento correto dos pedidos de clientes externos.
-- Adicione as portas de ligação direta para as definições de regras de Firewall.
+- Desabilitado a inicialização do serviço MongoDB por padrão. Somente o ponto de extremidade SQL está habilitado como padrão. O usuário deve iniciar o ponto de extremidade manualmente usando a opção de linha de comando "/EnableMongoDbEndpoint" do emulador. Agora, é como todos os outros pontos de extremidade de serviço, como Gremlin, Cassandra e Table.
+- Corrigido um bug no emulador ao começar com "/AllowNetworkAccess", em que os pontos de extremidade Gremlin, Cassandra e table não estavam lidando corretamente com solicitações de clientes externos.
+- Adicione portas de conexão direta às configurações de regras de firewall.
 
 ### <a name="240"></a>2.4.0
 
-- Foi corrigido um problema com o emulador a falhar iniciar quando as aplicações de monitorização de rede, como o cliente do Pulse, estão presentes no computador anfitrião.
+- Foi corrigido um problema com falha na inicialização do emulador quando aplicativos de monitoramento de rede, como o cliente Pulse, estão presentes no computador host.

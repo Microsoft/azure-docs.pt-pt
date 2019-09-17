@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743388"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018291"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Proteger a conexão do banco de dados SQL do Azure do serviço de aplicativo usando uma identidade gerenciada
 
@@ -83,10 +83,22 @@ Para obter mais informações sobre como adicionar um administrador de Active Di
 
 ## <a name="set-up-visual-studio"></a>Configurar o Visual Studio
 
-Para habilitar o desenvolvimento e a depuração no Visual Studio, adicione o usuário do Azure AD no Visual Studio selecionando**configurações de conta** de **arquivo** > no menu e clique em **Adicionar uma conta**.
+### <a name="windows"></a>Windows
+O Visual Studio para Windows é integrado à autenticação do Azure AD. Para habilitar o desenvolvimento e a depuração no Visual Studio, adicione o usuário do Azure AD no Visual Studio selecionando**configurações de conta** de **arquivo** > no menu e clique em **Adicionar uma conta**.
 
 Para definir o usuário do Azure ad para a autenticação de serviço do Azure, selecione **ferramentas** > **Opções** no menu e selecione**seleção de conta**de autenticação > de **serviço do Azure**. Selecione o usuário do Azure AD que você adicionou e clique em **OK**.
 
+Agora você está pronto para desenvolver e depurar seu aplicativo com o banco de dados SQL como o back-end, usando a autenticação do Azure AD.
+
+### <a name="macos"></a>MacOS
+
+O Visual Studio para Mac não está integrado à autenticação do Azure AD. No entanto, a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) , que você usará posteriormente, poderá usar tokens de CLI do Azure. Para habilitar o desenvolvimento e a depuração no Visual Studio, primeiro você precisa [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no computador local.
+
+Quando CLI do Azure estiver instalado no computador local, entre no CLI do Azure com o seguinte comando usando o usuário do Azure AD:
+
+```bash
+az login --allow-no-subscriptions
+```
 Agora você está pronto para desenvolver e depurar seu aplicativo com o banco de dados SQL como o back-end, usando a autenticação do Azure AD.
 
 ## <a name="modify-your-project"></a>Modificar seu projeto

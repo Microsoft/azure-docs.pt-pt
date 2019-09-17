@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: da5880d27e5dd51d3a5f90b7cd6cf2e7dec50f89
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932749"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018856"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do firewall do Azure
 
@@ -129,11 +129,9 @@ O Firewall do Azure não SNAT quando o endereço IP de destino é um intervalo d
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Há suporte para túnel/encadeamento forçado para uma solução de virtualização de rede?
 
-O túnel forçado não tem suporte por padrão, mas pode ser habilitado com a ajuda do suporte.
+O túnel forçado não tem suporte no momento. O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprende uma rota padrão para sua rede local via BGP, você deve substituí-lo por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
 
-O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprende uma rota padrão para sua rede local via BGP, você deve substituí-lo por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet. Por padrão, o Firewall do Azure não dá suporte a túnel forçado para uma rede local.
-
-No entanto, se sua configuração exigir túnel forçado para uma rede local, a Microsoft dará suporte a isso caso a caso. Contate o suporte para que possamos examinar seu caso. Se aceito, permitiremos sua assinatura e garantiremos que a conectividade de Internet do firewall necessária seja mantida.
+Se sua configuração requer o túnel forçado para uma rede local e você pode determinar os prefixos de IP de destino para seus destinos de Internet, você pode configurar esses intervalos com a rede local como o próximo salto por meio de uma rota definida pelo usuário no AzureFirewallSubnet. Ou, você pode usar o BGP para definir essas rotas.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Há alguma restrição de grupo de recursos de firewall?
 

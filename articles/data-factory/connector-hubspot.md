@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: ce9a1d0fb9a5e8b242db26c433a08c2426df39d9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7d65432acd0bd9c184508dea5d887e36e716a277
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720757"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009057"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot com o Azure Data Factory (pré-visualização)
 
@@ -27,6 +27,12 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do HubSpot tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+
 
 Pode copiar dados de HubSpot para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -49,9 +55,9 @@ As seguintes propriedades são suportadas para o serviço de HubSpot ligado:
 | clientSecret | O segredo do cliente associado à sua aplicação Hubspot. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | accessToken | O token de acesso que obteve quando inicialmente está a autenticar a sua integração de OAuth. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | refreshToken | O token de atualização obtido durante a autenticação inicialmente a integração de OAuth. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
+| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é true.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
+| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -88,7 +94,7 @@ Para copiar dados de HubSpot, defina a propriedade de tipo de conjunto de dados 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **HubspotObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
+| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -120,7 +126,7 @@ Para copiar dados de HubSpot, definir o tipo de origem na atividade de cópia pa
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **HubspotSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Companies where Company_Id = xxx"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -151,6 +157,11 @@ Para copiar dados de HubSpot, definir o tipo de origem na atividade de cópia pa
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

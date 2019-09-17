@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2019
 ms.author: jonbeck
 ms.openlocfilehash: ba5e8d22670f459654d403a166840d9f8cd7f8a6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/16/2019
 ms.locfileid: "70082064"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual com otimização de memória
@@ -38,7 +38,7 @@ ms.locfileid: "70082064"
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.
 

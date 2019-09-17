@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 891fff203fbec8433793d3f3873e985dfebc31b0
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a8180094c0155e64a91ff9aeb94ac65e29a1f0f9
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277612"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008537"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados de Phoenix com o Azure Data Factory 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Phoenix. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector Phoenix tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados de Phoenix para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -127,7 +132,7 @@ Para copiar dados de Phoenix, definir o tipo de origem na atividade de cópia pa
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -159,5 +164,9 @@ Para copiar dados de Phoenix, definir o tipo de origem na atividade de cópia pa
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

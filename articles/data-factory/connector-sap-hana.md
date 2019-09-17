@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 72019b3bf5c17525b9a0dd8afc126f1bfc248041
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9a5592c0c5fa06d8319b91c6d624a74c83bdeb1f
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274451"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010436"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados de SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -31,7 +31,12 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Você pode copiar dados de um banco de dados SAP HANA para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Este conector de SAP HANA tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+
+Você pode copiar dados de um banco de dados SAP HANA para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Especificamente, esse conector de SAP HANA dá suporte a:
 
@@ -250,5 +255,9 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

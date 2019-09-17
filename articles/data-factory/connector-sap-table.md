@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 1d64a25fc60a1a1cbe1ed04f87a57556b7de0b88
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 94512fbd34e08db554e3a26c5ae28ab4418be8a7
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259009"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010452"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP usando Azure Data Factory
 
@@ -28,7 +28,12 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Você pode copiar dados de uma tabela SAP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Há suporte para este conector de tabela SAP para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+
+Você pode copiar dados de uma tabela SAP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Especificamente, esse conector de tabela SAP dá suporte a:
 
@@ -172,7 +177,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hub aberto do
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades para definir conjuntos de os, [](concepts-datasets-linked-services.md)consulte DataSets. A seção a seguir fornece uma lista das propriedades com suporte pelo conjunto de banco de uma tabela SAP.
+Para obter uma lista completa das seções e propriedades para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md). A seção a seguir fornece uma lista das propriedades com suporte pelo conjunto de banco de uma tabela SAP.
 
 Para copiar dados de e para o SAP BW serviço vinculado de Hub aberto, há suporte para as seguintes propriedades:
 
@@ -281,7 +286,7 @@ No `rfcTableOptions`, você pode usar os seguintes operadores de consulta SAP co
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Mapeamentos de tipo de dados para uma tabela SAP
 
-Quando você está copiando dados de uma tabela SAP, os seguintes mapeamentos são usados dos tipos de dados de tabela SAP para os tipos de dados provisórios Azure Data Factory. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você está copiando dados de uma tabela SAP, os seguintes mapeamentos são usados dos tipos de dados de tabela SAP para os tipos de dados provisórios Azure Data Factory. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de ABAP SAP | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
@@ -294,6 +299,11 @@ Quando você está copiando dados de uma tabela SAP, os seguintes mapeamentos s�
 | `N`Numeric | `String` |
 | `X`(Binary e RAW) | `String` |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para obter uma lista dos armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para obter uma lista dos armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

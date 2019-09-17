@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 29fd82eb0253f2f7f6b9bc8b6a84882e2372124c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984979"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018996"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -339,14 +339,14 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 - `ALTER ASSEMBLY`Não é possível fazer referência a arquivos. Consulte [ALTER assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Não é possível enviar @file_attachments anexos usando o parâmetro. O sistema de arquivos local e os compartilhamentos Extertal ou o armazenamento de BLOBs do Azure não estão acessíveis neste procedimento.
+ - `sp_send_dbmail`Não é possível enviar @file_attachments anexos usando o parâmetro. O sistema de arquivos local e os compartilhamentos externos ou o armazenamento de BLOBs do Azure não são acessíveis a partir desse procedimento.
  - Consulte os problemas conhecidos relacionados ao `@query` parâmetro e à autenticação.
  
 ### <a name="dbcc"></a>DBCC
 
 As instruções DBCC não documentadas que estão habilitadas no SQL Server não têm suporte em instâncias gerenciadas.
 
-- Há suporte apenas para um número `Trace flags` limitado de global. Não há suporte `Trace flags` para o nível de sessão. Consulte [sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Há suporte apenas para um número limitado de sinalizadores de rastreamento globais. Não há suporte `Trace flags` para o nível de sessão. Consulte [sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) e [DBCC tracen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funcionam com o número limitado de sinalizadores de rastreamento globais.
 - Não é possível usar [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) com opções REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST e REPAIR_REBUILD porque o banco de dados não `SINGLE_USER` pode ser definido no modo-consulte [diferenças de ALTER DATABASE](#alter-database-statement). As possíveis corrupções de banco de dados são tratadas pela equipe de suporte do Azure. Contate o suporte do Azure se você estiver percebendo corrupção de banco de dados que deve ser corrigido.
 
@@ -415,7 +415,7 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no HDF
 Para obter informações sobre como configurar a replicação, consulte o [tutorial de replicação](replication-with-sql-database-managed-instance.md).
 
 
-Se a replicação estiver habilitada em um banco de dados em um [grupo de failover](sql-database-auto-failover-group.md), o administrador da instância gerenciada deverá limpar todas as publicações no antigo primário e reconfigurá-las no novo primário após a ocorrência de um failover. As seguintes atividades são necessárias neste cenário:
+Se a replicação estiver habilitada em um banco de dados em um [grupo de failover](sql-database-auto-failover-group.md), o administrador da instância gerenciada deverá limpar todas as publicações na primária antiga e reconfigurá-las no novo primário após a ocorrência de um failover. As seguintes atividades são necessárias neste cenário:
 
 1. Pare todos os trabalhos de replicação em execução no banco de dados, se houver algum.
 2. Remova os metadados da assinatura do Publicador executando o seguinte script no banco de dados do Publicador:
@@ -544,6 +544,16 @@ Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há
 
 ## <a name="Issues"></a>Problemas conhecidos
 
+### <a name="missing-validations-in-restore-process"></a>Validações ausentes no processo de restauração
+
+**Date** Setembro de 2019
+
+`RESTORE`a instrução e a restauração pontual interna não executam algumas verificações de nessecary no banco de dados restaurado:
+- **A instrução DBCC CHECKDB**  -  `RESTORE` não `DBCC CHECKDB` é executada no banco de dados restaurado. Se um banco de dados original estiver corrompido ou o arquivo de backup estiver corrompido enquanto é copiado para o armazenamento de BLOBs do Azure, os backups automáticos não serão feitos e o suporte do Azure entrará em contato com o cliente 
+- O processo de restauração pontual interno não verifica se o backup automatizado de Comercialmente Crítico instância contém os [objetos OLTP na memória](sql-database-in-memory.md#in-memory-oltp). 
+
+**Solução alternativa**: Verifique se você está executando `DBCC CHECKDB` no banco de dados de origem antes de fazer um backup e usando `WITH CHECKSUM` a opção no backup para evitar possíveis danos que possam ser restaurados na instância gerenciada. Verifique se o banco de dados de origem não contém [objetos OLTP na memória](sql-database-in-memory.md#in-memory-oltp) se você o estiver restaurando na camada uso geral.
+
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor na camada de serviço Comercialmente Crítico talvez precise ser reconfigurada após o failover
 
 **Date** Setembro de 2019
@@ -552,19 +562,19 @@ Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há
 
 **Solução alternativa**: Execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do trabalho do SQL Agent que executa a tarefa SQL quando a instância for iniciada se você estiver usando [resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
-### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Não é possível autenticar para servidores de email externos usando conexão segura (SSL)
+### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Não é possível autenticar para servidores de email externos usando conexão segura (SSL)
 
 **Date** 2019 de agosto
 
 O Database Mail [configurado usando a conexão segura (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) não pode autenticar em alguns servidores de email fora do Azure. Esse é um problema de configuração de segurança que será resolvido em breve.
 
-**Resolução** A remoção temporária da conexão segura (SSL) forma a configuração do Database Mail até que o problema seja resolvido. 
+**Resolução** Remova temporariamente a conexão segura (SSL) da configuração do Database Mail até que o problema seja resolvido. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados devem ser reinicializadas após a atualização da camada de serviço
 
 **Date** 2019 de agosto
 
-As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de entregar as mensagens para os serviços em outros bancos de dados após a operação de alteração da camada de serviço. As mensagens **não são perdidas** e podem ser encontradas na fila do remetente. Qualquer alteração de tamanho de armazenamento de instância ou vCores em instância gerenciada, `service_broke_guid` fará com que o valor na exibição [Sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) seja alterado para todos os bancos de dados. Qualquer `DIALOG` criado usando a instrução [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencie os agentes de serviço em outro banco de dados interromperá a entrega de mensagens de mensagens ao serviço de destino.
+As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de entregar as mensagens para os serviços em outros bancos de dados após a operação de alteração da camada de serviço. As mensagens **não são perdidas** e podem ser encontradas na fila do remetente. Qualquer alteração de tamanho de armazenamento de instância ou vCores em instância gerenciada, `service_broke_guid` fará com que o valor na exibição [Sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) seja alterado para todos os bancos de dados. Qualquer `DIALOG` criado usando a instrução [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencie os agentes de serviço em outro banco de dados interromperá a entrega de mensagens ao serviço de destino.
 
 **Resolução** Pare qualquer atividade que use conversas de caixa de diálogo Service Broker de banco de dados antes de atualizar a camada de serviço e reinicializá-la após. Se houver mensagens restantes que não são entregues após a alteração da camada de serviço, leia as mensagens da fila de origem e reenvie-as para a fila de destino.
 
@@ -586,13 +596,13 @@ O `@query` parâmetro no procedimento [sp_send_db_mail](https://docs.microsoft.c
 
 **Date** Mar de 2019
 
-Se a replicação transacional estiver habilitada em um banco de dados em um grupo de failover automático, o administrador da instância gerenciada deverá limpar todas as publicações no antigo primário e reconfigurá-las no novo primário após a ocorrência de um failover para outra região. Consulte [replicação](#replication) para obter mais detalhes.
+Se a replicação transacional estiver habilitada em um banco de dados em um grupo de failover automático, o administrador da instância gerenciada deverá limpar todas as publicações no antigo primário e reconfigurá-los no novo primário após a ocorrência de um failover para outra região. Consulte [replicação](#replication) para obter mais detalhes.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Não há suporte para logons e usuários do AAD em ferramentas
 
 **Date** Jan 2019
 
-SQL Server Management Studio e SQL Server Data Tools não fuly dão suporte a usuários e logons de diretório de conta do Azure.
+SQL Server Management Studio e SQL Server Data Tools não dão suporte total a logons e usuários do Azure Active Directory.
 - Usar entidades de segurança do servidor do Azure AD (logons) e usuários (visualização pública) com SQL Server Data Tools atualmente não tem suporte.
 - Não há suporte para scripts para entidades de segurança de servidor do Azure AD (logons) e usuários (visualização pública) no SQL Server Management Studio.
 
@@ -612,7 +622,7 @@ O `tempdb` banco de dados sempre é dividido em 12 arquivos de data e a estrutur
 
 Cada instância gerenciada Uso Geral tem até 35 TB de armazenamento reservado para o espaço em disco Premium do Azure. Cada arquivo de banco de dados é colocado em um disco físico separado. Os tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma instância gerenciada que não precisa de 8 TB no total pode exceder o limite de 35 TB do Azure no tamanho do armazenamento devido à fragmentação interna.
 
-Por exemplo, um Uso Geral instância gerenciada pode ter um arquivo grande que seja de 1,2 TB de tamanho colocado em um disco de 4 TB. Ele também pode ter 248 arquivos de 1 GB, cada um colocado em discos de 128 GB separados. Neste exemplo:
+Por exemplo, uma instância gerenciada Uso Geral pode ter um arquivo grande que seja de 1,2 TB de tamanho colocado em um disco de 4 TB. Ele também pode ter 248 arquivos com tamanho de 1 GB cada um colocado em discos separados de 128 GB. Neste exemplo:
 
 - O tamanho total de armazenamento em disco alocado é 1 x 4 TB + 248 x 128 GB = 35 TB.
 - O espaço reservado total para bancos de dados na instância é 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

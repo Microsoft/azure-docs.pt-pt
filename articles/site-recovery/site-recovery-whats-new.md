@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933940"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010251"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -59,7 +59,7 @@ Os novos recursos para a recuperação de desastres de VM do Azure são resumido
 **Limpeza após o failback** | Após o failover para o Azure secundário e, em seguida, o failback para a região primária, Site Recovery limpa automaticamente os computadores na região secundária. Não há necessidade de excluir manualmente as VMS e NICs.
 **O failover de teste retém o endereço IP** | Agora você pode reter o endereço IP da VM de origem durante uma análise de recuperação de desastre e escolher um endereço IP estático para um failover de teste.
 
-## <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
+### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
 
 Os recursos adicionados neste mês são resumidos na tabela.
 
@@ -67,13 +67,13 @@ Os recursos adicionados neste mês são resumidos na tabela.
 --- | ---
 Novos alertas do servidor de processo | Adicionamos novos alertas do servidor de processo. [Saiba mais](vmware-physical-azure-monitor-process-server.md). 
 
-## <a name="hyper-v-disaster-recovery"></a>Recuperação de desastres do Hyper-V
+### <a name="hyper-v-disaster-recovery"></a>Recuperação de desastres do Hyper-V
 
 Os recursos adicionados neste mês são resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-Conta de armazenamento | O Site Recovery agora dá suporte ao uso de uma conta de armazenamento com RBAC (controle de acesso baseado em função) habilitado. [Saiba mais](../storage/common/storage-account-manage.md#access-control) sobre o controle de acesso para contas de armazenamento. 
+Conta de armazenamento | O Site Recovery agora dá suporte ao uso de contas de armazenamento com o firewall habilitado para a recuperação de desastre do Hyper-V para o Azure.  Você pode selecionar contas de armazenamento habilitadas para firewall como uma conta de destino ou para armazenamento em cache. Se você usar a conta habilitada para firewall, certifique-se de habilitar a opção para permitir serviços confiáveis da Microsoft.
 
 
 ## <a name="updates-august-2019"></a>Atualizações (agosto de 2019)
@@ -411,6 +411,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Mantenha-se atualizado com nossas atualizações na página [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .

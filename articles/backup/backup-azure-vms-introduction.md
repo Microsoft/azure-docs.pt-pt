@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951855"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018695"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -79,7 +79,7 @@ O backup do Azure faz instantâneos de acordo com o agendamento de backup.
 
 A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 
-**Instantânea** | **Detalhes** | **Automatiza** | **Reflexão**
+**Instantânea** | **Detalhes** | **Automatiza** | **Consideração**
 --- | --- | --- | ---
 **Consistente com o aplicativo** | Backups consistentes com o aplicativo capturam conteúdo de memória e operações de e/s pendentes. Os instantâneos consistentes com o aplicativo usam um gravador VSS (ou scripts de pré/pós para Linux) para garantir a consistência dos dados do aplicativo antes que ocorra um backup. | Quando você estiver recuperando uma VM com um instantâneo consistente com o aplicativo, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos são iniciados em um estado consistente. | Windows: Todos os gravadores VSS foram bem-sucedidos<br/><br/> Linux: Os scripts anteriores/posteriores estão configurados e tiveram êxito
 **Consistente com o sistema de arquivos** | Os backups consistentes do sistema de arquivos fornecem consistência ao tirar um instantâneo de todos os arquivos ao mesmo tempo.<br/><br/> | Quando você estiver recuperando uma VM com um instantâneo consistente do sistema de arquivos, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos precisam implementar seu próprio mecanismo de "correção" para garantir que os dados restaurados sejam consistentes. | Windows: Alguns gravadores VSS falharam <br/><br/> Linux: Padrão (se os scripts Pre/post não estiverem configurados ou falharem)
@@ -87,7 +87,7 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 
 ## <a name="backup-and-restore-considerations"></a>Considerações de backup e restauração
 
-**Reflexão** | **Detalhes**
+**Consideração** | **Detalhes**
 --- | ---
 **Disco** | O backup de discos de VM é paralelo. Por exemplo, se uma VM tiver quatro discos, o serviço de backup tentará fazer backup de todos os quatro discos em paralelo. O backup é incremental (somente dados alterados).
 **Scheduling** |  Para reduzir o tráfego de backup, faça backup de VMs diferentes em diferentes momentos do dia e certifique-se de que os horários não se sobreponham. O backup de VMs ao mesmo tempo causa congestionamentos de tráfego.
@@ -140,49 +140,14 @@ Disco de dados 2 | 4095 GB | 0 GB
 O tamanho real da VM, nesse caso, é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Visualização pública limitada: Backup de VM com tamanhos de disco de até 30 TB
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Pré-visualização Pública: Backup de VM com tamanhos de disco de até 30 TB
 
-O backup do Azure agora dá suporte a uma visualização pública limitada de maior e mais potente [Managed disks do Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) de até 30 TB de tamanho. Essa visualização fornece suporte de nível de produção para máquinas virtuais gerenciadas.
+O backup do Azure agora dá suporte à visualização pública de tamanhos maiores e mais potentes do [Azure Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) de até 30 TB. Essa visualização fornece suporte de nível de produção para máquinas virtuais gerenciadas.
 
-Você pode se registrar diretamente na visualização sem nenhum impacto sobre os backups em andamento. Depois que a assinatura é inscrita na visualização, todas as máquinas virtuais com tamanhos de disco de até 30 TB devem ser submetidas a backup com êxito. Para se inscrever na pré-visualização:
- 
-Execute os seguintes cmdlets de um terminal do PowerShell elevado:
+Os backups de suas máquinas virtuais com cada tamanho de disco até 30TB e um máximo de 256TB combinados para todos os discos em uma VM devem funcionar sem afetar os backups existentes. Não há nenhuma ação do usuário necessária para obter os backups em execução para os discos de tamanho grande, se a máquina virtual já estiver configurada com o backup do Azure.
 
-1. Inicie sessão na sua conta do Azure.
+Todas as máquinas virtuais do Azure com discos grandes com backup configurado devem ser submetidas a backup com êxito.
 
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Selecione a assinatura que você deseja registrar para a atualização:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Registrar esta assinatura no programa de visualização: 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Aguarde 30 minutos para que a assinatura seja inscrita na visualização. 
-
- 4. Para verificar o status, execute os seguintes cmdlets:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. Quando a assinatura for exibida como registrado, execute o seguinte comando:
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Não há suporte para VMs criptografadas com discos com mais de 4 TB nesta visualização.
-
-
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).

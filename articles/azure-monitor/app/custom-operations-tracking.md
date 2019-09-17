@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 34658fb1db84ff09a4c3d22ea95f5bfc7384721d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883636"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019065"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com Application Insights SDK do .NET
 
@@ -486,7 +486,7 @@ Cada operação de Application insights (solicitação ou dependência) `Activit
 ## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda os conceitos básicos da [correlação de telemetria](correlation.md) no Application insights.
-- Confira como os dados correlacionados alimentam a [experiência de diagnóstico de transação](/azure-monitor/app/transaction-diagnostics) e o mapa do [aplicativo](/azure-monitor/app/app-map).
+- Confira como os dados correlacionados alimentam a [experiência de diagnóstico de transação](../../azure-monitor/app/transaction-diagnostics.md) e o mapa do [aplicativo](../../azure-monitor/app/app-map.md).
 - Consulte o [modelo de dados](../../azure-monitor/app/data-model.md) para tipos de Application insights e modelo de dados.
 - Relatar [eventos e métricas](../../azure-monitor/app/api-custom-events-metrics.md) personalizados para Application insights.
 - Confira a [configuração](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) padrão da coleção de propriedades de contexto.

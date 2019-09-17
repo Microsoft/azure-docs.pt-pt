@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 391ad5c6535d457c2df988cd29d21e481310b17f
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061769"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018175"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -105,12 +105,12 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Causa 5: O serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
 **Causa 6: [A VM não tem acesso à Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095-gb"></a>UserErrorUnsupportedDiskSize-o backup do Azure no momento não dá suporte a tamanhos de disco maiores que 4095 GB
+## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-os tamanhos de disco configurados não têm suporte no momento pelo backup do Azure.
 
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
-**Mensagem de erro**: Atualmente, o backup do Azure não dá suporte a tamanhos de disco maiores que 4095 GB <br>
+**Mensagem de erro**: No momento, não há suporte para os tamanhos de disco configurados pelo backup do Azure. <br>
 
-Sua operação de backup pode falhar ao fazer backup de uma VM com um tamanho de disco maior que 4095 GB. Para se inscrever em uma visualização pública limitada de suporte de disco grande do backup do Azure para discos com mais de 4 TB e até 30 TB de tamanho, consulte este [artigo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Sua operação de backup pode falhar ao fazer backup de uma VM com um tamanho de disco maior que 30 TB. Além disso, o backup de discos criptografados com mais de 4 TB não tem suporte atualmente. Verifique se os tamanhos de disco são menores ou iguais ao limite com suporte, dividindo os discos.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress-não é possível iniciar o backup, já que outra operação de backup está em andamento
 
@@ -122,12 +122,10 @@ O trabalho de backup recente falhou porque há um trabalho de backup existente e
 1. Entre no portal do Azure, clique em **todos os serviços**. Escreva Serviços de Recuperação e clique em **Cofres dos Serviços de Recuperação**. É apresentada a lista dos cofres dos serviços de recuperação.
 2. Na lista de cofres dos serviços de recuperação, selecione um cofre no qual o backup está configurado.
 3. No menu do painel do cofre, clique em **trabalhos de backup** ele exibe todos os trabalhos de backup.
-
-- Se um trabalho de backup estiver em andamento, aguarde a conclusão ou cancele o trabalho de backup.
-  - Para cancelar o trabalho de backup, clique com o botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-- Se você tiver reconfigurado o backup em um cofre diferente, verifique se não há nenhum trabalho de backup em execução no cofre antigo. Se existir, cancele o trabalho de backup.
-  - Para cancelar a tarefa de cópia de segurança, faça clique com o botão direito do rato na tarefa de cópia de segurança e clique em **Cancelar** ou utilize o [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
-
+   - Se um trabalho de backup estiver em andamento, aguarde a conclusão ou cancele o trabalho de backup.
+     - Para cancelar o trabalho de backup, clique com o botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+   - Se você tiver reconfigurado o backup em um cofre diferente, verifique se não há nenhum trabalho de backup em execução no cofre antigo. Se existir, cancele o trabalho de backup.
+     - Para cancelar a tarefa de cópia de segurança, faça clique com o botão direito do rato na tarefa de cópia de segurança e clique em **Cancelar** ou utilize o [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Repita a operação de backup.
 
 Se a operação de backup agendado estiver demorando mais, em conflito com a próxima configuração de backup, revise as [práticas recomendadas](backup-azure-vms-introduction.md#best-practices), [desempenho de backup](backup-azure-vms-introduction.md#backup-performance)e [consideração de restauração](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -156,8 +154,7 @@ O agente de VM pode ter sido corrompido ou o serviço pode ter sido interrompido
 4. Baixe e instale a [versão mais recente do MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você deve ter direitos de administrador para concluir a instalação.
 5. Verifique se os serviços de agente convidado do Windows Azure aparecem nos serviços.
 6. Executar um backup sob demanda:
-
-- No portal, selecione **fazer backup agora**.
+   - No portal, selecione **fazer backup agora**.
 
 Além disso, verifique se o [Microsoft .NET 4,5 está instalado](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) na VM. O .NET 4,5 é necessário para que o agente de VM se comunique com o serviço.
 
@@ -202,7 +199,7 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 
 | Causa | Solução |
 | --- | --- |
-| O status da VM é relatado incorretamente porque a VM está desligada no protocolo RDP (RDP). | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de desligamento no painel da VM. |
+| O status da VM é relatado incorretamente porque a VM está desligada no protocolo RDP (RDP). | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **desligamento** no painel da VM. |
 | A VM não pode obter o host ou o endereço de malha do DHCP. | O DHCP deve ser habilitado dentro do convidado para o backup da VM IaaS funcionar. Se a VM não puder obter o host ou o endereço de malha da resposta do DHCP 245, ele não poderá baixar nem executar nenhuma extensão. Se você precisar de um IP privado estático, deverá configurá-lo por meio do **portal do Azure** ou do **PowerShell** e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de backup não é atualizada ou carregada

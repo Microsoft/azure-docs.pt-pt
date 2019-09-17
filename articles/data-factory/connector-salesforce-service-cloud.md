@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 729ea0fa667a11f710fd815003bc0995cb08ae70
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ac9b12f07a27b3bb8ff66d8a5637cb656e06abc6
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842559"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010574"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiar dados de e para a nuvem do serviço Salesforce usando Azure Data Factory
 
@@ -25,7 +25,12 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Você pode copiar dados da nuvem do serviço Salesforce para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para a nuvem do serviço Salesforce. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Este conector de nuvem do serviço do Salesforce tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+
+Você pode copiar dados da nuvem do serviço Salesforce para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para a nuvem do serviço Salesforce. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Especificamente, esse conector de nuvem do serviço Salesforce dá suporte a:
 
@@ -230,7 +235,7 @@ Para copiar dados para a nuvem do serviço Salesforce, as propriedades a seguir 
 | writeBehavior | O comportamento de gravação para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (o padrão é inserir) |
 | externalIdFieldName | O nome do campo de ID externa para a operação Upsert. O campo especificado deve ser definido como "campo de ID externa" no objeto de nuvem do serviço Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados na nuvem do serviço Salesforce em cada lote. | Não (o padrão é 5.000) |
-| ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
+| ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **True**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
 
 **Example:**
 
@@ -303,29 +308,34 @@ Se você clicar no erro "MALFORMED_QUERY: Truncado ", normalmente é devido a vo
 
 ## <a name="data-type-mapping-for-salesforce-service-cloud"></a>Mapeamento de tipo de dados para a nuvem do serviço Salesforce
 
-Quando você copia dados da nuvem do serviço Salesforce, os seguintes mapeamentos são usados de tipos de dados de nuvem do serviço do Salesforce para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você copia dados da nuvem do serviço Salesforce, os seguintes mapeamentos são usados de tipos de dados de nuvem do serviço do Salesforce para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados de nuvem do serviço Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| Auto Number |Cadeia |
-| Checkbox |Booleano |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |Cadeia |
-| ID |Cadeia |
-| Lookup Relationship |Cadeia |
-| Multi-Select Picklist |Cadeia |
-| Número |Decimal |
+| Email |String |
+| ID |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
 | Percent |Decimal |
-| Phone |Cadeia |
-| Picklist |Cadeia |
-| Text |Cadeia |
-| Text Area |Cadeia |
-| Text Area (Long) |Cadeia |
-| Text Area (Rich) |Cadeia |
-| Text (Encrypted) |Cadeia |
+| Phone |String |
+| Picklist |String |
+| Text |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |Cadeia |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

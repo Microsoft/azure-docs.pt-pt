@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 5399c79645be0ac774dc74603f26f092497262bf
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f80d40c07d50063a20483b0e07edc1b476c35c3
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813218"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010182"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o banco de dado SQL do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -617,5 +617,13 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados com precisão maior que 28, considere converter para uma cadeia de caracteres na consulta SQL.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+
+Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados e formatos com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

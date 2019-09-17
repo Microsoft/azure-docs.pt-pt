@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: d9e31c1c7decec159de9224f97edfcba15f93966
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445439"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007832"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Copiar dados do Xero com o Azure Data Factory (pré-visualização)
 
@@ -27,6 +27,11 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e fornecer comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Xero tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados do Xero para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -49,7 +54,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Xero:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **Xero** | Sim |
+| type | A propriedade Type deve ser definida como: **Xero** | Sim |
 | host | O ponto final do servidor Xero (`api.xero.com`).  | Sim |
 | consumerKey | A chave de consumidor associada à aplicação Xero. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | privateKey | A chave privada a partir do ficheiro. pem que foi gerado para a sua aplicação privada Xero, consulte [criar um par de chaves públicas/privadas](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Tenha em atenção a **gerar privatekey.pem com numbits 512** usando `openssl genrsa -out privatekey.pem 512`; 1024 não é suportada. Incluem todo o texto do ficheiro. pem, incluindo o endings(\n) de linha de Unix, consulte o exemplo abaixo.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -95,8 +100,8 @@ Para copiar dados do Xero, defina a propriedade de tipo de conjunto de dados par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **XeroObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **XeroObject** | Sim |
+| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -105,11 +110,12 @@ Para copiar dados do Xero, defina a propriedade de tipo de conjunto de dados par
     "name": "XeroDataset",
     "properties": {
         "type": "XeroObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -124,7 +130,7 @@ Para copiar dados do Xero, defina o tipo de origem na atividade de cópia para *
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **XeroSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **XeroSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Contacts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -213,5 +219,10 @@ As tabelas seguintes só podem ser consultadas com esquema concluída:
 - Complete.Receipt_Line_Item_Tracking 
 - Complete.Tracking_Category_Options
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de arquivos de dados suportados a atividade de cópia, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

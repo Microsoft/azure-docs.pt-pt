@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: b62cbe6be7f48aa05bf3756580df0777aeee8cae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 66b1aebb5197005dc93591e25b10a892d2855c37
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726086"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010622"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiar dados de Eloqua Oracle com o Azure Data Factory (pré-visualização)
 
@@ -27,6 +27,11 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e fornecer comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Oracle Eloqua tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados do Oracle Eloqua para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -48,9 +53,9 @@ As seguintes propriedades são suportadas para o serviço de Eloqua Oracle ligad
 | endpoint | O ponto final do servidor Eloqua. Eloqua oferece suporte a vários centros de dados, para determinar o ponto final, o início de sessão https://login.eloqua.com com a credencial, em seguida, copie o **URL de base** parte da URL redirecionada com o padrão de `xxx.xxx.eloqua.com`. | Sim |
 | username | O nome do site e o nome de utilizador da sua conta de Eloqua sob a forma: `SiteName\Username` por exemplo, `Eloqua\Alice`.  | Sim |
 | password | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
+| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é true.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
+| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -80,7 +85,7 @@ Para copiar dados do Oracle Eloqua, defina a propriedade de tipo de conjunto de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **EloquaObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
+| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -112,7 +117,7 @@ Para copiar dados do Oracle Eloqua, defina o tipo de origem na atividade de cóp
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **EloquaSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -143,6 +148,11 @@ Para copiar dados do Oracle Eloqua, defina o tipo de origem na atividade de cóp
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista de dados suportados armazenados pelo Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

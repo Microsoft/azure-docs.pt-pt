@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 80d89914f33273fcb033ab47098a8864b11974c9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c345b31c218c4678e7811c36113c94e0c4d2ac03
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876151"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019063"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para serviços do Azure
 
 A integração dos serviços do Azure a uma rede virtual do Azure permite o acesso privado ao serviço de máquinas virtuais ou recursos de computação na rede virtual.
 Você pode integrar os serviços do Azure em sua rede virtual com as seguintes opções:
 - Implantando instâncias dedicadas do serviço em uma rede virtual. Os serviços podem então ser acessados de forma privada na rede virtual e em redes locais.
-- Estender uma rede virtual para o serviço por meio de pontos de extremidade de serviço. Os pontos de extremidade de serviço permitem que os recursos de serviço individuais sejam protegidos para a rede virtual.
+- Usando o [link privado](../private-link/private-link-overview.md) para acessar privadamente uma instância específica do serviço de sua rede virtual e de redes locais.
 
-Para integrar vários serviços do Azure à sua rede virtual, você pode combinar um ou mais dos padrões acima. Por exemplo, você pode implantar o HDInsight em sua rede virtual e proteger uma conta de armazenamento para a sub-rede do HDInsight por meio de pontos de extremidade de serviço.
+Você também pode acessar o serviço usando pontos de extremidade públicos estendendo uma rede virtual para o serviço, por meio de [pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md). Os pontos de extremidade de serviço permitem que os recursos de serviço sejam protegidos para a rede virtual.
  
 ## <a name="deploy-azure-services-into-virtual-networks"></a>Implantar serviços do Azure em redes virtuais
 
@@ -50,19 +50,14 @@ A implantação de serviços em uma rede virtual fornece os seguintes recursos:
 
 |Category|Serviço| Sub-rede ¹ dedicada
 |-|-|-|
-| Computação | Máquinas virtuais: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Serviço de nuvem](https://msdn.microsoft.com/library/azure/jj156091): Somente rede virtual (clássica)<br/> [Lote do Azure](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Não <br/> Não <br/> Não <br/> Sem ²
-| Rede | [Gateway de aplicativo-WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Firewall do Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Dispositivos de rede virtual](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Sim <br/> Sim <br/> Sim <br/> Não
+| Computação | Máquinas virtuais: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Serviço de nuvem](https://msdn.microsoft.com/library/azure/jj156091): Somente rede virtual (clássica)<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Não <br/> Não <br/> Não <br/> Sem ²
+| Rede | [Gateway de aplicativo-WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Dispositivos de rede virtual](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Sim <br/> Sim <br/> Sim <br/> Não
 |Data|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connectivity-architecture.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Sim <br/> Sim <br/> 
 |Análise | [O Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Sem ² <br/> Sem ² <br/> 
 | identidade | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Não <br/>
 | Contentores | [Serviço Kubernetes do Azure (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância de contêiner do Azure (ACI)](https://www.aka.ms/acivnet)<br/>[Mecanismo do serviço de contêiner do Azure](https://github.com/Azure/acs-engine) com o [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI de rede virtual do Azure|Sem ²<br/> Sim <br/><br/> Não
 | Web | [Gestão de API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Ambiente do Serviço de Aplicações](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sim <br/> Sim <br/> Sim
-| Hospedado | [HSM dedicado do Azure](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sim <br/> Sim <br/>
+| Alojado | [HSM dedicado do Azure](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sim <br/> Sim <br/>
 | | |
 
 ¹ ' Dedicated ' implica que apenas recursos específicos de serviço podem ser implantados nesta sub-rede e não podem ser combinados com VM/VMSSs do cliente <br/> ² recomendado, mas não um requisito obrigatório imposto pelo serviço.
-
-
-## <a name="service-endpoints-for-azure-services"></a>Pontos de extremidade de serviço para serviços do Azure
-
-Alguns serviços do Azure não podem ser implantados em redes virtuais. Você pode restringir o acesso a alguns dos recursos de serviço somente a sub-redes de rede virtual específica, se preferir, habilitando um ponto de extremidade de serviço de rede virtual.  Saiba mais sobre os [pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md)e os serviços aos quais os pontos de extremidade podem ser habilitados.

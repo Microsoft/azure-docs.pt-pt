@@ -1,17 +1,17 @@
 ---
-title: Práticas recomendadas para a criação de avaliação com a avaliação do servidor de migrações para Azure | Microsoft Docs
+title: Práticas recomendadas para a criação de avaliação com a avaliação do servidor de migrações para Azure
 description: Fornece dicas para criar avaliações com a avaliação de servidor de migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234302"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007715"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
@@ -33,8 +33,8 @@ Por exemplo, se você tiver uma VM local com quatro núcleos a 20% de utilizaç�
 
 - **Avaliação baseada em desempenho**:
     - Identifica os núcleos e a memória efetivos com base na utilização do núcleo (4 x 0,20 = 0,8) e da memória (8 GB x 0,10 = 0,8).
-    - Aplica o fator de conforto especificado nas propriedades de avaliação (le'ts, por exemplo, 1,3 x) para obter os valores a serem usados para o dimensionamento. 
-    - Recomenda o tamanho da VM mais próximo no Azure que pode dar suporte à memória de ~ 1,4 núcleos (0,8 x 1,3) e ~ 1,4 GB (0,8 x 1,3).
+    - Aplica o fator de conforto especificado nas propriedades de avaliação (digamos, 1,3 x) para obter os valores a serem usados para o dimensionamento. 
+    - Recomenda o tamanho da VM mais próximo no Azure que pode dar suporte à memória de ~ 1, 4 núcleos (0,8 x 1,3) e ~ 1, 4 GB (0,8 x 1,3).
 
 - **Avaliação do as (como local)** :
     -  Recomenda uma VM com quatro núcleos; 8 GB de memória.
@@ -85,9 +85,9 @@ Uma avaliação pode não ter todos os pontos de dados por vários motivos:
 
 - Não analisou o ambiente durante o tempo para a qual está a criar a avaliação. Por exemplo, se você estiver criando uma *avaliação baseada em desempenho* com duração de desempenho definida como uma semana, você precisará aguardar pelo menos uma semana depois de iniciar a descoberta para todos os pontos de dados a serem coletados. Você sempre pode clicar em **Recalcular** para ver a classificação de confiança mais recente aplicável. A classificação de confiança é aplicável somente quando você cria uma avaliação *baseada em desempenho* .
 
-- Poucas VMs foram encerradas durante o período para o qual a avaliação é calculada. Se algumas VMs foram desligadas por alguma duração, a avaliação do servidor não poderá coletar os dados de desempenho para esse período.
+- Poucas VMs foram encerradas durante o período para o qual a avaliação é calculada. Se houver VMs desligadas durante algum tempo, a Avaliação do Servidor não vai conseguir recolher os dados de desempenho correspondentes a esse período.
 
-- Algumas VMs foram criadas após o início da descoberta na avaliação do servidor. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Nesse caso, os dados de desempenho para as novas VMs não estarão disponíveis durante toda a duração e a classificação de confiança será baixa.
+- Algumas VMs foram criadas após a deteção numa Avaliação do Servidor ter sido iniciada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

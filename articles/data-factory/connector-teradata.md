@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: f17a7ef2131662cdb9ef4d138303556215810fba
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b91ec46d47814418de21e9afe3e6e5534473c921
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959017"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008970"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados do Teradata privilegiando usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -28,6 +28,11 @@ ms.locfileid: "70959017"
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados do Teradata privilegiando. Ele se baseia na [visão geral da atividade de cópia](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Teradata tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados do Teradata privilegiando para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -328,6 +333,11 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | VarChar |Cadeia |
 | VarGraphic |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Xml |Não suportado. Aplicar conversão explícita na consulta de origem. |
+
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

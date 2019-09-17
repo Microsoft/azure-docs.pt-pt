@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a20a901d5fde251fdc1a044795615acdc1d61c5b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1096505a8789d722594cff13841e97930846ee53
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277636"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010629"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -27,6 +27,11 @@ ms.locfileid: "70277636"
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um armazenamento de dados ODBC. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector ODBC tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados da origem ODBC para qualquer armazenamento de dados de coletor com suporte ou copiar de qualquer armazenamento de dados de origem com suporte para o coletor ODBC. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -278,6 +283,11 @@ Crie um serviço vinculado de ODBC para vincular um armazenamento de dados de SA
 
 Leia o artigo desde o início para obter uma visão geral detalhada do uso de armazenamentos de dados ODBC como armazenamento de dados de origem/coletor em uma operação de cópia.
 
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+
 ## <a name="troubleshoot-connectivity-issues"></a>Solucionar problemas de conectividade
 
 Para solucionar problemas de conexão, use a guia **diagnóstico** do **Integration Runtime Configuration Manager**.
@@ -288,5 +298,5 @@ Para solucionar problemas de conexão, use a guia **diagnóstico** do **Integrat
 4. Especifique a **cadeia de conexão** usada para se conectar ao armazenamento de dados, escolha a **autenticação** e insira **o nome de usuário**, a **senha**e/ou **as credenciais**.
 5. Clique em **testar conexão** para testar a conexão com o armazenamento de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

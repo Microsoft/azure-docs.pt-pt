@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
 ms.openlocfilehash: aaa8908f5b05ae4c4523760c3c12a077ac1a09d5
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/16/2019
 ms.locfileid: "67509898"
 ---
 > [!NOTE] 

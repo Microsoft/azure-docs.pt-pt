@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 40c170575e0b6e6264eed8a464ac73012cbe8627
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 909b32890ea7ff33d6b5b5db3bb55f36f7007c6b
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276510"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018668"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o serviço kubernetes do Azure
 
 O AKS (serviço kubernetes do Azure) usa o projeto [CoreDNS][coredns] para a resolução e o gerenciamento de DNS do cluster com todos os clusters *1.12. x* e superior. Anteriormente, o projeto Kube-DNS foi usado. Este projeto Kube-DNS agora está preterido. Para obter mais informações sobre personalização e kubernetes do CoreDNS, consulte a [documentação do upstream oficial][corednsk8s].
 
-Como o AKS é um serviço gerenciado, você não pode modificar a configuração principal para CoreDNS(um corefile). Em vez disso, você usa um kubernetes *ConfigMap* para substituir as configurações padrão. Para ver o padrão AKs CoreDNS ConfigMaps, use o `kubectl get configmaps --namespace=kube-system coredns -o yaml` comando.
+Como o AKS é um serviço gerenciado, você não pode modificar a configuração principal para CoreDNS (um *corefile*). Em vez disso, você usa um kubernetes *ConfigMap* para substituir as configurações padrão. Para ver o padrão AKs CoreDNS ConfigMaps, use o `kubectl get configmaps --namespace=kube-system coredns -o yaml` comando.
 
 Este artigo mostra como usar o ConfigMaps para as opções básicas de personalização do CoreDNS no AKS.
 
@@ -160,7 +160,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 
 ## <a name="hosts-plugin"></a>Hospeda plug-in
 
-Como todos os plug-ins internos têm suporte, isso significa que [][coredns hosts] o plug-in CoreDNS hosts também está disponível para personalização:
+Como todos os plug-ins internos têm suporte, isso significa que o plug-in CoreDNS [hosts][coredns hosts] também está disponível para personalização:
 
 ```yaml
 apiVersion: v1
@@ -187,6 +187,8 @@ Para saber mais sobre os principais conceitos de rede, consulte [conceitos de re
 [coredns]: https://coredns.io/
 [corednsk8s]: https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns
 [dnscache]: https://coredns.io/plugins/cache/
+[aks-quickstart-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
+[aks-quickstart-portal]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

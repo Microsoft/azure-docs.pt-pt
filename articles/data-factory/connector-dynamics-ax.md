@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f2b1e8b9829bab56f0e49eafc50b7c56594de96b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2ecb19f86c665e89e9326c160596a8f14a169dba
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68720825"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009413"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiar dados do Dynamics AX usando Azure Data Factory (versão prévia)
 
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados da origem do Dynamics AX. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Dynamics AX tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados do Dynamics AX para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -169,6 +174,11 @@ Para copiar dados do Dynamics AX, defina o tipo de **fonte** na atividade de có
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista dos arquivos de dados que a atividade de cópia suporta como origens e sinks no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md##supported-data-stores-and-formats).

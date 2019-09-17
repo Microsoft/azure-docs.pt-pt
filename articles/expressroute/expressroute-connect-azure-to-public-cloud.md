@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: 681a99d31e7ededda74aa186ff36cc837125bbda
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a496b91ab8ec14ce859df0da93e0ad5d87c50982
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052215"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019020"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Conectando o Azure com nuvens públicas
 
@@ -36,7 +36,7 @@ Ao conectar-se por meio do provedor Layer3, a Microsoft anunciará as rotas de V
 
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
-O provedor pode ser uma aterrissagem de cada provedor de nuvem em um VRF separado. Se o tráfego de todos os provedores de nuvem for alcançado no roteador do cliente. Se o cliente estiver executando o BGP com o provedor de serviços, essas rotas serão anunciadas novamente para outros provedores de nuvem por padrão. 
+O provedor poderá ser a aterrissagem de cada provedor de nuvem em um VRF separado, se o tráfego de todos os provedores de nuvem for alcançado no roteador do cliente. Se o cliente estiver executando o BGP com o provedor de serviços, essas rotas serão anunciadas novamente para outros provedores de nuvem por padrão. 
 
 Se o provedor de serviços for aterrissar todos os provedores de nuvem no mesmo VRF, as rotas serão anunciadas para outros provedores de nuvem diretamente do provedor de serviços. Isso está assumindo uma operação BGP padrão em que as rotas eBGP são anunciadas para outros vizinhos eBGP por padrão.
 
@@ -58,7 +58,7 @@ Os clientes podem aproveitar a Internet para conectar suas instâncias no Azure 
 
 A VPN site a site não é considerada uma solução de alta taxa de transferência e baixa latência. No entanto, ele pode ser usado como um backup para conectividade física.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte [perguntas frequentes sobre o expressroute][ER-FAQ] para obter mais perguntas sobre o expressroute e a conectividade de rede virtual.
 
 Consulte [Configurar a conexão direta entre o Azure e o Oracle Cloud][ER-OCI] para conectividade entre o Azure e o Oracle

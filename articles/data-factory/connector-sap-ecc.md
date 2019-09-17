@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f51ad3d0a75ab1f0662ea0b747852fcb98e5026
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 8c583214fdf21f0ecd8bec132f82c0c32550006f
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259050"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010459"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 
@@ -27,6 +27,11 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 >Para aprender o suporte geral do ADF no cenário de integração de dados do SAP, consulte [integração de dados SAP usando Azure data Factory White Paper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, análise e diretrizes detalhadas.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector SAP ECC tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados do SAP ECC para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
@@ -100,7 +105,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SAP ECC:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, [](concepts-datasets-linked-services.md)consulte DataSets. A seção a seguir fornece uma lista das propriedades com suporte pelo conjunto de de SAP ECC.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md). A seção a seguir fornece uma lista das propriedades com suporte pelo conjunto de de SAP ECC.
 
 Para copiar os dados do SAP ECC, defina `type` a propriedade do conjunto para `SapEccResource`.
 
@@ -178,7 +183,7 @@ As propriedades a seguir têm suporte na seção da `source` atividade de cópia
 
 ## <a name="data-type-mappings-for-sap-ecc"></a>Mapeamentos de tipo de dados para SAP ECC
 
-Quando você está copiando dados do SAP ECC, os seguintes mapeamentos são usados de tipos de dados OData para dados do SAP ECC para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você está copiando dados do SAP ECC, os seguintes mapeamentos são usados de tipos de dados OData para dados do SAP ECC para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados OData | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
@@ -201,6 +206,10 @@ Quando você está copiando dados do SAP ECC, os seguintes mapeamentos são usad
 > [!NOTE]
 > Atualmente, não há suporte para tipos de dados complexos.
 
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma lista dos armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

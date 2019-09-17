@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Utilizar SDK para de pesquisa Bing WebC#'
+title: 'Início rápido: Usar o SDK do Pesquisa na Web do Bing paraC#'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação C#. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: aahi
-ms.openlocfilehash: b1660034f1937d2d8ff9e70139407619626886a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e893fda5a0e71703eb867c045de19d391c012ed
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498870"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018213"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início rápido: Utilizar SDK para de pesquisa Bing WebC#
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início rápido: Usar o SDK do Pesquisa na Web do Bing paraC#
 
 O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação C#. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -39,7 +39,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 > [!TIP]
 > Obter o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-O primeiro passo é criar um novo projeto de consola. Se precisar de ajuda com a configuração de um projeto de consola, veja [Olá, mundo – seu primeiro programa (C# guia de programação)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para utilizar o SDK de Pesquisa na Web do Bing na sua aplicação, terá de instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` através do Gestor de Pacotes NuGet.
+O primeiro passo é criar um novo projeto de consola. Se precisar de ajuda com a configuração de um projeto de console, consulte [Olá, mundo – seu primeiro programaC# (guia de programação)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para utilizar o SDK de Pesquisa na Web do Bing na sua aplicação, terá de instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` através do Gestor de Pacotes NuGet.
 
 O [pacote do SDK de Pesquisa na Web](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) também instala:
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Criar a estrutura do projeto
 
-Quando criou o seu novo projeto de consola, deverá ter sido criado um espaço de nomes e uma classe para a sua aplicação. Seu programa deve ter um aspeto semelhante a este exemplo:
+Quando criou o seu novo projeto de consola, deverá ter sido criado um espaço de nomes e uma classe para a sua aplicação. Seu programa deve ser semelhante a este exemplo:
 
 ```csharp
 namespace WebSearchSDK
@@ -243,7 +243,7 @@ Este exemplo utiliza os parâmetros `count` e `offset` para limitar o número de
     {
         try
         {
-            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20);
             Console.WriteLine("\r\nSearching for \" Best restaurants in Seattle \"");
 
             if (webData?.WebPages?.Value?.Count > 0)
@@ -303,7 +303,7 @@ Este exemplo utiliza o parâmetro `response_filter` para filtrar os resultados d
         try
         {
             IList<string> responseFilterstrings = new List<string>() { "news" };
-            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings);
             Console.WriteLine("\r\nSearching for \" Microsoft \" with response filter \"news\"");
 
             if (webData?.News?.Value?.Count > 0)
@@ -366,7 +366,7 @@ Este exemplo utiliza os parâmetros `answer_count`, `promote` e `safe_search` pa
         try
         {
             IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
-            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict);
             Console.WriteLine("\r\nSearching for \"Music Videos\"");
 
             if (webData?.Videos?.Value?.Count > 0)
@@ -422,7 +422,7 @@ Este exemplo utiliza os parâmetros `answer_count`, `promote` e `safe_search` pa
 
 Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de remover a sua chave de subscrição do código da aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplos do SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)

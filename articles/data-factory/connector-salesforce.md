@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 625f31252942c3d8dea9ca9b4772af19f60e17ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 08d1afb4175a61b70d8e04b19db187bcc87dd129
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720715"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010522"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para o Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -28,7 +28,13 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Você pode copiar dados do Salesforce para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Salesforce. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela armazenamentos de [dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Este conector do Salesforce tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+
+
+Você pode copiar dados do Salesforce para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Salesforce. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Especificamente, este conector do Salesforce dá suporte a:
 
@@ -239,7 +245,7 @@ Para copiar dados para o Salesforce, defina o tipo de coletor na atividade de c�
 | writeBehavior | O comportamento de gravação para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (o padrão é inserir) |
 | externalIdFieldName | O nome do campo de ID externa para a operação Upsert. O campo especificado deve ser definido como "campo de ID externa" no objeto Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados no Salesforce em cada lote. | Não (o padrão é 5.000) |
-| ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
+| ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **True**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
 
 **Exemplo: Coletor Salesforce em uma atividade de cópia**
 
@@ -312,7 +318,7 @@ Se você clicar no erro "MALFORMED_QUERY: Truncado ", normalmente é devido a vo
 
 ## <a name="data-type-mapping-for-salesforce"></a>Mapeamento de tipo de dados para Salesforce
 
-Quando você copia dados do Salesforce, os seguintes mapeamentos são usados de tipos de dados do Salesforce para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você copia dados do Salesforce, os seguintes mapeamentos são usados de tipos de dados do Salesforce para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados do Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
@@ -334,7 +340,12 @@ Quando você copia dados do Salesforce, os seguintes mapeamentos são usados de 
 | Text Area (Long) |String |
 | Text Area (Rich) |String |
 | Text (Encrypted) |String |
-| URL |String |
+| URL |Cadeia |
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

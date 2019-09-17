@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c8ffa7b65e4f97fa537299bf542ba377da026064
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 09/16/2019
 ms.locfileid: "70174651"
 ---
 Os tamanhos de VM com otimização de memória oferecem uma alta taxa de memória para CPU que são excelentes para servidores de banco de dados relacionais, caches médios a grandes e análise na memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e a largura de banda de rede para cada tamanho neste agrupamento.
@@ -83,9 +83,9 @@ Os tamanhos da série Easv3 são baseados no processador AMD EPYC<sup>TM</sup> d
 
 ACU: 160-190 <sup>1</sup>
 
-Armazenamento Premium:  Não suportado
+Armazenamento Premium:  Não Suportada
 
-Cache de armazenamento Premium:  Não suportado
+Cache de armazenamento Premium:  Não Suportada
 
 As instâncias da série Ev3 são baseadas no processador de 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) e pode chegar aos 3.5 GHz com o Intel Turbo Boost Technology 2.0. As instâncias da série Ev3 são ideais para aplicações empresariais com utilização intensiva da memória.
 
@@ -112,9 +112,9 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 ## <a name="eav3-series"></a>Série Eav3
 
-Armazenamento Premium: Não suportado
+Armazenamento Premium: Não Suportada
 
-Cache de armazenamento Premium: Não suportado
+Cache de armazenamento Premium: Não Suportada
 
 Os tamanhos da série Eav3 são baseados no processador AMD EPYC<sup>TM</sup> de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Eav3 são ideais para aplicativos empresariais com uso intensivo de memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos da série Easv3. Os medidores de cobrança e preço para os tamanhos de Easv3 são os mesmos que os da série Eav3.
 
@@ -147,7 +147,7 @@ O recurso da VM da série Mv2 Intel® tecnologia Hyper-Threading
 
 <sup>1</sup> essas VMs grandes exigem um desses SOS convidados com suporte: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
-<sup>2</sup> as VMs da série Mv2 são apenas de [geração 2](/azure/virtual-machines/linux/generation-2) . Se você estiver usando o Linux, consulte a seção a seguir para saber como localizar e selecionar uma imagem do SUSE Linux.
+<sup>2</sup> as VMs da série Mv2 são apenas de geração 2. Se você estiver usando o Linux, consulte a seção a seguir para saber como localizar e selecionar uma imagem do SUSE Linux.
 
 #### <a name="find-a-suse-image"></a>Localizar uma imagem SUSE
 
@@ -254,9 +254,9 @@ Cache de armazenamento Premium:  Suportadas
 
 ACU: 210-250
 
-Armazenamento Premium:  Não suportado
+Armazenamento Premium:  Não Suportada
 
-Cache de armazenamento Premium:  Não suportado
+Cache de armazenamento Premium:  Não Suportada
 
 | Size              | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Taxa de transferência máxima do armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

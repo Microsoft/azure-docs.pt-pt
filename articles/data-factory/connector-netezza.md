@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 20e5e23e2000095a95913964673ce90a72b87e59
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5d5db9e837846a20bf4b68f7dc5c39ad587f4de9
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813539"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009966"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza com o Azure Data Factory
 
@@ -27,6 +27,12 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 >Para o cenário de migração de dados do Netezza para o Azure, saiba mais em [usar Azure data Factory para migrar dados do servidor Netezza local para o Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector do Netezza tem suporte para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+
 
 Pode copiar dados de Netezza para qualquer arquivo de dados de sink suportados. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -159,7 +165,7 @@ Para copiar dados de Netezza, defina o **origem** tipo de atividade de cópia pa
 |:--- |:--- |:--- |
 | type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **NetezzaSource**. | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
-| partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Netezza. <br>Os valores permitidos são: **Nenhum** (padrão), **dataslice** e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja `None`, não), o grau de paralelismo para carregar dados simultaneamente de um banco de Netezza é controlado pela [`parallelCopies`](copy-activity-performance.md#parallel-copy) configuração na atividade de cópia. | Não |
+| partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Netezza. <br>Os valores permitidos são: **Nenhum** (padrão), **dataslice**e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja `None`, não), o grau de paralelismo para carregar dados simultaneamente de um banco de Netezza é controlado pela [`parallelCopies`](copy-activity-performance.md#parallel-copy) configuração na atividade de cópia. | Não |
 | partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de `None`partição não for. | Não |
 | partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será usado pelo particionamento de intervalo para cópia paralela. Se não for especificado, a chave primária da tabela será detectada automaticamente e usada como a coluna de partição. <br>Aplicar quando a opção de partição `DynamicRange`for. Se você usar uma consulta para recuperar os dados de origem, `?AdfRangePartitionColumnName` Conecte-se à cláusula WHERE. Consulte o exemplo em [cópia paralela da seção Netezza](#parallel-copy-from-netezza) . | Não |
 | partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de `DynamicRange`partição for. Se você usar a consulta para recuperar dados de origem `?AdfRangePartitionUpbound` , conecte a cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela de Netezza](#parallel-copy-from-netezza) . | Não |
@@ -237,6 +243,11 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
     }
 }
 ```
+
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

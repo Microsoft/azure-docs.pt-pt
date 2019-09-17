@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873508"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010303"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 
@@ -32,7 +32,7 @@ O banco de dados SQL do Azure gerencia seus bancos e garante sua alta disponibil
 
 A tabela a seguir lista os principais recursos do SQL Server e fornece informações sobre se o recurso tem suporte parcial ou completo em Instância Gerenciada ou Banco de Dados Individual e pools elásticos, com um link para obter mais informações sobre o recurso.
 
-| **Recurso SQL** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas** |
+| **Recurso SQL** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas e pools de instância** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim-consulte [repositório de certificados](sql-database-always-encrypted.md) e [cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) | Sim-consulte [repositório de certificados](sql-database-always-encrypted.md) e [cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | A [alta disponibilidade](sql-database-high-availability.md) está incluída em todos os bancos de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) | A [alta disponibilidade](sql-database-high-availability.md) está incluída em todos os bancos de dados e [não pode ser gerenciada pelo usuário](sql-database-managed-instance-transact-sql-information.md#always-on-availability). A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) |
@@ -112,7 +112,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 
 A plataforma Azure fornece vários recursos de PaaS que são adicionados como um valor adicional aos recursos de banco de dados padrão. Há vários serviços externos que podem ser usados com o serviço de banco de dados SQL do Azure. 
 
-| **Recurso de plataforma** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas** |
+| **Recurso de plataforma** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas e pools de instância** |
 | --- | --- | --- |
 | [Georreplicação ativa](sql-database-active-geo-replication.md) | Sim-todas as camadas de serviço que não sejam de hiperescala | Não, consulte [grupos de failover automático (versão prévia)](sql-database-auto-failover-group.md) como uma alternativa |
 | [Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) | Sim-todas as camadas de serviço que não sejam de hiperescala | Sim, em [Visualização pública](sql-database-auto-failover-group.md)|
@@ -131,7 +131,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | [Gerenciamento baseado em políticas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
 | Endereço IP público | Sim. O acesso pode ser restrito usando pontos de extremidade de firewall ou de serviço.  | Sim. Precisa ser habilitado explicitamente e a porta 3342 deve ser habilitada em regras NSG. O IP público pode ser desabilitado se necessário. Consulte [ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md) para obter mais detalhes. | 
 | [Restauração pontual do banco de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sim-todas as camadas de serviço que não sejam de hiperescala-consulte [recuperação de banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sim-consulte [recuperação do banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Pools de recursos | Sim, como [pools elásticos](sql-database-elastic-pool.md) | Não. Uma única instância gerenciada pode ter vários bancos de dados que compartilham o mesmo pool de recursos. As instâncias gerenciadas não podem compartilhar recursos. |
+| Pools de recursos | Sim, como [pools elásticos](sql-database-elastic-pool.md) | Sim. Uma única instância gerenciada pode ter vários bancos de dados que compartilham o mesmo pool de recursos. Além disso, você pode implantar várias instâncias gerenciadas em [pools de instância (versão prévia)](sql-database-instance-pools.md) que podem compartilhar os recursos. |
 | Expansão ou redução (online) | Sim, você pode alterar o DTU ou o vCores reservado ou o armazenamento máximo com o tempo de inatividade mínimo. | Sim, você pode alterar o armazenamento reservado vCores ou Max com o tempo de inatividade mínimo. |
 | Alias do SQL | Sim, consulte [alias DNS](dns-alias-overview.md) | Não |
 | [Análise de SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sim | Sim |
@@ -146,7 +146,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 ## <a name="tools"></a>Ferramentas
 O banco de dados SQL do Azure dá suporte a várias ferramentas de data que podem ajudá-lo a gerenciar seus dados.
 
-| **Ferramenta** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas** |
+| **Ferramenta** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas e pools de instância** |
 | --- | --- | --- |
 | Portal do Azure | Sim | Sim |
 | CLI do Azure | Sim | Sim|
@@ -167,7 +167,7 @@ O banco de dados SQL do Azure dá suporte a várias ferramentas de data que pode
 
 Você pode usar diferentes métodos de migração para mover seus dados entre SQL Server, Banco de Dados Individual e bancos de Instância Gerenciada. Alguns métodos estão **online** e selecionando todas as alterações feitas na origem enquanto você estiver executando a migração, enquanto em métodos **offline** , você precisa parar a carga de trabalho que está modificando os dados na origem enquanto a migração está em andamento.
 
-| **Origem** | **Banco de dados individual e pool elástico** | **Instância Gerenciada** |
+| **Origem** | **Banco de dados individual e pool elástico** | **Instância Gerenciada e pools de instância** |
 | --- | --- | --- |
 | SQL Server (local, AzureVM, Amazon RDS) | **Conectar** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Conectar** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Backup/restauração nativos, [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
 | Base de dados individual | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
@@ -183,3 +183,4 @@ A Microsoft continua a adicionar recursos ao banco de dados SQL do Azure. Visite
 Para obter mais informações sobre os tipos de banco de dados SQL do Azure, consulte:
 - [O que é a Base de Dados SQL?](sql-database-technical-overview.md)
 - [O que é um Instância Gerenciada?](sql-database-managed-instance.md)
+- [O que são pools de Instância Gerenciada?](sql-database-instance-pools.md)

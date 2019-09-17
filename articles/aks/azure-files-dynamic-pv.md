@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 09/12/2019
 ms.author: mlearned
-ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 045fcb3286c89097459a4a8405d22ee70e44c205
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67665978"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018826"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e usar dinamicamente um volume persistente com arquivos do Azure no serviço kubernetes do Azure (AKS)
 
@@ -33,13 +33,14 @@ Uma classe de armazenamento é usada para definir como um compartilhamento de ar
 * *Standard_LRS* -LRS (armazenamento com redundância local) padrão
 * *Standard_GRS* -armazenamento com redundância geográfica padrão (GRS)
 * *Standard_RAGRS* -armazenamento com redundância geográfica com acesso de leitura padrão (ra-grs)
+* *Premium_LRS* -LRS (armazenamento com redundância local) Premium
 
 > [!NOTE]
 > Os arquivos do Azure dão suporte ao armazenamento Premium em clusters AKS que executam o kubernetes 1,13 ou superior.
 
 Para obter mais informações sobre classes de armazenamento kubernetes para arquivos do Azure, consulte [classes de armazenamento kubernetes][kubernetes-storage-classes].
 
-Crie um arquivo chamado `azure-file-sc.yaml` e copie no exemplo de manifesto a seguir. Para obter mais informações sobre o mountoptions, consulte a seção [Opções de montagem][mount-options] .
+Crie um arquivo chamado `azure-file-sc.yaml` e copie no exemplo de manifesto a seguir. Para obter mais informações sobre o *mountoptions*, consulte a seção [Opções de montagem][mount-options] .
 
 ```yaml
 kind: StorageClass
@@ -52,6 +53,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```
@@ -101,7 +105,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Criar uma declaração de volume persistente
 
-Uma declaração de volume persistente (PVC) usa o objeto de classe de armazenamento para provisionar dinamicamente um compartilhamento de arquivos do Azure. O YAML a seguir pode ser usado para criar uma declaração de volume persistente *5 GB* de tamanho com acesso *ReadWriteMany* . Para obter mais informações sobre modos de acesso, consulte a documentação de [volume persistente do kubernetes][access-modes] .
+Uma declaração de volume persistente (PVC) usa o objeto de classe de armazenamento para provisionar dinamicamente um compartilhamento de arquivos do Azure. O YAML a seguir pode ser usado para criar uma declaração de volume persistente de *5 GB* de tamanho com acesso *ReadWriteMany* . Para obter mais informações sobre modos de acesso, consulte a documentação de [volume persistente do kubernetes][access-modes] .
 
 Agora, crie um arquivo `azure-file-pvc.yaml` chamado e copie o YAML a seguir. Certifique-se de que *storageClassName* corresponde à classe de armazenamento criada na última etapa:
 
@@ -118,6 +122,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!NOTE]
+> Se estiver usando o SKU *Premium_LRS* para sua classe de armazenamento, o valor mínimo para *armazenamento* deve ser *100gi*.
 
 Crie a declaração de volume persistente com o comando [kubectl Apply][kubectl-apply] :
 
@@ -136,9 +143,9 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Usar o volume persistente
 
-O YAML a seguir cria um pod que usa o azurefile  de declaração de volume persistente para montar o compartilhamento de arquivos do Azure no caminho */mnt/Azure* . Para contêineres do Windows Server (atualmente em visualização em AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, como *: '* .
+O YAML a seguir cria um pod que usa o *azurefile* de declaração de volume persistente para montar o compartilhamento de arquivos do Azure no caminho */mnt/Azure* . Para contêineres do Windows Server (atualmente em visualização em AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, como *: '* .
 
-Crie um arquivo chamado `azure-pvc-files.yaml`e copie o YAML a seguir. Verifique se claimname  corresponde ao PVC criado na última etapa.
+Crie um arquivo chamado `azure-pvc-files.yaml`e copie o YAML a seguir. Verifique se *claimname* corresponde ao PVC criado na última etapa.
 
 ```yaml
 kind: Pod
@@ -196,17 +203,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opções de montagem
 
-Os valores padrão *fileMode* e *dirMode* diferem entre as versões kubernetes, conforme descrito na tabela a seguir.
-
-| version | value |
-| ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v 1.8.6 ou superior | 0755 |
-| v1.9.0 | 0700 |
-| v 1.9.1 ou superior | 0755 |
-
-Se estiver usando um cluster da versão 1.8.5 ou superior e criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem poderão ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
+O valor padrão de *fileMode* e *dirMode* é *0755* para kubernetes versão 1.9.1 e superior. Se estiver usando um cluster com Kuberetes versão 1.8.5 ou superior e criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem poderão ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
 
 ```yaml
 kind: StorageClass
@@ -219,6 +216,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```

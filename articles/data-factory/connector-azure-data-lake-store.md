@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 4bb57190a310e1ea4b8e5c511f1acd90f53b8f09
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 968e356947e99c3b6c4fe9d5acd2efed264be5b0
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813459"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010115"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiar dados de ou para Azure Data Lake Storage Gen1 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -30,10 +30,11 @@ Este artigo descreve como copiar dados de e para Azure Data Lake Storage Gen1. P
 
 Este conector de Azure Data Lake Storage Gen1 tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com a [origem com suporte ou a matriz de coletor](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md) 
 - [Mapeando fluxo de dados](concepts-data-flow-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
+- [Excluir atividade](delete-activity.md)
 
 Especificamente, com esse conector, você pode:
 
@@ -491,6 +492,18 @@ Se você quiser replicar as listas de controle de acesso (ACLs) junto com os arq
 
 Saiba mais sobre [transformação de origem](data-flow-source.md) e [transformação de coletor](data-flow-sink.md) no recurso de fluxo de dados de mapeamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+
+Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>Excluir propriedades da atividade
+
+Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](delete-activity.md)
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

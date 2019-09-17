@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914856"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018719"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Visualização – dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
@@ -104,7 +104,7 @@ Leva alguns minutos para criar o cluster e definir as configurações de dimensi
 ## <a name="change-the-cluster-autoscaler-settings"></a>Alterar as configurações de dimensionamento de clusters
 
 > [!IMPORTANT]
-> Se você tiver o recurso de *vários pools de agentes* habilitado em sua assinatura, pule para a [seção dimensionamento automático com vários pools de agentes](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters com vários pools de agentes habilitados exigem `az aks nodepool` o uso do conjunto de comandos para alterar propriedades específicas `az aks`do pool de nós em vez de. As instruções abaixo pressupõem que você não habilitou vários pools de nós. Para verificar se ele está habilitado, execute `az feature  list -o table` e `Microsoft.ContainerService/multiagentpoolpreview`procure.
+> Se você tiver o recurso de *vários pools de agentes* habilitado em sua assinatura, pule para a [seção dimensionamento automático com vários pools de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters com vários pools de agentes habilitados exigem `az aks nodepool` o uso do conjunto de comandos para alterar propriedades específicas `az aks`do pool de nós em vez de. As instruções abaixo pressupõem que você não habilitou vários pools de nós. Para verificar se ele está habilitado, execute `az feature  list -o table` e `Microsoft.ContainerService/multiagentpoolpreview`procure.
 
 Na etapa anterior para criar um cluster AKS ou atualizar um pool de nós existente, a contagem de nós mínimos do cluster de dimensionamento foi definida como *1*e a contagem máxima de nós foi definida como *3*. À medida que o aplicativo exigir alteração, talvez seja necessário ajustar a contagem de nós do dimensionamento de clusters.
 
