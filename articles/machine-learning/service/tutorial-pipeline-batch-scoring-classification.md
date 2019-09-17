@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: aa280ea71735ce7c4000951e5c11de2913aaebe8
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 15a11ba74262ec5a354f0cb3fe22c09167c8d5a6
+ms.sourcegitcommit: d15b23e23328ce7502dd3d2846b49fd2d6d8209c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001609"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71005400"
 ---
 # <a name="use-azure-machine-learning-pipelines-for-batch-scoring"></a>Usar pipelines de Azure Machine Learning para Pontuação de lote
 
-Neste tutorial, você usará Azure Machine Learning pipelines para executar um trabalho de pontuação ou inferência de lote. Este trabalho de exemplo usa o modelo de Tensorflow de rede neural pré-treinado de involução [v3](https://arxiv.org/abs/1512.00567) para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configurará um ponto de extremidade REST para que possa disparar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
+Neste tutorial, você usará Azure Machine Learning pipelines para executar um trabalho de pontuação em lotes. Este exemplo usa o modelo de Tensorflow de rede neural pré-treinado de involução [v3](https://arxiv.org/abs/1512.00567) para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configura um ponto de extremidade REST para que você possa disparar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
 
 Os pipelines do Machine Learning otimizam seu fluxo de trabalho com velocidade, portabilidade e reutilização para que você possa se concentrar em sua experiência, aprendizado de máquina, em vez de infraestrutura e automação. [Saiba mais sobre pipelines de ml](concept-ml-pipelines.md).
 
@@ -534,7 +534,7 @@ Se você não planeja usar os recursos que criou, exclua-os, para não incorrer 
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de pipelines do Machine Learning, você fez as seguintes tarefas:
 
