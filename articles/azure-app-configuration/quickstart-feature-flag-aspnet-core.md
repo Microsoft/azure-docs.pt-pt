@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347923"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076331"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -36,9 +36,9 @@ As bibliotecas de gerenciamento de recursos do .NET Core estendem a estrutura co
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador** > de recursos **+ criar** para adicionar os seguintes sinalizadores de recurso:
+6. Selecione **Gerenciador** > de recursos **+ Adicionar** para adicionar os seguintes sinalizadores de recurso:
 
-    | Chave | Estado |
+    | Chave | State |
     |---|---|
     | Beta | Desativado |
 
@@ -81,10 +81,11 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Adicione referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` pacote NuGet executando o seguinte comando:
+1. Adicione referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` e aos `Microsoft.FeatureManagement.AspNetCore` pacotes NuGet executando os seguintes comandos:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Execute o seguinte comando para restaurar os pacotes para seu projeto:
@@ -199,7 +200,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Abra *_ layout. cshtml* no \\ `<nav>` `<body>` diretóriocompartilhadoviewsesubstituaocódigodebarraspor`<header>` pelo seguinte código:  > 
+1. Abra *_ layout. cshtml* no `<nav>` \\ `<body>` diretóriocompartilhadoviewsesubstituaocódigodebarraspor`<header>` pelo seguinte código:  > 
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -262,9 +263,11 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 1. Selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
-    | Chave | Estado |
+    | Chave | State |
     |---|---|
     | Beta | Ativado |
+
+1. Reinicie seu aplicativo alternando de volta para o prompt de `Ctrl-C` comando e pressionando para `dotnet` cancelar o processo em execução e `dotnet run`, em seguida, execute novamente.
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 
@@ -274,10 +277,11 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou para gerenciar recursos em um aplicativo Web ASP.NET Core por meio das [bibliotecas de gerenciamento de recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 
 - Saiba mais sobre o [Gerenciamento de recursos](./concept-feature-management.md).
 - [Gerenciar sinalizadores de recurso](./manage-feature-flags.md).
 - [Use os sinalizadores de recurso em um aplicativo ASP.NET Core](./use-feature-flags-dotnet-core.md).
+- [Usar a configuração dinâmica em um aplicativo ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

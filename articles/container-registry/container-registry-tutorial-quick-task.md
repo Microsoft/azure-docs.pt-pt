@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310444"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057499"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure
 
@@ -75,7 +75,7 @@ Os comandos nesta série de tutoriais estão formatados para a shell do Bash. Se
 
 Agora que já descarregou o código de origem para o seu computador, siga estes passos para criar um registo do contentor e compilar a imagem do contentor com o ACR Tasks.
 
-Para a execução dos comandos de exemplo ser mais fácil, os tutoriais nesta série utilizam variáveis de ambiente da shell. Execute o comando seguinte para definir a variável `ACR_NAME`. Substitua **\<registry-name\>** por um nome exclusivo para o novo registo de contentor. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Os outros recursos que criar no tutorial baseiam-se neste nome, pelo que necessita de modificar apenas esta primeira variável.
+Para a execução dos comandos de exemplo ser mais fácil, os tutoriais nesta série utilizam variáveis de ambiente da shell. Execute o comando seguinte para definir a variável `ACR_NAME`. Substitua **\<registry-name\>** por um nome exclusivo para o novo registo de contentor. O nome do registro deve ser exclusivo no Azure, conter apenas letras minúsculas e conter 5-50 caracteres alfanuméricos. Os outros recursos que criar no tutorial baseiam-se neste nome, pelo que necessita de modificar apenas esta primeira variável.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>
@@ -308,7 +308,7 @@ az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que testou o ciclo interno com uma tarefa rápida, configure uma **tarefa de compilação** para acionar compilações de imagens do contentor quando consolida código de origem para um repositório de Git:
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8bb6ca0483a7bc0a5af63a1fae7e5e5a5415abba
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: dfe531f8b298be1d90df45f57918f87744912949
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810303"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077065"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters de Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -170,7 +170,7 @@ No [Home Page do cluster](#homePage):
 
 1. Selecione **painéis de cluster**.
 
-    ![Menu de cluster Hadoop do HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    ![Menu de cluster do HDInsight Apache Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. Selecione **Ambari Home** na página novo.
 1. Insira o nome de usuário e a senha do cluster.  O nome de usuário do cluster padrão é _admin_.
@@ -257,7 +257,7 @@ O bloco **tamanho do cluster** do [Home Page de cluster](#homePage) exibe o núm
 * [Usar o Apache Hive com o HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, confira os seguintes artigos:
 

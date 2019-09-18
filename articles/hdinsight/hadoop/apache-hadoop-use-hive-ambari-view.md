@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917754"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077013"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usar a exibição do Ambari hive do Apache com o Apache Hadoop no HDInsight
 
@@ -34,7 +34,7 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
 
 3. Na lista de exibições, selecione __exibição do hive__.
 
-    ![A exibição do hive selecionada](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Exibição Apache Hive de seleção do Apache Ambari](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     A página de exibição do hive é semelhante à imagem a seguir:
 
@@ -98,25 +98,25 @@ A exibição de **explicação Visual** da consulta pode ser útil para entender
 Para exibir a interface do usuário do amTez para a consulta, selecione a guia **interface do usuário do tez** abaixo da planilha.
 
 > [!IMPORTANT]  
-> Tez não é usado para resolver todas as consultas. Você pode resolver muitas consultas sem usar o tez. 
+> Tez não é usado para resolver todas as consultas. Você pode resolver muitas consultas sem usar o tez.
 
 ## <a name="view-job-history"></a>Ver histórico de tarefas
 
 A guia __trabalhos__ exibe um histórico de consultas de Hive.
 
-![Imagem do histórico de trabalhos](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Histórico da guia Apache Hive exibir trabalhos](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tabelas de banco de dados
 
 Você pode usar a guia __tabelas__ para trabalhar com tabelas em um banco de dados do hive.
 
-![Imagem da guia tabelas](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Imagem da guia tabelas Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Consultas guardadas
 
 Na guia **consulta** , você pode, opcionalmente, salvar consultas. Depois de salvar uma consulta, você pode reutilizá-la na guia __consultas salvas__ .
 
-![Imagem da guia consultas salvas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Guia Apache Hive exibir consultas salvas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > As consultas salvas são armazenadas no armazenamento de cluster padrão. Você pode encontrar as consultas salvas no caminho `/user/<username>/hive/scripts`. Eles são armazenados como arquivos de texto `.hql` sem formatação.
@@ -129,7 +129,7 @@ Você pode estender o hive por meio de UDF (funções definidas pelo usuário). 
 
 Declare e salve um conjunto de UDFs usando a guia **UDF** na parte superior da exibição do hive. Essas UDFs podem ser usadas com o **Editor de consultas**.
 
-![Imagem da guia UDF](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Exibição da guia Apache Hive UDFs](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 Depois de adicionar um UDF à exibição do hive, um botão **Inserir UDFs** aparece na parte inferior do editor de **consultas**. A seleção dessa entrada exibe uma lista suspensa dos UDFs definidos na exibição do hive. A seleção de um UDF adiciona instruções HiveQL à sua consulta para habilitar o UDF.
 

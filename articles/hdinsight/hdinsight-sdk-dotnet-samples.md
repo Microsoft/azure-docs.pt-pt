@@ -1,19 +1,20 @@
 ---
-title: 'Do Azure HDInsight: Amostras do .NET'
-description: Encontre C# exemplos do .NET no GitHub para tarefas comuns com o SDK do HDInsight para .NET.
+title: 'Azure HDInsight: exemplos do .NET'
+description: Encontre C# exemplos do .net no GitHub para tarefas comuns usando o SDK do HDInsight para .net.
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 3e2cb0768701196515ace3f6ef0d475f8e3b0f79
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1365b39385a3dfb684628214765269ea3a225e9
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688115"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076866"
 ---
-# <a name="azure-hdinsight-net-samples"></a>Do Azure HDInsight: Amostras do .NET
+# <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: exemplos do .NET
 
 > [!div class="op_single_selector"]
 > * [Exemplos .NET](hdinsight-sdk-dotnet-samples.md)
@@ -23,26 +24,26 @@ ms.locfileid: "64688115"
 
 Este artigo fornece:
 
-* Links para amostras para tarefas de criação do cluster.
-* Ligações para conteúdo de referência para outras tarefas de gestão.
+* Links para exemplos de tarefas de criação de cluster.
+* Links para conteúdo de referência para outras tarefas de gerenciamento.
 
-Pode [ativar os benefícios de subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Subscrição do Visual Studio dá-lhe créditos todos os meses que pode utilizar para serviços pagos do Azure.
+Você pode [ativar os benefícios do assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Sua assinatura do Visual Studio oferece créditos a cada mês que você pode usar para serviços pagos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Azure HDInsight SDK para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
+- [SDK do Azure HDInsight para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
-## <a name="cluster-management---creation"></a>Gerenciamento de cluster – criação
+## <a name="cluster-management---creation"></a>Gerenciamento de cluster-criação
 
-* [Criar um cluster do Kafka](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateKafkaClusterSample.cs)
+* [Criar um cluster Kafka](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateKafkaClusterSample.cs)
 * [Criar um cluster do Spark](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateSparkClusterSample.cs)
-* [Criar um cluster do Spark com geração 2 de armazenamento do Azure Data Lake](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
-* [Criar um cluster do Spark com o pacote de segurança da empresa (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
+* [Criar um cluster Spark com Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
+* [Criar um cluster Spark com Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
 
-Pode obter estes exemplos para .NET através da clonagem do [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) repositório do GitHub.
+Você pode obter esses exemplos para o .NET clonando o repositório do GitHub [hdinsight-dotnet-SDK-Samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) .
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Fragmentos de código para esta funcionalidade adicional do SDK pode ser encontrada na [documentação de referência do HDInsight SDK para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Os trechos de código para essa funcionalidade adicional do SDK podem ser encontrados na [documentação de referência do SDK do HDInsight para .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).

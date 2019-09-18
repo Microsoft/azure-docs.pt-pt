@@ -1,5 +1,5 @@
 ---
-title: Proteger uma API Web com o Azure AD| Microsoft Docs
+title: 'Início rápido: Proteger uma API Web com Azure Active Directory'
 description: Aprenda a compilar uma API Web Node.js REST que se integra no Azure AD para autenticação.
 services: active-directory
 documentationcenter: nodejs
@@ -14,16 +14,16 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: seo-javascript-september2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7307afb2ce9e10326c42f96733d3f80979c4a4b3
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545979"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056546"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início rápido: Proteger uma Web API com o Azure Active Directory
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início rápido: Proteger uma API Web com Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -106,9 +106,9 @@ Para obter mais informações sobre as definições de configuração individuai
 
 ### <a name="implement-the-server"></a>Implementar o servidor
 
-O [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) módulo apresenta duas estratégias de autenticação: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) e [portador](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) estratégias. O servidor implementado neste artigo utiliza a estratégia de portador para proteger o ponto final da API.
+O módulo [Passport-Azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) apresenta duas estratégias de autenticação: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) e estratégias de [portador](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) . O servidor implementado neste artigo utiliza a estratégia de portador para proteger o ponto final da API.
 
-### <a name="step-1-import-dependencies"></a>Passo 1: Dependências de importação
+### <a name="step-1-import-dependencies"></a>Passo 1: Importar dependências
 
 Crie um novo ficheiro com o nome `app.js` e cole o seguinte texto:
 
@@ -126,13 +126,13 @@ const
 
 Nesta secção do código:
 
-- O `restify` e módulos de plug-ins são referenciados para configurar um servidor do Restify.
+- Os `restify` módulos de plug-ins e são referenciados para configurar um servidor Restify.
 - Os módulos `passport` e `passport-azure-ad` são responsáveis por comunicar com o Azure AD.
 - A variável `config` é inicializada com os valores do ficheiro `config.js` criado no passo anterior.
 - É criada uma matriz para o `authenticatedUserTokens` armazenar os tokens de utilizador à medida que são transmitidos para pontos finais seguros.
 - O `serverPort` é definido a partir da porta do ambiente de processo ou do ficheiro de configuração.
 
-### <a name="step-2-instantiate-an-authentication-strategy"></a>Passo 2: Criar uma instância de uma estratégia de autenticação
+### <a name="step-2-instantiate-an-authentication-strategy"></a>Passo 2: Criar uma estratégia de autenticação
 
 Ao proteger um ponto final, tem de fornecer uma estratégia responsável por determinar se o pedido atual é ou não proveniente de um utilizador autenticado. Aqui a variável `authenticatonStrategy` é uma instância da classe `passport-azure-ad` de `BearerStrategy`. Adicione o seguinte código após as declarações `require`.
 
@@ -251,7 +251,7 @@ Unauthorized
 
 Agora que criou uma API segura, pode implementar um cliente que é capaz de passar os tokens de autenticação à API.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Tem de implementar um equivalente de cliente para ligar ao servidor que processa o início de sessão, ao terminar a sessão e gerir os tokens. Para obter exemplos baseados em código, consulte as aplicações cliente em [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) e [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android).
 * Para obter um tutorial passo-a-passo, veja [Início de sessão e fim de sessão de uma aplicação Web Node.js com o Azure AD](quickstart-v1-openid-connect-code.md).

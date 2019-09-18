@@ -3,16 +3,17 @@ title: Solucionar problemas do HDFS no Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o HDFS e o Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1b244b3d402d7896ade2fa2e84881a0079ef6bba
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a5dcd7d2204e7ec03bf6b11bce9be20870cb3054
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515637"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076471"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop HDFS usando o Azure HDInsight
 

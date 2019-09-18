@@ -3,7 +3,7 @@ title: Azure Status Monitor v2-introdução | Microsoft Docs
 description: Um guia de início rápido para o Status Monitor v2. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: a0c836c8ef947e190a0090b3435eec1c53ded436
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326264"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058239"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Introdução ao Status Monitor v2
+# <a name="get-started-with-status-monitor-v2"></a>Introdução ao Monitor de Estado v2
 
 Este artigo contém os comandos de início rápido esperados para funcionar para a maioria dos ambientes.
 As instruções dependem do Galeria do PowerShell para distribuir atualizações.
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Baixar e instalar via Galeria do PowerShell
 
-### <a name="install-prerequisites"></a>Pré-requisitos da instalação
+### <a name="install-prerequisites"></a>Instalar pré-requisitos
 Execute o PowerShell como administrador.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -74,7 +74,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
  Ver a telemetria:
 

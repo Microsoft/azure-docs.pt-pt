@@ -4,7 +4,7 @@ description: Fornece as etapas de solução de problemas para corrigir problemas
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: d403292a7f7ab1080f4270a420c23353eda5fd71
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090032"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058140"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows do Azure
 
@@ -128,7 +128,7 @@ Sim.
 ### <a name="what-happens-if-windows-activation-period-expires"></a>O que acontece se o período de ativação do Windows expirar? 
 
  
-Quando o período de carência tiver expirado e o Windows ainda não estiver ativado, o Windows Server 2008 R2 e versões posteriores do Windows mostrarão notificações adicionais sobre a ativação. O papel de parede da área de trabalho permanece preto e Windows Update instalará somente atualizações críticas e de segurança, mas não as atualizações opcionais. Consulte a seção notificações na parte inferior da página [condições](https://technet.microsoft.com/library/ff793403.aspx) de licenciamento.   
+Quando o período de carência tiver expirado e o Windows ainda não estiver ativado, o Windows Server 2008 R2 e versões posteriores do Windows mostrarão notificações adicionais sobre a ativação. O papel de parede da área de trabalho permanece preto e Windows Update instalará somente atualizações críticas e de segurança, mas não as atualizações opcionais. Consulte a seção notificações na parte inferior da página [condições de licenciamento](https://technet.microsoft.com/library/ff793403.aspx) .   
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

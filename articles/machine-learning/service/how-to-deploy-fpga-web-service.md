@@ -1,7 +1,7 @@
 ---
 title: O que são FPGA – como implantar
-titleSuffix: Azure Machine Learning service
-description: Saiba como implantar um serviço Web com um modelo em execução em um FPGA com serviço de Azure Machine Learning para inferência de latência extremamente baixa.
+titleSuffix: Azure Machine Learning
+description: Saiba como implantar um serviço Web com um modelo em execução em um FPGA com Azure Machine Learning para inferência de latência extremamente baixa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860479"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034457"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 
-Este artigo fornece uma introdução às FPGA (matrizes de portão programável por campo) e mostra como implantar seus modelos usando o serviço de Azure Machine Learning em um FPGA do Azure. 
+Este artigo fornece uma introdução às FPGA (matrizes de portão programável por campo) e mostra como implantar seus modelos usando Azure Machine Learning em um FPGA do Azure. 
 
 FPGAs contêm uma matriz de blocos lógicos programáveis e uma hierarquia de interconexões reconfiguráveis. As interconexões permitem que esses blocos sejam configurados de várias maneiras após a fabricação. Em comparação com outros chips, o FPGAs fornece uma combinação de programação e desempenho.
 
@@ -28,7 +28,7 @@ FPGAs contêm uma matriz de blocos lógicos programáveis e uma hierarquia de in
 
 O diagrama e a tabela a seguir mostram como o FPGAs se compara com outros processadores.
 
-![Diagrama de comparação de FPGA do serviço de Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Diagrama de Azure Machine Learning comparação de FPGA](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processador||Descrição|
 |---|:-------:|------|
@@ -89,7 +89,7 @@ Você pode implantar um modelo como um serviço Web no FPGAs com Azure Machine L
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+- Uma subscrição do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 - Cota de FPGA. Use o CLI do Azure para verificar se você tem cota:
 
@@ -112,7 +112,7 @@ Você pode implantar um modelo como um serviço Web no FPGAs com Azure Machine L
 
     Se você não tiver cota, envie uma solicitação em [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Para obter mais informações, consulte [criar um espaço de trabalho](how-to-manage-workspace.md).
+- Um espaço de trabalho Azure Machine Learning e o SDK do Azure Machine Learning para Python instalados. Para obter mais informações, consulte [criar um espaço de trabalho](how-to-manage-workspace.md).
  
 - O SDK do Python para modelos com aceleração de hardware:
 
@@ -426,7 +426,7 @@ Todos [os dispositivos](https://docs.microsoft.com/azure/databox-online/data-box
 
 Para proteger seus serviços Web do FPGA, consulte o documento [Secure Web Services](how-to-secure-web-service.md) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Confira estes blocos de anotações, vídeos e Blogs:
 

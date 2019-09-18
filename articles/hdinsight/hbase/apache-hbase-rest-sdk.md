@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: f833d045f297679ae3629f8e0afe20b3ca834821
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885589"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077157"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
@@ -114,7 +114,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 O HBase implementa o [Cloud BigTable](https://cloud.google.com/bigtable/), portanto, o formato de dados é semelhante ao seguinte:
 
-![Usuário com função de usuário de cluster](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+![Saída de dados de exemplo do Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>Selecionar dados
 
@@ -185,7 +185,7 @@ finally
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução a um exemplo do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md)
 * Crie um aplicativo de ponta a ponta com a [análise de sentimentos do Twitter em tempo real com o Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

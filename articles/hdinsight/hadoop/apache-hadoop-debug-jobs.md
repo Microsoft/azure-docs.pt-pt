@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882441"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059205"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analisar logs de Apache Hadoop no Azure HDInsight
 
@@ -110,7 +110,7 @@ Para obter mais informações sobre logs de aplicativos, consulte [simplificando
 ### <a name="access-the-ambari-ui"></a>Acessar a interface do usuário do amAmbari
 No portal do Azure, clique em um nome de cluster HDInsight para abrir o painel do cluster. No painel cluster, clique em **painel**.
 
-![Iniciar painel do cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![Painel de cluster de inicialização do HDInsight](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Acessar a interface do usuário do amYarn
@@ -120,7 +120,7 @@ Você pode usar a interface do usuário do amYARN para fazer o seguinte:
 
 * **Obter status do cluster**. No painel esquerdo, expanda **cluster**e clique em **sobre**. Isso apresenta detalhes de status do cluster, como memória alocada total, núcleos usados, estado do Gerenciador de recursos de cluster, versão do cluster e assim por diante.
   
-    ![Iniciar o painel do cluster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Iniciar o painel do cluster yarn")
+    ![Painel de cluster de inicialização do HDInsight yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Painel de cluster de inicialização do HDInsight yarn")
 * **Obter status do nó**. No painel esquerdo, expanda **cluster**e clique em **nós**. Isso lista todos os nós no cluster, o endereço HTTP de cada nó, os recursos alocados para cada nó, etc.
 * **Monitorar o status do trabalho**. No painel esquerdo, expanda **cluster**e clique em **aplicativos** para listar todos os trabalhos no cluster. Se você quiser examinar os trabalhos em um estado específico (como novo, enviado, em execução, etc.), clique no link apropriado em **aplicativos**. Você pode clicar mais no nome do trabalho para saber mais sobre o trabalho, incluindo a saída, os logs, etc.
 
@@ -312,7 +312,7 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure qua
 * **Descrição**: Configuração de cluster inválida. A configuração da conta WASB necessária não foi encontrada em contas externas.  
 * **Mitigação**: Verifique se a conta existe e se está corretamente especificada na configuração e repita a operação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)

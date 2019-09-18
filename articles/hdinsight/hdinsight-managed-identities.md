@@ -1,50 +1,51 @@
 ---
-title: Identidades geridas no Azure HDInsight
-description: Fornece uma descrição geral da implementação de identidades geridas no Azure HDInsight.
+title: Identidades gerenciadas no Azure HDInsight
+description: Fornece uma visão geral da implementação de identidades gerenciadas no Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.author: hrasheed
-ms.openlocfilehash: 30631c4b71d1e8f3b0380a39bab49b900df32621
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ea164a1fa29b494801623d418be73fc47d069c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427645"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077071"
 ---
-# <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas no Azure HDInsight
+# <a name="managed-identities-in-azure-hdinsight"></a>Identidades gerenciadas no Azure HDInsight
 
-Uma identidade gerida é uma identidade registrada no Azure Active Directory (Azure AD) cujas credenciais são geridos pelo Azure. Com identidades geridas, não precisa de registar os principais de serviço no Azure AD ou manter as credenciais, tais como certificados.
+Uma identidade gerenciada é uma identidade registrada no Azure Active Directory (AD do Azure) cujas credenciais são gerenciadas pelo Azure. Com identidades gerenciadas, você não precisa registrar entidades de serviço no Azure AD ou manter credenciais como certificados.
 
-Identidades geridas podem ser utilizadas no Azure HDInsight para permitir que os clusters aceder a serviços de domínio do Azure AD, aceder ao Azure Key Vault ou aceder a ficheiros na geração 2 de armazenamento do Azure Data Lake.
+Identidades gerenciadas podem ser usadas no Azure HDInsight para permitir que seus clusters acessem os serviços de domínio do Azure AD, acessar Azure Key Vault ou acessar arquivos no Azure Data Lake Storage Gen2.
 
-Existem dois tipos de identidades geridas: atribuído ao utilizador e sistema atribuídos. O Azure HDInsight utiliza identidades geridas atribuído ao utilizador. Uma identidade gerida atribuído ao utilizador é criada como um recurso do Azure que, em seguida, pode atribuir a uma ou mais instâncias de serviço do Azure de autónoma. Por outro lado, uma identidade gerida atribuído o sistema é criada no Azure AD e, em seguida, ativada diretamente numa instância de serviço do Azure específico automaticamente. O ciclo de vida dessa identidade gerida atribuído de sistema, em seguida, é vinculado ao ciclo de vida da instância de serviço que está ativada no.
+Há dois tipos de identidades gerenciadas: atribuído pelo usuário e atribuído pelo sistema. O Azure HDInsight usa identidades gerenciadas atribuídas pelo usuário. Uma identidade gerenciada atribuída pelo usuário é criada como um recurso do Azure autônomo que você pode atribuir a uma ou mais instâncias de serviço do Azure. Por outro lado, uma identidade gerenciada atribuída pelo sistema é criada no Azure AD e, em seguida, habilitada diretamente em uma instância de serviço do Azure específica automaticamente. A vida dessa identidade gerenciada atribuída pelo sistema é então vinculada à vida útil da instância do serviço em que está habilitada.
 
-## <a name="hdinsight-managed-identity-implementation"></a>Implementação de identidade gerida do HDInsight
+## <a name="hdinsight-managed-identity-implementation"></a>Implementação de identidade gerenciada do HDInsight
 
-No Azure HDInsight, identidades geridas são provisionadas em cada nó do cluster. No entanto, esses componentes de identidade, apenas serão utilizáveis pelo serviço do HDInsight. Atualmente, não existe nenhum método com suporte para gerar tokens de acesso através de identidades geridas instaladas em nós de cluster do HDInsight. Para alguns serviços do Azure, as identidades geridas são implementadas com um ponto final que pode utilizar para adquirir os tokens de acesso para interagir com outros serviços do Azure por conta própria.
+No Azure HDInsight, as identidades gerenciadas são provisionadas em cada nó do cluster. No entanto, esses componentes de identidade só podem ser usados pelo serviço HDInsight. Atualmente, não há um método com suporte para gerar tokens de acesso usando as identidades gerenciadas instaladas em nós de cluster HDInsight. Para alguns serviços do Azure, as identidades gerenciadas são implementadas com um ponto de extremidade que você pode usar para adquirir tokens de acesso para interagir com outros serviços do Azure por conta própria.
 
-## <a name="create-a-managed-identity"></a>Criar uma identidade gerida
+## <a name="create-a-managed-identity"></a>Criar uma identidade gerenciada
 
-Identidades geridas podem ser criadas com qualquer um dos seguintes métodos:
+Identidades gerenciadas podem ser criadas com qualquer um dos seguintes métodos:
 
-* [Portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
-Os restantes passos para configurar a identidade gerida dependem do cenário em que será utilizado.
+As etapas restantes para configurar a identidade gerenciada dependem do cenário em que serão usadas.
 
-## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Cenários de identidade gerida no Azure HDInsight
+## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Cenários de identidade gerenciada no Azure HDInsight
 
-Identidades geridas são utilizadas no Azure HDInsight em vários cenários. Veja os documentos relacionados para o programa de configuração detalhado e as instruções de configuração:
+Identidades gerenciadas são usadas no Azure HDInsight em vários cenários. Consulte os documentos relacionados para obter instruções de instalação e configuração detalhadas:
 
-* [Geração 2 Lake armazenamento de dados do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que são identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)

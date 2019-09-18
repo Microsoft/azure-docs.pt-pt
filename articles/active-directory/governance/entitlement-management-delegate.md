@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207150"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057784"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegar tarefas no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -42,7 +42,7 @@ Suponha que sua organização tenha os cinco usuários a seguir:
 
 | Utilizador | Departamento | Notas |
 | --- | --- | --- |
-| Alice | it | Administrador Global |
+| Alice | TI | Administrador Global |
 | BOB | Investigação | Bob também é proprietário de um grupo de pesquisa |
 | Carole | Investigação |  |
 | Dave | Marketing |  |
@@ -69,7 +69,7 @@ O gerenciamento de direitos tem as seguintes funções que são específicas par
 
 | Role | Descrição |
 | --- | --- |
-| Criador do catálogo | Criar e gerenciar catálogos. Normalmente, um administrador de ti que não é um administrador global ou um proprietário de recurso para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo do catálogo e pode adicionar proprietários de catálogos adicionais. |
+| Criador do catálogo | Criar e gerenciar catálogos. Normalmente, um administrador de ti que não é um administrador global ou um proprietário de recurso para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo do catálogo e pode adicionar proprietários de catálogos adicionais. Um criador de catálogo não pode gerenciar ou Ver os catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar gerenciar outro catálogo ou adicionar recursos que eles não possuem, eles poderão solicitar que sejam um coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Edite e gerencie catálogos existentes. Normalmente, um administrador de ti ou proprietários de recursos ou um usuário que o proprietário do catálogo designou. |
 | Gerenciador de pacotes de acesso | Edite e gerencie todos os pacotes do Access existentes em um catálogo. |
 
@@ -103,7 +103,7 @@ A tabela a seguir lista as tarefas que essas funções podem executar.
 
 Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos do Office 365 criados na nuvem), aplicativo ou site do SharePoint Online em um catálogo. Um administrador de usuário pode adicionar ou remover qualquer grupo ou aplicativo em um catálogo.
 
-Para um usuário que não seja um administrador global ou um administrador de usuário, para adicionar grupos, aplicativos ou sites do SharePoint Online a um catálogo, esse usuário deve ter a função de gerenciamento de direitos e a função de diretório do Azure ad necessária. A tabela a seguir lista as combinações de função que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
+Para um usuário que não seja um administrador global ou um administrador de usuário, para adicionar grupos, aplicativos ou sites do SharePoint Online a um catálogo, esse usuário deve *ter a* função de gerenciamento de direitos e a função de diretório do Azure ad necessária. A tabela a seguir lista as combinações de função que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
 
 | Função de diretório do Azure AD | Função de gerenciamento de direitos | Pode adicionar grupo de segurança | Pode adicionar o grupo do Office 365 | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -139,13 +139,21 @@ Se você quiser delegar a criação do catálogo, adicione usuários à função
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access
 
-Se você quiser delegar o gerenciamento de um catálogo ou acessar pacotes no catálogo, adicione usuários ao proprietário do catálogo ou às funções do Gerenciador de pacotes do Access. Quem cria um catálogo se torna o primeiro proprietário do catálogo. Siga estas etapas para atribuir um usuário ao proprietário do catálogo ou à função do Gerenciador de pacotes do Access.
+Para delegar o gerenciamento de um catálogo ou acessar pacotes no catálogo, você adiciona usuários ao proprietário do catálogo ou às funções do Gerenciador de pacotes do Access. Quem cria um catálogo se torna o primeiro proprietário do catálogo. 
+
+O proprietário do catálogo atribuído ou o Gerenciador de pacotes de acesso deve estar familiarizado com o projeto. O criador do catálogo deve criar o pacote de acesso se estiver envolvido nas operações diárias do projeto e conhecer as seguintes informações:
+- quais recursos são necessários
+- Quem precisará de acesso
+- Quem precisa aprovar o acesso
+- Por quanto tempo o projeto durará
+
+O criador do catálogo deve delegar a tarefa para o líder do projeto, que criará e gerenciará o pacote do Access, se não estiver envolvido nas operações diárias do projeto. Siga estas etapas para atribuir um usuário ao proprietário do catálogo ou à função do Gerenciador de pacotes do Access:
 
 **Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
-1. No menu à esquerda, clique em catálogos e, em seguida, abra o catálogo ao qual você deseja adicionar administradores.
+1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo ao qual você deseja adicionar administradores.
 
 1. No menu à esquerda, clique em **funções e administradores**.
 

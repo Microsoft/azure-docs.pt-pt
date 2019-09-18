@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606465"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036601"
 ---
 # <a name="heading"></a>Processamento de dados na máquina de Virtual do SQL Server no Azure
 Este documento aborda como explorar dados e gerar características para dados armazenados numa VM do SQL Server no Azure. Isso pode ser feito de preparação de dados com o SQL ou com uma linguagem de programação, como o Python.
@@ -87,7 +87,7 @@ Eis um breve manual nos dados de localização de latitude/longitude (resourced 
 * O início de sessão nos informa se estamos Norte ou sul, Leste ou oeste em todo o mundo.
 * Um centenas de diferentes de zero dígitos nos informam que estamos a utilizar longitude, latitude não!
 * As dezenas dígitos dá uma posição para cerca de 1.000 quilômetros. Ele nos dá informações úteis sobre o continente ou oceano estamos.
-* O dígito unidades (decimal um certo grau) fornece uma posição 111 quilômetros (60 milhas náuticas, cerca de 69 quilómetros). Ele pode dizer-nos mais ou menos que grandes Estado ou país/região, que estamos no.
+* O dígito unidades (decimal um certo grau) fornece uma posição 111 quilômetros (60 milhas náuticas, cerca de 69 quilómetros). Ele pode lhe dizer aproximadamente que estado, país ou região em que você está.
 * A primeira casa decimal vale até 11.1 km: ele pode distinguir a posição de uma cidade grandes de uma cidade grandes vizinho.
 * A segunda casa decimal vale até 1.1 km: ele pode separar um village da seguinte.
 * A terceiro casa decimal, vale a pena m: até 110, poderá identificar um campo de agricultural grandes ou o campus institucional.
@@ -116,7 +116,7 @@ Estas funcionalidades com base na localização podem servir-se ainda mais para 
 > 
 
 ### <a name="sql-aml"></a>Ligar ao Azure Machine Learning
-A funcionalidade gerada recentemente pode ser adicionada como uma coluna para uma tabela existente ou armazenada numa nova tabela e associada com a tabela original para o machine learning. Funcionalidades podem ser geradas ou aceder se já criado, utilizando o [importar dados] [ import-data] módulo no Azure Machine Learning, conforme mostrado abaixo:
+A funcionalidade gerada recentemente pode ser adicionada como uma coluna para uma tabela existente ou armazenada numa nova tabela e associada com a tabela original para o machine learning. Os recursos podem ser gerados ou acessados se já tiverem sido criados, usando o módulo [importar dados][import-data] no Azure Machine Learning, conforme mostrado abaixo:
 
 ![leitores do azureml][1] 
 

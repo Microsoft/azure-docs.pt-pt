@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917391"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077144"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Utilizar o Apache HBase no Azure HDInsight
 
@@ -41,7 +41,7 @@ O procedimento a seguir usa um modelo de Azure Resource Manager para criar um cl
 
 1. Selecione a imagem a seguir para abrir o modelo no portal do Azure. O modelo está localizado nos [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. No painel **Implementação personalizada**, introduza os seguintes valores:
 
@@ -68,11 +68,11 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o [s
 
 Para a maioria das pessoas, os dados são apresentados no formato de tabela:
 
-![HDInsight HBase tabular data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+![Dados de tabela do Apache HBase do HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
 
 No HBase (uma implementação de [BigTable de nuvem](https://cloud.google.com/bigtable/)), os mesmos dados são semelhantes a:
 
-![HDInsight HBase BigTable data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+![Dados de BigTable do Apache HBase do HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
 
 **Para utilizar a shell de HBase**
 
@@ -115,7 +115,7 @@ No HBase (uma implementação de [BigTable de nuvem](https://cloud.google.com/bi
     scan 'Contacts'
     ```
 
-    ![HDInsight Hadoop HBase shell](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    ![HDInsight Apache Hadoop shell do HBase](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
 1. Use `get` o comando para buscar o conteúdo de uma linha. Introduza o seguinte comando:
 
@@ -284,7 +284,7 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
 
 1. Selecione **links rápidos** na parte superior da página, aponte para o link do nó active Zookeeper e, em seguida, selecione **HBase Master interface do usuário**.  A IU é aberta noutro separador do browser:
 
-   ![IU HDInsight HBase HMaster](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![Interface do usuário do Apache HBase HMaster do HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
    A IU Principal do HBase contém as seguintes secções:
 
@@ -304,7 +304,7 @@ Para evitar inconsistências, recomendamos que desative as tabelas do HBase ante
 1. Na lista de clusters HDInsight que aparece, clique em **...** ao lado do cluster que você criou para este tutorial.
 1. Clique em **Eliminar**. Clique em **Sim**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu como criar um cluster do Apache HBase e como criar tabelas e exibir os dados nessas tabelas do shell do HBase. Também aprendeu como utilizar uma consulta Hive nos dados de tabelas de HBase e como utilizar as APIs REST C# para criar uma tabela de HBase e recuperar os dados da tabela. Para saber mais, consulte:
 

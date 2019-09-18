@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016410"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036255"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -22,11 +22,11 @@ ms.locfileid: "69016410"
 
 ## <a name="support-coverage-and-regional-availability"></a>Cobertura de suporte e disponibilidade regional
 
-Atualmente, o ZRS dá suporte a tipos de conta v2 de uso geral padrão. Para obter mais informações sobre tipos de conta de armazenamento, consulte [visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+O ZRS atualmente dá suporte aos tipos de conta de armazenamento de uso geral V2 e de armazenamento de FileStorage padrão. Para obter mais informações sobre tipos de conta de armazenamento, consulte [visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 O ZRS está disponível para BLOBs de blocos, blobs de páginas que não são de disco, arquivos, tabelas e filas.
 
-O ZRS está geralmente disponível nas seguintes regiões:
+Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes regiões:
 
 - Sudeste Asiático
 - Europa Ocidental
@@ -38,6 +38,10 @@ O ZRS está geralmente disponível nas seguintes regiões:
 - Leste dos E.U.A.
 - E.U.A Leste 2
 - Oeste dos E.U.A 2
+
+Para contas de armazenamento de File, o ZRS está geralmente disponível nas seguintes regiões:
+
+- Europa Ocidental
 
 A Microsoft continua a habilitar o ZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre novas regiões.
 
@@ -64,6 +68,9 @@ Há duas opções principais para a migração para o ZRS:
 
 - Copiar ou mover dados manualmente para uma nova conta do ZRS de uma conta existente.
 - Solicite uma migração ao vivo.
+
+> [!IMPORTANT]
+> Atualmente, a migração ao vivo não tem suporte para compartilhamentos de arquivos premium. No momento, só há suporte para copiar ou mover dados manualmente.
 
 Se você precisar que a migração seja concluída em uma determinada data, considere executar uma migração manual. Uma migração manual fornece mais flexibilidade do que uma migração dinâmica. Com uma migração manual, você está no controle do tempo.
 
@@ -94,7 +101,7 @@ Você pode solicitar a migração dinâmica por meio do [portal de suporte do Az
 4. Especifique os valores a seguir na seção **problema** : 
     - **Gravidade**: Deixe o valor padrão como está.
     - **Tipo de problema**: Selecione **migração de dados**.
-    - **Categoria**: Selecione **migrar para ZRS em uma região**.
+    - **Categoria**: Selecione **migrar para ZRS**.
     - **Título**: Digite um título descritivo, por exemplo, **migração de conta do ZRS**.
     - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na \_ \_ região. 
 5. Selecione **Seguinte**.
@@ -137,7 +144,7 @@ Se desejar migrar seus dados para uma conta do ZRS localizada em uma região dif
 
 O ZRS Classic replica dados de forma assíncrona em data centers em uma ou duas regiões. Os dados replicados podem não estar disponíveis, a menos que a Microsoft inicie o failover para o secundário. Uma conta clássica do ZRS não pode ser convertida de/para LRS, GRS ou RA-GRS. Contas clássicas do ZRS também não dão suporte a métricas ou log.
 
-O ZRS clássico está disponível somente para BLOBs de **blocos** nas contas de armazenamento de uso geral V1 (GPv1). Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+O ZRS clássico está disponível somente para **blobs de blocos** nas contas de armazenamento de uso geral V1 (GPv1). Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 Para migrar manualmente os dados da conta do ZRS para ou de uma conta LRS, ZRS Classic, GRS ou RA-GRS, use uma das seguintes ferramentas: AzCopy, Gerenciador de Armazenamento do Azure, Azure PowerShell ou CLI do Azure. Você também pode criar sua própria solução de migração com uma das bibliotecas de cliente de armazenamento do Azure.
 

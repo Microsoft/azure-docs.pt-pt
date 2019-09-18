@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 09/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d5bd2397c345a4f670bde343f751cd69f825ecb9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424250"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056066"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolhendo o tipo de aplicativo ao adicionar um aplicativo no Azure Active Directory
 
@@ -45,11 +45,11 @@ Os recursos a seguir têm suporte de qualquer um dos quatro tipos de aplicativos
 
 - **Início rápido** – comece a usar um aplicativo rapidamente seguindo [as etapas de implantação simples](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
-- **Gerenciamento de propriedades gerais** – obtenha um [deeplink direto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) para um aplicativo, [Personalize a identidade visual](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) de um aplicativo ou [desabilite o aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) para todos os usuários.
+- **Gerenciamento de propriedades gerais** – obtenha um [link profundo direto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) para um aplicativo, [Personalize a identidade visual](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) de um aplicativo ou [desabilite o aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) para todos os usuários.
 
 - **Gerenciamento de usuário e grupo** – [atribua](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) ou [remova](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) usuários e grupos de um aplicativo e, opcionalmente, atribua as funções de aplicativo específicas a que esses usuários e grupos têm acesso
 
-- **Acesso a aplicativos** de autoatendimento – permita que os usuários solicitem [acesso de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) de autoatendimento a um aplicativo de seus painéis de acesso do aplicativo, seja adicionando um aplicativo diretamente ou [unindo um grupo habilitado para autoatendimento ](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), opcionalmente exigindo a aprovação dos negócios ao longo do caminho
+- **Acesso a aplicativos de autoatendimento** – permita que os usuários solicitem [acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) a um aplicativo de seus painéis de acesso do aplicativo, seja adicionando um aplicativo diretamente ou [unindo um grupo habilitado para autoatendimento ](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), opcionalmente exigindo a aprovação dos negócios ao longo do caminho
 
 - **Logs de entrada** – consulte [todas as entradas para um aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins)ou todos os seus aplicativos
 
@@ -63,7 +63,7 @@ Os recursos a seguir têm suporte de qualquer um dos quatro tipos de aplicativos
 
 A tabela a seguir descreve os diferentes modos de logon único e de provisionamento com suporte em cada um dos tipos de aplicativos anteriores. Você pode usar esta tabela para ajudá-lo a entender qual aplicativo você precisa adicionar para dar suporte a uma meta específica.
 
-  ![Tabela: Diferentes modos de provisionamento e SSO com suporte de cada tipo de aplicativo](./media/choose-application-type/table1.png)
+  ![Tabela Diferentes modos de provisionamento e SSO com suporte de cada tipo de aplicativo](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Como escolher um modo de logon único
 
@@ -71,7 +71,7 @@ A seguir estão os modos de **logon único** com suporte para aplicativos do Azu
 
 - **Logon único do Azure ad desabilitado** – escolha o **modo de logon** único desabilitado de logon único do Azure ad se você ainda não estiver pronto para integrar esse aplicativo com o logon único com o Azure ad ou simplesmente testando-o
 
-- **Logon vinculado** – escolha o modo de logon **único** de [logon vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se você tiver um aplicativo que já está conectado a uma solução de logon único existente ou se você quiser apenas publicar um link simples para seus usuários em seu [ Painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou iniciador de [aplicativo do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+- **Logon vinculado** – escolha o modo de logon **único** de [logon vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se você tiver um aplicativo que já está conectado a uma solução de logon único existente ou se você quiser apenas publicar um link simples para seus usuários em seu [ Painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou [iniciador de aplicativo do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
 - **Logon baseado em senha** – escolha o modo de logon **único** [logon baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se seu aplicativo renderizar um campo de nome de usuário e senha HTML e você quiser armazenar esse nome de usuário e senha com segurança para serem reproduzidos no aplicativo mais tarde
 
@@ -124,9 +124,6 @@ Para definir o modo de logon único de um aplicativo, siga estas instruções:
 - **Provisionamento manual** – escolha o modo de provisionamento [manual](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) se você tiver contas existentes ou desejar gerenciar contas para este aplicativo fora do Azure AD.
 
 - **Provisionamento automático** – escolha o modo de [](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **provisionamento** automático se desejar habilitar o provisionamento automático baseado em API e/ou desprovisionar as contas de usuário para este aplicativo 
-
-  >[!NOTE]
-  >Essa opção está disponível somente para aplicativos dentro da categoria em **destaque** da [Galeria de aplicativos do Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
 
 - **Provisionamento automático baseado em scim** – use o [provisionamento automático baseado em scim](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se seu aplicativo der suporte ao protocolo scim para detectar alterações em usuários e grupos, que são emitidos automaticamente para alterações em qualquer aplicativo integrado com o Azure AD 
 

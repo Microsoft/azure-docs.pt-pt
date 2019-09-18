@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/14/2019
-ms.openlocfilehash: 29b2a9378abaaa697d2d869145d5e912d6c06d6c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.date: 09/17/2019
+ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811590"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076363"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>O que é a consulta interativa no Azure HDInsight
 
@@ -28,6 +28,9 @@ Você pode acessar o serviço do hive no cluster de consulta interativa somente 
 ## <a name="create-an-interactive-query-cluster"></a>Criar um cluster de consulta interativa
 
 Para obter informações sobre como criar um cluster HDInsight, consulte [criar Apache Hadoop clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Escolha o tipo de cluster consulta interativa.
+
+> [!IMPORTANT]
+> O tamanho mínimo de cabeçalho para clusters de consulta interativa é Standard_D13_v2. Consulte o [gráfico de dimensionamento de VM do Azure](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)para obter mais informações.
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Executar consultas de Apache Hive da consulta interativa
 
@@ -65,7 +68,7 @@ Para localizar a cadeia de conexão Java Database Connectivity (JDBC):
 
    ![JDBC LLAP de consulta interativa do HDInsight Hadoop](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [Criar clusters de consulta interativa no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Saiba como [visualizar Big data com Power bi no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).

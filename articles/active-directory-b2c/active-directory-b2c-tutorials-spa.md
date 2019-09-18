@@ -10,16 +10,16 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 06ac81105ad8871c934715c18cd5f78fc3ea05f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 06bb71b27edf97f9b7e3333aef93af7bd0e0529e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858509"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064791"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo de página única usando Azure Active Directory B2C
 
-Este tutorial mostra como usar o Azure Active Directory (Azure AD) B2C para entrar e inscrever usuários em um SPA (aplicativo de página única). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
+Este tutorial mostra como usar o Azure Active Directory B2C (Azure AD B2C) para entrar e inscrever usuários em um SPA (aplicativo de página única). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
 
 Neste tutorial, ficará a saber como:
 
@@ -49,7 +49,7 @@ Além disso, você precisa do seguinte em seu ambiente de desenvolvimento local:
 No segundo tutorial que você concluiu como parte dos pré-requisitos, você registrou um aplicativo Web em Azure AD B2C. Para habilitar a comunicação com o exemplo no tutorial, você precisa adicionar um URI de redirecionamento ao aplicativo em Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório e** o filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Selecione **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
 1. Em **URL de resposta**, `http://localhost:6420`adicione.

@@ -4,14 +4,14 @@ description: Como conectar clientes a um serviço de cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0ccd256ed399fff7c364883ada45d2d15c75a120
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775354"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036967"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o cache HPC do Azure
 
@@ -19,13 +19,13 @@ Depois que o cache é criado, os clientes NFS podem acessá-lo com um comando de
 
 Use os endereços de montagem listados na página Visão geral do cache e o caminho do namespace virtual que você definiu quando criou o destino de armazenamento. 
 
-![captura de tela da página de visão geral da instância do cache HPC do Azure, com uma caixa de realce em volta da lista de endereços de montagem no canto inferior direito](media/mount-addresses.png)
+![captura de tela da página de visão geral da instância do cache HPC do Azure, com uma caixa de realce em volta da lista de endereços de montagem no canto inferior direito](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Essas NICs aparecem no grupo de recursos com nomes que terminam em `-cluster-nic-` e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
 
-Os caminhos de namespace virtual são mostrados na página **destinos de armazenamento** . 
-![captura de tela do painel de destino de armazenamento do cache, com uma caixa de realce em volta de uma entrada na coluna PATH da tabela](media/storage-target-path.png)
+Os caminhos de namespace virtual são mostrados na página **destinos de armazenamento** . Clique no nome de destino para ver os detalhes, incluindo o caminho do namespace agregado (ou caminhos) associados a ele. 
+![captura de tela do painel de destino de armazenamento do cache, com uma caixa de realce em volta de uma entrada na coluna PATH da tabela](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="mount-command-syntax"></a>Sintaxe de comando de montagem
 

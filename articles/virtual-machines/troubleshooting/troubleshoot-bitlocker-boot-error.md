@@ -4,7 +4,7 @@ description: Saiba como solucionar problemas de erros de inicialização do BitL
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b9ff0dfa98fb3b6f12974512e197142d44223b80
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080273"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058111"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
@@ -103,7 +103,7 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
 
     Se você vir dois volumes duplicados, o volume que tem o carimbo de data/hora mais recente será o arquivo BEK atual usado pela VM de recuperação.
 
-    Se o valor do **tipo de conteúdo** for **encapsulado Bek**, vá para os cenários de Kek (chave de [criptografia de chave)](#key-encryption-key-scenario).
+    Se o valor do **tipo de conteúdo** for **encapsulado Bek**, vá para os [cenários de Kek (chave de criptografia de chave)](#key-encryption-key-scenario).
 
     Agora que você tem o nome do arquivo BEK para a unidade, você precisa criar o nome de arquivo-segredo. Arquivo BEK para desbloquear a unidade.
 

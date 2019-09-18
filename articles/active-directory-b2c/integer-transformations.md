@@ -1,6 +1,6 @@
 ---
-title: Exemplos de transformação de afirmações de número inteiro para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
-description: Número inteiro de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
+title: Exemplos de transformação de declarações de inteiros para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C | Microsoft Docs
+description: Exemplos de transformação de declarações de inteiros para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,29 +10,29 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510808"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064218"
 ---
-# <a name="integer-claims-transformations"></a>Transformações de afirmações de número inteiro
+# <a name="integer-claims-transformations"></a>Transformações de declarações de inteiro
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos para usar as transformações de afirmações de número inteiro do esquema de arquitetura de experiências de identidade no Azure Active Directory (Azure AD) B2C. Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos de como usar as transformações de declarações de inteiro do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim 
+## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
-Converte um tipo de dados longos num tipo de dados de cadeia de caracteres.
+Converte um tipo de dados Long em um tipo de dados de cadeia de caracteres.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | long | ClaimType para converter uma cadeia de caracteres. |
-| OutputClaim | outputClaim | string | ClaimType produzido este ClaimsTransformation po vyvolání. |
+| InputClaim | InputClaim | long | O ClaimType a ser convertido em uma cadeia de caracteres. |
+| OutputClaim | outputClaim | Cadeia de caracteres | O ClaimType que é produzido após esse ClaimsTransformation foi invocado. |
 
-Neste exemplo, o `numericUserId` afirmação com um tipo de valor de longa duração é convertida numa `UserId` a afirmação com um tipo de valor de cadeia de caracteres.
+Neste exemplo, a `numericUserId` declaração com um tipo de valor de Long é convertida em uma `UserId` declaração com um tipo de valor de cadeia de caracteres.
 
 ```XML
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
@@ -47,8 +47,8 @@ Neste exemplo, o `numericUserId` afirmação com um tipo de valor de longa dura�
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
-    - **inputClaim**: 12334 (longa)
-- Afirmações de saída: 
-    - **outputClaim**: "12334" (cadeia)
+- Declarações de entrada:
+    - **inputClaim**: 12334 (longo)
+- Declarações de saída:
+    - **outputClaim**: "12334" (cadeia de caracteres)
 

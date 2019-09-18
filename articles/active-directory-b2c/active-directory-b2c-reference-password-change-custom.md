@@ -1,6 +1,6 @@
 ---
-title: Configurar a alteração de palavra-passe com as políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba como permitir que os utilizadores alterar a palavra-passe com as políticas personalizadas no Azure Active Directory B2C.
+title: Configurar a alteração de senha usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba como permitir que os usuários alterem sua senha usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509265"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065543"
 ---
-# <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração de palavra-passe com as políticas personalizadas no Azure Active Directory B2C
+# <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração de senha usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory (Azure AD) B2C, pode ativar os utilizadores que têm sessão iniciados com uma conta local para alterar a palavra-passe sem ter de provar a sua autenticidade pela verificação do e-mail. Se a sessão expirar, o tempo que o utilizador obtém para a palavra-passe de fluxo de alteração, são-lhes pedido que inicie sessão novamente. Este artigo mostra-lhe como configurar a alteração de palavra-passe na [políticas personalizadas](active-directory-b2c-overview-custom.md). Também é possível configurar [reposição de palavra-passe self-service](active-directory-b2c-reference-sspr.md) para fluxos de utilizador.
+No Azure Active Directory B2C (Azure AD B2C), você pode habilitar os usuários que entraram com uma conta local para alterar a senha sem precisar provar sua autenticidade por verificação de email. Se a sessão expirar até o momento em que o usuário chegar ao fluxo de alteração de senha, ele será solicitado a entrar novamente. Este artigo mostra como configurar a alteração de senha em [políticas personalizadas](active-directory-b2c-overview-custom.md). Também é possível configurar a [redefinição de senha de autoatendimento](active-directory-b2c-reference-sspr.md) para fluxos de usuário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os passos na [introdução às políticas personalizadas no Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Conclua as etapas em introdução [às políticas personalizadas no Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="add-the-elements"></a>Adicionar os elementos 
+## <a name="add-the-elements"></a>Adicionar os elementos
 
-1. Abra sua *TrustframeworkExtensions.xml* de ficheiros e adicione as seguintes **ClaimType** elemento com um identificador de `oldPassword` para o [ClaimsSchema](claimsschema.md) elemento: 
+1. Abra o arquivo *TrustframeworkExtensions. xml* e adicione o seguinte elemento **ClaimType** com um identificador de `oldPassword` para o elemento [ClaimsSchema](claimsschema.md) :
 
     ```XML
     <BuildingBlocks>
@@ -44,7 +44,7 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </BuildingBlocks>
     ```
 
-2. R [ClaimsProvider](claimsproviders.md) elemento contém o perfil técnico que autentica o utilizador. Adicione as seguintes afirmações provedores para o **ClaimsProviders** elemento:
+2. Um elemento [claimprovider](claimsproviders.md) contém o perfil técnico que autentica o usuário. Adicione os seguintes provedores de declarações ao elemento **ClaimsProviders** :
 
     ```XML
     <ClaimsProviders>
@@ -120,9 +120,9 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </ClaimsProviders>
     ```
 
-    Substitua `IdentityExperienceFrameworkAppId` com o ID da aplicação do aplicativo IdentityExperienceFramework que criou no tutorial de pré-requisito. Substitua `ProxyIdentityExperienceFrameworkAppId` com o ID da aplicação do aplicativo ProxyIdentityExperienceFramework que criou anteriormente também.
+    Substitua `IdentityExperienceFrameworkAppId` pela ID do aplicativo IdentityExperienceFramework que você criou no tutorial de pré-requisito. Substitua `ProxyIdentityExperienceFrameworkAppId` pela ID do aplicativo ProxyIdentityExperienceFramework que você também criou anteriormente.
 
-3. O [UserJourney](userjourneys.md) elemento define o caminho que o utilizador tira ao interagir com a sua aplicação. Adicionar a **UserJourneys** elemento se não existir com o **UserJourney** identificado como `PasswordChange`:
+3. O elemento [userjornada](userjourneys.md) define o caminho que o usuário usa ao interagir com seu aplicativo. Adicione o elemento **Userjornadas** se ele não existir com o **userjornada** identificado como `PasswordChange`:
 
     ```XML
     <UserJourneys>
@@ -150,35 +150,35 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </UserJourneys>
     ```
 
-4. Guardar a *TrustFrameworkExtensions.xml* ficheiro de política.
-5. Copiar o *ProfileEdit.xml* que transferiu com o pacote de iniciante e um nome de ficheiro *ProfileEditPasswordChange.xml*.
-6. Abra o ficheiro novo e a atualização do **PolicyId** atributo com um valor exclusivo. Este valor é o nome da sua política. Por exemplo, *B2C_1A_profile_edit_password_change*.
-7. Modificar a **ReferenceId** atributo `<DefaultUserJourney>` de acordo com o ID do novo percurso do utilizador que criou. Por exemplo, *PasswordChange*.
+4. Salve o arquivo de política *TrustFrameworkExtensions. xml* .
+5. Copie o arquivo *ProfileEdit. xml* que você baixou com o pacote inicial e nomeie-o como *ProfileEditPasswordChange. xml*.
+6. Abra o novo arquivo e atualize o atributo **PolicyId** com um valor exclusivo. Esse valor é o nome da sua política. Por exemplo, *B2C_1A_profile_edit_password_change*.
+7. Modifique o atributo **referenceid** em `<DefaultUserJourney>` para corresponder à ID da nova jornada do usuário que você criou. Por exemplo, *PasswordChange*.
 8. Guarde as alterações.
 
-Pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+Você pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 
-## <a name="test-your-policy"></a>Testar a política
+## <a name="test-your-policy"></a>Testar sua política
 
-Ao testar as suas aplicações no Azure AD B2C, pode ser útil ter o token do Azure AD B2C retornado para `https://jwt.ms` para conseguir analisar as afirmações no mesmo.
+Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure ad B2C retornado `https://jwt.ms` para poder revisar as declarações nele.
 
-### <a name="upload-the-files"></a>Carregue os ficheiros
+### <a name="upload-the-files"></a>Carregar os arquivos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **arquitetura de experiências de identidade**.
-5. Na página de políticas personalizadas, clique em **carregar política**.
-6. Selecione **substituir a política, se existir**e, em seguida, procure e selecione o *TrustframeworkExtensions.xml* ficheiro.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+4. Selecione **Identity Experience Framework**.
+5. Na página políticas personalizadas, clique em **carregar política**.
+6. Selecione **substituir a política, se ela existir**, e, em seguida, procure e selecione o arquivo *TrustframeworkExtensions. xml* .
 7. Clique em **Carregar**.
-8. Repita os passos 5 a 7 para o ficheiro da entidade confiadora de terceiros, como *ProfileEditPasswordChange.xml*.
+8. Repita as etapas de 5 a 7 para o arquivo de terceira parte confiável, como *ProfileEditPasswordChange. xml*.
 
 ### <a name="run-the-policy"></a>Executar a política
 
-1. Abra a política que alterou. Por exemplo, *B2C_1A_profile_edit_password_change*.
-2. Para **aplicativo**, selecione a aplicação que registou anteriormente. Para ver o token, o **URL de resposta** deve mostrar `https://jwt.ms`.
-3. Clique em **Executar agora**. Inicie sessão com o acouunt que criou anteriormente. Agora, deve ter a oportunidade de alterar a palavra-passe. 
+1. Abra a política que você alterou. Por exemplo, *B2C_1A_profile_edit_password_change*.
+2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve `https://jwt.ms`ser mostrada.
+3. Clique em **Executar agora**. Entre com o acouunt que você criou anteriormente. Agora você deve ter a oportunidade de alterar a senha.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre como pode [configurar a complexidade de palavra-passe com as políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md). 
+- Saiba mais sobre como você pode [Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).

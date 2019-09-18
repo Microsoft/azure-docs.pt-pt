@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: c0ade6b0728717cfb8524eea92b63b49a979ec1f
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e629a921b5c853f1cae2c224be35570cd71e5d37
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018966"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067802"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Criar um ponto de extremidade privado usando portal do Azure
 
@@ -199,8 +199,9 @@ Depois de criar **myVm*, conecte-se a ele da Internet da seguinte maneira:
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL de forma privada da VM
 
 1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
-2. Insira `myserver.database.windows.net`. 
-' Você receberá uma mensagem semelhante a esta:
+2. Insira `nslookup myserver.database.windows.net`. 
+
+    Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16

@@ -12,47 +12,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 09/03/2019
 ms.author: mimart
-ms.reviewer: asteen
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80539181e6614283b6170b9cd9d4db85f812a5f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0562027bb599b596b640e0c1a669447e3fed9680
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879897"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034146"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Nenhum usuário está sendo provisionado para um aplicativo da galeria do Azure AD
 Após o provisionamento automático ter sido configurado para um aplicativo (incluindo a verificação de que as credenciais do aplicativo fornecidas ao Azure AD para se conectar ao aplicativo são válidas), os usuários e/ou grupos são provisionados para o aplicativo. O provisionamento é determinado pelos seguintes itens:
 
 -   Quais usuários e grupos foram **atribuídos** ao aplicativo. Observe que não há suporte para o provisionamento de grupos aninhados ou grupos do Office 365. Para obter mais informações sobre atribuição, consulte [atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory](assign-user-or-group-access-portal.md).
--   Se os mapeamentos de **atributo** estão ou não habilitados e configurados para sincronizar atributos válidos do Azure ad para o aplicativo. Para obter mais informações sobre mapeamentos de atributo, consulte [Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS em Azure Active Directory](customize-application-attributes.md).
+-   Se os **mapeamentos de atributo** estão ou não habilitados e configurados para sincronizar atributos válidos do Azure ad para o aplicativo. Para obter mais informações sobre mapeamentos de atributo, consulte [Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS em Azure Active Directory](customize-application-attributes.md).
 -   Se há ou não um **filtro de escopo** presente que esteja filtrando usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
   
-Se você observar que os usuários não estão sendo provisionados, consulte os logs de auditoria no Azure AD. Pesquise por entradas de log para um usuário específico.
+Se você observar que os usuários não estão sendo provisionados, consulte os [logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) no Azure AD. Pesquise por entradas de log para um usuário específico.
 
-Os logs de auditoria de provisionamento podem ser acessados no portal do Azure, na **guia &gt; logs de &gt; auditoria Azure Active Directory\] nome &gt; de aplicativo dos aplicativos \[empresariais** . Filtre os logs na categoria de **provisionamento de conta** para ver apenas os eventos de provisionamento para esse aplicativo. Você pode pesquisar usuários com base na "ID correspondente" que foi configurada para eles nos mapeamentos de atributo. Por exemplo, se você configurou o "nome UPN" ou "endereço de email" como o atributo correspondente no lado do Azure AD, e o usuário que não está sendo provisionado tem um valor deaudrey@contoso.com"", então pesquise os logs de auditoriaaudrey@contoso.compara "" e revise as entradas exibido.
+Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-Os logs de auditoria de provisionamento registram todas as operações executadas pelo serviço de provisionamento, incluindo a consulta do Azure AD para usuários atribuídos que estão no escopo do provisionamento, consultando o aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação.
+Os logs de provisionamento registram todas as operações executadas pelo serviço de provisionamento, incluindo a consulta do Azure AD para usuários atribuídos que estão no escopo para provisionamento, consultando o aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas problemáticas gerais com provisionamento a ser considerado
 Abaixo está uma lista das áreas problemáticas gerais que você pode analisar se tiver uma ideia de onde começar.
 
 - [O serviço de provisionamento não parece iniciar](#provisioning-service-does-not-appear-to-start)
-- [Logs de auditoria dizem que os usuários são ignorados e não provisionados, embora sejam atribuídos](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [Logs de provisionamento dizem que os usuários são ignorados e não provisionados, mesmo que sejam atribuídos](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>O serviço de provisionamento não parece iniciar
-Se você definir o **status de provisionamento** como **on** na seção  **&gt; Azure Active Directory aplicativos empresariais \[ &gt; de provisionamento de nome\] &gt;de aplicativo** do portal do Azure . No entanto, nenhum outro detalhe de status é mostrado nessa página após recargas subsequentes, é provável que o serviço esteja em execução, mas ainda não tenha concluído uma sincronização inicial. Verifique os **logs de auditoria** descritos acima para determinar quais operações o serviço está executando e se há erros.
+Se você definir o **status de provisionamento** como **on** na seção  **&gt; Azure Active Directory aplicativos empresariais \[ &gt; de provisionamento de nome\] &gt;de aplicativo** do portal do Azure . No entanto, nenhum outro detalhe de status é mostrado nessa página após recargas subsequentes, é provável que o serviço esteja em execução, mas ainda não tenha concluído um ciclo inicial. Verifique os **logs de provisionamento (versão prévia)** descritos acima para determinar quais operações o serviço está executando e se há erros.
 
 >[!NOTE]
->Uma sincronização inicial pode levar de 20 minutos a várias horas, dependendo do tamanho do diretório do Azure AD e do número de usuários no escopo para provisionamento. Sincronizações subsequentes após a sincronização inicial são mais rápidas, uma vez que o serviço de provisionamento armazena marcas d' água que representam o estado de ambos os sistemas após a sincronização inicial. A sincronização inicial melhora o desempenho das sincronizações subsequentes.
+>Um ciclo inicial pode levar de 20 minutos a várias horas, dependendo do tamanho do diretório do Azure AD e do número de usuários no escopo para provisionamento. Sincronizações subsequentes após o ciclo inicial são mais rápidas, pois o serviço de provisionamento armazena marcas d' água que representam o estado de ambos os sistemas após o ciclo inicial. O ciclo inicial melhora o desempenho das sincronizações subsequentes.
 >
 
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Logs de auditoria dizem que os usuários são ignorados e não provisionados mesmo que sejam atribuídos
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Logs de provisionamento, digamos que os usuários sejam ignorados e não provisionados mesmo que sejam atribuídos
 
-Quando um usuário aparece como "ignorado" nos logs de auditoria, é importante ler os detalhes estendidos na mensagem de log para determinar o motivo. Veja abaixo os motivos e as resoluções comuns:
+Quando um usuário aparece como "ignorado" nos logs de provisionamento, é importante examinar a guia **etapas** do log para determinar o motivo. Veja abaixo os motivos e as resoluções comuns:
 
 - **Um filtro de escopo foi configurado** **isso está filtrando o usuário com base em um valor de atributo**. Para obter mais informações sobre filtros de escopo, consulte [filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
 - **O usuário é "não é efetivamente qualificado".** Se você vir essa mensagem de erro específica, é porque há um problema com o registro de atribuição de usuário armazenado no Azure AD. Para corrigir esse problema, cancele a atribuição do usuário (ou grupo) do aplicativo e reatribua-o novamente. Para obter mais informações sobre atribuição, consulte [atribuir acesso de usuário ou grupo](assign-user-or-group-access-portal.md).

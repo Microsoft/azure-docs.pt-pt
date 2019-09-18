@@ -1,7 +1,7 @@
 ---
 title: Treinar rede neural de aprendizado profundo com o chainer
 titleSuffix: Azure Machine Learning
-description: Saiba como executar seus scripts de treinamento do PyTorch em escala empresarial usando a classe de estimador de Azure Machine Learning de encadeamento.  O script de exemplo classifis imagens de dígitos manuscritas para criar uma rede neural de aprendizado profundo usando a Biblioteca Python do sequenciador em execução na parte superior do numpy.
+description: Saiba como executar seus scripts de treinamento do PyTorch em escala empresarial usando a classe de estimador de Azure Machine Learning de encadeamento.  O script de exemplo classifica imagens de dígitos manuscritos para criar uma rede neural de aprendizado profundo usando a biblioteca do Python do sequenciador em execução na parte superior do numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002725"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076407"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Treinar e registrar modelos de encadeamento em escala com Azure Machine Learning
 
@@ -84,7 +84,7 @@ Neste tutorial, o script de treinamento **chainer_mnist. py** já foi fornecido 
 
 Para usar os recursos de acompanhamento e métricas do Azure ML, adicione uma pequena quantidade de código do Azure ML dentro de seu script de treinamento.  O script de treinamento **chainer_mnist. py** mostra como registrar algumas métricas em sua execução do Azure ml usando `Run` o objeto dentro do script.
 
-O script de treinamento fornecido usa dados de exemplo da `datasets.mnist.get_mnist` função de encadeamento.  Para seus próprios dados, talvez seja necessário usar etapas como [carregar DataSet e scripts](how-to-train-keras.md#upload-dataset-and-scripts) para disponibilizar os dados durante o treinamento.
+O script de treinamento fornecido usa dados de exemplo da `datasets.mnist.get_mnist` função de encadeamento.  Para seus próprios dados, talvez seja necessário usar etapas como [carregar DataSet e scripts](how-to-train-keras.md) para disponibilizar os dados durante o treinamento.
 
 Copie o script de treinamento **chainer_mnist. py** para o diretório do projeto.
 
@@ -207,7 +207,7 @@ for f in run.get_file_names():
         run.download_file(name=f, output_file_path=output_file_path)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você treinou e registrou uma rede neural de aprendizado profundo usando o chainer em Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de [implantação de modelo](how-to-deploy-and-where.md) .
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplos de transformação de afirmações StringCollection para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
-description: StringCollection exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
+title: Exemplos de transformação de declarações StringCollection para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C | Microsoft Docs
+description: Exemplos de transformação de declarações StringCollection para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,32 +10,32 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512441"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063319"
 ---
-# <a name="stringcollection-claims-transformations"></a>Transformações de afirmações de StringCollection
+# <a name="stringcollection-claims-transformations"></a>Transformações de declarações de StringCollection
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos para usar as transformações de afirmações de coleção de cadeia de caracteres do esquema de arquitetura de experiências de identidade no Azure Active Directory (Azure AD) B2C. Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos de como usar as transformações de declarações de coleção de cadeia de caracteres do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Adiciona uma afirmação de cadeia de caracteres para uma nova afirmação stringCollection. 
+Adiciona uma declaração de cadeia de caracteres a uma nova declaração StringCollection.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | ClaimType sejam adicionados ao afirmações de saída. |
-| InputClaim | Coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
-| OutputClaim | Coleção | stringCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. |
+| InputClaim | item | Cadeia de caracteres | O ClaimType a ser adicionado à declaração de saída. |
+| InputClaim | coleção | stringCollection | Adicional Se especificado, a transformação declarações copiará os itens dessa coleção e adicionará o item ao final da declaração de coleta de saída. |
+| OutputClaim | coleção | stringCollection | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. |
 
-Utilize este afirmações de transformação para adicionar uma cadeia de caracteres a um stringCollection novo ou existente. Que é frequentemente utilizada uma **AAD UserWriteUsingAlternativeSecurityId** perfil técnico. Antes da criação de uma nova conta de redes sociais, **CreateOtherMailsFromEmail** transformação de afirmações lê o ClaimType e adiciona o valor para o **otherMails** ClaimType. 
+Use esta transformação de declarações para adicionar uma cadeia de caracteres a uma StringCollection nova ou existente. Ele é comumente usado em um perfil técnico do **AAD-UserWriteUsingAlternativeSecurityId** . Antes que uma nova conta social seja criada, a transformação de declarações **CreateOtherMailsFromEmail** lê o ClaimType e adiciona o valor ao ClaimType **otherMails** .
 
-A transformação de declarações seguinte adiciona o **e-mail** ClaimType para **otherMails** ClaimType.
+A transformação declarações a seguir adiciona o **email** ClaimType a **otherMails** ClaimType.
 
 ```XML
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
@@ -51,23 +51,23 @@ A transformação de declarações seguinte adiciona o **e-mail** ClaimType para
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
-  - **recolha**: ["someone@outlook.com"]
-  - **item**: "admin@contoso.com"
-- Afirmações de saída: 
-  - **recolha**: ["someone@outlook.com","admin@contoso.com"]
+- Declarações de entrada:
+  - **coleção**: ["someone@outlook.com"]
+  - **Item**: "admin@contoso.com"
+- Declarações de saída:
+  - **coleção**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Adiciona um parâmetro de cadeia de caracteres para uma nova afirmação stringCollection. 
+Adiciona um parâmetro de cadeia de caracteres a uma nova declaração StringCollection.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
-| InputParameter | item | string | O valor a ser adicionado para a afirmação de saída. |
-| OutputClaim | Coleção | stringCollection | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání. |
+| InputClaim | coleção | stringCollection | Adicional Se especificado, a transformação declarações copiará os itens dessa coleção e adicionará o item ao final da declaração de coleta de saída. |
+| InputParameter | item | Cadeia de caracteres | O valor a ser adicionado à declaração de saída. |
+| OutputClaim | coleção | stringCollection | O ClaimTypes que será produzido depois que esse ClaimsTransformation tiver sido invocado. |
 
-Utilize este afirmações de transformação para adicionar um valor de cadeia de caracteres para um stringCollection novo ou existente. O exemplo seguinte adiciona um endereço de e-mail constante (admin@contoso.com) para o **otherMails** de afirmação. 
+Use esta transformação de declarações para adicionar um valor de cadeia de caracteres a uma StringCollection nova ou existente. O exemplo a seguir adiciona um endereço de emailadmin@contoso.comconstante () à Declaração **otherMails** .
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -85,23 +85,23 @@ Utilize este afirmações de transformação para adicionar um valor de cadeia d
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
-  - **recolha**: ["someone@outlook.com"]
-- Parâmetros de entrada 
-  - **item**: "admin@contoso.com"
-- Afirmações de saída:
-  - **recolha**: ["someone@outlook.com","admin@contoso.com"]
+- Declarações de entrada:
+  - **coleção**: ["someone@outlook.com"]
+- Parâmetros de entrada
+  - **Item**: "admin@contoso.com"
+- Declarações de saída:
+  - **coleção**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
-Obtém o primeiro item da coleção cadeia fornecida. 
+Obtém o primeiro item da coleção de cadeia de caracteres fornecida.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Coleção | stringCollection | Os ClaimTypes que são utilizados pela transformação de declarações para obter o item. |
-| OutputClaim | extractedItem | string | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. O primeiro item na coleção. |
+| InputClaim | coleção | stringCollection | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
+| OutputClaim | extractedItem | Cadeia de caracteres | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. O primeiro item na coleção. |
 
-O exemplo seguinte lê a **otherMails** de afirmação e retornar o primeiro item para o **e-mail** de afirmação. 
+O exemplo a seguir lê a Declaração **otherMails** e retorna o primeiro item para a declaração de **email** .
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -116,8 +116,8 @@ O exemplo seguinte lê a **otherMails** de afirmação e retornar o primeiro ite
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
-  - **recolha**: ["someone@outlook.com","someone@contoso.com"]
-- Afirmações de saída: 
+- Declarações de entrada:
+  - **coleção**: ["someone@outlook.com", "someone@contoso.com"]
+- Declarações de saída:
   - **extractedItem**: "someone@outlook.com"
 

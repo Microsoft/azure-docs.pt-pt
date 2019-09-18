@@ -1,6 +1,6 @@
 ---
 title: Descrição geral do portal do Azure | Microsoft Docs
-description: Use uma experiência guiada para começar a usar o Azure
+description: Use a experiência guiada do centro de início rápido do Azure para começar a usar o Azure
 services: azure-portal
 keywords: ''
 author: kfollis
@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2dd34c11bc6a8d09c8a375cf73e5efad4fceff04
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5086198a4e4efafe3ac05f1f182f7f09d867a709
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004257"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076741"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Introdução ao centro de início rápido do Azure
 
@@ -41,7 +41,7 @@ Para obter uma visão aprofundada do que o Azure QuickStart Center pode fazer po
 
 [Introdução ao centro de início rápido do Azure](https://www.youtube.com/watch?v=0bSA7RXrbAg)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre a instalação e a migração do Azure na [estrutura de adoção do Microsoft Cloud para o Azure](/azure/architecture/cloud-adoption/).
 * Desbloqueie suas habilidades de nuvem com mais cursos da [Microsoft Learn](/learn/azure/).

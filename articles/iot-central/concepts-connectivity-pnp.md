@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 26f05e60761af0b8f0db9508488f28613b82293f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 81e386be98f9c5684402c376372f43e90fefcb42
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880244"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066737"
 ---
 # <a name="device-connectivity-in-azure-iot-central-preview-features"></a>Conectividade do dispositivo no Azure IoT Central (recursos de visualização)
 
@@ -34,15 +34,18 @@ O uso do DPS permite:
 
 Este artigo descreve os seguintes casos de uso:
 
-1. [Conectar rapidamente um único dispositivo usando SAS](#connect-a-single-device)
-1. [Conectar dispositivos em escala usando SAS](#connect-devices-at-scale-using-sas)
-1. [Conectar dispositivos em escala usando certificados X. 509](#connect-devices-using-x509-certificates) esta é a abordagem recomendada para ambientes de produção.
-1. [Conectar-se sem primeiro registrar os dispositivos](#connect-without-registering-devices)
-1. [Conectar dispositivos usando recursos de Plug and Play de IoT](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Conectar rapidamente um único dispositivo usando SAS](#connect-a-single-device)
+- [Conectar dispositivos em escala usando SAS](#connect-devices-at-scale-using-sas)
+- [Conectar dispositivos em escala usando certificados X. 509](#connect-devices-using-x509-certificates) esta é a abordagem recomendada para ambientes de produção.
+- [Conectar-se sem primeiro registrar os dispositivos](#connect-without-registering-devices)
+- [Conectar dispositivos usando recursos de Plug and Play de IoT](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## <a name="connect-a-single-device"></a>Conectar um único dispositivo
 
-Essa abordagem é útil quando você está experimentando IoT Central ou dispositivos de teste. Você pode usar as informações de conexão do dispositivo do seu aplicativo IoT Central para gerar a cadeia de conexão para um dispositivo. Para obter etapas detalhadas, consulte [como gerar uma cadeia de conexão de dispositivo para se conectar a um aplicativo de IOT central do Azure](howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Essa abordagem é útil quando você está experimentando IoT Central ou dispositivos de teste. Você pode usar as informações de conexão do dispositivo do seu aplicativo IoT Central para conectar um dispositivo ao seu aplicativo IoT Central usando o DPS (serviço de provisionamento de dispositivos). Você pode encontrar o código do cliente do dispositivo DPS de exemplo para os seguintes idiomas:
+
+- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
+- [Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Conectar dispositivos em escala usando SAS
 
@@ -190,8 +193,6 @@ Os SDKs de dispositivo do Azure oferecem a maneira mais fácil de implementar o 
 - [SDK do Azure IoT para node. js](https://github.com/azure/azure-iot-sdk-node)
 - [SDK do IoT do Azure para Java](https://github.com/azure/azure-iot-sdk-java)
 - [SDK do Azure IoT para .NET](https://github.com/azure/azure-iot-sdk-csharp)
-
-Cada dispositivo se conecta usando uma cadeia de conexão exclusiva que identifica o dispositivo. Um dispositivo só pode se conectar ao Hub IoT no qual ele está registrado. Quando você cria um dispositivo real em seu aplicativo de IoT Central do Azure, o aplicativo gera as informações necessárias para construir uma cadeia de `dps-keygen`conexão usando.
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>Recursos do SDK e conectividade do Hub IoT
 

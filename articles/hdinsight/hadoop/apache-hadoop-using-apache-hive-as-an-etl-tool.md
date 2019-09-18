@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Apache Hive como uma ferramenta ETL - Azure HDInsight
-description: Utilizar o Apache Hive para extrair, transformar e carregar (ETL) de dados no Azure HDInsight.
+title: Usando Apache Hive como uma ferramenta ETL – Azure HDInsight
+description: Use Apache Hive para extrair, transformar e carregar (ETL) dados no Azure HDInsight.
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -8,31 +8,31 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: e21f3eed7e631c974d34f148b85843b055deaf60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706850"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076252"
 ---
-# <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utilizar o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)
+# <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usar Apache Hive como uma ferramenta ETL (extração, transformação e carregamento)
 
-Normalmente, terá de limpar e transformar os dados de entrada antes de carregar para um destino adequado para análise. Operações de extração, transformação e carregamento (ETL) são utilizadas para preparar dados e carregá-los para um destino de dados.  Apache Hive no HDInsight pode ler dados não estruturados, processar os dados conforme necessário e, em seguida, carregue os dados para um armazém de dados relacional para sistemas de suporte da decisão. Nesta abordagem, os dados são extraídos da origem e armazenados no armazenamento dimensionável, como blobs de armazenamento do Azure ou o armazenamento do Azure Data Lake. Os dados, em seguida, são transformados com uma seqüência de consultas do Hive e, finalmente, são armazenados dentro do Hive em preparação para em massa ao carregar para o arquivo de dados de destino.
+Normalmente, você precisa limpar e transformar os dados de entrada antes de carregá-los em um destino adequado para análise. As operações de ETL (extração, transformação e carregamento) são usadas para preparar dados e carregá-los em um destino de dados.  Apache Hive no HDInsight pode ler dados não estruturados, processar os dados conforme necessário e, em seguida, carregar os dados em uma data warehouse relacional para sistemas de suporte a decisões. Nessa abordagem, os dados são extraídos da origem e armazenados em armazenamento escalonável, como BLOBs de armazenamento do Azure ou Azure Data Lake Storage. Os dados são então transformados usando uma sequência de consultas de Hive e, por fim, são preparados no hive em preparação para o carregamento em massa no armazenamento de dados de destino.
 
-## <a name="use-case-and-model-overview"></a>Utilizar a descrição geral de maiúsculas e modelo
+## <a name="use-case-and-model-overview"></a>Visão geral de caso de uso e modelo
 
-A figura seguinte mostra uma descrição geral do caso de utilização e o modelo para a automatização de ETL. Dados de entrada são transformados para gerar a saída adequada.  Durante essa transformação, os dados podem alterar de forma, o tipo de dados e até mesmo idioma.  Processos de ETL podem converter Imperial métrica, alterar os fusos horários e melhorar a precisão para alinhar adequadamente com os dados existentes no destino.  Processos de ETL também podem combinar dados novo com os dados existentes para manter relatórios atualizados ou para fornecer mais informações sobre os dados existentes.  Aplicativos como o relatório de ferramentas e serviços, em seguida, podem consumir estes dados no formato desejado.
+A figura a seguir mostra uma visão geral do caso de uso e do modelo para a automação de ETL. Os dados de entrada são transformados para gerar a saída apropriada.  Durante essa transformação, os dados podem alterar a forma, o tipo de dados e até mesmo o idioma.  Os processos de ETL podem converter Imperial em métrica, alterar os fusos horários e melhorar a precisão para se alinhar corretamente com os dados existentes no destino.  Os processos de ETL também podem combinar novos dados com os dados existentes para manter o relatório atualizado ou para fornecer mais informações sobre os dados existentes.  Aplicativos como ferramentas de relatório e serviços podem consumir esses dados no formato desejado.
 
-![Apache Hive as ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+![Apache Hive como arquitetura de ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-Hadoop é normalmente utilizado em processos ETL que importar um grande número de ficheiros de texto (como CSVs) ou um menor, mas mudam frequentemente o número de ficheiros de texto, ou ambos.  Hive é uma ótima ferramenta para utilizar para preparar os dados antes de carregar para o destino dos dados.  Hive permite-lhe criar um esquema sobre o CSV e utilizar uma linguagem de tipo SQL para gerar programas MapReduce que interagem com os dados. 
+O Hadoop é normalmente usado em processos de ETL que importam um grande número de arquivos de texto (como CSVs) ou um número menor, mas frequentemente alterando os arquivos de texto, ou ambos.  O hive é uma ótima ferramenta a ser usada para preparar os dados antes de carregá-los no destino de dados.  O hive permite que você crie um esquema no CSV e use uma linguagem semelhante ao SQL para gerar programas MapReduce que interagem com os dados. 
 
-As etapas típicas para utilizar o Hive para executar a ETL são os seguintes:
+As etapas típicas para usar o hive para executar ETL são as seguintes:
 
-1. Carregar dados para o armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake.
-2. Crie uma base de dados de metadados Store (utilizar a base de dados do Azure SQL) para utilizar o Hive em armazenar os seus esquemas.
-3. Criar um cluster do HDInsight e ligue-se o arquivo de dados.
-4. Defina o esquema para aplicar no tempo de leitura de dados no arquivo de dados:
+1. Carregar dados no Azure Data Lake Storage ou no armazenamento de BLOBs do Azure.
+2. Crie um banco de dados de repositório de metadados (usando o banco de dados SQL do Azure) para uso pelo Hive no armazenamento de seus esquemas.
+3. Crie um cluster HDInsight e conecte o armazenamento de dados.
+4. Defina o esquema a ser aplicado em tempo de leitura sobre os dados no armazenamento de dados:
 
     ```
     DROP TABLE IF EXISTS hvac;
@@ -48,48 +48,48 @@ As etapas típicas para utilizar o Hive para executar a ETL são os seguintes:
     STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
-5. Transformar os dados e carregá-los para o destino.  Existem várias formas de utilizar o Hive durante a transformação e carregamento:
+5. Transforme os dados e carregue-os no destino.  Há várias maneiras de usar o hive durante a transformação e o carregamento:
 
-    * Consultar e preparar dados utilizando o Hive e guarde-o como um CSV no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake.  Em seguida, utilize uma ferramenta como o SQL Server Integration Services (SSIS) para adquirir os CSVs e carregar os dados para uma base de dados relacional de destino como o SQL Server.
-    * Consulte os dados diretamente a partir do Excel ou do c# com o controlador ODBC do Hive.
-    * Uso [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) para ler os ficheiros CSV simples preparados e carregá-las para a base de dados relacional de destino.
+    * Consulte e prepare dados usando o hive e salve-os como um CSV no Azure Data Lake Storage ou no armazenamento de BLOBs do Azure.  Em seguida, use uma ferramenta como o SQL Server Integration Services (SSIS) para adquirir esses CSVs e carregar os dados em um banco de dado relacional de destino, como SQL Server.
+    * Consulte os dados diretamente do Excel ou C# usando o driver ODBC do hive.
+    * Use o [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) para ler os arquivos CSV simples preparados e carregá-los no banco de dados relacional de destino.
 
 ## <a name="data-sources"></a>Origens de dados
 
-Origens de dados são dados externos, normalmente, que podem ser correspondidos a dados existentes no seu arquivo de dados, por exemplo:
+As fontes de dados normalmente são dados externos que podem ser correspondidos aos dados existentes no armazenamento de dados, por exemplo:
 
-* Dados de mídia social, ficheiros de registo, sensores e aplicações que geram ficheiros de dados.
-* Conjuntos de dados obtidos de fornecedores de dados, como estatísticas de meteorologia ou fornecedor números de vendas.
-* Dados de transmissão em fluxo capturado, filtrado e processados por meio de uma ferramenta adequada ou estrutura.
+* Dados de mídia social, arquivos de log, sensores e aplicativos que geram arquivos de dados.
+* Conjuntos de dados obtidos de provedores de data, como estatísticas do clima ou números de vendas do fornecedor.
+* Transmissão de dados capturados, filtrados e processados por meio de uma ferramenta ou estrutura adequada.
 
 <!-- TODO: (see Collecting and loading data into HDInsight). -->
 
 ## <a name="output-targets"></a>Destinos de saída
 
-Pode utilizar o Hive para dados de saída a uma variedade de destinos, incluindo:
+Você pode usar o hive para dados de saída para uma variedade de destinos, incluindo:
 
-* Base de dados relacional, como SQL Server ou base de dados do Azure SQL.
-* Um armazém de dados, como o Azure SQL Data Warehouse.
+* Um banco de dados relacional, como SQL Server ou banco de dados SQL do Azure.
+* Um data warehouse, como o SQL Data Warehouse do Azure.
 * Excel.
 * Armazenamento de tabelas e BLOBs do Azure.
-* Aplicações ou serviços que exigem dados para serem processados em formatos específicos, ou como os ficheiros que contêm tipos específicos de estrutura de informações.
-* Como um Store de documentos JSON <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Aplicativos ou serviços que exigem que os dados sejam processados em formatos específicos ou como arquivos que contêm tipos específicos de estrutura de informações.
+* Um repositório de documentos JSON como <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
 
 ## <a name="considerations"></a>Considerações
 
-O modelo ETL é normalmente utilizado quando pretender:
+O modelo de ETL normalmente é usado quando você deseja:
 
-* Carregar dados de transmissão ou grandes volumes de dados estruturados ou semiestruturados de fontes externas para uma base de dados existente ou o sistema de informações.
-* Limpar, transformar e validar os dados antes de carregá-lo, talvez usando mais do que uma transformação pass-through do cluster.
-* Gere relatórios e visualizações que são atualizadas regularmente.  Por exemplo, se o relatório demorar demasiado tempo a gerar durante o dia, pode agendar o relatório seja executado durante a noite.  Pode utilizar o Azure Scheduler e o PowerShell para executar automaticamente uma consulta do Hive.
+* Carregue dados de fluxo ou grandes volumes de dados semiestruturados ou não estruturados de fontes externas em um banco de dados ou sistema de informações existente.
+* Limpe, transforme e valide os dados antes de carregá-los, talvez usando mais de uma passagem de transformação através do cluster.
+* Gere relatórios e visualizações que são atualizadas regularmente.  Por exemplo, se o relatório levar muito tempo para ser gerado durante o dia, você poderá agendar o relatório para ser executado à noite.  Você pode usar o Agendador do Azure e o PowerShell para executar automaticamente uma consulta de Hive.
 
-Se o destino para os dados não é uma base de dados, pode gerar um ficheiro no formato apropriado dentro da consulta, por exemplo, um CSV. Este ficheiro, em seguida, pode ser importado para o Excel ou Power BI.
+Se o destino dos dados não for um banco de dado, você poderá gerar um arquivo no formato apropriado dentro da consulta, por exemplo, um CSV. Esse arquivo pode então ser importado para o Excel ou Power BI.
 
-Se for necessário executar várias operações nos dados como parte do processo de ETL, considere como geri-los. Se as operações são controladas por um programa externo, em vez como um fluxo de trabalho dentro da solução, precisa decidir se algumas operações podem ser executadas em paralelo e para detetar quando cada tarefa estiver concluída. Usando um mecanismo de fluxo de trabalho, como o Oozie dentro do Hadoop pode ser mais fácil do que tentar orquestrar a uma seqüência de operações com scripts externos ou programas personalizados. Para obter mais informações sobre o Oozie, consulte [orquestração do fluxo de trabalho e tarefa](https://msdn.microsoft.com/library/dn749829.aspx).
+Se você precisar executar várias operações nos dados como parte do processo de ETL, considere como gerenciá-las. Se as operações forem controladas por um programa externo, em vez de um fluxo de trabalho dentro da solução, você precisará decidir se algumas operações podem ser executadas em paralelo e detectar quando cada trabalho é concluído. Usar um mecanismo de fluxo de trabalho como Oozie no Hadoop pode ser mais fácil do que tentar orquestrar uma sequência de operações usando scripts externos ou programas personalizados. Para obter mais informações sobre Oozie, consulte [fluxo de trabalho e orquestração de trabalhos](https://msdn.microsoft.com/library/dn749829.aspx).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [ETL em escala](apache-hadoop-etl-at-scale.md)
-* [Operacionalizar um pipeline de dados](../hdinsight-operationalize-data-pipeline.md)
+* [Colocar um pipeline de dados em operação](../hdinsight-operationalize-data-pipeline.md)
 
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

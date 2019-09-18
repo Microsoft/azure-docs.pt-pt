@@ -1,7 +1,7 @@
 ---
 title: Como implantar modelos no serviço kubernetes do Azure
-titleSuffix: Azure Machine Learning service
-description: Saiba como implantar seus modelos de serviço de Azure Machine Learning como um serviço Web usando o serviço kubernetes do Azure.
+titleSuffix: Azure Machine Learning
+description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando o serviço kubernetes do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858745"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034616"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 
-Saiba como usar o serviço de Azure Machine Learning para implantar um modelo como um serviço Web no AKS (serviço kubernetes do Azure). O serviço kubernetes do Azure é bom para implantações de produção de grande escala. Use o serviço kubernetes do Azure se você precisar de um ou mais dos seguintes recursos:
+Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web no AKS (serviço kubernetes do Azure). O serviço kubernetes do Azure é bom para implantações de produção de grande escala. Use o serviço kubernetes do Azure se você precisar de um ou mais dos seguintes recursos:
 
 - __Tempo de resposta rápido__.
 - __Dimensionamento__ automático do serviço implantado.
@@ -30,15 +30,15 @@ Saiba como usar o serviço de Azure Machine Learning para implantar um modelo co
 
 Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS que está __conectado ao seu espaço de trabalho__. Há duas maneiras de conectar um cluster AKS ao seu espaço de trabalho:
 
-* Crie o cluster AKS usando o SDK do serviço Azure Machine Learning, a CLI do Machine Learning, a página de aterrissagem do [portal do Azure](https://portal.azure.com) ou do [espaço de trabalho (versão prévia)](https://ml.azure.com). Esse processo conecta automaticamente o cluster ao espaço de trabalho.
-* Anexe um cluster AKS existente ao seu espaço de trabalho do Azure Machine Learning Service. Um cluster pode ser anexado usando o SDK do Azure Machine Learning Service, Machine Learning CLI ou o portal do Azure.
+* Crie o cluster AKS usando o SDK do Azure Machine Learning, a CLI do Machine Learning, a página de aterrissagem do [portal do Azure](https://portal.azure.com) ou do [espaço de trabalho (versão prévia)](https://ml.azure.com). Esse processo conecta automaticamente o cluster ao espaço de trabalho.
+* Anexe um cluster AKS existente ao seu espaço de trabalho Azure Machine Learning. Um cluster pode ser anexado usando o SDK do Azure Machine Learning, Machine Learning CLI ou o portal do Azure.
 
 > [!IMPORTANT]
 > O processo de criação ou anexo é uma tarefa ocasional. Depois que um cluster AKS estiver conectado ao espaço de trabalho, você poderá usá-lo para implantações. Você pode desanexar ou excluir o cluster AKS se não precisar mais dele. Depois de Detatched ou excluído, você não poderá mais implantar no cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma área de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md).
+- Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
 - Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tiver um modelo registrado, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
@@ -117,7 +117,7 @@ Para obter mais informações, consulte o [AZ ml computetarget Create Ask](https
 Se você já tiver o cluster AKS em sua assinatura do Azure e for a versão 1.12. # #, você poderá usá-lo para implantar a imagem.
 
 > [!TIP]
-> O cluster AKS existente pode estar em uma região do Azure do que seu espaço de trabalho do Azure Machine Learning Service.
+> O cluster AKS existente pode estar em uma região do Azure do que seu espaço de trabalho Azure Machine Learning.
 >
 > Se você quiser proteger o cluster AKS usando uma rede virtual do Azure, primeiro deverá criar a rede virtual. Para obter mais informações, consulte [experimentação segura e inferência com a rede virtual do Azure](how-to-enable-virtual-network.md#aksvnet).
 
@@ -220,7 +220,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-### <a name="using-vs-code"></a>Usando VS Code
+### <a name="using-vs-code"></a>Utilizar o VS Code
 
 Para obter informações sobre como usar VS Code, consulte [implantar no AKs por meio da extensão vs Code](how-to-vscode-tools.md#deploy-and-manage-models).
 
@@ -275,7 +275,7 @@ print(token)
 
 [!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Experimentação e inferência de segurança em uma rede virtual](how-to-enable-virtual-network.md)
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)

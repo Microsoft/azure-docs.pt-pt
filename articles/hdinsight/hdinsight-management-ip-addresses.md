@@ -3,20 +3,21 @@ title: Endereços IP de gerenciamento do Azure HDInsight
 description: Saiba quais endereços IP você deve permitir o tráfego de entrada, para configurar corretamente os grupos de segurança de rede e as rotas definidas pelo usuário para a rede virtual com o Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479193"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076640"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
-Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure.  Alguns dos endereços IP para esses serviços são específicos da região e alguns deles se aplicam a todas as regiões do Azure. Talvez você também precise permitir o tráfego do serviço DNS do Azure se não estiver usando o DNS personalizado.
+Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure.  Alguns dos endereços IP para esses serviços são específicos da região e alguns deles se aplicam a todas as regiões do Azure. Poderá também ter de permitir o tráfego do serviço DNS do Azure se não utilizar um DNS personalizado.
 
 As seções a seguir discutem os endereços IP específicos que devem ser permitidos.
 
@@ -28,7 +29,7 @@ Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso de
 
 Permitir o tráfego dos seguintes endereços IP para serviços de integridade e gerenciamento do Azure HDInsight que se aplicam a todas as regiões do Azure:
 
-| Endereço IP de origem | Destino  | Direction |
+| Endereço IP de origem | Destination  | Direction |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*:443 | Entrada |
 | 23.99.5.239 | \*:443 | Entrada |
@@ -77,10 +78,10 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 
 Para obter informações sobre os endereços IP a serem usados para o Azure governamental, consulte o documento [Azure governamental Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
 
-Para obter mais informações, consulte a seção controlando o [tráfego de rede](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
+Para obter mais informações, consulte a seção [controlando o tráfego de rede](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
 
 Se você estiver usando UDRs (rotas definidas pelo usuário), deverá especificar uma rota e permitir o tráfego de saída da VNET para os IPs acima com o próximo salto definido como "Internet".
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md)

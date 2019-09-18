@@ -4,7 +4,7 @@ description: Este artigo ajuda a vincular os artigos para solucionar problemas d
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: ce51b462b17a7082fa7951aea8790e28e517401e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080505"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059175"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Solucionar erros de inicialização de máquinas virtuais do Azure
 
@@ -25,13 +25,13 @@ Este artigo lista os erros de inicialização comuns que você pode receber ao i
 
 ## <a name="boot-errors-and-solutions"></a>Erros e soluções de inicialização
 
-* [Erros de inicialização do BitLocker](troubleshoot-bitlocker-boot-error.md) 
-* [Windows Mostrar "verificando o sistema de arquivos" durante a inicialização](troubleshoot-check-disk-boot-error.md)
+* [Erros de arranque do BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [O Windows mostra "A verificar o sistema de ficheiros" durante o arranque](troubleshoot-check-disk-boot-error.md)
 * [Erros comuns de ecrã azul](troubleshoot-common-blue-screen-error.md)
-* [A inicialização da VM está presa em "preparando o Windows](troubleshoot-vm-boot-configure-update.md)
-* [Erro "serviço crítico com falha" na tela azul](troubleshoot-critical-service-failed-boot-error.md)
-* [Problema de reinicialização do loop](troubleshoot-reboot-loop.md)
-* [A inicialização da VM está presa no estágio Windows Update](troubleshoot-stuck-updating-boot-error.md)
+* [O arranque da VM está bloqueado em "A Preparar o Windows](troubleshoot-vm-boot-configure-update.md)
+* [Erro "FALHA DE SERVIÇO CRÍTICO" em ecrã azul](troubleshoot-critical-service-failed-boot-error.md)
+* [Problema de ciclo de reinicialização](troubleshoot-reboot-loop.md)
+* [O arranque da VM está bloqueado na fase de atualização do Windows](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

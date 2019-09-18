@@ -6,13 +6,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
+ms.reviewer: jasonh
 ms.custom: seodec18
-ms.openlocfilehash: fccca42a7185f430c679e0128649575620bdce0f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 60ac0509aed1fc83bc7f660783d4bdbd6cb7d976
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733142"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077123"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>SDK do HDInsight para go (visualização)
 

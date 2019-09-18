@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3ff9a694dca0d2a205c27569a7c744f482b662ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100647"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036388"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar SQL Server instância de cluster de failover em máquinas virtuais do Azure
 
@@ -122,7 +122,7 @@ Com esses pré-requisitos em vigor, você pode prosseguir com a criação do clu
 
 1. Crie as máquinas virtuais no conjunto de disponibilidade.
 
-   Provisione duas máquinas virtuais SQL Server no conjunto de disponibilidade do Azure. Para obter instruções, consulte provisionar [uma máquina virtual SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+   Provisione duas máquinas virtuais SQL Server no conjunto de disponibilidade do Azure. Para obter instruções, consulte [provisionar uma máquina virtual SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
    Coloque ambas as máquinas virtuais:
 
@@ -216,7 +216,7 @@ A próxima etapa é configurar o cluster de failover com o S2D. Nesta etapa, voc
    Para instalar o recurso de clustering de failover da interface do usuário, execute as etapas a seguir em ambas as máquinas virtuais.
    - Em **Gerenciador do servidor**, clique em **gerenciar**e em **adicionar funções e recursos**.
    - No **Assistente para adicionar funções e recursos**, clique em **Avançar** até chegar a **selecionar recursos**.
-   - Em **selecionar recursos**, clique em clustering de **failover**. Inclua todos os recursos necessários e as ferramentas de gerenciamento. Clique em **Adicionar recursos**.
+   - Em **selecionar recursos**, clique em **clustering de failover**. Inclua todos os recursos necessários e as ferramentas de gerenciamento. Clique em **Adicionar recursos**.
    - Clique em **Avançar** e em **concluir** para instalar os recursos.
 
    Para instalar o recurso de clustering de failover com o PowerShell, execute o seguinte script de uma sessão de administrador do PowerShell em uma das máquinas virtuais.
@@ -267,11 +267,22 @@ Para criar o cluster de failover, você precisa de:
 - Um nome para o cluster de failover
 - Um endereço IP para o cluster de failover. Você pode usar um endereço IP que não é usado na mesma rede virtual e sub-rede do Azure que os nós de cluster.
 
-O PowerShell a seguir cria um cluster de failover. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da VNET do Azure:
+#### <a name="windows-server-2008-2016"></a>Windows Server 2008-2016
+
+O PowerShell a seguir cria um cluster de failover para o **Windows Server 2008-2016**. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da VNET do Azure:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
+
+#### <a name="windows-server-2019"></a>Windows Server de 2019
+
+O PowerShell a seguir cria um cluster de failover para o Windows Server 2019.  Para obter mais informações, consulte o [cluster de failover do blog: Objeto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)de rede do cluster.  Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da VNET do Azure:
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
 
 ### <a name="create-a-cloud-witness"></a>Criar uma testemunha de nuvem
 
@@ -380,7 +391,7 @@ Para criar o balanceador de carga:
 
 1. Retorne ao grupo de recursos do Azure com as máquinas virtuais e localize o novo balanceador de carga. Talvez seja necessário atualizar a exibição no grupo de recursos. Clique no balanceador de carga.
 
-1. Clique em pools de **back-end** e em **+ Adicionar** para adicionar um pool de back-end.
+1. Clique em **pools de back-end** e em **+ Adicionar** para adicionar um pool de back-end.
 
 1. Associe o pool de back-end ao conjunto de disponibilidade que contém as VMs.
 
@@ -483,7 +494,7 @@ Para testar a conectividade, faça logon em outra máquina virtual na mesma rede
 
 ## <a name="limitations"></a>Limitações
 
-As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento em CSV (volumes compartilhados clusterizados) e um balanceador de [carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
+As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento em CSV (volumes compartilhados clusterizados) e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
 
 Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 e versões anteriores porque:
 

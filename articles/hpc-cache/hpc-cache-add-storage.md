@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775263"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037225"
 ---
 # <a name="add-storage"></a>Adicionar armazenamento
 
@@ -27,13 +27,15 @@ Você pode adicionar destinos de armazenamento ao criar o cache do HPC do Azure 
 
 Use a guia **destinos de armazenamento** do assistente de criação de cache para definir o armazenamento ao mesmo tempo em que cria a instância de cache.
 
-![captura de tela da página de destinos de armazenamento](media/create-targets.png)
+![captura de tela da página de destinos de armazenamento](media/hpc-cache-storage-targets-pop.png)
 
 Clique no link **Adicionar destino de armazenamento** para adicionar armazenamento.
 
 ## <a name="add-storage-targets-from-the-cache"></a>Adicionar destinos de armazenamento do cache
 
 No portal do Azure, abra sua instância de cache e clique em **destinos de armazenamento** na barra lateral esquerda. A página destino de armazenamento lista todos os destinos existentes e fornece um link para adicionar um novo.
+
+![captura de tela do link de destinos de armazenamento na barra lateral, sob o título configurar, que está entre as configurações de títulos de categoria e o monitoramento](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Adicionar um novo destino de armazenamento de BLOBs do Azure
 
@@ -52,15 +54,13 @@ Para definir um contêiner de blob do Azure, insira essas informações.
 
 * **Caminho do namespace virtual** -defina o filePath voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
 
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
-
 Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Adicionar as funções de controle de acesso à sua conta
 
 O cache HPC do Azure usa o [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o aplicativo de cache a acessar sua conta de armazenamento para destinos do armazenamento de BLOBs do Azure.
 
-O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador da [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) de acúmulo e o colaborador de dados do [blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "provedor de recursos StorageCache".
+O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador de [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) de funções e o colaborador de dados do [blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "provedor de recursos StorageCache".
 
 Você pode fazer isso antecipadamente ou clicando em um link na página em que você adiciona um destino de armazenamento de BLOBs.
 
