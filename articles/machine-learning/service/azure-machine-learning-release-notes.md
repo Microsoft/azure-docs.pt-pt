@@ -10,18 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5191f8b565762e9377f3718cc147c96e491f5a0d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993431"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067719"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
+
+## <a name="2019-09-16"></a>2019-09-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK para Python v 1.0.62
+
++ **Novos recursos**
+  + Introduziu a característica da série temporal em TabularDataset. Essa característica permite uma fácil filtragem de carimbo de data/hora nos dados de uma TabularDataset, como a obtenção de todos os dados entre um intervalo de tempo ou os dados mais recentes. Para saber mais sobre essa característica da série temporal em TabularDataset, visite https://aka.ms/azureml-data a documentação ou https://aka.ms/azureml-tsd-notebook para obter um exemplo de bloco de anotações. 
+  + Habilitado o treinamento com TabularDataset e filedataset. Visite https://aka.ms/dataset-tutorial um exemplo de bloco de anotações. 
+  
+  + **azureml-train-core**
+    + Adicionado suporte a Nccl e gloo no estimador de PyTorch
+  
++ **Correções de bugs e melhorias**
+  + **azureml-automl-Core**
+    + Preterida a configuração AutoML ' lag_length ' e LaggingTransformer.
+    + Correção correta da validação de dados de entrada se elas forem especificadas em um formato de Dataflow
+    + Modificou o fit_pipeline. py para gerar o grafo JSON e carregar em artefatos. 
+    + Renderizado o grafo em userrun usando Cytoscape.
+  + **azureml-core**
+    + Revisitoumos o tratamento de exceção no código ADB e fazemos alterações de acordo com o tratamento de erro por nova
+    + Autenticação MSI automática adicionada para VMs do notebook.
+    + Corrige o bug em que modelos corrompidos ou vazios podem ser carregados devido a tentativas com falha.
+    + Corrigido o bug em `DataReference` que o nome é `DataReference` alterado quando o modo é alterado ( `as_upload`por exemplo, `as_mount`ao chamar, `as_download`, ou).
+    + Make `mount_point` e `target_path` optional para `FileDataset.mount` e .`FileDataset.download`
+    + A exceção de que a coluna de carimbo de data/hora não pode ser encontrada será lançada se a API relacionada à hora de série for chamada sem a coluna de carimbo de data/hora correta atribuída ou as colunas de carimbo de data/hora
+    + As colunas de série de tempo devem ser atribuídas com a coluna cujo tipo é Date, caso contrário a exceção é esperada
+    + As colunas de série de tempo atribuindo a API ' with_timestamp_columns ' pode não usar nenhum valor/nome de coluna de carimbo de data/hora fino, o que limpará as colunas de carimbo de data/hora atribuídas
+    + A exceção será lançada quando a coluna de carimbo de data/hora de alta granularidade ou refinada for descartada com a indicação para o usuário que o descarte pode ser feito após a exclusão da coluna timestamp ou a chamada de with_time_stamp com o valor None para liberar carimbo de data/hora Columns
+    + A exceção será gerada quando a coluna de carimbo de data/hora de alta granularidade ou refinada não estiver incluída na lista manter colunas com indicação para o usuário que pode ser feito após a inclusão da coluna timestamp na lista manter coluna ou chamar with_time_stamp com nenhum valor para liberar colunas de carimbo de data/hora.
+    + Adicionado log para o tamanho de um modelo registrado.
+  + **azureml-explain-model**
+    + Corrigido o aviso impresso no console quando o pacote do Python "empacotamento" não está instalado: "Usando a versão mais antiga do que com suporte do lightgbm, atualize para a versão superior à 2.2.1"
+    + Corrigida a explicação do modelo de download com a fragmentação para obter explicações globais com muitos recursos
+    + O explicador de imitação corrigida não contém exemplos de inicialização na explicação de saída
+    + Corrigido o erro imutável nas propriedades definidas ao carregar com o cliente de explicação usando dois tipos diferentes de modelos
+    + Adição de um parâmetro get_raw ao explicador de pontuação. explique () para que um explicador de Pontuação possa retornar valores de engenharia e brutos.
+  + **azureml-train-automl**
+    + Introduziu APIs públicas da AutoML para obter explicações de suporte do AutoML explique SDK – a maneira mais recente de dar suporte a explicações de AutoML ao desacoplar AutoML personalização e explicar o suporte à explicação bruta integrada ao SDK do azureml explicar SDK para AutoML modelos.
+    + Removendo o azureml-padrões de ambientes de treinamento remoto.
+    + Local do repositório de cache padrão alterado de FileCacheStore com base em um para AzureFileCacheStore um para AutoML no caminho de código AzureDatabricks.
+    + Correção correta da validação de dados de entrada se elas forem especificadas em um formato de Dataflow
+  + **azureml-train-core**
+    + Reversão de source_directory_data_store revertida.
+    + Foi adicionada a capacidade de substituir as versões de pacote instaladas do azureml. 
+    + Adicionado suporte a dockerfile `environment_definition` no parâmetro em estimadores.
+    + Parâmetros de treinamento distribuídos simplificados em estimadores.
+         ```py 
+        from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
+        ```
 
 ## <a name="2019-09-09"></a>2019-09-09
 
@@ -1096,6 +1145,6 @@ A [versão 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclui os se
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia a descrição geral do [Azure Machine Learning](../service/overview-what-is-azure-ml.md).

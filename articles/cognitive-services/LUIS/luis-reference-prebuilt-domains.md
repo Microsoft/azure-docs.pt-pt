@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: b840f1ce42c9d7e4af8854a2c6bd7fd26f5b88e9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307450"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067603"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -27,7 +27,7 @@ Esta referência disponibiliza informações sobre o [domínios pré-concebidos]
 
 A tabela a seguir resume os domínios com suporte no momento. O suporte para inglês geralmente é mais completo do que outros. 
 
-| Tipo de entidade       | EN-US      | ZH-CN   | DE    | FR     | ES    | it      | PT-BR |  JP  |      KO |        NL |    TR |
+| Tipo de entidade       | EN-US      | ZH-CN   | DE    | FR     | ES    | TI      | PT-BR |  JP  |      KO |        NL |    TR |
 |:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
 | [Calendário](#calendar)    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | [Comunicação](#communication)   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
@@ -54,10 +54,10 @@ O calendário é algo sobre reuniões pessoais e compromissos, não com evento p
 Nome da intenção | Descrição | Exemplos
 ---------|----------|---------------
  AcceptEventEntry | Aceite um (n) compromisso/reunião/evento no calendário. | Aceitar um compromisso. <br> Aceitar o evento <br> aceite a reunião de hoje.
- Cancelar | Cancele a ação em andamento pelo assistente virtual, como cancelar o processo de criação de uma reunião. <br> ***Aviso**: Essa tentativa inclui principalmente a ação "Cancelar" no cenário de calendário. Se você precisar de uma expressão geral em "Cancelar", aproveite a intenção de "Cancelar" no domínio de **utilitários** . * | Tudo bem, basta cancelar o evento. <br> Não, eu apenas cancelo o compromisso.
+ Cancelar | Cancele a ação em andamento pelo assistente virtual, como cancelar o processo de criação de uma reunião. <br> _**Aviso**: Essa tentativa inclui principalmente a ação "Cancelar" no cenário de calendário. Se você precisar de uma expressão geral em "Cancelar", aproveite a intenção de "Cancelar" no domínio de **utilitários** ._ | Tudo bem, basta cancelar o evento. <br> Não, eu apenas cancelo o compromisso.
  ChangeCalendarEntry | Alterar ou reagendar a entrada do calendário. | Reagendar minhas 6h compromisso amanhã a 2 p.m. <br> Reagendar compromisso do doutor por 5 PM <br> Reagendar almoço com Maria Olson para sexta-feira. <br> Alterar a hora do evento.
  CheckAvailability | Conheça a disponibilidade para um compromisso ou reunião no calendário do usuário ou o calendário de outra pessoa. | Quando é Jim disponível para corresponder às? <br> Mostrar quando Carol estiver disponível amanhã. <br> Chris é gratuito no Sábado?
- Confirmar | Confirme se uma operação/ação deve ser executada com base na intenção anterior. <br> ***Aviso**: Essa tentativa inclui principalmente a ação "confirmar" para o cenário de calendário. Se você precisar de mais expressões gerais em "Confirm", aproveite a intenção de "confirmar" no domínio de **utilitários** . *| Isso está correto, crie a reunião <br> Sim, obrigado, conecte-se à reunião.
+ Confirmar | Confirme se uma operação/ação deve ser executada com base na intenção anterior. <br> _**Aviso**: Essa tentativa inclui principalmente a ação "confirmar" para o cenário de calendário. Se você precisar de mais expressões gerais em "Confirm", aproveite a intenção de "confirmar" no domínio de **utilitários** ._| Isso está correto, crie a reunião <br> Sim, obrigado, conecte-se à reunião.
  ConnectToMeeting | Conecte-se a uma reunião. | Conecte-me a 11:00 chamada de conferência com Andy. <br> Aceite a chamada de reunião de orçamento.
  ContactMeetingAttendees | Entre em contato com os participantes da reunião. | Informe a reunião que estou executando em relação à reunião de 3:00. <br> Notifique os colegas para a reunião de 8h que precisa iniciar às 8:30.
  CreateCalendarEntry | Adicione um novo item de uso individual para o calendário. | Crie uma reunião sobre como discutir problemas. <br> criar uma reunião comabc@microsoft.com
@@ -69,17 +69,17 @@ Nome da intenção | Descrição | Exemplos
  FindCalendarDetail | Verifique e mostre os detalhes da agenda. | Preciso que você forneça os detalhes da reunião agendada com meu colega de colegas.
  FindDuration | Verifique a duração. | Quanto tempo terá para pegar os mercados? <br> Quanto tempo tenho para almoçar?
  FindMeetingRoom | Encontre as salas de reunião disponíveis. | Quais salas de encontro eu tenho? <br> Um novo local de reunião, encontre um.
- GoBack | Voltar para a última etapa ou item.  <br> ***Aviso**: Consulte o domínio de **utilitários** para obter mais declarações geral do GoBack. * | Anterior <br> Voltar ao último email.
- Rejeitar | O usuário rejeita o assistente virtual proposto. <br> ***Aviso**: Consulte o domínio de **utilitários** para mais rejeitar declarações gerais. * | Não é necessário definir o evento. <br> Tenho outras coisas a fazer nesse momento.
-ShowNext | Verifique o próximo evento. <br> ***Aviso**: Consulte o domínio de **utilitários** para obter mais da próxima declarações geral. * | Dê-me meu próximo evento. <br> O que vem a seguir no calendário?
- ShowPrevious | Verifique o evento anterior. <br> ***Aviso**: Consulte o domínio de **utilitários** para obter mais informações gerais anteriores declarações. * | Qual é o agendamento antes disso?
+ GoBack | Voltar para a última etapa ou item.  <br> _**Aviso**: Consulte o domínio de **utilitários** para obter mais declarações geral do GoBack._ | Anterior <br> Voltar ao último email.
+ Rejeitar | O usuário rejeita o assistente virtual proposto. <br> _**Aviso**: Consulte o domínio de **utilitários** de Sumário para mais rejeitar declarações gerais._ | Não é necessário definir o evento. <br> Tenho outras coisas a fazer nesse momento.
+ShowNext | Verifique o próximo evento. <br> _**Aviso**: Consulte o domínio de **utilitários** para obter mais informações sobre a próxima declarações geral._ | Dê-me meu próximo evento. <br> O que vem a seguir no calendário?
+ ShowPrevious | Verifique o evento anterior. <br> _**Aviso**: Consulte o domínio de **utilitários** para obter mais informações gerais anteriores declarações._ | Qual é o agendamento antes disso?
  TimeRemaining | Verifique o tempo restante até o próximo evento. | Exibir quanto tempo eu tenho antes das minhas reuniões. <br> Exibir a quantidade de tempo que tenho antes da minha próxima reunião começar.
  
 ### <a name="entities"></a>**Contabilidade**
 Nome da Entidade | Tipo de entidade | Descrição | Exemplos | Ranhuras
 -------|-----------------------|-------------|---------|--------
 ContactName | personName | O nome de um participante de contato ou de reunião. | Conheça com **Betsy**. <br>  Conheça com **Aubrey** em 3 de julho às 19h | Betsy <br> Aubrey <br> Amy 
-DestinationCalendar | único | O nome do calendário de destino. | almoço com o MOM Tuesday 12 **pessoal** <br> Usar meu **Google** agenda como meu calendário padrão. <br> Atualizar a classe Yoga para Mon qua às 15:00 lista no calendário **pessoal** . | Google <br> pessoais <br> empresa <br> principal
+DestinationCalendar | único | O nome do calendário de destino. | almoço com o MOM Tuesday 12 **pessoal** <br> Usar meu **Google** agenda como meu calendário padrão. <br> Atualizar a classe Yoga para Mon qua às 15:00 lista no calendário **pessoal** . | Google <br> Pessoais <br> empresa <br> principal
 Duration | datetime | Duração de uma reunião, compromisso ou tempo restante. | Adicione à reunião de calendário de trabalho com Carlos para discutir detalhes de Scholarship amanhã às 11 horas por **20 minutos**. <br> Adicionar ao calendário um evento em metrô na sexta-feira, vou comer com Thomas por **uma hora** às 9 p.m. | uma hora <br> 2 dias <br> 20 minutos 
 Término | datetime | Data de término de uma reunião ou um compromisso. | Calendário adicionar concerto a baixo da prefeitura Mary 3ª a **Mary quinta** | Mary quinta  
 EndTime | datetime | Hora de término de uma reunião ou um compromisso. | Você pode torná-lo 2 30 para **três** | três 
@@ -152,7 +152,7 @@ Nome da Entidade | Tipo de entidade | Descrição | Exemplos | Ranhuras
 Attachment | único | O anexo que o usuário deseja enviar por texto ou email. | Enviar um **arquivo** por email do OneNote. <br> Envie meu **Doc** de manutenção para Katie. | file <br> Doc
 AudioDeviceType | único | Tipo de dispositivo de áudio (palestrante, headset, microfone, etc.). | Responda usando as **mãos gratuitas**. <br> Disque novamente no **telefone do viva-voz**. | locutor <br> sem intervenção <br> tecnologia
 Category | único | A categoria de uma mensagem ou email, a categoria deve ter uma definição clara no sistema de email, como "não lido", "sinalizador". Descrição c/o limpar definição, por exemplo, "novo" e "recente" não são categorias. | Marcar todos os emails como **lidos**  <br> Novo email de **alta prioridade** para Paul | importante <br> prioridade alta <br> ler
-ContactAttribute | único | Um atributo do contato sobre as consultas do usuário.| Algum **aniversário** no mês que eu devo saber? | aniversário <br> endereço <br> número de telefone
+ContactAttribute | único | Um atributo do contato sobre as consultas do usuário.| Algum **aniversário** no mês que eu devo saber? | aniversário <br> endereço <br> Número de telefone
 ContactName | personName  | O nome de um destinatário de contacto ou de mensagem. | Enviar o email para **Stevens** | Stevens
 Date/Time | datetime | DateTime de um email recebido. | Leia os emails de **hoje** <br> Quem me e-Mailu **hoje**? <br> Quem telefone às **19h**? | hoje <br> amanhã
 DestinationPhone | único | O usuário de destino deseja chamar ou enviar um texto para. | Faça uma chamada para a **casa** <br> Enviar uma mensagem de texto para **página inicial** | internamente <br> home page
@@ -268,7 +268,7 @@ Nome da Entidade | Tipo de entidade | Descrição | Exemplos
 Text | simples, padrão. Outro | O texto de uma nota ou lembrete. | Esticar antes de movimentação <br> amanhã longo prazo.
 Cargo | simples, padrão. Outro | Título de uma nota. | groceries <br> pessoas para chamar <br> tarefas pendentes
 CreationDate | datetimeV2 | Este slot é para quando o usuário solicita anotações criadas em uma determinada janela de data/hora. | 
-Quantificador | Lista | Quando um usuário pede para executar uma ação nos itens ' all', ' a cada ' ou ' qualquer ' ou todo o texto em uma nota. | tudo <br> qualquer <br> cada
+Quantificador | Lista | Quando um usuário pede para executar uma ação nos itens ' all', ' a cada ' ou ' qualquer ' ou todo o texto em uma nota. | all <br> Outro <br> cada
 OrderReference | ordinal | O usuário deseja fazer ações com os itens ' primeiro ', ' último ', ' Avançar ', etc. | primeiro <br> última
 
 
@@ -386,7 +386,7 @@ Entidade LUIS | Tipo de entidade | Descrição | Exemplos
 ------------|-------------|-------------|---------
 ordinal | ordinal | Uma referência ordinal ou numérica a um item. | O **segundo** . <br> **Próximo** .
 number | number | Quantidade de itens que o usuário deseja | Os próximos **3** itens
-DirectionalReference | único | Um ponto de referência para o local na tela em que um item está localizado. | O correto <br> canto superior
+DirectionalReference | único | Um ponto de referência para o local na tela em que um item está localizado. | O correto <br> Canto superior
 
 ## <a name="weather"></a>**MSNBC**
 O clima de domínio concentra-se em verificar a condição e os avisos meteorológicos com localização e hora ou tempo de verificação por condições de clima.
@@ -402,14 +402,14 @@ Nome da intenção | Descrição | Exemplos
 ### <a name="entities"></a>**Contabilidade**
 Entidade LUIS | Tipo de entidade | Descrição | Exemplos
 ------------|-------------|-------------|---------
-Location | gráfico | O local absoluto ou implícito para uma solicitação do clima. | Palo Alto<br>Xangai<br>Seattle<br>Delvina<br>
+Location | Gráfico | O local absoluto ou implícito para uma solicitação do clima. | Palo Alto<br>Xangai<br>Seattle<br>Delvina<br>
 Date/Time   | datetime | DateTime ou Duration para consultar o clima. | Novembro<br>por hora<br>manhã<br>Este fim de semana<br>10 dias<br>
-AdditionalWeatherCondition | list | Palavra de descrição adicional para meteorologia, como a velocidade ou direção do vento. | direction<br>Rápido<br>rápida
+AdditionalWeatherCondition | list | Palavra de descrição adicional para meteorologia, como a velocidade ou direção do vento. | direction<br>Rápido<br>Rápida
 Histórico | único | Palavras de descrição da condição de clima histórica, incluindo média de casos arestados de, no período de tempo anterior. | atrasado<br>histórico/história<br>sazonais<br>melhor tempo<br>já registrado
 PrecipitationUnit | dimensão | O precipitação de neve ou chuva. | 5 polegadas<br>6 cm
 SuitableFor | único | A descrição de uma atividade humana sob uma condição de clima, que é comum quando os usuários consultam conselhos de atividade que dependem da condição do clima. | saco<br>termo<br>Swimming
 TemperatureUnit |temperatura | temperatura | 18 Celsius<br>7 Kelvin graus
-WeatherRange | único | A condição específica de temperatura, vento e outras condições de clima entre um período de tempo | máximo<br>elevada<br>pequena<br>média alta<br>Mais elevado
+WeatherRange | único | A condição específica de temperatura, vento e outras condições de clima entre um período de tempo | máximo<br>Elevada<br>Pequena<br>média alta<br>Mais elevado
 WeatherCondition | único | Descrição da condição de clima | ensolarado<br>Redundant<br>reinamento<br>temperatura<br>neve<br>acesso frequente
 WindDirectionUnit | list | As palavras de direção do vento | Unidos<br>Sul<br>Ásia<br>noroeste<br>Nordeste
 

@@ -1,10 +1,10 @@
 ---
-title: Voltar a implementar máquinas virtuais do Linux no Azure | Documentos da Microsoft
-description: Como voltar a implementar máquinas virtuais do Linux no Azure para atenuar problemas de ligação de SSH.
+title: Reimplantar Máquinas Virtuais do Linux no Azure | Microsoft Docs
+description: Como reimplantar máquinas virtuais do Linux no Azure para mitigar problemas de conexão SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
@@ -13,33 +13,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cffed7949eff63484c84f385510baa8cd4244958
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d8096a14bf2abc0b06b7ab7c3d340a313b1cd24c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710271"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057290"
 ---
-# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Voltar a implementar a máquina virtual do Linux para o novo nó do Azure
-Se tiver dificuldades, resolução de problemas de SSH ou acesso de aplicação a uma máquina virtual (VM) do Linux no Azure, a reimplementação da VM pode ajudar. Quando voltar a implementar uma VM, ele muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, liga-o novamente. Todas as suas opções de configuração e os recursos associados são mantidos. Este artigo mostra-lhe como voltar a implementar uma VM com a CLI do Azure ou o portal do Azure.
+# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplantar a máquina virtual Linux no novo nó do Azure
+Se você enfrentar dificuldades para solucionar problemas de SSH ou de acesso de aplicativo para uma VM (máquina virtual) do Linux no Azure, a reimplantação da VM poderá ajudar. Quando você reimplanta uma VM, ela move a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, a liga novamente. Todas as opções de configuração e os recursos associados são mantidos. Este artigo mostra como reimplantar uma VM usando CLI do Azure ou o portal do Azure.
 
 > [!NOTE]
-> Depois de Reimplementar uma VM, o disco temporário é perdido e endereços IP dinâmicos associados à interface de rede virtual são atualizados. 
+> Depois de reimplantar uma VM, o disco temporário é perdido e os endereços IP dinâmicos associados à interface de rede virtual são atualizados. 
 
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-Instalar a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e inicie sessão na sua do Azure através da conta [início de sessão az](/cli/azure/reference-index).
+Instale o [CLI do Azure](/cli/azure/install-az-cli2) mais recente e faça logon em sua conta do Azure usando [AZ login](/cli/azure/reference-index).
 
-A implementar a VM com [reimplementação da vm de az](/cli/azure/vm). O exemplo seguinte reimplementa a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup*:
+Reimplante sua VM com [AZ VM Redeploy](/cli/azure/vm). O exemplo a seguir reimplanta a VM chamada *myVM* no grupo de recursos chamado *MyResource*Group:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-## <a name="use-the-azure-classic-cli"></a>Utilizar a CLI clássica do Azure
-Instalar o [mais recente CLI clássica do Azure](../../cli-install-nodejs.md) e inicie sessão na sua conta do Azure. Certifique-se de que está no modo Resource Manager (`azure config mode arm`).
+## <a name="use-the-azure-classic-cli"></a>Usar a CLI clássica do Azure
+Instale a [CLI clássica do Azure mais recente](../../cli-install-nodejs.md) e faça logon em sua conta do Azure. Verifique se você está no modo do Resource Manager (`azure config mode arm`).
 
-O exemplo seguinte reimplementa a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup*:
+O exemplo a seguir reimplanta a VM chamada *myVM* no grupo de recursos chamado *MyResource*Group:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
@@ -47,7 +47,7 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-Se estiver a ter problemas de ligação à sua VM, pode encontrar ajuda específica sobre [resolução de problemas de ligações SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [detalhadas passos de resolução de problemas de SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se não conseguir aceder uma aplicação em execução na sua VM, pode ainda ler [resolução de problemas de aplicação](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="next-steps"></a>Passos Seguintes
+Se você estiver tendo problemas para se conectar à sua VM, poderá encontrar ajuda específica sobre [como solucionar problemas de conexões SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [etapas detalhadas de solução de problemas de SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se você não puder acessar um aplicativo em execução em sua VM, você também poderá ler [problemas de solução](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)de problemas de aplicativo.
 
 

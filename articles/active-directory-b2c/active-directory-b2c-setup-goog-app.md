@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7286bf1fd51883587aa41dc69d5dae0a3e6fb824
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 158bb3b1329d2ad2cbd55ecf44f980966e2546e2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622417"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065175"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Google usando Azure Active Directory B2C
 
 ## <a name="create-a-google-application"></a>Criar um aplicativo do Google
 
-Para usar uma conta do Google como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory (Azure AD) B2C, você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Google, poderá se inscrever em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Para usar uma conta do Google como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Google, poderá se inscrever em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Entre no console do [Google Developers](https://console.developers.google.com/) com suas credenciais de conta do Google.
 1. No canto superior esquerdo da página, selecione a lista projeto e, em seguida, selecione **novo projeto**.
 1. Insira um **nome de projeto**, clique em **criar**e verifique se você está usando o novo projeto.
 1. Selecione **credenciais** no menu à esquerda e, em seguida, selecione **criar credenciais** > **ID do cliente OAuth**.
 1. Em **tipo de aplicativo**, selecione **aplicativo Web**.
-1. Insira um **nome** para seu aplicativo, insira `https://your-tenant-name.b2clogin.com` em **origens de JavaScript**autorizadas `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` e em URIs de redirecionamento **autorizados**. Substitua `your-tenant-name` pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+1. Insira um **nome** para seu aplicativo, insira `https://your-tenant-name.b2clogin.com` em **origens de JavaScript autorizadas**e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URIs de redirecionamento autorizados**. Substitua `your-tenant-name` pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
 1. Clique em **Criar**.
 1. Copie os valores da **ID do cliente** e do **segredo do cliente**. Você precisará de ambos para configurar o Google como um provedor de identidade em seu locatário. O **segredo do cliente** é uma credencial de segurança importante.
 

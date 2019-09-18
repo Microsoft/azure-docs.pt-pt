@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369325"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064683"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET Core de um aplicativo de página única usando Azure Active Directory B2C
 
-Este tutorial mostra como chamar um recurso de API Web ASP.NET Core do Azure Active Directory (Azure AD) protegido por B2C de um aplicativo de página única.
+Este tutorial mostra como chamar um recurso de API Web ASP.NET Core protegido por Azure AD B2C (Azure Active Directory B2C) de um aplicativo de página única.
 
 Neste tutorial, ficará a saber como:
 
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 Os recursos da API Web precisam ser registrados em seu locatário antes que possam aceitar e responder a solicitações de recursos protegidos por aplicativos cliente que apresentam um token de acesso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 1. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
@@ -224,7 +224,7 @@ Se você preferir usar a `dotnet` CLI em vez do Visual Studio:
     "<html>\r\n<head>\r\n  <title>Azure AD B2C API Sample</title>\r\n ...
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

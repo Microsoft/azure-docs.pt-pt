@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c81eccaa2b3a4335f034b9667f6e7be317635f43
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933394"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033953"
 ---
 # <a name="http-api-reference"></a>Referência de API HTTP
 
@@ -28,7 +28,7 @@ Todas as APIs HTTP implementadas pela extensão exigem os seguintes parâmetros.
 | **`connection`** | Cadeia de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificado, a cadeia de conexão padrão para o aplicativo de funções será assumida. |
 | **`systemKey`**  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
 
-`systemKey`é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ele concede especificamente acesso às APIs de extensão de tarefa durável e pode ser gerenciado da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). A maneira mais simples de descobrir o `systemKey` valor é usando a `CreateCheckStatusResponse` API mencionada anteriormente.
+`systemKey`é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ele concede especificamente acesso às APIs de extensão de tarefa durável e pode ser gerenciado da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores `taskHub`corretos, `systemKey` `connection`e de cadeia de caracteres de consulta usando APIs de associação de cliente `CreateCheckStatusResponse` de `CreateHttpManagementPayload` [orquestração](durable-functions-bindings.md#orchestration-client) , como as APIs `createCheckStatusResponse` e no .net, ou o e o `createHttpManagementPayload` APIs em JavaScript.
 
 As próximas seções abrangem as APIs HTTP específicas com suporte da extensão e fornecem exemplos de como elas podem ser usadas.
 
@@ -698,7 +698,7 @@ Se a `Counter` entidade contiver simplesmente uma série de etapas salvas `curre
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como usar Application Insights para monitorar suas funções duráveis](durable-functions-diagnostics.md)

@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13beafe9a6937b0404a58d3508a9aba9892ac04d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 50cb5a76c6b19668fc23147244d65a0d996ebf90
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073881"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033725"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização de Azure Active Directory Connect: Configurar o local de dados preferencial para os recursos do Office 365
 A finalidade deste tópico é orientá-lo sobre como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de várias regiões geográficas no Office 365, você usa esse atributo para designar a localização geográfica dos dados do Office 365 do usuário. (Os termos *região* e *geografia* são usados de maneira intercambiável.)
@@ -172,7 +172,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | True |
 
-    O filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização OOB (fora de caixa) de "saída para AD – identidade do usuário". Ele impede que a regra de sincronização seja aplicada a objetos de **usuário** que não estão sincronizados do Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação de Azure AD Connect.
+    O filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização OOB (fora de uso) do Azure AD – identidade do usuário. Ele impede que a regra de sincronização seja aplicada a objetos de **usuário** que não estão sincronizados do Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação de Azure AD Connect.
 
 6. Vá para a guia **transformação** e implemente a seguinte regra de transformação:
 
@@ -249,7 +249,7 @@ Agora é hora de verificar a configuração e habilitá-la para seus usuários.
 Supondo que seu locatário foi marcado para ser capaz de usar esse recurso, a caixa de correio é movida para a área geográfica correta. Isso pode ser verificado examinando o nome do servidor onde a caixa de correio está localizada.
 4. Para verificar se essa configuração foi eficaz em várias caixas de correio, use o script na [Galeria do TechNet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Esse script também tem uma lista dos prefixos de servidor de todos os datacenters do Office 365 e em qual área geográfica ele está localizado. Ele pode ser usado como uma referência na etapa anterior para verificar o local da caixa de correio.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre várias regiões geográficas no Office 365:
 

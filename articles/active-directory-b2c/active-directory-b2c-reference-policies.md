@@ -1,6 +1,6 @@
 ---
-title: Fluxos de utilizador no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba mais sobre a estrutura de política extensível do Azure Active Directory B2C e como criar vários fluxos de utilizador.
+title: Fluxos de usuário em Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre a estrutura de política extensível de Azure Active Directory B2C e como criar vários fluxos de usuário.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,30 +10,30 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 54677dc0771f65b7636b4d1cac77f53f9c04a09d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08da04a8bf167c99ef2384a9714034ae1865bec1
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508943"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065376"
 ---
-# <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizador no Azure Active Directory B2C
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de usuário em Azure Active Directory B2C
 
-A estrutura de política extensível do Azure Active Directory (Azure AD) B2C é a força do principal do serviço. Políticas de descrevem completamente experiências de identidade como inscrição, início de sessão ou edição de perfis. Para ajudá-lo a configurar as tarefas mais comuns de identidade, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos de utilizador**. 
+A estrutura de política extensível da Azure Active Directory B2C (Azure AD B2C) é a força principal do serviço. As políticas descrevem totalmente as experiências de identidade, como inscrição, entrada ou edição de perfil. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal de Azure AD B2C inclui políticas configuráveis, predefinidas, chamadas de **fluxos de usuário**.
 
-## <a name="what-are-user-flows"></a>Quais são os fluxos de utilizador?
+## <a name="what-are-user-flows"></a>O que são fluxos de usuário?
 
-Um fluxo de utilizador permite-lhe controlar os comportamentos em seus aplicativos ao configurar as seguintes definições:
+Um fluxo de usuário permite que você controle comportamentos em seus aplicativos definindo as seguintes configurações:
 
-- Conta de tipos utilizado para iniciar sessão, por exemplo, contas de redes sociais, como um Facebook ou contas locais
-- Atributos para recolher do consumidor, como o nome próprio, código postal e o tamanho do calçado
+- Tipos de conta usados para entrar, como contas sociais, como um Facebook ou contas locais
+- Atributos a serem coletados do consumidor, como primeiro nome, CEP e tamanho do calçado
 - Multi-Factor Authentication do Azure
 - Personalização da interface do usuário
-- Informações de que a aplicação recebe como afirmações num token 
+- Informações que o aplicativo recebe como declarações em um token
 
-Pode criar fluxos de utilizador de muitos tipos diferentes no seu inquilino e utilizá-los em seus aplicativos, conforme necessário. Fluxos de utilizador podem ser reutilizados em todas as aplicações. Essa flexibilidade permite-lhe definir e modificar as experiências de identidade com mínima ou sem alterações ao seu código. O aplicativo aciona um fluxo de utilizador, utilizando uma solicitação de autenticação HTTP padrão, que inclui um parâmetro de fluxo de utilizador. Um personalizado [token](active-directory-b2c-reference-tokens.md) é recebida como uma resposta. 
+Você pode criar vários fluxos de usuário de diferentes tipos em seu locatário e usá-los em seus aplicativos, conforme necessário. Os fluxos de usuário podem ser reutilizados em todos os aplicativos. Essa flexibilidade permite que você defina e modifique experiências de identidade com mínimo ou nenhuma alteração no seu código. Seu aplicativo dispara um fluxo de usuário usando uma solicitação de autenticação HTTP padrão que inclui um parâmetro de fluxo de usuário. Um [token](active-directory-b2c-reference-tokens.md) personalizado é recebido como uma resposta.
 
-Os exemplos seguintes mostram o parâmetro de cadeia de caracteres de consulta de "p" que especifica o fluxo de utilizador a utilizar:
+Os exemplos a seguir mostram o parâmetro de cadeia de caracteres de consulta "p" que especifica o fluxo de usuário a ser usado:
 
 ```
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
@@ -61,30 +61,30 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Versões de fluxo de utilizador
 
-No portal do Azure, novos [versões de fluxos de utilizador](user-flow-versions.md) estão a ser adicionadas o tempo todo. Quando começar a utilizar com o Azure AD B2C, testado fluxos são recomendados para a utilização do utilizador. Quando cria um novo fluxo de utilizador, selecione o fluxo de utilizador que precisam a partir da **recomendado** separador.
+Na portal do Azure, novas [versões de fluxos de usuário](user-flow-versions.md) estão sendo adicionadas o tempo todo. Quando você começar a usar o Azure AD B2C, os fluxos de usuário testados serão recomendados para você. Ao criar um novo fluxo de usuário, você escolhe o fluxo de usuário que precisa na guia **recomendado** .
 
-Os seguintes fluxos de utilizador atualmente são recomendados:
+Os fluxos de usuário a seguir são recomendados no momento:
 
-- **Inscreva-se e iniciar sessão** -lida com ambas as experiências de inscrição e início de sessão com uma configuração única. Os utilizadores são liderados para baixo o caminho certo dependendo do contexto. É recomendado que utilize este fluxo de utilizador através de um **Inscreva-se** fluxo de utilizador ou uma **início de sessão** fluxo de utilizador.
-- **Edição de perfil** -permite aos utilizadores editar as informações do perfil.
-- **Reposição de palavra-passe** -permite-lhe configurar se e como os utilizadores podem repor a palavra-passe.
+- **Inscrever-se e entrar** – lida com as duas experiências de inscrição e entrada com uma única configuração. Os usuários são orientados no caminho certo, dependendo do contexto. É recomendável que você use esse fluxo de usuário em um fluxo de usuário de **inscrição** ou um fluxo de usuário de **entrada** .
+- **Edição de perfil** – permite que os usuários editem suas informações de perfil.
+- **Redefinição de senha** – permite que você configure se e como os usuários podem redefinir sua senha.
 
-## <a name="linking-user-flows"></a>Ligação de fluxos de utilizador
+## <a name="linking-user-flows"></a>Vinculando fluxos de usuário
 
-Uma **inscrição ou início de sessão** inclui o fluxo de utilizador com as contas locais um **palavra-passe de Forgot?** link na primeira página da experiência. Ao clicar nesta ligação não automaticamente acionador uma palavra-passe de reposição de fluxo de utilizador. 
+Um fluxo de usuário de **inscrição ou entrada** com contas locais inclui um link **esqueceu a senha?** na primeira página da experiência. Clicar nesse link não disparará automaticamente um fluxo de usuário de redefinição de senha.
 
-Em vez disso, o código de erro `AADB2C90118` é devolvido ao seu aplicativo. Seu aplicativo precisa lidar com este código de erro ao executar um fluxo de utilizador específico que redefine a palavra-passe. Para ver um exemplo, dê uma olhada num [exemplo ASP.NET simples](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) que demonstra a vinculação de fluxos de utilizador.
+Em vez disso, o `AADB2C90118` código de erro é retornado para seu aplicativo. Seu aplicativo precisa manipular esse código de erro executando um fluxo de usuário específico que redefine a senha. Para ver um exemplo, dê uma olhada em um exemplo [simples de ASP.net](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) que demonstra a vinculação de fluxos de usuário.
 
-## <a name="email-address-storage"></a>Armazenamento de endereço de e-mail
+## <a name="email-address-storage"></a>Armazenamento de endereço de email
 
-Um endereço de e-mail pode ser necessário como parte de um fluxo de utilizador. Se o utilizador é autenticado com um fornecedor de identidade social, o endereço de e-mail é armazenado na **otherMails** propriedade. Se uma conta local se basear num nome de utilizador, o endereço de e-mail é armazenado numa propriedade de detalhes de autenticação forte. Se uma conta local é baseada num endereço de e-mail, em seguida, o endereço de e-mail é armazenado na **signInNames** propriedade.
- 
-O endereço de e-mail não é garantido sejam verificadas em qualquer um desses casos. Um administrador inquilino pode desativar a verificação de e-mail nas políticas básicas para contas locais. Mesmo se a verificação do endereço de e-mail estiver ativada, os endereços não são verificados se eles vêm de um fornecedor de identidade de redes sociais e ainda não foi alterados.
- 
-Apenas os **otherMails** e **signInNames** propriedades são expostas por meio da API de gráfico de diretório Active Directory. O endereço de e-mail na propriedade de detalhes de autenticação forte não está disponível.
+Um endereço de email pode ser necessário como parte de um fluxo de usuário. Se o usuário autenticar com um provedor de identidade social, o endereço de email será armazenado na propriedade **otherMails** . Se uma conta local for baseada em um nome de usuário, o endereço de email será armazenado em uma propriedade de detalhes de autenticação forte. Se uma conta local for baseada em um endereço de email, o endereço de email será armazenado na propriedade **signInNames** .
+
+Não há garantia de que o endereço de email seja verificado em nenhum desses casos. Um administrador de locatários pode desabilitar a verificação de email nas políticas básicas para contas locais. Mesmo se a verificação de endereço de email estiver habilitada, os endereços não serão verificados se vierem de um provedor de identidade social e não tiverem sido alterados.
+
+Somente as propriedades **otherMails** e **signInNames** são expostas por meio do Active Directory API do Graph. O endereço de email na propriedade de detalhes de autenticação forte não está disponível.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para criar os fluxos de utilizador recomendada, siga as instruções em [Tutorial: Criar um fluxo de utilizador](tutorial-create-user-flows.md).
+Para criar os fluxos de usuário recomendados, siga as instruções [em Tutorial: Criar um fluxo](tutorial-create-user-flows.md)de usuário.
 
 

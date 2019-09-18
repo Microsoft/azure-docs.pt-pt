@@ -1,10 +1,10 @@
 ---
-title: Criar um grupo de segurança de rede (clássico) com o PowerShell | Documentos da Microsoft
-description: Saiba como criar e implementar um grupo de segurança de rede (clássico) com o PowerShell
+title: Criar um grupo de segurança de rede (clássico) usando o PowerShell | Microsoft Docs
+description: Saiba como criar e implantar um grupo de segurança de rede (clássico) usando o PowerShell
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
@@ -15,38 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: d685f395aa25580c009fe3be660a8afc42dc79d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ef80ccd01c9c6979fd95d161d97d0dfaab58b24
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125768"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056655"
 ---
-# <a name="create-a-network-security-group-classic-using-powershell"></a>Criar um grupo de segurança rede (clássico) com o PowerShell
+# <a name="create-a-network-security-group-classic-using-powershell"></a>Criar um grupo de segurança de rede (clássico) usando o PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Este artigo abrange o modelo de implementação clássica. Também pode [criar NSGs no modelo de implementação do Resource Manager](tutorial-filter-network-traffic.md).
+Este artigo abrange o modelo de implementação clássica. Você também pode [criar NSGs no modelo de implantação do Gerenciador de recursos](tutorial-filter-network-traffic.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-O exemplo de PowerShell comandos abaixo esperam um ambiente simples já criado com base no cenário acima. Se quiser executar os comandos à medida que são apresentadas neste documento, primeiro crie o ambiente de teste pela [criar uma VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Os comandos de exemplo do PowerShell a seguir esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos conforme eles são exibidos neste documento, primeiro crie o ambiente de teste [criando uma VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## <a name="create-an-nsg-for-the-front-end-subnet"></a>Crie um NSG para a sub-rede de front-end
+## <a name="create-an-nsg-for-the-front-end-subnet"></a>Criar um NSG para a sub-rede de front-end
 
-1. Se nunca tiver utilizado o Azure PowerShell, veja [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+1. Se você nunca usou Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-2. Criar um grupo de segurança de rede com o nome *NSG-front-end*:
+2. Crie um grupo de segurança de rede chamado *NSG-frontend*:
 
     ```powershell   
     New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
       -Label "Front end subnet NSG"
    ```
 
-3. Crie uma regra de segurança permitir acesso a partir da internet para a porta 3389:
+3. Crie uma regra de segurança que permita o acesso da Internet à porta 3389:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -56,7 +56,7 @@ O exemplo de PowerShell comandos abaixo esperam um ambiente simples já criado c
       -DestinationAddressPrefix '*' -DestinationPortRange '3389'
    ```
 
-4. Crie uma regra de segurança permitir acesso a partir da internet para a porta 80:
+4. Crie uma regra de segurança que permita o acesso da Internet à porta 80:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -66,16 +66,16 @@ O exemplo de PowerShell comandos abaixo esperam um ambiente simples já criado c
       -DestinationAddressPrefix '*' -DestinationPortRange '80'
     ```
 
-## <a name="create-an-nsg-for-the-back-end-subnet"></a>Criar um NSG para sub-rede de back-end
+## <a name="create-an-nsg-for-the-back-end-subnet"></a>Criar um NSG para a sub-rede de back-end
 
-1. Criar um grupo de segurança de rede com o nome *NSG-back-end*:
+1. Crie um grupo de segurança de rede chamado *NSG-backend*:
    
     ```powershell
     New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
       -Label "Back end subnet NSG"
     ```
 
-2. Crie uma regra de segurança permitir acesso a partir da sub-rede front-end, a porta 1433 (porta predefinida utilizada pelo SQL Server):
+2. Crie uma regra de segurança permitindo o acesso da sub-rede de front-end à porta 1433 (porta padrão usada pelo SQL Server):
    
     ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -85,7 +85,7 @@ O exemplo de PowerShell comandos abaixo esperam um ambiente simples já criado c
       -DestinationAddressPrefix '*' -DestinationPortRange '1433'
     ```
 
-3. Crie uma regra de segurança a bloquear o acesso a partir da sub-rede para a internet:
+3. Crie uma regra de segurança bloqueando o acesso da sub-rede para a Internet:
    
     ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `

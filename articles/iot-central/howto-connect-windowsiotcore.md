@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b14d6f70f4c4163f16c8275f4e071da6a9e0bc78
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 3513dc0a1928168d6313e9d49a8f3d5d27aca781
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019810"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066337"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao seu aplicativo IoT Central do Azure
 
@@ -27,7 +27,7 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 - Um aplicativo IoT Central do Azure criado no modelo de aplicativo **devkits de exemplo** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 
-- Um dispositivo que executa o sistema operacional Windows 10 IoT Core. Para obter mais informações, consulte Configurando [seu dispositivo Windows 10 IOT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+- Um dispositivo que executa o sistema operacional Windows 10 IoT Core. Para obter mais informações, consulte [configurando seu dispositivo Windows 10 IOT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - Um computador de desenvolvimento com o [node. js](https://nodejs.org/) versão 8.0.0 ou posterior instalado. Você pode executar `node --version` na linha de comando para verificar sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos.
 
@@ -43,13 +43,27 @@ Para obter detalhes completos sobre a configuração do modelo de dispositivo, c
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-No aplicativo IoT Central do Azure, use a página **Device Explorer** para adicionar um dispositivo real do modelo de dispositivo do **Windows 10 IOT Core** . Anote os detalhes de conexão do dispositivo (**ID do escopo**, **ID do dispositivo**e **chave primária**). Para obter mais informações, consulte [obter informações de conexão](howto-generate-connection-string.md#get-connection-information).
+No aplicativo IoT Central do Azure, use a página **Device Explorer** para adicionar um dispositivo real do modelo de dispositivo do **Windows 10 IOT Core** . Anote os detalhes de conexão do dispositivo (**ID do escopo**, **ID do dispositivo**e **chave primária**).
 
 ## <a name="prepare-the-device"></a>Preparar o dispositivo
 
-Para que o dispositivo se conecte ao IoT Central, ele precisa de uma cadeia de conexão.
+Para que o dispositivo se conecte ao IoT Central, ele precisa de uma cadeia de conexão:
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+1. Use o `dps-keygen` utilitário de linha de comando para gerar uma cadeia de conexão:
+
+    Para instalar o [utilitário gerador de chaves](https://github.com/Azure/dps-keygen), execute o seguinte comando:
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+1. Para gerar uma cadeia de conexão, execute o seguinte comando usando os detalhes de conexão que você anotou anteriormente:
+
+    ```cmd/sh
+    dps-keygen -di:<Device ID> -dk:<Primary or Secondary Key> -si:<Scope ID>
+    ```
+
+1. Copie a cadeia de conexão da `dps-keygen` saída para usar em seu código de dispositivo.
 
 Para que o código do dispositivo acesse a cadeia de conexão, salve-o em um arquivo chamado **Connection. String. iothub** na pasta `C:\Data\Users\DefaultAccount\Documents\` em seu dispositivo Windows 10 IOT Core.
 
@@ -108,9 +122,9 @@ Configurações numéricas
 
 | Type            | Display name | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
-| Propriedade do dispositivo | Número do chip   | dieNumber  | número    |
+| Propriedade do dispositivo | Número do chip   | dieNumber  | number    |
 | Text            | Location     | location   | N/A       |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu como conectar um dispositivo Windows IoT Core ao seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo IOT.

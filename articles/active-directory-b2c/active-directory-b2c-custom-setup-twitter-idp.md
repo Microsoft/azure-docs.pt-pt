@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 557d25c4921c9906be75bce03c326903e63432de
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: bfe8b1297b155ecd947140149c13da6c3a08c3c8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464801"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065986"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Twitter usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários de uma conta do Twitter usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory (Azure AD) B2C.
+Este artigo mostra como habilitar a entrada para usuários de uma conta do Twitter usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Para usar o Twitter como um provedor de identidade no Azure AD B2C, você precis
 Você precisa armazenar a chave secreta que você registrou anteriormente em seu locatário Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Na página Visão geral, selecione **Identity Experience Framework**.
 5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
@@ -64,7 +64,7 @@ Você pode definir uma conta do Twitter como um provedor de declarações adicio
 
 1. Abra o *TrustFrameworkExtensions. xml*.
 2. Localize o elemento **ClaimsProviders** . Se não existir, adicione-o sob o elemento raiz.
-3. Adicione um novo  Claims da seguinte maneira:
+3. Adicione um novo **Claims** da seguinte maneira:
 
     ```xml
     <ClaimsProvider>
@@ -122,8 +122,8 @@ Neste ponto, o provedor de identidade foi configurado, mas não está disponíve
 
 1. Abra o arquivo *TrustFrameworkBase. xml* do pacote inicial.
 2. Localize e copie todo o conteúdo do elemento **userjornada** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions. xml* e localize o  elemento userjornadas. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **userjornada** que você copiou como um filho do elemento userjornadas.
+3. Abra o *TrustFrameworkExtensions. xml* e localize o elemento **userjornadas** . Se o elemento não existir, adicione um.
+4. Cole todo o conteúdo do elemento **userjornada** que você copiou como um filho do elemento **userjornadas** .
 5. Renomeie a ID da jornada do usuário. Por exemplo, `SignUpSignInTwitter`.
 
 ### <a name="display-the-button"></a>Exibir o botão
@@ -157,7 +157,7 @@ Agora que você tem um botão em vigor, é necessário vinculá-lo a uma ação.
 A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cria em seu locatário. Esta seção lista as etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 5. Insira um nome para o aplicativo, por exemplo, *testapp1*.

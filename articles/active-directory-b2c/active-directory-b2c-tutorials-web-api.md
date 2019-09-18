@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: ec6b667dfc554c037d9b0a56e52bc8f212812812
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347125"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064726"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET usando Azure Active Directory B2C
 
-Este tutorial mostra como chamar um recurso de API Web protegido no Azure Active Directory (Azure AD) B2C de um aplicativo Web ASP.NET.
+Este tutorial mostra como chamar um recurso de API Web protegido em Azure Active Directory B2C (Azure AD B2C) de um aplicativo Web ASP.NET.
 
 Neste tutorial, ficará a saber como:
 
@@ -40,7 +40,7 @@ Conclua as etapas e os pré-requisitos [no tutorial: Habilite a autenticação e
 Os recursos da API Web precisam ser registrados em seu locatário antes que possam aceitar e responder a solicitações de recursos protegidos por aplicativos cliente que apresentam um token de acesso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 5. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
@@ -89,7 +89,7 @@ Os dois projetos a seguir estão na solução de exemplo:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 2. Abra **Web.config** no projeto **TaskWebApp**.
-3. Para executar a API localmente, utilize a definição de localhost **api:TaskServiceUrl**. Altere o Web.config da seguinte forma: 
+3. Para executar a API localmente, utilize a definição de localhost **api:TaskServiceUrl**. Altere o Web.config da seguinte forma:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
@@ -133,16 +133,16 @@ Os dois projetos a seguir estão na solução de exemplo:
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-Tem de executar os dois projetos, **TaskWebApp** e **TaskService**. 
+Tem de executar os dois projetos, **TaskWebApp** e **TaskService**.
 
-1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...** . 
+1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...** .
 2. Selecione **vários projetos de inicialização**.
 3. Altere a **Ação** em ambos os projetos para **Iniciar**.
 4. Clique em **OK** para salvar a configuração.
 5. Prima **F5** para executar as duas aplicações. Cada aplicativo é aberto em sua própria guia do `https://localhost:44316/` navegador. é o aplicativo Web.
     `https://localhost:44332/` é a API Web.
 
-6. No aplicativo Web, clique em **inscrever-se/entrar** para entrar no aplicativo Web. Use a conta que você criou anteriormente. 
+6. No aplicativo Web, clique em **inscrever-se/entrar** para entrar no aplicativo Web. Use a conta que você criou anteriormente.
 7. Depois de entrar, clique em **lista de tarefas** e crie um item de lista de tarefas pendentes.
 
 Quando você cria um item de lista de tarefas pendentes, o aplicativo Web faz uma solicitação para a API da Web para gerar o item de lista de tarefas pendentes. Você está protegido o aplicativo Web está chamando a API Web protegida em seu locatário Azure AD B2C.

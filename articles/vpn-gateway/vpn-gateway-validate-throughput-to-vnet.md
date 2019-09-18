@@ -3,18 +3,18 @@ title: Validar a taxa de transferência de VPN para um Rede Virtual do Microsoft
 description: A finalidade deste documento é ajudar um usuário a validar a taxa de transferência de rede de seus recursos locais para uma máquina virtual do Azure.
 services: vpn-gateway
 author: cherylmc
-manager: jasmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 1531bbe97c842fbae2ffe7df41f19a3a7be689d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228342"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058803"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência de VPN para uma rede virtual
 
@@ -32,7 +32,7 @@ A conexão de gateway de VPN envolve os seguintes componentes:
 * Dispositivo VPN local (exiba uma lista de [dispositivos VPN validados](vpn-gateway-about-vpn-devices.md#devicetable).)
 * Internet pública
 * Gateway de VPN do Azure
-* VM do Azure
+* Azure VM
 
 O diagrama a seguir mostra a conectividade lógica de uma rede local para uma rede virtual do Azure por meio de VPN.
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849371"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063287"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface de experiências do usuário no Azure Active Directory B2C
 
-Para experiências de usuário mais comuns, como inscrição, entrada e edição de perfil, você pode usar [fluxos de usuário](active-directory-b2c-reference-policies.md) no Azure Active Directory (Azure AD) B2C. As informações neste tutorial ajudam a aprender a [Personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
+Para experiências de usuário mais comuns, como inscrição, entrada e edição de perfil, você pode usar [fluxos de usuário](active-directory-b2c-reference-policies.md) no Azure Active Directory B2C (Azure ad B2C). As informações neste tutorial ajudam a aprender a [Personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
 
 Neste artigo, vai aprender a:
 
@@ -43,7 +43,7 @@ Você cria uma conta de armazenamento do Azure e um contêiner e, em seguida, co
 Embora seja possível armazenar seus arquivos de várias maneiras, para este tutorial, você os armazena no [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém sua assinatura do Azure. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém sua assinatura. Esse diretório é diferente daquele que contém o locatário do Azure B2C.
+2. Verifique se você está usando o diretório que contém sua assinatura do Azure. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém sua assinatura. Esse diretório é diferente daquele que contém o locatário do Azure B2C.
 3. Escolha todos os serviços no canto superior esquerdo da portal do Azure, procure e selecione **contas de armazenamento**.
 4. Selecione **Adicionar**.
 5. Em **grupo de recursos**, selecione **criar novo**, insira um nome para o novo grupo de recursos e clique em **OK**.
@@ -127,7 +127,7 @@ Para personalizar a interface do usuário da experiência de inscrição, comece
 Neste tutorial, você armazena os arquivos que criou na conta de armazenamento para que Azure AD B2C possa acessá-los.
 
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure, procure e selecione **contas de armazenamento**.
-2. Selecione a conta de armazenamento que você criou , selecione BLOBs e, em seguida, selecione o contêiner que você criou.
+2. Selecione a conta de armazenamento que você criou, selecione BLOBs e, em seguida, selecione o contêiner que você criou.
 3. Selecione **carregar**, navegue até e selecione o arquivo *Custom-UI. html* e, em seguida, clique em **carregar**.
 
     ![Carregar página de blob no portal com o botão carregar e os arquivos realçados](./media/tutorial-customize-ui/upload-blob.png)
@@ -155,7 +155,7 @@ Neste tutorial, você armazena os arquivos que criou na conta de armazenamento p
 
     ![Navegador da Web mostrando a página de inscrição ou de entrada com elementos personalizados da interface do usuário](./media/tutorial-customize-ui/run-now.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a:
 

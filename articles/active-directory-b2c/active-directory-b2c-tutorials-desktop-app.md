@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 699dd41024bd60b2016771d728253d938fc9ab23
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9a3c11c7303d467a1a993c49d983131639683239
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347142"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064885"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo cliente nativo usando Azure Active Directory B2C
 
-Este tutorial mostra-lhe como utilizar o Azure Active Directory (Azure AD) B2C para inscrever e iniciar a sessão dos utilizadores numa aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
+Este tutorial mostra como usar Azure Active Directory B2C (Azure AD B2C) para entrar e inscrever usuários em um aplicativo de área de trabalho Windows Presentation Foundation (WPF). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
 
 Neste tutorial, ficará a saber como:
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="add-the-native-client-application"></a>Adicionar o aplicativo cliente nativo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 5. Insira um nome para o aplicativo. Por exemplo, *nativeapp1*.

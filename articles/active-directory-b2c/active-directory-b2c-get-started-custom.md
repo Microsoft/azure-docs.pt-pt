@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83269a5ae0d2e5fb7ae2651dbc27926c910a0e03
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: b7eb004dbeba499e6f67f98165b72d7ec8615f1b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302491"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065852"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Políticas personalizadas](active-directory-b2c-overview-custom.md) são arquivos de configuração que definem o comportamento do seu locatário do Azure Active Directory (Azure AD) B2C. Neste artigo, você cria uma política personalizada que dá suporte à inscrição ou entrada de conta local usando um endereço de email e senha. Você também prepara seu ambiente para adicionar provedores de identidade.
+[Políticas personalizadas](active-directory-b2c-overview-custom.md) são arquivos de configuração que definem o comportamento do seu locatário Azure Active Directory B2C (Azure ad B2C). Neste artigo, você cria uma política personalizada que dá suporte à inscrição ou entrada de conta local usando um endereço de email e senha. Você também prepara seu ambiente para adicionar provedores de identidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ ms.locfileid: "68302491"
 ## <a name="add-signing-and-encryption-keys"></a>Adicionar chaves de criptografia e assinatura
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Clique no **filtro diretório e assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Na página Visão geral, selecione **Identity Experience Framework**.
 
@@ -174,7 +174,7 @@ Adicione as IDs do aplicativo ao arquivo de extensões *TrustFrameworkExtensions
 1. Em **políticas personalizadas**, selecione **B2C_1A_signup_signin**.
 1. Selecione **executar agora** e selecione Facebook para entrar com o Facebook e testar a política personalizada. Ou, invoque a política diretamente do seu aplicativo registrado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Em seguida, tente adicionar Azure Active Directory (Azure AD) como um provedor de identidade. O arquivo base usado neste guia de introdução já contém parte do conteúdo de que você precisa para adicionar outros provedores de identidade, como o Azure AD.
 

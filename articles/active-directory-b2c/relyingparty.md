@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716699"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063798"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **RelyingParty** especifica o percurso do usuário a ser aplicado à solicitação atual para Azure Active Directory (Azure AD) B2C. Ele também especifica a lista de declarações que o aplicativo RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo RP, como um aplicativo Web, móvel ou de área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir uma senha ou editar um perfil. Vários aplicativos podem usar a mesma política de RP e um único aplicativo pode usar várias políticas. Todos os aplicativos RP recebem o mesmo token com declarações e o usuário passa pela mesma jornada do usuário.
+O elemento **RelyingParty** especifica o percurso do usuário a ser aplicado à solicitação atual para Azure Active Directory B2C (Azure ad B2C). Ele também especifica a lista de declarações que o aplicativo RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo RP, como um aplicativo Web, móvel ou de área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir uma senha ou editar um perfil. Vários aplicativos podem usar a mesma política de RP e um único aplicativo pode usar várias políticas. Todos os aplicativos RP recebem o mesmo token com declarações e o usuário passa pela mesma jornada do usuário.
 
 O exemplo a seguir mostra um elemento **RelyingParty** no arquivo de política *B2C_1A_signup_signin* :
 

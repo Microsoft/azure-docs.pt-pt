@@ -4,18 +4,18 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16e0fe51137ce7e96cf98c0a8acf7c490e9087b3
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232419"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067811"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
-As migrações para [Azure](migrate-services-overview.md) fornecem um hub de ferramentas para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros. Este artigo ajuda você a solucionar problemas com migrações para Azure, avaliação de servidor migrações para Azure e migração de servidor de migrações para Azure.
+As [migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros. Este artigo ajuda você a solucionar problemas com migrações para Azure, avaliação de servidor migrações para Azure e migração de servidor de migrações para Azure.
 
 
 ## <a name="find-a-project"></a>Localizar um projeto
@@ -25,7 +25,7 @@ Há [duas versões](https://docs.microsoft.com/azure/migrate/migrate-services-ov
 
 Se você criou o projeto de migrações para Azure na versão atual das migrações para Azure, faça o seguinte:
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise migrações para **Azure**.
+1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
 2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
 
     ![Alternar para um projeto atual de migrações para Azure](./media/troubleshooting-general/switch-project.png)
@@ -35,7 +35,7 @@ Se você criou o projeto de migrações para Azure na versão atual das migraç�
 
 Se você criou o projeto na versão anterior do migrações para Azure, faça o seguinte:
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise migrações para **Azure**.
+1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
 2. No painel migrações para Azure, se você tiver criado um projeto na versão anterior, um banner referenciando projetos mais antigos será exibido. Selecione a faixa.
 
     ![Acessar projetos existentes](./media/troubleshooting-general/access-existing-projects.png)
@@ -47,7 +47,7 @@ Se você criou o projeto na versão anterior do migrações para Azure, faça o 
 
 Crie um novo projeto de migrações para Azure da seguinte maneira:
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise migrações para **Azure**.
+1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
 2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
 
    ![Alterar projeto de migrações para Azure](./media/troubleshooting-general/switch-project.png)
@@ -78,7 +78,7 @@ Para excluir um projeto na versão atual do migrações para Azure:
 2. Na página grupo de recursos, selecione **Mostrar tipos ocultos**.
 3. Selecione o projeto de migração que você deseja excluir. O tipo de recurso é Microsoft. Migrate/migrateprojects e o exclui.
 
-Para excluir um projeto na versão mais antiga do migrações para Azure: 
+Para excluir um projeto na versão mais antiga do migrações para Azure:
 
 1. Abra o grupo de recursos do Azure no qual o projeto foi criado.
 2. Selecione o projeto de migração que você deseja excluir. O tipo de recurso é projeto de migração e o exclui.
@@ -90,7 +90,7 @@ Navegue até o espaço de trabalho Log Analytics anexado ao projeto.
 * Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials** > **Server**.
        ![Espaço de trabalho da LA](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
+     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
 ## <a name="error-requests-must-contain-user-identity-headers"></a>Erro "as solicitações devem conter cabeçalhos de identidade do usuário"
@@ -140,12 +140,12 @@ Um erro sobre a sincronização de data e hora (802) indica que o relógio do se
 
 ## <a name="error-unabletoconnecttoserver"></a>Erro: UnableToConnectToServer
 
-Se você receber esse erro de conexão, talvez não consiga se conectar ao vCenter Server *ServerName*. com: 9443. Os detalhes do erro indicam que não há nenhum ponto de extremidadeouvindo em https://servername. com: 9443/SDK que pode aceitar a mensagem.
+Se você receber esse erro de conexão, talvez não consiga se conectar ao vCenter Server *ServerName*. com: 9443. Os detalhes do erro indicam que não há nenhum ponto de extremidade ouvindo em https://*ServerName*. com: 9443/SDK que pode aceitar a mensagem.
 
 - Verifique se você está executando a versão mais recente do dispositivo. Se você não tiver, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - Se o problema ainda ocorrer na versão mais recente, o dispositivo poderá não conseguir resolver o nome de vCenter Server especificado ou a porta especificada poderá estar errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
 
-    1. Executeo ping servername. com do dispositivo.
+    1. Execute o ping *ServerName*. com do dispositivo.
     2. Se a etapa 1 falhar, tente se conectar ao servidor do vCenter usando o endereço IP.
     3. Identifique o número da porta correto para se conectar ao vCenter Server.
     4. Verifique se vCenter Server está em execução.
@@ -153,7 +153,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
 
 ## <a name="error-appliance-might-not-be-registered"></a>Erro: O dispositivo pode não estar registrado
 
-- O erro 60052, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" ocorrerá se a conta do Azure usada para registrar o dispositivo não tiver permissões suficientes. 
+- O erro 60052, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" ocorrerá se a conta do Azure usada para registrar o dispositivo não tiver permissões suficientes.
     - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
     - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sobre as funções e permissões necessárias do Azure.
 - O erro 60039, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" pode ocorrer se o registro falhar porque o projeto de migrações para Azure usado para registrar o dispositivo não foi encontrado.
@@ -162,7 +162,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
 
 ## <a name="error-key-vault-management-operation-failed"></a>Erro: Falha na operação de gerenciamento de Key Vault
 
-Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciamento de Azure Key Vault", faça o seguinte: 
+Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciamento de Azure Key Vault", faça o seguinte:
 - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
 - Verifique se a conta tem acesso ao cofre de chaves especificado na mensagem de erro e repita a operação.
 - Se o problema persistir, entre em contato com o suporte da Microsoft.
@@ -187,7 +187,7 @@ Erro 60025: "Falha em uma operação do Azure AD. O erro ocorreu ao criar ou atu
 
 ## <a name="discovered-vms-not-in-portal"></a>VMs descobertas não estão no portal
 
-Se você iniciar a descoberta para que a **avaliação do servidor** e a **migração do servidor** mostrem a **descoberta em andamento**, mas ainda não veja as VMs no portal, observe o seguinte: 
+Se você iniciar a descoberta para que a **avaliação do servidor** e a **migração do servidor** mostrem a **descoberta em andamento**, mas ainda não veja as VMs no portal, observe o seguinte:
 
 - Depois de iniciar a descoberta do dispositivo, leva cerca de 15 minutos para uma descoberta de VM VMware e cerca de dois minutos para cada host adicionado para a descoberta de VM do Hyper-V.
 - Se você continuar vendo a **descoberta em andamento** mesmo após esses períodos de espera, selecione **Atualizar** na guia **servidores** . Isso deve mostrar a contagem dos servidores descobertos na **avaliação do servidor** e na migração do **servidor**.
@@ -202,7 +202,7 @@ Se você tiver implantado um dispositivo que descobre continuamente seu ambiente
 
     1. Em **servidores** > **migração do Azure migrar servidor**, selecione **visão geral**.
     2. Em **gerenciar**, selecione **integridade do agente**
-    3. Selecione **Atualizar agente**. 
+    3. Selecione **Atualizar agente**.
     1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
 
 ## <a name="vm-information-isnt-in-the-portal"></a>As informações da VM não estão no portal
@@ -212,7 +212,7 @@ Se você tiver implantado um dispositivo que descobre continuamente seu ambiente
 
     1. Em **servidores** > **migração do Azure migrar servidor**, selecione **visão geral**.
     2. Em **gerenciar**, selecione **integridade do agente**
-    3. Selecione **Atualizar agente**. 
+    3. Selecione **Atualizar agente**.
     1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
 
 
@@ -259,10 +259,6 @@ Não foi possível determinar a adequação da VM devido a um erro interno | Ten
 Não foi possível determinar a adequação para um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação para um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 
-## <a name="cant-add-enterprise-agreement-ea-in-an-assessment"></a>Não é possível adicionar Enterprise Agreement (EA) em uma avaliação
-
-Atualmente, a avaliação de servidor migrações para Azure não dá suporte a preços Enterprise Agreement (EA). Para contornar essa limitação, use o **pré-pago** como a oferta do Azure e use a propriedade de **desconto** para especificar qualquer desconto personalizado que você receber. [Saiba](https://aka.ms/migrate/selfhelp/eapricing) como personalizar uma avaliação.
-
 ## <a name="linux-vms-are-conditionally-ready"></a>As VMs do Linux estão "prontamente prontas"
 
 A avaliação do servidor marca as VMs do Linux como "prontamente prontas" devido a uma lacuna conhecida na avaliação do servidor.
@@ -279,7 +275,7 @@ A avaliação de servidor de migrações para Azure pode recomendar SKUs de VM d
 
 
 - A recomendação de SKU de VM depende das propriedades de avaliação.
-- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *Baseado em desempenho*ou *como local*. 
+- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *Baseado em desempenho*ou *como local*.
 - Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Ele também adiciona um fator de conforto ao determinar a utilização efetiva.
 - Para o dimensionamento local, os dados de desempenho não são considerados e o SKU de destino é recomendado com base na alocação local.
 
@@ -288,14 +284,14 @@ Para mostrar como isso pode afetar as recomendações, vamos usar um exemplo:
 Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utilização da CPU e 50% de utilização da memória e um fator de conforto especificado de 1,3.
 
 -  Se a avaliação for **como local**, é recomendável um SKU de VM do Azure com 4 núcleos e 8 GB de memória.
-- Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (com suporte mais próximo tamanho da memória) é recomendado. 
+- Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (com suporte mais próximo tamanho da memória) é recomendado.
 - [Saiba mais](concepts-assessment-calculation.md#sizing) sobre o dimensionamento da avaliação.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKUs de disco do Azure maiores do que localmente
 
 A avaliação de servidor de migrações para Azure pode recomendar um disco maior com base no tipo de avaliação.
 - O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
-- Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for definido como **automático**, os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local. 
+- Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for definido como **automático**, os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local.
 - Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for **Premium**, um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para executar o dimensionamento de disco quando os critérios de dimensionamento são **locais** e o tipo de armazenamento é **HDD Standard**, **SSD Standard**ou **Premium**.
 
 Por exemplo, se você tiver um disco local com 32 GB de memória, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco que possa dar suporte ao r IOPS e tamanho de ecessário. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomenda um disco maior devido ao requisito de IOPS alto do disco local.

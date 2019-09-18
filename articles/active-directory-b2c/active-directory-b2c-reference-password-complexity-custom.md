@@ -1,6 +1,6 @@
 ---
-title: Configurar a complexidade de palavra-passe com as políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Como configurar os requisitos de complexidade de palavra-passe utilizando uma política personalizada no Azure Active Directory B2C.
+title: Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Como configurar requisitos de complexidade de senha usando uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,28 +10,28 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04a37e6faf51787457d7ca4ab8434fd253deb2ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509161"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065536"
 ---
-# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a complexidade de palavra-passe com as políticas personalizadas no Azure Active Directory B2C
+# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory (Azure AD) B2C, pode configurar os requisitos de complexidade de palavras-passe que são fornecidos por um utilizador quando criar uma conta. Por predefinição, o Azure AD B2C utiliza **forte** palavras-passe. Este artigo mostra-lhe como configurar a complexidade de palavra-passe na [políticas personalizadas](active-directory-b2c-overview-custom.md). Também é possível configurar a complexidade de palavra-passe na [fluxos de utilizador](active-directory-b2c-reference-password-complexity.md).
+No Azure Active Directory B2C (Azure AD B2C), você pode configurar os requisitos de complexidade para senhas que são fornecidas por um usuário ao criar uma conta. Por padrão, Azure AD B2C usa senhas **fortes** . Este artigo mostra como configurar a complexidade de senha em [políticas personalizadas](active-directory-b2c-overview-custom.md). Também é possível configurar a complexidade de senha em [fluxos de usuário](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os passos na [introdução às políticas personalizadas no Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Conclua as etapas em introdução [às políticas personalizadas no Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
 ## <a name="add-the-elements"></a>Adicionar os elementos
 
-1. Copiar o *SignUpOrSignIn.xml* que transferiu com o pacote de iniciante e um nome de ficheiro *SingUpOrSignInPasswordComplexity.xml*.
-2. Abra o *SingUpOrSignInPasswordComplexity.xml* de ficheiros e alterar o **PolicyId** e o **PublicPolicyUri** para um novo nome de política. Por exemplo, *B2C_1A_signup_signin_password_complexity*.
-3. Adicione as seguintes **ClaimType** elementos com os identificadores de `newPassword` e `reenterPassword`:
+1. Copie o arquivo *SignUpOrSignIn. xml* que você baixou com o pacote inicial e nomeie-o como *SingUpOrSignInPasswordComplexity. xml*.
+2. Abra o arquivo *SingUpOrSignInPasswordComplexity. xml* e altere a **PolicyId** e o **PublicPolicyUri** para um novo nome de política. Por exemplo, *B2C_1A_signup_signin_password_complexity*.
+3. Adicione os seguintes elementos **ClaimType** com identificadores de `newPassword` e `reenterPassword`:
 
     ```XML
     <ClaimsSchema>
@@ -44,7 +44,7 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </ClaimsSchema>
     ```
 
-4. [Predicados](predicates.md) têm tipos de método de `IsLengthRange` ou `MatchesRegex`. O `MatchesRegex` tipo é usado para corresponder uma expressão regular. O `IsLengthRange` tipo assume um comprimento de cadeia de caracteres mínimo e máximo. Adicionar uma **predicados** elemento para a **BuildingBlocks** elemento se não existir com o seguinte procedimento **predicado** elementos:
+4. Os [predicados](predicates.md) têm tipos `IsLengthRange` de `MatchesRegex`método de ou. O `MatchesRegex` tipo é usado para corresponder a uma expressão regular. O `IsLengthRange` tipo usa um comprimento de cadeia de caracteres mínimo e máximo. Adicione um elemento **predicados** ao elemento **BuildingBlocks** se ele não existir com os seguintes elementos de **predicado** :
 
     ```XML
     <Predicates>
@@ -62,7 +62,7 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </Predicates>
     ```
 
-5. Cada **InputValidation** elemento é construído utilizando a definidos **predicado** elementos. Esse elemento permite-lhe efetuar agregações booleanas, que são semelhantes às `and` e `or`. Adicionar uma **InputValidations** elemento para a **BuildingBlocks** elemento se não existir com o seguinte procedimento **InputValidation** elemento:
+5. Cada elemento **InputValidation** é construído usando os elementos **predicados** definidos. Esse elemento permite que você execute agregações booleanas que são semelhantes a `and` e `or`. Adicione um elemento **InputValidations** ao elemento **BuildingBlocks** se ele não existir com o seguinte elemento **InputValidation** :
 
     ```XML
     <InputValidations>
@@ -80,7 +80,7 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </InputValidations>
     ```
 
-6. Certifique-se de que o **PolicyProfile** perfil técnico contém os seguintes elementos:
+6. Verifique se o perfil técnico **PolicyProfile** contém os seguintes elementos:
 
     ```XML
     <RelyingParty>
@@ -103,31 +103,31 @@ Conclua os passos na [introdução às políticas personalizadas no Active Direc
     </RelyingParty>
     ```
 
-7. Guarde o ficheiro de política.
+7. Salve o arquivo de política.
 
-## <a name="test-your-policy"></a>Testar a política
+## <a name="test-your-policy"></a>Testar sua política
 
-Ao testar as suas aplicações no Azure AD B2C, pode ser útil ter o token do Azure AD B2C retornado para `https://jwt.ms` para conseguir analisar as afirmações no mesmo.
+Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure ad B2C retornado `https://jwt.ms` para poder revisar as declarações nele.
 
-### <a name="upload-the-files"></a>Carregue os ficheiros
+### <a name="upload-the-files"></a>Carregar os arquivos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **arquitetura de experiências de identidade**.
-5. Na página de políticas personalizadas, clique em **carregar política**.
-6. Selecione **substituir a política, se existir**e, em seguida, procure e selecione o *SingUpOrSignInPasswordComplexity.xml* ficheiro.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+4. Selecione **Identity Experience Framework**.
+5. Na página políticas personalizadas, clique em **carregar política**.
+6. Selecione **substituir a política, se ela existir**, e, em seguida, procure e selecione o arquivo *SingUpOrSignInPasswordComplexity. xml* .
 7. Clique em **Carregar**.
 
 ### <a name="run-the-policy"></a>Executar a política
 
-1. Abra a política que alterou. Por exemplo, *B2C_1A_signup_signin_password_complexity*.
-2. Para **aplicativo**, selecione a aplicação que registou anteriormente. Para ver o token, o **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Abra a política que você alterou. Por exemplo, *B2C_1A_signup_signin_password_complexity*.
+2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve `https://jwt.ms`ser mostrada.
 3. Clique em **Executar agora**.
-4. Selecione **Inscreva-se agora**, introduza um endereço de e-mail e introduza uma palavra-passe nova. Documentação de orientação é apresentada em restrições de palavra-passe. Termina de introduzir as informações de utilizador e, em seguida, clique em **criar**. Deverá ver o conteúdo do token que foi devolvido.
+4. Selecione **inscrever-se agora**, insira um endereço de email e insira uma nova senha. As diretrizes são apresentadas em restrições de senha. Termine de inserir as informações do usuário e, em seguida, clique em **criar**. Você deve ver o conteúdo do token que foi retornado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [configurar a alteração de palavra-passe com as políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-reference-password-change-custom.md).
+- Saiba como [Configurar a alteração de senha usando políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-reference-password-change-custom.md).
 
 

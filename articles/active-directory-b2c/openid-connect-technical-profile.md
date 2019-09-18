@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716706"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063948"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OpenID Connect em uma política personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory (Azure AD) B2C fornece suporte para o provedor de identidade do protocolo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) . O OpenID Connect 1,0 define uma camada de identidade na parte superior do OAuth 2,0 e representa o estado da arte em protocolos de autenticação modernos. Com um perfil técnico do OpenID Connect, você pode federar com um provedor de identidade baseado em OpenID Connect, como o Azure AD. A Federação com um provedor de identidade permite que os usuários entrem com suas identidades sociais ou empresariais existentes.
+O Azure Active Directory B2C (Azure AD B2C) fornece suporte para o provedor de identidade do protocolo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) . O OpenID Connect 1,0 define uma camada de identidade na parte superior do OAuth 2,0 e representa o estado da arte em protocolos de autenticação modernos. Com um perfil técnico do OpenID Connect, você pode federar com um provedor de identidade baseado em OpenID Connect, como o Azure AD. A Federação com um provedor de identidade permite que os usuários entrem com suas identidades sociais ou empresariais existentes.
 
 ## <a name="protocol"></a>Protocol
 
@@ -58,8 +58,8 @@ O exemplo a seguir mostra as declarações retornadas pelo provedor de identidad
 
 O perfil técnico também retorna declarações que não são retornadas pelo provedor de identidade:
 
-- A declaração identityprovider que contém o nome do provedor de identidade.
-- A declaração de authenticationname com um valor padrão de **socialIdpAuthentication**.
+- A Declaração **identityprovider** que contém o nome do provedor de identidade.
+- A declaração de **authenticationname** com um valor padrão de **socialIdpAuthentication**.
 
 ```xml
 <OutputClaims>

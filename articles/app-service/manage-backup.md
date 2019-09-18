@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d153238c58d72874ddbf7979e68423e21ea7c020
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8784a06306f59015b95293d90ff5509dcfcae045
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073165"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057941"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 O recurso de backup e restauração no [serviço Azure app](overview.md) permite que você crie facilmente backups de aplicativos manualmente ou em um agendamento.  Os backups podem ser configurados para serem retidos por um período indefinido de tempo. Você pode restaurar o aplicativo para um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -39,7 +39,7 @@ As seguintes soluções de banco de dados têm suporte com o recurso de backup:
    - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
    - [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
    - [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
-   - [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+   - [MySQL no aplicativo](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
@@ -62,7 +62,7 @@ As seguintes soluções de banco de dados têm suporte com o recurso de backup:
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Criar uma cópia de segurança manual
-1. Na [portal do Azure](https://portal.azure.com), navegue até a página do aplicativo, selecione **backups**. A página backups é exibida.
+1. Na [portal do Azure](https://portal.azure.com), navegue até a página do aplicativo, selecione **backups**. A página **backups** é exibida.
    
     ![Página de backups][ChooseBackupsPage]
    
@@ -86,7 +86,7 @@ As seguintes soluções de banco de dados têm suporte com o recurso de backup:
     ![Escolher conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção cadeias de **conexão** da página de **configurações do aplicativo** para seu aplicativo. 
+   > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **cadeias de conexão** da página de **configurações do aplicativo** para seu aplicativo. 
    >
    > Os bancos de dados MySQL no aplicativo são submetidos a backup automaticamente sem nenhuma configuração. Se você fizer configurações manualmente para bancos de dados MySQL no aplicativo, como adicionar cadeias de conexão, os backups podem não funcionar corretamente.
    > 
@@ -156,7 +156,7 @@ Execute backups da mesma maneira que faria normalmente, [manual](#create-a-manua
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Como os backups são armazenados
-Depois de ter feito um ou mais backups para seu aplicativo, os backups são visíveis na página contêineres da sua conta de armazenamento e seu aplicativo. Na conta de armazenamento, cada backup consiste em um`.zip` arquivo que contém os dados de backup e `.xml` um arquivo que `.zip` contém um manifesto do conteúdo do arquivo. Você pode descompactar e procurar esses arquivos se desejar acessar os backups sem realmente executar uma restauração de aplicativo.
+Depois de ter feito um ou mais backups para seu aplicativo, os backups são visíveis na página **contêineres** da sua conta de armazenamento e seu aplicativo. Na conta de armazenamento, cada backup consiste em um`.zip` arquivo que contém os dados de backup e `.xml` um arquivo que `.zip` contém um manifesto do conteúdo do arquivo. Você pode descompactar e procurar esses arquivos se desejar acessar os backups sem realmente executar uma restauração de aplicativo.
 
 O backup do banco de dados para o aplicativo é armazenado na raiz do arquivo. zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados SQL com base na exportação de BACPAC, consulte [importar um arquivo BACPAC para criar um novo banco de dados de usuário](https://technet.microsoft.com/library/hh710052.aspx).
 

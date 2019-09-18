@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ed1426bea920d1ef30fb28ff4a975d1268c12ff
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846931"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064376"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
-Neste artigo, você aprenderá a configurar o [tempo de vida e a compatibilidade de um token](active-directory-b2c-reference-tokens.md) no Azure Active Directory (Azure AD) B2C.
+Neste artigo, você aprenderá a configurar o [tempo de vida e a compatibilidade de um token](active-directory-b2c-reference-tokens.md) no Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a configurar o [tempo de vida e a compatibilidade
 Você pode configurar o tempo de vida do token em qualquer fluxo de usuário.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário de Azure ad B2C.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário de Azure ad B2C.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **fluxos de usuário (políticas)** .
 5. Abra o fluxo de usuário que você criou anteriormente.
@@ -52,7 +52,7 @@ Você pode configurar o tempo de vida do token em qualquer fluxo de usuário.
 
 5. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [usar tokens de acesso](active-directory-b2c-access-tokens.md).
 

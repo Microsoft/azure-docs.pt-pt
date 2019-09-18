@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592107"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063363"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,7 +41,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | Atributo | Requerido | Descrição |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sim | A versão do esquema a ser usada para executar a política. O valor deve ser`0.3.0.0` |
-| TenantObjectId | Não | O identificador de objeto exclusivo do locatário do Azure Active Directory (Azure AD) B2C. |
+| TenantObjectId | Não | O identificador de objeto exclusivo do locatário Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
 | `PolicyId` | Sim | O identificador exclusivo da política. Esse identificador deve ser prefixado por *B2C_1A_* |
 | PublicPolicyUri | Sim | O URI da política, que é a combinação da ID do locatário e a ID da política. |

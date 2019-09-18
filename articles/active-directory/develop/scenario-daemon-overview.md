@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852727"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056387"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicativo daemon que chama APIs da Web
 
@@ -60,11 +60,11 @@ Aplicativos que adquirem um token para suas próprias identidades:
 Para os desenvolvedores, a experiência de ponta a ponta para esse cenário tem os seguintes aspectos:
 
 - Os aplicativos daemon só podem funcionar em locatários do Azure AD. Não faz sentido criar um aplicativo daemon que tente manipular contas pessoais da Microsoft. Se você for um desenvolvedor de aplicativos LOB (linha de negócios), criará seu aplicativo daemon em seu locatário. Se você for um ISV, talvez queira criar um aplicativo de daemon multilocatário. Ele precisará ser consentido por cada administrador de locatários.
-- Durante o [registro do aplicativo](./scenario-daemon-app-registration.md), o **URI de resposta** não é necessário. Você precisa compartilhar segredos ou certificados com o Azure AD e precisa solicitar permissões de aplicativos e conceder consentimento de administrador para usar essas permissões de aplicativo.
+- Durante o [registro do aplicativo](./scenario-daemon-app-registration.md), o **URI de resposta** não é necessário. Você precisa compartilhar segredos ou certificados ou declarações assinadas com o Azure AD, e você precisa solicitar permissões de aplicativos e conceder consentimento de administrador para usar essas permissões de aplicativo.
 - A [configuração do aplicativo](./scenario-daemon-app-configuration.md) precisa fornecer credenciais de cliente como compartilhadas com o Azure ad durante o registro do aplicativo.
 - O [escopo](scenario-daemon-acquire-token.md#scopes-to-request) usado para adquirir um token com o fluxo de credenciais do cliente precisa ser um escopo estático.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aplicativo daemon-registro de aplicativo](./scenario-daemon-app-registration.md)

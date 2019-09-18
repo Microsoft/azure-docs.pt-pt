@@ -4,7 +4,7 @@ description: Examine as etapas detalhadas de solução de problemas para erros d
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: Não é possível se conectar à área de trabalho remota, solucionar problemas na área de trabalho remota, a área de trabalho remota não pode se conectar, erros de área de trabalho remota, solução de problemas
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a0f4c4172661b0f041a30df2d4d63ba58f203e89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 053a209829f30ea92d76b29f24d028d77ca732e7
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080529"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058909"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Etapas de solução de problemas detalhadas para problemas de conexão de área de trabalho remota para VMs do Windows no Azure
 Este artigo fornece etapas de solução de problemas detalhadas para diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
@@ -144,7 +144,7 @@ $vmName="<Name of the target virtual machine>"
 .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 ```
 
-Você pode obter o nome de assinatura correto da Propriedade subscriptionname da exibição do comando **Get-AzureSubscription** . Você pode obter o nome do serviço de nuvem para a máquina virtual na coluna ServiceName na exibição do comando **Get-AzureVM** .
+Você pode obter o nome de assinatura correto da propriedade *subscriptionname* da exibição do comando **Get-AzureSubscription** . Você pode obter o nome do serviço de nuvem para a máquina virtual na coluna *ServiceName* na exibição do comando **Get-AzureVM** .
 
 Verifique se você tem o novo certificado. Abra um snap-in de certificados para o usuário atual e procure na pasta **Authorities\Certificates de certificação raiz confiável** . Você deve ver um certificado com o nome DNS do seu serviço de nuvem na coluna emitido para (exemplo: cloudservice4testing.cloudapp.net).
 

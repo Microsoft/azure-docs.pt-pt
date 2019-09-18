@@ -1,7 +1,7 @@
 ---
 title: Executar previsões de lote em dados grandes com pipelines
-titleSuffix: Azure Machine Learning service
-description: Saiba como fazer predições de batch de forma assíncrona em grandes quantidades de dados com o serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba como fazer previsões de lote de forma assíncrona em grandes quantidades de dados usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128260"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034297"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Executar previsões de lote em conjuntos de dados grandes com pipelines de Azure Machine Learning
 
-Neste artigo, você aprenderá a fazer previsões sobre grandes quantidades de dados de forma assíncrona usando os pipelines de ML com o serviço Azure Machine Learning.
+Neste artigo, você aprende a fazer previsões sobre grandes quantidades de dados de forma assíncrona usando os pipelines ML com Azure Machine Learning.
 
 A previsão de lote (ou a pontuação em lote) fornece inferência econômica, com taxa de transferência incomparável para aplicativos assíncronos. Pipelines de predição de batch podem ser dimensionado para realizar a inferência de tipos em terabytes de dados de produção. A previsão de lote é otimizada para alta taxa de transferência, previsões de acionamento e esquecida para uma grande coleção de dados.
 
@@ -30,7 +30,7 @@ Nas etapas a seguir, você criará um [pipeline de Machine Learning](concept-ml-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree).
+- Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Configure o ambiente de desenvolvimento para instalar o SDK do Azure Machine Learning. Para obter mais informações, consulte [configurar um ambiente de desenvolvimento do Azure Machine Learning](how-to-configure-environment.md).
 
@@ -356,6 +356,6 @@ published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver esse trabalho de ponta a ponta, experimente o bloco de anotações de pontuação em lote no [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)ou acesse o [centro de arquitetura do Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python) para ver uma arquitetura de solução de exemplo.

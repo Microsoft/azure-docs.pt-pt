@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 12ddbe9f43baf68f6c11c9b720a0f684316af46a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644911"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065325"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Você pode adicionar interação com uma API RESTful às suas [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory (Azure AD) B2C. Este artigo mostra como criar uma jornada de usuário Azure AD B2C que interage com os serviços RESTful.
+Você pode adicionar interação com uma API RESTful às suas [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory B2C (Azure ad B2C). Este artigo mostra como criar uma jornada de usuário Azure AD B2C que interage com os serviços RESTful.
 
 A interação inclui uma troca de declarações de informações entre as declarações da API REST e a Azure AD B2C. As trocas de declarações têm as seguintes características:
 
@@ -86,7 +86,7 @@ public class ResponseContent
 
 Um perfil técnico fornece a configuração para a troca de declarações.
 
-Abra o arquivo *TrustFrameworkExtensions. xml* e adicione o seguinte elemento XML claimprovider dentro do elemento **ClaimsProviders** .
+Abra o arquivo *TrustFrameworkExtensions. xml* e adicione o seguinte elemento XML **claimprovider** dentro do elemento **ClaimsProviders** .
 
 ```XML
 <ClaimsProvider>
@@ -140,7 +140,7 @@ Adicione uma definição para `city` dentro do elemento **BuildingBlocks** . Voc
 
 Há muitos casos de uso em que a chamada à API REST pode ser usada como uma etapa de orquestração. Como uma etapa de orquestração, ela pode ser usada como uma atualização para um sistema externo depois que um usuário tiver concluído com êxito uma tarefa como o registro inicial, ou como uma atualização de perfil para manter as informações sincronizadas. Nesse caso, ele é usado para aumentar as informações fornecidas ao aplicativo após a edição do perfil.
 
-Adicione uma etapa à jornada do usuário de edição de perfil. Depois que o usuário é autenticado (etapas de orquestração 1-4 no XML a seguir), e o usuário forneceu as informações de perfil atualizadas (etapa 5). Copie o código XML de jornada do usuário de edição de perfil do arquivo *TrustFrameworkBase. xml* para o arquivo *TrustFrameworkExtensions. xml* dentro do elemento userjornadas. Em seguida, faça a modificação como etapa 6.
+Adicione uma etapa à jornada do usuário de edição de perfil. Depois que o usuário é autenticado (etapas de orquestração 1-4 no XML a seguir), e o usuário forneceu as informações de perfil atualizadas (etapa 5). Copie o código XML de jornada do usuário de edição de perfil do arquivo *TrustFrameworkBase. xml* para o arquivo *TrustFrameworkExtensions. xml* dentro do elemento **userjornadas** . Em seguida, faça a modificação como etapa 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">

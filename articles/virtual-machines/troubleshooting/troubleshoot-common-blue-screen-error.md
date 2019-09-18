@@ -4,7 +4,7 @@ description: Saiba como solucionar o problema que o erro de tela azul é recebid
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 397f9f4de21ecb27435c132d80074ed442202448
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 921e97fa393a3005e3ba392502d291301df3d65c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089976"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058071"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>O Windows mostra o erro de tela azul ao inicializar uma VM do Azure
 Este artigo descreve os erros de tela azul que você pode encontrar ao inicializar uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas para ajudá-lo a coletar dados para um tíquete de suporte. 
@@ -27,7 +27,7 @@ Este artigo descreve os erros de tela azul que você pode encontrar ao inicializ
 
 ## <a name="symptom"></a>Sintoma 
 
-Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em diagnósticos de [inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
+Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em [diagnósticos de inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
 
 - nosso PC encontrou um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações de erro e, em seguida, você pode reiniciar.
 - Seu PC encontrou um problema e precisa ser reiniciado.

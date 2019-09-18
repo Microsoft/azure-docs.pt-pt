@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: a1d31eb3fa6e37302e1afa5ebd36d04f75830dea
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918181"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066698"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -42,7 +42,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 1. No menu **arquivo** , clique em **importar dispositivo**e, em seguida, especifique a imagem de área restrita Hortonworks.
 1. Selecione a área restrita Hortonworks, clique em **Iniciar**e em **início normal**. Depois que a máquina virtual tiver concluído o processo de inicialização, ela exibirá as instruções de logon.
 
-    ![Início normal](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
 1. Abra um navegador da Web e navegue até a URL exibida ( `http://127.0.0.1:8888`geralmente).
 
@@ -73,7 +73,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
         select * from sample_07 limit 10;
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como usar o Visual Studio com a área restrita do Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
 

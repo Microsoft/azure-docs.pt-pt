@@ -1,10 +1,10 @@
 ---
-title: Configurar endereços IP privados para as VMs (clássico) - Azure PowerShell | Documentos da Microsoft
-description: Saiba como configurar os endereços IP privados para máquinas virtuais (clássico) com o PowerShell.
+title: Configurar endereços IP privados para VMs (clássicas)-Azure PowerShell | Microsoft Docs
+description: Saiba como configurar endereços IP privados para máquinas virtuais (clássicas) usando o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1be2966cf568fc5101fb0d887f0d55a8a1876d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00a4f282da3a943516ffce584247ac20935526b5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952496"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058712"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configurar endereços IP privados para uma máquina virtual (clássico) com o PowerShell
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configurar endereços IP privados para uma máquina virtual (clássica) usando o PowerShell
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -35,10 +35,10 @@ Este artigo abrange o modelo de implementação clássica. Também pode [gerir u
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Os comandos do PowerShell de exemplo abaixo esperam um ambiente simples já criado. Se quiser executar os comandos à medida que são apresentadas neste documento, primeiro crie o ambiente de teste descrito em [criar uma VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Os comandos de exemplo do PowerShell a seguir esperam um ambiente simples já criado. Se você quiser executar os comandos conforme eles são exibidos neste documento, primeiro crie o ambiente de teste descrito em [criar uma VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Como verificar se um endereço IP específico está disponível
-Para verificar se o endereço IP *192.168.1.101* está disponível numa VNet com o nome *TestVNet*, execute o seguinte comando do PowerShell e verificar o valor das *IsAvailable*:
+Para verificar se o endereço IP *192.168.1.101* está disponível em uma VNet denominada *TestVNet*, execute o seguinte comando do PowerShell e verifique o valor de *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
 
@@ -51,7 +51,7 @@ Resultado esperado:
     OperationStatus      : Succeeded
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Como especificar um endereço IP privado estático ao criar uma VM
-O script do PowerShell abaixo cria um novo serviço cloud com o nome *TestService*, em seguida, obtém uma imagem do Azure, que cria uma VM com o nome *DNS01* o novo serviço cloud com a imagem obtida, define a VM para estar numa sub-rede denominada *front-end*e define *192.168.1.7* como um endereço IP privado estático para a VM:
+O script do PowerShell abaixo cria um novo serviço de nuvem chamado *TestService*e, em seguida, recupera uma imagem do Azure, cria uma VM denominada *DNS01* no novo serviço de nuvem usando a imagem recuperada, define a VM para estar em uma sub-rede chamada *frontend*e define *192.168.1.7* como um endereço IP privado estático para a VM:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -70,7 +70,7 @@ Resultado esperado:
     New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Como obter estáticas informações de endereço IP privadas para uma VM
-Para ver as informações de endereço IP privadas estáticas para a VM criada com o script acima, execute o seguinte comando do PowerShell e observe os valores para *IpAddress*:
+Para exibir as informações de endereço IP privado estático para a VM criada com o script acima, execute o seguinte comando do PowerShell e observe os valores para *IPAddress*:
 
     Get-AzureVM -Name DNS01 -ServiceName TestService
 
@@ -117,7 +117,7 @@ Resultado esperado:
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
 ## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Como adicionar um endereço IP privado estático a uma VM existente
-Para adicionar um endereço IP privado estático para a VM criada utilizando o script acima, execute o seguinte comando:
+Para adicionar um endereço IP privado estático à VM criada usando o script acima, execute o seguinte comando:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |

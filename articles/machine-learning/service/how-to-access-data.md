@@ -1,7 +1,7 @@
 ---
 title: Acessar dados nos serviços de armazenamento do Azure
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar os armazenamentos de armazenamento para acessar os serviços de repositório do Azure durante o treinamento com o serviço de Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Saiba como usar os armazenamentos de armazenamento para acessar os serviços de repositório do Azure durante o treinamento com o Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191923"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035304"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 
@@ -232,7 +232,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="access-data-during-scoring"></a>Acessar dados durante a Pontuação
 
-O serviço de Azure Machine Learning fornece várias maneiras de usar seus modelos para pontuação. Alguns desses métodos não fornecem acesso a repositórios de armazenamento. Use a tabela a seguir para entender quais métodos permitem que você acesse os repositórios de armazenamento durante a Pontuação:
+Azure Machine Learning fornece várias maneiras de usar seus modelos para pontuação. Alguns desses métodos não fornecem acesso a repositórios de armazenamento. Use a tabela a seguir para entender quais métodos permitem que você acesse os repositórios de armazenamento durante a Pontuação:
 
 | Método | Acesso ao repositório de armazenamento | Descrição |
 | ----- | :-----: | ----- |

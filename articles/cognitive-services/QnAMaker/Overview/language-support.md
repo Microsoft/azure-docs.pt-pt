@@ -1,7 +1,7 @@
 ---
 title: Suporte de idiomas - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: O idioma de uma base de dados de conhecimento afeta a capacidade de QnA Maker de extração automática perguntas e respostas de fontes, bem como a relevância dos resultados que do QnA Maker oferece em resposta a consultas do utilizador. Uma lista de cultura, idiomas suportados pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
+description: A linguagem de uma base de dados de conhecimento afeta a capacidade do QnA Maker de extrair perguntas e respostas de fontes automaticamente, bem como a relevância dos resultados QnA Maker fornece em resposta a consultas do usuário. Uma lista de cultura, idiomas suportados pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a543b17633b99bea63d72f46ba856a8b4593d16a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bec09e5cd053774902083c6dd042c1ed4b293d20
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439559"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066670"
 ---
-# <a name="language-support-for-qna-maker"></a>Suporte de idiomas para o QnA Maker
+# <a name="language-support-for-qna-maker"></a>Suporte a idiomas para QnA Maker
 
 O idioma de uma base de dados de conhecimento afeta a capacidade de QnA Maker de extração automática perguntas e respostas partir [origens](../Concepts/data-sources-supported.md), bem como a relevância dos resultados do QnA Maker oferece em resposta a consultas do utilizador.
 
@@ -33,28 +33,28 @@ A ferramenta QnA Maker suporta a extração de pergunta/resposta em qualquer pá
 |Alemão|Alemanha-*|
 |Espanhol|es-*|
 
-## <a name="primary-language-detection"></a>Deteção de idioma primária
+## <a name="primary-language-detection"></a>Detecção de idioma primário
 
-O idioma principal usado para a deteção está definido para o recurso do QnA Maker e todas as bases de dados de conhecimento criados esse recurso, quando o primeiro documento ou o URL é adicionado para a primeira base de dados de conhecimento. Não é possível alterar o idioma. 
+O idioma principal usado para detecção é definido para o recurso QnA Maker e todas as bases de dados de conhecimento criadas nesse recurso, quando o primeiro documento ou URL é adicionado à primeira base de dados de conhecimento. O idioma não pode ser alterado. 
 
-Se o utilizador planos de suporte a vários idiomas, terá de ter um novo recurso do QnA Maker para cada idioma. Saiba como [criar uma base de dados de conhecimento do QnA Maker baseadas em linguagem](../how-to/language-knowledge-base.md).  
+Se o usuário planeja oferecer suporte a vários idiomas, ele precisa ter um novo recurso QnA Maker para cada idioma. Saiba como [criar uma base de dados de conhecimento QnA Maker baseada em linguagem](../how-to/language-knowledge-base.md).  
 
-Verifique se o idioma principal com os seguintes passos:
+Verifique o idioma principal com as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
-1. Procure e selecione o recurso de pesquisa do Azure criado como parte do seu recurso do QnA Maker. O nome do recurso de pesquisa do Azure irá começar com o mesmo nome que o recurso do QnA Maker e terá o tipo **serviço de pesquisa**. 
-1. Partir do **descrição geral** página do recurso de pesquisa, selecione **índices**. 
-1. Selecione o **testkb** índice.
-1. Selecione o **campos** separador. 
-1. Ver os **analisador** coluna para o **perguntas** e **resposta** campos. 
+1. Procure e selecione o Azure Search recurso criado como parte do recurso de QnA Maker. O nome do recurso de Azure Search começará com o mesmo nome que o recurso de QnA Maker e terá o **serviço de pesquisa**de tipo. Tenha em mente, apenas um recurso de QnA Maker pode ser vinculado a um recurso de Azure Search.
+1. Na página **visão geral** do recurso de pesquisa, selecione **índices**. 
+1. Selecione o índice **testkb** .
+1. Selecione a guia **campos** . 
+1. Exiba a coluna **analisador** para os campos **perguntas** e **resposta** . 
 
 
 ## <a name="query-matching-and-relevance"></a>Correspondência de consulta e relevância
 Depende do QnA Maker [analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support) na pesquisa do Azure para fornecer os resultados. A classificação de recursos especiais estão disponíveis para En-* idiomas que permitem a relevância melhor.
 
-Enquanto os recursos de pesquisa do Azure estão no mesmo nível para idiomas com suporte, a ferramenta QnA Maker tem um adicional classificador que fica acima os resultados da pesquisa do Azure. Nesse modelo classificador, podemos usar alguns recursos especiais de semânticos e baseada em palavras em en-*, que ainda não estão disponíveis para outros idiomas. Nós não disponibilizar estas funcionalidades, como fazem parte do funcionamento interno classificador do QnA Maker de. 
+Enquanto os recursos de pesquisa do Azure estão no mesmo nível para idiomas com suporte, a ferramenta QnA Maker tem um adicional classificador que fica acima os resultados da pesquisa do Azure. Neste modelo de classificação, usamos alguns recursos semânticos e baseados em palavras especiais em en-*, que ainda não estão disponíveis para outros idiomas. Nós não disponibilizamos esses recursos, pois fazem parte do trabalho interno do classificador de QnA Maker. 
 
-A ferramenta QnA Maker [Deteta automaticamente o idioma da base de dados de conhecimento](#primary-language-detection) durante a criação e define o analisador em conformidade. Pode criar bases de dados de conhecimento nos seguintes idiomas. 
+QnA Maker [detecta automaticamente o idioma da base de dados de conhecimento](#primary-language-detection) durante a criação e define o analisador adequadamente. Pode criar bases de dados de conhecimento nos seguintes idiomas. 
 
 |Idiomas suportados|
 |-----|

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849159"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033385"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -87,59 +87,41 @@ No Azure Monitor, a análise de alterações está atualmente incorporada à exp
 
 ### <a name="enable-change-analysis-at-scale"></a>Habilitar análise de alterações em escala
 
-Se sua assinatura inclui vários aplicativos Web, a habilitação do serviço no nível do aplicativo Web seria ineficiente. Nesse caso, siga estas instruções alternativas.
+Se sua assinatura inclui vários aplicativos Web, a habilitação do serviço no nível do aplicativo Web seria ineficiente. Execute o script a seguir para habilitar todos os aplicativos Web em sua assinatura.
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrar o provedor de recursos de análise de alterações para sua assinatura
+Pré-requisitos:
+* Módulo AZ do PowerShell. Siga as instruções em [instalar o módulo Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Registrar o sinalizador de recurso de análise de alterações (versão prévia). Como o sinalizador de recurso está em versão prévia, você precisa registrá-lo para torná-lo visível para sua assinatura:
+Execute o seguintes script:
 
-   1. Abra o [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Captura de tela de alteração Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Altere o tipo de Shell para **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Captura de tela de alteração Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Execute o seguinte comando do PowerShell:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Registre o provedor de recursos de análise de alterações para a assinatura.
+```
 
-   - Vá para **assinaturas**e selecione a assinatura que você deseja habilitar no serviço de alteração. Em seguida, selecione provedores de recursos:
 
-        ![Captura de tela mostrando como registrar o provedor de recursos de análise de alterações](./media/change-analysis/register-rp.png)
 
-       - Selecione **Microsoft. ChangeAnalysis**. Em seguida, na parte superior da página, selecione **registrar**.
-
-       - Depois que o provedor de recursos estiver habilitado, você poderá definir uma marca oculta no aplicativo Web para detectar alterações no nível de implantação. Para definir uma marca oculta, siga as instruções em **não é possível buscar informações de análise de alterações**.
-
-   - Como alternativa, você pode usar um script do PowerShell para registrar o provedor de recursos:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        Para usar o PowerShell para definir uma marca oculta em um aplicativo Web, execute o seguinte comando:
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > Depois de adicionar a marca oculta, talvez você ainda precise aguardar até 4 horas antes de começar a ver as alterações. Os resultados são atrasados porque a análise de alterações verifica seu aplicativo Web somente a cada 4 horas. O agendamento de 4 horas limita o impacto no desempenho do exame.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Habilitar Application Insights para [aplicativos de serviços Azure apps](azure-web-apps.md).
 - Habilite Application Insights para a [VM do Azure e o conjunto de dimensionamento de máquinas virtuais do Azure aplicativos hospedados pelo IIS](azure-vm-vmss-apps.md).

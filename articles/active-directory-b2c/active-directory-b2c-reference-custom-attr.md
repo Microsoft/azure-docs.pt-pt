@@ -1,6 +1,6 @@
 ---
-title: Definir atributos personalizados no Azure Active Directory B2C | Documentos da Microsoft
-description: Defina atributos personalizados para a sua aplicação no Azure Active Directory B2C para recolher informações sobre os seus clientes.
+title: Definir atributos personalizados no Azure Active Directory B2C | Microsoft Docs
+description: Defina atributos personalizados para seu aplicativo no Azure Active Directory B2C para coletar informações sobre seus clientes.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9ac3800d60b063c620cfc774d7a0c642f6f6821
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e6b0eac0b8cf7f61d76f90a4f769ba11abab6999
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835398"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065678"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definir atributos personalizados no Azure Active Directory B2C
 
- Todos os aplicativos do lado do cliente tem requisitos exclusivos para as informações de que tem de ser recolhidos. O inquilino B2C do Azure Active Directory (Azure AD) é fornecido com um conjunto interno de informações armazenadas em atributos, como o nome próprio, apelido, cidade e Código Postal. Com o Azure AD B2C, pode estender o conjunto de atributos armazenados em cada conta de cliente.
+ Cada aplicativo voltado para o cliente tem requisitos exclusivos para as informações que precisam ser coletadas. Seu locatário de Azure Active Directory B2C (Azure AD B2C) vem com um conjunto interno de informações armazenadas em atributos, como nome, sobrenome, cidade e CEP fornecidos. Com Azure AD B2C, você pode estender o conjunto de atributos armazenados em cada conta de cliente.
 
- Pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e usá-los em seus fluxos de utilizador de inscrição, fluxos de utilizador de inscrição ou início de sessão ou fluxos de utilizador de edição de perfil. Também pode ler e gravar esses atributos utilizando o [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Utilizam atributos personalizados no Azure AD B2C [do Azure AD Graph API Extensões de esquema do](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Você pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e usá-los em seus fluxos de usuário de inscrição, entrada ou entrada de fluxos de usuário ou fluxos de usuário de edição de perfil. Você também pode ler e gravar esses atributos usando o [API do Graph do Azure ad](active-directory-b2c-devquickstarts-graph-dotnet.md). Os atributos personalizados no Azure AD B2C usam [extensões de esquema de diretório do Azure AD API do Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
-> Suporte para a mais recente [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) para consultar o Azure AD B2C inquilino ainda está em desenvolvimento.
+> O suporte para [API de Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) mais recente para consultar Azure ad B2C locatário ainda está em desenvolvimento.
 >
 
 ## <a name="create-a-custom-attribute"></a>Criar um atributo personalizado
@@ -36,25 +36,25 @@ ms.locfileid: "67835398"
 
     Escolha o diretório que contém o seu inquilino.
 
-    ![Inquilino de B2C realçado no filtro de diretório e subscrição](./media/active-directory-b2c-reference-custom-attr/select-directory.PNG)
+    ![Locatário do B2C realçado no filtro de diretório e assinatura](./media/active-directory-b2c-reference-custom-attr/select-directory.PNG)
 
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
-4. Selecione **atributos de utilizador**e, em seguida, selecione **Add**.
-5. Fornecer um **nome** para o atributo personalizado (por exemplo, "ShoeSize")
-6. Escolher uma **tipo de dados**. Apenas **cadeia de caracteres**, **booleano**, e **Int** estão disponíveis.
-7. Opcionalmente, introduza um **Descrição** para fins informativos.
+4. Selecione **atributos de usuário**e, em seguida, selecione **Adicionar**.
+5. Forneça um **nome** para o atributo personalizado (por exemplo, "calçado")
+6. Escolha um **tipo de dados**. Somente **String**, **Boolean**e **int** estão disponíveis.
+7. Opcionalmente, insira uma **Descrição** para fins informativos.
 8. Clique em **Criar**.
 
-O atributo personalizado está agora disponível na lista de **atributos de utilizador** para uso em seus fluxos de utilizador. Um atributo personalizado é criado na primeira vez que é utilizado em qualquer fluxo de utilizador, e somente não quando o adicionar à lista de **atributos de utilizador**.
+O atributo personalizado agora está disponível na lista de **atributos de usuário** e para uso em seus fluxos de usuário. Um atributo personalizado só é criado na primeira vez em que é usado em qualquer fluxo de usuário, e não quando você o adiciona à lista de **atributos de usuário**.
 
 
-## <a name="use-a-custom-attribute-in-your-user-flow"></a>Utilizar um atributo personalizado do fluxo de utilizador
+## <a name="use-a-custom-attribute-in-your-user-flow"></a>Usar um atributo personalizado em seu fluxo de usuário
 
-1. No seu inquilino do Azure AD B2C, selecione **fluxos de utilizador**.
-2. Selecione a política (por exemplo, "B2C_1_SignupSignin") para abri-lo.
-4. Selecione **atributos de utilizador** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Guardar**.
-5. Selecione **afirmações de aplicação** e, em seguida, selecione o vlastní atribut.
+1. No locatário do Azure AD B2C, selecione **fluxos de usuário**.
+2. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
+4. Selecione **atributos de usuário** e, em seguida, selecione o atributo personalizado (por exemplo, "sapato"). Clique em **Guardar**.
+5. Selecione **declarações do aplicativo** e, em seguida, selecione o atributo personalizado.
 6. Clique em **Guardar**.
 
-Assim que tiver criado um novo utilizador com um fluxo de utilizador que utiliza o atributo personalizado criado recentemente, o objeto pode ser consultado no [do Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). Em alternativa, pode utilizar o [ **executar o fluxo de utilizador** ](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) funcionalidade no fluxo de utilizador para verificar a experiência do cliente. Deverá ver agora **ShoeSize** na lista de atributos recolhidos durante a viagem de inscrição e vê-lo no token enviado para a sua aplicação.
+Depois de criar um novo usuário usando um fluxo de usuário que usa o atributo personalizado recém-criado, o objeto pode ser consultado no [Explorador do Azure ad Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). Como alternativa, você pode usar o recurso [**executar fluxo de usuário**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) no fluxo do usuário para verificar a experiência do cliente. Agora você deve ver **calçados** na lista de atributos coletados durante a jornada de inscrição e vê-los no token enviado de volta para seu aplicativo.
 
