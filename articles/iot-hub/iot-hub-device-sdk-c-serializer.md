@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Observe que o modelo inclui dois eventos de dados: **Temperatura** e **umidade**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **Declare\_struct**. **TemperatureEvent** inclui uma medição de temperatura e um carimbo de data/hora; **HumidityEvent** contém uma medida de umidade e um carimbo de data/hora. Esse modelo nos dá uma maneira natural de modelar os dados para o cenário descrito acima. Quando enviarmos um evento para a nuvem, enviaremos um par de temperatura/carimbo de data/hora ou de umidade/carimbo de data/hora.
+Observe que o modelo inclui dois eventos de dados: **Temperatura** e **umidade**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **Declare\_STRUCT**. **TemperatureEvent** inclui uma medição de temperatura e um carimbo de data/hora; **HumidityEvent** contém uma medida de umidade e um carimbo de data/hora. Esse modelo nos dá uma maneira natural de modelar os dados para o cenário descrito acima. Quando enviarmos um evento para a nuvem, enviaremos um par de temperatura/carimbo de data/hora ou de umidade/carimbo de data/hora.
 
 Podemos enviar um evento de temperatura para a nuvem usando um código como o seguinte:
 
