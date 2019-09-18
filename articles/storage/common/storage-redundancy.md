@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/10/2019
+ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 17d1bd95067c15bd67f80f3713f0e497bff8a68d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516120"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074340"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -28,16 +28,16 @@ O armazenamento do Azure verifica regularmente a integridade dos dados armazenad
 
 Ao criar uma conta de armazenamento, você pode selecionar uma das seguintes opções de redundância:
 
-* [Armazenamento localmente redundante (LRS)](storage-redundancy-lrs.md)
-* [Armazenamento com redundância entre zonas (ZRS)](storage-redundancy-zrs.md)
-* [Armazenamento georredundante (GRS)](storage-redundancy-grs.md)
-* [Armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-* [Armazenamento com redundância de zona geográfica (GZRS)](storage-redundancy-gzrs.md)
-* [Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS)](storage-redundancy-gzrs.md)
+- [Armazenamento localmente redundante (LRS)](storage-redundancy-lrs.md)
+- [Armazenamento com redundância entre zonas (ZRS)](storage-redundancy-zrs.md)
+- [Armazenamento georredundante (GRS)](storage-redundancy-grs.md)
+- [Armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Armazenamento com redundância de zona geográfica (GZRS)](storage-redundancy-gzrs.md)
+- [Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS)](storage-redundancy-gzrs.md)
 
 A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e disponibilidade que cada estratégia de replicação fornecerá a você para um determinado tipo de evento (ou evento de impacto semelhante).
 
-| Cenário                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                               |
+| Cenário                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (visualização)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Indisponibilidade de nó dentro de um data center                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                  |
 | Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim                                  | Sim                                  |
@@ -45,7 +45,7 @@ A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e d
 | Acesso de leitura aos seus dados (em uma região remota de replicação geográfica) no caso de indisponibilidade em toda a região | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
 | Projetado para fornecer \_ \_ durabilidade de objetos em um determinado ano                                          | pelo menos 99,999999999% (11 9 ' s) | pelo menos 99,9999999999% (12 9 ' s) | pelo menos 99.99999999999999% (16 9 ' s) | pelo menos 99.99999999999999% (16 9 ' s) |
 | Tipos de conta de armazenamento com suporte                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| SLA de disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,99% (99,9% para a camada de acesso fria) |
+| SLA de disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) para GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso fria) para RA-GRS | Pelo menos 99,9% (99% para a camada de acesso fria) para GZRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso fria) para RA-GZRS |
 | SLA de disponibilidade para solicitações de gravação | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) |
 
 Todos os dados em sua conta de armazenamento são replicados, incluindo BLOBs de blocos e blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos. Todos os tipos de contas de armazenamento são replicados, embora ZRS exija uma conta de armazenamento v2 de uso geral.
@@ -61,9 +61,9 @@ Para obter informações sobre as garantias de armazenamento do Azure quanto à 
 
 Você pode alterar a estratégia de replicação da sua conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)ou uma das bibliotecas de cliente de [armazenamento do Azure](https://docs.microsoft.com/azure/index#pivot=sdkstools). A alteração do tipo de replicação da sua conta de armazenamento não resulta em tempo de inatividade.
 
-   > [!NOTE]
-   > No momento, você não pode usar as bibliotecas de cliente de armazenamento do portal do Azure ou do Azure para converter sua conta em ZRS, GZRS ou RA-GZRS. Para migrar sua conta para o ZRS, consulte [armazenamento com redundância de zona (ZRS) para criar aplicativos de armazenamento do Azure altamente disponíveis](storage-redundancy-zrs.md) para obter detalhes. Para migrar GZRS ou RA-GZRS, consulte [armazenamento com redundância de zona geográfica para alta disponibilidade e durabilidade máxima (versão prévia)](storage-redundancy-zrs.md) para obter detalhes.
-    
+> [!NOTE]
+> No momento, você não pode usar as bibliotecas de cliente de armazenamento do portal do Azure ou do Azure para converter sua conta em ZRS, GZRS ou RA-GZRS. Para migrar sua conta para o ZRS, consulte [armazenamento com redundância de zona (ZRS) para criar aplicativos de armazenamento do Azure altamente disponíveis](storage-redundancy-zrs.md) para obter detalhes. Para migrar GZRS ou RA-GZRS, consulte [armazenamento com redundância de zona geográfica para alta disponibilidade e durabilidade máxima (versão prévia)](storage-redundancy-zrs.md) para obter detalhes.
+
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Há algum custo para alterar a estratégia de replicação da minha conta?
 
 Depende do seu caminho de conversão. Ordenando da menor para a mais cara, as ofertas de redundância de armazenamento do Azure LRS, ZRS, GRS, RA-GRS, GZRS e RA-GZRS. Por exemplo, passar *de* LRS para qualquer outro tipo de replicação incorrerá em encargos adicionais, pois você está mudando para um nível de redundância mais sofisticado. Migrar *para* grs ou ra-grs incorrerá em um encargo de largura de banda de saída, pois seus dados (em sua região primária) estão sendo replicados para sua região secundária remota. Essa cobrança é um custo único na configuração inicial. Depois que os dados são copiados, não há nenhuma cobrança adicional de migração. Você é cobrado somente pela replicação de novas ou atualizações nos dados existentes. Para obter detalhes sobre cobranças de largura de banda, consulte a [página de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/)

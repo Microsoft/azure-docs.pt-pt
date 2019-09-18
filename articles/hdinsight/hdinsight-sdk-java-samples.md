@@ -1,17 +1,18 @@
 ---
 title: 'Azure HDInsight: Exemplos do Java'
-description: Encontre exemplos de Java no GitHub para tarefas comuns com o SDK do HDInsight para Java.
+description: Encontre exemplos de Java no GitHub para tarefas comuns usando o SDK do HDInsight para Java.
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 90723afd8864bd7ec64f7b2e81e11644561cb52d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4a9bfe83c9fc1ccbc496ec97822305720dc52c10
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710149"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076839"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Exemplos do Java
 
@@ -23,24 +24,24 @@ ms.locfileid: "64710149"
 
 Este artigo fornece:
 
-* Links para amostras para tarefas de criação do cluster.
-* Ligações para conteúdo de referência para outras tarefas de gestão.
+* Links para exemplos de tarefas de criação de cluster.
+* Links para conteúdo de referência para outras tarefas de gerenciamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Azure HDInsight SDK para Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+- [SDK do Azure HDInsight para Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 
-## <a name="cluster-management---creation"></a>Gerenciamento de cluster – criação
+## <a name="cluster-management---creation"></a>Gerenciamento de cluster-criação
 
-* [Criar um cluster do Kafka](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateKafkaClusterSample.java)
+* [Criar um cluster Kafka](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateKafkaClusterSample.java)
 * [Criar um cluster do Spark](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateSparkClusterSample.java)
-* [Criar um cluster do Spark com geração 2 de armazenamento do Azure Data Lake](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateHadoopClusterWithAdlsGen2Sample.java)
-* [Criar um cluster do Spark com o pacote de segurança da empresa (ESP)](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateEspClusterSample.java)
+* [Criar um cluster Spark com Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateHadoopClusterWithAdlsGen2Sample.java)
+* [Criar um cluster Spark com Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateEspClusterSample.java)
 
-Pode obter estes exemplos de Java através da clonagem do [hdinsight-java-sdk-samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples) repositório do GitHub.
+Você pode obter esses exemplos para Java clonando o repositório do GitHub [hdinsight-Java-SDK-Samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples) .
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Fragmentos de código para esta funcionalidade adicional do SDK pode ser encontrada na [SDK do HDInsight para documentação de referência de Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview).
+Os trechos de código para essa funcionalidade adicional do SDK podem ser encontrados na [documentação de referência do SDK do HDInsight para Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview).

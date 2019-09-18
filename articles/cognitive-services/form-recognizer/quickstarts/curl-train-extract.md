@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b6af9e512d5df7f4701ad981a0db89278873ec7e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b889be6f881894b2666ed47304f6b61e7c776474
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442896"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073716"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação
 
@@ -24,7 +24,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido, você deve ter:
-- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso](https://aka.ms/FormRecognizerRequestAccess) do reconhecedor de formulário.
+- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
 - [rotação](https://curl.haxx.se/windows/) instalada.
 - Um conjunto de pelo menos cinco formulários do mesmo tipo. Você usará esses dados para treinar o modelo. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os dados na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure.
 
@@ -38,7 +38,7 @@ Primeiro, você precisará de um conjunto de dados de treinamento em um blob de 
 
 Para treinar um modelo de reconhecimento de formulário com os documentos em seu contêiner de blob do Azure, chame a API de **treinamento** executando o comando de rotação a seguir. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
+1. Substitua `<Endpoint>` pelo ponto de extremidade obtido com a chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou da etapa anterior.
 1. Substitua `<SAS URL>` pela URL da assinatura de acesso compartilhado (SAS) do contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Verifique se as permissões de **leitura** e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na seção **URL** . Ele deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
@@ -429,7 +429,7 @@ Uma resposta de êxito é retornada em JSON. Ele representa os pares de chave-va
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você usou a API REST do reconhecedor de formulário com ondulação para treinar um modelo e executá-lo em um cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de formulário mais detalhadamente.
 

@@ -1,20 +1,20 @@
 ---
-title: Criar um ponto de extremidade privado do Azure usando portal do Azure | Microsoft Docs
-description: Saiba mais sobre o ponto de extremidade privado do Azure
+title: Conectar-se de forma privada a uma conta de armazenamento usando um ponto de extremidade privado do Azure
+description: Saiba como conectar-se de forma privada a uma conta de armazenamento no Azure usando um ponto de extremidade privado.
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
-ms.topic: quickstart
+ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 8a569f91a27884c320f4af5b1282bfe4dd9a5a99
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
-ms.translationtype: MT
+ms.openlocfilehash: 93ca3c8c4b7a4da0387d1302b301cf677b689281
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018946"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074978"
 ---
-# <a name="create-a-private-endpoint-using-the-azure-portal"></a>Criar um ponto de extremidade privado usando o portal do Azure
+# <a name="connect-privately-to-a-storage-account-using-an-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando um ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
 
 Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual do Azure, uma conta de armazenamento com um ponto de extremidade privado usando o portal do Azure. Em seguida, você pode acessar com segurança a conta de armazenamento da VM.
