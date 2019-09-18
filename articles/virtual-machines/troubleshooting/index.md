@@ -4,19 +4,19 @@ description: Saiba como resolver problemas de implementação de máquinas virtu
 title: Documentação de Resolução de Problemas das Máquinas Virtuais do Azure | Microsoft Docs
 services: virtual-machines
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: ed1873fa8e74b2af5734411dc80aeb9089b61a7e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080443"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059152"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Resolução de problemas de máquinas virtuais do Azure
 
