@@ -1,7 +1,7 @@
 ---
-title: Reativar uma assinatura do Azure desabilitada
-description: Descreve quando você pode ter uma assinatura do Azure desabilitada e como reativá-la.
-keywords: assinatura do Azure desabilitada
+title: Reativar uma subscrição do Azure desativada
+description: Descreve quando pode ter uma subscrição do Azure desativada e como a reativar.
+keywords: subscrição do azure desativada
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -13,53 +13,53 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 484a7344185efa17731f5c35c7c4dec109608b67
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68933087"
 ---
-# <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma assinatura do Azure desabilitada
+# <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma subscrição do Azure desativada
 
-Sua assinatura do Azure pode ser desabilitada porque seu crédito expirou, você atingiu seu limite de gastos, tem uma conta vencida, atingiu seu limite de cartão de crédito ou porque a assinatura foi cancelada pelo administrador da conta. Veja qual problema se aplica a você e siga as etapas neste artigo para que sua assinatura seja reativada.
+A sua subscrição do Azure pode ser desativada porque o crédito expirou, atingiu o limite de gastos, tem uma fatura em atraso, atingiu o limite do cartão de crédito ou porque a subscrição foi cancelada pelo Administrador de Conta. Veja qual a questão que se aplica a si e siga os passos neste artigo para reativar a subscrição.
 
-## <a name="your-credit-is-expired"></a>Seu crédito expirou
+## <a name="your-credit-is-expired"></a>O crédito expirou
 
-Ao se inscrever em uma conta gratuita do Azure, você obtém uma assinatura de avaliação gratuita, que fornece $200 em créditos do Azure por 30 dias e 12 meses de serviços gratuitos. No final de 30 dias, o Azure desabilita sua assinatura. Sua assinatura está desabilitada para protegê-lo de incorrer acidentalmente em encargos pelo uso além do crédito e dos serviços gratuitos incluídos na sua assinatura. Para continuar usando os serviços do Azure, você deve [atualizar sua assinatura](billing-upgrade-azure-subscription.md). Após a atualização, sua assinatura ainda terá acesso a serviços gratuitos por 12 meses. Você só é cobrado pelo uso além dos serviços gratuitos e das quantidades.
+Quando se inscreve numa conta gratuita do Azure, obtém uma subscrição de Avaliação Gratuita, que lhe fornece 200 $ em créditos do Azure durante 30 dias e 12 meses de serviços gratuitos. No final dos 30 dias, o Azure desativa a subscrição. A subscrição é desativada para o proteger de incorrer acidentalmente em custos devido a uma utilização que exceda o crédito e os serviços gratuitos incluídos na subscrição. Para continuar a utilizar os serviços do Azure, deve [atualizar a subscrição](billing-upgrade-azure-subscription.md). Após a atualização, a subscrição ainda terá acesso aos serviços gratuitos durante 12 meses. Só lhe será faturada a utilização que exceda os serviços gratuitos e as quantidades.
 
-## <a name="you-reached-your-spending-limit"></a>Você atingiu seu limite de gastos
+## <a name="you-reached-your-spending-limit"></a>Atingiu o limite de gastos
 
-As assinaturas do Azure com crédito, como avaliação gratuita e Visual Studio Enterprise, têm limites de gastos. Isso significa que você só pode usar os serviços até o crédito incluído. Quando seu uso atinge o limite de gastos, o Azure desabilita sua assinatura para o restante do período de cobrança. Sua assinatura está desabilitada para protegê-lo de incorrer acidentalmente em encargos pelo uso além do crédito incluído em sua assinatura. Para remover seu limite de gastos, consulte [remover o limite de gastos no centro de contas](billing-spending-limit.md#remove).
+As subscrições do Azure com crédito, como a Avaliação Gratuita e o Visual Studio Enterprise, têm limites de gastos, o que significa que só pode utilizar os serviços até ao crédito incluído. Quando a utilização atinge o limite de gastos, o Azure desativa a subscrição pelo restante período de faturação. A subscrição é desativada para o proteger de incorrer acidentalmente em custos devido a uma utilização que exceda o crédito incluído na subscrição. Para remover o limite de gastos, veja [Remover o limite de gastos no Centro de Contas](billing-spending-limit.md#remove).
 
 > [!NOTE]
-> Se você tiver uma assinatura de avaliação gratuita e remover o limite de gastos, sua assinatura será convertida em uma assinatura individual com tarifas pagas conforme o uso no final da avaliação gratuita. Você mantém seu crédito restante por todos os 30 dias após a criação da assinatura. Também tem acesso a serviços gratuitos durante 12 meses.
+> Se tiver uma subscrição de Avaliação Gratuita e remover o limite de gastos, a subscrição será convertida numa subscrição individual com tarifas pay as you go no final da Avaliação Gratuita. O crédito é mantido durante os 30 dias completos após a criação da subscrição. Também tem acesso a serviços gratuitos durante 12 meses.
 
-Para monitorar e gerenciar a atividade de cobrança do Azure, confira [evitar custos inesperados com o gerenciamento de custos e cobrança do Azure](billing-getting-started.md).
+Para monitorizar e gerir a atividade de faturação do Azure, veja [Evitar custos inesperados com a faturação e a gestão de custos do Azure](billing-getting-started.md).
 
 
-## <a name="your-bill-is-past-due"></a>Sua fatura está vencida
+## <a name="your-bill-is-past-due"></a>A fatura está em dívida
 
-Para resolver o saldo vencido, consulte [resolver o saldo vencido para sua assinatura do Azure depois de obter um email do Azure](billing-azure-subscription-past-due-balance.md).
+Para resolver o saldo vencido, veja [Resolver o saldo em dívida da subscrição do Azure depois de receber um e-mail do Azure](billing-azure-subscription-past-due-balance.md).
 
-## <a name="the-bill-exceeds-your-credit-card-limit"></a>A fatura excede seu limite de cartão de crédito
+## <a name="the-bill-exceeds-your-credit-card-limit"></a>A fatura excede o limite do cartão de crédito
 
-Para resolver esse problema, [alterne para um cartão de crédito diferente](billing-how-to-change-credit-card.md). Ou, se você estiver representando um negócio, poderá [alternar para pagar por fatura](billing-how-to-pay-by-invoice.md).
+Para resolver esse problema, [mude para um cartão de crédito diferente](billing-how-to-change-credit-card.md). Ou, se estiver a representar uma empresa, pode [mudar para pagar por fatura](billing-how-to-pay-by-invoice.md).
 
-## <a name="the-subscription-was-accidentally-canceled"></a>A assinatura foi cancelada acidentalmente
+## <a name="the-subscription-was-accidentally-canceled"></a>A subscrição foi cancelada acidentalmente
 
-Se você for o administrador da conta e tiver cancelado acidentalmente uma assinatura individual com tarifas pagas conforme o uso, poderá reativá-la no centro de contas.
+Se for o Administrador de Conta e tiver cancelado acidentalmente uma subscrição individual com tarifas pay as you go, poderá reativá-la no Centro de Contas.
 
-1. Entre no centro de [contas](https://account.windowsazure.com/Subscriptions).
-1. Selecione a assinatura cancelada.
-1. Cliqueem reativar.
+1. Inicie sessão no [Centro de Contas](https://account.windowsazure.com/Subscriptions).
+1. Selecione a subscrição cancelada.
+1. Clique em **Reativar**.
 
-    ![Captura de tela que mostra reativar links no painel à direita](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+    ![Captura de ecrã que mostra as ligações de reativação no painel direito](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-Para outros tipos de assinatura, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que sua assinatura seja reativada.
+Relativamente aos outros tipos de subscrições, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para reativar a subscrição.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba como [monitorar e gerenciar a atividade de cobrança do Azure](billing-getting-started.md).
+## <a name="next-steps"></a>Passos seguintes
+- Saiba como [Monitorizar e gerir a atividade de faturação do Azure](billing-getting-started.md).
