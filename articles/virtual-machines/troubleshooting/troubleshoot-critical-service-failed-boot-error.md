@@ -4,7 +4,7 @@ description: Saiba como solucionar o erro "falha do serviço crítico do 0x00000
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103511"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058056"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "falha no serviço crítico" na tela azul ao inicializar uma VM do Azure
 Este artigo descreve o erro "serviço crítico com falha" que pode ocorrer quando você Inicializa uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas de solução de problemas para ajudar a resolver os problemas. 
@@ -27,7 +27,7 @@ Este artigo descreve o erro "serviço crítico com falha" que pode ocorrer quand
 
 ## <a name="symptom"></a>Sintoma 
 
-Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em diagnósticos de [inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
+Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em [diagnósticos de inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
 
 - "Seu PC encontrou um problema e precisa ser reiniciado. Você pode reiniciar o. Para obter mais informações sobre esse problema e as possíveis correções, visite https://windows.com/stopcode. Se você chamar uma pessoa de suporte, forneça estas informações: Código de parada: FALHA NO SERVIÇO CRÍTICO " 
 - "Seu PC encontrou um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações de erro e, em seguida, reiniciaremos para você. Se você quiser saber mais, poderá pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED"

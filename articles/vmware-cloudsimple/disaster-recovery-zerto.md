@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ad2372f9a9f90e4502b304a08477771fd6ef385
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880387"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037430"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurar a nuvem privada do CloudSimple como um site de recuperação de desastre para cargas de trabalho do VMware locais
 
 Sua nuvem privada do CloudSimple pode ser configurada como um site de recuperação para aplicativos locais para fornecer continuidade dos negócios em caso de desastre. A solução de recuperação baseia-se na replicação virtual zerto como a plataforma de replicação e orquestração. A infraestrutura crítica e as máquinas virtuais de aplicativo podem ser replicadas continuamente do seu vCenter local para sua nuvem privada. Você pode usar sua nuvem privada para testes de failover e para garantir a disponibilidade do seu aplicativo durante um desastre. Uma abordagem semelhante pode ser seguida para configurar a nuvem privada como um site primário que é protegido por um site de recuperação em um local diferente.
 
 > [!NOTE]
-> Consulte as considerações de dimensionamento de documento zerto [para a replicação virtual zerto](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) para obter diretrizes sobre como dimensionar seu ambiente de recuperação de desastre.
+> Consulte as considerações de dimensionamento de documento zerto [para a replicação virtual zerto](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) para obter diretrizes sobre como dimensionar seu ambiente de recuperação de desastre.
 
 A solução CloudSimple:
 

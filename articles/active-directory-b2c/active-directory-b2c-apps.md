@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 09cdc2fb5dba152e467164fd757225c7a9183264
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369396"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066152"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
-O Azure Active Directory (Azure AD) B2C dá suporte à autenticação para uma variedade de arquiteturas de aplicativo modernas. Todos elas baseiam-se nos protocolos padrão da indústria [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Este artigo descreve os tipos de aplicativos que você pode criar, independentemente da linguagem ou da plataforma que preferir. Ele também ajuda a entender os cenários de alto nível antes de começar a criar aplicativos.
+O Azure Active Directory B2C (Azure AD B2C) dá suporte à autenticação para uma variedade de arquiteturas de aplicativos modernas. Todos elas baseiam-se nos protocolos padrão da indústria [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Este artigo descreve os tipos de aplicativos que você pode criar, independentemente da linguagem ou da plataforma que preferir. Ele também ajuda a entender os cenários de alto nível antes de começar a criar aplicativos.
 
 Cada aplicativo que usa Azure AD B2C deve ser registrado em seu [locatário Azure ad B2C](active-directory-b2c-get-started.md) usando o [portal do Azure](https://portal.azure.com/). O processo de registro de aplicativo coleta e atribui valores, como:
 
@@ -132,12 +132,12 @@ Este cenário de API web em cadeia pode ser suportado utilizando a concessão de
 
 Não edite aplicativos Azure AD B2C das seguintes maneiras:
 
-- Em outros portais de gerenciamento de aplicativos, como o [portal de registro de aplicativos](https://apps.dev.microsoft.com/).
+- Em outros portais de gerenciamento de aplicativos, como o [portal de registro de aplicativos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Usando API do Graph ou PowerShell.
 
 Se você editar o aplicativo Azure AD B2C fora do portal do Azure, ele se tornará um aplicativo com falha e não poderá mais ser usado com Azure AD B2C. Exclua o aplicativo e crie-o novamente.
 
-Para excluir o aplicativo, vá para o [portal de registro de aplicativos](https://apps.dev.microsoft.com/) e exclua o aplicativo. Para que a aplicação fique visível, tem de ser o proprietário da aplicação (e não apenas um administrador do inquilino).
+Para excluir o aplicativo, vá para o [portal de registro de aplicativos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) e exclua o aplicativo. Para que a aplicação fique visível, tem de ser o proprietário da aplicação (e não apenas um administrador do inquilino).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227175"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065695"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
-O Azure Active Directory (Azure AD) B2C é um serviço de gerenciamento de identidade entre consumidores. Esse serviço permite que você personalize e controle como os usuários interagem com segurança com seus aplicativos Web, de área de trabalho, móveis ou de página única. Usando Azure AD B2C, os usuários podem se inscrever, entrar, redefinir senhas e editar perfis. Azure AD B2C implementa uma forma do OpenID Connect e dos protocolos OAuth 2,0. A chave importante na implementação desses protocolos são os tokens de segurança e suas declarações que permitem que você forneça acesso seguro aos recursos.
+O Azure Active Directory B2C (Azure AD B2C) é um serviço de gerenciamento de identidade entre consumidores. Esse serviço permite que você personalize e controle como os usuários interagem com segurança com seus aplicativos Web, de área de trabalho, móveis ou de página única. Usando Azure AD B2C, os usuários podem se inscrever, entrar, redefinir senhas e editar perfis. Azure AD B2C implementa uma forma do OpenID Connect e dos protocolos OAuth 2,0. A chave importante na implementação desses protocolos são os tokens de segurança e suas declarações que permitem que você forneça acesso seguro aos recursos.
 
 Uma *jornada do usuário* é uma solicitação que especifica uma política, que controla o comportamento de como o usuário e seu aplicativo interagem com Azure ad B2C. Dois caminhos estão disponíveis para a definição de percursos do usuário no Azure AD B2C.
 
@@ -127,7 +127,7 @@ Você pode adicionar seu próprio código do lado do cliente JavaScript a seus a
 
 Muitas tarefas comuns de gerenciamento de locatários precisam ser executadas programaticamente. Um exemplo principal é o gerenciamento de usuários. Talvez seja necessário migrar um repositório de usuários existente para um locatário Azure AD B2C. Talvez você queira hospedar o registro de usuário em sua própria página e criar contas de usuário em seu diretório Azure AD B2C nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode executar essas tarefas usando o [API do Graph do Azure ad](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Inicie a configuração da sua aplicação para a experiência de inscrição e de início de sessão ao avançar para o tutorial.
 

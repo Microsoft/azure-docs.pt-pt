@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885934"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037160"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas de Apache Kafka no HDInsight com Enterprise Security Package (versão prévia)
 
@@ -36,7 +36,7 @@ Um [cluster HDInsight Kafka com Enterprise Security Package](./apache-domain-joi
 
 2. Inicie sessão com as suas credenciais de administrador do Azure Active Directory (AD). As credenciais de administrador do Azure AD não iguais às credenciais de cluster do HDInsight ou às credenciais SSH de nó HDInsight do Linux.
 
-   ![IU do Apache Ranger Admin](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![IU de administração do Apache Ranger do HDInsight](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>Criar utilizadores de domínio
 
@@ -183,7 +183,7 @@ Com base nas políticas de Ranger configuradas, o **sales_user** pode `saleseven
 
 9. Veja os eventos de acesso de auditoria da IU do Ranger.
 
-   ![Auditoria à Política da IU do Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Eventos de acesso de auditoria da política de IU do Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -195,7 +195,7 @@ Se você não for continuar a usar este aplicativo, exclua o cluster Kafka que v
 1. Na lista de clusters HDInsight que aparece, clique em **...** ao lado do cluster que você criou para este tutorial. 
 1. Clique em **Eliminar**. Clique em **Sim**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Traga sua própria chave para Apache Kafka](../kafka/apache-kafka-byok.md)

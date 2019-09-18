@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276999"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067022"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos de Application Insights
 
@@ -30,12 +30,12 @@ Se você tiver dúvidas sobre como o preço funciona para Application Insights, 
 
 ## <a name="pricing-model"></a>Modelo preços
 
-O preço do [aplicativo Azure][start] insights é baseado no volume de dados ingerido. Cada recurso de Application Insights é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure.
+O preço do [aplicativo Azure insights][start] é baseado no volume de dados ingerido. Cada recurso de Application Insights é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure.
 
 ### <a name="data-volume-details"></a>Detalhes do volume de dados
 
 * Volume de dados é o número de bytes de telemetria recebidos por Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado que é recebido por Application Insights do seu aplicativo. Para [dados tabulares importados para a análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado dos arquivos que são enviados para Application insights.
-* Os encargos do volume de dados de seu aplicativo agora são relatados em um novo medidor de cobrança chamado ingestão de **dados** a partir de abril de 2018. Esse novo medidor é compartilhado entre tecnologias de monitoramento, como o Application insights e o Log Analytics e, no momento, está sob o nome do serviço **log Analytics**. 
+* Os encargos do volume de dados de seu aplicativo agora são relatados em um novo medidor de cobrança chamado **ingestão de dados** a partir de abril de 2018. Esse novo medidor é compartilhado entre tecnologias de monitoramento, como o Application insights e o Log Analytics e, no momento, está sob o nome do serviço **log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) dados não são contados para fins de preços.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ C. Exibir tendências de volume de dados para o mês passado.
 D. Habilitar [amostragem](../../azure-monitor/app/sampling.md)de ingestão de dados.   
 E. Defina o limite de volume de dados diário.  
 
-Para investigar seu uso de Application Insights mais profundamente, abra a página métricas, adicione a métrica denominada "volume de ponto de dados" e, em seguida, selecione a opção *aplicar divisão* para dividir os dados por "tipo de item de telemetria". 
+Para investigar seu uso de Application Insights mais profundamente, abra a página **métricas** , adicione a métrica denominada "volume de ponto de dados" e, em seguida, selecione a opção *aplicar divisão* para dividir os dados por "tipo de item de telemetria". 
 
 Application Insights encargos são adicionados à sua fatura do Azure. Você pode ver os detalhes da sua fatura do Azure na seção de **cobrança** do portal do Azure ou no [portal de cobrança do Azure](https://account.windowsazure.com/Subscriptions). 
 
@@ -105,7 +105,7 @@ O volume de dados que você envia pode ser gerenciado de três maneiras:
 Aqui estão algumas coisas que você pode fazer para reduzir o volume de dados:
 
 * Use a [amostragem](../../azure-monitor/app/sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas. Você não perde a capacidade de navegar entre os itens relacionados na pesquisa. Em aplicativos de servidor, a amostragem funciona automaticamente.
-* [Limite o número de chamadas AJAX que podem ser](../../azure-monitor/app/javascript.md#configuration) relatadas em cada exibição de página ou desative os relatórios Ajax.
+* [Limite o número de chamadas AJAX que podem ser relatadas](../../azure-monitor/app/javascript.md#configuration) em cada exibição de página ou desative os relatórios Ajax.
 * [Edite ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) para desativar os módulos de coleta que você não precisa. Por exemplo, você pode decidir que os contadores de desempenho ou os dados de dependência são inessenciais.
 * Divida sua telemetria entre chaves de instrumentação separadas. 
 * Métricas de agregação prévia. Se você colocar chamadas para TrackMetric em seu aplicativo, poderá reduzir o tráfego usando a sobrecarga que aceita o cálculo do desvio médio e padrão de um lote de medições. Ou você pode usar um [pacote de pré-autenticação](https://www.myget.org/gallery/applicationinsights-sdk-labs).
@@ -130,7 +130,7 @@ A amostragem é uma maneira eficaz de reduzir os encargos e permanecer dentro de
 Há várias formas de amostragem.
 
 * A [amostragem adaptável](../../azure-monitor/app/sampling.md) é o padrão para o SDK do ASP.net. A amostragem adaptável ajusta-se automaticamente ao volume de telemetria que seu aplicativo envia. Ele funciona automaticamente no SDK em seu aplicativo Web para que o tráfego de telemetria na rede seja reduzido. 
-* A *amostragem* de ingestão é uma alternativa que opera no ponto em que a telemetria do seu aplicativo entra no serviço Application insights. A amostragem de ingestão não afeta o volume de telemetria enviado do seu aplicativo, mas reduz o volume retido pelo serviço. Você pode usar a amostragem de ingestão para reduzir a cota que é usada pela telemetria de navegadores e outros SDKs.
+* A *amostragem de ingestão* é uma alternativa que opera no ponto em que a telemetria do seu aplicativo entra no serviço Application insights. A amostragem de ingestão não afeta o volume de telemetria enviado do seu aplicativo, mas reduz o volume retido pelo serviço. Você pode usar a amostragem de ingestão para reduzir a cota que é usada pela telemetria de navegadores e outros SDKs.
 
 Para definir a amostragem de ingestão, vá para o painel de **preços** :
 
@@ -151,7 +151,7 @@ Em cada registro retido, `itemCount` indica o número de registros originais que
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
 
 > [!NOTE]
-> Removemos temporariamente esse recurso enquanto resolvemos um possível problema.  Teremos isso de volta em meados de setembro de 2019.
+> Removemos temporariamente esse recurso enquanto resolvemos um possível problema.  Vamos tê-lo de volta na primeira semana em outubro de 2019.
 
 A retenção padrão para recursos de Application Insights é de 90 dias. Diferentes períodos de retenção podem ser selecionados para cada recurso de Application Insights. O conjunto completo de períodos de retenção disponíveis é 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias. 
 

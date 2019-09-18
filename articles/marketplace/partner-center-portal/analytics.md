@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993726"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036637"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
@@ -250,7 +250,7 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | Nome do cliente| Cliente| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente.| |
 | ID de Cliente | Cliente, pedido | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace.|  |
 | CEP do cliente  | Cliente| O CEP fornecido pelo cliente. O código pode ser diferente do código postal fornecido na assinatura do Azure de um cliente.| |
-| Estado do cliente| Cliente| O estado (endereço) fornecido pelo cliente. O estado pode ser diferente do último nome fornecido na assinatura do Azure de um cliente.| |
+| Estado do cliente| Cliente| O estado (endereço) fornecido pelo cliente. O estado pode ser diferente do estado fornecido na assinatura do Azure de um cliente.| |
 | Data de aquisição| Cliente| A primeira data em que o cliente comprou qualquer oferta publicada por você.| |
 | Data de perda| Cliente| A última data em que o cliente cancelou o último de todas as ofertas adquiridas anteriormente.||
 | É novo cliente  | Encomenda| O valor identificará um novo cliente adquirindo uma ou mais das suas ofertas pela primeira vez (ou não). O valor será "Sim" se estiver no mesmo mês do calendário para "data de aquisição". O valor será "não" se o cliente tiver comprado uma de suas ofertas antes do relatório do mês do calendário. |

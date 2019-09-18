@@ -1,10 +1,10 @@
 ---
-title: Resolver problemas relacionados com alterações de nome de dispositivo de VM do Linux no Azure | Documentos da Microsoft
-description: Explica por que o dispositivo de VM do Linux nomes a alteração e como resolver o problema.
+title: Solucionar problemas de alterações de nome do dispositivo VM do Linux no Azure | Microsoft Docs
+description: Explica por que os nomes de dispositivo VM do Linux são alterados e como resolver o problema.
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 0350b6bdc990ed6c2de60e3e98c3768b18d0d636
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710425"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058210"
 ---
-# <a name="troubleshoot-linux-vm-device-name-changes"></a>Resolver problemas relacionados com alterações de nome de dispositivo de VM do Linux
+# <a name="troubleshoot-linux-vm-device-name-changes"></a>Solucionar problemas de alterações de nome do dispositivo VM Linux
 
-Este artigo explica por que os nomes de dispositivo alterar depois de reiniciar uma VM do Linux ou voltar a ligá os discos de dados. O artigo também fornece soluções para este problema.
+Este artigo explica por que os nomes de dispositivo são alterados depois que você reinicia uma VM do Linux ou anexa novamente os discos de dados. O artigo também fornece soluções para esse problema.
 
 ## <a name="symptoms"></a>Sintomas
-Poderá ter os seguintes problemas quando executar VMs do Linux no Microsoft Azure:
+Você pode enfrentar os seguintes problemas ao executar VMs do Linux no Microsoft Azure:
 
-- A VM não consegue efetuar o arranque após um reinício.
-- Quando os discos de dados são desligados e voltar a ligar, os nomes de dispositivo de disco são alterados.
-- Uma aplicação ou script que faça referência a um disco ao utilizar o nome do dispositivo não consegue porque o nome do dispositivo foi alterada.
+- A VM não é inicializada após uma reinicialização.
+- Quando os discos de dados são desanexados e reanexados, os nomes de dispositivo de disco são alterados.
+- Um aplicativo ou script que faz referência a um disco usando o nome do dispositivo falha porque o nome do dispositivo foi alterado.
 
 ## <a name="cause"></a>Causa
 
-Caminhos de dispositivo no Linux não são garantidos para ser consistente entre reinícios. Os nomes de dispositivo é composto por números importantes (letras) e números menores. Quando o controlador de dispositivo de armazenamento de Linux Deteta um novo dispositivo, o driver atribui números principal e secundário do intervalo disponível para o dispositivo. Quando um dispositivo é removido, os números de dispositivos são liberados para reutilização.
+Os caminhos de dispositivo no Linux não têm garantia de serem consistentes entre as reinicializações. Os nomes de dispositivo consistem em números principais (letras) e números secundários. Quando o driver de dispositivo de armazenamento do Linux detecta um novo dispositivo, o driver atribui números principais e secundários do intervalo disponível para o dispositivo. Quando um dispositivo é removido, os números de dispositivo são liberados para reutilização.
 
-O problema ocorre porque o dispositivo de análise no Linux é agendado pelo subsistema de SCSI para ocorrer de modo assíncrono. Como resultado, um nome de caminho do dispositivo pode variar entre reinícios.
+O problema ocorre porque a verificação de dispositivo no Linux está agendada pelo subsistema SCSI para ocorrer de forma assíncrona. Como resultado, um nome de caminho de dispositivo pode variar entre as reinicializações.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, utilize a nomenclatura persistente. Existem quatro formas de utilizar a nomenclatura persistente: por etiqueta de sistema de ficheiros, por UUID, por ID ou pelo caminho. Recomendamos que utilize a etiqueta de sistema de ficheiros ou UUID para VMs Linux do Azure.
+Para resolver esse problema, use a nomenclatura persistente. Há quatro maneiras de usar nomes persistentes: por rótulo FileSystem, por UUID, por ID ou por caminho. É recomendável usar o rótulo do sistema de arquivos ou UUID para VMs Linux do Azure.
 
-A maioria das distribuições de fornecer a `fstab` **nofail** ou **nobootwait** parâmetros. Estes parâmetros permitem um sistema efetuar o arranque quando o disco não consegue montar na inicialização. Consulte a documentação de distribuição para obter mais informações sobre estes parâmetros. Para obter informações sobre como configurar uma VM do Linux utilizar um UUID quando adiciona um disco de dados, consulte [ligar à VM do Linux para montar o disco novo](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+A maioria das distribuições `fstab` fornece os parâmetros **nofail** ou **nobootwait** . Esses parâmetros permitem que um sistema seja inicializado quando o disco não é montado na inicialização. Verifique a documentação de distribuição para obter mais informações sobre esses parâmetros. Para obter informações sobre como configurar uma VM do Linux para usar um UUID ao adicionar um disco de dados, consulte [conectar-se à VM do Linux para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
-Quando o agente Linux do Azure está instalado numa VM, o agente utiliza regras de Udev para construir um conjunto de links simbólicos no caminho /dev/disk/azure. Aplicativos e scripts utilizam regras de Udev para identificar discos que estão ligados à VM, juntamente com o tipo de disco e disco LUNs.
+Quando o agente Linux do Azure é instalado em uma VM, o agente usa regras udev para construir um conjunto de links simbólicos no caminho/dev/disk/Azure. Aplicativos e scripts usam regras udev para identificar os discos anexados à VM, juntamente com o tipo de disco e LUNs de disco.
 
-Se já tiver editado o fstab de tal forma que a VM não está inicializando e não for possível SSH à VM, pode utilizar o [consola de série de VM](./serial-console-linux.md) introduzir [modo de utilizador único](./serial-console-grub-single-user-mode.md) e modificar seu fstab.
+Se você já tiver editado o fstab de forma que sua VM não esteja inicializando e não seja possível usar o SSH para a VM, use o [console serial da VM](./serial-console-linux.md) para entrar no [modo de usuário único](./serial-console-grub-single-user-mode.md) e modificar seu fstab.
 
-### <a name="identify-disk-luns"></a>Identificar os LUNs de disco
+### <a name="identify-disk-luns"></a>Identificar LUNs de disco
 
-Aplicativos usam LUNs para localizar todos os discos anexados e construir links simbólicos. O agente Linux do Azure inclui regras de Udev que configurar links simbólicos de um LUN para os dispositivos:
+Os aplicativos usam LUNs para localizar todos os discos anexados e para construir links simbólicos. O agente Linux do Azure inclui regras udev que configuram links simbólicos de um LUN para os dispositivos:
 
     $ tree /dev/disk/azure
 
@@ -67,7 +67,7 @@ Aplicativos usam LUNs para localizar todos os discos anexados e construir links 
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3
 
-Informações de LUN da conta de convidado do Linux são recuperadas usando `lsscsi` ou uma ferramenta semelhante:
+As informações de LUN da conta de convidado do Linux são `lsscsi` recuperadas usando o ou uma ferramenta semelhante:
 
       $ sudo lsscsi
 
@@ -81,7 +81,7 @@ Informações de LUN da conta de convidado do Linux são recuperadas usando `lss
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-As informações de LUN de convidado são utilizadas com metadados de subscrição do Azure para localizar o VHD no armazenamento do Azure que contém os dados de partição. Por exemplo, pode usar o `az` CLI:
+As informações de LUN convidado são usadas com metadados de assinatura do Azure para localizar o VHD no armazenamento do Azure que contém os dados da partição. Por exemplo, você pode usar a `az` CLI:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
@@ -111,9 +111,9 @@ As informações de LUN de convidado são utilizadas com metadados de subscriç�
       }
     ]
 
-### <a name="discover-filesystem-uuids-by-using-blkid"></a>Detetar os UUIDs não do sistema de ficheiros utilizando blkid
+### <a name="discover-filesystem-uuids-by-using-blkid"></a>Descobrir UUIDs do sistema de arquivos usando blkid
 
-Aplicativos e scripts ler a saída de `blkid`, ou semelhante fontes de informação, construir links simbólicos no caminho /dev. O resultado mostra o UUIDs não de todos os discos que estão ligados à VM e seu arquivo de dispositivo associados:
+Aplicativos e scripts lêem a saída de `blkid`, ou fontes semelhantes de informações, para construir links simbólicos no caminho/dev. A saída mostra os UUIDs de todos os discos que estão anexados à VM e seu arquivo de dispositivo associado:
 
     $ sudo blkid -s UUID
 
@@ -122,7 +122,7 @@ Aplicativos e scripts ler a saída de `blkid`, ou semelhante fontes de informaç
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
     /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
 
-As regras de Udev do agente Linux do Azure construir um conjunto de links simbólicos no caminho /dev/disk/azure:
+As regras udev do agente Linux do Azure constroem um conjunto de links simbólicos no caminho/dev/disk/Azure:
 
     $ ls -l /dev/disk/azure
 
@@ -132,18 +132,18 @@ As regras de Udev do agente Linux do Azure construir um conjunto de links simbó
     lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
 
-Aplicativos use os links para identificar o dispositivo de disco de arranque e o disco (efémeras) de recursos. No Azure, os aplicativos devem ser nos caminhos /dev/disk/azure/root-part1 ou /dev/disk/azure-resource-part1 para detetar estas partições.
+Os aplicativos usam os links para identificar o dispositivo de disco de inicialização e o disco de recurso (efêmero). No Azure, os aplicativos devem examinar os caminhos/dev/disk/Azure/root-part1 ou/dev/disk/Azure-Resource-part1 para descobrir essas partições.
 
-Quaisquer partições adicionais do `blkid` lista residir num disco de dados. Aplicativos manter o UUID destas partições e utilizam um caminho para detetar o nome do dispositivo em tempo de execução:
+Todas as partições adicionais da `blkid` lista residem em um disco de dados. Os aplicativos mantêm o UUID para essas partições e usam um caminho para descobrir o nome do dispositivo em tempo de execução:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
 
-### <a name="get-the-latest-azure-storage-rules"></a>Obter as regras de armazenamento do Azure mais recente
+### <a name="get-the-latest-azure-storage-rules"></a>Obter as regras mais recentes do armazenamento do Azure
 
-Para obter as regras de armazenamento do Azure mais recente, execute os seguintes comandos:
+Para obter as regras de armazenamento do Azure mais recentes, execute os seguintes comandos:
 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
@@ -152,8 +152,8 @@ Para obter as regras de armazenamento do Azure mais recente, execute os seguinte
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Ubuntu: Usando o UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Ubuntu Usando UUID](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: Nomenclatura persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: O que UUIDs não pode fazer por](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev: Introdução à gestão de dispositivos num sistema moderno do Linux](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Linux O que os UUIDs podem fazer por você](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev Introdução ao gerenciamento de dispositivos em um sistema Linux moderno](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

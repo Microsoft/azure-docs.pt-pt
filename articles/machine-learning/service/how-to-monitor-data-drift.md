@@ -1,7 +1,7 @@
 ---
 title: Detectar descompasso de dados (versão prévia) em implantações de AKS
-titleSuffix: Azure Machine Learning service
-description: Detectar descompasso de dados nos modelos implantados do serviço kubernetes do Azure no serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Detectar descompasso de dados nos modelos implantados do serviço kubernetes do Azure no Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993171"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034363"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 
-Neste artigo, você aprenderá a monitorar a descompasso de dados entre o conjunto de dados de treinamento e de inferência de um modelo implantado. No contexto do aprendizado de máquina, os modelos de aprendizado de máquina treinados podem enfrentar desempenho de previsão degradado devido à descompasso. Com o serviço de Azure Machine Learning, você pode monitorar a descompasso de dados e o serviço pode enviar um alerta por email para você quando for detectado descompasso.
+Neste artigo, você aprenderá a monitorar a descompasso de dados entre o conjunto de dados de treinamento e de inferência de um modelo implantado. No contexto do aprendizado de máquina, os modelos de aprendizado de máquina treinados podem enfrentar desempenho de previsão degradado devido à descompasso. Com Azure Machine Learning, você pode monitorar a descompasso de dados e o serviço pode enviar um alerta por email para você quando for detectado descompasso.
 
 ## <a name="what-is-data-drift"></a>O que é descompasso de dados?
 
@@ -27,7 +27,7 @@ A descompasso de dados ocorre quando os dados servidos para um modelo na produç
 
 ## <a name="what-can-i-monitor"></a>O que posso monitorar?
 
-Com o serviço de Azure Machine Learning, você pode monitorar as entradas em um modelo implantado em AKS e comparar esses dados com o DataSet de treinamento para o modelo. Em intervalos regulares, os dados de inferência são [instantâneos e](how-to-explore-prepare-data.md)analisados, em seguida, computados em relação ao conjunto de dados de linha de base para produzir uma análise de descompasso que: 
+Com Azure Machine Learning, você pode monitorar as entradas para um modelo implantado em AKS e comparar esses dados com o conjunto de informações de treinamento para o modelo. Em intervalos regulares, os dados de inferência são [instantâneos e](how-to-explore-prepare-data.md)analisados, em seguida, computados em relação ao conjunto de dados de linha de base para produzir uma análise de descompasso que: 
 
 + Mede a magnitude da descompasso de dados, chamada de coeficiente de descompasso.
 + Mede a contribuição de descompasso de dados por recurso, informando quais recursos causaram a descompasso de dados.
@@ -38,20 +38,20 @@ Com o serviço de Azure Machine Learning, você pode monitorar as entradas em um
 > [!Note]
 > Esse serviço está em (versão prévia) e limitado nas opções de configuração. Consulte nossa [documentação de API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e [notas de versão](azure-machine-learning-release-notes.md) para obter detalhes e atualizações. 
 
-### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Como a descompasso de dados é monitorada no serviço Azure Machine Learning
+### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Como a descompasso de dados é monitorada no Azure Machine Learning
 
-Usando o serviço Azure Machine Learning, a descompasso de dados é monitorada por meio de conjuntos ou de implantações. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um segundo conjunto de dados-geralmente modelar os dados de entrada coletados de uma implantação-é testado no conjunto de dado de linha de base. Os dois conjuntos de dados são de perfil e são inseridos para o serviço de monitoramento de descompasso. Um modelo de aprendizado de máquina é treinado para detectar diferenças entre os dois conjuntos de valores. O desempenho do modelo é convertido para o coeficiente de descompasso, que mede a magnitude do descompasso entre os dois conjuntos de valores. Usando a [interpretação de modelo](machine-learning-interpretability-explainability.md), os recursos que contribuem para o coeficiente de descompasso são calculados. No perfil do conjunto de dados, as informações estatísticas sobre cada recurso são rastreadas. 
+Usando Azure Machine Learning, a descompasso de dados é monitorada por meio de conjuntos ou implantações. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um segundo conjunto de dados-geralmente modelar os dados de entrada coletados de uma implantação-é testado no conjunto de dado de linha de base. Os dois conjuntos de dados são de perfil e são inseridos para o serviço de monitoramento de descompasso. Um modelo de aprendizado de máquina é treinado para detectar diferenças entre os dois conjuntos de valores. O desempenho do modelo é convertido para o coeficiente de descompasso, que mede a magnitude do descompasso entre os dois conjuntos de valores. Usando a [interpretação de modelo](machine-learning-interpretability-explainability.md), os recursos que contribuem para o coeficiente de descompasso são calculados. No perfil do conjunto de dados, as informações estatísticas sobre cada recurso são rastreadas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+- Uma subscrição do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 - O SDK do Azure Machine Learning para Python instalado. Use as instruções em [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para fazer o seguinte:
 
     - Criar um ambiente Miniconda
     - Instalar o SDK do Azure Machine Learning para Python
 
-- Um [espaço de trabalho de serviço do Azure Machine Learning](how-to-manage-workspace.md).
+- Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
 - Um [arquivo de configuração](how-to-configure-environment.md#workspace)do espaço de trabalho.
 
@@ -173,7 +173,7 @@ Para exibir os resultados em seu espaço de trabalho na [página de aterrissagem
 
 Ao definir o limite de alerta de coeficiente de descompasso e fornecer um endereço de email, um alerta de email [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) é enviado automaticamente sempre que o coeficiente de descompasso está acima do limite. 
 
-Para configurar ações e alertas personalizados, todas as métricas de descompasso de dados são armazenadas no recurso de [Application insights](how-to-enable-app-insights.md) que foi criado junto com o espaço de trabalho de serviço do Azure Machine Learning. Você pode seguir o link no alerta de email para a consulta de Application Insights.
+Para configurar ações e alertas personalizados, todas as métricas de descompasso de dados são armazenadas no recurso [Application insights](how-to-enable-app-insights.md) que foi criado junto com o espaço de trabalho Azure Machine Learning. Você pode seguir o link no alerta de email para a consulta de Application Insights.
 
 ![Alerta de email de descompasso de dados](media/how-to-monitor-data-drift/drift_email.png)
 
@@ -187,7 +187,7 @@ Quando a descompasso de dados afeta negativamente o desempenho do modelo implant
 * Avalie o desempenho do modelo recém-gerado.
 * Implante o novo modelo se o desempenho for melhor do que o modelo de produção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter um exemplo completo de como usar a descompasso de dados, consulte o [notebook de descompasso de dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
 

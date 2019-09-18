@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885151"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037275"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas do Apache HBase no HDInsight com Enterprise Security Package
 
@@ -88,7 +88,8 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o [s
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![HDInsight Hadoop HBase shell](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![Saída do Shell HBase do Hadoop do HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
 
@@ -96,7 +97,7 @@ Crie uma política de Ranger para **sales_user1** e **marketing_user1**.
 
 1. Abra a **IU do Ranger Admin**. Clique em  **\<ClusterName > _hbase** em **HBase**.
 
-   ![IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![IU de administração do Apache Ranger do HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. A tela **lista de políticas** exibirá todas as políticas de Ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique em **Adicionar nova política**.
 
@@ -202,14 +203,14 @@ Com base nas políticas de Ranger configuradas, o **sales_user1** pode exibir to
    kinit marketing_user1
    ```
 
-2. Abra o Shell do HBase e verifique a `Customers`tabela:
+1. Abra o Shell do HBase e verifique a `Customers`tabela:
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Observe que o usuário de marketing só pode exibir as cinco colunas da `Contact` família de colunas.
+1. Observe que o usuário de marketing só pode exibir as cinco colunas da `Contact` família de colunas.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -226,9 +227,9 @@ Com base nas políticas de Ranger configuradas, o **sales_user1** pode exibir to
     2 row(s) in 0.0730 seconds
     ```
 
-9. Veja os eventos de acesso de auditoria da IU do Ranger.
+1. Veja os eventos de acesso de auditoria da IU do Ranger.
 
-   ![Auditoria à Política da IU do Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![Auditoria da política de IU do HDInsight Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

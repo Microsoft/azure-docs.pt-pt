@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918211"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066986"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Aprofundamento – análise avançada
 
@@ -23,17 +23,17 @@ O HDInsight fornece a capacidade de obter informações valiosas de grandes quan
 
 ## <a name="advanced-analytics-process"></a>Processo de análise avançada
 
-![Processo](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+![Fluxo de processo de análise avançada](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
-Depois de identificar o problema de negócios e começar a coletar e processar seus dados, você precisará criar um modelo que represente a pergunta que deseja prever. Seu modelo usará um ou mais algoritmos de aprendizado de máquina para fazer o tipo de previsão que melhor se adapta às suas necessidades de negócios.  A maioria dos seus dados deve ser usada para treinar seu modelo, com o restante usado para testá-lo ou avaliá-lo. 
+Depois de identificar o problema de negócios e começar a coletar e processar seus dados, você precisará criar um modelo que represente a pergunta que deseja prever. Seu modelo usará um ou mais algoritmos de aprendizado de máquina para fazer o tipo de previsão que melhor se adapta às suas necessidades de negócios.  A maioria dos seus dados deve ser usada para treinar seu modelo, com o restante usado para testá-lo ou avaliá-lo.
 
-Depois de criar, carregar, testar e avaliar seu modelo, a próxima etapa é implantar seu modelo para que ele comece a fornecer respostas às suas perguntas. A última etapa é monitorar o desempenho do modelo e ajustá-lo conforme necessário. 
+Depois de criar, carregar, testar e avaliar seu modelo, a próxima etapa é implantar seu modelo para que ele comece a fornecer respostas às suas perguntas. A última etapa é monitorar o desempenho do modelo e ajustá-lo conforme necessário.
 
 ## <a name="common-types-of-algorithms"></a>Tipos comuns de algoritmos
 
 As soluções de análise avançada fornecem um conjunto de algoritmos de aprendizado de máquina. Aqui está um resumo das categorias de algoritmos e casos de uso de negócios comuns associados.
 
-![Machine Learning casos de uso](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Resumos de categoria de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Juntamente com a seleção dos algoritmos de melhor ajuste, você precisa considerar se precisa ou não fornecer dados para treinamento. Os algoritmos de aprendizado de máquina são categorizados da seguinte maneira:
 
@@ -98,7 +98,7 @@ Há três tarefas principais neste cenário de análise avançada:
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de CIFAR-10 contém 60.000 32 × 32 imagens coloridas que pertencem a 10 classes mutuamente exclusivas:
 
-![Imagens](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Machine Learning imagens de exemplo](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Para obter mais detalhes sobre o conjunto de informações, confira Alex Krizhevsky [aprendendo várias camadas de recursos de pequenas imagens](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
@@ -111,7 +111,7 @@ O conjunto de testes foi particionado em um conjunto de treinamento de 50.000 im
 
 Todo o pré-processamento/Pontuação das imagens 10.000 leva menos de um minuto em um cluster com 4 nós de trabalho. O modelo prevê com precisão os rótulos de ~ 9.100 (91%) imagens. Uma matriz de confusão ilustra os erros de classificação mais comuns. Por exemplo, a matriz mostra que a rotulagem inverso de cachorros como gatos e vice-versa ocorre com mais frequência do que para outros pares de rótulo.
 
-![Resultados](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Machine Learning gráfico de resultados](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>Experimente!
 

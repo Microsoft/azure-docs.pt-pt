@@ -4,14 +4,14 @@ description: Pré-requisitos para usar o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7bd1268784df50168e03673ac809b3a5854e2be7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775341"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036857"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
@@ -22,7 +22,7 @@ Antes de usar o portal do Azure para criar um novo cache do Azure HPC, verifique
 Uma assinatura paga é recomendada.
 
 > [!NOTE]
-> Durante a versão de visualização pública, a equipe de cache do Azure HPC deve adicionar sua assinatura à lista de acesso antes de poder ser usada para criar uma instância de cache. Esse procedimento ajuda a garantir que cada cliente obtenha uma capacidade de resposta de alta qualidade de seus caches de teste. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
+> Durante a versão de visualização, a equipe de cache do Azure HPC deve adicionar sua assinatura à lista de acesso antes de poder ser usada para criar uma instância de cache. Esse procedimento ajuda a garantir que cada cliente obtenha uma capacidade de resposta de alta qualidade de seus caches de teste. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede
 
@@ -88,6 +88,6 @@ Para criar uma conta de armazenamento compatível, use estas configurações:
 
 Você também deve conceder ao aplicativo de cache acesso à sua conta de armazenamento do Azure. Siga a descrição em [Adicionar armazenamento ao cache](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para fornecer ao cache o colaborador de conta de armazenamento de funções de acesso e colaborador de dados do armazenamento de BLOBs. Se você não for o proprietário da conta de armazenamento, faça com que o proprietário execute esta etapa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma instância de cache do HPC do Azure](hpc-cache-create.md) do portal do Azure

@@ -1,50 +1,50 @@
 ---
-title: Exemplos de análise do log de Firewall do Azure
-description: Exemplos de análise do log de Firewall do Azure
+title: Amostras do log Analytics do firewall do Azure
+description: Amostras do log Analytics do firewall do Azure
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/15/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461539"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033989"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Exemplos de análise do log de Firewall do Azure
+# <a name="azure-firewall-log-analytics-samples"></a>Amostras do log Analytics do firewall do Azure
 
-Os seguintes exemplos de registos do Azure Monitor podem ser utilizados para analisar os registos de Firewall do Azure. O ficheiro de exemplo baseia-se no estruturador de vistas no Azure Monitor, o [estruturador de vistas no Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artigo tem mais informações sobre o conceito de estrutura da vista.
+Os exemplos de logs de Azure Monitor a seguir podem ser usados para analisar os logs de firewall do Azure. O arquivo de exemplo é criado no designer de exibição no Azure Monitor, o [Designer de exibição no artigo Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) tem mais informações sobre o conceito de design de exibição.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="azure-monitor-logs-view"></a>Vista de registos de Monitor do Azure
+## <a name="azure-monitor-logs-view"></a>Exibição de logs de Azure Monitor
 
-Eis como pode configurar um exemplo de visualização de registos do Azure Monitor. Pode baixar a visualização de exemplo a partir do [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repositório. A maneira mais fácil é com o botão direito na hiperligação nesta página e escolher *guardar como* e forneça um nome como **AzureFirewall.omsview**. 
+Veja como você pode configurar um exemplo Azure Monitor visualização de logs. Você pode baixar a visualização de exemplo do repositório [Azure-docs-JSON-Samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) . A maneira mais fácil é clicar com o botão direito do mouse no hiperlink nessa página e escolher *salvar como* e fornecer um nome como **AzureFirewall. omsview**. 
 
-Execute os seguintes passos para adicionar a vista para sua área de trabalho do Log Analytics:
+Execute as seguintes etapas para adicionar o modo de exibição ao seu espaço de trabalho do Log Analytics:
 
-1. Abra a área de trabalho do Log Analytics no Portal do Azure.
-2. Open **exibir Designer** abaixo **geral**.
+1. Abra o espaço de trabalho Log Analytics no portal do Azure.
+2. Abra o **Designer de modo de exibição** abaixo do **geral**.
 3. Clique em **Importar**.
-4. Procure e selecione o **AzureFirewall.omsview** ficheiro que transferiu anteriormente.
+4. Procure e selecione o arquivo **AzureFirewall. omsview** que você baixou antes.
 5. Clique em **Guardar**.
 
-Eis como o modo de exibição procura os dados de registo de regra de aplicação:
+Veja como a exibição procura os dados de log da regra de aplicativo:
 
-![Dados de registo de regra de aplicação](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
+![Dados de log de regra de aplicativo](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
 
-E para os dados de registo de regra de rede:
+E para os dados de log da regra de rede:
 
-![Dados de registo de regra de rede]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
+![Dados de log de regra de rede]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Firewall do Azure regista dados abaixo AzureDiagnostics com categoria como **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule**. Os dados que contém os detalhes são armazenados no campo msg_s. Utilizar o [analisar](https://docs.microsoft.com/azure/kusto/query/parseoperator) operador, pode extrair as diversas propriedades interessantes do campo msg_s. As consultas abaixo extrair as informações para ambas as categorias.
+O Firewall do Azure registra os dados abaixo de AzureDiagnostics com a categoria como **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule**. Os dados que contêm os detalhes são armazenados no campo msg_s. Usando o operador [Parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) , podemos extrair as várias propriedades interessantes do campo msg_s. As consultas abaixo extraem as informações para ambas as categorias.
 
-## <a name="application-rules-log-data-query"></a>Consulta de dados de registo de regras de aplicação
+## <a name="application-rules-log-data-query"></a>Consulta de dados de log de regras de aplicativo
 
-A consulta abaixo analisa os dados de registo de regra de aplicação. As várias linhas de comentário não existe alguma orientação sobre como a consulta foi criada:
+A consulta abaixo analisa os dados de log da regra de aplicativo. Nas várias linhas de comentário, há algumas diretrizes sobre como a consulta foi criada:
 
 ```Kusto
 AzureDiagnostics
@@ -70,7 +70,7 @@ SourcePort = tostring(SourcePortInt)
 TargetPort = tostring(TargetPortInt)
 | extend
 //make sure we only have Allowed / Deny in the Action Field
-Action1 = case(Action1 == "denied","Deny","Unknown Action")
+Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend
     Action = case(Action2 == "",Action1,Action2),
     Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
@@ -80,7 +80,7 @@ Action1 = case(Action1 == "denied","Deny","Unknown Action")
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
 ```
 
-A mesma consulta num formato mais condensado:
+A mesma consulta em um formato mais condensado:
 
 ```Kusto
 AzureDiagnostics
@@ -92,15 +92,15 @@ AzureDiagnostics
 | parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
 | extend SourcePort = tostring(SourcePortInt)
 | extend TargetPort = tostring(TargetPortInt)
-| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
 RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
 ```
 
-## <a name="network-rules-log-data-query"></a>Consulta de dados de registo de regras de rede
+## <a name="network-rules-log-data-query"></a>Consulta de dados de log de regras de rede
 
-A seguinte consulta analisa os dados de registo de regra de rede. As várias linhas de comentário não existe alguma orientação sobre como a consulta foi criada:
+A consulta a seguir analisa os dados de log de regra de rede. Nas várias linhas de comentário, há algumas diretrizes sobre como a consulta foi criada:
 
 ```Kusto
 AzureDiagnostics
@@ -137,7 +137,7 @@ TargetPort = tostring(TargetPortInt)
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
-A mesma consulta num formato mais condensado:
+A mesma consulta em um formato mais condensado:
 
 ```Kusto
 AzureDiagnostics
@@ -151,9 +151,9 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
-## <a name="threat-intelligence-log-data-query"></a>Consulta de dados de registo de inteligência de ameaças
+## <a name="threat-intelligence-log-data-query"></a>Consulta de dados de log de inteligência contra ameaças
 
-A seguinte consulta analisa os dados de registo de regra de informações sobre ameaças:
+A consulta a seguir analisa os dados de log da regra de inteligência contra ameaças:
 
 ```Kusto
 AzureDiagnostics
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre o Firewall do Azure de monitorização e diagnóstico, veja [Tutorial: Monitorizar métricas e registos de Firewall do Azure](tutorial-diagnostics.md).
+Para saber mais sobre o monitoramento e o diagnóstico do [Firewall do Azure, consulte o tutorial: Monitorar os logs e as métricas](tutorial-diagnostics.md)do firewall do Azure.

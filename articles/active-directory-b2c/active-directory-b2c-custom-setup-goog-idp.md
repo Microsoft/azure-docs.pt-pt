@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a5b0d236424803056530eed81d9821fbafa14309
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 45b0d499f04de2bb20eeec913abaef11632fb504
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952835"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066105"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Google usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários de uma conta do Google usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory (Azure AD) B2C.
+Este artigo mostra como habilitar a entrada para usuários de uma conta do Google usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Para habilitar a entrada para usuários de uma conta do Google, você precisa cr
 5. Selecione ou especifique um **endereço de email**válido, forneça um nome de **produto** mostrado aos usuários `b2clogin.com` , insira em **domínios autorizados**e, em seguida, clique em **salvar**.
 6. Em **tipo de aplicativo**, selecione **aplicativo Web**.
 7. Insira um **nome** para seu aplicativo.
-8. Em **origens de JavaScript**autorizadas `https://your-tenant-name.b2clogin.com` , insira e em URIs de redirecionamento **autorizados**, digite `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua seu-Tenant-Name pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+8. Em **origens de JavaScript autorizadas**, insira `https://your-tenant-name.b2clogin.com` e em **URIs de redirecionamento autorizados**, digite. `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` Substitua seu-Tenant-Name pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
 8. Clique em **Criar**.
 9. Copie os valores da **ID do cliente** e do **segredo do cliente**. Você precisará de ambos para configurar o Google como um provedor de identidade em seu locatário. O segredo do cliente é uma credencial de segurança importante.
 
@@ -48,7 +48,7 @@ Para habilitar a entrada para usuários de uma conta do Google, você precisa cr
 Você precisa armazenar o segredo do cliente que você registrou anteriormente em seu locatário Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Na página Visão geral, selecione **Identity Experience Framework**.
 5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
@@ -66,7 +66,7 @@ Você pode definir uma conta do Google como um provedor de declarações adicion
 
 1. Abra o *TrustFrameworkExtensions. xml*.
 2. Localize o elemento **ClaimsProviders** . Se não existir, adicione-o sob o elemento raiz.
-3. Adicione um novo Claims da seguinte maneira:
+3. Adicione um novo **Claims** da seguinte maneira:
 
     ```xml
     <ClaimsProvider>
@@ -127,8 +127,8 @@ Neste ponto, o provedor de identidade foi configurado, mas ele não está dispon
 
 1. Abra o arquivo *TrustFrameworkBase. xml* do pacote inicial.
 2. Localize e copie todo o conteúdo do elemento **userjornada** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions. xml* e localize o elemento userjornadas. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **userjornada** que você copiou como um filho do elemento userjornadas.
+3. Abra o *TrustFrameworkExtensions. xml* e localize o elemento **userjornadas** . Se o elemento não existir, adicione um.
+4. Cole todo o conteúdo do elemento **userjornada** que você copiou como um filho do elemento **userjornadas** .
 5. Renomeie a ID da jornada do usuário. Por exemplo, `SignUpSignInGoogle`.
 
 ### <a name="display-the-button"></a>Exibir o botão
@@ -162,7 +162,7 @@ Agora que você tem um botão em vigor, é necessário vinculá-lo a uma ação.
 A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cria em seu locatário. Esta seção lista as etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 5. Insira um nome para o aplicativo, por exemplo, *testapp1*.

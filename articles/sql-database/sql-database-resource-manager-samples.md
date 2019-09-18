@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566899"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037439"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos de Azure Resource Manager para o banco de dados SQL do Azure
 
 Os modelos de Azure Resource Manager permitem que você defina sua infraestrutura como código e implante suas soluções na nuvem do Azure.
 
-## <a name="single-database--elastic-pool"></a>Banco de dados individual & pool elástico
+## <a name="single-database--elastic-pooltabsingle-database"></a>[Banco de dados individual & pool elástico](#tab/single-database)
 
 A tabela a seguir inclui links para modelos de Azure Resource Manager para o banco de dados SQL do Azure.
 
@@ -41,7 +41,7 @@ A tabela a seguir inclui links para modelos de Azure Resource Manager para o ban
 | [Cluster HDInsight com um banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Este modelo permite que você crie um cluster HDInsight, um servidor de banco de dados SQL, um banco de dados SQL e duas tabelas. Este modelo é usado pelo [artigo usar o Sqoop com Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [Aplicativo lógico do Azure que executa um procedimento armazenado SQL em um agendamento](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Este modelo permite que você crie um aplicativo lógico que executará um procedimento armazenado SQL no agendamento. Quaisquer argumentos para o procedimento podem ser colocados na seção corpo do modelo.|
 
-## <a name="managed-instance"></a>Instância Gerida
+## <a name="managed-instancetabmanaged-instance"></a>[Instância Gerenciada](#tab/managed-instance)
 
 A tabela a seguir inclui links para modelos de Azure Resource Manager para o banco de dados SQL do Azure-Instância Gerenciada.
 
@@ -51,3 +51,5 @@ A tabela a seguir inclui links para modelos de Azure Resource Manager para o ban
 | [Ambiente de rede para Instância Gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Essa implantação criará uma rede virtual do Azure configurada com duas sub-redes – uma que será dedicada às instâncias gerenciadas e outra em que você pode posicionar outros recursos (por exemplo, VMs, ambientes de serviço de aplicativo, etc.). Este modelo criará um ambiente de rede configurado corretamente onde você pode implantar instâncias gerenciadas. |
 | [Instância Gerenciada com conexão P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Essa implantação criará uma rede virtual do Azure com duas sub-redes `ManagedInstance` e `GatewaySubnet`. Instância Gerenciada serão implantadas na sub-rede ManagedInstance. O gateway de rede virtual será criado `GatewaySubnet` na sub-rede e configurado para a conexão VPN ponto a site. |
 | [Instância Gerenciada com a máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Essa implantação criará uma rede virtual do Azure com duas sub-redes `ManagedInstance` e `Management`. Instância gerenciada serão implantados `ManagedInstance` na sub-rede. A máquina virtual com a versão mais recente do SQL Server Management Studio (SSMS) será implantada na `Management` sub-rede. |
+
+---

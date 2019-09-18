@@ -1,6 +1,6 @@
 ---
-title: Introdução às consultas de registo no Azure Monitor | Documentos da Microsoft
-description: Este artigo fornece um tutorial para começar a trabalhar escrever consultas de registo no Azure Monitor.
+title: Introdução às consultas de log no Azure Monitor | Microsoft Docs
+description: Este artigo fornece um tutorial para começar a escrever consultas de log no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,118 +13,120 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296094"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076747"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de registo no Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
 
 > [!NOTE]
-> Deve efetuar [introdução ao Log Analytics do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
-Neste tutorial irá aprender a escrever consultas de registo no Azure Monitor. Ele irá ensiná-lo como para:
-
-- Compreender a estrutura de consulta
-- Ordenar os resultados de consulta
-- Filtrar os resultados da consulta
-- Especifique um intervalo de tempo
-- Selecionar quais campos serão incluídos nos resultados
-- Defina e utilize campos personalizados
-- Resultados de agregação e de grupo
-
-Para obter um tutorial sobre como utilizar o Log Analytics no portal do Azure, veja [introdução ao Log Analytics do Azure Monitor](get-started-portal.md).<br>
-Para obter mais detalhes sobre as consultas de registo no Azure Monitor, consulte [descrição geral do registo de consultas no Azure Monitor](log-query-overview.md).
-
-## <a name="writing-a-new-query"></a>Escrever uma nova consulta
-Consultas podem começar com o nome de uma tabela ou o *pesquisa* comando. Deve começar com um nome de tabela, uma vez que define um âmbito claro para a consulta e melhora o desempenho da consulta e relevância dos resultados.
+> Você deve concluir a [introdução ao Azure Monitor log Analytics](get-started-portal.md) antes de concluir este tutorial.
 
 > [!NOTE]
-> A linguagem de consulta de Kusto utilizada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave idiomáticas são normalmente escritas em minúsculas. Ao utilizar nomes de tabelas ou colunas numa consulta, certifique-se utilizar as maiúsculas e minúsculas corretas, conforme mostrado no painel de esquema.
+> Você pode trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.
+
+
+Neste tutorial, você aprenderá a escrever consultas de log em Azure Monitor. Ele ensinará como:
+
+- Entender a estrutura de consulta
+- Classificar resultados da consulta
+- Filtrar resultados da consulta
+- Especificar um intervalo de tempo
+- Selecionar quais campos incluir nos resultados
+- Definir e usar campos personalizados
+- Agregar e resultados de grupo
+
+Para obter um tutorial sobre como usar Log Analytics no portal do Azure, consulte Introdução [ao Azure Monitor log Analytics](get-started-portal.md).<br>
+Para obter mais detalhes sobre as consultas de log no Azure Monitor, consulte [visão geral das consultas de log no Azure monitor](log-query-overview.md).
+
+## <a name="writing-a-new-query"></a>Escrevendo uma nova consulta
+As consultas podem começar com um nome de tabela ou o comando de *pesquisa* . Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
+
+> [!NOTE]
+> A linguagem de consulta Kusto usada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave de idioma normalmente são escritas em letras minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar o caso correto, conforme mostrado no painel esquema.
 
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
-Monitor do Azure organiza os dados de registo em tabelas, cada uma consistindo em várias colunas. Todas as tabelas e colunas são apresentadas no painel de esquema no Log Analytics no portal do Analytics. Identificar uma tabela que tem interesse e, em seguida, dê uma olhada num pouco de dados:
+Azure Monitor organiza os dados de log em tabelas, cada uma composta por várias colunas. Todas as tabelas e colunas são mostradas no painel esquema em Log Analytics no portal de análise. Identifique uma tabela na qual você esteja interessado e dê uma olhada em um pouco de dados:
 
 ```Kusto
 SecurityEvent
 | take 10
 ```
 
-A consulta mostrada acima devolve 10 resultados a partir da *SecurityEvent* tabela, sem nenhuma ordem específica. Essa é uma maneira muito comum usar rapidamente numa tabela e compreender a sua estrutura e conteúdo. Vamos examinar como é criada:
+A consulta mostrada acima retorna 10 resultados da tabela *SecurityEvent* , em nenhuma ordem específica. Essa é uma maneira muito comum de dar uma olhada em uma tabela e entender sua estrutura e conteúdo. Vamos examinar como ele é criado:
 
-* A consulta começa com o nome da tabela *SecurityEvent* -esta parte define o âmbito da consulta.
-* O caráter de pipe (|) separa comandos, por isso, o resultado do primeiro na entrada do comando seguinte. Pode adicionar qualquer número de elementos de pipe.
-* Seguir o pipe é o **tirar** comando, que devolve um número específico de arbitrários registos da tabela.
+* A consulta começa com o nome de tabela *SecurityEvent* -essa parte define o escopo da consulta.
+* O caractere de pipe (|) separa os comandos, portanto, a saída do primeiro na entrada do comando a seguir. Você pode adicionar qualquer número de elementos canalizados.
+* Seguir o pipe é o comando **Take** , que retorna um número específico de registros arbitrários da tabela.
 
-Na verdade, executar a consulta, mesmo sem adicionar `| take 10` - ainda seria válido, mas ele poderia retornar resultados até 10 000.
+Na verdade, poderíamos executar a consulta mesmo sem `| take 10` adicionar, que ainda seria válida, mas poderia retornar até 10.000 resultados.
 
 ### <a name="search-queries"></a>Consultas de pesquisa
-Consultas de pesquisa são menos estruturado e, em geral mais adequado para localizar os registos, que incluem um valor específico em qualquer uma das respetivas colunas:
+As consultas de pesquisa são menos estruturadas e geralmente mais adequadas para localizar registros que incluem um valor específico em qualquer uma de suas colunas:
 
 ```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Essa consulta pesquisa o *SecurityEvent* tabela para registos que contêm a frase "Criptográficos utilizados". Esses registos, 10 registros serão retornados e apresentados. Se podemos omitir os `in (SecurityEvent)` parte e apenas execute `search "Cryptographic"`, a pesquisa abordará *todos os* tabelas, que poderiam demorar mais tempo e ser menos eficiente.
+Essa consulta pesquisa a tabela *SecurityEvent* em busca de registros que contenham a frase "criptografia". Desses registros, 10 registros serão retornados e exibidos. Se omitirmos a `in (SecurityEvent)` parte e simplesmente executar `search "Cryptographic"`, a pesquisa passará por *todas as* tabelas, o que levaria mais tempo e será menos eficiente.
 
 > [!WARNING]
-> Consultas de pesquisa são, normalmente, mais lentas do que as consultas baseadas em tabela porque têm que processar mais dados. 
+> As consultas de pesquisa são normalmente mais lentas do que as consultas baseadas em tabela, pois precisam processar mais dados. 
 
-## <a name="sort-and-top"></a>Ordenar e a parte superior
-Embora **tirar** é útil para obter alguns registos, os resultados são selecionados e exibidos sem nenhuma ordem específica. Para obter uma vista ordenada, poderia **ordenação** pela coluna preferencial:
+## <a name="sort-and-top"></a>Classificar e superior
+Embora o **Take** seja útil para obter alguns registros, os resultados são selecionados e exibidos sem nenhuma ordem específica. Para obter uma exibição ordenada, você pode **classificar** pela coluna preferencial:
 
 ```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
 
-Isso poderia retornar demasiados resultados no entanto e também poderá demorar algum tempo. A consulta acima ordena *toda a* SecurityEvent tabela pela coluna TimeGenerated. O portal da análise, em seguida, limita a exibição para mostrar apenas 10 000 registos. Claro que essa abordagem não é ideal.
+Isso pode retornar muitos resultados, mas também pode levar algum tempo. A consulta acima classifica *a* tabela SecurityEvent inteira pela coluna TimeGenerated. Em seguida, o portal de análise limita a exibição para mostrar apenas 10.000 registros. Essa abordagem é, obviamente, não ideal.
 
-A melhor forma de obter apenas os registos de 10 mais recente é usar **superior**, que ordena a tabela inteira no lado do servidor e, em seguida, devolve os primeiros registos:
+A melhor maneira de obter apenas os 10 registros mais recentes é usar **Top**, que classifica a tabela inteira no lado do servidor e retorna os principais registros:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Descendente é a predefinição de ordenação, para que, normalmente, omitimos a **desc** argumento. A saída terá o seguinte aspeto:
+Decrescente é a ordem de classificação padrão, portanto, normalmente omitemos o argumento **desc** . A saída terá a seguinte aparência:
 
-![Top 10](media/get-started-queries/top10.png)
+![10 principais](media/get-started-queries/top10.png)
 
 
-## <a name="where-filtering-on-a-condition"></a>Onde: filtragem numa condição
-Filtros, conforme indicado pelo respetivo nome, filtrar os dados por uma condição específica. Esta é a forma mais comum para limitar os resultados da consulta para informações relevantes.
+## <a name="where-filtering-on-a-condition"></a>Em que: filtragem em uma condição
+Filtros, conforme indicado pelo nome, filtre os dados por uma condição específica. Essa é a maneira mais comum de limitar os resultados da consulta a informações relevantes.
 
-Para adicionar um filtro a uma consulta, utilize o **onde** operador seguido por uma ou mais condições. Por exemplo, a consulta seguinte devolve apenas *SecurityEvent* registos em que _nível_ é igual a _8_:
+Para adicionar um filtro a uma consulta, use o operador **Where** seguido por uma ou mais condições. Por exemplo, a consulta a seguir retorna apenas registros *SecurityEvent* em que _Level_ é igual a _8_:
 
 ```Kusto
 SecurityEvent
 | where Level == 8
 ```
 
-Ao escrever as condições de filtro, pode usar as expressões seguintes:
+Ao escrever condições de filtro, você pode usar as seguintes expressões:
 
-| expressão | Descrição | Exemplo |
+| Expressão | Descrição | Exemplo |
 |:---|:---|:---|
-| == | Verificação de igualdade<br>(diferencia maiúsculas de minúsculas) | `Level == 8` |
-| =~ | Verificação de igualdade<br>(maiúsculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| !=, <> | Verificação de desigualdade<br>(ambas as expressões são idênticas) | `Level != 4` |
-| *and*, *or* | Necessário entre as condições| `Level == 16 or CommandLine != ""` |
+| == | Verificar igualdade<br>(diferencia maiúsculas de minúsculas) | `Level == 8` |
+| =~ | Verificar igualdade<br>(não diferencia maiúsculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
+| !=, <> | Verificar desigualdade<br>(as duas expressões são idênticas) | `Level != 4` |
+| *e*, *ou* | Necessário entre as condições| `Level == 16 or CommandLine != ""` |
 
-Para filtrar por várias condições, pode utilizar **e**:
+Para filtrar por várias condições, você pode usar o **e**o:
 
 ```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
-ou encaminhar várias **onde** elementos um após o outro:
+ou redirecionar **vários dos** elementos um após o outro:
 
 ```Kusto
 SecurityEvent
@@ -133,18 +135,18 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Valores podem ter diferentes tipos, pelo que poderá precisar para convertê-los para executar a comparação do tipo correto. Por exemplo, SecurityEvent *nível* coluna é do tipo cadeia de caracteres, pelo que tem de o transmitir para um tipo numérico, como *int* ou *longo*, antes de poder utilizar os operadores numéricos no mesmo: `SecurityEvent | where toint(Level) >= 10`
+> Os valores podem ter tipos diferentes, portanto, talvez seja necessário convertê-los para executar a comparação no tipo correto. Por exemplo, a coluna de *nível* de SecurityEvent é do tipo cadeia de caracteres, portanto, você deve convertê-la em um tipo numérico, como *int* ou *Long*, antes de poder usar operadores numéricos nele:`SecurityEvent | where toint(Level) >= 10`
 
-## <a name="specify-a-time-range"></a>Especifique um intervalo de tempo
+## <a name="specify-a-time-range"></a>Especificar um intervalo de tempo
 
-### <a name="time-picker"></a>Selecionador de hora
-O selecionador de hora é junto ao botão de execução e indica que estiver a consultar apenas os registos das últimas 24 horas. Este é o intervalo de tempo predefinido aplicado a todas as consultas. Para obter apenas os registos de última hora, selecione _última hora_ e execute a consulta novamente.
+### <a name="time-picker"></a>Seletor de hora
+O seletor de tempo está ao lado do botão Executar e indica que estamos consultando somente os registros das últimas 24 horas. Esse é o intervalo de tempo padrão aplicado a todas as consultas. Para obter somente os registros da última hora, selecione _última hora_ e execute a consulta novamente.
 
-![Selecionador de hora](media/get-started-queries/timepicker.png)
+![Seletor de Intervalo de Tempo](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta
-Também pode definir seu próprio intervalo de tempo ao adicionar um filtro de tempo para a consulta. É melhor colocar o filtro de tempo imediatamente após o nome da tabela: 
+Você também pode definir seu próprio intervalo de tempo adicionando um filtro de tempo à consulta. É melhor inserir o filtro de tempo imediatamente após o nome da tabela: 
 
 ```Kusto
 SecurityEvent
@@ -152,11 +154,11 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-No filtro de hora acima `ago(30m)` significa "há 30 minutos", para que esta consulta devolve apenas registos dos últimos 30 minutos. Dias de incluir outras unidades de tempo (2d), minutos (25m) e segundos (10).
+No momento acima, o `ago(30m)` filtro significa "30 minutos atrás" para que essa consulta retorne apenas os registros dos últimos 30 minutos. Outras unidades de tempo incluem dias (2D), minutos (25m) e segundos (10s).
 
 
-## <a name="project-and-extend-select-and-compute-columns"></a>Projeto e expandir: selecione e colunas de computação
-Uso **projeto** para selecionar colunas específicas para incluir nos resultados:
+## <a name="project-and-extend-select-and-compute-columns"></a>Project e extend: selecionar e calcular colunas
+Use o **projeto** para selecionar colunas específicas a serem incluídas nos resultados:
 
 ```Kusto
 SecurityEvent 
@@ -164,15 +166,15 @@ SecurityEvent
 | project TimeGenerated, Computer, Activity
 ```
 
-O exemplo anterior gera esta saída:
+O exemplo anterior gera essa saída:
 
 ![Resultados do projeto de consulta](media/get-started-queries/project.png)
 
-Também pode utilizar **projeto** para mudar o nome de colunas e definir novos. O exemplo seguinte utiliza o projeto para fazer o seguinte:
+Você também pode usar o **Project** para renomear colunas e definir novas. O exemplo a seguir usa o projeto para fazer o seguinte:
 
-* Selecione apenas a *computador* e *TimeGenerated* colunas originais.
-* Mudar o nome da *atividade* coluna *EventDetails*.
-* Criar uma nova coluna chamada *EventCode*. O **substring()** função é usada para obter apenas os primeiros quatro carateres do campo de atividade.
+* Selecione apenas o *computador* e as colunas originais *geradas* .
+* Renomeie a coluna *atividade* como *EventDetails*.
+* Crie uma nova coluna chamada *EventCode*. A função **substring ()** é usada para obter apenas os quatro primeiros caracteres do campo atividade.
 
 
 ```Kusto
@@ -181,7 +183,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**expandir** mantém todas as colunas originais no conjunto de resultados e define as outras opções. A seguinte consulta utiliza **expandir** para adicionar o *EventCode* coluna. Tenha em atenção que esta coluna pode não aparecer no final dos resultados da tabela caso em que precisaria expandir os detalhes de um registo para vê-la.
+**estender** mantém todas as colunas originais no conjunto de resultados e define as adicionais. A consulta a seguir usa **Extend** para adicionar a coluna *EventCode* . Observe que essa coluna pode não ser exibida no final da tabela e, nesse caso, você precisaria expandir os detalhes de um registro para exibi-lo.
 
 ```Kusto
 SecurityEvent
@@ -189,17 +191,17 @@ SecurityEvent
 | extend EventCode=substring(Activity, 0, 4)
 ```
 
-## <a name="summarize-aggregate-groups-of-rows"></a>Resumindo: agregar a grupos de linhas
-Uso **resumir** para identificar os grupos de registos, de acordo com uma ou mais colunas e aplicar-lhes agregações. O uso mais comum de **resumir** é *contagem*, que retorna o número de resultados em cada grupo.
+## <a name="summarize-aggregate-groups-of-rows"></a>Resumir: agregar grupos de linhas
+Use **resumir** para identificar grupos de registros, de acordo com uma ou mais colunas, e aplique agregações a eles. O uso mais comum de **resumete** é *Count*, que retorna o número de resultados em cada grupo.
 
-A seguinte consulta analisa todos os *Perf* registos da última hora, agrupa por *ObjectName*e conta os registos em cada grupo: 
+A consulta a seguir revisa todos os registros de *desempenho* da última hora, agrupa-os por *objectname*e conta os registros em cada grupo: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
 ```
 
-Por vezes, faz sentido definir grupos por várias dimensões. Cada combinação exclusiva destes valores define um grupo separado:
+Às vezes, faz sentido definir grupos por várias dimensões. Cada combinação exclusiva desses valores define um grupo separado:
 
 ```Kusto
 Perf
@@ -207,7 +209,7 @@ Perf
 | summarize count() by ObjectName, CounterName
 ```
 
-Outro uso comum é executar cálculos matemáticos ou estatísticos em cada grupo. Por exemplo, o seguinte calcula a média *CounterValue* para cada computador:
+Outro uso comum é executar cálculos matemáticos ou estatísticos em cada grupo. Por exemplo, o seguinte calcula o *valor* médio para cada computador:
 
 ```Kusto
 Perf
@@ -215,7 +217,7 @@ Perf
 | summarize avg(CounterValue) by Computer
 ```
 
-Infelizmente, os resultados desta consulta são sem sentido, uma vez que estamos juntos misto diferentes contadores de desempenho. Para tornar mais significativo, devemos calcular a média em separado para cada combinação desses *CounterName* e *computador*:
+Infelizmente, os resultados dessa consulta não têm sentido, pois misturamos diferentes contadores de desempenho. Para tornar isso mais significativo, devemos calcular a média separadamente para cada combinação de *CounterName* e *Computer*:
 
 ```Kusto
 Perf
@@ -224,9 +226,9 @@ Perf
 ```
 
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de tempo
-Agrupar os resultados também pode ser baseado numa coluna de tempo ou outro valor contínuo. Simplesmente resumir `by TimeGenerated` porém seria criar grupos para cada milissegundo único ao longo do intervalo de tempo, uma vez que estes são valores exclusivos. 
+O agrupamento de resultados também pode ser baseado em uma coluna de tempo ou em outro valor contínuo. Simplesmente Resumindo `by TimeGenerated` , embora crie grupos para cada milissegundo durante o intervalo de tempo, uma vez que esses são valores exclusivos. 
 
-Para criar grupos com base nos valores contínuas, é melhor dividir o intervalo em unidades geríveis usando **bin**. A seguinte consulta analisa *Perf* registos que medem a memória livre (*MBytes disponíveis*) num computador específico. Ele calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
+Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa os registros de *desempenho* que medem a memória livre (*MBytes disponíveis*) em um computador específico. Ele calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 
 ```Kusto
 Perf 
@@ -236,7 +238,7 @@ Perf
 | summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
-Para fazer com que a saída mais clara, selecione para exibi-lo como um gráfico de tempo, que mostra a memória disponível ao longo do tempo:
+Para tornar a saída mais clara, selecione para exibi-la como um gráfico de tempo, mostrando a memória disponível ao longo do tempo:
 
 ![Memória de consulta ao longo do tempo](media/get-started-queries/chart.png)
 
@@ -244,4 +246,4 @@ Para fazer com que a saída mais clara, selecione para exibi-lo como um gráfico
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [escrever consultas de pesquisa](search-queries.md)
+- Saiba mais sobre como [escrever consultas de pesquisa](search-queries.md)

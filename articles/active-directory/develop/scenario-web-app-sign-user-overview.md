@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852471"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056279"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicação web que inicia a sessão de utilizadores
 
@@ -55,7 +55,7 @@ Como uma segunda fase, você também pode habilitar seu aplicativo para chamar A
 
 ## <a name="specifics"></a>Especificações
 
-- Durante o registro do aplicativo, você precisará fornecer um ou vários (se você implantar seu aplicativo em vários locais) URIs de resposta. Em alguns casos (ASP.NET/ASP.NET Core), você precisará habilitar o token. Por fim, você desejará configurar um URI de saída para que seu aplicativo reaja aos usuários que se desconectam.
+- Durante o registro do aplicativo, você precisará fornecer um ou vários (se você implantar seu aplicativo em vários locais) URIs de resposta. Em alguns casos (ASP.NET/ASP.NET Core), você precisará habilitar o token de ID. Por fim, você desejará configurar um URI de saída para que seu aplicativo reaja aos usuários que se desconectam.
 - No código do seu aplicativo, você precisará fornecer a autoridade à qual seu aplicativo Web delega a entrada. Talvez você queira personalizar a validação de token (em particular em cenários de ISV).
 - Os aplicativos Web oferecem suporte a qualquer tipo de conta. Para obter mais informações, consulte [tipos de conta com suporte](v2-supported-account-types.md).
 

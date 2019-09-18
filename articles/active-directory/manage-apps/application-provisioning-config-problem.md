@@ -1,6 +1,6 @@
 ---
-title: Problema ao configurar o aprovisionamento de utilizadores a uma aplicação da galeria do Azure AD | Documentos da Microsoft
-description: Como resolver problemas comuns enfrentados ao configurar aprovisionamento de utilizador para uma aplicação já listados na Galeria de aplicações do Azure AD
+title: Problema ao configurar o provisionamento de usuário para um aplicativo de galeria do Azure AD | Microsoft Docs
+description: Como solucionar problemas comuns enfrentados ao configurar o provisionamento de usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,63 +12,63 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42bffdc1960a87c931e914896e8e36de45991bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a8eaa46b46551f9b6075ec10b38de80f84c22a0
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784116"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034162"
 ---
-# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema ao configurar o aprovisionamento de utilizadores a uma aplicação da galeria do Azure AD
+# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema ao configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD
 
-Configurando [aprovisionamento automático de utilizadores](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) para uma aplicação (onde for suportado), necessita de ser seguida de instruções específicas para preparar a aplicação para aprovisionamento automático. Em seguida, pode utilizar o portal do Azure para configurar o serviço de aprovisionamento para sincronizar contas de utilizador para a aplicação.
+A configuração do [provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) para um aplicativo (onde há suporte) requer que instruções específicas sejam seguidas para preparar o aplicativo para provisionamento automático. Em seguida, você pode usar o portal do Azure para configurar o serviço de provisionamento para sincronizar contas de usuário para o aplicativo.
 
-Deve sempre começar localizando o tutorial de configuração específicas para configurar o aprovisionamento para a sua aplicação. Em seguida, siga os passos para configurar a aplicação e o Azure AD para criar a ligação de aprovisionamento. Uma lista de tutoriais de aplicação pode ser encontrada em [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Você deve sempre começar encontrando o tutorial de instalação específico para configurar o provisionamento para seu aplicativo. Em seguida, siga essas etapas para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento. Uma lista de tutoriais do aplicativo pode ser encontrada na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-## <a name="how-to-see-if-provisioning-is-working"></a>Como ver se o aprovisionamento está a funcionar 
+## <a name="how-to-see-if-provisioning-is-working"></a>Como ver se o provisionamento está funcionando 
 
-Assim que o serviço está configurado, a maioria das informações sobre o funcionamento do serviço podem ser desenhadas partir de dois locais:
+Depois que o serviço é configurado, a maioria das informações sobre a operação do serviço pode ser desenhada de dois locais:
 
--   **Registos de auditoria** – os aprovisionamento registos de auditoria registo atribuído de todas as operações executadas pelo serviço de aprovisionamento, incluindo a consultar o Azure AD para utilizadores que estão no âmbito de aprovisionamento. Consulte a aplicação de destino para a existência desses usuários, comparando os objetos de utilizador entre o sistema. Em seguida, adicionar, atualizar ou desativar a conta de utilizador no sistema de destino com base na comparação. Os registos de auditoria de aprovisionamento podem ser acedidos no portal do Azure, no **do Azure Active Directory &gt; aplicações empresariais &gt; \[nome da aplicação\] &gt; registos de auditoria** separador. Filtrar os registos a **aprovisionamento da conta** categoria para ver apenas os eventos de aprovisionamento para essa aplicação.
+-   **Provisionando logs (versão prévia)** – os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registram todas as operações executadas pelo serviço de provisionamento, incluindo a consulta do Azure ad para usuários atribuídos que estão no escopo do provisionamento. Consulte o aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** .
 
--   **Estado – de aprovisionamento** um resumo do provisionamento última execução para uma determinada aplicação pode ser vista na **do Azure Active Directory &gt; aplicações empresariais &gt; \[nome da aplicação\] &gt;Aprovisionamento** secção, na parte inferior do ecrã sob as configurações de serviço. Esta secção resume quantos utilizadores (e/ou grupos) estão atualmente a ser sincronizados entre os dois sistemas, e se existem erros. Detalhes do erro ser nos registos de auditoria. Tenha em atenção que o estado de aprovisionamento não ser preenchida até estar concluída uma sincronização completa inicial entre o Azure AD e a aplicação.
+-   **Status atual –** Um resumo da última execução de provisionamento para um determinado aplicativo pode ser visto na seção **Azure Active Directory &gt; o provisionamento de nome &gt; \] &gt;de aplicativo dos \[aplicativos empresariais** , na parte inferior do na tela nas configurações do serviço. A seção status atual mostra se um ciclo de provisionamento começou a provisionar contas de usuário. Você pode ver o progresso do ciclo, ver quantos usuários e grupos foram provisionados e ver quantas funções são criadas. Se houver erros, os detalhes poderão ser encontrados nos logs de [provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas com problemas gerais de aprovisionamento a considerar
+## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas problemáticas gerais com provisionamento a ser considerado
 
-Segue-se uma lista das áreas de problema geral que pode pormenorizar se tiver uma idéia de onde começar.
+Abaixo está uma lista das áreas problemáticas gerais que você pode analisar se tiver uma ideia de onde começar.
 
-* [Serviço de aprovisionamento não é apresentado ao iniciar](#provisioning-service-does-not-appear-to-start)
-* Não é possível guardar a configuração devido a credenciais de aplicação não está a funcionar
-* [Registos de auditoria dizer que os utilizadores são "ignorados" e não aprovisionados, mesmo que estão atribuídos](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+* [O serviço de provisionamento não parece iniciar](#provisioning-service-does-not-appear-to-start)
+* Não é possível salvar a configuração porque as credenciais do aplicativo não estão funcionando
+* [Os logs de provisionamento dizem que os usuários são "ignorados" e não provisionados, embora sejam atribuídos](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-## <a name="provisioning-service-does-not-appear-to-start"></a>Serviço de aprovisionamento não é apresentado ao iniciar
+## <a name="provisioning-service-does-not-appear-to-start"></a>O serviço de provisionamento não parece iniciar
 
-Se definir o **estado de aprovisionamento** ser **no** no **Azure Active Directory &gt; aplicações empresariais &gt; \[nome da aplicação\] &gt;Aprovisionamento** seção do portal do Azure. No entanto, não existem outros detalhes de estado são apresentados nessa página depois recarrega subsequentes. É provável que o serviço está em execução, mas não concluiu ainda uma sincronização inicial. Verifique os **registos de auditoria** descrito acima para determinar as operações que o serviço está a ser executado, e se existem erros.
+Se você definir o **status de provisionamento** como **on** na seção  **&gt; Azure Active Directory aplicativos empresariais \[ &gt; de provisionamento de nome\] &gt;de aplicativo** do portal do Azure . No entanto, nenhum outro detalhe de status é mostrado nessa página após recargas subsequentes. É provável que o serviço esteja em execução, mas ainda não tenha concluído um ciclo inicial. Verifique os **logs de provisionamento** descritos acima para determinar quais operações o serviço está executando e se há erros.
 
 >[!NOTE]
->Uma sincronização inicial pode demorar entre 20 minutos a várias horas, dependendo do tamanho do diretório do Azure AD e o número de utilizadores no âmbito de aprovisionamento. Sincronizações subsequentes após a sincronização inicial estar mais rápido, como o serviço de aprovisionamento armazena as marcas d'água que representam o estado dos dois sistemas após a sincronização inicial, melhorando o desempenho de sincronizações subsequentes.
+>Um ciclo inicial pode levar de 20 minutos a várias horas, dependendo do tamanho do diretório do Azure AD e do número de usuários no escopo para provisionamento. As sincronizações subsequentes após o ciclo inicial serão mais rápidas, pois o serviço de provisionamento armazena as marcas d' água que representam o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho das sincronizações subsequentes.
 >
 >
 
-## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Não é possível guardar a configuração devido a credenciais de aplicação não está a funcionar
+## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Não é possível salvar a configuração porque as credenciais do aplicativo não estão funcionando
 
-Por ordem para o aprovisionamento para funcionar, o Azure AD requer credenciais válidas, que lhe permitem ligar a um API fornecida por essa aplicação de gestão de utilizadores. Se estas credenciais não funcionam, ou não sabe o que são, veja o tutorial para configurar esta aplicação, descrita anteriormente.
+Para que o provisionamento funcione, o Azure AD requer credenciais válidas que permitem que ele se conecte a uma API de gerenciamento de usuário fornecida pelo aplicativo. Se essas credenciais não funcionarem ou se você não souber o que elas são, examine o tutorial para configurar esse aplicativo, descrito anteriormente.
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Registos de auditoria dizer que os utilizadores são ignorados e não aprovisionados, mesmo que estão atribuídos
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Logs de provisionamento, digamos que os usuários sejam ignorados e não provisionados mesmo que sejam atribuídos
 
-Quando um utilizador aparece como "ignorada" nos registos de auditoria, é muito importante ler os obter mais detalhes na mensagem de registo para determinar o motivo. Seguem-se motivos e resoluções comuns:
+Quando um usuário aparece como "ignorado" nos logs de provisionamento, é muito importante ler os detalhes estendidos na mensagem de log para determinar o motivo. Veja abaixo os motivos e as resoluções comuns:
 
-- **Foi configurado um filtro de âmbito** **que é filtrar o utilizador com base num valor de atributo**. Para obter mais informações sobre filtros de âmbito, veja <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+- **Um filtro de escopo foi configurado** **isso está filtrando o usuário com base em um valor de atributo**. Para obter mais informações sobre filtros de escopo <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>, consulte.
 
-- **O utilizador é "não efetivamente ultrapassará".** Se vir esta mensagem de erro específico, é porque não existe um problema com o registo de atribuição do utilizador armazenado no Azure AD. Para corrigir este problema, o utilizador de anular a atribuição (ou grupo) a partir da aplicação e, reatribuí-la novamente. Para obter mais informações sobre a atribuição, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
+- **O usuário é "não é efetivamente qualificado".** Se você vir essa mensagem de erro específica, é porque há um problema com o registro de atribuição de usuário armazenado no Azure AD. Para corrigir esse problema, cancele a atribuição do usuário (ou grupo) do aplicativo e reatribua-o novamente. Para obter mais informações sobre atribuição, <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>consulte.
 
-- **Um atributo obrigatório está em falta ou não preenchida para um utilizador.** Uma coisa importante a considerar ao configurar o aprovisionamento ser para rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem qual usuário (ou grupo) propriedades fluxo a partir do Azure AD à aplicação. Isto inclui a definição "da propriedade correspondente" que ser utilizado para identificar exclusivamente e corresponder ao utilizadores/grupos entre os dois sistemas. Para obter mais informações sobre este processo importante, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
+- **Um atributo necessário está ausente ou não foi populado para um usuário.** Uma coisa importante a ser considerada ao configurar o provisionamento é revisar e configurar os mapeamentos de atributo e os fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Isso inclui a definição da "propriedade correspondente" que é usada para identificar e corresponder exclusivamente usuários/grupos entre os dois sistemas. Para obter mais informações sobre esse processo importante, <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>consulte.
 
-  * **Mapeamentos de atributos para grupos:** Aprovisionamento do nome do grupo e detalhes do grupo, além de membros, se for suportado para alguns aplicativos. É possível habilitar ou desabilitar essa funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo, mostrados na **aprovisionamento** separador. Se o provisionamento de grupos estiver ativado, certifique-se de que reveja os mapeamentos de atributos para garantir que um campo adequado, está a ser utilizado para o ID"correspondente". Isso pode ser o alias de e-mail ou nome de exibição), como o grupo e seus membros não ser aprovisionado se a propriedade correspondente estiver vazio ou não preenchida para um grupo no Azure AD.
+  * **Mapeamentos de atributo para grupos:** Provisionamento do nome do grupo e dos detalhes do grupo, além dos membros, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade habilitando ou desabilitando o **mapeamento** para objetos de grupo mostrados na guia **provisionamento** . Se o provisionamento de grupos estiver habilitado, certifique-se de examinar os mapeamentos de atributo para garantir que um campo apropriado esteja sendo usado para a "ID correspondente". Pode ser o nome de exibição ou alias de email), pois o grupo e seus membros não serão provisionados se a propriedade correspondente estiver vazia ou não for preenchida para um grupo no Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)

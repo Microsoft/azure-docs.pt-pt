@@ -1,6 +1,6 @@
 ---
-title: Adicionar declarações e personalizar com as políticas personalizadas - Azure Active Directory B2C de entrada do usuário | Documentos da Microsoft
-description: Saiba como personalizar a entrada do usuário e adicionar afirmações para a jornada de inscrição ou início de sessão no Azure Active Directory B2C.
+title: Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas-Azure Active Directory B2C | Microsoft Docs
+description: Saiba como personalizar a entrada do usuário e adicionar declarações à jornada de inscrição ou entrada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,31 +10,31 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835212"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066216"
 ---
-#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar com as políticas personalizadas no Azure Active Directory B2C de intervenção do utilizador
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Neste artigo, adicione uma nova entrada de fornecido pelo utilizador (uma afirmação) ao seu percurso do utilizador Inscreva-se no Azure Active Directory (Azure AD) B2C.  Configurar a entrada como uma lista suspensa e definir se é obrigatório.
+Neste artigo, você adiciona uma nova entrada fornecida pelo usuário (uma declaração) à sua jornada do usuário de inscrição em Azure Active Directory B2C (Azure AD B2C).  Você configura a entrada como uma lista suspensa e define se ela é necessária.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os passos no artigo [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Teste o percurso do utilizador de inscrição ou início de sessão para se inscrever uma nova conta local antes de continuar.
+Conclua as etapas no artigo [introdução com políticas personalizadas](active-directory-b2c-get-started-custom.md). Teste a jornada do usuário de inscrição ou de entrada para inscrever uma nova conta local antes de continuar.
 
 ## <a name="add-claims"></a>Adicionar declarações
 
-Recolha de dados iniciais de seus usuários é obtida usando o percurso do utilizador de inscrição ou início de sessão. Afirmações adicionais podem ser reunidas mais tarde, utilizando um percurso de utilizador de edição de perfil. Sempre que o Azure AD B2C reúne informações diretamente do usuário interativamente, o Framework de experiência de identidade utiliza o seu fornecedor de declaração própria.
+A coleta de dados iniciais de seus usuários é obtida usando a jornada do usuário de inscrição ou entrada. Declarações adicionais podem ser coletadas posteriormente usando uma jornada do usuário de edição de perfil. A qualquer momento Azure AD B2C coleta informações diretamente do usuário de forma interativa, a estrutura de experiência de identidade usa seu provedor autodeclarado.
 
 
-### <a name="define-the-claim"></a>Definir a afirmação
+### <a name="define-the-claim"></a>Definir a declaração
 
-Vamos pedir ao utilizador para a sua cidade. Adicione o seguinte elemento para a **ClaimsSchema** elemento no arquivo de política de TrustFrameworkBase:
+Vamos pedir ao usuário sua cidade. Adicione o seguinte elemento ao elemento **ClaimsSchema** no arquivo de política TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -45,11 +45,11 @@ Vamos pedir ao utilizador para a sua cidade. Adicione o seguinte elemento para a
 </ClaimType>
 ```
 
-Os elementos seguintes são utilizados para definir a afirmação:
+Os seguintes elementos são usados para definir a declaração:
 
-- **DisplayName** -uma cadeia de caracteres que define a etiqueta de destinada ao utilizador.
-- **UserHelpText** -ajuda o utilizador a compreender o que é necessário.
-- **UserInputType** -pode ser uma caixa de texto, uma seleção de rádio, uma lista pendente ou uma seleção múltipla.
+- **DisplayName** -uma cadeia de caracteres que define o rótulo voltado para o usuário.
+- **Userhelptext** – ajuda o usuário a entender o que é necessário.
+- **Userinputtype** – pode ser uma caixa de texto, uma seleção de rádio, uma lista suspensa ou uma seleção múltipla.
 
 #### <a name="textbox"></a>TextBox
 
@@ -79,7 +79,7 @@ Os elementos seguintes são utilizados para definir a afirmação:
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Controlo de lista pendente que mostra várias opções de seleção única](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Controle suspenso de seleção única mostrando várias opções](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ Os elementos seguintes são utilizados para definir a afirmação:
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Mostrando várias opções de controle de caixa de verificação de seleção múltipla](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Controle de caixa de seleção de seleção múltipla mostrando várias opções](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -111,9 +111,9 @@ Os elementos seguintes são utilizados para definir a afirmação:
 </ClaimType>
 ```
 
-### <a name="add-the-claim-to-the-user-journey"></a>Adicionar a afirmação para o percurso do utilizador
+### <a name="add-the-claim-to-the-user-journey"></a>Adicionar a declaração à jornada do usuário
 
-1. Adicionar a afirmação como um `<OutputClaim ClaimTypeReferenceId="city"/>` para o `LocalAccountSignUpWithLogonEmail` perfil técnico presentes no ficheiro de política de TrustFrameworkBase. Este perfil técnico utiliza o SelfAssertedAttributeProvider.
+1. Adicione a declaração como um `<OutputClaim ClaimTypeReferenceId="city"/>` para o `LocalAccountSignUpWithLogonEmail` perfil técnico encontrado no arquivo de política TrustFrameworkBase. Este perfil técnico usa o SelfAssertedAttributeProvider.
 
     ```xml
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -150,7 +150,7 @@ Os elementos seguintes são utilizados para definir a afirmação:
     </TechnicalProfile>
     ```
 
-2. Adicionar a afirmação para o perfil técnico do AAD UserWriteUsingLogonEmail como um `<PersistedClaim ClaimTypeReferenceId="city" />` escrever a declaração para o diretório do AAD depois de a fazer do utilizador. Pode ignorar este passo se preferir não manter a declaração no diretório para utilização futura.
+2. Adicione a declaração ao perfil técnico do AAD-UserWriteUsingLogonEmail como um `<PersistedClaim ClaimTypeReferenceId="city" />` para gravar a declaração no diretório do AAD depois de coletá-lo do usuário. Você pode ignorar esta etapa se preferir não manter a declaração no diretório para uso futuro.
 
     ```xml
     <!-- Technical profiles for local accounts -->
@@ -186,7 +186,7 @@ Os elementos seguintes são utilizados para definir a afirmação:
     </TechnicalProfile>
     ```
 
-3. Adicionar o `<OutputClaim ClaimTypeReferenceId="city" />` afirmações para os perfis de técnicas de leitura a partir do diretório quando um utilizador inicia sessão.
+3. Adicione a `<OutputClaim ClaimTypeReferenceId="city" />` declaração aos perfis técnicos que lêem do diretório quando um usuário faz logon.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -236,7 +236,7 @@ Os elementos seguintes são utilizados para definir a afirmação:
     </TechnicalProfile>
     ```
 
-4. Adicionar o `<OutputClaim ClaimTypeReferenceId="city" />` de afirmação para o ficheiro de SignUporSignIn.xml para que essa declaração é enviada para a aplicação no token depois de um percurso do utilizador com êxito.
+4. Adicione a `<OutputClaim ClaimTypeReferenceId="city" />` declaração ao arquivo SignUporSignIn. xml para que essa declaração seja enviada ao aplicativo no token após um percurso de usuário bem-sucedido.
 
     ```xml
     <RelyingParty>
@@ -261,18 +261,18 @@ Os elementos seguintes são utilizados para definir a afirmação:
 ## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino do Azure AD.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
-4. Selecione **arquitetura de experiências de identidade (pré-visualização)** .
-5. Selecione **política personalizada do carregar**e, em seguida, carregue os ficheiros de política de duas que alterou.
-2. Selecione a política de inscrição ou início de sessão que carregou e clique nas **executar agora** botão.
-3. Deverá conseguir inscrever-se através de um endereço de e-mail.
+2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
+3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
+4. Selecione **Identity Experience Framework (versão prévia)** .
+5. Selecione **carregar política personalizada**e, em seguida, carregue os dois arquivos de política que você alterou.
+2. Selecione a política de inscrição ou de entrada que você carregou e clique no botão **executar agora** .
+3. Você deve ser capaz de se inscrever usando um endereço de email.
 
-O ecrã de inscrição deve ser semelhante ao seguinte:
+A tela de inscrição deve ser semelhante a esta:
 
-![Captura de ecrã da opção de inscrição modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
+![Captura de tela da opção de inscrição modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-O token enviado para a sua aplicação inclui o `city` de afirmação.
+O token enviado de volta para seu aplicativo inclui `city` a declaração.
 
 ```json
 {
@@ -294,11 +294,11 @@ O token enviado para a sua aplicação inclui o `city` de afirmação.
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Opcional: Remover a verificação de e-mail
+## <a name="optional-remove-email-verification"></a>Opcional: Remover verificação de email
 
-Para ignorar a verificação de e-mail, pode optar por remover `PartnerClaimType="Verified.Email"`. Neste caso, o endereço de e-mail é necessária mas não verificado, a menos que "Required" = true é removido.  Considere cuidadosamente se esta opção é adequada para seus casos de uso.
+Para ignorar a verificação de email, você pode optar `PartnerClaimType="Verified.Email"`por remover. Nesse caso, o endereço de email é necessário, mas não verificado, a menos que "required" = true seja removido.  Considere cuidadosamente se essa opção é adequada para seus casos de uso.
 
-Verificar e-mail está ativada por predefinição no `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no ficheiro de política de TrustFrameworkBase:
+O email verificado é habilitado por padrão no `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política TrustFrameworkBase:
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
@@ -306,4 +306,4 @@ Verificar e-mail está ativada por predefinição no `<TechnicalProfile Id="Loca
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [atributos personalizados de utilização num perfil personalizado do Editar política](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).
+Saiba como [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

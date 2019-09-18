@@ -1,7 +1,7 @@
 ---
 title: Como implantar modelos em instâncias de contêiner do Azure
-titleSuffix: Azure Machine Learning service
-description: Saiba como implantar seus modelos de serviço de Azure Machine Learning como um serviço Web usando instâncias de contêiner do Azure.
+titleSuffix: Azure Machine Learning
+description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando instâncias de contêiner do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279144"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034633"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo em instâncias de contêiner do Azure
 
-Saiba como usar o serviço de Azure Machine Learning para implantar um modelo como um serviço Web em ACI (instâncias de contêiner do Azure). Use as instâncias de contêiner do Azure se uma das seguintes condições for verdadeira:
+Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em ACI (instâncias de contêiner do Azure). Use as instâncias de contêiner do Azure se uma das seguintes condições for verdadeira:
 
 - Precisa implementar e validar o seu modelo rapidamente. Você não precisa criar contêineres ACI antes do tempo. Eles são criados como parte do processo de implantação.
 - Está a testar um modelo que está em desenvolvimento. 
@@ -28,7 +28,7 @@ Para obter informações sobre a disponibilidade de cota e região para ACI, con
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma área de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md).
+- Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
 - Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tiver um modelo registrado, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
@@ -46,7 +46,7 @@ Para obter informações sobre a disponibilidade de cota e região para ACI, con
 
 ## <a name="deploy-to-aci"></a>Implementar para ACI
 
-Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração__de inferência, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 
@@ -78,7 +78,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-## <a name="using-vs-code"></a>Usando VS Code
+## <a name="using-vs-code"></a>Utilizar o VS Code
 
 Consulte [implantar seus modelos com vs Code](how-to-vscode-tools.md#deploy-and-manage-models).
 

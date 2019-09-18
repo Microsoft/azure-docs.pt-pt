@@ -1,7 +1,7 @@
 ---
 title: 'Destinos de computação: onde treinar e implantar modelos'
-titleSuffix: Azure Machine Learning service
-description: Defina onde você deseja treinar ou implantar seu modelo com o serviço Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Defina onde você deseja treinar ou implantar seu modelo com Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860598"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035525"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>O que são destinos de computação no serviço Azure Machine Learning? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
 Um **destino de computação** é um ambiente/recurso de computação designado em que você executa o script de treinamento ou hospeda sua implantação de serviço. Esse local pode ser seu computador local ou um recurso de computação baseado em nuvem. O uso de destinos de computação facilita a alteração do ambiente de computação, sem a necessidade de alterar o código.  
 
@@ -29,7 +29,7 @@ Os recursos de computação que você usa para seus destinos de computação sã
 
 ## <a name="train"></a>Treinamento de destinos de computação
 
-O serviço de Azure Machine Learning tem suporte variado em diferentes recursos de computação.  Você também pode anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
+Azure Machine Learning tem suporte variado em diferentes recursos de computação.  Você também pode anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -46,7 +46,7 @@ Saiba [onde e como implantar seu modelo em um destino de computação](how-to-de
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Computação Azure Machine Learning (gerenciada)
 
-Um recurso de computação gerenciado é criado e gerenciado pelo serviço Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning computação é a única computação gerenciada a partir de 30 de maio de 2019. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
+Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning computação é a única computação gerenciada a partir de 30 de maio de 2019. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
 
 Você pode usar Azure Machine Learning computação para treinamento e inferência do lote (versão prévia).  Com esse recurso de computação, você tem:
 
@@ -59,7 +59,7 @@ Você pode criar Azure Machine Learning instâncias de computação no portal do
 
 ## <a name="unmanaged-compute"></a>Computação não gerenciada
 
-Um destino de computação *não gerenciado não* é gerenciado pelo serviço de Azure Machine Learning. Você cria esse tipo de destino de computação fora do Azure Machine Learning e, em seguida, anexa-o ao seu espaço de trabalho. Recursos de computação não gerenciados podem exigir etapas adicionais para você manter ou para melhorar o desempenho de cargas de trabalho de aprendizado de máquina.
+Um destino de computação *não gerenciado não* é gerenciado pelo Azure Machine Learning. Você cria esse tipo de destino de computação fora do Azure Machine Learning e, em seguida, anexa-o ao seu espaço de trabalho. Recursos de computação não gerenciados podem exigir etapas adicionais para você manter ou para melhorar o desempenho de cargas de trabalho de aprendizado de máquina.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

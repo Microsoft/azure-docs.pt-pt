@@ -1,10 +1,10 @@
 ---
-title: Endereços de IP públicos (clássico) de nível de instância do Azure | Documentos da Microsoft
-description: Compreender a instância de endereços IP públicos ao nível (ILPIP) e como geri-los com o PowerShell.
+title: Endereços IP públicos (clássicos) de nível de instância do Azure | Microsoft Docs
+description: Entenda os endereços ILPIP (IP público em nível de instância) e como gerenciá-los usando o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d92832d1eee995e8883dc6c8ed0f58c9755e40f8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60186808"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058411"
 ---
-# <a name="instance-level-public-ip-classic-overview"></a>Instância pública IP (clássico) Descrição geral de nível
-Uma instância IP público ao nível (ILPIP) é um endereço IP público que pode atribuir diretamente para uma instância de função VM ou serviços Cloud, em vez de para o serviço em nuvem que sua instância VM ou função residem em. Um ILPIP não tomar o lugar do IP virtual (VIP) atribuído ao seu serviço cloud. Em vez disso, é um endereço IP adicional que pode utilizar para ligar diretamente à sua instância VM ou função.
+# <a name="instance-level-public-ip-classic-overview"></a>Visão geral do IP público em nível de instância (clássico)
+Um ILPIP (IP público em nível de instância) é um endereço IP público que você pode atribuir diretamente a uma instância de função de serviços de nuvem ou VM, em vez de ao serviço de nuvem em que a sua VM ou instância de função reside. Um ILPIP não assume o lugar do VIP (IP virtual) atribuído ao seu serviço de nuvem. Em vez disso, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação de VMs através do Resource Manager. Certifique-se de que compreende como [endereços IP](virtual-network-ip-addresses-overview-classic.md) profissional no Azure.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação de VMs por meio do Resource Manager. Verifique se você entendeu como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
 ![Diferença entre ILPIP e VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-Conforme mostrado na figura 1, o serviço em nuvem é acessado com um VIP, enquanto as VMs individuais são normalmente acedidas VIP a utilizar:&lt;número de porta&gt;. Ao atribuir um ILPIP para uma VM específica, essa VM pode ser acedida diretamente com esse endereço IP.
+Como mostra a Figura 1, o serviço de nuvem é acessado usando um VIP, enquanto as VMs individuais normalmente são acessadas&gt;usando VIP:&lt;número da porta. Ao atribuir um ILPIP a uma VM específica, essa VM pode ser acessada diretamente usando esse endereço IP.
 
-Quando criar um serviço cloud no Azure, correspondentes registos DNS são criados automaticamente para permitir o acesso ao serviço através de um nome de domínio completamente qualificado (FQDN), em vez de usar o VIP real. O mesmo processo acontece para um ILPIP, permitindo o acesso para a instância de função de VM ou através do FQDN, em vez do ILPIP. Por exemplo, se criar um serviço em nuvem com o nome *contosoadservice*, e configurar uma função da web com o nome *contosoweb* com duas instâncias e em. cscfg `domainNameLabel` está definido como  *WebPublicIP*, o Azure a uma seguintes regista para as instâncias de registros:
+Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um FQDN (nome de domínio totalmente qualificado), em vez de usar o VIP real. O mesmo processo ocorre para um ILPIP, permitindo o acesso à VM ou à instância de função pelo FQDN em vez de ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice*e configurar uma função Web chamada *contosoweb* com duas instâncias e no. cscfg `domainNameLabel` for definido como *WebPublicIP*, o Azure registrará os seguintes registros a para o ocasiões
 
 
 * WebPublicIP.0.contosoadservice.cloudapp.net
@@ -40,25 +40,25 @@ Quando criar um serviço cloud no Azure, correspondentes registos DNS são criad
 
 
 > [!NOTE]
-> Pode atribuir apenas um ILPIP para cada instância VM ou função. Pode usar até 5 ILPIPs por subscrição. ILPIPs não são suportados para VMs de multi-NIC.
+> Você pode atribuir apenas um ILPIP para cada VM ou instância de função. Você pode usar até 5 ILPIPs por assinatura. Não há suporte para ILPIPs para VMs com várias NICs.
 > 
 > 
 
-## <a name="why-would-i-request-an-ilpip"></a>Por que motivo posso pedir um ILPIP?
-Se quiser ser capaz de ligar à sua instância de função de VM ou um endereço IP atribuído diretamente a ele, em vez de utilizar a cloud service VIP:&lt;número de porta&gt;, pedir um ILPIP para a VM ou a sua instância de função.
+## <a name="why-would-i-request-an-ilpip"></a>Por que eu solicitaria um ILPIP?
+Se você quiser ser capaz de se conectar à sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o número&lt;&gt;de porta vip do serviço de nuvem, solicite um ILPIP para sua VM ou sua instância de função.
 
-* **Active Directory FTP** -ao atribuir um ILPIP a uma VM, pode receber tráfego de qualquer porta. Pontos finais não são necessários para a VM receber o tráfego.  Ver [descrição geral do protocolo FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) para obter detalhes sobre o protocolo FTP.
-* **IP de saída** - o tráfego de saída da VM de origem é mapeado para o ILPIP como a origem e o ILPIP identifica exclusivamente a VM a entidades externas.
+* **FTP ativo** -ao atribuir um ILPIP a uma VM, ele pode receber tráfego em qualquer porta. Os pontos de extremidade não são necessários para a VM receber o tráfego.  Consulte [visão geral do protocolo FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) para obter detalhes sobre o protocolo FTP.
+* **IP de saída** -o tráfego de saída proveniente da VM é mapeado para o ILPIP como a origem e o ILPIP identifica exclusivamente a VM para entidades externas.
 
 > [!NOTE]
-> No passado, um endereço ILPIP foi referido como um endereço IP público (PIP).
+> No passado, um endereço ILPIP era chamado de endereço IP público (PIP).
 > 
 
-## <a name="manage-an-ilpip-for-a-vm"></a>Gerir um ILPIP para uma VM
-As seguintes tarefas permitem-lhe criar, atribuir e remover ILPIPs de VMs:
+## <a name="manage-an-ilpip-for-a-vm"></a>Gerenciar um ILPIP para uma VM
+As tarefas a seguir permitem criar, atribuir e remover ILPIPs de VMs:
 
-### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Como solicitar um ILPIP durante a criação de VM com o PowerShell
-O seguinte script do PowerShell cria um serviço em nuvem com o nome *FTPService*, obtém uma imagem do Azure, que cria uma VM com o nome *FTPInstance* com a imagem obtida, define a VM para utilizar um ILPIP e adiciona a VM para o novo serviço:
+### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Como solicitar um ILPIP durante a criação da VM usando o PowerShell
+O script do PowerShell a seguir cria um serviço de nuvem chamado *FTPService*, recupera uma imagem do Azure, cria uma VM denominada *FTPInstance* usando a imagem recuperada, define a VM para usar um ILPIP e adiciona a VM ao novo serviço:
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
@@ -76,7 +76,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ```
-Se pretender especificar outra conta de armazenamento como a localização do novo disco VM, pode utilizar **MediaLocation** parâmetro:
+Se desejar especificar outra conta de armazenamento como o local do novo disco de VM, você poderá usar o parâmetro **MediaLocation** :
 
 ```powershell
     New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
@@ -85,8 +85,8 @@ Se pretender especificar outra conta de armazenamento como a localização do no
     | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
-### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Como obter informações de ILPIP para uma VM
-Para ver as informações de ILPIP para a VM criada com o script anterior, execute o seguinte comando do PowerShell e observe os valores para *PublicIPAddress* e *PublicIPName*:
+### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Como recuperar informações de ILPIP para uma VM
+Para exibir as informações de ILPIP para a VM criada com o script anterior, execute o seguinte comando do PowerShell e observe os valores de *PublicIPAddress* e *PublicIPName*:
 
 ```powershell
 Get-AzureVM -Name FTPInstance -ServiceName FTPService
@@ -121,7 +121,7 @@ Resultado esperado:
     OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
     OperationStatus             : OK
 
-### <a name="how-to-remove-an-ilpip-from-a-vm"></a>Como remover um ILPIP a partir de uma VM
+### <a name="how-to-remove-an-ilpip-from-a-vm"></a>Como remover um ILPIP de uma VM
 Para remover o ILPIP adicionado à VM no script anterior, execute o seguinte comando do PowerShell:
 
 ```powershell
@@ -129,18 +129,18 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | U
 ```
 
 ### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Como adicionar um ILPIP a uma VM existente
-Para adicionar um ILPIP para a VM criada utilizando o script anterior, execute o seguinte comando:
+Para adicionar um ILPIP à VM criada usando o script anterior, execute o seguinte comando:
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Gerir um ILPIP para uma instância de função de serviços Cloud
+## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Gerenciar um ILPIP para uma instância de função dos serviços de nuvem
 
-Para adicionar um ILPIP para uma instância de função de serviços Cloud, execute os seguintes passos:
+Para adicionar um ILPIP a uma instância de função de serviços de nuvem, conclua as seguintes etapas:
 
-1. Transfira o ficheiro. cscfg para o serviço em nuvem, concluindo os passos a [como configurar os serviços Cloud](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artigo.
-2. Atualize o ficheiro. cscfg ao adicionar o `InstanceAddress` elemento. O exemplo seguinte adiciona um ILPIP com o nome *MyPublicIP* para uma instância de função chamada *WebRole1*: 
+1. Baixe o arquivo. cscfg para o serviço de nuvem concluindo as etapas no artigo [como configurar os serviços de nuvem](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) .
+2. Atualize o arquivo. cscfg adicionando o `InstanceAddress` elemento. O exemplo a seguir adiciona um ILPIP chamado *MyPublicIP* a uma instância de função chamada *WebRole1*: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -162,10 +162,10 @@ Para adicionar um ILPIP para uma instância de função de serviços Cloud, exec
       </NetworkConfiguration>
     </ServiceConfiguration>
     ```
-3. Carregar o ficheiro. cscfg para o serviço em nuvem, concluindo os passos a [como configurar os serviços Cloud](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artigo.
+3. Carregue o arquivo. cscfg para o serviço de nuvem concluindo as etapas no artigo [como configurar os serviços de nuvem](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) .
 
-### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Como obter informações de ILPIP para um serviço Cloud
-Para ver as informações de ILPIP por instância de função, execute o seguinte comando do PowerShell e observe os valores para *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* e *PublicIPFqdns*:
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Como recuperar informações de ILPIP para um serviço de nuvem
+Para exibir as informações de ILPIP por instância de função, execute o seguinte comando do PowerShell e observe os valores de *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* e *PublicIPFqdns*:
 
 ```powershell
 Add-AzureAccount
@@ -176,12 +176,12 @@ $roles[0].PublicIPAddress
 $roles[1].PublicIPAddress
 ```
 
-Também pode usar `nslookup` para consultar o subdomínio de um registo:
+Você também pode usar `nslookup` para consultar o registro a de um subdomínio:
 
 ```batch
 nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
 ``` 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Compreender como [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implementação clássica.
-* Saiba mais sobre [reservado IPs](virtual-networks-reserved-public-ip.md).
+* Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássico.
+* Saiba mais sobre [IPS reservados](virtual-networks-reserved-public-ip.md).

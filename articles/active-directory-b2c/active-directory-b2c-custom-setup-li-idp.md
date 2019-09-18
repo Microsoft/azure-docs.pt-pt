@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 41caa5807ce837e1ff00ceadd3fe5aef958d01b6
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693332"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066043"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do LinkedIn usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários de uma conta do LinkedIn usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory (Azure AD) B2C.
+Este artigo mostra como habilitar a entrada para usuários de uma conta do LinkedIn usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ Para usar o LinkedIn como um provedor de identidade no Azure AD B2C, você preci
 1. Selecione a guia **autenticação** .
 1. Registre a **ID do cliente**.
 1. Revela e registra o **segredo do cliente**.
-1. Em **configurações do OAuth 2,0**, adicione a seguinte **URL**de redirecionamento. Substitua `your-tenant` pelo nome do seu locatário. Use **todas as letras minúsculas** para o nome do locatário, mesmo se ele estiver definido com letras maiúsculas no Azure ad B2C.
+1. Em **configurações do OAuth 2,0**, adicione a seguinte **URL de redirecionamento**. Substitua `your-tenant` pelo nome do seu locatário. Use **todas as letras minúsculas** para o nome do locatário, mesmo se ele estiver definido com letras maiúsculas no Azure ad B2C.
 
     `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
 
@@ -60,7 +60,7 @@ Para usar o LinkedIn como um provedor de identidade no Azure AD B2C, você preci
 Você precisa armazenar o segredo do cliente que você registrou anteriormente em seu locatário Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Na página Visão geral, selecione **Identity Experience Framework**.
 5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
@@ -78,7 +78,7 @@ Defina uma conta do LinkedIn como um provedor de declarações adicionando-a ao 
 
 1. Abra o arquivo *SocialAndLocalAccounts/ **TrustFrameworkExtensions. xml*** em seu editor. Esse arquivo está no [pacote de início de política personalizada][starter-pack] que você baixou como parte de um dos pré-requisitos.
 1. Localize o elemento **ClaimsProviders** . Se não existir, adicione-o sob o elemento raiz.
-1. Adicione um novo Claims da seguinte maneira:
+1. Adicione um novo **Claims** da seguinte maneira:
 
     ```xml
     <ClaimsProvider>
@@ -185,8 +185,8 @@ Neste ponto, o provedor de identidade foi configurado, mas não está disponíve
 
 1. Abra o arquivo *TrustFrameworkBase. xml* no pacote inicial.
 2. Localize e copie todo o conteúdo do elemento **userjornada** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions. xml* e localize o elemento userjornadas. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **userjornada** que você copiou como um filho do elemento userjornadas.
+3. Abra o *TrustFrameworkExtensions. xml* e localize o elemento **userjornadas** . Se o elemento não existir, adicione um.
+4. Cole todo o conteúdo do elemento **userjornada** que você copiou como um filho do elemento **userjornadas** .
 5. Renomeie a ID da jornada do usuário. Por exemplo, `SignUpSignInLinkedIn`.
 
 ### <a name="display-the-button"></a>Exibir o botão
@@ -220,7 +220,7 @@ Agora que você tem um botão em vigor, é necessário vinculá-lo a uma ação.
 A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você cria em seu locatário. Esta seção lista as etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 5. Insira um nome para o aplicativo, por exemplo, *testapp1*.

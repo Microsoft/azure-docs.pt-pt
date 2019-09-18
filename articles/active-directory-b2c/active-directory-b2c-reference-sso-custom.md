@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de sessões de início de início de sessão único com as políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba como gerir sessões SSO com as políticas personalizadas no Azure AD B2C.
+title: Gerenciamento de sessão de logon único usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba como gerenciar sessões de SSO usando políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,39 +10,39 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509057"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065386"
 ---
-# <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestão de sessão de início de sessão único no Azure Active Directory B2C
+# <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Início de sessão (SSO) sessão gestão única no Azure Active Directory (Azure AD) B2C permite que um administrador controle interação com um utilizador depois do utilizador já foi autenticado. Por exemplo, o administrador pode controlar se a seleção de fornecedores de identidade é apresentada, ou se os detalhes da conta local precisam de ser introduzido novamente. Este artigo descreve como configurar as definições de SSO para o Azure AD B2C.
+O gerenciamento de sessão de SSO (logon único) no Azure Active Directory B2C (Azure AD B2C) permite que um administrador controle a interação com um usuário depois que o usuário já tiver se autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes da conta local precisam ser inseridos novamente. Este artigo descreve como definir as configurações de SSO para Azure AD B2C.
 
-Gerenciamento de sessões SSO tem duas partes. A primeira lida com as interações do usuário diretamente com o Azure AD B2C e os outros negócios com as interações do usuário com terceiros, como o Facebook. O Azure AD B2C não substituir ou ignorar sessões SSO que podem ser mantidas por partes externas. Em vez disso, a rota através do Azure AD B2C para ir para a parte externa é "lembrada", evitando a necessidade de reprompt ao utilizador selecionar o respetivo fornecedor de identidade social ou empresarial. A decisão de SSO ultimate permanece com a parte externa.
+O gerenciamento de sessão de SSO tem duas partes. A primeira lida com as interações do usuário diretamente com Azure AD B2C e a outra lida com as interações do usuário com partes externas, como o Facebook. Azure AD B2C não substitui nem ignora as sessões de SSO que podem ser mantidas por partes externas. Em vez disso, a rota por meio de Azure AD B2C para chegar à parte externa é "lembrada", evitando a necessidade de solicitar novamente que o usuário selecione seu provedor de identidade social ou empresarial. A decisão de SSO final permanece com a parte externa.
 
-Gerenciamento de sessões SSO utiliza a mesma semântica como qualquer outro perfil técnico em políticas personalizadas. Quando um passo de orquestração é executado, o perfil técnico associado com a etapa é consultado para um `UseTechnicalProfileForSessionManagement` referência. Se existir, o provedor de sessão SSO referenciado, em seguida, é verificado para ver se o utilizador é um participante de sessão. Se assim, o provedor de sessão SSO é usado repreencher a sessão. Da mesma forma, quando a execução de um passo de orquestração estiver concluída, o fornecedor é utilizado para armazenar as informações da sessão se foi especificado um fornecedor de sessão SSO.
+O gerenciamento de sessão de SSO usa a mesma semântica que qualquer outro perfil técnico em políticas personalizadas. Quando uma etapa de orquestração é executada, o perfil técnico associado à etapa é consultado em busca `UseTechnicalProfileForSessionManagement` de uma referência. Se houver um, o provedor de sessão de SSO referenciado será verificado para ver se o usuário é um participante da sessão. Nesse caso, o provedor de sessão de SSO é usado para repopular a sessão. Da mesma forma, quando a execução de uma etapa de orquestração for concluída, o provedor será usado para armazenar informações na sessão se um provedor de sessão de SSO tiver sido especificado.
 
-O Azure AD B2C tem definido um número de fornecedores de sessões SSO, que pode ser utilizado:
+Azure AD B2C definiu um número de provedores de sessão SSO que podem ser usados:
 
 * NoopSSOSessionProvider
 * DefaultSSOSessionProvider
 * ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-Classes de gestão de SSO são especificados usando o `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` elemento de um perfil técnico.
+As classes de gerenciamento de SSO são `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` especificadas usando o elemento de um perfil técnico.
 
 ## <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Como o nome dita, este fornecedor não faz nada. Este fornecedor pode ser utilizado para suprimir o comportamento SSO para um perfil técnico específico.
+Como o nome dita, esse provedor não faz nada. Esse provedor pode ser usado para suprimir o comportamento de SSO para um perfil técnico específico.
 
 ## <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-Este fornecedor pode ser utilizado para armazenar afirmações numa sessão. Este fornecedor, normalmente, é referenciado num perfil técnico para gestão de contas locais. Ao usar o DefaultSSOSessionProvider para armazenar afirmações numa sessão, precisa garantir que quaisquer afirmações que precisam ser retornado ao aplicativo ou utilizados pela pré-condições nos passos subsequentes, são armazenados na sessão ou aumentado mediante uma leitura do perfil de utilizadores em diretório. Isto irá garantir que sua jornada de autenticação não falhará em declarações em falta.
+Esse provedor pode ser usado para armazenar declarações em uma sessão. Normalmente, esse provedor é referenciado em um perfil técnico usado para gerenciar contas locais. Ao usar o DefaultSSOSessionProvider para armazenar declarações em uma sessão, você precisa garantir que todas as declarações que precisam ser retornadas para o aplicativo ou usadas pelas pré-condições nas etapas subsequentes sejam armazenadas na sessão ou aumentadas por uma leitura do perfil de usuários no active. Isso garantirá que a jornada de autenticação não falhe em declarações ausentes.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -59,11 +59,11 @@ Este fornecedor pode ser utilizado para armazenar afirmações numa sessão. Est
 </TechnicalProfile>
 ```
 
-Para adicionar afirmações na sessão, utilize o `<PersistedClaims>` elemento do perfil técnico. Quando o fornecedor é utilizado repreencher a sessão, o persistente afirmações são adicionadas a matriz de afirmações. `<OutputClaims>` é utilizado para recuperação das afirmações a partir da sessão.
+Para adicionar declarações na sessão, use o `<PersistedClaims>` elemento do perfil técnico. Quando o provedor é usado para repopular a sessão, as declarações persistentes são adicionadas ao recipiente de declarações. `<OutputClaims>`é usado para recuperar declarações da sessão.
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Esse provedor é utilizado para suprimir o ecrã "Escolher o fornecedor de identidade". Normalmente, é referenciada num perfil técnico configurado para um fornecedor de identidade externo, como o Facebook. 
+Esse provedor é usado para suprimir a tela "escolher provedor de identidade". Normalmente, ele é referenciado em um perfil técnico configurado para um provedor de identidade externo, como o Facebook.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -74,7 +74,7 @@ Esse provedor é utilizado para suprimir o ecrã "Escolher o fornecedor de ident
 
 ## <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Este fornecedor é utilizado para gerir as sessões do Azure AD B2C SAML entre aplicativos, bem como fornecedores de identidade SAML externos.
+Esse provedor é usado para gerenciar o Azure AD B2C sessões SAML entre aplicativos, bem como provedores de identidade SAML externos.
 
 ```XML
 <TechnicalProfile Id="SM-Reflector-SAML">
@@ -87,12 +87,12 @@ Este fornecedor é utilizado para gerir as sessões do Azure AD B2C SAML entre a
 </TechnicalProfile>
 ```
 
-Existem dois itens de metadados para o perfil técnico:
+Há dois itens de metadados no perfil técnico:
 
-| Item | Valor Predefinido | Valores Possíveis | Descrição
+| Item | Default Value | Valores Possíveis | Descrição
 | --- | --- | --- | --- |
-| IncludeSessionIndex | true | Verdadeiro/Falso | Indica ao Provedor que o índice de sessão deve ser armazenado. |
-| RegisterServiceProviders | true | Verdadeiro/Falso | Indica se o fornecedor deverá registar todos os fornecedores de serviços SAML emitidos uma asserção. |
+| IncludeSessionIndex | true | verdadeiro/falso | Indica ao provedor que o índice de sessão deve ser armazenado. |
+| RegisterServiceProviders | true | verdadeiro/falso | Indica que o provedor deve registrar todos os provedores de serviço SAML que foram emitidos uma asserção. |
 
-Ao utilizar o fornecedor para armazenar uma sessão de fornecedor de identidade SAML, os itens acima devem ambos ser falsos. Ao utilizar o fornecedor para armazenar a sessão de SAML do B2C, os itens acima devem ser true ou omitido que os padrões sejam verdadeiros. Fim de sessão de sessão SAML requer o `SessionIndex` e `NameID` para concluir.
+Ao usar o provedor para armazenar uma sessão de provedor de identidade SAML, os itens acima devem ser falsos. Ao usar o provedor para armazenar a sessão de SAML do B2C, os itens acima devem ser verdadeiros ou omitidos, pois os padrões são verdadeiros. O logoff da sessão SAML `SessionIndex` requer `NameID` o e o para concluir.
 

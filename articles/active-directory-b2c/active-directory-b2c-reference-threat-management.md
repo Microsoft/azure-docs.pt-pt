@@ -1,6 +1,6 @@
 ---
-title: Gerir as ameaças aos recursos e dados no Azure Active Directory B2C
-description: Saiba mais sobre técnicas de deteção e mitigação de ataques denial-of-service e ataques de palavra-passe no Azure Active Directory B2C.
+title: Gerenciar ameaças a recursos e dados no Azure Active Directory B2C
+description: Saiba mais sobre as técnicas de detecção e mitigação para ataques de negação de serviço e ataques de senha no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,46 +10,46 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7232917df6018c9c8afc7e7edd3730a277b193f4
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798232"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065426"
 ---
-# <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerir as ameaças aos recursos e dados no Azure Active Directory B2C
+# <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerenciar ameaças a recursos e dados no Azure Active Directory B2C
 
-O Azure Active Directory (Azure AD) B2C tem recursos incorporados que podem ajudar a proteger contra ameaças para os dados e recursos. Estas ameaças incluem ataques denial-of-service e ataques de palavra-passe. Ataques denial-of-service podem tornar recursos indisponível para usuários. Ataques de palavra-passe levam ao acesso não autorizado aos recursos.
+O Azure Active Directory B2C (Azure AD B2C) tem recursos internos que podem ajudá-lo a proteger contra ameaças a seus recursos e dados. Essas ameaças incluem ataques de negação de serviço e ataques de senha. Os ataques de negação de serviço podem tornar os recursos indisponíveis para os usuários pretendidos. Os ataques de senha levam a acesso não autorizado aos recursos.
 
-## <a name="denial-of-service-attacks"></a>Ataques denial-of-service
+## <a name="denial-of-service-attacks"></a>Ataques de negação de serviço
 
-O Azure AD B2C faz a defesa contra ataques de inundação SYN através de um cookie SYN. O Azure AD B2C também protege contra ataques de negação de serviço através de limites para ligações e taxas.
+Azure AD B2C defende contra ataques de inundação SYN usando um cookie SYN. O Azure AD B2C também protege contra ataques de negação de serviço usando limites de tarifas e conexões.
 
-## <a name="password-attacks"></a>Ataques de palavra-passe
+## <a name="password-attacks"></a>Ataques de senha
 
-Palavras-passe que são definidas por utilizadores têm de ser razoavelmente complexo. O Azure AD B2C tem técnicas de atenuação para ataques de palavra-passe. Atenuação inclui a deteção de ataques de palavra-passe de dicionário e ataques de força bruta a senhas. Ao utilizar vários sinais, o Azure AD B2C analisa a integridade dos pedidos. O Azure AD B2C foi concebido para inteligência diferenciar usuários de hackers e botnets.
+As senhas definidas pelos usuários são obrigadas a serem razoavelmente complexas. Azure AD B2C tem técnicas de mitigação em vigor para ataques de senha. A mitigação inclui a detecção de ataques de senha de força bruta e ataques de senha de dicionário. Usando vários sinais, Azure AD B2C analisa a integridade das solicitações. O Azure AD B2C foi projetado para diferenciar de forma inteligente os usuários pretendidos de hackers e botnets.
 
-O Azure AD B2C utiliza uma estratégia sofisticada para bloquear as contas. As contas estão bloqueadas com base no IP do pedido e as palavras-passe que introduziu. A duração do bloqueio também aumenta com base na probabilidade que é um ataque. Depois de uma palavra-passe é experimentada 10 vezes sem êxito ocorre do (o tentativa de limiar predefinido), um bloqueio de um minuto. Da próxima vez que um início de sessão for bem-sucedido após a conta está desbloqueada (ou seja, depois da conta tem de foi desbloqueada automaticamente pelo serviço assim que o período de bloqueio expira), outro bloqueio de um minuto ocorre e continua para cada início de sessão sem êxito. Introduzir a mesma palavra-passe repetidamente não contabiliza como vários inícios de sessão sem êxito.
+Azure AD B2C usa uma estratégia sofisticada para bloquear contas. As contas são bloqueadas com base no IP da solicitação e as senhas inseridas. A duração do bloqueio também aumenta com base na probabilidade de que seja um ataque. Depois que uma senha é tentada 10 vezes sem êxito (o limite de tentativas padrão), ocorre um bloqueio de um minuto. Na próxima vez que um logon não for bem-sucedido depois que a conta for desbloqueada (ou seja, depois que a conta for desbloqueada automaticamente pelo serviço depois que o período de bloqueio expirar), ocorrerá outro bloqueio de um minuto e continuará para cada logon malsucedido. Inserir a mesma senha repetidamente não conta como vários logons malsucedidos.
 
-Os períodos de 10 bloqueio primeiro são longo de um minuto. Os períodos de bloqueio de 10 a seguir são ligeiramente maiores e aumentam a duração depois de todos os períodos de bloqueio de 10. Repõe o contador de bloqueio para zero após um início de sessão com êxito, quando a conta não está bloqueada. Períodos de bloqueio podem sobreviver a várias até cinco horas.
+Os 10 primeiros períodos de bloqueio têm um minuto de duração. Os próximos 10 períodos de bloqueio são um pouco mais longos e aumentam a duração após cada 10 períodos de bloqueio. O contador de bloqueio é redefinido para zero após um logon bem-sucedido quando a conta não está bloqueada. Os períodos de bloqueio podem durar até cinco horas.
 
-## <a name="manage-password-protection-settings"></a>Gerir as definições de proteção de palavra-passe
+## <a name="manage-password-protection-settings"></a>Gerenciar configurações de proteção de senha
 
-Para gerir definições de proteção de palavra-passe, incluindo o limiar de bloqueio:
+Para gerenciar as configurações de proteção de senha, incluindo o limite de bloqueio:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório + subscrição** filtrar no menu superior direito do portal, em seguida, selecione o seu inquilino do Azure AD B2C.
-1. Selecione **do Azure Active Directory** no menu da esquerda (ou selecione **todos os serviços** na secção de canto superior esquerdo do portal, em seguida, procure e selecione *Azure Active Directory*).
-1. Sob **Security**, selecione **métodos de autenticação**, em seguida, selecione **proteção de palavra-passe**.
-1. Introduzir as definições de proteção de palavra-passe pretendida, em seguida, selecione **guardar**.
+1. Selecione o **diretório +** filtro de assinatura no menu superior direito do portal e, em seguida, selecione seu locatário Azure ad B2C.
+1. Selecione **Azure Active Directory** no menu à esquerda (ou selecione **todos os serviços** na seção superior esquerda do portal, em seguida, procure e selecione *Azure Active Directory*).
+1. Em **segurança**, selecione **métodos de autenticação**e, em seguida, **proteção por senha**.
+1. Insira as configurações de proteção de senha desejadas e, em seguida, selecione **salvar**.
 
-    ![Palavra-passe proteção página do portal Azure nas definições do Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
-    <br />*Definir o limiar de bloqueio para 5 na **proteção por senha** definições*.
+    ![Página de proteção de senha portal do Azure nas configurações do Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
+    <br />*Definindo o limite de bloqueio como 5 em configurações de **proteção de senha*** .
 
-## <a name="view-locked-out-accounts"></a>Contas de saída bloqueado do Vista
+## <a name="view-locked-out-accounts"></a>Exibir contas bloqueadas
 
-Para obter informações sobre contas de saída bloqueado, pode verificar o Active Directory [relatório de atividade de início de sessão](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md). Sob **Status**, selecione **falha**. Tentativas de início de sessão com uma **início de sessão do código de erro** de `50053` indicar uma conta bloqueada:
+Para obter informações sobre contas bloqueadas, você pode verificar o Active Directory [relatório de atividade de entrada](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md). Em **status**, selecione **falha**. Tentativas de entrada com falha com um **código de erro de entrada** de `50053` indicar uma conta bloqueada:
 
-![Secção do Azure AD início de sessão no relatório que mostra a conta de saída bloqueado](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
+![Seção do relatório de entrada do Azure AD mostrando a conta bloqueada](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
 
-Para saber mais sobre como ver o relatório de atividade de início de sessão no Azure Active Directory, veja [início de sessão códigos de erro de relatórios de atividades](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md).
+Para saber mais sobre como exibir o relatório de atividade de entrada no Azure Active Directory, consulte [códigos de erro de relatório de atividade de entrada](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md).

@@ -15,16 +15,16 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996731"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056142"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure
 
-Este artigo descreve como usar o [portal do Azure](https://portal.azure.com) para gerenciar o provisionamento e desprovisionamento de conta de usuário automático para aplicativos que dão suporte a ele. Para saber mais sobre o provisionamento automático de conta de usuário e como ela funciona, confira automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](user-provisioning.md).
+Este artigo descreve como usar o [portal do Azure](https://portal.azure.com) para gerenciar o provisionamento e desprovisionamento de conta de usuário automático para aplicativos que dão suporte a ele. Para saber mais sobre o provisionamento automático de conta de usuário e como ela funciona, confira [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizando seus aplicativos no portal
 
@@ -81,7 +81,7 @@ As personalizações com suporte incluem:
 
 Você pode iniciar e parar o serviço de provisionamento do Azure AD para o aplicativo selecionado na área **configurações** da tela de **provisionamento** . Você também pode optar por limpar o cache de provisionamento e reiniciar o serviço.
 
-Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicativo, ative o serviço alterando o **status de provisionamento** para **ativado**. Essa alteração faz com que o serviço de provisionamento do Azure AD execute uma sincronização inicial. Ele lê os usuários atribuídos na seção **usuários e grupos** , consulta o aplicativo de destino para eles e, em seguida, executa as ações de provisionamento definidas na seção **mapeamentos** do Azure AD. Durante esse processo, o serviço de provisionamento armazena dados armazenados em cache sobre quais contas de usuário ele está gerenciando, por isso as contas não gerenciadas nos aplicativos de destino que nunca estavam no escopo para atribuição não são afetadas pelas operações de desprovisionamento. Após a sincronização inicial, o serviço de provisionamento sincroniza automaticamente objetos de usuário e de grupo em um intervalo de dez minutos.
+Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicativo, ative o serviço alterando o **status de provisionamento** para **ativado**. Essa alteração faz com que o serviço de provisionamento do Azure AD execute um ciclo inicial. Ele lê os usuários atribuídos na seção **usuários e grupos** , consulta o aplicativo de destino para eles e, em seguida, executa as ações de provisionamento definidas na seção **mapeamentos** do Azure AD. Durante esse processo, o serviço de provisionamento armazena dados armazenados em cache sobre quais contas de usuário ele está gerenciando, por isso as contas não gerenciadas nos aplicativos de destino que nunca estavam no escopo para atribuição não são afetadas pelas operações de desprovisionamento. Após o ciclo inicial, o serviço de provisionamento sincroniza automaticamente objetos de usuário e de grupo em um intervalo de dez minutos.
 
 Altere o **status de provisionamento** para **desativado** para pausar o serviço de provisionamento. Nesse estado, o Azure não cria, atualiza ou remove nenhum objeto de usuário ou grupo no aplicativo. Altere o estado de volta para **ativado** e o serviço será selecionado de onde parou.
 
@@ -89,6 +89,6 @@ Marque a caixa de seleção **limpar estado atual e reiniciar sincronização** 
 
 * Parar o serviço de provisionamento
 * Despejar os dados armazenados em cache sobre quais contas o Azure AD está gerenciando
-* Reinicie os serviços e execute a sincronização inicial novamente
+* Reinicie os serviços e execute o ciclo inicial novamente
 
 Essa opção permite que os administradores iniciem o processo de implantação de provisionamento novamente.

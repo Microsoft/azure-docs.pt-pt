@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: be37768a5cef38ae0dc49e12f1d83ba8005ab961
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194185"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037531"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -112,7 +112,7 @@ A um nível elevado, as funções RBAC do Azure controlam as permissões para ge
 | Funções RBAC do Azure | Funções de administrador do Azure AD |
 | --- | --- |
 | Gerir o acesso aos recursos do Azure | Gerir o acesso aos recursos do Azure Active Directory |
-| Suporta funções personalizadas | Não pode criar as suas próprias funções |
+| Suporta funções personalizadas | Suporta funções personalizadas |
 | O âmbito pode ser especificado em vários níveis (grupo de gestão, subscrição, grupo de recursos, recurso) | O âmbito está ao nível do inquilino |
 | As informações das funções podem ser acedidas no portal do Azure, CLI do Azure, Azure PowerShell, modelos do Azure Resource Manager, API REST | As informações de função podem ser acessadas no portal de administração do Azure, Microsoft 365 centro de administração, Microsoft Graph, AzureAD PowerShell |
 

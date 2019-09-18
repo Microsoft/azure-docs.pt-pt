@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9eccb4ca505dac312dd22123a3585863c67f3ad7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 235b55bcd727e3e3ea947ce086209e0a94f70752
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359852"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076388"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -63,9 +63,9 @@ Para fazer este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.
                            {
                                refresh.Register("TestApp:Settings:BackgroundColor")
                                       .Register("TestApp:Settings:FontColor")
-                                      .Register("TestApp:Settings:Message")
+                                      .Register("TestApp:Settings:Message");
                            });
-                }
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -208,7 +208,7 @@ Para fazer este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você adicionou uma identidade de serviço gerenciado do Azure para simplificar o acesso à configuração de aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
 

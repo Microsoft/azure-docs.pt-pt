@@ -1,6 +1,6 @@
 ---
-title: Gerir o SSO e personalização de token com as políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba mais sobre a gestão de SSO e personalização de token com as políticas personalizadas no Azure Active Directory B2C.
+title: Gerenciar o SSO e a personalização de token usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba como gerenciar o SSO e a personalização de token usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3621b176e4bbfdfbd171339d6d01a1f91ed0ae7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509290"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065562"
 ---
-# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir o SSO e personalização de token com as políticas personalizadas no Azure Active Directory B2C
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar o SSO e a personalização de token usando políticas personalizadas no Azure Active Directory B2C
 
-Este artigo fornece informações sobre como pode gerir o seu token, sessão e configurações de início de sessão único (SSO) com [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory (Azure AD) B2C.
+Este artigo fornece informações sobre como você pode gerenciar suas configurações de token, sessão e logon único (SSO) usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="token-lifetimes-and-claims-configuration"></a>Configuração de afirmações e durações de token
+## <a name="token-lifetimes-and-claims-configuration"></a>Tempos de vida de token e configuração de declarações
 
-Para alterar as definições no seu durações de token, é possível adicionar um [ClaimsProviders](claimsproviders.md) elemento no arquivo de terceiros entidade confiadora da política que pretende afetar.  O **ClaimsProviders** elemento é um elemento subordinado a [TrustFrameworkPolicy](trustframeworkpolicy.md) elemento. 
+Para alterar as configurações em seus tempos de vida de token, adicione um elemento [ClaimsProviders](claimsproviders.md) no arquivo de terceira parte confiável da política que você deseja impactar.  O elemento **ClaimsProviders** é um filho do elemento [TrustFrameworkPolicy](trustframeworkpolicy.md) .
 
-Inserir o elemento de ClaimsProviders entre o elemento de BasePolicy e o elemento de RelyingParty do arquivo de terceiros entidade confiadora.
+Insira o elemento ClaimsProviders entre o elemento BasePolicy e o elemento RelyingParty do arquivo de terceira parte confiável.
 
-Dentro dela, precisará de colocar as informações que afeta as durações de token. O XML é semelhante a este exemplo:
+Dentro do, você precisará colocar as informações que afetam os tempos de vida do token. O XML é semelhante a este exemplo:
 
 ```XML
 <ClaimsProviders>
@@ -49,47 +49,47 @@ Dentro dela, precisará de colocar as informações que afeta as durações de t
 </ClaimsProviders>
 ```
 
-Os seguintes valores estão definidos no exemplo anterior:
+Os valores a seguir são definidos no exemplo anterior:
 
-- **Durações de token de acesso** – a duração de token de acesso valor é definido com **token_lifetime_secs** item de metadados. O valor predefinido é de 3600 segundos (60 minutos).
-- **Duração do token de ID** – a duração de token de ID valor é definido com o **id_token_lifetime_secs** item de metadados. O valor predefinido é de 3600 segundos (60 minutos).
-- **Duração do token atualizado** – a duração de token de atualização de valor é definido com o **refresh_token_lifetime_secs** item de metadados. O valor predefinido é 1209600 segundos (14 dias).
-- **Atualizar token duração da janela deslizante** - se de que pretende definir uma duração de janela deslizante para seu token de atualização, defina o valor de **rolling_refresh_token_lifetime_secs** item de metadados. O valor predefinido é 7776000 (90 dias). Se não pretender impor uma duração de janela deslizante, substituir o item com `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
-- **Afirmação do emissor (iss)** -afirmações o emissor (iss) está definido com o **IssuanceClaimPattern** item de metadados. Os valores aplicáveis são `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
-- **Definição de afirmação que representa a ID de política** -são as opções para a definição deste valor `TFP` (política de estrutura de confiança) e `ACR` (referência de contexto de autenticação). `TFP` é o valor recomendado. Definir **AuthenticationContextReferenceClaimPattern** com o valor do `None`. 
+- **Tempos de vida do token de acesso** -o valor de tempo de vida do token de acesso é definido com o item de metadados **token_lifetime_secs** . O valor padrão é 3600 segundos (60 minutos).
+- **Tempo de vida do token de ID** -o valor de tempo de vida do token de ID é definido com o item de metadados **id_token_lifetime_secs** . O valor padrão é 3600 segundos (60 minutos).
+- **Tempo de vida do token de atualização** – o valor do tempo de vida do token de atualização é definido com o item de metadados **refresh_token_lifetime_secs** . O valor padrão é 1209600 segundos (14 dias).
+- **Tempo de vida da janela deslizante do token de atualização** – se desejar definir um tempo de vida da janela deslizante para o token de atualização, defina o valor do item de metadados **rolling_refresh_token_lifetime_secs** . O valor padrão é 7776000 (90 dias). Se você não quiser impor um tempo de vida da janela deslizante, substitua `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`o item por.
+- **Declaração do emissor (ISS)** -a declaração do emissor (ISS) é definida com o item de metadados **IssuanceClaimPattern** . Os valores aplicáveis são `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
+- **Definindo a declaração que representa a ID da política** -as opções para `TFP` definir esse valor são (diretiva `ACR` de estrutura de confiança) e (referência de contexto de autenticação). `TFP`é o valor recomendado. Defina **AuthenticationContextReferenceClaimPattern** com o valor de `None`.
 
-    Na **ClaimsSchema** elemento, adicionar este elemento: 
-    
+    No elemento **ClaimsSchema** , adicione este elemento:
+
     ```XML
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
     </ClaimType>
     ```
-    
-    No seu **OutputClaims** elemento, adicionar este elemento:
-    
+
+    No elemento **OutputClaims** , adicione este elemento:
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
-    Para o ACR, remover os **AuthenticationContextReferenceClaimPattern** item.
+    Para ACR, remova o item **AuthenticationContextReferenceClaimPattern** .
 
-- **Afirmação do requerente** -esta opção é predefinido para o ObjectID, se desejar alternar esta definição para `Not Supported`, substitua essa linha: 
+- **Declaração de Subject (sub)** -essa opção usa ObjectID como padrão, se você quiser mudar essa configuração para `Not Supported`, substituir esta linha:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
-    
+
     com esta linha:
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
-## <a name="session-behavior-and-sso"></a>Comportamento da sessão e SSO
+## <a name="session-behavior-and-sso"></a>Comportamento de sessão e SSO
 
-Para alterar seu comportamento de sessão e configurações de SSO, é possível adicionar um **UserJourneyBehaviors** elemento dentro do [RelyingParty](relyingparty.md) elemento.  O **UserJourneyBehaviors** elemento imediatamente tem de seguir os **DefaultUserJourney**. O interior da sua **UserJourneyBehavors** elemento deve ter um aspeto semelhante a este exemplo:
+Para alterar o comportamento da sessão e as configurações de SSO, você adiciona um elemento **UserJourneyBehaviors** dentro do elemento [RelyingParty](relyingparty.md) .  O elemento **UserJourneyBehaviors** deve seguir imediatamente o **DefaultUserJourney**. O interior do seu elemento **UserJourneyBehavors** deve ser semelhante a este exemplo:
 
 ```XML
 <UserJourneyBehaviors>
@@ -99,8 +99,8 @@ Para alterar seu comportamento de sessão e configurações de SSO, é possível
 </UserJourneyBehaviors>
 ```
 
-Os seguintes valores estão configurados no exemplo anterior:
+Os valores a seguir são configurados no exemplo anterior:
 
-- **Início de sessão (SSO) único** -início de sessão único está configurado com o **SingleSignOn**. Os valores aplicáveis são `Tenant`, `Application`, `Policy`, e `Suppressed`. 
-- **Aplicação Web duração da sessão (minutos)** – a sessão de aplicativo web tempo de vida é definido com o **SessionExpiryInSeconds** elemento. O valor predefinido é 86400 segundos (1440 minutos).
-- **Tempo limite de sessão de aplicação Web** – a sessão de aplicativo web, tempo limite é definido com o **SessionExpiryType** elemento. Os valores aplicáveis são `Absolute` e `Rolling`.
+- **SSO (logon único)** -o logon único é configurado com o **logon único**. Os valores aplicáveis são `Tenant`, `Application`, `Policy`e `Suppressed`.
+- **Tempo de vida da sessão do aplicativo Web (minutos)** – o tempo de vida da sessão do aplicativo Web é definido com o elemento **SessionExpiryInSeconds** . O valor padrão é 86400 segundos (1440 minutos).
+- **Tempo limite da sessão do aplicativo Web** -o tempo limite da sessão do aplicativo Web é definido com o elemento **SessionExpiryType** . Os valores aplicáveis são `Absolute` e `Rolling`.

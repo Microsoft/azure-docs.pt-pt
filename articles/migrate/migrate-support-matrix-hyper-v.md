@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376086"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066785"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o Hyper-V
 
@@ -27,9 +27,9 @@ A tabela resume os cenários com suporte para VMs do Hyper-V.
 **Implementação** | **Ver***
 --- | ---
 **Avaliar VMs do Hyper-V locais** | [Configure](tutorial-prepare-hyper-v.md) sua primeira avaliação.<br/><br/> [Execute](scale-hyper-v-assessment.md) uma avaliação em larga escala.
-**Migrar VMs Hyper-V para o Azure** | [Experimente](tutorial-migrate-hyper-v.md) a migração para o Azure. 
+**Migrar VMs Hyper-V para o Azure** | [Experimente](tutorial-migrate-hyper-v.md) a migração para o Azure.
 
-A migração de servidores Hyper-V gerenciados com o System Center Virtual Machine Manager (VMM) não tem suporte da migração de servidor de migrações para Azure. 
+A migração de servidores Hyper-V gerenciados com o System Center Virtual Machine Manager (VMM) não tem suporte da migração de servidor de migrações para Azure.
 
 ## <a name="azure-migrate-projects"></a>Projetos de migrações para Azure
 
@@ -44,10 +44,13 @@ Geografia | Você pode criar projetos de migrações para Azure em uma série de
   Azure Government | Gov (US) - Virginia
   Ásia-Pacífico | Ásia Oriental ou sudeste asiático
   Austrália | Leste da Austrália ou sudeste da Austrália
+  Brasil | Sul do Brasil
   Canadá | Canadá central ou leste do Canadá
   Europa | Europa Setentrional ou Europa Ocidental
+  França | França Central
   Índia | Índia central ou sul da Índia
   Japão |  Leste do Japão ou oeste do Japão
+  Coreia | Coreia central ou sul da Coreia
   Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
   Estados Unidos | EUA Central ou oeste dos EUA 2
 
@@ -87,7 +90,7 @@ Para avaliação, as migrações para Azure executam um dispositivo leve para de
 | **Hosts do Hyper-V**          | Um dispositivo pode se conectar a até 300 hosts Hyper-V.
 | **Descoberta**              | Um único dispositivo pode descobrir até 5000 VMs.
 | **Grupo de avaliação**       | Você pode adicionar até 35.000 computadores em um único grupo.
-| **Locação**             | Você pode avaliar até 35.000 VMs em uma única avaliação.
+| **Avaliação**             | Você pode avaliar até 35.000 VMs em uma única avaliação.
 
 
 
@@ -183,6 +186,6 @@ Hosts/VMs do Hyper-V | Conexões de saída na porta HTTPS 443 para enviar dados 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Prepare-se para a avaliação de VM do Hyper-V](tutorial-prepare-hyper-v.md) para migração.

@@ -1,6 +1,6 @@
 ---
-title: Tutorial para utilizar a configuração dinâmica de configuração de aplicações do Azure numa aplicação .NET Core | Documentos da Microsoft
-description: Neste tutorial, irá aprender a atualizar dinamicamente os dados de configuração para aplicações de .NET Core
+title: Tutorial para usar a configuração dinâmica de configuração de Azure App em um aplicativo .NET Core | Microsoft Docs
+description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração para aplicativos .NET Core
 services: azure-app-configuration
 documentationcenter: ''
 author: abarora
@@ -13,40 +13,45 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: 1649fefda5073761d616fc48c602cab84d293ed0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3eee34f594cb23a8b64f6fd10837c9a641eda62d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799974"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075978"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Utilizar a configuração dinâmica de uma aplicação .NET Core
+# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo .NET Core
 
-A biblioteca de cliente de configuração de aplicações .NET Core oferece suporte a atualizar um conjunto de definições de configuração a pedido sem fazer com que um aplicativo reinicie. Isso pode ser implementado, primeiro, obtendo uma instância do `IConfigurationRefresher` entre as opções para o fornecedor de configuração e, em seguida, chamar `Refresh` nessa instância em qualquer lugar no seu código.
+A biblioteca de cliente .NET Core de configuração de aplicativo dá suporte à atualização de um conjunto de definições de configuração sob demanda sem causar a reinicialização de um aplicativo. Isso pode ser implementado pela primeira vez que você obtém `IConfigurationRefresher` uma instância do das opções do provedor de configuração e `Refresh` , em seguida, chamando essa instância em qualquer lugar no seu código.
 
-Para manter as definições atualizadas e evitar demasiadas chamadas para o armazenamento de configuração, um cache é utilizada para cada definição. Até que o valor em cache de uma configuração tiver expirado, a operação de atualização não atualiza o valor, mesmo quando o valor foi alterado no arquivo de configuração. A hora de expiração predefinida para cada solicitação é 30 segundos, mas pode ser substituído se necessário.
+Para manter as configurações atualizadas e evitar muitas chamadas para o repositório de configuração, um cache é usado para cada configuração. Até que o valor em cache de uma configuração tenha expirado, a operação de atualização não atualizará o valor, mesmo quando o valor tiver sido alterado no repositório de configuração. O tempo de expiração padrão para cada solicitação é de 30 segundos, mas pode ser substituído se necessário.
 
-Este tutorial mostra como pode implementar atualizações de configuração dinâmica no seu código. Ele se baseia na aplicação introduzida nos rápidos. Antes de continuar, concluir [criar uma aplicação .NET Core com a configuração de aplicações](./quickstart-dotnet-core-app.md) primeiro.
+Este tutorial mostra como você pode implementar atualizações de configuração dinâmicas em seu código. Ele se baseia no aplicativo introduzido nos guias de início rápido. Antes de continuar, conclua [a criação de um aplicativo .NET Core com a configuração de aplicativo](./quickstart-dotnet-core-app.md) primeiro.
 
-Pode utilizar qualquer editor de código para realizar os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção está disponível no Windows, macOS e plataformas Linux.
+Você pode usar qualquer editor de código para executar as etapas neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, MacOS e Linux.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure a aplicação para atualizar a respetiva configuração com um arquivo de configuração de aplicação a pedido.
-> * Inserir a configuração mais recente em controladores de seu aplicativo.
+> * Configure seu aplicativo para atualizar sua configuração com um repositório de configuração de aplicativo sob demanda.
+> * Insira a configuração mais recente nos controladores do aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer este tutorial, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
+Para fazer este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="reload-data-from-app-configuration"></a>Recarregar os dados de configuração de aplicações
+## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração do aplicativo
 
-Open *Program.cs* e atualizar o ficheiro para especificar a configuração de atualização no `AddAzureAppConfiguration` método e usando atualização manual de Acionador a `Refresh` método.
+Abra *Program.cs* e atualize o arquivo para adicionar uma referência ao `System.Threading.Tasks` namespace, para especificar a configuração de `AddAzureAppConfiguration` atualização no método e para disparar a atualização manual usando o `Refresh` método.
 
 ```csharp
+using System;
+using System.Threading.Tasks;
+
+namespace TestConsole
+{
 class Program
 {
     private static IConfiguration _configuration = null;
@@ -84,51 +89,52 @@ class Program
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
 }
+}
 ```
 
-O `ConfigureRefresh` método é usado para especificar as definições utilizadas para atualizar os dados de configuração com o armazenamento de configuração de aplicação quando uma operação de atualização é acionada. Uma instância do `IConfigurationRefresher` pode ser obtido chamando `GetRefresher` método sobre as opções fornecidas para `AddAzureAppConfiguration` método e o `Refresh` método nesta instância pode ser utilizado para acionar uma operação de atualização em qualquer lugar no seu código.
+O `ConfigureRefresh` método é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de configuração de aplicativo quando uma operação de atualização é disparada. Uma instância de `IConfigurationRefresher` pode ser recuperada por `GetRefresher` meio da chamada de método nas `AddAzureAppConfiguration` opções fornecidas ao método `Refresh` , e o método nessa instância pode ser usado para disparar uma operação de atualização em qualquer lugar no seu código.
     
 > [!NOTE]
-> A hora de expiração do cache padrão para uma definição de configuração é de 30 segundos, mas pode ser substituída ao chamar o `SetCacheExpiration` método no inicializador de opções passada como um argumento para o `ConfigureRefresh` método.
+> O tempo de expiração de cache padrão para uma definição de configuração é de 30 segundos, mas pode `SetCacheExpiration` ser substituído chamando o método no inicializador de opções passado `ConfigureRefresh` como um argumento para o método.
 
-## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
+## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Definir uma variável de ambiente com o nome **ConnectionString**e defina-o para a chave de acesso ao seu arquivo de configuração de aplicação. Se utilizar a linha de comandos do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração tenha efeito:
+1. Defina uma variável de ambiente chamada **ConnectionString**e defina-a como a chave de acesso para seu repositório de configuração de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se utilizar o Windows PowerShell, execute o seguinte comando:
+    Se você usar o Windows PowerShell, execute o seguinte comando:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Se usar o macOS ou Linux, execute o seguinte comando:
+    Se você usar o macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-1. Execute o seguinte comando para criar a aplicação de consola:
+1. Execute o seguinte comando para compilar o aplicativo de console:
 
         dotnet build
 
-1. Após a compilação for concluída com êxito, execute o seguinte comando para executar a aplicação localmente:
+1. Depois que a compilação for concluída com êxito, execute o seguinte comando para executar o aplicativo localmente:
 
         dotnet run
 
-    ![Início rápido iniciação da aplicação local](./media/quickstarts/dotnet-core-app-run.png)
+    ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância de arquivo de configuração de aplicação que criou no guia de introdução.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
-1. Selecione **Explorador de configuração**e atualize os valores das seguintes chaves:
+1. Selecione **Configuration Explorer**e atualize os valores das seguintes chaves:
 
-    | Chave | Valor |
+    | Chave | Value |
     |---|---|
-    | TestApp:Settings:Message | Dados de configuração de aplicações do Azure - atualizada |
+    | TestApp: configurações: mensagem | Dados da configuração Azure App-atualizado |
 
-1. Prima a tecla Enter para acionar uma atualização e imprimir o valor atualizado na janela de linha de comandos ou PowerShell.
+1. Pressione a tecla Enter para disparar uma atualização e imprimir o valor atualizado no prompt de comando ou na janela do PowerShell.
 
-    ![Atualização de aplicação de início rápido local](./media/quickstarts/dotnet-core-app-run-refresh.png)
+    ![Local de atualização do aplicativo de início rápido](./media/quickstarts/dotnet-core-app-run-refresh.png)
     
     > [!NOTE]
-    > Uma vez que a hora de expiração do cache foi definida para 10 segundos usando o `SetCacheExpiration` método ao especificar a configuração para a operação de atualização, o valor para a definição de configuração apenas será atualizado se, pelo menos, 10 segundos decorridos desde a última atualização para essa definição.
+    > Como o tempo de expiração do cache foi definido como 10 `SetCacheExpiration` segundos usando o método ao especificar a configuração para a operação de atualização, o valor da definição de configuração só será atualizado se pelo menos 10 segundos tiver decorrido desde a última atualização para essa configuração.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -136,7 +142,7 @@ O `ConfigureRefresh` método é usado para especificar as definições utilizada
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, adicionou do Azure para simplificar o acesso à configuração de aplicações e melhorar a gestão de credenciais para a sua aplicação, a identidade de serviço gerido. Para saber mais sobre como utilizar a configuração de aplicações, avance para os exemplos da CLI do Azure.
+Neste tutorial, você adicionou uma identidade de serviço gerenciado do Azure para simplificar o acesso à configuração de aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
 
 > [!div class="nextstepaction"]
 > [Amostras de CLI](./cli-samples.md)

@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ddc42bc9315d50b8b8cdd40264de561d0edf5c7d
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: be347fe33e03b4c2a7ecc1015a407c5a58062326
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622373"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065138"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do LinkedIn usando Azure Active Directory B2C
 
 ## <a name="create-a-linkedin-application"></a>Criar um aplicativo do LinkedIn
 
-Para usar uma conta do LinkedIn como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory (Azure AD) B2C, você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do LinkedIn, poderá se inscrever [https://www.linkedin.com/](https://www.linkedin.com/)em.
+Para usar uma conta do LinkedIn como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do LinkedIn, poderá se inscrever [https://www.linkedin.com/](https://www.linkedin.com/)em.
 
 1. Entre no site de [desenvolvedores do LinkedIn](https://www.developer.linkedin.com/) com suas credenciais de conta do LinkedIn.
 1. Selecione **meus aplicativos**e, em seguida, clique em **criar aplicativo**.
 1. Insira o **nome da empresa**, **nome do aplicativo**, descrição do **aplicativo**, **logotipo do aplicativo**, uso do **aplicativo**, **URL do site**, **email comercial**e **telefone comercial**.
 1. Concorde com os **termos de uso da API do LinkedIn** e clique em **Enviar**.
 1. Copie os valores da **ID de cliente** e **segredo do cliente**. Você pode encontrá-los em **chaves de autenticação**. Você precisará de ambos para configurar o LinkedIn como um provedor de identidade em seu locatário. O **segredo do cliente** é uma credencial de segurança importante.
-1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs**de redirecionamento autorizadas. Substitua `your-tenant-name` pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C. Selecione **Adicionar**e, em seguida, clique em **Atualizar**.
+1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de redirecionamento autorizadas**. Substitua `your-tenant-name` pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C. Selecione **Adicionar**e, em seguida, clique em **Atualizar**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configurar uma conta do LinkedIn como um provedor de identidade
 

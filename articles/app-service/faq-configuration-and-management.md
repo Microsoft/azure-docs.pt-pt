@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 0b78b05e30185487df0b06d861b60b63741dc938
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 217601a430b40772eaf1f24c8e1501bc4b4fcae5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073194"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055301"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gerenciamento para aplicativos Web no Azure
 
@@ -71,7 +71,7 @@ Para definir o fuso horário do servidor para seu aplicativo Web:
     * Valor = *o fuso horário que você deseja*
 3. Selecione **Guardar**.
 
-Consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos.
+Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: América/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus trabalhos Web contínuos às vezes falham?
 
@@ -96,7 +96,7 @@ Observe que para usar um endereço IP dedicado ou reservado para chamadas de ent
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Posso exportar meu certificado do serviço de aplicativo para uso fora do Azure, como para um site hospedado em outro lugar? 
 
-Os certificados do serviço de aplicativo são considerados recursos do Azure. Eles não se destinam a usar fora dos serviços do Azure. Você não pode exportá-los para uso fora do Azure. Para obter mais informações, consulte [perguntas frequentes para certificados do serviço de aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Sim, você pode exportá-los para uso fora do Azure. Para obter mais informações, consulte [perguntas frequentes para certificados do serviço de aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Posso exportar meu certificado do serviço de aplicativo para usar com outros serviços de nuvem do Azure?
 
@@ -288,7 +288,7 @@ Para obter a documentação detalhada para autenticação e autorização no ser
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como fazer redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo Web do Azure?
 
-Quando você cria um novo site usando aplicativos Web no Azure, um domínio padrão *SiteName*. azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio padrão do seu site para seu domínio personalizado, consulte redirecionar [o domínio padrão para seu domínio personalizado nos aplicativos Web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando você cria um novo site usando aplicativos Web no Azure, um domínio padrão *SiteName*. azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio padrão do seu site para seu domínio personalizado, consulte [redirecionar o domínio padrão para seu domínio personalizado nos aplicativos Web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como fazer determinar qual versão da versão do .NET está instalada no serviço de aplicativo?
 
