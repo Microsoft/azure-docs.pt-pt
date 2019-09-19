@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018719"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097901"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Visualização – dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
 Para acompanhar as demandas de aplicativos no AKS (serviço kubernetes do Azure), talvez seja necessário ajustar o número de nós que executam suas cargas de trabalho. O componente de autoescalar do cluster pode observar os pods no cluster que não podem ser agendados devido a restrições de recursos. Quando forem detectados problemas, o número de nós em um pool de nós será aumentado para atender à demanda do aplicativo. Os nós também são verificados regularmente quanto à falta de pods em execução, com o número de nós diminuído conforme necessário. Essa capacidade de aumentar ou reduzir automaticamente o número de nós em seu cluster AKS permite que você execute um cluster eficiente e econômico.
 
-Este artigo mostra como habilitar e gerenciar o dimensionamento do cluster em um cluster AKS. O autoescalar do cluster só deve ser testado na visualização em clusters AKS.
+Este artigo mostra como habilitar e gerenciar o dimensionamento do cluster em um cluster AKS. O dimensionador de cluster único deve ser testado apenas na visualização em clusters AKS.
 
 > [!IMPORTANT]
 > Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
@@ -52,12 +52,12 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 
 Para ajustar a alteração das demandas de aplicativos, como entre o workday e a noite ou em um fim de semana, os clusters geralmente precisam de uma maneira de dimensionar automaticamente. Os clusters AKS podem ser dimensionados de uma das duas maneiras:
 
-* O **autodimensionador do cluster** observa os pods que não podem ser agendados em nós devido a restrições de recursos. O cluster aumenta automaticamente o número de nós.
-* O **pod de dimensionamento horizontal** usa o servidor de métricas em um cluster kubernetes para monitorar a demanda de recursos de pods. Se um serviço precisar de mais recursos, o número de pods será aumentado automaticamente para atender à demanda.
+* O **autodimensionador do cluster** observa os pods que não podem ser agendados em nós devido a restrições de recursos. Em seguida, o cluster aumenta automaticamente o número de nós.
+* O **pod de dimensionamento horizontal** usa o servidor de métricas em um cluster kubernetes para monitorar a demanda de recursos de pods. Se um aplicativo precisar de mais recursos, o número de pods será aumentado automaticamente para atender à demanda.
 
 ![O dimensionador de autoescalar e o Pod horizontal de cluster geralmente funcionam juntos para dar suporte às demandas de aplicativos necessárias](media/autoscaler/cluster-autoscaler.png)
 
-Tanto o Pod horizontal como o dimensionamento automática do cluster e o autoescalar podem diminuir o número de pods e nós conforme necessário. O dimensionador automática do cluster diminui o número de nós quando houve capacidade não utilizada por um período de tempo. Os pods em um nó a ser removido pelo dimensionador de autoescala do cluster estão agendados com segurança em outro lugar no cluster. O dimensionador em autoescalar pode não ser capaz de reduzir verticalmente se o pods não puder ser movido, como nas seguintes situações:
+Tanto o Pod horizontal como o dimensionamento automática de clusters e o autoescalar podem diminuir o número de pods e nós conforme necessário. O dimensionador automática do cluster diminui o número de nós quando houve capacidade não utilizada por um período de tempo. Os pods em um nó a ser removido pelo dimensionador de autoescala do cluster estão agendados com segurança em outro lugar no cluster. O dimensionador em autoescalar pode não ser capaz de reduzir verticalmente se o pods não puder ser movido, como nas seguintes situações:
 
 * Um pod criado diretamente e não é apoiado por um objeto de controlador, como uma implantação ou um conjunto de réplicas.
 * Um PDB (orçamento de interrupção de Pod) é muito restritivo e não permite que o número de pods fique abaixo de um determinado limite.
@@ -67,7 +67,7 @@ Para obter mais informações sobre como o dimensionador de cluster pode não se
 
 O autoescalar do cluster usa parâmetros de inicialização para coisas como intervalos de tempo entre eventos de escala e limites de recursos. Esses parâmetros são definidos pela plataforma do Azure e não são atualmente expostos para você ajustar. Para obter mais informações sobre quais parâmetros são usados pelo dimensionador de cluster, consulte [quais são os parâmetros de dimensionamento de clusters?][autoscaler-parameters].
 
-O cluster e os autodimensionadores de Pod horizontal podem trabalhar juntos e, muitas vezes, são implantados juntos em um cluster. Quando combinado, a escala automática de Pod horizontal concentra-se na execução do número de pods necessário para atender à demanda do aplicativo. O dimensionador automática do cluster concentra-se na execução do número de nós necessários para dar suporte ao pods agendado.
+O cluster e os autodimensionadores de Pod horizontal podem trabalhar juntos e, muitas vezes, são implantados em um cluster. Quando combinado, a escala automática de Pod horizontal concentra-se na execução do número de pods necessário para atender à demanda do aplicativo. O dimensionador automática do cluster concentra-se na execução do número de nós necessários para dar suporte ao pods agendado.
 
 > [!NOTE]
 > O dimensionamento manual é desabilitado quando você usa o cluster de dimensionamento automático. Permitir que o dimensionamento automática do cluster determine o número necessário de nós. Se você quiser dimensionar manualmente o cluster, [desabilite o dimensionador de cluster](#disable-the-cluster-autoscaler)automaticamente.
@@ -169,7 +169,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou como dimensionar automaticamente o número de nós AKS. Você também pode usar a escala automática de Pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas sobre como usar a escalabilidade horizontal Pod, consulte [dimensionar aplicativos em AKs][aks-scale-apps].
 

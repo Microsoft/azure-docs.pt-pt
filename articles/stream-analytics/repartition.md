@@ -4,19 +4,19 @@ description: Este artigo descreve como usar o reparticionamento para otimizar Az
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9c802e6d23daf502da351549c66a7dae1247c068
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517439"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101515"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use o reparticionamento para otimizar o processamento com Azure Stream Analytics
 
-Este artigo mostra como usar o reparticionamento para dimensionar sua consulta de Azure Stream Analytics para cenários que não podem ser [](stream-analytics-scale-jobs.md)totalmente paralelizados.
+Este artigo mostra como usar o reparticionamento para dimensionar sua consulta de Azure Stream Analytics para cenários que não podem ser totalmente [paralelizados](stream-analytics-scale-jobs.md).
 
 Talvez você não consiga usar a [paralelização](stream-analytics-parallelization.md) se:
 
@@ -25,9 +25,9 @@ Talvez você não consiga usar a [paralelização](stream-analytics-parallelizat
 
 ## <a name="how-to-repartition"></a>Como reparticionar
 
-O reparticionamento, ou embaralhando, é necessário quando você processa dados em um fluxo que não é fragmentado de acordo com um esquema de entrada natural , como PartitionID para hubs de eventos. Quando você reparticiona, cada fragmento pode ser processado de forma independente, o que permite que você expanda linearmente o pipeline de streaming.
+O reparticionamento, ou embaralhando, é necessário quando você processa dados em um fluxo que não é fragmentado de acordo com um esquema de entrada natural, como **PartitionID** para hubs de eventos. Quando você reparticiona, cada fragmento pode ser processado de forma independente, o que permite que você expanda linearmente o pipeline de streaming.
 
-Para reparticionar, use a palavra-chave **into** após uma instrução **Partition by** em sua consulta. O exemplo a seguir particiona os dados por DeviceID em uma contagem de partições de 10. O hash de DeviceID é usado para determinar qual partição deve aceitar qual Subfluxo. Os dados são liberados de forma independente para cada fluxo particionado, supondo que a saída dê suporte a gravações particionadas e tenha 10 partições.
+Para reparticionar, use a palavra-chave **into** após uma instrução **Partition by** em sua consulta. O exemplo a seguir particiona os dados por **DeviceID** em uma contagem de partições de 10. O hash de **DeviceID** é usado para determinar qual partição deve aceitar qual Subfluxo. Os dados são liberados de forma independente para cada fluxo particionado, supondo que a saída dê suporte a gravações particionadas e tenha 10 partições.
 
 ```sql
 SELECT * 
@@ -54,7 +54,17 @@ Experimente e observe o uso de recursos de seu trabalho para determinar o númer
 
 ## <a name="repartitions-for-sql-output"></a>Repartições para saída SQL
 
-Quando seu trabalho usa o banco de dados SQL para saída, use o reparticionamento explícito para corresponder à contagem de partições ideal para maximizar a taxa de transferência. Como o SQL funciona melhor com oito gravadores, reparticionar o fluxo para oito antes de liberar, ou em outro lugar, pode beneficiar o desempenho do trabalho. Para obter mais informações, consulte [Azure Stream Analytics saída para o banco de dados SQL do Azure](stream-analytics-sql-output-perf.md).
+Quando seu trabalho usa o banco de dados SQL para saída, use o reparticionamento explícito para corresponder à contagem de partições ideal para maximizar a taxa de transferência. Como o SQL funciona melhor com oito gravadores, reparticionar o fluxo para oito antes de liberar, ou em outro lugar, pode beneficiar o desempenho do trabalho. 
+
+Quando há mais de 8 partições de entrada, a herança do esquema de particionamento de entrada pode não ser uma opção apropriada. Considere o [uso do em em](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) sua consulta para especificar explicitamente o número de gravadores de saída. 
+
+O exemplo a seguir lê a partir da entrada, independentemente de ser particionado naturalmente, e reparticiona o fluxo tenfold de acordo com a dimensão DeviceID e libera os dados para a saída. 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+Para obter mais informações, consulte [Azure Stream Analytics saída para o banco de dados SQL do Azure](stream-analytics-sql-output-perf.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

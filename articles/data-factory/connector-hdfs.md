@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 4bc6e5570870941f050bc289dddfd85d64843df2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009179"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092099"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -30,7 +30,7 @@ Este artigo descreve como copiar dados do servidor HDFS. Para saber mais sobre o
 
 Este conector HDFS tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Especificamente, esse conector HDFS dá suporte a:
@@ -343,8 +343,8 @@ Consulte Configurações e exemplos relacionados ao DistCp no [HDFS como seção
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Usar a autenticação Kerberos para o conector HDFS
 
 Há duas opções para configurar o ambiente local para usar a autenticação Kerberos no conector do HDFS. Você pode escolher o que melhor se adapta ao seu caso.
-* Opção 1: [Ingressar em um computador de Integration Runtime auto-hospedado no realm Kerberos](#kerberos-join-realm)
-* Opção 2: [Habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos](#kerberos-mutual-trust)
+* Opção 1: [Ingressar em um computador de Integration Runtime auto-hospedado no realm Kerberos](#kerberos-join-realm)
+* Opção 2: [Habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos](#kerberos-mutual-trust)
 
 ### <a name="kerberos-join-realm"></a>Opção 1: Ingressar em um computador de Integration Runtime auto-hospedado no realm Kerberos
 
@@ -487,5 +487,5 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622794"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063237"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C
 
-Em seus aplicativos, talvez você queira permitir que os usuários entrem com diferentes provedores de identidade. Um *provedor de identidade* cria, mantém e gerencia informações de identidade ao fornecer serviços de autenticação aos aplicativos. Você pode adicionar provedores de identidade que têm suporte do Azure Active Directory (Azure AD) B2C para seus [fluxos de usuário](active-directory-b2c-reference-policies.md) usando o portal do Azure.
+Em seus aplicativos, talvez você queira permitir que os usuários entrem com diferentes provedores de identidade. Um *provedor de identidade* cria, mantém e gerencia informações de identidade ao fornecer serviços de autenticação aos aplicativos. Você pode adicionar provedores de identidade que têm suporte do Azure Active Directory B2C (Azure AD B2C) para seus [fluxos de usuário](active-directory-b2c-reference-policies.md) usando o portal do Azure.
 
 Neste artigo, vai aprender a:
 
@@ -45,12 +45,12 @@ Os aplicativos de provedor de identidade fornecem o identificador e a chave para
 Para habilitar a entrada para usuários do Azure AD, você precisa registrar um aplicativo no locatário do Azure AD. O locatário do Azure AD não é o mesmo que seu Azure AD B2C locatário.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém o locatário do Azure AD clicando no **filtro diretório e assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure AD.
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.
 1. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 1. Aceite a seleção de **contas neste diretório organizacional somente** para este aplicativo.
-1. Para o **URI**de redirecionamento, aceite o valor de **Web** e insira a URL a seguir em todas as `your-B2C-tenant-name` letras minúsculas, substituindo pelo nome do seu locatário de Azure ad B2C.
+1. Para o **URI de redirecionamento**, aceite o valor de **Web** e insira a URL a seguir em todas as `your-B2C-tenant-name` letras minúsculas, substituindo pelo nome do seu locatário de Azure ad B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -71,7 +71,7 @@ Para habilitar a entrada para usuários do Azure AD, você precisa registrar um 
 Para usar uma conta do Facebook como um provedor de identidade no Azure AD B2C, você precisa criar um aplicativo no Facebook. Se você ainda não tiver uma conta do Facebook, poderá obtê-la [https://www.facebook.com/](https://www.facebook.com/)em.
 
 1. Entre no [Facebook para desenvolvedores](https://developers.facebook.com/) com suas credenciais de conta do Facebook.
-1. Se ainda não tiver feito isso, você precisará se registrar como um desenvolvedor do Facebook. Para fazer isso, selecione introdução no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
+1. Se ainda não tiver feito isso, você precisará se registrar como um desenvolvedor do Facebook. Para fazer isso **, selecione introdução** no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
 1. Selecione **meus aplicativos** e **criar aplicativo**.
 1. Insira um **nome de exibição** e um **email de contato**válido.
 1. Clique em **criar ID do aplicativo**. Isso pode exigir que você aceite as políticas da plataforma do Facebook e conclua uma verificação de segurança online.
@@ -85,8 +85,8 @@ Para usar uma conta do Facebook como um provedor de identidade no Azure AD B2C, 
 1. Ao lado de **segredo do aplicativo**, selecione **Mostrar** e Registre seu valor. Você usa a ID do aplicativo e o segredo do aplicativo para configurar o Facebook como um provedor de identidade em seu locatário. O **segredo do aplicativo** é uma credencial de segurança importante que você deve armazenar com segurança.
 1. Selecione o sinal de adição ao lado de **produtos**e, em seguida, em **logon do Facebook**, selecione **Configurar**.
 1. Em **logon do Facebook** no menu à esquerda, selecione **configurações**.
-1. Em **URIs**de redirecionamento OAuth `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`válidos, insira. Substitua `your-tenant-name` pelo nome do seu locatário. Selecione **salvar alterações** na parte inferior da página.
-1. Para disponibilizar seu aplicativo do Facebook para Azure AD B2C, clique no seletor de **status** na parte superior direita da página e ative-o para tornar o aplicativo público e, em seguida, clique em **confirmar**. Neste ponto, o status deve mudar de **desenvolvimento** para **ativo**.
+1. Em **URIs de redirecionamento OAuth válidos**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do seu locatário. Selecione **salvar alterações** na parte inferior da página.
+1. Para disponibilizar seu aplicativo do Facebook para Azure AD B2C, clique no seletor de **status** na parte superior direita da página e **ative-o** para tornar o aplicativo público e, em seguida, clique em **confirmar**. Neste ponto, o status deve mudar de **desenvolvimento** para **ativo**.
 
 ## <a name="add-the-identity-providers"></a>Adicionar os provedores de identidade
 
@@ -167,7 +167,7 @@ Se a operação de entrada for bem-sucedida, você será redirecionado para `htt
 }.[Signature]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a:
 

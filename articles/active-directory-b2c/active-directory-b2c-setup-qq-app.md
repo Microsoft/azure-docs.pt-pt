@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 55e4b04814daaaff5bc217a561e9045d313d9675
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811419"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065007"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do QQ usando Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "70811419"
 
 ## <a name="create-a-qq-application"></a>Criar um aplicativo QQ
 
-Para usar uma conta do QQ como um provedor de identidade no Azure Active Directory (Azure AD) B2C, você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do QQ, poderá se inscrever [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)em.
+Para usar uma conta do QQ como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do QQ, poderá se inscrever [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)em.
 
 ### <a name="register-for-the-qq-developer-program"></a>Registre-se no programa de desenvolvedor do QQ
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375302"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067761"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
@@ -43,10 +43,13 @@ A tabela resume os cenários com suporte para VMs VMware.
 Azure Government | Gov (US) - Virginia
 Ásia-Pacífico | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
+Brasil | Sul do Brasil
 Canadá | Canadá central ou leste do Canadá
 Europa | Europa Setentrional ou Europa Ocidental
+França | França Central
 Índia | Índia central ou sul da Índia
 Japão |  Leste do Japão ou oeste do Japão
+Coreia | Coreia central ou sul da Coreia
 Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
 Estados Unidos | EUA Central ou oeste dos EUA 2
 
@@ -73,11 +76,11 @@ As migrações para Azure executam um dispositivo leve para descobrir VMs VMware
 
 **Suporte** | **Detalhes**
 --- | ---
-**Implantação de dispositivo** | Você implanta o dispositivo como uma VM VMware. Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/> A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior. 
+**Implantação de dispositivo** | Você implanta o dispositivo como uma VM VMware. Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/> A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> Você pode avaliar até 35.000 VMs em um projeto.
 **Descoberta** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um único vCenter Server.
 **Grupo de avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.
-**Locação** | Você pode avaliar até 35.000 VMs em uma única avaliação.
+**Avaliação** | Você pode avaliar até 35.000 VMs em uma única avaliação.
 
 
 ## <a name="assessment-url-access-requirements"></a>Avaliação-requisitos de acesso à URL
@@ -351,6 +354,6 @@ Conectar após a migração-Windows | Para se conectar às VMs do Azure que exec
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Prepare-se para](tutorial-prepare-vmware.md) avaliação e migração do VMware.

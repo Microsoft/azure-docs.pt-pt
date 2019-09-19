@@ -2,18 +2,18 @@
 title: Ferramentas de Data Lake para Visual Studio com Hortonworks sandbox – Azure HDInsight
 description: Saiba como usar as ferramentas de Azure Data Lake para o Visual Studio com a Hortonworks sandbox em execução em uma VM local. Com essas ferramentas, você pode criar e executar trabalhos do hive e do Pig na área restrita e exibir a saída e o histórico do trabalho.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: hrasheed
-ms.openlocfilehash: a80cc44dbc4be0728ad632eefd8b9ed62f7f86b1
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962403"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098779"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as ferramentas de Azure Data Lake para Visual Studio com a área restrita Hortonworks
 
@@ -41,7 +41,7 @@ Verifique se a área restrita Hortonworks está em execução. Em seguida, siga 
 
 2. Em **Gerenciador de servidores**, clique com o botão direito do mouse na entrada do **Hdinsight** e selecione **conectar ao emulador do hdinsight**.
 
-    ![Captura de tela de Gerenciador de Servidores, com conectar ao emulador do HDInsight realçado](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
+    ![Gerenciador de Servidores, com conectar ao emulador do HDInsight realçado](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. Na caixa de diálogo **conectar ao emulador do HDInsight** , digite a senha que você configurou para Ambari.
 
@@ -112,7 +112,7 @@ O hive fornece uma linguagem de consulta semelhante a SQL (HiveQL) para trabalha
     > [!NOTE]  
     > As informações são as mesmas que estão disponíveis no link do **log de trabalho** após a conclusão de um trabalho.
 
-    ![Captura de tela do log de saída](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
+    ![Captura de tela da saída do HiveServer2](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
 
 ## <a name="create-a-hive-project"></a>Criar um projeto do hive
 
@@ -122,7 +122,7 @@ Você também pode criar um projeto que contém vários scripts do hive. Use um 
 
 2. Na lista de projetos, expanda **modelos**, expanda **Azure data Lake**e, em seguida, selecione **Hive (HDInsight)** . Na lista de modelos, selecione **exemplo de Hive**. Insira um nome e um local e, em seguida, selecione **OK**.
 
-    ![Captura de tela da janela novo projeto com Azure Data Lake, HIVE, exemplo de Hive e OK realçado](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
+    ![Janela novo projeto, com Azure Data Lake, exemplo de Hive e OK](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 O projeto de **exemplo do hive** contém dois scripts, **WebLogAnalysis. HQL** e **SensorDataAnalysis. HQL**. Você pode enviar esses scripts usando o mesmo botão **Enviar** na parte superior da janela.
 
@@ -179,7 +179,7 @@ Data Lake ferramentas também permitem que você exiba facilmente as informaçõ
 
 2. Expandir uma tabela exibe as colunas dessa tabela. Para exibir rapidamente os dados, clique com o botão direito do mouse em uma tabela e selecione **exibir as primeiras 100 linhas**.
 
-    ![Captura de tela de Gerenciador de Servidores, com tabela expandida e exibir as primeiras 100 linhas selecionadas](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
+    ![Gerenciador de Servidores, com tabela expandida e exibir as primeiras 100 linhas selecionadas](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>Propriedades de tabela e banco de dados
 

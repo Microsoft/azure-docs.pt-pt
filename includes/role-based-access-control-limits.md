@@ -9,10 +9,10 @@ ms.date: 06/21/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 56f4f24fb504d08c34542129f854547b78967cb3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "70997694"
 ---
 | Resource | Limite |

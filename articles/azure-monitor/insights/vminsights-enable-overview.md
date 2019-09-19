@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f3aca6f62ff529dc2ea8356e18a0162e7d9a85d8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916056"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067054"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -45,10 +45,13 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - EUA Centro-Oeste
 - Oeste dos EUA 2<sup>1</sup>
 - East US
+- Leste dos EUA 2<sup>1</sup>
 - Canadá Central
 - Reino Unido Sul
+- Europa Setentrional<sup>1</sup>
 - Europa Ocidental
 - Sudeste Asiático
+- Leste do Japão<sup>1</sup>
 - Leste da Austrália<sup>1</sup>
 - Sudeste da Austrália<sup>1</sup>
 

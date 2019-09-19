@@ -1,6 +1,6 @@
 ---
-title: Ativar o controlo de idade no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba mais sobre como identificar os menores que utilizam a sua aplicação.
+title: Habilitar a retenção de idade no Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre como identificar menores usando seu aplicativo.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,42 +10,42 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7eb4d8e784acc659f6661ef6efbdb06816b142c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511672"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064459"
 ---
-# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar o controlo de idade no Azure Active Directory B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar a retenção de idade no Azure Active Directory B2C
 
 >[!IMPORTANT]
->Esta funcionalidade está em pré-visualização pública. Não utilize a funcionalidade para aplicações de produção. 
+>Esta funcionalidade está em pré-visualização pública. Não use o recurso para aplicativos de produção.
 >
 
-Controlo de idade no Azure Active Directory (Azure AD) B2C permite-lhe identificar os menores que pretende utilizar a sua aplicação. Pode optar por bloquear o menor de iniciar sessão na aplicação. Os utilizadores também podem voltar para a aplicação e identificar o respetivo grupo etário e o respetivo estado de consentimento dos pais. O Azure AD B2C, pode bloquear os menores sem o consentimento dos pais. O Azure AD B2C também pode ser configurado para permitir que o aplicativo decidir o que fazer com os menores.
+A retenção de idade no Azure Active Directory B2C (Azure AD B2C) permite que você identifique os pequenos que desejam usar seu aplicativo. Você pode optar por bloquear a secundária de entrar no aplicativo. Os usuários também podem voltar para o aplicativo e identificar sua faixa etária e o status de consentimento dos pais. Azure AD B2C pode bloquear menores sem o consentimento dos pais. Azure AD B2C também pode ser configurado para permitir que o aplicativo decida o que fazer com os pequenos.
 
-Depois de ativar o controlo de idade no seu [fluxo de utilizador](active-directory-b2c-reference-policies.md), é pedido aos utilizadores quando eles nasceram e em que país/região residem em. Se um utilizador inicia sessão que ainda não foram inseridas anteriormente as informações, precisam de introduzi-lo da próxima vez que iniciarem sessão. As regras são aplicadas sempre que um utilizador inicia sessão.
+Depois de habilitar a retenção de idade em seu [fluxo de usuário](active-directory-b2c-reference-policies.md), os usuários são solicitados quando eles foram gerados e em qual país/região eles residem. Se um usuário entrar que não inseriu as informações anteriormente, ele precisará inseri-la na próxima vez que entrar. As regras são aplicadas toda vez que um usuário entra.
 
-O Azure AD B2C utiliza as informações que o usuário insere para identificar se eles são menor. O **ageGroup** campo, em seguida, é atualizado na respetiva conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult`, e `NotAdult`.  O **ageGroup** e **consentProvidedForMinor** campos, em seguida, são utilizados para calcular o valor de **legalAgeGroupClassification**.
+Azure AD B2C usa as informações que o usuário insere para identificar se elas são secundárias. O campo **ageGroup** é então atualizado em sua conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult`e. `NotAdult`  Os campos **ageGroup** e **consentProvidedForMinor** são então usados para calcular o valor de **legalAgeGroupClassification**.
 
-Controlo de idade envolve dois valores de idade: a idade que alguém já não é considerado menor e a idade em que menor tem de ter o consentimento dos pais. A tabela seguinte lista as regras de idade que são utilizadas para a definição de pequenas e uma janela de consentimento que exigem que pequenas.
+A retenção age envolve dois valores de idade: a idade que alguém não é mais considerado um secundário e a idade em que um secundário deve ter um consentimento de pais. A tabela a seguir lista as regras de idade que são usadas para definir um consentimento secundário e um secundário que exigem autorização.
 
-| País/Região | Nome do país/região | Consentimento do menor de idade | Idade secundária |
+| País/Região | Nome do país/região | Idade de consentimento secundária | Idade secundária |
 | -------------- | ------------------- | ----------------- | --------- |
-| Predefinição | Nenhuma | Nenhuma | 18 |
-| AE | Emirados Árabes Unidos | Nenhuma | 21 |
+| Predefinição | Nenhum | Nenhum | 18 |
+| AE | Emirados Árabes Unidos | Nenhum | 21 |
 | AT | Áustria | 14 | 18 |
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgária | 16 | 18 |
-| BH | Barém | Nenhuma | 21 |
-| CM | Camarões | Nenhuma | 21 |
+| BH | Barém | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Checa | 16 | 18 |
 | DE | Alemanha | 16 | 18 |
 | DK | Dinamarca | 16 | 18 |
 | EE | Estónia | 16 | 18 |
-| EG | Egito | Nenhuma | 21 |
+| EG | Egito | Nenhum | 21 |
 | ES | Espanha | 13 | 18 |
 | FR | França | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
@@ -59,51 +59,51 @@ Controlo de idade envolve dois valores de idade: a idade que alguém já não é
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letónia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| N/D | Namíbia | Nenhuma | 21 |
+| ND | Namíbia | Nenhum | 21 |
 | NL | Países Baixos | 16 | 18 |
 | PL | Polónia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Roménia | 16 | 18 |
 | SE | Suécia | 13 | 18 |
-| SG | Singapura | Nenhuma | 21 |
+| SG | Singapura | Nenhum | 21 |
 | SI | Eslovénia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
-| TD | Chade | Nenhuma | 21 |
-| TH | Tailândia | Nenhuma | 20 |
-| TW | Taiwan | Nenhuma | 20 | 
+| TD | Chade | Nenhum | 21 |
+| TH | Tailândia | Nenhum | 20 |
+| TW | Taiwan | Nenhum | 20 |
 | EUA | Estados Unidos | 13 | 18 |
 
-## <a name="age-gating-options"></a>Opções de controlo de idade
- 
-### <a name="allowing-minors-without-parental-consent"></a>Permitir que os menores sem o consentimento dos pais
+## <a name="age-gating-options"></a>Opções de retenção etária
 
-Para os fluxos de utilizador que permitem a inscrição, início de sessão, ou ambas, pode optar por permitir que menores acedam sem o consentimento na sua aplicação. Os menores sem o consentimento dos pais têm permissão para iniciar sessão ou Inscreva-se como normal e o Azure AD B2C emite um token de ID com o **legalAgeGroupClassification** de afirmação. Esta afirmação define a experiência que os utilizadores têm, como autorização parental a recolher e a atualizar o **consentProvidedForMinor** campo.
+### <a name="allowing-minors-without-parental-consent"></a>Permitindo menores sem o consentimento dos pais
 
-### <a name="blocking-minors-without-parental-consent"></a>Bloquear os menores sem o consentimento dos pais
+Para fluxos de usuário que permitem a inscrição, a entrada ou ambos, você pode optar por permitir menores sem consentir o seu aplicativo. Os pequenos sem o consentimento dos pais têm permissão para entrar ou se inscrever como normal e Azure AD B2C emite um token de ID com a Declaração **legalAgeGroupClassification** . Essa declaração define a experiência que os usuários têm, como coletar o consentimento dos pais e atualizar o campo **consentProvidedForMinor** .
 
-Para fluxos de utilizador que permitem a inscrição, início de sessão ou ambos, pode optar por bloquear os menores sem o consentimento da aplicação. As seguintes opções estão disponíveis para manipular a utilizadores bloqueados no Azure AD B2C:
+### <a name="blocking-minors-without-parental-consent"></a>Bloqueios secundários sem consentimento dos pais
 
-- Enviar um JSON de volta para a aplicação - esta opção envia uma resposta de volta para a aplicação que o menor foi bloqueado.
-- Mostre uma página de erro - o utilizador é apresentado uma página informar que eles não é possível aceder à aplicação.
+Para fluxos de usuário que permitem inscrição, entrada ou ambos, você pode optar por bloquear os pequenos sem autorização do aplicativo. As opções a seguir estão disponíveis para lidar com usuários bloqueados no Azure AD B2C:
 
-## <a name="set-up-your-tenant-for-age-gating"></a>Configurar o seu inquilino para o controlo de idade
+- Enviar um JSON de volta para o aplicativo-essa opção envia uma resposta de volta ao aplicativo que um secundário foi bloqueado.
+- Mostrar uma página de erro-o usuário mostra uma página informando que eles não podem acessar o aplicativo.
 
-Para utilizar o controlo de idade num fluxo de utilizador, terá de configurar o seu inquilino ter propriedades adicionais.
+## <a name="set-up-your-tenant-for-age-gating"></a>Configurar seu locatário para a retenção de idade
 
-1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior. Selecione o diretório que contém o seu inquilino. 
-2. Selecione **todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **do Azure AD B2C**.
-3. Selecione **propriedades** para o seu inquilino no menu à esquerda.
-2. Sob o **controlo de idade** secção, clique em **configurar**.
-3. Aguarde pela conclusão da operação e o seu inquilino será configurado para controlo de idade.
+Para usar a retenção de idade em um fluxo de usuário, você precisa configurar seu locatário para ter propriedades adicionais.
 
-## <a name="enable-age-gating-in-your-user-flow"></a>Ativar o controlo de idade no seu fluxo de utilizador
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior. Selecione o diretório que contém seu locatário.
+2. Selecione **todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure ad B2C**.
+3. Selecione **Propriedades** para seu locatário no menu à esquerda.
+2. Na seção **retenção de idade** , clique em **Configurar**.
+3. Aguarde a conclusão da operação e seu locatário será configurado para a retenção de idade.
 
-Depois do seu inquilino estiver configurado para controlo de idade de utilização, em seguida, pode utilizar esta funcionalidade no [fluxos de utilizador](user-flow-versions.md) onde ele está habilitado. Ativar o controlo de idade com os seguintes passos:
+## <a name="enable-age-gating-in-your-user-flow"></a>Habilitar a retenção de idade em seu fluxo de usuário
 
-1. Crie um fluxo de utilizador que tenha o controlo de idade ativada.
-2. Depois de criar o fluxo de utilizador, selecione **propriedades** no menu.
-3. Na **controlo de idade** secção, selecione **ativado**.
-4. Em seguida, decidir como pretende gerir utilizadores identificar como os menores. Para **inscrição ou início de sessão**, selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se bloquear os menores é selecionado, selecione `Send a JSON back to the application` ou `Show an error message`. 
+Depois que o locatário for configurado para usar a retenção de idade, você poderá usar esse recurso nos [fluxos de usuário](user-flow-versions.md) onde ele está habilitado. Você habilita a retenção de idade com as seguintes etapas:
+
+1. Crie um fluxo de usuário que tenha a retenção de idade habilitada.
+2. Depois de criar o fluxo de usuário, selecione **Propriedades** no menu.
+3. Na seção **retenção etária** , selecione **habilitado**.
+4. Em seguida, você decide como deseja gerenciar os usuários que identificam como menores. Para **inscrever-se ou entrar**, selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se bloqueios secundários estiver selecionado, selecione `Send a JSON back to the application` ou `Show an error message`.
 
 
 

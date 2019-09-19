@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 524e1e5f877fcb03d4252d79635ef855b9811f09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c13f3166c50d9afc03125d66155ce654c84e5e0a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622083"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065246"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Facebook usando Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Criar um aplicativo do Facebook
 
-Para usar uma conta do Facebook como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory (Azure AD) B2C, você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Facebook, poderá se inscrever [https://www.facebook.com/](https://www.facebook.com/)em.
+Para usar uma conta do Facebook como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Facebook, poderá se inscrever [https://www.facebook.com/](https://www.facebook.com/)em.
 
 1. Entre no [Facebook para desenvolvedores](https://developers.facebook.com/) com suas credenciais de conta do Facebook.
-1. Se ainda não tiver feito isso, você precisará se registrar como um desenvolvedor do Facebook. Para fazer isso, selecione introdução no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
+1. Se ainda não tiver feito isso, você precisará se registrar como um desenvolvedor do Facebook. Para fazer isso **, selecione introdução** no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
 1. Selecione **meus aplicativos** e **Adicionar novo aplicativo**.
 1. Insira um **nome de exibição** e um **email de contato**válido.
 1. Clique em **criar ID do aplicativo**. Isso pode exigir que você aceite as políticas da plataforma do Facebook e conclua uma verificação de segurança online.
@@ -37,8 +37,8 @@ Para usar uma conta do Facebook como um [provedor de identidade](active-director
 1. Clique em **Mostrar** e copie o valor do **segredo do aplicativo**. Você usa ambos para configurar o Facebook como um provedor de identidade em seu locatário. O **segredo do aplicativo** é uma credencial de segurança importante.
 1. Selecione o sinal de adição ao lado de **produtos**e, em seguida, selecione **Configurar** em **logon do Facebook**.
 1. Em **logon do Facebook**, selecione **configurações**.
-1. Em **URIs**de redirecionamento OAuth `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`válidos, insira. Substitua `your-tenant-name` pelo nome do seu locatário. Clique em **salvar alterações** na parte inferior da página.
-1. Para disponibilizar seu aplicativo do Facebook para Azure AD B2C, clique no seletor de status na parte superior direita da página e ative-o para tornar o aplicativo público e, em seguida, clique em **confirmar**.  Neste ponto, o status deve mudar de **desenvolvimento** para **ativo**.
+1. Em **URIs de redirecionamento OAuth válidos**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do seu locatário. Clique em **salvar alterações** na parte inferior da página.
+1. Para disponibilizar seu aplicativo do Facebook para Azure AD B2C, clique no seletor de status na parte superior direita da página e **ative-o** para tornar o aplicativo público e, em seguida, clique em **confirmar**.  Neste ponto, o status deve mudar de **desenvolvimento** para **ativo**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar uma conta do Facebook como um provedor de identidade
 

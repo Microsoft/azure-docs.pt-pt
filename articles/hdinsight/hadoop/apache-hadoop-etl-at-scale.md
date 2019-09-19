@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810756"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066926"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extração, transformação e carregamento (ETL) em escala
 
-Extração, transformação e carregamento (ETL) é o processo pelo qual os dados são adquiridos de várias fontes, coletados em um local padrão, limpos e processados e, por fim, carregados em um repositório de dados do qual ele pode ser consultado. Os processos ETL herdados importam dados, limpam-no local e, em seguida, os armazenam em um mecanismo de dados relacional. Com o HDInsight, uma ampla variedade de componentes Apache Hadoop ecossistema dá suporte à execução de ETL em escala. 
+Extração, transformação e carregamento (ETL) é o processo pelo qual os dados são adquiridos de várias fontes, coletados em um local padrão, limpos e processados e, por fim, carregados em um repositório de dados do qual ele pode ser consultado. Os processos ETL herdados importam dados, limpam-no local e, em seguida, os armazenam em um mecanismo de dados relacional. Com o HDInsight, uma ampla variedade de componentes Apache Hadoop ecossistema dá suporte à execução de ETL em escala.
 
 O uso do HDInsight no processo de ETL pode ser resumido por este pipeline:
 
-![Visão geral do ETL do HDInsight](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![Visão geral do ETL do HDInsight em escala](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 As seções a seguir exploram cada uma das fases de ETL e seus componentes associados.
 
@@ -35,11 +35,11 @@ A orquestração é necessária para executar o trabalho apropriado no momento a
 
 O Apache Oozie é um sistema de coordenação de fluxo de trabalho que gerencia trabalhos do Hadoop. O Oozie é executado em um cluster HDInsight e é integrado à pilha do Hadoop. O Oozie dá suporte a trabalhos do Hadoop para Apache Hadoop MapReduce, Apache Pig, Apache Hive e Apache Sqoop. O Oozie também pode ser usado para agendar trabalhos específicos para um sistema, como programas Java ou scripts de Shell.
 
-Para obter mais informações, consulte [usar o Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight](../hdinsight-use-oozie-linux-mac.md) para uma análise aprofundada mostrando como usar o Oozie para direcionar um pipeline de ponta a ponta, consulte [operacionalize o pipeline de dados](../hdinsight-operationalize-data-pipeline.md). 
+Para obter mais informações, consulte [usar o Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight](../hdinsight-use-oozie-linux-mac.md) para uma análise aprofundada mostrando como usar o Oozie para direcionar um pipeline de ponta a ponta, consulte [operacionalize o pipeline de dados](../hdinsight-operationalize-data-pipeline.md).
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory fornece recursos de orquestração na forma de plataforma como serviço. É um serviço de integração de dados baseado em nuvem que permite criar fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados. 
+Azure Data Factory fornece recursos de orquestração na forma de plataforma como serviço. É um serviço de integração de dados baseado em nuvem que permite criar fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados.
 
 Usando Azure Data Factory, você pode:
 
@@ -133,7 +133,7 @@ O Apache Flume não pode ser usado com o Azure HDInsight.  Uma instalação loca
 
 Depois que os dados existirem no local escolhido, você precisa limpá-los, combiná-los ou prepará-los para um padrão de uso específico.  Hive, Pig e Spark SQL são todas boas opções para esse tipo de trabalho.  Todos eles têm suporte no HDInsight. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Usar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usando Apache Hive como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: dd1c9f5b10583e886c0357ce64bdf9d8bdc6c4c8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 629a7c98a7b46b470470445cc56a6f53d9e4f4b4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883376"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077220"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON usando Apache Hive no Azure HDInsight
 
@@ -91,7 +91,7 @@ A instrução **Select** retorna apenas uma linha.
 
 Aqui está a saída da instrução **Select** :
 
-![Mesclar o documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![O HDInsight mescla o documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Analisar documentos JSON no hive
 O hive fornece três mecanismos diferentes para executar consultas em documentos JSON, ou você pode escrever o seu próprio:
@@ -115,7 +115,7 @@ FROM StudentsOneLine;
 
 Aqui está a saída quando você executa essa consulta na janela do console:
 
-![UDF get_json_object](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive obter UDF do objeto JSON](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 Há limitações do UDF get_json_object:
 
@@ -136,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 A saída desse script no console do hive:
 
-![UDF json_tuple](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![Apache Hive resultados da consulta JSON](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
 O UDF json_tuple usa a sintaxe de [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no hive, que permite\_que a tupla JSON crie uma tabela virtual aplicando a função UDT a cada linha da tabela original. JSONs complexos se tornam muito difíceis devido ao uso repetido da **exibição lateral**. Além disso, **JSON_TUPLE** não pode manipular jsons aninhados.
 

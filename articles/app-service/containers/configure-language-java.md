@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: f0cbb8d19d2a7d60fdfd3c10a8c9914ffa79e0a3
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8e47365f74668ba2b93bad2b65a9dc9e83080832
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034910"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098128"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -49,11 +49,11 @@ Relatórios de desempenho, visualizações de tráfego e verificação de integr
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-Para obter mais informações, consulte [streaming de logs com o CLI do Azure](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
+Para obter mais informações, consulte [Stream logs in Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
 ### <a name="app-logging"></a>Log de aplicativo
 
-Habilite o [log do aplicativo](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) por meio do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicativo para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no armazenamento de BLOBs do Azure. O registro em log na instância do sistema de arquivos do serviço de aplicativo local é desabilitado 12 horas após sua configuração. Se você precisar de mais retenção, configure o aplicativo para gravar a saída em um contêiner de armazenamento de BLOBs. Seus logs de aplicativo Java e Tomcat podem ser encontrados no diretório */Home/LogFiles/Application/*
+Habilite o [log do aplicativo](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) por meio do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicativo para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no armazenamento de BLOBs do Azure. O registro em log na instância do sistema de arquivos do serviço de aplicativo local é desabilitado 12 horas após sua configuração. Se você precisar de mais retenção, configure o aplicativo para gravar a saída em um contêiner de armazenamento de BLOBs. Seus logs de aplicativo Java e Tomcat podem ser encontrados no diretório */Home/LogFiles/Application/*
 
 Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para revisão no aplicativo Azure insights usando as instruções de configuração do log Framework em [explorar logs de rastreamento de Java no Application insights ](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -225,7 +225,7 @@ Para desabilitar esse recurso, crie uma configuração de aplicativo `WEBSITE_AU
 
 #### <a name="spring-boot"></a>Spring Boot
 
-Os desenvolvedores do Spring boot podem usar o iniciador do [Spring boot Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) para proteger aplicativos usando anotações e APIs familiares de segurança do Spring. Certifique-se de aumentar o tamanho máximo do cabeçalho em seu arquivo *Application. Properties* . Sugerimos um valor de `16384`.
+Os desenvolvedores do Spring boot podem usar o [iniciador do Spring boot Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) para proteger aplicativos usando anotações e APIs familiares de segurança do Spring. Certifique-se de aumentar o tamanho máximo do cabeçalho em seu arquivo *Application. Properties* . Sugerimos um valor de `16384`.
 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
@@ -655,7 +655,7 @@ Para habilitar os Beans orientados a mensagens usando o barramento de serviço c
 
 Você pode configurar o Tomcat para usar um repositório de sessão externa, como o [cache do Azure para Redis](/azure/azure-cache-for-redis/). Isso permite preservar o estado da sessão do usuário (como dados do carrinho de compras) quando um usuário é transferido para outra instância do aplicativo, por exemplo, quando o dimensionamento automático, reinicialização ou failover ocorre.
 
-Para usar o Tomcat com Redis, você deve configurar seu aplicativo para usar [](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) uma implementação persistentemanager. As etapas a seguir explicam esse processo usando o [Gerenciador de sessão dinâmica: Redis-Store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como um exemplo.
+Para usar o Tomcat com Redis, você deve configurar seu aplicativo para usar uma implementação [persistentemanager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) . As etapas a seguir explicam esse processo usando o [Gerenciador de sessão dinâmica: Redis-Store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como um exemplo.
 
 1. Abra um terminal Bash e use `export <variable>=<value>` para definir cada uma das variáveis de ambiente a seguir.
 
@@ -765,7 +765,7 @@ Para usar o Tomcat com Redis, você deve configurar seu aplicativo para usar [](
 
 Agora, seu aplicativo usará o cache Redis para o gerenciamento de sessão.
 
-Para obter um exemplo que você pode usar para testar essas instruções, consulte o repositório Dimensioning- [stateful-Java-Web-App-on-Azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) no github.
+Para obter um exemplo que você pode usar para testar essas instruções, consulte o repositório [Dimensioning-stateful-Java-Web-App-on-Azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) no github.
 
 ## <a name="docker-containers"></a>Contentores do Docker
 
@@ -798,4 +798,4 @@ Se um tempo de execução de Java com suporte for desativado, os desenvolvedores
 
 Visite o centro [de desenvolvedores do Azure para Java](/java/azure/) para localizar guias de início rápido, tutoriais e documentação de referência de Java do Azure.
 
-As perguntas gerais sobre como usar o serviço de aplicativo para Linux que não são específicas do desenvolvimento do Java são respondidas nas perguntas frequentes sobre o [Linux do serviço de aplicativo](app-service-linux-faq.md).
+As perguntas gerais sobre como usar o serviço de aplicativo para Linux que não são específicas do desenvolvimento do Java são respondidas nas [perguntas frequentes](app-service-linux-faq.md)sobre o Linux do serviço de aplicativo.
