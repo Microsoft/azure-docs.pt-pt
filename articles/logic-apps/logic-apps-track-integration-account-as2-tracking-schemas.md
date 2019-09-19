@@ -76,7 +76,7 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 | outgoingHeaders |Dicionário de JToken | Detalhes de cabeçalho de mensagem de saída AS2. (Opcional) |
 | isNrrEnabled | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
 | isMdnExpected | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
-| mdnType | Enum | Valores permitidos são **NotConfigured**, **sincronização**, e **Async**. (Obrigatório) |
+| mdnType | Enum | Valores permitidos são **NotConfigured**, **Sync**, e **Async**. (Obrigatório) |
 ||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Esquema de controlo AS2 MDN

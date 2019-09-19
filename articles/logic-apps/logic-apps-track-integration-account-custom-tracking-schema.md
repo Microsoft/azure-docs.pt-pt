@@ -58,7 +58,7 @@ Este artigo fornece código personalizado que podem ser usadas nas camadas de fo
 
 | Propriedade | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| sourceType | Sim |   | Tipo de origem de execução. Valores permitidos são **Microsoft.Logic/workflows** e **personalizado**. |
+| sourceType | Sim |   | Tipo de origem de execução. Valores permitidos são **Microsoft.Logic/workflows** e **custom**. |
 | source | Sim |   | Se o tipo de origem for **Microsoft.Logic/workflows**, as informações de origem tem de cumprir esse esquema. Se o tipo de origem for **personalizado**, o esquema é um JToken. |
 | systemId | Sim | String | ID de sistema da aplicação lógica. |
 | runId | Sim | String | ID de execução da aplicação lógica |
