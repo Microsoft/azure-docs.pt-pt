@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: 0c8fdf11f435cc459dfb8475f8983b29dfbc5d9f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 254af667ce0893855191a2f785cc77e560408d73
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810561"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087300"
 ---
 # <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>Cenário: Não é possível adicionar nós ao cluster HDInsight do Azure
 

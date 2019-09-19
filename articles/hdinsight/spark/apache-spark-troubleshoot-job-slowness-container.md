@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/21/2019
-ms.openlocfilehash: 9a4142010ef9e47a1a41e472c945b694f197f34f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 40c5d023647d3592e44588fbc24bf2743da34373
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885063"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088629"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Apache Spark execução de trabalho lentamente quando o contêiner de armazenamento do Azure contém muitos arquivos no Azure HDInsight
 
@@ -37,7 +38,7 @@ Quando você cria um conjunto de dados particionado, é importante usar um esque
 
 Para cada enésimo micro batch em que N% 100 = = 0 (100 é apenas um exemplo), mova os dados existentes para outro diretório, que pode ser carregado pelo Spark.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

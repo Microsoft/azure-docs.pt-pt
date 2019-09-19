@@ -2,18 +2,18 @@
 title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-infraestrutura
 description: Aprenda práticas recomendadas de infraestrutura para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: dbd4cc987883c959ad9b13b60491dd2288bd5643
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: e35917a7eb7b2e38fcc2689f6fe838ec6529428a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735741"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087456"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de infraestrutura
 
@@ -189,7 +189,7 @@ O HDInsight pode ser conectado à rede local usando redes virtuais do Azure e um
 
 Para obter mais informações, consulte o artigo [conectar o HDInsight à sua rede local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia o próximo artigo desta série:
 

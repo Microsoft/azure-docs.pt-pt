@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 68d4f55d4a382f59386e72779a5f60cfc2a65338
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901766"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091105"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
 
@@ -58,7 +58,7 @@ Para obter mais informações, consulte os [requisitos e as restrições](https:
 Para configurar o emparelhamento de rede virtual para redes virtuais em assinaturas ou Active Directory locatários diferentes, siga as etapas em [criar emparelhamento em assinaturas diferentes para CLI do Azure](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> Para configurar o emparelhamento de rede, você deve ter permissões de **colaborador de rede** em ambas as assinaturas. Para obter mais informações, consulte [permissões de emparelhamento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> Para configurar o emparelhamento de rede, você deve ter permissões de **colaborador de rede** em ambas as assinaturas. Para obter mais informações, consulte [permissões de emparelhamento](virtual-network-manage-peering.md#permissions).
 
 ## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Cenário 2: Configurar o emparelhamento de rede virtual com a topologia hub-spoke que usa recursos locais
 
@@ -104,7 +104,7 @@ Para saber mais sobre requisitos de emparelhamento global e restrições, confir
 
 ## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>Cenário 4: Tenho um problema de conectividade entre duas redes virtuais emparelhadas
 
-Entre no [portal do Azure](https://portal.azure.com/) com uma conta que tenha as [funções e permissões](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions)necessárias. Selecione a rede virtual, selecione **emparelhamento**e, em seguida, verifique o campo **status** . Qual é o status?
+Entre no [portal do Azure](https://portal.azure.com/) com uma conta que tenha as [funções e permissões](virtual-network-manage-peering.md#permissions)necessárias. Selecione a rede virtual, selecione **emparelhamento**e, em seguida, verifique o campo **status** . Qual é o status?
 
 ### <a name="connection-type-1-the-peering-status-shows-connected"></a>Tipo de conexão 1: O status de emparelhamento mostra ' conectado '
 
@@ -229,6 +229,6 @@ Você deve excluir emparelhamentos de ambos os VNets e recriá-los.
 
 Para resolver esse problema, configure o emparelhamento de rede virtual na folha **Azure Databricks** e, em seguida, especifique a rede virtual de destino usando a **ID do recurso**. Para obter mais informações, consulte [emparelhar uma rede virtual do databricks para uma rede virtual remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms) (Resolver problemas de conectividade entre VMs do Azure)

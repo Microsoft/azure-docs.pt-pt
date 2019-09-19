@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: f8edb27e52d843d9a765aed8da9b75417cf357d1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: badd674030ec014f2e70050c3c45599a26b17882
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552560"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073818"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Início rápido: Extrair dados de recebimento usando a API REST do reconhecedor de formulário com ondulação
 
@@ -24,7 +24,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido, você deve ter:
-- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso](https://aka.ms/FormRecognizerRequestAccess) do reconhecedor de formulário.
+- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
 - [rotação](https://curl.haxx.se/windows/) instalada.
 - Uma URL para uma imagem de um recibo. Você pode usar uma [imagem de exemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) para este guia de início rápido.
 
@@ -36,7 +36,7 @@ Para concluir este guia de início rápido, você deve ter:
 
 Para começar a analisar um recibo, chame a API de **confirmação de análise** usando o comando de ondulação abaixo. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
+1. Substitua `<Endpoint>` pelo ponto de extremidade obtido com a chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
 1. Substituir `<your receipt URL>` pelo endereço URL de uma imagem de recebimento.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou da etapa anterior.
 

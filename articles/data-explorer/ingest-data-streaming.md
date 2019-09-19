@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843868"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090622"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
 
@@ -41,8 +41,9 @@ Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a q
  
 1. Na [interface do usuário da Web](https://dataexplorer.azure.com/), defina a [política de ingestão de streaming](/azure/kusto/concepts/streamingingestionpolicy) em tabela (s) ou banco (s) de dados que receberão o streaming de dado. 
 
-    > [!TIP]
-    > Se a política for definida no nível de banco de dados, todas as tabelas no banco de dados serão habilitadas para ingestão de streaming.
+    > [!NOTE]
+    > * Se a política for definida no nível de banco de dados, todas as tabelas no banco de dados serão habilitadas para ingestão de streaming.
+    > * A política aplicada pode fazer referência somente a dados recentemente ingeridos e não a outras tabelas no banco de dados.
 
 ## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Usar a ingestão de streaming para ingerir dados para o cluster
 

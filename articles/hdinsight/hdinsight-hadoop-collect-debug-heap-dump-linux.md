@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 68be0d7d13785c9631044766a290eec93637ea64
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879951"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091504"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux
 
@@ -94,11 +94,11 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 3. Usando a entrada **Filter...** , insira as **optas**. Somente os itens que contêm esse texto são exibidos.
 
-    ![Lista filtrada](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    ![Lista filtrada de configuração do Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
 4. Localize a  **\* entradadeopçõesparaoserviçoparaoqualvocêdesejahabilitarosdespejosdeheapeadicioneasopçõesquedesejahabilitar.\_** Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada de opções do **HADOOP\_NAMENODE:\_**
 
-    ![HADOOP_NAMENODE_OPTS com-XX: + HeapDumpOnOutOfMemoryError-XX: HeapDumpPath =/tmp/](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    ![Apache Ambari Hadoop-namenode-optas por](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > Ao habilitar despejos de heap para o processo de mapeamento ou redução de filho, procure os campos chamados **MapReduce. admin. map. Child. java.** e **MapReduce. admin. Reduza. Child. java.**
@@ -111,11 +111,11 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 6. Selecione cada serviço que precisa de uma reinicialização e use o botão **ações de serviço** para ativar o **modo de manutenção**. O modo de manutenção impede que os alertas sejam gerados a partir do serviço quando você o reinicia.
 
-    ![Ativar o menu do modo de manutenção](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    ![Ativar o menu do modo de manutenção do HDI](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. Depois de habilitar o modo de manutenção, use o botão **reiniciar** para que o serviço **reinicie todos os efeitos**
 
-    ![Reiniciar todas as entradas afetadas](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    ![Apache Ambari reiniciar todas as entradas afetadas](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
    > As entradas do botão **reiniciar** podem ser diferentes para outros serviços.

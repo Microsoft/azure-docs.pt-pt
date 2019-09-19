@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: bd020576f6939ad195c73ebe390d370d0319b5f9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c4abc8a1b8d81f4ed0ef7e1c3b37c4e0e755c1b8
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810528"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087268"
 ---
 # <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Cenário: Não é possível fazer logon no cluster HDInsight do Azure
 

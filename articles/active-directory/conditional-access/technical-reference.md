@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 390c961eaa692e6ca5bf26e2954c0764207fc210
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 216316249197071bdd7a175dfc5339caeddee50a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853678"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086835"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
@@ -110,7 +110,7 @@ Na política de acesso condicional, você pode configurar a condição de [aplic
 
 ### <a name="supported-browsers"></a>Browsers suportados
 
-Em sua política de acesso condicional, você pode selecionar navegadores como aplicativo cliente.
+Em sua política de acesso condicional, você pode selecionar **navegadores** como aplicativo cliente.
 
 ![Controlar o acesso para navegadores com suporte](./media/technical-reference/05.png)
 
@@ -125,7 +125,7 @@ Essa configuração funciona com todos os navegadores. No entanto, para atender 
 | Android                | Microsoft Edge, Intune Managed Browsers, Chrome  |
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
 | Windows Server de 2019    | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2016    | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer                       |
 | Windows Server 2008 R2 | Internet Explorer                       |
 | macOS                  | Chrome, Safari                                  |
@@ -144,7 +144,7 @@ Para implantar automaticamente essa extensão em navegadores Chrome, crie a segu
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nome | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/Service/Update2/CRX |
 
@@ -153,7 +153,7 @@ Para obter suporte ao Chrome no **Windows 8.1 e no 7**, crie a seguinte chave do
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nome | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 

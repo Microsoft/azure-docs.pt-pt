@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.date: 09/17/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44ee910aa1a5f3c1a703b9ed4202d395359970cb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc1c6e4bf2e67d8945cf754aa47461b4ce8364a9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099957"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066831"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -120,6 +120,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 
 ## <a name="change-log"></a>Registo de Alterações
+- 09/17/2019: Alteração no guia de planejamento e implantação do NetWeaver para unificar os termos relacionados à extensão de VM para SAP
 - 08/22/2019: Alterações na [configuração de pacemaker em SuSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para atualizar as URLs para a criação de função personalizada  
 - 08/16/2019: Alterações na [configuração de pacemaker em Red Hat Enterprise Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para lembrar os clientes de atualizar as ações na função personalizada, se atualizar para a nova versão do agente de limite do Azure  
 - 08/15/2019: Alterações em [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para refletir a disponibilidade geral do ultra Disk (anteriormente SSD ultra)

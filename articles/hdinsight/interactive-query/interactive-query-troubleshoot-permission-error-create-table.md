@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 139c9a8c89b18588ee6e640feb105f06ff94ae5f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8440bbc1cf7019e77c6274cbb11c013fb4e3e69d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947737"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091400"
 ---
 # <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>Cenário: Permissão negada ao tentar criar uma tabela de Apache Hive no Azure HDInsight
 

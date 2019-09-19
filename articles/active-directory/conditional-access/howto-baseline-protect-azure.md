@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 06b3a3f12b2955ae97c43b0caf6a4ac13c9b770a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532951"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086736"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Política de linha de base: Exigir MFA para gerenciamento de serviços (versão prévia)
 
@@ -50,7 +50,7 @@ Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carreg
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-Como a política **exigir MFA para gerenciamento de serviços** se aplica a todos os Azure Resource Manager usuários, várias considerações precisam ser feitas para garantir uma implantação tranqüila. Essas considerações incluem a identificação de usuários e princípios de serviço no Azure AD que não podem ou não devem executar MFA, bem como aplicativos e clientes usados por sua organização que não dão suporte à autenticação moderna.
+A política **exigir MFA para gerenciamento de serviços** se aplica a todos os Azure Resource Manager usuários.
 
 ## <a name="enable-the-baseline-policy"></a>Habilitar a política de linha de base
 

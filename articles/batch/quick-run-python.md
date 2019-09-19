@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128034"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090773"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar seu primeiro trabalho em lotes com a API do Python
 
@@ -116,7 +116,7 @@ Veja o ficheiro `python_quickstart_client.py` e as secções seguintes para obte
 
 ### <a name="preliminaries"></a>Preliminares
 
-Para interagir com uma conta de armazenamento, a aplicação utiliza o pacote [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) para criar um objeto [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice).
+Para interagir com uma conta de armazenamento, a aplicação utiliza o pacote [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) para criar um objeto [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice).
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -124,7 +124,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-A aplicação utiliza a referência `blob_client` para criar um contentor na conta de armazenamento e para carregar ficheiros de dados para o contentor. Os ficheiros no armazenamento estão definidos como objetos [ResourceFile](/python/api/azure.batch.models.resourcefile) que o Batch pode transferir mais tarde para os nós de computação.
+A aplicação utiliza a referência `blob_client` para criar um contentor na conta de armazenamento e para carregar ficheiros de dados para o contentor. Os ficheiros no armazenamento estão definidos como objetos [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) que o Batch pode transferir mais tarde para os nós de computação.
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -149,11 +149,11 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Para criar um conjunto do Batch, a aplicação utiliza a classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
+Para criar um conjunto do Batch, a aplicação utiliza a classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
 
 O número de nós (`_POOL_NODE_COUNT`) e o tamanho da VM (`_POOL_VM_SIZE`) são constantes definidas. O exemplo predefinido cria um conjunto de dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
 
-O método [pool.add](/python/api/azure.batch.operations.pooloperations) submete o conjunto para o serviço Batch.
+O método [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) submete o conjunto para o serviço Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Criar um trabalho do Batch
 
-Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, os trabalhos não têm tarefas.
+Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, os trabalhos não têm tarefas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -185,9 +185,9 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>Criar tarefas
 
-Esta aplicação cria uma lista de objetos de tarefas através da classe [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Cada tarefa processa um objeto `resource_files` de entrada através de um parâmetro `command_line`. No exemplo, a linha de comandos executa o comando `cat` da shell do Bash para apresentar o ficheiro de texto. Este comando é um exemplo simples para fins de demonstração. Quando utiliza o Batch, a linha de comandos é onde especifica a aplicação ou o script. O Batch apresenta várias formas de implementar aplicações e scripts para os nós de computação.
+Esta aplicação cria uma lista de objetos de tarefas através da classe [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Cada tarefa processa um objeto `resource_files` de entrada através de um parâmetro `command_line`. No exemplo, a linha de comandos executa o comando `cat` da shell do Bash para apresentar o ficheiro de texto. Este comando é um exemplo simples para fins de demonstração. Quando utiliza o Batch, a linha de comandos é onde especifica a aplicação ou o script. O Batch apresenta várias formas de implementar aplicações e scripts para os nós de computação.
 
-Em seguida, a aplicação adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure.batch.operations.taskoperations), o que as coloca em fila para serem executadas nos nós de computação. 
+Em seguida, a aplicação adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), o que as coloca em fila para serem executadas nos nós de computação. 
 
 ```python
 tasks = list()

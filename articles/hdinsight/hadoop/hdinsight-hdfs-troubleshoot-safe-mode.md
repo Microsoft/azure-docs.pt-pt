@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 4c97700fa69c2f2ae235308063ee431a8dbfcbfd
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2b420cc584c4514802e137212b5803e59869968b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810713"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087412"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Cenário: HDFS local paralisado no modo de segurança no cluster do Azure HDInsight
 
@@ -55,7 +56,7 @@ O cluster HDInsight foi reduzido para poucos nós abaixo, ou o número de nós e
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

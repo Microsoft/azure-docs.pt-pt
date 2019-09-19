@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 92d8c6fb1bfa1689475774bbc4f62cd9ab38268f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321839"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090776"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o lote do Azure usando a API do Python
 
@@ -123,7 +123,7 @@ As secções seguintes dividem a aplicação de exemplo nos passos que executa p
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autenticar clientes Blob e Batch
 
-Para interagir com uma conta de armazenamento, a aplicação utiliza o pacote [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) para criar um objeto [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice).
+Para interagir com uma conta de armazenamento, a aplicação utiliza o pacote [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) para criar um objeto [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice).
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>Carregar ficheiros de entrada
 
-A aplicação utiliza a referência `blob_client` para criar um contentor de armazenamento para os ficheiros MP4 de entrada e um contentor para o resultado da tarefa. Em seguida, chama a função `upload_file_to_container` para carregar os ficheiros MP4 no diretório `InputFiles` local para o contentor. Os ficheiros no armazenamento estão definidos como objetos [ResourceFile](/python/api/azure.batch.models.resourcefile) que o Batch pode transferir mais tarde para os nós de computação.
+A aplicação utiliza a referência `blob_client` para criar um contentor de armazenamento para os ficheiros MP4 de entrada e um contentor para o resultado da tarefa. Em seguida, chama a função `upload_file_to_container` para carregar os ficheiros MP4 no diretório `InputFiles` local para o contentor. Os ficheiros no armazenamento estão definidos como objetos [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) que o Batch pode transferir mais tarde para os nós de computação.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -165,13 +165,13 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `create_pool`. Esta função definida utiliza a classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) do Batch para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
+Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `create_pool`. Esta função definida utiliza a classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) do Batch para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
 
 O número de nós e o tamanho da VM são definidos através de constantes definidas. O Batch suporta nós dedicados e [nós de prioridade baixa](batch-low-pri-vms.md), e pode utilizar um ou ambos nos conjuntos. Os nós dedicados estão reservados para o conjunto. Os nós de prioridade baixa são disponibilizados a um preço reduzido a partir da capacidade excedente da VM no Azure. Os nós de prioridade baixa ficam indisponíveis se o Azure não tiver capacidade suficiente. Por predefinição, o exemplo cria um conjunto com apenas 5 nós de prioridade baixa no tamanho *Standard_A1_v2*. 
 
-Além das propriedades dos nós físicos, esta configuração de conjuntos inclui um objeto [StartTask](/python/api/azure.batch.models.starttask). O StartTask é executado em cada nó à medida que esse nó se associa ao conjunto, e sempre que um nó for reiniciado. Neste exemplo, o StartTask executa comandos da shell Bash para instalar o pacote ffmpeg e as dependências nos nós.
+Além das propriedades dos nós físicos, esta configuração de conjuntos inclui um objeto [StartTask](/python/api/azure-batch/azure.batch.models.starttask). O StartTask é executado em cada nó à medida que esse nó se associa ao conjunto, e sempre que um nó for reiniciado. Neste exemplo, o StartTask executa comandos da shell Bash para instalar o pacote ffmpeg e as dependências nos nós.
 
-O método [pool.add](/python/api/azure.batch.operations.pooloperations) submete o conjunto para o serviço Batch.
+O método [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) submete o conjunto para o serviço Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -201,7 +201,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Esta função definida utiliza a classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure.batch.operations.joboperations) submete o conjunto para o serviço Batch. Inicialmente, o trabalho não tem tarefas.
+Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Esta função definida utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) submete o conjunto para o serviço Batch. Inicialmente, o trabalho não tem tarefas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -213,11 +213,11 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>Criar tarefas
 
-A aplicação cria tarefas no trabalho com uma chamada para `add_tasks`. Esta função definida cria uma lista de objetos de tarefas através da classe [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Cada tarefa executa o ffmpeg para processar um objeto `resource_files` de entrada através de um parâmetro `command_line`. O ffmpeg foi instalado anteriormente em cada nó quando o conjunto foi criado. Aqui, a linha de comandos executa o ffmpeg para converter cada ficheiro MP4 (vídeo) de entrada num ficheiro MP3 (áudio).
+A aplicação cria tarefas no trabalho com uma chamada para `add_tasks`. Esta função definida cria uma lista de objetos de tarefas através da classe [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Cada tarefa executa o ffmpeg para processar um objeto `resource_files` de entrada através de um parâmetro `command_line`. O ffmpeg foi instalado anteriormente em cada nó quando o conjunto foi criado. Aqui, a linha de comandos executa o ffmpeg para converter cada ficheiro MP4 (vídeo) de entrada num ficheiro MP3 (áudio).
 
-O exemplo cria um objeto [OutputFile](/python/api/azure.batch.models.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade `output_files` da tarefa.
+O exemplo cria um objeto [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade `output_files` da tarefa.
 
-Em seguida, a aplicação adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure.batch.operations.taskoperations), o que as coloca em fila para serem executadas nos nós de computação. 
+Em seguida, a aplicação adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), o que as coloca em fila para serem executadas nos nós de computação. 
 
 ```python
 tasks = list()
@@ -247,7 +247,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 Quando as tarefas forem adicionadas a um trabalho, o Batch coloca automaticamente em fila e agenda-as para execução nos nós de computação no conjunto associado. Com base nas definições especificadas, o Batch processa todas as tarefas de colocação em fila, agendamento, repetições e outras funções de administração de tarefas. 
 
-Existem várias abordagens à monitorização da execução de tarefas. A função `wait_for_tasks_to_complete` neste exemplo utiliza o objeto [TaskState](/python/api/azure.batch.models.taskstate) para monitorizar as tarefas num determinado estado, neste caso, o estado de concluído, dentro de um limite de tempo.
+Existem várias abordagens à monitorização da execução de tarefas. A função `wait_for_tasks_to_complete` neste exemplo utiliza o objeto [TaskState](/python/api/azure-batch/azure.batch.models.taskstate) para monitorizar as tarefas num determinado estado, neste caso, o estado de concluído, dentro de um limite de tempo.
 
 ```python
 while datetime.datetime.now() < timeout_expiration:
@@ -267,11 +267,11 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de executar as tarefas, a aplicação elimina automaticamente o contentor de armazenamento de entrada que criou e dá-lhe a opção de eliminar o conjunto e o trabalho do Batch. As classes [JobOperations](/python/api/azure.batch.operations.joboperations) e [PoolOperations](/python/api/azure.batch.operations.pooloperations) do BatchClient têm métodos de eliminação, que são chamados se confirmar a eliminação. Apesar de os próprios trabalhos e tarefas não lhe serem cobrados, os nós de computação são cobrados. Assim, recomendamos que atribua conjuntos apenas conforme necessário. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. No entanto, os ficheiros de entrada e saída permanecem na conta de armazenamento.
+Depois de executar as tarefas, a aplicação elimina automaticamente o contentor de armazenamento de entrada que criou e dá-lhe a opção de eliminar o conjunto e o trabalho do Batch. As classes [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) e [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) do BatchClient têm métodos de eliminação, que são chamados se confirmar a eliminação. Apesar de os próprios trabalhos e tarefas não lhe serem cobrados, os nós de computação são cobrados. Assim, recomendamos que atribua conjuntos apenas conforme necessário. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. No entanto, os ficheiros de entrada e saída permanecem na conta de armazenamento.
 
 Quando já não forem necessários, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para tal, no portal do Azure, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

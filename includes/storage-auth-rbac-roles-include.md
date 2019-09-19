@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4f9a828e5233c88db2106bc648c07578927e0d29
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c2b409f0eefe5efa389432cbb007cc08e0c6ae1e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514874"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71078272"
 ---
 O Azure fornece as seguintes funções RBAC internas para autorizar o acesso a dados de BLOB e de fila usando o Azure AD e o OAuth:
 
@@ -26,4 +26,6 @@ O Azure fornece as seguintes funções RBAC internas para autorizar o acesso a d
 - [Remetente da mensagem de dados da fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use para conceder permissões adicionar a mensagens nas filas do armazenamento do Azure.
 
 > [!NOTE]
-> Tenha em mente que as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
+> As atribuições de função RBAC podem levar até cinco minutos para serem propagadas.
+>
+> Somente as funções explicitamente definidas para acesso a dados permitem que uma entidade de segurança acesse dados de BLOB ou fila. Funções como **proprietário**, **colaborador**e colaborador de **conta de armazenamento** permitem que uma entidade de segurança gerencie uma conta de armazenamento, mas não forneça acesso aos dados de BLOB ou de fila nessa conta.

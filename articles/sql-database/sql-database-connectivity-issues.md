@@ -9,15 +9,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb34395e0a9ec881c2f5e303383555fa6544369d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569062"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090907"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do banco de dados SQL e erros transitórios
 
@@ -310,7 +311,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>Algumas linhas retornadas de sys. fn_xe_telemetry_blob_target_read_file
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>Algumas linhas retornadas de sys. fn_xe_telemetry_blob_target_read_file
 
 O exemplo a seguir mostra como pode ser a aparência de uma linha retornada. Os valores nulos mostrados geralmente não são nulos em outras linhas.
 
@@ -340,7 +341,7 @@ As classes EntLib60 a seguir são particularmente úteis para a lógica de repet
 No namespace **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling**:
 
 - Classe **RetryPolicy**
-  - Método ExecuteAction
+  - Método **ExecuteAction**
 - Classe **ExponentialBackoff**
 - Classe **SqlDatabaseTransientErrorDetectionStrategy**
 - Classe **ReliableSqlConnection**
@@ -354,7 +355,7 @@ No namespace **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling. 
 Aqui estão alguns links para informações sobre EntLib60:
 
 - Download gratuito do livro: [Guia do desenvolvedor para o Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
-- Práticas recomendadas: As [diretrizes gerais de repetição](../best-practices-retry-general.md) têm uma excelente discussão aprofundada sobre a lógica de repetição.
+- Melhores Práticas: As [diretrizes gerais de repetição](../best-practices-retry-general.md) têm uma excelente discussão aprofundada sobre a lógica de repetição.
 - Download do NuGet: [Enterprise Library – falha transitória ao lidar com falhas do bloco de aplicativos 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
@@ -373,7 +374,7 @@ Para obter mais informações, [consulte 5-tão fácil como cair em um log: Use 
 
 ### <a name="entlib60-istransient-method-source-code"></a>Código-fonte do método istransitória EntLib60
 
-Em seguida, na classe **SqlDatabaseTransientErrorDetectionStrategy** , é o C# código-fonte do método istransitória. O código-fonte esclarece quais erros foram considerados transitórios e digno de repetição, a partir de abril de 2013.
+Em seguida, na classe **SqlDatabaseTransientErrorDetectionStrategy** , é o C# código-fonte do método **istransitória** . O código-fonte esclarece quais erros foram considerados transitórios e digno de repetição, a partir de abril de 2013.
 
 ```csharp
 public bool IsTransient(Exception ex)
@@ -441,7 +442,7 @@ public bool IsTransient(Exception ex)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre como solucionar outros problemas comuns de conexão de banco de dados SQL, consulte [solucionar problemas de conexão com o banco de dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 - [Bibliotecas de conexão para o banco de dados SQL e SQL Server](sql-database-libraries.md)

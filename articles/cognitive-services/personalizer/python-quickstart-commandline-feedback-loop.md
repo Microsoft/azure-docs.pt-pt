@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: de11db64ed67872380b665f4839d406fd06bc9c8
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5b5efa4a8c6d92f9937709f57f99851c90058dda
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959392"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067685"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Início rápido: Personalizar a biblioteca de cliente para Python
 
@@ -37,7 +37,7 @@ Introdução à biblioteca de cliente do personalizador para Python. Siga estas 
 
 ### <a name="create-a-personalizer-azure-resource"></a>Criar um recurso personalizado do Azure
 
-Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
+Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://portal.azure.com/) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Veja [como criar um recurso de serviços cognitivas usando o portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter mais detalhes. Também pode:
 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).

@@ -4,7 +4,7 @@ description: Lista os eventos que podem causar a reinicialização de uma VM
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: aea4c20ceeb9b4f1ad70187da2690fd5d202fe7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089552"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086966"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para a VM do Azure
 
@@ -89,7 +89,7 @@ A VM é hospedada em um servidor físico que está sendo executado dentro de um 
 
 Falhas de servidor geralmente são causadas por falha de hardware, como a falha de um disco rígido ou uma unidade de estado sólido. O Azure monitora continuamente essas ocorrências, identifica os bugs subjacentes e distribui as atualizações depois que a mitigação é implementada e testada.
 
-Como algumas falhas do servidor host podem ser específicas desse servidor, uma situação de reinicialização de VM repetida pode ser melhorada com a reimplantação manual da VM em outro servidor host. Essa operação pode ser disparada usando a opção reimplantação na página de detalhes da VM ou interrompendo e reiniciando a VM no portal do Azure.
+Como algumas falhas do servidor host podem ser específicas desse servidor, uma situação de reinicialização de VM repetida pode ser melhorada com a reimplantação manual da VM em outro servidor host. Essa operação pode ser disparada usando a opção **reimplantação** na página de detalhes da VM ou interrompendo e reiniciando a VM no portal do Azure.
 
 ### <a name="auto-recovery"></a>Recuperação automática
 
@@ -118,7 +118,7 @@ A duração do desligamento pode ser tão curta quanto cinco minutos, mas pode s
 
 **Excedendo os limites de e/s**
 
-As VMs podem ser desligadas temporariamente quando as solicitações de e/s são limitadas consistentemente porque o volume de operações de e/s por segundo (IOPS) excede os limites de e/s para o disco. (O armazenamento em disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou configure o espaço de armazenamento dentro da VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte Configurando [VMs do Azure para desempenho de armazenamento ideal](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+As VMs podem ser desligadas temporariamente quando as solicitações de e/s são limitadas consistentemente porque o volume de operações de e/s por segundo (IOPS) excede os limites de e/s para o disco. (O armazenamento em disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou configure o espaço de armazenamento dentro da VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte [Configurando VMs do Azure para desempenho de armazenamento ideal](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Outros incidentes
 

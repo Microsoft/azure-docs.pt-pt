@@ -4,7 +4,7 @@ description: Saiba como solucionar problemas de VM do Windows no Azure conectand
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 265a4f58fc383519246d8d69d6cf7407b92e4728
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d99bf2a41bc82722fd31c1835f34f913163ce55b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089776"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088214"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando Azure PowerShell
 Se sua VM (máquina virtual) do Windows no Azure encontrar um erro de disco ou de inicialização, talvez seja necessário executar as etapas de solução de problemas no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede que a VM seja capaz de inicializar com êxito. Este artigo fornece detalhes sobre como usar Azure PowerShell para conectar o disco a outra VM do Windows para corrigir erros e, em seguida, reparar a VM original. 
@@ -255,7 +255,7 @@ Set-AzVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se você estiver tendo problemas para se conectar à sua VM, consulte [solucionar problemas de conexões RDP para uma VM do Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas com o acesso a aplicativos em execução na sua VM, consulte [solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para obter mais informações sobre como usar o Gerenciador de recursos, consulte [Azure Resource Manager visão geral](../../azure-resource-manager/resource-group-overview.md).

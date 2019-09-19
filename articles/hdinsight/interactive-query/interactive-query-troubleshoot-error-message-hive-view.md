@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 8f60e918c6ed2d49f2a9949b5ab096fb1e1f44bb
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a593b3147414a55564580e72e478ffe9cc0cfebd
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733125"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091433"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>Cenário: Mensagem de erro de consulta não exibida na exibição Apache Hive no Azure HDInsight
 

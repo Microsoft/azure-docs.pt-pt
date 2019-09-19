@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/01/2019
-ms.openlocfilehash: 5b1291e6996cb5db366128f829ca2cdf3cad0a9d
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 81126e0d2b87a84c81a3be8682ad41813991dc81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735302"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091592"
 ---
 # <a name="scenario-apache-hbase-rest-not-responding-to-requests-in-azure-hdinsight"></a>Cenário: O Apache HBase REST não está respondendo a solicitações no Azure HDInsight
 

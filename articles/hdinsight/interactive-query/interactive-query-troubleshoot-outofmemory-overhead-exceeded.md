@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 45b19bdfc12313974252c81c2597645b1ceb2018
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e1f41b6e1e5f51cb7e6e0af1e99184cdfbd373e1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668849"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091413"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Cenário: Junções em Apache Hive leva a um erro de OutOfMemory no Azure HDInsight
 

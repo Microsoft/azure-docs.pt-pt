@@ -5,7 +5,7 @@ keywords: conexão SSH recusada, erro de SSH, Azure SSH, falha na conexão SSH
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: fd3c40d56e0ba9cdb50847832051606f81d0e952
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 006dbbe1b7472982a894691d019eb88ef2041dac
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677679"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088271"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas de conexões SSH para uma VM Linux do Azure que falha, erros ou é recusada
 Este artigo ajuda você a localizar e corrigir os problemas que ocorrem devido a erros de Secure Shell (SSH), falhas de conexão SSH ou SSH é recusado quando você tenta se conectar a uma VM (máquina virtual) do Linux. Você pode usar a extensão de acesso portal do Azure, CLI do Azure ou VM para Linux para solucionar problemas de conexão.
@@ -212,7 +212,7 @@ Para reiniciar uma VM usando o portal do Azure, selecione sua VM e, em seguida, 
 ![Reiniciar uma VM no portal do Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
-O exemplo a seguir usa [AZ VM](/cli/azure/vm) restart para reiniciar `myVM` a VM chamada no grupo `myResourceGroup`de recursos chamado. Use seus próprios valores da seguinte maneira:
+O exemplo a seguir usa [AZ VM Restart](/cli/azure/vm) para reiniciar `myVM` a VM chamada no grupo `myResourceGroup`de recursos chamado. Use seus próprios valores da seguinte maneira:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

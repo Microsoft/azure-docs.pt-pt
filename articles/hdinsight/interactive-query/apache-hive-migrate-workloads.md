@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: eb6b42a88e47e3fcb35700ec542c8ca642e17a6a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0363f2d8da1ca1371fd55107c6487c3d96f6d00e
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815803"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091460"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
 
@@ -71,7 +71,7 @@ Depois que as propriedades da tabela forem definidas corretamente, execute a fer
 1. Execute o comando a seguir no Shell. Substituir `${{STACK_VERSION}}` pela cadeia de caracteres da versão da etapa anterior:
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
 Após a conclusão da ferramenta de migração, o seu depósito do hive estará pronto para o HDInsight 4,0. 
@@ -109,7 +109,7 @@ Quando o DAS estiver instalado, se você não vir as consultas que você executo
     * `tez.history.logging.proto-base-dir`
 3. Reinicie HDFS, Hive, tez e DAS em ambos os cabeçalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Comunicado do HDInsight 4,0](../hdinsight-version-release.md)
 * [Aprofundamento no HDInsight 4,0](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

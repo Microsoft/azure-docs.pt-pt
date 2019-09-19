@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 609aeeada78985466cb7c254cab32864e5d84b0e
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
-ms.translationtype: MT
+ms.openlocfilehash: 689e1c8912c567e466d2834172b5d2b98cfbc32c
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70875656"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086847"
 ---
 # <a name="migrating-ios-applications-using-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrando aplicativos iOS usando o Microsoft Authenticator do ADAL.NET para o MSAL.NET
 
@@ -36,7 +36,7 @@ Este documento pressupõe que você já tenha um aplicativo do Xamarin iOS que e
 
 ### <a name="what-are-brokers"></a>O que são agentes?
 
-Os agentes são aplicativos, fornecidos pela Microsoft, no Android e no iOS ([Microsoft Authenticator](https://www.microsoft.com/account/authenticator) no Ios e no android, portal da empresa do Intune no Android). 
+Os agentes são aplicativos, fornecidos pela Microsoft, no Android e no iOS ([Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) no Ios e no android, portal da empresa do Intune no Android). 
 
 Eles permitem:
 

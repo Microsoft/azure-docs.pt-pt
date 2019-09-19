@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147271"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091365"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Entender os recursos offline estendidos para dispositivos IoT Edge, módulos e dispositivos filho
 
@@ -62,14 +62,14 @@ Os dispositivos filho podem ser qualquer dispositivo não IoT Edge registrado no
 
 As seções a seguir fornecem exemplos de como você pode declarar a relação pai/filho no Hub IoT para dispositivos IoT existentes. Se você estiver criando novas identidades de dispositivo para seus dispositivos filho, consulte [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md) para obter mais informações.
 
-#### <a name="option-1-iot-hub-portal"></a>Opção 1: Portal do Hub IoT
+#### <a name="option-1-iot-hub-portal"></a>Opção 1: Portal do Hub IoT
 
 Você pode declarar a relação pai-filho ao criar um novo dispositivo. Ou para dispositivos existentes, você pode declarar a relação na página de detalhes do dispositivo do dispositivo pai IoT Edge ou do dispositivo IoT filho. 
 
    ![Gerir dispositivos de subordinado a partir da página de detalhes do dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Usar a `az` ferramenta de linha de comando
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Usar a `az` ferramenta de linha de comando
 
 Usando a [interface de linha de comando do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) com a [extensão de IOT](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 ou mais recente), você pode gerenciar relações filho pai com os subcomandos de [identidade do dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) . O exemplo a seguir usa uma consulta para atribuir todos os dispositivos não IoT Edge no Hub para serem dispositivos filho de um dispositivo IoT Edge. 
 
@@ -110,7 +110,7 @@ Uma maneira de criar essa relação de confiança é descrita detalhadamente nos
 
 ## <a name="specify-dns-servers"></a>Especificar servidores DNS 
 
-Para melhorar a robustez, é altamente recomendável especificar os endereços do servidor DNS usados em seu ambiente. Consulte duas opções para [definir o servidor DNS no artigo de solução de problemas](troubleshoot.md#resolution-7).
+Para melhorar a robustez, é altamente recomendável especificar os endereços do servidor DNS usados em seu ambiente. Para definir o servidor DNS para IoT Edge, consulte o módulo Resolution for [Edge Agent relata continuamente ' arquivo de configuração vazio ' e nenhum módulo inicia no dispositivo](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) no artigo de solução de problemas.
 
 ## <a name="optional-offline-settings"></a>Definições opcionais de offline
 
@@ -200,12 +200,12 @@ sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-Você pode encontrar mais detalhes sobre como criar opções de [documentos](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)do Docker.
+Você pode encontrar mais detalhes sobre como criar opções de [documentos do Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre como configurar um gateway transparente para suas conexões de dispositivo pai/filho: 
 
 * [Configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md)
-* [Autenticar um dispositivo downstream no Hub IoT do Azure](how-to-authenticate-downstream-device.md)
-* [Conectar um dispositivo downstream a um gateway de Azure IoT Edge](how-to-connect-downstream-device.md)
+* [Autenticar um dispositivo a jusante no Hub IoT do Azure](how-to-authenticate-downstream-device.md)
+* [Ligar um dispositivo a jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md)

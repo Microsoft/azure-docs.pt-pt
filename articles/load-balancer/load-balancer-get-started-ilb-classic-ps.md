@@ -5,6 +5,7 @@ description: Saiba como criar um balanceador de carga interno com o PowerShell n
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b864a4bf352c547779bb368650971fa8b805fca7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848560"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090971"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introdução à criação de um balanceador de carga interno (modo clássico) com o PowerShell
 
@@ -30,7 +31,7 @@ ms.locfileid: "60848560"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como [executar estes passos com o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como [executar estes passos com o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -59,7 +60,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 Tenha em atenção que esta utilização do cmdlet do Windows PowerShell [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) utiliza o conjunto de parâmetros DefaultProbe. Para obter mais informações sobre conjuntos de parâmetros adicionais, veja [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Passo 2: Adicionar pontos finais para a instância de balanceamento de carga interno
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Passo 2: Adicionar pontos de extremidade à instância interna de balanceamento de carga
 
 Segue-se um exemplo:
 
@@ -75,7 +76,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Passo 3: Configurar os servidores para enviar o tráfego para o novo ponto de final balanceamento de carga interno
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Passo 3: Configurar seus servidores para enviar o tráfego para o novo ponto de extremidade de balanceamento de carga interno
 
 Tem de configurar os servidores para cujo tráfego será efetuado o balanceamento de carga para utilizar o novo endereço IP (VIP) da instância de Balanceamento de Carga Interno. Este é o endereço no qual a instância de Balanceamento de Carga Interno está à escuta. Na maioria dos casos, apenas tem de adicionar ou modificar um registo DNS para o VIP da instância de Balanceamento de Carga Interno.
 

@@ -4,7 +4,7 @@ description: Saiba como preparar um VHD ou VHDX do Windows para carregá-lo no A
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 903c5f31f5039270b1edc65f53b248cd0a5b1355
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a14dca066ec60f4aeec79fe6b4c532445b4392f1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088934"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086909"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -445,7 +445,7 @@ As configurações a seguir não afetam o carregamento do VHD. No entanto, é al
    ```
   Se um disco de dados estiver anexado à VM, a letra do volume da unidade temporal normalmente será *D*. Essa designação pode ser diferente, dependendo de suas configurações e do número de unidades disponíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Carregar uma imagem de VM do Windows no Azure para implantações do Gerenciador de recursos](upload-generalized-managed.md)
 * [Solucionar problemas de ativação de VM do Windows do Azure](troubleshoot-activation-problems.md)
 
