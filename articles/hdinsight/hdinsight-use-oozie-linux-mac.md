@@ -1,18 +1,18 @@
 ---
 title: Usar fluxos de trabalho Oozie do Hadoop no Azure HDInsight baseado em Linux
 description: Use o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar uma tarefa do Oozie.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c24370c91c7164786503cdd8e3c44de60abc8370
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900503"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122499"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -39,12 +39,11 @@ Você também pode usar o Oozie para agendar trabalhos que são específicos de 
 
 * O [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure `abfs://` , por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure ou data Lake Storage Gen2, `wasbs://` o `abfss://`URI será ou, respectivamente, verá também a [transferência segura](../storage/common/storage-require-secure-transfer.md).
 
-
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 
 O fluxo de trabalho usado neste documento contém duas ações. Ações são definições para tarefas, como executar Hive, Sqoop, MapReduce ou outros processos:
 
-![Diagrama de fluxo de trabalho][img-workflow-diagram]
+![Diagrama de fluxo de trabalho do HDInsight oozie](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
 1. Uma ação do hive executa um script HiveQL para extrair registros do `hivesampletable` que está incluído no HDInsight. Cada linha de dados descreve uma visita a partir de um dispositivo móvel específico. O formato do registro aparece como o texto a seguir:
 
@@ -510,29 +509,29 @@ Para acessar a interface do usuário da Web do amOozie, conclua as seguintes eta
 
 3. No lado esquerdo da página, selecione **Oozie** > **links** > rápidos**Oozie interface do usuário da Web**.
 
-    ![Imagem dos menus](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    ![Etapas da interface do usuário da Web do Apache Ambari oozie](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. O padrão da interface do usuário da Web do amOozie exibe os trabalhos de fluxo de trabalho em execução. Para ver todos os trabalhos de fluxo de trabalho, selecione **todos os trabalhos**.
 
-    ![Todos os trabalhos exibidos](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    ![Trabalhos de fluxo de trabalho do console Web do Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. Para exibir mais informações sobre um trabalho, selecione o trabalho.
 
-    ![Informações da tarefa](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    ![Informações do trabalho do Apache Oozie do HDInsight](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. Na guia **informações do trabalho** , você pode ver as informações básicas do trabalho e as ações individuais dentro do trabalho. Você pode usar as guias na parte superior para exibir a **definição de trabalho**, **configuração de trabalho**, acessar o log de **trabalho**ou exibir um grafo direcionado acíclico (DAG) do trabalho em DAG de **trabalho**.
 
    * **Log de trabalho**: Selecione o botão **obter logs** para obter todos os logs do trabalho ou use o campo **Inserir filtro de pesquisa** para filtrar os logs.
 
-       ![Log de trabalho](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       ![Log de trabalho do Apache Oozie no HDInsight](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **DAG do trabalho**: O DAG é uma visão geral gráfica dos caminhos de dados feitos por meio do fluxo de trabalho.
 
-       ![DAG de trabalho](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       ![Dag do trabalho do Apache Oozie do HDInsight](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. Se você selecionar uma das ações na guia **informações do trabalho** , ele exibirá informações para a ação. Por exemplo, selecione a ação **RunSqoopExport** .
 
-    ![Informações da ação](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    ![Informações de ação de trabalho do HDInsight oozie](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. Você pode ver detalhes da ação, como um link para a URL do **console**. Use este link para exibir informações do rastreador de trabalho para o trabalho.
 
@@ -632,18 +631,18 @@ Você pode usar o coordenador para especificar uma frequência de início, de t�
 
 7. Se você for para a interface do usuário da Web do amOozie e selecionar a guia **trabalhos do coordenador** , verá informações como na imagem a seguir:
 
-    ![Guia trabalhos do coordenador](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    ![Guia de trabalhos do coordenador do console Web do Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     A entrada de **materialização seguinte** conterá a próxima vez que o trabalho for executado.
 
 8. Assim como o trabalho anterior de workflow, se você selecionar a entrada de trabalho na interface do usuário da Web, ele exibirá informações sobre o trabalho:
 
-    ![Informações do trabalho do coordenador](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    ![Informações do trabalho do coordenador do Apache Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > Essa imagem mostra apenas as execuções bem-sucedidas do trabalho, e não as ações individuais dentro do Workflow agendado. Para ver as ações individuais, selecione uma das entradas de **ação** .
 
-    ![Informações de ação do coordenador](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    ![Guia de informações do trabalho do console Web do OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -747,7 +746,6 @@ Neste artigo, você aprendeu como definir um fluxo de trabalho do Oozie e como e
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: allensu
-ms.openlocfilehash: fb7c0c31ad91bfdb6ea360c1909a216f0779ebde
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 349d8afd46a06455edcd25e2a7ea48f407d285ef
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274624"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130420"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -171,7 +171,8 @@ Para obter informações sobre o SLA do Balanceador de Carga Standard, aceda à 
 
 - O Balanceador de Carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de portas para estes dois protocolos IP específicos.  As regras de balanceamento de carga e as regras NAT de entrada são suportadas para TCP e UDP, mas não para os outros protocolos IP, incluindo o ICMP. O Balanceador de Carga não termina, não responde nem interage com o payload dos fluxos UDP ou TCP. Não é um proxy. A validação bem-sucedida da conectividade a um front-end deve ter lugar na banda com o mesmo protocolo utilizado numa regra de balanceamento de carga ou de NAT de entrada (TCP ou UDP) _e_, para que um cliente veja uma resposta de um front-end, pelo menos uma das suas máquinas virtuais tem de gerar uma resposta.  Não receber uma resposta em banda do front-end do Balanceador de Carga indica que nenhuma máquina virtual conseguiu responder.  Não é possível interagir com um front-end do Balanceador de Carga sem uma máquina virtual que consiga responder.  Isto também se aplica às ligações de saída, em que o [SNAT de máscara de rede](load-balancer-outbound-connections.md#snat) só é suportado para TCP e UDP; qualquer outro protocolo IP, incluindo ICMP, falhará.  Para mitigar o problema, atribua um endereço IP público ao nível da instância.
 - Ao contrário dos balanceadores de carga públicos, que fornecem [ligações de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os balanceadores de carga internos não traduzem as ligações originadas na saída para o front-end de um balanceador de carga interno, porque ambos estão no espaço de endereços IP privados.  Isto evita a possibilidade de esgotamento a porta SNAT dentro de um espaço de endereços IP internos exclusivo em que a tradução não é necessária.  O efeito secundário é que, caso um fluxo de saída de uma VM no conjunto de back-ends tentar um fluxo para o front-end do balanceador de carga interno no conjunto em que reside _e_ é mapeado para o próprio, as partes do fluxo não corresponderão e o fluxo falhará.  Se o fluxo não se tiver mapeado para a mesma VM no conjunto de back-ends que criou o fluxo para o front-end, o fluxo será bem-sucedido.   Quando o fluxo se mapeia para si próprio, parecerá que o fluxo de saída tem origem na VM para o front-end e o fluxo de entrada correspondente parecerá ter origem na VM para si próprio. Do ponto de vista do SO convidado, as partes de entrada e saída do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não reconhecerá essas partes do fluxo como fazendo parte do mesmo fluxo, pois a origem e o destino não correspondem.  Quando o fluxo se mapeia para outra VM no conjunto de back-ends, as partes do mesmo corresponderão e a VM poderá responder corretamente ao fluxo.  O sintoma deste cenário são tempos limite de ligação intermitentes quando o fluxo regressa ao mesmo back-end que o originou. Existem várias soluções comuns para chegar a este cenário de forma fiável (fluxos com origem num conjunto de back-ends para os conjuntos de back-end ou para o front-end do balanceador de carga interno), que incluem a inserção de uma camada de proxy por trás do balanceador de carga interno ou a [utilização de regras de estilo DSR](load-balancer-multivip-overview.md).  Os clientes podem combinar um balanceador de carga interno com qualquer proxy de terceiros ou substituir o [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md) interno para os cenários de proxy limitados a HTTP/HTTPS. Embora possa utilizar um balanceador de carga público para mitigar o problema, o cenário resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitado, salvo se for gerido cuidadosamente.
+- Em geral, o encaminhamento de fragmentos IP ou a execução de fragmentação de IP de pacotes UDP e TCP não têm suporte em regras de balanceamento de carga.  [As regras de balanceamento de carga das portas de alta disponibilidade](load-balancer-ha-ports-overview.md) são uma exceção a essa instrução geral e podem ser usadas para encaminhar os fragmentos IP existentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, já tem uma perceção geral do Balanceador de Carga do Azure. Para começar a utilizar um balanceador de carga, crie um balanceador, crie VMs com uma extensão de IIS personalizada instalada e faça o balanceamento da carga da aplicação Web entre as VMs. Para saber como o fazer, veja o início rápido [Criar um Balanceador de Carga Básico](quickstart-create-basic-load-balancer-portal.md).

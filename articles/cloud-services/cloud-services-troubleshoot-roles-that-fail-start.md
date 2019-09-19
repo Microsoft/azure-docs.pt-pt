@@ -4,7 +4,7 @@ description: Aqui estão alguns motivos comuns pelos quais uma função de servi
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945401"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122734"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solucionar problemas de funções de serviço de nuvem que falham ao iniciar
 Aqui estão alguns problemas comuns e soluções relacionadas a funções de serviços de nuvem do Azure que falham ao iniciar.
@@ -27,7 +27,7 @@ Aqui estão alguns problemas comuns e soluções relacionadas a funções de ser
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>DLLs ou dependências ausentes
-Funções e funções sem resposta que são alternadasentre os Estados inicializando, **ocupado**e **parando** podem ser causadas por DLLs ou assemblies ausentes.
+Funções e funções sem resposta que são alternadas entre os Estados **inicializando**, **ocupado**e **parando** podem ser causadas por DLLs ou assemblies ausentes.
 
 Os sintomas de DLLs ou assemblies ausentes podem ser:
 
@@ -75,7 +75,7 @@ Navegar até o site agora retornará mensagens de erro mais explícitas:
 
 * Erro de servidor no aplicativo '/'.
 * Descrição: Ocorreu uma exceção sem tratamento durante a execução da solicitação da Web atual. Examine o rastreamento de pilha para obter mais informações sobre o erro e onde ele foi originado no código.
-* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o arquivo ou assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ' ou uma de suas dependências. Não é possível ao sistema localizar o ficheiro especificado.
+* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o arquivo ou assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ' ou uma de suas dependências. O sistema não pode localizar o arquivo especificado.
 
 Por exemplo:
 
@@ -121,7 +121,7 @@ Para resolver erros de DLL e assembly ausentes, siga estas etapas:
 
 Depois de verificar se todos os erros foram corrigidos, você pode implantar o serviço sem marcar a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja mais [artigos de solução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços de nuvem.
 
 Para saber como solucionar problemas de função de serviço de nuvem usando dados de diagnóstico de computador de PaaS do Azure, consulte a [série de Blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

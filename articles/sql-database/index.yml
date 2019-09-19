@@ -93,7 +93,7 @@ sections:
           - href: /azure/sql-database/sql-database-instance-pools
             html: <p>Utilize conjuntos de instância gerida como uma solução simples e económica para implementar várias instâncias geridas que partilham recursos e se dimensionam rapidamente.</p>
             image:
-              src: media/index/i_instancepool.png
+              src: media/index/i-instancepools.svg
             title: Conjunto de instância
   - title: Inícios rápidos de cinco minutos
     items:

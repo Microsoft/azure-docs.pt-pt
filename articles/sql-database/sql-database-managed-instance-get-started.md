@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0344fc834cb1ef29c91bc52239d1df2706d1ca81
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873878"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101682"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma instância gerenciada do banco de dados SQL do Azure
 
@@ -53,14 +53,14 @@ As etapas a seguir mostram como criar uma instância gerenciada.
    |**Agrupamento**|O agrupamento que você deseja usar para a instância gerenciada.|Se você migrar bancos de dados do SQL Server, verifique o agrupamento de origem `SELECT SERVERPROPERTY(N'Collation')` usando e use esse valor. Para obter informações sobre agrupamentos, consulte [definir ou alterar o agrupamento do servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Location**|O local no qual você deseja criar a instância gerenciada.|Para obter informações sobre regiões, consulte [regiões do Azure](https://azure.microsoft.com/regions/).|
    |**Rede virtual**|Selecione **criar nova rede virtual** ou uma rede virtual e uma sub-rede válidas.| Se uma rede ou sub-rede não estiver disponível, ela deverá ser [modificada para atender aos requisitos de rede](sql-database-managed-instance-configure-vnet-subnet.md) antes de você selecioná-la como um destino para a nova instância gerenciada. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma instância gerenciada, consulte [Configurar uma rede virtual para uma instância gerenciada](sql-database-managed-instance-connectivity-architecture.md). |
-   |**Habilitar ponto de extremidade público**   |Marque esta opção para habilitar o ponto de extremidade público   |Para que a instância gerenciada seja acessível por meio do ponto de extremidade de dados públicos, habilite o **ponto de extremidade público** deve ser verificado.| 
+   |**Habilitar ponto de extremidade público**   |Marque esta opção para habilitar o ponto de extremidade público   |Para que a instância gerenciada seja acessível por meio do ponto de extremidade de dados públicos, **habilite o ponto de extremidade público** deve ser verificado.| 
    |**Permitir acesso de**   |Selecione uma das opções: <ul> <li>**Serviços do Azure**</li> <li>**Internet**</li> <li>**Sem acesso**</li></ul>   |A experiência do portal permite configurar o grupo de segurança com o ponto de extremidade público. </br> </br> Com base em seu cenário, selecione uma das seguintes opções: </br> <ul> <li>Serviços do Azure – recomendado ao se conectar de Power BI ou de outro serviço de vários locatários. </li> <li> Internet-use para fins de teste quando desejar criar rapidamente uma instância gerenciada. Não é recomendável para uso em ambientes de produção. </li> <li> Sem acesso-essa opção cria uma regra de segurança de negação. Você precisará modificar essa regra para tornar a instância gerenciada acessível por meio do ponto de extremidade público. </li> </ul> </br> Para obter mais informações sobre segurança de ponto de extremidade público, consulte [usando a instância gerenciada do banco de dados SQL do Azure com segurança com o ponto de extremidade](sql-database-managed-instance-public-endpoint-securely.md)|
    |**Tipo de conexão**|Escolha entre um proxy e um tipo de conexão de redirecionamento.|Para obter mais informações sobre tipos de conexão, consulte [política de conexão do banco de dados SQL do Azure](sql-database-connectivity-architecture.md#connection-policy).|
    |**Grupo de recursos**|Um grupo de recursos novo ou existente.|Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições).|
 
    ![Formulário de instância gerenciada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Para usar a instância gerenciada como um grupo de failover de instância secundário, selecione o check-out e especifique a instância gerenciada do DnsAzurePartner. Esse recurso está em visualização e não é mostrado na captura de tela a seguir.
+5. Para usar a instância gerenciada como um grupo de failover de instância secundário, selecione o check-out e especifique a instância gerenciada do DnsAzurePartner. 
 6. Selecione o **tipo de preço** para dimensionar os recursos de computação e armazenamento e revisar as opções de tipo de preço. O escalão de preço Fins Gerais com 32 GB de memória e 16 núcleos virtuais é o valor predefinido.
 7. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais.
 8. Quando tiver terminado, selecione **aplicar** para salvar sua seleção. 
@@ -108,7 +108,7 @@ Depois que a implantação for bem-sucedida, examine os recursos que foram criad
 
    O nome é semelhante a **your_machine_name. a1b2c3d4e5f6. Database. Windows. net**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre como se conectar a uma instância gerenciada:
   - Para obter uma visão geral das opções de conexão para aplicativos, consulte [conectar seus aplicativos a uma instância gerenciada](sql-database-managed-instance-connect-app.md).

@@ -1,18 +1,18 @@
 ---
 title: Traga sua própria chave para Apache Kafka no Azure HDInsight
 description: Este artigo descreve como usar sua própria chave de Azure Key Vault para criptografar dados armazenados em Apache Kafka no Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000105"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122689"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Traga sua própria chave para Apache Kafka no Azure HDInsight
 
@@ -22,7 +22,7 @@ Todos os discos gerenciados no HDInsight são protegidos com o Azure Criptografi
 
 A criptografia BYOK é um processo de uma etapa manipulado durante a criação do cluster sem custo adicional. Tudo o que você precisa fazer é registrar o HDInsight como uma identidade gerenciada com Azure Key Vault e adicionar a chave de criptografia ao criar o cluster.
 
-Todas as mensagens para o cluster Kafka (incluindo réplicas mantidas por Kafka) são criptografadas com uma chave de criptografia de dados simétrica (DEK). O DEK é protegido usando a chave de criptografia de chave (KEK) do cofre de chaves. Os processos de criptografia e descriptografia são tratados inteiramente pelo Azure HDInsight. 
+Todas as mensagens para o cluster Kafka (incluindo réplicas mantidas por Kafka) são criptografadas com uma chave de criptografia de dados simétrica (DEK). O DEK é protegido usando a chave de criptografia de chave (KEK) do cofre de chaves. Os processos de criptografia e descriptografia são tratados inteiramente pelo Azure HDInsight.
 
 Você pode usar o portal do Azure ou CLI do Azure para girar com segurança as chaves no cofre de chaves. Quando uma tecla gira, o cluster HDInsight Kafka começa a usar a nova chave em minutos. Habilite os recursos de proteção de chave de "exclusão reversível" para proteger contra cenários de ransomware e exclusão acidental. Não há suporte para cofres de chaves sem esse recurso de proteção.
 
@@ -46,6 +46,7 @@ Para criar um cluster Kafka habilitado para BYOK, vamos percorrer as seguintes e
    1. Para criar um novo cofre de chaves, siga o guia de início rápido do [Azure Key Vault](../../key-vault/key-vault-overview.md) . Para obter mais informações sobre como importar chaves existentes, visite [sobre chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md).
 
    2. Habilite a "exclusão reversível" no cofre de chaves usando o comando [AZ keyvault Update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) CLI.
+
         ```Azure CLI
         az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
@@ -58,16 +59,16 @@ Para criar um cluster Kafka habilitado para BYOK, vamos percorrer as seguintes e
 
         b. Defina **as opções** para **gerar** e dar um nome à chave.
 
-        ![Gerar nome da chave](./media/apache-kafka-byok/apache-kafka-create-key.png "Gerar nome da chave")
+        ![Apache Kafka gerar nome da chave](./media/apache-kafka-byok/apache-kafka-create-key.png "Gerar nome da chave")
 
         c. Selecione a chave que você criou na lista de chaves.
 
-        ![Lista de chaves de Azure Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Lista de chaves do Apache Kafka Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
         d. Ao usar sua própria chave para a criptografia de cluster Kafka, você precisa fornecer o URI de chave. Copie o **identificador de chave** e salve-o em algum lugar até que você esteja pronto para criar o cluster.
 
-        ![Copiar identificador de chave](./media/apache-kafka-byok/kafka-get-key-identifier.png)
-   
+        ![Identificador de chave Get do Apache Kafka](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+
     4. Adicione identidade gerenciada à política de acesso do cofre de chaves.
 
         a. Crie uma nova política de acesso de Azure Key Vault.
@@ -99,6 +100,7 @@ Para criar um cluster Kafka habilitado para BYOK, vamos percorrer as seguintes e
    Durante a criação do cluster, forneça a URL de chave completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
 
 ## <a name="rotating-the-encryption-key"></a>Girando a chave de criptografia
+
    Pode haver cenários em que você talvez queira alterar as chaves de criptografia usadas pelo cluster Kafka depois que ele tiver sido criado. Isso pode ser facilmente por meio do Portal. Para essa operação, o cluster deve ter acesso à chave atual e à nova chave pretendida, caso contrário, a operação de rotação de teclas falhará.
 
    Para girar a chave, você deve ter a URL completa da nova chave (consulte a etapa 3 de [Configurar o Key Vault e as chaves](#setup-the-key-vault-and-keys)). Depois de fazer isso, vá para a seção Propriedades do cluster Kafka no portal e clique em **alterar chave** em **URL da chave de criptografia do disco**. Insira na nova URL de chave e envie para girar a chave.
@@ -122,7 +124,7 @@ Para criar um cluster Kafka habilitado para BYOK, vamos percorrer as seguintes e
 **O que acontecerá se o cluster perder o acesso ao cofre de chaves ou à chave?**
 Se o cluster perder o acesso à chave, os avisos serão mostrados no portal do Apache Ambari. Nesse estado, a operação de **alteração da chave** falhará. Depois que o acesso à chave for restaurado, os avisos Ambaris desaparecerão e as operações como a rotação de chaves poderão ser executadas com êxito.
 
-   ![Alerta de Ambari de acesso à chave Kafka](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Alerta de Ambari de acesso à chave Apache Kafka](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **Como posso recuperar o cluster se as chaves forem excluídas?**
 
@@ -144,7 +146,7 @@ Se o cluster perder o acesso à chave, os avisos serão mostrados no portal do A
 
    Kafka BYOK está disponível em todas as nuvens públicas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault](../../key-vault/key-vault-overview.md)?
 * Para começar a usar o Azure Key Vault, consulte [introdução com Azure Key Vault](../../key-vault/key-vault-overview.md).

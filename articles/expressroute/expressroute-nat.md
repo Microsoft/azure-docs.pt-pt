@@ -1,19 +1,19 @@
 ---
-title: 'Requisitos do NAT para circuitos - ExpressRoute: Azure | Microsoft Docs'
+title: 'Requisitos de NAT para circuitos – ExpressRoute: Azure | Microsoft Docs'
 description: Esta página fornece os requisitos detalhados para configurar e gerir o NAT para circuitos do ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2879b6830a5c793358cc2200485ed971c5f3c48
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883437"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123311"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos do NAT do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir os NATs. Alguns fornecedores de conectividade oferecem a configuração e a gestão do NAT como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece tal serviço. Se não for possível, terá de cumprir os requisitos descritos abaixo. 
@@ -21,7 +21,7 @@ Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de conf
 Reveja a página [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md) para obter uma descrição geral de vários domínios de encaminhamento. Para cumprir os requisitos públicos de endereço IP para o Azure público e peering da Microsoft, recomendamos que configure o NAT entre a sua rede e a Microsoft. Esta secção fornece uma descrição detalhada da infraestrutura do NAT que tem de configurar.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos do NAT para peering da Microsoft
-O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Microsoft que não são suportados através do caminho de peering público do Azure. A lista de serviços inclui os serviços do Office 365, como o Exchange Online, SharePoint Online, Skype para Empresas e o Dynamics 365. A Microsoft espera suportar uma conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de realizar um SNAT para endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft. O tráfego destinado à sua rede a partir dos serviços cloud da Microsoft tem de realizar um SNAT no intervalo de Internet para prevenir o [encaminhamento assimétrico](expressroute-asymmetric-routing.md). A figura abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para peering da Microsoft.
+O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Microsoft que não são suportados através do caminho de peering público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online e o Skype for Business. A Microsoft espera suportar uma conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de realizar um SNAT para endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft. O tráfego destinado à sua rede a partir dos serviços cloud da Microsoft tem de realizar um SNAT no intervalo de Internet para prevenir o [encaminhamento assimétrico](expressroute-asymmetric-routing.md). A figura a seguir fornece uma imagem de alto nível de como o NAT deve ser configurado para o emparelhamento da Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -43,7 +43,7 @@ O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Mi
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisitos do NAT para o peering público Azure
 
 > [!NOTE]
-> Não está disponível para novos circuitos do peering público do Azure.
+> O emparelhamento público do Azure não está disponível para novos circuitos.
 > 
 
 O caminho de peering público Azure permite-lhe ligar a todos os serviços alojados no Azure ao longo dos respetivos endereços IP públicos. Estes incluem os serviços listados nas [FAQ do ExpressRoute](expressroute-faqs.md) e quaisquer serviços alojados pelos ISVs no Microsoft Azure. 

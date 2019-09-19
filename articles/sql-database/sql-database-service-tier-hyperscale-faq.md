@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515349"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128711"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Perguntas frequentes sobre os bancos de dados de hiperescala do SQL do Azure
 
 Este artigo fornece respostas para as perguntas frequentes para os clientes que consideram um banco de dados na camada de serviço de hiperescala do banco de dados SQL do Azure, normalmente chamada de banco de dados de hiperescala. Este artigo descreve os cenários para os quais o hiperscale dá suporte e os serviços de recurso cruzado são compatíveis com a hiperescala do banco de dados SQL em geral.
 
 - Essas perguntas frequentes são destinadas a leitores que têm uma compreensão breve da camada de serviço de hiperescala e estão procurando dúvidas e preocupações específicas.
-- Essas perguntas frequentes não devem ser uma Guidebook ou responder a perguntas sobre como usar um banco de dados de hiperescala do banco de dados SQL. Para isso, recomendamos que você consulte a documentação de hiperescala do [banco de dados SQL do Azure](sql-database-service-tier-hyperscale.md) .
+- Essas perguntas frequentes não devem ser uma Guidebook ou responder a perguntas sobre como usar um banco de dados de hiperescala do banco de dados SQL. Para isso, recomendamos que você consulte a documentação de [hiperescala do banco de dados SQL do Azure](sql-database-service-tier-hyperscale.md) .
 
 ## <a name="general-questions"></a>Perguntas gerais
 
@@ -54,7 +54,7 @@ As camadas de serviço baseadas em vCore são basicamente diferenciadas com base
 | | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
 | **Produtividade de e/s** | Banco de dados individual * * | 500 IOPS por vCore com 7000 IOPS máximo | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho. | 5000 IOPS com IOPS máximo de 200.000|
 | | Instância gerida | Depende do tamanho do arquivo | N/A | Instância Gerenciada: Depende do tamanho do arquivo|
-|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 15 escala de leitura e cache local parcial | 3 réplicas, 1 escala de leitura, HA com redundância de zona, cache local completo |
+|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 escala de leitura, cache local parcial | 3 réplicas, 1 escala de leitura, HA com redundância de zona, cache local completo |
 |**Únicos**|Todos|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
 
 \*Pools elásticos sem suporte na camada de serviço de hiperescala
@@ -242,7 +242,7 @@ Não. O hiperescala do banco de dados SQL é uma arquitetura SMP e não é um mu
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Qual é a versão mais antiga do SQL Server o suporte a hiperescala do banco de dados SQL será migrado de
 
-SQL Server 2005. Para obter mais informações, consulte migrar para um banco de dados [individual ou um banco de dados em pool](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Para problemas de compatibilidade, consulte [resolvendo problemas de compatibilidade de migração de banco de dados](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Para obter mais informações, consulte [migrar para um banco de dados individual ou um banco de dados em pool](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Para problemas de compatibilidade, consulte [resolvendo problemas de compatibilidade de migração de banco de dados](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>O hiperescala do banco de dados SQL é compatível com a migração de outras fontes, como Aurora, MySQL, Oracle, DB2 e outras plataformas de banco de dado
 
@@ -386,6 +386,6 @@ Não. Os bancos de dados de hiperescala têm armazenamento compartilhado, o que 
 
 A partir do momento em que uma transação é confirmada no primário, dependendo da taxa de geração de log, ela pode ser instantânea ou em milissegundos baixos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a camada de serviço de hiperescala, consulte [camada de serviço](sql-database-service-tier-hyperscale.md)de hiperescala.
+Para obter mais informações sobre a camada de serviço de hiperescala, consulte [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md).

@@ -1,18 +1,18 @@
 ---
 title: Gerenciar pontos de extremidade privados no Azure
 description: Saiba como criar um ponto de extremidade privado usando o portal do Azure
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: e629a921b5c853f1cae2c224be35570cd71e5d37
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
-ms.translationtype: MT
+ms.openlocfilehash: 2b7ad95dc652f2099af75308f05ddd0684e088aa
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067802"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104737"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Criar um ponto de extremidade privado usando portal do Azure
 

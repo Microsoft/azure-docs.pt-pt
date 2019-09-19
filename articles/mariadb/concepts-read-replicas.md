@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 8faa6338179eb1540eb4f9a375bf3bc696c745f3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5018cab1213fb99f4c3b07944d0cb3172d1cd2c7
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995381"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123233"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Ler réplicas no banco de dados do Azure para MariaDB
 
@@ -34,6 +34,9 @@ O recurso ler réplica usa replicação assíncrona. O recurso não é destinado
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do servidor mestre. A replicação entre regiões pode ser útil para cenários como planejamento de recuperação de desastres ou trazer dados mais próximos aos seus usuários.
+
+> [!NOTE]
+> A replicação entre regiões está em versão prévia.
 
 Você pode ter um servidor mestre em qualquer [banco de dados do Azure para a região MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
 
@@ -152,7 +155,7 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação MariaDB.
 - Verifique se as tabelas do servidor mestre têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerenciar réplicas de leitura usando o CLI do Azure e a API REST](howto-read-replicas-cli.md)

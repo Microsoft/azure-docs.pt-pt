@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 6a598ad3f68c613a745fd56f3b368e309afeb8b6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074340"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122963"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -28,12 +28,7 @@ O armazenamento do Azure verifica regularmente a integridade dos dados armazenad
 
 Ao criar uma conta de armazenamento, você pode selecionar uma das seguintes opções de redundância:
 
-- [Armazenamento localmente redundante (LRS)](storage-redundancy-lrs.md)
-- [Armazenamento com redundância entre zonas (ZRS)](storage-redundancy-zrs.md)
-- [Armazenamento georredundante (GRS)](storage-redundancy-grs.md)
-- [Armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-- [Armazenamento com redundância de zona geográfica (GZRS)](storage-redundancy-gzrs.md)
-- [Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS)](storage-redundancy-gzrs.md)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e disponibilidade que cada estratégia de replicação fornecerá a você para um determinado tipo de evento (ou evento de impacto semelhante).
 
@@ -55,7 +50,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 Para obter informações sobre as garantias de armazenamento do Azure quanto à durabilidade e disponibilidade, consulte o [SLA do armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> O armazenamento Premium do Azure dá suporte apenas ao LRS (armazenamento com redundância local).
+> Atualmente, o armazenamento Premium do Azure dá suporte apenas ao LRS (armazenamento com redundância local).
 
 ## <a name="changing-replication-strategy"></a>Alterando a estratégia de replicação
 

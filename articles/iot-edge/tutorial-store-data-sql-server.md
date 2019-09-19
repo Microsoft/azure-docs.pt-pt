@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 872c6f0af9695628f2821c8859d0b582534efd45
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c03b0dcf6a99611a0261fad7c4ba673c3a8932c9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840070"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122860"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazene dados na borda com bancos de SQL Server
 
@@ -147,15 +147,17 @@ Atualmente, Visual Studio Code pode desenvolver módulos C para dispositivos Lin
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
                        // Send the message to the output as the temperature value is greater than the threashold.
-                       var filteredMessage = new Message(messageBytes);
-                       // Copy the properties of the original message into the new Message object.
-                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
-                       // Add a new property to the message to indicate it is an alert.
-                       filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
-                       await output.AddAsync(filteredMessage);
-                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       using (var filteredMessage = new Message(messageBytes))
+                       {
+                            // Copy the properties of the original message into the new Message object.
+                            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                            {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                            // Add a new property to the message to indicate it is an alert.
+                            filteredMessage.Properties.Add("MessageType", "Alert");
+                            // Send the message.       
+                            await output.AddAsync(filteredMessage);
+                            logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       }
                    }
                }
            }
@@ -206,7 +208,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 2. Na paleta de comandos, digite e execute o comando **Azure IOT Edge: Adicionar IoT Edge módulo**. Na paleta de comandos, forneça as seguintes informações para adicionar um novo módulo: 
 
-   | Campo | Valor | 
+   | Campo | Value | 
    | ----- | ----- |
    | Selecione o ficheiro de modelo da implementação | A paleta de comandos realça o arquivo Deployment. Template. JSON em sua pasta de solução atual. Selecione esse arquivo.  |
    | Selecionar modelo de módulo | Selecione o **módulo do Azure Marketplace**. |
@@ -244,7 +246,7 @@ Nas secções anteriores, criou uma solução com um módulo e, em seguida, adic
 
 Quando indicar ao Visual Studio Code para criar a solução, este utiliza primeiro as informações no modelo de implementação e gera um ficheiro deployment.json numa nova pasta com o nome **config**. Em seguida, executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos Compile seu código, o módulo de colocar num contentor e, em seguida, enviar o código para o registo de contentor que especificou quando a solução é inicializado. 
 
-Você pode verificar se o módulo SqlFunction foi enviado com êxito para o registro de contêiner. Na portal do Azure, navegue até o registro de contêiner. Selecione **repositórios** e pesquise SqlFunction. Os outros dois módulos, SimulatedTemperatureSensor e SQL, não serão enviados para o registro de contêiner porque você já está apontando para seus repositórios nos registros da Microsoft.
+Você pode verificar se o módulo SqlFunction foi enviado com êxito para o registro de contêiner. Na portal do Azure, navegue até o registro de contêiner. Selecione **repositórios** e pesquise **SqlFunction**. Os outros dois módulos, SimulatedTemperatureSensor e SQL, não serão enviados para o registro de contêiner porque você já está apontando para seus repositórios nos registros da Microsoft.
 
 ## <a name="deploy-the-solution-to-a-device"></a>Implementar a solução num dispositivo
 
@@ -330,4 +332,4 @@ Neste tutorial, criou um módulo das Funções do Azure que contém código para
 Se você quiser tentar outro método de armazenamento na borda, leia sobre como usar o armazenamento de BLOBs do Azure em IoT Edge. 
 
 > [!div class="nextstepaction"]
-> [Armazene dados na borda com o armazenamento de BLOBs do Azure no IoT Edge](how-to-store-data-blob.md)
+> [Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge](how-to-store-data-blob.md)

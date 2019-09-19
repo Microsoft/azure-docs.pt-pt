@@ -1,6 +1,6 @@
 ---
-title: Responder a solicitações HTTP-aplicativos lógicos do Azure
-description: Responder a eventos em tempo real sobre HTTP usando aplicativos lógicos do Azure
+title: Receber e responder a chamadas HTTPS-aplicativos lógicos do Azure
+description: Manipular solicitações e eventos HTTPS em tempo real usando aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,20 +12,22 @@ ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
 ms.date: 09/06/2019
 tags: connectors
-ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914338"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122718"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Responder a solicitações HTTP usando aplicativos lógicos do Azure
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a ação de resposta ou gatilho de solicitação interna, você pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem em tempo real a solicitações HTTP. Por exemplo, você pode ter seu aplicativo lógico:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a ação de resposta ou gatilho de solicitação interna, você pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem a solicitações HTTPS de entrada. Por exemplo, você pode ter seu aplicativo lógico:
 
-* Responder a uma solicitação HTTP para dados em um banco de dado local.
+* Receber e responder a uma solicitação HTTPS para dados em um banco de dado local.
 * Disparar um fluxo de trabalho quando ocorrer um evento de webhook externo.
-* Chamar um aplicativo lógico de dentro de outro aplicativo lógico.
+* Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
+
+O gatilho de solicitação dá suporte *somente* a https. Para fazer chamadas HTTP ou HTTPS de saída, use a [ação ou o gatilho http](../connectors/connectors-native-http.md)interno.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,15 +37,15 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>Adicionar um gatilho de solicitação
+## <a name="add-request-trigger"></a>Adicionar gatilho de solicitação
 
-Esse gatilho interno cria um ponto de extremidade que pode ser chamado manualmente que recebe uma solicitação HTTP de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar esse gatilho, consulte o [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md)
+Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode receber *somente* solicitações HTTPS de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar esse gatilho, consulte o [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
 1. Depois que o designer de aplicativo lógico for aberto, na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de gatilhos, selecione o gatilho **quando uma solicitação HTTP é recebida** , que é a primeira etapa no fluxo de trabalho do aplicativo lógico.
 
-   ![Selecionar o acionador de pedido de HTTP](./media/connectors-native-reqres/select-request-trigger.png)
+   ![Selecionar gatilho de solicitação](./media/connectors-native-reqres/select-request-trigger.png)
 
    O gatilho de solicitação mostra essas propriedades:
 
@@ -52,10 +54,10 @@ Esse gatilho interno cria um ponto de extremidade que pode ser chamado manualmen
    | Nome da propriedade | Nome da propriedade JSON | Requerido | Descrição |
    |---------------|--------------------|----------|-------------|
    | **URL HTTP POST** | None | Sim | A URL do ponto de extremidade que é gerada depois que você salva o aplicativo lógico e é usada para chamar seu aplicativo lógico |
-   | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação HTTP de entrada |
+   | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação de entrada |
    |||||
 
-1. Na caixa **esquema JSON do corpo da solicitação** , opcionalmente, insira um esquema JSON que descreve o corpo da solicitação HTTP na solicitação de entrada, por exemplo:
+1. Na caixa **esquema JSON do corpo da solicitação** , opcionalmente, insira um esquema JSON que descreve o corpo na solicitação de entrada, por exemplo:
 
    ![Esquema JSON de exemplo](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -190,7 +192,7 @@ Veja mais informações sobre as saídas do gatilho de solicitação:
 
 ## <a name="add-a-response-action"></a>Adicionar uma ação de resposta
 
-Você pode usar a ação de resposta para responder com uma carga (dados) a uma solicitação HTTP de entrada, mas somente em um aplicativo lógico que é disparado por uma solicitação HTTP. Você pode adicionar a ação de resposta em qualquer ponto do fluxo de trabalho. Para obter mais informações sobre a definição de JSON subjacente para esse gatilho, consulte o [tipo de ação de resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+Você pode usar a ação de resposta para responder com uma carga (dados) a uma solicitação HTTPS de entrada, mas somente em um aplicativo lógico que é disparado por uma solicitação HTTPS. Você pode adicionar a ação de resposta em qualquer ponto do fluxo de trabalho. Para obter mais informações sobre a definição de JSON subjacente para esse gatilho, consulte o [tipo de ação de resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, `504 GATEWAY TIMEOUT` seu aplicativo lógico retornará um para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará `202 ACCEPTED` imediatamente uma resposta ao chamador.
 
@@ -224,7 +226,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    | Nome da propriedade | Nome da propriedade JSON | Requerido | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Código de Estado** | `statusCode` | Sim | O código de status HTTP a ser retornado na resposta |
+   | **Código de Estado** | `statusCode` | Sim | O código de status a ser retornado na resposta |
    | **Headers** (Cabeçalhos) | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |
    | **Corpo** | `body` | Não | O corpo da resposta |
    |||||

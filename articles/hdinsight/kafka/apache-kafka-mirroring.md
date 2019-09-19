@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.openlocfilehash: 8565ee03ddff67afb3700aa1cda91ae696a0fc93
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 270bc5401e58f4e5c99cae3c5ab06b4f03ae9543
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960216"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123249"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight
 
@@ -84,7 +84,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
     1. Clique em **Adicionar**.
     1. Na tela **Adicionar emparelhamento** , insira os detalhes, conforme mostrado na captura abaixo.
 
-        ![Adicionar emparelhamento vnet](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![Adicionar emparelhamento vnet Kafka do HDInsight](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. Configurar publicidade de IP:
     1. Vá para o painel do Ambari para o cluster primário `https://PRIMARYCLUSTERNAME.azurehdinsight.net`:.
@@ -104,7 +104,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
     1. Clique em **OK** em **salvar alterações de configuração**.
     1. Clique em **reiniciar** > **reiniciar todos os afetados** na notificação **reinicialização necessária** . Clique em **confirmar reiniciar tudo**.
 
-        ![reiniciar nós Kafka](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+        ![O Apache Ambari reinicia todos os afetados](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. Configure o Kafka para escutar em todas as interfaces de rede.
     1. Permaneça na guia **configurações** em **Serviços** > **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092`.
@@ -115,7 +115,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
     1. Clique em **hosts** no painel do Ambari.
     1. Anote os endereços IP para os agentes e zookeepers. Os nós do agente têm o **WN** como as duas primeiras letras do nome do host e os nós Zookeeper têm **ZK** como as duas primeiras letras do nome do host.
 
-        ![Exibir endereços IP](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+        ![Endereços IP do nó de exibição do Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Repita as três etapas anteriores para o segundo cluster **Kafka-Secondary-cluster**: Configure o anúncio de IP, defina os ouvintes e anote os endereços IP do agente e do Zookeeper.
 
@@ -251,7 +251,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
         6. Altere o valor de `auto.create.topics.enable` para true e, em seguida, selecione __salvar__. Adicione uma observação e, em seguida, selecione __salvar__ novamente.
         7. Selecione o serviço __Kafka__ , selecione __reiniciar__e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
 
-        ![configurar criação automática de tópico](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![Kafka habilitar tópicos de criação automática](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>Iniciar MirrorMaker
 

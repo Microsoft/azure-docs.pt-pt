@@ -1,6 +1,6 @@
 ---
-title: Conectar-se a pontos de extremidade HTTP ou HTTPS de aplicativos lógicos do Azure
-description: Monitorar pontos de extremidade HTTP ou HTTPS em tarefas, processos e fluxos de trabalho automatizados usando aplicativos lógicos do Azure
+title: Chamar pontos de extremidade HTTP e HTTPS-aplicativos lógicos do Azure
+description: Enviar solicitações de saída para pontos de extremidade HTTP e HTTPS usando aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,18 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234337"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122707"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Enviar chamadas de saída para pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector http interno, você pode automatizar fluxos de trabalho que chamam regularmente qualquer ponto de extremidade http ou HTTPS criando aplicativos lógicos. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento especificado. Quando um evento específico acontece nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas.
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação http interno, você pode criar tarefas automatizadas e fluxos de trabalho que enviam regularmente solicitações para qualquer ponto de extremidade http ou HTTPS. Para receber e responder a chamadas HTTP ou HTTPS de entrada, use o [gatilho de solicitação interno ou a ação de resposta](../connectors/connectors-native-reqres.md).
+
+Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento especificado. Quando um evento específico acontece nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas.
 
 Para verificar ou *sondar* um ponto de extremidade em um agendamento regular, você pode usar o gatilho http como a primeira etapa no fluxo de trabalho. Em cada verificação, o gatilho envia uma chamada ou *solicitação* ao ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa qualquer conteúdo da resposta às ações em seu aplicativo lógico.
 
@@ -43,7 +45,7 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
-1. No designer, na caixa de pesquisa, digite "http" como seu filtro. Na lista  de gatilhos, selecione o gatilho **http** .
+1. No designer, na caixa de pesquisa, digite "http" como seu filtro. Na lista de gatilhos, selecione o gatilho **http** .
 
    ![Selecionar gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -149,21 +151,21 @@ Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, qu
 | Nome da propriedade | Type | Descrição |
 |---------------|------|-------------|
 | Conector | object | Os cabeçalhos da solicitação |
-| Conteúdo | object | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| corpo | object | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
 | Código de status | int | O código de status da solicitação |
 |||
 
 | Código de estado | Descrição |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Aceitar |
+| 202 | Aceite |
 | 400 | Pedido incorreto |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não encontrado |
+| 404 | Não Encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

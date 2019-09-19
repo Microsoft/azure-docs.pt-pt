@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Evernote | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Evernote.
+title: 'Tutorial: Integração de SSO (logon único) do Azure Active Directory com o Evernote | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Evernote.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,238 +13,200 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4185e9f5e1b411f95afacb80499db048769ea27b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 55216e9eb4bd5cda2635564480751459f05e8309
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102958"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121632"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Active Directory do Azure com Evernote
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Tutorial: Integração de SSO (logon único) do Azure Active Directory com o Evernote
 
-Neste tutorial, saiba como integrar Evernote com o Azure Active Directory (Azure AD).
-Integrar Evernote no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Evernote ao Azure Active Directory (Azure AD). Ao integrar o Evernote ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao Evernote.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Evernote (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao Evernote.
+* Habilite seus usuários a serem automaticamente conectados ao Evernote com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Evernote, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Evernote logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Evernote.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta Evernote **SP** e **IDP** iniciada SSO
+* O Evernote é compatível com o SSO iniciado por **SP e IDP**
 
-## <a name="adding-evernote-from-the-gallery"></a>Adicionando Evernote da Galeria
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
-Para configurar a integração do Evernote com o Azure AD, terá de adicionar Evernote a partir da Galeria à sua lista de aplicações de SaaS geridas.
+## <a name="adding-evernote-from-the-gallery"></a>Adicionando o Evernote da Galeria
 
-**Para adicionar Evernote a partir da galeria, execute os seguintes passos:**
+Para configurar a integração do Evernote ao Azure AD, você precisará adicionar o Evernote da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **Evernote** na caixa de pesquisa.
+1. Selecione o **Evernote** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-evernote"></a>Configurar e testar o logon único do Azure AD para o Evernote
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+Configure e teste o SSO do Azure AD com o Evernote usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Evernote.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+Para configurar e testar o SSO do Azure AD com o Evernote, conclua os seguintes blocos de construção:
 
-3. Para adicionar uma nova aplicação, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do Evernote](#configure-evernote-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do Evernote](#create-evernote-test-user)** – para ter um equivalente de B. Simon no Evernote que esteja vinculado à representação de usuário do Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-4. Na caixa de pesquisa, escreva **Evernote**, selecione **Evernote** a partir do painel de resultados, em seguida, clique nas **Add** botão para adicionar a aplicação.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-     ![Evernote na lista de resultados](common/search-new-app.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Evernote** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Evernote com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Evernote deve ser estabelecido.
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-Para configurar e testar o Azure AD início de sessão único com Evernote, tem de concluir os seguintes blocos de construção:
+    Na caixa de texto **identificador** , digite uma URL:`https://www.evernote.com/saml2`
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Evernote Single Sign-On](#configure-evernote-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Evernote](#create-evernote-test-user)**  - para ter um equivalente da Eduarda Almeida na Evernote que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+    Na caixa de texto **URL de logon** , digite uma URL:`https://www.evernote.com/Login.action`
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com Evernote, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **Evernote** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Na **definir a segurança de início de sessão único com o SAML** página, clique no **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, executar o passo seguinte:
-
-    ![Evernote domínio e URLs únicas início de sessão em informações](common/idp-identifier.png)
-
-    Na **identificador** caixa de texto, escreva um URL:  `https://www.evernote.com/saml2`
-
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
-
-    ![image](common/both-preintegrated-signon.png)
-
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://www.evernote.com/Login.action`
-
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-7. Para modificar a **assinatura** opções, clique nas **editar** botão para abrir o **certificado de assinatura SAML** caixa de diálogo.
+7. Para modificar as opções de **assinatura** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
 
     ![image](common/edit-certificate.png) 
 
     ![image](./media/evernote-tutorial/samlassertion.png)
 
-    a. Selecione o **asserção e resposta SAML de início de sessão** opção para **opção assinatura**.
+    a. Selecione a opção **assinar resposta SAML e declaração** para **assinatura**.
 
     b. Clique em **Guardar**
 
-8. Sobre o **configurar Evernote** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Na seção **Configurar o Evernote** , copie as URLs apropriadas com base em seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    b. Identificador do Azure AD
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    c. URL de fim de sessão
-
-### <a name="configure-evernote-single-sign-on"></a>Configurar Evernote Single Sign-On
-
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Evernote como um administrador.
-
-2. Aceda a **consola de administração**
-
-    ![Consola de administração](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
-
-3. Do **consola de administração**, aceda à **"Segurança"** e selecione **"Single Sign-On"**
-
-    ![Definição de SSO](./media/evernote-tutorial/tutorial_evernote_sso.png)
-
-4. Configure os seguintes valores:
-
-    ![Definição do certificado](./media/evernote-tutorial/tutorial_evernote_certx.png)
-    
-    a.  **Ative o SSO:** SSO está ativado por predefinição (clique em **desativar o início de sessão único** para remover o requisito de SSO)
-
-    b. Colar **URL de início de sessão** valor, que copiou do portal do Azure para o **URL de pedido de HTTP de SAML** caixa de texto.
-
-    c. Abra o certificado transferido a partir do Azure AD no bloco de notas e copie o conteúdo, incluindo "BEGIN CERTIFICATE" e "END CERTIFICATE" e cole-o no **certificado X.509** caixa de texto. 
-
-    d.Click **guardar alterações**
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
-
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Evernote.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Evernote.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Evernote**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Evernote**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **Evernote**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de Evernote na lista de aplicações](common/all-applications.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+## <a name="configure-evernote-sso"></a>Configurar o SSO do Evernote
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Para automatizar a configuração no Evernote, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar o Evernote** irá direcioná-lo para o aplicativo Evernote. A partir daí, forneça as credenciais de administrador para entrar no Evernote. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-6.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+    ![Configuração da instalação](common/setup-sso.png)
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+3. Se você quiser configurar o Evernote manualmente, abra uma nova janela do navegador da Web e entre no site da sua empresa do Evernote como administrador e execute as seguintes etapas:
 
-### <a name="create-evernote-test-user"></a>Criar utilizador de teste Evernote
+4. Vá para o **' console de administração '**
 
-Para habilitar logon Evernote de utilizadores do Azure AD, tem de ser aprovisionados em Evernote.  
-No caso de Evernote, o aprovisionamento é uma tarefa manual.
+    ![Administrador-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-**Para aprovisionar contas de utilizador, execute os seguintes passos:**
+5. No **' console de administração '** , vá para **' segurança '** e selecione **' logon único '**
 
-1. Inicie sessão no site da sua empresa Evernote como administrador.
+    ![Configuração de SSO](./media/evernote-tutorial/tutorial_evernote_sso.png)
 
-2. Clique nas **consola de administração**.
+6. Configure os seguintes valores:
 
-    ![Consola de administração](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
+    ![Configuração de certificado](./media/evernote-tutorial/tutorial_evernote_certx.png)
+    
+    a.  **Habilitar SSO:** O SSO está habilitado por padrão (clique em **desabilitar logon único** para remover o requisito de SSO)
 
-3. Do **consola de administração**, aceda à **"Adicionar utilizadores"** .
+    b. Cole o valor da **URL de logon** copiado do portal do Azure na caixa de texto **URL de solicitação HTTP do SAML** .
+
+    c. Abra o certificado baixado do Azure AD em um bloco de notas e copie o conteúdo, incluindo "BEGIN CERTIFICATE" e "END CERTIFICATE", e cole-o na caixa de texto **certificado X. 509** . 
+
+    d. clique em **salvar alterações**
+
+### <a name="create-evernote-test-user"></a>Criar usuário de teste do Evernote
+
+Para permitir que os usuários do AD do Azure entrem no Evernote, eles devem ser provisionados no Evernote.  
+No caso do Evernote, o provisionamento é uma tarefa manual.
+
+**Para provisionar contas de usuário, execute as seguintes etapas:**
+
+1. Entre em seu site de empresa do Evernote como administrador.
+
+2. Clique no **' console de administração '** .
+
+    ![Administrador-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
+
+3. No **' console de administração '** , vá para **' Adicionar usuários '** .
 
     ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
 
-4. **Adicionar membros da Equipe** no **E-Mail** caixa de texto, escreva o endereço de e-mail da conta de utilizador e clique em **convidar.**
+4. **Adicione membros da equipe** na caixa de texto **email** , digite o endereço de email da conta de usuário e clique em **convidar.**
 
     ![Add-testUser](./media/evernote-tutorial/create_aaduser_0002.png)
     
-5. Depois de convite é enviado, o titular da conta do Azure Active Directory irá receber um e-mail para aceitar o convite.
+5. Depois que o convite for enviado, o titular da conta Azure Active Directory receberá um email para aceitar o convite.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Evernote no painel de acesso, deve ser automaticamente sessão iniciada no Evernote para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Evernote no painel de acesso, você deverá ser conectado automaticamente ao Evernote para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o Evernote com o Azure AD](https://aad.portal.azure.com/)
 

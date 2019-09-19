@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 280ac51dbc32bca7024f850a379f29fb86d5e684
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860337"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130105"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -35,7 +35,7 @@ Esta seção aborda a falha da operação de backup da máquina virtual do Azure
 * O **log de eventos** pode mostrar falhas de backup que são de outros produtos de backup, por exemplo, backup do Windows Server e não são devidos ao backup do Azure. Use as etapas a seguir para determinar se o problema é com o backup do Azure:
    * Se houver um erro com um **backup** de entrada na mensagem ou origem do evento, verifique se os backups de backup da VM IaaS do Azure foram bem-sucedidos e se um ponto de restauração foi criado com o tipo de instantâneo desejado.
     * Se o backup do Azure estiver funcionando, é provável que o problema tenha outra solução de backup.
-    * Aqui está um exemplo de um erro do Visualizador de eventos em que o backup do Azure estava funcionando bem, mas "Backup do Windows Server" estava falhando:<br>
+    * Aqui está um exemplo de um erro do Visualizador de eventos 517 em que o backup do Azure estava funcionando bem, mas "Backup do Windows Server" estava falhando:<br>
     ![Backup do Windows Server falhando](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
     * Se o backup do Azure estiver falhando, procure o código de erro correspondente na seção erros comuns de backup da VM neste artigo.
 
@@ -185,10 +185,10 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 | Detalhes do erro | Solução |
 | ------ | --- |
-| **Código de erro**: 320001<br/> **Mensagem de erro**: Não foi possível executar a operação visto que a VM já não existe. <br/> <br/> **Código de erro**: 400094 <br/> **Mensagem de erro**: A máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda procura por uma VM para fazer backup. Para corrigir esse erro, execute as seguintes etapas: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço de nuvem**,<br>**ou**</li><li> Interrompa a proteção da máquina virtual com ou sem excluir os dados de backup. Para obter mais informações, consulte [parar de proteger máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-| A VM está em estado de provisionamento com falha: <br>Reinicie a VM e verifique se a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão coloca a VM no estado de provisionamento com falha. Vá para a lista de extensões, verifique se há uma extensão com falha, remova-a e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço do agente de VM está em execução. Caso contrário, reinicie o serviço do agente de VM. |
+| **Código de erro**: 320001, ResourceNotFound <br/> **Mensagem de erro**: Não foi possível executar a operação visto que a VM já não existe. <br/> <br/> **Código de erro**: 400094, BCMV2VMNotFound <br/> **Mensagem de erro**: A máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda procura por uma VM para fazer backup. Para corrigir esse erro, execute as seguintes etapas: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço de nuvem**,<br>**ou**</li><li> Interrompa a proteção da máquina virtual com ou sem excluir os dados de backup. Para obter mais informações, consulte [parar de proteger máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| **Código de erro**: UserErrorVmProvisioningStateFailed<br/> **Mensagem de erro**: A VM está em estado de provisionamento com falha: <br>Reinicie a VM e verifique se a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão coloca a VM no estado de provisionamento com falha. Vá para a lista de extensões, verifique se há uma extensão com falha, remova-a e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço do agente de VM está em execução. Caso contrário, reinicie o serviço do agente de VM. |
 |**Código de erro**: UserErrorBCMPremiumStorageQuotaError<br/> **Mensagem de erro**: Não foi possível copiar o instantâneo da máquina virtual devido a espaço livre insuficiente na conta de armazenamento | Para VMs Premium na pilha de backup da VM v1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponíveis para o aplicativo usando discos Premium. <br><br>É recomendável que você aloque apenas 50%, 17,5 TB, do espaço total da conta de armazenamento. Em seguida, o serviço de backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
-| **Código de erro: 380008** <br/> **Mensagem de erro**: Falha ao instalar a extensão dos serviços de recuperação da Microsoft porque a máquina virtual não está em execução | O agente de VM é um pré-requisito para a extensão dos serviços de recuperação do Azure. Instale o agente de máquina virtual do Azure e reinicie a operação de registro. <br> <ol> <li>Verifique se o agente de VM está instalado corretamente. <li>Verifique se o sinalizador na configuração da VM está definido corretamente.</ol> Leia mais sobre como instalar o agente de VM e como validar a instalação do agente de VM. |
+| **Código de erro**: 380008, AzureVmOffline <br/> **Mensagem de erro**: Falha ao instalar a extensão dos serviços de recuperação da Microsoft porque a máquina virtual não está em execução | O agente de VM é um pré-requisito para a extensão dos serviços de recuperação do Azure. Instale o agente de máquina virtual do Azure e reinicie a operação de registro. <br> <ol> <li>Verifique se o agente de VM está instalado corretamente. <li>Verifique se o sinalizador na configuração da VM está definido corretamente.</ol> Leia mais sobre como instalar o agente de VM e como validar a instalação do agente de VM. |
 | **Código de erro**: ExtensionSnapshotBitlockerError <br/> **Mensagem de erro**: A operação de instantâneo falhou com o erro **de operação de serviço de cópias de sombra de volume (VSS) esta unidade está bloqueada pelo criptografia de unidade de disco BitLocker. Você deve desbloquear esta unidade no painel de controle.** |Desative o BitLocker para todas as unidades na VM e verifique se o problema do VSS foi resolvido. |
 | **Código de erro**: VmNotInDesirableState <br/> **Mensagem de erro**:  A VM não está em um estado que permita backups. |<ul><li>Se a VM estiver em um estado transitório entre **executar** e **desligar**, aguarde o estado ser alterado. Em seguida, dispare o trabalho de backup. <li> Se a VM for uma VM do Linux e usar o módulo kernel do Linux com segurança avançada, exclua o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e verifique se a extensão de backup está instalada.  |
 | O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente de VM. Em seguida, reinicie a operação. |Leia mais sobre [a instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent). |

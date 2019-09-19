@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018856"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130212"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do firewall do Azure
 
@@ -163,3 +163,7 @@ O Firewall do Azure deve provisionar mais instâncias de máquina virtual confor
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>O tamanho da sub-rede do firewall precisa ser alterado conforme o serviço é dimensionado?
 
 Não. O Firewall do Azure não precisa de uma sub-rede maior que/26.
+
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall do Azure permite acesso a Active Directory por padrão?
+
+Não. O Firewall do Azure bloqueia o acesso Active Directory por padrão. Para permitir o acesso, configure a marca de serviço AzureActiveDirectory. Para obter mais informações, consulte [marcas de serviço do firewall do Azure](service-tags.md).

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308319"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123265"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -84,7 +84,7 @@ Tem de utilizar endereços IP públicos da sua propriedade para configurar as se
 Pode optar por utilizar endereços IPv4 públicos ou privados para o peering privado. Oferecemos um isolamento do tráfego ponto a ponto, de modo a que a sobreposição de endereços com outros clientes não seja possível em caso de peering privado. Estes endereços não são anunciados na Internet. 
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
-O caminho de peering da Microsoft permite-lhe ligar a serviços cloud da Microsoft. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business, o Microsoft Teams e o Dynamics 365. A Microsoft suporta a conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de utilizar endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft.
+O caminho de peering da Microsoft permite-lhe ligar a serviços cloud da Microsoft. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Microsoft Teams. A Microsoft suporta a conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de utilizar endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft.
 
 Certifique-se de que o endereço IP e o número AS estão registados em seu nome num dos registos seguintes:
 
@@ -218,7 +218,6 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Exchange Online | 12076:5010 |
 | SharePoint Online | 12076:5020 |
 | Skype para Empresas Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Serviços globais do Azure * | 12076:5050 |
 | Outros serviços do Office 365 Online | 12076:5100 |
 
@@ -249,7 +248,6 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype para Empresas Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | Outros serviços do Office 365 Online |12076:5200 |
 
 ## <a name="next-steps"></a>Passos seguintes

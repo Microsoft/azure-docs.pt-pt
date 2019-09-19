@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018188"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129340"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -122,9 +122,9 @@ Não excluir seguido pela operação de retomada irá proteger o recurso novamen
 
 O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente após 14 dias após a operação de exclusão. Você pode excluir o cofre somente depois que todos os itens excluídos de maneira reversível tiverem sido limpos.  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Como posso excluir os dados anteriores ao período de exclusão reversível de 14 dias após a exclusão?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso excluir os dados anteriores ao período de exclusão reversível de 14 dias após a exclusão?
 
-Não é possível limpar os dados antes dos 14 dias após a exclusão. Se for um problema de bloqueador ou de conformidade, entre em contato com o suporte da Microsoft.
+Não. Não é possível forçar a exclusão dos itens excluídos por software, eles são excluídos automaticamente após 14 dias. Esse recurso de segurança é habilitado para proteger os dados de backup de exclusões acidentais ou mal-intencionadas.  Você deve aguardar por 14 dias antes de executar qualquer outra ação na VM.  Os itens excluídos de forma reversível não serão cobrados.  Se você precisar proteger novamente as VMs marcadas para exclusão reversível dentro de 14 dias para um novo cofre, entre em contato com o suporte da Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de exclusão reversível podem ser executadas no PowerShell ou na CLI?
 

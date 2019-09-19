@@ -1,140 +1,110 @@
 ---
-title: Tutorial para em massa ao convidar utilizadores de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
+title: Tutorial para convidar em massa usuários de colaboração B2B – Azure Active Directory | Microsoft Docs
 description: Neste tutorial, saberá como utilizar o PowerShell e um ficheiro CSV para enviar convites em massa a utilizadores externos da colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 9/19/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3bd02afa1fe1aaba6602201f839468a58673c29
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278007"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128730"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Em massa convidar utilizadores de colaboração B2B do Azure AD
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Convidar em massa usuários de colaboração B2B do Azure AD (versão prévia)
 
-Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, saberá como utilizar o PowerShell para enviar convites em massa para utilizadores externos. Deve fazer o seguinte:
+|     |
+| --- |
+| Este artigo descreve um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
+
+
+Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, você aprenderá a usar o portal do Azure para enviar convites em massa a usuários externos. Deve fazer o seguinte:
 
 > [!div class="checklist"]
-> * Preparar um ficheiro de valores separados por vírgulas (.csv) com as informações dos utilizadores
-> * Executar um script do PowerShell para enviar convites
+> * Usar **usuários de convite em massa (visualização)** para preparar um arquivo de valores separados por vírgulas (. csv) com as informações do usuário e as preferências de convite
+> * Carregar o arquivo. csv no Azure AD
 > * Verificar se os utilizadores foram adicionados ao diretório
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se você não tiver Azure Active Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="install-the-latest-azureadpreview-module"></a>Instalar o módulo do AzureADPreview mais recente
-Certifique-se de que instala a versão mais recente do módulo do Azure AD PowerShell para Graph (AzureADPreview). 
-
-Primeiro, verifique quais foram os módulos que instalou. Abra o Windows PowerShell como um utilizador com privilégios elevados (Executar como administrador) e execute o seguinte comando:
- 
-```powershell  
-Get-Module -ListAvailable AzureAD*
-```
-
-Com base no resultado, siga um dos seguintes passos:
-
-- Se não forem devolvidos resultados, execute o seguinte comando para instalar o módulo do AzureADPreview:
-  
-   ```powershell  
-   Install-Module AzureADPreview
-   ```
-- Se apenas for apresentado o módulo do AzureAD nos resultados, execute os seguintes comandos para instalar o módulo do AzureADPreview: 
-
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
-   ```
-- Se apenas for apresentado o módulo do AzureADPreview nos resultados, mas receber uma mensagem que indique a existência de uma versão mais recente, execute os seguintes comandos para atualizar o módulo: 
-
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
-
-Poderá receber um aviso a indicar que está a instalar o módulo a partir de um repositório não fidedigno. Isto ocorre se não tiver configurado previamente o repositório PSGallery como um repositório fidedigno. Prima **Y** para instalar o módulo.
-
-### <a name="get-test-email-accounts"></a>Obter contas de e-mail de teste
-
 Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os convites. As contas têm de ser externas à sua organização. Pode utilizar qualquer tipo de conta, incluindo contas sociais como os endereços do gmail.com ou outlook.com.
 
-## <a name="prepare-the-csv-file"></a>Preparar o ficheiro CSV
+## <a name="invite-guest-users-in-bulk"></a>Convidar usuários convidados em massa
 
-No Microsoft Excel, crie um ficheiro CSV com a lista dos nomes e endereços de e-mail dos utilizadores convidados. Certifique-se de que inclui os cabeçalhos de coluna **Name** (Nome) e **InvitedUserEmailAddress**. 
+1. Entre no portal do Azure com uma conta que seja um administrador de usuário na organização.
+2. No painel de navegação, selecione **Azure Active Directory**.
+3. Em **gerenciar**, selecione **usuários** > **convite em massa**.
+4. Na página **usuários do convite em massa (versão prévia)** , selecione **baixar** para obter um arquivo. csv válido com propriedades do convite.
 
-Por exemplo, crie uma folha de cálculo no seguinte formato:
+    ![Botão de download de convite em massa](media/tutorial-bulk-invite/bulk-invite-button.png)
 
+5. Abra o arquivo. csv e adicione uma linha para cada usuário convidado. Os valores necessários são:
 
-![Resultado do PowerShell a mostrar a aceitação pendente do utilizador](media/tutorial-bulk-invite/AddUsersExcel.png)
+   * **Endereço de email para convidar** -o usuário que receberá um convite
 
-Guarde o ficheiro como **C:\BulkInvite\Invitations.csv**. 
+   * **URL de redirecionamento** -a URL para a qual o usuário convidado é encaminhado após aceitar o convite
 
-Se não tiver o Excel, pode criar um ficheiro CSV em qualquer editor de texto, como o Bloco de Notas. Separe cada valor por uma vírgula e cada linha por uma nova linha. 
+    ![Exemplo de um arquivo CSV com usuários convidados inseridos](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-## <a name="sign-in-to-your-tenant"></a>Iniciar sessão no seu inquilino
+   > [!NOTE]
+   > Não use vírgulas na **mensagem de convite personalizada** porque elas impedirão que a mensagem seja analisada com êxito.
 
-Execute o seguinte comando para ligar ao domínio do inquilino:
+6. Guarde o ficheiro.
+7. Na página **usuários do convite em massa (versão prévia)** , em **carregar o arquivo CSV**, navegue até o arquivo. Quando você seleciona o arquivo, a validação do arquivo. csv é iniciada. 
+8. Quando o conteúdo do arquivo for validado, você verá o **arquivo carregado com êxito**. Se houver erros, você deverá corrigi-los antes de poder enviar o trabalho.
+9. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que adiciona os convites. 
+10. Para exibir o status do trabalho, selecione **clique aqui para exibir o status de cada operação**. Ou, você pode selecionar **resultados de operação em massa (versão prévia)** na seção **atividade** . Para obter detalhes sobre cada item de linha na operação em massa, selecione os valores nas colunas **# êxito**, **# falha**ou **total de solicitações** . Se ocorrerem falhas, os motivos da falha serão listados.
 
-```powershell
-Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
-```
-Por exemplo, `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+    ![Exemplo de resultados de operação em massa](media/tutorial-bulk-invite/bulk-operation-results.png)
 
-Quando lhe for pedido, introduza as suas credenciais.
+11. Quando o trabalho for concluído, você verá uma notificação de que a operação em massa foi bem-sucedida.
 
-## <a name="send-bulk-invitations"></a>Enviar convites em massa
+## <a name="verify-guest-users-in-the-directory"></a>Verificar usuários convidados no diretório
 
-Para enviar convites, execute o seguinte script do PowerShell (em que **c:\bulkinvite\invitations.csv** é o caminho para o ficheiro CSV): 
+Verifique se os usuários convidados que você adicionou existem no diretório no portal do Azure ou usando o PowerShell.
 
-```powershell
-$invitations = import-csv c:\bulkinvite\invitations.csv
-   
-$messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-   
-$messageInfo.customizedMessageBody = "Hello. You are invited to the Contoso organization."
-   
-foreach ($email in $invitations) 
-   {New-AzureADMSInvitation `
-      -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
-      -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.microsoft.com `
-      -InvitedUserMessageInfo $messageInfo `
-      -SendInvitationMessage $true
-   }
-```
-O script envia um convite para os endereços de e-mail no ficheiro Invitations.csv. Deverá ver um resultado semelhante ao seguinte para cada utilizador:
+### <a name="view-guest-users-in-the-azure-portal"></a>Exibir usuários convidados no portal do Azure
 
-![Resultado do PowerShell a mostrar a aceitação pendente do utilizador](media/tutorial-bulk-invite/B2BBulkImport.png)
+1. Entre no portal do Azure com uma conta que seja um administrador de usuário na organização.
+2. No painel de navegação, selecione **Azure Active Directory**.
+3. Em **Gerir**, selecione **Utilizadores**.
+4. Em **Mostrar**, selecione **somente usuários convidados** e verifique se os usuários adicionados estão listados.
 
-## <a name="verify-users-exist-in-the-directory"></a>Verificar se existem utilizadores no diretório
+### <a name="view-guest-users-with-powershell"></a>Exibir usuários convidados com o PowerShell
 
-Para verificar se os utilizadores convidados foram adicionados ao Azure AD, execute o seguinte comando:
+Execute o seguinte comando:
+
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-Deverá ver os utilizadores que convidou listado, com um nome principal de utilizador (UPN), no formato *emailaddress*EXT de # #\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização a partir do qual enviados os convites.
+
+Você deve ver os usuários que convidou listados, com um nome UPN no formato *EmailAddress*#EXT #\@*Domain*. Por exemplo, *lstokes_fabrikam. com # ext #\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não forem necessárias, pode eliminar as contas de utilizador de teste no diretório. Execute o seguinte comando para eliminar uma conta de utilizador:
+Quando não for mais necessário, você poderá excluir as contas de usuário de teste no diretório no portal do Azure na página usuários, marcando a caixa de seleção ao lado do usuário convidado e, em seguida, selecionando **excluir**. 
+
+Ou você pode executar o seguinte comando do PowerShell para excluir uma conta de usuário:
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
+
 Por exemplo: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, enviou convites em massa para utilizadores convidados fora da sua organização. Em seguida, saiba como o processo de resgate do convite funciona.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o processo de resgate do convite de colaboração B2B do Azure AD](redemption-experience.md)
-

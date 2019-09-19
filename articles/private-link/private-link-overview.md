@@ -1,20 +1,20 @@
 ---
-title: O que é o link privado do Azure?
-description: Saiba mais sobre o link privado do Azure.
-services: virtual-network
+title: O que é a Ligação Privada do Azure?
+description: Saiba como usar o link privado do Azure para acessar os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços de cliente/parceiro hospedados no Azure por meio de um ponto de extremidade privado em sua rede virtual.
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 9b7dea0507d4434274d78546b98961b008ea8cd8
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: fc3ae87ce5c4547526ae50f371684ac14dfcf266
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017893"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104648"
 ---
-# <a name="what-is-azure-private-link-preview"></a>O que é o link privado do Azure? (Pré-visualização)
+# <a name="what-is-azure-private-link-preview"></a>O que é a Ligação Privada do Azure? (Pré-visualização)
 O link privado do Azure permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e os serviços hospedados de cliente/parceiro do Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você também pode criar seu próprio [serviço de vínculo privado](private-link-service-overview.md) em sua rede virtual (VNet) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o link privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de Propriedade do cliente e de parceiros compartilhados.
 
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ Para perguntas frequentes, consulte [perguntas frequentes sobre link privado do 
 ## <a name="limits"></a>Limites  
 Para limites, consulte [limites de link privado do Azure](../azure-subscription-service-limits.md#private-link-limits).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o portal](create-private-endpoint-portal.md)
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando a CLI](create-private-endpoint-cli.md)

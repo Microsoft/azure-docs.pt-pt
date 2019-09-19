@@ -4,15 +4,15 @@ description: Saiba como publicar uma oferta de serviço gerenciado que integra o
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165256"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105266"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços gerenciados no Azure Marketplace
 
@@ -65,13 +65,13 @@ Em seguida, conclua as seções a seguir na seção **detalhes do plano** :
 Por fim, conclua a seção **detalhes do manifesto** . Isso cria um manifesto com informações de autorização para gerenciar recursos do cliente. As informações fornecidas aqui são necessárias para integrar seus clientes para o gerenciamento de recursos delegado do Azure. Conforme observado acima, essas permissões serão aplicadas a todos os clientes que comprarem o plano, portanto, se você quiser limitar o acesso a um cliente específico, será necessário publicar um plano privado para seu uso exclusivo.
 
 - Primeiro, forneça uma **versão** para o manifesto. Use o formato *n. n. n* (por exemplo, 1.2.5).
-- Em seguida, insira sua **ID de locatário**. Esse é um GUID associado à ID de locatário Azure Active Directory da sua organização (ou seja, o locatário no qual você trabalhará para gerenciar os recursos de seus clientes). Se você não tiver isso à mão, poderá encontrá-lo passando o mouse sobre o nome da sua conta no lado superior direito do portal do Azure ou selecionando o **diretório**de comutador. 
+- Em seguida, insira sua **ID de locatário**. Esse é um GUID associado à ID de locatário Azure Active Directory da sua organização (ou seja, o locatário no qual você trabalhará para gerenciar os recursos de seus clientes). Se você não tiver isso à mão, poderá encontrá-lo passando o mouse sobre o nome da sua conta no lado superior direito do portal do Azure ou selecionando o **diretório de comutador**. 
 - Por fim, adicione uma ou mais entradas de **autorização** ao seu plano. As autorizações definem as entidades que podem acessar recursos e assinaturas para clientes que compram o plano. Você deve fornecer essas informações para acessar recursos em nome do cliente usando o gerenciamento de recursos delegado do Azure.
   Para cada autorização, forneça o seguinte. Em seguida, você pode selecionar **nova autorização** quantas vezes forem necessárias para adicionar mais definições de usuários/funções.
   - **ID de objeto do Azure ad**: O identificador do Azure AD de um usuário, grupo de usuários ou aplicativo que receberá determinadas permissões (conforme descrito pela definição de função) aos recursos de seus clientes.
   - **Nome de exibição do objeto do Azure ad**: Um nome amigável para ajudar o cliente a entender a finalidade dessa autorização. O cliente verá esse nome ao delegar recursos.
   - **Definição de função**: Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID de objeto do Azure ad** terá nos recursos de seus clientes. Para obter informações sobre essas funções, consulte [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Funções atribuíveis**: Se você selecionou administrador de acesso de usuário na **definição de função** para essa autorização, você pode adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure ad** poderá atribuir essas **funções atribuíveis** a [identidades gerenciadas](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observe que nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário será aplicada a esse usuário. (Se você não selecionou administrador de acesso do usuário para a definição de função deste usuário, esse campo não terá efeito.)
+  - **Funções atribuíveis**: Isso será necessário apenas se você tiver selecionado administrador de acesso do usuário na **definição de função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure ad** poderá atribuir essas **funções atribuíveis** a [identidades gerenciadas](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observe que nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não passará na certificação. (Se você não selecionou administrador de acesso do usuário para a definição de função deste usuário, esse campo não terá efeito.)
 
 > [!TIP]
 > Na maioria dos casos, você desejará atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de uma série de contas de usuário individuais. Isso permite que você adicione ou remova o acesso para usuários individuais sem precisar atualizar e publicar o plano novamente quando seus requisitos de acesso forem alterados.
@@ -112,7 +112,7 @@ O logotipo **Hero (815x290)** é opcional, mas recomendado. Se você incluir um 
 - O segundo plano do seu logotipo Hero não pode ser preto, branco ou transparente. Verifique se a cor do plano de fundo não é muito clara, porque o texto inserido será exibido em branco.
 - Depois de publicar sua oferta com um ícone de herói, você não poderá removê-la (embora seja possível atualizá-la com uma versão diferente, se desejar).
 
-Na seção **Gerenciamento** de leads, você pode selecionar o sistema CRM no qual seus leads serão armazenados. Observe que, de acordo com as [políticas de certificação de serviços gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), um destino de **Lead** é necessário.
+Na seção **Gerenciamento de leads** , você pode selecionar o sistema CRM no qual seus leads serão armazenados. Observe que, de acordo com as [políticas de certificação de serviços gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), um **destino de Lead** é necessário.
 
 Por fim, forneça a **URL da política de privacidade** e **termos de uso** na seção **legal** . Você também pode especificar aqui se deseja ou não usar o [contrato padrão](https://docs.microsoft.com/azure/marketplace/standard-contract) para esta oferta.
 
@@ -187,7 +187,7 @@ Namespace                  RegistrationState
 Microsoft.ManagedServices  Registered
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **meus clientes** na portal do Azure.

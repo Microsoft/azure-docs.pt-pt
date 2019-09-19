@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 89deedd3ef99ba76d0bb133bac37c0acee0a9f73
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 350c6ae2e62a88477ce67132b56d9253166d13ec
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275026"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130435"
 ---
 # <a name="high-availability-ports-overview"></a>Descrição geral das portas de elevada disponibilidade
 
@@ -94,16 +94,14 @@ Pode configurar *um* recurso de Balanceador de carga Standard público para os r
 
 ## <a name="limitations"></a>Limitações
 
-- HA configuração de portas está disponível apenas para balanceadores de carga internos. Não está disponível para balanceadores de carga público.
-
+- As regras de balanceamento de carga das portas de alta disponibilidade estão disponíveis somente para Standard Load Balancer internas.
 - A combinação de um HA portas a regra de balanceamento de carga e um portas não HA não é suportada a regra de balanceamento de carga.
+- Os fragmentos IP existentes serão encaminhados pelas regras de balanceamento de carga das portas de alta disponibilidade para o mesmo destino que o primeiro pacote.  Não há suporte para a fragmentação de IP de um pacote UDP ou TCP.
+- As regras de balanceamento de carga das portas de alta disponibilidade não estão disponíveis para IPv6.
+- A simetria do Flow (principalmente para cenários NVA) tem suporte com a instância de back-end e uma única NIC (e configuração de IP único) somente quando usada, conforme mostrado no diagrama acima, e usando regras de balanceamento de carga de portas de alta disponibilidade. Ele não é fornecido em nenhum outro cenário. Isso significa que dois ou mais recursos de Load Balancer e suas respectivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). Quando você estiver usando várias NICs ou sanduíches do NVA entre um Load Balancer público e interno, a simetria do fluxo não estará disponível.  Você pode solucionar isso por fonte NAT'ing o fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem no mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
 
-- A funcionalidade de portas HA não está disponível para IPv6.
 
-- A simetria do fluxo (principalmente para cenários NVA) tem suporte com a instância de back-end e uma única NIC (e configuração de IP único) somente quando usada, conforme mostrado no diagrama acima, e usando regras de balanceamento de carga de portas de alta disponibilidade. Ele não é fornecido em nenhum outro cenário. Isso significa que dois ou mais recursos de Load Balancer e suas respectivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). Quando você estiver usando várias NICs ou sanduíches NVA entre um Load Balancer público e interno, a simetria do fluxo não estará disponível.  Você pode solucionar isso por fonte NAT'ing o fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem no mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
-
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar portas HA num Standard Balanceador de carga interno](load-balancer-configure-ha-ports.md)
 - [Saiba mais sobre o Balanceador de carga Standard](load-balancer-standard-overview.md)

@@ -7,16 +7,16 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: 2593f07ac30df77936c56785956b9e906ef683be
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e3051a72a115e711a99ecd68756967e2cef0cc04
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051922"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130046"
 ---
-## <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implantar o contêiner de Detecção de Idioma em um cluster AKS
+### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implantar o contêiner de Detecção de Idioma em um cluster AKS
 
 1. Abra o CLI do Azure e entre no Azure.
 

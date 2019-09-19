@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035053"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130238"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
@@ -95,10 +95,10 @@ O `AutoMLConfig` objeto define as configurações e os dados necessários para u
 |`time_column_name`|Usado para especificar a coluna datetime nos dados de entrada usados para criar a série temporal e inferir sua frequência.|✓|
 |`grain_column_names`|Nome (s) definindo grupos de séries individuais nos dados de entrada. Se a granulação não for definida, o conjunto de dados será considerado uma série temporal.||
 |`max_horizon`|Define o horizonte de previsão máximo desejado em unidades de frequência de série temporal. As unidades são baseadas no intervalo de tempo de seus dados de treinamento, por exemplo, mensalmente, semanalmente que o previsão deve prever.|✓|
-|`target_lags`|*n* períodos para encaminhar valores de destino antes do treinamento do modelo.||
+|`target_lags`|Número de linhas para atrasar os valores de destino com base na frequência dos dados. Isso é representado como uma lista ou um único inteiro.||
 |`target_rolling_window_size`|*n* períodos históricos a serem usados para gerar valores previstos, < = tamanho do conjunto de treinamento. Se omitido, *n* será o tamanho completo do conjunto de treinamento.||
 
-Crie as configurações de série temporal como um objeto Dictionary. Defina o `time_column_name` para o `day_datetime` campo no conjunto de dados. Defina o `grain_column_names` parâmetro para garantir que **dois grupos de série temporal separados** sejam criados para os dados; um para a loja a e B. por fim, defina `max_horizon` o como 50 para prever o conjunto de teste inteiro. Defina uma janela de previsão como 10 períodos `target_rolling_window_size`com e retardar os valores de destino 2 períodos à `target_lags` frente com o parâmetro.
+Crie as configurações de série temporal como um objeto Dictionary. Defina o `time_column_name` para o `day_datetime` campo no conjunto de dados. Defina o `grain_column_names` parâmetro para garantir que **dois grupos de série temporal separados** sejam criados para os dados; um para a loja a e B. por fim, defina `max_horizon` o como 50 para prever o conjunto de teste inteiro. Defina uma janela de previsão como 10 períodos `target_rolling_window_size`com e especifique um único retardo nos valores de destino para 2 períodos à frente com `target_lags` o parâmetro.
 
 ```python
 time_series_settings = {
@@ -111,8 +111,14 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
 > As etapas de pré-processamento automatizado do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
+
+Ao definir o `grain_column_names` no trecho de código acima, o AutoML criará dois grupos de série temporal separados, também conhecidos como várias séries temporais. Se nenhum detalhamento for definido, AutoML assumirá que o conjunto de data é uma única série temporal. Para saber mais sobre a série temporal única, consulte o [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
+
 
 Agora, crie um `AutoMLConfig` objeto padrão, especificando `forecasting` o tipo de tarefa e envie o experimento. Após a conclusão do modelo, recupere a melhor iteração de execução.
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592067"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123437"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -55,11 +55,23 @@ Para obter informações, consulte a [SLA do ExpressRoute](https://azure.microso
 
 ## <a name="supported-services"></a>Serviços suportados
 
-O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-peerings.md) para vários tipos de serviços.
+O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circuit-peerings.md) para vários tipos de serviços: emparelhamento privado, emparelhamento da Microsoft e emparelhamento público.
 
 ### <a name="private-peering"></a>Peering privado
 
 * Redes virtuais, incluindo todas as máquinas virtuais e serviços cloud
+
+### <a name="microsoft-peering"></a>Peering da Microsoft
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI-disponível por meio de uma comunidade regional do Azure, consulte [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para saber como descobrir a região do seu locatário de Power bi.
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Comunidade de serviços globais do Azure)
+* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>**Os seguintes serviços não são suportados**:
+    * CDN
+    * Azure Front Door
+    * Multi-Factor Authentication
+    * Gestor de Tráfego
 
 ### <a name="public-peering"></a>Peering público
 
@@ -68,26 +80,17 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 >
 
 * Power BI
-* Dynamics 365 para finanças e operações (anteriormente conhecidas como o Dynamics AX Online)
 * A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>
   **Os seguintes serviços não são suportados**:
     * CDN
-    * Porta frontal do Azure
+    * Azure Front Door
     * Multi-Factor Authentication
     * Gestor de Tráfego
 
-### <a name="microsoft-peering"></a>Peering da Microsoft
+### <a name="is-dynamics-365-supported-on-expressroute"></a>O Dynamics 365 tem suporte no ExpressRoute?
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI-disponível por meio de uma comunidade regional do Azure, consulte [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para saber como descobrir a região do seu locatário de Power bi. 
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Comunidade de serviços globais do Azure)
-* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>**Os seguintes serviços não são suportados**:
-    * CDN
-    * Porta frontal do Azure
-    * Multi-Factor Authentication
-    * Gestor de Tráfego
+Os ambientes do Dynamics 365 e do Common Data Service (CDS) são hospedados no Azure e, portanto, os clientes se beneficiam do suporte do ExpressRoute subjacente para os recursos do Azure. Você pode se conectar a seus pontos de extremidade de serviço se o filtro do roteador incluir as regiões do Azure em que seus ambientes Dynamics 365/CDS estão hospedados.
+
 
 ## <a name="data-and-connections"></a>Ligações e dados
 
@@ -262,7 +265,7 @@ ExpressRoute premium é uma coleção das seguintes funcionalidades:
 
 * Aumentou o encaminhamento de tabela de limite, de 4000 rotas a 10.000 rotas para peering privado.
 * Aumento no número de ligações de VNets e alcance Global do ExpressRoute que pode ser ativada num circuito do ExpressRoute (a predefinição é 10). Para obter mais informações, consulte a [limites do ExpressRoute](#limits) tabela.
-* Conectividade para o Office 365 e Dynamics 365.
+* Conectividade com o Office 365
 * Conectividade global através da rede de principal da Microsoft. Agora pode ligar uma VNet na região geopolítica com um circuito do ExpressRoute noutra região.<br>
     **Exemplos:**
 
@@ -332,7 +335,7 @@ O ExpressRoute local está disponível nos locais de emparelhamento onde uma ou 
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Meu circuitos do ExpressRoute existentes podem suportar a conectividade com os serviços do Office 365 e Dynamics 365?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>Meus circuitos de ExpressRoute existentes podem dar suporte à conectividade com os serviços do Office 365?
 
 Sim. O circuito de ExpressRoute existente pode ser configurado para suportar a conectividade para serviços do Office 365. Certifique-se de que tem capacidade suficiente para ligar a serviços do Office 365 e que tiver ativado o suplemento premium. [Planeamento de rede e otimização de desempenho para o Office 365](https://aka.ms/tune/) tem do ajudará a planear a conectividade. Além disso, veja [criar e modificar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md).
 
@@ -369,13 +372,9 @@ Não verá quaisquer rotas. Terá de anexar um filtro de rota para o seu circuit
 
 Ao utilizar filtros de rota, todos os clientes podem ativar o peering da Microsoft. No entanto, para o consumo de serviços do Office 365, ainda precisa obter autorizado pelo Office 365.
 
-### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>É necessário obter autorização para ativar o Dynamics 365 através do peering da Microsoft?
-
-Não, não terá autorização para o Dynamics 365. Pode criar uma regra e selecione a Comunidade do Dynamics 365 sem autorização.
-
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Eu habilitei o peering antes de 1 de Agosto de 2017, como pode tirar partido de filtros de rota da Microsoft?
 
-O circuito existente continuará a anunciar os prefixos do Office 365 e Dynamics 365. Se pretender adicionar os anúncios de prefixos públicos do Azure através do mesmo peering da Microsoft, pode criar um filtro de rota, selecione os serviços que precisa anunciados (incluindo os serviços do Office 365 que terá e do Dynamics 365) e anexar o filtro ao seu Microsoft peering. Para obter instruções, consulte [configurar filtros de rota para peering da Microsoft](how-to-routefilter-powershell.md).
+Seu circuito existente continuará anunciando os prefixos para o Office 365. Se desejar adicionar anúncios de prefixos públicos do Azure no mesmo emparelhamento da Microsoft, você poderá criar um filtro de rota, selecionar os serviços que precisa anunciar (incluindo os serviços do Office 365 necessários) e anexar o filtro ao emparelhamento da Microsoft. Para obter instruções, consulte [configurar filtros de rota para peering da Microsoft](how-to-routefilter-powershell.md).
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Eu tenho o peering num único local da Microsoft, agora estou tentando ativá-la em outro local e não estou a ver quaisquer prefixos.
 

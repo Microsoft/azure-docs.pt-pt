@@ -35,6 +35,7 @@
 - name: Amostras
   items:
     - name: Amostras de Serviços de Multimédia
+      displayName: '.NET, Java'
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
 - name: Conceitos
   items:

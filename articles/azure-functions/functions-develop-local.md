@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 7e0b5137355c9fd89600fa48c075c81cfb1190e3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085456"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129598"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar Azure Functions localmente
 
@@ -33,7 +33,7 @@ A maneira pela qual você desenvolve funções em seu computador local depende d
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Cada um desses ambientes de desenvolvimento local permite criar projetos de aplicativo de função e usar modelos de funções predefinidas para criar novas funções. Cada uma usa as ferramentas principais para que você possa testar e depurar suas funções em relação ao tempo de execução real Functions em sua própria máquina, assim como faria com qualquer outro aplicativo. Você também pode publicar o projeto de aplicativo de funções de qualquer um desses ambientes para o Azure.  
+Cada um desses ambientes de desenvolvimento local permite criar projetos de aplicativo de função e usar modelos de funções predefinidas para criar novas funções. Cada uma usa as ferramentas principais para que você possa testar e depurar suas funções em relação ao tempo de execução real Functions em sua própria máquina, assim como faria com qualquer outro aplicativo. Você também pode publicar seu projeto de aplicativo de funções de qualquer um desses ambientes para o Azure.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

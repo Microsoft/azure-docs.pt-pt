@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 6177f5821efe74fdf3a6aba7fe52f41e9db22728
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638190"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123111"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de conhecimento em Azure Search?
 
@@ -46,7 +46,7 @@ Enumerado, os benefícios da loja de conhecimento incluem o seguinte:
 
 + Refinar um pipeline de indexação de AI durante a depuração de etapas e de definições de habilidades. Uma loja de conhecimento mostra o produto de uma definição de conconhecedor em um pipeline de indexação de AI. Você pode usar esses resultados para criar um melhor conhecimento, pois você pode ver exatamente de que forma os aprimoramentos se parecem. Você pode usar [Gerenciador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) no armazenamento do Azure para exibir o conteúdo de uma loja de conhecimento.
 
-+ Formate os dados em novos formulários. A remodelagem é codificados em habilidades, mas o ponto é que um con agora pode fornecer esse recurso. A [habilidade](cognitive-search-skill-shaper.md) do modelador no Azure Search foi estendida para acomodar essa tarefa. A remodelagem permite que você defina uma projeção que se alinhe com o uso pretendido dos dados, preservando as relações.
++ Formate os dados em novos formulários. A remodelagem é codificados em habilidades, mas o ponto é que um con agora pode fornecer esse recurso. A [habilidade do modelador](cognitive-search-skill-shaper.md) no Azure Search foi estendida para acomodar essa tarefa. A remodelagem permite que você defina uma projeção que se alinhe com o uso pretendido dos dados, preservando as relações.
 
 > [!Note]
 > Não está familiarizado com a indexação baseada em ia usando serviços cognitivas? O Azure Search integra-se à visão de serviços cognitivas e aos recursos de linguagem para extrair e enriquecer dados de origem usando OCR (reconhecimento óptico de caracteres) em arquivos de imagem, reconhecimento de entidade e extração de frases-chave de arquivos de texto e muito mais. Para obter mais informações, consulte [o que é pesquisa cognitiva?](cognitive-search-concept-intro.md).
@@ -132,7 +132,7 @@ Os dados ou documentos que você deseja enriquecer devem existir em uma fonte de
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 
-O [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md) pode ser usado para dados de saída em uma loja de conhecimento, mas não pode ser usado como um recurso para dados de entrada para um pipeline de indexação baseado em ia.
+* [Armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md)
 
 ### <a name="2---azure-search-service"></a>serviço de Azure Search de 2
 
@@ -233,13 +233,13 @@ Recomendamos o serviço gratuito para fins de aprendizado, mas lembre-se de que 
 
 Ao usar vários serviços, crie todos os seus serviços na mesma região para obter o melhor desempenho e para minimizar os custos. Você não é cobrado pela largura de banda para dados de entrada ou dados de saída que vão para outro serviço na mesma região.
 
-**Passo 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
+**Passo 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
 
-**Passo 2: [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
+**Passo 2: [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 
-**Passo 3: [Criar um recurso de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
+**Passo 3: [Criar um recurso de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
 
-**Passo 4: Introdução ao [portal](cognitive-search-quickstart-blob.md) -ou-introdução [aos dados de exemplo usando REST e postmaster](knowledge-store-howto.md)** 
+**Passo 4: Introdução ao [portal](cognitive-search-quickstart-blob.md) -ou-introdução [aos dados de exemplo usando REST e postmaster](knowledge-store-howto.md)** 
 
 Você pode usar o `api-version=2019-05-06-Preview` REST para construir um pipeline baseado em ia que inclua o repositório de conhecimento. Na API de visualização mais recente, o objeto skillset fornece `knowledgeStore` a definição.
 
@@ -247,7 +247,7 @@ Você pode usar o `api-version=2019-05-06-Preview` REST para construir um pipeli
 
 A loja de conhecimento oferece uma variedade de benefícios, incluindo, mas não limitado, a habilitação do uso de documentos aprimorados em cenários diferentes de pesquisa, controles de custo e gerenciamento de descompasso em seu processo de enriquecimento. Esses recursos estão disponíveis para uso simples, adicionando uma conta de armazenamento ao seu Skills e usando a linguagem de expressão atualizada, conforme descrito em como começar a usar a [loja de conhecimento](knowledge-store-howto.md). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 A abordagem mais simples para a criação de documentos aprimorados é por meio do assistente de **importação de dados** .
 

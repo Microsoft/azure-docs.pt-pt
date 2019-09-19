@@ -4,7 +4,7 @@ description: Solucionar problemas de domínio e certificado SSL no serviço Azur
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.service: app-service-web
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 097d4ea45827223a5d3e64a2d1ca326569db9958
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113541"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121986"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e certificado SSL no serviço Azure App
 

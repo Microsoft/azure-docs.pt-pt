@@ -4,7 +4,7 @@ description: Obtenha respostas para perguntas frequentes sobre a implantação d
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c7551a13c84798b5a594d4646b8faa619619724b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073137"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121212"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação para aplicativos Web no Azure
 
@@ -66,7 +66,7 @@ Você pode configurar a implantação contínua de vários recursos, incluindo A
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Como fazer solucionar problemas com a implantação contínua do GitHub e do bitbucket?
 
-Para ajudar a investigar problemas com a implantação contínua do GitHub ou do bitbucket, consulte investigando a [implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
+Para ajudar a investigar problemas com a implantação contínua do GitHub ou do bitbucket, consulte [investigando a implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
 ## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Não consigo fazer o FTP no meu site e publicar meu código. Como fazer resolver esse problema?
 

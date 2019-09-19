@@ -1,19 +1,19 @@
 ---
 title: Configurar Apache Kafka no HDInsight usando o Azure PowerShell-QuickStart
 description: Neste guia de início rápido, irá aprender a criar um cluster do Apache Kafka no Azure HDInsight com o Azure PowerShell. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: c47df581edafbb2a378e7c5e75516a44fafcab71
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 79224879dc0f23c7ad022134c6add087b90304b7
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779512"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123156"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: Criar Apache Kafka cluster no Azure HDInsight usando o PowerShell
 
@@ -252,7 +252,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
         O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
-        Para garantir a alta disponibilidade, use a ferramenta de rebalanceamento de [partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
+        Para garantir a alta disponibilidade, use a [ferramenta de rebalanceamento de partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
 
         Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar as réplicas de partições do tópico ao:
 
@@ -328,7 +328,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 > 
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Usar Apache Spark com Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

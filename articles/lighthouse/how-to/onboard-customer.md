@@ -4,15 +4,15 @@ description: Saiba como integrar um cliente ao gerenciamento de recursos delegad
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165030"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105281"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -20,7 +20,7 @@ Este artigo explica como você, como um provedor de serviços, pode integrar um 
 
 Você pode repetir esse processo se estiver gerenciando recursos para vários clientes. Em seguida, quando um usuário autorizado entra no seu locatário, esse usuário pode ser autorizado entre escopos de aluguel do cliente para executar operações de gerenciamento sem precisar entrar em cada locatário individual do cliente.
 
-Você pode associar sua ID de Microsoft Partner Network (MPN) às assinaturas integradas para acompanhar o impacto nos compromissos do cliente e receber o reconhecimento. Para obter mais informações, consulte [vincular uma ID de parceiro às suas contas do Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Observe que você precisará executar essa associação separadamente para cada locatário do cliente no qual você está Gerenciando recursos. 
+Você pode associar sua ID de Microsoft Partner Network (MPN) às assinaturas integradas para acompanhar o impacto nos compromissos do cliente e receber o reconhecimento. Para obter mais informações, consulte [vincular uma ID de parceiro às suas contas do Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Observe que você precisará executar essa associação em seu locatário do provedor de serviços.
 
 > [!NOTE]
 > Os clientes podem ser integrados automaticamente quando comprarem uma oferta de serviços gerenciados (pública ou privada) que você publicou no Azure Marketplace. Para obter mais informações, consulte [publicar ofertas de serviços gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui com uma oferta publicada no Azure Marketplace.
@@ -42,7 +42,7 @@ Se você ainda não tiver essas informações, poderá recuperá-las de uma das 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Sua ID de locatário pode ser vista passando o mouse sobre o nome da sua conta no lado superior direito da portal do Azure ou selecionando o **diretório**de comutador. Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" de dentro do portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório** . Para localizar a ID de uma assinatura, pesquise "assinaturas" e, em seguida, selecione a ID de assinatura apropriada.
+Sua ID de locatário pode ser vista passando o mouse sobre o nome da sua conta no lado superior direito da portal do Azure ou selecionando o **diretório de comutador**. Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" de dentro do portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório** . Para localizar a ID de uma assinatura, pesquise "assinaturas" e, em seguida, selecione a ID de assinatura apropriada.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -71,7 +71,7 @@ Como um provedor de serviços, talvez você queira usar várias ofertas com um �
 Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função, permitindo que você adicione ou remova usuários individuais do grupo em vez de atribuir permissões diretamente a esse usuário. Você também pode querer atribuir funções a uma entidade de serviço. Certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros inadvertidos. Para obter mais informações, consulte [práticas recomendadas de segurança](../concepts/recommended-security-practices.md).
 
 > [!NOTE]
-> As atribuições de função devem usar [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto para o proprietário e quaisquer funções [](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) internas com a permissão dataactions. A função interna do administrador de acesso do usuário tem suporte para uso limitado, conforme descrito abaixo. As funções personalizadas e as [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) também não têm suporte.
+> As atribuições de função devem usar [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto para o proprietário e quaisquer funções internas com a permissão [Dataactions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) . A função interna do administrador de acesso do usuário tem suporte para uso limitado, conforme descrito abaixo. As funções personalizadas e as [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) também não têm suporte.
 
 Para definir autorizações, você precisará saber os valores de ID para cada usuário, grupo de usuários ou entidade de serviço ao qual você deseja conceder acesso. Você também precisará da ID de definição de função para cada função interna que você deseja atribuir. Se você ainda não os tiver, poderá recuperá-los de uma das maneiras a seguir.
 
@@ -120,7 +120,7 @@ Para carregar seu cliente, você precisará criar um modelo de [Azure Resource M
 |**mspName**     |Nome do provedor de serviço         |
 |**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "oferta de gerenciamento de VM da Contoso")      |
 |**managedByTenantId**     |Sua ID de locatário         |
-|**autorizações**     |Os valores de PrincipalId para os usuários/grupos/SPNs do seu locatário, cada um com um **principalIdDisplayName** para ajudar seu cliente a entender a finalidade da autorização e mapeado para um valor **roleDefinitionId** interno para especificar o nível de acesso         |
+|**autorizações**     |Os valores de **PrincipalId** para os usuários/grupos/SPNs do seu locatário, cada um com um **principalIdDisplayName** para ajudar seu cliente a entender a finalidade da autorização e mapeado para um valor **roleDefinitionId** interno para especificar o nível de acesso         |
 
 Para carregar a assinatura de um cliente, use o modelo de Azure Resource Manager apropriado que fornecemos em nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/), junto com um arquivo de parâmetros correspondente que você modifica para corresponder à sua configuração e definir suas autorizações. Modelos separados são fornecidos dependendo se você está integrando uma assinatura inteira, um grupo de recursos ou vários grupos de recursos em uma assinatura. Também fornecemos um modelo que pode ser usado para clientes que compraram uma oferta de serviço gerenciado que você publicou no Azure Marketplace, se você preferir integrar suas assinaturas dessa maneira.
 
@@ -272,7 +272,7 @@ Get-AzContext
 az account list
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **meus clientes** na portal do Azure.

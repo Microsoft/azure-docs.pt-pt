@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070586"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129702"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no serviço Azure App
 <a name="Overview"></a>
@@ -134,7 +134,7 @@ Para permutar slots de implantação:
 
 3. Quando tiver terminado, feche a caixa de diálogo selecionando **fechar**.
 
-Se você tiver problemas, consulte [solucionar problemas](#troubleshoot-swaps)de trocas.
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
 <a name="Multi-Phase"></a>
 
@@ -167,7 +167,7 @@ Para alternar com a visualização:
 
 4. Quando tiver terminado, feche a caixa de diálogo selecionando **fechar**.
 
-Se você tiver problemas, consulte [solucionar problemas](#troubleshoot-swaps)de trocas.
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
 Para automatizar uma troca de várias fases, consulte [automatizar com o PowerShell](#automate-with-powershell).
 
@@ -191,7 +191,7 @@ A troca automática simplifica os cenários de DevOps do Azure em que você dese
 
 Para configurar a troca automática:
 
-1. Vá para a página de recursos do aplicativo. Selecione **Slots** >  >  > de implantação desejados*slot de origem > configurações gerais de configuração.\<*
+1. Vá para a página de recursos do aplicativo. Selecione **Slots** >  >  > de implantação desejados slot de origem > configurações gerais de configuração. *\<*
    
 2. Para a **troca automática habilitada**, selecione **ativado**. Em seguida, selecione o slot de destino desejado para o **slot de implantação de permuta automática**e selecione **salvar** na barra de comandos. 
    
@@ -199,7 +199,7 @@ Para configurar a troca automática:
 
 3. Execute um push de código para o slot de origem. A troca automática ocorre após um curto período de tempo e a atualização é refletida na URL do slot de destino.
 
-Se você tiver problemas, consulte [solucionar problemas](#troubleshoot-swaps)de trocas.
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
 <a name="Warm-up"></a>
 
@@ -220,7 +220,10 @@ Você também pode personalizar o comportamento de aquecimento com uma ou ambas 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra como o valor. Um exemplo é `/statuscheck`. O valor predefinido é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas de códigos HTTP. Um exemplo é `200,202` . Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
 
-Se você tiver problemas, consulte [solucionar problemas](#troubleshoot-swaps)de trocas.
+> [!NOTE]
+> `<applicationInitialization>`faz parte de cada aplicativo de inicialização, onde essas duas configurações de aplicativo se aplicam somente a trocas de slot.
+
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Monitorar uma troca
 
@@ -369,5 +372,7 @@ Aqui estão alguns erros de permuta comuns:
     ```
 - Algumas [regras de restrição de IP](app-service-ip-restrictions.md) podem impedir que a operação de permuta envie solicitações HTTP para seu aplicativo. Os intervalos de endereços IPv4 que `10.` começam `100.` com e são internos à sua implantação. Você deve permitir que eles se conectem ao seu aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+- Após trocas de slot, o aplicativo pode experimentar reinicializações inesperadas. Isso ocorre porque, após uma troca, a configuração de associação de nome de host fica fora de sincronia, o que por si só não causa reinicializações. No entanto, determinados eventos de armazenamento subjacentes (como failovers de volume de armazenamento) podem detectar essas discrepâncias e forçar a reinicialização de todos os processos de trabalho. Para minimizar esses tipos de reinicializações, defina a [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` configuração do aplicativo](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todos os slots*. No entanto, essa configuração de aplicativo *não funciona com* aplicativos Windows Communication Foundation (WCF).
+
+## <a name="next-steps"></a>Passos seguintes
 [Bloquear o acesso a slots de não produção](app-service-ip-restrictions.md)

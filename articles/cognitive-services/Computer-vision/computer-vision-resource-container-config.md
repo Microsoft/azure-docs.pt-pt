@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102291"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129971"
 ---
-# <a name="configure-recognize-text-docker-containers"></a>Configurar contêineres do Docker Reconhecimento de Texto
+# <a name="configure-computer-vision-docker-containers"></a>Configurar contêineres do Docker Pesquisa Visual Computacional
 
-O ambiente de tempo de execução de contêiner reconhecimento de texto `docker run` é configurado usando os argumentos de comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+Você configura o ambiente de tempo de execução do contêiner de `docker run` pesquisa Visual computacional usando os argumentos de comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -63,9 +63,9 @@ Lembre-se de `vision/v1.0` adicionar o roteamento ao URI do ponto de extremidade
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy http
+## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Definições de registo
  
@@ -84,14 +84,12 @@ A sintaxe exata da localização de montagem do anfitrião varia consoante o sis
 |Não permitido| `Input` | Cadeia | Os contêineres de Pesquisa Visual Computacional não usam isso.|
 |Opcional| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Executar comandos de docker de exemplo 
+## <a name="example-docker-run-commands"></a>Executar comandos de docker de exemplo
 
 Os exemplos seguintes utilizam as definições de configuração para ilustrar como escrever e usar `docker run` comandos.  Quando em execução, o contentor continua a ser executada até [parar](computer-vision-how-to-install-containers.md#stop-the-container) -lo.
 
 * **Caractere de continuação de linha**: Os comandos do Docker nas seções a seguir usam a barra `\`invertida,, como um caractere de continuação de linha. Substituir ou remova esta com base nos requisitos de seu sistema de operativo de anfitrião. 
 * **Ordem do argumento**: Não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
-
-Lembre-se de `vision/v1.0` adicionar o roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
@@ -104,17 +102,19 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](computer-vision-how-to-install-containers.md#billing).
-> O valor de ApiKey é a **chave** da página `Cognitive Services` de chaves de recurso do Azure. 
+> O valor de ApiKey é a **chave** da página `Cognitive Services` de chaves de recurso do Azure.
 
-## <a name="recognize-text-container-docker-examples"></a>Exemplos de encaixe de contêiner de texto de reconhecimento
+## <a name="container-docker-examples"></a>Exemplos de Docker de contêiner
 
-Os exemplos do Docker a seguir são para o contêiner reconhecer texto. 
+#### <a name="readtabread"></a>[Leitura](#tab/read)
 
-### <a name="basic-example"></a>Exemplo básico 
+Os exemplos do Docker a seguir são para o contêiner de leitura.
+
+### <a name="basic-example"></a>Exemplo básico
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -123,7 +123,32 @@ Os exemplos do Docker a seguir são para o contêiner reconhecer texto.
 ### <a name="logging-example"></a>Exemplo de log 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
+  Logging:Console:LogLevel:Default=Information
+  ```
+
+#### <a name="recognize-texttabrecognize-text"></a>[Reconhecer texto](#tab/recognize-text)
+
+Os exemplos do Docker a seguir são para o contêiner de Reconhecimento de Texto.
+
+### <a name="basic-example"></a>Exemplo básico
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
+  ```
+
+### <a name="logging-example"></a>Exemplo de log
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
   Billing={ENDPOINT_URI} \
@@ -131,6 +156,8 @@ Os exemplos do Docker a seguir são para o contêiner reconhecer texto.
   Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+***
 
-* Revisão [como instalar e executar contentores](computer-vision-how-to-install-containers.md)
+## <a name="next-steps"></a>Passos seguintes
+
+* Examine [como instalar e executar contêineres](computer-vision-how-to-install-containers.md).

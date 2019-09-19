@@ -4,18 +4,18 @@ summary: A Ligação Privada do Azure permite o acesso aos Serviços PaaS do Azu
 metadata:
   title: Documentação da Ligação Privada - Inícios Rápidos, Manuais de instruções e referências de API
   description: Saiba como utilizar o serviço de Ligação Privada do Azure. Os Inícios Rápidos e tutoriais mostram como implementar um serviço de Ligação Privada.
-  ms.service: virtual-network
+  ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
   author: KumudD
   ms.author: kumud
   ms.date: 09/16/2019
-  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
-  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.openlocfilehash: 24b6d3ce2514ef25a015182e4a4fcd641ac76d50
+  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/16/2019
-  ms.locfileid: "71020216"
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71104596"
 landingContent:
 - title: Sobre a Ligação Privada do Azure
   linkLists:

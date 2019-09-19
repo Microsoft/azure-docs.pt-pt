@@ -1,26 +1,26 @@
 ---
-title: 'Expanda a sua rede no local para o Azure através de uma ligação privada - descrição geral do ExpressRoute: Azure | Microsoft Docs'
+title: 'Estenda sua rede local para o Azure por meio de uma conexão privada-Visão geral do ExpressRoute: Azure | Microsoft Docs'
 description: A Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 6d83cb76abad3923dc7f0473f4a609938093d990
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: a068912857c16d2257d09e221477afc5d4a8d603
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730498"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123320"
 ---
 # <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
-O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365.
+O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Office 365.
 
-A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Isso permite que as ligações ExpressRoute para oferecem mais fiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as ligações normais pela Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
+A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as conexões típicas pela Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
-![Descrição geral de ligação do ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
+![Visão geral da conexão do ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -46,7 +46,6 @@ Cada circuito ExpressRoute é composto por duas ligações para dois routers de 
 As ligações ExpressRoute permitem o acesso aos seguintes serviços:
 * Serviços do Microsoft Azure
 * Serviços do Microsoft Office 365
-* Microsoft Dynamics 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -59,11 +58,11 @@ Pode ligar-se à Microsoft a partir de uma das nossas [localizações de peering
 
 Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços cloud da Microsoft alojados na Europa do Norte e na Europa Ocidental. Consulte o artigo [Parceiros ExpressRoute e localizações peering](expressroute-locations.md) para obter uma descrição geral das regiões geopolíticas, as regiões associadas na nuvem Microsoft, e as localizações de peering ExpressRoute correspondentes.
 
-### <a name="global-connectivity-with-expressroute-premium"></a>Conectividade global com o ExpressRoute Premium
-Pode habilitar [ExpressRoute Premium](expressroute-faqs.md) para expandir a conectividade dos limites geopolíticos. Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços cloud da Microsoft alojados em todas as regiões pelo mundo (exceto clouds nacionais). Pode aceder aos serviços implementados na América do Sul ou Austrália da mesma forma que acede às regiões da Europa do Norte e Europa Ocidental.
+### <a name="global-connectivity-with-expressroute-premium"></a>Conectividade global com ExpressRoute Premium
+Você pode habilitar o [ExpressRoute Premium](expressroute-faqs.md) para estender a conectividade entre limites de geopolítica. Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços cloud da Microsoft alojados em todas as regiões pelo mundo (exceto clouds nacionais). Pode aceder aos serviços implementados na América do Sul ou Austrália da mesma forma que acede às regiões da Europa do Norte e Europa Ocidental.
 
-### <a name="local-connectivity-with-expressroute-local"></a>Conectividade local com o Local do ExpressRoute
-Pode transferir dados de forma económica, permitindo que o [Local SKU](expressroute-faqs.md) se pode reunir os dados para uma localização do ExpressRoute perto de sua região do Azure pretendida. Com o Local, transferência de dados está incluída no custo de porta do ExpressRoute. 
+### <a name="local-connectivity-with-expressroute-local"></a>Conectividade local com ExpressRoute local
+Você pode transferir dados de forma econômica habilitando o [SKU local](expressroute-faqs.md) se puder colocar seus dados em um local do ExpressRoute perto da região do Azure desejada. Com o local, a transferência de dados é incluída no encargo da porta do ExpressRoute. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Na conectividade local com Alcance Global do ExpressRoute
 Pode ativar o Alcance Global do ExpressRoute para trocar dados entre os sites no local ao ligar os seus circuitos do ExpressRoute. Por exemplo, se tiver um datacenter privado na Califórnia ligado ao ExpressRoute em Silicon Valley e outro datacenter privado no Texas ligado ao ExpressRoute em Dallas, com o Alcance Global do ExpressRoute, pode ligar os datacenters privados em conjunto através de dois circuitos do ExpressRoute. O tráfego em vários datacenters irá percorrer a rede da Microsoft.
@@ -81,7 +80,7 @@ O ExpressRoute Direct permite aos clientes ligarem diretamente à rede global da
 As principais funcionalidades que o ExpressRoute Direct dispõe incluem, mas não se limitam a:
 
 * Ingestão de Dados em Massa em serviços como o Armazenamento e o Cosmos DB
-* Isolamento físico para setores que estejam reguladas e exigir dedicado e isolado a conectividade, como: Banca, governamentais e varejo
+* Isolamento físico para setores que são regulamentados e exigem conectividade dedicada e isolada, como: Bancário, governo e varejo
 * Controlo granular de distribuição do circuito baseado na unidade de negócios
 
 Para obter mais informações, veja [Sobre o ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
@@ -114,7 +113,7 @@ Pode escolher um modelo de faturação que funciona melhor para si. Escolha entr
 ## <a name="faq"></a>FAQ
 Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [ExpressRoute connectivity models (Modelos de conectividade do ExpressRoute)](expressroute-connectivity-models.md).
 * Saiba mais sobre ligações ExpressRoute e domínios de encaminhamento. Veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 * Encontre um fornecedor de serviços. Veja [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md).

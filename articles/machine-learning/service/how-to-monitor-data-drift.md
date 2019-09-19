@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034363"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123272"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a monitorar a descompasso de dados entre o conjun
 
 ## <a name="what-is-data-drift"></a>O que é descompasso de dados?
 
-A descompasso de dados ocorre quando os dados servidos para um modelo na produção são diferentes dos dados usados para treinar o modelo. É um dos principais motivos em que a precisão do modelo degrada ao longo do tempo, o que monitora a descompasso de dados ajuda a detectar problemas de desempenho do modelo. 
+No contexto do Machine Learning, a descompasso de dados é a alteração nos dados de entrada do modelo que leva à degradação do desempenho do modelo. É um dos principais motivos em que a precisão do modelo degrada ao longo do tempo, o que monitora a descompasso de dados ajuda a detectar problemas de desempenho do modelo. 
 
 ## <a name="what-can-i-monitor"></a>O que posso monitorar?
 
@@ -187,7 +187,7 @@ Quando a descompasso de dados afeta negativamente o desempenho do modelo implant
 * Avalie o desempenho do modelo recém-gerado.
 * Implante o novo modelo se o desempenho for melhor do que o modelo de produção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter um exemplo completo de como usar a descompasso de dados, consulte o [notebook de descompasso de dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
 

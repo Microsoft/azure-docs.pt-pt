@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 0c1599e61bbc92f6f81cfb17e35ffd0bf04721f9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2d486a5e181e9131ef7a1e91f52018fb2be82dc1
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883521"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105222"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início rápido: Criar um aplicativo Java no serviço de Azure App no Linux
 
@@ -31,7 +31,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 >
 > A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e o eclipse. Confira nossos documentos semelhantes em [Azure Toolkit for IntelliJ início rápido](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Azure Toolkit for Eclipse início rápido](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
 >
-![Aplicação de exemplo em execução no Azure](media/quickstart-java/java-hello-world-in-browser.png)
+![Aplicativo de exemplo em execução no serviço Azure App](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -137,7 +137,7 @@ mvn package azure-webapp:deploy
 
 Uma vez concluída a implementação, navegue para a aplicação implementada com o seguinte URL no seu browser, por exemplo `http://<webapp>.azurewebsites.net`. 
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-java/java-hello-world-in-browser.png)
+![Aplicativo de exemplo em execução no serviço Azure App](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Parabéns!** Implementou a sua primeira aplicação Java no Serviço de Aplicações no Linux.
 

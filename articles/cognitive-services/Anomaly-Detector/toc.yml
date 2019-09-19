@@ -16,12 +16,14 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Utilizar o Python
           href: quickstarts/detect-data-anomalies-python.md
-    - name: Cliente
+    - name: Biblioteca de cliente
       items:
         - name: 'Utilizar C#'
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
         - name: Utilizar o Python
           href: quickstarts/detect-data-anomalies-python-sdk.md
+        - name: Com Node.js
+          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
 - name: Tutoriais
   items:
     - name: Visualizar anomalias como um lote com o Power BI

@@ -1,6 +1,6 @@
 ---
-title: Usar Azure Data Factory para migrar dados do servidor Netezza local para o Azure | Microsoft Docs
-description: Use Azure Data Factory para migrar dados do servidor Netezza local para o Azure.
+title: Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure | Microsoft Docs
+description: Use Azure Data Factory para migrar dados de um servidor Netezza local para o Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,16 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 4690fd81247035267861b06c204c6db7a052eba5
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259564"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122835"
 ---
-# <a name="use-azure-data-factory-to-migrate-data-from-on-premises-netezza-server-to-azure"></a>Usar Azure Data Factory para migrar dados do servidor Netezza local para o Azure 
+# <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure 
 
-O Azure Data Factory fornece um mecanismo de desempenho, robusto e econômico para migrar dados em escala do servidor Netezza local para o armazenamento do Azure ou o Azure SQL Data Warehouse. Este artigo fornece as seguintes informações para desenvolvedores e engenheiros de dados:
+O Azure Data Factory fornece um mecanismo de desempenho, robusto e econômico para migrar dados em escala de um servidor Netezza local para sua conta de armazenamento do Azure ou banco de dados do Azure SQL Data Warehouse. 
+
+Este artigo fornece as seguintes informações para desenvolvedores e engenheiros de dados:
 
 > [!div class="checklist"]
 > * Desempenho 
@@ -32,127 +34,170 @@ O Azure Data Factory fornece um mecanismo de desempenho, robusto e econômico pa
 
 ## <a name="performance"></a>Desempenho
 
-O Azure Data Factory oferece uma arquitetura sem servidor que permite o paralelismo em diferentes níveis, o que permite aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como a largura de banda do banco de dados, para maximizar a taxa de transferência de movimento para o seu ambiente.
+O Azure Data Factory oferece uma arquitetura sem servidor que permite paralelismo em vários níveis. Se você for um desenvolvedor, isso significará que você pode criar pipelines para usar totalmente a largura de banda de rede e de banco de dados para maximizar a taxa de transferência de movimentação do seu ambiente.
 
-![desempenho](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
+![Diagrama de desempenho](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
 
-- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar Azure Integration Runtime, você pode especificar [até 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) para cada atividade de cópia de maneira sem servidor; ao usar o Integration Runtime auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até 4 nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), e uma única atividade de cópia distribuirá sua partição em todos os nós. 
+O diagrama anterior pode ser interpretado da seguinte maneira:
+
+- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis. Ao usar Azure Integration Runtime, você pode especificar [até 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) para cada atividade de cópia de maneira sem servidor. Com um tempo de execução de integração auto-hospedado (IR auto-hospedado), você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até quatro nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), e uma única atividade de cópia distribui sua partição em todos os nós. 
+
 - Uma única atividade de cópia lê e grava no armazenamento de dados usando vários threads. 
-- Azure Data Factory fluxo de controle pode iniciar várias atividades de cópia em paralelo, por exemplo, usando [for Each loop](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
-Você pode obter mais detalhes no [Guia de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+- Azure Data Factory fluxo de controle pode iniciar várias atividades de cópia em paralelo. Por exemplo, ele pode iniciá-los usando um [loop for each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+
+Para obter mais informações, consulte [Guia de desempenho e escalabilidade da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
 
 ## <a name="resilience"></a>Resiliência
 
-Em uma execução de atividade de cópia única, Azure Data Factory tem um mecanismo de repetição interno para que possa lidar com um certo nível de falhas transitórias nos armazenamentos de dados ou na rede subjacente.
+Em uma execução de atividade de cópia única, Azure Data Factory tem um mecanismo de repetição interno, que permite que ele manipule um certo nível de falhas transitórias nos armazenamentos de dados ou na rede subjacente.
 
-Azure Data Factory atividade de cópia também oferece duas maneiras de lidar com linhas incompatíveis ao copiar dados entre armazenamentos de dados de origem e de coletor. Você pode anular e reprovar a atividade de cópia quando dados incompatíveis forem encontrados ou continuar copiando os dados REST ignorando linhas de dados incompatíveis. Além disso, você pode registrar em log as linhas incompatíveis no armazenamento de BLOBs do Azure ou Azure Data Lake Store para saber a causa da falha, corrigir os dados na fonte de dados e repetir a atividade de cópia.
+Com Azure Data Factory atividade de cópia, ao copiar dados entre armazenamentos de dados de origem e de coletor, você tem duas maneiras de lidar com linhas incompatíveis. Você pode anular e reprovar a atividade de cópia ou continuar a copiar o restante dos dados, ignorando as linhas de dados incompatíveis. Além disso, para saber a causa da falha, você pode registrar em log as linhas incompatíveis no armazenamento de BLOBs do Azure ou Azure Data Lake Store, corrigir os dados na fonte de dados e repetir a atividade de cópia.
 
 ## <a name="network-security"></a>Segurança da rede 
 
-Por padrão, Azure Data Factory transfere dados do servidor Netezza local para o armazenamento do Azure ou o Azure SQL Data Warehouse usando a conexão criptografada via protocolo HTTPS. Ele fornece criptografia de dados em trânsito e impede ataques de interceptação e Man-in-the-Middle.
+Por padrão, o Azure Data Factory transfere os dados do servidor Netezza local para uma conta de armazenamento do Azure ou o Azure SQL Data Warehouse Database usando uma conexão criptografada por HTTPS (Hypertext Transfer Protocol Secure). O HTTPS fornece criptografia de dados em trânsito e impede ataques de interceptação e Man-in-the-Middle.
 
-Como alternativa, se você não quiser que os dados sejam transferidos pela Internet pública, poderá obter maior segurança transferindo dados por um link de emparelhamento privado por meio da rota expressa do Azure. Consulte a arquitetura da solução abaixo sobre como isso pode ser feito.
+Como alternativa, se você não quiser que os dados sejam transferidos pela Internet pública, poderá ajudar a obter maior segurança transferindo dados por meio de um link de emparelhamento privado por meio da rota expressa do Azure. 
+
+A próxima seção discute como obter maior segurança.
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 
-Migrar dados pela Internet pública:
+Esta seção aborda duas maneiras de migrar seus dados.
 
-![solução-arquitetura-pública-rede](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
+### <a name="migrate-data-over-the-public-internet"></a>Migrar dados pela Internet pública
 
-- Nessa arquitetura, os dados são transferidos com segurança usando HTTPS pela Internet pública.
-- Você precisa instalar Azure Data Factory o tempo de execução de integração auto-hospedado em um computador Windows por trás do firewall corporativo para alcançar essa arquitetura. Verifique se seu tempo de execução de integração do Azure Data Factory auto-hospedado em um computador com Windows pode obter acesso diretamente ao servidor Netezza. Você pode escalar verticalmente seu computador manualmente ou escalar horizontalmente para vários computadores a fim de utilizar totalmente sua rede e a largura de banda de armazenamento de dados para copiar dados.
-- A migração de dados de instantâneo inicial e a migração de dados Delta podem ser obtidas usando essa arquitetura.
+![Migrar dados pela Internet pública](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
 
-Migrar dados por link privado: 
+O diagrama anterior pode ser interpretado da seguinte maneira:
 
-![solução-arquitetura-privada-rede](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
+- Nessa arquitetura, você transfere os dados com segurança usando HTTPS pela Internet pública.
 
-- Nessa arquitetura, a migração de dados é feita por meio de um link de emparelhamento privado por meio da rota expressa do Azure, de modo que os dados nunca percorram pela Internet pública. 
-- Você precisa instalar Azure Data Factory o tempo de execução de integração auto-hospedado em uma VM do Windows em sua rede virtual do Azure para obter essa arquitetura. Você pode escalar verticalmente suas VMs manualmente ou escalar horizontalmente para várias VMs para utilizar totalmente sua rede e a largura de banda de armazenamento de dados para copiar dados.
-- A migração de dados de instantâneo inicial e a migração de dados Delta podem ser obtidas usando essa arquitetura.
+- Para obter essa arquitetura, você precisa instalar o Azure Data Factory o tempo de execução de integração (auto-hospedado) em um computador Windows atrás de um firewall corporativo. Verifique se esse Integration Runtime pode acessar diretamente o servidor Netezza. Para usar totalmente a largura de banda de armazenamento de dados e de rede para copiar dados, você pode escalar verticalmente seu computador ou escalar horizontalmente para vários computadores.
 
-## <a name="implementation-best-practices"></a>Práticas recomendadas de implementação 
+- Usando essa arquitetura, você pode migrar dados de instantâneo inicial e dados Delta.
 
-### <a name="authentication-and-credential-management"></a>Autenticação e gerenciamento de credenciais 
+### <a name="migrate-data-over-a-private-network"></a>Migrar dados por uma rede privada 
+
+![Migrar dados por uma rede privada](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
+
+O diagrama anterior pode ser interpretado da seguinte maneira:
+
+- Nessa arquitetura, você migra dados por um link de emparelhamento privado por meio da rota expressa do Azure e os dados nunca percorrem pela Internet pública. 
+
+- Para obter essa arquitetura, você precisa instalar o Azure Data Factory o tempo de execução de integração (auto-hospedado) em uma VM (máquina virtual) do Windows em sua rede virtual do Azure. Para usar totalmente a largura de banda de armazenamento de dados e de rede para copiar dados, você pode escalar verticalmente sua VM ou escalar horizontalmente para várias VMs.
+
+- Usando essa arquitetura, você pode migrar dados de instantâneo inicial e dados Delta.
+
+## <a name="implement-best-practices"></a>Implementar práticas recomendadas 
+
+### <a name="manage-authentication-and-credentials"></a>Gerenciar autenticação e credenciais 
 
 - Para autenticar no Netezza, você pode usar a [autenticação ODBC por meio da cadeia de conexão](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties). 
-- Há suporte para vários tipos de autenticação para se conectar ao armazenamento de BLOBs do Azure.  O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) é altamente recomendável: criado com base em um Azure data Factory gerenciado automaticamente identificado no Azure AD, ele permite que você configure pipelines sem fornecer credenciais na definição de serviço vinculado.  Como alternativa, você pode autenticar no armazenamento de BLOBs do Azure usando a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), a [assinatura de acesso compartilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)ou a [chave da conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Também há suporte para vários tipos de autenticação para se conectar ao Azure Data Lake Storage Gen2.  O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) é altamente recomendado, embora a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou a chave de [conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) também possa ser usada. 
-- Também há suporte para vários tipos de autenticação para se conectar ao Azure SQL Data Warehouse. O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity) é altamente recomendado, embora a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) ou a [autenticação SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication) também possam ser usadas.
-- Quando você não estiver usando identidades gerenciadas para recursos do Azure, é altamente recomendável [armazenar as credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para facilitar o gerenciamento centralizado e a rotação das chaves sem modificar Azure data Factory serviços vinculados.  Essa também é uma das [práticas recomendadas para CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
-### <a name="initial-snapshot-data-migration"></a>Migração de dados de instantâneo inicial 
+- Para autenticar no armazenamento de BLOBs do Azure: 
 
-Para tabelas pequenas quando o tamanho do volume é menor que 100 GB ou pode ser migrado para o Azure em 2 horas, você pode fazer com que cada trabalho de cópia carregue dados por tabela. Você pode executar vários Azure Data Factory trabalhos de cópia para carregar diferentes tabelas simultaneamente para obter uma melhor taxa de transferência. 
+   - É altamente recomendável usar [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Criado com base em uma identidade de Azure Data Factory gerenciada automaticamente no Azure Active Directory (AD do Azure), as identidades gerenciadas permitem que você configure pipelines sem precisar fornecer credenciais na definição de serviço vinculado.  
 
-Dentro de cada trabalho de cópia, você também pode alcançar algum nível de paralelismo usando a opção [parallelCopies](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) com partição de dados para executar consultas paralelas e copiar dados por partições. Há duas opções de partição de dados a serem escolhidas com detalhes abaixo.
-- Você é incentivado a começar da fatia de dados, pois ela é mais eficiente.  Verifique se o número de paralelismo na configuração parallelCopies está abaixo do número total de partições de fatia de dados em sua tabela no servidor Netezza.  
-- Se o tamanho do volume de cada partição de fatia de dados ainda for grande (por exemplo, maior que 10 GB), você será incentivado a alternar para a partição de intervalo dinâmico, na qual terá mais flexibilidade para definir o número de partições e o tamanho do volume para cada partição por coluna de partição, limite superior e limite inferior.
+   - Como alternativa, você pode autenticar no armazenamento de BLOBs do Azure usando a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), uma [assinatura de acesso compartilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)ou uma [chave de conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
 
-Para as tabelas grandes quando o tamanho do volume é maior que 100 GB ou não pode ser migrado para o Azure em 2 horas, é recomendável particionar os dados por consulta personalizada e, em seguida, fazer cada trabalho de cópia copiar uma partição por vez. Você pode executar vários Azure Data Factory trabalhos de cópia simultaneamente para obter uma melhor taxa de transferência. Lembre-se de que, para cada destino de trabalho de cópia carregar uma partição por consulta personalizada, você ainda poderá habilitar o paralelismo por meio de uma fatia de dados ou de um intervalo dinâmico para aumentar a taxa de transferência. 
+- Para autenticar para o Azure Data Lake Storage Gen2: 
 
-Se qualquer um dos trabalhos de cópia falhar devido a um problema transitório de rede ou de armazenamento de dados, você poderá executar novamente o trabalho de cópia com falha para recarregar a partição específica novamente da tabela. Todos os outros trabalhos de cópia que carregam outras partições não serão afetados.
+   - É altamente recomendável usar [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity).
+   
+   - Você também pode usar a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou uma chave de conta de [armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
 
-Ao carregar dados no Azure SQL Data Warehouse, o polybase é sugerido para ser habilitado no trabalho de cópia com um armazenamento de BLOBs do Azure como preparo.
+- Para autenticar no Azure SQL Data Warehouse:
 
-### <a name="delta-data-migration"></a>Migração de dados Delta 
+   - É altamente recomendável usar [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
+   
+   - Você também pode usar a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) ou a autenticação do [SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication).
 
-A maneira de identificar as linhas novas ou atualizadas de sua tabela é usar uma coluna timestamp ou incrementar a chave no esquema e, em seguida, armazenar o valor mais recente como marca-d ' água alta em uma tabela externa, que pode ser usada para filtrar os dados Delta para o carregamento de dados da próxima vez. 
+- Quando você não estiver usando identidades gerenciadas para recursos do Azure, é altamente recomendável [armazenar as credenciais em Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para facilitar o gerenciamento e a rotação centralizado das chaves sem precisar modificar Azure data Factory serviços vinculados. Essa também é uma das [práticas recomendadas para CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
-Tabelas diferentes podem usar coluna de marca d' água diferente para identificar as linhas novas ou atualizadas. Sugerimos que você crie uma tabela de controle externo em que cada linha representa uma tabela no servidor Netezza com seu nome de coluna de marca d' água específico e valor de marca d' água alta. 
+### <a name="migrate-initial-snapshot-data"></a>Migrar dados de instantâneo inicial 
 
-### <a name="self-hosted-integration-runtime-configuration-on-azure-vm-or-machine"></a>Configuração de tempo de execução de integração auto-hospedado no computador ou VM do Azure
+Para tabelas pequenas (ou seja, tabelas com um volume de menos de 100 GB ou que podem ser migradas para o Azure dentro de duas horas), você pode fazer com que cada trabalho de cópia carregue dados por tabela. Para obter maior taxa de transferência, você pode executar vários Azure Data Factory trabalhos de cópia para carregar tabelas separadas simultaneamente. 
 
-Considerando que você está migrando dados do servidor Netezza para o Azure, independentemente de o Netezza Server estar sob a promessa por trás do firewall da sua empresa ou em um ambiente de VNET, você precisa instalar o tempo de execução de integração auto-hospedado no computador ou VM do Windows, que é o mecanismo a ser movido dado.
+Em cada trabalho de cópia, para executar consultas paralelas e copiar dados por partições, você também pode alcançar algum nível de paralelismo usando a [ `parallelCopies` configuração de propriedade](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) com uma das seguintes opções de partição de dados:
 
-- A configuração recomendada para começar para cada máquina ou VM é com 32 vCPU e 128 GB de memória. Você pode continuar monitorando a utilização de CPU e de memória do computador IR durante a migração de dados para ver se você precisa escalar verticalmente o computador para melhorar o desempenho ou reduzir verticalmente o computador para economizar o custo.
-- Você também pode escalar horizontalmente associando até quatro nós com um único IR auto-hospedado. Um único trabalho de cópia em execução em um IR de hospedagem interna aproveitará automaticamente todos os nós de VM para copiar os dados em paralelo. Para alta disponibilidade, é recomendável começar com 2 nós de VM para evitar um único ponto de falha durante a migração de dados.
+- Para obter ajuda para obter maior eficiência, recomendamos que você inicie a partir de uma fatia de dados.  Certifique-se de que o valor `parallelCopies` na configuração seja menor que o número total de partições de fatia de dados em sua tabela no servidor Netezza.  
 
-### <a name="rate-limiting"></a>Limitação de taxa
+- Se o volume de cada partição de fatia de dados ainda for grande (por exemplo, 10 GB ou mais), recomendamos que você alterne para uma partição de intervalo dinâmico. Essa opção oferece maior flexibilidade para definir o número de partições e o volume de cada partição por coluna de partição, limite superior e limite inferior.
 
-Como prática recomendada, realize uma POC de desempenho com um conjunto de exemplo representativo, para que você possa determinar um tamanho de partição apropriado para cada atividade de cópia. Sugerimos que você faça com que cada partição seja carregada no Azure dentro de duas horas.  
+Para tabelas maiores (ou seja, tabelas com um volume de 100 GB ou mais ou que *não podem* ser migradas para o Azure dentro de duas horas), recomendamos que você Particione os dados por consulta personalizada e, em seguida, faça com que cada cópia-trabalho Copie uma partição por vez. Para obter uma melhor taxa de transferência, você pode executar vários Azure Data Factory trabalhos de cópia simultaneamente. Para cada destino de cópia-trabalho de carregar uma partição por consulta personalizada, você pode aumentar a taxa de transferência habilitando o paralelismo por meio da fatia de dados ou do intervalo dinâmico. 
 
-Comece com uma única atividade de cópia com uma única máquina de IR hospedada internamente para copiar uma tabela. Aumente gradualmente a configuração de parallelCopies com base no número de partições de fatia de dados em sua tabela e veja se toda a tabela pode ser carregada no Azure dentro de 2 horas de acordo com a taxa de transferência que você vê do trabalho de cópia. 
+Se qualquer trabalho de cópia falhar devido a um problema transitório de rede ou armazenamento de dados, você poderá executar novamente o trabalho de cópia com falha para recarregar essa partição específica da tabela. Outros trabalhos de cópia que carregam outras partições não são afetados.
 
-Se não puder ser obtida e, ao mesmo tempo, a capacidade do nó IR auto-hospedado e o armazenamento de dados não for totalmente utilizado, Aumente gradualmente o número de atividades de cópia simultâneas até atingir os limites de sua rede ou limite de largura de banda dos armazenamentos de dados. 
+Quando você carrega dados em um Azure SQL Data Warehouse Database, sugerimos que você habilite o polybase dentro do trabalho de cópia com o armazenamento de BLOBs do Azure como preparo.
 
-Continue monitorando a utilização de CPU/memória no computador IR auto-hospedado e esteja pronto para escalar verticalmente o computador ou escalar horizontalmente para vários computadores quando você vir a CPU/memória totalmente utilizada. 
+### <a name="migrate-delta-data"></a>Migrar dados Delta 
 
-Quando você encontrar erros de limitação relatados por Azure Data Factory atividade de cópia, reduza a configuração de simultaneidade ou parallelCopies em Azure Data Factory ou considere aumentar os limites de largura de banda/IOPS da rede e dos armazenamentos de dados. 
+Para identificar as linhas novas ou atualizadas de sua tabela, use uma coluna timestamp ou uma chave de incremento dentro do esquema. Em seguida, você pode armazenar o valor mais recente como uma marca d' água alta em uma tabela externa e, em seguida, usá-lo para filtrar os dados Delta na próxima vez em que carregar os dados. 
+
+Cada tabela pode usar uma coluna de marca d' água diferente para identificar suas linhas novas ou atualizadas. Sugerimos que você crie uma tabela de controle externo. Na tabela, cada linha representa uma tabela no servidor Netezza com seu nome de coluna de marca d' água específico e o valor de marca d' água alta. 
+
+### <a name="configure-a-self-hosted-integration-runtime"></a>Configurar um tempo de execução de integração auto-hospedado
+
+Se você estiver migrando dados do servidor Netezza para o Azure, se o servidor estiver no local por trás de seu firewall da empresa ou em um ambiente de rede virtual, você precisará instalar um IR de um infravermelho hospedado em um computador ou VM do Windows, que é o mecanismo usado para mover dados. Como você está instalando o IR auto-hospedado, recomendamos a seguinte abordagem:
+
+- Para cada máquina ou VM do Windows, comece com uma configuração de 32 vCPU e 128-GB de memória. Você pode continuar monitorando o uso de CPU e de memória do computador IR durante a migração de dados para ver se você precisa escalar verticalmente o computador para melhorar o desempenho ou reduzir verticalmente o computador para economizar o custo.
+
+- Você também pode escalar horizontalmente associando até quatro nós com um único IR auto-hospedado. Um único trabalho de cópia em execução em um IR de hospedagem interna aplica automaticamente todos os nós de VM para copiar os dados em paralelo. Para alta disponibilidade, comece com quatro nós de VM para evitar um único ponto de falha durante a migração de dados.
+
+### <a name="limit-your-partitions"></a>Limitar suas partições
+
+Como prática recomendada, realize uma prova de conceito de desempenho (POC) com um conjunto de exemplo representativo, para que você possa determinar um tamanho de partição apropriado para cada atividade de cópia. Sugerimos que você carregue cada partição no Azure dentro de duas horas.  
+
+Para copiar uma tabela, comece com uma única atividade de cópia com uma única máquina de IR hospedada internamente. Aumente gradualmente a `parallelCopies` configuração com base no número de partições de fatia de dados em sua tabela. Veja se a tabela inteira pode ser carregada no Azure dentro de duas horas, de acordo com a taxa de transferência resultante do trabalho de cópia. 
+
+Se ele não puder ser carregado no Azure dentro de duas horas, e a capacidade do nó IR auto-hospedado e o armazenamento de dados não forem totalmente usados, Aumente gradualmente o número de atividades de cópia simultâneas até alcançar o limite de sua rede ou o limite de largura de banda do armazenamento de dados &. 
+
+Continue monitorando o uso de CPU e de memória no computador IR auto-hospedado e esteja pronto para escalar verticalmente o computador ou escalar horizontalmente para vários computadores quando você vir que a CPU e a memória são totalmente usadas. 
+
+Quando você encontrar erros de limitação, conforme relatado por Azure data Factory atividade de cópia, reduza a `parallelCopies` simultaneidade ou configuração em Azure data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e armazenamentos de dados. 
 
 
-### <a name="estimating-price"></a>Estimando o preço 
+### <a name="estimate-your-pricing"></a>Estime seus preços 
 
-Considere o pipeline a seguir construído para migrar dados do servidor Netezza local para o Azure SQL data warehouse:
+Considere o pipeline a seguir, que é construído para migrar dados do servidor Netezza local para um Azure SQL Data Warehouse Database:
 
-![preço-pipeline](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
+![O pipeline de preços](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
-Vamos supor o seguinte: 
+Vamos supor que as seguintes instruções sejam verdadeiras: 
 
-- O volume de dados total é de 50 TB. 
-- Migrando dados usando a primeira arquitetura da solução (o servidor Netezza é local por trás do firewall)
-- 50 TB são divididos em partições 500 e cada atividade de cópia move uma partição.
-- Cada atividade de cópia é configurada com um IR auto-hospedado em até 4 computadores e alcança a taxa de transferência de 20 MBps. (Na atividade de cópia, parallelCopies é definido como 4 e cada thread para carregar dados da tabela alcança a taxa de transferência de 5 MBps)
+- O volume de dados total é de 50 terabytes (TB). 
+
+- Estamos migrando dados usando a arquitetura de primeira solução (o servidor Netezza é local, por trás do firewall).
+
+- O volume de 50 TB é dividido em 500 partições e cada atividade de cópia move uma partição.
+
+- Cada atividade de cópia é configurada com um IR auto-hospedado em quatro máquinas e atinge uma taxa de transferência de 20 megabytes por segundo (MBps). (Na atividade de cópia `parallelCopies` , é definido como 4, e cada thread para carregar dados da tabela alcança uma taxa de transferência de 5 Mbps.)
+
 - A simultaneidade ForEach é definida como 3 e a taxa de transferência agregada é de 60 MBps.
+
 - No total, leva 243 horas para concluir a migração.
 
-Este é o preço estimado com base nas suposições acima: 
+Com base nas suposições anteriores, aqui está o preço estimado: 
 
-![preço-tabela](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
+![A tabela de preços](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
 
 > [!NOTE]
-> Este é um exemplo de preço hipotético. Seu preço real depende da taxa de transferência real em seu ambiente. O preço do computador com Windows (com o tempo de execução de integração auto-hospedado instalado) não está incluído. 
+> O preço mostrado na tabela anterior é hipotético. Seu preço real depende da taxa de transferência real em seu ambiente. O preço do computador com Windows (com o IR hospedado automaticamente instalado) não está incluído. 
 
-### <a name="additional-references"></a>Referências adicionais 
-- [Migração de dados de data warehouse relacionais locais para o Azure usando Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+### <a name="additional-references"></a>Referências adicionais
+
+Para obter mais informações, consulte os seguintes artigos e guias:
+
+- [Migre dados de uma data warehouse relacional local para o Azure usando Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
 - [Conector do Netezza](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [Conector ODBC](https://docs.microsoft.com/azure/data-factory/connector-odbc)
-- [Conector de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Conector do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Conector de Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Conector de SQL Data Warehouse do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Criando e configurando Integration Runtime auto-hospedados](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) (Criar e configurar um runtime de integração autoalojado)
 - [Escalabilidade e alta disponibilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [Considerações de segurança de movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
@@ -160,6 +205,6 @@ Este é o preço estimado com base nas suposições acima:
 - [Copiar dados incrementalmente de várias tabelas](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
 - [Página de preços do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copiar arquivos de vários contêineres usando Azure Data Factory](solution-template-copy-files-multiple-containers.md)

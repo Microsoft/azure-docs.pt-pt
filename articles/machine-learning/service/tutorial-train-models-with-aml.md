@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c7396baa745196e054c6cb49d349bf7684cd899
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8f3277d76709fe14a5eaa28cc0f562d95c1e4004
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001666"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128952"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Treinar modelos de classificação de imagem com dados do MNIST e scikit-aprender a usar Azure Machine Learning
 
@@ -143,11 +143,11 @@ Tem agora os pacotes e os recursos de computação necessários para preparar um
 
 ## <a name="explore-data"></a>Explorar dados
 
-Antes de treinar um modelo, você precisa entender os dados que usa para treiná-lo. Você também precisa copiar os dados para a nuvem. Em seguida, ele pode ser acessado pelo seu ambiente de treinamento de nuvem. Nesta seção, você aprenderá a executar as seguintes ações:
+Antes de treinar um modelo, você precisa entender os dados que usa para treiná-lo. Você também precisa carregar os dados para a nuvem usando para que ele possa ser acessado pelo seu ambiente de treinamento de nuvem. Nesta seção, você aprenderá a executar as seguintes ações:
 
 * Baixe o conjunto de MNIST.
 * Exibir algumas imagens de exemplo.
-* Carregar dados para a nuvem.
+* Carregar dados para seu espaço de trabalho na nuvem.
 
 ### <a name="download-the-mnist-dataset"></a>Transferir o conjunto de dados MNIST
 
@@ -209,18 +209,29 @@ Um exemplo aleatório de imagens apresenta:
 
 Agora, tem uma ideia do aspeto destas imagens e do resultado previsto da predição.
 
-### <a name="upload-data-to-the-cloud"></a>Carregar os dados para a cloud
+### <a name="create-a-filedataset"></a>Criar um filedataset
 
-Você baixou e usou os dados de treinamento no computador em que seu notebook está sendo executado.  Na próxima seção, você treinará um modelo na computação de Azure Machine Learning remota.  O recurso de computação remota também precisará de acesso aos seus dados. Para fornecer acesso, carregue seus dados em um repositório de armazenamento centralizado associado ao seu espaço de trabalho. Esse repositório de dados fornece acesso rápido aos seus dados ao usar destinos de computação remota na nuvem, como no data center do Azure.
-
-Carregue os arquivos MNIST em um diretório chamado `mnist` na raiz do repositório de armazenamento. Confira [acessar dados de seus armazenamentos](how-to-access-data.md) para obter mais informações.
+Um `FileDataset` objeto faz referência a um ou vários arquivos em seu repositório de armazenamento de espaço de trabalho ou URLs públicas. Os arquivos podem ser de qualquer formato e a classe fornece a capacidade de baixar ou montar os arquivos em sua computação. Ao criar um `FileDataset`, você cria uma referência ao local da fonte de dados. Se você aplicou todas as transformações ao conjunto de dados, elas também serão armazenadas no conjunto de dados. Os dados permanecem em seu local existente, portanto, nenhum custo de armazenamento extra é incorrido. Consulte o guia de [instruções](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets) no `Dataset` pacote para obter mais informações.
 
 ```python
-ds = ws.get_default_datastore()
-print(ds.datastore_type, ds.account_name, ds.container_name)
+from azureml.core.dataset import Dataset
 
-ds.upload(src_dir=data_folder, target_path='mnist',
-          overwrite=True, show_progress=True)
+web_paths = [
+            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
+            ]
+dataset = Dataset.File.from_files(path=web_paths)
+```
+
+Use o `register()` método para registrar o conjunto de dados em seu espaço de trabalho para que ele possa ser compartilhado com outras pessoas, reutilizados em vários experimentos e referenciado por nome em seu script de treinamento.
+
+```python
+dataset = dataset.register(workspace=ws,
+                           name='mnist dataset',
+                           description='training and test dataset',
+                           create_new_version=True)
 ```
 
 Tem agora tudo aquilo de que precisa para começar a preparar um modelo.
@@ -253,6 +264,7 @@ Para submeter o trabalho para o cluster, crie primeiro um script de preparação
 import argparse
 import os
 import numpy as np
+import glob
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
@@ -260,7 +272,7 @@ from sklearn.externals import joblib
 from azureml.core import Run
 from utils import load_data
 
-# let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
+# let user feed in 2 parameters, the dataset to mount or download, and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
@@ -271,10 +283,10 @@ print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
 # note we scale the pixel intensity values to 0-1 (by dividing it with 255.0) so the model can converge faster.
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -322,19 +334,31 @@ Um objeto de [estimador SKLearn](https://docs.microsoft.com/python/api/azureml-t
 * O nome do script de treinamento, **Train.py**.
 * Parâmetros necessários do script de treinamento.
 
-Neste tutorial, este destino é AmlCompute. Todos os arquivos na pasta de script são carregados nos nós de cluster para execução. O **DATA_FOLDER** está definido para usar o repositório de armazenamento `ds.path('mnist').as_mount()`,:
+Neste tutorial, este destino é AmlCompute. Todos os arquivos na pasta de script são carregados nos nós de cluster para execução. O **DATA_FOLDER** é definido para usar o conjunto de um. Primeiro, crie um objeto de ambiente que especifique as dependências necessárias para treinamento. 
+
+```python
+from azureml.core.environment import Environment
+from azureml.core.conda_dependencies import CondaDependencies
+
+env = Environment('my_env')
+cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+env.python.conda_dependencies = cd
+```
+
+Em seguida, crie o estimador com o código a seguir.
 
 ```python
 from azureml.train.sklearn import SKLearn
 
 script_params = {
-    '--data-folder': ds.path('mnist').as_mount(),
+    '--data-folder': dataset.as_named_input('mnist').as_mount(),
     '--regularization': 0.5
 }
 
 est = SKLearn(source_directory=script_folder,
               script_params=script_params,
               compute_target=compute_target,
+              environment_definition=env, 
               entry_script='train.py')
 ```
 
@@ -434,7 +458,7 @@ Você também pode excluir apenas o cluster de computação Azure Machine Learni
 compute_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste Azure Machine Learning tutorial, você usou o Python para as seguintes tarefas:
 

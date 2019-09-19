@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928018"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123062"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -99,13 +99,13 @@ O restante das funções de RBAC no Azure permite o gerenciamento de recursos es
 [Funções internas de RBAC](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Ele especifica as operações e o escopo que cada função interna concede aos usuários. Se você estiver procurando definir suas próprias funções para obter ainda mais controle, consulte como criar [funções personalizadas no RBAC do Azure](../../role-based-access-control/custom-roles.md).
 
 Alguns outros recursos para Azure Active Directory incluem:
-- O Azure AD permite o SSO para aplicativos SaaS, independentemente de onde eles estão hospedados. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. Os aplicativos federados também podem dar suporte ao provisionamento de usuário e à compartimentação de [senha](https://www.techopedia.com/definition/31415/password-vault).
+- O Azure AD permite o SSO para aplicativos SaaS, independentemente de onde eles estão hospedados. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. Os aplicativos federados também podem dar suporte ao provisionamento de usuário e à [compartimentação de senha](https://www.techopedia.com/definition/31415/password-vault).
 
 - O acesso aos dados do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado através da autenticação. Cada conta de armazenamento tem uma chave primária ([chave de conta de armazenamento](../../storage/common/storage-create-storage-account.md)ou Sak) e uma chave de segredo secundária (a assinatura de acesso compartilhado ou SAS).
 
 - O Azure AD fornece identidade como um serviço por meio de Federação usando [serviços de Federação do Active Directory (AD FS)](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), sincronização e replicação com diretórios locais.
 
-- A autenticação multifator do [Azure](../../active-directory/authentication/multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os usuários verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ele pode ser usado com o Azure AD para ajudar a proteger recursos locais com o servidor de autenticação multifator do Azure e também com aplicativos e diretórios personalizados usando o SDK.
+- A [autenticação multifator do Azure](../../active-directory/authentication/multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os usuários verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ele pode ser usado com o Azure AD para ajudar a proteger recursos locais com o servidor de autenticação multifator do Azure e também com aplicativos e diretórios personalizados usando o SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite que você ingresse máquinas virtuais do Azure em um domínio Active Directory sem implantar controladores de domínio. Você pode entrar nessas máquinas virtuais com suas credenciais Active Directory corporativas e administrar máquinas virtuais ingressadas no domínio usando Política de Grupo para impor linhas de base de segurança em todas as máquinas virtuais do Azure.
 
@@ -128,19 +128,8 @@ Se uma unidade de disco usada para armazenamento sofre uma falha de hardware, el
 O Microsoft Azure fornece vários serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias de computação & serviços que podem ser escalados verticalmente e reduzidos automaticamente para atender às necessidades de seu aplicativo ou empresa. Essas instâncias e serviços de computação oferecem isolamento em vários níveis para proteger dados sem sacrificar a flexibilidade na configuração exigida pelos clientes.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais isoladas
-A Computação do Azure oferece tamanhos de máquinas virtuais que são Isolados para um tipo de hardware específico e dedicados a um único cliente.  Estes tamanhos de máquinas virtuais são mais adequados para cargas de trabalho que exigem um elevado grau de isolamento de outros clientes para cargas de trabalho que envolvem elementos como os requisitos de conformidade e regulamentares.  Os clientes também podem optar por subdividir ainda mais os recursos dessas máquinas virtuais isoladas usando o [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
-A utilização de um tamanho isolado garante que sua máquina virtual será a única em execução nessa instância de servidor específica.  As ofertas atuais de máquinas virtuais isoladas incluem:
-* Standard_E64is_v3
-* Standard_E64i_v3
-* Standard_M128ms
-* Standard_GS5
-* Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
-* Standard_F72s_v2
-
-Você pode saber mais sobre cada tamanho isolado disponível [aqui](../../virtual-machines/windows/sizes-memory.md).
+[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & isolamento raiz do sistema operacional & VMs convidadas da VM raiz
 A plataforma de computação do Azure é baseada na virtualização de máquina, o que significa que todo o código do cliente é executado em uma máquina virtual do Hyper-V. Em cada nó do Azure (ou ponto de extremidade de rede), há um hipervisor que é executado diretamente pelo hardware e divide um nó em um número variável de VMs (máquinas virtuais) convidadas.

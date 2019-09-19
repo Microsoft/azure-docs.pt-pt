@@ -1,19 +1,19 @@
 ---
-title: 'Circuito fluxos de trabalho de configuração - ExpressRoute: Azure| Microsoft Docs'
+title: 'Fluxos de trabalho de configuração de circuito – ExpressRoute: Azure| Microsoft Docs'
 description: Esta página mostra os fluxos de trabalho para configurar o circuito do ExpressRoute e de peerings
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883203"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123387"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para o aprovisionamento e estados dos circuitos
 Esta página explica o serviço de aprovisionamento e encaminhamento de fluxos de trabalho de configuração num alto nível.
@@ -29,7 +29,7 @@ A figura a seguir e correspondentes passos mostram as tarefas que tem de seguir 
    
    * Ativar o peering privado do Azure - ativar este peering ligar a VMs / implementados dentro de redes virtuais de serviços cloud.
 
-   * Ativar o peering da Microsoft - ative esta opção para o acesso do Office 365 e Dynamics 365. Além disso, todos os serviços de PaaS do Azure são acessíveis através do peering da Microsoft.
+   * Habilitar emparelhamento da Microsoft – Habilite esta para acessar o Office 365. Além disso, todos os serviços de PaaS do Azure são acessíveis através do peering da Microsoft.
      
      > [!IMPORTANT]
      > Tem de garantir que utilizar um proxy separado / edge para ligar à Microsoft que o utilizar para a Internet. Utilizar a mesma margem para ExpressRoute e a Internet, causam encaminhamento assimétrico e causar falhas de conectividade para a sua rede.

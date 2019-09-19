@@ -4,7 +4,7 @@ description: Saiba como solucionar o problema no qual você não pode adicionar 
 services: api-management
 documentationcenter: ''
 author: genlin
-manager: cfowler
+manager: dcscontentpm
 editor: ''
 ms.service: api-management
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072098"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121526"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Falha ao atualizar os nomes de host do serviço de gerenciamento de API
 
@@ -37,16 +37,16 @@ O serviço de gerenciamento de API não tem permissão para acessar o cofre de c
 
 Para resolver este problema, siga estes passos:
 
-1. Vá para a [portal do Azure](Https://portal.azure.com), selecione sua instância de gerenciamento de API e,em seguida, selecione identidades gerenciadas. Verifique se a opção **registrar com Azure Active Directory** está definida como **Sim**. 
+1. Vá para a [portal do Azure](Https://portal.azure.com), selecione sua instância de gerenciamento de API e, em seguida, selecione **identidades gerenciadas**. Verifique se a opção **registrar com Azure Active Directory** está definida como **Sim**. 
     ![Registrando com o Azure active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
-1. No portal do Azure, abra o serviço de cofres de **chaves** e selecione o cofre de chaves que você está tentando usar para o domínio personalizado.
+1. No portal do Azure, abra o serviço de **cofres de chaves** e selecione o cofre de chaves que você está tentando usar para o domínio personalizado.
 1. Selecione **políticas de acesso**e verifique se há uma entidade de serviço que corresponda ao nome da instância do serviço de gerenciamento de API. Se houver, selecione a entidade de serviço e verifique se ela tem a permissão **obter** listada em **permissões secretas**.  
     ![Adicionando política de acesso para entidade de serviço](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Se o serviço de gerenciamento de API não estiver na lista, selecione **Adicionar política de acesso**e, em seguida, crie a seguinte política de acesso:
     - **Configurar do modelo**: Nenhum
     - **Selecionar entidade de segurança**: Pesquise o nome do serviço de gerenciamento de API e selecione-o na lista
     - **Permissões de chave**: Nenhum
-    - **Permissões de segredo**: Obter
+    - **Permissões de segredo**: Get
     - **Permissões de certificado**: Nenhum
 1. Selecione **OK** para criar a política de acesso.
 1. Selecione **guardar** para guardar as alterações.

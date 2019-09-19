@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098406"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130176"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -165,7 +165,14 @@ Há duas maneiras de excluir os dados de backup de uma VM:
   > [!NOTE]
   > Ao excluir dados de backup, você exclui todos os pontos de recuperação associados. Você não pode escolher pontos de recuperação específicos para excluir.
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup em que a fonte de dados primária não existe mais
+
+- Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup ad hoc com falha (trabalhos agendados com falha não são exibidos). 
+- Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
+- Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado como de acordo com o preço de backup aplicável.
+
+
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [fazer backup de VMs do Azure nas configurações da VM](backup-azure-vms-first-look-arm.md).
 - Saiba como [restaurar VMs](backup-azure-arm-restore-vms.md).
 - Saiba como [monitorar backups de VM do Azure](backup-azure-monitor-vms.md).

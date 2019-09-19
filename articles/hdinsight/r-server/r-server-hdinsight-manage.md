@@ -1,19 +1,19 @@
 ---
 title: Gerenciar o cluster de serviços am no HDInsight – Azure
 description: Saiba como gerenciar várias tarefas no cluster de serviços de am no Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: d31eb9ccb5df9137bebb877cce169cf657113d30
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967717"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123543"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerenciar o cluster de serviços am no Azure HDInsight
 
@@ -23,22 +23,20 @@ Neste artigo, você aprende a gerenciar um cluster existente dos serviços ML no
 
 * Um cluster de serviços do ML no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços ml** para o **tipo de cluster**.
 
-
 * Um cliente Secure Shell (SSH): Um cliente SSH é usado para se conectar remotamente ao cluster HDInsight e executar comandos diretamente no cluster. Para obter mais informações, consulte [usar SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="enable-multiple-concurrent-users"></a>Permitir vários utilizadores em simultâneo
 
 Você pode habilitar vários usuários simultâneos para o cluster de serviços am no HDInsight adicionando mais usuários ao nó de borda no qual a versão da Comunidade do RStudio é executada. Quando criar um cluster do HDInsight, tem de fornecer dois utilizadores -- um utilizador HTTP e outro SSH:
 
-![Utilizador simultâneo 1](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+![Parâmetros de logon do HDI portal do Azure](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **Nome de utilizador do cluster**: um utilizador HTTP utilizado para autenticação através do gateway do HDInsight que é utilizado para proteger os clusters do HDInsight que criou. Esse usuário HTTP é usado para acessar a interface do usuário do Apache Ambari, Apache Hadoop interface do usuário do YARN, bem como outros componentes da interface do usuário.
 - **Nome de utilizador Secure Shell (SSH)** : um utilizador SSH para aceder ao cluster através de secure shell. Este utilizador é um utilizador no sistema Linux para todos os nós principais, nós de trabalho e nós de extremidade. Desta forma, pode utilizar o secure shell para aceder a qualquer nó num cluster remoto.
 
 A versão da Comunidade do servidor R Studio usada no cluster de serviços de ML no HDInsight aceita apenas o nome de usuário e a senha do Linux como um mecanismo de entrada. Não suporta a transmissão de tokens. Portanto, ao tentar acessar o R Studio pela primeira vez em um cluster de serviços ML, você precisará entrar duas vezes.
 
-- Primeiro, entre usando as credenciais de usuário HTTP por meio do gateway do HDInsight. 
+- Primeiro, entre usando as credenciais de usuário HTTP por meio do gateway do HDInsight.
 
 - Em seguida, use as credenciais de usuário do SSH para entrar no RStudio.
   
@@ -66,7 +64,7 @@ Para adicionar um utilizador ao nó de extremidade, execute os comandos:
 
 A captura de tela a seguir mostra as saídas.
 
-![Utilizador simultâneo 3](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+![saída de captura de tela usuários simultâneos](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 Quando for solicitada a "senha atual do Kerberos:", basta pressionar **Enter** para ignorá-la. A opção `-m` no comando `useradd` indica que o sistema vai criar uma pasta raiz para o utilizador, que é necessária na versão de comunidade do RStudio.
 
@@ -205,15 +203,13 @@ Para instalar pacotes do R nos nós de trabalho do cluster, você deve usar uma 
    > [!NOTE]
    > 1. Por padrão, todos os pacotes do R são instalados de um instantâneo do repositório do Microsoft MRAN consistente com a versão do ML Server que foi instalado. Se quiser instalar versões novas dos pacotes, existe algum risco de incompatibilidades. Contudo, este tipo de instalação é possível mediante a especificação de `useCRAN` como o primeiro elemento da lista do pacote, como, por exemplo, `useCRAN bitops, stringr, arules`.  
    > 2. Alguns pacotes de R requerem bibliotecas do sistema Linux adicionais. Para sua conveniência, os serviços de ML do HDInsight vêm pré-instalados com as dependências necessárias pelos principais pacotes de R 100 mais populares. No entanto, se o pacote ou pacotes de R que instalar requeiram mais bibliotecas para além destas, tem de transferir o script de base utilizado aqui e adicionar passos para instalar as bibliotecas do sistema. Em seguida, tem de carregar o script modificado para um contentor de blobs público no armazenamento do Azure e utilizá-lo para instalar os pacotes.
-   >    Para obter mais informações sobre como programar Ações de Script, veja [Script Action development (Programação de Ações de Script)](../hdinsight-hadoop-script-actions-linux.md).  
-   >
-   >
+   >    Para obter mais informações sobre como programar Ações de Script, veja [Script Action development (Programação de Ações de Script)](../hdinsight-hadoop-script-actions-linux.md).
 
-   ![Adicionar uma ação de script](./media/r-server-hdinsight-manage/submit-script-action.png)
+   ![Ação de enviar script portal do Azure](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Selecione **Criar** para executar o script. Após a conclusão do script, os pacotes de R estão disponíveis em todos os nós de trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Operacionalizar cluster dos Serviços ML no HDInsight](r-server-operationalize.md)
 * [Opções de contexto de computação para o cluster de serviço do ML no HDInsight](r-server-compute-contexts.md)

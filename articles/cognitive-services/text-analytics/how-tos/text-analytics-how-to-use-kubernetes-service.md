@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: c0c3c3483b73564e136035f04f9e4139b34f463f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: db1c26805f76b0ca8991a562531b4476b6899d86
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051900"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130089"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner de Análise de Texto no serviço kubernetes do Azure
 
@@ -57,7 +57,7 @@ Esse procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ***
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Usar mais [contêineres de serviços cognitivas](../../cognitive-services-container-support.md)
 * Usar o [serviço conectado do análise de texto](../vs-text-connected-service.md)

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d0356ff61ec8073e7fe69c3b09cbbdd8845fb787
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010195"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128903"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -52,18 +52,18 @@ A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-s
 | **Funcionalidade** | **Uso Geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
-| Memória máxima | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 40,8 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 40,8 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
-| Tamanho máximo de armazenamento reservado de instância | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5 <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
-| Tamanho máx. da base de dados | 8 TB | 4 TB |
-| Número máximo de bancos de dados por instância | 100 | 100 |
-| Número máximo de arquivos de banco de dados por instância | Até 280 | 32.767 arquivos por banco de dados |
-| Tamanho máximo do arquivo | 8 TB | 4 TB |
-| Tamanho máximo do arquivo de log | 2 TB | 2 TB |
+| Memória máxima | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 20,4 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 20,4 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
+| Tamanho máximo de armazenamento de instância (reservado) | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5 <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
+| Tamanho máx. da base de dados | Até o tamanho da instância disponível no momento (máximo de 2 TB-8 TB, dependendo do número de vCores). | Até o tamanho da instância disponível no momento (máximo de 1 TB-4 TB, dependendo do número de vCores). |
+| Tamanho máximo de tempDB | Limitado a 24 GB/vCore (96-1.920 GB) e ao tamanho da instância disponível no momento.<br/>Adicione mais vCores para obter mais espaço de TempDB. | Até o tamanho da instância disponível no momento. O tamanho do arquivo de log de TempDB está limitado atualmente a 24 GB/vCore. |
+| Número máximo de bancos de dados por instância | 100, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. | 100, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
+| Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
+| Tamanho máximo do arquivo | Limitado a 8 TB, tamanho de instância disponível no momento (máx. 2 TB-8 TB) e [espaço de alocação de armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado a 4 TB e tamanho de instância atualmente disponível (até 1 TB-4 TB). |
+| Tamanho máximo do arquivo de log | Limitado a 2 TB, tamanho de instância disponível no momento e [espaço de alocação de armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado a 2 TB e tamanho de instância disponível no momento. |
 | IOPS de dados/log (aproximado) | 500-7.500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
-| Limite de produtividade de gravação de log | 3 MB/s por vCore<br/>Máximo de 22 MB/s por instância | 4 MB/s por vCore<br/>Máximo de 48 MB/s por instância|
-| Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máximo de 48 MB/s |
+| Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
-| Tamanho máximo de tempDB | 192-1.920 GB (24 GB por vCore)<br/>Adicione mais vCores para obter mais espaço de TempDB. | Limitado pelo tamanho máximo de armazenamento da instância. O tamanho do arquivo de log de TempDB está limitado atualmente a 24 GB/vCore. |
 | OLTP dentro da memória | Não suportado | Disponível |
 | Máx. de sessões | 30000 | 30000 |
 | [Réplicas somente leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
@@ -93,10 +93,10 @@ Atualmente, a instância gerenciada dá suporte à implantação somente nos seg
 
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
-Os tipos de assinatura com suporte podem conter um número limitado de recursos por região. A instância gerenciada tem dois limites padrão por região do Azure, dependendo de um tipo de assinatura:
+Os tipos de assinatura com suporte podem conter um número limitado de recursos por região. A instância gerenciada tem dois limites padrão por região do Azure (que podem ser aumentadas sob demanda por meio da criação de uma [solicitação de suporte especial no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance)), dependendo de um tipo de assinatura:
 
 - **Limite de sub-rede**: O número máximo de sub-redes em que as instâncias gerenciadas são implantadas em uma única região.
-- **limite de vCore**: O número máximo de vCores que podem ser implantadas em todas as instâncias em uma única região. O número total de instâncias não é limitado, desde que esteja dentro do limite vCore.
+- **limite de unidade vCore**: O número máximo de unidades vCore que podem ser implantadas em todas as instâncias em uma única região. Um vCore da GP usa uma unidade vCore e um vCore de BC usa 4 unidades vCore. O número total de instâncias não é limitado, desde que esteja dentro do limite da unidade vCore.
 
 > [!Note]
 > Esses limites são configurações padrão e não limitações técnicas. Os limites podem ser aumentados sob demanda criando uma solicitação especial [de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se você precisar de mais instâncias gerenciadas na região atual. Como alternativa, você pode criar novas instâncias gerenciadas em outra região do Azure sem enviar solicitações de suporte.

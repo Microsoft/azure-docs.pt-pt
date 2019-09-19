@@ -1,19 +1,19 @@
 ---
 title: Operacionalize os serviços de ML no HDInsight – Azure
 description: Saiba como colocar seu modelo de dados em operação para fazer previsões com os serviços de ML no Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967689"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123570"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalize o cluster de serviços ML no Azure HDInsight
 
@@ -50,31 +50,31 @@ Depois de usar o cluster de serviços do ML no HDInsight para concluir a modelag
 
 1. Você verá as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **configurar ml Server para operacionalização**.
 
-    ![OP1 de uma caixa](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![Seleção do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Agora, você verá a opção de escolher como deseja colocar em operação ML Server. Nas opções apresentadas, escolha a primeira inserindo **uma**.
 
-    ![OP2 de uma caixa](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![Operacionalização do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quando solicitado, insira e insira novamente a senha para um usuário administrador local.
 
 1. Você deve ver as saídas sugerindo que a operação foi bem-sucedida. Você também será solicitado a selecionar outra opção no menu. Selecione E para voltar ao menu principal.
 
-    ![OP3 de uma caixa](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![Êxito do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Opcionalmente, você pode executar verificações de diagnóstico executando um teste de diagnóstico da seguinte maneira:
 
     a. No menu principal, selecione **6** para executar testes de diagnóstico.
 
-    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![Diagnóstico do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. No menu testes de diagnóstico, selecione **um**. Quando solicitado, insira a senha que você forneceu para o usuário administrador local.
 
-    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![Teste do utilitário de administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Verifique se a saída mostra que a integridade geral é uma passagem.
 
-    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![Passagem do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. Nas opções de menu apresentadas, digite **e** para retornar ao menu principal e, em seguida, digite **8** para sair do utilitário de administração.
 
@@ -148,7 +148,7 @@ Siga estas etapas para encerrar os nós de trabalho:
 
 1. Clique em **ações** > **hosts** > selecionados**hosts** > **ativar o modo de manutenção**. Por exemplo, na imagem seguinte, selecionámos a desativação de wn3 e wn4.  
 
-   ![desativar os nós de trabalho](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![O Apache Ambari ativa o modo de manutenção](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * Selecione **ações** > **hosts** > selecionados**datanodes** > clique em desativar.
 * Selecione **ações** >  **hosts** > selecionados NodeManagers > clique em **desativar**.

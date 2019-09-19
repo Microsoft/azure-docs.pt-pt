@@ -1,18 +1,18 @@
 ---
 title: Resolver problemas de YARN no HDInsight do Azure
 description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apache Hadoop YARN e o Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076574"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122520"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop YARN usando o Azure HDInsight
 
@@ -34,24 +34,24 @@ Neste exemplo, dois filas existentes (**predefinição** e **thriftsvr**) ambos 
 
 1. Selecione o **vistas Ambari** ícone e, em seguida, selecione o padrão de grade. Em seguida, selecione **Gestor de filas do YARN**.
 
-    ![Selecione o ícone de vistas do Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Gerenciador de filas do YARN do Apache Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selecione o **predefinição** fila.
 
-    ![Selecione a fila padrão](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari YARN selecionar fila padrão](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Para o **predefinição** colocar em fila, altere a **capacidade** de 50% a 25%. Para o **thriftsvr** colocar em fila, altere a **capacidade** para 25%.
 
     ![Alterar a capacidade para 25% para as filas de padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Para criar uma nova fila, selecione **adicionar fila**.
 
-    ![Selecione adicionar fila](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Adicionar fila do painel do Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Nome da nova fila.
 
-    ![Nome da fila de Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Fila de nome do painel do Ambari YARN do Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Deixe o **capacidade** valores em 50% e, em seguida, selecione a **ações** botão.
 
-    ![Selecione o botão de ações](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Ação de seleção do Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Selecione **guarde e Atualize as filas**.
 
     ![Selecione salvar e Atualize as filas](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -64,7 +64,7 @@ Estas alterações são visíveis imediatamente na IU de agendador do YARN.
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Como transferir registos do YARN a partir de um cluster?
 
-### <a name="resolution-steps"></a>Passos de resolução 
+### <a name="resolution-steps"></a>Passos de resolução
 
 1. Ligar ao cluster do HDInsight com um cliente Secure Shell (SSH). Para obter mais informações, consulte [leitura adicional](#additional-reading-2).
 
@@ -134,7 +134,7 @@ Estas alterações são visíveis imediatamente na IU de agendador do YARN.
 - [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Conceitos do Apache Hadoop YARN e aplicações](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

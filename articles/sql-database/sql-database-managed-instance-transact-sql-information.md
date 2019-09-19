@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: dc01f8556fb1c88899cae1a8767cb23d6b6041eb
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018996"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128876"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -544,6 +544,14 @@ Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há
 
 ## <a name="Issues"></a>Problemas conhecidos
 
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Alterar a camada de serviço e criar operações de instância são bloqueadas pela restauração do banco de dados ongioing
+
+**Date** Setembro de 2019
+
+A `RESTORE` instrução contínua, o processo de migração do serviço de migração de dados e a restauração pontual interna bloquearão a atualização da camada de serviço ou o redimensionamento da instância existente e a criação de novas instâncias, até que o processo de restauração seja concluído. O processo de restauração bloqueará essas operações nas instâncias gerenciadas e nos pools de instância na mesma sub-rede em que o processo de restauração está em execução. As instâncias em pools de instâncias não são afetadas. Criar ou alterar as operações da camada de serviço não falharão ou tempo limite-eles continuarão quando o processo de restauração for concluído ou cancelado.
+
+**Solução alternativa**: Aguarde até que o processo de restauração seja concluído ou cancele o processo de restauração se a operação de criação ou atualização da camada de serviço tiver prioridade mais alta.
+
 ### <a name="missing-validations-in-restore-process"></a>Validações ausentes no processo de restauração
 
 **Date** Setembro de 2019
@@ -678,7 +686,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Resolução** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

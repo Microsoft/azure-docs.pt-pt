@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: cff31916f837141ae54f3c14dd125be6a92a5008
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035510"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123144"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina
 
@@ -37,7 +37,7 @@ Considere as definições a seguir para entender o aprendizado profundo versus o
 
 - O **ia (inteligência artificial)** é uma técnica que permite aos computadores imitar a inteligência humana. Ele inclui aprendizado de máquina. 
  
-É importante entender a relação entre ia, Machine Learning e aprendizado profundo. O aprendizado de máquina é uma maneira de obter inteligência artificial. Usando as técnicas de aprendizado de máquina e de aprendizado profundo, você pode criar sistemas de computador e aplicativos que fazem tarefas que são normalmente associadas à inteligência humana. Essas tarefas incluem percepção visual, reconhecimento de fala, tomada de decisão e tradução de idioma.
+É importante entender a relação entre ia, Machine Learning e aprendizado profundo. O aprendizado de máquina é uma maneira de obter inteligência artificial. Usando as técnicas de aprendizado de máquina e de aprendizado profundo, você pode criar sistemas de computador e aplicativos que fazem tarefas que são normalmente associadas à inteligência humana. Essas tarefas incluem reconhecimento de imagem, reconhecimento de fala e tradução de idioma.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Técnicas de aprendizado profundo versus aprendizado de máquina 
 
@@ -47,12 +47,12 @@ A tabela a seguir compara as duas técnicas mais detalhadamente:
 
 | |Todos os aprendizado de máquina |Somente aprendizado profundo|
 |---|---|---|
-|  **Número de pontos de dados** | Pode usar valores de dados pequenos fornecidos pelos usuários. | Requer uma grande quantidade de dados de treinamento para fazer conclusões concisas. |
+|  **Número de pontos de dados** | Pode usar pequenas quantidades de dados para fazer previsões. | Precisa usar grandes quantidades de dados de treinamento para fazer previsões. |
 |  **Dependências de hardware** | Pode funcionar em máquinas de low-end. Ele não precisa de uma grande quantidade de poder computacional. | Depende de computadores avançados. Ele faz inerentemente um grande número de operações de multiplicação de matriz. Uma GPU pode otimizar essas operações com eficiência. |
 |  **Processo de personalização** | Requer que os recursos sejam identificados e criados com precisão pelos usuários. | Aprende recursos de alto nível de dados e cria novos recursos por si só. |
-|  **Abordagem de aprendizagem** | Divide as tarefas em pequenas partes e, em seguida, combina os resultados recebidos em uma conclusão. | Resolve o problema de uma base de ponta a ponta. |
-|  **Tempo de execução** | Leva um tempo comparativamente pequeno para ser treinado, variando de alguns segundos a algumas horas. | Leva um tempo muito longo para treinar porque um algoritmo de aprendizado profundo envolve muitos parâmetros. |
-|  **Saída** | A saída geralmente é um valor numérico, como uma pontuação ou uma classificação. | A saída pode ser texto, uma pontuação, um elemento ou um som. |
+|  **Abordagem de aprendizagem** | Divide o processo de aprendizado em etapas menores. Em seguida, ele combina os resultados de cada etapa em uma saída. | Percorre o processo de aprendizado resolvendo o problema de ponta a ponta. |
+|  **Tempo de execução** | Leva um tempo comparativamente pequeno para ser treinado, variando de alguns segundos a algumas horas. | Geralmente leva muito tempo para treinar porque um algoritmo de aprendizado profundo envolve muitas camadas. |
+|  **Saída** | A saída geralmente é um valor numérico, como uma pontuação ou uma classificação. | A saída pode ter vários formatos, como um texto, uma pontuação ou um som. |
 
 ## <a name="deep-learning-use-cases"></a>Casos de uso de aprendizado profundo
 
@@ -62,7 +62,7 @@ Alguns dos aplicativos mais comuns para aprendizado profundo são descritos nos 
 
 ### <a name="named-entity-recognition"></a>Reconhecimento de entidade nomeada
 
-Um uso de redes de aprendizado profundo é o reconhecimento de entidade nomeada, que é uma maneira de extrair determinados tipos de informações de dados não estruturados e não rotulados. Essas informações podem ser pessoas, lugares, empresas ou coisas. As informações podem então ser armazenadas em um esquema estruturado para criar uma lista de endereços ou servir como um parâmetro de comparação para um mecanismo de validação de identidade.
+O reconhecimento de entidade nomeada é um método de aprendizado profundo que leva um pedaço de texto como entrada e o transforma em uma classe predeterminada. Essas novas informações podem ser um CEP, uma data, uma ID de produto. As informações podem então ser armazenadas em um esquema estruturado para criar uma lista de endereços ou servir como um parâmetro de comparação para um mecanismo de validação de identidade.
 
 ### <a name="object-detection"></a>Deteção de objetos
 
@@ -72,17 +72,21 @@ A detecção de objetos já é usada em setores como jogos, varejo, turismo e ca
 
 ### <a name="image-caption-generation"></a>Geração de legenda de imagem
 
-Como o reconhecimento de imagem, em legendas de imagens, para uma determinada imagem, o sistema deve gerar uma legenda que descreve o conteúdo da imagem. Quando você pode detectar e rotular objetos em fotografias, a próxima etapa é transformar esses rótulos em frases descritivas e coerentes. Em geral, os sistemas de legendas de imagens usam redes neurais de revolução muito grandes para detectar objetos nas fotografias e, em seguida, usam uma rede neural recorrente (RNN) para transformar os rótulos em frases coerentes.
+Como o reconhecimento de imagem, em legendas de imagens, para uma determinada imagem, o sistema deve gerar uma legenda que descreve o conteúdo da imagem. Quando você pode detectar e rotular objetos em fotografias, a próxima etapa é transformar esses rótulos em frases descritivas. 
+
+Normalmente, os aplicativos de legenda de imagem usam redes neurais de revolução para identificar objetos em uma imagem e, em seguida, usam uma rede neural recorrente para transformar os rótulos em sentenças consistentes.
 
 ### <a name="machine-translation"></a>Tradução automática
 
-A tradução automática usa palavras, frases ou sentenças de um idioma e as converte automaticamente em outro idioma. A tradução automática do computador já existe há muito tempo, mas o aprendizado profundo atinge resultados impressionantes em duas áreas específicas: tradução automática de texto (e conversão de fala em texto) e tradução automática de imagens. 
+A tradução automática usa palavras ou frases de uma linguagem e as converte automaticamente em outro idioma. A tradução automática já existe há muito tempo, mas o aprendizado profundo atinge resultados impressionantes em duas áreas específicas: tradução automática de texto (e conversão de fala em texto) e tradução automático de imagens.
 
-Com a transformação de dados apropriada, uma rede profunda pode entender o texto, áudio e sinais visuais. A tradução automática pode ser usada para identificar trechos de som em arquivos de áudio maiores e transcrever a palavra ou imagem falada como texto.
+Com a transformação de dados apropriada, uma rede neural pode entender o texto, áudio e sinais visuais. A tradução automática pode ser usada para identificar trechos de som em arquivos de áudio maiores e transcrever a palavra ou imagem falada como texto.
 
 ### <a name="text-analytics"></a>Análise de texto
 
-Uma tarefa importante de aprendizado profundo é a descoberta eletrônica. As empresas usam a análise de texto com base no aprendizado profundo para detectar o Insider Trading e a conformidade com as normas governamentais. Os fundos de cobertura usam a análise de texto para fazer uma busca detalhada em repositórios de documentos maciços para obter informações sobre o desempenho do investimento futuro e as opiniões do mercado. O caso de uso para análise de texto com base na aprendizagem profunda gira em volta da sua capacidade de analisar grandes quantidades de dados de texto e executar análises ou produzir agregações.
+A análise de texto baseada em métodos de aprendizado profundo envolve a análise de grandes quantidades de dados de texto (por exemplo, documentos médicos ou recebimentos de despesas), reconhecimento de padrões e criação de informações organizadas e concisas.
+
+As empresas usam o aprendizado profundo para executar a análise de texto para detectar o Insider Trading e a conformidade com as normas governamentais. Outro exemplo comum é a fraude de seguro: a análise de texto geralmente foi usada para analisar grandes quantidades de documentos para reconhecer as chances de uma declaração de seguro ser fraude. 
 
 ## <a name="artificial-neural-networks"></a>Redes neurais artificial
 
@@ -92,17 +96,17 @@ As seções a seguir exploram a typologies de rede neural artificial mais popula
 
 ### <a name="feedforward-neural-network"></a>Rede neural Feedforward
 
-A rede neural Feedforward é o tipo mais básico de rede neural artificial. Em uma rede Feedforward, as informações viajam em apenas uma direção da camada de entrada para a camada de saída. As redes neurais Feedforward transformam uma entrada colocando-a em uma série de camadas ocultas. Cada camada é composta de um conjunto de neurônios, e cada camada é totalmente conectada a todos os neurônios na camada antes. A última camada totalmente conectada (a camada de saída) representa as previsões geradas.
+A rede neural Feedforward é o tipo mais básico de rede neural artificial. Em uma rede Feedforward, as informações se movem em apenas uma direção da camada de entrada para a camada de saída. As redes neurais Feedforward transformam uma entrada colocando-a em uma série de camadas ocultas. Cada camada é composta de um conjunto de neurônios, e cada camada é totalmente conectada a todos os neurônios na camada antes. A última camada totalmente conectada (a camada de saída) representa as previsões geradas.
 
 ### <a name="recurrent-neural-network"></a>Rede neural recorrente
 
-As redes neurais recorrentes são uma rede neural artificial amplamente usada. Essas redes salvam a saída de uma camada e as alimentam de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neurais recorrentes têm ótimos recursos de aprendizado. Eles são amplamente usados para tarefas complexas, como aprender manuscrito e reconhecer a linguagem.
+As redes neurais recorrentes são uma rede neural artificial amplamente usada. Essas redes salvam a saída de uma camada e as alimentam de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neurais recorrentes têm ótimos recursos de aprendizado. Eles são amplamente usados para tarefas complexas, como Previsão de série temporal, aprendizagem de manuscrito e reconhecimento de idioma.
 
 ### <a name="convolutional-neural-networks"></a>Redes neurais de revolução
 
 Uma rede neural de revolução é uma rede neural artificialmente eficaz e apresenta uma arquitetura exclusiva. As camadas são organizadas em três dimensões: largura, altura e profundidade. Os neurônios em uma camada conectam-se não a todos os neurônios na próxima camada, mas apenas a uma pequena região dos neurônios da camada. A saída final é reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. 
 
-As redes neurais de revolução foram usadas em áreas como reconhecimento de imagem e classificação.
+As redes neurais de revolução foram usadas em áreas como reconhecimento de vídeo, reconhecimento de imagem e sistemas de recomendação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

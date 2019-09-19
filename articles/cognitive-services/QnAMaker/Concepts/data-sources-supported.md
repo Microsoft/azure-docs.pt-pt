@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4e24246ec4ed30ec93bf8e113d659bc5e3600913
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615973"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130125"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -28,7 +28,7 @@ A tabela abaixo resume os tipos de conteúdo e formatos de arquivo que são supo
 |Tipo de Fonte|Tipo de Conteúdo| Exemplos|
 |--|--|--|
 |URL|FAQs<br> (Simples, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Artigos de instruções de página única, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/software-download/faq),<br> [Página de perguntas frequentes com tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF / DOC|FAQs<br> Manual do produto,<br> Folhetos<br> Documentos<br> Política de panfleto,<br> Guia de suporte,<br> QnA estruturado,<br> diante.|[Estruturado QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual de produto de exemplo. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo de semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|PDF / DOC|FAQs<br> Manual do produto,<br> folhetos<br> Documentos<br> Política de panfleto,<br> Guia de suporte,<br> QnA estruturado,<br> Diante.|[Estruturado QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual de produto de exemplo. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo de semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Ficheiro de QnA estruturado<br> (incluindo RTF, suporte a HTML)|[Exemplo QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Ficheiro de QnA estruturado|[Exemplo chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
@@ -203,6 +203,15 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 
 \* QnA Maker não processa a imagem de forma alguma. É a função do aplicativo cliente para renderizar a imagem. 
 
+Se você deseja adicionar conteúdo usando atualizar/substituir APIs da base de conhecimento e o conteúdo/arquivo contém marcas HTML, você pode preservar o HTML em seu arquivo, garantindo que a abertura e o fechamento das marcas sejam convertidos no formato codificado.
+
+| Preservar HTML  | Representação na solicitação de API  | Representação em KB |
+|-----------|---------|-------------------------|
+| Sim | \&lt; br\&gt; | &lt;br&gt; |
+| Sim | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;/H3&gt;de&lt;cabeçalho H3&gt; |
+
+Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar a barra invertida, por exemplo\\:\\'\\r\\n '\\e ' T'\\
+
 ## <a name="editing-your-knowledge-base-locally"></a>Editando sua base de dados de conhecimento localmente
 
 Quando uma base de dados de conhecimento é criada, é recomendável que você faça edições no texto da base de dados de conhecimento no [portal de QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar por meio de arquivos locais. No entanto, pode haver ocasiões em que você precisa editar uma base de dados de conhecimento localmente. 
@@ -215,7 +224,7 @@ Depois de concluir suas edições, reimporte o arquivo TSV da página **configur
 
 Use o tutorial do **[CommonMark](https://commonmark.org/help/tutorial/index.html)** para validar sua redução. O tutorial tem um recurso **experimentar** para a validação rápida de copiar/colar. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)

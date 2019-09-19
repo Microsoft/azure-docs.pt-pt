@@ -2,17 +2,17 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: logic-apps
-author: ecfan
 ms.service: logic-apps
-ms.topic: include
-ms.date: 05/14/2018
+author: ecfan
 ms.author: estfan
+ms.topic: include
+ms.date: 09/18/2019
 ms.custom: include file
-ms.openlocfilehash: 6594031aeccae4b9f0ea843e2d72cb01a67d492d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1fbf8a8d83871fa4cbed3fa79d3c19d66406329d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184015"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120936"
 ---
-Antes da aplicação lógica pode aceder a qualquer serviço, tem de criar uma *ligação* entre a aplicação lógica e esse serviço. Se não tiver criado anteriormente nesta ligação, lhe for pedido para obter informações de ligação ao adicionar um acionador ou ação para esse serviço à sua aplicação lógica. O estruturador de aplicações lógicas fornece uma forma fácil de criar esta ligação diretamente da sua aplicação lógica.
+Quando você usa um gatilho ou uma ação que acessa um serviço pela primeira vez, o designer de aplicativos lógicos solicita que você crie uma *conexão* com esse serviço. Em seguida, você pode fornecer as informações de conexão necessárias diretamente do seu aplicativo lógico dentro do designer.

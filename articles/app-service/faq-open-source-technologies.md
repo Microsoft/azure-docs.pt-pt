@@ -4,7 +4,7 @@ description: Obtenha respostas para perguntas frequentes sobre tecnologias de so
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: cc71d2a53241753272610a14c30e44f1cf45e95c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073108"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121225"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de software livre para aplicativos Web no Azure
 
@@ -107,7 +107,7 @@ Alguns pacotes podem não ser instalados usando Pip no Azure. O pacote pode não
 
 ## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>Como fazer implantar um aplicativo Django no serviço de aplicativo usando o git e a nova versão do Python?
 
-Para obter informações sobre como instalar o Django, consulte Implantando [um aplicativo Django no serviço de aplicativo](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
+Para obter informações sobre como instalar o Django, consulte [implantando um aplicativo Django no serviço de aplicativo](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Onde estão localizados os arquivos de log do Tomcat?
 
