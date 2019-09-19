@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899956"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091959"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Um mundo sem senhas com Azure Active Directory
 
@@ -107,7 +107,7 @@ Para obter uma análise mais profunda do processo de autenticação em outros ce
 
 #### <a name="user-manages-their-windows-hello-for-business-credentials"></a>O usuário gerencia suas credenciais do Windows Hello para empresas
 
-Os [Serviços](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) de redefinição de PIN da Microsoft são um recurso do Azure AD que permite que os usuários redefinam seu PIN, se necessário. Usando a política de grupo, Microsoft Intune ou um MDM compatível, um administrador pode configurar dispositivos Windows 10 para usar com segurança o serviço de redefinição de PIN da Microsoft que permite que os usuários redefinam seu PIN esquecido por meio de configurações ou acima da tela de bloqueio sem exigir novo registro.
+Os [Serviços](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) de redefinição de PIN da Microsoft são um recurso do Azure AD que permite que os usuários redefinam seu PIN, se necessário. Usando a política de grupo, Microsoft Intune ou um MDM compatível, um administrador pode configurar dispositivos Windows 10 para usar com segurança o serviço de redefinição de PIN da Microsoft que permite que os usuários redefinam seu PIN esquecido por meio de configurações ou acima da tela de bloqueio sem exigir novo registro.
 
 Às vezes, os usuários precisam fazer fallback para usar senhas. [Redefinição de senha de autoatendimento](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) é outro recurso do Azure AD que permite que os usuários redefinam suas senhas sem precisar entrar em contato com a equipe de ti. Os usuários devem se registrar no ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o usuário escolhe um ou mais métodos de autenticação habilitados pela organização. O SSPR permite que os usuários sejam desbloqueados rapidamente e continuem trabalhando independentemente de onde estiverem ou a hora do dia. Ao permitir que os usuários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
 
@@ -238,7 +238,7 @@ Além de selecionar o token de hardware como o método de autenticação multifa
 
 * Chamada telefónica
 
-* Mensagem de texto
+* Mensagem SMS
 
 #### <a name="user-using-fido2-security-key-for-sign-in"></a>Usuário usando a chave de segurança FIDO2 para entrar
 

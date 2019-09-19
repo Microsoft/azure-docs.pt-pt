@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cbb37b4e93468a42335f40a19baf4c742cb6dbb
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850650"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098613"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Crie um runbook de Automatização do Azure
 
@@ -34,7 +34,7 @@ Primeiro, crie um runbook. O runbook de exemplo criado neste guia rápido devolv
 
 1. Clique em **Runbooks** em **AUTOMATIZAÇÃO DE PROCESSOS**. A lista de runbooks é apresentada.
 
-1. Clique no botão **Adicionar um runbook** encontrado na parte superior da lista. Na página **Adicionar Runbook**, selecione **Criação Rápida**.
+1. Clique no botão **criar um runbook** localizado na parte superior da lista
 
 1. Introduza "Hello-World" no runbook **Nome** e selecione **PowerShell** para **Tipo de runbook**. Clique em **Criar**.
 
@@ -96,7 +96,7 @@ Assim que o runbook é publicado, é apresentada a página de descrição geral.
 
 Quando já não precisar, elimine o runbook. Para tal, selecione o runbook na lista de runbooks e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, criou, editou, testou e publicou um runbook e iniciou uma tarefa de runbook. Para obter mais informações sobre Runbooks de automatização, avance para o artigo sobre os diferentes tipos de runbooks que pode criar e utilizar na Automatização.
 

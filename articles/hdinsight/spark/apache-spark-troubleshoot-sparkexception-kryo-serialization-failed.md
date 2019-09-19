@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 4c1e16666bc5655ccf62522c5f860051adbdeda1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 939d94d0fdf07a67f2ad151b45494f03ce184d62
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885090"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087102"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Não é possível baixar conjuntos de dados grandes usando JDBC/ODBC e a estrutura de software Apache Thrift no HDInsight
 
@@ -34,7 +35,7 @@ Essa exceção é causada pelo processo de serialização que está tentando usa
 
 Aumente o `Kryoserializer` valor do buffer. Adicione uma chave chamada `spark.kryoserializer.buffer.max` e defina-a `2048` como em spark2 config `Custom spark2-thrift-sparkconf`em.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

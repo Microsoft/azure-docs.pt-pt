@@ -11,16 +11,16 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 09/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: f239fb4464d2e7f67b91a2d18c21b089ffd52b27
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070491"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098087"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no serviço de Azure App usando FTP/S
 
@@ -59,7 +59,7 @@ No painel de FTP, clique em **copiar** para copiar o ponto de extremidade de FTP
 3. Navegue até a URL do seu aplicativo para verificar se o aplicativo está sendo executado corretamente. 
 
 > [!NOTE] 
-> Diferentemente das implantações [baseadas em git](deploy-local-git.md), a implantação de FTP não dá suporte às seguintes automaçãos de implantação: 
+> Diferentemente das [implantações baseadas em git](deploy-local-git.md), a implantação de FTP não dá suporte às seguintes automaçãos de implantação: 
 >
 > - restaurações de dependências (como as automaçãos NuGet, NPM, PIP e Composer)
 > - compilação de binários do .NET
@@ -72,9 +72,9 @@ No painel de FTP, clique em **copiar** para copiar o ponto de extremidade de FTP
 
 Para aumentar a segurança, você deve permitir somente o FTP sobre SSL. Você também pode desabilitar FTP e FTPS se não usar a implantação de FTP.
 
-Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione **configurações do aplicativo** no painel de navegação esquerdo.
+Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione**configurações gerais** de **configuração** > no painel de navegação esquerdo.
 
-Para desabilitar o FTP não criptografado, selecione **FTPS apenas**. Para desabilitar totalmente o FTP e a FTPS, selecione **desabilitar**. Quando terminar, clique em **Guardar**. Se estiver usando **FTPS somente** , você deverá impor o TLS 1,2 ou superior navegando até a folha **configurações de SSL** do seu aplicativo Web. O TLS 1,0 e o 1,1 não têm suporte **apenas com FTPS**.
+Para desabilitar o FTP não criptografado, selecione **FTPS somente** no **estado do FTP**. Para desabilitar totalmente o FTP e a FTPS, selecione **desabilitado**. Quando terminar, clique em **Guardar**. Se estiver usando **apenas FTPS**, você deve impor o TLS 1,2 ou superior navegando até a folha **configurações de TLS/SSL** do seu aplicativo Web. O TLS 1,0 e o 1,1 não têm suporte **apenas com FTPS**.
 
 ![Desabilitar FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -111,7 +111,7 @@ Verifique se você inseriu o nome de host e [as credenciais](#open-ftp-dashboard
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Como posso me conectar ao FTP no serviço Azure App por meio do modo passivo?
 Azure App serviço dá suporte à conexão por meio do modo ativo e passivo. O modo passivo é preferencial porque as máquinas de implantação geralmente estão atrás de um firewall (no sistema operacional ou como parte de uma rede doméstica ou de negócios). Consulte um [exemplo da documentação do winscp](https://winscp.net/docs/ui_login_connection). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para cenários de implantação mais avançados, tente [implantar no Azure com o Git](deploy-local-git.md). A implantação baseada em git para o Azure habilita o controle de versão, a restauração de pacote, o MSBuild e muito mais.
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplos de transformação de afirmações booleano para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
-description: Booleano exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
+title: Exemplos de transformação de declarações booleanas para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C | Microsoft Docs
+description: Exemplos de transformação de declarações booleanas para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,37 +10,37 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a08849340d19055a03f85ca401757a81cd2c95d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da4fc4704ee72210e180ef95fe6a821c8d116fa2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511746"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064566"
 ---
-# <a name="boolean-claims-transformations"></a>Transformações de afirmações booleano
+# <a name="boolean-claims-transformations"></a>Transformações de declarações booleanas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos para usar as transformações de afirmações booleano do esquema de arquitetura de experiências de identidade no Azure Active Directory (Azure AD) B2C. Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos de como usar as transformações de declarações booleanas do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="andclaims"></a>AndClaims
 
-Executa uma operação e de dois inputClaims booleanos e define a outputClaim com o resultado da operação.
+Executa uma operação and de dois inputClaims Boolianos e define o outputClaim com o resultado da operação.
 
 | Item  | TransformationClaimType  | Tipo de Dados  | Notas |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | boolean | O ClaimType primeiro a avaliar. |
-| InputClaim | inputClaim2  | boolean | O segundo ClaimType a avaliar. |
-|OutputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado (true ou false). |
+| InputClaim | inputClaim1 | boolean | O primeiro ClaimType a ser avaliado. |
+| InputClaim | inputClaim2  | boolean | O segundo ClaimType a ser avaliado. |
+|OutputClaim | outputClaim | boolean | O ClaimTypes que será produzido depois que essa transformação de declarações tiver sido invocada (true ou false). |
 
-A transformação de declarações seguinte demonstra como e dois ClaimTypes booleanos: `isEmailNotExist`, e `isSocialAccount`. A afirmação de saída `presentEmailSelfAsserted` está definido como `true` se o valor de ambas as afirmações de entrada é `true`. Um passo de orquestração, pode utilizar uma condição prévia para predefinir uma página de declaração própria, apenas se um e-mail de conta de redes sociais está vazio.
+A transformação de declarações a seguir demonstra como e dois ClaimTypes boolianos `isEmailNotExist`: `isSocialAccount`e. A Declaração `presentEmailSelfAsserted` de saída é definida `true` como se o valor de ambas as declarações `true`de entrada forem. Em uma etapa de orquestração, você pode usar uma pré-condição para predefinir uma página autodeclarada, somente se um email de conta social estiver vazio.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -49,27 +49,27 @@ A transformação de declarações seguinte demonstra como e dois ClaimTypes boo
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
+- Declarações de entrada:
     - **inputClaim1**: true
     - **inputClaim2**: false
-- Afirmações de saída:
+- Declarações de saída:
     - **outputClaim**: false
 
 
 ## <a name="assertbooleanclaimisequaltovalue"></a>AssertBooleanClaimIsEqualToValue
 
-Verifica se os valores booleanos de duas afirmações são iguais e lança uma exceção se não forem.
+Verifica se os valores Boolianos de duas declarações são iguais e gera uma exceção se elas não forem.
 
 | Item | TransformationClaimType  | Tipo de Dados  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | ClaimType a avaliar relativamente. |
-| InputParameter |valueToCompareTo | boolean | O valor a comparar (true ou false). |
+| InputClaim | InputClaim | boolean | O ClaimType a ser declarado. |
+| InputParameter |valueToCompareTo | boolean | O valor a ser comparado (true ou false). |
 
-O **AssertBooleanClaimIsEqualToValue** transformação de declarações é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [autodeclarativas perfil técnico](self-asserted-technical-profile.md). O **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** metadados de declaração própria perfil técnico controla a mensagem de erro que o perfil técnico apresenta ao usuário.
+A transformação declarações **AssertBooleanClaimIsEqualToValue** é sempre executada de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlam a mensagem de erro que o perfil técnico apresenta ao usuário.
 
-![AssertStringClaimsAreEqual execution](./media/boolean-transformations/assert-execution.png)
+![Execução de AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
-A transformação de declarações seguinte demonstra como verificar o valor de um booleano ClaimType com um `true` valor. Se o valor da `accountEnabled` ClaimType é false, é gerada uma mensagem de erro.
+A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano `true` com um valor. Se o valor de `accountEnabled` ClaimType for false, uma mensagem de erro será lançada.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
@@ -83,7 +83,7 @@ A transformação de declarações seguinte demonstra como verificar o valor de 
 ```
 
 
-O `login-NonInteractive` chamadas de perfil técnico de validação a `AssertAccountEnabledIsTrue` transformação de afirmações.
+O `login-NonInteractive` perfil técnico de validação chama `AssertAccountEnabledIsTrue` a transformação declarações.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -93,7 +93,7 @@ O `login-NonInteractive` chamadas de perfil técnico de validação a `AssertAcc
 </TechnicalProfile>
 ```
 
-O perfil técnico de declaração própria chama a validação **NonInteractive de início de sessão** perfil técnico.
+O perfil técnico autodeclarado chama o logon de validação **–** perfil técnico não interativo.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
@@ -108,21 +108,21 @@ O perfil técnico de declaração própria chama a validação **NonInteractive 
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
+- Declarações de entrada:
     - **inputClaim**: false
-    - **valueToCompareTo**: VERDADEIRO
-- Resultado: Erro gerado
+    - **valueToCompareTo**: true
+- Disso Erro gerado
 
 ## <a name="notclaims"></a>NotClaims
 
-Executa uma operação não da inputClaim booleana e define a outputClaim com o resultado da operação.
+Executa uma operação not do inputClaim booliano e define o outputClaim com o resultado da operação.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | boolean | A afirmação a ser operado. |
-| OutputClaim | outputClaim | boolean | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání (true ou false). |
+| InputClaim | InputClaim | boolean | A declaração a ser operada. |
+| OutputClaim | outputClaim | boolean | As ClaimTypes que são produzidas após esse ClaimsTransformation foram invocadas (true ou false). |
 
-Use essa transformação de afirmação para executar a negação lógica numa afirmação.
+Use essa transformação de declaração para executar a negação lógica em uma declaração.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
@@ -136,29 +136,29 @@ Use essa transformação de afirmação para executar a negação lógica numa a
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
+- Declarações de entrada:
     - **inputClaim**: false
-- Afirmações de saída:
+- Declarações de saída:
     - **outputClaim**: true
 
-## <a name="orclaims"></a>OrClaims 
+## <a name="orclaims"></a>OrClaims
 
-Calcula um Or de dois inputClaims booleanos e define a outputClaim com o resultado da operação.
+Computa um ou dois inputClaims Boolianos e define o outputClaim com o resultado da operação.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | boolean | O ClaimType primeiro a avaliar. |
-| InputClaim | inputClaim2 | boolean | O segundo ClaimType a avaliar. |
-| OutputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání (true ou false). |
+| InputClaim | inputClaim1 | boolean | O primeiro ClaimType a ser avaliado. |
+| InputClaim | inputClaim2 | boolean | O segundo ClaimType a ser avaliado. |
+| OutputClaim | outputClaim | boolean | O ClaimTypes que será produzido depois que esse ClaimsTransformation tiver sido invocado (true ou false). |
 
-A transformação de declarações seguinte demonstra como `Or` dois ClaimTypes booleanos. O passo de orquestração, pode usar uma condição prévia para predefinir uma página de declaração própria, se o valor de uma das afirmações é `true`.
+A transformação de declarações a seguir demonstra `Or` como dois ClaimTypes boolianos. Na etapa de orquestração, você pode usar uma pré-condição para predefinir uma página autodeclarada, se o valor de uma das declarações for `true`.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -168,9 +168,9 @@ A transformação de declarações seguinte demonstra como `Or` dois ClaimTypes 
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
+- Declarações de entrada:
     - **inputClaim1**: true
     - **inputClaim2**: false
-- Afirmações de saída:
+- Declarações de saída:
     - **outputClaim**: true
 

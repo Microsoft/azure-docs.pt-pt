@@ -8,24 +8,24 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: c6994127b504cba31df051c757295f3e575bc23f
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/01/2019
+ms.openlocfilehash: a070b224b0cb1378f0ba6729af33840715dc0a29
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931211"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087715"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para aplicativos lógicos do Azure
 
-Antes de poder [se conectar a fontes de dados locais de aplicativos lógicos do Azure](../logic-apps/logic-apps-gateway-connection.md), baixe e instale o gateway de dados local em um computador local. O gateway funciona como uma ponte que fornece transferência rápida de dados e criptografia entre fontes de dados locais e seus aplicativos lógicos. Você pode usar a mesma instalação de gateway com outros serviços de nuvem, como Power BI, Microsoft Flow, PowerApps e Azure Analysis Services. Para obter informações sobre como usar o gateway com esses serviços, consulte estes artigos:
+Antes de poder [se conectar a fontes de dados locais de aplicativos lógicos do Azure](../logic-apps/logic-apps-gateway-connection.md), baixe e instale o [Gateway de dados](https://aka.ms/on-premises-data-gateway-installer) local em um computador local. O gateway funciona como uma ponte que fornece transferência rápida de dados e criptografia entre fontes de dados locais e seus aplicativos lógicos. Você pode usar a mesma instalação de gateway com outros serviços de nuvem, como Power BI, Microsoft Flow, PowerApps e Azure Analysis Services. Para obter informações sobre como usar o gateway com esses serviços, consulte estes artigos:
 
 * [Gateway de dados local do Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft PowerApps gateway de dados local](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Microsoft Flow gateway de dados local](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services Gateway de dados local](../analysis-services/analysis-services-gateway.md)
 
-Este artigo mostra como baixar, instalar e configurar seu gateway de dados local para que você possa acessar fontes de dados locais de aplicativos lógicos do Azure. Você também pode saber mais sobre [como o gateway de dados funciona](#gateway-cloud-service) mais adiante neste tópico.
+Este artigo mostra como baixar, instalar e configurar seu gateway de dados local para que você possa acessar fontes de dados locais de aplicativos lógicos do Azure. Você também pode saber mais sobre [como o gateway de dados funciona](#gateway-cloud-service) mais adiante neste tópico. Para obter mais informações sobre o gateway, consulte [o que é um gateway local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
 <a name="requirements"></a>
 
@@ -264,11 +264,11 @@ Aqui estão as maneiras pelas quais você pode corresponder às suas contas de A
 
 Para obter mais informações, consulte estes tópicos:
 
-* [FAQ sobre o gateway de dados no local](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
-* [Solucionar problemas do gateway de dados local](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
-* [Monitorar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [FAQ sobre o gateway de dados no local](/data-integration/gateway/service-gateway-onprem-faq)
+* [Solucionar problemas do gateway de dados local](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorar e otimizar o desempenho do gateway](/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060704"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067110"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
@@ -26,8 +26,8 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 **Suporte** | **Detalhes**
 --- | ---
 **Áreas geográficas com suporte** | Sudeste da Austrália, Austrália oriental <br> Sul do Brasil <br> Canadá central, leste do Canadá <br> Ásia Oriental do Sul, Ásia Oriental <br> Leste dos EUA, leste dos EUA 2, Oeste EUA Central, oeste dos EUA, oeste dos EUA 2, norte EUA Central, EUA Central, Sul EUA Central<br> Índia central, sul da Índia <br> Leste do Japão, Oeste do Japão<br> Centro da Coreia, Sul da Coreia do Sul <br> Europa do Norte, Europa Ocidental <br> Sul do Reino Unido, Oeste do Reino Unido
-**Sistemas operacionais de VM com suporte** | SLES 12 com SP2 ou SP3.
-**Versões do HANA com suporte** | SDC no HANA 1. x, MDC no HANA 2. x < = SPS03
+**Sistemas operacionais de VM com suporte** | SLES 12 com SP2, SP3 ou SP4.
+**Versões do HANA com suporte** | SDC no HANA 1. x, MDC no HANA 2. x < = SPS04 Rev 42
 
 ### <a name="current-limitations"></a>Limitações atuais
 
@@ -187,7 +187,7 @@ Se você estiver protegendo bancos de SAP HANA 1,0 e quiser atualizar para o 2,0
 - Clique em redescobrir bancos de os para a mesma VM. Isso deve mostrar o novo banco de bancos na etapa 2 com detalhes corretos (SYSTEMDB e DB de locatário, não SDC). 
 - Proteja esses novos bancos de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais sobre](backup-azure-sap-hana-database-troubleshoot.md) como solucionar erros comuns ao usar o backup SAP Hana em VMs do Azure.
 [Saiba mais sobre como](backup-azure-arm-vms-prepare.md) fazer backup de VMs do Azure.

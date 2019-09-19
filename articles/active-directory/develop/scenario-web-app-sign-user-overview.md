@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056279"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086560"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicação web que inicia a sessão de utilizadores
 
@@ -32,15 +32,35 @@ Saiba tudo o que você precisa para criar um aplicativo Web que faz logon de usu
 
 ## <a name="getting-started"></a>Introdução
 
+# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+
 Se você quiser criar seus primeiros aplicativos Web (ASP.NET Core) portáteis que se conectam aos usuários, siga este guia de início rápido:
 
 > [!div class="nextstepaction"]
 > [Quickstart: ASP.NET Core aplicativo Web que faz logon de usuários](quickstart-v2-aspnet-core-webapp.md)
 
-Se você preferir permanecer com ASP.NET, experimente o tutorial a seguir:
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+f você deseja entender como adicionar a entrada a um aplicativo Web herdado do ASP.NET, experimente o seguinte tutorial:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Aplicativo Web ASP.NET que faz logon de usuários](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Se você for um desenvolvedor de Java, experimente o início rápido a seguir:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Adicionar entrada com a Microsoft a um aplicativo Web Java](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Se você desenvolver com Python, experimente:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Adicionar entrada com a Microsoft a um aplicativo Web Python](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>Descrição geral
 
@@ -51,7 +71,7 @@ Você adiciona autenticação ao seu aplicativo Web, para que ele possa conectar
 Como uma segunda fase, você também pode habilitar seu aplicativo para chamar APIs da Web em nome do usuário conectado. Esta próxima fase é um cenário diferente, que você encontrará no [aplicativo Web chama APIs da Web](scenario-web-app-call-api-overview.md)
 
 > [!NOTE]
-> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de **middleware** fazem. Esse cenário não requer ainda as MSAL (bibliotecas de autenticação da Microsoft), que tratam de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação só serão introduzidas no cenário de acompanhamento quando o aplicativo Web precisar chamar APIs da Web.
+> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de **middleware** fazem. No caso do .NET, esse cenário não requer ainda as MSAL (bibliotecas de autenticação da Microsoft), que tratam de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação só serão introduzidas no cenário de acompanhamento quando o aplicativo Web precisar chamar APIs da Web.
 
 ## <a name="specifics"></a>Especificações
 

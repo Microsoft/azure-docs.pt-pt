@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 14bcded4e3074023aa496588f5bd79eedbe889cf
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c6cf30a8d4f750aa8e1c2b7531c4a604642e88b4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008923"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092031"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar dados de Jira com o Azure Data Factory (pré-visualização)
 
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 Este conector do JIRA tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados de Jira para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
@@ -155,5 +155,5 @@ Para copiar dados do Jira, defina o tipo de origem na atividade de cópia para *
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

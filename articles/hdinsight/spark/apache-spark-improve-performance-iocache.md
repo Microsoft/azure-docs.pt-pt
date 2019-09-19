@@ -4,14 +4,15 @@ description: Saiba mais sobre o cache de e/s do Azure HDInsight e como usá-lo p
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f3f171d4dfd3642dc71724afbe084c3fcbf8beaa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915361"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091079"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight 
 

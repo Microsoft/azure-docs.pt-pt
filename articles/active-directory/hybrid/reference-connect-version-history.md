@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e491815f25f3744d839efc09ce34793d80d9943a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983543"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097601"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -44,6 +44,9 @@ Enquanto passarmos por esse processo, o número de versão da versão será most
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão é disponibilizada para atualização automática ou somente para download. Se a atualização automática tiver sido habilitada em seu servidor de Azure AD Connect, esse servidor será atualizado automaticamente para a versão mais recente do Azure AD Connect que é lançado para atualização automática. Observe que nem todas as configurações de Azure AD Connect são elegíveis para a atualização automática. Siga este link para ler mais sobre a [atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="14x0"></a>1.4. X. 0
+
+>[!IMPORTANT]
+>Anteriormente, os computadores de nível inferior do Windows que ingressaram no AD local estavam sendo sincronizados incorretamente para a nuvem em algumas circunstâncias. Por exemplo, o valor do atributo userCertificate para dispositivos de nível inferior do Windows no AD é populado. Mas esses dispositivos no Azure AD sempre ficam no estado "pendente" porque essas versões do sistema operacional não foram projetadas para serem registradas com o Azure AD via AAD Sync. Nesta versão do Azure AD Connect, AAD Sync interromperá a sincronização de computadores de nível inferior do Windows com o Azure AD e também removerá os dispositivos de nível inferior do Windows previamente sincronizados anteriormente do Azure AD. Observe que essa alteração não excluirá nenhum dispositivo de nível inferior do Windows registrado corretamente com o Azure AD usando o pacote MSI. Esses dispositivos continuarão a funcionar conforme o esperado para fins de acesso condicional com base no dispositivo. Alguns clientes podem ver que alguns ou todos os seus dispositivos de nível inferior do Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo nunca foram realmente usadas pelo Azure AD durante a autorização de acesso condicional. Esses clientes talvez precisem revisitar https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan e obter seus dispositivos de nível inferior do Windows registrados corretamente para garantir que esses dispositivos possam participar totalmente do acesso condicional baseado em dispositivo. Observe que, se você vir essas exclusões de objetos de computador/dispositivo de nível inferior no Azure AD excedendo o limite de exclusão de exportação, é recomendável que o cliente permita que essas exclusões passem.
 
 ### <a name="release-status"></a>Status da versão
 9/10/2019: Liberado somente para atualização automática

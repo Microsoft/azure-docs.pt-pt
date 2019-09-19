@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735577"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098406"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -132,7 +132,7 @@ Para interromper a proteção e excluir dados de uma VM:
 
 ## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de uma VM
 
-Se você tiver escolhido a opção [parar proteção e manter dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada, você poderá usar retomar **backup**. Essa opção não estará disponível se você escolher a opção [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) ou [excluir dados de backup](#delete-backup-data).
+Se você tiver escolhido a opção [parar proteção e manter dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada, você poderá usar **retomar backup**. Essa opção não estará disponível se você escolher a opção [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) ou [excluir dados de backup](#delete-backup-data).
 
 Para retomar a proteção de uma VM:
 

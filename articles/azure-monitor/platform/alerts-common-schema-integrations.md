@@ -1,6 +1,6 @@
 ---
-title: Como integrar o esquema comum do alerta com o Logic Apps
-description: Saiba como criar uma aplicação lógica que utiliza o esquema comum do alerta para lidar com todos os seus alertas.
+title: Como integrar o esquema de alerta comum com aplicativos lógicos
+description: Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
 author: ananthradhakrishnan
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,43 +8,43 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f431e5e5f4537d1a5f889457eb81b881e47ee178
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734895"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091794"
 ---
-# <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema comum do alerta com o Logic Apps
+# <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com aplicativos lógicos
 
-Este artigo mostra-lhe como criar uma aplicação lógica que utiliza o esquema comum do alerta para lidar com todos os seus alertas.
+Este artigo mostra como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
 
 ## <a name="overview"></a>Descrição geral
 
-O [esquema comum do alerta](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os seus tipos de alerta diferentes. O esquema comum do alerta é mais útil quando utilizado por meio de programação – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstraremos como uma aplicação lógica única pode ser criada para lidar com todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos de programação. A aplicação de lógica descrita neste artigo cria variáveis bem definidas para o [campos 'essenciais'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)e também descreve como processar [tipo de alerta](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) lógica específica.
+O [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os tipos de alerta diferentes. O esquema de alerta comum é mais útil quando aproveitado programaticamente – por meio de WebHooks, runbooks e aplicativos lógicos. Neste artigo, demonstramos como um único aplicativo lógico pode ser criado para lidar com todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. O aplicativo lógico descrito neste artigo cria variáveis bem definidas para os [campos ' essenciais '](alerts-common-schema-definitions.md#essentials)e também descreve como você pode manipular a lógica específica do [tipo de alerta](alerts-common-schema-definitions.md#alert-context) .
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Este artigo pressupõe que o leitor está familiarizado com o 
-* Configurar regras de alerta ([métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [registo de atividades](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
-* Configurar [grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Ativar a [esquema comum do alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) de dentro de grupos de ação
+Este artigo pressupõe que o leitor esteja familiarizado com 
+* Configurando regras de alerta ([métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [log de atividades](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
+* Configurando [grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* Habilitando o [esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) de dentro dos grupos de ação
 
-## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Criar uma aplicação de lógica tirar partido do esquema comum do alerta
+## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Criar um aplicativo lógico aproveitando o esquema de alerta comum
 
-1. Siga os [passos descritos para criar a sua aplicação lógica](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
+1. Siga as [etapas descritas para criar seu aplicativo lógico](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
-1.  Selecione o acionador: **Quando é recebido um pedido HTTP**.
+1.  Selecione o gatilho: **Quando uma solicitação HTTP é recebida**.
 
-    ![Acionadores da aplicação lógica](media/action-groups-logic-app/logic-app-triggers.png "acionadores da aplicação lógica")
+    ![Gatilhos de aplicativo lógico](media/action-groups-logic-app/logic-app-triggers.png "Gatilhos de aplicativo lógico")
 
-1.  Selecione **editar** para alterar o acionador de pedido HTTP.
+1.  Selecione **Editar** para alterar o gatilho de solicitação HTTP.
 
-    ![Acionadores de pedido HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "acionadores de pedido HTTP")
+    ![Gatilhos de solicitação HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Gatilhos de solicitação HTTP")
 
 
-1.  Copie e cole o seguinte esquema:
+1.  Copie e cole o esquema a seguir:
 
     ```json
         {
@@ -113,34 +113,34 @@ Este artigo pressupõe que o leitor está familiarizado com o
         }
     ```
 
-1. Selecione **+** **novo passo** e, em seguida, escolha **adicionar uma ação**.
+1. Selecione **+** **nova etapa** e, em seguida, escolha **Adicionar uma ação**.
 
-    ![Adicionar uma ação](media/action-groups-logic-app/add-action.png "adicionar uma ação")
+    ![Adicionar uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
 
-1. Nesta fase, pode adicionar uma variedade de conectores (Microsoft Teams, Slack, Salesforce, etc.) com base nos seus requisitos comerciais específicos. Pode utilizar o "campos essenciais"-de-pronta. 
+1. Neste estágio, você pode adicionar uma variedade de conectores (Microsoft Teams, margem de atraso, Salesforce, etc.) com base em seus requisitos específicos de negócios. Você pode usar os ' campos essenciais ' prontos para uso. 
 
-    ![Campos essenciais](media/alerts-common-schema-integrations/logic-app-essential-fields.png "campos essenciais")
+    ![Campos essenciais](media/alerts-common-schema-integrations/logic-app-essential-fields.png "Campos essenciais")
     
-    Em alternativa, pode criar uma lógica condicional com base no tipo de alerta com a opção "Expression".
+    Como alternativa, você pode criar a lógica condicional com base no tipo de alerta usando a opção ' Expression '.
 
-    ![Expressão de aplicação lógica](media/alerts-common-schema-integrations/logic-app-expressions.png "expressão de aplicação lógica")
+    ![Expressão de aplicativo lógico](media/alerts-common-schema-integrations/logic-app-expressions.png "Expressão de aplicativo lógico")
     
-     O [campo 'monitoringService'](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) permite-lhe identificar exclusivamente o tipo de alerta com base no que é possível criar a lógica condicional.
+     O [campo ' monitoringService '](alerts-common-schema-definitions.md#alert-context) permite que você identifique exclusivamente o tipo de alerta, com base no qual você pode criar a lógica condicional.
 
     
-    Por exemplo, a seguir o trecho de código verifica se o alerta é um alerta de registo do Application Insights com base e, se assim for, imprime os resultados da pesquisa. Caso contrário, imprime "ND".
+    Por exemplo, o trecho de código abaixo verifica se o alerta é um alerta de log baseado Application Insights e, em caso positivo, imprime os resultados da pesquisa. Caso contrário, ele imprimirá ' NA '.
 
     ```text
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Saiba mais sobre [escrever expressões de aplicação de lógica](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Saiba mais sobre como [escrever expressões de aplicativo lógico](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
 
     
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre os grupos de ação](../../azure-monitor/platform/action-groups.md).
-* [Saiba mais sobre o esquema comum do alerta](https://aka.ms/commonAlertSchemaDocs).
+* [Saiba mais sobre grupos de ações](../../azure-monitor/platform/action-groups.md).
+* [Saiba mais sobre o esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
 

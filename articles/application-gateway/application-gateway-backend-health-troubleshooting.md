@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: ce1d0542530c4f190ace52d45e2369d6ecc18772
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1fd4e9156e29133b1db4fe9ab9a0825eb1aa3b55
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384089"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097584"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no gateway de aplicativo
 ==================================================
@@ -81,10 +81,10 @@ Quando você vir o status do servidor back-end como não íntegro para todos os 
 A mensagem exibida na coluna detalhes da guia integridade de back-end fornece informações mais detalhadas sobre o problema e, com base neles, podemos começar a solucionar o problema.
 
 > [!NOTE]
-> A solicitação de <protocol>investigação padrão é enviada no formato://127.0.0.1:<port>/, por exemplo, <http://127.0.0.1/> para uma investigação http na porta 80 e considera apenas uma resposta dos códigos de status HTTP 200-399 como resposta íntegra. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o gateway de aplicativo teste em um protocolo, nome de host ou caminho diferente e aceite um código de status diferente como íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
+> A solicitação de investigação padrão é enviada no formato de \<protocolo\>://127.0.0.1:\<Port\>/, por exemplo, <http://127.0.0.1/> para uma investigação http na porta 80 e considera apenas uma resposta dos códigos de status HTTP 200-399 como resposta íntegra. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o gateway de aplicativo teste em um protocolo, nome de host ou caminho diferente e aceite um código de status diferente como íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
 
-### <a name="error-messages"></a>Mensagens de Erro
-
+<a name="error-messages"></a>Mensagens de Erro
+------------------------
 #### <a name="backend-server-timeout"></a>Tempo limite do servidor de back-end
 
 **Mensagem:** O tempo gasto pelo back-end para responder à\'investigação de integridade do gateway de aplicativo é maior do que o limite de tempo limite na configuração de investigação.

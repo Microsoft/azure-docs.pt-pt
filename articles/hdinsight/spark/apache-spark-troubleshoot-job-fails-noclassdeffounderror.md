@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: f39822d0800af8658e46cde0202a2c261890b4e3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7ccd908c96e68190f09da37a83e0a34a09f5e697
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885525"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087135"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>Apache Spark trabalho de streaming que lê Apache Kafka dados falha com NoClassDefFoundError no HDInsight
 

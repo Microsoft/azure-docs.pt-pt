@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d6b860f43abae2283b4889bff0913bac25c821f5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4cb6f420b6d084539dc98a09632d0760a1344012
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017786"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092181"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar dados de e para o Azure Database para PostgreSQL usando Azure Data Factory
 
@@ -29,7 +29,7 @@ Esse conector é especializado para o [serviço banco de dados do Azure para Pos
 
 Esse conector do banco de dados do Azure para PostgreSQL tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados da base de dados do Azure para PostgreSQL para qualquer arquivo de dados de sink suportados. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Database para PostgreSQL. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.

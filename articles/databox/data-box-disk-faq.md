@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076890"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098828"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco do Azure Data Box: Perguntas Mais Frequentes
 
@@ -89,6 +89,24 @@ A.  Pode acompanhar o estado da encomenda do Data Box Disk no portal do Azure. Q
 ### <a name="q-how-do-i-return-the-disks"></a>P. Como posso devolver os discos? 
 A.  A Microsoft fornece uma etiqueta de envio com o Data Box Disk na embalagem. Afixe a etiqueta à caixa de envio e entregue a embalagem fechada na localização da sua transportadora. Se a etiqueta estiver danificada ou se perder, aceda a **Overview > Download shipping label** (Descrição geral > Transferir etiqueta de envio) e transfira uma etiqueta de devolução nova.
 
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Posso pegar meu Disco do Data Box ordem? Posso retornar os discos por meio de uma operadora que escolho?
+R. Sim. A Microsoft também oferece entregas autogerenciadas somente na região US Gov. Ao colocar o pedido de Disco do Data Box, você pode escolher a opção de envio autogerenciado. Para pegar sua ordem de Disco do Data Box, execute as seguintes etapas:
+    
+1. Depois que você tiver colocado o pedido, o pedido será processado e os discos serão preparados. Você será notificado por um email de que seu pedido está pronto para o recebimento. 
+2. Quando o pedido estiver pronto para o recebimento, vá para seu pedido na portal do Azure e navegue até a folha **visão geral** . 
+3. Você verá uma notificação com um código na portal do Azure. Envie a [equipe de operações de Azure data Box](mailto:adbops@microsoft.com) por email e forneça o código. A equipe fornecerá o local e agendará uma data e hora de retirada. Você deve chamar a equipe dentro de 5 dias úteis depois de receber a notificação por email.
+
+Depois que a cópia e a validação de dados forem concluídas, execute as seguintes etapas para retornar o disco:
+
+1. Após a validação de dados ser concluída, desligue os discos. Remova os cabos de ligação.
+2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Podem aplicar-se custos se faltarem os acessórios.
+
+    - Reutilize a embalagem do envio inicial. Recomendamos que embrulhe os discos em plástico-bolha e que o prenda bem.
+    - Assegure que o plástico-bolha envolve bem os discos para reduzir os movimentos dentro da caixa.
+3. Vá para a **folha de visão geral** do seu pedido no portal do Azure. Você deverá ver uma notificação com um código.
+4. Use esse código e envie por email a [equipe de operações de Azure data Box](mailto:adbops@microsoft.com) e forneça o código. Eles fornecerão informações sobre onde e quando retirar os discos.
+
+
 ## <a name="migrate-data"></a>Migrar dados
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box-disks"></a>P. Qual é o tamanho máximo de dados que podem ser utilizados com os discos do Data Box Disk?  
@@ -109,11 +127,11 @@ A.  Utilize uma ferramenta de cópias SMB, como o Robocopy, o Diskboss ou até m
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>P. Estão disponíveis sugestões para acelerar a cópia dos dados?
 A.  Para acelerar o processo de cópia:
 
-- Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter mais informações sobre o comando exato usado, acesse [tutorial: Copie dados para Disco do Azure Data Box e verifique](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter mais informações sobre o comando exato usado, acesse [tutorial: Copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Utilize várias sessões.
 - Em vez de copiar através de uma partilha de rede (em que pode estar limitado pelas velocidades da rede), certifique-se de que os dados residem localmente no computador ao qual os discos vão ser ligados.
 - Confirme que está a utilizar o USB 3.0 ou posterior ao longo de todo o processo de cópia. Transfira e utilize a [ferramenta USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) para identificar os controladores de USB e os dispositivos USB ligados ao computador.
-- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a compilação mais recente do x86 ou x64, selecione a guia artefatos e baixe a MSI.
+- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a compilação mais recente do x86 ou x64, selecione a guia **artefatos** e baixe a MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>P. Como posso acelerar os dados se os dados de origem tiverem ficheiros pequenos (KBs ou poucos MBs)?
 A.  Para acelerar o processo de cópia:
@@ -127,7 +145,7 @@ A.  Não. Atualmente, só é suportada uma conta de armazenamento, geral ou clá
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>P. O que é o conjunto de ferramentas disponível para meus dados com Data Box discos?
 R. O conjunto de ferramentas disponível com o Disco do Data Box contém três ferramentas:
- - **Ferramenta**de desbloqueio de disco do data Box: Use essa ferramenta para desbloquear os discos criptografados que são enviados da Microsoft. Ao desbloquear os discos usando a ferramenta, você precisa fornecer uma chave de acesso disponível na ordem de Disco do Data Box no portal do Azure. 
+ - **Ferramenta de desbloqueio de disco do data Box**: Use essa ferramenta para desbloquear os discos criptografados que são enviados da Microsoft. Ao desbloquear os discos usando a ferramenta, você precisa fornecer uma chave de acesso disponível na ordem de Disco do Data Box no portal do Azure. 
  - **Ferramenta de validação de disco do data Box**: Use essa ferramenta para validar o tamanho, o formato e os nomes de blob de acordo com as convenções de nomenclatura do Azure. Ele também gera somas de verificação para os dados copiados que são usados para verificar os dados carregados no Azure.
  - **Ferramenta de cópia dividida disco do data Box**: Use essa ferramenta quando você estiver usando vários discos e tiver um grande conjunto de grandes que precise ser dividido e copiado em todos os discos. Essa ferramenta está disponível no momento para Windows. Não há suporte para essa ferramenta com discos gerenciados. Essa ferramenta também é validada à medida que copia os dados, portanto, você pode ignorar a etapa de validação ao usar essa ferramenta.
 

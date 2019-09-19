@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102368"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036530"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar Always On grupo de disponibilidade na VM do Azure manualmente
 
@@ -82,6 +82,9 @@ Após a conclusão dos pré-requisitos, a primeira etapa é criar um cluster de 
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Definir o endereço IP do cluster de failover do Windows Server
 
+  > [!NOTE]
+  > No Windows Server 2019, o cluster cria um **nome de servidor distribuído** em vez do **nome de rede do cluster**. Se você estiver usando o Windows Server 2019, ignore todas as etapas que se referem ao nome de núcleo do cluster neste tutorial. Você pode criar um nome de rede de cluster usando o [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Examine o cluster [de failover do blog: Objeto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) de rede de cluster para obter mais informações. 
+
 1. Em **Gerenciador de cluster de failover**, role para baixo até **recursos principais do cluster** e expanda os detalhes do cluster. Você deve ver o **nome** e os recursos de **endereço IP** no estado de **falha** . O recurso de endereço IP não pode ser colocado online porque o cluster recebe o mesmo endereço IP que o próprio computador, portanto, é um endereço duplicado.
 
 2. Clique com o botão direito do mouse no recurso **endereço IP** com falha e clique em **Propriedades**.
@@ -127,9 +130,9 @@ Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para cri
 
 1. Em **Gerenciador do servidor**, clique em **ferramentas**. Abra o **Gerenciamento do computador**.
 
-1. Clique em **pastas**compartilhadas.
+1. Clique em **pastas compartilhadas**.
 
-1. Clique com obotão direito do mouse em compartilhamentos e clique em **novo compartilhamento...** .
+1. Clique com o botão direito do mouse em **compartilhamentos**e clique em **novo compartilhamento...** .
 
    ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -229,9 +232,9 @@ Repeat these steps on the second SQL Server.
 
 1. Na primeira SQL Server em **Gerenciador do servidor**, clique em **ferramentas**. Abra o **Gerenciamento do computador**.
 
-1. Clique em **pastas**compartilhadas.
+1. Clique em **pastas compartilhadas**.
 
-1. Clique com obotão direito do mouse em compartilhamentos e clique em **novo compartilhamento...** .
+1. Clique com o botão direito do mouse em **compartilhamentos**e clique em **novo compartilhamento...** .
 
    ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -380,7 +383,7 @@ Para configurar o balanceador de carga, você precisa criar um pool de back-end,
 
    ![Localizar Load Balancer no grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Clique no balanceador de carga, clique em pools de **back-end**e clique em **+ Adicionar**.
+1. Clique no balanceador de carga, clique em **pools de back-end**e clique em **+ Adicionar**.
 
 1. Digite um nome para o pool de back-end.
 
@@ -490,7 +493,7 @@ Em SQL Server Management Studio, defina a porta do ouvinte.
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica primária.
 
-1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade ouvintes do**grupo de disponibilidade**.
+1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade**ouvintes do grupo de disponibilidade**.
 
 1. Agora você deve ver o nome do ouvinte que você criou em Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 
@@ -521,6 +524,6 @@ A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server
 > [!TIP]
 > Verifique se a porta que você especificou está aberta no firewall de ambos os SQL Servers. Ambos os servidores exigem uma regra de entrada para a porta TCP que você usa. Para obter mais informações, consulte [Adicionar ou editar regra de firewall](https://technet.microsoft.com/library/cc753558.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Adicione um endereço IP a um balanceador de carga para um segundo grupo de disponibilidade](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

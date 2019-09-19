@@ -9,10 +9,10 @@ ms.date: 09/10/2019
 ms.author: kumud
 ms.custom: include file
 ms.openlocfilehash: 4fc3c6534706ccac23af927a6dbcefad12fb335f
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "71018505"
 ---
  Os seguintes limites se aplicam ao link privado do Azure:

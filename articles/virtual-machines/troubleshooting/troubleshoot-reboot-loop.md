@@ -4,7 +4,7 @@ description: Saiba como solucionar problemas do loop de reinicialização do Win
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: e4715225e56e50502348040fa501cbfd76bd5c9f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103388"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088477"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop de reinicialização do Windows em uma VM do Azure
 Este artigo descreve o loop de reinicialização que você pode experimentar em uma VM (máquina virtual) do Windows no Microsoft Azure.

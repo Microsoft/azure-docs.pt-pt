@@ -4,7 +4,7 @@ description: Saiba como solucionar o problema quando uma inicialização de VM d
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: b9a93448e084a42a935a8281ccd069e3604b1f18
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 226151d81319dc4e6f132e76ce2d310f88a484e8
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089608"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087028"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>A inicialização da VM do Azure está presa no Windows Update
 
@@ -55,7 +55,7 @@ Dependendo do número de atualizações que estão sendo instaladas ou revertida
     Por exemplo, se o disco do sistema operacional anexado for a unidade F, execute o seguinte comando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Abra o arquivo C:\temp\Patch_level.txt e, em seguida, leia-o de baixo para cima. Localize a atualização que está no estado **instalação pendente** ou desinstalação **pendente** .  Veja a seguir um exemplo do status da atualização:
+5. Abra o arquivo C:\temp\Patch_level.txt e, em seguida, leia-o de baixo para cima. Localize a atualização que está no estado **instalação pendente** ou **desinstalação pendente** .  Veja a seguir um exemplo do status da atualização:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

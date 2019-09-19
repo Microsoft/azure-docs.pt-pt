@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fe917f911be45d7f68662e956fe3bd14f92267
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959886"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097559"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -136,6 +136,10 @@ Não.
 **P: Por que o AD do Azure ainda rejeita senhas fracas, embora tenha configurado a política para estar no modo de auditoria?**
 
 O modo de auditoria só tem suporte no ambiente de Active Directory local. O Azure AD está implicitamente sempre no modo "impor" quando avalia senhas.
+
+**P: Meus usuários veem a mensagem de erro tradicional do Windows quando uma senha é rejeitada pela proteção de senha do Azure AD. É possível personalizar essa mensagem de erro para que os usuários saibam o que realmente aconteceu?**
+
+Não. A mensagem de erro vista pelos usuários quando uma senha é rejeitada por um controlador de domínio é controlada pelo computador cliente, não pelo controlador de domínio. Esse comportamento ocorre quando uma senha é rejeitada pelo padrão Active Directory políticas de senha ou por uma solução baseada em filtro de senha, como a proteção de senha do Azure AD.
 
 ## <a name="additional-content"></a>Conteúdo adicional
 

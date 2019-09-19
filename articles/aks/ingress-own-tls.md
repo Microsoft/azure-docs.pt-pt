@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fc7f2180e4166070fe44863aed2b12135b0db8ee
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67615442"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097850"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS e usar seus próprios certificados TLS no serviço kubernetes do Azure (AKS)
 
@@ -133,7 +133,7 @@ Os dois aplicativos agora estão em execução no cluster kubernetes, no entanto
 No exemplo a seguir, o tráfego para o `https://demo.azure.com/` endereço é roteado para o `aks-helloworld`serviço chamado. O tráfego para o `https://demo.azure.com/hello-world-two` endereço é roteado `ingress-demo` para o serviço. Para este artigo, você não precisa alterar os nomes de host de demonstração. Para uso em produção, forneça os nomes especificados como parte do processo de solicitação e geração de certificado.
 
 > [!TIP]
-> Se o nome do host especificado durante o processo de solicitação de certificado, o nome CN não corresponder ao host definido em sua rota de entrada, o controlador de entrada exibirá um *certificado falso do controlador de entrada do kubernetes*. Verifique se os nomes de host do certificado e da rota de entrada correspondem.
+> Se o nome do host especificado durante o processo de solicitação de certificado, o nome CN não corresponder ao host definido em sua rota de entrada, o controlador de entrada exibirá um aviso de *certificado falso do controlador de entrada do kubernetes* . Verifique se os nomes de host do certificado e da rota de entrada correspondem.
 
 A seção *TLS* informa a rota de entrada para usar o segredo chamado *AKs-ingress-TLS* para o host *demo.Azure.com*. Novamente, para uso em produção, especifique seu próprio endereço de host.
 

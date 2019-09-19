@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 70eb70d7c63d66601aebf8e05a2b14b582058296
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e46bb5e79b20c303dc2d3c29277047aad9f3ffb1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009248"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090323"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery com o Azure Data Factory
 
@@ -27,7 +27,7 @@ Este artigo descreve como utilizar a atividade de c처pia no Azure Data Factory p
 
 Este conector do Google BigQuery tem suporte para as seguintes atividades:
 
-- [Atividade de c처pia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de c처pia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados do Google BigQuery para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que s찾o suportados como origens ou sinks a atividade de c처pia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
@@ -203,5 +203,5 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de c처pia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

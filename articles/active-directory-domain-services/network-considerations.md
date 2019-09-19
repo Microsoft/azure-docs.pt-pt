@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 506967fc4cecd322c694d31789cf09bec22ad3d4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617314"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086589"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure AD Domain Services
 
@@ -36,7 +36,7 @@ Conforme você projeta a rede virtual para o Azure AD DS, as seguintes considera
     * Para minimizar a latência, mantenha seus aplicativos principais próximos ou na mesma região que a sub-rede da rede virtual para seu domínio gerenciado do AD DS do Azure. Você pode usar o emparelhamento de rede virtual ou conexões de rede virtual privada (VPN) entre redes virtuais do Azure.
 * A rede virtual não pode depender de serviços DNS diferentes daqueles fornecidos pelo Azure AD DS.
     * O Azure AD DS fornece seu próprio serviço DNS. A rede virtual deve ser configurada para usar esses endereços de serviço DNS. A resolução de nomes para namespaces adicionais pode ser realizada usando encaminhadores condicionais.
-    * Você não pode usar configurações personalizadas do servidor DNS para direcionar consultas a outros servidores DNS, incluindo em VMs. Os recursos na rede virtual devem usar o serviço DNS fornecido pelo Azure AD DS.
+    * Você não pode usar configurações personalizadas do servidor DNS para direcionar consultas de outros servidores DNS, incluindo em VMs. Os recursos na rede virtual devem usar o serviço DNS fornecido pelo Azure AD DS.
 
 > [!IMPORTANT]
 > Você não pode mover o Azure AD DS para uma rede virtual diferente depois de habilitar o serviço.
@@ -105,7 +105,7 @@ Um [NSG (grupo de segurança de rede)](https://docs.microsoft.com/azure/virtual-
 
 As regras do grupo de segurança de rede a seguir são necessárias para que o Azure AD DS forneça serviços de autenticação e gerenciamento. Não edite ou exclua essas regras de grupo de segurança de rede para a sub-rede da rede virtual em que o domínio gerenciado do Azure AD DS está implantado.
 
-| Número da porta | Protocol | Origem                             | Destino | Action | Requerido | Objetivo |
+| Número da porta | Protocol | Origem                             | Destination | Action | Requerido | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sim      | Sincronização com seu locatário do Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sim      | Gerenciamento do seu domínio. |

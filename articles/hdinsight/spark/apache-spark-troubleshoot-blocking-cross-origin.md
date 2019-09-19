@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 291fc7f385f652005f44c3e0cd52d4929e914989
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f5ac70381f0879a896e96cb37a70c1b1a1f0b5da
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736194"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090995"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Cenário: Erro do Jupyter Server 404 "não encontrado" devido a "bloqueio da API de origem cruzada" no Azure HDInsight
 
@@ -54,7 +55,7 @@ Esse erro pode ser causado por algumas coisas:
 
 Isso é menos seguro do que a configuração que já tínhamos em vigor. Mas é presumido que o acesso ao cluster seja restrito e que um de fora tenha permissão para se conectar ao cluster, pois temos NSG em vigor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

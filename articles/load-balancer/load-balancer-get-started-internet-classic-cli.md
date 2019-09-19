@@ -5,6 +5,7 @@ description: Saiba como criar um balanceador de carga com acesso à Internet num
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fa89117e85bc3d3c9664e6aa037fac923b7432ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d7f1971c6aff446f9bf8f983bd7859e831c1213
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544896"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090937"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Introdução à criação de um balanceador de carga (clássico) de acesso à Internet na CLI do Azure clássica
 
@@ -30,7 +31,7 @@ ms.locfileid: "60544896"
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com recursos do Azure, é importante compreender que o Azure tem atualmente dois modelos de implementação: O Azure Resource Manager e clássica. Confirme que compreende os [modelos e ferramentas de implementação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Pode ver a documentação de diversas ferramentas clicando nos separadores na parte superior deste artigo. Este artigo abrange o modelo de implementação clássica. Também pode [saber como criar um balanceador de carga com acesso à Internet com o Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Antes de trabalhar com os recursos do Azure, é importante entender que o Azure atualmente tem dois modelos de implantação: Azure Resource Manager e clássico. Confirme que compreende os [modelos e ferramentas de implementação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Pode ver a documentação de diversas ferramentas clicando nos separadores na parte superior deste artigo. Este artigo abrange o modelo de implementação clássica. Também pode [saber como criar um balanceador de carga com acesso à Internet com o Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [requires-classic-cli](../../includes/contains-classic-cli-content.md)]
 

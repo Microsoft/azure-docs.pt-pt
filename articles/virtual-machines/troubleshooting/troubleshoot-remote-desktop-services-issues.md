@@ -4,7 +4,7 @@ description: Saiba como solucionar problemas com Serviços de Área de Trabalho 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 845e9c17d6f7facb4e24f3069b3622b6449295ca
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103327"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087100"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de Área de Trabalho Remota não está iniciando em uma VM do Azure
 
@@ -55,7 +55,7 @@ Ao tentar se conectar a uma VM, você enfrenta os seguintes cenários:
  
 Esse problema ocorre porque Serviços de Área de Trabalho Remota não está em execução na VM. A causa pode depender dos seguintes cenários: 
 
-- O serviço do TermService está definidocomo desabilitado. 
+- O serviço do TermService está definido como **desabilitado**. 
 - O serviço do TermService está falhando ou não respondendo. 
 - O TermService não está iniciando devido a uma configuração incorreta.
 

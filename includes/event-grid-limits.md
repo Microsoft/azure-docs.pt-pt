@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "66376914"
 ---
 Os limites a seguir se aplicam aos tópicos do sistema de grade de eventos do Azure e aos tópicos personalizados, *não* aos domínios de evento.

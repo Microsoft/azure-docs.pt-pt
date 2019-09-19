@@ -4,7 +4,7 @@ description: Como solucionar um problema de VM do Azure usando a virtualização
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 18d7e9b0ab44dfe18df0dcd7cd36fb708649a4bc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ad359a19cb42bf115189aca7905d1908d0dc5284
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089680"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087063"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 

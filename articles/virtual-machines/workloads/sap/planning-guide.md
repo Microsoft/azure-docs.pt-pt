@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098757"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067871"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -344,6 +344,7 @@ Em todo o documento, usamos os seguintes termos:
 * Cenário SAP: Este termo refere-se a todos os ativos do SAP no cenário de ti de um cliente. A estrutura SAP inclui todos os ambientes de produção e de não produção.
 * Sistema SAP: A combinação de camada de DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, SAP BW sistema de teste, sistema de produção SAP CRM, etc. Em implantações do Azure, não há suporte para dividir essas duas camadas entre o local e o Azure. Significa que um sistema SAP é implantado localmente ou implantado no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura SAP no Azure ou no local. Por exemplo, você pode implantar os sistemas de desenvolvimento e teste do SAP CRM no Azure, mas o sistema de produção SAP CRM local.
 * Entre locais ou híbridos: Descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou de ExpressRoute entre os datacenters locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritos como cenários entre locais ou híbridos. O motivo para a conexão é estender os domínios locais, Active Directory/OpenLDAP locais e o DNS local para o Azure. O cenário local é estendido para os ativos do Azure da assinatura. Tendo essa extensão, as VMs podem fazer parte do domínio local. Os usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e a resolução de nomes entre as VMs implantadas localmente e as VMs implantadas no Azure são possíveis. Esse é o caso mais comum e quase exclusivo da implantação de ativos do SAP no Azure. Para obter mais informações, consulte [este][vpn-gateway-cross-premises-options] artigo e [isso][vpn-gateway-site-to-site-create].
+* Extensão de monitoramento do Azure, monitoramento aprimorado e extensão do Azure para SAP: Descreva um e o mesmo item. Ele descreve uma extensão de VM que precisa ser implantada por você para fornecer alguns dados básicos sobre a infraestrutura do Azure para o agente de host do SAP. SAP no SAP Notes pode referir-se a ele como extensão de monitoramento ou monitoramento avançado. No Azure, estamos nos referindo a ele como a **extensão do Azure para SAP**.
 
 > [!NOTE]
 > As implantações híbridas ou entre instalações de sistemas SAP em que as máquinas virtuais do Azure que executam sistemas SAP são membros de um domínio local têm suporte para sistemas SAP de produção. Há suporte para configurações entre locais ou híbridas para implantar partes ou cenários SAP completos no Azure. Até mesmo a execução da estrutura SAP completa no Azure exige que essas VMs façam parte do domínio local e anúncios/OpenLDAP. 
@@ -799,7 +800,7 @@ A experiência do cliente até o momento é que o PowerShell (PS) é certamente 
 Consulte o exemplo aqui:<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
-A implantação da extensão de monitoramento do Azure para SAP (consulte o capítulo [solução de monitoramento do Azure para SAP][planning-guide-9.1] neste documento) só é possível por meio do PowerShell ou da CLI. Portanto, é obrigatório configurar e configurar o PowerShell ou a CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.  
+A implantação da extensão do Azure para SAP (consulte o capítulo [extensão do Azure para SAP][planning-guide-9.1] neste documento) só é possível por meio do PowerShell ou da CLI. Portanto, é obrigatório configurar e configurar o PowerShell ou a CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.  
 
 Como o Azure fornece mais funcionalidade, novos cmdlets do PS serão adicionados que exigem uma atualização dos cmdlets. Portanto, faz sentido verificar o site de download do Azure pelo menos uma vez <https://azure.microsoft.com/downloads/> ao mês para uma nova versão dos cmdlets. A nova versão é instalada em cima da versão mais antiga.
 
@@ -816,7 +817,7 @@ Para obter informações sobre instalação, configuração e como usar comandos
 * [Implementar e gerir máquinas virtuais utilizando modelos Azure Resource Manager e a CLI do Azure] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Use a CLI clássica do Azure para Mac, Linux e Windows com Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Leia também o capítulo [CLI do Azure para VMs do Linux][deployment-guide-4.5.2] no [Guia de implantação][planning-guide] sobre como usar CLI do Azure para implantar a extensão de monitoramento do Azure para SAP.
+Leia também o capítulo [CLI do Azure para VMs do Linux][deployment-guide-4.5.2] no [Guia de implantação][planning-guide] sobre como usar CLI do Azure para implantar a extensão do Azure para SAP.
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Diferentes maneiras de implantar VMs para SAP no Azure
 
@@ -874,7 +875,7 @@ Os requisitos ao preparar seu próprio disco de VM do Azure são:
 >
 > Nesse cenário, nenhuma generalização (Sysprep) da VM é necessária para carregar e implantar a VM no Azure.
 > Verifique se a unidade D:\ Não é usado.
-> Defina a montagem automática de disco para discos anexados, conforme descrito no capítulo Configurando [a montagem automática para discos anexados][planning-guide-5.5.3] neste documento.
+> Defina a montagem automática de disco para discos anexados, conforme descrito no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3] neste documento.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -899,7 +900,7 @@ Os requisitos ao preparar sua própria imagem de VM do Azure são:
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Verifique se a unidade D:\ Não é usado definir montagem automática de disco para discos anexados, conforme descrito no capítulo Configurando [a montagem automática para discos anexados][planning-guide-5.5.3] neste documento.
+> Verifique se a unidade D:\ Não é usado definir montagem automática de disco para discos anexados, conforme descrito no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3] neste documento.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1242,7 +1243,7 @@ Para obter mais sugestões e mais detalhes, especificamente para VMs do DBMS, co
 
 #### <a name="disk-handling"></a>Manuseio de disco
 
-Na maioria dos cenários, você precisa criar discos adicionais para implantar o banco de dados SAP na VM. Falamos sobre as considerações sobre o número de discos na [estrutura de VM/disco][planning-guide-5.5.1] do capítulo para implantações do SAP deste documento. O portal do Azure permite anexar e desanexar discos depois que uma VM base é implantada. Os discos podem ser anexados/desanexados quando a VM estiver ativa e em execução, bem como quando ela for interrompida. Ao anexar um disco, o portal do Azure oferece para anexar um disco vazio ou um disco existente, que nesse momento não está conectado a outra VM.
+Na maioria dos cenários, você precisa criar discos adicionais para implantar o banco de dados SAP na VM. Falamos sobre as considerações sobre o número de discos na [estrutura de VM/disco do capítulo para implantações do SAP][planning-guide-5.5.1] deste documento. O portal do Azure permite anexar e desanexar discos depois que uma VM base é implantada. Os discos podem ser anexados/desanexados quando a VM estiver ativa e em execução, bem como quando ela for interrompida. Ao anexar um disco, o portal do Azure oferece para anexar um disco vazio ou um disco existente, que nesse momento não está conectado a outra VM.
 
 **Nota**: Os discos só podem ser anexados a uma VM em um determinado momento.
 
@@ -1259,7 +1260,7 @@ Em seguida, você precisa decidir se deseja criar um disco novo e vazio ou se de
 >
 > [Como anexar um disco de dados no portal do Azure][virtual-machines-linux-attach-disk-portal]
 >
-> Se discos estiverem anexados, você precisará entrar na VM para abrir o Gerenciador de disco do Windows. Se a montagem automática não estiver habilitada como recomendado no capítulo Configurando a [montagem automática para discos anexados][planning-guide-5.5.3], o volume recentemente anexado precisará ser colocado online e inicializado.
+> Se discos estiverem anexados, você precisará entrar na VM para abrir o Gerenciador de disco do Windows. Se a montagem automática não estiver habilitada como recomendado no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3], o volume recentemente anexado precisará ser colocado online e inicializado.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1290,7 +1291,7 @@ A replicação geográfica do Azure funciona localmente em cada VHD em uma VM e 
 >
 > A janela de linha de comando do Windows deve ser aberta como administrador.
 >
-> Se discos estiverem anexados, você precisará entrar na VM para abrir o Gerenciador de disco do Windows. Se a montagem automática não estiver habilitada como recomendado no capítulo Configurando a [montagem automática para discos anexados][planning-guide-5.5.3], o volume recentemente anexado > precisará ser colocado online e inicializado.
+> Se discos estiverem anexados, você precisará entrar na VM para abrir o Gerenciador de disco do Windows. Se a montagem automática não estiver habilitada como recomendado no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3], o volume recentemente anexado > precisará ser colocado online e inicializado.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1302,7 +1303,7 @@ A replicação geográfica do Azure funciona localmente em cada VHD em uma VM e 
 ---
 ### <a name="final-deployment"></a>Implantação final
 
-Para a implantação final e as etapas exatas, especialmente com relação à implantação do monitoramento estendido do SAP, consulte o [Guia de implantação][deployment-guide].
+Para a implantação final e as etapas exatas, especialmente com relação à implantação da extensão do Azure para SAP, consulte o [Guia de implantação][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Acessando sistemas SAP em execução nas VMs do Azure
 
@@ -1724,7 +1725,7 @@ O TMS (sistema de alteração e transporte) SAP precisa ser configurado para exp
 
 ##### <a name="configuring-the-transport-domain"></a>Configurando o domínio de transporte
 
-Configure seu domínio de transporte no sistema designado como o controlador de domínio de transporte, conforme descrito em Configurando [o controlador de domínio de transporte](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Um TMSADM de usuário do sistema será criado e o destino RFC necessário será gerado. Você pode verificar essas conexões RFC usando a transação SM59. A resolução do nome do host deve ser habilitada em seu domínio de transporte.
+Configure seu domínio de transporte no sistema designado como o controlador de domínio de transporte, conforme descrito em [Configurando o controlador de domínio de transporte](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Um TMSADM de usuário do sistema será criado e o destino RFC necessário será gerado. Você pode verificar essas conexões RFC usando a transação SM59. A resolução do nome do host deve ser habilitada em seu domínio de transporte.
 
 Como:
 
@@ -1775,29 +1776,29 @@ As instâncias SAP localizadas no Azure precisam acessar compartilhamentos de ar
 
 ## <a name="supportability"></a>Suportabilidade
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Solução de monitoramento do Azure para SAP
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Extensão do Azure para SAP
 
-Para habilitar o monitoramento de sistemas SAP de missão crítica no Azure, as ferramentas de monitoramento SAP SAPOSCOL ou agente de host SAP obtêm dados do host do serviço de máquina virtual do Azure por meio de uma extensão de monitoramento do Azure para SAP. Como as demandas pela SAP eram específicas para aplicativos SAP, a Microsoft decidiu não implementar genericamente a funcionalidade necessária no Azure, mas deixar que os clientes implantem os componentes e as configurações de monitoramento necessários em seus virtuais Computadores em execução no Azure. No entanto, a implantação e o gerenciamento do ciclo de vida dos componentes de monitoramento serão geralmente automatizados pelo Azure.
+Para alimentar alguma parte das informações de infraestrutura do Azure de sistemas SAP críticos para as instâncias do agente de host do SAP, instaladas em VMs, uma extensão do Azure (VM) para SAP precisa ser instalada para as VMs implantadas. Como as demandas pela SAP eram específicas para aplicativos SAP, a Microsoft decidiu não implementar genericamente a funcionalidade necessária no Azure, mas deixar que os clientes implantem a extensão de VM necessária e as configurações em suas máquinas virtuais em execução no Azure. No entanto, a implantação e o gerenciamento do ciclo de vida da extensão de VM do Azure para SAP serão geralmente automatizados pelo Azure.
 
 #### <a name="solution-design"></a>Conceção da solução
 
-A solução desenvolvida para habilitar o monitoramento do SAP é baseada na arquitetura do agente de VM do Azure e da estrutura de extensão. A ideia do agente de VM do Azure e da estrutura de extensão é permitir a instalação de aplicativos de software disponíveis na Galeria de extensões de VM do Azure em uma VM. A ideia principal por trás desse conceito é permitir (em casos como a extensão de monitoramento do Azure para SAP), a implantação de funcionalidade especial em uma VM e a configuração desses softwares no momento da implantação.
+A solução desenvolvida para habilitar o agente de host do SAP obter as informações necessárias é baseada na arquitetura do agente de VM do Azure e da estrutura de extensão. A ideia do agente de VM do Azure e da estrutura de extensão é permitir a instalação de aplicativos de software disponíveis na Galeria de extensões de VM do Azure em uma VM. A ideia principal por trás desse conceito é permitir (em casos como a extensão do Azure para SAP), a implantação de funcionalidade especial em uma VM e a configuração desses softwares no momento da implantação.
 
 O "agente de VM do Azure" que permite o tratamento de extensões de VM do Azure específicas dentro da VM é injetado em VMs do Windows por padrão na criação de VM no portal do Azure. No caso do SUSE, Red Hat ou Oracle Linux, o agente de VM já faz parte da imagem do Azure Marketplace. Caso um carregue uma VM Linux do local para o Azure, o agente de VM precisa ser instalado manualmente.
 
-Os blocos de construção básicos da solução de monitoramento no Azure para SAP têm esta aparência:
+Os blocos de construção básicos da solução para fornecer informações de infraestrutura do Azure ao agente de host do SAP no Azure têm a seguinte aparência:
 
 ![Componentes de extensão de Microsoft Azure][planning-guide-figure-2400]
 
-Conforme mostrado no diagrama de bloco acima, uma parte da solução de monitoramento para SAP é hospedada na imagem de VM do Azure e na Galeria de extensões do Azure, que é um repositório replicado globalmente que é gerenciado pelas operações do Azure. É responsabilidade da equipe conjunta do SAP/MS trabalhando na implementação do SAP do Azure para trabalhar com operações do Azure para publicar novas versões da extensão de monitoramento do Azure para SAP.
+Conforme mostrado no diagrama de bloco acima, uma parte da solução é hospedada na imagem de VM do Azure e na Galeria de extensões do Azure, que é um repositório replicado globalmente que é gerenciado pelas operações do Azure. É responsabilidade da equipe conjunta do SAP/MS trabalhando na implementação do SAP do Azure para trabalhar com operações do Azure para publicar novas versões da extensão do Azure para SAP.
 
-Quando você implanta uma nova VM do Windows, o agente de VM do Azure é adicionado automaticamente à VM. A função desse agente é coordenar o carregamento e a configuração das extensões do Azure para o monitoramento de sistemas SAP NetWeaver. Para VMs do Linux, o agente de VM do Azure já faz parte da imagem do sistema operacional do Azure Marketplace.
+Quando você implanta uma nova VM do Windows, o agente de VM do Azure é adicionado automaticamente à VM. A função desse agente é coordenar o carregamento e a configuração das extensões do Azure das VMs. Para VMs do Linux, o agente de VM do Azure já faz parte da imagem do sistema operacional do Azure Marketplace.
 
 No entanto, há uma etapa que ainda precisa ser executada pelo cliente. Esta é a habilitação e configuração da coleta de desempenho. O processo relacionado à configuração é automatizado por um script do PowerShell ou comando da CLI. O script do PowerShell pode ser baixado no Microsoft Azure Script Center, conforme descrito no [Guia de implantação][deployment-guide].
 
-A arquitetura geral da solução de monitoramento do Azure para SAP é semelhante a:
+A arquitetura geral da extensão do Azure para SAP é semelhante a:
 
-![Solução de monitoramento do Azure para SAP NetWeaver][planning-guide-figure-2500]
+![Extensão do Azure para SAP ][planning-guide-figure-2500]
 
 **Para obter instruções exatas e etapas detalhadas sobre como usar esses cmdlets do PowerShell ou o comando da CLI durante as implantações, siga as orientações fornecidas no [Guia de implantação][deployment-guide].**
 

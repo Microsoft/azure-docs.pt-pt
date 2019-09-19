@@ -1,10 +1,10 @@
 ---
-title: Mover uma VM (clássico) ou a instância de função de serviços em nuvem a uma sub-rede diferente - Azure PowerShell | Documentos da Microsoft
-description: Saiba como mover VMs (clássico) e instâncias de função dos serviços Cloud a uma sub-rede diferente com o PowerShell.
+title: Mover uma VM (clássica) ou uma instância de função de serviços de nuvem para uma sub-rede diferente-Azure PowerShell | Microsoft Docs
+description: Saiba como mover as instâncias de função de VMs (clássicas) e de serviços de nuvem para uma sub-rede diferente usando o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 787a50a0cbf16089cd15f922b494cd12d680cb43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 275d59a7bddd8b2b609169218afcd15e9a0ce913
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640400"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058381"
 ---
-# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Mover uma VM (clássico) ou a instância de função de serviços em nuvem a uma sub-rede diferente com o PowerShell
-Pode utilizar o PowerShell para mover as suas VMs (clássico) de uma sub-rede para outra na mesma rede virtual (VNet). Instâncias de função podem ser movidas ao editar o ficheiro CSCFG, em vez de utilizar o PowerShell.
+# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Mover uma VM (clássica) ou uma instância de função de serviços de nuvem para uma sub-rede diferente usando o PowerShell
+Você pode usar o PowerShell para mover suas VMs (clássicas) de uma sub-rede para outra na mesma rede virtual (VNet). As instâncias de função podem ser movidas editando o arquivo CSCFG, em vez de usar o PowerShell.
 
 > [!NOTE]
-> Este artigo explica como mover VMs implementadas através do modelo de implementação clássica apenas.
+> Este artigo explica como mover VMs implantadas somente por meio do modelo de implantação clássico.
 > 
 > 
 
-Por que mover VMs para outra sub-rede? Migração de sub-rede é útil quando a sub-rede mais antiga é demasiado pequena e não pode ser expandida devido a existentes VMs em execução nessa sub-rede. Nesse caso, pode criar uma sub-rede nova, maior e migrar as VMs para a nova sub-rede, em seguida, após a migração estiver concluída, pode eliminar a sub-rede vazia antiga.
+Por que mover VMs para outra sub-rede? A migração de sub-rede é útil quando a sub-rede mais antiga é muito pequena e não pode ser expandida devido a VMs em execução existentes nessa sub-rede. Nesse caso, você pode criar uma sub-rede nova e maior e migrar as VMs para a nova sub-rede e, depois que a migração for concluída, você poderá excluir a sub-rede vazia antiga.
 
 ## <a name="how-to-move-a-vm-to-another-subnet"></a>Como mover uma VM para outra sub-rede
-Para mover uma VM, execute o cmdlet do PowerShell Set-AzureSubnet, usando o exemplo abaixo como um modelo. No exemplo a seguir, vamos mudar TestVM da sua sub-rede presente, para sub-rede-2. Certifique-se de que editar o exemplo para refletir o seu ambiente. Tenha em atenção que sempre que executar o cmdlet Update-AzureVM como parte de um procedimento, ele será reiniciado a VM como parte do processo de atualização.
+Para mover uma VM, execute o cmdlet Set-AzureSubnet do PowerShell, usando o exemplo abaixo como modelo. No exemplo a seguir, estamos movendo TestVM de sua sub-rede atual para Subnet-2. Certifique-se de editar o exemplo para refletir seu ambiente. Observe que sempre que você executar o cmdlet Update-AzureVM como parte de um procedimento, ele reiniciará a VM como parte do processo de atualização.
 
     Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
     | Set-AzureSubnet –SubnetNames Subnet-2 `
     | Update-AzureVM
 
-Se tiver especificado um IP estático de privada interno para a sua VM, terá de limpar a configuração antes de pode mover a VM para uma nova sub-rede. Nesse caso, utilize o seguinte:
+Se você especificou um IP privado interno estático para sua VM, precisará limpar essa configuração antes de poder mover a VM para uma nova sub-rede. Nesse caso, use o seguinte:
 
     Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
     | Remove-AzureStaticVNetIP `
@@ -49,7 +49,7 @@ Se tiver especificado um IP estático de privada interno para a sua VM, terá de
     | Update-AzureVM
 
 ## <a name="to-move-a-role-instance-to-another-subnet"></a>Para mover uma instância de função para outra sub-rede
-Para mover uma instância de função, edite o ficheiro CSCFG. No exemplo a seguir, vamos mudar "Role0" na rede virtual *VNETName* da sua sub-rede presente para *sub-rede 2*. Uma vez que a instância de função já foi implementada, apenas vai alterar o nome da sub-rede = 2 de sub-rede. Certifique-se de que editar o exemplo para refletir o seu ambiente.
+Para mover uma instância de função, edite o arquivo CSCFG. No exemplo a seguir, estamos movendo "Role0" na rede virtual *VNETName* de sua sub-rede presente para *Subnet-2*. Como a instância de função já foi implantada, você apenas alterará o nome da sub-rede = Subnet-2. Certifique-se de editar o exemplo para refletir seu ambiente.
 
     <NetworkConfiguration>
         <VirtualNetworkSite name="VNETName" />

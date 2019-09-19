@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 75a8207cd214a63258ddb167b887fe83b7aa032a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 784bf15a58e25ba4cba18494adc295343d0c175a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008834"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098900"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -132,7 +132,7 @@ Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Contas de armazenamento do Azure com firewall habilitado | Não  | Sim. Para armazenamento e cache de destino.
+Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
 Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e reabilitar a recuperação de desastres. | Não
 
 
@@ -189,5 +189,5 @@ Agente de Serviços de Recuperação do Microsoft Azure | Coordena a replicaçã
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres de VMs do Hyper-V locais.

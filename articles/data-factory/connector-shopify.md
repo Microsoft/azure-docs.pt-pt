@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 22f1394bb23568ac563af54f1df0b295f33f30d8
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 57b3918aba6ec43561e891e39bc1d767be57046d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010384"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089340"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar dados de Shopify com o Azure Data Factory (pré-visualização)
 
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 Este conector do Shopify tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
 Pode copiar dados de Shopify para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.

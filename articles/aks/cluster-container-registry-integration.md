@@ -6,43 +6,28 @@ author: mlearned
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305152"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097809"
 ---
-# <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Visualização-autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure
 
 Quando você estiver usando o ACR (registro de contêiner do Azure) com o AKS (serviço kubernetes do Azure), um mecanismo de autenticação precisará ser estabelecido. Este artigo detalha as configurações recomendadas para autenticação entre esses dois serviços do Azure.
 
 Você pode configurar o AKS para a integração de ACR em alguns comandos simples com o CLI do Azure.
-
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte do AKS](support-policies.md)
-> * [Perguntas frequentes do suporte do Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Você deve ter o seguinte:
 
 * Função de **administrador da conta do Azure** ou **proprietário** na **assinatura do Azure**
-* Você também precisa do CLI do Azure versão 2.0.70 ou posterior e a extensão 0.4.8 AKs-Preview
+* Você também precisa do CLI do Azure versão 2.0.73 ou posterior
 * Você precisa do [Docker instalado](https://docs.docker.com/install/) em seu cliente e precisa ter acesso ao [Hub do Docker](https://hub.docker.com/)
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Instalar a última extensão de visualização da CLI do AKS
-
-Você precisa da extensão **0.4.13 AKs-Preview** ou posterior.
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Criar um novo cluster AKS com integração com ACR
 
@@ -52,7 +37,7 @@ az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
 az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
-\* * Uma ID de recurso ACR tem o seguinte formato: 
+**Uma ID de recurso ACR tem o seguinte formato:** 
 
 /subscriptions/< Subscription-d >/resourceGroups/< Resource-Group-Name >/providers/Microsoft.ContainerRegistry/registries/{name} 
   

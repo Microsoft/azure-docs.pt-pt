@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: c4eba3e08e403243e76ac891d3bfcb59f12cad85
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: f794fad0f42a27190bdd948df49d0133dfaa1a92
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211919"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066417"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
 
@@ -44,22 +44,21 @@ Use o menu de navegação à esquerda para acessar as diferentes áreas do aplic
       ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png)
   :::column-end:::
   :::column span="2":::
-
-      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+     **Painel** exibe o painel do aplicativo. Como um construtor, você pode personalizar o painel para seus operadores. Os usuários também podem criar seus próprios painéis.
     
-      **Device Explorer** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+     **Device Explorer** lista os dispositivos simulados e reais associados a cada modelo de dispositivo no aplicativo. Como operador, utilize o **Device Explorer** para gerir os dispositivos ligados.
     
-      **Device Sets** enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.
+     Os **conjuntos de dispositivos** permitem exibir e criar conjuntos de dispositivos. Como operador, pode criar conjuntos de dispositivos como uma coleção lógica de dispositivos especificados por uma consulta.
     
-      **Analytics** shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.
+     A **análise** mostra a análise derivada da telemetria do dispositivo para dispositivos e conjuntos de dispositivos. Como operador, pode criar vistas personalizadas com base nos dados dos dispositivos para obter informações da aplicação.
     
-      **Jobs** enables bulk device management by having you create and run jobs to perform updates at scale.
+     Os **trabalhos** permitem o gerenciamento de dispositivos em massa, fazendo com que você crie e execute trabalhos para executar atualizações em escala.
     
-      **Device Templates** shows the tools a builder uses to create and manage device templates.
+     **Modelos de dispositivo** mostra as ferramentas que um construtor usa para criar e gerenciar modelos de dispositivo.
     
-      **Continuous Data Export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+     A **exportação de dados contínuas** permite que um administrador configure uma exportação contínua para outros serviços do Azure, como armazenamento e filas.
     
-      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+     **Administração** mostra as páginas de administração do aplicativo em que um administrador pode gerenciar configurações, usuários e funções do aplicativo.
    :::column-end:::
 :::row-end:::
 
@@ -141,6 +140,6 @@ A página de exportação de dados contínua é onde um administrador define com
 
 A página Administração contém links para as ferramentas que um administrador usa, como a definição de usuários e funções no aplicativo e a personalização da interface do usuário. Para obter mais informações, veja o artigo [Administrar a aplicação do Azure IoT Central](howto-administer.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma descrição geral do Azure IoT Central e está familiarizado com o esquema da IU, o passo seguinte sugerido é concluir o início rápido [Criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).

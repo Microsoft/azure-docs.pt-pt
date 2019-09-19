@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 25c333a8cee7dde85d61545a33b5e1ee527dd005
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a99b2deac7304813c07622fef76eaf034a4305f7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811341"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091439"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>Cenário: Apache Hive falha ao estabelecer uma conexão com o Apache Zookeeper no Azure HDInsight
 

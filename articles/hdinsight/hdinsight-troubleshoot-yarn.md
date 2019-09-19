@@ -4,14 +4,15 @@ description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apa
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 15ef18663a42153c11a55d4c5963d47f0e2514d6
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961731"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076574"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop YARN usando o Azure HDInsight
 

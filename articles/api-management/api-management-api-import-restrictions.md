@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 1a1196da62b9d28280150dd1ddf1582db64a93d4
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073784"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074964"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 
@@ -49,9 +49,6 @@ Se você estiver recebendo erros ao importar o documento do OpenAPI, verifique s
 -   Se vários **servidores** forem especificados, o gerenciamento de API tentará selecionar a primeira URL https. Se não houver nenhuma URL HTTPs-a primeira HTTP. Se não houver nenhuma URL de HTTP, ela estará vazia.
 -   Não há suporte para **exemplos** , mas o **exemplo** é.
 -   Não há suporte para **dados de várias partes/formulário** .
-
-> [!IMPORTANT]
-> Veja este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.
 
 ## <a name="wsdl"> </a>WSDL
 

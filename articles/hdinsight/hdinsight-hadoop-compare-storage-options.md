@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: MT
+ms.openlocfilehash: ced2c888a412a72643bb0c12fceb7e83d39936cf
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885215"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098738"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar as opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -129,7 +129,7 @@ Se você optar por proteger sua conta de armazenamento com as restrições de **
 
 O diagrama a seguir fornece uma exibição abstrata da arquitetura do HDInsight do armazenamento do Azure:
 
-![Diagrama mostrando como os clusters Hadoop usam a API HDFS para acessar e armazenar dados estruturados e não estruturados no armazenamento de BLOBs](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Arquitetura de armazenamento do HDInsight")
+![Arquitetura de armazenamento do HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Arquitetura de armazenamento do HDInsight")
 
 O HDInsight fornece acesso ao sistema de ficheiros distribuído que está ligado localmente aos nós de computação. É possível aceder a este sistema de ficheiros ao utilizar o URI completamente qualificado, por exemplo:
 

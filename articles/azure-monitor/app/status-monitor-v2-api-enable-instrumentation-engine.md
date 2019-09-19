@@ -3,7 +3,7 @@ title: 'Referência da API do Azure Status Monitor v2: Habilitar mecanismo de in
 description: Referência da API do Status Monitor v2. Enable-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d4683a1cad5172f7104e745433bd141bcf36d56f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326379"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033151"
 ---
 # <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API Status Monitor v2: Habilitar-InstrumentationEngine
 
@@ -66,7 +66,7 @@ Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
   Ver a telemetria:
  - [Explore](../../azure-monitor/app/metrics-explorer.md) as métricas para monitorar o desempenho e o uso.

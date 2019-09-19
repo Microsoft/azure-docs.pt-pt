@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: fa56667c039133700c100b3e01a56ad784d16a6c
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9a7b28dd48be7bbd0c789749ee4a1fa01a17d85f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977433"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091351"
 ---
 # <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Cenário: Apache Tez aplicativo trava no Azure HDInsight
 

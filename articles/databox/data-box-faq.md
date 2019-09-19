@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142934"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098806"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -156,10 +156,10 @@ Para obter mais informações, acesse [tutorial: Copiar dados para Azure Data Bo
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>P. Estão disponíveis sugestões para acelerar a cópia dos dados?
 A.  Para acelerar o processo de cópia:
 
-- Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter mais informações sobre o comando exato usado, acesse [tutorial: Copie dados para Azure Data Box e verifique](data-box-deploy-copy-data.md).
+- Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter mais informações sobre o comando exato usado, acesse [tutorial: Copiar dados para o Azure Data Box e verificar](data-box-deploy-copy-data.md).
 - Utilize várias sessões.
 - Em vez de copiar através de uma partilha de rede (em que pode estar limitado pelas velocidades da rede), certifique-se de que os dados residem localmente no computador ao qual o Data Box vai ser ligado.
-- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a compilação mais recente do x86 ou x64, selecione a guia artefatos e baixe a MSI.
+- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a compilação mais recente do x86 ou x64, selecione a guia **artefatos** e baixe a MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -180,8 +180,19 @@ R.  Sim. O Data Box suporta um máximo de dez contas de armazenamento, sejam de 
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>P. O meu dispositivo foi entregue, mas parece estar danificado. O que devo fazer?
 R. Se o dispositivo foi entregue danificado ou se houver provas de adulteração, não o utilize. [Contacte o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) e devolva o dispositivo o mais depressa possível. Também pode criar uma encomenda do Data Box nova para substituir o dispositivo. Nesse caso, o dispositivo de substituição não lhe é cobrado.
 
-### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>P. Posso utilizar a minha própria transportadora para enviar o Data Box?
-R. Para o serviço Data Box, a Microsoft processa o envio de e para o datacenter do Azure. Se quiser utilizar a sua própria transportadora, pode utilizar o serviço Importar/Exportar do Azure. Para obter mais informações, aceda a [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md) (O que é o serviço Importar/Exportar do Azure?).
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>P. Posso pegar meu Data Box ordem? Posso retornar a Data Box por meio de uma operadora que escolho?
+R. Sim. A Microsoft também oferece entregas autogerenciadas somente na região US Gov. Ao colocar o pedido de Data Box, você pode escolher a opção de envio autogerenciado. Para pegar seu dispositivo Data Box, execute as seguintes etapas:
+    
+1. Depois que você tiver colocado o pedido, o pedido será processado e o Data Box será preparado. Você será notificado por um email de que seu pedido está pronto para o recebimento. 
+2. Quando o pedido estiver pronto para o recebimento, vá para seu pedido na portal do Azure e navegue até a folha **visão geral** . 
+3. Você verá uma notificação com um código na portal do Azure. Envie a [equipe de operações de Azure data Box](mailto:adbops@microsoft.com) por email e forneça o código. A equipe fornecerá o local e agendará uma data e hora de retirada. Você deve chamar a equipe dentro de 5 dias úteis depois de receber a notificação por email.
+
+Depois que a cópia de dados for concluída, execute as seguintes etapas para retornar seu dispositivo:
+
+1. Depois que a cópia de dados for concluída sem erros, execute **preparação para o envio**. Após a conclusão da preparação, você receberá um código na interface do usuário da Web local do dispositivo. Copie e salve o código.
+2. Desligue o dispositivo e remova os cabos de conexão.
+3. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
+4. Envie a [equipe de operações de Azure data Box](mailto:adbops@microsoft.com) por email e forneça o código que você salvou anteriormente. Eles fornecerão informações sobre onde e quando descartar o dispositivo.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P. Meus dispositivos Data Boxão bordas entre países durante o envio?
 R. Todos os dispositivos Data Box são enviados de dentro do mesmo país que seu destino e não atravessam nenhuma borda internacional. A única exceção é para pedidos na União Europeia (UE), em que os dispositivos podem enviar de e para qualquer país da UE. Isso se aplica aos dispositivos Data Box e Data Box Heavy.
@@ -253,7 +264,7 @@ R.  Os registos de acompanhamento da transportadora são guardados no histórico
 R.  Não. Atualmente, o datacenter do Azure não aceita a entrega do Data Box de clientes ou de operadoras diferentes de UPS.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [requisitos de sistema do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

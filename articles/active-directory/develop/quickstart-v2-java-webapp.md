@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: f1ceae17195c08af380a7448dd4dbf3bfa3f9de2
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 22d65d20220bfda821fe255e08dd056b761a828d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211871"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086983"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Java
 
@@ -32,21 +32,22 @@ Quando você tiver concluído o guia, seu aplicativo aceitará entradas de conta
 
 ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-> ## <a name="prerequisites"></a>Pré-requisitos
-> Para executar este exemplo, você precisará de: 
-> - Java Development Kit (JDK) 8 ou superior e Maven.
->
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para executar este exemplo, você precisará de: 
+- Java Development Kit (JDK) 8 ou superior e Maven.
+
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Você tem duas opções para iniciar seu aplicativo de início rápido: Express (opção 1) ou manual (opção 2)
 > 
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
 >
 > 1. Vá para o [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para baixar e configurar automaticamente seu novo aplicativo.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
 > 
 >
 > #### <a name="step-1-download-the-code-sample"></a>Passo 1: Baixar o exemplo de código
@@ -69,11 +70,11 @@ Quando você tiver concluído o guia, seu aplicativo aceitará entradas de conta
 > 1. Selecione **novo registro**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `java-webapp`.
->    - Deixe **URI** de redirecionamento em branco por enquanto e selecione **registrar**.
+>    - Deixe **URI de redirecionamento** em branco por enquanto e selecione **registrar**.
 > 1. Localize o valor da **ID do aplicativo (cliente)** do aplicativo. Atualize o valor de `Enter_the_Application_Id_here` no arquivo *Application. Properties* .
 > 1. Localize o valor da **ID do diretório (locatário)** do aplicativo. Atualize o valor de `Enter_the_Tenant_Info_Here` no arquivo *Application. Properties* . 
 > 1. Selecione o menu **autenticação** e, em seguida, adicione as seguintes informações:
->    - Em **URIs**de redirecionamento `https://localhost:8080/msal4jsamples/graph/users`, adicione `http://localhost:8080/msal4jsamples/secure/aad` e.
+>    - Em **URIs de redirecionamento**, adicione `http://localhost:8080/msal4jsamples/secure/aad` e `https://localhost:8080/msal4jsamples/graph/users`.
 >    - Selecione **Guardar**.
 > 1. No menu à esquerda, escolha **certificados & segredos** e clique em **novo segredo do cliente** na seção **segredos do cliente** :
 >     

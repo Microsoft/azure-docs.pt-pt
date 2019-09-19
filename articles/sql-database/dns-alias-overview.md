@@ -7,16 +7,16 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: genemi, ayolubek, jrasnick
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 3d0a4b5890ed5758f4045459815fb4ebbffe75c6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5d37b41fa7b51871f9ce1b21c62de1f9ab7f3b82
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550667"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058570"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias de DNS para o banco de dados SQL do Azure
 
@@ -60,7 +60,7 @@ As propriedades a seguir se aplicam a cada alias DNS para o servidor do banco de
   - Quando você remove um servidor de banco de dados SQL, o sistema do Azure também descarta todos os aliases DNS que se referem ao servidor.
 - *Não associado a nenhuma região:* Os aliases DNS não estão associados a uma região. Todos os aliases de DNS podem ser atualizados para se referir a um servidor de banco de dados SQL do Azure que reside em qualquer região geográfica.
   - No entanto, ao atualizar um alias para fazer referência a outro servidor, ambos os servidores devem existir na mesma *assinatura*do Azure.
-- *Permissões* Para gerenciar um alias DNS, o usuário deve ter permissões de *colaborador do servidor* ou superior. Para obter mais informações, consulte Introdução [ao controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).
+- *Permissões:* Para gerenciar um alias DNS, o usuário deve ter permissões de *colaborador do servidor* ou superior. Para obter mais informações, consulte Introdução [ao controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Gerenciar seus aliases de DNS
 
@@ -112,6 +112,6 @@ Atualmente, um alias DNS tem as seguintes limitações:
 
 - [Visão geral da continuidade dos negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md), incluindo recuperação de desastre.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [PowerShell para alias DNS para o banco de dados SQL do Azure](dns-alias-powershell.md)
