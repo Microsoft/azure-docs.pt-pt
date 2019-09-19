@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
 ms.openlocfilehash: 1b7e3a8a937682559440086e90af18bfc85b8f75
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "71018671"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure

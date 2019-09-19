@@ -1,6 +1,6 @@
 ---
-title: Como utilizar as filas do Service bus do Azure em node. js | Documentos da Microsoft
-description: Saiba como utilizar filas do Service Bus no Azure a partir de uma aplicação node. js.
+title: Usar filas do barramento de serviço do Azure no node. js
+description: Saiba como usar filas do barramento de serviço no Azure de um aplicativo node. js.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -14,42 +14,43 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: df3f5a3773265249751352ce8d9c966c54bf197d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988297"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091800"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Como utilizar filas do Service Bus com o node. js e o pacote do azure-sb
-> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote de node. js"]
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Como usar filas do barramento de serviço com node. js e o pacote Azure-SB
+> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-Neste tutorial, irá aprender a criar aplicações node. js para enviar mensagens para e receber mensagens a partir de um fila do Service Bus com o [azure-sb](https://www.npmjs.com/package/azure-sb) pacote. Os exemplos são escritos em JavaScript e utilizar o node. js [módulo do Azure](https://www.npmjs.com/package/azure) que usa internamente a `azure-sb` pacote.
+Neste tutorial, você aprenderá a criar aplicativos node. js para enviar mensagens e receber mensagens de uma fila do barramento de serviço usando o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) . Os exemplos são escritos em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) node. js que usa internamente `azure-sb` o pacote.
 
-O [azure-sb](https://www.npmjs.com/package/azure-sb) utiliza o pacote [APIs de tempo de execução de REST do Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Pode obter uma experiência mais rápida, utilizando o novo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote que usa o mais rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md). Para saber mais sobre o novo pacote, veja [como utilizar filas do Service Bus com o node. js e @azure/service-bus pacote](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), caso contrário, continue a ler para saber como utilizar os [azure](https://www.npmjs.com/package/azure) pacote.
+O pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) usa [APIs REST de tempo de execução do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) novo pacote que usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md)mais rápido. Para saber mais sobre o novo pacote, consulte [como usar filas do barramento de serviço com node. js e @azure/service-bus pacote](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), caso contrário, continue lendo para ver como usar o pacote [do Azure](https://www.npmjs.com/package/azure) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
-    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
-    2. Criar um barramento de serviço **espaço de nomes**. 
-    3. Obter o **cadeia de ligação**. 
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
+    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
+    2. Crie um **namespace**do barramento de serviço. 
+    3. Obter a **cadeia de conexão**. 
 
         > [!NOTE]
-        > Irá criar um **fila** no espaço de nomes do Service Bus utilizando node. js neste tutorial. 
+        > Você criará uma **fila** no namespace do barramento de serviço usando o Node. js neste tutorial. 
  
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie uma aplicação node. js em branco. Para obter instruções sobre como criar uma aplicação node. js, consulte [criar e implementar uma aplicação node. js para um Web site do Azure][Create and deploy a Node.js application to an Azure Website], ou [serviço de nuvem de node. js] [ Node.js Cloud Service] com o Windows PowerShell.
+Crie um aplicativo node. js em branco. Para obter instruções sobre como criar um aplicativo node. js, consulte [criar e implantar um aplicativo node. js em um site do Azure][Create and deploy a Node.js application to an Azure Website]ou [serviço de nuvem do node. js][Node.js Cloud Service] usando o Windows PowerShell.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
-Para utilizar o Azure Service Bus, transferir e utilizar o pacote do Azure node. js. Este pacote inclui um conjunto de bibliotecas que comunicam com os serviços REST do Service Bus.
+## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
+Para usar o barramento de serviço do Azure, baixe e use o pacote do Azure do node. js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Utilize o nó Package Manager (NPM) para obter o pacote
-1. Utilize o **Windows PowerShell para node. js** janela de comando para navegar para o **c:\\nó\\sbqueues\\WebRole1** pasta na qual criou o seu exemplo aplicação.
-2. Tipo **npm instalar azure** na janela de comando, que deve resultar numa saída semelhante ao seguinte exemplo:
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o Gerenciador de pacotes de nó (NPM) para obter o pacote
+1. Use a janela de comando do **Windows PowerShell para node. js** para navegar até a pasta **\\c\\: Node\\sbqueues WebRole1** na qual você criou o aplicativo de exemplo.
+2. Digite **NPM install Azure** na janela de comando, que deve resultar em uma saída semelhante ao exemplo a seguir:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -64,28 +65,28 @@ Para utilizar o Azure Service Bus, transferir e utilizar o pacote do Azure node.
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules**. Dentro dessa pasta, localize a **azure** pacote, que contém as bibliotecas necessárias para aceder às filas do Service Bus.
+3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules**. Dentro dessa pasta, localize o pacote **do Azure** , que contém as bibliotecas necessárias para acessar as filas do barramento de serviço.
 
-### <a name="import-the-module"></a>Importe o módulo
-Usando o bloco de notas ou outro editor de texto, adicione o seguinte na parte superior dos **Server. js** arquivo do aplicativo:
+### <a name="import-the-module"></a>Importar o módulo
+Usando o bloco de notas ou outro editor de texto, adicione o seguinte à parte superior do arquivo **Server. js** do aplicativo:
 
 ```javascript
 var azure = require('azure');
 ```
 
-### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma ligação de Service bus do Azure
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para ligar ao Service Bus. Se esta variável de ambiente não está definido, tem de especificar as informações da conta, ao chamar `createServiceBusService`.
+### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
+O módulo do Azure lê a variável `AZURE_SERVICEBUS_CONNECTION_STRING` de ambiente para obter as informações necessárias para se conectar ao barramento de serviço. Se essa variável de ambiente não estiver definida, você deverá especificar as informações da `createServiceBusService`conta ao chamar.
 
-Para obter um exemplo de definir as variáveis de ambiente no [portal do Azure] [ Azure portal] para um Web site do Azure, consulte [aplicação de Web de node. js com o armazenamento] [ Node.js Web Application with Storage].
+Para obter um exemplo de como definir as variáveis de ambiente no [portal do Azure][Azure portal] para um site do Azure, consulte [aplicativo Web do node. js com armazenamento][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Criar uma fila
-O **ServiceBusService** objeto permite-lhe trabalhar com filas do Service Bus. O código seguinte cria um **ServiceBusService** objeto. Adicione-o junto à parte superior do **Server. js** arquivo, após a instrução para importar o módulo do Azure:
+O objeto **ServiceBusService** permite que você trabalhe com filas do barramento de serviço. O código a seguir cria um objeto **ServiceBusService** . Adicione-o próximo à parte superior do arquivo **Server. js** , após a instrução para importar o módulo do Azure:
 
 ```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Ao chamar `createQueueIfNotExists` sobre o **ServiceBusService** de objeto, da fila especificada é devolvida (se existir) ou, é criada uma nova fila com o nome especificado. O seguinte código utiliza `createQueueIfNotExists` para criar ou ligar para a fila com o nome `myqueue`:
+Chamando `createQueueIfNotExists` no objeto **ServiceBusService** , a fila especificada é retornada (se existir) ou uma nova fila com o nome especificado é criada. O código a seguir `createQueueIfNotExists` usa para criar ou conectar-se à `myqueue`fila chamada:
 
 ```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -95,7 +96,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-O `createServiceBusService` método também oferece suporte a opções adicionais, que permitem-lhe substituir as definições de fila padrão, como o tempo de tamanho da fila ao vivo ou máximo da mensagem. O exemplo seguinte define o tamanho máximo da fila para 5 GB e um período de tempo (TTL) valor de 1 minuto de TTL:
+O `createServiceBusService` método também dá suporte a opções adicionais, que permitem que você substitua as configurações padrão da fila, como a vida útil da mensagem ou o tamanho máximo da fila. O exemplo a seguir define o tamanho máximo da fila como 5 GB e um valor TTL (vida útil) de 1 minuto:
 
 ```javascript
 var queueOptions = {
@@ -111,21 +112,21 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ```
 
 ### <a name="filters"></a>Filtros
-Operações de filtragem opcionais podem ser aplicadas a operações executadas usando **ServiceBusService**. Operações de filtragem pode incluir o Registro em log, tentar estabelecer novamente, etc. Os filtros são objetos que implementam um método com a assinatura:
+Operações de filtragem opcionais podem ser aplicadas às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
 ```
 
-Depois de fazer o processamento prévio sobre as opções de pedido, terá de chamar o método `next`, passando um retorno de chamada com a seguinte assinatura:
+Depois de fazer seu pré-processamento nas opções de solicitação, o método deve chamar `next`, passando um retorno de chamada com a seguinte assinatura:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-Esse retorno de chamada e após o processamento da `returnObject` (a resposta do pedido para o servidor), o retorno de chamada ou tem de invocar `next` se existir para continuar a processar outros filtros ou invocar `finalCallback`, que termina a invocação de serviço .
+Nesse retorno de chamada, e depois de `returnObject` processar o (a resposta da solicitação para o servidor), o retorno de chamada `next` deve invocar se ele existe para continuar processando outros `finalCallback`filtros, ou invocar, que termina a invocação de serviço .
 
-Dois filtros que implementam a lógica de repetição são incluídos com o Azure SDK para node. js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. O código seguinte cria um `ServiceBusService` objeto que usa o `ExponentialRetryPolicyFilter`:
+Dois filtros que implementam a lógica de repetição são incluídos no SDK do Azure para Node `ExponentialRetryPolicyFilter` . `LinearRetryPolicyFilter`js e. O código a seguir cria `ServiceBusService` um objeto que `ExponentialRetryPolicyFilter`usa:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -133,9 +134,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem numa fila do Service Bus, suas chamadas de aplicação do `sendQueueMessage` método no **ServiceBusService** objeto. As mensagens enviadas para (e recebidas de) do Service Bus são filas **BrokeredMessage** objetos e têm um conjunto de propriedades padrão (tais como **etiqueta** e **TimeToLive**), um dicionário utilizado para reter propriedades personalizadas de específicas da aplicação e um corpo de dados arbitrários da aplicação. Uma aplicação pode definir o corpo da mensagem, passando uma cadeia de caracteres da mensagem. Eventuais propriedades padrão são preenchidas com valores predefinidos.
+Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo `sendQueueMessage` chama o método no objeto **ServiceBusService** . As mensagens enviadas para (e recebidas de) as filas do barramento de serviço são objetos **BrokeredMessage** e têm um conjunto de propriedades padrão (como **Label** e **TimeToLive**), um dicionário que é usado para manter Propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando uma cadeia de caracteres como a mensagem. Todas as propriedades padrão necessárias são preenchidas com valores padrão.
 
-O exemplo seguinte demonstra como enviar uma mensagem de teste para a fila com o nome `myqueue` usando `sendQueueMessage`:
+O exemplo a seguir demonstra como enviar uma mensagem de teste para a fila `myqueue` chamada `sendQueueMessage`usando:
 
 ```javascript
 var message = {
@@ -150,16 +151,16 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não tem qualquer limite no número de mensagens contidas numa fila, mas existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus][Service Bus quotas].
+As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens mantidas em uma fila, mas há uma limitação no tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte [cotas do barramento de serviço][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-As mensagens são recebidas a partir de um fila com o `receiveQueueMessage` método no **ServiceBusService** objeto. Por predefinição, as mensagens são eliminadas da fila como eles são lidas; No entanto, pode ler (pré-visualização) e a mensagem de bloqueio sem eliminá-lo da fila definindo o parâmetro opcional `isPeekLock` para **true**.
+As mensagens são recebidas de uma fila `receiveQueueMessage` usando o método no objeto **ServiceBusService** . Por padrão, as mensagens são excluídas da fila à medida que são lidas; no entanto, você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila, definindo `isPeekLock` o parâmetro opcional como **true**.
 
-O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem quando ocorre uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
+O comportamento padrão de leitura e exclusão da mensagem como parte da operação Receive é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem quando ocorrer uma falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e depois falha antes de processá-la. Como o barramento de serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o `isPeekLock` parâmetro estiver definido como **true**, a receção torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar `deleteMessage` método e fornecer a mensagem a ser eliminada como um parâmetro. O `deleteMessage` método marca a mensagem como consumida e remove-a da fila.
+Se o `isPeekLock` parâmetro for definido como **true**, o Receive se tornará uma operação de duas etapas, o que possibilitará o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de `deleteMessage` recebimento chamando o método e fornecendo a mensagem a ser excluída como um parâmetro. O `deleteMessage` método marca a mensagem como sendo consumida e a remove da fila.
 
-O exemplo seguinte demonstra como receber e processar mensagens usando `receiveQueueMessage`. O exemplo recebe pela primeira vez e elimina uma mensagem e, em seguida, recebe uma mensagem através de `isPeekLock` definido como **verdadeira**, em seguida, elimina a mensagem utilizando `deleteMessage`:
+O exemplo a seguir demonstra como receber e processar mensagens usando `receiveQueueMessage`. O exemplo primeiro recebe e exclui uma mensagem e, em seguida, recebe uma `isPeekLock` mensagem usando Set como **true**e, em seguida `deleteMessage`, exclui a mensagem usando:
 
 ```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -180,20 +181,20 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o `unlockMessage` método no **ServiceBusService** objeto. ele fará com que o Service Bus desbloqueie a mensagem na fila e disponibilizá-lo ser novamente recebida, pela mesma aplicação de consumo ou por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o `unlockMessage` método no objeto **ServiceBusService** . Isso fará com que o barramento de serviço desbloqueie a mensagem dentro da fila e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
 
-Existe também um tempo limite associado à mensagem bloqueada na fila e se o aplicativo falhar processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, no caso de falha da aplicação), em seguida, do Service Bus irá desbloquear automaticamente a mensagem e torná-lo disponível para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a tornará disponível para ser recebido novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a `deleteMessage` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Essa abordagem é frequentemente designada *, pelo menos, uma vez processamento*, ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não pode tolerar o processamento duplicado, em seguida, os desenvolvedores de aplicativos devem adicionar lógica adicional para a aplicação para processar a entrega de mensagens duplicadas. É, frequentemente, conseguido através da **MessageId** propriedade da mensagem, que permanecerá constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes de o `deleteMessage` método ser chamado, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Essa abordagem é geralmente chamada *de processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica adicional ao aplicativo para lidar com a entrega de mensagens duplicadas. Geralmente, ele é obtido usando a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre as filas, consulte os seguintes recursos.
+Para saber mais sobre filas, confira os recursos a seguir.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
-* [Azure SDK para o nó] [ Azure SDK for Node] repositório no GitHub
+* Repositório do [SDK do Azure para nó][Azure SDK for Node] no github
 * [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node

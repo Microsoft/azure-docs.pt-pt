@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098451"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097651"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do serviço de Azure App
 
@@ -49,7 +49,7 @@ O recurso de cache local do serviço de Azure App fornece uma exibição de fun�
 * O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do repositório de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 300 MB por padrão, mas você pode aumentá-lo para até 2 GB.
 * O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no repositório de conteúdo.
 * _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados de aplicativo. As duas subpastas são armazenadas localmente na instância de VM e são copiadas para o repositório de conteúdo compartilhado periodicamente. Os aplicativos podem persistir arquivos de log e dados gravando-os nessas pastas. No entanto, a cópia para o repositório de conteúdo compartilhado é o melhor esforço, portanto, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha repentina de uma instância de VM.
-* O [streaming de log](troubleshoot-diagnostic-logs.md#streamlogs) é afetado pela cópia de melhor esforço. Você pode observar um atraso de um minuto nos logs transmitidos.
+* O [streaming de log](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Você pode observar um atraso de um minuto nos logs transmitidos.
 * No repositório de conteúdo compartilhado, há uma alteração na estrutura de pastas dos arquivos de _log_ e das pastas de _dados_ para aplicativos que usam o cache local. Agora há subpastas que seguem o padrão de nomenclatura de "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM em que o aplicativo está em execução ou foi executado.
 * Outras pastas no _D:\home_ permanecem no cache local e não são copiadas para o repositório de conteúdo compartilhado.
 * A implantação de aplicativo por meio de qualquer método com suporte publica diretamente no repositório de conteúdo compartilhado durável. Para atualizar as pastas _D:\home\site_ e _D:\home\siteextensions_ no cache local, o aplicativo precisa ser reiniciado. Para tornar o ciclo de vida contínuo, consulte as informações mais adiante neste artigo.

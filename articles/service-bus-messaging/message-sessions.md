@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951878"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091820"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: PEPS (primeiro a entrar, primeiro a sair) 
 
@@ -41,7 +41,10 @@ No portal, defina o sinalizador com a caixa de seleção a seguir:
 
 ![][2]
 
-As APIs para sessões existem em clientes de fila e de assinatura. Há um modelo imperativo que controla quando as sessões e mensagens são recebidas e um modelo baseado em manipulador, semelhanteao onMessage, que oculta a complexidade do gerenciamento do loop de recebimento.
+> [!NOTE]
+> Quando as sessões são habilitadas em uma fila ou em uma assinatura, os aplicativos cliente ***não podem mais*** enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo a ID de sessão) e recebidas recebendo a sessão.
+
+As APIs para sessões existem em clientes de fila e de assinatura. Há um modelo imperativo que controla quando as sessões e mensagens são recebidas e um modelo baseado em manipulador, semelhante ao *onMessage*, que oculta a complexidade do gerenciamento do loop de recebimento.
 
 ## <a name="session-features"></a>Recursos de sessão
 
@@ -69,7 +72,7 @@ O recurso de estado de sessão permite uma anotação definida pelo aplicativo d
 
 Da perspectiva do barramento de serviço, o estado de sessão da mensagem é um objeto binário opaco que pode conter dados do tamanho de uma mensagem, que é 256 KB para o barramento de serviço Standard e 1 MB para o barramento de serviço Premium. O estado de processamento relativo a uma sessão pode ser mantido dentro do estado da sessão ou o estado da sessão pode apontar para algum local de armazenamento ou registro de banco de dados que contém essas informações.
 
-As APIs para gerenciar o estado da [](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) sessão, SetState e GetState, podem ser encontradas no objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nas APIs C# do e do Java. [](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState) Uma sessão que anteriormente não tinha nenhum estado de sessão definido retorna uma referência **nula** para GetState. Limpar o estado de sessão definido anteriormente é feito com [SetState (NULL)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+As APIs para gerenciar o estado da sessão, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), podem ser encontradas no objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nas APIs C# do e do Java. Uma sessão que anteriormente não tinha nenhum estado de sessão definido retorna uma referência **nula** para **GetState**. Limpar o estado de sessão definido anteriormente é feito com [SetState (NULL)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
 
 Observe que o estado da sessão permanece desde que não seja apagado (retornando **NULL**), mesmo que todas as mensagens em uma sessão sejam consumidas.
 
@@ -87,7 +90,7 @@ A definição de contagem de entrega por mensagem no contexto de sessões varia 
 | A sessão é aceita, as mensagens dentro da sessão não são concluídas (mesmo se estiverem bloqueadas) e a sessão será fechada | Não |
 | A sessão é aceita, as mensagens são concluídas e, em seguida, a sessão é fechada explicitamente | N/A (esse é o fluxo padrão. Estas mensagens são removidas da sessão) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte os exemplos de [Microsoft. Azure. ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft. ServiceBus. Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) para obter um exemplo que usa o cliente .NET Framework para lidar com mensagens com reconhecimento de sessão. 
 

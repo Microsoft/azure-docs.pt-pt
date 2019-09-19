@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 590757f78086be894cdc2384bb4a4df380e91c27
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233115"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098611"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Implantar o Python para Azure Functions com Visual Studio Code
 
@@ -45,7 +45,7 @@ Se você não tiver uma assinatura do Azure, [Inscreva-se agora](https://azure.m
 
 Instale o seguinte software:
 
-- Python 3.6. x, conforme exigido pelo Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) é a versão mais recente do 3.6. x.
+- Python 3.6. x, conforme exigido pelo Azure Functions. [Python 3.6.9](https://www.python.org/downloads/release/python-369/) é a versão mais recente do 3.6. x.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - A [extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) , conforme descrito em [Visual Studio Code tutorial do Python – pré-requisitos](https://code.visualstudio.com/docs/python/python-tutorial).
 - A [extensão de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Para obter informações gerais, visite o [repositório GitHub vscode-azurefunctions](https://github.com/Microsoft/vscode-azurefunctions).
@@ -444,6 +444,18 @@ Nesta seção, você adicionará uma associação de armazenamento à função H
           "queueName": "outqueue",
           "connection": "AzureWebJobsStorage"
         }
+    ```
+
+1. Substitua o conteúdo de *host. JSON* pelo seguinte, adicionando a [referência de pacotes de extensão](functions-bindings-register.md#extension-bundles).
+
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
     ```
 
 1. Agora que você configurou a associação, você pode usá-la em seu código de função. Novamente, a associação recentemente definida aparece em seu código como um argumento para a `main` função em  *\_ \_Init\_\_. py*. Por exemplo, você pode modificar o  *\_ \_arquivo\_Init\_. py* em HttpExample para corresponder ao seguinte, que mostra o uso `msg` do argumento para gravar uma mensagem com carimbo de data/hora com o nome usado no Quest. Os comentários explicam as alterações específicas:

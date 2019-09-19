@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140840"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091966"
 ---
 # <a name="templates"></a>Modelos
 
@@ -56,7 +56,7 @@ Data Factory usa modelos de Azure Resource Manager para salvar data factory mode
 
     -   Copiar da \<origem\> para \<o destino\>
 
-        -   Do Amazon S3 para Azure Data Lake Store Gen 2
+        -   [Do Amazon S3 para Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
         -   Do Google Big Query para Azure Data Lake Store Gen 2
 
@@ -72,7 +72,7 @@ Data Factory usa modelos de Azure Resource Manager para salvar data factory mode
 
 -   Modelos SSIS
 
-    -   Agendar Azure-SSIS Integration Runtime para executar pacotes SSIS
+    -   Agendar Integration Runtime do Azure-SSIS para executar pacotes do SSIS
 
 -   Transformar modelos
 

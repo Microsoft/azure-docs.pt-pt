@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67184638"
 ---
 Você pode criar vários serviços em uma assinatura. Cada uma pode ser provisionada em uma camada específica. Você está limitado apenas pelo número de serviços permitidos em cada camada. Por exemplo, você pode criar até 12 serviços na camada básica e outros 12 serviços na camada S1 dentro da mesma assinatura. Para obter mais informações sobre camadas, consulte [escolher uma SKU ou camada para Azure Search](../articles/search/search-sku-tier.md).

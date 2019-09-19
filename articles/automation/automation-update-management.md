@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: MT
+ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743843"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098109"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -75,7 +75,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|**Avaliações de atualização**: Suportadas<br><br>**Aplicação de patch**: Requer Hybrid Runbook Worker. Consulte [os requisitos de Hybrid runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|**Avaliações de atualização**: Suportadas<br><br>**Aplicação de patch**: Requer Hybrid Runbook Worker. Consulte [os requisitos de Hybrid runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. A aplicação de patches baseada em classificação requer ' yum ' para retornar dados de segurança que o CentOS não está pronto para uso. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, consulte [Atualizar classificações no Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -280,7 +280,7 @@ Selecione **atualizações ausentes** para exibir a lista de atualizações ause
 
 ## <a name="view-update-deployments"></a>Exibir implantações de atualização
 
-Selecione a guia **implantações de atualização** para exibir a lista de implantações de atualização existentes. Selecione qualquer uma das implantações de atualização na tabela para abrir o painel **Atualizar execução de implantação** para essa implantação de atualização. Os logs de trabalho são armazenados por um máximo de 30 dias.
+Selecione a guia implantações de **atualização** para exibir a lista de implantações de atualização existentes. Selecione qualquer uma das implantações de atualização na tabela para abrir o painel **Atualizar execução de implantação** para essa implantação de atualização. Os logs de trabalho são armazenados por um máximo de 30 dias.
 
 ![Visão geral dos resultados da implantação de atualização](./media/automation-update-management/update-deployment-run.png)
 

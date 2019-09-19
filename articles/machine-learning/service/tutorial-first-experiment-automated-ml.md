@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: f8b9876680899a5d8e87f8a49a0b4ed6c113fb45
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001858"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092013"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -67,7 +67,7 @@ Você verá a tela de **introdução** , já que este é seu primeiro experiment
 
 1. Insira **My-1º-automl-experimento** como o nome do experimento.
 
-1. Selecione **criar uma nova computação**. 
+1. Selecione **criar uma nova computação**. Uma computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar sua implantação de serviço. Para este experimento, usamos uma computação baseada em nuvem. 
 
     1. Configure seu contexto de computação para este experimento.
         
@@ -147,9 +147,9 @@ O processo de preparação do experimento leva vários minutos. Quando esse proc
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
-Usando o Machine Learning automatizado na página de aterrissagem do espaço de trabalho, você pode implantar o melhor modelo como um serviço Web para prever novos dados e identificar possíveis áreas de oportunidade. Para este experimento, a implantação significa que a instituição financeira agora tem uma solução iterativa e escalonável para identificar clientes potenciais de depósito fixo.
+Usando o Machine Learning automatizado na página de aterrissagem do espaço de trabalho, você pode implantar o melhor modelo como um serviço Web em algumas etapas. A implantação é a integração do modelo para que ele possa prever novos dados e identificar possíveis áreas de oportunidade. Para este experimento, a implantação em um serviço Web significa que a instituição financeira agora tem uma solução Web iterativa e escalonável para identificar clientes de depósito de prazo fixo. 
 
-Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída.
+Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
 
 1. Na página **executar detalhe** , selecione o botão **implantar melhor modelo** no canto superior direito.
 
@@ -162,7 +162,7 @@ Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo
     Script de Pontuação| AutoGenerate
     Script de ambiente| AutoGenerate
     
-1. Selecione **Implementar**.
+1. Selecione **Implementar**.  
 
     Uma mensagem de implantação concluída é exibida quando A implantação é concluída com êxito.
     

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899478"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097832"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicativos no serviço kubernetes do Azure (AKS)
 
-Ao executar aplicativos no AKS (serviço kubernetes do Azure), talvez seja necessário aumentar ou diminuir a quantidade de recursos de computação. Como o número de instâncias de aplicativo que você precisa alterar, o número de nós kubernetes subjacentes também pode precisar ser alterado. Talvez você também precise provisionar rapidamente um grande número de instâncias de aplicativo adicionais.
+Ao executar aplicativos no AKS (serviço kubernetes do Azure), talvez seja necessário aumentar ou diminuir a quantidade de recursos de computação. Como o número de instâncias de aplicativo que você precisa alterar, o número de nós kubernetes subjacentes também pode precisar ser alterado. Você também pode precisar provisionar rapidamente um grande número de instâncias de aplicativo adicionais.
 
 Este artigo apresenta os principais conceitos que ajudam a dimensionar aplicativos no AKS:
 
@@ -27,7 +27,7 @@ Este artigo apresenta os principais conceitos que ajudam a dimensionar aplicativ
 
 ## <a name="manually-scale-pods-or-nodes"></a>Dimensionar manualmente os pods ou nós
 
-Você pode dimensionar manualmente as réplicas (PODS) e os nós para testar como seu aplicativo responde a uma alteração nos recursos e no estado disponíveis. O dimensionamento manual de recursos também permite que você defina uma quantidade definida de recursos a serem usados para manter um custo fixo, como o número de nós. Para dimensionar manualmente, você define a réplica ou a contagem de nós e os agendamentos de API do kubernetes criando mais pods ou nós de descarga.
+Você pode dimensionar manualmente as réplicas (PODS) e os nós para testar como seu aplicativo responde a uma alteração nos recursos e no estado disponíveis. O dimensionamento manual de recursos também permite que você defina uma quantidade definida de recursos a serem usados para manter um custo fixo, como o número de nós. Para dimensionar manualmente, você define a réplica ou a contagem de nós. A API kubernetes, em seguida, agenda a criação de pods adicionais ou a descarga de nós com base nessa réplica ou contagem de nós.
 
 Para começar a dimensionar manualmente os pods e os nós, consulte [dimensionar aplicativos em AKs][aks-scale].
 
@@ -43,15 +43,15 @@ Para começar a usar o dimensionamento automático de Pod horizontal em AKS, con
 
 ### <a name="cooldown-of-scaling-events"></a>Cooldown de eventos de dimensionamento
 
-Como a escala automática de Pod horizontal verifica a API de métrica a cada 30 segundos, os eventos de escala anterior podem não ter sido concluídos com êxito antes que outra verificação seja feita. Esse comportamento pode fazer com que a escala automática de Pod horizontal altere o número de réplicas antes que o evento de escala anterior tenha sido capaz de receber a carga de trabalho do aplicativo e que as demandas de recursos se ajustem adequadamente.
+Como a escala automática de Pod horizontal verifica a API de métrica a cada 30 segundos, os eventos de escala anterior podem não ter sido concluídos com êxito antes que outra verificação seja feita. Esse comportamento pode fazer com que a escala automática de Pod horizontal altere o número de réplicas antes que o evento de escala anterior pudesse receber a carga de trabalho do aplicativo e que as demandas de recursos se ajustem de acordo.
 
-Para minimizar esses eventos de corrida, cooldown ou valores de atraso são definidos. Esses valores definem por quanto tempo o dimensionador horizontal Pod deve aguardar após um evento de escala antes que outro evento de escala possa ser disparado. Esse comportamento permite que a nova contagem de réplicas entre em vigor e a API de métricas reflita a carga de trabalho distribuída. Por padrão, o atraso em eventos de expansão é de 3 minutos e o atraso em eventos de redução vertical é de 5 minutos
+Para minimizar esses eventos de corrida, cooldown ou valores de atraso são definidos. Esses valores definem por quanto tempo o dimensionador horizontal Pod deve aguardar após um evento de escala antes que outro evento de escala possa ser disparado. Esse comportamento permite que a nova contagem de réplica entre em vigor e a API de métricas reflita a carga de trabalho distribuída. Por padrão, o atraso em eventos de expansão é de 3 minutos e o atraso em eventos de redução vertical é de 5 minutos
 
 No momento, não é possível ajustar esses valores de cooldown do padrão.
 
 ## <a name="cluster-autoscaler"></a>Autoescalar do cluster
 
-Para responder à alteração das demandas de Pod, o kubernetes tem um cluster de dimensionamento automática (atualmente em visualização no AKS) que ajusta o número de nós com base nos recursos de computação solicitados no pool de nós. Por padrão, o dimensionador automática do cluster verifica o servidor de API de métrica a cada 10 segundos para todas as alterações necessárias na contagem de nós. Se o dimensionamento automático do cluster determinar que uma alteração é necessária, o número de nós no cluster AKS será aumentado ou diminuído adequadamente. O dimensionador de clusters em autoescalar funciona com clusters AKS habilitados para RBAC que executam o kubernetes 1.10. x ou superior.
+Para responder à alteração das demandas de Pod, o kubernetes tem um conjunto de dimensionamento automática de cluster, que está atualmente em visualização no AKS, que ajusta o número de nós com base nos recursos de computação solicitados no pool de nós. Por padrão, o dimensionador automática do cluster verifica o servidor de API de métrica a cada 10 segundos para todas as alterações necessárias na contagem de nós. Se o dimensionamento automático do cluster determinar que uma alteração é necessária, o número de nós no cluster AKS será aumentado ou diminuído adequadamente. O dimensionador de clusters em autoescalar funciona com clusters AKS habilitados para RBAC que executam o kubernetes 1.10. x ou superior.
 
 ![Autoescalar do cluster kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -71,7 +71,7 @@ Se o seu aplicativo precisar ser dimensionado rapidamente, alguns pods podem per
 
 ### <a name="scale-down-events"></a>Reduzir eventos de redução
 
-O autoescalar do cluster também monitora o status do agendamento de pod para nós que não receberam novas solicitações de agendamento recentemente. Esse cenário indica que o pool de nós tem mais recursos de computação do que o necessário e que o número de nós pode ser reduzido.
+O autoescalar do cluster também monitora o status de agendamento do pod para nós que não receberam novas solicitações de agendamento recentemente. Esse cenário indica que o pool de nós tem mais recursos de computação que os necessários e o número de nós pode ser reduzido.
 
 Um nó que passa um limite para não ser mais necessário por 10 minutos por padrão é agendado para exclusão. Quando essa situação ocorre, os pods são agendados para serem executados em outros nós no pool de nós, e o dimensionamento automática do cluster diminui o número de nós.
 

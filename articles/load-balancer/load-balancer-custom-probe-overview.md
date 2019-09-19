@@ -12,45 +12,79 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275340"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098932"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
-Azure Load Balancer fornece investigações de integridade para uso com regras de balanceamento de carga.  As respostas de investigação e configuração de investigação de integridade determinam quais instâncias de pool de back-end receberão novos fluxos. Pode utilizar sondas de estado de funcionamento para detetar a falha de um aplicativo numa instância de back-end. Você também pode gerar uma resposta personalizada para uma investigação de integridade e usar a investigação de integridade para controle de fluxo para gerenciar o tempo de inatividade planejado ou de carga. Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento.
+Ao usar regras de balanceamento de carga com Azure Load Balancer, você precisa especificar uma investigação de integridade para permitir que Load Balancer detecte o status do ponto de extremidade de back-end.  A configuração das respostas de investigação e investigação de integridade determinam quais instâncias de pool de back-end receberão novos fluxos. Você pode usar investigações de integridade para detectar a falha de um aplicativo em um ponto de extremidade de back-end. Você também pode gerar uma resposta personalizada para uma investigação de integridade e usar a investigação de integridade para controle de fluxo para gerenciar o tempo de inatividade planejado ou de carga. Quando uma investigação de integridade falhar, Load Balancer deixará de enviar novos fluxos para a respectiva instância não íntegra.
 
-As investigações de integridade dão suporte a vários protocolos. A disponibilidade de um tipo específico de investigação de integridade para dar suporte a um protocolo específico varia de acordo com Load Balancer SKU.  Além disso, o comportamento do serviço varia de acordo com Load Balancer SKU.
+As investigações de integridade dão suporte a vários protocolos. A disponibilidade de um protocolo de investigação de integridade específico varia de acordo com Load Balancer SKU.  Além disso, o comportamento do serviço varia de acordo com Load Balancer SKU, conforme mostrado nesta tabela:
 
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
 | [Tipos de sonda](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Sonda de comportamento](#probedown) | Todas as sondas, continuam a todos os fluxos TCP. | Todas as investigações, todos os fluxos de TCP expiram. | 
 
-> [!IMPORTANT]
-> Load Balancer investigações de integridade se originam do endereço IP 168.63.129.16 e não devem ser bloqueadas para investigações para marcar sua instância.  Revisão [endereço IP de origem de sonda](#probesource) para obter detalhes.
 
+>[!IMPORTANT]
+>Examine este documento em sua totalidade, incluindo [diretrizes de design](#design) importantes abaixo para criar um serviço confiável.
+
+>[!IMPORTANT]
+>Load Balancer investigações de integridade se originam do endereço IP 168.63.129.16 e não devem ser bloqueadas para investigações para marcar sua instância.  Revisão [endereço IP de origem de sonda](#probesource) para obter detalhes.
+
+## <a name="probes"></a>Configuração de investigação
+
+A configuração de investigação de integridade consiste nos seguintes elementos:
+
+- Duração do intervalo entre investigações individuais
+- Número de respostas de investigação que precisam ser observadas antes da transição da investigação para um estado diferente
+- Protocolo da investigação
+- Porta da investigação
+- Caminho HTTP a ser usado para HTTP GET ao usar investigações HTTP (S)
+
+## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Compreendendo o sinal do aplicativo, a detecção do sinal e a reação da plataforma
+
+O número de respostas de investigação se aplica a ambos
+
+- o número de investigações bem-sucedidas que permitem que uma instância seja marcada como ativa e
+- O número de investigações com falha que fazem com que uma instância seja marcada como inativa.
+
+Os valores de tempo limite e intervalo especificados determinam se uma instância será marcada como up ou down.  A duração do intervalo multiplicado pelo número de respostas de investigação determina a duração durante a qual as respostas de investigação precisam ser detectadas.  E o serviço reagirá depois que as investigações necessárias tiverem sido atingidas.
+
+Podemos ilustrar o comportamento mais detalhadamente com um exemplo. Se você tiver definido o número de respostas de investigação como 2 e o intervalo como 5 segundos, isso significa que 2 falhas de investigação devem ser observadas em um intervalo de 10 segundos.  Como a hora em que uma investigação é enviada não é sincronizada quando seu aplicativo pode mudar de estado, podemos associar o tempo para detectar por dois cenários:
+
+1. Se seu aplicativo começar a produzir uma resposta de investigação com falha logo antes da chegada da primeira investigação, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo que começa a sinalizar uma falha em quando o primeiro a investigação chega.  Você pode assumir que essa detecção leva um pouco mais de 10 segundos.
+2. Se seu aplicativo começar a produzir uma resposta de investigação com falha logo após a chegada da primeira investigação, a detecção desses eventos não começará até que a próxima investigação chegue (e falhe) Além de outros 10 segundos (intervalos de 2 x 5 segundos).  Você pode assumir que essa detecção leva menos de 15 segundos.
+
+Para este exemplo, depois que a detecção tiver ocorrido, a plataforma levará um pouco de tempo para reagir a essa alteração.  Isso significa um dependendo de 
+
+1. Quando o aplicativo começa a mudar o estado e
+2. Quando essa alteração é detectada e atende aos critérios necessários (número de investigações enviadas no intervalo especificado) e
+3. Quando a detecção foi comunicada na plataforma 
+
+Você pode assumir que a reação a uma investigação com falha levará entre um mínimo de 10 segundos e um número um pouco mais de 15 segundos para reagir a uma alteração no sinal do aplicativo.  Este exemplo é fornecido para ilustrar o que está ocorrendo, no entanto, não é possível prever uma duração exata além das diretrizes aproximadas acima ilustradas neste exemplo.
+ 
 ## <a name="types"></a>Tipos de sonda
 
-A investigação de integridade pode ser configurada para ouvintes usando os três protocolos a seguir:
+O protocolo usado pela investigação de integridade pode ser configurado para um dos seguintes:
 
 - [Serviços de escuta TCP](#tcpprobe)
 - [Pontos de extremidade HTTP](#httpprobe)
 - [Pontos finais de HTTPS](#httpsprobe)
 
-Os tipos de sondas de estado de funcionamento disponíveis variam consoante o SKU do Balanceador de carga selecionado:
+Os protocolos disponíveis dependem do Load Balancer SKU usado:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | SKU Standard |    &#9989; |   &#9989; |   &#9989; |
 | SKU Básico |   &#9989; |   &#9989; | &#10060; |
-
-Independentemente do tipo de investigação escolhido, as investigações de integridade podem observar qualquer porta em uma instância de back-end, incluindo a porta na qual o serviço real é fornecido.
 
 ### <a name="tcpprobe"></a> Sonda TCP
 
@@ -62,7 +96,7 @@ Uma sonda TCP falha quando:
 * O serviço de escuta TCP na instância não responde durante o período de tempo limite.  Uma investigação é marcada com base no número de solicitações de investigação com falha, que foram configuradas para não responder antes de marcar a investigação.
 * A sonda recebe uma reposição da instância TCP.
 
-#### <a name="resource-manager-template"></a>Modelo do Resource Manager
+O seguinte ilustra como você pode expressar esse tipo de configuração de investigação em um modelo do Resource Manager:
 
 ```json
     {
@@ -77,8 +111,8 @@ Uma sonda TCP falha quando:
 
 ### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS de sonda
 
-> [!NOTE]
-> Sonda HTTPS apenas está disponível para [Balanceador de carga Standard](load-balancer-standard-overview.md).
+>[!NOTE]
+>Sonda HTTPS apenas está disponível para [Balanceador de carga Standard](load-balancer-standard-overview.md).
 
 As investigações HTTP e HTTPS são compiladas na investigação TCP e emitem um GET HTTP com o caminho especificado. Ambas estas sondas suportam caminhos relativos para o HTTP GET. Sondas HTTPS são os mesmos, como as sondas HTTP com a adição da Transport Layer Security (TLS, anteriormente conhecido como SSL) wrapper. A sonda de estado de funcionamento está marcado como cópia de segurança quando a instância responde com um Estado HTTP 200 dentro do período de tempo limite.  A investigação de integridade tenta verificar a porta de investigação de integridade configurada a cada 15 segundos por padrão. O intervalo de sonda mínimo é de 5 segundos. A duração total de todos os intervalos não pode exceder 120 segundos.
 
@@ -91,7 +125,7 @@ Um HTTP / HTTPS sonda falha quando:
 * O ponto de extremidade de investigação não responde durante o período de tempo limite de 31 segundos. Várias solicitações de investigação podem ficar sem resposta antes que a investigação seja marcada como não sendo executada e até que a soma de todos os intervalos de tempo limite tenha sido atingida.
 * Ponto final da sonda fecha a ligação através de uma reposição TCP.
 
-#### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+O seguinte ilustra como você pode expressar esse tipo de configuração de investigação em um modelo do Resource Manager:
 
 ```json
     {
@@ -132,42 +166,35 @@ Se o agente convidado responde com um HTTP 200, o Balanceador de carga envia nov
 Quando utiliza uma função da web, normalmente, executa o código de site no w3wp.exe, que não é monitorizado pelo Azure agente de recursos de infraestrutura ou de convidado. Falhas no w3wp.exe (por exemplo, as respostas HTTP 500) não são relatadas para o agente convidado. Conseqüentemente, o Balanceador de carga não Use essa instância da rotação.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Sonda de estado de funcionamento
+## <a name="probehealth"></a>Comportamento de investigação
 
-Sondas de estado de funcionamento TCP, HTTP e HTTPS são consideradas íntegros e marcar a instância de função em bom estado quando:
+As investigações de integridade TCP, HTTP e HTTPS são consideradas íntegras e marcam o ponto de extremidade back-end como íntegro quando:
 
 * A investigação de integridade é bem-sucedida uma vez após a inicialização da VM.
-* O número especificado de investigações necessárias para marcar a instância de função como íntegra foi atingido.
+* O número especificado de investigações necessárias para marcar o ponto de extremidade de back-end como íntegro foi atingido.
+
+Qualquer ponto de extremidade de back-end que tenha atingido um estado íntegro é qualificado para receber novos fluxos.  
 
 > [!NOTE]
-> Se a investigação de integridade flutuar, o balanceador de carga aguardará mais tempo antes de colocar a instância de função novamente no estado íntegro. Este tempo de espera extra protege o utilizador e a infraestrutura e é uma política intencional.
-
-## <a name="probe-count-and-timeout"></a>Contagem de sonda e o tempo limite
-
-Comportamento de sonda depende:
-
-* O número de sondas com êxito, que permitem que uma instância seja marcado como períodos.
-* O número de sondas de falha que fazer com que uma instância seja marcado como inativo.
-
-Os valores de tempo limite e intervalo especificados determinam se uma instância está marcada como ativa ou desativada.
+> Se a investigação de integridade flutuar, o balanceador de carga aguarda mais tempo antes de colocar o ponto de extremidade de back-end no estado íntegro. Este tempo de espera extra protege o utilizador e a infraestrutura e é uma política intencional.
 
 ## <a name="probedown"></a>Sonda de comportamento
 
 ### <a name="tcp-connections"></a>Ligações TCP
 
-Novas conexões TCP terão sucesso com as instâncias de back-end íntegras restantes.
+As novas conexões TCP terão sucesso no ponto de extremidade de back-end íntegro.
 
-Se a sonda de estado de funcionamento de uma instância de back-end falha, continuam a conexões TCP estabelecidas para esta instância de back-end.
+Se uma investigação de integridade do ponto de extremidade de back-end falhar, as conexões TCP estabelecidas com esse ponto de extremidade de back-end
 
 Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, não existem fluxos novo serão enviados para o conjunto de back-end. Balanceador de carga Standard permitirá estabelecidos fluxos TCP para continuar.  Balanceador de carga básico irá terminar todos os fluxos TCP existentes para o conjunto de back-end.
  
-Load Balancer é um serviço de passagem (não encerra as conexões TCP) e o fluxo está sempre entre o cliente e o sistema operacional convidado e o aplicativo da VM. Um pool com todas as investigações fará com que um front-end não responda a SYN (tentativas de abertura de conexão TCP), já que não há nenhuma instância de back-end íntegra para receber o fluxo e responder com um SYN-ACK.
+Load Balancer é um serviço de passagem (não encerra as conexões TCP) e o fluxo está sempre entre o cliente e o sistema operacional convidado e o aplicativo da VM. Um pool com todas as investigações fará com que um front-end não responda a SYN (tentativas de abertura de conexão TCP), pois não há nenhum ponto de extremidade de back-end íntegro para receber o fluxo e responder com um SYN-ACK.
 
 ### <a name="udp-datagrams"></a>Datagramas UDP
 
-Os datagramas UDP serão entregue a instâncias de back-end em bom estado.
+Os datagramas UDP serão entregues aos pontos de extremidade de back-end íntegros.
 
-UDP é sem ligações e não existe nenhum Estado de fluxo controlado por UDP. Se falhar a sonda de estado de funcionamento de qualquer instância de back-end, os fluxos UDP existentes podem mover para outra instância de bom estado de funcionamento do conjunto de back-end.
+UDP é sem ligações e não existe nenhum Estado de fluxo controlado por UDP. Se qualquer investigação de integridade do ponto de extremidade de back-end falhar, os fluxos UDP existentes poderão ser movidos para outra instância íntegra no pool de back-end.
 
 Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, os fluxos UDP existentes irão terminar para básico e Standard balanceadores de carga.
 
@@ -188,15 +215,15 @@ Além de Load Balancer investigações de integridade, as [seguintes operações
 
 As investigações de integridade são usadas para tornar seu serviço resiliente e permitir que ele seja dimensionado. Um padrão de configuração incorreta ou de design inadequado pode afetar a disponibilidade e a escalabilidade do seu serviço. Examine este documento inteiro e considere qual é o impacto em seu cenário quando essa resposta de investigação é marcada ou marcada, e como ela afeta a disponibilidade do cenário do aplicativo.
 
-Ao projetar o modelo de integridade para seu aplicativo, você deve investigar uma porta em uma instância de back-end que reflita a integridade dessa instância __e__ o serviço de aplicativo que você está fornecendo.  A porta do aplicativo e a porta de investigação não precisam ser as mesmas.  Em alguns cenários, pode ser desejável que a porta de investigação seja diferente da porta em que seu aplicativo fornece serviço.  
+Quando você cria o modelo de integridade para seu aplicativo, você deve investigar uma porta em um ponto de extremidade de back-end que reflita a integridade dessa instância __e__ o serviço de aplicativo que você está fornecendo.  A porta do aplicativo e a porta de investigação não precisam ser as mesmas.  Em alguns cenários, pode ser desejável que a porta de investigação seja diferente da porta em que seu aplicativo fornece serviço.  
 
 Às vezes, pode ser útil para seu aplicativo gerar uma resposta de investigação de integridade para não apenas detectar a integridade do aplicativo, mas também sinalizar diretamente para Load Balancer se sua instância deve receber ou não receber novos fluxos.  Você pode manipular a resposta de investigação para permitir que seu aplicativo crie uma pressão e limite a entrega de novos fluxos a uma instância, falhando na investigação de integridade ou se preparar para manutenção do seu aplicativo e começar a drenar seu cenário.  Ao usar Standard Load Balancer, um sinal de [investigação inativo](#probedown) sempre permitirá que os fluxos TCP continuem até o tempo limite ocioso ou o encerramento da conexão. 
 
-Para balanceamento de carga UDP, você deve gerar um sinal de investigação de integridade personalizado da instância de back-end e usar uma investigação de integridade TCP, HTTP ou HTTPS direcionando o ouvinte correspondente para refletir a integridade do aplicativo UDP.
+Para o balanceamento de carga de UDP, você deve gerar um sinal de investigação de integridade personalizado do ponto de extremidade de back-end e usar uma investigação de integridade TCP, HTTP ou HTTPS direcionando o ouvinte correspondente para refletir a integridade do aplicativo UDP.
 
 Ao usar [regras de balanceamento de carga de portas de alta disponibilidade](load-balancer-ha-ports-overview.md) com [Standard Load Balancer](load-balancer-standard-overview.md), todas as portas têm balanceamento de carga e uma única resposta de investigação de integridade deve refletir o status da instância inteira.
 
-Não traduza ou faça proxy de uma investigação de integridade por meio da instância que recebe a investigação de integridade para outra instância em sua VNet, pois essa configuração pode levar a falhas em cascata em seu cenário.  Considere o seguinte cenário: um conjunto de dispositivos de terceiros é implantado no pool de back-end de um recurso de Load Balancer para fornecer escala e redundância para os dispositivos e a investigação de integridade é configurada para investigar uma porta que os proxies de dispositivo de terceiros ou traduz para outras máquinas virtuais por trás do dispositivo.  Se você investigar a mesma porta que está usando para traduzir ou solicitações de proxy para as outras máquinas virtuais por trás do dispositivo, qualquer resposta de investigação de uma única máquina virtual por trás do dispositivo marcará o dispositivo em si. Essa configuração pode levar a uma falha em cascata de todo o cenário do aplicativo como resultado de uma única instância de back-end por trás do dispositivo.  O gatilho pode ser uma falha de investigação intermitente que fará Load Balancer marcar o destino original (a instância do dispositivo) e, por sua vez, poderá desabilitar todo o cenário do aplicativo. Investigue a integridade do próprio dispositivo em vez disso. A seleção da investigação para determinar o sinal de integridade é uma consideração importante para cenários de NVA (soluções de virtualização de rede) e você deve consultar o fornecedor do aplicativo para saber qual é o sinal de integridade apropriado para esses cenários.
+Não traduza ou faça proxy de uma investigação de integridade por meio da instância que recebe a investigação de integridade para outra instância em sua VNet, pois essa configuração pode levar a falhas em cascata em seu cenário.  Considere o seguinte cenário: um conjunto de dispositivos de terceiros é implantado no pool de back-end de um recurso de Load Balancer para fornecer escala e redundância para os dispositivos e a investigação de integridade é configurada para investigar uma porta que os proxies de dispositivo de terceiros ou traduz para outras máquinas virtuais por trás do dispositivo.  Se você investigar a mesma porta que está usando para traduzir ou solicitações de proxy para as outras máquinas virtuais por trás do dispositivo, qualquer resposta de investigação de uma única máquina virtual por trás do dispositivo marcará o dispositivo em si. Essa configuração pode levar a uma falha em cascata de todo o cenário do aplicativo como resultado de um único ponto de extremidade de back-end por trás do dispositivo.  O gatilho pode ser uma falha de investigação intermitente que fará Load Balancer marcar o destino original (a instância do dispositivo) e, por sua vez, poderá desabilitar todo o cenário do aplicativo. Investigue a integridade do próprio dispositivo em vez disso. A seleção da investigação para determinar o sinal de integridade é uma consideração importante para cenários de NVA (soluções de virtualização de rede) e você deve consultar o fornecedor do aplicativo para saber qual é o sinal de integridade apropriado para esses cenários.
 
 Se você não permitir o [IP de origem](#probesource) da investigação em suas políticas de firewall, a investigação de integridade falhará, pois não é possível acessar sua instância.  Por sua vez, o Balanceador de carga marcará-se para baixo da sua instância devido à falha de sonda de estado de funcionamento.  Essa configuração incorreta pode causar falha no cenário do aplicativo com balanceamento de carga.
 
@@ -208,20 +235,20 @@ Não configure sua VNet com o intervalo de endereços IP de propriedade da Micro
 
 Se tiver várias interfaces na sua VM, terá de assegurar a que responder à sonda na interface de que utilizador o recebeu.  Talvez seja necessário que o endereço de rede de origem converta esse endereço na VM por interface.
 
-Não habilite [carimbos de data/hora TCP](https://tools.ietf.org/html/rfc1323).  Habilitar carimbos de data/hora TCP fará com que investigações de integridade falhem devido a pacotes TCP sendo descartados pela pilha TCP do sistema operacional convidado da VM, o que resulta em Load Balancer marcação do respectivo ponto de extremidade.  Os carimbos de data/hora TCP são rotineiramente habilitados por padrão em imagens de VM protegidas por segurança e devem ser desabilitados.
+Não habilite [carimbos de data/hora TCP](https://tools.ietf.org/html/rfc1323).  Habilitar carimbos de data/hora TCP pode causar falha em investigações de integridade devido a pacotes TCP sendo descartados pela pilha TCP do sistema operacional convidado da VM, o que resulta em Load Balancer marcando o respectivo ponto de extremidade.  Os carimbos de data/hora TCP são rotineiramente habilitados por padrão em imagens de VM protegidas por segurança e devem ser desabilitados.
 
 ## <a name="monitoring"></a>Monitorização
 
-Públicas e internas [Balanceador de carga Standard](load-balancer-standard-overview.md) expor por ponto final e de back-end estado de sonda de estado de funcionamento de instância, como métricas multidimensionais através do Azure Monitor. Essas métricas podem ser consumidas por outros serviços do Azure ou aplicativos de parceiro. 
+Os [Standard Load Balancer](load-balancer-standard-overview.md) públicos e internos expõem por ponto de extremidade e status de investigação de integridade do ponto de extremidade de back-end como métricas multidimensionais através de Azure monitor Essas métricas podem ser consumidas por outros serviços do Azure ou aplicativos de parceiro. 
 
 O Load Balancer público básico expõe o status de investigação de integridade resumido por pool de back-end por meio de logs Azure Monitor.  Os logs de Azure Monitor não estão disponíveis para balanceadores de carga básicos internos.  Você pode usar [os logs de Azure monitor](load-balancer-monitor-log.md) para verificar o status de integridade da investigação do balanceador de carga público e a contagem de investigação. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.
 
 ## <a name="limitations"></a>Limitações
 
 - Sondas HTTPS não suportam autenticação mútua com um certificado de cliente.
-- As investigações de integridade falharão quando os carimbos de data/hora TCP estiverem habilitados.
+- Você deve assumehHealth investigações falharão quando os carimbos de data/hora TCP estiverem habilitados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - [Introdução à criação de um balanceador de carga público no Resource Manager com o PowerShell](load-balancer-get-started-internet-arm-ps.md)

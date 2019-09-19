@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 078582b98bca2137a7d25fa3a0833a4707565170
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 36b09ce8ece010ff24345ddb96654f75542cc9a5
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699381"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098952"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral de camadas de nuvem
 A camada de nuvem é um recurso opcional do Sincronização de Arquivos do Azure em que os arquivos acessados com frequência são armazenados em cache localmente no servidor, enquanto todos os outros arquivos estão em camadas para os arquivos do Azure com base nas configurações de política. Quando um arquivo está em camadas, o filtro do sistema de arquivos Sincronização de Arquivos do Azure (StorageSync. sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos no NTFS para que os aplicativos de terceiros possam identificar com segurança os arquivos em camadas.
@@ -100,10 +100,10 @@ A maneira mais fácil de lembrar um arquivo para o disco é abrir o arquivo. O f
 
 Você também pode usar o PowerShell para forçar a rechamada de um arquivo. Essa opção pode ser útil se você quiser rechamar vários arquivos de uma vez, como todos os arquivos em uma pasta. Abra uma sessão do PowerShell para o nó do servidor em que o Sincronização de Arquivos do Azure está instalado e execute os seguintes comandos do PowerShell:
     
-    ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
+```
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Por que o *tamanho na* Propriedade do disco para um arquivo corresponde à propriedade *size* depois de usar sincronização de arquivos do Azure? 
@@ -113,10 +113,10 @@ O explorador de arquivos do Windows expõe duas propriedades para representar o 
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Como fazer forçar um arquivo ou diretório a ser colocado em camadas?
 Quando o recurso de camadas de nuvem está habilitado, o nivelamento de nuvem automaticamente hierarquiza os arquivos com base no último acesso e modifica as horas para atingir a porcentagem de espaço livre do volume especificada no ponto de extremidade da nuvem. No entanto, às vezes, talvez você queira forçar manualmente um arquivo para uma camada. Isso pode ser útil se você salvar um arquivo grande que você não pretende usar novamente por muito tempo e deseja que o espaço livre em seu volume agora seja usado para outros arquivos e pastas. Você pode forçar o nivelamento usando os seguintes comandos do PowerShell:
 
-    ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+```
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

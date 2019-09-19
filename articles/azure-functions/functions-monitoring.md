@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 7220c72625697490d9c42dab7e18ca4bf64d3f43
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8092108ef13f4b86f20cf5a8a0b41b49d75aa626
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085617"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098692"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -610,7 +610,7 @@ Ao desenvolver um aplicativo, muitas vezes você desejará fazer gravações nos
 
 Há duas maneiras de exibir um fluxo de arquivos de log que está sendo gerado por suas execuções de função.
 
-* **Streaming de log interno**: a plataforma do serviço de aplicativo permite que você exiba um fluxo dos arquivos de log do aplicativo. Isso é equivalente à saída vista quando você depura suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando você usa a guia **teste** no Portal. Todas as informações baseadas em log são exibidas. Para obter mais informações, consulte [como transmitir logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs). Esse método de streaming dá suporte a apenas uma única instância e não pode ser usado com um aplicativo em execução no Linux em um plano de consumo.
+* **Streaming de log interno**: a plataforma do serviço de aplicativo permite que você exiba um fluxo dos arquivos de log do aplicativo. Isso é equivalente à saída vista quando você depura suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando você usa a guia **teste** no Portal. Todas as informações baseadas em log são exibidas. Para obter mais informações, consulte [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Esse método de streaming dá suporte a apenas uma única instância e não pode ser usado com um aplicativo em execução no Linux em um plano de consumo.
 
 * **Live Metrics Stream**: quando seu aplicativo de funções está [conectado ao Application insights](#enable-application-insights-integration), você pode exibir dados de log e outras métricas quase em tempo real no portal do Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use esse método ao monitorar funções em execução em várias instâncias ou no Linux em um plano de consumo. Esse método usa [dados de amostra](#configure-sampling).
 
@@ -632,9 +632,9 @@ Isso conecta seu aplicativo ao serviço de streaming de log e os logs de aplicat
 
 #### <a name="live-metrics-stream"></a>Live Metrics Stream
 
-Para exibir o Live Metrics Stream para seu aplicativo, selecione a guia **visão geral** do seu aplicativo de funções. Quando Application Insights habilita, você verá um link de **Application insights** em **recursos**configurados. Esse link leva você até a página de Application Insights para seu aplicativo.
+Para exibir o Live Metrics Stream para seu aplicativo, selecione a guia **visão geral** do seu aplicativo de funções. Quando Application Insights habilita, você verá um link de **Application insights** em **recursos configurados**. Esse link leva você até a página de Application Insights para seu aplicativo.
 
-Em Application Insights, selecione **Live Metrics Stream**. [As entradas de log de amostra](#configure-sampling) são exibidas em telemetria de **exemplo**.
+Em Application Insights, selecione **Live Metrics Stream**. [As entradas de log de amostra](#configure-sampling) são exibidas em **telemetria de exemplo**.
 
 ![Exibir Live Metrics Stream no portal](./media/functions-monitoring/live-metrics-stream.png) 
 
@@ -674,7 +674,7 @@ Ao habilitar Application Insights, desabilite o log interno que usa o armazename
 
 Para desabilitar o registro em log interno, exclua a configuração do `AzureWebJobsDashboard` aplicativo. Para obter informações sobre como excluir configurações de aplicativo no portal do Azure, consulte a seção **configurações de aplicativo** de [como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings). Antes de excluir a configuração do aplicativo, certifique-se de que nenhuma função existente no mesmo aplicativo de funções use a configuração para gatilhos ou associações do armazenamento do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

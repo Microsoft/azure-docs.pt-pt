@@ -1,7 +1,7 @@
 ---
 title: Inserir Video Indexer widgets em seus aplicativos
 titlesuffix: Azure Media Services
-description: Saiba como incorporar widgets do Video Indexer na sua aplicação.
+description: Saiba como inserir Video Indexer widgets em seu aplicativo.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: ec3c7379c8c7f28765fbc4396d3e9804a6c127f6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663752"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036632"
 ---
-# <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
+# <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
-Este artigo mostra-lhe como pode incorporar widgets do Video Indexer nas suas aplicações. O Video Indexer dá suporte à inserção de três tipos de widgets em seu aplicativo: **Informações cognitivas**, **Player**e **Editor**. 
+Este artigo mostra como você pode inserir Video Indexer widgets em seus aplicativos. O Video Indexer dá suporte à inserção de três tipos de widgets em seu aplicativo: *Informações cognitivas*, *Player*e *Editor*. 
 
 A partir da versão 2, a URL base do widget inclui a região da conta especificada. Por exemplo, uma conta na região oeste dos EUA gera: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -27,113 +27,109 @@ A partir da versão 2, a URL base do widget inclui a região da conta especifica
 
 ### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
 
-Um widget **Cognitive Insights** inclui todas as informações visuais que foram extraídas do processo de indexação do seu vídeo. O widget de informações suporta os seguintes parâmetros de URL:
+Um widget de análise cognitiva inclui todos os insights visuais que foram extraídos do seu processo de indexação de vídeo. O widget cognitiva insights dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Nome|Definição|Descrição|
+|Name|Definição|Descrição|
 |---|---|---|
-|`widgets`|Cadeias separadas por vírgulas|Permite-lhe controlar as informações que pretende compor. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` irá compor apenas as informações de IU de marcas e pessoas<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Não suportado se o URL tiver o parâmetro version=2.<br/><br/>**Nota:** Não há suporte para o parâmetro de URL de widgets na versão 2. |
-|`locale`|Um código de idioma curto|Controla o idioma do insights. A predefinição é `en`. Por exemplo: `language=de`.|
-|`tab`|A guia selecionada padrão|Controla a guia insights que é renderizada por padrão. `tab=timeline`Renderiza as informações com a guia linha do tempo selecionada.|
+|`widgets`|Cadeias separadas por vírgulas|Permite que você controle as informações que deseja renderizar. <br/> Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderiza apenas pessoas e marcas da interface do usuário do.<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Observe que o `widgets` parâmetro de URL não tem suporte na versão 2.<br/>|
+|`locale`|Um código de idioma curto|Controla o idioma do insights. O valor predefinido é `en`. <br/> Exemplo: `locale=de`.|
+|`tab`|A guia selecionada padrão|Controla a guia **insights** que é renderizada por padrão. <br/> Exemplo: `tab=timeline` renderiza as informações com a guia **linha do tempo** selecionada.|
 
 ### <a name="player-widget"></a>Widget Player
 
-Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de transmissão adaptável. O widget Player suporta os seguintes parâmetros de URL:
+Você pode usar o widget Player para transmitir vídeo usando a taxa de bits adaptável. O widget Player dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Nome|Definição|Descrição|
+|Name|Definição|Descrição|
 |---|---|---|
-|`t`|Segundos desde o início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: `t=60`.|
-|`captions`|Um código de idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: `captions=en-US`.|
-|`showCaptions`|Um valor booliano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: `showCaptions=true`.|
-|`type`||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: `type=audio`.|
-|`autoplay`|Um valor booliano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: `autoplay=false`.|
-|`language`|Um código de idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: `language=de-DE`.|
+|`t`|Segundos desde o início|Faz com que o Player comece a ser reproduzido do ponto de tempo especificado.<br/> Exemplo: `t=60`.|
+|`captions`|Um código de idioma|Busca a legenda no idioma especificado durante o carregamento do widget para estar disponível no menu **legendas** .<br/> Exemplo: `captions=en-US`.|
+|`showCaptions`|Um valor booliano|Faz com que o leitor carregue já com as legendas ativadas.<br/> Exemplo: `showCaptions=true`.|
+|`type`||Ativa uma capa de player de áudio (a parte de vídeo é removida).<br/> Exemplo: `type=audio`.|
+|`autoplay`|Um valor booliano|Indica se o Player deve começar a reproduzir o vídeo quando carregado. O valor predefinido é `true`.<br/> Exemplo: `autoplay=false`.|
+|`language`|Um código de idioma|Controla o idioma do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
 
-### <a name="editor-widget"></a>Widget do editor 
+### <a name="editor-widget"></a>Widget do editor
 
-O widget **Editor** permite que você crie novos projetos e gerencie informações do vídeo.
+Você pode usar o widget editor para criar novos projetos e gerenciar informações de um vídeo. O widget editor dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Nome|Definição|Descrição|
+|Name|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup>|Cadeia|O `accessToken` parâmetro é necessário ao usar o widget do editor.<br/>O token de acesso fornece acesso a vídeos que estão apenas dentro da conta usada para inserir o widget. |
-|`language`|Um código de idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: `language=de-DE`.|
-|`locale`|Um código de idioma curto|Controla o idioma do insights. A predefinição é `en`. Por exemplo: `language=de`.|
+|`accessToken`<sup>*</sup>|Cadeia|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer `accessToken` o parâmetro.|
+|`language`|Um código de idioma|Controla o idioma do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
+|`locale`|Um código de idioma curto|Controla o idioma do insights. O valor predefinido é `en`.<br/>Exemplo: `language=de`.|
 
-<sup>*</sup>O proprietário deve ser fornecido `accessToken` com cuidado. 
+<sup>*</sup>O proprietário deve fornecer `accessToken` com cuidado.
 
 ## <a name="embedding-public-content"></a>Incorporar conteúdos públicos
 
-1. Aceda ao site do [Video Indexer](https://www.videoindexer.ai/) e inicie sessão.
-2. Clique no vídeo com o qual pretende trabalhar.
-3. Clique no botão Embed (Incorporar) abaixo do vídeo.
+1. Entre no site do [Video indexer](https://www.videoindexer.ai/) .
+2. Selecione o vídeo com o qual você deseja trabalhar.
+3. Selecione o botão **Inserir** que aparece sob o vídeo.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
-    Após clicar no botão, será apresentada uma caixa de diálogo de incorporação no ecrã, onde poderá selecionar o widget que pretende incorporar na sua aplicação.
-    A seleção de um widget (**ideias cognitivas**, **Player**ou **Editor**) gera o código inserido para você colar em seu aplicativo.
+    Depois de selecionar o botão **Inserir** , você pode selecionar o widget que deseja inserir em seu aplicativo. 
+4. Selecione o tipo de widget que você deseja (**ideias cognitivas**, **Player**ou **Editor**).
  
-4. Escolha o tipo de widget desejado (**ideias cognitivas**, **Player**ou **Editor**).
-5. Copie o código de incorporação e adicione-o à sua aplicação. 
+5. Copie o código de inserção e, em seguida, adicione-o ao seu aplicativo. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> Se você tiver problemas com o compartilhamento de suas URLs de vídeo, tente adicionar o parâmetro ' location ' ao link. O parâmetro deve ser definido para as [regiões do Azure nas quais Video indexer existe](regions.md). Por exemplo, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> Se você tiver problemas para compartilhar suas URLs de vídeo, `location` adicione o parâmetro ao link. O parâmetro deve ser definido para as [regiões do Azure nas quais Video indexer existe](regions.md). Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporar conteúdos privados
 
-Só é possível obter códigos de incorporação a partir de janelas de pop-up (conforme mostrado na secção anterior) para vídeos **Públicos**. 
-
-Se quiser incorporar um vídeo **Privado**, terá de passar um token de acesso no atributo **src** do **iframe**:
+Para inserir um vídeo privado, você deve passar um token de acesso no atributo **src** do iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Utilize a API [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) para obter os conteúdos do widget Cognitive Insights ou a API [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e adicione-a ao URL como um parâmetro de consulta, conforme mostrado acima. Especifique este URL como o valor **src** do **iframe**.
+Para obter o conteúdo do widget do insights cognitiva, use um dos seguintes:<br/>
+- A API do [widget obter insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
+- O [token de acesso obter vídeo](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Adicione-o como um parâmetro de consulta à URL. Especifique essa URL como o valor **src** para o iframe, conforme mostrado anteriormente.
 
-Se quiser fornecer funcionalidades de informações de edição (como fizemos na nossa aplicação Web) ao seu widget incorporado, terá de passar um token de acesso com permissões de edição. Utilize [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) com **&allowEdit=true**. 
+Para fornecer recursos de edição de informações em seu widget inserido, você deve passar um token de acesso que inclui permissões de edição. Use o [widget obter insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou o token de acesso `&allowEdit=true`de obtenção de [vídeo](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) com. 
 
 ## <a name="widgets-interaction"></a>Interação de widgets
 
-O widget **Cognitive Insights** pode interagir com um vídeo na sua aplicação. Esta secção mostra-lhe como alcançar esta interação.
+O widget cognitiva insights pode interagir com um vídeo em seu aplicativo. Esta secção mostra-lhe como alcançar esta interação.
 
 ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### <a name="cross-origin-communications"></a>Comunicações com várias origens
 
-Para fazer com que os widgets do Video Indexer comuniquem com outros componentes, o serviço Video Indexer faz o seguinte:
+Para obter Video Indexer widgets se comuniquem com outros componentes, o serviço Video Indexer:
 
-- Utiliza o método HTML5 de comunicação com várias origens **postMessage** 
+- Usa a **mensagem**do método HTML5 de comunicação entre origens. 
 - Valida a mensagem na origem VideoIndexer.ai. 
 
-Se optar por implementar o seu próprio código de leitor e fazer a integração com os widgets **Cognitive Insights**, é responsável por validar a origem da mensagem proveniente de VideoIndexer.ai.
+Se você implementar seu próprio código do Player e integrá-lo a widgets cognitivas, é sua responsabilidade validar a origem da mensagem que vem de VideoIndexer.ai.
 
-### <a name="embed-widgets-in-your-application--blog-recommended"></a>Inserir widgets em seu aplicativo/blog (recomendado) 
+### <a name="embed-widgets-in-your-application-or-blog-recommended"></a>Inserir widgets em seu aplicativo ou blog (recomendado) 
 
-Esta secção mostra-lhe como alcançar a interação entre os dois widgets do Video Indexer para que quando um utilizador clicar no controlo de informações na sua aplicação, o leitor passe para o momento relevante.
+Esta seção mostra como obter a interação entre dois widgets Video Indexer para que, quando um usuário selecionar o controle Insight em seu aplicativo, o jogador salte para o momento relevante.
 
+1. Copie o código de inserção do widget do Player.
+2. Copie o código de inserção de insights cognitivas.
+3. Adicione o [arquivo mediador](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) para lidar com a comunicação entre os dois widgets:<br/> 
 `<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
-1. Copie o código de incorporação do widget **Player**.
-2. Copie o código de incorporação do widget **Cognitive Insights**.
-3. Adicione o [**ficheiro Mediator**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) para processar a comunicação entre os dois widgets:
+Agora, quando um usuário seleciona o controle Insight em seu aplicativo, o jogador salta para o momento relevante.
 
-`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
-
-Agora quando um utilizador clicar no controlo de informações na sua aplicação, o leitor irá passar para o momento relevante.
-
-Para obter mais informações, veja [esta demonstração](https://codepen.io/videoindexer/pen/NzJeOb).
+Para obter mais informações, consulte a [demonstração Video indexer-incorporar widgets](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Incorporar o widget Cognitive Insights e utilizar o Leitor de Multimédia do Azure para reproduzir os conteúdos
 
-Esta secção mostra-lhe como alcançar a interação entre um widget **Cognitive Insights** e uma instância do Leitor de Multimédia do Azure através do [plug-in AMP](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
+Esta seção mostra como obter a interação entre um widget do insights cognitiva e uma instância de Player de Mídia do Azure usando o [plug-in amp](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
  
-1. Adicione um plug-in do Video Indexer ao leitor AMP.<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
-2. Instancie o Leitor de Multimédia do Azure com o plug-in do Video Indexer.
+1. Adicionar um plug-in de Video Indexer para o AMP Player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
+2. Instancie Player de Mídia do Azure com o plug-in de Video Indexer.
 
-        // Init Source
+        // Init the source.
         function initSource() {
             var tracks = [{
             kind: 'captions',
-            // Here is how to load vtt from VI, you can replace it with your vtt url.
+            // To load vtt from VI, replace it with your vtt URL.
             src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
             srclang: 'en',
             label: 'English'
@@ -147,7 +143,7 @@ Esta secção mostra-lhe como alcançar a interação entre um widget **Cognitiv
             ], tracks);
         }
 
-        // Init your AMP instance
+        // Init your AMP instance.
         var myPlayer = amp('vid1', { /* Options */
             "nativeControlsForTouch": false,
             autoplay: true,
@@ -159,30 +155,30 @@ Esta secção mostra-lhe como alcançar a interação entre um widget **Cognitiv
             videobreakedown: {}
             }
         }, function () {
-            // Activate the plugin
+            // Activate the plug-in.
             this.videobreakdown({
             videoId: "c4c1ad4c9a",
             syncTranscript: true,
             syncLanguage: true
             });
 
-            // Set the source dynamically
+            // Set the source dynamically.
             initSource.call(this);
         });
 
-3. Copie o código de incorporação do widget **Cognitive Insights**.
+3. Copie o código de inserção de insights cognitivas.
 
-Agora deverá conseguir comunicar com o seu Leitor de Multimédia do Azure.
+Agora você deve ser capaz de se comunicar com Player de Mídia do Azure.
 
-Para obter mais informações, veja [esta demonstração](https://codepen.io/videoindexer/pen/rYONrO).
+Para obter mais informações, consulte a [demonstração do player de mídia do Azure + vi insights](https://codepen.io/videoindexer/pen/rYONrO).
 
-### <a name="embed-video-indexer-cognitive-insights-widget-and-use-your-own-player-could-be-any-player"></a>Incorporar o widget Cognitive Insights do Video Indexer e utilizar o seu próprio leitor (pode utilizar qualquer leitor)
+### <a name="embed-the-video-indexer-cognitive-insights-widget-and-use-a-different-video-player"></a>Inserir o widget Video Indexer cognitiva insights e usar um player de vídeo diferente
 
-Se utilizar o seu leitor, terá de manipulá-lo para efetuar a comunicação. 
+Se você usar um player de vídeo diferente de Player de Mídia do Azure, será necessário manipular manualmente o player de vídeo para obter a comunicação. 
 
 1. Insira o seu leitor de vídeo.
 
-    Por exemplo, um leitor HTML5 padrão.
+    Por exemplo, um player HTML5 padrão:
 
         <video id="vid1" width="640" height="360" controls autoplay preload>
            <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
@@ -195,51 +191,51 @@ Se utilizar o seu leitor, terá de manipulá-lo para efetuar a comunicação.
         <script>
     
             (function(){
-            // Reference your player instance
+            // Reference your player instance.
             var playerInstance = document.getElementById('vid1');
         
             function jumpTo(evt) {
               var origin = evt.origin || evt.originalEvent.origin;
         
-              // Validate that event comes from the videobreakdown domain.
+              // Validate that the event comes from the videobreakdown domain.
               if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
                 
-                // Here you need to call your player "jumpTo" implementation
+                // Call your player's "jumpTo" implementation.
                 playerInstance.currentTime = evt.data.time;
                
-                // Confirm arrival to us
+                // Confirm the arrival to us.
                 if ('postMessage' in window) {
                   evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
                 }
               }
             }
         
-            // Listen to message event
+            // Listen to the message event.
             window.addEventListener("message", jumpTo, false);
           
             }())    
         
         </script>
 
-Para obter mais informações, veja [esta demonstração](https://codepen.io/videoindexer/pen/YEyPLd).
+Para obter mais informações, consulte a [demonstração do player de mídia do Azure + vi insights](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Adicionar legendas
 
-Se você inserir informações de Video Indexer com seu próprio [player de mídia do Azure](https://aka.ms/azuremediaplayer), poderá usar o método **GetVttUrl** para obter legendas ocultas (legendas). Também pode chamar um método JavaScript a partir do plug-in AMP do Video Indexer **getSubtitlesUrl** (conforme mostrado anteriormente). 
+Se você inserir informações de Video Indexer com seu próprio [player de mídia do Azure](https://aka.ms/azuremediaplayer), poderá usar o método **GetVttUrl** para obter legendas ocultas (legendas). Você também pode chamar um método JavaScript do Video Indexer AMP plug-in **getSubtitlesUrl** (conforme mostrado anteriormente). 
 
 ## <a name="customizing-embeddable-widgets"></a>Personalizar widgets incorporáveis
 
 ### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
 
-Você pode escolher os tipos de informações que deseja especificando-os como um valor para o seguinte parâmetro de URL adicionado ao código de inserção obtido (da API ou do aplicativo Web): `&widgets=<list of wanted widgets>`.
+Você pode escolher os tipos de informações desejadas. Para fazer isso, especifique-os como um valor para o seguinte parâmetro de URL que é adicionado ao código de inserção que você obtém (da API ou do aplicativo Web): `&widgets=<list of wanted widgets>`.
 
-Os valores possíveis são: people (pessoas), keywords (palavras-chave), sentiments (sentimentos), transcript (transcrição), search (pesquisa).
+Os valores possíveis são: **pessoas**, **palavras-chave**, **sentimentos**, **transcrição**e **pesquisa**.
 
-Por exemplo, se você quiser inserir um widget contendo apenas pessoas e informações de pesquisa, a URL de inserção do iframe terá a seguinte aparência:
+Por exemplo, se você quiser inserir um widget que contenha apenas pessoas e Pesquisar percepções, a URL de inserção do iframe terá a seguinte aparência:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-O título da janela do iframe também pode ser personalizado fornecendo `&title=<YourTitle>` à URL do iframe. (irá personalizar o valor \<title> de html).
+O título da janela do iframe também pode ser personalizado fornecendo `&title=<YourTitle>` à URL do iframe. (Ele personaliza o título HTML \<> valor).
     
 Por exemplo, se você quiser dar à janela iframe o título "mysights", a URL terá a seguinte aparência:
 
@@ -255,21 +251,21 @@ Por exemplo:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
-Por predefinição, o leitor do Video Indexer terá legendas geradas automaticamente com base na transcrição do vídeo extraída do vídeo com o idioma de origem selecionado ao carregar o vídeo.
+Por padrão, Video Indexer Player tem legendas codificadas geradas automaticamente com base na transcrição do vídeo. A transcrição é extraída do vídeo com o idioma de origem que foi selecionado quando o vídeo foi carregado.
 
-Se você quiser inserir um idioma diferente, poderá adicionar `&captions=< Language | ”all” | “false” >` à URL do player de inserção ou colocar "todos" como o valor se desejar ter todas as legendas de idiomas disponíveis.
-Se desejar que as legendas sejam exibidas por padrão, você poderá passar `&showCaptions=true`.
+Se você quiser inserir com um idioma diferente, poderá adicionar `&captions=< Language | ”all” | “false” >` à URL do player de inserção. Se você quiser legendas em todas as legendas de idiomas disponíveis, use o valor `all`. Se desejar que as legendas sejam exibidas por padrão, você poderá passar `&showCaptions=true`.
 
 A URL de inserção terá a seguinte aparência: 
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
 
-Se quiser desativar as legendas, pode passar o valor "false" para o parâmetro captions (legendas).
+Se você quiser desabilitar legendas, poderá passar o valor do `captions` parâmetro como. `false`
 
-Reprodução automática: por predefinição, o leitor iniciará a reprodução do vídeo. Pode optar por desativar esta opção ao passar o valor &autoplay=false para o URL de incorporação acima.
+#### <a name="autoplay"></a>AutoPlay
+Por padrão, o Player começará a reproduzir o vídeo. Você pode optar por não passar `&autoplay=false` para a URL de inserção anterior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como ver e editar informações do Video Indexer, veja [este](video-indexer-view-edit.md) artigo.
+Para obter informações sobre como exibir e editar insights Video Indexer, consulte [Exibir e editar informações de video indexer](video-indexer-view-edit.md).
 
-Além disso, confira CodePen do indexador de [vídeo](https://codepen.io/videoindexer/pen/eGxebZ).
+Além disso, confira [CodePen do indexador de vídeo](https://codepen.io/videoindexer/pen/eGxebZ).

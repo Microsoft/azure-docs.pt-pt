@@ -2,79 +2,90 @@
 title: Habilitar o log de diagnóstico para aplicativos-Azure App serviço
 description: Saiba como habilitar o log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 services: app-service
-documentationcenter: .net
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/06/2016
+ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af6d8b61c5d49ae219e90513abb93185f957222e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074062"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097547"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar o log de diagnóstico para aplicativos no serviço Azure App
 ## <a name="overview"></a>Descrição geral
-O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplicativo do serviço de aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você aprende a habilitar o log de diagnósticos e a adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
+O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplicativo do serviço de aplicativo](overview.md). Neste artigo, você aprende a habilitar o log de diagnósticos e a adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
 Este artigo usa o [portal do Azure](https://portal.azure.com) e CLI do Azure para trabalhar com logs de diagnóstico. Para obter informações sobre como trabalhar com logs de diagnóstico usando o Visual Studio, consulte [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-## <a name="whatisdiag"></a>Diagnóstico de servidor Web e diagnóstico de aplicativo
-O serviço de aplicativo fornece a funcionalidade de diagnóstico para registrar informações do servidor Web e do aplicativo Web. Eles são separados logicamente no **diagnóstico do servidor Web** e no **Application Diagnostics**.
+|Type|Plataforma|Location|Descrição|
+|-|-|-|-|
+| Registo de aplicação | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **Crítico**, **erro**, **aviso**, **informações**, **depuração**e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
+| Registo de servidores Web| Windows | Sistema de arquivos do serviço de aplicativo ou BLOBs de armazenamento do Azure| Dados de solicitação HTTP brutos no [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de log inclui dados como o método HTTP, o URI de recurso, o IP do cliente, a porta do cliente, o agente do usuário, o código de resposta e assim por diante. |
+| Log de erros detalhado | Windows | Sistema de arquivos do serviço de aplicativo | Cópias das páginas de erro *. htm* que seriam enviadas ao navegador do cliente. Por motivos de segurança, as páginas de erro detalhadas não devem ser enviadas aos clientes em produção, mas o serviço de aplicativo pode salvar a página de erro cada vez que um erro de aplicativo ocorre com código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor retorna o código de erro. |
+| Falha no rastreio do pedido | Windows | Sistema de arquivos do serviço de aplicativo | Informações detalhadas de rastreamento sobre solicitações com falha, incluindo um rastreamento dos componentes do IIS usados para processar a solicitação e o tempo gasto em cada componente. É útil se você quiser melhorar o desempenho do site ou isolar um erro de HTTP específico. Uma pasta é gerada para cada solicitação com falha, que contém o arquivo de log XML e a folha de estilos XSL com a qual exibir o arquivo de log. |
+| Log de implantação | Windows, Linux | Sistema de arquivos do serviço de aplicativo | Registra quando você publica o conteúdo em um aplicativo. O log de implantação ocorre automaticamente e não há configurações configuráveis para o log de implantação. Ele ajuda a determinar por que uma implantação falhou. Por exemplo, se você usar um [script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), poderá usar o log de implantação para determinar por que o script está falhando. |
 
-### <a name="web-server-diagnostics"></a>Diagnóstico do servidor Web
-Você pode habilitar ou desabilitar os seguintes tipos de logs:
+> [!NOTE]
+> O serviço de aplicativo fornece uma ferramenta de diagnósticos dedicada e interativa para ajudá-lo a solucionar problemas de seu aplicativo. Para obter mais informações, consulte [visão geral do diagnóstico de serviço Azure app](overview-diagnostics.md).
+>
+> Além disso, você pode usar outros serviços do Azure para aprimorar os recursos de log e monitoramento do seu aplicativo, como [Azure monitor](../azure-monitor/app/azure-web-apps.md).
+>
 
-* **Log de erros detalhado** -informações detalhadas para qualquer solicitação que resulte no código de status HTTP 400 ou superior. Ele pode conter informações que podem ajudar a determinar por que o servidor retornou o código de erro. Um arquivo HTML é gerado para cada erro no sistema de arquivos do aplicativo e até 50 erros (arquivos) são mantidos. Quando o número de arquivos HTML exceder 50, os 26 arquivos mais antigos são excluídos automaticamente.
-* **Rastreamento de solicitação com falha** -informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes do IIS usados para processar a solicitação e o tempo gasto em cada componente. É útil se você quiser melhorar o desempenho do site ou isolar um erro de HTTP específico. Uma pasta é gerada para cada erro no sistema de arquivos do aplicativo. As políticas de retenção de arquivo são as mesmas do log de erros detalhado acima.
-* **Log de servidor Web** -informações sobre transações http usando o [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). É útil para determinar as métricas gerais do site, como o número de solicitações tratadas ou quantas solicitações são de um endereço IP específico.
+## <a name="enable-application-logging-windows"></a>Habilitar o log de aplicativo (Windows)
 
-### <a name="application-diagnostics"></a>Application diagnostics
-O Application Diagnostics permite que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace) para registrar informações no log do Application Diagnostics. Por exemplo:
+Para habilitar o log de aplicativos para aplicativos do Windows no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **logs do serviço de aplicativo**.
 
-    System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
+Selecione **ativado** para o **registro em log do aplicativo (Filesystem)** ou **log de aplicativo (BLOB)** ou ambos. 
 
-Em tempo de execução, você pode recuperar esses logs para ajudar na solução de problemas. Para obter mais informações, consulte [solução de problemas de serviço de Azure app no Visual Studio](troubleshoot-dotnet-visual-studio.md).
+A opção **FileSystem** é para fins de depuração temporária e fica desativada em 12 horas. A opção **blob** é para o log de longo prazo e precisa de um contêiner de armazenamento de BLOBs no qual os logs serão gravados.  A opção **blob** também inclui informações adicionais nas mensagens de log, como a ID da instância de VM de origem da mensagem de log (`InstanceId`), ID de thread`Tid`() e um carimbo de data/[`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)hora mais granular ().
 
-O serviço de aplicativo também registra informações de implantação ao publicar conteúdo em um aplicativo. Ele ocorre automaticamente e não há definições de configuração para o log de implantação. O log de implantação permite que você determine por que a implantação falhou. Por exemplo, se você usar um script de implantação personalizado, poderá usar o log de implantação para determinar por que o script está falhando.
+> [!NOTE]
+> No momento, somente os logs de aplicativos .NET podem ser gravados no armazenamento de BLOBs. Java, PHP, Node. js, os logs de aplicativo do Python só podem ser armazenados no sistema de arquivos do serviço de aplicativo (sem modificações de código para gravar logs no armazenamento externo).
+>
+> Além disso, se você [regenerar as chaves de acesso da sua conta de armazenamento](../storage/common/storage-create-storage-account.md), deverá redefinir a respectiva configuração de registro em log para usar as chaves de acesso atualizadas. Para efetuar este procedimento:
+>
+> 1. Na guia **Configurar** , defina o respectivo recurso de registro em log como **desativado**. Salve sua configuração.
+> 2. Habilite o log para o blob da conta de armazenamento novamente. Salve sua configuração.
+>
+>
 
-## <a name="enablediag"></a>Como habilitar o diagnóstico
-Para habilitar o diagnóstico no [portal do Azure](https://portal.azure.com), vá para a página do seu aplicativo e clique em **configurações > logs de diagnóstico**.
+Selecione o **nível**ou o nível de detalhes para o log. A tabela a seguir mostra as categorias de log incluídas em cada nível:
 
-<!-- todo:cleanup dogfood addresses in screenshot -->
-![Parte de logs](./media/web-sites-enable-diagnostic-log/logspart.png)
-
-Ao habilitar o **Application Diagnostics**, você também escolhe o **nível**. A tabela a seguir mostra as categorias de logs que cada nível inclui:
-
-| Nível| Categorias de log incluídas |
+| Nível | Categorias incluídas |
 |-|-|
 |**Desativado** | Nenhum |
 |**Ao** | Erro, crítico |
 |**Alerta** | Aviso, erro, crítico|
 |**Divulgação** | Informações, aviso, erro, crítico|
 |**Verbose** | Rastreamento, depuração, informações, aviso, erro, crítico (todas as categorias) |
-|-|-|
 
-Para o **log do aplicativo**, você pode ativar a opção do sistema de arquivos temporariamente para fins de depuração. Essa opção é desativada automaticamente em 12 horas. Você também pode ativar a opção de armazenamento de BLOBs para selecionar um contêiner de BLOBs no qual os logs são gravados.
+Quando terminar, selecione **salvar**.
 
-> [!NOTE]
-> No momento, somente os logs de aplicativos .NET podem ser gravados no armazenamento de BLOBs. Java, PHP, Node. js, os logs de aplicativo do Python só podem ser armazenados no sistema de arquivos (sem modificações de código para gravar logs no armazenamento externo).
->
->
+## <a name="enable-application-logging-linuxcontainer"></a>Habilitar o log de aplicativo (Linux/contêiner)
 
-Para o **log do servidor Web**, você pode selecionar **armazenamento** ou **sistema de arquivos**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob no qual os logs são gravados. 
+Para habilitar o log de aplicativos para aplicativos Linux ou aplicativos de contêiner personalizados no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **logs do serviço de aplicativo**.
 
-Se você armazenar logs no sistema de arquivos, os arquivos poderão ser acessados por FTP ou baixados como um arquivo zip usando CLI do Azure.
+Em **log do aplicativo**, selecione **sistema de arquivos**.
 
-Por padrão, os logs não são excluídos automaticamente (com exceção de **log de aplicativo (Filesystem)** ). Para excluir logs automaticamente, defina o campo **período de retenção (dias)** .
+Em **cota (MB)** , especifique a cota de disco para os logs do aplicativo. Em **período de retenção (dias)** , defina o número de dias que os logs devem ser retidos.
+
+Quando terminar, selecione **salvar**.
+
+## <a name="enable-web-server-logging"></a>Habilitar log do servidor Web
+
+Para habilitar o log do servidor Web para aplicativos do Windows no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **logs do serviço de aplicativo**.
+
+Para o **log do servidor Web**, selecione **armazenamento** para armazenar logs no armazenamento de BLOBs ou **sistema de arquivos** para armazenar logs no sistema de arquivos do serviço de aplicativo. 
+
+Em **período de retenção (dias)** , defina o número de dias que os logs devem ser retidos.
 
 > [!NOTE]
 > Se você [regenerar as chaves de acesso da sua conta de armazenamento](../storage/common/storage-create-storage-account.md), deverá redefinir a respectiva configuração de registro em log para usar as chaves atualizadas. Para efetuar este procedimento:
@@ -84,149 +95,83 @@ Por padrão, os logs não são excluídos automaticamente (com exceção de **lo
 >
 >
 
-Qualquer combinação de sistema de arquivos ou armazenamento de BLOBs pode ser habilitada ao mesmo tempo e ter configurações de nível de log individuais. Por exemplo, talvez você queira registrar erros e avisos no armazenamento de BLOBs como uma solução de log de longo prazo, ao mesmo tempo que habilita o log do sistema de arquivos com um nível detalhado.
+Quando terminar, selecione **salvar**.
 
-Embora os dois locais de armazenamento forneçam as mesmas informações básicas para eventos registrados, o **armazenamento** de BLOBs registra informações adicionais, como a ID da instância, a ID do thread e um carimbo de data/hora mais granular do que o registro no **sistema de arquivos**.
+## <a name="log-detailed-errors"></a>Erros detalhados de log
 
-> [!NOTE]
-> As informações armazenadas no **armazenamento** de BLOBs só podem ser acessadas usando um cliente de armazenamento ou um aplicativo que pode trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar o armazenamento de BLOBs, e o HDInsight pode acessar dados armazenados no armazenamento de BLOBs. Você também pode escrever um aplicativo que acesse o armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
->
+Para salvar a página de erro ou o rastreamento de solicitação com falha para aplicativos do Windows no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **logs do serviço de aplicativo**.
 
-## <a name="download"></a>Como: Registos de transferências
-As informações de diagnóstico armazenadas no sistema de arquivos do aplicativo podem ser acessadas diretamente usando o FTP. Ele também pode ser baixado como um arquivo zip usando CLI do Azure.
+Em **log de erros detalhado** ou **rastreamento de solicitação com falha**, selecione **ativado**e, em seguida, selecione **salvar**.
 
-A estrutura de diretório na qual os logs são armazenados é a seguinte:
+Os dois tipos de logs são armazenados no sistema de arquivos do serviço de aplicativo. Até 50 erros (arquivos/pastas) são mantidos. Quando o número de arquivos HTML exceder 50, os 26 erros mais antigos são excluídos automaticamente.
 
-* **Logs de aplicativo** -/LogFiles/Application/. Esta pasta contém um ou mais arquivos de texto que contêm informações produzidas pelo log de aplicativo.
-* **Rastreamentos de solicitação com falha** -/LogFiles/W3SVC # # # # # # # # #/. Essa pasta contém um arquivo XSL e um ou mais arquivos XML. Certifique-se de baixar o arquivo XSL no mesmo diretório que os arquivos XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo dos arquivos XML quando exibidos no Internet Explorer.
-* **Logs de erro detalhados** -/LogFiles/DetailedErrors/. Esta pasta contém um ou mais arquivos. htm que fornecem informações abrangentes para quaisquer erros de HTTP ocorridos.
-* **Logs do servidor Web** -/LogFiles/http/RawLogs. Esta pasta contém um ou mais arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging).
-* **Logs de implantação** -/LogFiles/git. Essa pasta contém logs gerados pelos processos de implantação internos usados pelo serviço Azure App, bem como logs para implantações do git. Você também pode encontrar os logs de implantação em D:\home\site\deployments.
+## <a name="add-log-messages-in-code"></a>Adicionar mensagens de log no código
 
-### <a name="ftp"></a>FTP
+No código do aplicativo, você usa os recursos de log usuais para enviar mensagens de log aos logs do aplicativo. Por exemplo:
 
-Para abrir uma conexão FTP para o servidor FTP do seu aplicativo, consulte [implantar seu aplicativo no serviço de Azure App usando FTP/s](deploy-ftp.md).
+- Os aplicativos ASP.NET podem usar a classe [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace) para registrar informações no log do Application Diagnostics. Por exemplo:
 
-Uma vez conectado ao servidor FTP/S do aplicativo, abra a pasta logfiles, onde os arquivos de log são armazenados.
+    ```csharp
+    System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
+    ```
 
-### <a name="download-with-azure-cli"></a>Baixar com CLI do Azure
-Para baixar os arquivos de log usando a interface de linha de comando do Azure, abra um novo prompt de comando, PowerShell, bash ou sessão de terminal e insira o seguinte comando:
+- Por padrão, ASP.NET Core usa o provedor de log [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Para obter mais informações, consulte [ASP.NET Core log no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
 
-    az webapp log download --resource-group resourcegroupname --name appname
+## <a name="stream-logs"></a>Transmitir registos
 
-Esse comando salva os logs do aplicativo denominado ' AppName ' em um arquivo chamado **webapp_logs. zip** no diretório atual.
-
-> [!NOTE]
-> Se você ainda não instalou o CLI do Azure ou não o configurou para usar sua assinatura do Azure, consulte [como usar CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
->
->
-
-## <a name="how-to-view-logs-in-application-insights"></a>Como: Exibir logs no Application Insights
-O Visual Studio Application Insights fornece ferramentas para filtrar e pesquisar logs e para correlacionar os logs com solicitações e outros eventos.
-
-1. Adicione o SDK do Application Insights ao seu projeto no Visual Studio.
-   * Em Gerenciador de Soluções, clique com o botão direito do mouse em seu projeto e escolha Adicionar Application Insights. A interface orienta você pelas etapas que incluem a criação de um recurso de Application Insights. [Saiba mais](../azure-monitor/app/asp-net.md)
-2. Adicione o pacote do ouvinte de rastreamento ao seu projeto.
-   * Clique com o botão direito do mouse no projeto e escolha gerenciar pacotes NuGet. Selecione `Microsoft.ApplicationInsights.TraceListener` [saiba mais](../azure-monitor/app/asp-net-trace-logs.md)
-3. Carregue seu projeto e execute-o para gerar dados de log.
-4. No [portal do Azure](https://portal.azure.com/), navegue até o novo recurso de Application insights e abra a **pesquisa**. Você deve ver os dados de log, juntamente com a solicitação, o uso e outras telemetrias. Algumas telemetrias podem levar alguns minutos para chegar: clique em atualizar. [Saiba mais](../azure-monitor/app/diagnostic-search.md)
-
-[Saiba mais sobre o rastreamento de desempenho com o Application Insights](../azure-monitor/app/azure-web-apps.md)
-
-## <a name="streamlogs"></a>Como: Transmitir registos
-Ao desenvolver um aplicativo, geralmente é útil ver informações de log em tempo quase real. Você pode transmitir informações de log para seu ambiente de desenvolvimento usando CLI do Azure.
+Antes de transmitir os logs em tempo real, habilite o tipo de log desejado. Todas as informações gravadas em arquivos que terminam em. txt,. log ou. htm que são armazenadas no diretório */LogFiles* (d:/Home/LogFiles) são transmitidas pelo serviço de aplicativo.
 
 > [!NOTE]
 > Alguns tipos de buffer de log gravam no arquivo de log, o que pode resultar em eventos fora de ordem no fluxo. Por exemplo, uma entrada de log de aplicativo que ocorre quando um usuário visita uma página pode ser exibida no fluxo antes da entrada de log HTTP correspondente para a solicitação de página.
 >
-> [!NOTE]
-> O streaming de log também transmite informações gravadas em qualquer arquivo de texto armazenado na pasta **\\D\\ : Home\\LogFiles** .
->
->
 
-### <a name="streaming-with-azure-cli"></a>Streaming com CLI do Azure
-Para transmitir informações de log, abra um novo prompt de comando, PowerShell, bash ou sessão de terminal e insira o seguinte comando:
+### <a name="in-azure-portal"></a>Em portal do Azure
 
-    az webapp log tail --name appname --resource-group myResourceGroup
+Para transmitir logs no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **fluxo de log**. 
 
-Esse comando conecta-se ao aplicativo chamado ' AppName ' e inicia as informações de streaming para a janela, à medida que os eventos de log ocorrem no aplicativo. Todas as informações gravadas em arquivos que terminam em. txt,. log ou. htm que são armazenadas no diretório/LogFiles (d:/Home/LogFiles) são transmitidas para o console local.
+### <a name="in-cloud-shell"></a>Em Cloud Shell
+
+Para transmitir logs ao vivo em [Cloud Shell](../cloud-shell/overview.md), use o seguinte comando:
+
+```azurecli-interactive
+az webapp log tail --name appname --resource-group myResourceGroup
+```
 
 Para filtrar eventos específicos, como erros, use o parâmetro **--Filter** . Por exemplo:
 
-    az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-
+```azurecli-interactive
+az webapp log tail --name appname --resource-group myResourceGroup --filter Error
+```
 Para filtrar tipos de log específicos, como HTTP, use o parâmetro **--path** . Por exemplo:
 
-    az webapp log tail --name appname --resource-group myResourceGroup --path http
+```azurecli-interactive
+az webapp log tail --name appname --resource-group myResourceGroup --path http
+```
 
-> [!NOTE]
-> Se você ainda não instalou o CLI do Azure ou não o configurou para usar sua assinatura do Azure, consulte [como usar CLI do Azure](../cli-install-nodejs.md).
->
->
+### <a name="in-local-terminal"></a>No terminal local
 
-## <a name="understandlogs"></a>Como: Entender os logs de diagnóstico
-### <a name="application-diagnostics-logs"></a>Logs do Application Diagnostics
-O Application Diagnostics armazena informações em um formato específico para aplicativos .NET, dependendo se você armazena logs no sistema de arquivos ou no armazenamento de BLOBs. 
+Para transmitir logs no console local, [instale CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [entre em sua conta](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Depois de conectado, seguiu as [instruções para Cloud Shell](#in-cloud-shell)
 
-O conjunto base de dados armazenados é o mesmo em ambos os tipos de armazenamento: a data e a hora em que o evento ocorreu, a ID do processo que produziu o evento, o tipo de evento (informações, aviso, erro) e a mensagem do evento. Usar o sistema de arquivos para armazenamento de log é útil quando você precisa de acesso imediato para solucionar um problema porque os arquivos de log são atualizados quase instantaneamente. O armazenamento de BLOBs é usado para fins de arquivamento porque os arquivos são armazenados em cache e liberados para o contêiner de armazenamento em um agendamento.
+## <a name="access-log-files"></a>Acessar arquivos de log
 
-**Sistema de Ficheiros**
+Se você configurar a opção de blobs de armazenamento do Azure para um tipo de log, precisará de uma ferramenta de cliente que funcione com o armazenamento do Azure. Para obter mais informações, consulte [ferramentas de cliente de armazenamento do Azure](../storage/common/storage-explorers.md).
 
-Cada linha registrada no sistema de arquivos ou recebida usando streaming está no seguinte formato:
+Para logs armazenados no sistema de arquivos do serviço de aplicativo, a maneira mais fácil é baixar o arquivo ZIP no navegador em:
 
-    {Date}  PID[{process ID}] {event type/level} {message}
+- Aplicativos de contêiner/Linux:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Aplicativos do Windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
 
-Por exemplo, um evento de erro seria semelhante ao exemplo a seguir:
+Para aplicativos do Linux/contêiner, o arquivo ZIP contém logs de saída do console para o host do Docker e o contêiner do Docker. Para um aplicativo expandido, o arquivo ZIP contém um conjunto de logs para cada instância. No sistema de arquivos do serviço de aplicativo, esses arquivos de log são o conteúdo do diretório */Home/LogFiles* .
 
-    2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
+Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de arquivos do serviço de aplicativo. Ele tem a seguinte estrutura:
 
-O registro em log no sistema de arquivos fornece as informações mais básicas dos três métodos disponíveis, fornecendo apenas a hora, a ID do processo, o nível do evento e a mensagem.
-
-**Armazenamento de blobs**
-
-Ao fazer logon no armazenamento de BLOBs, os dados são armazenados em formato CSV (valores separados por vírgula). Campos adicionais são registrados para fornecer informações mais granulares sobre o evento. As propriedades a seguir são usadas para cada linha no CSV:
-
-| Nome da propriedade | Valor/formato |
-| --- | --- |
-| Date |A data e a hora em que o evento ocorreu |
-| Nível |Nível de evento (por exemplo, erro, aviso, informações) |
-| ApplicationName |O nome do aplicativo |
-| InstanceId |Instância do aplicativo em que o evento ocorreu |
-| EventTickCount |A data e a hora em que o evento ocorreu, no formato de tique (maior precisão) |
-| EventId |A ID do evento deste evento<p><p>O padrão será 0 se nenhum for especificado |
-| Pessoal |ID de Processo |
-| Tid |A ID de thread do thread que produziu o evento |
-| Message |Mensagem de detalhe do evento |
-
-Os dados armazenados em um blob seriam semelhantes ao exemplo a seguir:
-
-    date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
-    2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
-
-> [!NOTE]
-> Por ASP.NET Core, o registro em log é realizado usando o provedor [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) , este provedor deposita arquivos de log adicionais no contêiner de BLOB. Para obter mais informações, consulte [ASP.NET Core log no Azure](/aspnet/core/fundamentals/logging).
->
->
-
-### <a name="failed-request-traces"></a>Rastreamentos de solicitação com falha
-Os rastreamentos de solicitação com falha são armazenados em arquivos XML chamados **fr # # # # # #. xml**. Para facilitar a exibição das informações registradas, uma folha de estilos XSL denominada **Freb. xsl** é fornecida no mesmo diretório que os arquivos XML. Se você abrir um dos arquivos XML no Internet Explorer, o Internet Explorer usará a folha de estilos XSL para fornecer uma exibição formatada das informações de rastreamento, semelhante ao exemplo a seguir:
-
-![solicitação com falha exibida no navegador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
-
-> [!NOTE]
-> Uma maneira fácil de exibir os rastreamentos de solicitação com falha formatado é navegar até a página do aplicativo no Portal. No menu à esquerda, selecione **diagnosticar e resolver problemas**, em seguida, procure **logs de rastreamento de solicitação com falha**, clique no ícone para procurar e exibir o rastreamento desejado.
->
-
-### <a name="detailed-error-logs"></a>Logs de erros detalhados
-Os logs de erro detalhados são documentos HTML que fornecem informações mais detalhadas sobre erros de HTTP ocorridos. Como são simplesmente documentos HTML, eles podem ser exibidos usando um navegador da Web.
-
-### <a name="web-server-logs"></a>Registos de servidores Web
-Os logs do servidor Web são formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou analisadas usando utilitários como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
-
-> [!NOTE]
-> Os logs produzidos pelo serviço de Azure App não dão suporte aos campos **s-computername**, **s-IP**ou **cs-version** .
->
->
+| Tipo de registo | Diretório | Descrição |
+|-|-|-|
+| **Logs de aplicativo** |*/LogFiles/Application/* | Contém um ou mais arquivos de texto. O formato das mensagens de log depende do provedor de log que você usa. |
+| **Rastreamentos de solicitação com falha** | */LogFiles/W3SVC # # # # # # # # #/* | Contém arquivos XML e um arquivo XSL. Você pode exibir os arquivos XML formatados no navegador. |
+| **Logs de erros detalhados** | */LogFiles/DetailedErrors/* | Contém arquivos de erro HTM. Você pode exibir os arquivos HTM no navegador.<br/>Outra maneira de exibir os rastreamentos de solicitação com falha é navegar até a página do aplicativo no Portal. No menu à esquerda, selecione **diagnosticar e resolver problemas**, em seguida, procure **logs de rastreamento de solicitação com falha**, clique no ícone para procurar e exibir o rastreamento desejado. |
+| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de `s-computername`aplicativo não dá suporte aos `cs-version` campos, `s-ip`ou. |
+| **Logs de implantação** | */LogFiles/git/* e */Deployments/* | Conter logs gerados pelos processos de implantação internos, bem como logs para implantações do git. |
 
 ## <a name="nextsteps"></a> Passos seguintes
 * [Como monitorar Azure App serviço](web-sites-monitor.md)

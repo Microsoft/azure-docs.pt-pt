@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 948cdb2ab1af3fe93566497186c025f7f8f39b2e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877083"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098945"
 ---
 # <a name="understand-iot-hub-metrics"></a>Entender as métricas do Hub IoT
 
@@ -27,7 +27,7 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub
 
 1. Crie um hub IoT. Você pode encontrar instruções sobre como criar um hub IoT no guia [Enviar telemetria de um dispositivo para o Hub IOT](quickstart-send-telemetry-dotnet.md) .
 
-2. Abra a folha do Hub IoT. A partir daí,clique em métricas.
+2. Abra a folha do Hub IoT. A partir daí, clique em **métricas**.
    
     ![Captura de tela mostrando onde a opção de métrica está na página de recursos do Hub IoT](./media/iot-hub-metrics/enable-metrics-1.png)
 
@@ -81,7 +81,7 @@ O Hub IoT fornece várias métricas para fornecer uma visão geral da integridad
 |C2D<br>. métodos<br>. falha|Invocações de método direto com falha|Count|Total|A contagem de todas as chamadas de método diretas com falha.|Nenhuma dimensão|
 |C2D<br>. métodos<br>.requestSize|Tamanho da solicitação de invocações de método direto|Bytes|Average|A média, o mínimo e o máximo de todas as solicitações de método diretas bem-sucedidas.|Nenhuma dimensão|
 |C2D<br>. métodos<br>.responseSize|Tamanho da resposta de invocações de método diretas|Bytes|Average|A média, o mínimo e o máximo de todas as respostas de método diretas bem-sucedidas.|Nenhuma dimensão|
-|C2D<br>.twin<br>. ler<br>. êxito|Leituras de cópia com êxito do back-end|Count|Total|A contagem de todas as leituras de cópia de bits iniciadas de back-end bem-sucedidas.|Nenhuma dimensão|
+|C2D<br>.twin<br>. ler<br>. êxito|Leituras de cópia com êxito do back-end|Count|Total|A contagem de todas as leituras de cópia de bits iniciadas de back-end bem-sucedidas. Essa contagem não inclui leituras de entrelaçamento iniciadas a partir de consultas de entrelaçamento.|Nenhuma dimensão|
 |C2D<br>.twin<br>. ler<br>. falha|Leituras de cópia com falha do back-end|Count|Total|A contagem de todas as leituras de cópia de bits iniciadas pelo back-end com falha.|Nenhuma dimensão|
 |C2D<br>.twin<br>. ler<br>. tamanho|Tamanho da resposta de leituras de cópia do back-end|Bytes|Average|A média, mín e máx de todas as leituras de cópia do back-end iniciadas com êxito.|Nenhuma dimensão|
 |C2D<br>.twin<br>. atualização<br>. êxito|Atualizações de cópia bem-sucedida do back-end|Count|Total|A contagem de todas as atualizações de cópia do back-end iniciadas com êxito.|Nenhuma dimensão|

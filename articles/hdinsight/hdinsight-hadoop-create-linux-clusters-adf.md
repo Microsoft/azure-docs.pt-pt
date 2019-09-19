@@ -2,17 +2,17 @@
 title: 'Tutorial: Clusters de Apache Hadoop sob demanda no Azure HDInsight-Data Factory'
 description: Tutorial-saiba como criar clusters de Apache Hadoop sob demanda no HDInsight usando Azure Data Factory.
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0b3062e14873ec971163c125fccd6852d8662663
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736170"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098730"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters de Apache Hadoop sob demanda no HDInsight usando Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -203,7 +203,7 @@ Neste artigo, você configura a atividade do hive para criar um cluster Hadoop d
 
 6. Selecione **criar & monitor** para iniciar o portal de criação e monitoramento de Azure data Factory.
 
-    ![Visão geral de Azure data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Visão geral de Azure data Factory")
+    ![Visão geral do portal do Azure data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Visão geral de Azure data Factory")
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
@@ -352,11 +352,11 @@ Como alternativa, você pode excluir o grupo de recursos inteiro que você criou
 1. No bloco **recursos** , você deve ter a conta de armazenamento padrão e a data Factory listada, a menos que você compartilhe o grupo de recursos com outros projetos.
 1. Selecione **Eliminar grupo de recursos**. Isso exclui a conta de armazenamento e os dados armazenados na conta de armazenamento.
 
-    ![Excluir grupo de recursos](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Excluir grupo de recursos")
+    ![Portal do Azure excluir grupo de recursos](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Excluir grupo de recursos")
 
 1. Insira o nome do grupo de recursos para confirmar a exclusão e, em seguida, selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, você aprendeu a usar Azure Data Factory para criar um cluster HDInsight sob demanda e executar trabalhos de [Apache Hive](https://hive.apache.org/) . Avance para o próximo artigo para saber como criar clusters HDInsight com configuração personalizada.
 
 > [!div class="nextstepaction"]
