@@ -1,6 +1,6 @@
 ---
-title: Entender as funções de administrador para empresas no Azure | Microsoft Docs
-description: Saiba mais sobre as funções de administrador corporativo no Azure.
+title: Compreender as funções de administrador do Enterprise no Azure | Microsoft Docs
+description: Saiba mais sobre as funções de administrador do Enterprise no Azure.
 services: billing
 documentationcenter: ''
 author: adpick
@@ -14,95 +14,95 @@ ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
 ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "70034534"
 ---
-# <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Azure Enterprise Agreement no Azure
+# <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato Enterprise do Azure
 
-Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azure com um EA (Enterprise Agreement) podem atribuir cinco funções administrativas distintas:
+Para ajudar a gerir a utilização e o gasto da sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
 
-- Administrador de Empresa
-- Administrador corporativo (somente leitura)
+- Administrador do Enterprise
+- Administrador do Enterprise (só de leitura)
 - Administrador de Departamento
-- Administrador do departamento (somente leitura)
+- Administrador de Departamento (só de leitura)
 - Proprietário da Conta
  
-Essas funções são específicas para gerenciar os acordos do Azure Enterprise e são além das funções internas que o Azure tem para controlar o acesso aos recursos. Para obter mais informações, consulte [funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md).
+Estas funções são específicas para gerir Contratos Enterprise do Azure e são uma adição às funções incorporadas que o Azure possui para controlar o acesso aos recursos. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](../role-based-access-control/built-in-roles.md).
 
-As seções a seguir descrevem as limitações e os recursos de cada função.
+As seções seguintes descrevem as limitações e as capacidades de cada função.
 
-## <a name="user-limit-for-admin-roles"></a>Limite de usuários para funções de administrador
+## <a name="user-limit-for-admin-roles"></a>Limite de utilizador para funções de administrador
 
-|Role| Limite de usuários|
+|Função| Limite de utilizador|
 |---|---|
-|Administrador de Empresa|Ilimitado|
-|Administrador corporativo (somente leitura)|Ilimitado|
+|Administrador do Enterprise|Ilimitado|
+|Administrador do Enterprise (só de leitura)|Ilimitado|
 |Administrador de Departamento|Ilimitado|
-|Administrador do departamento (somente leitura)|Ilimitado|
+|Administrador de Departamento (só de leitura)|Ilimitado|
 |Proprietário da Conta|1 por conta<sup>1</sup>|
 
-<sup>1</sup> cada conta requer um conta Microsoft exclusivo ou uma conta corporativa ou de estudante.
+<sup>1</sup> Cada conta requer uma conta Microsoft, escolar ou profissional exclusiva.
 
-## <a name="organization-structure-and-permissions-by-role"></a>Estrutura da organização e permissões por função
+## <a name="organization-structure-and-permissions-by-role"></a>Estrutura e permissões da organização por função
 
-|Tarefas| Administrador de Empresa|Administrador corporativo (somente leitura)|Administrador de Departamento|Administrador do departamento (somente leitura)|Proprietário da Conta|
+|Tarefas| Administrador do Enterprise|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura)|Proprietário da Conta|
 |---|---|---|---|---|---|
-|Exibir administradores corporativos|✔|✔|✘|✘|✘|
-|Adicionar ou remover administradores corporativos|✔|✘|✘|✘|✘|
-|Exibir contatos de notificação<sup>2</sup> |✔|✔|✘|✘|✘|
-|Adicionar ou remover contatos de notificação<sup>2</sup> |✔|✘|✘|✘|✘|
-|Criar e gerenciar departamentos |✔|✘|✘|✘|✘|
-|Exibir administradores do departamento|✔|✔|✔|✔|✘|
-|Adicionar ou remover administradores do departamento|✔|✘|✔|✘|✘|
-|Exibir contas no registro |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|Adicionar contas ao registro e alterar o proprietário da conta|✔|✘|✔<sup>3</sup>|✘|✘|
-|Criar e gerenciar assinaturas e permissões de assinatura|✘|✘|✘|✘|✔|
+|Ver Administradores do Enterprise|✔|✔|✘|✘|✘|
+|Adicionar ou remover Administradores do Enterprise|✔|✘|✘|✘|✘|
+|Ver Contactos de Notificação<sup>2</sup> |✔|✔|✘|✘|✘|
+|Adicionar ou remover Contatos de Notificação<sup>2</sup> |✔|✘|✘|✘|✘|
+|Criar e gerir Departamentos |✔|✘|✘|✘|✘|
+|Ver Administradores de Departamento|✔|✔|✔|✔|✘|
+|Adicionar ou remover Administradores de Departamento|✔|✘|✔|✘|✘|
+|Ver Contas durante a inscrição |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
+|Adicionar Contas à inscrição e alterar o Proprietário da Conta|✔|✘|✔<sup>3</sup>|✘|✘|
+|Criar e gerir subscrições e permissões de subscrições|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> os contatos de notificação são enviados para comunicações por email sobre o Enterprise Agreement do Azure.
-- <sup>3</sup> a tarefa está limitada a contas em seu departamento.
+- <sup>2</sup> Os contactos de notificação recebem comunicações por e-mail sobre o Contrato Enterprise do Azure.
+- <sup>3</sup> A tarefa está limitada às contas no departamento.
 
 
-## <a name="usage-and-costs-access-by-role"></a>Uso e custos de acesso por função
+## <a name="usage-and-costs-access-by-role"></a>Acesso de utilização e custos por função
 
-|Tarefas| Administrador de Empresa|Administrador corporativo (somente leitura)|Administrador de Departamento|Administrador do departamento (somente leitura) |Proprietário da Conta|
+|Tarefas| Administrador do Enterprise|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura) |Proprietário da Conta|
 |---|---|---|---|---|---|
-|Exibir saldo de crédito, incluindo compromisso monetário|✔|✔|✘|✘|✘|
-|Exibir cotas de gastos do departamento|✔|✔|✘|✘|✘|
-|Definir cotas de gastos do departamento|✔|✘|✘|✘|✘|
-|Exibir a folha de preços EA da organização|✔|✔|✘|✘|✘|
-|Exibir detalhes de uso e custo|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
-|Gerenciar recursos no portal do Azure|✘|✘|✘|✘|✔|
+|Ver saldo do crédito, incluindo alocação monetária|✔|✔|✘|✘|✘|
+|Ver quotas de despesas do departamento|✔|✔|✘|✘|✘|
+|Definir quotas de despesas do departamento|✔|✘|✘|✘|✘|
+|Ver folha de preços do EA da organização|✔|✔|✘|✘|✘|
+|Ver detalhes de utilização e custo|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|Gerir recursos no portal do Azure|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> requer que o administrador corporativo habilite a política de encargos **da exibição** do dos no Enterprise Portal. O administrador do departamento pode ver os detalhes de custo do departamento.
-- <sup>5</sup> requer que o administrador corporativo habilite a política de encargos de **exibição** do ao no Enterprise Portal. O proprietário da conta pode ver os detalhes de custo da conta.
+- <sup>4</sup> Requer que o Administrador do Enterprise ative a política **Os Administradores de Departamento podem ver os custos** no Enterprise Portal. O Administrador de Departamento pode assim ver os detalhes dos custos do departamento.
+- <sup>5</sup> Requer que o Administrador do Enterprise ative a política **Os Proprietários de Contas podem ver os custos** no Enterprise Portal. O Proprietário da Conta pode ver os detalhes dos custos da conta.
 
 
 ## <a name="pricing-in-azure-portal"></a>Preços no portal do Azure
 
-Você pode ver preços diferentes na portal do Azure dependendo da sua função administrativa e como as políticas de exibição de cobranças são definidas pelo administrador corporativo. As duas políticas no Enterprise Portal que afetam os preços que você vê na portal do Azure são:
+Pode ver preços diferentes no portal do Azure, consoante a sua função administrativa e como as políticas de visualização de custos são definidas pelo Administrador do Enterprise. As duas políticas no Enterprise Portal que afetam os preços que vê no portal do Azure são:
 
-- Cobranças DA exibição do DA
-- Encargos da exibição do ao
+- Os Administradores de Departamento podem ver os custos
+- Os Proprietários de Contas podem ver os custos
 
-Para saber como definir essas políticas, consulte [gerenciar o acesso às informações de cobrança do Azure](billing-manage-access.md).
+Para saber como definir essas políticas, veja [Gerir o acesso às informações de faturação do Azure](billing-manage-access.md).
 
-A tabela a seguir mostra a relação entre as Enterprise Agreement funções de administrador, a política de encargos de exibição, a função de RBAC (controle de acesso baseado em função) no portal do Azure e os preços que você vê no portal do Azure. O administrador corporativo sempre vê os detalhes de uso com base no preço EA da organização. No entanto, o administrador do departamento e o proprietário da conta veem diferentes exibições de preço com base na política de encargo de exibição e sua função de RBAC. A função Administrador do departamento listada na tabela a seguir refere-se às funções administrador do departamento e administrador do departamento (somente leitura).
+A tabela seguinte mostra a relação entre as funções de administrador do Contrato Enterprise, a política de visualização dos custos, a função de controlo de acesso baseado em funções (RBAC) no portal do Azure e os preços que vê no portal do Azure. O Administrador do Enterprise vê sempre os detalhes de utilização com base no preço do EA da organização. No entanto, o Administrador de Departamento e o Proprietário da Conta têm visualizações de preços diferentes com base na política de visualização de custos e na função RBAC. A função Administrador de Departamento listada na tabela seguinte refere-se às funções Administrador de Departamento e Administrador de Departamento (só de leitura).
 
-|Enterprise Agreement função de administrador|Exibir política de encargos para função|Função RBAC|Exibição de preços|
+|Função de administrador do Contrato Enterprise|Política de visualização dos custos por função|Função RBAC|Visualização dos preços|
 |---|---|---|---|
-|Proprietário da conta ou administrador do departamento|✔ Habilitado|Owner|Preço EA da organização|
-|Proprietário da conta ou administrador do departamento|✘ Desabilitado|Owner|Preços do varejo|
-|Proprietário da conta ou administrador do departamento|✔ Habilitado |nenhum|Sem preços|
-|Proprietário da conta ou administrador do departamento|✘ Desabilitado |nenhum|Sem preços|
-|Nenhum|Não aplicável |Owner|Preços do varejo|
+|Proprietário da Conta OU Administrador de Departamento|✔ Ativada|Proprietário|Preço do EA da Organização|
+|Proprietário da Conta OU Administrador de Departamento|✘ Desativada|Proprietário|Preços de retalho|
+|Proprietário da Conta OU Administrador de Departamento|✔ Ativada |nenhuma|Sem preços|
+|Proprietário da Conta OU Administrador de Departamento|✘ Desativada |nenhuma|Sem preços|
+|Nenhuma|Não aplicável |Proprietário|Preços de retalho|
 
-Você define a função de administrador corporativo e exibe as políticas de cobranças no Enterprise Portal. A função RBAC pode ser atualizada no portal do Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Deve definir a função de administrador do Enterprise e as políticas de visualização de custos no Enterprise Portal. A função RBAC pode ser atualizada no portal do Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Gerir o acesso a informações de faturação para o Azure](billing-manage-access.md)
+- [Gerir o acesso às informações de faturação do Azure](billing-manage-access.md)
 - [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md)
 - [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md) (Funções incorporadas para recursos do Azure)

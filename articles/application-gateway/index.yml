@@ -1,69 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação do Gateway de Aplicação
+### YamlMime:Landing
+title: Documentação do Gateway de Aplicação do Azure
+summary: Saiba como criar gateways de aplicação. Esta documentação ajuda-o a planear, implementar e gerir o tráfego Web dos seus recursos do Azure.
 metadata:
-  title: 'Documentação do Gateway de Aplicação do Azure - Tutoriais, Referência da API'
-  meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
+  title: Documentação do Gateway de Aplicação do Azure
+  description: Saiba como implementar o Azure Firewall, um serviço de segurança de rede com base na cloud.
   services: application-gateway
-  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 5/20/2019
+  author: vhorne
   ms.author: victorh
-abstract:
-  description: 'Saiba como implementar o Gateway de Aplicação um controlador de entrega de aplicações (ADC) como um serviço. Tutoriais, referências de API e outra documentação mostram-lhe como configurar serviços de balanceamento de carga e encaminhamento ao nível da aplicação que lhe permitem criar um front-end Web dimensionável e de elevada disponibilidade.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Saiba como gerir o tráfego web para os seus recursos com o Gateway de Aplicação:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg'
-            text: Portal do Azure
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-portal'
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-powershell'
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg'
-            text: CLI do Azure
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-cli'
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar, gerir e monitorizar gateways de aplicação no Azure'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Criar um gateway de aplicação com uma firewall de aplicações Web</a>
-          - html: <a href="/azure/application-gateway/create-ssl-portal">Configurar um gateway de aplicação com terminação SSL</a>
-          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Criar e configurar um gateway de aplicação para alojar vários sites</a>
-          - html: <a href="/azure/application-gateway/create-url-route-portal">Criar um gateway de aplicação com regras de encaminhamento com base no caminho</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Criar um gateway de aplicação com o redirecionamento com base no caminho do URL</a>
-          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Criar um gateway de aplicação que melhora o acesso às aplicações Web</a>
-  - title: Amostras
-    items:
-      - type: paragraph
-        text: Gerir o tráfego web com um gateway de aplicação.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/application-gateway/cli-samples">CLI do Azure</a>
-          - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">CLI do Azure</a></p>
-          - title: Linguagens
-            html: '<p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.applicationgatewaysoperations">Python</a></p>'
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/mt684941">Referência de API REST completa</a></p>'
+  ms.date: 09/18/2019
+  ms.openlocfilehash: ff940f474c6d5d6fd96a03c45be18de39f065b97
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076032"
+landingContent:
+- title: Saiba mais sobre o Gateway de Aplicação
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Gateway de Aplicação do Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Perguntas mais frequentes
+      url: application-gateway-faq.md
+- title: Implementar um Gateway de Aplicação
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Direcionar o tráfego Web com o Gateway de Aplicação do Azure
+      url: quick-create-portal.md
+- title: Implementar com a terminação SSL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Terminação SSL e SSL ponto a ponto com o Gateway de Aplicação
+      url: ssl-overview.md
+    - text: Descrição geral da política SSL
+      url: application-gateway-ssl-policy-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Configurar um gateway de aplicação com terminação SSL
+      url: create-ssl-portal.md
+- title: Gateways de Aplicação com dimensionamento automático e redundância entre zonas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2
+      url: application-gateway-autoscaling-zone-redundant.md
+  - linkListType: tutorial
+    links:
+    - text: Criar um gateway de aplicação que melhora o acesso às aplicações Web
+      url: tutorial-autoscale-ps.md
+- title: Resolução de problemas do Gateway de Aplicação
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral do Resource Health do Gateway de Aplicação
+      url: resource-health-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar o Log Analytics para examinar os Registos da Firewall de Aplicações Web do Gateway de Aplicação
+      url: log-analytics.md
+    - text: Problemas de Estado de Funcionamento de Back-End no Gateway de Aplicação
+      url: application-gateway-backend-health-troubleshooting.md

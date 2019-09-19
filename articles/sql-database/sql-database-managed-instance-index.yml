@@ -44,6 +44,9 @@ sections:
           - title: Integração de VNet
             href: /azure/sql-database/sql-database-managed-instance-connectivity-architecture
             html: <p>O serviço seguro colocado na VNet privada do Azure com endereços IP privados.</p>
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Solução económica para implementar várias instâncias geridas que partilham os recursos.</p>
+            title: Conjuntos de instâncias
           - title: Migração Simples
             href: /azure/sql-database/sql-database-managed-instance-get-started-restore
             html: <p>Migre facilmente as bases de dados no local para a cloud do Azure com o restauro nativo.</p>
@@ -59,9 +62,6 @@ sections:
           - title: Escalões de serviço
             href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
             html: <p>Escolha entre os escalões de serviço Fins Gerais e Crítico para a Empresa dependendo das suas necessidades de negócios.</p>
-          - title: Segurança avançada
-            href: /azure/sql-database/sql-database-security-index
-            html: <p>Proteja a instância e as bases de dados com as funcionalidades de segurança incorporada da Base de dados SQL do Azure.<p>
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
@@ -93,6 +93,12 @@ sections:
               - href: null
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/set-azsqlinstance#examples'
+              - href: null
+          - title: Criar um novo conjunto de instância
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
               - href: null
           - title: Configurar o ambiente de rede do Azure
             values:

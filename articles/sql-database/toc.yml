@@ -164,7 +164,7 @@
           href: sql-database-reserved-capacity.md
         - name: Migrar do escalão de serviço Premium RS
           href: sql-database-service-tiers-prs.md
-    - name: Computação e armazenamento
+    - name: Escalões de serviço
       items:
         - name: Descrição geral
           href: sql-database-service-tiers-general-purpose-business-critical.md
@@ -302,6 +302,8 @@
                   href: sql-database-vnet-service-endpoint-rule-overview.md
                 - name: Pontos finais de rede virtual - PowerShell
                   href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Ligação Privada
+              href: sql-database-private-endpoint-overview.md
         - name: Controlo de acesso
           items:
             - name: Controlo de acesso

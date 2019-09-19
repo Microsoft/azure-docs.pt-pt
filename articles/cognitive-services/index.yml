@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/12/2019
-  ms.openlocfilehash: 2bb26de076096ff47d38ddb12b1bc17f4aeafb34
-  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.date: 09/16/2019
+  ms.openlocfilehash: f762586bf04ceab8cd0c81880a86df7d43507038
+  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/13/2019
-  ms.locfileid: "70965448"
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71087557"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -53,7 +53,7 @@ conceptualContent:
       text: Rostos
     - url: ./form-recognizer/index.yml
       itemType: overview
-      text: Reconhecimento de Formato (Pré-visualização)
+      text: Reconhecedor de Formato (Pré-visualização)
     - url: ./ink-recognizer/index.yml
       itemType: overview
       text: Reconhecedor de Tinta Digital (Pré-visualização)
@@ -93,7 +93,7 @@ conceptualContent:
     - url: ./translator-speech/overview.md
       itemType: overview
       text: Tradução de Voz (A descontinuar)
-  - title: Serviços de Decisão
+  - title: Decisão
     summary: Crie aplicações que obtenham recomendações para assegurar uma tomada de decisões informada e eficiente.
     links:
     - url: ./anomaly-detector/index.yml
@@ -138,12 +138,12 @@ conceptualContent:
     - url: ./bing-web-search/index.yml
       itemType: overview
       text: Pesquisa na Web
-  - title: Contentores
+  - title: Contentores dos Serviços Cognitivos
     summary: O suporte de contentores nos Serviços Cognitivos do Azure permite que os programadores utilizem as mesmas APIs avançadas que estão disponíveis no Azure. Além disso, permite grande flexibilidade em relação ao local onde implementar e alojar os serviços fornecidos com os contentores de Docker.
     links:
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: Contentores para os Serviços Cognitivos
+      text: Contentores dos Serviços Cognitivos
     - url: ./containers/container-reuse-recipe.md
       itemType: overview
       text: Criar contentores para reutilização

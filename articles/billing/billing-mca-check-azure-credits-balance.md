@@ -1,6 +1,6 @@
 ---
-title: Acompanhar o saldo de crédito do Azure para um contrato de cliente da Microsoft
-description: Saiba como verificar o saldo de crédito do Azure para um contrato de cliente da Microsoft.
+title: Controlar o saldo do Crédito do Azure de um Contrato de Cliente da Microsoft
+description: Saiba como consultar o saldo do Crédito do Azure de um Contrato de Cliente da Microsoft.
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -12,89 +12,89 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490972"
 ---
-# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Acompanhar o saldo do crédito do Azure do contrato de cliente Microsoft
+# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Controlar o saldo do Crédito do Azure do Contrato de Cliente da Microsoft
 
-Pode verificar o saldo de crédito do Azure para o contrato de cliente da Microsoft no portal do Azure. Utilizar créditos para pagar custos que são abrangidos pelos créditos.
+Pode consultar o saldo do Crédito do Azure do Contrato de Cliente da Microsoft no portal do Azure. Utilize os créditos para pagar os custos abrangidos pelos créditos.
 
-É cobrado quando utiliza os produtos que não são abrangidos pelos créditos ou a utilização exceder o seu saldo de crédito. Para obter mais informações, consulte [produtos que não são abrangidos por créditos do Azure. ( #products-that-aren't-covered-by-azure-credits).
+Ser.lhe-á cobrado quando utiliza produtos que não são abrangidos pelos créditos ou a sua utilização exceder o saldo do crédito. Para obter mais informações, veja Produtos que não são abrangidos pelos créditos do Azure.(#products-that-arent-covered-by-azure-credits).
 
-Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-your-credit-balance"></a>Verificar seu saldo de crédito
+## <a name="check-your-credit-balance"></a>Consultar o saldo do crédito
 
 1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
 
-2. Procure **custo Management + faturação**.
+2. Procure **Cost Management + Faturação**.
 
-    ![Captura de ecrã que mostra a pesquisa no portal de gestão de custos + faturação](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Captura de ecrã que mostra a pesquisa no portal para Cost Management + Faturação](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  Selecione **créditos do Azure** no lado esquerdo. Consoante o acesso, poderá ter de selecionar uma conta de cobrança ou um perfil de faturação e, em seguida, selecione **créditos do Azure**.
+3.  Selecione **Créditos do Azure** no lado esquerdo. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação ou um perfil de faturação e, em seguida, selecionar **Créditos do Azure**.
 
-4. A página de créditos do Azure apresenta as seguintes informações:
+4. Os Créditos do Azure apresentam as seguintes informações:
 
-   ![Captura de ecrã do saldo de crédito e transações para um perfil de faturação](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+   ![Captura de ecrã do saldo do crédito e das transações de um Perfil de faturação](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
    | Termo               | Definição                           |
    |--------------------|--------------------------------------------------------|
-   | Saldo estimado  | Estimado montante de créditos tiver depois de considerar todos os faturados e pendentes de transações |
-   | Saldo atual    | Montante de créditos desde a última fatura. Não inclui nenhum pendentes de transações |
-   | Transações       | Todas as transações de faturas que afetados seu saldo de crédito do Azure |
+   | Saldo estimado  | O montante estimado de créditos que possui depois de considerar todas as transações faturadas e pendentes |
+   | Saldo atual    | Montante de créditos desde a última fatura. Não inclui as transações pendentes |
+   | Transações       | Todas as transações de faturação que afetaram o saldo do Crédito do Azure |
 
-   Quando o saldo da sua estimado cai a 0, é-lhe cobrada todos os sua utilização, incluindo para produtos que são abrangidos por créditos.
+   Quando o saldo estimado cair para 0, ser-lhe-á cobrado toda a utilização, incluindo os produtos abrangidos pelos créditos.
 
-6. Selecione **lista de créditos** para ver a lista de créditos para o perfil de faturação. A lista de créditos fornece as seguintes informações:
+6. Selecione **Lista de créditos** para ver a lista de créditos do perfil de faturação. A lista de créditos disponibiliza as seguintes informações:
 
-   ![Captura de ecrã das listas de créditos para um perfil de faturação](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![Captura de ecrã das listas de créditos de um Perfil de faturação](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
    | Termo | Definição |
    |---|---|
-   | Saldo estimado | Quantidade de crédito do Azure que tiver após subtraindo o crédito de faturação por faturar custos elegíveis do seu saldo atual|
-   | Saldo atual | Quantidade de crédito do Azure que tem antes de considerar o crédito de faturação por faturar custos elegíveis. Esta é calculada ao adicionar créditos do Azure novo que recebeu para o saldo de crédito no momento da sua última fatura|
-   | source | A origem de aquisição do crédito |
-   | Data de início | A data de quando tiver adquirido o crédito |
-   | Data de expiração | A data quando expira o crédito |
+   | Saldo estimado | O montante do Crédito do Azure que possui depois de subtrair os custos elegíveis de crédito não faturado do saldo atual|
+   | Saldo atual | O montante do Crédito do Azure que possui antes de considerar os custos elegíveis de crédito não faturado. Este é calculado através da adição de novos Créditos do Azure que recebeu no saldo do crédito durante a última fatura|
+   | Origem | A origem da aquisição do crédito |
+   | Data de início | A data em que adquiriu o crédito |
+   | Data de validade | A data em que o crédito expira |
    | Saldo | O saldo desde a última fatura |
-   | Quantidade original | A quantidade original de crédito |
-   | Estado | O estado atual de crédito. Estado pode estar ativo, utilizado, expirou ou expira |
+   | Montante original | O montante original de crédito |
+   | Estado | O estado atual do crédito. O estado pode ser ativo, utilizado, expirado ou a expirar |
 
-## <a name="how-credits-are-used"></a>Como esses créditos são utilizados
+## <a name="how-credits-are-used"></a>Como os créditos são utilizados
 
-Uma conta de cobrança para um contrato de cliente da Microsoft, vai utilizar perfis de faturas para gerir as suas notas fiscais e métodos de pagamento. Uma nota fiscal mensal é gerada para cada perfil de faturação e utilizar os métodos de pagamento para pagar a nota fiscal.
+Numa conta de faturação de um contrato de cliente da Microsoft, deverá utilizar os perfis de faturação para gerir as faturas e os métodos de pagamento. Mensalmente, é gerada uma fatura para cada perfil de faturação e deverá utilizar os métodos de pagamento para a pagar.
 
-Créditos do Azure são um dos métodos de pagamento. Obtém crédito da Microsoft, como o crédito promocional e crédito de nível de serviço. Estes créditos são atribuídos a um perfil de faturação. Quando uma nota fiscal é gerada para o perfil de faturação, os créditos são aplicados automaticamente para a quantidade total de faturação para calcular a quantidade que terá de pagar. Paga a quantidade restante com outro método de pagamento, como a verificação ou se conectar a transferência.
+Os Créditos do Azure são um dos métodos de pagamento. Obtém crédito da Microsoft como crédito promocional e crédito de nível de serviço. Estes créditos são atribuídos a um perfil de faturação. Quando uma fatura é gerada para o perfil de faturação, os créditos são automaticamente aplicados ao valor total faturado para calcular o montante que precisa de pagar. Paga o montante restante através de outro método de pagamento, como cheque ou transferência bancária.
 
-## <a name="products-that-arent-covered-by-azure-credits"></a>Produtos que não são abrangidos por créditos do Azure
+## <a name="products-that-arent-covered-by-azure-credits"></a>Produtos que não estão abrangidos pelos Créditos do Azure
 
- Os seguintes produtos não são abrangidos por créditos do Azure. É-lhe cobrado para usar esses produtos, independentemente do seu saldo de crédito:
+ Os produtos seguintes não são abrangidos pelos Créditos do Azure. Ser-lhe-á cobrada a utilização destes produtos, independentemente do saldo de crédito:
 
 - Canónico
 - Citrix XenApp Essentials
 - Citrix XenDesktop
-- Utilizador registado
-- Openlogic
-- Utilizador registado de direitos de acesso remoto o XenApp Essentials
+- Utilizador Registado
+- OpenLogic
+- Utilizador Registado do Remote Access Rights XenApp Essentials
 - Ubuntu Advantage
-- Visual Studio Enterprise (mensal)
-- Visual Studio Enterprise (anual)
-- Visual Studio Professional (mensal)
-- Visual Studio Professional (anual)
+- Visual Studio Enterprise (Mensal)
+- Visual Studio Enterprise (Anual)
+- Visual Studio Professional (Mensal)
+- Visual Studio Professional (Anual)
 - Produtos do Azure Marketplace
 - Planos de suporte do Azure
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender a conta de cobrança do contrato de cliente da Microsoft](billing-mca-overview.md)
-- [Compreender os termos na sua fatura de contrato de cliente da Microsoft](billing-mca-understand-your-invoice.md)
+- [Compreender a conta de faturação do Contrato de Cliente da Microsoft](billing-mca-overview.md)
+- [Compreender os termos na fatura do Contrato de Cliente da Microsoft](billing-mca-understand-your-invoice.md)

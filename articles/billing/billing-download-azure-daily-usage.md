@@ -1,7 +1,7 @@
 ---
-title: Modo de exibição e o Azure transferir utilização e custos
-description: Descreve como transferir ou visualizar a sua utilização diária do Azure e os encargos.
-keywords: utilização de faturação, os custos de utilização, utilização transferir, ver a utilização, a utilização de fatura do azure, azure
+title: Ver e transferir a utilização e os custos do Azure
+description: Descreve como transferir ou ver os custos e a utilização diária do Azure.
+keywords: utilização de faturação, custos de utilização, transferência da utilização, ver utilização, fatura do azure, utilização do azure
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -13,111 +13,111 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491434"
 ---
-# <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a sua utilização do Azure e os encargos
+# <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a utilização e os custos do Azure
 
-Se estiver num cliente EA ou têm um [contrato de cliente do Microsoft](#check-your-access-to-a-microsoft-customer-agreement), pode transferir utilização do Azure e custos no [portal do Azure](https://portal.azure.com/). Para outras subscrições, vá para o [Centro de contas do Azure](https://account.azure.com/Subscriptions) para transferir utilização.
+Se for cliente do EA ou tiver um [Contrato de Cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement), pode transferir a utilização e os custos do Azure no [portal do Azure](https://portal.azure.com/). Para outras subscrições, aceda ao [Centro de Contas do Azure](https://account.azure.com/Subscriptions) para transferir a utilização.
 
-Apenas determinadas funções do utilizador tem permissão para obter informações de utilização do Azure, como o administrador de conta ou administrador de empresa. Para saber mais sobre como obter acesso a informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](billing-manage-access.md).
+Apenas determinadas funções têm permissão para receber informações de utilização do Azure, como o Administrador de Conta ou o Administrador da Empresa. Para saber mais sobre como obter acesso a informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](billing-manage-access.md).
 
-Se tiver um [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement), tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou manager para ver a sua utilização do Azure e a cobrança de nota fiscal. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se tiver um [Contrato de Cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement), terá de ser Proprietário, Contribuidor, Leitor ou Gestor de faturas de um perfil de faturação para ver a utilização e os custos do Azure. Para saber mais sobre as funções de faturação para Contratos de Cliente da Microsoft, veja [Funções e tarefas de perfil de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-## <a name="download-usage-from-the-account-center-csv"></a>Transferir utilização a partir do Centro de contas (. csv)
+## <a name="download-usage-from-the-account-center-csv"></a>Transferir a utilização a partir do Centro de Contas (.csv)
 
-1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/subscriptions) como o administrador de conta.
+1. Inicie sessão no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) como Administrador de Conta.
 
-2. Selecione a subscrição que pretende que as informações da fatura e utilização.
+2. Selecione a subscrição para a qual quer as informações da fatura e de utilização.
 
-3. Selecione **histórico de FATURAÇÃO**.
+3. Selecione **HISTÓRICO DE FATURAÇÃO**.
 
-    ![Captura de ecrã que mostra a opção de histórico de faturação](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
+    ![Captura de ecrã a mostrar a opção Histórico de Faturação](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 
-4. Pode ver as suas instruções para os últimos seis períodos de faturas e o período de faturação por faturar atual.
+4. Pode ver as declarações correspondentes aos últimos seis períodos de faturação e o período de faturação por faturar atual.
 
-    ![Captura de ecrã que mostra períodos de faturação, as opções a transferir fatura e utilização diária e total das cobranças para cada período de faturação](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
+    ![Captura de ecrã a mostrar os períodos de faturação, as opções de transferência da fatura e utilização diária e os custos totais de cada período de faturação](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
 
-5. Selecione **Ver Extrato Atual** para ver uma estimativa dos custos no momento em que a estimativa foi gerada. Esta informação é atualizada diariamente apenas e não pode incluir toda a sua utilização. A fatura mensal poderá divergir desta estimativa.
+5. Selecione **Ver Extrato Atual** para ver uma estimativa dos custos no momento em que esta foi gerada. Esta informação só é atualizada diariamente e poderá não incluir a totalidade da utilização. A fatura mensal poderá divergir desta estimativa.
 
-    ![Captura de ecrã que mostra a opção de ver extrato atual](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
+    ![Captura de ecrã a mostrar a opção Ver Extrato Atual](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
 
-    ![Captura de ecrã que mostra a estimativa de custos atuais](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
+    ![Captura de ecrã a mostrar a estimativa dos custos atuais](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
 
 6. Selecione **Transferir Utilização** para transferir os dados de utilização diária como um ficheiro CSV. Se vir duas versões disponíveis, transfira a versão 2.
 
-    ![Captura de ecrã que mostra a opção de transferir utilização](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
+    ![Captura de ecrã a mostrar a opção Transferir Utilização](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-Apenas o administrador de conta pode aceder ao centro de contas do Azure. Outros administradores de faturas como, por exemplo, um proprietário, podem obter a utilização de informações de utilização a [APIs de faturação](billing-usage-rate-card-overview.md).
+Apenas o Administrador de Conta pode aceder ao Centro de Contas do Azure. Outros administradores de faturação, como um Proprietário, podem obter informações de utilização com as [APIs de Faturação](billing-usage-rate-card-overview.md).
 
-Para obter mais informações sobre a sua utilização diária, veja [Compreender a fatura do Microsoft Azure](billing-understand-your-bill.md). Para ajudar a gerir os custos, veja [evitar custos inesperados com a faturação do Azure e a gestão de custos](billing-getting-started.md).
+Para obter mais informações sobre a sua utilização diária, veja [Compreender a fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda para gerir os seus custos, veja [Evitar custos inesperados com a faturação e a gestão de custos do Azure](billing-getting-started.md).
 
-## <a name="download-usage-for-ea-customers"></a>Transferir utilização para clientes com EA
+## <a name="download-usage-for-ea-customers"></a>Transferir a utilização para clientes do EA
 
-Para ver e transferir dados de utilização como um cliente EA, tem de ser um administrador empresarial, o proprietário da conta, ou administrador do departamento com o modo de exibição cobra política ativada.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure *custo Management + faturação*.
-
-    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
-1. Selecione **utilização e custos**.
-1. Para o mês em que deseja baixar, selecione **transferir**.
-
-## <a name="download-usage-for-your-microsoft-customer-agreement"></a>Transferir utilização para o seu contrato de cliente da Microsoft
-
-Se tiver um contrato de cliente da Microsoft, pode transferir a sua utilização do Azure e a cobrança para o seu perfil de faturação. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou criar uma fatura manager transferir a utilização do Azure e os encargos CSV.
-
-### <a name="download-usage-for-billed-charges"></a>Transferir utilização para os custos de faturação
+Para ver e transferir os dados de utilização como um cliente do EA, tem de ser um Administrador da Empresa, o Proprietário da Conta ou o Administrador do Departamento com a política de visualização de custos ativada.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Procure *custo Management + faturação*.
-3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
+1. Procure *Gestão de Custos + Faturação*.
+
+    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
+
+1. Selecione **Utilização + custos**.
+1. Para o mês que pretende transferir, selecione **Transferir**.
+
+## <a name="download-usage-for-your-microsoft-customer-agreement"></a>Transferir utilização para o Contrato de Cliente da Microsoft
+
+Se tiver um Contrato de Cliente da Microsoft, pode transferir a sua utilização e custos do Azure para o seu perfil de faturação. Tem de ser Proprietário, Contribuidor, Leitor ou Gestor de faturas do perfil de faturação para transferir o CSV de utilização e custos do Azure.
+
+### <a name="download-usage-for-billed-charges"></a>Transferir utilização para custos faturados
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Procure *Gestão de Custos + Faturação*.
+3. Selecione um perfil de faturação. Dependendo do seu acesso, pode ser preciso selecionar primeiro uma conta de faturação.
 4. Selecione **Faturas**.
-5. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente à utilização de que pretende transferir.
+5. Na grelha da fatura, localize a linha da fatura que corresponde à utilização que pretende transferir.
 6. Clique nas reticências (`...`) no final da linha.
 
-    ![Captura de ecrã que mostra o botão de reticências no final da linha](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
+    ![Captura de ecrã a mostrar as reticências no final da linha](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 
-7. No menu de contexto do download, selecione **utilização do Azure e os encargos**.
+7. No menu de contexto da transferência, selecione **Utilização e custos do Azure**.
 
-     ![Captura de ecrã que mostra a utilização do Azure e os encargos selecionados](./media/billing-download-azure-usage/contextmenu-usage.png)
+     ![Captura de ecrã a mostrar a opção Utilização e custos do Azure selecionada](./media/billing-download-azure-usage/contextmenu-usage.png)
 
-### <a name="download-usage-for-pending-charges"></a>Transferir utilização para pendentes custos
+### <a name="download-usage-for-pending-charges"></a>Transferir utilização para custos pendentes
 
-Também pode transferir a utilização de mês até à data para o período de faturação atual. Estes custos de utilização que não foi paga ainda.
+Pode também transferir a utilização do mês até à data atual para o período de faturação atual. Estes custos de utilização que ainda não foram faturados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Procure *custo Management + faturação*.
-3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
-4. Na **descrição geral** área, encontra os links de download abaixo os encargos do mês até à data.
-5. Selecione **utilização do Azure e os encargos**.
+2. Procure *Gestão de Custos + Faturação*.
+3. Selecione um perfil de faturação. Dependendo do seu acesso, pode ser preciso selecionar primeiro uma conta de faturação.
+4. Na área **Descrição Geral**, localize as ligações para transferência por baixo dos custos do mês até à data atual.
+5. Selecione **Utilização e custos do Azure**.
 
-    ![Captura de ecrã que mostra o download da descrição geral](./media/billing-download-azure-usage/open-usage.png)
+    ![Captura de ecrã a mostrar a transferência a partir da Descrição Geral](./media/billing-download-azure-usage/open-usage.png)
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
+## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as suas cobranças de fatura e utilização, consulte:
+Para saber mais sobre a fatura e os custos de utilização, veja:
 
-- [Compreender os termos na utilização de detalhadas do Microsoft Azure](billing-understand-your-usage.md)
+- [Compreender os termos na sua utilização detalhada do Microsoft Azure](billing-understand-your-usage.md)
 - [Understand your bill for Microsoft Azure](billing-understand-your-bill.md) (Compreender a sua fatura do Microsoft Azure)
-- [Ver e transferir a fatura do Microsoft Azure](billing-download-azure-invoice.md)
-- [Veja e transfira os preços do Azure da sua organização](billing-ea-pricing.md)
+- [Ver e transferir a sua fatura do Microsoft Azure](billing-download-azure-invoice.md)
+- [Ver e transferir os preços do Azure da sua organização](billing-ea-pricing.md)
 
-Se tiver um contrato de cliente da Microsoft, consulte:
+Se tiver um Contrato de Cliente da Microsoft, veja:
 
-- [Compreender os termos no seu contrato de cliente do Microsoft Azure detalhadas da utilização](billing-mca-understand-your-usage.md)
-- [Compreender os encargos na sua fatura de contrato de cliente da Microsoft](billing-mca-understand-your-bill.md)
-- [Ver e transferir a fatura do Microsoft Azure](billing-download-azure-invoice.md)
-- [Ver e transferir documentos de imposto para o seu contrato de cliente da Microsoft](billing-mca-download-tax-document.md)
-- [Veja e transfira os preços do Azure da sua organização](billing-ea-pricing.md)
+- [Compreender os termos da utilização detalhada do Azure do Contrato de Cliente da Microsoft](billing-mca-understand-your-usage.md)
+- [Compreender os custos na fatura do Contrato de Cliente da Microsoft](billing-mca-understand-your-bill.md)
+- [Ver e transferir a sua fatura do Microsoft Azure](billing-download-azure-invoice.md)
+- [Ver e transferir os documentos fiscais do Contrato de Cliente da Microsoft](billing-mca-download-tax-document.md)
+- [Ver e transferir os preços do Azure da sua organização](billing-ea-pricing.md)

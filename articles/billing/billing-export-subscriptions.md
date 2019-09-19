@@ -1,6 +1,6 @@
 ---
-title: Exportar as suas informações de nível superior de subscrição do Azure | Documentos da Microsoft
-description: Descreve como pode ver todos os IDs associados à conta de subscrição do Azure.
+title: Exportar as informações de nível superior da sua subscrição do Azure | Microsoft Docs
+description: Descreve como pode ver todos os IDs de subscrição do Azure associados à sua conta.
 keywords: ''
 services: billing
 documentationcenter: ''
@@ -16,23 +16,23 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 8a3d1a3a6b1dce1d729942715bbe5962837ff093
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60918805"
 ---
-# <a name="export-and-view-your-top-level-subscription-information"></a>Exportar e veja as suas informações de subscrição de nível superior
-Se precisar de ver o conjunto de IDs associados com as suas credenciais de utilizador, de subscrição [transferir um ficheiro. JSON com informações da sua subscrição a partir do Centro de contas do Azure](https://account.azure.com/subscriptions/download).
+# <a name="export-and-view-your-top-level-subscription-information"></a>Exportar e ver as informações de nível superior da sua subscrição
+Se precisar de ver o conjunto de IDs de subscrição associados às suas credenciais de utilizador, [transfira um ficheiro .json com as informações da subscrição a partir do Centro de Contas do Azure](https://account.azure.com/subscriptions/download).
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-O ficheiro. JSON transferido fornece as seguintes informações:
-- E-mail: O endereço de e-mail associado à sua conta.
-- PUID: O identificador exclusivo associado à sua conta de cobrança.
-- SubscriptionIds: Uma lista de subscrições que pertencem à sua conta, enumerada pelo ID da subscrição.
+O ficheiro .json transferido fornece as seguintes informações:
+- Email (E-mail): o endereço de e-mail associado à sua conta.
+- Puid: o identificador exclusivo associado à sua conta de faturação.
+- SubscriptionIds (IDs de subscrição): uma lista de subscrições que pertencem à sua conta, enumeradas por ID de subscrição.
 
-### <a name="subscriptionsjson-sample"></a>exemplo de subscriptions.JSON
+### <a name="subscriptionsjson-sample"></a>exemplo: subscriptions.json
 
 ```json
 {

@@ -100,6 +100,8 @@
       href: acs-aks-migration.md
     - name: Versão suportada do Kubernetes
       href: supported-kubernetes-versions.md
+    - name: Proteção de Segurança no SO do anfitrião
+      href: security-hardened-vm-host-image.md
 - name: Guias de procedimentos
   items:
     - name: Operações de cluster
@@ -116,7 +118,7 @@
         - name: Eliminar um cluster do AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Criar um ACR com um cluster do AKS (pré-visualização)
+        - name: Criar um ACR com um cluster do AKS
           href: cluster-container-registry-integration.md
         - name: Criar nós virtuais
           items:

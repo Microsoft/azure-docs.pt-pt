@@ -1,7 +1,7 @@
 ---
-title: Atualizar a sua subscrição do Azure gratuita
-description: Descreve como pode atualizar uma subscrição gratuita.
-keywords: atualização de crédito pré-pago
+title: Atualizar a sua subscrição gratuita do Azure
+description: Descrição de como pode atualizar uma subscrição gratuita.
+keywords: Atualização pay as you go
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -14,15 +14,15 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1a670976b199a558f7adedeb52811d465f644058
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490251"
 ---
-# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Atualizar a sua conta gratuita do Azure ou do Azure para a subscrição de estudantes iniciante
+# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Atualizar a sua conta gratuita do Azure ou subscrição do Azure for Students Starter
 
-Se tiver um [avaliação gratuita](https://azure.microsoft.com/free/) ou uma [do Azure para estudantes iniciante](https://azure.microsoft.com/offers/ms-azr-0144p/) subscrição, pode atualizar para uma [subscrição individual com as tarifas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) no portal do Azure. Se tiver uma subscrição do Azure para estudantes iniciantes e são elegíveis para uma avaliação gratuita, pode atualizar para versão de avaliação gratuita.
+Se tiver uma [Conta Gratuita](https://azure.microsoft.com/free/) ou uma subscrição do [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/), pode atualizar para uma [subscrição individual com taxas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) no portal do Azure. Se tiver uma subscrição do Azure for Students Starter e for elegível para uma Avaliação Gratuita, pode atualizar para esta última.
 
 <a id="freetrial"></a>
 
@@ -31,52 +31,52 @@ Se tiver um [avaliação gratuita](https://azure.microsoft.com/free/) ou uma [do
 Ao atualizar a partir de uma subscrição de Avaliação Gratuita, o crédito é mantido durante os 30 dias completos após a criação da subscrição. Também tem acesso a serviços gratuitos durante 12 meses.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Procure **subscrições.**
+1. Escreva **Subscrições** na caixa de pesquisa.
 
-    ![Captura de ecrã que mostra a pesquisa](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Captura de ecrã a mostrar a pesquisa](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
-1. Selecione a sua subscrição de avaliação gratuita.
-1. Na descrição de geral de subscrição, clique em **atualizar a subscrição** na barra de comandos.
+1. Selecione a sua subscrição de Avaliação Gratuita.
+1. Na descrição geral da subscrição, clique em **Atualizar subscrição** na barra de comandos.
 
-    ![Captura de ecrã que mostra o botão de atualização](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
+    ![Captura de ecrã a mostrar o botão Atualizar](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 
-1. Se ainda não tiver um método de pagamento para a sua subscrição de avaliação gratuita, deverá adicionar um.
-1. Poderá ter de introduzir um número de telefone para verificar a sua identidade.
-1. Escreva um nome para a sua subscrição. Por predefinição, o nome é *pay as you go.*
+1. Se ainda não tiver um método de pagamento para a sua subscrição de Avaliação Gratuita, ser-lhe-á pedido que o adicione.
+1. Poderá ter de introduzir um número de telefone para confirmar a sua identidade.
+1. Escreva um nome para a sua subscrição. Por predefinição, o nome é *Pay As You Go*.
 
-     ![Captura de ecrã que mostra o nome](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
+     ![Captura de ecrã a mostrar o nome](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
 
-1. Escolha um plano de suporte para a sua subscrição. Para saber mais sobre os planos de suporte, veja [planos de suporte do Azure](https://azure.microsoft.com/us/support/plans/).
+1. Escolha um plano de suporte para a sua subscrição. Para saber mais sobre planos de suporte, veja [Planos de suporte do Azure](https://azure.microsoft.com/us/support/plans/).
 
-1. Clique em **atualizar**.
+1. Clique em **Atualizar**.
 
-Se quiser [transferir a subscrição](billing-subscription-transfer.md) após a atualização, tem de aguardar até que a oferta de subscrição é alterado para ID **MS-AZR - 003P**. O ID da oferta muda quando:
+Se pretender [transferir a subscrição](billing-subscription-transfer.md) depois de a atualizar, tem de aguardar até que o ID de oferta da subscrição mude para **MS-AZR-003P**. O ID da oferta muda quando:
 
 * Consumir todo o crédito restante; ou
 * Tiverem passado 30 dias desde o início da avaliação gratuita
 
 <a id="student"></a>
 
-## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Atualizar a sua subscrição do Azure para estudantes iniciante
+## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Atualizar a sua subscrição do Azure for Students Starter
 
-Siga os passos abaixo, pode atualizar para uma avaliação gratuita, se estiver qualificado.
+Ao seguir os passos abaixo, pode atualizar para uma Avaliação Gratuita, caso seja elegível.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Procure **subscrições.**
+1. Escreva **Subscrições** na caixa de pesquisa.
 
-    ![Captura de ecrã que mostra a pesquisa](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Captura de ecrã a mostrar a pesquisa](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
-1. Selecione a sua subscrição do Azure para estudantes iniciante.
-1. Na área de descrição geral de subscrição, clique em **atualizar a subscrição** na barra de comandos.
+1. Selecione a sua subscrição do Azure for Students Starter.
+1. Na área de descrição geral da subscrição, clique em **Atualizar subscrição** na barra de comandos.
 
-    ![Captura de ecrã que mostra o botão de atualização para estudantes](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
+    ![Captura de ecrã a mostrar o botão Atualizar para o Azure for Students Starter](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Se estiver a atualizar para uma conta individual com taxas pay as you go e ainda não tiver um método de pagamento para a sua subscrição, ser-lhe-á pedido para adicionar um.
-1. Poderá ter de introduzir um número de telefone para verificar a sua identidade.
+1. Se estiver a atualizar para uma conta individual com taxas pay as you go e ainda não tiver um método de pagamento para a sua subscrição, ser-lhe-á pedido que o adicione.
+1. Poderá ter de introduzir um número de telefone para confirmar a sua identidade.
 1. Escreva um nome para a sua subscrição.
-1. Se estiver a atualizar para uma conta individual com taxas pay as you go, escolha um plano de suporte para a sua subscrição. Para saber mais sobre os planos de suporte, veja [planos de suporte do Azure](https://azure.microsoft.com/us/support/plans/).
-1. Clique em **atualizar**.
+1. Se estiver a atualizar para uma conta individual com taxas pay as you go, selecione um plano de suporte para a sua subscrição. Para saber mais sobre planos de suporte, veja [Planos de suporte do Azure](https://azure.microsoft.com/us/support/plans/).
+1. Clique em **Atualizar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem uma subscrição individual com as tarifas pay as you go, consulte [evitar custos inesperados com a faturação do Azure e a gestão de custos.](billing-getting-started.md)
+Agora que tem uma subscrição individual com taxas pay as you go, veja [Evitar custos inesperados com a gestão da faturação e dos custos do Azure](billing-getting-started.md).

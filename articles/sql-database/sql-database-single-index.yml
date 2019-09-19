@@ -3,7 +3,7 @@ documentType: LandingData
 title: 'Base de Dados SQL do Azure: Base de dados individual'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: 'Documentação de base de dados SQL do Azure - tutoriais, referência da API'
+  title: 'Documentação da Base de Dados SQL do Azure - Tutoriais, referência da API'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   requires-business-manager-approval: false
@@ -16,14 +16,14 @@ metadata:
   manager: craigg
   ms.date: 04/26/2019
 abstract:
-  description: 'Base de dados SQL do Azure é uma base de dados relacional como serviço (DBaaS) com base na versão estável mais recente do motor de base de dados do Microsoft SQL Server. Base de dados SQL é um alto desempenho, fácil de usar, confiável e um banco de dados seguro que pode utilizar para criar novos aplicativos, sites e microsserviços na linguagem de programação à sua escolha, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.'
+  description: 'A Base de Dados SQL do Azure é um serviço de base de dados como serviço (DBaaS) relacional baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. A Base de Dados SQL é uma base de dados fácil de utilizar, de elevado desempenho, fiável e segura que pode utilizar para criar novas aplicações, sites e microsserviços na linguagem de programação da sua preferência, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.'
   aside:
     image:
       alt: null
       height: 110
       src: 'https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png'
       width: 250
-    title: 'Criar uma base de dados SQL no Azure (3:12)'
+    title: 'Criar uma única base de dados SQL no Azure (3:12)'
     href: 'https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/'
     width: 250
 sections:
@@ -38,48 +38,35 @@ sections:
             html: <p>Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis.</p>
             image:
               src: media/index/i_elasticpool.svg
-          - title: Servidor de base de dados SQL
+          - title: Servidor da Base de Dados SQL
             href: /azure/sql-database/sql-database-servers
-            html: '<p>Um servidor de base de dados SQL é um ponto de administração central para configurar a segurança, otimização, política de cópia de segurança e outras propriedades de configuração num conjunto de bases de dados individuais ou agrupadas no servidor.</p>'
+            html: '<p>Um servidor da Base de Dados SQL é um ponto de administração central que permite configurar a segurança, otimização, política de cópias de segurança e outras propriedades de configuração num único conjunto de bases de dados individuais ou de conjunto no servidor.</p>'
             image:
               src: media/index/i_mi.svg
-          - title: Escalões de preço e o serviço
+          - title: Escalões de preço e de serviço
             href: /azure/sql-database/sql-database-service-tiers
-            html: <p>Personalizar a proporção de relação preço/desempenho às suas necessidades com escalões de serviço flexível que abrangem entre um e acessível US $5 por mês para bancos de dados de 80 núcleos avançados.</p>
+            html: <p>Adapte a relação preço/desempenho às suas necessidades com escalões de serviço flexíveis que podem custar desde apenas 5 $ por mês até poderosas bases de dados de 80 núcleos.</p>
             image:
               src: media/index/i_perftier.svg
           - title: Escalabilidade
             href: /azure/sql-database/sql-database-scale-resources
-            html: <p>Aumente verticalmente a sua base de dados para melhorar o desempenho da sua aplicação.</p>
+            html: <p>Aumente verticalmente a sua base de dados com facilidade para aumentar o desempenho da sua aplicação.</p>
             image:
               src: media/index/i_scale.svg
           - title: Plataforma como serviço
             href: /azure/sql-database/sql-database-paas
-            html: '<p>Elevada disponibilidade incorporada, cópias de segurança automáticas e georreplicação irão ajudar a impedir que as operações de manutenção, falhas de infraestrutura ou falhas de hardware a parar o seu negócio.</p>'
+            html: '<p>A elevada disponibilidade incorporada, as cópias de segurança automáticas e a georreplicação irão ajudar a impedir que as operações de manutenção, as falhas de infraestrutura ou as falhas de hardware parem o seu negócio.</p>'
             image:
               src: media/index/gear.svg
           - title: Segurança avançada
             href: /azure/sql-database/sql-database-security-index
-            html: '<p>Ajudar a proteger a sua base de dados com ligações Always Encrypted, firewalls, redes virtuais e autenticação do Azure AD. Identifique ameaças e vulnerabilidades com a segurança incorporada.</p>'
+            html: '<p>Ajude a proteger a sua base de dados com a autenticação do Azure AD, redes virtuais, firewalls e ligações Always Encrypted. Identifique ameaças e vulnerabilidades com a segurança incorporada.</p>'
             image:
               src: media/index/i_security.svg
-  - title: Novo e funcionalidades de pré-visualização
-    items:
-      - type: paragraph
-        text: 'Estamos a melhorar continuamente base de dados SQL com os novos recursos e gostaríamos de ouvir os seus comentários sobre as novas funcionalidades seguintes:'
-      - type: list
-        style: unordered
-        items:
-          - html: (Pré-visualização) <a href="sql-database-service-tier-hyperscale">Hiperescala</a> escalão que suporta um máximo de bases de dados de 100 TB e várias réplicas legíveis.
-          - html: '(Pré-visualização) Novo SQL Server de 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">processamento de consultas inteligentes</a> funcionalidades, como <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">variável de tabela diferidos compilação</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">modo de lotes em tabelas de rowstore</a>, e <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> Escalar UDF inlining</a>.'
-          - html: '(Pré-visualização) Novas funcionalidades de linguagem do Transact-SQL, tais como <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">agregado APPROX_COUNT_DISTINCT</a> e <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">em massa importar do armazenamento de Blobs do Azure</a>.'
-          - html: '(Pré-visualização) Novo 2019 Online do SQL Server <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">criar</a> e reconstruir as operações de índice columnstore em cluster.'
-          - html: '(Pré-visualização) Novos <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">do Azure SQL da base de dados serviços de Machine Learning (com R)</a>.'
-          - html: '(Pré-visualização) Novos <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">escalão de computação sem servidor</a> fornece o dimensionamento automático computação e de faturação por segundo para computação utilizada.'
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
-        text: 'Base de dados SQL do Azure permite-lhe efetuar tarefas de gestão básicas utilizando o portal do Azure, a CLI do Azure e o Azure PowerShell. Saiba como efetuar tarefas de gestão básicas utilizando os seguintes exemplos de início rápido:'
+        text: 'A Base de Dados SQL do Azure permite-lhe realizar tarefas de gestão básicas através do portal do Azure, da CLI do Azure e do Azure PowerShell. Saiba como realizar tarefas de gestão básicas com os seguintes exemplos de início rápido:'
       - type: table
         style: dataMatrix
         columns:
@@ -122,16 +109,16 @@ sections:
   - title: Tutoriais passo-a-passo
     items:
       - type: paragraph
-        text: 'Saiba como criar, gerir e migrar bases de dados por meio da base de dados do Azure SQL.'
+        text: 'Saiba como criar, gerir e migrar bases de dados com a Base de Dados SQL do Azure.'
       - type: list
         style: ordered
         items:
-          - html: Criar e estruturar o esquema para uma nova base de dados do SQL usando <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>.
-          - html: 'Migrar uma base de dados existente para o Azure, utilizando <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistente de migração de base de dados</a> ou <a href="/azure/sql-database/sql-database-import">importação de BACPAC</a>.'
-          - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteger a sua base de dados do SQL</a>.
-          - html: Distribuir dados globalmente ao utilizar um <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de dados distribuída geograficamente</a>.
-          - html: Encontre mais <a href="sql-database-howto-single-database.md">guias de procedimentos</a> que pode ajudá-lo a configurar a sua base de dados.
-  - title: Exemplos
+          - html: Crie e conceba o esquema de uma nova base de dados SQL com o <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>.
+          - html: Migre uma base de dados existente para o Azure com o <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistente de Migração de Base de Dados</a> ou a <a href="/azure/sql-database/sql-database-import">Importação BACPAC</a>.
+          - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteja a sua base de dados SQL</a>.
+          - html: Distribua os seus dados globalmente com uma <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de dados geograficamente distribuída</a>.
+          - html: Encontre mais <a href="sql-database-howto-single-database.md">manuais de instruções</a> que o podem ajudar a configurar a sua base de dados.
+  - title: Amostras
     items:
       - type: paragraph
         text: Encontre scripts para gerir tarefas comuns.

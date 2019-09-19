@@ -12,12 +12,12 @@ metadata:
   author: mmacy
   ms.author: marsma
   ms.date: 08/29/2019
-  ms.openlocfilehash: 445e3bf68b3ce75ca2d9e51dc6f69c638f2f6b44
-  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.openlocfilehash: ea07432d4637b06ae69fc12ff30122a9ae3d2098
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/27/2019
-  ms.locfileid: "70061349"
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71075752"
 landingContent:
 - title: Aprender as noções básicas
   linkLists:
@@ -33,10 +33,10 @@ landingContent:
       url: tutorial-register-applications.md
     - text: Configurar fluxos de utilizador
       url: tutorial-create-user-flows.md
-  - linkListType: learn
+  - linkListType: video
     links:
-    - text: 'Vídeo: Gestão de identidades do cliente com o Azure AD B2C'
-      url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
+    - text: O que é o Azure AD B2C? (9:35)
+      url: https://www.youtube.com/watch?v=GmBKlXED9Ug
 - title: Adicionar uma identidade a aplicações ASP.NET
   linkLists:
   - linkListType: quickstart
@@ -105,6 +105,10 @@ landingContent:
       url: customize-ui-overview.md
     - text: Permitir o início de sessão com o Facebook
       url: active-directory-b2c-setup-fb-app.md
+  - linkListType: video
+    links:
+    - text: Como configurar políticas básicas (9:41)
+      url: https://www.youtube.com/watch?v=nWJ3m82536A
 - title: Criar cenários de identidade avançados
   linkLists:
   - linkListType: concept
@@ -121,3 +125,7 @@ landingContent:
       url: active-directory-b2c-setup-commonaad-custom.md
     - text: Adicionar a sua própria lógica de negócio com APIs REST
       url: active-directory-b2c-rest-api-validation-custom.md
+  - linkListType: video
+    links:
+    - text: Casos de utilização avançados com o Azure AD B2C (4:54)
+      url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y

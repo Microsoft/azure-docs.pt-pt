@@ -251,7 +251,7 @@ O formulário em é mais apropriado para aplicativos que atuam no texto reconhec
 
 Como a profanação é naturalmente uma parte da linguagem falada, o serviço de fala da Microsoft reconhece essas palavras e frases quando elas são faladas. No entanto, a profanação pode não ser apropriada para todos os aplicativos, especialmente para os aplicativos com um público de usuários restrito e não adulto.
 
-O formulário mascarado em aplica a máscara de profanação ao formulário de normalização de texto inverso. Para mascarar a profanação, defina o valor do parâmetro de profanação `masked`como. Quando a profanação é mascarada, as palavras reconhecidas como parte do léxico de profanação da linguagem são substituídas por asteriscos. Por exemplo: *Lembre-me de comprar 5 ** * * * lápis. A forma mascarada em de um resultado de reconhecimento não inclui maiúsculas ou minúsculas.
+O formulário mascarado em aplica a máscara de profanação ao formulário de normalização de texto inverso. Para mascarar a profanação, defina o valor do parâmetro de profanação `masked`como. Quando a profanação é mascarada, as palavras reconhecidas como parte do léxico de profanação da linguagem são substituídas por asteriscos. Por exemplo: *Lembre-me de comprar 5* lápis. A forma mascarada em de um resultado de reconhecimento não inclui maiúsculas ou minúsculas.
 
 > [!NOTE]
 > Se o valor do parâmetro de consulta de profanação `raw`for definido como, o formulário em mascarado será o mesmo que o formulário em. A profanação *não* está mascarada.

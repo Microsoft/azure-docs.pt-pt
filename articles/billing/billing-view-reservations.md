@@ -1,6 +1,6 @@
 ---
-title: Ver as reservas para recursos do Azure | Documentos da Microsoft
-description: Saiba como ver as reservas do Azure no portal do Azure.
+title: Ver reservas de recursos do Azure | Microsoft Docs
+description: Saiba como pode ver reservas do Azure no portal do Azure.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -13,78 +13,78 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490270"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Ver as reservas do Azure no portal do Azure
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Ver reservas do Azure no portal do Azure
 
-Dependendo do tipo de subscrição e permissões, existem duas formas para ver as reservas para o Azure.
+Dependendo do seu tipo de subscrição e permissões, existem algumas formas de ver reservas do Azure.
 
-## <a name="view-purchased-reservations"></a>Ver as reservas adquiridas
+## <a name="view-purchased-reservations"></a>Ver reservas compradas
 
-Por predefinição, quando adquire uma reserva, e o administrador de conta podem ver a reserva. O administrador de conta e obtém automaticamente a função de proprietário na encomenda de reserva e reserva. Para permitir que outras pessoas ver a reserva, tem de adicioná-los como um **proprietário** ou **leitor** na encomenda de reserva ou reserva.
+Por predefinição, ao comprar uma reserva, o utilizador e o administrador de conta podem ver a reserva. A função Proprietário é automaticamente atribuída a si e ao administrador de conta na encomenda da reserva e na própria reserva. Para permitir que outras pessoas vejam a reserva, tem de adicioná-las como um **Proprietário** ou **Leitor** na encomenda da reserva ou na própria reserva.
 
-Para obter mais informações, consulte [adicionar ou alterar os utilizadores que podem gerir uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+Para obter mais informações, veja [Adicionar ou alterar os utilizadores que podem gerir uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-Para ver uma reserva como proprietário ou leitor,
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Procure **reservas**.
-    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)  
-3. A lista mostra todas as reservas em que tiver a função de proprietário ou leitor. Cada reserva mostra a percentagem de utilização de conhecidos último.  
-    ![Exemplo que mostra uma lista de reservas](./media/billing-view-reservation/view-reservations.png)
-4. Selecionar uma reserva e ver a tendência de utilização dos últimos cinco dias.  
-    ![Tendência de utilização de reserva do exemplo que mostra](./media/billing-view-reservation/reservation-utilization.png)
-5. Também pode obter o [utilização de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando a API de utilização de instância reservada e com o [pacote de conteúdos do Microsoft Azure consumo Insights Power BI](/power-bi/service-connect-to-azure-consumption-insights).
-
-Se precisar de alterar o âmbito de uma reserva, dividir uma reserva ou alteração que pode gerir uma reserva, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
-
-## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Ver transações de reserva para inscrições de empresas
-
- Se tiver uma inscrição de Enterprise parceiro por instrutor, ver as reservas ao aceder **relatórios** no portal do EA. Para outras inscrições de empresas, pode ver as reservas no portal do EA e no portal do Azure. Tem de ser um administrador EA para exibir transações de reserva.
-
-Para exibir transações de reserva no portal do Azure,
+Para ver uma reserva como Proprietário ou Leitor:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure **custo Management + faturação**.
+2. Escreva **Reservas** na caixa de pesquisa.
+    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)  
+3. A lista mostra todas as reservas onde possui a função Proprietário ou Leitor. Cada reserva mostra a última percentagem de utilização conhecida.  
+    ![Exemplo a mostrar uma lista de reservas](./media/billing-view-reservation/view-reservations.png)
+4. Selecione uma reserva e veja a tendência de utilização dos últimos cinco dias.  
+    ![Exemplo a mostrar a tendência de utilização da reserva](./media/billing-view-reservation/reservation-utilization.png)
+5. Também pode obter a percentagem de [utilização da reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) através da API de utilização da Instância Reservada e do [pacote de conteúdos Microsoft Azure Consumption Insights do Power BI](/power-bi/service-connect-to-azure-consumption-insights).
 
-    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
+Se tiver de alterar o âmbito de uma reserva, dividir uma reserva ou alterar quem pode gerir a mesma, veja [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-1. Selecione **transações de reserva**.
-1. Para filtrar os resultados, selecione **Timespan**, **tipo**, ou **Descrição**.
+## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Ver transações de reserva para inscrições Enterprise
+
+ Se tiver uma inscrição Enterprise orientada por parceiros, veja as reservas ao aceder a **Relatórios** no EA Portal. Para outras inscrições Enterprise, pode ver as reservas no EA Portal e no portal do Azure. Tem de ser um administrador EA para ver as transações de reserva.
+
+Para ver as transações de reserva no portal do Azure:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Escreva **Gestão de Custos + Faturação** na caixa de pesquisa.
+
+    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
+
+1. Selecione **Transações de reserva**.
+1. Para filtrar os resultados, selecione **Período de tempo**, **Tipo** ou **Descrição**.
 1. Selecione **Aplicar**.
 
-    ![Captura de ecrã que mostra os resultados de transações de reserva](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
+    ![Captura de ecrã a mostrar os resultados de transações de reserva](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
 
-Para obter os dados através de uma API, consulte [tarifas de transação de obter a instância reservada para os clientes empresariais](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
+Para obter os dados através de uma API, veja [Get Reserved Instance transaction charges for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) (Obter custos de transações de Instâncias Reservadas para clientes do Enterprise).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
+Para saber mais sobre as reservas do Azure, veja os seguintes artigos:
 
-- [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
-- [Gerir reservas para o Azure](billing-manage-reserved-vm-instance.md)
+- [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
 
-Compre um plano do serviço:
+Para comprar um plano de serviço:
 
-- [Efetue o pré-pagamento do Cosmos DB reservado capacidade](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [Efetuar pré-pagamento da capacidade reservada do Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
-Compre um plano de software:
+Para comprar um plano de software:
 
-- [Efetue o pré-pagamento do planos de software do Red Hat do Azure reservas](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Efetuar pré-pagamento dos planos de software Red Hat nas Reservas do Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Efetuar o pré-pagamento de planos de software SUSE das Reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Compreenda a utilização:
+Para compreender a utilização:
 
-- [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
-- [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
-- [Compreender a utilização de reserva para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Compreender a utilização de reservas na sua subscrição Pay As You Go](billing-understand-reserved-instance-usage.md)
+- [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Compreender a utilização de reservas nas subscrições do CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

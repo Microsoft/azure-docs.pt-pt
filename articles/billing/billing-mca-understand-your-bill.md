@@ -1,6 +1,6 @@
 ---
-title: Compreender os encargos na fatura de seu contrato de cliente de Microsoft - Azure
-description: Saiba como ler e compreender os encargos na sua fatura.
+title: Compreender os custos na fatura do Contrato de Cliente da Microsoft – Azure
+description: Saiba como ler e compreender os custos descritos na sua fatura.
 author: jureid
 manager: jureid
 tags: billing
@@ -12,171 +12,171 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: ee250589133abb1944ff17e39dc650cbae4279c6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490683"
 ---
-# <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Compreender os encargos na sua fatura de contrato de cliente da Microsoft
+# <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Compreender os custos na fatura do Contrato de Cliente da Microsoft
 
-Também poderá perceber os custos na sua fatura ao analisar as transações individuais. A conta de faturação de um contrato de cliente da Microsoft, uma nota fiscal é gerada por mês para cada perfil de faturação. A nota fiscal inclui todos os encargos do mês anterior. Pode ver as faturas no portal do Azure. Para obter mais informações, consulte [transferência de faturas para um contrato de cliente da Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+Pode compreender os custos descritos na sua fatura ao analisar cada transação. Na conta de faturação de um Contrato de Cliente da Microsoft, é gerada uma fatura todos os meses para cada perfil de faturação. A fatura inclui todos os custos do mês anterior. Pode ver as suas faturas no portal do Azure. Para obter mais informações, veja [Transferir as faturas para um Contrato de Cliente da Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
-Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>Ver transações para uma nota fiscal no portal do Azure
+## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>Ver as transações de uma fatura no portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://www.azure.com).
 
-2. Procure **custo Management + faturação**.
+2. Procure **Gestão de Custos + Faturação**.
 
-    ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+    ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. Selecione **todas as transações** do lado esquerdo da página. Consoante o acesso, poderá ter de selecionar uma conta de cobrança, perfil de faturação ou uma secção de nota fiscal e, em seguida, selecione **todas as transações**.
+3. Selecione **Todas as transações** no lado esquerdo da página. Consoante o seu acesso, poderá ter de selecionar uma conta de faturação, um perfil de faturação ou uma secção de fatura e, em seguida, selecionar **Todas as transações**.
 
-4. Página de todas as transações apresenta as seguintes informações:
+4. A página Todas as transações apresenta as seguintes informações:
 
-    ![Captura de ecrã que mostra a lista de transações faturadas](./media/billing-understand-your-bill-mca/mca-billed-transactions-list.png)
+    ![Captura de ecrã a mostrar a lista de transações cobradas](./media/billing-understand-your-bill-mca/mca-billed-transactions-list.png)
 
     |Coluna  |Definição  |
     |---------|---------|
     |Date     | A data da transação  |
-    |ID da nota fiscal     | O identificador da nota fiscal no qual a transação foi cobrada. Se submeter um pedido de suporte, partilhar o ID com o suporte do Azure para acelerar o seu pedido de suporte |
-    |Tipo de transação     |  O tipo de transação, como cobranças de compra, Cancelar e a utilização  |
-    |Família de produtos     | A categoria de produto, como a computação para as máquinas virtuais ou base de dados para a base de dados SQL do Azure|
-    |Sku do produto     | Um código único, identificar a instância do seu produto |
-    |Montante     |  A quantidade de transação      |
-    |Secção de nota fiscal     | A transação é exibido nesta secção da nota fiscal do perfil de faturação |
-    |Perfil de faturação     | A transação é exibido numa das faturas este perfil de faturação |
+    |ID da fatura     | O identificador da fatura onde a transação foi cobrada. Se submeter um pedido de suporte, partilhe o ID com o suporte do Azure para acelerar o pedido |
+    |Tipo de transação     |  A descrição do tipo de transação, como uma compra, um cancelamento ou custos de utilização  |
+    |Família de produtos     | A categoria do produto, como uma computação de máquinas virtuais ou uma base de dados SQL do Azure|
+    |SKU do produto     | Um código exclusivo que identifica a instância do seu produto |
+    |Montante     |  O montante da transação      |
+    |Secção de fatura     | A transação é apresentada nesta secção da fatura do perfil de faturação |
+    |Perfil de faturação     | A transação é apresentada nesta fatura do perfil de faturação |
 
-5. Procurar por ID de nota fiscal filtrar as transações da nota fiscal.
+5. Procure ID da fatura para filtrar as transações da fatura.
 
-### <a name="view-transactions-by-invoice-sections"></a>Ver transações por secções de nota fiscal
+### <a name="view-transactions-by-invoice-sections"></a>Ver transações por secções de fatura
 
-As secções de nota fiscal ajudar a organizar os custos para a nota fiscal de um perfil de faturação. Para obter mais informações, consulte [entender a secção de nota fiscal](billing-mca-overview.md#invoice-sections). Quando uma nota fiscal é gerada, custos de todas as seções no perfil de faturação são mostrados da nota fiscal.
+As secções de fatura ajudam-no a gerir os custos de uma fatura de um perfil de faturação. Para obter mais informações, veja [Compreender a secção de fatura](billing-mca-overview.md#invoice-sections). Quando uma fatura é gerada, os custos de todas as secções no perfil de faturação são apresentados na fatura.
 
-A imagem seguinte mostra os custos para a secção de nota fiscal do departamento de contabilidade numa nota fiscal de exemplo.
+A imagem seguinte mostra os custos da secção de fatura Departamento de Contabilidade numa fatura de exemplo.
 
-![Imagem de exemplo que mostra os detalhes por informações da secção de nota fiscal](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+![Imagem de exemplo a mostrar os detalhes por informações de secção de fatura](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
-Quando tiver identificado os encargos de uma seção de nota fiscal, pode ver as transações no portal do Azure para compreender os encargos.
+Quando tiver identificado os custos de uma secção de fatura, pode ver as transações no portal do Azure para compreender esses custos.
 
-1. Aceda à página todas as transações no portal do Azure para exibir transações para uma nota fiscal. Para obter mais informações, consulte [ver transações para uma nota fiscal no portal do Azure](#view-transactions-for-an-invoice-in-the-azure-portal).
+1. Aceda à página Todas as transações no portal do Azure para ver as transações de uma fatura. Para obter mais informações, veja a secção [Ver as transações de uma fatura no portal do Azure](#view-transactions-for-an-invoice-in-the-azure-portal).
 
-2. Filtrar pelo nome da seção de nota fiscal para exibir transações.
+2. Filtre o nome da secção de fatura para ver as transações.
 
-## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>Rever pendentes custos para calcular a sua próxima nota fiscal
+## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>Rever custos pendentes para estimar a próxima fatura
 
-Na conta de faturação para um contrato de cliente da Microsoft, os encargos são estimados e considerados pendentes, até que eles são faturados. Pode ver pendentes Cobranças no portal do Azure para calcular a sua próxima nota fiscal. Pendente custos são estimativas e eles não incluem impostos. Os custos reais na sua fatura seguinte irão variar das cobranças de pendentes.
+Na conta de faturação de um Contrato de Cliente da Microsoft, os custos são estimados e considerados como pendentes até que sejam faturados. Pode ver os custos pendentes no portal do Azure para estimar a sua próxima fatura. Os custos pendentes são estimados e não incluem impostos. Os custos reais na sua próxima fatura vão variar de acordo com os custos pendentes.
 
-### <a name="view-summary-of-pending-charges"></a>Ver resumo de pendentes custos
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-
-2. Procure **custo Management + faturação**.
-
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
-
-3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar uma conta de cobrança. A partir da conta de cobrança, selecione **perfis de faturação** , em seguida, selecione um perfil de faturação.
-
-4. Selecione **resumo** separador na parte superior do ecrã.
-
-5. A secção encargos exibe a mês até à data e encargos do mês passado.
-
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
-
-Os encargos do mês até à data são os encargos pendentes para o mês atual e são cobrados quando a nota fiscal é gerada para o mês. Se a nota fiscal do último mês não ainda é gerada, então encargos do mês passado também estão pendentes e aparecerá na sua fatura seguinte.
-
-### <a name="view-pending-transactions"></a>Ver pendentes de transações
-
-Ao identificar pendentes Cobranças, pode compreender os encargos ao analisar as transações individuais que contribuíram para os custos. Neste momento, pendentes utilização encargos não são apresentados na página de todas as transações. Pode ver os custos de utilização pendente na página de subscrições do Azure. Para obter mais informações, consulte [vista pendentes custos de utilização](#view-pending-usage-charges)
+### <a name="view-summary-of-pending-charges"></a>Ver um resumo dos custos pendentes
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Procure **custo Management + faturação**.
+2. Procure **Gestão de Custos + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar uma conta de cobrança. A partir da conta de cobrança, selecione **perfis de faturação** , em seguida, selecione um perfil de faturação.
+3. Selecione um perfil de faturação. Dependendo do seu acesso, poderá ter de selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione um perfil de faturação.
 
-4. Selecione **todas as transações** do lado esquerdo da página.
+4. Selecione o separador **Resumo** na parte superior do ecrã.
 
-5. Procure *pendente*. Utilize o **Timespan** filtro para ver pendentes custos atual ou no mês passado.
+5. A secção Encargos apresenta os custo do mês acumulados até à data atual e do último mês.
 
-   ![Captura de ecrã que mostra a lista de transações pendentes](./media/billing-understand-your-bill-mca/mca-pending-transactions-list.png)
+   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
 
-### <a name="view-pending-usage-charges"></a>Ver os custos de utilização pendente
+Os custos do mês acumuladas até à data são os custos pendentes relativamente ao mês atual e estes são cobrados quando a fatura é gerada para esse mês. Se a fatura do último mês ainda não tiver sido gerada, os custos desse mês também estarão pendentes e serão apresentados na sua próxima fatura.
+
+### <a name="view-pending-transactions"></a>Ver transações pendentes
+
+Ao identificar custos pendentes, conseguirá compreender os custos ao analisar individualmente cada transação que contribuiu para esses custos. Neste momento, os custos de utilização pendentes não serão apresentados na página Todas as transações. Pode ver os custos de utilização pendentes na página Subscrições do Azure. Para obter mais informações, veja [Ver custos de utilização pendentes](#view-pending-usage-charges).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Procure *custo Management + faturação*.
+2. Procure **Gestão de Custos + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar uma conta de cobrança. A partir da conta de cobrança, selecione **perfis de faturação** , em seguida, selecione um perfil de faturação.
+3. Selecione um perfil de faturação. Dependendo do seu acesso, poderá ter de selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione um perfil de faturação.
 
-4. Selecione **todas as subscrições** um lado esquerdo da página.
+4. Selecione **Todas as transações** no lado esquerdo da página.
 
-5. A página de subscrições do Azure atual e os encargos do mês passado para cada subscrição é apresentada no perfil de faturação. Os encargos do mês até à data são os encargos pendentes para o mês atual e são cobrados quando a nota fiscal é gerada para o mês. Se a nota fiscal do último mês não ainda é gerada, então encargos do mês passado também estão pendentes.
+5. Escreva a palavra *pendentes* na caixa de pesquisa. Utilize o filtro **Período de tempo** para ver os custos pendentes do mês até à data ou do último mês.
 
-    ![Captura de ecrã que mostra a lista de subscrições do Azure para o perfil de faturação](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
+   ![Captura de ecrã a mostrar a lista de transações pendentes](./media/billing-understand-your-bill-mca/mca-pending-transactions-list.png)
 
-## <a name="analyze-your-azure-usage-charges"></a>Analisar as cobranças de utilização do Azure
+### <a name="view-pending-usage-charges"></a>Ver custos de utilização pendentes
 
-Utilize o ficheiro CSV de utilização e os encargos do Azure para analisar os encargos com base na utilização. Pode transferir o ficheiro para uma nota fiscal ou para pendentes encargos. Para obter mais informações, consulte [obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-### <a name="view-detailed-usage-by-invoice-section"></a>Ver a utilização detalhada pela secção de nota fiscal
+2. Escreva *Gestão de Custos + Faturação*.
 
-Pode filtrar o ficheiro de utilização e os encargos do Azure para reconciliar os custos de utilização de suas seções de nota fiscal.
+   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-Os seguintes passos guiá-lo por meio de reconciliar os custos de computação para a secção de nota fiscal do departamento de contabilidade:
+3. Selecione um perfil de faturação. Dependendo do seu acesso, poderá ter de selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione um perfil de faturação.
 
-![Imagem de exemplo que mostra os detalhes por informações da secção de nota fiscal](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+4. Selecione **Todas as subscrições** no lado esquerdo da página.
 
- | Nota fiscal de PDF | Utilização do Azure e os encargos de CSV |
+5. A página Subscrições do Azure apresenta os custos do mês até à data e do último mês para cada subscrição no perfil de faturação. Os custos do mês acumuladas até à data são os custos pendentes relativamente ao mês atual e estes são cobrados quando a fatura é gerada para esse mês. Se a fatura do último mês ainda não foi gerada, os custos desse mês também estarão pendentes.
+
+    ![Captura de ecrã a mostrar a lista de subscrições do Azure do perfil de faturação](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
+
+## <a name="analyze-your-azure-usage-charges"></a>Analisar os custos de utilização do Azure
+
+Utilize o ficheiro CSV Utilização e custos do Azure para analisar os seus custos de utilização. Pode transferir o ficheiro para uma fatura ou para custos pendentes. Para obter mais informações, veja [Obter a faturação e os dados de utilização diária do Azure](billing-download-azure-invoice-daily-usage-date.md).
+
+### <a name="view-detailed-usage-by-invoice-section"></a>Ver a secção de utilização detalhada por fatura
+
+Pode filtrar o ficheiro Utilização e custos do Azure para reconciliar os custos de utilização das suas secções de fatura.
+
+Os passos seguintes explicam como pode reconciliar os custos de computação na secção de fatura Departamento de Contabilidade:
+
+![Imagem de exemplo a mostrar os detalhes por informações de secção de fatura](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+
+ | PDF da fatura | Ficheiro CSV Utilização e custos do Azure |
  | --- | --- |
- |Departamento de contabilidade |invoiceSectionName |
- |Custos de utilização - plano do Microsoft Azure |productOrderName |
+ |Departamento de Contabilidade |invoiceSectionName |
+ |Custos de Utilização – Plano do Microsoft Azure |productOrderName |
  |Computação |serviceFamily |
 
-1. Filtro da **invoiceSectionName** coluna no ficheiro CSV para **departamento de contabilidade**.
-2. Filtro da **productOrderName** coluna no ficheiro CSV para **planear do Microsoft Azure**.
-3. Filtro da **serviceFamily** coluna no ficheiro CSV para **Microsoft. Compute**.
+1. Filtre a coluna **invoiceSectionName** no ficheiro CSV para **Accounting Dept** (Departamento de Contabilidade).
+2. Filtre a coluna **productOrderName** no ficheiro CSV para **Microsoft Azure Plan** (Plano do Microsoft Azure).
+3. Filtre a coluna **serviceFamily** no ficheiro CSV para **Microsoft.Compute**.
 
-![Captura de ecrã que mostra a utilização e os custos de ficheiro filtrado pela secção de nota fiscal](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
+![Captura de ecrã a mostrar o ficheiro de utilização e custos filtrado por secção de fatura](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
 
 
-### <a name="view-detailed-usage-by-subscription"></a>Ver a utilização detalhada por subscrição
+### <a name="view-detailed-usage-by-subscription"></a>Ver utilização detalhada por subscrição
 
-Pode filtrar os ficheiros CSV de utilização e custos do Azure para reconciliar os custos de utilização das suas subscrições. Para ver todas as subscrições num perfil de faturação, consulte [vista pendentes custos de utilização](#view-pending-usage-charges).
+Pode filtrar o ficheiro CSV Utilização e custos do Azure para reconciliar os custos de utilização das suas secções de fatura. Para ver todas as subscrições num perfil de faturação, veja a secção [Ver custos de utilização pendentes](#view-pending-usage-charges).
 
-Ao identificar custos para uma subscrição, utilize o ficheiro CSV de utilização e os encargos do Azure para analisar os custos.
+Ao identificar os custos de uma subscrição, utilize o ficheiro CSV Utilização e custos do Azure para analisar os custos.
 
 A imagem seguinte mostra a lista de subscrições no portal do Azure.
 
-![Captura de ecrã que mostra a lista de subscrições do Azure para o perfil de faturação](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
+![Captura de ecrã a mostrar a lista de subscrições do Azure do perfil de faturação](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
 
-Filtro da **subscriptionName** coluna ao ficheiro de CSV de utilização e os encargos do Azure para **WA_Subscription** para ver os custos de utilização detalhada para WA_Subscription.
+Filtre a coluna **subscriptionName** no ficheiro CSV Utilização e custos do Azure para **WA_Subscription** de modo a ver os custos de utilização detalhados para o campo WA_Subscription.
 
-![Captura de ecrã que mostra a utilização e custos de ficheiro filtrado pela subscrição](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-subscription.png)
+![Captura de ecrã a mostrar o ficheiro de utilização e custos filtrado por subscrição](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-subscription.png)
 
 ## <a name="pay-your-bill"></a>Pagar a sua fatura
 
-Instruções de pagamento de sua fatura são mostradas na parte inferior da nota fiscal. [Saiba como pagar](billing-mca-understand-your-invoice.md#how-to-pay).
+As instruções para pagar a sua fatura são apresentadas na parte inferior da fatura. [Saiba como pagar](billing-mca-understand-your-invoice.md#how-to-pay).
 
-Se já pagou sua fatura, pode verificar o status de pagamento na página de notas fiscais no portal do Azure.
+Se já pagou a sua fatura, pode verificar o estado do pagamento na página Faturas no portal do Azure.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a sua fatura e utilização detalhada, consulte:
+Para saber mais sobre a sua fatura e a sua utilização em detalhe, veja:
 
 - [Como obter a faturação e os dados de utilização diária do Azure](billing-download-azure-invoice-daily-usage-date.md)
-- [Compreender os termos na sua fatura de contrato de cliente da Microsoft](billing-mca-understand-your-invoice.md)
-- [Compreender os termos na sua utilização de contrato de cliente da Microsoft CSV](billing-mca-understand-your-usage.md)
+- [Compreender os termos na fatura do Contrato de Cliente da Microsoft](billing-mca-understand-your-invoice.md)
+- [Compreender os termos no ficheiro CSV de utilização do Contrato de Cliente da Microsoft](billing-mca-understand-your-usage.md)
