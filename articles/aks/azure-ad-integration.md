@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542904"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103781"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure
 
@@ -35,11 +35,11 @@ Você também pode concluir essas etapas usando o [CLI do Azure][azure-ad-cli].
 
 A autenticação do Azure AD é fornecida para clusters AKS que têm o OpenID Connect. O OpenID Connect é uma camada de identidade criada sobre o protocolo OAuth 2,0.
 
-Para obter mais informações sobre o OpenID Connect, consulte autorizar o [acesso a aplicativos Web usando o OpenID Connect e o Azure ad][open-id-connect].
+Para obter mais informações sobre o OpenID Connect, consulte [autorizar o acesso a aplicativos Web usando o OpenID Connect e o Azure ad][open-id-connect].
 
 Dentro de um cluster kubernetes, a autenticação de token de webhook é usada para tokens de autenticação. A autenticação de token de webhook é configurada e gerenciada como parte do cluster AKS.
 
-Para obter mais informações sobre a autenticação de token de webhook, consulte a seção [autenticação de token][kubernetes-webhook] de webhook na documentação do kubernetes.
+Para obter mais informações sobre a autenticação de token de webhook, consulte a seção [autenticação de token de webhook][kubernetes-webhook] na documentação do kubernetes.
 
 Para fornecer autenticação do Azure AD para um cluster AKS, dois aplicativos do Azure AD são criados. O primeiro aplicativo é um componente de servidor que fornece autenticação de usuário. O segundo aplicativo é um componente de cliente que é usado quando você é solicitado pela CLI para autenticação. Esse aplicativo cliente usa o aplicativo de servidor para a autenticação real das credenciais fornecidas pelo cliente.
 
@@ -86,7 +86,7 @@ O primeiro aplicativo do Azure AD é aplicado para obter a associação de grupo
 
     e. Selecione **adicionar permissões** para salvar as atualizações.
 
-    f. Em **conceder consentimento**, selecione **conceder consentimento do administrador**. Esse botão não estará disponível se a conta atual não for um administrador de locatário.
+    f. Em **conceder consentimento**, selecione **conceder consentimento do administrador**. Esse botão não estará disponível a conta atual que está sendo usada não está listada como um administrador de locatário.
 
     Quando as permissões são concedidas com êxito, a notificação a seguir é exibida no Portal:
 
@@ -280,7 +280,7 @@ error: You must be logged in to the server (Unauthorized)
 - O usuário não é membro de mais de 200 grupos.
 - O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado `--aad-server-app-secret`usando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para usar os usuários e grupos do Azure AD para controlar o acesso aos recursos de cluster, consulte [controlar o acesso a recursos de cluster usando o controle de acesso baseado em função e identidades do Azure AD no AKs][azure-ad-rbac].
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caea0b7e64c7079156480aef0f65279989285ff3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5334c17b4f918e128ac69569e8ab6deeebac2182
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834975"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103932"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização de cache de token em MSAL.NET
 Depois que um [token é adquirido](msal-acquire-cache-tokens.md), ele é armazenado em cache pela MSAL (biblioteca de autenticação da Microsoft).  O código do aplicativo deve tentar obter um token do cache antes de adquirir um token por outro método.  Este artigo aborda a serialização padrão e personalizada do cache de token em MSAL.NET.
@@ -275,11 +275,11 @@ namespace CommonCacheMsalV3
 
 Em aplicativos Web ou APIs Web, o cache pode aproveitar a sessão, um cache Redis ou um banco de dados.
 
-Um ponto importante a ser lembrado é que, para aplicativos Web e APIs Web, deve haver um cache de token por usuário (por conta). Você precisa serializar o cache de token para cada conta.
+Em aplicativos Web ou APIs Web, mantenha um cache de token por conta.  Para aplicativos Web, o cache de token deve ser codificado pela ID da conta.  Para APIs Web, a conta deve ser codificada pelo hash do token usado para chamar a API. O MSAL.NET fornece serialização personalizada de cache de token em subplataformas .NET Framework e .NET Core. Os eventos são acionados quando o cache é acessado, os aplicativos podem escolher se deseja serializar ou desserializar o cache. Em aplicativos cliente confidenciais que manipulam usuários (aplicativos Web que conectam usuários e chamam APIs da Web e APIs Web que chamam APIs da Web downstream), pode haver muitos usuários e os usuários são processados em paralelo. Por motivos de segurança e desempenho, nossa recomendação é serializar um cache por usuário. Os eventos de serialização calculam uma chave de cache com base na identidade do usuário processado e serializam/desserializam um cache de token para esse usuário.
 
 Exemplos de como usar caches de token para aplicativos Web e APIs Web estão disponíveis no [tutorial ASP.NET Core aplicativo Web](https://ms-identity-aspnetcore-webapp-tutorial) no [cache de token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)da fase 2-2. Para implementações, observe a seguinte pasta [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) na biblioteca [Microsoft-Authentication-Extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (na pasta [Microsoft. Identity. Client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) . 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Os exemplos a seguir ilustram a serialização de cache de token.
 
 | Exemplo | Plataforma | Descrição|

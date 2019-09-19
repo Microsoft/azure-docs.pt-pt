@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010303"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103161"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 
@@ -114,8 +114,8 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 
 | **Recurso de plataforma** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas e pools de instância** |
 | --- | --- | --- |
-| [Georreplicação ativa](sql-database-active-geo-replication.md) | Sim-todas as camadas de serviço que não sejam de hiperescala | Não, consulte [grupos de failover automático (versão prévia)](sql-database-auto-failover-group.md) como uma alternativa |
-| [Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) | Sim-todas as camadas de serviço que não sejam de hiperescala | Sim, em [Visualização pública](sql-database-auto-failover-group.md)|
+| [Georreplicação ativa](sql-database-active-geo-replication.md) | Sim-todas as camadas de serviço que não sejam de hiperescala | Não, consulte [grupos de failover automático](sql-database-auto-failover-group.md) como uma alternativa |
+| [Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) | Sim-todas as camadas de serviço que não sejam de hiperescala | Sim, consulte [grupos de failover automático](sql-database-auto-failover-group.md)|
 | Dimensionamento Automático | Sim, mas somente no [modelo sem servidor](sql-database-serverless.md). No modelo sem servidor, a alteração da camada de serviço (alteração de vCore, armazenamento ou DTU) é rápida e online. A alteração da camada de serviço requer um mínimo ou nenhum tempo de inatividade. | Não, você precisa escolher a computação reservada e o armazenamento. A alteração da camada de serviço (vCore ou máximo de armazenamento) está online e requer um tempo de inatividade mínimo ou nenhum. |
 | [Backups automáticos](sql-database-automated-backups.md) | Sim. Os backups completos são feitos a cada 7 dias, diferencial 12 horas e backups de log a cada 5-10 min. | Sim. Os backups completos são feitos a cada 7 dias, diferencial 12 horas e backups de log a cada 5-10 min. |
 | [Ajuste automático (índices)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| Não |
@@ -169,9 +169,9 @@ Você pode usar diferentes métodos de migração para mover seus dados entre SQ
 
 | **Origem** | **Banco de dados individual e pool elástico** | **Instância Gerenciada e pools de instância** |
 | --- | --- | --- |
-| SQL Server (local, AzureVM, Amazon RDS) | **Conectar** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Conectar** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Backup/restauração nativos, [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
+| SQL Server (local, AzureVM, Amazon RDS) | **Online:** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Backup/restauração nativos, [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
 | Base de dados individual | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
-| Instância Gerida | **Conectar** [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) | **Conectar** [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Restauração pontual de instância cruzada ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) ou [CLI do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [backup/restauração nativo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
+| Instância Gerida | **Online:** [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) | **Online:** [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Restauração pontual de instância cruzada ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) ou [CLI do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [backup/restauração nativo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

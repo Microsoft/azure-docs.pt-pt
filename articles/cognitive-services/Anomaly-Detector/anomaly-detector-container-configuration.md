@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932995"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102562"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Configurar contêineres de detector de anomalias
+# <a name="configure-anomaly-detector-containers"></a>Configurar contentores do Detetor de Anomalias
 
 O ambiente de tempo de execução de contêiner do **detector** de `docker run` anomalias é configurado usando os argumentos de comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
@@ -88,7 +88,7 @@ Os contêineres do detector de anomalias não usam montagens de entrada ou saíd
 
 A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o local de montagem do [computador host](anomaly-detector-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | Cadeia | Os contêineres do detector de anomalias não usam isso.|
 |Opcional| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -104,8 +104,10 @@ Substitua o valor entre colchetes `{}`,, com seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
-|{API_KEY} | A chave do ponto de extremidade do recurso de detector de anomalias. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | O valor do ponto de extremidade de cobrança, incluindo a região.|`https://westus2.api.cognitive.microsoft.com`|
+| **{API_KEY}** | A chave do ponto de `Anomaly Detector` extremidade do recurso na `Anomaly Detector` página de chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está `Anomaly Detector` disponível na página Visão geral do Azure.| Consulte [coletando parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](anomaly-detector-container-howto.md#billing).
@@ -135,7 +137,7 @@ Os exemplos do Docker a seguir são para o contêiner do detector de anomalias.
   Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implantar um contêiner de detector de anomalias nas instâncias de contêiner do Azure](how-to/deploy-anomaly-detection-on-container-instances.md)
 * [Saiba mais sobre o serviço de API do detector de anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

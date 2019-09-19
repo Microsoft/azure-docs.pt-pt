@@ -8,22 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e18203162229e6c3db24a5f76b65de61d572f96a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: HT
+ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076783"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105321"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
 Soluções de Big Data em tempo real atuam em dados que estão em movimento. Normalmente, esses dados são mais valiosos no momento da chegada. Se o fluxo de dados de entrada se tornar maior que o que pode ser tratado nesse momento, talvez seja necessário limitar os recursos. Como alternativa, um cluster HDInsight pode escalar verticalmente para atender à sua solução de streaming adicionando nós sob demanda.
 
-
 Em um aplicativo de streaming, uma ou mais fontes de dados estão gerando eventos (às vezes, em milhões por segundo) que precisam ser ingeridas rapidamente sem descartar informações úteis. Os eventos de entrada são tratados com o *buffer de fluxo*, também chamado de *enfileiramento de eventos*, por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [hubs de eventos](https://azure.microsoft.com/services/event-hubs/). Depois de coletar os eventos, você pode analisar os dados usando um sistema de análise em tempo real dentro da camada de *processamento de fluxo* , como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark streaming](spark/apache-spark-streaming-overview.md). Os dados processados podem ser armazenados em sistemas de armazenamento de longo prazo, como [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)e exibidos em tempo real em um painel de Business Intelligence, como [Power bi](https://powerbi.microsoft.com), tableau ou uma página da Web personalizada.
 
-
-![Padrões de streaming do HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+![Padrões de streaming do Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

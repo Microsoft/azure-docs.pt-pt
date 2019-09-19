@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9a7008ca7967135209b8fc2c341998570a2679be
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 9767bccc754d5ccf8c0e7cbb66c8e9c3d5eaf7d0
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960868"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105356"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
 
@@ -31,11 +31,11 @@ Para exibir seus hosts, abra a interface do usuário do amAmbari Web. Cada nó s
 
 2. Selecione **todos os usuários** no menu à esquerda e, em seguida, selecione **novo usuário**.
 
-    ![Painel todos os usuários](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
+    ![portal do Azure todos os usuários e grupos](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
 3. Preencha o formulário novo usuário. Selecione os grupos que você criou para atribuir permissões baseadas em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", ao qual você pode atribuir novos usuários. As [instruções de exemplo](hdinsight-domain-joined-configure.md) para a criação de um cluster ESP incluem a `HiveUsers` adição `AAD DC Administrators`de dois grupos e.
 
-    ![Novo painel de usuário](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
+    ![Painel do usuário do portal do Azure selecionar grupos](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
 4. Selecione **Criar**.
 
@@ -47,7 +47,7 @@ O método a seguir usa POST com a API REST do amAmbari. Para obter mais informa�
 
 1. [Conecte-se ao cluster com o ssh](hdinsight-hadoop-linux-use-ssh-unix.md). No painel Visão geral do cluster na portal do Azure, selecione o botão **Secure Shell (SSH)** .
 
-    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
+    ![Ícone do Secure Shell do HDInsight (SSH)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. Copie o comando `ssh` exibido e cole-o em seu cliente SSH. Insira a senha de usuário do ssh quando solicitado.
 
@@ -131,15 +131,15 @@ Abra a [interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-a
 
 1. No painel do Ambari, selecione **gerenciar Ambari** no menu **admin** .
 
-    ![Gerenciar Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
+    ![Painel do Apache Ambari gerenciar Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
 2. Selecione **usuários** no grupo de menu **usuário + gerenciamento de grupo** no lado esquerdo da página.
 
-    ![Item de menu usuários](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
+    ![Menu usuários e grupos do HDInsight](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
 3. O novo usuário deve estar listado na tabela usuários. O tipo é definido como `LDAP` em vez `Local`de.
 
-    ![Página de utilizadores](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
+    ![Visão geral da página de usuários do HDInsight AAD](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>Faça logon no Ambari como o novo usuário
 

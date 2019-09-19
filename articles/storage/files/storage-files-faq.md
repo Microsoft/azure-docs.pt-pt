@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015913"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103064"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre os arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão do setor. Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, Linux e macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -54,7 +54,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 
     Uma abordagem para obter o melhor dos arquivos do Azure e um servidor de arquivos hospedado em máquinas virtuais do Azure (além de usar discos do Azure como armazenamento de back-end) é instalar Sincronização de Arquivos do Azure em um servidor de arquivos hospedado em uma VM de nuvem. Se o compartilhamento de arquivos do Azure estiver na mesma região que o servidor de arquivos, você poderá habilitar a disposição em camadas de nuvem e definir o volume de porcentagem de espaço livre para máximo (99%). Isso garante a duplicação mínima de dados. Você também pode usar todos os aplicativos que desejar com seus servidores de arquivos, como aplicativos que exigem suporte ao protocolo NFS.
 
-    Para obter informações sobre uma opção para configurar um servidor de arquivos de alto desempenho e altamente disponível no Azure, consulte Implantando [clusters convidados da VM IaaS no Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Para obter uma descrição mais detalhada das diferenças entre os arquivos do Azure e os discos do Azure, consulte [decidindo quando usar o armazenamento de BLOBs do Azure, os arquivos do Azure ou os discos do Azure](../common/storage-decide-blobs-files-disks.md). Para saber mais sobre os discos do Azure, confira [visão geral do azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Para obter informações sobre uma opção para configurar um servidor de arquivos de alto desempenho e altamente disponível no Azure, consulte [implantando clusters convidados da VM IaaS no Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Para obter uma descrição mais detalhada das diferenças entre os arquivos do Azure e os discos do Azure, consulte [decidindo quando usar o armazenamento de BLOBs do Azure, os arquivos do Azure ou os discos do Azure](../common/storage-decide-blobs-files-disks.md). Para saber mais sobre os discos do Azure, confira [visão geral do azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
   **Como fazer começar a usar os arquivos do Azure?**  
@@ -72,7 +72,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 
 * <a id="tier-options"></a>
   **Quais camadas de armazenamento têm suporte nos arquivos do Azure?**  
-    Os arquivos do Azure dão suporte a duas camadas de armazenamento: Premium e Standard. Os compartilhamentos de arquivos padrão são criados em contas de armazenamento de uso geral (GPv1 ou GPv2) e os compartilhamentos de arquivos Premium são criados em contas de armazenamento de armazenamento de arquivo. Saiba mais sobre como criar compartilhamentos de [arquivos padrão](storage-how-to-create-file-share.md) e compartilhamentos de [arquivos Premium](storage-how-to-create-premium-fileshare.md). 
+    Os arquivos do Azure dão suporte a duas camadas de armazenamento: Premium e Standard. Os compartilhamentos de arquivos padrão são criados em contas de armazenamento de uso geral (GPv1 ou GPv2) e os compartilhamentos de arquivos Premium são criados em contas de armazenamento de armazenamento de arquivo. Saiba mais sobre como criar [compartilhamentos de arquivos padrão](storage-how-to-create-file-share.md) e [compartilhamentos de arquivos Premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
     > Você não pode criar compartilhamentos de arquivos do Azure de contas de armazenamento de BLOBs ou contas de armazenamento *Premium* de uso geral (GPv1 ou GPv2). Os compartilhamentos de arquivos padrão do Azure devem ser criados somente em contas de uso geral *padrão* e compartilhamentos de arquivos premium do Azure devem ser criados somente em contas de armazenamento de armazenamento. As contas de armazenamento de uso geral *Premium* (GPv1 e GPv2) são apenas para BLOBs de páginas Premium. 
@@ -100,7 +100,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
    
     \<FileNameWithoutExtension\>MachineName-.\>\<\[-#\]\< externa\>  
 
-    Por exemplo, o primeiro conflito de CompanyReport. docx se tornaria CompanyReport-CentralServer. docx se CentralServer for onde ocorreu a gravação mais antiga. O segundo conflito seria nomeado CompanyReport-CentralServer-1. docx.
+    Por exemplo, o primeiro conflito de CompanyReport. docx se tornaria CompanyReport-CentralServer. docx se CentralServer for onde ocorreu a gravação mais antiga. O segundo conflito seria nomeado CompanyReport-CentralServer-1. docx. O Sincronização de Arquivos do Azure dá suporte a arquivos de conflito 100 por arquivo. Depois que o número máximo de arquivos de conflito for atingido, o arquivo não será sincronizado até que o número de arquivos de conflito seja menor que 100.
 
 * <a id="afs-storage-redundancy"></a>
   **O armazenamento com redundância geográfica tem suporte para Sincronização de Arquivos do Azure?**  
@@ -178,7 +178,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 
     - Sincronização de Arquivos do Azure preserva e Replica todas as ACLs condicionais, ou DACLs, (seja baseada em Active Directory ou local) para todos os pontos de extremidade do servidor para os quais ele está sincronizado. Como o Windows Server já pode se autenticar com o Active Directory, Sincronização de Arquivos do Azure é uma opção de intervalo de parada efetiva até que o suporte completo para autenticação baseada em Active Directory e suporte a ACL chegue.
     
-    Você pode consultar autorizar o [acesso ao armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma representação abrangente de todos os protocolos com suporte nos serviços de armazenamento do Azure. 
+    Você pode consultar [autorizar o acesso ao armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma representação abrangente de todos os protocolos com suporte nos serviços de armazenamento do Azure. 
 
 * <a id="ad-support-devices"></a>
 **O Azure files AD DS autenticação do Azure dá suporte ao acesso SMB usando as credenciais do Azure AD de dispositivos ingressados ou registrados com o Azure AD?**
@@ -255,7 +255,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 ## <a name="backup"></a>Criar cópia de segurança
 * <a id="backup-share"></a>
 **Como fazer fazer backup do meu compartilhamento de arquivos do Azure?**  
-    Você pode usar instantâneos de [compartilhamento](storage-snapshots-files.md) periódicos para proteção contra exclusões acidentais. Você também pode usar o AzCopy, o Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de um compartilhamento de arquivos montado. O backup do Azure oferece backup de arquivos do Azure. Saiba mais sobre como [fazer backup de compartilhamentos de arquivos do Azure pelo backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).
+    Você pode usar [instantâneos de compartilhamento](storage-snapshots-files.md) periódicos para proteção contra exclusões acidentais. Você também pode usar o AzCopy, o Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de um compartilhamento de arquivos montado. O backup do Azure oferece backup de arquivos do Azure. Saiba mais sobre como [fazer backup de compartilhamentos de arquivos do Azure pelo backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantâneos de compartilhamento
 
@@ -289,7 +289,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 **Posso criar instantâneo de compartilhamento de arquivos individuais?**  
     Os instantâneos de compartilhamento são criados no nível de compartilhamento de arquivos. Você pode restaurar arquivos individuais do instantâneo de compartilhamento de arquivos, mas não pode criar instantâneos de compartilhamento no nível de arquivo. No entanto, se você tiver feito um instantâneo de compartilhamento de nível de compartilhamento e desejar listar instantâneos de compartilhamento em que um arquivo específico foi alterado, poderá fazer isso em **versões anteriores** em um compartilhamento montado pelo Windows. 
     
-    Se você precisar de um recurso de instantâneo de arquivo, informe-nos no UserVoice de [arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    Se você precisar de um recurso de instantâneo de arquivo, informe-nos no [UserVoice de arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
 * <a id="encrypted-snapshots"></a>
 **Posso criar instantâneos de compartilhamento de um compartilhamento de arquivos criptografado?**  

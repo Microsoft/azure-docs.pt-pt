@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348705"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105109"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurar contêineres do reconhecedor de formulário
 
@@ -45,7 +45,7 @@ A `Billing` configuração especifica o URI do ponto de extremidade do recurso r
 
 Você pode encontrar essa configuração na portal do Azure, na **visão geral**do reconhecedor de formulário, em **ponto de extremidade**.
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Requerido| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
@@ -74,10 +74,10 @@ O contêiner do reconhecedor de formulário requer uma montagem de entrada e uma
 
 A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o local de montagem do [computador host](form-recognizer-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões de conta de serviço do Docker e as permissões de local de montagem do host.
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Necessário| `Input` | Cadeia | O destino da montagem de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Necessário| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Requerido| `Input` | Cadeia | O destino da montagem de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Requerido| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Executar comandos de docker de exemplo
 
@@ -88,18 +88,19 @@ Os exemplos seguintes utilizam as definições de configuração para ilustrar c
 
 Substitua {_argument_name_} na tabela a seguir com seus próprios valores:
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | A chave usada para iniciar o contêiner. Ele está disponível na página chaves do reconhecedor do portal do Azure Form.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral do reconhecedor do portal do Azure Form.|
-|{COMPUTER_VISION_API_KEY}| A chave está disponível na página portal do Azure API da Pesquisa Visual Computacional chaves.|
-|{COMPUTER_VISION_ENDPOINT_URI}|O ponto de extremidade de cobrança. Se você estiver usando um recurso de Pesquisa Visual Computacional baseado em nuvem, o valor do URI estará disponível na página Visão geral do API da Pesquisa Visual Computacional de portal do Azure. Se você estiver usando um contêiner *cognitiva-Services-Recognize-Text* , use a URL do ponto de extremidade de cobrança que é passada `docker run` para o contêiner no comando.|
+| **{FORM_RECOGNIZER_API_KEY}** | A chave usada para iniciar o contêiner. Ele está disponível na página chaves do reconhecedor do portal do Azure Form. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral do reconhecedor do portal do Azure Form.|
+| **{COMPUTER_VISION_API_KEY}** | A chave está disponível na página portal do Azure API da Pesquisa Visual Computacional chaves.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | O ponto de extremidade de cobrança. Se você estiver usando um recurso de Pesquisa Visual Computacional baseado em nuvem, o valor do URI estará disponível na página Visão geral do API da Pesquisa Visual Computacional de portal do Azure. Se você estiver usando um contêiner *cognitiva-Services-Recognize-Text* , use a URL do ponto de extremidade de cobrança que é passada `docker run` para o contêiner no comando. |
+
+Consulte [coletando parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters) para obter detalhes sobre como obter esses valores.
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Para executar o contêiner, especifique as `Eula`opções `Billing`, e `ApiKey` ; caso contrário, o contêiner não será iniciado. Para obter mais informações, consulte [faturação](#billing-configuration-setting).
-
-> [!NOTE] 
-> O valor ApiKey é a **chave** da página chaves de recurso do reconhecedor do Azure Form.
 
 ## <a name="form-recognizer-container-docker-examples"></a>Exemplos do Docker de contêiner do reconhecedor de formulário
 
@@ -134,6 +135,6 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Examine [instalar e executar contêineres](form-recognizer-container-howto.md).

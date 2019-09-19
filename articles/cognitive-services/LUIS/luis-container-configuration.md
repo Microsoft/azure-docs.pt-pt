@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560618"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101986"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker Reconhecimento vocal 
 
@@ -106,7 +106,7 @@ A tabela seguinte descreve as definições suportadas.
 
 Os exemplos seguintes utilizam as definições de configuração para ilustrar como escrever e usar `docker run` comandos.  Quando em execução, o contentor continua a ser executada até [parar](luis-container-howto.md#stop-the-container) -lo.
 
-* Esses exemplos usam o diretório fora da `c:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. 
+* Esses exemplos usam o diretório fora da `C:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. 
 * Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
 * Se você estiver usando um sistema operacional diferente, use o console/terminal correto, a sintaxe de pasta para montagens e o caractere de continuação de linha para o seu sistema. Esses exemplos pressupõem um console do Windows com um caractere `^`de continuação de linha. Como o contêiner é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
 
@@ -116,11 +116,13 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
-|{API_KEY} | A chave de ponto final da aplicação LUIS treinada. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URL} | O valor do ponto de extremidade de cobrança está `Cognitive Services` disponível na página Visão geral do Azure. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
+| **{API_KEY}** | A chave do ponto de `LUIS` extremidade do recurso na `LUIS` página de chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está `LUIS` disponível na página Visão geral do Azure.| Consulte [coletando parâmetros necessários](luis-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](luis-container-howto.md#billing).
+> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor. Para obter mais informações, consulte [faturação](luis-container-howto.md#billing).
 > O valor ApiKey é a **chave** da página chaves e pontos de extremidade no portal do Luis e também está disponível na página chaves de `Cognitive Services` recurso do Azure. 
 
 ### <a name="basic-example"></a>Exemplo básico

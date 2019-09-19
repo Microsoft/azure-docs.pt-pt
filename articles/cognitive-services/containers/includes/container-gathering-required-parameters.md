@@ -6,26 +6,29 @@ manager: nitinme
 description: Os parâmetros para todos os contêineres de serviços cognitivas
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/24/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 636a41fde345a08db1549e53626522962f9cf74f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 06f68d28d06dec7c9e738ad8cb50ca337fa840be
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488782"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102021"
 ---
 ## <a name="gathering-required-parameters"></a>Coletando parâmetros necessários
 
-Há três parâmetros principais para todos os contêineres de serviços cognitivas que são necessários. O contrato de licença de usuário final (**EULA**) deve estar presente com um valor `accept`de. Além disso, uma URL de ponto de extremidade e uma chave de API são necessárias.
+Há três parâmetros principais para todos os contêineres de serviços cognitivas que são necessários. O contrato de licença de usuário final (EULA) deve estar presente com um valor `accept`de. Além disso, uma URL de ponto de extremidade e uma chave de API são necessárias.
 
-### <a name="endpoint-uri-endpointuri"></a>URI do ponto de extremidade`{Endpoint_URI}`
+> [!NOTE]
+> A única exceção a esses três parâmetros obrigatórios é quando os contêineres são considerados contêineres "offline". Os contêineres offline não relatam o uso, não são medidos e seguem uma metodologia de cobrança diferente.
+
+### <a name="endpoint-uri-endpoint_uri"></a>URI do ponto de extremidade`{ENDPOINT_URI}`
 
 O valor do URI do **ponto de extremidade** está disponível na página de *visão geral* portal do Azure do recurso de serviço cognitiva correspondente. Navegue até a página *visão geral* , focalize o ponto de extremidade e `Copy to clipboard` um <span class="docon docon-edit-copy x-hidden-focus"></span> ícone será exibido. Copie e use onde for necessário.
 
 ![Coletar o URI do ponto de extremidade para uso posterior](../media/overview-endpoint-uri.png)
 
-### <a name="keys-apikey"></a>Novas`{API_Key}`
+### <a name="keys-api_key"></a>Novas`{API_KEY}`
 
 Essa chave é usada para iniciar o contêiner e está disponível na página chaves do portal do Azure do recurso de serviço cognitiva correspondente. Navegue até a página *chaves* e clique no `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone.
 

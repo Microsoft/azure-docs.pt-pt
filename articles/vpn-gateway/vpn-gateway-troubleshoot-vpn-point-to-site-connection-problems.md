@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 37c2cf5ffb5e6eaf8b8da6e7bc9259cfa101c796
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058824"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104825"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução Problemas de conexão de ponto a site do Azure
 
@@ -48,8 +48,7 @@ Para resolver esse problema, siga estas etapas:
     | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | User\Personal\Certificates atual |
-    | Azuregateway-*GUID*.cloudapp.net  | Autoridades de certificação raiz User\Trusted atuais|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Autoridades de certificação raiz computador locais|
+    | AzureRoot. cer    | Autoridades de certificação raiz computador locais|
 
 3. Vá para C:\Users\<username > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, instale manualmente o certificado (arquivo *. cer) no repositório do usuário e do computador.
 

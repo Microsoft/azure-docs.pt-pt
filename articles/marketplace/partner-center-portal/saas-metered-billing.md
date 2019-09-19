@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141780"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105501"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Cobrança limitada usando o serviço de medição do Marketplace
 
@@ -55,7 +55,7 @@ Por exemplo, a contoso é um editor com um serviço SaaS chamado contoso Notific
     * Além dos 50000 emails, pague $0.05 para cada 100 emails
     * Além dos 10000 textos, pague $0.01 para cada texto
 
-Um cliente do Azure que está assinando o serviço CNS poderá enviar a quantidade incluída de texto e emails por mês com base no plano selecionado.  Quando os clientes consomem mais do que a quantidade incluída, eles não precisam alterar os planos ou fazer algo diferente.  A contoso medirá o excedente além da quantidade incluída e começará a emitir eventos de uso para a Microsoft para uso adicional usando a [API do serviço de medição do Marketplace](./marketplace-metering-service-apis.md).  A Microsoft, por sua vez, cobrará o cliente pelo uso adicional, conforme especificado pelo Publicador.
+Um cliente do Azure que está assinando o serviço CNS poderá enviar a quantidade incluída de texto e emails por mês com base no plano selecionado.  A contoso mede o uso até a quantidade incluída sem enviar nenhum evento de uso à Microsoft.  Quando os clientes consomem mais do que a quantidade incluída, eles não precisam alterar os planos ou fazer algo diferente.  A contoso medirá o excedente além da quantidade incluída e começará a emitir eventos de uso para a Microsoft para uso adicional usando a [API do serviço de medição do Marketplace](./marketplace-metering-service-apis.md).  A Microsoft, por sua vez, cobrará o cliente pelo uso adicional, conforme especificado pelo Publicador.
 
 ## <a name="billing-dimensions"></a>Dimensões de cobrança
 
@@ -135,6 +135,6 @@ Siga as etapas abaixo para enviar seu tíquete de suporte:
 
 Consulte [suporte para o programa do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) para obter mais opções de suporte do Publicador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para obter mais informações.

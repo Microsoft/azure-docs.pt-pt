@@ -1,131 +1,131 @@
 ---
-title: Dimensionamento automático e o Gateway de aplicação com redundância de zona v2
-description: Este artigo apresenta o Standard_v2 de aplicação do Azure e o SKU de WAF_v2, que inclui funcionalidades de dimensionamento automático e com redundância de zona.
+title: Dimensionamento automático e gateway de aplicativo com redundância de zona v2
+description: Este artigo apresenta o Aplicativo Azure SKU Standard_v2 e WAF_v2, que inclui dimensionamento automático e recursos com redundância de zona.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b97dab0f41915ac6193c35cad9a6af812b16fd4a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655300"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104893"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona v2 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e gateway de aplicativo com redundância de zona v2 
 
-Gateway de aplicação e de Firewall de aplicações Web (WAF) também estão disponíveis num Standard_v2 e WAF_v2 SKU. O SKU de v2 oferece aprimoramentos de desempenho e adiciona suporte para críticos novos recursos, como o dimensionamento automático, a redundância de zona e o suporte para VIPs estáticos. Os recursos existentes em Standard e do WAF SKU continuam a ser suportados no novo SKU do v2, com algumas exceções listadas na [comparação](#differences-with-v1-sku) secção.
+O gateway de aplicativo e o WAF (firewall do aplicativo Web) também estão disponíveis em um SKU Standard_v2 e WAF_v2. A SKU v2 oferece aprimoramentos de desempenho e adiciona suporte a novos recursos críticos como dimensionamento automático, redundância de zona e suporte para VIPs estáticos. Os recursos existentes no SKU Standard e WAF continuam com suporte no novo SKU v2, com algumas exceções listadas na seção [comparação](#differences-with-v1-sku) .
 
-O novo SKU v2 inclui os seguintes melhoramentos:
+A nova SKU v2 inclui os seguintes aprimoramentos:
 
-- **Dimensionamento automático**: Gateway de aplicação ou WAF as implementações ao abrigo do SKU do dimensionamento automático podem aumentar ou para baixo com base nos padrões de carga do tráfego a alteração. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Este SKU oferece verdadeira elasticidade. Na Standard_v2 e WAF_v2 SKU, o Gateway de aplicação pode operar em capacidade fixa (dimensionamento automático desativada) e no modo de dimensionamento automático ativado. Modo de capacidade fixo é útil para cenários com cargas de trabalho consistentes e previsíveis. Modo de dimensionamento automático é benéfico em aplicativos que veem a variação no tráfego de aplicativo.
-- **Redundância de zona**: Um Gateway de aplicação ou implementação de WAF pode abranger várias zonas de disponibilidade, eliminando a necessidade de aprovisionar instâncias separadas do Gateway de aplicação em cada zona com o Gestor de tráfego. Pode escolher uma zona única ou várias zonas de onde as instâncias de Gateway de aplicação estão implementadas, que torna mais resiliente a falhas de zona. Pode ser distribuído, da mesma forma, o conjunto de back-end para aplicações em zonas de disponibilidade.
+- **Dimensionamento**automático: As implantações de gateway de aplicativo ou de WAF no SKU de dimensionamento automático podem ser escaladas verticalmente com base na alteração dos padrões de carga de tráfego. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Esta SKU oferece elasticidade verdadeira. No SKU Standard_v2 e WAF_v2, o gateway de aplicativo pode operar em capacidade fixa (dimensionamento automático desabilitado) e no modo de dimensionamento automático habilitado. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de dimensionamento automático é benéfico em aplicativos que veem a variação no tráfego do aplicativo.
+- **Redundância de zona**: Um gateway de aplicativo ou implantação de WAF pode abranger vários Zonas de Disponibilidade, removendo a necessidade de provisionar instâncias de gateway de aplicativo separadas em cada zona com um Gerenciador de tráfego. Você pode escolher uma única zona ou várias zonas nas quais as instâncias do gateway de aplicativo são implantadas, o que o torna mais resiliente a falhas de zona. O pool de back-end para aplicativos pode ser distribuído de forma semelhante entre as zonas de disponibilidade.
 
-  Redundância de zona está disponível apenas em que estão disponíveis as zonas do Azure. Em outras regiões, todas as outras funcionalidades são suportadas. Para obter mais informações, consulte [quais são as zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
-- **VIP estático**: SKU de v2 do Gateway de aplicação suporta o tipo de VIP estático exclusivamente. Isto garante que o VIP associado ao gateway de aplicação não é alterado para o ciclo de vida da implementação, mesmo após um reinício.  Aqui não é um VIP estático no v1, então tem de utilizar o URL do gateway de aplicação em vez do endereço IP para o domínio nome encaminhamento para os serviços aplicacionais através do gateway de aplicação.
-- **Cabeçalho reescrita**: Gateway de aplicação permite-lhe adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP com o SKU da v2. Para obter mais informações, consulte [cabeçalhos de HTTP de reescrever com Gateway de aplicação](rewrite-http-headers.md)
-- **Integração do Key Vault (pré-visualização)** : V2 do Gateway de aplicação suporta a integração com o Key Vault (em pré-visualização pública) para certificados de servidor que estão anexados a serviços de escuta HTTPS ativado. Para obter mais informações, consulte [terminação de SSL com certificados do Key Vault](key-vault-certs.md).
-- **O Azure Kubernetes Service entrada controlador (pré-visualização)** : O controlador de entrada do Gateway de aplicação v2 permite que o Gateway de aplicação do Azure ser utilizado como a entrada para um Azure Kubernetes Service (AKS) conhecido como um Cluster do AKS. Para obter mais informações, consulte a [página de documentação](https://azure.github.io/application-gateway-kubernetes-ingress/).
-- **Melhorias de desempenho**: A descarga de v2 SKU oferece até 5 X SSL de melhor desempenho em comparação com o SKU Standard/WAF.
-- **Tempo de implantação e atualização mais rápido** o SKU de v2 proporciona um tempo de implantação e atualização mais rápido em comparação com a Standard/WAF SKU. Isso também inclui as alterações de configuração do WAF.
+  A redundância de zona está disponível somente quando as zonas do Azure estão disponíveis. Em outras regiões, há suporte para todos os outros recursos. Para obter mais informações, consulte [o que são zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
+- **VIP estático**: O SKU do gateway de aplicativo v2 dá suporte exclusivamente ao tipo de VIP estático. Isso garante que o VIP associado ao gateway de aplicativo não mude para o ciclo de vida da implantação, mesmo após uma reinicialização.  Não há um VIP estático na V1, portanto, você deve usar a URL do gateway de aplicativo em vez do endereço IP para roteamento de nome de domínio para os serviços de aplicativos por meio do gateway de aplicativo.
+- **Reescrita de cabeçalho**: O gateway de aplicativo permite adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP com o SKU v2. Para obter mais informações, consulte [reescrever cabeçalhos HTTP com o gateway de aplicativo](rewrite-http-headers.md)
+- **Integração de Key Vault (versão prévia)** : O gateway de aplicativo v2 dá suporte à integração com o Key Vault (em visualização pública) para certificados de servidor anexados a ouvintes habilitados para HTTPS. Para obter mais informações, consulte [terminação SSL com certificados Key Vault](key-vault-certs.md).
+- **Controlador de entrada do serviço kubernetes do Azure (versão prévia)** : O controlador de entrada do gateway de aplicativo V2 permite que o gateway de Aplicativo Azure seja usado como entrada para um serviço de kubernetes do Azure (AKS) conhecido como cluster AKS. Para obter mais informações, consulte a [página de documentação](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Aprimoramentos de desempenho**: A SKU v2 oferece um desempenho de descarregamento de SSL de até 5 vezes melhor em comparação com o SKU Standard/WAF.
+- **Tempo de implantação e atualização mais rápido** A SKU v2 fornece implantação e tempo de atualização mais rápidos em comparação com a SKU Standard/WAF. Isso também inclui alterações de configuração do WAF.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O SKU de WAF_v2 e Standard_v2 está disponível nas seguintes regiões: Centro-Norte, EUA Centro-Sul, E.U.A. oeste, E.U.A. oeste 2, E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, Europa do Norte, Europa Ocidental, Sudeste asiático, França Central, do Reino Unido oeste, leste do Japão, oeste do Japão, leste da Austrália, Sudeste da Austrália, Canadá Central, leste do Canadá, Coreia, Ásia Oriental Central, Coreia do Sul, Sul da Índia, do Reino Unido Sul, Índia Central, Índia Ocidental, Sul da Índia.
+O SKU Standard_v2 e WAF_v2 está disponível nas seguintes regiões: Norte EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França central, Oeste do Reino Unido, leste do Japão, oeste do Japão, leste da Austrália, sudeste da Austrália, Canadá central, leste do Canadá, Ásia Oriental, Coreia Central, sul da Coreia, sul da Índia, Sul do Reino Unido, Índia central, Índia ocidental, sul da Índia.
 
 ## <a name="pricing"></a>Preços
 
-Com o SKU de v2, o modelo de preços é orientado pelo consumo e já não está ligado a contagens de instâncias ou de tamanhos. Os preços da SKU v2 tem dois componentes:
+Com a SKU v2, o modelo de preços é acionado pelo consumo e não é mais anexado a contagens ou tamanhos de instância. O preço da SKU V2 tem dois componentes:
 
-- **Preço fixo** -esta é uma vez por hora (ou as horas parciais) preço para aprovisionar um Standard_v2 ou WAF_v2 Gateway.
-- **Preço unitário de capacidade** -este é o custo baseado no consumo que é cobrado além do custo fixo. A cobrança da unidade de capacidade também é calculada por hora ou por hora parcial. A unidade de capacidade tem três dimensões: unidade de computação, ligações persistentes e débito. A unidade de computação é a medida da capacidade de processador consumida. Fatores que afetam a unidade de computação são TLS ligações/seg, cálculos de reescrita de URLs e processamento da regra de WAF. Ligação persistente é uma medida de conexões TCP estabelecidas para o gateway de aplicação num determinado intervalo de faturação. O débito é médio Megabits por segundo processado pelo sistema num determinado intervalo de faturação.
+- **Preço fixo** – é o preço por hora (ou hora parcial) para provisionar um gateway Standard_v2 ou WAF_v2.
+- **Preço unitário de capacidade** -esse é o custo baseado em consumo que é cobrado além do custo fixo. A cobrança da unidade de capacidade também é calculada por hora ou por hora parcial. A unidade de capacidade tem três dimensões: unidade de computação, ligações persistentes e débito. A unidade de computação é a medida da capacidade de processador consumida. Fatores que afetam a unidade de computação são conexões TLS/s, computações de regravação de URL e processamento de regra WAF. Conexão persistente é uma medida de conexões TCP estabelecidas com o gateway de aplicativo em um determinado intervalo de cobrança. A taxa de transferência é média de megabits/s processadas pelo sistema em um determinado intervalo de cobrança.
 
-Cada unidade de capacidade é composta de no máximo: 1 de computação unidade, ou ligações persistentes de 2500 ou débito 2.22 Mbps.
+Cada unidade de capacidade é composta por, no máximo: 1 unidade de computação, ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
 
-Orientações de unidade de computação:
+Diretrizes da unidade de computação:
 
-- **Standard_v2** -cada unidade de computação é capaz de aproximadamente 50 conexões por segundo com o certificado de TLS de chave RSA de 2048 bits.
-- **WAF_v2** - cada computação unidade pode suportar aproximadamente 10 solicitações simultâneas por segundo para pedidos de 70 a 30% mistura de tráfego com 70% menor do que 2 KB obter/POSTAR e restantes superior. Desempenho de WAF não é afetado pelo tamanho da resposta atualmente.
+- **Standard_v2** -cada unidade de computação é capaz de aproximadamente 50 conexões por segundo com o certificado TLS de chave de 2048 bits da RSA.
+- **WAF_v2** -cada unidade de computação pode dar suporte a aproximadamente 10 solicitações simultâneas por segundo para 70-30% de combinação de tráfego com 70% de solicitações com menos de 2 KB Get/post e restantes. O desempenho do WAF não é afetado pelo tamanho da resposta no momento.
 
 > [!NOTE]
-> Cada instância conseguem atualmente suportar aproximadamente 10 unidades de capacidade.
-> O número de pedidos que pode manipular uma unidade de computação depende de diversos critérios, como o tamanho de chave do certificado TLS, o algoritmo de troca de chaves, o cabeçalho reescritas e, em caso de tamanho do pedido de entrada WAF. Recomendamos que efetue testes de aplicativo para determinar a taxa de pedidos por unidade de computação. Unidade de capacidade e unidade de computação serão disponibilizadas como uma métrica antes de faturação começa.
+> Atualmente, cada instância pode oferecer suporte a aproximadamente 10 unidades de capacidade.
+> O número de solicitações que uma unidade de computação pode manipular depende de vários critérios, como o tamanho da chave do certificado TLS, o algoritmo de troca de chave, as regravações de cabeçalho e, no caso do tamanho da solicitação de entrada do WAF. Recomendamos que você execute testes de aplicativo para determinar a taxa de solicitação por unidade de computação. A unidade de capacidade e a unidade de computação serão disponibilizadas como uma métrica antes do início da cobrança.
 
-A tabela seguinte mostra os preços de exemplo e é apenas para fins ilustrativos.
+A tabela a seguir mostra os preços de exemplo e são apenas para fins ilustrativos.
 
-**Preços em E.U.A. Leste**:
+**Preços no leste dos EUA**:
 
-|              Nome do SKU                             | Preço fixo ($/ hora)  | Preço da unidade de capacidade ($/ CU-h)   |
+|              Nome do SKU                             | Preço fixo ($/HR)  | Preço unitário de capacidade ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0.0080                          |
-| WAF_v2                                            |    0.36             | 0.0144                          |
+| Standard_v2                                       |    0,20             | 0, 80                          |
+| WAF_v2                                            |    0,36             | 0, 144                          |
 
-Para obter mais informações sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/). Faturação está agendada para começar a partir de 1 de Julho de 2019.
+Para obter mais informações sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/). A cobrança está agendada para iniciar em 1º de julho de 2019.
 
 **Exemplo 1**
 
-Um Standard_v2 de Gateway de aplicação é aprovisionado sem dimensionamento automático no modo de dimensionamento manual com capacidade fixa de cinco instâncias.
+Um Standard_v2 do gateway de aplicativo é provisionado sem o dimensionamento automático no modo de dimensionamento manual com capacidade fixa de cinco instâncias.
 
-Preço fixo = 744(hours) * US $0.20 = us $148.8 <br>
-Unidades de capacidade = 744 (horas) * 10 unidades de capacidade por instância * 5 instâncias * US $0.008 por hora de unidade de capacidade = us $297.6
+Preço fixo = 744 (horas) * $0.20 = $148.08 <br>
+Unidades de capacidade = 744 (horas) * 10 unidades de capacidade por instância * 5 instâncias * $0.08 por unidade de capacidade hora = $297.06
 
-Preço total = us $148.8 + us $297.6 = us $446.4
+Preço total = $148.08 + $297.06 = $446.04
 
 **Exemplo 2**
 
-Standard_v2 um Gateway de aplicação é aprovisionado durante um mês e durante este período recebe 25 novo SSL ligações/seg, média de transferência de dados de 8.88 Mbps. Partindo do princípio de que as ligações tiverem vida curtas, o preço seria:
+Um standard_v2 do gateway de aplicativo é provisionado por um mês e, durante esse tempo, ele recebe 25 novas conexões SSL/s, a média da transferência de dados de 8,88 Mbps. Supondo que as conexões sejam de curta duração, o preço seria:
 
-Preço fixo = 744(hours) * US $0.20 = us $148.8
+Preço fixo = 744 (horas) * $0.20 = $148.08
 
-Preço da unidade de capacidade = 744(hours) * Max (unidade de computação de 25/50 para conexões por segundo, 8.88/2.22 a unidade de capacidade de débito) * US $0.008 = 744 * 4 * 0.008 = us $23.81
+Preço da unidade de capacidade = 744 (horas) * máx (25/50 unidade de computação para conexões/s, unidade de capacidade 8.88/2.22 para taxa de transferência) * $0.08 = 744 * 4 * 0, 8 = $23.81
 
-Preço total = us $148. 23.81 8 + = $172.61
+Preço total = $148.8 + 23.81 = $172.61
 
 > [!NOTE]
-> A função Max devolve o maior valor num par de valores.
+> A função Max retorna o maior valor em um par de valores.
 
 **Exemplo 3**
 
-Um WAF_v2 de Gateway de aplicação é aprovisionada para um mês. Durante este período, ele recebe 25 novo SSL ligações/seg, média de transferência de dados de 8.88 Mbps e faz 80 pedidos por segundo. Partindo do princípio de que as ligações são de curtas duração e que o cálculo de unidade de computação para a aplicação suporta 10 RPS por unidade de computação, o preço seria:
+Um WAF_v2 do gateway de aplicativo é provisionado por um mês. Durante esse tempo, ele recebe 25 novas conexões SSL/s, a média da transferência de dados de 8,88 Mbps e a 80 solicitação por segundo. Supondo que as conexões sejam de curta duração e que o cálculo da unidade de computação para o aplicativo dê suporte a 10 RPS por unidade de computação, seu preço seria:
 
-Preço fixo = 744(hours) * US $0.36 = us $267.84
+Preço fixo = 744 (horas) * $0.36 = $267.84
 
-Preço da unidade de capacidade = 744(hours) * Max (computação unidade Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 a unidade de capacidade de débito) * US $0.0144 = 744 * 8 * 0.0144 = us $85.71
+Preço da unidade de capacidade = 744 (horas) * máx (unidade de computação máx. (25/50 para conexões/s, 80/10 WAF RPS), unidade de capacidade 8.88/2.22 para taxa de transferência) * $0.144 = 744 * 8 * 0, 144 = $85.71
 
-Preço total = us $267.84 + us $85.71 = us $353.55
+Preço total = $267.84 + $85.71 = $353.55
 
 > [!NOTE]
-> A função Max devolve o maior valor num par de valores.
+> A função Max retorna o maior valor em um par de valores.
 
-## <a name="scaling-application-gateway-and-waf-v2"></a>Dimensionar o Gateway de aplicação e WAF v2
+## <a name="scaling-application-gateway-and-waf-v2"></a>Dimensionando o gateway de aplicativo e o WAF v2
 
-Gateway de aplicação e WAF podem ser configuradas para dimensionamento em dois modos:
+O gateway de aplicativo e o WAF podem ser configurados para dimensionar em dois modos:
 
-- **Dimensionamento automático** – com dimensionamento automático ativado, o Gateway de aplicação e v2 de WAF SKUs aumentar ou reduzir verticalmente com base nos requisitos de tráfego de aplicativo. Esse modo oferece melhor elasticidade à sua aplicação e elimina a necessidade de adivinhar a contagem de instâncias ou de tamanho de gateway do aplicativo. Este modo também permite-lhe poupar no custo sem exigir a execução gateways atingiu o limite de pico aprovisionado para a carga de tráfego máximo previsto. Os clientes tem de especificar uma contagem de instâncias mínima e máxima opcionalmente. Capacidade mínima garante que o Gateway de aplicação e WAF v2 não são inferiores a contagem de instâncias mínima especificada, até mesmo na ausência de tráfego. Será cobrado para esta capacidade mínima até mesmo na ausência de qualquer tráfego. Opcionalmente, também pode especificar um número máximo de instâncias, que garante que o Gateway de aplicação não pode ser escalonada para além do número especificado de instâncias. Irá continuar a ser faturados a quantidade de tráfego atendido pelo Gateway. As contagens de instâncias podem variar entre 0 e 125. O valor predefinido para o número máximo de instâncias é 20 se não for especificado.
-- **Manual** -, pode optar em que o gateway não o dimensionamento automático de modo Manual. Neste modo, se houver mais tráfego do que o que o Gateway de aplicação ou WAF pode lidar, ele poderia resultar na perda de tráfego. Com o modo manual, especificar o número de instâncias é obrigatório. Contagem de instâncias pode variar de 1 para 125 instâncias.
+- **Dimensionamento** automático-com o dimensionamento automático habilitado, os SKUs do gateway de aplicativo e do WAF v2 são escalados verticalmente com base nos requisitos de tráfego do aplicativo. Esse modo oferece maior elasticidade ao seu aplicativo e elimina a necessidade de adivinhar o tamanho do gateway de aplicativo ou a contagem de instâncias. Esse modo também permite que você economize custos não exigindo que o gateway seja executado no pico de capacidade provisionada para carga de tráfego máxima prevista. Você deve especificar uma contagem mínima e opcional máxima de instâncias. A capacidade mínima garante que o gateway de aplicativo e o WAF v2 não fiquem abaixo da contagem mínima de instâncias especificada, mesmo na ausência de tráfego. Cada instância conta como 10 unidades de capacidade reservadas adicionais. 0 significa nenhuma capacidade reservada e é puramente autoescala por natureza. Observe que 0 instâncias mínimas adicionais ainda garantem a alta disponibilidade do serviço, que é sempre incluído com o preço fixo. Opcionalmente, você também pode especificar uma contagem máxima de instâncias, o que garante que o gateway de aplicativo não seja dimensionado além do número especificado de instâncias. Você continuará sendo cobrado pela quantidade de tráfego servida pelo Gateway. As contagens de instâncias podem variar de 0 a 125. O valor padrão para contagem máxima de instâncias é 20, se não for especificado. 
+- **Manual** -você também pode escolher o modo manual em que o gateway não fará o dimensionamento automático. Nesse modo, se houver mais tráfego do que o gateway de aplicativo ou o WAF pode manipular, isso poderá resultar em perda de tráfego. Com o modo manual, especificar a contagem de instâncias é obrigatório. A contagem de instâncias pode variar de 1 a 125 instâncias.
 
-## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de funcionalidades entre o SKU de v1 e v2 SKU
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de recursos entre SKU v1 e SKU v2
 
-A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
+A tabela a seguir compara os recursos disponíveis com cada SKU.
 
-|                                                   | v1 SKU   | v2 SKU   |
+|                                                   | SKU V1   | SKU V2   |
 | ------------------------------------------------- | -------- | -------- |
 | Dimensionamento automático                                       |          | &#x2713; |
 | Redundância de zona                                   |          | &#x2713; |
 | VIP estático                                        |          | &#x2713; |
-| Controlador do Azure Kubernetes Service (AKS) de entrada |          | &#x2713; |
-| Integração do Cofre de Chaves do Azure                       |          | &#x2713; |
-| Reescreva os cabeçalhos de HTTP (S)                           |          | &#x2713; |
+| Controlador de entrada do AKS (serviço kubernetes do Azure) |          | &#x2713; |
+| Integração do Azure Key Vault                       |          | &#x2713; |
+| Reescrever cabeçalhos HTTP (S)                           |          | &#x2713; |
 | Encaminhamento com base no URL                                 | &#x2713; | &#x2713; |
 | Alojamento de vários sites                             | &#x2713; | &#x2713; |
 | Redirecionamento de tráfego                               | &#x2713; | &#x2713; |
 | Firewall de aplicações Web (WAF)                    | &#x2713; | &#x2713; |
 | Terminação de SSL (Secure Sockets Layer)            | &#x2713; | &#x2713; |
-| Encriptação SSL ponto a ponto                         | &#x2713; | &#x2713; |
+| Criptografia SSL de ponta a ponta                         | &#x2713; | &#x2713; |
 | Afinidade de sessão                                  | &#x2713; | &#x2713; |
 | Páginas de erro personalizadas                                | &#x2713; | &#x2713; |
 | Suporte do WebSocket                                 | &#x2713; | &#x2713; |
@@ -133,30 +133,30 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 | Drenagem de ligação                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
-> O v2 de dimensionamento automático agora oferece suporte a SKU [sondas de estado de funcionamento padrão](application-gateway-probe-overview.md#default-health-probe) para monitorizar o estado de funcionamento de todos os recursos no seu conjunto de back-end e destacar esses membros de back-end que são considerados mau estado de funcionamento automaticamente. A sonda de estado de funcionamento predefinido é configurada automaticamente para o back-ends que não têm qualquer configuração de sonda personalizada. Para obter mais informações, consulte [sondas de estado de funcionamento no gateway de aplicação](application-gateway-probe-overview.md).
+> O SKU v2 de dimensionamento automático agora dá suporte a [investigações de integridade padrão](application-gateway-probe-overview.md#default-health-probe) para monitorar automaticamente a integridade de todos os recursos em seu pool de back-ends e realçar os membros de back-end que são considerados não íntegros. A investigação de integridade padrão é configurada automaticamente para back-ends que não têm nenhuma configuração de investigação personalizada. Para saber mais, consulte [investigações de integridade no gateway de aplicativo](application-gateway-probe-overview.md).
 
-## <a name="differences-with-v1-sku"></a>Diferenças com v1 SKU
+## <a name="differences-with-v1-sku"></a>Diferenças com o SKU v1
 
 |Diferença|Detalhes|
 |--|--|
-|Certificado de autenticação|Não suportado.<br>Para obter mais informações, consulte [descrição geral do SSL ponto a ponto com o Gateway de aplicação](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Misturar Standard_v2 e o padrão Gateway de aplicação na mesma sub-rede|Não suportado|
-|Definido rota utilizador (UDR) na sub-rede de Gateway de aplicação|Não suportado|
-|NSG para o intervalo de portas de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 à 65534 para Standard SKU.<br>Para obter mais informações, consulte a [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Registos de desempenho no diagnóstico do Azure|Não suportado.<br>Métricas do Azure devem ser utilizadas.|
-|Faturação|Faturação agendada para começar a partir de 1 de Julho de 2019.|
-|Modo FIPS|Estes não são atualmente suportadas.|
-|Modo só de ILB|Isso não é atualmente suportado. Público e o modo ILB é suportado em conjunto.|
-|Integração de Netwatcher|Não suportado.|
-|Integração do Centro de segurança do Azure|Ainda não está disponível.
+|Certificado de autenticação|Não suportado.<br>Para obter mais informações, consulte [visão geral do SSL de ponta a ponta com o gateway de aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Misturar Standard_v2 e gateway de aplicativo padrão na mesma sub-rede|Não suportado|
+|UDR (rota definida pelo usuário) na sub-rede do gateway de aplicativo|Não suportado|
+|NSG para intervalo de portas de entrada| -65200 a 65535 para SKU Standard_v2<br>-65503 a 65534 para SKU Standard.<br>Para obter mais informações, consulte as [perguntas frequentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|Logs de desempenho no diagnóstico do Azure|Não suportado.<br>As métricas do Azure devem ser usadas.|
+|Faturação|Cobrança agendada para iniciar em 1º de julho de 2019.|
+|Modo FIPS|Atualmente, não há suporte para eles.|
+|Modo somente ILB|Não há suporte para isso no momento. Há suporte para o modo público e ILB juntos.|
+|Integração do netassister|Não suportado.|
+|Integração da central de segurança do Azure|Ainda não disponível.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrar do v1 para v2
 
-Um script do PowerShell do Azure está disponível na galeria do PowerShell para o ajudar a migrar a partir do seu v1 aplicação/WAF do Gateway para o SKU do dimensionamento automático do v2. Este script ajuda-o a copiar a configuração do seu gateway v1. Migração de tráfego é sua responsabilidade. Para obter mais informações, consulte [migrar Gateway de aplicação Azure da v1 para v2](migrate-v1-v2.md).
+Um script de Azure PowerShell está disponível na galeria do PowerShell para ajudá-lo a migrar do seu Application Gateway/WAF v1 para o SKU de dimensionamento automático v2. Esse script ajuda a copiar a configuração do seu gateway v1. A migração de tráfego ainda é sua responsabilidade. Para obter mais informações, consulte [migrar aplicativo Azure gateway de v1 para v2](migrate-v1-v2.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure](quick-create-portal.md)
-- [Criar um dimensionamento automático, o gateway de aplicação com redundância de zona com um endereço IP virtual reservado com o Azure PowerShell](tutorial-autoscale-ps.md)
-- Saiba mais sobre [Gateway de aplicação](overview.md).
-- Saiba mais sobre [Firewall do Azure](../firewall/overview.md).
+- [Quickstart: Tráfego direto da Web com Aplicativo Azure gateway-portal do Azure](quick-create-portal.md)
+- [Criar um gateway de aplicativo com redundância de zona e dimensionamento automático com um endereço IP virtual reservado usando Azure PowerShell](tutorial-autoscale-ps.md)
+- Saiba mais sobre o [Gateway de aplicativo](overview.md).
+- Saiba mais sobre o [Firewall do Azure](../firewall/overview.md).

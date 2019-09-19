@@ -4,14 +4,14 @@ description: Como popular o armazenamento de BLOBs do Azure para uso com o cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 07a97b1afa8049ace97f1589393cd76c24f21368
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775653"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105313"
 ---
 # <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>Mover dados para o armazenamento de BLOBs do Azure para o cache HPC do Azure
 
@@ -31,15 +31,17 @@ Se você não quiser usar o utilitário de carregamento ou se quiser adicionar c
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Pré-carregar dados no armazenamento de BLOBs com CLFSLoad
 
-Você pode usar o utilitário [avere CLFSLoad](https://aka.ms/avere-clfsload) para copiar dados para um novo contêiner de armazenamento de BLOBs antes de adicioná-lo como um destino de armazenamento. Esse utilitário é executado em uma VM Linux e grava dados no formato proprietário necessário para o cache do HPC do Azure. Essa é a maneira mais eficiente de preencher um contêiner de armazenamento de BLOBs para uso com o cache.
+Você pode usar o <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad Utility para copiar dados para um novo contêiner de armazenamento de BLOBs antes de adicioná-lo como um destino de armazenamento. Esse utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o cache do HPC do Azure. O CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento de BLOBs para uso com o cache.
+
+O utilitário avere CLFSLoad está disponível por solicitação de sua equipe de cache do Azure HPC. Peça ao contato da sua equipe ou abra um tíquete de suporte para solicitar assistência.
 
 Essa opção funciona apenas com contêineres novos e vazios. Crie o contêiner antes de usar avere CLFSLoad.
 
-Informações detalhadas estão incluídas no [Leiame do avere CLFSLoad](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). <!-- caution literal link -->
+Informações detalhadas estão incluídas na distribuição do avere CLFSLoad, que está disponível na solicitação da equipe de cache do HPC do Azure. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
 
 Uma visão geral do processo:
 
-1. Prepare um sistema Linux (físico ou VM) com o Python versão 3,6 ou posterior. (O Python 3,7 é recomendado para melhorar o desempenho.)
+1. Prepare um sistema Linux (VM ou físico) com o Python versão 3,6 ou posterior. (O Python 3,7 é recomendado para melhorar o desempenho.)
 1. Instale o software avere-CLFSLoad no sistema Linux.
 1. Execute a transferência na linha de comando do Linux.
 
@@ -50,7 +52,7 @@ O utilitário avere CLFSLoad precisa das seguintes informações:
 * Um token SAS (assinatura de acesso compartilhado) que permite que o utilitário grave no contêiner
 * Um caminho local para a fonte de dados – um diretório local que contém os dados a serem copiados ou um caminho local para um sistema remoto montado com os dados.
 
-Os requisitos são explicados em detalhes no [Leiame do avere CLFSLoad](https://aka.ms/avere-clfsload).
+<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Copiar dados por meio do cache HPC do Azure
 
@@ -81,7 +83,7 @@ As estratégias para ingestão de dados paralelos com o cache HPC do Azure inclu
 
 * Cópia com script com ``parallelcp`` -saiba como criar e executar um script de cópia paralela no [método de script de cópia paralela de ingestão de dados do cache HPC do Azure](hpc-cache-ingest-parallelcp.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de configurar o armazenamento, saiba como os clientes podem montar o cache.
 

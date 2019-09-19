@@ -1,18 +1,18 @@
 ---
 title: Criar um serviço de vínculo privado do Azure usando Azure PowerShell | Microsoft Docs
 description: Saiba como criar um serviço de vínculo privado do Azure usando o Azure PowerShell
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 496f3d177446e6c3a4a086f89f15bf5cd66fefed
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 09158a935aac023382049d3aa9ce23a711972023
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018949"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104751"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando Azure PowerShell.
@@ -113,7 +113,7 @@ Neste estágio, o serviço de vínculo privado foi criado com êxito e está pro
 
 Em seguida, demonstraremos como mapear esse serviço para um ponto de extremidade privado em uma VNet diferente usando o PowerShell. Novamente, o exemplo é limitado à criação do ponto de extremidade privado e à conexão com o serviço de vínculo privado criado acima. Você pode criar máquinas virtuais na rede virtual para enviar/receber tráfego para o ponto de extremidade privado para criar seu cenário. 
 
-## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
+## <a name="create-a-private-endpoint"></a>Criar um Ponto Final Privado
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Crie uma rede virtual para seu ponto de extremidade privado com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual chamada *vnetPE* no grupo de recursos chamado *MyResource*Group:
  

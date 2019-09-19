@@ -2,18 +2,18 @@
 title: Visão geral do Machine Learning – Azure HDInsight
 description: Visão geral de Big Data opções de aprendizado de máquina para clusters no Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0fecb41c3417d5b43e0638815d6a7d274ba461b0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961979"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105422"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
 
@@ -39,7 +39,7 @@ Com os serviços do ML no HDInsight com Spark, você pode paralelizar o treiname
 
 O Azure Machine Learning fornece ferramentas para modelar análises preditivas, bem como um serviço totalmente gerenciado que você pode usar para implantar seus modelos de previsão como serviços Web prontos para consumo. Azure Machine Learning é uma solução completa de análise preditiva na nuvem que você pode usar para criar, testar, colocar em operação e gerenciar modelos de previsão. Selecione em uma biblioteca de algoritmos grande, use um estúdio baseado na Web para criar modelos e implante facilmente seu modelo como um serviço Web.
 
-![Tornando a análise avançada acessível ao Hadoop com o Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+![Visão geral do Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Crie recursos para dados em um cluster Hadoop do HDInsight usando [consultas do hive](../machine-learning/team-data-science-process/create-features-hive.md). A *engenharia de recursos* tenta aumentar a potência preditiva dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado. Você pode executar consultas HiveQL do Azure Machine Learning Studio e acessar dados processados no hive e armazenados no armazenamento de BLOBs usando o [módulo importar dados](../machine-learning/studio/import-data.md).
 

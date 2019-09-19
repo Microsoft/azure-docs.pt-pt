@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: aabcf7ac6c7bf14264178831bb3e4f6670d29984
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960936"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105403"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -37,7 +37,7 @@ A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 |[CLI do Azure](hdinsight-administer-use-command-line.md)|ClusterName de redimensionamento \<de \<cluster do Azure hdinsight > contagem de instâncias de destino > |
 |[Azure portal](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
 
-![Cluster de dimensionamento](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Opção portal do Azure dimensionar cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 Usando qualquer um desses métodos, você pode dimensionar seu cluster HDInsight para cima ou para baixo em minutos.
 
@@ -112,7 +112,7 @@ Para ver uma lista de trabalhos pendentes e em execução, você pode usar a int
 3. Na interface do usuário do amAmbari, selecione **yarn** na lista de serviços no menu à esquerda.  
 4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e selecione **interface do usuário do ResourceManager**.
 
-    ![Interface do usuário do ResourceManager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    ![IU do ResourceManager de links rápidos do Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 Você pode acessar diretamente a interface do usuário `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`do ResourceManager com.
 

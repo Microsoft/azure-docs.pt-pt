@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962940"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105618"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -166,43 +166,28 @@ Você também pode acompanhar os GUIDs em um nível mais granular, como o SKU, e
 
 Os GUIDs devem ser registrados para habilitar a atribuição de uso do cliente.
 
-Todos os registros de GUIDs de modelo são feitos por meio do Portal do Cloud Partner do Azure Marketplace (CPP).
+Todos os registros de GUIDs de modelo são feitos no Partner Center.
 
-Depois de adicionar o GUID ao modelo ou no agente do usuário, e registrar o GUID na CPP, todas as implantações serão rastreadas.
+Depois de adicionar o GUID ao modelo ou no agente do usuário, e registrar o GUID no Partner Center, todas as implantações serão rastreadas.
 
-1. Aplicar ao [Azure Marketplace](https://aka.ms/listonazuremarketplace) e obter acesso ao cpp.
+1. Inscreva-se como um [Editor do Marketplace comercial](https://aka.ms/JoinMarketplace).
 
-   * Os parceiros precisam [ter um perfil em cpp](https://docs.microsoft.com/azure/marketplace/become-publisher). Você é incentivado a listar a oferta no Azure Marketplace ou no AppSource.
+   * Os parceiros precisam [ter um perfil no Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). Você é incentivado a listar a oferta no Azure Marketplace ou no AppSource.
    * Os parceiros podem registrar vários GUIDs.
    * Os parceiros podem registrar um GUID para os modelos e ofertas de solução que não são do Marketplace.
 
-1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. No canto superior direito, selecione o ícone de sua conta e, em seguida, selecione **perfil**do Publicador.
+1. No canto superior direito, selecione o ícone de engrenagem configurações e, em seguida, selecione **configurações do desenvolvedor**.
 
-   ![Selecionar perfil do Publicador](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. Na **página Configurações de conta**, selecione **Adicionar GUID de acompanhamento.**
 
-1. Na **página Perfil**, selecione **Adicionar GUID de acompanhamento.**
-
-   ![Selecione Adicionar GUID de acompanhamento](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. Na caixa **GUID de rastreamento** , insira seu GUID de rastreamento. Insira apenas o GUID sem o prefixo **pid** . Na caixa **Descrição personalizada** , insira o nome ou a descrição da oferta.
-
-   ![Página de perfil](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Insira o GUID e a descrição da oferta](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. Na caixa **GUID** , insira seu GUID de rastreamento. Insira apenas o GUID sem o prefixo **pid** . Na caixa **Descrição** , insira o nome ou a descrição da oferta.
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de acompanhamento** novamente. Caixas adicionais aparecem na página.
 
-   ![Selecione Adicionar GUID de acompanhamento novamente](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Insira outra descrição de GUID e oferta](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Selecione **Guardar**.
 
-   ![Selecione salvar](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-Depois de adicionar o GUID ao modelo ou no agente do usuário, e registrar o GUID na CPP, todas as implantações serão rastreadas.
 
 ## <a name="verify-the-guid-deployment"></a>Verificar a implantação de GUID
 

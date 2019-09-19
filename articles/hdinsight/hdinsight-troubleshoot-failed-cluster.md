@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8ec081a758096298036efacfe1b0e6d62ed00cbd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961857"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105349"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight
 
@@ -80,7 +80,7 @@ Cada cluster HDInsight depende de vários serviços do Azure e de software livre
 
 O Apache Ambari fornece gerenciamento e monitoramento de um cluster HDInsight com uma interface do usuário da Web e uma API REST. O Ambari está incluído em clusters HDInsight baseados em Linux. Selecione o painel **painel do cluster** na página portal do Azure HDInsight.  Selecione o painel de **painel do cluster HDInsight** para abrir a interface do usuário do amAmbari e insira as credenciais de logon do cluster.  
 
-![IU do Ambari](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
+![Visão geral do painel do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 Para abrir uma lista de exibições de serviço, selecione **Ambari exibições** na página portal do Azure.  Essa lista depende de quais bibliotecas estão instaladas. Por exemplo, você pode ver YARN Queue Manager, Hive View e tez View.  Selecione um link de serviço para ver as informações de configuração e de serviço.
 
@@ -127,7 +127,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari exibe um alerta mostrando os hosts nos quais o serviço WebHCat está inoperante. Você pode tentar colocar o serviço WebHCat novamente reiniciando o serviço em seu host.
 
-![Reiniciar o servidor WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
+![Servidor do WebHCat de reinicialização do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 Se um servidor WebHCat ainda não vier, verifique o log de operações em busca de mensagens de falha. Para obter informações mais detalhadas, verifique `stderr` os `stdout` arquivos e referenciados no nó.
 
@@ -176,7 +176,7 @@ No nível de YARN, há dois tipos de tempo limite:
 
     A imagem a seguir mostra a fila joblauncher em 714,4% usada. Isso é aceitável desde que ainda haja capacidade livre na fila padrão para a qual fazer o empréstimo. No entanto, quando o cluster é totalmente utilizado e a memória YARN está a 100% de capacidade, novos trabalhos devem aguardar, o que eventualmente causa tempos limite.
 
-    ![Joblauncher fila](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
+    ![Exibição de fila do iniciador de trabalho do HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     Há duas maneiras de resolver esse problema: Reduza a velocidade de envio de novos trabalhos ou aumente a velocidade de consumo de trabalhos antigos ao escalar verticalmente o cluster.
 
@@ -208,7 +208,7 @@ Para diagnosticar esses problemas:
 
 A página **pilha e versão** da interface do usuário do Ambari fornece informações sobre a configuração de serviços de cluster e o histórico de versão do serviço.  As versões incorretas da biblioteca de serviço do Hadoop podem ser uma causa da falha do cluster.  Na interface do usuário do amAmbari, selecione o menu **admin** e, em seguida, **pilhas e versões**.  Selecione a guia **versões** na página para ver as informações de versão do serviço:
 
-![Pilha e versões](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
+![Pilha e versões do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
 ## <a name="step-5-examine-the-log-files"></a>Passo 5: Examinar os arquivos de log
 
@@ -259,7 +259,7 @@ Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluste
 5. Continue até que todas as etapas sejam executadas sem erros.
 6. Quando terminar de depurar o cluster de teste, exclua-o.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 * [Analisar logs do HDInsight](hdinsight-debug-jobs.md)

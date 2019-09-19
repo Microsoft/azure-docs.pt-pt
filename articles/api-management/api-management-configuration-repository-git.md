@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073763"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104971"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e configurar a configuração do serviço de gerenciamento de API usando o Git
 
@@ -99,7 +99,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 Se isso fornecer um erro, tente codificar a URL da parte de senha do comando. Uma maneira rápida de fazer isso é abrir o Visual Studio e emitir o comando a seguir na **janela imediata**. Para abrir a **janela imediata**, abra qualquer solução ou projeto no Visual Studio (ou crie um novo aplicativo de console vazio) e escolha **Windows**, **imediatamente** no menu **depurar** .
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Use a senha codificada junto com seu nome de usuário e o local do repositório para construir o comando git.
@@ -206,15 +206,15 @@ As quatro primeiras configurações (`RegistrationEnabled`, `UserRegistrationTer
 | UserRegistrationTerms |Caixa **de texto termos de uso na inscrição do usuário** |
 | UserRegistrationTermsEnabled |Caixa **de seleção Mostrar termos de uso na página de inscrição** |
 | UserRegistrationTermsConsentRequired |Caixa de seleção **exigir consentimento** |
-| RequireUserSigninEnabled |Caixa de seleção redirecionar **usuários anônimos para a página de entrada** |
+| RequireUserSigninEnabled |Caixa **de seleção redirecionar usuários anônimos para a página de entrada** |
 
 As próximas quatro configurações (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`e `DelegationValidationKey`) são mapeadas para as configurações a seguir na guia **delegação** da seção **segurança** .
 
 | Configuração de delegação | Mapeia para |
 | --- | --- |
-| DelegationEnabled |Caixa de seleção delegar entrada **& inscrição** |
+| DelegationEnabled |Caixa **de seleção delegar entrada & inscrição** |
 | DelegationUrl |TextBox de **URL de ponto de extremidade de delegação** |
-| DelegatedSubscriptionEnabled |Delegar caixa de seleção de **assinatura do produto** |
+| DelegatedSubscriptionEnabled |**Delegar** caixa de seleção de assinatura do produto |
 | DelegationValidationKey |Caixa de texto **chave de validação de representante** |
 
 A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções de política global para a instância de serviço.
@@ -258,7 +258,7 @@ A `templates` pasta contém a configuração dos [modelos de email](api-manageme
 * `<template name>\configuration.json`-Esta é a configuração para o modelo de email.
 * `<template name>\body.html`-Este é o corpo do modelo de email.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre outras maneiras de gerenciar sua instância de serviço, consulte:
 
 * Gerenciar sua instância de serviço usando os seguintes cmdlets do PowerShell

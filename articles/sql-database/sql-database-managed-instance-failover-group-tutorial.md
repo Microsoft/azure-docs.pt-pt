@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 04802b8b25ca21cc0099874e5a9ea69748868f6e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103041"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103217"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -31,7 +31,7 @@ Adicione uma instância gerenciada do banco de dados SQL a um grupo de failover.
   > [!NOTE]
   > - Ao percorrer este tutorial, verifique se você está configurando seus recursos com os [pré-requisitos para configurar grupos de failover para instância gerenciada](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - A criação de uma instância gerenciada pode levar uma quantidade significativa de tempo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [operações gerenciadas de gerenciamento de instância](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > - O uso de grupos de failover com instâncias gerenciadas está atualmente em visualização. 
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Nesta etapa, você criará o grupo de recursos e a instância gerenciada primár
 
     ![Criar MI primário](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
 
-1. Deixe o restante das configurações em valores padrão e selecione revisar **+ criar** para examinar as configurações de instância gerenciada. 
+1. Deixe o restante das configurações em valores padrão e selecione **revisar + criar** para examinar as configurações de instância gerenciada. 
 1. Selecione **criar** para criar sua instância gerenciada primária. 
 
 
@@ -163,7 +163,7 @@ Para que duas instâncias gerenciadas participem de um grupo de failover, deve h
     | **Endereço IP público**| Selecione **Criar novo**. |
     | **Nome do endereço IP público**| Insira um nome para seu endereço IP, `primary-gateway-IP`como. |
     | &nbsp; | &nbsp; |
-1. Deixe os outros valores como padrão e, em seguida, selecione revisar **+ criar** para examinar as configurações do seu gateway de rede virtual.
+1. Deixe os outros valores como padrão e, em seguida, selecione **revisar + criar** para examinar as configurações do seu gateway de rede virtual.
 
    ![Configurações do gateway primário](media/sql-database-managed-instance-failover-group-tutorial/settings-for-primary-gateway.png)
 
@@ -252,7 +252,7 @@ Limpe os recursos excluindo primeiro a instância gerenciada, depois o cluster v
 1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
 1. Exclua o grupo de recursos selecionando **excluir grupo de recursos**, digitando o nome do grupo `myResourceGroup`de recursos, e, em seguida, selecionando **excluir**. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configurou um grupo de failover entre duas instâncias gerenciadas. Aprendeu a:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9b74491c76747bd635547f6f22964fe792dbf01a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931941"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104090"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Política de linha de base: Bloquear autenticação herdada (versão prévia)
 
@@ -106,13 +106,13 @@ A política **de linha de base de política: Bloquear autenticação herdada (ve
 
 Para habilitar essa política e proteger sua organização:
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue até **Azure Active Directory** > **acesso condicional**.
 1. Na lista de políticas, selecione **política de linha de base: Bloquear autenticação herdada (versão**prévia).
 1. Defina **habilitar política** para **usar a política imediatamente**.
-1. Clique em **salvar**.
+1. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte:
 

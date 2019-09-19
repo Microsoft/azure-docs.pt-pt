@@ -11,18 +11,18 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 058afdbc4aa134b5b3c4c8cc5e9e2f2ae6f53084
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569652"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103233"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o banco de dados SQL do Azure no portal do Azure e iniciar o failover
 
 Este artigo mostra como configurar a [replicação geográfica ativa para bancos de dados individuais e em pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) no banco de dados SQL do Azure usando o [portal do Azure](https://portal.azure.com) e para iniciar o failover.
 
-Para obter informações sobre grupos de failover automático com bancos de dados únicos e em pool, consulte [práticas recomendadas de uso de grupos de failover com bancos de dados individuais e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de failover automático com instâncias gerenciadas (versão prévia), consulte [práticas recomendadas de uso de grupos de failover com instâncias gerenciadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Para obter informações sobre grupos de failover automático com bancos de dados únicos e em pool, consulte [práticas recomendadas de uso de grupos de failover com bancos de dados individuais e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de failover automático com instâncias gerenciadas, consulte [práticas recomendadas de uso de grupos de failover com instâncias gerenciadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,4 +95,4 @@ Essa operação encerra permanentemente a replicação para o banco de dados sec
 
 * Para saber mais sobre a replicação geográfica ativa, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md).
 * Para saber mais sobre grupos de failover automático, consulte [grupos de failover automático](sql-database-auto-failover-group.md)
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral](sql-database-business-continuity.md)da continuidade de negócios
+* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)

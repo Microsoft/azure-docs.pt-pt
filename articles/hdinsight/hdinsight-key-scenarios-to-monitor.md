@@ -2,18 +2,18 @@
 title: Monitorar o desempenho do cluster-Azure HDInsight
 description: Como monitorar a integridade e o desempenho de clusters de Apache Hadoop no Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 936307399b658b75962e6969820215f9808d053f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961093"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104404"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -36,11 +36,11 @@ Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, 
 
 Você também verá colunas que mostram o número de núcleos e a quantidade de RAM para cada host, além do uso do disco e da média de carga.
 
-![Guia hosts](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+![Visão geral da guia hosts Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Selecione qualquer um dos nomes de host para obter uma visão detalhada dos componentes em execução nesse host e suas métricas. As métricas são mostradas como uma linha do tempo selecionável de uso da CPU, carga, uso do disco, uso de memória, uso da rede e números de processos.
 
-![Detalhes do host](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+![Visão geral dos detalhes do host Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 Consulte [gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre como configurar alertas e exibir métricas.
 
@@ -56,7 +56,7 @@ Quando vários locatários compartilham um cluster grande, há competição para
 
 O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para exibir informações sobre suas filas, entre na interface do usuário da Web do amAmbari e selecione **Gerenciador de filas do yarn** no menu superior.
 
-![Gerenciador de filas do YARN](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+![Gerenciador de filas do Apache Ambari YARN](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 A página Gerenciador de filas do YARN mostra uma lista de suas filas à esquerda, juntamente com a porcentagem de capacidade atribuída a cada uma.
 
@@ -64,11 +64,11 @@ A página Gerenciador de filas do YARN mostra uma lista de suas filas à esquerd
 
 Para obter uma visão mais detalhada de suas filas, no painel do Ambari, selecione o serviço **yarn** na lista à esquerda. Em seguida, no menu suspenso **links rápidos** , selecione **interface do usuário do Resource Manager** abaixo do nó ativo.
 
-![Link do menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+![Links de menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 Na interface do usuário do Resource Manager, selecione **Agendador** no menu à esquerda. Você verá uma lista de suas filas sob *filas de aplicativos*. Aqui você pode ver a capacidade usada para cada uma de suas filas, o quão bem os trabalhos são distribuídos entre eles e se algum trabalho tem restrições de recursos.
 
-![Menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Menu da IU do Gerenciador de recursos do Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
@@ -82,7 +82,7 @@ Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), 
 * [Diretrizes de ajuste de desempenho para MapReduce no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Diretrizes de ajuste de desempenho para Apache Storm no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Visite os links a seguir para obter mais informações sobre como solucionar problemas e monitorar seus clusters:
 

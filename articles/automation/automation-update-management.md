@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: HT
+ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098109"
+ms.locfileid: "71102654"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -108,7 +108,7 @@ Os agentes do Windows devem ser configurados para se comunicar com um servidor W
 
 #### <a name="linux"></a>Linux
 
-Para o Linux, o computador deve ter acesso a um repositório de atualização. O repositório de atualizações pode ser privado ou público. O TLS 1,1 ou o TLS 1,2 é necessário para interagir com Gerenciamento de Atualizações. Não há suporte para um agente Log Analytics para Linux configurado para relatar mais de um espaço de trabalho de Log Analytics com esta solução.
+Para o Linux, o computador deve ter acesso a um repositório de atualização. O repositório de atualizações pode ser privado ou público. O TLS 1,1 ou o TLS 1,2 é necessário para interagir com Gerenciamento de Atualizações. Não há suporte para um agente Log Analytics para Linux configurado para relatar mais de um espaço de trabalho de Log Analytics com esta solução.  O computador também deve ter o Python 2. x instalado.
 
 Para obter informações sobre como instalar o agente de Log Analytics para Linux e baixar a versão mais recente, consulte [log Analytics Agent para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o agente do Log Analytics para Windows, consulte [Microsoft Monitoring Agent para Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -665,7 +665,7 @@ Para remover uma VM do Gerenciamento de Atualizações:
 * No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração `MicrosoftDefaultScopeConfig-Updates`de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
 * Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Continue no tutorial para saber como gerenciar atualizações para suas máquinas virtuais do Windows.
 
