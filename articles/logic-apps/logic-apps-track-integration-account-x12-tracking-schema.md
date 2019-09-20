@@ -348,7 +348,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | respondingfunctionalGroupControlNumber | String | Número de controlo do grupo funcional original. (Opcional) |
 | respondingFunctionalGroupId | String | ID do Maps para AK101 no grupo funcional de confirmação. (Opcional) |
 | isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
-| statusCode | Enum | Código de estado de confirmação. Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
+| statusCode | Enum | Código de estado de confirmação. Valores permitidos são **Accepted**, **Rejected**, e **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Estado de processamento da confirmação. Valores permitidos são **recebidos**, **Generated**, e **enviados**. (Obrigatório) |
 | ak903 | String | Número de conjuntos de transação recebido. (Opcional) |
 | ak904 | String | Número de conjuntos de transações aceites no grupo funcional identificado. (Opcional) |
