@@ -1,91 +1,114 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Criador de FAQ
+summary: Saiba mais sobre o serviço Criador de FAQ e como as bases de dados de conhecimento deste serviço funcionam com as suas perguntas e respostas.
 metadata:
-  title: Documentação do Criador de FAQ - Serviços Cognitivos da Microsoft | Microsoft Docs
-  description: Saiba mais sobre o serviço Criador de FAQ e como as bases de dados de conhecimento deste serviço funcionam com as suas perguntas e respostas.
-  services: cognitive-services
-  author: diberry
-  manager: nitinme
+  ms.topic: landing-page
+  ms.date: 09/18/2019
+  ms.author: nitinme
+  author: nitinme
   ms.service: cognitive-services
   ms.subservice: qna-maker
-  ms.topic: landing-page
-  ms.date: 12/18/2018
-  ms.author: diberry
-abstract:
-  description: 'O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua base de dados de conhecimento.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/qnamaker-landing-page-video.png
-      width: 250
-    title: 'Criar um Bot em Minutos com o Criador de FAQ (8:54 minutos)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/qnamaker/overview/overview
-            html: <p>Saiba mais sobre o Criador de FAQ.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: O que é o Criador de FAQ?
-          - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
-            html: '<p>Saiba como criar, preparar e publicar uma base de dados de conhecimento.</p>'
-            image:
-              src: ../media/index/i_tasks.svg
-            title: 'Criar, preparar e publicar uma base de dados de conhecimento'
-          - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
-            html: <p>Saiba como publicar uma base de dados de conhecimento.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Compreender as origens de dados
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Crie uma base de dados de conhecimento para o seu conteúdo de perguntas e respostas:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            href: Quickstarts/create-new-kb-csharp
-          - image:
-              src: media/index/Go-Logo_Blue.svg
-            text: Ir
-            href: Quickstarts/create-new-kb-go
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: Quickstarts/create-new-kb-java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: Quickstarts/create-new-kb-nodejs
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: Quickstarts/create-new-kb-python
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como programar aplicações através do Criador de FAQ:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Criar uma base de conhecimento e responder a perguntas</a></li>
-          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Criar um bot do Criador de FAQ</a></li>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092179">API do Criador de FAQ</a></p>'
+  services: cognitive-services
+  title: Documentação do Criador de FAQ
+  description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
+  ms.openlocfilehash: 36b1c69ba1b94afadd105117ee5ac9dabcdd64a7
+  ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71123011"
+landingContent:
+- title: Acerca do Criador de FAQ
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Criador de FAQ
+      url: overview/overview.md
+  - linkListType: concept
+    links:
+    - text: Ciclo de vida de desenvolvimento
+      url: concepts/development-lifecycle-knowledge-base.md
+    - text: Origens de dados
+      url: concepts/data-sources-supported.md
+  - linkListType: video
+    links:
+    - text: Criar um bot em minutos
+      url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+- title: Criar e editar uma base de dados de conhecimento
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é uma base de dados de conhecimento
+      url: concepts/knowledge-base.md
+  - linkListType: get-started
+    links:
+    - text: 'Início Rápido: Criar uma nova base de dados de conhecimento'
+      url: how-to/create-knowledge-base.md
+    - text: 'Início Rápido: Adicionar perguntas e respostas'
+      url: quickstarts/add-question-metadata-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar pedidos de seguimento para criar vários turnos numa conversa
+      url: how-to/multiturn-conversation.md
+    - text: Adicionar conversa
+      url: how-to/chit-chat-knowledge-base.md
+    - text: Adicionar uma origem de dados protegida do SharePoint
+      url: how-to/add-sharepoint-datasources.md
+- title: Testar e publicar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Testar a sua base de dados de conhecimento de forma interativa
+      url: how-to/test-knowledge-base.md
+    - text: Publicar uma base de dados de conhecimento
+      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
+- title: Receber resposta da base de dados de conhecimento
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 'Início Rápido: Utilizar o Postman'
+      url: quickstarts/get-answer-from-kb-using-postman.md
+    - text: 'Início Rápido: Utilizar o cURL'
+      url: quickstarts/get-answer-from-kb-using-curl.md
+    - text: 'Início Rápido: Utilizar REST e C#'
+      url: quickstarts/get-answer-from-knowledge-base-csharp.md
+    - text: 'Início Rápido: Utilizar NuGet e C#'
+      url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base
+  - linkListType: how-to-guide
+    links:
+    - text: Obter uma resposta com metadados
+      url: how-to/metadata-generateanswer-usage.md
+- title: Melhorar a base de dados de conhecimento
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
+      url: how-to/improve-knowledge-base.md
+    - text: Obter análises da base de dados de conhecimento
+      url: how-to/get-analytics-knowledge-base.md
+- title: Bots do Criador de FAQ
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 'Portal: Criar um bot de FAQ'
+      url: tutorials/create-qna-bot.md
+    - text: '.Net: Criar um bot com o Criador de FAQ e Language Understanding'
+      url: tutorials/integrate-qnamaker-luis.md
+    - text: Outros exemplos de bot
+      url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Limites da base de dados de conhecimento
+      url: limits.md
+    - text: APIs de Criação
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+    - text: Gerar APIs de Resposta
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
+    - text: Documentação de referência do SDK de .Net
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+    - text: Interface de Linha de Comandos do Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

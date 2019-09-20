@@ -31,7 +31,7 @@
             - name: Preparar automaticamente um modelo de ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: Classificação de lote com pipelines (avançada)
+        - name: Pipelines de Machine Learning (avançado)
           items:
             - name: Classificar com lote um modelo de classificação
               displayName: pipelines

@@ -239,17 +239,17 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: Ligações de documentação
           href: cognitive-search-resources-documentation.md
-    - name: Arquivo de dados de conhecimento (pré-visualização)
-      items:
-        - name: Criar um arquivo de conhecimento no portal do Azure
-          href: knowledge-store-create-portal.md
-        - name: Criar com REST e Postman
-          href: knowledge-store-howto.md
-        - name: Ver com o Explorador de Armazenamento
-          href: knowledge-store-view-storage-explorer.md
-        - name: Ligar com o Power BI
-          href: knowledge-store-connect-power-bi.md
-    - name: Consultar dados
+        - name: Arquivo de dados de conhecimento (pré-visualização)
+          items:
+            - name: Criar um arquivo de conhecimento no portal do Azure
+              href: knowledge-store-create-portal.md
+            - name: Criar com REST e Postman
+              href: knowledge-store-howto.md
+            - name: Ver com o Explorador de Armazenamento
+              href: knowledge-store-view-storage-explorer.md
+            - name: Ligar com o Power BI
+              href: knowledge-store-connect-power-bi.md
+    - name: Consultar documentos
       items:
         - name: Criar uma consulta básica
           href: search-query-overview.md
@@ -265,7 +265,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis (pré-visualização)
           href: search-more-like-this.md
-    - name: Utilizar filtros
+    - name: Aplicar filtros
       items:
         - name: Descrição geral do filtro
           href: search-filters.md
@@ -283,18 +283,14 @@
       items:
         - name: Funcionalidades relacionadas com páginas
           href: search-pagination-page-layout.md
-    - name: Ajuste de relevância
-      items:
-        - name: Adicionar perfis de classificação
+        - name: Otimização da relevância (perfis de classificação)
           href: index-add-scoring-profiles.md
-    - name: Administração
+    - name: Gerir e monitorizar
       items:
         - name: Administração do portal
           href: search-manage.md
         - name: Administração do PowerShell
           href: search-manage-powershell.md
-    - name: Monitorização
-      items:
         - name: Monitorizar atividade e registo
           href: search-monitor-usage.md
         - name: Procurar análises de tráfego

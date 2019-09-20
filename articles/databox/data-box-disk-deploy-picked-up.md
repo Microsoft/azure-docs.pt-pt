@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910107"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128692"
 ---
 ::: zone target="chromeless"
 
@@ -89,11 +89,7 @@ Os datacenters do Azure na Austrália têm uma notificação de segurança adici
 3. Afixe a guia à caixa. 
 4. Marque uma recolha online através da ligação https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japan-koreatabin-japan-korea"></a>[No Japão, Coreia do Sul](#tab/in-japan-korea)
-
-Eis as instruções de recolha para o Japão e Coreia do Sul.
-
-#### <a name="pick-up-in-japan"></a>Recolha no Japão
+### <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan)
 
 1. Escreva o nome e o endereço da sua empresa na nota de expedição como as informações do remetente.
 2. Utilize o modelo que se segue para enviar um e-mail à Quantium Solutions.
@@ -120,7 +116,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 - E-mail：Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Recolha na Coreia
+### <a name="in-koreatabin-korea"></a>[Na Coreia do Sul](#tab/in-korea)
 
 1. Certifique-se de que inclui a nota de expedição de devolução.
 2. Para solicitar a recolha quando a nota de expedição estiver presente:

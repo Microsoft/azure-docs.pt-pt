@@ -1,6 +1,6 @@
 ---
-title: APIs para automação de reserva do Azure | Microsoft Docs
-description: Saiba mais sobre as APIs do Azure que você pode usar para obter informações de reserva programaticamente.
+title: APIs para automatização de reservas do Azure | Microsoft Docs
+description: Saiba mais sobre as APIs do Azure que pode utilizar para obter informações de reserva de forma programática.
 author: yashesvi
 manager: yashesvi
 tags: billing
@@ -12,33 +12,33 @@ ms.workload: na
 ms.date: 08/02/2019
 ms.author: banders
 ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68779892"
 ---
-# <a name="apis-for-azure-reservation-automation"></a>APIs para automação de reserva do Azure
+# <a name="apis-for-azure-reservation-automation"></a>APIs para automatização de reservas do Azure
 
-Use as APIs do Azure para obter informações de sua organização de forma programática sobre as reservas de software ou serviço do Azure.
+Utilize as APIs do Azure para obter informações para a sua organização sobre as reservas de software ou serviço do Azure de forma programática.
 
-## <a name="find-reservation-plans-to-buy"></a>Localizar planos de reserva para comprar
+## <a name="find-reservation-plans-to-buy"></a>Localizar planos de reservas para comprar
 
-Use a API de recomendação de reserva para obter recomendações sobre quais planos de reservas comprar com base no uso da sua organização. Para obter mais informações, consulte [obter recomendações de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
+Utilize a API de Recomendação de reservas para obter recomendações sobre quais os planos de reservas a comprar com base na utilização da sua organização. Para obter mais informações, veja [Get reservation recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) (Obter recomendações de reservas).
 
-Você também pode analisar o uso de recursos usando os detalhes de uso da API de consumo. Para obter mais informações, consulte [detalhes de uso-lista de período de cobrança por conta de cobrança](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). Os recursos do Azure que você usa consistentemente geralmente são o melhor candidato para uma reserva.
+Também pode analisar a utilização de recursos com os Detalhes de Utilização da API de Consumo. Para obter mais informações, veja [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod) (Detalhes de Utilização – Lista do Período de Faturação por Conta de Faturação). Os recursos do Azure que utiliza consistentemente são geralmente o melhor candidato para uma reserva.
 
 ## <a name="buy-a-reservation"></a>Comprar uma reserva
 
-Você pode comprar reservas do Azure e planos de software programaticamente usando APIs REST. Para saber mais, consulte [ordem de reserva-API de compra](/rest/api/reserved-vm-instances/reservationorder/purchase).
+Pode utilizar APIs REST para comprar reservas do Azure e planos de software de forma programática. Para saber mais, veja [Reservation Order - Purchase API](/rest/api/reserved-vm-instances/reservationorder/purchase) (Encomenda de Reservas – API de Compras).
 
-Aqui está uma solicitação de exemplo para comprar usando a API REST:
+Segue-se um exemplo de pedido para comprar com a API REST:
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
 ```
 
-Corpo do Pedido:
+Corpo do pedido:
 
 ```
 {
@@ -61,9 +61,9 @@ Corpo do Pedido:
 }
 ```
 
-Você também pode comprar uma reserva no portal do Azure. Para obter mais informações, veja os artigos seguintes:
+Também pode comprar uma reserva no portal do Azure. Para obter mais informações, veja os artigos seguintes:
 
-Planos de serviço:
+Planos do serviço:
 - [Máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
 -  [BD do Cosmos](../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
 - [Base de Dados SQL](../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json)
@@ -73,48 +73,48 @@ Planos de software:
 
 ## <a name="get-reservations"></a>Obter reservas
 
-Se você for um cliente do Azure com um Enterprise Agreement (cliente EA), poderá obter as reservas que sua organização comprou usando a [API obter](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges)encargos de transação de instância reservada. Para outras assinaturas, obtenha a lista de reservas compradas e tenha permissões para exibir usando a [lista ordem de reserva](/rest/api/reserved-vm-instances/reservationorder/list)da API. Por padrão, o proprietário da conta ou a pessoa que comprou a reserva tem permissões para exibir a reserva.
+Se for um cliente do Azure com um Contrato Enterprise (cliente EA), poderá obter as reservas que a sua organização comprou com a [API Obter os custos de transação das Instâncias Reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). Para outras subscrições, obtenha a lista de reservas que comprou e para as quais tem permissões de visualização com a API [Encomenda de Reserva – Lista](/rest/api/reserved-vm-instances/reservationorder/list). Por predefinição, o proprietário da conta ou a pessoa que comprou a reserva tem permissões para visualizar a reserva.
 
-## <a name="see-reservation-usage"></a>Consulte uso de reserva
+## <a name="see-reservation-usage"></a>Ver utilização da reserva
 
-Se você for um cliente do EA, poderá exibir programaticamente como as reservas em sua organização estão sendo usadas. Para obter mais informações, consulte [obter o uso da instância reservada para clientes empresariais](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage). Para outras assinaturas, use os resumos de [reservas de API-List por ordem de reserva e reserva](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
+Se for um cliente EA, poderá visualizar de forma programática a forma como as reservas na sua organização estão a ser utilizadas. Para obter mais informações, veja [Get Reserved Instance usage for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) (Obter utilização das Instâncias Reservadas dos clientes empresariais). Para outras subscrições, utilize a API [Resumos de Reservas – Lista por Encomenda de Reserva e Reserva](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
 
-Se você descobrir que as reservas da sua organização estão sendo usadas:
+Se observar que as reservas da sua organização estão a ser pouco utilizadas:
 
-- Verifique se as máquinas virtuais que sua organização cria correspondem ao tamanho da VM que está na reserva.
-- Verifique se a flexibilidade do tamanho da instância está ativada. Para obter mais informações, consulte [gerenciar reservas – alterar a configuração otimizar para instâncias de VM reservadas](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Altere o escopo de reserva para compartilhado para que ele se aplique mais amplamente. Para obter mais informações, consulte [gerenciar reservas – alterar o escopo de uma reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Troque a quantidade não utilizada. Para obter mais informações, consulte [gerenciar reservas](billing-manage-reserved-vm-instance.md).
+- Confirme que as máquinas virtuais que a sua organização cria correspondem ao tamanho da VM que está na reserva.
+- Confirme que a flexibilidade de tamanho da instância está ativada. Para obter mais informações, veja [Gerir reservas – Alterar a definição de otimização para Instâncias de VMs Reservadas](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+- Altere o âmbito de reserva para partilhada para que seja aplicado mais amplamente. Para obter mais informações, veja [Gerir reservas – Alterar o âmbito de uma reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+- Troque a quantidade não utilizada. Para obter mais informações, veja [Gerir Reservas](billing-manage-reserved-vm-instance.md).
 
-## <a name="give-access-to-reservations"></a>Conceder acesso a reservas
+## <a name="give-access-to-reservations"></a>Conceder acesso às reservas
 
-Obtenha a lista de todas as reservas às quais um usuário tem acesso usando a [API reserva-Operation-List](/rest/api/reserved-vm-instances/reservationorder/list). Para conceder acesso a uma reserva programaticamente, consulte um dos seguintes artigos:
+Obtenha a lista de todas as reservas às quais um utilizador tem acesso com a [API Reserva – Operação – Lista](/rest/api/reserved-vm-instances/reservationorder/list). Para conceder acesso a uma reserva de forma programática, veja um dos seguintes artigos:
 
-- [Gerenciar o acesso usando o RBAC e a API REST](../role-based-access-control/role-assignments-rest.md)
-- [Gerenciar o acesso usando RBAC e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-- [Gerenciar o acesso usando RBAC e CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+- [Gerir o acesso com o RBAC e a API REST](../role-based-access-control/role-assignments-rest.md)
+- [Gerir o acesso com o RBAC e o Microsoft Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Gerir o acesso com o RBAC e a CLI do Azure](../role-based-access-control/role-assignments-cli.md)
 
-## <a name="split-or-merge-reservation"></a>Reserva de divisão ou mesclagem
+## <a name="split-or-merge-reservation"></a>Dividir ou unir a reserva
 
-Depois de comprar mais de uma instância de recurso em uma reserva, talvez você queira atribuir instâncias dentro dessa reserva a assinaturas diferentes. Você pode alterar o escopo de reserva para que ele se aplique a todas as assinaturas no mesmo contexto de cobrança. Mas para fins de gerenciamento de custos ou orçamento, convém manter o escopo como "assinatura única" e atribuir instâncias de reserva a uma assinatura específica.
+Depois de comprar mais do que uma instância de recursos numa reserva, talvez queira atribuir instâncias nessa reserva a subscrições diferentes. Pode alterar o âmbito da reserva para que se aplique a todas as subscrições no mesmo contexto de faturação. Contudo, para fins de gestão de custo ou orçamento, talvez queira manter o âmbito como “subscrição individual” e atribuir instâncias de reserva a uma subscrição específica.
 
-Para dividir uma reserva, use a API [Reservation-Split](/rest/api/reserved-vm-instances/reservation/split). Você também pode dividir uma reserva usando o PowerShell. Para obter mais informações, consulte [gerenciar reservas – dividir a reserva em duas reservas](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
+Para dividir uma reserva, utilize a API [Reserva – Dividir](/rest/api/reserved-vm-instances/reservation/split). Também pode dividir uma reserva com o PowerShell. Para obter mais informações, veja [Gerir reservas – Dividir a reserva em duas reservas](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
-Para mesclar duas reservas em uma reserva, use a [mesclagem de reserva](/rest/api/reserved-vm-instances/reservation/merge)de API.
+Para unir duas reservas numa reserva, utilize a API [Reserva – Unir](/rest/api/reserved-vm-instances/reservation/merge).
 
-## <a name="change-scope-for-a-reservation"></a>Alterar o escopo de uma reserva
+## <a name="change-scope-for-a-reservation"></a>Alterar o âmbito de uma reserva
 
-O escopo de uma reserva pode ser assinatura única, grupo de recursos único ou todas as assinaturas em seu contexto de cobrança. Se você definir o escopo como assinatura única ou grupo de recursos único, a reserva será correspondida à execução de recursos na assinatura selecionada. Se você excluir ou mover a assinatura ou o grupo de recursos, a reserva não será utilizada.  Se você definir o escopo como compartilhado, o Azure corresponderá à reserva para recursos que são executados em todas as assinaturas no contexto de cobrança. O contexto de cobrança depende da assinatura que você usou para comprar a reserva. Você pode selecionar o escopo na compra ou alterá-lo a qualquer momento após a compra. Para obter mais informações, consulte [gerenciar reservas-alterar o escopo](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+O âmbito de uma reserva pode ser uma subscrição individual, um grupo de recursos individual ou todas as subscrições no seu contexto de faturação. Se definir o âmbito como uma subscrição individual ou grupo de recursos individual, será feita a correspondência da reserva para executar recursos na subscrição selecionada. Se eliminar ou mover a subscrição ou o grupo de recursos, a reserva não vai ser utilizada.  Se definir o âmbito como partilhado, o Azure fará a correspondência da reserva com os recursos que são executados em todas as subscrições no contexto de faturação. O contexto de faturação depende da subscrição que utilizou para comprar a reserva. Pode selecionar o âmbito na compra ou alterá-lo em qualquer momento após a compra. Para obter mais informações, veja [Gerir reservas – Alterar o âmbito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-Para alterar o escopo programaticamente, use a API [Reservation-Update](/rest/api/reserved-vm-instances/reservation/update).
+Para alterar o âmbito de forma programática, utilize a API [Reserva – Atualização](/rest/api/reserved-vm-instances/reservation/update).
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
-- [O que são reservas para o Azure](billing-save-compute-costs-reservations.md)
-- [Entenda como o desconto de reserva da VM é aplicado](billing-understand-vm-reservation-charges.md)
-- [Entenda como o desconto do plano de software SUSE Linux Enterprise é aplicado](billing-understand-suse-reservation-charges.md)
-- [Entender como outros descontos de reserva são aplicados](billing-understand-reservation-charges.md)
-- [Entenda o uso de reserva para sua assinatura pré-paga](billing-understand-reserved-instance-usage.md)
-- [Entender o uso de reserva para seu registro corporativo](billing-understand-reserved-instance-usage-ea.md)
-- [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)
-- [Reservas do Azure no programa CSP (provedor de soluções na nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
+- [O que são as reservas do Azure](billing-save-compute-costs-reservations.md)
+- [Compreender como o desconto das reservas das VMs é aplicado](billing-understand-vm-reservation-charges.md)
+- [Compreender como o desconto do plano de software SUSE Linux Enterprise é aplicado](billing-understand-suse-reservation-charges.md)
+- [Compreender como outros descontos das reservas são aplicados](billing-understand-reservation-charges.md)
+- [Compreender a utilização de reservas na sua subscrição Pay As You Go](billing-understand-reserved-instance-usage.md)
+- [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Custos de software Windows não incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

@@ -337,6 +337,9 @@
           href: reference-entity-regular-expression.md
         - name: Entidade simples
           href: reference-entity-simple.md
+    - name: Recursos para programadores
+      href: developer-reference-resource.md
+      displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
     - name: CLI do Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
