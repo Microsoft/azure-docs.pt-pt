@@ -4,7 +4,7 @@ description: Resolução de problemas com a falha de atribuição quando impleme
 services: azure-service-management, cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7830b2a5d065f54029839d250e35f3e1b3da2200
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945475"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155645"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Resolução de problemas com a falha de atribuição quando implementar os Serviços Cloud no Azure
 ## <a name="summary"></a>Resumo
@@ -69,5 +69,5 @@ Aqui estão os cenários de alocação comuns que fazem com que uma solicitaçã
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * Siga #2 acima, certificando-se de especificar o novo ReservedIP no CSCFG do serviço.
-4. Remover grupo de afinidade para novas implantações – grupos de afinidades não são mais recomendados. Siga as etapas para #1 acima para implantar um novo serviço de nuvem. Verifique se o serviço de nuvem não está em um grupo de afinidade.
+4. Remover grupo de afinidade para novas implantações – grupos de afinidades não são mais recomendados. Siga os passos para o n.º 1 acima para implementar um novo serviço cloud. Verifique se o serviço de nuvem não está em um grupo de afinidade.
 5. Converter em uma rede virtual regional – consulte [como migrar de grupos de afinidades para uma rede virtual regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).

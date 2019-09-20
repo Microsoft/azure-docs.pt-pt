@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932977"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155045"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são Microsoft Flow, aplicativos lógicos, funções e trabalhos Web?
 
@@ -88,7 +88,7 @@ As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos 
 |[Preços com pagamento por utilização](functions-scale.md#consumption-plan)|✔||
 |[Integração com Logic Apps](functions-twitter-email.md)|✔||
 | Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de Ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Idiomas suportados  |C#<br>F#<br>JavaScript<br>Java<br>Python (versão prévia) |C#<sup>1</sup>|
+| Idiomas suportados  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
 |Gestores de pacotes|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> trabalhos Web (sem o SDK de trabalhos Web) C#dão suporte a, Java, JavaScript, Bash,. cmd,. bat, PowerShell, PHP, TypeScript, Python e muito mais. Essa não é uma lista abrangente. Um WebJob pode executar qualquer programa ou script que possa ser executado na sandbox do Serviço de Aplicações.
@@ -123,7 +123,7 @@ Você pode obter mais informações sobre o Integration Services usando os segui
 * [Webcast ao vivo de aplicativos lógicos](https://aka.ms/logicappslive)
 * [Microsoft Flow perguntas frequentes](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece por criar o seu primeiro fluxo, aplicação lógica ou aplicação de funções. Selecione qualquer um dos seguintes links:
 

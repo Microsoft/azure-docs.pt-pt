@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711576"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154030"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall de SO de convidado de VM do Azure está a bloquear o tráfego de entrada
 
@@ -112,7 +112,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
 
     > [!Note]
     > As seguintes diretrizes aplicam-se para a política de firewall, dependendo de como é configurado:
-    >    * *BlockInbound*: Todo o tráfego de entrada será bloqueado, exceto se tiver uma regra em vigor para permitir que o tráfego.
+    >    * *BlockInbound*: Todo o tráfego de entrada será bloqueado, a menos que você tenha uma regra em vigor para permitir esse tráfego.
     >    * *BlockInboundAlways*: Todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
 
 2.  Editar a *DefaultInboundAction* para definir estes perfis para **permitir** tráfego. Para tal, execute o seguinte comando:
@@ -142,7 +142,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
 
 #### <a name="mitigation-1"></a>Atenuação 1
 
-Ver [como para ativar / desativar uma Firewall regra num SO convidado](enable-disable-firewall-rule-guest-os.md).
+Consulte [como habilitar-desabilitar uma regra de firewall em um sistema operacional convidado](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Atenuação 2
 

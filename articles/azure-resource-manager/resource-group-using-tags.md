@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312128"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146828"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -23,7 +23,7 @@ Para aplicar marcas aos recursos, o usuário deve ter acesso de gravação a ess
 
 ## <a name="policies"></a>Políticas
 
-Você pode usar [Azure Policy](../governance/policy/overview.md) para impor regras e convenções de marcação. Ao criar uma política, você evita o cenário dos recursos que estão sendo implantados em sua assinatura que não estão em conformidade com as marcas esperadas para sua organização. Em vez de aplicar marcas manualmente ou procurar recursos que não são compatíveis, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. A seção a seguir mostra as políticas de exemplo para marcas.
+Você pode usar [Azure Policy](../governance/policy/overview.md) para impor regras e convenções de marcação. Ao criar uma política, você evita o cenário dos recursos que estão sendo implantados em sua assinatura que não estão em conformidade com as marcas esperadas para sua organização. Em vez de aplicar marcas manualmente ou procurar recursos que não são compatíveis, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. Agora, as marcas também podem ser aplicadas a recursos existentes com o novo efeito [Modificar](../governance/policy/concepts/effects.md#modify) e uma [tarefa de correção](../governance/policy/how-to/remediate-resources.md). A seção a seguir mostra as políticas de exemplo para marcas.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -409,7 +409,7 @@ Você pode recuperar informações sobre marcas por meio de [APIs de RateCard e 
 
 Para operações da API REST, consulte [referência da API REST de cobrança do Azure](/rest/api/billing/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Nem todos os tipos de recurso dão suporte a marcas. Para determinar se você pode aplicar uma marca a um tipo de recurso, consulte [suporte a marcas para recursos do Azure](tag-support.md).
 * Para obter uma introdução ao uso do portal, consulte [usando o portal do Azure para gerenciar seus recursos do Azure](manage-resource-groups-portal.md).  

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: d782c2d9dff45dc152cab2246c95dda063bfd900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130397"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162327"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no banco de dados SQL do Azure
 
@@ -68,7 +68,7 @@ As opções de ajuste automático disponíveis no banco de dados SQL do Azure s�
 | Opção de ajuste automático | Banco de dados individual e suporte a banco de dados em pool | Suporte a banco de dados de instância |
 | :----------------------------- | ----- | ----- |
 | **Criar índice** – identifica índices que podem melhorar o desempenho de sua carga de trabalho, cria índices e verifica automaticamente se o desempenho das consultas foi melhorado. | Sim | Não | 
-| **Drop index** -identifica índices redundantes e duplicados diariamente, exceto índices exclusivos, e índices que não foram usados por um longo tempo (> 90 dias). Observe que, neste momento, a opção não é compatível com aplicativos que usam a alternância de partição e dicas de índice. | Sim | Não |
+| **Drop index** -identifica índices redundantes e duplicados diariamente, exceto índices exclusivos, e índices que não foram usados por um longo tempo (> 90 dias). Observe que essa opção não é compatível com aplicativos que usam a alternância de partição e dicas de índice. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico. | Sim | Não |
 | **forçar último plano bom** (correção de plano automática) – identifica consultas SQL usando o plano de execução que é mais lento do que o bom plano anterior e consultas usando o último plano bom conhecido em vez do plano regressivo. | Sim | Sim |
 
 O ajuste automático identifica as recomendações **criar índice**, **drop index**e **forçar o último plano** que pode otimizar o desempenho do banco de dados e os mostra no [portal do Azure](sql-database-advisor-portal.md)e os expõe por meio [de T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [ API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Para saber mais sobre o último bom plano e a configuração das opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).

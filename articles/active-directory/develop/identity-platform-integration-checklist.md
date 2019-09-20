@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e7b89fbb4b6343db62cf3476f3c35220b12649b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104032"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145664"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Práticas recomendadas e recomendações da plataforma Microsoft Identity
 
@@ -78,6 +78,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) |  Para aplicativos móveis, configure cada plataforma usando a experiência de registro do aplicativo. Para que seu aplicativo aproveite o Microsoft Authenticator ou o Microsoft Portal da Empresa para logon único, seu aplicativo precisa de um "URI de redirecionamento do Broker" configurado. Isso permite que a Microsoft retorne o controle ao seu aplicativo após a autenticação. Ao configurar cada plataforma, a experiência de registro do aplicativo orientará você pelo processo. Use o guia de início rápido para baixar um exemplo de trabalho. No iOS, use agentes e WebView do sistema sempre que possível.|
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) |  Em aplicativos Web ou APIs Web, mantenha um cache de token por conta.  Para aplicativos Web, o cache de token deve ser codificado pela ID da conta.  Para APIs Web, a conta deve ser codificada pelo hash do token usado para chamar a API. O MSAL.NET fornece a serialização de cache de token personalizada nas subplataformas .NET Framework e .NET Core. Por motivos de segurança e desempenho, nossa recomendação é serializar um cache por usuário. Para obter mais informações, leia sobre [serialização de cache de token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).|
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Se os dados necessários para o seu aplicativo estiverem disponíveis por meio de [Microsoft Graph](https://developer.microsoft.com/graph), solicite permissões para esses dados usando o ponto de extremidade Microsoft Graph em vez da API individual. |
+| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) |Não examine o valor do token de acesso ou tente analisá-lo como um cliente.  Eles podem alterar valores, formatos ou até mesmo serem criptografados sem aviso-sempre use o id_token se o cliente precisar aprender algo sobre o usuário ou chamar Microsoft Graph.  Somente as APIs da Web devem analisar os tokens de acesso (já que são aqueles que definem o formato e definindo as chaves de criptografia). |
 
 ## <a name="end-user-experience"></a>Experiência do utilizador final
 

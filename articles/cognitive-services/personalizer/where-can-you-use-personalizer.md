@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 246e76a0ab94624945723b500ef136e038ab40ec
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999636"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155233"
 ---
 # <a name="where-can-you-use-personalizer"></a>Onde pode utilizar o Personalizador?
 
@@ -33,7 +33,7 @@ Você pode aplicar o personalizador em situações em que:
 * A melhor opção pode e deve ser aprendida do comportamento do usuário coletivo e da Pontuação de recompensa total.
 * O uso do aprendizado de máquina para personalização segue as diretrizes e as escolhas de [uso responsáveis](ethics-responsible-use.md) .
 * A decisão contextual pode ser expressa como a classificação da melhor opção (ação) de um conjunto limitado de opções.
-* O quão bem a escolha classificada para seu aplicativo pode ser determinada medindo algum aspecto do comportamento do usuário e expressando-o em uma _Pontuação de recompensa_. Este é um número entre-1 e 1.
+* O quão bem a escolha classificada para seu aplicativo pode ser determinada medindo algum aspecto do comportamento do usuário e expressando-o em uma _[Pontuação de recompensa](concept-rewards.md)_ .
 * A pontuação de recompensa não traz muitos fatores de constatação ou externos. A duração do experimento é baixa o suficiente para que a pontuação de recompensa possa ser computada enquanto ainda for relevante.
 * Você pode expressar o contexto para a classificação como uma lista de pelo menos 5 [recursos](concepts-features.md) que você imagina que ajudarão a fazer a escolha certa e que não incluem informações de identificação pessoal. (PII).
 * Você tem informações sobre cada opção de conteúdo, _ação_, como uma lista de pelo menos 5 [recursos](concepts-features.md) que você acredita que ajudarão o personalizado a fazer a escolha certa.
@@ -68,6 +68,6 @@ O personalizador pode funcionar com um mecanismo de recomendação quando ele es
 
 Um uso comum é pegar a saída de um mecanismo de recomendação (por exemplo, os 20 principais produtos para um determinado cliente) e usá-lo como as ações de entrada para o personalizador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Ética & uso responsável](ethics-responsible-use.md).

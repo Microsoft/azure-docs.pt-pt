@@ -4,7 +4,7 @@ description: Este artigo lista as perguntas frequentes sobre a disponibilidade d
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0d70e52b77c7f34444ce12f84f17a5ed2d1afe46
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941785"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154886"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de disponibilidade de aplicativo e serviço para os serviços de nuvem do Azure: Perguntas frequentes (FAQs)
 
@@ -32,7 +32,7 @@ Aproximadamente uma vez por mês, a Microsoft lança uma nova versão do sistema
 
 Para obter detalhes completos sobre atualizações recentes do sistema operacional convidado, consulte [versões do SO convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
-Para obter informações úteis sobre reinicializações e ponteiros para detalhes técnicos de atualizações de sistema operacional de convidado e host, consulte a postagem de blog do MSDN reinicializações de [instância de função devido a atualizações do sistema operacional](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Para obter informações úteis sobre reinicializações e ponteiros para detalhes técnicos de atualizações de sistema operacional de convidado e host, consulte a postagem de blog do MSDN [reinicializações de instância de função devido a atualizações do sistema operacional](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Por que a primeira solicitação para meu serviço de nuvem depois que o serviço esteve ocioso por algum tempo demora mais do que o normal?
 Quando o servidor Web recebe a primeira solicitação, ele primeiro recompila o código e, em seguida, processa a solicitação. É por isso que a primeira solicitação demora mais do que as outras. Por padrão, o pool de aplicativos é desligado em casos de inatividade do usuário. O pool de aplicativos também será reciclado por padrão a cada 1.740 minutos (29 horas).

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d0f94e9cf9b91bc365586dafc147dc73b17876
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914759"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146289"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Baixar em massa uma lista de grupos (versão prévia) no Azure Active Directory
 
@@ -26,10 +26,6 @@ Usando o portal do Azure Active Directory (AD do Azure), você pode fazer o down
 
 > [!NOTE]
 > As operações em massa do Azure AD são um recurso de visualização pública do Azure AD e estão disponíveis com qualquer plano de licença pago do Azure AD. Para obter mais informações sobre os termos de uso de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
-
-Cada atividade em massa para baixar uma lista de grupos pode ser executada por até uma hora. Isso permite que você baixe uma lista de pelo menos 300.000 grupos.
 
 ## <a name="to-download-a-list-of-groups"></a>Para baixar uma lista de grupos
 
@@ -45,7 +41,11 @@ Você pode ver o status de todas as suas solicitações em massa pendentes na p�
 
    ![A página resultados de operações em massa mostra o status de solicitação em massa](./media/groups-bulk-download/bulk-center.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
+
+Cada atividade em massa para baixar uma lista de grupos pode ser executada por até uma hora. Isso permite que você baixe uma lista de pelo menos 300.000 grupos.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Remover membros do grupo em massa](groups-bulk-remove-members.md)
 - [Baixar membros de um grupo](groups-bulk-download-members.md)

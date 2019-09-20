@@ -1,10 +1,10 @@
 ---
-title: Utilizar ferramentas remotas para resolver problemas de VM do Azure | Documentos da Microsoft
+title: Usar ferramentas remotas para solucionar problemas de VM do Azure | Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70d777fe2e939c1871bc318eed439214fd3e3f60
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717284"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155739"
 ---
-# <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Utilize as ferramentas remotas para resolver problemas de VM do Azure
+# <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Usar ferramentas remotas para solucionar problemas de VM do Azure
 
-Quando resolver problemas numa máquina virtual do Azure (VM), pode ligar à VM ao utilizar as ferramentas remotas que são abordadas neste artigo em vez de utilizar o protocolo RDP (Remote Desktop).
+Ao solucionar problemas em uma VM (máquina virtual) do Azure, você pode se conectar à VM usando as ferramentas remotas que são discutidas neste artigo em vez de usar protocolo RDP (RDP).
 
 ## <a name="serial-console"></a>Consola de Série
 
-Uso [consola de série de Máquina Virtual](serial-console-windows.md) para executar comandos na VM do Azure remoto.
+Use o [console serial da máquina virtual](serial-console-windows.md) para executar comandos na VM remota do Azure.
 
 ## <a name="remote-cmd"></a>CMD remoto
 
-Baixe [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Ligar à VM ao executar o seguinte comando:
+Baixe o [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Conecte-se à VM executando o seguinte comando:
 
 ```cmd
 psexec \\<computer>-u user -s cmd
 ```
 
 >[!Note]
->* O comando deve ser executado num computador que está na mesma VNET.
->* Nome de anfitrião ou DIP pode ser utilizado para substituir \<computador >.
->* O parâmetro -s certifica-se de que o comando for chamado com a conta de sistema (permissão de administrador).
->* PsExec utiliza as portas TCP 135 e 445. Portanto, as duas portas têm de ser aberta na Firewall.
+>* O comando deve ser executado em um computador que esteja na mesma VNET.
+>* O DIP ou o nome do host pode \<ser usado para substituir > do computador.
+>* O parâmetro-s garante que o comando seja invocado usando a conta do sistema (permissão de administrador).
+>* O PsExec usa as portas TCP 135 e 445. Portanto, as duas portas precisam estar abertas no firewall.
 
-## <a name="run-commands"></a>Comandos de execução
+## <a name="run-commands"></a>Comandos Executar
 
-Ver [scripts do PowerShell de executar na sua VM do Windows com o comando executar](../windows/run-command.md) para obter mais informações sobre como utilizar a funcionalidade de executar comandos para executar scripts na VM.
+Consulte [executar scripts do PowerShell em sua VM do Windows com o comando executar](../windows/run-command.md) para obter mais informações sobre como usar o recurso executar comandos para executar scripts na VM.
 
-## <a name="customer-script-extension"></a>Extensão de Script de cliente
+## <a name="customer-script-extension"></a>Extensão de script do cliente
 
-Pode utilizar a funcionalidade de extensão de Script personalizado para executar um script personalizado na VM de destino. Para utilizar esta funcionalidade, as condições seguintes têm de ser cumpridas:
+Você pode usar o recurso de extensão de script personalizado para executar um script personalizado na VM de destino. Para usar esse recurso, as seguintes condições devem ser atendidas:
 
 * A VM tem conectividade.
 
-* O agente do Azure está instalado e a funcionar conforme esperado na VM.
+* O agente do Azure está instalado e funcionando conforme o esperado na VM.
 
-* A extensão não foi anteriormente instalada na VM.
+* A extensão não foi instalada anteriormente na VM.
  
-  A extensão de injetar o script apenas na primeira vez que é utilizado. Se usar esse recurso, mais tarde, a extensão reconhecerá que já foi utilizado e não irá carregar o novo script.
+  A extensão injetará o script somente na primeira vez que ele for usado. Se você usar esse recurso mais tarde, a extensão reconhecerá que ele já foi usado e não carregará o novo script.
 
-Terá de carregar o script para uma conta de armazenamento e gerar o seu próprio contentor. Em seguida, execute o seguinte script do Azure PowerShell num computador que tenha conectividade à VM.
+Você precisa carregar seu script para uma conta de armazenamento e gerar seu próprio contêiner. Em seguida, execute o seguinte script em Azure PowerShell em um computador que tenha conectividade com a VM.
 
-### <a name="for-v1-vms"></a>Para VMs de V1
+### <a name="for-v1-vms"></a>Para VMs v1
 
 ```powershell
 #Setup the basic variables
@@ -89,7 +89,7 @@ $vm = Get-AzureVM -ServiceName $vmCloudService -Name $vmName
 Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName | Update-AzureVM
 ```
 
-### <a name="for-v2-vms"></a>Para V2 VMs
+### <a name="for-v2-vms"></a>Para VMs v2
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -122,37 +122,37 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 ## <a name="remote-powershell"></a>PowerShell remoto
 
 >[!Note]
->Porta de TCP 5986 (HTTPS) tem de estar aberta para que possa utilizar esta opção.
+>A porta TCP 5986 (HTTPS) deve estar aberta para que você possa usar essa opção.
 >
->Para VMs do ARM, tem de abrir a porta 5986, no grupo de segurança de rede (NSG). Para obter mais informações, consulte grupos de segurança. 
+>Para VMs ARM, você deve abrir a porta 5986 no grupo de segurança de rede (NSG). Para obter mais informações, consulte grupos de segurança. 
 >
->Para VMs de RDFE, tem de ter um ponto final que tem uma privada (5986) de porta e uma porta pública. Em seguida, precisa também abrir essa porta destinado ao pública no NSG.
+>Para VMs RDFE, você deve ter um ponto de extremidade que tenha uma porta privada (5986) e uma porta pública. Em seguida, você também precisa abrir essa porta pública no NSG.
 
 ### <a name="set-up-the-client-computer"></a>Configurar o computador cliente
 
-Para utilizar o PowerShell para ligar remotamente à VM, primeiro tem de configurar o computador cliente para permitir a ligação. Para fazer isso, adicione a VM para a lista de anfitriões fidedignos do PowerShell ao executar o comando seguinte, conforme apropriado.
+Para usar o PowerShell para se conectar à VM remotamente, primeiro você precisa configurar o computador cliente para permitir a conexão. Para fazer isso, adicione a VM à lista de hosts confiáveis do PowerShell executando o comando a seguir, conforme apropriado.
 
-Para adicionar uma VM a lista de anfitriões fidedignos:
+Para adicionar uma VM à lista de hosts confiáveis:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
 ```
 
-Para adicionar várias VMs à lista de anfitriões fidedignos:
+Para adicionar várias VMs à lista de hosts confiáveis:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
 ```
 
-Para adicionar todos os computadores à lista de anfitriões fidedignos:
+Para adicionar todos os computadores à lista de hosts confiáveis:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value *
 ```
 
-### <a name="enable-remoteps-on-the-vm"></a>Ativar RemotePS na VM
+### <a name="enable-remoteps-on-the-vm"></a>Habilitar RemotePS na VM
 
-Para VMs clássicas, utilize a extensão de Script personalizado para executar o script seguinte:
+Para VMs clássicas, use a extensão de script personalizado para executar o seguinte script:
 
 ```powershell
 Enable-PSRemoting -Force
@@ -162,15 +162,15 @@ $command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostn
 cmd.exe /C $command
 ```
 
-Para VMs do ARM, utilize executar comandos a partir do portal para executar o script de EnableRemotePS:
+Para VMs ARM, use comandos de execução do portal para executar o script EnableRemotePS:
 
 ![Executar o Comando](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
 
 ### <a name="connect-to-the-vm"></a>Ligar à VM
 
-Execute o seguinte comando, dependendo do cliente local do computador:
+Execute o seguinte comando, dependendo do local do computador cliente:
 
-* Fora do VNET ou a implementação
+* Fora da VNET ou da implantação
 
   * Para uma VM clássica, execute o seguinte comando:
 
@@ -179,14 +179,14 @@ Execute o seguinte comando, dependendo do cliente local do computador:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Para uma VM de ARM, adicione um nome DNS para o endereço IP público. Para obter passos detalhados, consulte [criar um nome de domínio completamente qualificado no portal do Azure para uma VM do Windows](../windows/portal-create-fqdn.md). Depois, execute o comando seguinte:
+  * Para uma VM ARM, primeiro adicione um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows](../windows/portal-create-fqdn.md). Depois, execute o comando seguinte:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName "<<DNSname.DataCenter.cloudapp.azure.com>>" -port "5986" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-* Dentro da VNET ou a implementação, execute o seguinte comando:
+* Dentro da VNET ou da implantação, execute o seguinte comando:
   
   ```powershell
   $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -194,68 +194,68 @@ Execute o seguinte comando, dependendo do cliente local do computador:
   ```
 
 >[!Note] 
->Definir o sinalizador de SkipCaCheck ignora o requisito para importar um certificado à VM quando iniciar a sessão.
+>Definir o sinalizador SkipCaCheck ignora a necessidade de importar um certificado para a VM quando você inicia a sessão.
 
-Também pode utilizar o cmdlet Invoke-Command para executar um script na VM remotamente:
+Você também pode usar o cmdlet Invoke-Command para executar um script na VM remotamente:
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 ```
 
-## <a name="remote-registry"></a>Registo remoto
+## <a name="remote-registry"></a>Registro remoto
 
 >[!Note]
->A porta TCP 135 ou 445 tem de estar aberta para poder utilizar esta opção.
+>A porta TCP 135 ou 445 deve estar aberta para que você possa usar essa opção.
 >
->Para VMs do ARM, terá de abrir a porta 5986 no NSG. Para obter mais informações, consulte grupos de segurança. 
+>Para VMs ARM, você precisa abrir a porta 5986 no NSG. Para obter mais informações, consulte grupos de segurança. 
 >
->Para VMs de RDFE, tem de ter um ponto final que possui uma porta privada 5986 e uma porta pública. Deve também abrir essa porta pública no NSG.
+>Para VMs RDFE, você deve ter um ponto de extremidade que tenha uma porta privada 5986 e uma porta pública. Você também precisa abrir essa porta voltada para o público no NSG.
 
-1. A partir de outra VM na mesma VNET, abra o editor de registo (regedit.exe).
+1. Em outra VM na mesma VNET, abra o editor do registro (regedit. exe).
 
-2. Selecione **arquivo** >**ligar o registo de rede**.
+2. Selecione **arquivo** >**conectar registro de rede**.
 
    ![Opção remota](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
-3. Localize a VM de destino pelo **hostname** ou **IP dinâmico** (preferível), introduzi-la na caixa "Introduza o nome de objeto a selecionar".
+3. Localize a VM de destino pelo **nome do host** ou **IP dinâmico** (preferível) inserindo-a na caixa "digite o nome do objeto a ser selecionado".
 
    ![Opção remota](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
  
-4. Introduza as credenciais para a VM de destino.
+4. Insira as credenciais para a VM de destino.
 
-5. Efetue as alterações de registo necessárias.
+5. Faça as alterações de Registro necessárias.
 
-## <a name="remote-services-console"></a>Consola de serviços remoto
+## <a name="remote-services-console"></a>Console de serviços remotos
 
 >[!Note]
->Portas TCP 135 ou 445 tem de estar abertas para poder utilizar esta opção.
+>As portas TCP 135 ou 445 devem estar abertas para usar essa opção.
 >
->Para VMs do ARM, terá de abrir a porta 5986 no NSG. Para obter mais informações, consulte grupos de segurança. 
+>Para VMs ARM, você precisa abrir a porta 5986 no NSG. Para obter mais informações, consulte grupos de segurança. 
 >
->Para VMs de RDFE, tem de ter um ponto final que possui uma porta privada 5986 e uma porta pública. Em seguida, precisa também abrir essa porta pública no NSG.
+>Para VMs RDFE, você deve ter um ponto de extremidade que tenha uma porta privada 5986 e uma porta pública. Em seguida, você também precisa abrir essa porta voltada para o público no NSG.
 
-1. A partir de outra VM na mesma VNET, abra uma instância do **Services. msc**.
+1. De outra VM na mesma VNET, abra uma instância de **Services. msc**.
 
-2. Com o botão direito **serviços (Local)** .
+2. Clique com o botão direito do mouse em **Serviços (local)** .
 
-3. Selecione **ligar a outro computador**.
+3. Selecione **conectar a outro computador**.
 
    ![Serviço remoto](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
-4. Introduza o IP dinâmico da VM de destino.
+4. Insira o IP dinâmico da VM de destino.
 
-   ![Entrada DIP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
+   ![DIP de entrada](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
 
-5. Faça as alterações necessárias aos serviços.
+5. Faça as alterações necessárias nos serviços.
 
 ## <a name="next-steps"></a>Próximos Passos
 
 [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx)
 
-[Personalizado Script extensão para Windows usando o modelo de implementação clássica](../extensions/custom-script-classic.md)
+[Extensão de script personalizado para Windows usando o modelo de implantação clássico](../extensions/custom-script-classic.md)
 
-PsExec é parte da [conjunto PSTools](https://download.sysinternals.com/files/PSTools.zip).
+O PsExec faz parte do [conjunto PsTools](https://download.sysinternals.com/files/PSTools.zip).
 
-Para obter mais informações sobre o conjunto PSTools, consulte [conjunto PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+Para obter mais informações sobre o conjunto de PSTools, consulte [PsTools Suite](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 

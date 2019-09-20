@@ -1142,7 +1142,7 @@
     - name: Análise do Windows
       href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
     - name: Modelos de início rápido

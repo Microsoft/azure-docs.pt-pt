@@ -4,7 +4,7 @@ description: Este artigo fornece uma visão geral dos processos de fluxo de trab
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945329"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162153"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Fluxo de trabalho da arquitetura de VM clássica do Windows Azure 
 Este artigo fornece uma visão geral dos processos de fluxo de trabalho que ocorrem quando você implanta ou atualiza um recurso do Azure, como uma máquina virtual. 
@@ -37,15 +37,16 @@ O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 
 **B**. O controlador de malha é responsável por manter e monitorar todos os recursos no data center. Ele se comunica com agentes de host de malha no sistema operacional de malha, enviando informações como a versão do SO convidado, o pacote de serviço, a configuração de serviço e o estado do serviço.
 
-**C**. O agente de host reside no host OSsystem e é responsável por configurar o sistema operacional convidado e se comunicar com o agente convidado (WindowsAzureGuestAgent) para atualizar a função em direção a um estado de meta pretendido e fazer verificações de pulsação com o agente convidado. Se o agente do host não receber resposta de pulsação por 10 minutos, o agente do host reiniciará o sistema operacional convidado.
+**C**. O agente de host reside no sistema operacional do host e é responsável por configurar o sistema operacional convidado e se comunicar com o agente convidado (WindowsAzureGuestAgent) para atualizar a função em direção a um estado de meta pretendido e fazer verificações de pulsação com o agente convidado. Se o agente do host não receber resposta de pulsação por 10 minutos, o agente do host reiniciará o sistema operacional convidado.
 
 **C2**. O WaAppAgent é responsável por instalar, configurar e atualizar o WindowsAzureGuestAgent. exe.
 
 **D**.  WindowsAzureGuestAgent é responsável pelo seguinte:
 
-1. Configurar o sistema operacional convidado, incluindo Firewall, ACLs, recursos de LocalStorage, pacote de serviço e configuração e certificados. Configuração do SID para a conta de usuário na qual a função será executada.
-2. Comunicando o status da função à malha.
-3. Iniciando o WaHostBootstrapper e monitorando-o para certificar-se de que a função está no estado de meta.
+1. Configurar o sistema operacional convidado, incluindo Firewall, ACLs, recursos de LocalStorage, pacote de serviço e configuração e certificados.
+2. Configuração do SID para a conta de usuário na qual a função será executada.
+3. Comunicando o status da função à malha.
+4. Iniciando o WaHostBootstrapper e monitorando-o para certificar-se de que a função está no estado de meta.
 
 **E**. WaHostBootstrapper é responsável por:
 
@@ -76,7 +77,7 @@ O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 
 ## <a name="workflow-processes"></a>Processos de fluxo de trabalho
 
-1. Um usuário faz uma solicitação, como carregar arquivos. cspkg e. cscfg, informando a um recurso para parar ou fazer uma alteração de configuração, e assim por diante. Isso pode ser feito por meio da portal do Azure ou de uma ferramenta que usa o API de Gerenciamento de Serviços, como o recurso de publicação do Visual Studio. Essa solicitação vai para RDFE para fazer todo o trabalho relacionado à assinatura e, em seguida, comunicar a solicitação ao FFE. O restante dessas etapas de fluxo de trabalho é implantar um novo pacote e iniciá-lo.
+1. Um usuário faz uma solicitação, como carregar arquivos ". cspkg" e ". cscfg", informando a um recurso para parar ou fazer uma alteração de configuração, e assim por diante. Isso pode ser feito por meio da portal do Azure ou de uma ferramenta que usa o API de Gerenciamento de Serviços, como o recurso de publicação do Visual Studio. Essa solicitação vai para RDFE para fazer todo o trabalho relacionado à assinatura e, em seguida, comunicar a solicitação ao FFE. O restante dessas etapas de fluxo de trabalho é implantar um novo pacote e iniciá-lo.
 2. O FFE localiza o pool de computadores correto (com base na entrada do cliente, como grupo de afinidade ou localização geográfica, além de entrada da malha, como disponibilidade do computador) e se comunica com o controlador de malha mestre nesse pool de computadores.
 3. O controlador de malha localiza um host que tem núcleos de CPU disponíveis (ou cria um novo host). O pacote de serviço e a configuração são copiados para o host, e o controlador de malha se comunica com o agente do host no sistema operacional do host para implantar o pacote (configurar DIPs, portas, SO convidado e assim por diante).
 4. O agente de host inicia o sistema operacional convidado e se comunica com o agente convidado (WindowsAzureGuestAgent). O host envia pulsações ao convidado para garantir que a função esteja funcionando em direção ao seu estado de meta.

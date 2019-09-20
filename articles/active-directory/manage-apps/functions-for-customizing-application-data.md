@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113553"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162383"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -129,16 +129,16 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
-  * Substitui todas as ocorrências de **OldValue** na **fonte** por replacevalue
+  * Substitui todas as ocorrências de **OldValue** na **fonte** por **replacevalue**
 * Quando **oldValue** e **modelo** são fornecidos:
   
   * Substitui todas as ocorrências do **oldValue** no **modelo** com o **origem** valor
-* Quando **regexPattern** e replacevalue são fornecidos:
+* Quando **regexPattern** e **replacevalue** são fornecidos:
 
-  * A função aplica o **regexPattern** à cadeia de caracteres de **origem** e você pode usar os nomes de grupo Regex para construir a cadeia de caracteres para replacevalue
+  * A função aplica o **regexPattern** à cadeia de caracteres de **origem** e você pode usar os nomes de grupo Regex para construir a cadeia de caracteres para **replacevalue**
 * Quando **regexPattern**, **regexGroupName**, **replacementValue** são fornecidos:
   
-  * A função aplica o **regexPattern** à cadeia de caracteres de **origem** e substitui todos os valores correspondentes a **regexGroupName** com replacevalue
+  * A função aplica o **regexPattern** à cadeia de caracteres de **origem** e substitui todos os valores correspondentes a **regexGroupName** com **replacevalue**
 * Quando **regexPattern**, **regexGroupName**, **replacementAttributeName** são fornecidos:
   
   * Se **origem** não tem nenhum valor **origem** é devolvido
@@ -151,7 +151,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **Origem** |Necessário |Cadeia |Normalmente o nome do atributo do objeto de **origem** . |
 | **oldValue** |Opcional |Cadeia |Valor a ser substituído na **origem** ou **modelo**. |
 | **regexPattern** |Opcional |Cadeia |Padrão RegEx para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** é usado, Pattern para extrair o valor de **replacementPropertyName**. |
-| **regexGroupName** |Opcional |Cadeia |Nome do grupo de dentro **regexPattern**. Somente quando **replacementPropertyName** for usado, Extraíremos o valor desse grupo como replacevalue de **replacementPropertyName**. |
+| **regexGroupName** |Opcional |Cadeia |Nome do grupo de dentro **regexPattern**. Somente quando **replacementPropertyName** for usado, Extraíremos o valor desse grupo como **replacevalue** de **replacementPropertyName**. |
 | **replacementValue** |Opcional |Cadeia |Novo valor para substituir um antigo com. |
 | **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser usado para o valor de substituição |
 | **Modelo** |Opcional |Cadeia |Quando o valor do **modelo** for fornecido, procuraremos **OldValue** dentro do modelo e o substituíremos pelo valor de **origem** . |
@@ -163,9 +163,10 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 **Descrição:**<br> Requer um mínimo de dois argumentos, que são definidas usando expressões de regras de geração de valor exclusivo. A função avalia cada regra e, em seguida, verifica o valor gerado para exclusividade na aplicação/diretório de destino. O primeiro valor exclusivo encontrado vai ser devolvido o. Se todos os valores ainda existirem no destino, a entrada irá obter colocadas em caução em e o motivo é registrado em log nos registos de auditoria. Não há nenhum limite superior ao número de argumentos que pode ser fornecido.
 
 > [!NOTE]
->1. Esta é uma função de nível superior, ele não é possível aninhar.
->2. Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.  
->3. Esta função apenas se destina a ser utilizado para criações de entrada. Quando utilizá-lo com um atributo, definir o **aplicam-se de mapeamento** propriedade **apenas durante a criação do objeto**.
+> - Esta é uma função de nível superior, ele não é possível aninhar.
+> - Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.  
+> - Esta função apenas se destina a ser utilizado para criações de entrada. Quando utilizá-lo com um atributo, definir o **aplicam-se de mapeamento** propriedade **apenas durante a criação do objeto**.
+> - Atualmente, essa função só tem suporte para "WORKDAY para Active Directory provisionamento de usuário". Ele não pode ser usado com outros aplicativos de provisionamento. 
 
 
 **Parâmetros:**<br> 
@@ -191,7 +192,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 ### <a name="split"></a>Dividir
 **Função:**<br> Divisão (origem, delimitador)
 
-**Descrição:**<br> Divide uma cadeia de caracteres em uma matriz com valor multilocatário, usando o caractere delimitador especificado.
+**Descrição:**<br> Divide uma cadeia de caracteres em uma matriz de valores múltiplos, usando o caractere delimitador especificado.
 
 **Parâmetros:**<br> 
 
@@ -228,7 +229,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **valor** |Necessário |Cadeia |Valor de substituição para o **origem** correspondentes a chave. |
 
 ---
-### <a name="tolower"></a>ToLower
+### <a name="tolower"></a>toLower
 **Função:**<br> ToLower (origem, cultura)
 
 **Descrição:**<br> Usa um valor de cadeia de caracteres de *origem* e o converte em letras minúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará cultura invariável.

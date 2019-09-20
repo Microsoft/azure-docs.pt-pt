@@ -7,12 +7,12 @@ ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/31/2019
-ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679130"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161482"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -30,7 +30,7 @@ Neste tutorial, você concluirá estas tarefas:
 > * Preparar o servidor Jenkins
 > * Use o plug-in Azure Dev Spaces em um pipeline do Jenkins para visualizar as alterações de código antes de mesclá-las no projeto
 
-Este tutorial pressupõe o conhecimento intermediário dos principais serviços do Azure, AKS, ACR, Azure Dev Spaces [](https://jenkins.io/doc/book/pipeline/) , pipelines e plug-ins do Jenkins e github. A familiaridade básica com ferramentas de suporte como kubectl e Helm é útil.
+Este tutorial pressupõe o conhecimento intermediário dos principais serviços do Azure, AKS, ACR, Azure Dev Spaces, [pipelines](https://jenkins.io/doc/book/pipeline/) e plug-ins do Jenkins e github. A familiaridade básica com ferramentas de suporte como kubectl e Helm é útil.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Este tutorial pressupõe o conhecimento intermediário dos principais serviços 
 
 Nesta seção, você criará recursos do Azure:
 
-* Um grupo de recursos para conter todos os recursos do Confugurá para este tutorial.
+* Um grupo de recursos para conter todos os recursos do Azure para este tutorial.
 * Um cluster do AKS ( [serviço de kubernetes do Azure](https://docs.microsoft.com/azure/aks/) ).
 * Um ACR ( [registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) ) para compilar (usando tarefas ACR) e armazenar imagens do Docker.
 
@@ -186,7 +186,7 @@ Nesta seção, você prepara o servidor Jenkins para executar o pipeline de CI d
 
     Se esses plug-ins não aparecerem na lista, marque a guia **instalado** para ver se eles já estão instalados.
 
-3. Para instalar os plug-ins, escolha **baixar agora e instalar após**a reinicialização.
+3. Para instalar os plug-ins, escolha **baixar agora e instalar após a reinicialização**.
 
 4. Reinicie o servidor Jenkins para concluir a instalação.
 
@@ -201,7 +201,7 @@ O pipeline de exemplo usa Helm e kubectl para implantar no espaço de desenvolvi
     sudo su jenkins
     ```
 
-3. Instale a CLI do Helm. Para obter mais informações, consulte Instalando o [Helm](https://helm.sh/docs/using_helm/#installing-helm).
+3. Instale a CLI do Helm. Para obter mais informações, consulte [instalando o Helm](https://helm.sh/docs/using_helm/#installing-helm).
 
 4. Instale o kubectl. Para obter mais informações, consulte [**AZ ACS kubernetes install-CLI**](https://helm.sh/docs/using_helm/#installing-helm).
 
@@ -304,7 +304,7 @@ A configuração de pipeline Jenkins e Jenkinsfile definem os estágios no pipel
 
 7. Escolha o **script de pipeline do SCM** no **pipeline > definição**.
 8. No **SCM**, escolha **git** e, em seguida, insira a URL do repositório.
-9. Em **especificador**de ramificação, insira `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
+9. Em **especificador de ramificação**, insira `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
 10. Preencha a URL do repositório SCM e o caminho do script "Jenkinsfile".
 11. O **check-out leve** deve ser verificado.
 
@@ -413,7 +413,7 @@ Quando você terminar de usar o aplicativo de exemplo, limpe os recursos do Azur
 az group delete -y --no-wait -n MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a usar o plug-in de Azure Dev Spaces para Jenkins e o plug-in de registro de contêiner do Azure para compilar o código e implantá-lo em um espaço de desenvolvimento.
 

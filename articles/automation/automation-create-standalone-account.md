@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779142"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146651"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -28,7 +28,6 @@ Quando você cria uma conta de automação no portal do Azure, essas contas são
   * Cria uma entidade de serviço no Azure Active Directory (Azure AD).
   * Cria um certificado.
   * Atribui o RBAC (controle de acesso baseado em função) de colaborador, que gerencia recursos de Azure Resource Manager usando runbooks.
-* **Conta Executar como clássica**. Essa conta carrega um certificado de gerenciamento. O certificado gerencia recursos clássicos usando runbooks.
 
 Com essas contas criadas para você, você pode começar rapidamente a criar e implantar runbooks para dar suporte às suas necessidades de automação.
 
@@ -97,16 +96,15 @@ Quando a conta de Automatização é criada com sucesso, são criados vários re
 | AzureRunAsCertificate |Um ativo de certificado criado automaticamente quando a conta de automação é criada ou usando um script do PowerShell para uma conta existente. O certificado é autenticado com o Azure para que você possa gerenciar Azure Resource Manager recursos de runbooks. Este certificado tem um tempo de vida de um ano. |
 | AzureRunAsConnection |Um ativo de conexão que é criado automaticamente quando a conta de automação é criada ou usando um script do PowerShell para uma conta existente. |
 
-A tabela seguinte resume os recursos da conta Run As clássica.
+## <a name="classic-run-as-accounts"></a>Contas Executar como clássicas
 
-| Resource | Descrição |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook |Um runbook gráfico de exemplo. O runbook obtém todas as VMs clássicas em uma assinatura usando a conta Executar como clássica (certificado). Em seguida, ele exibe os nomes e o status da VM. |
-| AzureClassicAutomationTutorial Script Runbook |Um runbook do PowerShell de exemplo. O runbook obtém todas as VMs clássicas em uma assinatura usando a conta Executar como clássica (certificado). Em seguida, ele exibe os nomes e o status da VM. |
-| AzureClassicRunAsCertificate |Um ativo de certificado criado automaticamente. O certificado é autenticado com o Azure para que você possa gerenciar recursos clássicos do Azure de runbooks. Este certificado tem um tempo de vida de um ano. |
-| AzureClassicRunAsConnection |Um ativo de conexão criado automaticamente. O ativo é autenticado com o Azure para que você possa gerenciar recursos clássicos do Azure de runbooks. |
+As contas Executar como clássicas não são mais criadas, por padrão, quando você cria uma conta de automação do Azure. Se você ainda precisar de uma conta Executar como clássica, execute as etapas a seguir.
 
-## <a name="next-steps"></a>Passos Seguintes
+1. Na página da sua **conta de automação** , selecione **contas Executar como** em **configurações da conta**.
+2. Selecione **conta Executar como clássica do Azure**.
+3. Clique em **criar** para prosseguir com a criação da conta Executar como clássica.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a criação gráfica, consulte [criação gráfica na automação do Azure](automation-graphical-authoring-intro.md).
 * Para começar com runbooks do PowerShell, consulte [My first PowerShell runbook (O meu primeiro runbook do PowerShell)](automation-first-runbook-textual-powershell.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ad690fa78f794b26b6cf496ea4485599486752b0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003071"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146964"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta de API do Cassandra usando o Striim
 
@@ -160,6 +160,8 @@ Nesta seção, você configurará a conta de API do Cassandra Azure Cosmos DB co
 1. Insira as propriedades de configuração de sua instância de Azure Cosmos DB de destino e selecione **salvar** para continuar. Aqui estão os principais parâmetros a serem observados:
 
    * **Adaptador** -use **DatabaseWriter**. Ao gravar em Azure Cosmos DB API do Cassandra, DatabaseWriter é necessário. O driver Cassandra 3.6.0 é fornecido com Striim. Se o DatabaseWriter exceder o número de RUs provisionado no contêiner Cosmos do Azure, o aplicativo falhará.
+
+   * **URL de conexão** -ESPECIFIQUE sua URL de conexão Azure Cosmos DB JDBC. A URL está no formato`jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
    * Nome de **usuário** – especifique o nome da conta do Azure Cosmos.
    

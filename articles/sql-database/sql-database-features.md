@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 36bcb8f7a3ee75794741b44f91956950179e5544
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103161"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162289"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 
@@ -129,7 +129,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | [Retenção de backup de longo prazo-EPD](sql-database-long-term-retention.md) | Sim, mantenha backups feitos automaticamente até 10 anos. | Ainda não. Use `COPY_ONLY` [backups manuais](sql-database-managed-instance-transact-sql-information.md#backup) como uma solução alternativa temporária. |
 | Pausar/retomar | Sim, em [modelo sem servidor](sql-database-serverless.md) | Não | 
 | [Gerenciamento baseado em políticas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
-| Endereço IP público | Sim. O acesso pode ser restrito usando pontos de extremidade de firewall ou de serviço.  | Sim. Precisa ser habilitado explicitamente e a porta 3342 deve ser habilitada em regras NSG. O IP público pode ser desabilitado se necessário. Consulte [ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md) para obter mais detalhes. | 
+| Endereço IP Público | Sim. O acesso pode ser restrito usando pontos de extremidade de firewall ou de serviço.  | Sim. Precisa ser habilitado explicitamente e a porta 3342 deve ser habilitada em regras NSG. O IP público pode ser desabilitado se necessário. Consulte [ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md) para obter mais detalhes. | 
 | [Restauração pontual do banco de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sim-todas as camadas de serviço que não sejam de hiperescala-consulte [recuperação de banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sim-consulte [recuperação do banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | Pools de recursos | Sim, como [pools elásticos](sql-database-elastic-pool.md) | Sim. Uma única instância gerenciada pode ter vários bancos de dados que compartilham o mesmo pool de recursos. Além disso, você pode implantar várias instâncias gerenciadas em [pools de instância (versão prévia)](sql-database-instance-pools.md) que podem compartilhar os recursos. |
 | Expansão ou redução (online) | Sim, você pode alterar o DTU ou o vCores reservado ou o armazenamento máximo com o tempo de inatividade mínimo. | Sim, você pode alterar o armazenamento reservado vCores ou Max com o tempo de inatividade mínimo. |
@@ -161,7 +161,7 @@ O banco de dados SQL do Azure dá suporte a várias ferramentas de data que pode
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim [, versão 18,0 e superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não – consulte [eventos estendidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
-| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Não |
+| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Sim, [em versão prévia](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## <a name="migration-methods"></a>Métodos de migração
 
@@ -170,10 +170,10 @@ Você pode usar diferentes métodos de migração para mover seus dados entre SQ
 | **Origem** | **Banco de dados individual e pool elástico** | **Instância Gerenciada e pools de instância** |
 | --- | --- | --- |
 | SQL Server (local, AzureVM, Amazon RDS) | **Online:** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [DMS (serviço de migração de dados)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Backup/restauração nativos, [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
-| Base de dados individual | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
+| Base de dados única | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
 | Instância Gerida | **Online:** [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** [Arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) | **Online:** [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Está** Restauração pontual de instância cruzada ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) ou [CLI do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [backup/restauração nativo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 A Microsoft continua a adicionar recursos ao banco de dados SQL do Azure. Visite a página da Web atualizações de serviço do Azure para obter as atualizações mais recentes usando estes filtros:
 

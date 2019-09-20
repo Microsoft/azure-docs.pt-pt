@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 719f7f1c30a79b9057f25d6137423451cc606bfa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088426"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162209"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -33,6 +33,9 @@ Você não pode excluir um cofre dos serviços de recuperação que tem dependê
 
   ![Exclua o erro do servidor protegido.](./media/backup-azure-delete-vault/error-message.jpg)
 
+- Se itens de backup estiverem em estado de exclusão reversível abaixo, a mensagem de aviso será exibida e você precisará aguardar até que eles sejam excluídos permanentemente. Para obter mais informações, veja este [artigo](https://aka.ms/SoftDeleteCloudWorkloads).
+
+   ![Exclua o erro do cofre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
 Para excluir o cofre, escolha o cenário que corresponde à sua configuração e siga as etapas recomendadas:
 
@@ -350,7 +353,7 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMCLIENT REA
 3. No portal do Azure, verifique se o cofre foi excluído.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre cofres dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md)<br/>
 [Saiba mais sobre como monitorar e gerenciar cofres de serviços de recuperação](backup-azure-manage-windows-server.md)

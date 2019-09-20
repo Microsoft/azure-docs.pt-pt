@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128711"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162260"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Perguntas frequentes sobre os bancos de dados de hiperescala do SQL do Azure
 
@@ -46,7 +46,7 @@ As camadas de serviço baseadas em vCore são basicamente diferenciadas com base
 | | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para Empresas |
 |:---:|:---:|:---:|:---:|:---:|
 | **Melhor para** |Todos|  A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | Aplicativos de dados com requisitos de capacidade de dados maiores e a capacidade de dimensionar automaticamente o armazenamento e dimensionar a computação de forma fluida. | Aplicativos OLTP com alta taxa de transação e e/s de latência mais baixa. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
-|  **Tipo de recurso** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados individual | Banco de dados individual/pool elástico/instância gerenciada |
+|  **Tipo de recurso** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados única | Banco de dados individual/pool elástico/instância gerenciada |
 | **Tamanho da computação**|Banco de dados individual/pool elástico * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
 | |Instância gerida | 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Tipo de armazenamento** | Todos |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache de SSD local (por instância) | Armazenamento SSD local extremamente rápido (por instância) |
@@ -361,6 +361,11 @@ Criamos 2 réplicas para bancos de dados de hiperescala por padrão. Se você qu
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Como fazer conectar-se a esses nós de computação secundários
 
 Você pode se conectar a esses nós de computação somente leitura, definindo o `ApplicationIntent` argumento na cadeia de conexão como `readonly`. Todas as conexões marcadas com `readonly` são automaticamente roteadas para um dos nós de computação somente leitura adicionais.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Como fazer validar se eu tiver me conectado com êxito ao nó de computação secundário usando o SSMS/outras ferramentas de cliente?
+
+Você pode executar a seguinte consulta T-SQL usando o SSMS/outras ferramentas de `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`cliente:.
+O resultado será `READ_ONLY` se sua conexão estiver apontando para o nó secundário somente leitura ou `READ_WRITE` se a conexão estiver apontando para o nó primário.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Posso criar um ponto de extremidade dedicado para a réplica de escala de leitura
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66110305"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155170"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Azure do Windows
 
 Este documento aborda as etapas necessárias para configurar a coleta de contadores de desempenho por meio da extensão do Windows Diagnóstico do Azure (WAD) para clusters do Windows. Para clusters do Linux, configure o [agente de log Analytics](service-fabric-diagnostics-oms-agent.md) para coletar contadores de desempenho para seus nós. 
 
  > [!NOTE]
-> A extensão WAD deve ser implantada em seu cluster para que essas etapas funcionem para você. Se não estiver configurado, vá para a agregação de [eventos e a coleção usando o Windows diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md).  
+> A extensão WAD deve ser implantada em seu cluster para que essas etapas funcionem para você. Se não estiver configurado, vá para a [agregação de eventos e a coleção usando o Windows diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -192,9 +192,6 @@ Aqui está um exemplo de uma configuração com o contador para o *tempo total d
 ....
 ```
 
- >[!NOTE]
- >Embora você possa usar `*` para especificar grupos de contadores de desempenho que são nomeados de forma semelhante, o envio de qualquer contador por meio de um coletor (para Application insights) exige que eles sejam declarados individualmente. 
-
 1. Depois de adicionar os contadores de desempenho apropriados que precisam ser coletados, você precisará atualizar o recurso de cluster para que essas alterações sejam refletidas no cluster em execução. Salve o PowerShell `template.json` modificado e aberto. Você pode atualizar o cluster usando `New-AzResourceGroupDeployment`o. A chamada requer o nome do grupo de recursos, o arquivo de modelo atualizado e o arquivo de parâmetros e solicita que o Resource Manager faça as alterações apropriadas nos recursos que você atualizou. Quando você estiver conectado à sua conta e estiver na assinatura correta, use o seguinte comando para executar a atualização:
 
     ```sh
@@ -203,7 +200,7 @@ Aqui está um exemplo de uma configuração com o contador para o *tempo total d
 
 1. Depois que a atualização concluir a distribuição (leva entre 15-45 minutos, dependendo se é a primeira implantação e o tamanho do seu grupo de recursos), WAD deve coletar os contadores de desempenho e enviá-los para a tabela chamada WADPerformanceCountersTable na conta de armazenamento associada ao cluster. Consulte seus contadores de desempenho em Application Insights [adicionando o coletor de ai ao modelo do Resource Manager](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Colete mais contadores de desempenho para o cluster. Consulte [métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista de contadores que você deve coletar.
 * [Use monitoramento e diagnóstico com uma VM do Windows e modelos de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para fazer outras modificações `WadCfg`em seu, incluindo a configuração de contas de armazenamento adicionais para envio de dados de diagnóstico.
 * Visite o [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verifique se a sintaxe está correta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verificar se a sintaxe está correta.

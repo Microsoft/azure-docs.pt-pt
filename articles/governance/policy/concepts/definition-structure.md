@@ -3,16 +3,16 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de política de recurso do Azure Policy é utilizada para estabelecer as convenções para recursos na sua organização com a descrição quando a política é imposta e o efeito resultante para tirar.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d7e264bda62753693cdd2333625313cf213f142a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239191"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145574"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -106,7 +106,7 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
 - `metadata`: Define as subpropriedades usadas principalmente pelo portal do Azure para exibir informações amigáveis ao usuário:
   - `description`: A explicação sobre o que o parâmetro é usado para. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável mostrado no portal para o parâmetro.
-  - `strongType`: Adicional Usado ao atribuir a definição de política por meio do Portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, [](#strongtype)consulte strongtype.
+  - `strongType`: Adicional Usado ao atribuir a definição de política por meio do Portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, consulte [strongtype](#strongtype).
   - `assignPermissions`: Adicional Defina como _true_ para que Portal do Azure crie atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro deve ser um recurso ou escopo válido.
 - `defaultValue`: Adicional Define o valor do parâmetro em uma atribuição se nenhum valor for fornecido.
   Necessário ao atualizar uma definição de política existente que é atribuída.
@@ -367,7 +367,7 @@ O uso de _funções de modelo_ em **valor** permite muitas funções aninhadas c
 }
 ```
 
-A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a `substring()` função resultará em um erro. Esse erro faz com que a política se torne um efeito de negação.
+A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a `substring()` função resultará em um erro. Esse erro faz com que a política se torne um efeito de **negação** .
 
 Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para verificar se os três primeiros caracteres de **nome** são iguais a **ABC** sem permitir que um **nome** com menos de três caracteres cause um erro:
 
@@ -398,6 +398,7 @@ O Azure Policy dá suporte aos seguintes tipos de efeito:
 - **DeployIfNotExists**: implementa um recurso, se ainda não exista
 - **Desativado**: não avaliar os recursos de conformidade para a regra de política
 - **EnforceRegoPolicy**: configura o controlador de admissão do agente de política aberto no serviço kubernetes do Azure (versão prévia)
+- **Modificar**: adiciona, atualiza ou remove as marcas definidas de um recurso
 
 Para **acrescentar**, tem de fornecer os seguintes detalhes:
 
@@ -424,6 +425,8 @@ O **DeployIfNotExists** efeito requer a **roleDefinitionId** propriedade no **de
     ]
 }
 ```
+
+Da mesma forma, **Modify** requer a propriedade **roleDefinitionId** na parte de **detalhes** da regra de política para a [tarefa de correção](../how-to/remediate-resources.md). **Modify** também requer uma matriz de **operações** para definir as ações a serem executadas nas marcas de recursos.
 
 Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, consulte [noções básicas sobre efeitos de Azure Policy](effects.md).
 
@@ -616,7 +619,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas etiquet
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Veja [Compreender os efeitos do Policy](effects.md).

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d0e0c5601a6cddf936604df6d5b48b8bf48e7c8d
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002775"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162435"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 
@@ -114,7 +114,7 @@ from azureml.core.model import Model
 def init():
     global X, output, sess
     tf.reset_default_graph()
-    model_root = Model.get_model_path('tf-dnn-mnist')
+    model_root = os.getenv('AZUREML_MODEL_DIR')
     saver = tf.train.import_meta_graph(
         os.path.join(model_root, 'mnist-tf.model.meta'))
     X = tf.get_default_graph().get_tensor_by_name("network/X:0")
@@ -282,7 +282,7 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implantar modelo em FPGA](../service/how-to-deploy-fpga-web-service.md)
 * [Implantar modelo com ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)

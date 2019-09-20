@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142087"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162461"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior do migrações para Azure
 
@@ -78,7 +78,7 @@ A vista de preparação para o Azure na avaliação mostra o estado de preparaç
 
 **Preparação** | **Status** | **Detalhes**
 --- | --- | ---
-Preparado para o Azure | Não há problemas de compatibilidade. O computador pode ser migrado no estado em que se encontra para o Azure e será inicializado no Azure para obter suporte completo do Azure. | Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure.
+Preparado para o Azure | Não há problemas de compatibilidade. O computador pode ser migrado no estado em que se encontra para o Azure e será inicializado no Azure com o suporte completo do Azure. | Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure.
 Condicionalmente preparado para o Azure | O computador pode ser inicializado no Azure, mas pode não ter o suporte completo do Azure. Por exemplo, um computador com uma versão mais antiga do Windows Server que não tem suporte no Azure. | As migrações para Azure explicam os problemas de preparação e fornecem etapas de correção.
 Não está pronto para o Azure |  A VM não será inicializada no Azure. Por exemplo, se uma VM tiver um disco com mais de 4 TB, ela não poderá ser hospedada no Azure. | As migrações para Azure explicam os problemas de preparação e fornecem etapas de correção.
 Preparação desconhecida | As migrações para Azure não podem identificar a preparação do Azure, geralmente porque os dados não estão disponíveis.
@@ -91,7 +91,7 @@ A preparação leva em consideração uma série de propriedades da VM, para ide
 **Propriedade** | **Detalhes** | **Preparação**
 --- | --- | ---
 **Tipo de inicialização** | BIOS com suporte. UEFI sem suporte. | Condicionalmente pronto se o tipo de inicialização for UEFI.
-**Núcleos** | O núcleo de máquinas < = o número máximo de núcleos (128) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão os núcleos utilizados.<br/>Se um <br/>o fator de conforto é especificado nas configurações de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Pronto se for menor ou igual a limites.
+**Núcleos** | O núcleo de máquinas < = o número máximo de núcleos (128) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão os núcleos utilizados.<br/>Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Pronto se for menor ou igual a limites.
 **Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB no Azure série&nbsp;M Standard_M128m<sup>2</sup>) para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a memória alocada será usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se estiver dentro dos limites.
 **Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados ao computador deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Pronto se estiver dentro dos limites.
 **Redes** | Um computador deve ter 32 ou menos NICs conectados a ele. | Pronto se estiver dentro dos limites.
@@ -142,7 +142,7 @@ As estimativas de custo mostram o custo total de computação e armazenamento da
 
 Cada avaliação baseada em desempenho é associada a uma classificação de confiança.
 
-- Uma classificação de confiança varia de uma estrela a cinco estrelas (uma delas é a mais baixa e cinco iniciada a mais alta).
+- Uma classificação de confiança varia de uma estrela a cinco estrelas (uma estrela sendo a mais baixa e cinco estrelas a mais alta).
 - A classificação de confiança é atribuída a uma avaliação, com base na disponibilidade dos pontos de dados necessários para computar a avaliação.
 - A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate.
 - A classificação de confiança não está disponível para as avaliações locais "no estado em que se encontram".
@@ -216,7 +216,7 @@ Depois de configurar um espaço de trabalho, baixe e instale agentes em cada com
 4. Copie o ID e a chave da área de trabalho. Você precisará delas quando instalar o MMA no computador local.
 
 > [!NOTE]
-> Para automatizar a instalação de agentes, você pode usar uma ferramenta de implantação, como System Center Configuration Manager ou uma ferramenta de parceiro como, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que orovides uma solução de implantação de agente para migrações para Azure.
+> Para automatizar a instalação de agentes, você pode usar uma ferramenta de implantação, como System Center Configuration Manager ou uma ferramenta de parceiro como, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que fornece uma solução de implantação de agente para migrações para Azure.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Instalar o agente MMA em um computador Windows
@@ -340,5 +340,5 @@ VMConnection
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre](migrate-services-overview.md) a versão mais recente das migrações para Azure.

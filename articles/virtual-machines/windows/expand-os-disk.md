@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b22507796a9e614da780d25795bb7edf7094e935
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 692046070ffc04942a5d8a73825f6cb59e462f8b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103190"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147216"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do sistema operacional de uma máquina virtual
 
@@ -31,7 +31,7 @@ Quando você cria uma nova VM (máquina virtual) em um grupo de recursos implant
 
 
 > [!IMPORTANT]
-> O redimensionamento do disco do sistema operacional de uma máquina virtual do Azure fará com que ela seja reiniciada.
+> O redimensionamento do disco do sistema operacional de uma máquina virtual do Azure requer que a máquina virtual seja desalocada.
 >
 > Depois de expandir os discos, você precisa [expandir o volume dentro do sistema operacional](#expand-the-volume-within-the-os) para tirar proveito do disco maior.
 > 
@@ -214,6 +214,6 @@ Depois de expandir o disco para a VM, você precisará entrar no sistema operaci
 4.  No prompt do **DiskPart** , digite `extend [size=<size>]`. Isso estende o volume selecionado por *tamanho* em megabytes (MB).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você também pode anexar discos usando o [portal do Azure](attach-managed-disk-portal.md).

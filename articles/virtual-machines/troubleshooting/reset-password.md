@@ -4,7 +4,7 @@ description: Apresente as etapas para redefinir a senha local do Linux na VM do 
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: 8fc51dfb90158316b3fe6c11b5265f1cf3251505
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641037"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153577"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Como redefinir a senha local do Linux em VMs do Azure
 
@@ -105,7 +105,7 @@ Você não pode fazer logon na VM e recebe uma mensagem que indica que a senha u
 
 12. [Altere o disco do sistema operacional para a VM afetada](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Solucionar problemas de VM do Azure anexando o disco do sistema operacional a outra VM do Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 

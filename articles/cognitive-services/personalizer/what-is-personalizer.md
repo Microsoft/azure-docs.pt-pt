@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/03/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: ee17e204082389db19e1ebe463352a40d7ecd5ae
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883658"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155247"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -39,7 +39,7 @@ O personalizador usa modelos de aprendizado de máquina para descobrir qual aç�
 1. Crie e configure uma instância do serviço de personalização no portal do Azure. Cada instância é um loop personalizado.
 1. Use o SDK para chamar o personalizador com informações (_recursos_) sobre seus usuários e o conteúdo (_ações_). Você não precisa fornecer dados limpos e rotulados antes de usar o personalizador. 
 1. No aplicativo cliente, mostre ao usuário a ação selecionada pelo personalizador.
-1. Use o SDK para fornecer comentários ao personalizador indicando se a ação do personalizador selecionado pelo usuário. Esta é uma _Pontuação de recompensa_, normalmente entre-1 e 1.
+1. Use o SDK para fornecer comentários ao personalizador indicando se a ação do personalizador selecionado pelo usuário. Esta é uma _[Pontuação de recompensa](concept-rewards.md)_ .
 1. Veja a análise no portal do Azure para avaliar como o sistema está funcionando e como seus dados estão ajudando a personalização.
 
 ## <a name="where-can-i-use-personalizer"></a>Onde posso usar o personalizador?
@@ -60,11 +60,11 @@ O personalizador não é um serviço para persistir e gerenciar informações de
 O serviço de personalização tem duas APIs:
 
 * Envie informações (_recursos_) sobre seus usuários e o conteúdo (_ações_) para personalizar. O personalizador responde com a ação superior.
-* Envie comentários para o personalizador sobre o quão bem a classificação funcionou como um número geralmente entre 0 e 1 (a seção anterior dizia-1 e 1). 
+* Envie comentários para o personalizador sobre o quão bem a classificação funcionou como uma [Pontuação de recompensa](concept-rewards.md). 
 
 ![Sequência básica de eventos para personalização](media/what-is-personalizer/personalization-intro.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que há de novo no Personalizador?](whats-new.md)
 * [Como funciona o personalizador?](how-personalizer-works.md)

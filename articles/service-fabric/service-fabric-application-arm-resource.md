@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953210"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153591"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como Azure Resource Manager recursos
 
 Pode implementar serviços e aplicações no seu cluster do Service Fabric através do Azure Resource Manager. Isso significa que, em vez de implantar e gerenciar aplicativos por meio do PowerShell ou da CLI depois de esperar que o cluster esteja pronto, agora você pode expressar aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que o cluster. Pode realizar o processo de registo, aprovisionamento e implementação de aplicações com um único passo.
 
-Essa é a maneira recomendada para implantar qualquer configuração, governança ou aplicativos de gerenciamento de cluster que você precisa em seu cluster. Isso inclui o [aplicativo](service-fabric-patch-orchestration-application.md)de orquestração de patches, Watchdogs ou quaisquer aplicativos que precisam estar em execução no cluster antes que outros aplicativos ou serviços sejam implantados. 
+Essa é a maneira recomendada para implantar qualquer configuração, governança ou aplicativos de gerenciamento de cluster que você precisa em seu cluster. Isso inclui o [aplicativo de orquestração de patches](service-fabric-patch-orchestration-application.md), Watchdogs ou quaisquer aplicativos que precisam estar em execução no cluster antes que outros aplicativos ou serviços sejam implantados. 
 
 Quando aplicável, gerencie seus aplicativos como recursos do Resource Manager para melhorar:
 * Trilha de auditoria: O Resource Manager audita cada operação e mantém um *log de atividades* detalhado que pode ajudá-lo a rastrear todas as alterações feitas nesses aplicativos e no cluster.
@@ -272,12 +272,12 @@ A simples remoção de Microsoft. infabric/clusters/aplicativo do modelo do ARM 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gerenciar um aplicativo existente por meio do Resource Manager
 
-Se o cluster já estiver ativo e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e reimplantá-los, você poderá usar uma chamada PUT usando as mesmas APIs para que os aplicativos obtenham reconhecido como recursos do Resource Manager. 
+Se o cluster já estiver ativo e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e reimplantá-los, você poderá usar uma chamada PUT usando as mesmas APIs para que os aplicativos obtenham reconhecido como recursos do Resource Manager. Para obter informações adicionais, consulte o [que é o modelo de recurso de aplicativo Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
-> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar "maxPercentUnhealthyApplications: 100 "na seção" upgradeDescription/healthPolicy "; descrições detalhadas de todas as configurações estão na [documentação da política de atualização de cluster da API REST](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)de malhas de serviço.
+> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar "maxPercentUnhealthyApplications: 100 "na seção" upgradeDescription/healthPolicy "; descrições detalhadas de todas as configurações estão na [documentação da política de atualização de cluster da API REST de malhas de serviço](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Use a [CLI do Service Fabric](service-fabric-cli.md) ou o [PowerShell](service-fabric-deploy-remove-applications.md) para implantar outros aplicativos em seu cluster. 
 * [Atualizar seu cluster de Service Fabric](service-fabric-cluster-upgrade.md)

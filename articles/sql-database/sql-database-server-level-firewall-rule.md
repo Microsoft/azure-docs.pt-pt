@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883056"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162300"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall no nível de servidor para bancos de dados individuais e em pool usando o portal do Azure
 
@@ -54,7 +54,7 @@ Siga estas etapas para criar uma regra de firewall de IP no nível de servidor p
 4. Escolha **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP atual a uma nova regra de firewall de IP no nível de servidor. Uma regra de firewall de IP no nível de servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
    > [!IMPORTANT]
-   > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Escolha esta página para desabilitar para todos os serviços do Azure.
+   > Por padrão, o acesso por meio do firewall do banco de dados SQL é desabilitado para todos os serviços do Azure. Escolha **ativado** nesta página se você quiser habilitar o acesso para todos os serviços do Azure.
    >
 
 5. Selecione **Guardar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP atual abrindo a porta 1433 no servidor do banco de dados SQL.
@@ -68,7 +68,7 @@ Usando o SQL Server Management Studio ou outra ferramenta de sua escolha, agora 
 Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, você quiser excluir os recursos criados neste guia de início rápido, use as etapas a seguir.
 
 1. No menu à esquerda na portal do Azure, selecione **grupos de recursos** e, em seguida, selecione grupo de **recursos**.
-2. Na página do grupo de recursos, selecione **excluir**, digite MyResource Group na caixa de texto e, em seguida, selecione **excluir**.
+2. Na página do grupo de recursos, selecione **excluir**, digite **MyResource** Group na caixa de texto e, em seguida, selecione **excluir**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

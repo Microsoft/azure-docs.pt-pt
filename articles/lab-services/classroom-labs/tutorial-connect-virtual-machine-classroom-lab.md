@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 769cb2c6a3ae0e5b94ffd65425634ac9dd0221d0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: cf1bd223c852db930835ea1b56a93a381e8312c5
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640005"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161428"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acesse um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, como estudante vai ligar-se a uma máquina virtual (VM) num laboratório de sala de aula. 
@@ -35,8 +35,11 @@ Neste tutorial, irá realizar as seguintes ações:
 
 1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a [https://labs.azure.com](https://labs.azure.com)URL:. O Internet Explorer 11 ainda não tem suporte. 
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
-2. Depois de se registar, confirme se vê a máquina virtual do laboratório a que tem acesso. 
-3. Aguarde até que a máquina virtual esteja pronta. No bloco da VM, observe os seguintes campos:
+
+    > [!NOTE]
+    > Um conta Microsoft é necessário para usar Azure Lab Services. Se você estiver tentando usar suas contas não conta Microsoft como o Yahoo ou o Google para entrar no portal, siga as instruções para criar um conta Microsoft que será vinculado ao seu não conta Microsoft. Em seguida, siga as etapas para concluir o processo de registro. 
+1. Depois de se registar, confirme se vê a máquina virtual do laboratório a que tem acesso. 
+1. Aguarde até que a máquina virtual esteja pronta. No bloco da VM, observe os seguintes campos:
     1. Na parte superior do bloco, você verá o **nome do laboratório**.
     1. À direita, você vê o ícone que representa o **sistema operacional (SO)** da VM. Neste exemplo, é o sistema operacional Windows. 
     1. A barra de progresso no bloco mostra o número de horas usadas em relação ao número de [horas de cota](how-to-configure-student-usage.md#set-quotas-for-users) atribuídas a você. Esse tempo é o tempo adicional alocado para você, além do horário agendado para o laboratório. 

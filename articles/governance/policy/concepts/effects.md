@@ -1,18 +1,18 @@
 ---
 title: Entender como os efeitos funcionam
-description: Definição de política do Azure tem vários efeitos que determinam como conformidade é gerenciada e comunicada.
+description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231523"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147009"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
@@ -27,13 +27,14 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 - [DeployIfNotExists](#deployifnotexists)
 - [Desativado](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy) apresentação
+- [Alterar](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
 As solicitações para criar ou atualizar um recurso por meio de Azure Resource Manager são avaliadas por Azure Policy primeiro. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
 
 - **Desativado** será verificado primeiro para determinar se a regra de política deve ser avaliada.
-- **Acrescentar** , em seguida, é avaliada. Acrescentar uma vez que pode alterar o pedido, uma alteração efetuada pelo acréscimo pode impedir que uma auditoria ou negar o efeito de acionar.
+- **Acréscimo** e **modificação** são então avaliados. Como o pode alterar a solicitação, uma alteração feita pode impedir o disparo de um efeito de auditoria ou negação.
 - **Negar** , em seguida, é avaliada. Avaliando negar antes de auditoria, registo duplo de um recurso indesejado é evitado.
 - **Auditoria** , em seguida, é avaliado antes do pedido vai para o fornecedor de recursos.
 
@@ -47,7 +48,10 @@ Esse efeito é útil para situações de teste ou para quando a definição de p
 
 ## <a name="append"></a>Acrescentar
 
-Acrescentar é usado para adicionar campos adicionais para o recurso solicitado durante a criação ou atualização. Um exemplo comum é adicionar etiquetas nos recursos, como costCenter ou permitido especificar IPs para um recurso de armazenamento.
+Acrescentar é usado para adicionar campos adicionais para o recurso solicitado durante a criação ou atualização. Um exemplo comum é especificar os IPs permitidos para um recurso de armazenamento.
+
+> [!IMPORTANT]
+> Append destina-se a uso com propriedades sem marca. Embora Append possa adicionar marcas a um recurso durante uma solicitação de criação ou atualização, é recomendável usar o efeito [Modificar](#modify) para marcas em vez disso.
 
 ### <a name="append-evaluation"></a>Acrescentar a avaliação
 
@@ -61,36 +65,7 @@ Um efeito de acréscimo apenas tem um **detalhes** matriz, o que é necessário.
 
 ### <a name="append-examples"></a>Exemplos de acréscimo
 
-Exemplo 1: Par de **campo/valor** único para acrescentar uma marca.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-Exemplo 2: Dois pares de **campo/valor** para acrescentar um conjunto de marcas.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-Exemplo 3: Par de **campo/valor** único usando um [alias](definition-structure.md#aliases) não **\*[]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se a matriz já existir, um evento Deny ocorrerá do conflito.
+Exemplo 1: Par de **campo/valor** único usando um [alias](definition-structure.md#aliases) não **\*[]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se a matriz já existir, um evento Deny ocorrerá do conflito.
 
 ```json
 "then": {
@@ -105,7 +80,7 @@ Exemplo 3: Par de **campo/valor** único usando um [alias](definition-structure.
 }
 ```
 
-Exemplo 4: Par de **campo/valor** único usando um [alias](definition-structure.md#aliases) **\*[]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Usando o alias **[\*]** , o efeito acrescenta o **valor** a uma matriz potencialmente pré-existente. Se a matriz ainda não existir, ela será criada.
+Exemplo 2: Par de **campo/valor** único usando um [alias](definition-structure.md#aliases) **\*[]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Usando o alias **[\*]** , o efeito acrescenta o **valor** a uma matriz potencialmente pré-existente. Se a matriz ainda não existir, ela será criada.
 
 ```json
 "then": {
@@ -117,6 +92,122 @@ Exemplo 4: Par de **campo/valor** único usando um [alias](definition-structure.
             "action": "Allow"
         }
     }]
+}
+```
+
+## <a name="modify"></a>Modificar
+
+Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação deve ter `mode` sempre definido como _indexado_. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md).
+Uma única regra de modificação pode ter qualquer quantidade de operações.
+
+> [!IMPORTANT]
+> No momento, Modify é usado apenas com marcas. Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, o acréscimo é recomendado se você não conseguir criar uma identidade gerenciada.
+
+### <a name="modify-evaluation"></a>Modificar avaliação
+
+Modify avalia antes que a solicitação seja processada por um provedor de recursos durante a criação ou atualização de um recurso. Modifique adiciona ou atualiza marcas em um recurso quando a condição **se** da regra de política for atendida.
+
+Quando uma definição de política que usa o efeito modificar é executada como parte de um ciclo de avaliação, ela não faz alterações nos recursos que já existem. Em vez disso, ele marca a qualquer recurso que cumpra os **se** condição como não conforme.
+
+### <a name="modify-properties"></a>Modificar propriedades
+
+A propriedade **Details** do efeito modificar tem todas as subpropriedades que definem as permissões necessárias para a correção e as **operações** usadas para adicionar, atualizar ou remover valores de marca.
+
+- **roleDefinitionIds** [necessário]
+  - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
+  - A função definida deve incluir todas as operações concedidas à função [colaborador](../../../role-based-access-control/built-in-roles.md#contributor) .
+- **operações** do necessária
+  - Uma matriz de todas as operações de marca a serem concluídas em recursos correspondentes.
+  - Properties
+    - **operação** do necessária
+      - Define a ação a ser tomada em um recurso correspondente. As opções são: _addOrReplace_, _Adicionar_, _remover_. _Adicionar_ se comporta de forma semelhante ao efeito de [acréscimo](#append) .
+    - **campo** necessária
+      - A marca a ser adicionada, substituída ou removida. Os nomes de marca devem aderir à mesma convenção de nomenclatura para outros [campos](./definition-structure.md#fields).
+    - **valor** do adicional
+      - O valor para o qual definir a marca.
+      - Essa propriedade será necessária se a **operação** for _addOrReplace_ ou _Add_.
+
+### <a name="modify-operations"></a>Modificar operações
+
+A matriz de propriedades de **operações** torna possível alterar várias marcas de diferentes maneiras de uma única definição de política. Cada operação é composta de propriedades de **operação**, **campo**e **valor** . A operação determina o que a tarefa de correção faz nas marcas, o campo determina qual marca é alterada e o valor define a nova configuração para essa marca. O exemplo a seguir faz as seguintes alterações de marca:
+
+- Define a `environment` marca como "Test", mesmo que ela já exista com um valor diferente.
+- Remove a marca `TempResource`.
+- Define a `Dept` marca para o parâmetro de política _deptname_ configurado na atribuição de política.
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "field": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+A propriedade **Operation** tem as seguintes opções:
+
+|Operação |Descrição |
+|-|-|
+|addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
+|Adicionar |Adiciona a marca e o valor definidos ao recurso. |
+|remover |Remove a marca definida do recurso. |
+
+### <a name="modify-examples"></a>Modificar exemplos
+
+Exemplo 1: Adicione a `environment` marca e substitua as `environment` marcas existentes por "Test":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+Exemplo 2: Remova a `env` marca e adicione a `environment` marca ou substitua as `environment` marcas existentes por um valor com parâmetros:
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -234,7 +325,7 @@ Exemplo: Avalia as máquinas virtuais para determinar se a extensão Antimalware
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-Assim como AuditIfNotExists, DeployIfNotExists executa uma implementação de modelo quando a condição é cumprida.
+Semelhante a AuditIfNotExists, uma definição de política DeployIfNotExists executa uma implantação de modelo quando a condição é atendida.
 
 > [!NOTE]
 > [Aninhados modelos](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) são suportadas com **deployIfNotExists**, mas [ligado modelos](../../../azure-resource-manager/resource-group-linked-templates.md) não são atualmente suportadas.
@@ -247,7 +338,7 @@ Durante um ciclo de avaliação, definições de política com um efeito de Depl
 
 ### <a name="deployifnotexists-properties"></a>Propriedades de DeployIfNotExists
 
-O **detalhes** propriedade dos efeitos DeployIfNotExists tem todos os subproperties que definem os recursos relacionados para correspondência e a implementação do modelo para executar.
+A propriedade **Details** do efeito DeployIfNotExists tem todas as subpropriedades que definem os recursos relacionados para corresponder e a implantação de modelo a ser executada.
 
 - **Tipo de** [necessário]
   - Especifica o tipo de recurso relacionado para corresponder.
@@ -420,7 +511,7 @@ Se a diretiva 1 e 2 de política que tinha efeitos de negações, a situação m
 
 Cada atribuição individualmente é avaliada. Como tal, existem não é uma oportunidade para um recurso de ortografia passar por meio de um intervalo de diferenças no âmbito. O resultado líquido de políticas de disposição em camadas ou sobreposição de diretivas é considerado como estando **cumulativa mais restritivo**. Por exemplo, se ambas as políticas de 1 e 2 tinham um efeito de recusa, um recurso seria bloqueado pelas políticas de conflitantes e sobrepostas. Se ainda precisar do recurso a ser criadas no âmbito de destino, reveja as exclusões em cada atribuição para validar as políticas corretas estão a afetar os âmbitos certos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).

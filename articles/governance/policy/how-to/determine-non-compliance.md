@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194654"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161982"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -20,7 +20,7 @@ Quando um recurso do Azure é determinado como não compatível com uma regra de
 
 > [!div class="checklist"]
 > - [Detalhes de conformidade](#compliance-details)
-> - [Histórico de alterações (versão prévia)](#change-history-preview)
+> - [Histórico de alterações (versão prévia)](#change-history)
 
 ## <a name="compliance-details"></a>Detalhes de conformidade
 
@@ -79,7 +79,7 @@ Para exibir os detalhes de conformidade, siga estas etapas:
 > [!NOTE]
 > Para proteger os dados, quando um valor de propriedade é um _segredo_ , o valor atual exibe asteriscos.
 
-Esses detalhes explicam por que um recurso não está em conformidade no momento, mas não mostram quando a alteração foi feita no recurso que fez com que ele se torne incompatível. Para obter essas informações, consulte [histórico de alterações (versão prévia)](#change-history-preview) abaixo.
+Esses detalhes explicam por que um recurso não está em conformidade no momento, mas não mostram quando a alteração foi feita no recurso que fez com que ele se torne incompatível. Para obter essas informações, consulte [histórico de alterações (versão prévia)](#change-history) abaixo.
 
 ### <a name="compliance-reasons"></a>Motivos de conformidade
 
@@ -94,7 +94,7 @@ A matriz a seguir mapeia cada possível _motivo_ para a [condição](../concepts
 |O valor atual deve ser maior ou igual ao valor de destino. |greaterOrEquals ou **não** menos |
 |O valor atual deve ser maior que o valor de destino. |maior ou **não** lessOrEquals |
 |O valor atual deve ser menor ou igual ao valor de destino. |lessOrEquals ou **não** é maior |
-|O valor atual deve existir. |existe |
+|O valor atual deve existir. |Existe |
 |O valor atual deve estar no valor de destino. |in ou **not** notIn |
 |O valor atual deve ser semelhante ao valor de destino. |Like ou **não** like |
 |O valor atual deve diferenciar maiúsculas de minúsculas no valor de destino. |corresponder ou **não** corresponder |
@@ -125,7 +125,7 @@ Na exibição do painel **detalhes de conformidade** , clique no link **último 
 
 A página **atribuição de convidado** exibe todos os detalhes de conformidade disponíveis. Cada linha na exibição representa uma avaliação que foi executada dentro da máquina. Na coluna **motivo** , uma frase que descreve por que a atribuição de convidado _não é compatível_ é mostrada. Por exemplo, se você estiver auditando políticas de senha, a coluna **motivo** exibiria texto, incluindo o valor atual de cada configuração.
 
-![Exibir detalhes de conformidade](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Ver detalhes de conformidade](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -176,7 +176,7 @@ PolicyDisplayName                                                         Compli
 <truncated>
 ```
 
-Para simplificar essa exibição, use o parâmetro showchanged. A saída desse comando inclui apenas os relatórios que seguiram uma alteração no status de conformidade.
+Para simplificar essa exibição, use o parâmetro **showchanged** . A saída desse comando inclui apenas os relatórios que seguiram uma alteração no status de conformidade.
 
 ```azurepowershell-interactive
 $guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
@@ -214,7 +214,7 @@ O _Visual diff_ auxilia na identificação de alterações em um recurso. As alt
 
 Os dados do histórico de alterações são fornecidos pelo [grafo de recursos do Azure](../../resource-graph/overview.md). Para consultar essas informações fora do portal do Azure, consulte [obter alterações de recurso](../../resource-graph/how-to/get-resource-changes.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

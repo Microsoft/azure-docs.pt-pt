@@ -4,6 +4,7 @@ description: Como solucionar problemas de perfis do Gerenciador de tráfego quan
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
+manager: dcscontentpm
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f043b11c9319d61c4413d01b008b324103ca6c3
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565877"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155207"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de estado degradado no Gerenciador de tráfego do Azure
 
-Este artigo descreve como solucionar problemas de um perfil do Gerenciador de tráfego do Azure que está mostrando um status degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o log de diagnóstico.  Consulte [Habilitar logs de diagnóstico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que você configurou um perfil do Gerenciador de tráfego apontando para alguns dos seus serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de tráfego exibir um status degradado, o status de um ou mais pontos de extremidade poderá ser **degradado**:
+Este artigo descreve como solucionar problemas de um perfil do Gerenciador de tráfego do Azure que está mostrando um status degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o log de diagnóstico.  Consulte [Habilitar logs de diagnóstico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que você configurou um perfil do Gerenciador de tráfego apontando para alguns dos seus serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de tráfego exibir um status **degradado** , o status de um ou mais pontos de extremidade poderá ser **degradado**:
 
 ![status de ponto de extremidade degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Se a integridade do seu Gerenciador de tráfego exibir um status inativo, ambos os pontos de extremidade poderão ser **desabilitados**:
+Se a integridade do seu Gerenciador de tráfego exibir um status **inativo** , ambos os pontos de extremidade poderão ser **desabilitados**:
 
 ![Status do Gerenciador de tráfego inativo](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 

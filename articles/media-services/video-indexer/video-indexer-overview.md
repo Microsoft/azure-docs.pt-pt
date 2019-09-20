@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a30fa858ea7befa2363e0ac2742e16d46037d0e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
-ms.translationtype: HT
+ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123507"
+ms.locfileid: "71146478"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -54,10 +54,13 @@ A seguir está a lista de informações que você pode recuperar de seus vídeos
 * **Detecção de quadro preto**: Identifica quadros pretos apresentados no vídeo.
 * **Extração de quadro-chave**: Detecta quadros-chave estáveis em um vídeo.
 * **Créditos sem interrupção**: identifique o início e o fim dos créditos contínuos no final de filmes e apresentações de TV.
+* **Detecção de caracteres animados** (visualização): detecção, agrupamento e reconhecimento de caracteres em conteúdo animado por meio da integração com a [visão personalizada dos serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Para obter mais informações, consulte a [detecção de caracteres animados](animated-characters-recognition.md).
+* **Detecção de tipo editorial shot**: marcação de capturas com base em seu tipo (como ampla captura, imagem média, fechamento, extremo, superior, duas telas, várias pessoas, externamente e em interno, etc.). Para obter mais informações, consulte [detecção do tipo editorial shot](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ### <a name="audio-insights"></a>Informações de áudio
 
 * **Detecção automática de idioma**: Identifica automaticamente a linguagem falada dominante. Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português brasileiro. Se o idioma não puder ser identificado com confiança, o Video Indexer assumirá que o idioma falado é o inglês. Para obter mais informações, consulte [modelo de identificação de idioma](language-identification-model.md).
+* **Identificação e transcrição de fala em vários idiomas** (visualização): Identifica automaticamente o idioma falado em diferentes segmentos do áudio, enviando cada segmento do arquivo de mídia a ser transcrita e combinando a transcrição de volta a uma transcrição unificada. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
 * **Transcrição de áudio**: Converte a fala em texto em 12 idiomas e permite extensões. Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, Português do Brasil, híndi e coreano.
 * **Legendagem oculta**: Cria legendas ocultas em três formatos: VTT, TTML, SRT.
 * **Processamento de dois canais**: Detecta automaticamente, separa a transcrição e mescla em uma única linha do tempo.
@@ -75,6 +78,7 @@ A seguir está a lista de informações que você pode recuperar de seus vídeos
 Ao indexar um resultado parcial do canal para esses modelos estará disponível
 
 * **Extração de palavras-chave**: Extrai palavras-chave de fala e texto visual.
+* **Extração de entidades nomeadas**: Extrai marcas, locais e pessoas de fala e texto visual por meio do NLP (processamento de idioma natural).
 * **Extração de marcas**: Extrai marcas da fala e do texto visual.
 * **Inferência de tópico**: Faz a inferência de tópicos principais de transcrições. A taxonomia IPTC de 1º nível está incluída.
 * **Artefatos**: Extrai um conjunto avançado de artefatos de "próximo nível de detalhes" para cada um dos modelos.

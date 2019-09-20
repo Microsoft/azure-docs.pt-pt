@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4f039fde275e5dca49b3c78550722d827bead062
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996634"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155103"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início rápido: Biblioteca de cliente Azure Key Vault para .NET
 
@@ -83,7 +83,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 Este guia de início rápido usa um cofre de chaves do Azure criado previamente. Você pode criar um cofre de chaves seguindo as etapas na guia de início rápido [CLI do Azure](quick-create-cli.md), guia de início rápido [Azure PowerShell](quick-create-powershell.md)ou [portal do Azure início rápido](quick-create-portal.md). Como alternativa, você pode simplesmente executar os comandos de CLI do Azure abaixo.
 
 > [!Important]
-> Cada Key Vault deve ter um nome exclusivo. O exemplo a seguir cria um Key Vault chamado *myKV*, mas você deve nomear algo diferente e usar esse nome em todo este guia de início rápido.
+> Cada cofre de chaves deve ter um nome exclusivo. Substitua < seu-Unique-keyvault-Name > pelo nome do seu cofre de chaves nos exemplos a seguir.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -191,7 +191,7 @@ az group delete -g "myResourceGroup" -l "EastUS"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Consulte [todo o aplicativo de console no GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
 

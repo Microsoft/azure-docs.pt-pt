@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: a7d1249d68ddd4a161d1c0476e5f56e80c4d32f9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032021"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161522"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/parar uma VM no laboratório e conectar-se à VM. 
@@ -28,8 +28,11 @@ Este artigo descreve como se registrar em um laboratório de sala de aula, exibi
 
 1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a [https://labs.azure.com](https://labs.azure.com)URL:. O Internet Explorer 11 ainda não tem suporte. 
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
-2. Depois de se registar, confirme se vê a máquina virtual do laboratório a que tem acesso. 
-3. Aguarde até que a máquina virtual esteja pronta. No bloco da VM, observe os seguintes campos:
+
+    > [!NOTE]
+    > Um conta Microsoft é necessário para usar Azure Lab Services. Se você estiver tentando usar suas contas não conta Microsoft como o Yahoo ou o Google para entrar no portal, siga as instruções para criar um conta Microsoft que será vinculado ao seu não conta Microsoft. Em seguida, siga as etapas para concluir o processo de registro. 
+1. Depois de se registar, confirme se vê a máquina virtual do laboratório a que tem acesso. 
+1. Aguarde até que a máquina virtual esteja pronta. No bloco da VM, observe os seguintes campos:
     1. Na parte superior do bloco, você verá o **nome do laboratório**.
     1. À direita, você vê o ícone que representa o **sistema operacional (SO)** da VM. Neste exemplo, é o sistema operacional Windows. 
     1. Você vê os ícones/botões na parte inferior do bloco para iniciar/parar a VM e conectar-se à VM. 

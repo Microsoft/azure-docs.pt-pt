@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995226"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162413"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido 
 
@@ -110,7 +110,7 @@ Prossiga para as próximas etapas para solução de problemas.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 e posterior
 
-Procure a subseção ' registro anterior ' na seção ' dados de diagnóstico ' da saída de status de ingresso.
+Procure a subseção ' registro anterior ' na seção ' dados de diagnóstico ' da saída de status de ingresso. Esta seção será exibida somente se o dispositivo estiver ingressado no domínio e não puder ingressar no Azure AD híbrido.
 O campo ' fase de erro ' denota a fase da falha de junção enquanto ' Client ErrorCode ' denota o código de erro da operação de junção.
 
 ```
@@ -181,7 +181,7 @@ Para localizar o código de suberro do código de erro de descoberta, use um dos
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 e posterior
 
-Procure ' teste de descoberta do DRS ' na seção ' dados de diagnóstico ' da saída de status de ingresso.
+Procure ' teste de descoberta do DRS ' na seção ' dados de diagnóstico ' da saída de status de ingresso. Esta seção será exibida somente se o dispositivo estiver ingressado no domínio e não puder ingressar no Azure AD híbrido.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Localize o tipo de registro e procure o código de erro na lista abaixo.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 e posterior
 
-Procure a subseção ' registro anterior ' na seção ' dados de diagnóstico ' da saída de status de ingresso.
+Procure a subseção ' registro anterior ' na seção ' dados de diagnóstico ' da saída de status de ingresso. Esta seção será exibida somente se o dispositivo estiver ingressado no domínio e não puder ingressar no Azure AD híbrido.
 O campo ' tipo de registro ' denota o tipo de junção executada.
 
 ```
@@ -407,7 +407,7 @@ Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao ent
 ## <a name="known-issues"></a>Problemas conhecidos
 - Em Configurações-> contas – > acessar trabalho ou escola, dispositivos ingressados no Azure AD híbrido podem mostrar duas contas diferentes, uma para o Azure AD e outra para o AD local, quando conectadas a hotspots móveis ou a redes WiFi externas. Isso é apenas um problema de interface do usuário e não tem nenhum impacto sobre a funcionalidade. 
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Continuar a [solução de problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876680"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147298"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e o AppSource
 Os serviços de consultoria no Azure Marketplace e o AppSource fornecem aos parceiros da Microsoft o objetivo de conectar clientes com serviços para dar suporte e estender o uso de metas de negócios e do Azure. 
@@ -24,15 +24,17 @@ Essas ofertas de serviço de consultoria são compromissos específicos do clien
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Serviços de consultoria no Azure Marketplace versus vitrine de AppSource
 As vitrines do Marketplace estão alinhadas com os produtos públicos e de nuvem da Microsoft para ajudar os clientes a encontrar o que precisam. Cada vitrine oferece opções de publicação especializadas para ajudá-lo a maximizar seu investimento de publicação. A tabela a seguir resume estas opções:
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**Platéia**   |**Profissionais de ti e desenvolvedores de nuvem**|**Usuários empresariais/tomadores de decisões de linha de negócios**|
 |Relevância da solução     |Aplicativos técnicos criados para o ou criados no Azure|Aplicativos de negócios que aproveitam/estendem D365, Power BI, O365, Azure. (Aplicativos concluídos ou complementares)|
-|Opções de publicação     |Entre em contato comigo, avaliação, transação ou serviços de consultoria|Entre em contato comigo, avaliação ou serviços de consultoria|
+|Opções de publicação     |Entre em contato comigo, avaliação, transação ou serviços para o Azure|Entre em contato comigo, avaliação ou serviços para Dynamics 365 e Power BI|
 |Na experiência do produto      |Portal de Gestão do Azure|Dynamics 365, Office 365, aplicativos cliente do Office| 
-|Outros      |Publicação local via Azure Stack|Serviços de consultoria para Dynamics e Power BI|
+|Outros      |Publicação local via Azure Stack, serviços de consultoria para Azure, serviços gerenciados para o Azure|Serviços de consultoria para Dynamics e Power BI|
 
-Ofertas de serviço baseadas no Microsoft Dynamics 365, Office 365 e Power BI estão qualificadas para serem listadas em AppSource. Para obter mais informações, consulte [diretrizes de listagem de serviços de consultoria Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+As ofertas de serviços de consultoria baseadas no Microsoft Dynamics 365 e Power BI estão qualificadas para serem listadas em Microsoft AppSource. Para obter mais informações, consulte [diretrizes de listagem de serviços de consultoria Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+Serviços de consultoria e ofertas de serviços gerenciados baseados em Microsoft Azure estão qualificados para serem listados no Azure Marketplace. Para obter mais informações, consulte artigos sobre como [publicar um serviço de consultoria do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) e [publicar uma oferta de serviços gerenciados no Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Os serviços de consultoria no Azure Marketplace devem aproveitar as ofertas voltadas para um público técnico * * com foco nas *soluções e serviços técnicos do Azure.* \* * Os serviços de consultoria no AppSource devem aproveitar as ofertas voltadas para sua experiência no fornecimento de soluções de qualidade para o Dynamics 365, Power BI ou PowerApps para listar suas ofertas de serviços de consultoria no AppSource
@@ -149,9 +151,9 @@ Exemplos:
 
 Ao revisar descrições da oferta e resumos da oferta, a equipe aplicará os seguintes critérios:
 
-|Tipo de Oferta  |Necessário |Recomendado  |
+|Tipo de Oferta  |Requerido |Recomendado  |
 |---------|---------|---------|
-|**Locação**    |   Inclua uma agenda detalhada para avaliações de vários dias ou de várias semanas e articule o que o cliente pode esperar      |    Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa     |
+|**Avaliação**    |   Inclua uma agenda detalhada para avaliações de vários dias ou de várias semanas e articule o que o cliente pode esperar      |    Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa     |
 |**Resumo**    |   Articular o resultado que o cliente pode esperar. Lembre-se de que o resumo deve ser oferecido pessoalmente. Se você estiver fornecendo um serviço virtual, escolha um tipo de oferta diferente    |  Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa       |
 |**Implementação**    |  Inclua uma agenda detalhada para implementações de vários dias ou de várias semanas e articule quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do envolvimento       |    Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa     |
 |**Prova de conceito**    |    Articular quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do envolvimento     | Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa        |
@@ -169,7 +171,7 @@ Em Portal do Cloud Partner, você pode adicionar formatação à sua listagem us
 * \* Resumo da oferta de itálico
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você ainda não fez isso, 
 

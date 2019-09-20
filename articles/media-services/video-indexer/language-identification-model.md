@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931118"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147198"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente o idioma falado com o modelo de identificação de idioma
 
@@ -53,11 +53,11 @@ O idioma dominante do modelo está disponível no JSON do insights `sourceLangua
 * Se o áudio contiver idiomas diferentes da lista de suporte acima, o resultado será inesperado.
 * Se video indexer não puder identificar o idioma com alta confiança suficiente (`>0.6`), o idioma de fallback será o inglês.
 * Não há suporte atual para arquivos com áudio de idiomas mistos. Se o áudio contiver idiomas mistos, o resultado será inesperado. 
-* Cáustica de áudio de baixa qualidade podem afetar os resultados do modelo.
+* O áudio de baixa qualidade pode afetar os resultados do modelo.
 * O modelo requer pelo menos um minuto de fala no áudio.
 * O modelo foi projetado para reconhecer uma fala de conversa espontaneável (não comandos de voz, assinar, etc.).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral](video-indexer-overview.md)
 * [Identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md)

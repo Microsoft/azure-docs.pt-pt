@@ -1,5 +1,5 @@
 ---
-title: Importação em massa para adicionar usuários (versão prévia) no portal de Azure Active Directory | Microsoft Docs
+title: Criar usuários em massa (versão prévia) no portal de Azure Active Directory | Microsoft Docs
 description: Adicionar usuários em massa no centro de administração do Azure AD no Azure Active Directory
 services: active-directory
 author: curtand
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a22052117448cdb71bbc16e1df7899e6d3eb764e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901493"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146317"
 ---
-# <a name="bulk-import-users-preview-in-azure-active-directory"></a>Usuários de importação em massa (visualização) no Azure Active Directory
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Criar usuários em massa (versão prévia) no Azure Active Directory
 
 O Azure Active Directory (AD do Azure) dá suporte a operações de criação e exclusão de usuário em massa, convite em massa para convidados e dá suporte a download de listas de usuários, grupos e membros do grupo.
 
@@ -37,6 +37,9 @@ Para criar usuários em massa no portal de administração, você deve estar con
 1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização.
 1. No Azure AD, selecione **usuários** > **criar em massa**.
 1. Na página **criação em massa do usuário** , selecione **baixar** para receber um arquivo CSV (valores separados por vírgula) válido das propriedades do usuário e adicione os novos usuários.
+
+   ![O arquivo CSV contém nomes e IDs dos usuários a serem criados](./media/users-bulk-add/add-csv-file.png)
+
 1. Quando você terminar de editar o arquivo CSV ou se tiver um de seus próprios pronto para carregar, selecione o arquivo em **carregar o arquivo CSV** a ser validado.
 
    ![Selecione um arquivo CSV local no qual você lista os usuários que deseja adicionar](./media/users-bulk-add/upload-button.png)

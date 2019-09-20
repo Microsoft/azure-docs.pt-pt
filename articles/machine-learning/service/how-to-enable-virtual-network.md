@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: f12c77a25bad9781d5f23b9563f6684997a2a6c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002781"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162572"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 
@@ -346,7 +346,23 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Quando o processo de criação for concluído, você poderá executar a inferência ou a pontuação de modelo em um cluster AKS por trás de uma rede virtual. Para obter mais informações, consulte [como implantar no AKs](how-to-deploy-to-aks.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="use-azure-firewall"></a>Usar o Firewall do Azure
+
+Ao usar o Firewall do Azure, você deve configurar uma regra de rede para permitir o tráfego de e para os seguintes endereços:
+
+- `*.batchai.core.windows.net`
+- `ml.azure.com`
+- `*.azureml.ms`
+- `*.experiments.azureml.net`
+- `*.modelmanagement.azureml.net`
+- `mlworkspace.azure.ai`
+- `*.aether.ms`
+
+Ao adicionar a regra, defina o __protocolo__ como qualquer e as portas para `*`.
+
+Para obter mais informações sobre como configurar uma regra de rede, consulte [implantar e configurar o Firewall do Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar ambientes de treinamento](how-to-set-up-training-targets.md)
 * [Onde pretende implementar modelos](how-to-deploy-and-where.md)

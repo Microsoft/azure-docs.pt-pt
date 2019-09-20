@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877193"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147368"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade
 
@@ -25,13 +25,17 @@ O roteamento de mensagens permite que você envie mensagens de seus dispositivos
 
 * **Filtragem de dados antes de roteá-los para vários pontos de extremidade** aplicando consultas avançadas. O roteamento de mensagens permite consultar as propriedades da mensagem e o corpo da mensagem, bem como as marcas de dispositivo e as propriedades do dispositivo. Saiba mais sobre como usar [consultas no roteamento de mensagens](iot-hub-devguide-routing-query-syntax.md).
 
-O Hub IoT precisa de acesso de gravação a esses pontos de extremidade de serviço para que o roteamento de mensagens funcione. Se você configurar seus pontos de extremidade por meio do portal do Azure, as permissões necessárias serão adicionadas para você. Certifique-se de configurar seus serviços para dar suporte à taxa de transferência esperada. Ao configurar pela primeira vez sua solução de IoT, talvez seja necessário monitorar seus pontos de extremidade adicionais e fazer os ajustes necessários para a carga real.
+O Hub IoT precisa de acesso de gravação a esses pontos de extremidade de serviço para que o roteamento de mensagens funcione. Se você configurar seus pontos de extremidade por meio do portal do Azure, as permissões necessárias serão adicionadas para você. Certifique-se de configurar seus serviços para dar suporte à taxa de transferência esperada. Por exemplo, se você estiver usando hubs de eventos como um ponto de extremidade personalizado, deverá configurar as **unidades de produtividade** para esse Hub de eventos para que ele possa manipular a entrada de eventos que você planeja enviar por meio do roteamento de mensagens do Hub IOT. Da mesma forma, ao usar uma fila do barramento de serviço como um ponto de extremidade, você deve configurar o **tamanho máximo** para garantir que a fila possa conter todos os dados inseridos, até que eles sejam reinseridos pelos consumidores. Ao configurar pela primeira vez sua solução de IoT, talvez seja necessário monitorar seus pontos de extremidade adicionais e fazer os ajustes necessários para a carga real.
 
 O Hub IoT define um [formato comum](iot-hub-devguide-messages-construct.md) para todas as mensagens do dispositivo para a nuvem para interoperabilidade entre protocolos. Se uma mensagem corresponder a várias rotas que apontam para o mesmo ponto de extremidade, o Hub IoT entregará a mensagem para esse ponto de extremidade apenas uma vez. Portanto, você não precisa configurar a eliminação de duplicação em sua fila ou tópico do barramento de serviço. Em filas particionadas, a afinidade de partição garante a ordenação de mensagens. Use este tutorial para aprender a [Configurar o roteamento de mensagens](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Pontos de extremidade de roteamento
 
-Um hub IoT tem um ponto de extremidade interno padrão (**mensagens/eventos**) que é compatível com os hubs de eventos. Você pode criar [pontos de extremidade personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) para rotear mensagens para o vinculando outros serviços em sua assinatura ao Hub IOT. O Hub IoT atualmente dá suporte aos seguintes serviços como pontos de extremidade personalizados:
+Um hub IoT tem um ponto de extremidade interno padrão (**mensagens/eventos**) que é compatível com os hubs de eventos. Você pode criar [pontos de extremidade personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) para rotear mensagens para o vinculando outros serviços em sua assinatura ao Hub IOT. 
+
+Cada mensagem é roteada para todos os pontos de extremidade cujas consultas de roteamento ele corresponde. Em outras palavras, uma mensagem pode ser roteada para vários pontos de extremidade.
+
+O Hub IoT atualmente dá suporte aos seguintes serviços como pontos de extremidade personalizados:
 
 ### <a name="built-in-endpoint"></a>Ponto de extremidade interno
 
@@ -43,9 +47,9 @@ O Hub IoT dá suporte à gravação de dados no armazenamento de BLOBs do Azure 
 
 ![Codificação de ponto de extremidade de armazenamento de BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-O Hub IoT também dá suporte a mensagens de roteamento para ADLS Gen2 contas, que são contas de armazenamento hierárquicas habilitadas [para namespaces](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)criadas com base no armazenamento de BLOBs. Essa funcionalidade está em visualização pública e disponível para novas contas de ADLS Gen2 no oeste dos EUA 2 e no Oeste EUA Central. Em breve, iremos distribuir esse recurso para todas as regiões de nuvem.
+O Hub IoT também dá suporte a mensagens de roteamento para contas de [Azure data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2, que são contas de armazenamento [hierárquicas habilitadas para namespaces](../storage/blobs/data-lake-storage-namespace.md)criadas com base no armazenamento de BLOBs. Essa funcionalidade está em visualização pública e disponível para novas contas de ADLS Gen2 no oeste dos EUA 2 e no Oeste EUA Central. [Inscreva-se](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para visualizar isso. Em breve, iremos distribuir esse recurso para todas as regiões de nuvem. 
 
-O Hub IoT faz o lote de mensagens e grava dados em um blob sempre que o lote atinge um determinado tamanho ou um determinado período de tempo decorrido. O Hub IoT usa como padrão a seguinte convenção de nomenclatura de arquivo:
+O Hub IoT faz o lote de mensagens e grava dados em um blob sempre que o lote atinge um determinado tamanho ou um determinado período de tempo decorrido. O Hub IoT usa como padrão a seguinte convenção de nomenclatura de arquivo: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -73,7 +77,7 @@ Ao rotear para o armazenamento de BLOBs, é recomendável inlistar os BLOBs e, e
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Tópicos de filas do barramento de serviço e barramento de serviço
 
-As filas e os tópicos do barramento de serviço usados como pontos de extremidade do Hub IoT não devem ter **sessões** ou **detecção** de duplicidades habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como inacessível no portal do Azure.
+As filas e os tópicos do barramento de serviço usados como pontos de extremidade do Hub IoT não devem ter **sessões** ou **detecção de duplicidades** habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como **inacessível** no portal do Azure.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
@@ -87,7 +91,7 @@ Use os tutoriais a seguir para saber como ler a mensagem de um ponto de extremid
 
 * Lendo do [ponto de extremidade interno](quickstart-send-telemetry-node.md)
 
-* Lendo do [armazenamento](../storage/blobs/storage-blob-event-quickstart.md) de BLOBs
+* Lendo do [armazenamento de BLOBs](../storage/blobs/storage-blob-event-quickstart.md)
 
 * Lendo dos [hubs de eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
@@ -119,13 +123,13 @@ Na maioria dos casos, o aumento médio na latência é menor que 500 ms. Você p
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoramento e solução de problemas
 
-O Hub IoT fornece várias métricas relacionadas ao roteamento e aos pontos de extremidade para fornecer uma visão geral da integridade do seu hub e das mensagens enviadas. Você pode combinar informações de várias métricas para identificar a causa raiz de problemas. Por exemplo, use o **Roteamento de métrica: mensagens** de telemetria removidas ou **D2C. telemetria. egresso.** descartada para identificar o número de mensagens que foram descartadas quando não corresponderam a consultas em qualquer uma das rotas e a rota de fallback foi desabilitada. As métricas do [Hub IOT](iot-hub-metrics.md) lista todas as métricas habilitadas por padrão para o Hub IOT.
+O Hub IoT fornece várias métricas relacionadas ao roteamento e aos pontos de extremidade para fornecer uma visão geral da integridade do seu hub e das mensagens enviadas. Você pode combinar informações de várias métricas para identificar a causa raiz de problemas. Por exemplo, use o **Roteamento de métrica: mensagens de telemetria removidas** ou **D2C. telemetria. egresso. descartada** para identificar o número de mensagens que foram descartadas quando não corresponderam a consultas em qualquer uma das rotas e a rota de fallback foi desabilitada. As [métricas do Hub IOT](iot-hub-metrics.md) lista todas as métricas habilitadas por padrão para o Hub IOT.
 
-Você pode usar a integridade do [ponto de extremidade Get](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o [status de integridade](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos de extremidade. É recomendável usar as métricas do [Hub IOT](iot-hub-metrics.md) relacionadas à latência da mensagem de roteamento para identificar e depurar erros quando a integridade do ponto de extremidade está inativa ou não íntegra. Por exemplo, para hubs de eventos de tipo de ponto de extremidade, você pode monitorar **D2C. endpoints. latência. eventHubs**. O status de um ponto de extremidade não íntegro será atualizado para íntegro quando o Hub IoT tiver estabelecido um estado de integridade eventualmente consistente.
+Você pode usar a integridade do [ponto de extremidade Get](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o [status de integridade](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos de extremidade. É recomendável usar as [métricas do Hub IOT](iot-hub-metrics.md) relacionadas à latência da mensagem de roteamento para identificar e depurar erros quando a integridade do ponto de extremidade está inativa ou não íntegra. Por exemplo, para hubs de eventos de tipo de ponto de extremidade, você pode monitorar **D2C. endpoints. latência. eventHubs**. O status de um ponto de extremidade não íntegro será atualizado para íntegro quando o Hub IoT tiver estabelecido um estado de integridade eventualmente consistente.
 
 Usando os logs de diagnóstico de **rotas** em Azure monitor [configurações de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md), você pode rastrear os erros que ocorrem durante a avaliação de uma consulta de roteamento e integridade do ponto de extremidade, conforme percebido pelo Hub IOT, por exemplo, quando um ponto de extremidade está inativo. Esses logs de diagnóstico podem ser enviados para Azure Monitor logs, hubs de eventos ou armazenamento do Azure para processamento personalizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como criar rotas de mensagens, consulte [processar mensagens do dispositivo para a nuvem do Hub IOT usando rotas](tutorial-routing.md).
 

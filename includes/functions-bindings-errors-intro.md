@@ -4,23 +4,39 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184054"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155280"
 ---
-As funções do Azure [acionadores e enlaces](../articles/azure-functions/functions-triggers-bindings.md) comunicar com vários serviços do Azure. Ao integrar-se com estes serviços, pode ter os erros levantados provenientes as APIs dos serviços do Azure subjacentes. Também podem ocorrer erros quando tenta comunicar com outros serviços a partir do código de função utilizando as bibliotecas de cliente ou REST. Para evitar perda de dados e garantir o bom comportamento das suas funções, é importante processar erros da origem.
+Os erros gerados em um Azure Functions podem vir de qualquer uma das seguintes origens:
 
-Os acionadores seguintes têm suporte de repetição incorporado:
+- Uso de [gatilhos e associações](..\articles\azure-functions\functions-triggers-bindings.md) de Azure Functions internos
+- Chamadas para APIs de serviços subjacentes do Azure
+- Chamadas para pontos de extremidade REST
+- Chamadas para bibliotecas de cliente, pacotes ou APIs de terceiros
+
+Seguir as práticas sólidas de tratamento de erros é importante para evitar a perda de dados ou mensagens perdidas. As práticas recomendadas de tratamento de erros incluem as seguintes ações:
+
+- [Habilitar Application Insights](../articles/azure-functions/functions-monitoring.md)
+- [Usar tratamento de erro estruturado](#use-structured-error-handling)
+- [Design para Idempotência](../articles/azure-functions/functions-idempotent.md)
+- Implementar políticas de repetição (quando apropriado)
+
+### <a name="use-structured-error-handling"></a>Usar tratamento de erro estruturado
+
+Capturar e publicar erros é essencial para monitorar a integridade do seu aplicativo. O nível mais alto de qualquer código de função deve incluir um bloco try/catch. No bloco catch, você pode capturar e publicar erros.
+
+### <a name="retry-support"></a>Tentar suporte novamente
+
+Os seguintes gatilhos têm suporte interno para repetição:
 
 * [Armazenamento de Blobs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Armazenamento de filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
-* [O Azure Service Bus (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
+* [Barramento de serviço do Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Por predefinição, estes acionadores são repetidas até cinco vezes. Depois de repetir o quinto, estes acionadores gravar uma mensagem para um especial [fila não processáveis](../articles/azure-functions/functions-bindings-storage-queue.md#trigger---poison-messages).
+Por padrão, esses gatilhos retentam solicitações até cinco vezes. Após a quinta repetição, os dois gatilhos gravam uma mensagem em uma [fila suspeita](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
 
-Para outros acionadores de funções, não existe nenhuma repetição incorporada quando ocorrerem erros durante a execução de função. Para evitar a perda de informações de Acionador deve ocorrer um erro na sua função, é recomendável que usar blocos try-catch no código da função para identificar quaisquer erros. Quando ocorre um erro, escrever as informações transmitidas para a função pelo acionador para uma fila de mensagens "não processáveis" especial. Essa abordagem é a mesma usada pela [acionador do armazenamento de BLOBs](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---poison-blobs).
-
-Dessa forma, pode capturar os eventos de Acionador que poderiam ser perdido devido a erros e repeti-las mais tarde com outra função para processar mensagens na fila não processáveis usando as informações armazenadas.  
+Você precisa implementar manualmente as políticas de repetição para quaisquer outros tipos de associações ou disparadores. Implementações manuais podem incluir a gravação de informações de erro em uma [fila de mensagens suspeitas](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). Ao gravar em uma fila suspeita, você tem a oportunidade de tentar novamente as operações mais tarde. Essa abordagem é a mesma usada pelo gatilho do armazenamento de BLOBs.

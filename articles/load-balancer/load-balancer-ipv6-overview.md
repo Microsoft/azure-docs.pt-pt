@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274828"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147348"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.locfileid: "68274828"
 >[!NOTE] 
 >Azure Load Balancer dá suporte a dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer visão geral](load-balancer-standard-overview.md).
 
-Os balanceadores de carga voltados para a Internet podem ser implantados com um endereço IPv6. Além da conectividade IPv4, isso permite os seguintes recursos:
+Os balanceadores de carga voltados para a Internet da SKU básica podem ser implantados com um endereço IPv6. Além da conectividade IPv4, isso permite os seguintes recursos:
 
 * Conectividade IPv6 nativa de ponta a ponta entre clientes de Internet públicos e VMs (máquinas virtuais) do Azure por meio do balanceador de carga.
 * Conectividade de saída IPv6 nativa de ponta a ponta entre VMs e clientes habilitados para IPv6 de Internet pública.
@@ -79,8 +79,9 @@ Limitações
 * **Não há suporte**para a alteração do parâmetro LoadDistributionMethod para IPv6 no momento.
 * **Não há suporte para**IPS IPv4 reservados (em que IPAllocationMethod = static) no momento.
 * Não há suporte para NAT64 (tradução de IPv6 para IPv4).
+* Atualmente, os balanceadores de carga SKU Standard não dão suporte a endereços IPv6.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como implantar um balanceador de carga com IPv6.
 

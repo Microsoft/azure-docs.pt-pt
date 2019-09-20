@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f62698cc736bb7df51d013199d3054b25598240e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915143"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147387"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -133,7 +133,7 @@ A extensão de ferramentas de Azure IoT Edge fornece modelos de projeto para tod
    | ----- | ----- |
    | Modelo do Visual Studio | Selecione  **C# módulo**. | 
    | Nome do Módulo | Aceite o **IotEdgeModule1**padrão. | 
-   | Url do repositório | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é \<semelhante ao\>nome do registro. azurecr.Io/iotedgemodule1. |
+   | URL do repositório | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é \<semelhante ao\>nome do registro. azurecr.Io/iotedgemodule1. |
 
       ![Configurar seu projeto para o dispositivo de destino, o tipo de módulo e o registro de contêiner](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -299,7 +299,7 @@ O código IotEdgeModule1 recebe mensagens por meio de sua fila de entrada e as p
 
 3. Assista à seção de **saída** no Visual Studio para ver as mensagens que chegam ao seu hub IOT. 
 
-   Pode levar alguns minutos para que ambos os módulos sejam iniciados. O tempo de execução do IoT Edge precisa receber seu novo manifesto de implantação, extrair as imagens do módulo do tempo de execução do contêiner e, em seguida, iniciar cada novo módulo. Se você 
+   Pode levar alguns minutos para que ambos os módulos sejam iniciados. O tempo de execução do IoT Edge precisa receber seu novo manifesto de implantação, extrair as imagens do módulo do tempo de execução do contêiner e, em seguida, iniciar cada novo módulo. 
 
    ![Exibir o dispositivo de entrada para mensagens na nuvem](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 
@@ -327,7 +327,7 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
 
    Os logs de SimulatedTemperatureSensor e IotEdgeModule1 devem mostrar as mensagens que estão processando. O módulo edgeAgent é responsável por iniciar os outros módulos, de modo que seus logs terão informações sobre a implementação do manifesto de implantação. Se qualquer módulo não estiver listado ou não estiver em execução, os logs do edgeAgent provavelmente terão os erros. O módulo edgeHub é responsável por comunicações entre os módulos e o Hub IoT. Se os módulos estiverem em execução, mas as mensagens não chegarem ao seu hub IoT, os logs do edgeHub provavelmente terão os erros. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configura o Visual Studio 2019 em seu computador de desenvolvimento e implantou seu primeiro módulo IoT Edge a partir dele. Agora que você conhece os conceitos básicos, tente adicionar funcionalidade a um módulo para que ele possa analisar os dados que passam por ele. Escolha seu idioma preferencial: 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b85099605d7f660b792186f7e17b0ed4ea43ef04
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967856"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155483"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Usar filas do barramento de serviço do Azure com Java para enviar e receber mensagens
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá a criar aplicativos Java para enviar e receber 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
 Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o eclipse, poderá instalar o [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] que inclui o SDK do Azure para Java. Em seguida, você pode adicionar as **bibliotecas de Microsoft Azure para Java** ao seu projeto:
 
-![Captura de tela da guia bibliotecas onde você pode adicionar bibliotecas](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Adicionar bibliotecas de Microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Adicione as seguintes `import` instruções à parte superior do arquivo Java:
 

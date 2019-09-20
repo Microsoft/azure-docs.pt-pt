@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310467"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146894"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implantar um aplicativo Web de um registro de contêiner do Azure com replicação geográfica
 
@@ -55,7 +55,11 @@ Na **Aplicação Web para Contentores** apresentada depois de selecionar "Implem
 | **Nome do Site** | Um nome exclusivo global para a aplicação Web. Neste exemplo, utilizamos o formato `<acrName>-westus` para identificar o registo e a região da qual a aplicação Web é implementada. |
 | **Grupo de Recursos** | **Utilizar existente** > `myResourceGroup` |
 | **Plano do serviço de aplicações/localização** | Crie um novo plano com o nome `plan-westus` na região **E.U.A. Oeste**. |
-| **Imagem** | `acr-helloworld:v1`
+| **Imagem** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
+
+> [!NOTE]
+> Quando você cria um novo plano do serviço de aplicativo para implantar seu aplicativo em contêiner, um plano padrão é selecionado automaticamente para hospedar seu aplicativo. O plano padrão depende da configuração do sistema operacional.
 
 Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Oeste*.
 
@@ -84,7 +88,8 @@ Utilize o procedimento descrito na secção anterior para implementar uma segund
 | **Nome do Site** | Um nome exclusivo global para a aplicação Web. Neste exemplo, utilizamos o formato `<acrName>-eastus` para identificar o registo e a região da qual a aplicação Web é implementada. |
 | **Grupo de Recursos** | **Utilizar existente** > `myResourceGroup` |
 | **Plano do serviço de aplicações/localização** | Crie um novo plano com o nome `plan-eastus` na região **E.U.A. Leste**. |
-| **Imagem** | `acr-helloworld:v1`
+| **Imagem** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
 
 Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Leste*.
 

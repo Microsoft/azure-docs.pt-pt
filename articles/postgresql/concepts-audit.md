@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092264"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147175"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-servidor único
 
 Log de auditoria de atividades de banco de dados no banco de dados do Azure para PostgreSQL-um servidor único está disponível por meio da extensão de auditoria PostgreSQL: [pgAudit](https://www.pgaudit.org/). o pgAudit fornece o log de auditoria detalhado de sessão e/ou objeto.
 
 > [!NOTE]
-> pgAudit pode ser habilitado somente em servidores Uso Geral e com otimização de memória.
+> pgAudit está em visualização no banco de dados do Azure para PostgreSQL.
+> A extensão pode ser habilitada somente em servidores Uso Geral e com otimização de memória.
 
 ## <a name="usage-considerations"></a>Considerações de uso
 Por padrão, as instruções de log pgAudit são emitidas junto com suas instruções de log regulares usando o recurso de log padrão do Postgres. No banco de dados do Azure para PostgreSQL, esses arquivos. log podem ser baixados por meio do portal do Azure ou da CLI. O armazenamento máximo para a coleção de arquivos é de 1 GB e cada arquivo está disponível por um máximo de sete dias (o padrão é três dias). Esse serviço é uma opção de armazenamento de curto prazo.
@@ -85,6 +86,6 @@ Para saber mais sobre `log_line_prefix`o, visite a [documentação do PostgreSQL
 Para começar rapidamente, defina `pgaudit.log` como `WRITE`e abra seus logs para examinar a saída. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais sobre o log no banco de dados do Azure para PostgreSQL](concepts-server-logs.md)
 - Saiba como definir parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md), [CLI do Azure](howto-configure-server-parameters-using-cli.md)ou a [API REST](/rest/api/postgresql/configurations/createorupdate).

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 09bcce6daf519c7d5e99c7c120064f5c8bb92475
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996879"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162352"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET Azure Functions
 
@@ -198,7 +198,10 @@ public class HttpTrigger
 
 Consulte o [padrão de opções em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) para obter mais detalhes sobre como trabalhar com opções.
 
-## <a name="next-steps"></a>Passos Seguintes
+> [!WARNING]
+> Evite tentar ler valores de arquivos como *local. Settings. JSON* ou *appSettings. { Environment}. JSON* no plano de consumo. Os valores lidos desses arquivos relacionados a conexões de gatilho não estão disponíveis conforme o aplicativo é dimensionado porque a infraestrutura de hospedagem não tem acesso às informações de configuração.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

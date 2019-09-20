@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067064"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146603"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -46,10 +46,9 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha de teste intermitente com um erro de violação de protocolo
 
-|Sintoma/mensagem de erro| Causas possíveis|
-|----|---------|
-a violação de protocolo CR deve ser seguida por LF | Isso ocorre quando cabeçalhos malformados são detectados. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação HTTP e, portanto, falhará na validação no nível de WebRequest do .NET.
- || Isso também pode ser causado por balanceadores de carga ou CDNs.
+|Sintoma/mensagem de erro| Causas possíveis| Possíveis resoluções |
+|----|---------|-----|
+|O servidor confirmou uma violação de protocolo. Seção = ResponseHeader Detail = CR deve ser seguido por LF | Isso ocorre quando cabeçalhos malformados são detectados. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação de HTTP. Application Insights impõe essa especificação HTTP e falha em respostas com cabeçalhos malformados.| a. Contate o provedor de host/provedor de CDN do site para corrigir os servidores com falha. <br> b. Caso as solicitações com falha sejam recursos (por exemplo, arquivos de estilo, imagens, scripts), você pode considerar desabilitar a análise de solicitações dependentes. Tenha em mente, se você fizer isso, perderá a capacidade de monitorar a disponibilidade desses arquivos).
 
 > [!NOTE]
 > A URL pode não falhar em navegadores que têm uma validação reduzida de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
@@ -134,7 +133,7 @@ Esta seção se aplica somente a alertas clássicos e ajudará você a otimizar 
 
 Use a nova experiência de alerta/alertas quase em tempo real se você precisar notificar os usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários com qualquer uma das funções colaborador/proprietário/leitor (não combinadas como uma única opção).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Teste na Web de várias etapas](availability-multistep.md)
 * [Testes de ping de URL](monitor-web-app-availability.md)

@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0c1c3470ae18b2a600af0d5e930b6fc114123728
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194618"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161937"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
@@ -54,9 +54,47 @@ A configuração de convidado usa o módulo de recurso **GuestConfiguration** pa
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration"></a>Criar configuração de convidado personalizada
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Criar recursos e configuração de configuração de convidado personalizada
 
 A primeira etapa para criar uma política personalizada para a configuração de convidado é criar a configuração DSC. Para obter uma visão geral dos conceitos e da terminologia do DSC, consulte [visão geral do DSC do PowerShell](/powershell/dsc/overview/overview).
+
+Se sua configuração exigir apenas recursos que são internos com a instalação do agente de configuração convidada, você só precisará criar um arquivo MOF de configuração. Se você precisar executar um script adicional, será necessário criar um módulo de recurso personalizado.
+
+### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisitos para recursos personalizados de configuração de convidado
+
+Quando a configuração de convidado audita um computador, ele é `Test-TargetResource` executado pela primeira vez para determinar se ele está no estado correto.  O valor booliano retornado pela função determina se o status de Azure Resource Manager para a atribuição de convidado deve ser compatível/não em conformidade.  Se o booliano `$false` for para qualquer recurso na configuração, o provedor será executado. `Get-TargetResource`
+Se `$true` , em seguida, `Get-TargetResource` o booliano não for chamado.
+
+A função `Get-TargetResource` tem requisitos especiais para a configuração de convidado que não foram necessários para a configuração de estado desejado do Windows.
+
+- A tabela de hash retornada deve incluir uma propriedade chamada **Reasons**.
+- A propriedade Reasons deve ser uma matriz.
+- Cada item na matriz deve ser uma tabela de hash com chaves denominadas **Code** e **frase**.
+
+A propriedade Reasons é usada pelo serviço para padronizar a forma como as informações são apresentadas quando um computador está fora de conformidade.
+Você pode considerar cada item por motivos como um "motivo" pelo qual o recurso não está em conformidade. A propriedade é uma matriz porque um recurso pode estar fora de conformidade por mais de um motivo.
+
+O **código** e a **frase** das propriedades são esperados pelo serviço. Ao criar um recurso personalizado, defina o texto (normalmente stdout) que você gostaria de mostrar como o motivo pelo qual o recurso não está em conformidade como o valor de **frase**.  O **código** tem requisitos de formatação específicos para que os relatórios possam exibir claramente informações sobre o recurso que foi usado para executar a auditoria. Essa solução torna a configuração de convidado extensível. Qualquer comando pode ser executado para auditar um computador, contanto que a saída possa ser capturada e retornada como um valor de cadeia de caracteres para a propriedade de **frase** .
+
+- **Código** do (cadeia de caracteres): O nome do recurso, repetido e, em seguida, um nome curto sem espaços como um identificador do motivo.  Esses três valores devem ser delimitados por dois-pontos sem espaços.
+    - Um exemplo seria ' registro: Registry: keynotpresent '.
+- **Frase** (cadeia de caracteres): Texto legível por humanos para explicar por que a configuração não está em conformidade.
+    - Um exemplo seria ' a chave do Registro $key não está presente no computador '.
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### <a name="scaffolding-a-guest-configuration-project"></a>Scaffolding um projeto de configuração de convidado
+
+Para os desenvolvedores que desejarem acelerar o processo de introdução e trabalho a partir do código de exemplo, um projeto de comunidade chamado **projeto de configuração de convidado** existe como um modelo para o módulo [Plaster](https://github.com/powershell/plaster) do PowerShell.  Essa ferramenta pode ser usada para Scaffold um projeto, incluindo uma configuração de trabalho e um recurso de exemplo, e um conjunto de testes de [Pester](https://github.com/pester/pester) para validar o projeto.  O modelo também inclui executores de tarefas para Visual Studio Code para automatizar a criação e a validação do pacote de configuração do convidado. Para obter mais informações, consulte o [projeto de configuração de convidado](https://github.com/microsoft/guestconfigurationproject)do projeto do github.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuração de convidado personalizada no Linux
 
@@ -141,10 +179,10 @@ Na configuração de convidado Azure Policy, a maneira ideal de gerenciar segred
 
 Primeiro, crie uma identidade gerenciada atribuída pelo usuário no Azure. A identidade é usada por computadores para acessar segredos armazenados no Key Vault. Para obter etapas detalhadas, consulte [criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
-Em seguida, crie uma instância de Key Vault. Para obter etapas detalhadas, consulte [definir e recuperar um segredo-PowerShell](../../../key-vault/quick-create-powershell.md).
+Crie uma instância de Key Vault. Para obter etapas detalhadas, consulte [definir e recuperar um segredo-PowerShell](../../../key-vault/quick-create-powershell.md).
 Atribua permissões à instância para conceder ao acesso de identidade atribuído pelo usuário os segredos armazenados no Key Vault. Para obter etapas detalhadas, consulte [definir e recuperar um segredo-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
-Em seguida, atribua a identidade atribuída pelo usuário ao seu computador. Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
+Atribua a identidade atribuída pelo usuário ao seu computador. Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 Em escala, atribua essa identidade usando Azure Resource Manager por meio de Azure Policy. Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando um modelo](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
 Por fim, em seu recurso personalizado, use a ID do cliente gerada acima para acessar Key Vault usando o token disponível no computador. A `client_id` URL e para a instância de Key Vault pode ser passada para o recurso como [Propriedades](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) , de modo que o recurso não precisará ser atualizado para vários ambientes ou se os valores precisarem ser alterados.
@@ -220,13 +258,13 @@ Os seguintes arquivos são criados por `New-GuestConfigurationPolicy`:
 
 A saída do cmdlet retorna um objeto que contém o nome de exibição da iniciativa e o caminho dos arquivos de política.
 
-Se você quiser usar esse comando para Scaffold um projeto de política personalizada, poderá fazer alterações nesses arquivos. Um exemplo seria modificar a seção ' If ' para avaliar se uma marca específica está presente para os computadores. Para obter detalhes sobre como criar políticas, consulte programaticamente [criar políticas](./programmatically-create.md).
+Se você quiser usar esse comando para Scaffold um projeto de política personalizada, poderá fazer alterações nesses arquivos. Um exemplo seria modificar a seção ' If ' para avaliar se uma marca específica está presente para os computadores. Para obter detalhes sobre como criar políticas, consulte [programaticamente criar políticas](./programmatically-create.md).
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Usando parâmetros em políticas de configuração de convidado personalizadas
 
 A configuração de convidado dá suporte à substituição de propriedades de uma configuração em tempo de execução. Esse recurso significa que os valores no arquivo MOF no pacote não precisam ser considerados estáticos. Os valores de substituição são fornecidos por meio de Azure Policy e não afetam como as configurações são criadas ou compiladas.
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro denominadoParameters.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro denominado **Parameters**.
 Esse parâmetro usa uma definição de tabela de hash, incluindo todos os detalhes sobre cada parâmetro e cria automaticamente todas as seções necessárias dos arquivos usados para criar cada definição de Azure Policy.
 
 O exemplo a seguir cria um Azure Policy para auditar um serviço, onde o usuário seleciona em uma lista de serviços no momento da atribuição de política.
@@ -334,7 +372,7 @@ Depois que o conteúdo tiver sido convertido, as etapas acima para criar um paco
 
 ## <a name="optional-signing-guest-configuration-packages"></a>ADICIONAL Assinando pacotes de configuração de convidado
 
-As políticas personalizadas de configuração de convidado, por padrão, usam o hash SHA256 para validar que o pacote de política não foi alterado de quando foi publicado quando ele é lido pelo servidor que está sendo auditado.
+Por padrão, as políticas personalizadas de configuração de convidado usam o hash SHA256 para validar que o pacote de política não mudou de quando foi publicado quando ele é lido pelo servidor que está sendo auditado.
 Opcionalmente, os clientes também podem usar um certificado para assinar pacotes e forçar a extensão de configuração de convidado a permitir somente conteúdo assinado.
 
 Para habilitar esse cenário, há duas etapas que precisam ser concluídas. Execute o cmdlet para assinar o pacote de conteúdo e acrescente uma marca para os computadores que devem exigir que o código seja assinado.

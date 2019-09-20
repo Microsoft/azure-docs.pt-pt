@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e5ab17a04c994f09bccc0f51f11749ee8590b1d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003058"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162531"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em instâncias de contêiner do Azure
 
@@ -205,7 +205,7 @@ from azureml.core.model import Model
 def init():
     global model
     # retrieve the path to the model file using the model name
-    model_path = Model.get_model_path('sklearn_mnist')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
 def run(raw_data):
@@ -376,7 +376,7 @@ service.delete()
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre todas as [Opções de implantação para Azure Machine Learning](how-to-deploy-and-where.md).
 + Saiba como [criar clientes para o serviço Web](how-to-consume-web-service.md).

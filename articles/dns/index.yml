@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 08/29/2019
-  ms.openlocfilehash: be93b43a72d8a9b33b75abafe15abf65ab8fb58a
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.date: 09/20/2019
+  ms.openlocfilehash: 5149324e7de1052bd3a3123758985dd8b722c116
+  ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70126043"
+  ms.lasthandoff: 09/20/2019
+  ms.locfileid: "71162055"
 landingContent:
 - title: Saiba mais sobre o Azure DNS
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
       url: dns-overview.md
 - title: Criar uma zona e um registo DNS do Azure
   linkLists:
-  - linkListType: get-started
+  - linkListType: quickstart
     links:
     - text: Criar uma zona e um registo do DNS do Azure com o portal do Azure
       url: dns-getstarted-portal.md
@@ -45,7 +45,7 @@ landingContent:
       url: private-dns-scenarios.md
     - text: FAQ do DNS Privado do Azure
       url: dns-faq-private.md
-  - linkListType: tutorial
+  - linkListType: quickstart
     links:
     - text: Criar uma zona DNS privada DNS do Azure com o portal do Azure
       url: private-dns-portal.md

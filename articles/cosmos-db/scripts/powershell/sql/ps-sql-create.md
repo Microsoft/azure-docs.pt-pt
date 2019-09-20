@@ -1,19 +1,19 @@
 ---
-title: Script do Azure PowerShell - o Azure Cosmos DB criar o contentor e a base de dados da API de SQL (núcleos)
-description: Script do Azure PowerShell - o Azure Cosmos DB criar o contentor e a base de dados da API de SQL (núcleos)
+title: Azure PowerShell script-Azure Cosmos DB criar o contêiner e o banco de dados da API do SQL (núcleo)
+description: Azure PowerShell script-Azure Cosmos DB criar o contêiner e o banco de dados da API do SQL (núcleo)
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: b8b8b30f178ba068bc800103f16adde43cf5dcb1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 29b0e81dd6eac62a18307788bb023ac3d802f11a
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602208"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154859"
 ---
-# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Criar uma base de dados e um contentor para o Azure Cosmos DB - SQL API (principal)
+# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Criar um banco de dados e um contêiner para a API Azure Cosmos DB-SQL (Core)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,9 @@ ms.locfileid: "67602208"
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create a database and container for SQL (Core) API")]
+Esse script cria uma conta Cosmos para a API do SQL (núcleo) em duas regiões com consistência no nível da sessão, um banco de dados com taxa de transferência compartilhada e um contêiner com uma chave de partição, política de indexação personalizada, política de chave exclusiva, TTL, taxa de transferência dedicada e último gravador ganha política de resolução de conflito com um caminho de resolução de conflito personalizado que `multipleWriteLocations=true`será usado quando.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create an account, database, and container for SQL (Core) API")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
@@ -43,7 +45,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

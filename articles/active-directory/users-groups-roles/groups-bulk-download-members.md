@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 94c2ac1d662851b5a0b44ec475becb5f5e0403c4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914797"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146386"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Baixar em massa membros de um grupo (versão prévia) no Azure Active Directory
 
@@ -26,10 +26,6 @@ Usando o portal do Azure Active Directory (AD do Azure), você pode fazer o down
 
 > [!NOTE]
 > As operações em massa do Azure AD são um recurso de visualização pública do Azure AD e estão disponíveis com qualquer plano de licença pago do Azure AD. Para obter mais informações sobre os termos de uso de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
-
-Cada atividade em massa para baixar uma lista de membros do grupo pode ser executada por até uma hora. Isso permite que você baixe uma lista de pelo menos 500.000 membros.
 
 ## <a name="to-bulk-download-group-membership"></a>Para baixar em massa a associação ao grupo
 
@@ -45,6 +41,10 @@ Cada atividade em massa para baixar uma lista de membros do grupo pode ser execu
 Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação em massa (versão prévia)** .
 
    ![A página resultados de operações em massa mostra o status de solicitação em massa](./media/groups-bulk-download-members/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
+
+Cada atividade em massa para baixar uma lista de membros do grupo pode ser executada por até uma hora. Isso permite que você baixe uma lista de pelo menos 500.000 membros.
 
 ## <a name="next-steps"></a>Passos seguintes
 

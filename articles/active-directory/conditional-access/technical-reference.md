@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216316249197071bdd7a175dfc5339caeddee50a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086835"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162424"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
@@ -246,7 +246,6 @@ Em sua política de acesso condicional, você pode exigir que uma política de p
 Essa configuração se aplica aos seguintes aplicativos cliente:
 
 - Microsoft Cortana
-- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
 - Microsoft Planner
@@ -257,7 +256,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Os requisitos da **política exigir proteção de aplicativo** :
     - O só dá suporte ao iOS e ao Android para a [condição de plataforma de dispositivo](#device-platform-condition).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral do acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 - Se você estiver pronto para configurar políticas de acesso condicional em seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).

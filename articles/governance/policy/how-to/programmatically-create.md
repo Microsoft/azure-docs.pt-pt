@@ -1,5 +1,5 @@
 ---
-title: Criar políticas e ver os dados de conformidade através de programação
+title: Criar políticas programaticamente
 description: Este artigo descreve a criação e gestão de políticas do Azure Policy a por meio de programação.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239030"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155564"
 ---
-# <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
+# <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
 Este artigo descreve a criação e a gestão de políticas por meio de programação. As definições de Azure Policy impõem diferentes regras e efeitos sobre seus recursos. Imposição certifica-se de que recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço.
 
@@ -99,7 +99,7 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
    - Subscrição- `/subscriptions/{subId}/`
    - Grupo de gestão- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo Azure Resource Manager PowerShell, consulte [AZ.](/powershell/module/az.resources/#policies)Resources.
+Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo Azure Resource Manager PowerShell, consulte [AZ. Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Criar e atribuir uma definição de política com ARMClient
 

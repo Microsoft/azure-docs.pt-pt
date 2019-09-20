@@ -1,10 +1,10 @@
 ---
-title: Suportabilidade de adicionar as VMs do Azure para um disponibilidade existente definido | Documentos da Microsoft
-description: Suportabilidade de adicionar as VMs do Azure a um conjunto de disponibilidade existente.
+title: Suporte à adição de VMs do Azure a um conjunto de disponibilidade existente | Microsoft Docs
+description: Suporte à adição de VMs do Azure a um conjunto de disponibilidade existente.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 7a5e97b66fec040b4ec32caa8d58cf9b50169a33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3954df389516aa7199022d713dc63d62dda961ae
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60443709"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155443"
 ---
-# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Suportabilidade de adicionar as VMs do Azure a um conjunto de disponibilidade existente
+# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Suporte à adição de VMs do Azure a um conjunto de disponibilidade existente
 
-Poderá, ocasionalmente, encontrar limitações ao adicionar novas máquinas virtuais (VMs) a um conjunto de disponibilidade existente. A tabela a seguir fornece detalhes sobre a série VM pode misturar no mesmo conjunto de disponibilidade.
+Ocasionalmente, você pode encontrar limitações ao adicionar novas VMs (máquinas virtuais) a um conjunto de disponibilidade existente. O gráfico a seguir fornece detalhes sobre a série de VMs que você pode misturar no mesmo conjunto de disponibilidade.
 
-Segue-se a matriz de suporte para combinar tipos diferentes de VMs:
+Aqui está a matriz de suporte para misturar diferentes tipos de VMs:
 
-Série e o conjunto de disponibilidade|Segunda VM|A|Av2|D|Dv2|Dv3|
+Série & conjunto de disponibilidade|Segunda VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |Primeira VM|||||||
 |A||OK|OK|OK|OK|OK|
@@ -36,6 +36,6 @@ Série e o conjunto de disponibilidade|Segunda VM|A|Av2|D|Dv2|Dv3|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
 
-Todas as outras séries não é possível no mesmo conjunto pois requerem um hardware específico de disponibilidade.
+Todas as outras séries não puderam estar no mesmo conjunto de disponibilidade porque exigem um hardware específico.
 
-Não é possível misturar o tamanho de VM a8/A9 devido ao requisito na rede de back-end RDMA dedicada.
+O tamanho da VM A8/A9 não pode ser misturado devido ao requisito na rede de back-end RDMA dedicada.

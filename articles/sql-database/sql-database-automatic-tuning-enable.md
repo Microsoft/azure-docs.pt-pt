@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 457ee34daf368150a8703ea32a39b2350d654523
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569420"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162332"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitar o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
@@ -41,7 +41,7 @@ Para habilitar o ajuste automático no **servidor**lógico do banco de dados SQL
 ![Servidor](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observe que, no momento, a opção **DROP_INDEX** não é compatível com aplicativos que usam a alternância de partição e dicas de índice e não deve ser habilitada nesses casos.
+> Observe que, no momento, a opção **DROP_INDEX** não é compatível com aplicativos que usam a alternância de partição e dicas de índice e não deve ser habilitada nesses casos. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico.
 >
 
 Selecione as opções de ajuste automático que você deseja habilitar e selecione **aplicar**.
