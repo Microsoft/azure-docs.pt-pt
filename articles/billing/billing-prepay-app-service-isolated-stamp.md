@@ -1,6 +1,6 @@
 ---
-title: Economize custos com a taxa de carimbo isolado do serviço Azure App com capacidade reservada
-description: Saiba como você pode economizar custos para Azure App taxa de carimbo isolado de serviço com capacidade reservada.
+title: Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
+description: Saiba como pode economizar custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,72 +9,72 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "70806371"
 ---
-# <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos com a taxa de carimbo isolado do serviço Azure App com capacidade reservada
+# <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
 
-Você pode economizar dinheiro nas tarifas de carimbo isolado do serviço Azure App confirmando uma reserva para o uso do selo por uma duração de três anos. Para comprar a capacidade reservada da taxa de carimbo isolado, você precisa escolher a região do Azure onde o carimbo será implantado e o número de carimbos a serem comprados.
+Pode poupar dinheiro no Imposto de Selo do Plano Isolado do Serviço de Aplicações ao consolidar uma reserva para a sua utilização de selos durante três anos. Para comprar capacidade de reserva do Imposto de Selo do Plano Isolado, tem de escolher a região do Azure onde o carimbo será implementado e o número de selos a comprar.
 
-Quando você adquire uma reserva, o uso da taxa de selo isolado que corresponde aos atributos de reserva não é mais cobrado com as tarifas de pagamento conforme o uso. A reserva é aplicada automaticamente ao número de carimbos isolados que correspondem à região e ao escopo da capacidade reservada. Você não precisa atribuir uma reserva a um carimbo isolado. A reserva não se aplica a trabalhadores, portanto, quaisquer outros recursos associados ao carimbo serão cobrados separadamente.
+Quando compra uma reserva, a utilização do Imposto de Selo do Plano Isolado que corresponde aos atributos da reserva deixa de ser cobrada às tarifas de pay as you go. A reserva é aplicada automaticamente ao número de selos de Plano Isolado que correspondem à região e ao âmbito da capacidade de reserva. Não precisa de atribuir uma reserva a um selo de plano isolado. A reserva não se aplica às funções de trabalho, pelo que todos os outros recursos associados ao selo serão cobrados separadamente.
 
-Quando a capacidade reservada expira, carimbos isolados continuam a ser executados, mas são cobrados com a taxa paga conforme o uso. As reservas não se renovam automaticamente.
+Quando a capacidade reservada expirar, os Selos de Plano Isolado continuam a ser executados, mas são cobrados à tarifa de pay as you go. As reservas não se renovam automaticamente.
 
-## <a name="determine-the-right-reservation-to-purchase"></a>Determinar a reserva correta a ser comprada
+## <a name="determine-the-right-reservation-to-purchase"></a>Determinar a reserva correta a comprar
 
-Ao comprar uma reserva, você está confirmando o uso de quantidades reservadas nos próximos três anos. Verifique os dados de uso para determinar quantos Serviço do Aplicativo Isolado carimbos você está usando consistentemente e pode usar no futuro.
+Ao comprar uma reserva, está a comprometer-se com a utilização de quantidades reservadas nos próximos três anos. Verifique os seus dados de utilização para determinar quantos Selos do Plano Isolado do Serviço de Aplicações está a usar consistentemente e pode usar no futuro.
 
-Além disso, certifique-se de entender como o carimbo isolado emite o medidor do Linux ou do Windows.
+Além disso, confirme que compreender como o Selo de Plano Isolado emite o medidor do Linux ou do Windows.
 
-- Por padrão, um carimbo isolado vazio emite o medidor de selo do Windows. Por exemplo, sem trabalhos implantados. Ele continuará emitindo esse medidor se os trabalhos do Windows estiverem implantados no carimbo.
-- O medidor muda para o medidor de selo do Linux se você implantar um trabalho do Linux.
-- Nos casos em que os trabalhadores do Linux e do Windows são implantados, o carimbo emite o medidor do Windows.
+- Por predefinição, um Selo de Plano Isolado vazio emite o medidor de selos do Windows. Por exemplo, sem funções de trabalho implementadas. Continua a emitir este medidor se as funções de trabalho do Windows forem implementadas no selo.
+- O medidor muda para o medidor de selos do Linux se implementar uma função de trabalho do Linux.
+- Nos casos em que se implementem funções de trabalho do Linux e do Windows, o selo emite o medidor do Windows.
 
-Portanto, o medidor de selo pode mudar entre o Windows e o Linux durante a vida útil do selo.
+Portanto, o medidor de selos pode mudar entre o Windows e o Linux durante a vida útil do selo.
 
-Compre reservas de selo do Windows se você tiver um ou mais trabalhadores do Windows no carimbo. A única vez que você deve comprar uma reserva de carimbo do Linux é se planeja ter _apenas_ trabalhadores do Linux no selo.
+Compre reservas de selos do Windows se tiver um ou mais funções de trabalho do Windows no selo. A única vez que deve comprar uma reserva de selo do Linux é se planear ter _apenas_ funções de trabalho do Linux no selo.
 
-## <a name="buy-isolated-stamp-reserved-capacity"></a>Comprar capacidade reservada de carimbo isolado
+## <a name="buy-isolated-stamp-reserved-capacity"></a>Comprar capacidade de reserva de Selos de Plano Isolado
 
-Você pode comprar a capacidade reservada de carimbo isolado no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague pela reserva [antecipada ou com pagamentos mensais](billing-monthly-payments-reservations.md). Para comprar a capacidade reservada, você deve ter a função de proprietário de pelo menos uma assinatura da empresa ou uma assinatura individual com tarifas pagas conforme o uso.
+Pode comprar capacidade de reserva de Plano Isolado no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](billing-monthly-payments-reservations.md). Para comprar a capacidade de reserva, deve ter a função de proprietário em pelo menos uma subscrição Enterprise ou uma subscrição individual com tarifas pay as you go.
 
-- Para assinaturas Enterprise, a opção **adicionar instâncias reservadas** deve ser habilitada no [portal de ea](https://ea.azure.com/). Ou, se a configuração estiver desabilitada, você deverá ser um administrador do EA.
-- Para o programa CSP (provedor de soluções na nuvem), somente os agentes de administração ou os agentes de vendas podem comprar SQL Data Warehouse capacidade reservada.
+- Para subscrições Enterprise, a opção **Adicionar Instâncias Reservadas** deve ser ativada no [EA Portal](https://ea.azure.com/). Em alternativa, se a definição estiver desativada, tem ser um Administrador EA.
+- Para o programa Fornecedor de Solução Cloud (CSP), apenas os agentes de administração ou os agentes de vendas podem comprar capacidade de reserva do SQL Data Warehouse.
 
-**Para comprar:**
+**Para Comprar:**
 
-1. Vá para a [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Selecione uma subscrição. Use a lista **assinatura** para escolher a assinatura que é usada para pagar pela capacidade reservada. O método de pagamento da assinatura é cobrado pelos custos da capacidade reservada. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P) ou uma assinatura CSP.
+1. Aceda ao [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
+1. Selecione uma subscrição. Use a lista **Subscrição** para escolher a subscrição que serve para pagar a capacidade de reserva. Os custos são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. O tipo de subscrição tem de ser um contrato Enterprise (número da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pay As You Go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P) ou uma subscrição CSP.
     - Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
     - Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.
-1. Selecione um **escopo** para escolher um escopo de assinatura.
-    - **Escopo do grupo de recursos único** — aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.
-    - **Escopo de assinatura única** — aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.
-    - **Escopo compartilhado** — aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes Enterprise Agreement, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo de cobrança é todas as assinaturas qualificadas criadas pelo administrador da conta.
-1. Selecione uma **região** para escolher uma região do Azure coberta pela capacidade reservada e adicione a reserva ao carrinho.
-1. Selecione um tipo de plano isolado e clique em **selecionar**.  
-    ![Exemplo](./media/billing-prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. Insira a quantidade de carimbos de Serviço do Aplicativo Isolado para reservar. Por exemplo, uma quantidade de três forneceria três carimbos reservados para uma região. Clique **em Avançar: Examine + comprar**.
-1. Examine e clique em **comprar agora**.
+1. Selecione um **Âmbito** para escolher um âmbito de subscrição.
+    - **Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
+    - **Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
+    - **Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para clientes do Contrato Enterprise, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
+1. Selecione uma **Região** para escolher uma região do Azure coberta pela capacidade de reserva e adicione a reserva ao carrinho.
+1. Selecione um tipo de Plano Isolado e clique em **Selecionar**.  
+    ![Exemplo ](./media/billing-prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
+1. Insira a quantidade de selos de Plano Isolado do Serviço de Aplicações a reservar. Por exemplo, uma quantidade de três dar-lhe-ia três selos reservados por região. Clique em **Seguinte: Rever + Comprar**.
+1. Reveja e clique em **Comprar agora**.
 
-Após a compra, acesse [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) para exibir o status de compra e monitorá-lo a qualquer momento.
+Após a compra, aceda a [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) para ver o estado da compra e monitorize-as em qualquer altura.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md) (Trocas e reembolsos self-service para Reservas do Azure).
 
-## <a name="discount-application-shown-in-usage-data"></a>Aplicativo de desconto mostrado nos dados de uso
+## <a name="discount-application-shown-in-usage-data"></a>Aplicação de desconto mostrada nos dados de utilização
 
-Os dados de uso têm um preço efetivo de zero para o uso que obtém um desconto de reserva. Os dados de uso mostram o desconto de reserva para cada instância de carimbo em cada reserva.
+Os dados de utilização têm um preço efetivo de zero pela utilização que obtém um desconto de reserva. Os dados de utilização mostram o desconto de reserva para cada instância de selo em cada reserva.
 
-Para obter mais informações sobre como o desconto de reserva é mostrado nos dados de uso, consulte [obter Enterprise Agreement custos de reserva e uso](billing-understand-reserved-instance-usage-ea.md) se você for um cliente de Enterprise Agreement (ea). Caso contrário, veja [o uso de reserva do Azure para sua assinatura individual com tarifas pré-pagas](billing-understand-reserved-instance-usage.md).
+Para obter mais informações sobre como o desconto de reserva é mostrado nos dados de utilização, veja [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md) (Compreender custos de reserva e utilização do Contrato Enterprise) se for um cliente de Contrato Enterprise (EA). Caso contrário, veja [Compreender a utilização de reservas do Azure para a sua subscrição individual com tarifas pay as you go](billing-understand-reserved-instance-usage.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
-  - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
-  - [Entenda como um desconto de reserva de carimbo isolado do serviço de Azure App é aplicado](billing-reservation-discount-app-service-isolated-stamp.md)
+- Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
+  - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+  - [Compreender a forma como é aplicado um desconto de reserva de Selo de Plano Isolado do Serviço de Aplicações do Azure](billing-reservation-discount-app-service-isolated-stamp.md)
   - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

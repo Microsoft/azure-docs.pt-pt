@@ -1,7 +1,7 @@
 ---
-title: Pague a fatura do Microsoft Azure | Documentos da Microsoft
-description: Descreve como pagar uma nota fiscal no portal do Azure
-keywords: Faturação, em atraso, equilibrar, agora, a pagar
+title: Pagar a sua fatura do Microsoft Azure | Microsoft Docs
+description: Descreve como pagar uma fatura no portal do Azure
+keywords: faturação, vencido, saldo, pagar agora,
 services: billing
 documentationcenter: ''
 author: jureid
@@ -16,43 +16,43 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: banders
 ms.openlocfilehash: acb361cb2fd261265339fddca83c4f1b2e59a1c5
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67495548"
 ---
-# <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar sua fatura do Microsoft Azure
+# <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar a sua fatura do Microsoft Azure
 
-Este artigo aplica-se aos clientes com um contrato de cliente da Microsoft que inscreveram no Azure através do site do Azure. [Verificar o acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se aos clientes com um Contrato de Cliente da Microsoft que se inscreveram no Azure através do site do Azure. [Verifique o seu acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-O método de pagamento padrão do seu perfil de faturação pode ser um cartão de crédito ou verificação/durante a transferência. Se tiver créditos do Azure, aqueles são automaticamente aplicadas a sua fatura cada período de faturação. Para se tornar elegível para pagar por transferência de verificação/durante a transmissão, consulte [como pagar por fatura](billing-how-to-pay-by-invoice.md).
+O método de pagamento predefinido do seu perfil de faturação pode ser um cartão de crédito ou cheque/transferência bancária. Se tiver Créditos do Azure, estes serão automaticamente aplicados à sua fatura a cada período de faturação. Para se tornar elegível para pagar por cheque/transferência bancária, veja [como pagar por fatura](billing-how-to-pay-by-invoice.md).
 
-Se o método de pagamento padrão é a transferência de verificação/durante a transmissão, pode enviar o pagamento para o endereço listado na parte inferior da sua fatura. Em alternativa, pode pagar online com um cartão de crédito no portal do Azure.
+Se o método de pagamento predefinido for cheque/transferência bancária, poderá enviar o seu pagamento ao endereço indicado na parte inferior da fatura. Em alternativa, pode pagar online com um cartão de crédito no portal do Azure.
 
-Se o método de pagamento padrão é um cartão de crédito, serão automaticamente cobradas seu cartão de crédito cada período de faturação após a nota fiscal é gerada. Pode também vai pagar online no portal do Azure se quiser utilizar outro cartão de crédito ou se falhar a cobrança automática.
+Se o método de pagamento predefinido for um cartão de crédito, cobraremos automaticamente o seu cartão de crédito em cada período de faturação depois de a fatura ser gerada. Também pode pagar online no portal do Azure se quiser usar um cartão de crédito diferente ou se a cobrança automática falhar.
 
 ## <a name="pay-now-in-the-azure-portal"></a>Pagar agora no portal do Azure
 
-Tem de ser uma faturação de perfil de proprietário, contribuinte ou Gerenciador de faturas para pagar notas fiscais no portal do Azure.
+Tem de ser proprietário, contribuidor, leitor ou gestor de faturas de um perfil de faturação para pagar faturas no portal do Azure.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
-1. Na **descrição geral** painel, clique nas *resumo* separador.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+1. No painel **Descrição Geral**, clique no separador *Resumo*.
 
-    ![captura de ecrã que mostra o separador Resumo](./media/billing-how-to-pay-bill/billing-account-overview.png)
+    ![captura de ecrã a mostrar o separador resumo](./media/billing-how-to-pay-bill/billing-account-overview.png)
 
-1. Se tiver um atraso ou em atraso nota fiscal, verá que a quantia total devida.
-1. Clique a azul **pagar agora** botão.
+1. Se tiver uma fatura em atraso ou vencida, verá o valor total em dívida.
+1. Clique no botão azul **Pagar agora**.
 
-    ![captura de ecrã que mostra pagar botão agora](./media/billing-how-to-pay-bill/paynow-button-overview.png)
+    ![captura de ecrã que mostra o botão pagar agora](./media/billing-how-to-pay-bill/paynow-button-overview.png)
 
-1. No novo painel, clique em **selecionar um método de pagamento** para escolher um cartão de crédito existente ou adicionar um novo.<!-- screenshot of select payment method link -->
-1. Quando o método de pagamento é selecionado, clique em **pagar agora**.
+1. No novo painel, clique em **Selecionar um método de pagamento** para escolher um cartão de crédito existente ou adicionar um novo.<!-- screenshot of select payment method link -->
+1. Depois de selecionar o método de pagamento, clique em **Pagar agora**.
 
-O estado da nota fiscal será atualizado para paga no painel de notas fiscais. 
+O estado da fatura será atualizado para pago no painel das faturas. 
 
 <!-- pay now from invoice blade -->
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

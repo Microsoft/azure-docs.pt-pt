@@ -1,6 +1,6 @@
 ---
-title: Compreender a sua fatura do Azure enterprise
-description: Saiba como ler e compreender a utilização e faturação para contratos Enterprise do Azure.
+title: Compreender a faturação do Contrato Enterprise do Azure
+description: Saiba como ler e compreender a utilização e a faturação dos Contratos Enterprise do Azure.
 author: adpick
 manager: dougeby
 tags: billing
@@ -12,124 +12,124 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490291"
 ---
-# <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreender a sua fatura de contrato Enterprise do Azure
+# <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreenda a faturação do Contrato Enterprise do Azure
 
-Os clientes do Azure com um Enterprise Agreement recebem uma nota fiscal quando exceder o crédito da organização ou usar os serviços que não são abrangidos pelo crédito.
+Os clientes do Azure com um Contrato Enterprise recebem uma fatura quando excedem o crédito da organização ou quando utilizam serviços que não são cobertos pelo crédito.
 
-Crédito da sua organização inclui seu compromisso monetário. A alocação monetária é a quantidade de sua organização pago inicialmente para utilização de serviços do Azure. Pode adicionar fundos de compromisso monetário para o Enterprise Agreement contactando o seu Gestor de conta Microsoft ou revendedor.  
+O crédito da sua organização inclui a alocação monetária. A alocação monetária é o montante que a sua organização pagou antecipadamente para a utilização dos serviços do Azure. Pode adicionar fundos de alocação monetária ao Contrato Enterprise ao contactar o seu revendedor ou o gestor de conta Microsoft.  
 
-## <a name="invoices-for-most-customers"></a>Notas fiscais para a maioria dos clientes
+## <a name="invoices-for-most-customers"></a>Faturas para a maioria dos clientes
 
-Esta secção não se aplica aos clientes do Azure na Austrália, Japão e Singapura. Se estiver em um desses países/regiões, veja [notas fiscais para outros clientes](#invoices-for-other-customers).
+Esta secção não se aplica a clientes do Azure na Austrália, Japão ou Singapura. Caso se encontre num destes países/regiões, veja [Faturas para outros clientes](#invoices-for-other-customers).
 
-Receber uma fatura do Azure quando um dos seguintes ocorre durante o ciclo de faturação:
+Recebe uma fatura do Azure quando ocorre uma das seguintes situações durante o período de faturação:
 
-- **Utilização excedida do serviço**: Os custos de utilização da sua organização excederem seu saldo de crédito.
-- **Encargos faturados em separado**: Os serviços utilizado pela sua organização não são abrangidos pelo crédito. São faturadas para os seguintes serviços, independentemente do seu saldo de crédito:
+- **Utilização excedida do serviço**: os custos de utilização da sua organização excedem o seu saldo de crédito.
+- **Custos faturados em separado**: os serviços que sua organização utilizou não são cobertos pelo crédito. É faturado pelo seguintes serviços, independentemente do seu saldo de crédito:
     - Canónico
     - Citrix XenApp Essentials
     - Citrix XenDesktop
-    - Utilizador registado
-    - Openlogic
-    - Utilizador registado de direitos de acesso remoto o XenApp Essentials
+    - Utilizador Registado
+    - OpenLogic
+    - Utilizador Registado do Remote Access Rights XenApp Essentials
     - Ubuntu Advantage
-    - Visual Studio Enterprise (mensal)
-    - Visual Studio Enterprise (anual)
-    - Visual Studio Professional (mensal)
-    - Visual Studio Professional (anual)
-- **Encargos do Marketplace**: As compras no Marketplace e utilização do Azure não estão abrangidas por crédito da sua organização. Por isso, está faturado de acordo encargos do Marketplace, independentemente do seu saldo de crédito. No Portal da empresa, um administrador empresarial pode ativar e desativar as compras no Marketplace.
+    - Visual Studio Enterprise (Mensal)
+    - Visual Studio Enterprise (Anual)
+    - Visual Studio Professional (Mensal)
+    - Visual Studio Professional (Anual)
+- **Custos do Marketplace**: as compras e a utilização do Azure Marketplace não são cobertas pelo crédito da sua organização. Portanto, será faturado pelos custos do Marketplace, independentemente do seu saldo de crédito. No Enterprise Portal, um Administrador do Enterprise pode ativar e desativar compras do Marketplace.
 
-## <a name="review-charges-for-most-customers"></a>Custos de revisão para a maioria dos clientes
-Esta secção não se aplica aos clientes do Azure na Austrália, Japão e Singapura. Se estiver em um país, veja [rever os custos para outros clientes](#review-charges-for-other-customers).
+## <a name="review-charges-for-most-customers"></a>Analisar os custos para a maioria dos clientes
+Esta secção não se aplica a clientes do Azure na Austrália, Japão ou Singapura. Caso se encontre num destes países, veja [Faturas para outros clientes](#review-charges-for-other-customers).
 
-Para rever e confirmar os custos na sua fatura, tem de ser um administrador empresarial. Para obter mais informações, consulte [funções administrativas do Azure Enterprise Agreement compreender no Azure](billing-understand-ea-roles.md). Se não sabe quem é o administrador de empresa para a sua organização [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para analisar e verificar os custos presentes na fatura, tem de ser um Administrador do Enterprise. Para obter mais informações, veja [Compreender as funções administrativas do Contrato Enterprise no Azure](billing-understand-ea-roles.md). Se não souber quem é o Administrador do Enterprise da sua organização, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Sua fatura mostra a totalidade da sua utilização do Azure, seguida de quaisquer encargos do Marketplace. Se tiver um saldo de crédito, esta é aplicada a utilização do Azure.
+A fatura mostra toda a utilização do Azure, seguida por quaisquer custos do Marketplace. Se tiver um saldo de crédito, também se aplicará à utilização do Azure.
 
-Comparar a quantidade total combinada apresentada no portal da empresa na **relatórios** > **resumo de utilização** com a sua fatura do Azure. As quantidades na **resumo de utilização** não incluem impostos.
+Compare o montante total combinado mostrado no Enterprise Portal em **Relatórios** > **Resumo da Utilização** com a sua fatura do Azure. Os montantes no **Resumo da Utilização** não incluem impostos.
 
-1. Início de sessão para o [Enterprise portal](https://ea.azure.com).
-1. Selecione **relatórios**.
-1. No canto superior direito da guia, alterne da exibição de **M** ao **C** e corresponder o período da nota fiscal.  
-    ![Captura de ecrã que mostra M + a opção de C no resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
-1. A quantidade de **utilização Total** e **Azure Marketplace** deve corresponder a **Quantidade Total estendido** na sua fatura.
-1. Para obter mais detalhes sobre as suas Cobranças, aceda a **transferir utilização**.  
-    ![Captura de ecrã que mostra o separador de transferir utilização](./media/billing-understand-your-bill-ea/ea-portal-download-usage.png)
+1. Inicie sessão no [Enterprise Portal](https://ea.azure.com).
+1. Selecione **Relatórios**.
+1. No canto superior direito do separador, mude a vista de **M** para **C** e escolha o período da fatura.  
+    ![Captura de ecrã que mostra a opção M + C no Resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
+1. O valor combinado da **Utilização Total** e do **Azure Marketplace** deve corresponder ao **Montante Total Alargado** na fatura.
+1. Para obter mais detalhes sobre os custos, aceda a **Transferir Utilização**.  
+    ![Captura de ecrã que mostra o separador Transferir Utilização](./media/billing-understand-your-bill-ea/ea-portal-download-usage.png)
 
-## <a name="invoices-for-other-customers"></a>Notas fiscais para outros clientes
+## <a name="invoices-for-other-customers"></a>Faturas para outros clientes
 
-Esta secção aplica-se apenas aos clientes do Azure na Austrália, Japão e Singapura.
+Esta seção aplica-se apenas a clientes do Azure na Austrália, Japão ou Singapura.
 
-Recebe uma ou mais notas fiscais do Azure quando ocorre o seguinte:
+Recebe uma ou mais faturas do Azure quando ocorre o seguinte:
 
-- **Utilização excedida do serviço**: Os custos de utilização da sua organização excederem seu saldo de crédito.
-- **Encargos faturados em separado**: Os serviços utilizado pela sua organização não são abrangidos pelo crédito. São faturadas para os seguintes serviços, independentemente do seu saldo de crédito:
+- **Utilização excedida do serviço**: os custos de utilização da sua organização excedem o seu saldo de crédito.
+- **Custos faturados em separado**: os serviços que sua organização utilizou não são cobertos pelo crédito. É faturado pelo seguintes serviços, independentemente do seu saldo de crédito:
     - Canónico
     - Citrix XenApp Essentials
     - Citrix XenDesktop
-    - Utilizador registado
-    - Openlogic
-    - Utilizador registado de direitos de acesso remoto o XenApp Essentials
+    - Utilizador Registado
+    - OpenLogic
+    - Utilizador Registado do Remote Access Rights XenApp Essentials
     - Ubuntu Advantage
-    - Visual Studio Enterprise (mensal)
-    - Visual Studio Enterprise (anual)
-    - Visual Studio Professional (mensal)
-    - Visual Studio Professional (anual)
-- **Encargos do Marketplace**: As compras no Marketplace e utilização do Azure não são abrangidos por crédito da sua organização e são faturadas separadamente. No Portal da empresa, um administrador empresarial pode ativar e desativar as compras no Marketplace.
+    - Visual Studio Enterprise (Mensal)
+    - Visual Studio Enterprise (Anual)
+    - Visual Studio Professional (Mensal)
+    - Visual Studio Professional (Anual)
+- **Custos do Marketplace**: as compras e a utilização do Azure Marketplace não são cobertas pelo crédito da sua organização e são faturadas separadamente. No Enterprise Portal, um Administrador do Enterprise pode ativar e desativar compras do Marketplace.
 
-Quando tem custos devido para excessos de serviço e custos que são faturados em separado durante o período de faturação, receberá uma fatura. Ele inclui os dois tipos de custos. Custos de marketplaces sempre são faturados separadamente.
+Quando tem custos referentes a utilização excedida de serviço e custos que são faturados separadamente durante o período de faturação, receberá uma fatura. A fatura inclui os dois tipos de custos. Os custos dos Marketplaces são sempre faturados separadamente.
 
-## <a name="review-charges-for-other-customers"></a>Custos de revisão de outros clientes
+## <a name="review-charges-for-other-customers"></a>Analisar os custos para outros clientes
 
-Esta secção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
+Esta seção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
 
-Para rever e confirmar os custos na sua fatura, tem de ser um administrador empresarial. Para obter mais informações, consulte [funções administrativas do Azure Enterprise Agreement compreender no Azure](billing-understand-ea-roles.md). Se não sabe quem é o administrador de empresa para a sua organização [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para analisar e verificar os custos presentes na fatura, tem de ser um Administrador do Enterprise. Para obter mais informações, veja [Compreender as funções administrativas do Contrato Enterprise no Azure](billing-understand-ea-roles.md). Se não souber quem é o Administrador do Enterprise da sua organização, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="review-service-overage-invoice"></a>Fatura de utilização excedida de serviço de revisão
+### <a name="review-service-overage-invoice"></a>Analisar a fatura de utilização excedida do serviço
 
-Comparar a quantidade total de utilização no portal da empresa na **relatórios** > **resumo de utilização** com a sua fatura de utilização excedida do serviço. A fatura de utilização excedida do serviço inclui a utilização que exceda o crédito da sua organização, e/ou serviços que não são abrangidos pelo crédito. As quantidades na **resumo de utilização** não incluem impostos.
+Compare o montante de utilização total no Enterprise Portal em **Relatórios** > **Resumo da Utilização** com a sua fatura de utilização excedida do serviço. A fatura de utilização excedida do serviço inclui a utilização que excede o crédito da sua organização e/ou os serviços que não são cobertos pelo crédito. Os montantes no **Resumo da Utilização** não incluem impostos.
 
-1. Início de sessão para o [Enterprise portal](https://ea.azure.com).
-1. Selecione **relatórios**.
-1. No canto superior direito da guia, alterne da exibição de **M** ao **C** e corresponder o período da nota fiscal.  
-    ![Captura de ecrã que mostra M + a opção de C no resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
-1. O **utilização Total** quantidade deve corresponder a **Quantidade Total estendido** na sua fatura de utilização excedida do serviço.  
-1. Para obter mais informações sobre as suas Cobranças, aceda a **transferir utilização** > **transferir o relatório avançado**. O relatório não inclui os impostos ou custos para as reservas ou encargos do marketplace.  
-      ![Captura de ecrã que mostra o relatório avançado baixar a guia de utilização de baixar.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
+1. Inicie sessão no [Enterprise Portal](https://ea.azure.com).
+1. Selecione **Relatórios**.
+1. No canto superior direito do separador, mude a vista de **M** para **C** e escolha o período da fatura.  
+    ![Captura de ecrã que mostra a opção M + C no Resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
+1. O montante de **Utilização Total** deve corresponder ao **Montante Total Alargado** na fatura de utilização excedida do serviço.  
+1. Para obter mais informações sobre os custos, aceda a **Transferir Utilização** > **Transferir Relatório Avançado**. Este relatório não inclui impostos nem custos relativos a custos de reservas ou do marketplace.  
+      ![Captura de ecrã que mostra a opção Transferir Relatório Avançado no separador Transferir utilização.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
 
-A tabela seguinte lista os termos e as descrições mostradas da nota fiscal e, no **resumo de utilização** no portal da empresa:
+A tabela a seguir lista os termos e as descrições apresentados na fatura e no **Resumo de Utilização** no Enterprise Portal:
 
-|Termo de nota fiscal|Termo de resumo de utilização|Descrição|
+|Termo da fatura|Termo do Resumo da Utilização|Descrição|
 |---|---|---|
-|Total estendido quantidade|Utilização total|O custo total de pré-imposto de utilização para o período específico antes do crédito é aplicado.|
-|Utilização de alocação|Utilização de alocação|O crédito aplicado durante o período específico.|
-|Total das vendas|Utilização excedida total|O custo total de utilização que exceda o montante de crédito. Este é o valor não incluem impostos.|
-|Valor do imposto|Não aplicável|Imposto que se aplica a quantidade total das vendas para o período específico.|
-|Quantidade total|Não aplicável|A quantidade vencimento da nota fiscal depois do crédito é aplicado e imposto é adicionado.|
+|Montante Alargado Total|Utilização Total|O custo de utilização total antes dos impostos relativo ao período especificado antes do crédito ser aplicado.|
+|Utilização de Alocação|Utilização de Alocação|O crédito aplicado durante esse período específico.|
+|Venda Total|Utilização Excedida Total|O custo total de utilização que excede o montante do seu crédito. Este montante não inclui impostos.|
+|Montante dos Impostos|Não aplicável|Imposto que se aplica ao montante total de venda para o período especificado.|
+|Montante Total|Não aplicável|O montante devido da fatura depois do crédito ser aplicado e do imposto ser adicionado.|
 
-### <a name="marketplace-invoice"></a>Nota fiscal do Marketplace
+### <a name="marketplace-invoice"></a>Fatura do Marketplace
 
-Esta secção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
+Esta seção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
 
-Comparar o Azure Marketplace total no **relatórios** > **resumo de utilização** no portal da empresa com a sua fatura do marketplace. A fatura do Marketplace diz respeito apenas a compras e utilização do Azure Marketplace. As quantidades na **resumo de utilização** não incluem impostos.
+Compare o total do Azure Marketplace em **Relatórios** > **Resumo de Utilização** no Enterprise Portal com a sua fatura do marketplace. A fatura do Marketplace diz respeito apenas a compras e utilização do Azure Marketplace. Os montantes no **Resumo da Utilização** não incluem impostos.
 
-1. Início de sessão para o [Enterprise portal](https://ea.azure.com).
-1. Selecione **relatórios**.
-1. No canto superior direito da guia, alterne da exibição de **M** ao **C** e corresponder o período da nota fiscal.  
-     ![Captura de ecrã que mostra M + a opção de C no resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
-1. O **do Azure Marketplace** total deve corresponder a **Total das vendas** na sua fatura do marketplace.
-1. Para obter mais informações sobre as suas Cobranças baseada na utilização, aceda a **transferir utilização**. Sob **encargos do Marketplace**, selecione **transferir**. Este relatório não inclui impostos e não mostra compras únicas.  
-     ![Captura de ecrã que mostra transferir opção em encargos do Marketplace.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
+1. Inicie sessão no [Enterprise Portal](https://ea.azure.com).
+1. Selecione **Relatórios**.
+1. No canto superior direito do separador, mude a vista de **M** para **C** e escolha o período da fatura.  
+     ![Captura de ecrã que mostra a opção M + C no Resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
+1. O total do **Azure Marketplace** deve corresponder à **Venda Total** na fatura do marketplace.
+1. Para obter mais informações sobre os custos com base na utilização, aceda a **Transferir Utilização**. Em **Custos do Marketplace**, selecione **Transferir**. Este relatório não inclui impostos e não mostra compras únicas.  
+     ![Captura de ecrã que mostra a opção Transferir sob os Custos do Marketplace.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Ver e transferir a sua utilização do Azure e os encargos](billing-download-azure-daily-usage.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Ver e transferir a utilização e os custos do Azure](billing-download-azure-daily-usage.md)

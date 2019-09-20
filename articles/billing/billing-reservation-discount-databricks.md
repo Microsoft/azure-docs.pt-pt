@@ -1,6 +1,6 @@
 ---
-title: Como é aplicado um desconto de pré-compra do Azure Databricks
-description: Saiba como um desconto de pré-compra do Azure Databricks aplica-se a sua utilização.
+title: Como é aplicado um desconto de pré-compra de Azure Databricks
+description: Saiba como um desconto de pré-compra de Azure Databricks se aplica à sua utilização.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,50 +9,50 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: banders
 ms.openlocfilehash: 7c1855b587ab1d603e9c6ac24a67b0f50065361f
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67827646"
 ---
-# <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Como é aplicado o desconto de pré-compra do Azure Databricks
+# <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Como é aplicado um desconto de pré-compra de Azure Databricks
 
-Pode usar unidades de consolidação do previamente adquiridas Azure Databricks (DBCU) em qualquer altura durante a vigência de compra. Qualquer utilização é do Azure Databricks deducts automaticamente dos DBCUs previamente adquiridas.
+Pode usar as unidades de consolidação de Azure Databricks (DBCU) pré-compradas em qualquer momento durante o termo de compra. Qualquer utilização de Azure Databricks é deduzida das DBCUs pré-compradas automaticamente.
 
-Ao contrário das VMs, unidades previamente compradas não expiram numa base horária. Pode usá-los em qualquer altura durante o período de vigência da compra. Para obter os descontos de compras prévia, não terá de voltar a implementar ou atribuir um plano previamente adquirido a suas áreas de trabalho do Azure Databricks para a utilização.
+Ao contrário das VMs, as unidades pré-compradas não expiram por hora. Pode usá-las em qualquer altura durante o termo da compra. Para obter os descontos de pré-compra, não precisa de reimplementar ou atribuir um plano pré-comprado às suas áreas de trabalho do Azure Databricks para a utilização.
 
-O desconto de compra prévia de aplica-se apenas a utilização de unidades (DBU) do Azure Databricks. Outros custos, como computação, armazenamento e rede são cobrados em separado.
+O desconto de pré-compra aplica-se apenas à utilização de unidades de Databricks (DBU). Outros custos, como computação, armazenamento e rede, são cobrados em separado.
 
-## <a name="pre-purchase-discount-application"></a>Aplicativo de compra prévia de desconto
+## <a name="pre-purchase-discount-application"></a>Aplicação de desconto de pré-compra
 
-Pré-compra do Databricks se aplica a todos os escalões e cargas de trabalho do Databricks. Pode considerar a compra prévia de como um conjunto de unidades de consolidação de Databricks pré-pagos. Utilização é deduzida da agrupamento, independentemente da camada ou carga de trabalho. Utilização é deduzida na proporção seguinte:
+A pré-compra de Databricks aplica-se a todas as cargas de trabalho e escalões de Databricks. Pode considerar a pré-compra como um conjunto de unidades de consolidação de Databricks pré-pagos. A utilização é deduzida do conjunto, independentemente da carga de trabalho ou do escalão. A utilização é deduzida na seguinte proporção:
 
-| **Carga de trabalho** | **Rácio de aplicativo de DBU — escalão Standard** | **Rácio de aplicativo de DBU — escalão Premium** |
+| **Carga de trabalho** | **Taxa de aplicações de DBU — escalão Standard** | **Taxa de aplicações de DBU — escalão Premium** |
 | --- | --- | --- |
 | Análise de Dados | 0.4 | 0.55 |
-| Engenharia de Dados | 0.15 | 0,30 |
+| Engenharia de Dados | 0.15 | 0.30 |
 | Engenharia de Dados Leve | 0.07 | 0.22 |
 
-Por exemplo, quando uma quantidade da análise de dados – escalão Standard é consumida, as unidades de consolidação do Databricks previamente adquiridas é deduzidos por 0.4 unidades. Quando uma quantidade de luz de engenharia de dados – é utilizado o escalão Standard, a unidade de consolidação do Databricks previamente adquirida é deduzida por 0.07 unidades
+Por exemplo, quando uma quantidade de Análise de Dados – escalão Standard é consumida, as unidades de consolidação de Databricks pré-compradas são deduzidas por 0,4 unidades. Quando uma quantidade de Engenharia de Dados Leve – escalão Standard é utilizada, a unidade de consolidação de Databricks pré-comprada é deduzida por 0,07 unidades
 
 ## <a name="determine-plan-use"></a>Determinar a utilização do plano
 
-Para determinar a utilização de plano DBCU, aceda ao portal do Azure > **reservas** e clique no plano de Databricks adquirido. Sua utilização até à data é mostrada com unidades de restantes. Para obter mais informações sobre como determinar sua reserva utilizar, consulte a [ver a utilização de reserva](billing-reservation-apis.md#see-reservation-usage) artigo.
+Para determinar a utilização do seu plano DBCU, aceda ao portal do Azure > **Reservas** e clique no plano de Databricks comprado. A sua utilização até à data é mostrada com quaisquer unidades restantes. Para obter mais informações sobre como determinar a sua utilização de reservas, veja o artigo [Ver utilização da reserva](billing-reservation-apis.md#see-reservation-usage).
 
-## <a name="how-discount-application-shows-in-usage-data"></a>Como o aplicativo de desconto mostra em dados de utilização
+## <a name="how-discount-application-shows-in-usage-data"></a>Como a aplicação de desconto é mostrada nos dados de utilização
 
-Quando o desconto de compra prévia de aplica-se a sua utilização do Databricks, custos de sob demanda aparecem como zero nos dados de utilização. Para obter mais informações sobre os custos de reserva e a utilização, consulte [utilização e custos de reserva de obter o Enterprise Agreement](billing-understand-reserved-instance-usage-ea.md).
+Quando o desconto de pré-compra se aplica à sua utilização de Databricks, os encargos a pedido aparecem como zero nos dados de utilização. Para obter mais informações sobre custos de reserva e utilização, veja [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md) (Compreender custos de reserva e utilização do Contrato Enterprise).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como gerir uma reserva, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
-- Para saber mais sobre a pré-compra do Azure Databricks para poupar dinheiro, veja [os custos de otimizar o Azure Databricks com uma compra prévia de](billing-prepay-databricks-reserved-capacity.md).
-- Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
-  - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
-  - [Gerir reservas no Azure](billing-manage-reserved-vm-instance.md)
-  - [Compreender a utilização de reserva para uma subscrição com taxas pay as you go](billing-understand-reserved-instance-usage.md)
-  - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
+- Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](billing-manage-reserved-vm-instance.md).
+- Para saber mais sobre a pré-compra de Azure Databricks para poupar dinheiro, veja [Otimizar custos de Azure Databricks com uma pré-compra](billing-prepay-databricks-reserved-capacity.md).
+- Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
+  - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+  - [Gerir Reservas no Azure](billing-manage-reserved-vm-instance.md)
+  - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](billing-understand-reserved-instance-usage.md)
+  - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

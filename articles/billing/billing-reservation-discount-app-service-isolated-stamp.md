@@ -1,6 +1,6 @@
 ---
-title: Como os descontos de reserva se aplicam a carimbos de Azure App de serviço isolados
-description: Saiba como os descontos de reserva se aplicam a carimbos de Azure App de serviço isolados.
+title: Como se aplicam os descontos de reserva aos Selos de Plano Isolado do Serviço de Aplicações do Azure
+description: Saiba como se aplicam os descontos de reserva aos Selos de Plano Isolado do Serviço de Aplicações do Azure.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,47 +9,47 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: banders
 ms.openlocfilehash: cb4b371deadb1ae9e6ae048c3157809aff857c9d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68298259"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Como os descontos de reserva se aplicam a carimbos de Azure App de serviço isolados
+# <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Como se aplicam os descontos de reserva aos Selos de Plano Isolado do Serviço de Aplicações do Azure
 
-Depois de comprar Serviço do Aplicativo Isolado capacidade reservada da taxa de selo, o desconto de reserva é aplicado automaticamente à taxa de carimbo em uma região. O desconto de reserva aplica-se ao uso emitido pelo medidor de taxa de carimbo isolado. Os trabalhadores, front-ends adicionais e quaisquer outros recursos associados ao carimbo continuam a ser cobrados na taxa regular.
+Depois de comprar capacidade reservada para o Imposto de Selo de Plano Isolado do Serviço de Aplicações do Azure, o desconto de reserva é aplicado automaticamente ao Imposto de Selo numa região. O desconto de reserva aplica-se à utilização emitida pelo medidor de Imposto de Selo de Plano Isolado. Funções de trabalho, front-ends adicionais e quaisquer outros recursos associados ao selo continuam a ser faturados à tarifa normal.
 
-## <a name="reservation-discount-application"></a>Aplicativo de desconto de reserva
+## <a name="reservation-discount-application"></a>Aplicação de desconto de reserva
 
-O desconto da taxa de selo Serviço do Aplicativo Isolado é aplicado à execução de carimbos isolados por hora. Se você não tiver um carimbo implantado por uma hora, a capacidade reservada será desperdiçada para essa hora. Ele não é transportado.
+O desconto do Imposto de Selo de Plano Isolado do Serviço de Aplicações aplica-se a selos isolados em execução de hora a hora. Se não tiver um selo implementado durante uma hora, a capacidade reservada será desperdiçada durante essa hora. Não será transferida.
 
-Após a compra, a reserva que você compra é correspondida a um carimbo isolado em execução em uma região específica. Se você desligar esse carimbo, os descontos de reserva serão aplicados automaticamente a quaisquer outros carimbos em execução na região. Quando não houver carimbos, a reserva será aplicada ao próximo carimbo criado na região.
+Após a compra, é feita a correspondência da reserva que comprou com um selo isolado em execução numa região específica. Se encerrar esse selo, os descontos de reserva serão aplicados automaticamente a quaisquer outros selos em execução na região. Quando não existem selos, a reserva é aplicada ao próximo selo que é criado na região.
 
-Quando os carimbos não são executados por uma hora completa, a reserva se aplica automaticamente a outros carimbos correspondentes na mesma região durante a mesma hora.
+Quando os selos não são executados durante uma hora completa, a reserva aplica-se automaticamente a outros selos correspondentes na mesma região durante a mesma hora.
 
-## <a name="choose-a-stamp-type---windows-or-linux"></a>Escolha um tipo de carimbo-Windows ou Linux
+## <a name="choose-a-stamp-type---windows-or-linux"></a>Escolha um tipo de selo – Windows ou Linux
 
-Um carimbo isolado vazio emite o medidor de selo do Windows por padrão. Por exemplo, quando nenhum trabalho é implantado. Ele continua emitindo o medidor quando os trabalhos do Windows são implantados. O medidor muda para o medidor de selo do Linux se você implantar um trabalho do Linux. O carimbo emite o medidor do Windows quando os trabalhadores do Linux e do Windows são implantados.
+Por predefinição, um Selo de Plano Isolado vazio emite o medidor de selos do Windows. Por exemplo, quando não estão implementadas funções de trabalho. O selo continua a emitir o medidor quando são implementadas funções de trabalho do Windows. O medidor mudará para o medidor de selos do Linux se implementar uma função de trabalho do Linux. O selo emite o medidor do Windows quando estão implementadas funções de trabalho do Windows e do Linux.
 
-Como resultado, o medidor de selo pode mudar entre o Windows e o Linux durante a vida útil do carimbo. Enquanto isso, as reservas são específicas do sistema operacional. Você precisará comprar uma reserva que dá suporte aos trabalhos que planeja implantar no carimbo. Carimbos somente no Windows e carimbos mistos usam a reserva do Windows. Os carimbos com apenas trabalhadores do Linux usam a reserva do Linux.
+Como resultado, o medidor de selos pode mudar entre o Windows e o Linux durante a vida útil do selo. Enquanto isso, as reservas são específicas do sistema operativo. Precisa de comprar uma reserva que suporte as funções de trabalho que planeia implementar no selo. Selos só para Windows e selos mistos utilizam a reserva do Windows. Selos apenas com funções de trabalho do Linux utilizam a reserva do Linux.
 
-A única vez que você deve comprar uma reserva do Linux é quando planeja ter _apenas_ trabalhadores do Linux no selo.
+A única vez que deve comprar uma reserva de selo do Linux é quando planear ter _apenas_ funções de trabalho do Linux no selo.
 
 ## <a name="discount-examples"></a>Exemplos de desconto
 
-Os exemplos a seguir mostram como o desconto de instância reservada da taxa de carimbo isolado se aplica, dependendo das implantações.
+Os seguintes exemplos mostram como o desconto de instância reservada do Imposto de Selo de Plano Isolado se aplica em função das implementações.
 
-- **Exemplo 1**: Você adquire uma instância de capacidade de carimbo reservado isolado em uma região sem carimbos de Serviço do Aplicativo Isolado. Você implanta um novo carimbo na região e paga taxas reservadas para esse carimbo.
-- **Exemplo 2**: Você adquire uma instância da capacidade de carimbo reservado isolado em uma região que já tem um carimbo Serviço do Aplicativo Isolado implantado. Você começa a receber a taxa reservada para o carimbo implantado.
-- **Exemplo 3**: Você adquire uma instância de capacidade de carimbo reservado isolado em uma região com um carimbo de Serviço do Aplicativo Isolado já implantado. Você começa a receber a taxa reservada no carimbo implantado. Posteriormente, você exclui o carimbo e implanta um novo. Você recebe a taxa reservada para o novo carimbo. Os descontos não são transferidos por durações sem carimbos implantados.
-- **Exemplo 4**: Você adquire uma instância de capacidade de carimbo reservado do Linux isolado em uma região e, em seguida, implanta um novo carimbo na região. Quando o carimbo é inicialmente implantado sem trabalhadores, ele emite o medidor de selo do Windows. Nenhum desconto é recebido. Quando o primeiro trabalho do Linux é implantado no carimbo, ele emite o medidor de carimbo do Linux e o desconto de reserva se aplica. Se um Windows Worker for implantado posteriormente no carimbo, o medidor de selo será revertido para o Windows. Você não recebe mais um desconto para a reserva de carimbo reservado do Linux isolado.
+- **Exemplo 1**: compra uma instância de capacidade de Selo Reservado de Plano Isolado numa região sem selos de Plano Isolado do Serviço de Aplicações. Implementa um novo selo na região e paga tarifas reservadas para esse selo.
+- **Exemplo 2**: compra uma instância de capacidade de Selo Reservado de Plano Isolado numa região que já tem um selo de Plano Isolado do Serviço de Aplicações. Começa a receber a tarifa reservada para esse selo implementado.
+- **Exemplo 3**: compra uma instância de capacidade de Selo Reservado de Plano Isolado numa região com um selo de Plano Isolado do Serviço de Aplicações já implementado. Começa a receber a tarifa reservada no selo implementado. Mais tarde, elimina o selo e implementa um novo. Recebe a tarifa reserva para o novo selo. Os descontos não são transferidos para as durações sem selos implementados.
+- **Exemplo 4**: compra uma instância de capacidade de Selo Reservado do Linux de Plano Isolado numa região e, em seguida, implementa um novo selo na região. Quando o selo é implementado inicialmente sem funções de trabalho, emite o medidor de selos do Windows. Não são recebidos descontos. Quando se implementa a primeira função de trabalho do Linux no selo, este emite o medidor de Selos do Linux e aplica-se o desconto de reserva. Se uma função de trabalho do Windows for implementada posteriormente no selo, o medidor de selos será revertido para o Windows. Deixa de receber um desconto para a reserva do Selo Reservado do Linux de Plano Isolado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como gerenciar uma reserva, consulte [gerenciar reservas do Azure](billing-manage-reserved-vm-instance.md).
-- Para saber mais sobre a pré-aquisição de Serviço do Aplicativo Isolado carimbo de capacidade reservada para economizar dinheiro, confira [pagar pela taxa de carimbo isolado do serviço Azure app com capacidade reservada](billing-prepay-app-service-isolated-stamp.md).
-- Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
+- Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](billing-manage-reserved-vm-instance.md).
+- Para saber mais sobre a compra antecipada de capacidade reservada de Selos de Plano Isolado do Serviço de Aplicações para economizar dinheiro, veja [Pagamento antecipado do Imposto do Selo de Plano Isolado do Serviço de Aplicações do Azure com capacidade reservada](billing-prepay-app-service-isolated-stamp.md).
+- Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
   - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
-  - [Gerenciar reservas no Azure](billing-manage-reserved-vm-instance.md)
-  - [Entender o uso de reserva para uma assinatura com tarifas pagas conforme o uso](billing-understand-reserved-instance-usage.md)
-  - [Entender o uso de reserva para seu registro corporativo](billing-understand-reserved-instance-usage-ea.md)
+  - [Gerir Reservas no Azure](billing-manage-reserved-vm-instance.md)
+  - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](billing-understand-reserved-instance-usage.md)
+  - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

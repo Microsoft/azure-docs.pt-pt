@@ -54,26 +54,6 @@
     - name: Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Experimentações de interface visual
-      items:
-        - name: Prever o preço
-          displayName: 'regression, studio'
-          href: ui-sample-regression-predict-automobile-price-basic.md
-        - name: Prever o preço (avançado)
-          displayName: 'regression, studio'
-          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
-        - name: Prever o risco do crédito
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-credit-risk-basic.md
-        - name: Prever o risco do crédito (avançado)
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
-        - name: Prever alterações
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-churn.md
-        - name: Prever atrasos de voos
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-flight-delay.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceitos
@@ -174,6 +154,27 @@
               href: how-to-train-pytorch.md
             - name: Utilizar o Chainer
               href: how-to-train-chainer.md
+        - name: Utilizar a interface visual
+          displayName: sample visual interface experiments
+          items:
+            - name: Prever o preço
+              displayName: 'regression, studio'
+              href: how-to-ui-sample-regression-predict-automobile-price-basic.md
+            - name: Prever o preço (avançado)
+              displayName: 'regression, studio'
+              href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+            - name: Prever o risco do crédito
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-credit-risk-basic.md
+            - name: Prever o risco do crédito (avançado)
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+            - name: Prever alterações
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-churn.md
+            - name: Prever atrasos de voos
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-flight-delay.md
         - name: Otimizar hiperparâmetros
           displayName: parameter
           href: how-to-tune-hyperparameters.md
