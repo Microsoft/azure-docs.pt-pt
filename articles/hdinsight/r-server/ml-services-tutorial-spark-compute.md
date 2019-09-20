@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Usar R em um contexto de computação do Spark no Azure HDInsight'
 description: Tutorial-introdução ao R e ao Spark em um cluster de serviços Machine Learning do Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900002"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121926"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Usar R em um contexto de computação do Spark no Azure HDInsight
 
@@ -59,9 +59,9 @@ O *conjunto de dados em tempo da companhia aérea 2012* consiste em 12 arquivos 
 
 1. No painel direito, selecione a guia **ambiente** . As variáveis são exibidas em **valores**.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    ![Console Web do HDInsight R Studio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
-1.  Crie um diretório local e baixe os dados de exemplo. Em RStudio, insira o código a seguir:
+1. Crie um diretório local e baixe os dados de exemplo. Em RStudio, insira o código a seguir:
 
     ```R
     # Create local directory
@@ -361,7 +361,7 @@ Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDIn
 
 Para excluir um cluster, consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a usar as funções do R no Apache Spark que estão em execução em um cluster do HDInsight Machine Learning Services. Para obter mais informações, veja os artigos seguintes:
 

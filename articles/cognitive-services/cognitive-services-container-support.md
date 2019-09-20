@@ -12,7 +12,7 @@ ms.date: 8/21/2019
 ms.author: dapine
 ms.openlocfilehash: ae4b4b13e81bc000bc0675c80c09101cc4369bc1
 ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2019
 ms.locfileid: "71130134"

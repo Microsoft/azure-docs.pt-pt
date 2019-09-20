@@ -271,7 +271,7 @@
           href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
     - name: Referência de definições da aplicação
       href: functions-app-settings.md
-    - name: Enlaces
+    - name: Acionadores e enlaces
       items:
         - name: Armazenamento de blobs
           href: functions-bindings-storage-blob.md

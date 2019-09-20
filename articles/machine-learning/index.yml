@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/03/2019
-  ms.openlocfilehash: 42af6b60d0ef77dd26a93453fd04e28dee5996fe
-  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.openlocfilehash: 589e97442412d30d844111cd9a3e332d70d705b6
+  ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/14/2019
-  ms.locfileid: "70993278"
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71130373"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
@@ -74,11 +74,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Prever o risco do crédito
-      url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md
+      url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - text: Prever atrasos
-      url: service/ui-sample-classification-predict-flight-delay.md
+      url: service/how-to-ui-sample-classification-predict-flight-delay.md
     - text: Prever alterações
-      url: service/ui-sample-classification-predict-churn.md
+      url: service/how-to-ui-sample-classification-predict-churn.md
 - title: Implementar e gerir modelos
   linkLists:
   - linkListType: how-to-guide
