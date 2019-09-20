@@ -92,6 +92,10 @@
           href: create-certificate-scenarios.md
 - name: Guias de procedimentos
   items:
+    - name: Segurança
+      items:
+        - name: Recomendações
+          href: security-recommendations.md
     - name: Utilizar uma identidade gerida do Serviço de Aplicações
       href: managed-identity.md
     - name: Registo do Azure Key Vault

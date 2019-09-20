@@ -1,6 +1,6 @@
 ---
-title: Criar secções na sua fatura para organizar os seus custos - Azure
-description: Aprenda a organizar os seus custos com seções de nota fiscal.
+title: Criar secções na fatura para organizar os custos – Azure
+description: Aprenda a organizar os custos com secções de fatura.
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -11,49 +11,49 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: eadaf34dc5bdd93af532362e8f8542de3f17f414
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490798"
 ---
-# <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar secções na sua fatura para organizar os seus custos
+# <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Crie secções na fatura para organizar os custos
 
-Criar secções na sua fatura para organizar os seus custos por um departamento, ambiente de desenvolvimento, ou com base nas necessidades da sua organização. Em seguida, atribua a outras pessoas permissão para criar subscrições do Azure que são faturadas à secção. Todos os custos de utilização e compras para as subscrições, em seguida, são faturadas a seção. Pode ver os gastos totais para a seção na sua fatura, no portal do Azure, ou analise-as em análise de custos do Azure. Para obter mais informações, consulte [exibir transações de secções de nota fiscal](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Crie secções na fatura para organizar os custos por departamento, ambiente de desenvolvimento ou com base nas necessidades da sua organização. Em seguida, dê permissão a outras pessoas para criarem subscrições do Azure que são faturadas na secção. Todos os custos de utilização e compras relativos às subscrições são, então, faturados na secção. Pode visualizar o total de custos da secção na sua fatura, no portal do Azure ou revê-los na análise de custos do Azure. Para obter mais informações, veja [visualizar transações por secções de fatura](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
-Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="create-an-invoice-section-in-the-azure-portal"></a>Criar uma seção de nota fiscal no portal do Azure
+## <a name="create-an-invoice-section-in-the-azure-portal"></a>Crie uma secção de fatura no portal do Azure
 
-Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário de perfil** ou uma **Contribuidor de perfil de faturação**. Para obter mais informações, consulte [gerir secções de nota fiscal para o perfil de faturação](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
+Para criar uma secção de fatura, precisa de ser **proprietário do perfil de faturação** ou **contribuidor do perfil de faturação**. Para obter mais informações, veja [gerir secções de fatura para o perfil de faturação](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Procure **custo Management + faturação**.
+2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
+   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
-3. Selecione **secções de nota fiscal** no painel esquerdo. Consoante o acesso, poderá ter de selecionar um perfil de faturação ou de uma conta de cobrança e, em seguida, selecione **secções de nota fiscal**.
+3. Selecione **Secções de fatura** no painel do lado esquerdo. Dependendo do seu acesso, pode ser preciso selecionar um perfil de faturação ou uma conta de faturação e, em seguida, selecionar **Secções de fatura**.
 
-   ![Captura de ecrã que mostra a lista de seção de nota fiscal](./media/billing-mca-section-invoice/mca-select-invoice-sections.png)
+   ![Captura de ecrã que mostra a lista das secções de fatura](./media/billing-mca-section-invoice/mca-select-invoice-sections.png)
 
 4. Na parte superior da página, selecione **Adicionar**.
 
-5. Introduza um nome para a secção de nota fiscal e selecione um perfil de faturação. Verá a secção na fatura do perfil de faturação que reflete a utilização de cada subscrição e que atribuiu à secção de compras. 
+5. Introduza um nome para a secção de fatura e selecione um perfil de faturação. Verá que esta secção na fatura do perfil de faturação reflete a utilização de cada subscrição e as compras que atribuiu à mesma. 
 
-   ![Captura de ecrã que mostra a página de criação de seção de nota fiscal](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
+   ![Captura de ecrã que mostra a página de criação das secções de fatura](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
 6. Selecione **Criar**.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
-Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma subscrição do Azure adicional para o contrato de cliente da Microsoft](billing-mca-create-subscription.md)
-- [Conceder a outros utilizadores permissão para criar subscrição do Azure](billing-mca-create-subscription.md#give-others-permission)
-- [Obter propriedade da faturação das subscrições do Azure de utilizadores nas outras contas de faturas](billing-mca-request-billing-ownership.md)
+- [Criar uma subscrição do Azure adicional para o Contrato de Cliente da Microsoft](billing-mca-create-subscription.md)
+- [Conceder permissões a outras pessoas para criar subscrições do Azure](billing-mca-create-subscription.md#give-others-permission)
+- [Obter a propriedade da faturação de subscrições do Azure de outros utilizadores noutras contas de faturação](billing-mca-request-billing-ownership.md)

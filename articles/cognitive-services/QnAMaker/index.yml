@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 36b1c69ba1b94afadd105117ee5ac9dabcdd64a7
-  ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+  ms.openlocfilehash: 8e47211194be3653c3d0ba060b573bad446162ba
+  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71123011"
+  ms.lasthandoff: 09/20/2019
+  ms.locfileid: "71155095"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: O que é o Criador de FAQ
       url: overview/overview.md
+    - text: Portal do Criador de FAQ
+      url: https://www.qnamaker.ai
   - linkListType: concept
     links:
     - text: Ciclo de vida de desenvolvimento
@@ -54,14 +56,6 @@ landingContent:
       url: how-to/chit-chat-knowledge-base.md
     - text: Adicionar uma origem de dados protegida do SharePoint
       url: how-to/add-sharepoint-datasources.md
-- title: Testar e publicar
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Testar a sua base de dados de conhecimento de forma interativa
-      url: how-to/test-knowledge-base.md
-    - text: Publicar uma base de dados de conhecimento
-      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
 - title: Receber resposta da base de dados de conhecimento
   linkLists:
   - linkListType: get-started
@@ -78,6 +72,14 @@ landingContent:
     links:
     - text: Obter uma resposta com metadados
       url: how-to/metadata-generateanswer-usage.md
+- title: Testar e publicar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Testar a sua base de dados de conhecimento de forma interativa
+      url: how-to/test-knowledge-base.md
+    - text: Publicar uma base de dados de conhecimento
+      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
 - title: Melhorar a base de dados de conhecimento
   linkLists:
   - linkListType: how-to-guide
@@ -112,3 +114,13 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: Ajuda e comentários
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Resolução de problemas
+      url: troubleshooting.md
+    - text: Colocar questões no Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/QnAMaker
+    - text: Influenciar o serviço com o UserVoice
+      url: https://cognitive.uservoice.com/forums/578689-qna-maker-api
