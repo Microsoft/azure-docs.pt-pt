@@ -14,16 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e4f2d4f0e7dd9380ba708d84dfe7588043fd4a68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236695"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122379"
 ---
-# <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: Criar e submeter uma tarefa
+# <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: Criar e enviar um trabalho
 
-Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. Uma das opções é especificar um URL HTTPS como uma tarefa de entrada (como mostrado neste artigo). 
+Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. Uma das opções é especificar uma URL HTTPS como uma entrada de trabalho (como mostrado neste artigo). 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -33,11 +33,11 @@ Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar 
 
 ## <a name="example-script"></a>Script de exemplo
 
-Quando executa `az ams job start`, pode definir uma etiqueta de saída da tarefa. A etiqueta mais tarde pode ser utilizada para identificar o que este recurso de saída destina-se. 
+Ao executar `az ams job start`o, você pode definir um rótulo na saída do trabalho. O rótulo pode ser usado posteriormente para identificar o que é esse ativo de saída. 
 
-- Se atribuir um valor para a etiqueta, defina '--recursos de saída para "assetname = etiqueta"
-- Se não atribuir um valor para a etiqueta, defina '--recursos de saída para "assetname =".
-  Observe que adicione "=" para o `output-assets`. 
+- Se você atribuir um valor ao rótulo, defina '--output-assets ' como "assetname = rótulo"
+- Se você não atribuir um valor ao rótulo, defina '--output-assets ' como "assetname =".
+  Observe que você adiciona "=" ao `output-assets`. 
 
 ```azurecli
 az ams job start \
@@ -50,7 +50,7 @@ az ams job start \
   -g amsResourceGroup 
 ```
 
-Obter uma resposta semelhante ao seguinte:
+Você Obtém uma resposta semelhante a esta:
 
 ```
 {
@@ -85,6 +85,6 @@ Obter uma resposta semelhante ao seguinte:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral dos serviços de multimédia](media-services-overview.md)
+[AZ AMS Job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)

@@ -4,7 +4,7 @@ description: Obtenha respostas para perguntas frequentes sobre problemas de disp
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2b9689eeecb0549fae9f7131dd424e15c040b042
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073170"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122076"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de desempenho do aplicativo para aplicativos Web no Azure
 
@@ -54,7 +54,7 @@ Para exibir os logs de eventos de seu aplicativo Web:
 
 1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. No menu, selecione **console** > de depuração**cmd**.
-3. Selecione a pasta LogFiles.
+3. Selecione a pasta **LogFiles** .
 4. Para exibir os logs de eventos, selecione o ícone de lápis ao lado de **EventLog. xml**.
 5. Para baixar os logs, execute o cmdlet `Save-AzureWebSiteLog -Name webappname`do PowerShell.
 
@@ -111,7 +111,7 @@ Para ativar o rastreamento de solicitação com falha:
 5. Selecione **Guardar**.
 6. Na folha do aplicativo Web, selecione **ferramentas**.
 7. Selecione **Visual Studio online**.
-8. Se a configuração não estiver **ativada**,selecione ativada.
+8. Se a configuração não estiver **ativada**, selecione **ativada**.
 9. Selecione **ir**.
 10. Selecione **Web. config**.
 11. Em System. NetServer, adicione esta configuração (para capturar uma URL específica):
@@ -149,7 +149,7 @@ Para ativar o rastreamento de solicitação com falha:
 13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), acesse seu site.
 15. Selecione **ferramentas** > kuduir > para.
 18. No menu, selecione **console** > de depuração**cmd**.
-19. Selecione a pasta LogFiles e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
+19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
 20. Para ver o arquivo XML, selecione o ícone de lápis.
 
 ## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Vejo a mensagem "o processo de trabalho solicitou reciclagem devido ao limite de ' porcentagem de memória '." Como fazer resolver esse problema?
