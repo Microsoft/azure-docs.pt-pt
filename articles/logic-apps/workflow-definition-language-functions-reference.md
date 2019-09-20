@@ -104,7 +104,7 @@ Para trabalhar com coleções, geralmente matrizes, cadeias de caracteres e, às
 
 | Função de coleção | Tarefa |
 | ------------------- | ---- |
-| [terá](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retornar o primeiro item de uma coleção. |
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retorna uma coleção que tem *apenas* os itens comuns nas coleções especificadas. |
@@ -114,7 +114,7 @@ Para trabalhar com coleções, geralmente matrizes, cadeias de caracteres e, às
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens da frente de uma coleção e retornar todos os *outros* itens. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Retornar itens da frente de uma coleção. |
-| [unida](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retorna uma coleção que tem *todos* os itens das coleções especificadas. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retorna uma coleção que tem *todos* os itens das coleções especificadas. |
 |||
 
 <a name="comparison-functions"></a>
