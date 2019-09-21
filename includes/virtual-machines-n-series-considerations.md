@@ -2,30 +2,30 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 06/19/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1de7221f100077e07a2211bdb94e0198b35cb77c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 14f5998ee1c562b649257f7dce9ffc2f52a66226
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184220"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174985"
 ---
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-* Para uma disponibilidade de VMs de série N, consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+* Para obter a disponibilidade das VMs da série N, consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
-* VMs de série N só podem ser implementadas no modelo de implementação do Resource Manager.
+* As VMs da série N só podem ser implantadas no modelo de implantação do Gerenciador de recursos.
 
-* VMs de série N são diferentes no tipo de armazenamento do Azure, eles oferecem suporte para os respetivos discos. NC e NV VMs só suportam discos VM que são apoiados pelo armazenamento de disco Standard (HDD). NCv2, NCv3, ND, NDv2 e NVv2 VMs só suportam discos VM que são apoiados pelo armazenamento de disco Premium (SSD).
+* As VMs da série N diferem no tipo de armazenamento do Azure com suporte para seus discos. As VMs NC e NV só dão suporte a discos de VM que são apoiados por Armazenamento em Disco padrão (HDD). As VMs NCv2, NCv3, ND, NDv2 e NVv2 só dão suporte a discos de VM apoiados por SSD (Armazenamento em Disco Premium).
 
-* Se pretender implementar mais do que algumas VMs de série N, considere uma subscrição pay as you go ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
+* Se você quiser implantar mais de algumas VMs da série N, considere uma assinatura paga conforme o uso ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
 
-* Poderá ter de aumentar a quota de núcleos (por região) na sua subscrição do Azure e aumentar a quota separada para NC, NCv2, NCv3, ND, NDv2, NV ou NVv2 núcleos. Para pedir um aumento de quota [abra um pedido de suporte do cliente online](../articles/azure-supportability/how-to-create-azure-support-request.md) sem encargos. Limites predefinidos podem variar consoante a categoria de subscrição.
+* Talvez seja necessário aumentar a cota de núcleos (por região) em sua assinatura do Azure e aumentar a cota separada para os núcleos NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Para solicitar um aumento de cota, [abra uma solicitação](../articles/azure-supportability/how-to-create-azure-support-request.md) de atendimento ao cliente online sem encargos. Os limites padrão podem variar dependendo da sua categoria de assinatura.
 
 
 

@@ -1,45 +1,45 @@
 ---
-title: Validar uma rede hub- and -spoke com o Terraform no Azure
-description: Tutorial para validar a topologia de rede hub- and -spoke com todas as redes virtuais ligadas entre si.
+title: Validar uma rede hub e spoke com o Terraform no Azure
+description: Tutorial para validar a topologia de rede hub e spoke com todas as redes virtuais conectadas entre si.
 services: terraform
 ms.service: azure
-keywords: terraform, hub- and -spoke, redes, redes de híbridas, devops, máquina virtual, do azure, o vnet peering,
+keywords: Terraform, Hub e spoke, redes, redes híbridas, DevOps, máquina virtual, Azure, emparelhamento vnet,
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 157be65a19a1f790b911aa9d861c5f18fc8c0813
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 09/20/2019
+ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128262"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169709"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Tutorial: Validar uma rede hub- and -spoke com o Terraform no Azure
+# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Tutorial: Validar uma rede hub e spoke com o Terraform no Azure
 
-Neste artigo, executa os ficheiros de terraform criados no artigo anterior desta série. O resultado é uma validação da conetividade entre as redes virtuais de demonstração.
+Neste artigo, você executa os arquivos Terraform criados no artigo anterior desta série. O resultado é uma validação da conectividade entre as redes virtuais de demonstração.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Utilize o HCL (HashiCorp Language) para implementar a VNet do Hub na topologia hub-and-spoke
-> * Utilize o Terraform plano para verificar os recursos a serem implantados
-> * Utilize Terraform aplicam-se para criar os recursos no Azure
-> * Verificar a conectividade entre várias redes
-> * Utilize o Terraform para destruir todos os recursos
+> * Use a HCL (linguagem HashiCorp) para implementar a VNet do Hub na topologia hub-spoke
+> * Usar o plano Terraform para verificar os recursos a serem implantados
+> * Usar o Terraform Apply para criar os recursos no Azure
+> * Verificar a conectividade entre redes diferentes
+> * Usar o Terraform para destruir todos os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Criar um hub- and -spoke topologia de rede híbrida com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
-1. [Criar rede virtual no local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
-1. [Criar uma rede virtual do concentrador com o Terraform no Azure](./terraform-hub-spoke-hub-network.md).
-1. [Criar uma aplicação de rede virtual de hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
-1. [Criar redes virtuais com o Terraform no Azure um spoke](./terraform-hub-spoke-spoke-network.md).
+1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
+1. [Crie uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
+1. [Crie uma rede virtual de Hub com Terraform no Azure](./terraform-hub-spoke-hub-network.md).
+1. [Crie um dispositivo de rede virtual de Hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Crie redes virtuais spoke com Terraform no Azure](./terraform-hub-spoke-spoke-network.md).
 
-## <a name="verify-your-configuration"></a>Verificar a configuração
+## <a name="verify-your-configuration"></a>Verifique sua configuração
 
-Depois de concluir o [pré-requisitos](#prerequisites), certifique-se de que os ficheiros de configuração adequados estão presentes.
+Depois de concluir os [pré-requisitos](#prerequisites), verifique se os arquivos de configuração apropriados estão presentes.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
@@ -59,19 +59,19 @@ Depois de concluir o [pré-requisitos](#prerequisites), certifique-se de que os 
     cd hub-spoke
     ```
 
-1. Executar o `ls` comando para verificar se o `.tf` estão listados os ficheiros de configuração criados nos tutoriais anteriores:
+1. Execute o `ls` comando para verificar se os `.tf` arquivos de configuração criados nos tutoriais anteriores estão listados:
 
-    ![Ficheiros de configuração de demonstração do Terraform](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
+    ![Arquivos de configuração de demonstração do Terraform](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
-## <a name="deploy-the-resources"></a>Implementar os recursos
+## <a name="deploy-the-resources"></a>Implantar os recursos
 
-1. Inicialize o fornecedor do Terraform:
+1. Inicialize o provedor Terraform:
     
     ```bash
     terraform init
     ```
     
-    ![Resultados de exemplo do comando de "terraform init"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
+    ![Exemplo de resultados do comando "Terraform init"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
     
 1. Execute o `terraform plan` comando para ver o efeito da implantação antes da execução:
 
@@ -79,76 +79,76 @@ Depois de concluir o [pré-requisitos](#prerequisites), certifique-se de que os 
     terraform plan
     ```
     
-    ![Resultados de exemplo do comando de "plano de terraform"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.png)
+    ![Exemplo de resultados do comando "plano Terraform"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.png)
 
-1. Implemente a solução:
+1. Implantar a solução:
 
     ```bash
     terraform apply
     ```
     
-    Introduza `yes` quando lhe for pedido para confirmar a implementação.
+    Insira `yes` quando for solicitado a confirmar a implantação.
 
-    ![Resultados de exemplo do comando "terraform aplicar"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
+    ![Exemplo de resultados do comando "Terraform Apply"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
     
-## <a name="test-the-hub-vnet-and-spoke-vnets"></a>Testar a VNet do hub- and -spoke VNets
+## <a name="test-the-hub-vnet-and-spoke-vnets"></a>Testar a VNet do Hub e o spoke VNets
 
-Esta secção mostra como testar a conectividade entre o ambiente simulado no local e a VNet do hub.
+Esta seção mostra como testar a conectividade do ambiente simulado local para a VNet do Hub.
 
-1. No portal do Azure, navegue para o **onprem-vnet-rg** grupo de recursos.
+1. Na portal do Azure, navegue até o grupo de recursos **onlocal-vnet-RG** .
 
-1. Na **onprem-vnet-rg** separador, selecione a VM com o nome **onprem-vm**.
+1. Na guia **onlocal-vnet-RG** , selecione a VM chamada **local-VM**.
 
 1. Selecione **Ligar**.
 
-1. Junto do texto **início de sessão com a conta local de VM**, copie a **ssh** comando na área de transferência.
+1. Ao lado do logon de texto **usando a conta local da VM**, copie o comando **SSH** para a área de transferência.
 
-1. A partir de uma linha de comandos do Linux, execute `ssh` para estabelecer ligação ao ambiente no local simulado. Utilize a palavra-passe especificada no `on-prem.tf` ficheiro de parâmetros.
+1. A partir de uma linha de comandos do Linux, execute `ssh` para estabelecer ligação ao ambiente no local simulado. Use a senha especificada no `on-prem.tf` arquivo de parâmetro.
 
-1. Execute o `ping` comandos para testar a conectividade à VM da jumpbox na VNet do hub:
+1. Execute o `ping` comando para testar a conectividade com a VM Jumpbox na VNet do Hub:
 
    ```bash
    ping 10.0.0.68
    ```
 
-1. Execute o `ping` comandos para testar a conectividade para a jumpbox VMs em cada spoke:
+1. Execute o `ping` comando para testar a conectividade com as VMs Jumpbox em cada spoke:
 
    ```bash
    ping 10.1.0.68
    ping 10.2.0.68
    ```
 
-1. Para sair do ssh sessão sobre o **onprem-vm** máquina virtual, introduza `exit` e prima &lt;Enter >.
+1. Para sair da sessão SSH na máquina virtual da **VM local** , digite `exit` e pressione &lt;Enter >.
 
-## <a name="troubleshoot-vpn-issues"></a>Resolver problemas VPN
+## <a name="troubleshoot-vpn-issues"></a>Solucionar problemas de VPN
 
-Para obter informações sobre como resolver erros VPN, consulte o artigo [resolver problemas de uma ligação VPN de híbrida](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
+Para obter informações sobre como resolver erros de VPN, consulte o artigo [solucionar problemas de uma conexão VPN híbrida](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine os recursos criados da série de tutoriais.
+Quando não for mais necessário, exclua os recursos criados na série de tutoriais.
 
-1. Remova os recursos declarados no plano de:
+1. Remova os recursos declarados no plano:
 
     ```bash
     terraform destroy
     ```
 
-    Introduza `yes` quando lhe for pedido para confirmar a remoção dos recursos.
+    Insira `yes` quando for solicitado a confirmar a remoção dos recursos.
 
-1. Altere os diretórios para o diretório principal:
+1. Altere os diretórios para o diretório pai:
 
     ```bash
     cd ..
     ```
 
-1. Eliminar o `hub-scope` diretório (incluindo todos os seus ficheiros):
+1. Exclua `hub-scope` o diretório (incluindo todos os seus arquivos):
 
     ```bash
     rm -r hub-spoke
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Saiba mais sobre como utilizar o Terraform no Azure](/azure/terraform)
+> [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

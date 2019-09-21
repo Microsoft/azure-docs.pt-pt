@@ -1,21 +1,18 @@
 ---
-title: 'Início rápido: Configurar uma inteligência artificial geográfica'
-titleSuffix: Azure Data Science Virtual Machine
-description: Saiba como criar e configurar a máquina de Virtual de ciência de dados de IA geográfica. Máquina de Virtual de ciência de dados de IA geográfica fornece as ferramentas para criar soluções de IA e ML com dados geográficos.
-keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial, aprendizagem aprofundada
-services: machine-learning
+title: 'Início rápido: Criar uma DSVM de IA Geo'
+description: Configure e crie um Máquina Virtual de Ciência de Dados de ia geográfico no Azure para análise geoespacial e aprendizado de máquina.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/05/2018
-ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/13/2019
+ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208056"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170720"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Início rápido: Configurar uma máquina virtual de inteligência artificial geográfica no Azure 
 
@@ -86,7 +83,7 @@ Depois de se inscrever para uma conta padrão do ArcGIS ou uma avaliação gratu
 
 Depois de entrar na área de trabalho do ArcGIS pro por meio de sua conta do ArcGIS, você estará pronto para começar a usar as ferramentas de ciência de dados que estão instaladas e configuradas na VM para seus projetos de análise geoespacial e aprendizado de máquina.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a usar o VM de Ciência de Dados de ia geográfico com diretrizes do seguinte recurso:
 

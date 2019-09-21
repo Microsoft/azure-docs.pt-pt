@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/12/2019
-  ms.openlocfilehash: 9195595a36fd5ff09afaf61169fb2bc1c3eb2533
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.date: 09/20/2019
+  ms.openlocfilehash: 35391f886d473b91ab99d27bff64d64903ba0545
+  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71086501"
+  ms.lasthandoff: 09/20/2019
+  ms.locfileid: "71173529"
 landingContent:
 - title: Acerca do Terraform no Azure
   linkLists:

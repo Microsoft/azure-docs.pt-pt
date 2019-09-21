@@ -3,7 +3,7 @@ title: Visão geral do agente de VM Linux do Azure | Microsoft Docs
 description: Saiba como instalar e configurar o agente do Linux (waagent) para gerenciar a interação da sua máquina virtual com o controlador de malha do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acb6e14845beb4c947992e63f1984c072ba9f59f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084827"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169155"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreendendo e usando o agente Linux do Azure
 
 O agente do Microsoft Azure Linux (waagent) gerencia o provisionamento do Linux & FreeBSD e a interação da VM com o controlador de malha do Azure. Além do agente do Linux que fornece a funcionalidade de provisionamento, o Azure também fornece a opção de usar o Cloud-init para alguns sistemas operacionais Linux. O agente do Linux fornece a seguinte funcionalidade para implantações IaaS do Linux e FreeBSD:
 
 > [!NOTE]
-> Para obter mais informações, consulte [](https://github.com/Azure/WALinuxAgent/blob/master/README.md)o Leiame.
+> Para obter mais informações, consulte o [Leiame](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 > 
 > 
 
@@ -332,7 +332,7 @@ Habilitar ou desabilitar a atualização automática para o processamento do est
 ## <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
 As imagens de nuvem do Ubuntu utilizam [Cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para executar muitas tarefas de configuração que, de outra forma, seriam gerenciadas pelo agente Linux do Azure. As seguintes diferenças se aplicam:
 
-* **Provisionamento.** os padrões habilitados para "n" em imagens de nuvem do Ubuntu que usam Cloud-init para executar tarefas de provisionamento.
+* **Provisionamento. os padrões habilitados** para "n" em imagens de nuvem do Ubuntu que usam Cloud-init para executar tarefas de provisionamento.
 * Os parâmetros de configuração a seguir não têm nenhum efeito nas imagens de nuvem do Ubuntu que usam Cloud-init para gerenciar o disco de recursos e o espaço de permuta:
   
   * **ResourceDisk.Format**

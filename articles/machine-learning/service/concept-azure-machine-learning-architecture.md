@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035600"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170430"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -63,10 +63,10 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#training-scripts">Script de treinamento</a>
 + <a href="#runs">Executar</a>
++ <a href="#environments">Sistemas</a>
 + <a href="#github-tracking-and-integration">Rastreamento de git</a>
 + <a href="#snapshots">Instantânea</a>
 + <a href="#activities">Atividade</a>
-+ <a href="#images">Imagem</a>
 + <a href="#deployment">Implementação</a>
 + <a href="#web-service-deployments">Serviços Web</a>
 + <a href="#iot-module-deployments">Módulos IoT</a>
@@ -180,28 +180,15 @@ Uma atividade representa uma operação de longa execução. As seguintes opera�
 
 As atividades podem fornecer notificações por meio do SDK ou da interface do usuário da Web para que você possa monitorar facilmente o progresso dessas operações.
 
-### <a name="images"></a>Imagens
+### <a name="environments"></a>Ambientes
 
-As imagens fornecem uma maneira de implantar um modelo de forma confiável, juntamente com todos os componentes de que você precisa para usar o modelo. Uma imagem contém os seguintes itens:
+Os ambientes do Azure ML são usados para especificar a configuração (Docker/Python/Spark/etc.) usada para criar um ambiente reproduzível para preparação de dados, treinamento de modelo e serviço de modelo. Eles são entidades gerenciadas e com controle de versão em seu espaço de trabalho de Azure Machine Learning que permitem fluxos de trabalho de aprendizado de máquina reproduzíveis, auditáveis e portáteis entre diferentes destinos de computação.
 
-* Um modelo.
-* Um script de classificação ou um aplicativo. Você usa o script para passar a entrada para o modelo e retornar a saída do modelo.
-* As dependências que são necessárias para o modelo ou script de pontuação ou aplicativo. Por exemplo, pode incluir um ficheiro de ambiente de Conda que lista as dependências de pacote do Python.
+Você pode usar um objeto de ambiente em sua computação local para desenvolver seu script de treinamento, reutilizar o mesmo ambiente em Azure Machine Learning computação para treinamento de modelo em escala e até mesmo implantar seu modelo com o mesmo ambiente. 
 
-Azure Machine Learning pode criar dois tipos de imagens:
+Saiba [como criar e gerenciar um ambiente de ml reutilizável](how-to-use-environments.md) para treinamento e inferência.
 
-* **Imagem de FPGA**: Usado quando você implanta em uma matriz de portão programável por campo no Azure.
-* **Imagem**do Docker: Usado quando você implanta em destinos de computação diferentes de FPGA. Os exemplos são as instâncias de contêiner do Azure e o serviço kubernetes do Azure.
 
-Azure Machine Learning fornece uma imagem base, que é usada por padrão. Você também pode fornecer suas próprias imagens personalizadas.
-
-### <a name="image-registry"></a>Registo de imagem
-
-As imagens são catalogadas no **registro de imagem** em seu espaço de trabalho. Você pode fornecer marcas de metadados adicionais ao criar a imagem, para que você possa consultá-las para localizar a imagem mais tarde.
-
-Para obter um exemplo de criação de uma imagem, consulte [implantar um modelo de classificação de imagem em instâncias de contêiner do Azure](tutorial-deploy-models-with-aml.md).
-
-Para obter um exemplo de implantação de um modelo usando uma imagem personalizada, consulte [como implantar um modelo usando uma imagem personalizada](how-to-deploy-custom-docker-image.md)do Docker.
 
 ### <a name="deployment"></a>Implementação
 
@@ -237,7 +224,7 @@ Para obter mais informações sobre pipelines de Machine Learning com esse servi
 
 Ao desenvolver sua solução, use o SDK do Azure Machine Learning Python em seu script Python para registrar métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução produziu o modelo que você deseja implantar.
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar o Azure Machine Learning, consulte:
 

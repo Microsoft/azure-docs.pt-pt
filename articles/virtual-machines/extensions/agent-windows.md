@@ -3,7 +3,7 @@ title: Visão geral do agente de máquina virtual do Azure | Microsoft Docs
 description: Visão geral do agente de máquina virtual do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: roiyz
-ms.openlocfilehash: 6a845cad298e2aedbe68a11cd170120d1d229043
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.author: akjosh
+ms.openlocfilehash: 7c163dd48e53a3116d58cb94988f2822ddede5e5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382831"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169117"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do agente de máquina virtual do Azure
 O Microsoft Azure agente de máquina virtual (agente de VM) é um processo leve e seguro que gerencia a interação de VM (máquina virtual) com o controlador de malha do Azure. O agente de VM tem uma função primária na habilitação e execução de extensões de máquina virtual do Azure. As extensões de VM habilitam a configuração pós-implantação da VM, como instalar e configurar o software. As extensões de VM também habilitam recursos de recuperação, como redefinir a senha administrativa de uma VM. Sem o agente de VM do Azure, as extensões de VM não podem ser executadas.
@@ -111,5 +111,5 @@ Quando conectado a uma VM do Windows, o Gerenciador de tarefas pode ser usado pa
 O agente de VM do Azure para Windows é atualizado automaticamente. À medida que novas VMs são implantadas no Azure, elas recebem o agente de VM mais recente no tempo de provisionamento da VM. As imagens de VM personalizadas devem ser atualizadas manualmente para incluir o novo agente de VM no momento da criação da imagem.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).

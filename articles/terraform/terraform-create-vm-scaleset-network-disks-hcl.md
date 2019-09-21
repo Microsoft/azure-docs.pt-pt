@@ -7,13 +7,13 @@ keywords: terraform, devops, máquina virtual, Azure, conjunto de dimensionament
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2018
-ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: a6bc0879d07cadc6c5b0b1a21b11b3075ec69719
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885144"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169868"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -29,15 +29,15 @@ Neste tutorial, vai aprender a utilizar o [Azure Cloud Shell](/azure/cloud-shell
 > * Criar e implementar uma jumpbox para ligar às VMs através de SSH
 
 > [!NOTE]
-> A versão mais recente do Terraform ficheiros de configuração usados neste artigo estão na [Terraform Formidável repositório no GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
+> A versão mais recente dos arquivos de configuração Terraform usados neste artigo estão no [repositório awesome Terraform no GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Instalar o Terraform**: Siga as instruções no artigo, [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Instalar o Terraform**: Siga as instruções no artigo [Terraform e configure o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Criar um par de chaves SSH**: Se ainda não tiver um SSH que par de chaves, siga as instruções no artigo [como criar e utilizar um par de chaves público e privado SSH para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Criar um par de chaves SSH**: Se você ainda não tiver um par de chaves SSH, siga as instruções no artigo [como criar e usar um par de chaves SSH pública e privada para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
@@ -80,7 +80,7 @@ No Azure Cloud Shell, siga estes passos:
 
 1. Cole o seguinte código no editor:
 
-   ```JSON
+   ```hcl
    variable "location" {
     description = "The location where resources will be created"
    }
@@ -124,7 +124,7 @@ No Azure Cloud Shell, siga estes passos:
 1. Cole o seguinte código no editor para expor o nome de domínio completamente qualificado (FQDN) para as máquinas virtuais.
    :
 
-   ```JSON
+   ```hcl
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
@@ -157,7 +157,7 @@ No Azure Cloud Shell, siga estes passos:
 
 1. Cole o seguinte código no fim do ficheiro para expor o nome de domínio completamente qualificado (FQDN) para as máquinas virtuais.
 
-   ```JSON
+   ```hcl
    resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
@@ -252,7 +252,7 @@ No Cloud Shell, siga estes passos:
 
 1. Cole o seguinte código no fim do ficheiro:
 
-   ```JSON
+   ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
@@ -369,7 +369,7 @@ No Cloud Shell, siga estes passos:
 
 1. Cole o seguinte código no editor:
 
-   ```JSON
+   ```hcl
    #cloud-config
    packages:
     - nginx
@@ -393,7 +393,7 @@ No Cloud Shell, siga estes passos:
 
 1. Personalize a implementação ao colar o seguinte código no fim do ficheiro:
 
-    ```JSON
+    ```hcl
     variable "application_port" {
        description = "The port that you want to expose to the external load balancer"
        default     = 80
@@ -458,7 +458,7 @@ Uma *jumpbox* SSH é um servidor único através do qual tem de "saltar" para po
 
 1. Cole o seguinte código no fim do ficheiro:
 
-   ```JSON
+   ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
@@ -528,7 +528,7 @@ Uma *jumpbox* SSH é um servidor único através do qual tem de "saltar" para po
 
 1. Cole o seguinte código no fim do ficheiro para apresentar o nome do anfitrião da jumpbox quando a implementação estiver concluída:
 
-   ```
+   ```hcl
    output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
    }
@@ -568,7 +568,7 @@ O processo de destruição pode demorar vários minutos a ser concluído.
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure. Aqui estão alguns recursos adicionais para o ajudar a saber mais acerca do Terraform no Azure:
 
-[Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)
-[documentação do fornecedor do Azure do Terraform](https://aka.ms/terraform)
-[origem de fornecedor do Azure do Terraform](https://aka.ms/tfgit) 
- [Módulos do Azure do Terraform](https://aka.ms/tfmodules)
+[Terraform Hub em Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+
+
+[Terraform documentação do provedor do](https://aka.ms/terraform)Azure[Terraform origem do provedor do Azure](https://aka.ms/tfgit)[Terraform módulos do Azure](https://aka.ms/tfmodules)

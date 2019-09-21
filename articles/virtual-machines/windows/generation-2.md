@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 5e342418dc6cc9ed0a3bbbfaad42801d5ffe9e9d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900242"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173807"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
@@ -49,7 +49,7 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure 
 * [Série Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * Série [NCv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) e [série NCv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [Série ND](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
-* [Série NVv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+* [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imagens de VM de geração 2 no Azure Marketplace
 
@@ -88,12 +88,13 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 | Funcionalidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
-| Disco do sistema operacional > 2 TB                    | w.x.y.                        | :heavy_check_mark: |
-| Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark:         | :heavy_check_mark: |
-| Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark:         | :heavy_check_mark: |
-| ASR/backup                        | :heavy_check_mark:         | w.x.y.                |
-| Galeria de imagem partilhada              | :heavy_check_mark:         | w.x.y.                |
-| Criptografia de disco do Azure             | :heavy_check_mark:         | w.x.y.                |
+| Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
+| Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
+| Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | w.x.y.                |
+| Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
+| Galeria de imagens partilhadas              | :heavy_check_mark: | w.x.y.                |
+| Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
 
@@ -101,14 +102,37 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 No portal do Azure ou CLI do Azure, você pode criar VMs de geração 2 de uma imagem do Marketplace que dá suporte à inicialização de UEFI.
 
-A `windowsserver-gen2preview` oferta contém apenas imagens do Windows geração 2. Esse empacotamento evita confusão entre imagens de geração 1 e geração 2. Para criar uma VM de geração 2, selecione as **imagens** dessa oferta e siga o processo padrão para criar a VM.
+#### <a name="azure-portal"></a>Portal do Azure
 
-Atualmente, o Marketplace oferece as seguintes imagens do Windows geração 2:
+As imagens de geração 2 para Windows e SLES estão incluídas na mesma oferta de servidor que as imagens Gen1. O que isso significa de uma perspectiva de fluxo é que você seleciona a oferta e a SKU do portal para sua VM. Se a SKU der suporte a imagens de geração 1 e geração 2, você poderá optar por criar uma VM de geração 2 na guia *avançado* no fluxo de criação de VM.
 
-* 2019-datacenter-gen2
-* 2016-datacenter-gen2
-* 2012-r2-datacenter-gen2
-* 2012-datacenter-gen2
+Atualmente, as SKUs a seguir oferecem suporte a imagens de geração 1 e geração 2:
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server de 2019
+
+Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avançado** , há uma opção para criar uma VM **Gen 1** (BIOS) ou **Gen 2** (UEFI). Se você selecionar **Gen 2**, verifique se o tamanho da VM selecionado na guia **noções básicas** tem [suporte para VMs de geração 2](#generation-2-vm-sizes).
+
+![Selecione a VM Gen 1 ou Gen 2](./media/generation-2/gen1-gen2-select.png)
+
+#### <a name="powershell"></a>PowerShell
+
+Você também pode usar o PowerShell para criar uma VM referenciando diretamente a SKU de geração 1 ou geração 2.
+
+Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na `WindowsServer` oferta.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Se você estiver criando uma VM com o Windows Server 2012 como o sistema operacional, você selecionará a SKU de VM de geração 1 (BIOS) ou de geração 2 (UEFI), que tem esta aparência:
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 Consulte a seção [recursos e funcionalidades](#features-and-capabilities) para obter uma lista atual de imagens do Marketplace com suporte.
 
@@ -131,7 +155,7 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **Tenho um arquivo. vhd da minha VM de geração 2 local. Posso usar esse arquivo. VHD para criar uma VM de geração 2 no Azure?**
   Sim, você pode colocar seu arquivo. VHD de geração 2 no Azure e usá-lo para criar uma VM de geração 2. Use as seguintes etapas para fazer isso:
     1. Carregue o. VHD em uma conta de armazenamento na mesma região em que você gostaria de criar sua VM.
-    1. Crie um disco gerenciado com base no arquivo. vhd. Defina a propriedade de geração do HyperV como v2. Os comandos do PowerShell a seguir definem a propriedade de geração do HyperV ao criar um disco gerenciado.
+    1. Crie um disco gerenciado com base no arquivo. vhd. Defina a propriedade de geração do Hyper-V como v2. Os comandos do PowerShell a seguir definem a propriedade de geração do Hyper-V ao criar um disco gerenciado.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>

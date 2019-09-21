@@ -3,7 +3,7 @@ title: Extensão do chefe para VMs do Azure | Microsoft Docs
 description: Implante o cliente chefe em uma máquina virtual usando a extensão de VM chefe.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
-ms.openlocfilehash: 0ed042b3b004fd43bc03304c3042c2ac3e1a6482
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092559"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169143"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM chefe para Linux e Windows
 
@@ -36,7 +36,7 @@ A extensão de VM chefe requer que a máquina virtual de destino esteja conectad
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão requer no mínimo a URL do servidor chefe, o nome do cliente de validação e a chave de validação para o servidor chefe; esses valores podem ser encontrados no `knife.rb` arquivo no Starter-Kit. zip que é baixado quando você instala o chefe Automate ou um [servidor chefe](https://downloads.chef.io/chef-server)autônomo. [](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) Como a chave de validação deve ser tratada como dados confidenciais, ela deve ser configurada no elemento **protectedSettings** , o que significa que ela só será descriptografada na máquina virtual de destino.
+O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão requer no mínimo a URL do servidor chefe, o nome do cliente de validação e a chave de validação para o servidor chefe; esses valores podem ser encontrados no `knife.rb` arquivo no Starter-Kit. zip que é baixado quando você instala o [chefe Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) ou um [servidor chefe](https://downloads.chef.io/chef-server)autônomo. Como a chave de validação deve ser tratada como dados confidenciais, ela deve ser configurada no elemento **protectedSettings** , o que significa que ela só será descriptografada na máquina virtual de destino.
 
 ```json
 {
@@ -150,8 +150,8 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | :---: | --- | --- |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
 
-Informações adicionais de solução de problemas podem ser encontradas no Leiame da [extensão de VM chefe](https://github.com/chef-partners/azure-chef-extension).
+Informações adicionais de solução de problemas podem ser encontradas no [Leiame da extensão de VM chefe](https://github.com/chef-partners/azure-chef-extension).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

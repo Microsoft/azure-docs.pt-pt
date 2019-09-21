@@ -3,7 +3,7 @@ title: Exemplo do Script da CLI do Azure – Criar Rapidamente uma VM do Windows
 description: Exemplo do Script da CLI do Azure – Criar Rapidamente uma VM do Windows Server 2016
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: rickstercdn
+author: cynthn
 manager: gwallace
 editor: tysonn
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
-ms.author: gwallace
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e9eed2ee25c5088df88730ccec8d2a634cd3fcef
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 565c660473d819a046ce54c6bb3dfa05c90ee5df
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871609"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173814"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Criar Rapidamente uma máquina virtual com a CLI do Azure
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

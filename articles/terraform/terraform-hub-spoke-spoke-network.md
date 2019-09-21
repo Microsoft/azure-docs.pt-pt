@@ -1,42 +1,42 @@
 ---
-title: Criar uma rede de spoke com o Terraform no Azure
-description: Aprenda a implementar spoke duas VNets ligadas a um concentrador numa topologia hub-and-spoke
+title: Criar uma rede spoke com o Terraform no Azure
+description: Saiba como implementar dois VNets spoke conectados a um Hub em uma topologia hub-spoke
 services: terraform
 ms.service: azure
-keywords: terraform, hub- and -spoke, redes, redes de híbridas, devops, máquina virtual, do azure, o VNet peering, spoke, hub-and-spoke
+keywords: Terraform, Hub e spoke, redes, redes híbridas, DevOps, máquina virtual, Azure, emparelhamento de VNet, spoke, hub-spoke
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 9cce809401a26eb2b45b11303afcd4818a1f950b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 9437f43a12204c9a08e1c0da11fc737e8c026c80
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884537"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173390"
 ---
-# <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar uma rede virtual do spoke com o Terraform no Azure
+# <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar uma rede virtual spoke com Terraform no Azure
 
-Neste tutorial, implemente duas redes separadas spoke para demonstrar a separação de cargas de trabalho. As redes compartilham recursos comuns com a rede virtual do concentrador. Os spokes podem ser utilizados para isolar cargas de trabalho nas suas próprias VNets, geridas separadamente dos outros spokes. Cada carga de trabalho pode incluir várias camadas com várias sub-redes ligadas através de balanceadores de carga do Azure.
+Neste tutorial, você implementa duas redes spoke separadas para demonstrar a separação de cargas de trabalho. As redes compartilham recursos comuns usando a rede virtual do Hub. Os spokes podem ser utilizados para isolar cargas de trabalho nas suas próprias VNets, geridas separadamente dos outros spokes. Cada carga de trabalho pode incluir várias camadas com várias sub-redes ligadas através de balanceadores de carga do Azure.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Utilize o HCL (HashiCorp Language) para implementar as VNets Spoke na topologia hub-and-spoke
-> * Utilize o Terraform para criar máquinas virtuais nas redes spoke
-> * Utilize o Terraform para estabelecer os peerings de rede virtual com as redes de hub
+> * Use a HCL (linguagem HashiCorp) para implementar o spoke VNets na topologia hub-spoke
+> * Usar o Terraform para criar máquinas virtuais nas redes spoke
+> * Use Terraform para estabelecer emparelhamentos de rede virtual com as redes de Hub
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Criar um hub- and -spoke topologia de rede híbrida com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
-1. [Criar rede virtual no local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
-1. [Criar uma rede virtual do concentrador com o Terraform no Azure](./terraform-hub-spoke-hub-network.md).
-1. [Criar uma aplicação de rede virtual de hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
+1. [Crie uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
+1. [Crie uma rede virtual de Hub com Terraform no Azure](./terraform-hub-spoke-hub-network.md).
+1. [Crie um dispositivo de rede virtual de Hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
-Dois scripts spoke são criados nesta secção. Cada script define uma rede virtual do spoke e uma máquina virtual para a carga de trabalho. Em seguida, é criada uma rede virtual em modo de peering do hub and spoke.
+Dois scripts spoke são criados nesta seção. Cada script define uma rede virtual spoke e uma máquina virtual para a carga de trabalho. Em seguida, uma rede virtual emparelhada do hub para o spoke é criada.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
@@ -56,9 +56,9 @@ Dois scripts spoke são criados nesta secção. Cada script define uma rede virt
     cd hub-spoke
     ```
 
-## <a name="declare-the-two-spoke-networks"></a>Declarar as redes de dois spoke
+## <a name="declare-the-two-spoke-networks"></a>Declarar as duas redes spoke
 
-1. No Cloud Shell, abra um novo ficheiro designado `spoke1.tf`.
+1. Em Cloud Shell, abra um novo arquivo chamado `spoke1.tf`.
 
     ```bash
     code spoke1.tf
@@ -66,7 +66,7 @@ Dois scripts spoke são criados nesta secção. Cada script define uma rede virt
 
 1. Cole o seguinte código no editor:
 
-    ```JSON
+    ```hcl
     locals {
       spoke1-location       = "CentralUS"
       spoke1-resource-group = "spoke1-vnet-rg"
@@ -178,7 +178,7 @@ Dois scripts spoke são criados nesta secção. Cada script define uma rede virt
     }
     ```
 
-1. Guarde o ficheiro e saia do editor.
+1. Salve o arquivo e saia do editor.
 
 1. Crie um novo ficheiro com o nome `spoke2.tf`.
 
@@ -188,7 +188,7 @@ Dois scripts spoke são criados nesta secção. Cada script define uma rede virt
     
 1. Cole o seguinte código no editor:
     
-    ```JSON
+    ```hcl
     locals {
       spoke2-location       = "CentralUS"
       spoke2-resource-group = "spoke2-vnet-rg"
@@ -304,9 +304,9 @@ Dois scripts spoke são criados nesta secção. Cada script define uma rede virt
     }
     ```
      
-1. Guarde o ficheiro e saia do editor.
+1. Salve o arquivo e saia do editor.
   
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Validar uma rede hub- and -spoke com o Terraform no Azure](./terraform-hub-spoke-validation.md)
+> [Validar uma rede hub e spoke com o Terraform no Azure](./terraform-hub-spoke-validation.md)

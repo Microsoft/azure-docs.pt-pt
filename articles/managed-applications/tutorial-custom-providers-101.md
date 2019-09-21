@@ -1,54 +1,50 @@
 ---
-title: Criar ações personalizadas e os recursos no Azure
-description: Este tutorial abordará como criar ações personalizadas e recursos no Azure Resource Manager e como integrá-las em fluxos de trabalho personalizados para modelos do Gestor de recursos do Azure, CLI do Azure, Azure Policy e registo de atividades.
+title: Criar ações e recursos personalizados no Azure
+description: Este tutorial sobe como criar ações e recursos personalizados no Azure Resource Manager. Ele também mostra como os fluxos de trabalho personalizados interoperam com modelos de Azure Resource Manager, CLI do Azure, Azure Policy e log de atividades do Azure.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 4bbfcf070611e3df5c0fe47070f2ab6961111e07
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: dc1601e344c371a5f0feaadd272a2c6ff40af031
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800044"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172933"
 ---
-# <a name="create-custom-actions-and-resources-in-azure"></a>Criar ações personalizadas e os recursos no Azure
+# <a name="create-custom-actions-and-resources-in-azure"></a>Criar ações e recursos personalizados no Azure
 
-Fornecedores personalizados permitem-lhe personalizar fluxos de trabalho no Azure. Um provedor personalizado é um contrato entre o Azure e um `endpoint`. Ele permite que a adição de novas APIs personalizadas no Azure Resource Manager para ativar a nova implementação e capacidades de gestão. Este tutorial irá percorrer um exemplo simples de como adicionar novas ações e recursos para o Azure e como integrá-las.
+Um provedor personalizado é um contrato entre o Azure e um ponto de extremidade. Com provedores personalizados, você pode alterar os fluxos de trabalho no Azure adicionando novas APIs ao Azure Resource Manager. Com essas APIs personalizadas, o Resource Manager pode usar novos recursos de implantação e gerenciamento.
 
-Este tutorial é dividido nos seguintes passos:
+Este tutorial percorre um exemplo simples de como adicionar novas ações e recursos ao Azure e como integrá-los.
 
-- Configurar as funções do Azure para fornecedores personalizados do Azure
-- Criação de um ponto de extremidade RESTful para fornecedores personalizados
-- Criar e utilizar o provedor personalizado
+## <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar Azure Functions para provedores personalizados do Azure
 
-## <a name="setup-azure-functions-for-azure-custom-providers"></a>Configurar as funções do Azure para fornecedores personalizados do Azure
+A parte um deste tutorial descreve como configurar um aplicativo de funções do Azure para trabalhar com provedores personalizados:
 
-Esta parte do tutorial irá entrar em detalhes sobre como configurar uma função do Azure para trabalhar com fornecedores personalizados. Fornecedores personalizados podem trabalhar com qualquer URL pública.
+- [Configurar Azure Functions para provedores personalizados do Azure](./tutorial-custom-providers-function-setup.md)
 
-- [Configurar as funções do Azure para fornecedores personalizados do Azure](./tutorial-custom-providers-function-setup.md)
+Os provedores personalizados podem trabalhar com qualquer URL pública.
 
-## <a name="authoring-a-restful-endpoint-for-custom-providers"></a>Criação de um ponto de extremidade RESTful para fornecedores personalizados
+## <a name="author-a-restful-endpoint-for-custom-providers"></a>Criar um ponto de extremidade RESTful para provedores personalizados
 
-Esta parte do tutorial irá entrar em detalhes sobre a criação de um ponto de extremidade RESTful para fornecedores personalizados.
+A parte dois deste tutorial descreve como criar um ponto de extremidade RESTful para provedores personalizados:
 
-- [Criação de um ponto de extremidade RESTful para fornecedores personalizados](./tutorial-custom-providers-function-authoring.md)
+- [Criando um ponto de extremidade RESTful para provedores personalizados](./tutorial-custom-providers-function-authoring.md)
 
-## <a name="creating-and-utilizing-the-custom-provider"></a>Criar e utilizar o provedor personalizado
+## <a name="create-and-use-a-custom-provider"></a>Criar e usar um provedor personalizado
 
-Esta parte do tutorial irá entrar em detalhes sobre como criar um provedor personalizado e usar seus recursos e ações personalizadas.
+A parte três deste tutorial descreve como criar um provedor personalizado e usar suas ações e recursos personalizados:
 
-- [Criar e utilizar um fornecedor personalizado do Azure](./tutorial-custom-providers-create.md)
+- [Criar e usar um provedor personalizado](./tutorial-custom-providers-create.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendemos sobre provedores personalizados e como criar uma. Para continuar com o passo seguinte do tutorial:
+Neste tutorial, você aprendeu sobre provedores personalizados e como criar um. Para continuar no próximo tutorial, consulte [tutorial: Configurar Azure Functions para provedores](./tutorial-custom-providers-function-setup.md)personalizados do Azure.
 
-- [Tutorial: Configurar as funções do Azure para fornecedores personalizados do Azure](./tutorial-custom-providers-function-setup.md)
+Se você estiver procurando referências ou um início rápido, aqui estão alguns links úteis:
 
-Se estiver à procura de referências ou um início rápido, eis alguns links úteis:
-
-- [Quickstart: Criar o fornecedor de recursos personalizado do Azure e implementar recursos personalizados](./create-custom-provider.md)
-- [How To: Adicionar ações personalizadas a API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [How To: Adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Quickstart: Criar um provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
+- [How to: Adicionando ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
+- [How to: Adicionando recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)

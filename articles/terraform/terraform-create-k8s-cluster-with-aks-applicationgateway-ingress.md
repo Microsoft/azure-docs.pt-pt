@@ -1,44 +1,44 @@
 ---
-title: Criar um cluster de Kubernetes com o Gateway de aplicação como controlador de entrada com o Azure Kubernetes Service (AKS)
-description: Tutorial que ilustra como criar um Cluster do Kubernetes com o serviço de Kubernetes do Azure com o Gateway de aplicação como controlador de entrada
+title: Criar um cluster kubernetes com o gateway de aplicativo como controlador de entrada com o serviço kubernetes do Azure (AKS)
+description: Tutorial ilustrando como criar um cluster kubernetes com o serviço kubernetes do Azure com o gateway de aplicativo como controlador de entrada
 services: terraform
 ms.service: azure
-keywords: terraform, devops, máquina virtual, do azure, kubernetes, entrada, o gateway de aplicação
+keywords: Terraform, DevOps, máquina virtual, Azure, kubernetes, entrada, gateway de aplicativo
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 1/10/2019
-ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 0373b254a900fd34232bb6863c93802fa7b51aab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885479"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169961"
 ---
-# <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Criar um cluster de Kubernetes com o controlador de entrada do Gateway de aplicação com o serviço Kubernetes do Azure e o Terraform
-[O Azure Kubernetes Service (AKS)](/azure/aks/) gere o seu ambiente alojado do Kubernetes. AKS torna rápido e fácil de implementar e gerir aplicações em contentores sem conhecimentos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
+# <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Criar um cluster kubernetes com o controlador de entrada do gateway de aplicativo usando o serviço kubernetes do Azure e o Terraform
+O [AKs (serviço kubernetes do Azure)](/azure/aks/) gerencia seu ambiente kubernetes hospedado. O AKS torna rápido e fácil implantar e gerenciar aplicativos em contêineres sem conhecimento de orquestração de contêiner. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
 
-Um controlador de entrada é uma parte do software que fornece o proxy inverso, encaminhamento de tráfego configurável e terminação de TLS para serviços do Kubernetes. Recursos de entrada do Kubernetes são utilizados para configurar as regras de entrada e as rotas para serviços individuais do Kubernetes. Utilizar um controlador de entrada e de regras de entrada, um único endereço IP pode servir-se para encaminhar o tráfego para vários serviços num cluster do Kubernetes. Todas as funcionalidades acima são fornecidas pelo Azure [Gateway de aplicação](/azure/Application-Gateway/), que faz com que seja um controlador de entrada ideal para Kubernetes no Azure. 
+Um controlador de entrada é uma parte do software que fornece proxy reverso, roteamento de tráfego configurável e terminação de TLS para serviços Kubernetess. Os recursos de entrada do kubernetes são usados para configurar as regras de entrada e rotas para serviços individuais do kubernetes. Usando um controlador de entrada e regras de entrada, um único endereço IP pode ser usado para rotear o tráfego para vários serviços em um cluster kubernetes. Todas as funcionalidades acima são fornecidas pelo gateway de [aplicativo](/azure/Application-Gateway/)do Azure, o que o torna um controlador de entrada ideal para o kubernetes no Azure. 
 
-Neste tutorial, irá aprender a realizar as seguintes tarefas na criação de um [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster com o AKS com o Gateway de aplicação como controlador de entrada:
+Neste tutorial, você aprenderá a executar as seguintes tarefas na criação de um cluster [kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) usando o AKs com o gateway de aplicativo como controlador de entrada:
 
 > [!div class="checklist"]
 > * Utilizar o HCL (HashiCorp Language) para definir um cluster do Kubernetes
-> * Utilize o Terraform para criar o recurso de Gateway de aplicação
+> * Usar Terraform para criar recurso de gateway de aplicativo
 > * Utilizar o Terraform e o AKS para criar um cluster do Kubernetes
 > * Utilizar a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: Siga as instruções no artigo, [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configurar Terraform**: Siga as instruções no artigo [Terraform e configure o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para o appId, displayName e palavra-passe.
-  - Tenha em atenção o ID de objeto do Principal de serviço, executando o seguinte comando
+- **Entidade de serviço do Azure**: Siga as instruções na seção da seção **criar a entidade de serviço** no artigo [criar uma entidade de serviço do Azure com CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anote os valores para appId, displayName e password.
+  - Anote a ID de objeto da entidade de serviço executando o seguinte comando
 
-    ```bash
+    ```azurecli
     az ad sp list --display-name <displayName>
     ```
 
@@ -82,7 +82,7 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
 
 1. Cole o seguinte código no editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -99,17 +99,21 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     ```bash
     :wq
     ```
-   ## <a name="define-input-variables"></a>Definir variáveis de entrada
-   Criar o arquivo de configuração do Terraform que apresenta uma lista de todas as variáveis necessárias para esta implementação
-1. No Cloud Shell, crie um ficheiro denominado `variables.tf`
+
+## <a name="define-input-variables"></a>Definir variáveis de entrada
+Crie o arquivo de configuração Terraform que lista todas as variáveis necessárias para essa implantação.
+
+1. No Cloud Shell, crie um ficheiro com o nome `variables.tf`.
+
     ```bash
     vi variables.tf
     ```
-1. Prima a tecla I para entrar no modo de inserção.
 
-2. Cole o seguinte código no editor:
+1. Selecione a tecla I para entrar no modo de inserção.
+
+1. Cole o seguinte código no editor:
     
-    ```JSON
+    ```hcl
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -242,7 +246,7 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     ```
 
 ## <a name="define-the-resources"></a>Definir os recursos 
-Crie ficheiro de configuração do Terraform que cria todos os recursos. 
+Crie um arquivo de configuração Terraform que cria todos os recursos. 
 
 1. No Cloud Shell, crie um ficheiro com o nome `resources.tf`.
 
@@ -254,9 +258,9 @@ Crie ficheiro de configuração do Terraform que cria todos os recursos.
 
 1. Cole os seguintes blocos de código no editor:
 
-    a. Criar um bloco de locais para variáveis calculadas reutilizar
+    a. Crie um bloco de locais para as variáveis computadas a serem reutilizadas.
 
-    ```JSON
+    ```hcl
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -268,8 +272,10 @@ Crie ficheiro de configuração do Terraform que cria todos os recursos.
         app_gateway_subnet_name = "appgwsubnet"
     }
     ```
-    b. Criar uma origem de dados para o grupo de recursos, nova identidade de utilizador
-    ```JSON
+
+    b. Crie uma fonte de dados para o grupo de recursos, nova identidade de usuário.
+
+    ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -284,8 +290,10 @@ Crie ficheiro de configuração do Terraform que cria todos os recursos.
       tags = "${var.tags}"
     }
     ```
-    c. Criar recursos de rede bases
-   ```JSON
+
+    c. Crie recursos de rede base.
+
+    ```hcl
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -328,8 +336,10 @@ Crie ficheiro de configuração do Terraform que cria todos os recursos.
       tags = "${var.tags}"
     }
     ```
-    d. Criar recurso do Gateway de aplicação
-    ```JSON
+
+    d. Criar recurso de gateway de aplicativo.
+
+    ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -393,8 +403,10 @@ Crie ficheiro de configuração do Terraform que cria todos os recursos.
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
-    e. Criar atribuições de funções
-    ```JSON
+
+    e. Criar atribuições de função.
+
+    ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -424,8 +436,10 @@ Crie ficheiro de configuração do Terraform que cria todos os recursos.
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
     ```
-    f. Criar o cluster do Kubernetes
-    ```JSON
+
+    f. Crie o cluster do Kubernetes.
+
+    ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -502,7 +516,7 @@ Os [ficheiros de saída do Terraform](https://www.terraform.io/docs/configuratio
 
 1. Cole o seguinte código no editor:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -541,13 +555,13 @@ Os [ficheiros de saída do Terraform](https://www.terraform.io/docs/configuratio
     ```
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>Configurar o armazenamento do Azure para armazenar estado do Terraform
-O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfstate`. Este padrão funciona bem num ambiente individual. No entanto, num ambiente de várias pessoa mais prático, precisa controlar o estado no servidor com [armazenamento do Azure](/azure/storage/). Nesta secção, vai obter as informações necessárias da conta de armazenamento (nome e chave da conta) e criar um contentor de armazenamento no qual serão armazenadas as informações de estado do Terraform.
+O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfstate`. Este padrão funciona bem num ambiente individual. No entanto, em um ambiente de várias pessoas mais prática, você precisa controlar o estado no servidor usando o [armazenamento do Azure](/azure/storage/). Nesta secção, vai obter as informações necessárias da conta de armazenamento (nome e chave da conta) e criar um contentor de armazenamento no qual serão armazenadas as informações de estado do Terraform.
 
 1. No portal do Azure, selecione **Todos os serviços** no menu à esquerda.
 
 1. Selecione **Contas de armazenamento**.
 
-1. No separador **Contas de armazenamento**, selecione o nome da conta de armazenamento na qual o Terraform deve armazenar o estado. Por exemplo, pode utilizar a conta de armazenamento criada quando abriu o Cloud Shell pela primeira vez.  O nome de conta de armazenamento criado pelo Cloud Shell costuma começar por `cs`, seguido de uma cadeia aleatória de números e letras. **Tome nota do nome da conta de armazenamento que selecionar, porque temos-lo mais tarde.**
+1. No separador **Contas de armazenamento**, selecione o nome da conta de armazenamento na qual o Terraform deve armazenar o estado. Por exemplo, pode utilizar a conta de armazenamento criada quando abriu o Cloud Shell pela primeira vez.  O nome de conta de armazenamento criado pelo Cloud Shell costuma começar por `cs`, seguido de uma cadeia aleatória de números e letras. **Anote o nome da conta de armazenamento que você selecionou, pois precisamos dela mais tarde.**
 
 1. No separador de conta de armazenamento, selecione **Chaves de acesso**.
 
@@ -559,7 +573,7 @@ O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfsta
 
 1. No Cloud Shell, crie um contentor na sua conta de armazenamento do Azure (substitua os marcadores de posição &lt;YourAzureStorageAccountName> e &lt;YourAzureStorageAccountAccessKey> pelos valores correspondentes na sua conta de armazenamento do Azure).
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -576,7 +590,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
-1. Crie um ficheiro de variáveis para fornecer valores de entrada no Cloud Shell, crie um ficheiro denominado `main.tf`.
+1. Crie um arquivo de variáveis para fornecer valores de entrada em Cloud Shell, crie um `main.tf`arquivo chamado.
 
     ```bash
     vi terraform.tfvars
@@ -584,9 +598,9 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
 1. Prima a tecla I para entrar no modo de inserção.
 
-1. Cole as seguintes variáveis que criou anteriormente no editor:
+1. Cole as seguintes variáveis criadas anteriormente no editor:
 
-    ```JSON
+    ```hcl
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>
@@ -617,7 +631,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform plan"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
-1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode demorar vários minutos, o que faz com que a sessão do Cloud Shell exceda o tempo limite. Se a sessão do Cloud Shell exceder o tempo limite, pode seguir os passos na secção "Recuperar de um tempo limite do Cloud Shell" para que possa concluir o tutorial.
+1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode demorar vários minutos, o que faz com que a sessão do Cloud Shell exceda o tempo limite. Se a sessão de Cloud Shell atingir o tempo limite, você poderá seguir as etapas na seção "recuperar de um tempo limite de Cloud Shell" para permitir que você conclua o tutorial.
 
     ```bash
     terraform apply out.plan
@@ -627,12 +641,12 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform apply"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-apply-complete.png)
 
-1. No portal do Azure, selecione **grupos de recursos** no menu da esquerda para ver os recursos criados para o novo cluster de Kubernetes no grupo de recursos selecionado.
+1. No portal do Azure, selecione **grupos de recursos** no menu à esquerda para ver os recursos criados para o novo cluster kubernetes no grupo de recursos selecionado.
 
     ![Comando do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Recuperar de um tempo limite do Cloud Shell
-Se a sessão do Cloud Shell exceder o tempo limite, pode utilizar os seguintes passos para recuperar:
+Se a sessão de Cloud Shell atingir o tempo limite, você poderá usar as seguintes etapas para recuperar:
 
 1. Inicie uma sessão do Cloud Shell.
 
@@ -675,7 +689,7 @@ As ferramentas do Kubernetes podem ser utilizadas para verificar o cluster acaba
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a utilizar o Terraform e AKS para criar o cluster do Kubernetes. Aqui estão alguns recursos adicionais para o ajudar a saber mais acerca do Terraform no Azure.
+Neste artigo, aprendeu a utilizar o Terraform e AKS para criar o cluster do Kubernetes. Aqui estão alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure.
  
  > [!div class="nextstepaction"] 
  > [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)

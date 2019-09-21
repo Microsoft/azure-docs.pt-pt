@@ -10,17 +10,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/31/2019
-ms.openlocfilehash: 5848465033ca0b4df3bc7f63e7cef06059f5c3c5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 09/21/2019
+ms.openlocfilehash: 9bd620ef9664e921aa88792017585b02e44387f8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667759"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172701"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o RDS MySQL para o banco de dados do Azure para MySQL online usando DMS
 
-Você pode usar o serviço de migração de banco de dados do Azure para migrar bancos de dados de uma instância do RDS MySQL para o [banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) enquanto o banco de dados de origem permanece online durante a migração Em outras palavras, a migração pode ser obtida com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migra o banco de dados de exemplo Employees de uma instância do RDS MySQL para o banco de dados do Azure para MySQL usando a atividade de migração online no serviço de migração de banco de dados do Azure.
+Você pode usar o serviço de migração de banco de dados do Azure para migrar bancos de dados de uma instância do RDS MySQL para o [banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) enquanto o banco de dados de origem permanece online durante a migração Em outras palavras, a migração pode ser obtida com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migra o banco de dados de exemplo **Employees** de uma instância do RDS MySQL para o banco de dados do Azure para MySQL usando a atividade de migração online no serviço de migração de banco de dados do Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -83,7 +83,7 @@ Para concluir este tutorial, precisa de:
     mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
     ```
     
-    Por exemplo, para despejar um arquivo de esquema para o banco de dados Employees, use o seguinte comando:
+    Por exemplo, para despejar um arquivo de esquema para o banco de dados **Employees** , use o seguinte comando:
     
     ```
     mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -95,7 +95,7 @@ Para concluir este tutorial, precisa de:
     mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
     ```
 
-    Por exemplo, para importar o esquema para o banco de dados Employees:
+    Por exemplo, para importar o esquema para o banco de dados **Employees** :
 
     ```
     mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -109,15 +109,15 @@ Para concluir este tutorial, precisa de:
         FROM
         (SELECT
         KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-        KCU.TABLE_NAME,
-        KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+                    KCU.TABLE_NAME,
+                    KCU.COLUMN_NAME,
+                    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-        WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
+                    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
+                    WHERE
+                      KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+                      AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+      AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
       GROUP BY SchemaName;
     ```
 
@@ -239,7 +239,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
     ![Status da atividade-em execução](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
 
-2. Em **nome do banco**de dados, selecione um banco de dado específico para obter o status de migração para operações de **sincronização** de dados incrementais e **carregamento completo** .
+2. Em **nome do banco**de dados, selecione um banco de dado específico para obter o status de migração para operações de sincronização de dados **incrementais** e **carregamento completo** .
 
     O **carregamento de dados completo** mostra o status de migração de carga inicial, enquanto a **sincronização de dados incremental** mostra o status da captura de dados de alteração (CDC).
 
@@ -261,7 +261,7 @@ Após a conclusão da carga inicial completa, os bancos de dados são marcados *
 
 A migração online de uma instância local do MySQL para o banco de dados do Azure para MySQL já está concluída.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Para obter informações sobre o banco de dados do Azure para MySQL, consulte o artigo [o que é o banco de dados do Azure para MySQL?](https://docs.microsoft.com/azure/mysql/overview).

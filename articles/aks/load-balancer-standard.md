@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 42323af40ee18a965363321196a04aa75c00aa40
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: d2a0ff5db6707c4f765c71937a7d0f0749401959
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996945"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172204"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -340,7 +340,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> Os prefixos IP e IPs públicos devem estar na mesma região e parte da mesma assinatura que o cluster AKS.
+> Os prefixos IP e IPs públicos devem estar na mesma região e parte da mesma assinatura que o cluster AKS. 
 
 ### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definir seu próprio IP público ou prefixos no momento da criação do cluster
 

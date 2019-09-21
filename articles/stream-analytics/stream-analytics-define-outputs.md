@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984863"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173582"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -210,6 +210,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Delimitador |Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato |Aplicável somente para o tipo JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de Propriedade de Sistema | Opcional. Pares chave-valor de propriedades do sistema e nomes de coluna correspondentes que precisam ser anexados à mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades do sistema para saídas de fila e de tópico do barramento de serviço](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.
 
@@ -229,6 +230,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Codificação |Se você estiver usando o formato CSV ou JSON, uma codificação deverá ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de Propriedade de Sistema | Opcional. Pares chave-valor de propriedades do sistema e nomes de coluna correspondentes que precisam ser anexados à mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades do sistema para saídas de fila e de tópico do barramento de serviço](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). A chave de partição é um valor inteiro exclusivo para cada partição.
 
@@ -295,6 +297,25 @@ A captura de tela a seguir mostra as propriedades da mensagem de saída inspecio
 
 ![Propriedades personalizadas do evento](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
 
+## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Propriedades do sistema para saídas de fila e tópico do barramento de serviço 
+Você pode anexar colunas de consulta como [Propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) às mensagens da fila ou do tópico do barramento de serviço de saída. Essas colunas não vão para a carga, em vez disso, a [Propriedade do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage correspondente é populada com os valores da coluna de consulta.
+Essas propriedades do sistema são suportadas- `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Os valores de cadeia de caracteres dessas colunas são analisados como tipo de valor de Propriedade do sistema correspondente e quaisquer falhas de análise são tratadas como erros de dados.
+Esse campo é fornecido como um formato de objeto JSON. Os detalhes sobre esse formato são os seguintes:
+* Entre chaves {}.
+* Gravados em pares chave/valor.
+* Chaves e valores devem ser cadeias de caracteres.
+* Chave é o nome da Propriedade do sistema e o valor é o nome da coluna de consulta.
+* Chaves e valores são separados por dois-pontos.
+* Cada par chave/valor é separado por uma vírgula.
+
+Isso mostra como usar essa propriedade –
+
+* Consultá`select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Colunas de propriedades do sistema:`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+Isso define as `MessageId` mensagens de fila no barramento de `column1`serviço com valores de e PartitionKey é `column2`definido com valores de.
+
 ## <a name="partitioning"></a>Criação de partições
 
 A tabela seguinte resume o suporte de partição e o número de gravadores de saída para cada tipo de saída:
@@ -332,7 +353,7 @@ A tabela a seguir explica algumas das considerações sobre o envio em lote de s
 | Azure Cosmos DB   | Consulte [limites de Azure Cosmos DB](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | O tamanho do lote e a frequência de gravação são ajustados dinamicamente com base nas respostas Azure Cosmos DB. <br /> Não há limitações predeterminadas de Stream Analytics. |
 | Funções do Azure   | | O tamanho do lote padrão é 262.144 bytes (256 KB). <br /> A contagem de eventos padrão por lote é 100. <br /> O tamanho do lote é configurável e pode aumentar ou diminuir o Stream Analytics [opções de saída](#azure-functions).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > 
 > [Quickstart: Criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)

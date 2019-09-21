@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 85c2607ae163ab2d29a53440cd65672bdbe0fddf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985353"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172781"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas 
 As exibições materializadas no Azure SQL Data Warehouse fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem nenhuma alteração de consulta. Este artigo discute as diretrizes gerais sobre como usar exibições materializadas.
@@ -84,19 +84,21 @@ Aqui está a orientação geral sobre como usar exibições materializadas para 
 
 **Design para sua carga de trabalho**
 
-- Antes de começar a criar exibições materializadas, é importante ter uma compreensão profunda de sua carga de trabalho em termos de padrões de consulta, importância, frequência e tamanho dos dados resultantes.  
+Antes de começar a criar exibições materializadas, é importante ter uma compreensão profunda de sua carga de trabalho em termos de padrões de consulta, importância, frequência e tamanho dos dados resultantes.  
 
-- Os usuários podem executar explicar WITH_RECOMMENDATIONS < SQL_statement > para as exibições materializadas recomendadas pelo otimizador de consulta.  Como essas recomendações são específicas de consulta, uma exibição materializada que beneficia uma única consulta pode não ser ideal para outras consultas na mesma carga de trabalho.  Avalie essas recomendações com suas necessidades de carga de trabalho em mente.  As exibições materializadas ideais são aquelas que beneficiam o desempenho da carga de trabalho.  
+Os usuários podem executar explicar WITH_RECOMMENDATIONS < SQL_statement > para as exibições materializadas recomendadas pelo otimizador de consulta.  Como essas recomendações são específicas de consulta, uma exibição materializada que beneficia uma única consulta pode não ser ideal para outras consultas na mesma carga de trabalho.  Avalie essas recomendações com suas necessidades de carga de trabalho em mente.  As exibições materializadas ideais são aquelas que beneficiam o desempenho da carga de trabalho.  
 
 **Esteja atento à compensação entre consultas mais rápidas e o custo** 
 
-- Para cada exibição materializada, há um custo de armazenamento e um custo para a manutenção da exibição pelo motor da tupla. Há um motor de tupla por instância do servidor de SQL Data Warehouse do Azure.  Quando houver muitas exibições materializadas, a carga de trabalho do motor da tupla aumentará e o desempenho das consultas que utilizam exibições materializadas poderá diminuir se o motor da tupla não puder mover os dados para os segmentos de índice rápido o suficiente.  Os usuários devem verificar se o custo incorrido de todas as exibições materializadas pode ser deslocado pelo lucro de desempenho da consulta.  Execute esta consulta para a lista de exibições materializadas em um banco de dados: 
+Para cada exibição materializada, há um custo de armazenamento de dados e um custo para manter a exibição.  À medida que os dados são alterados nas tabelas base, o tamanho da exibição materializada aumenta e sua estrutura física também é alterada.  Para evitar a degradação do desempenho da consulta, cada exibição materializada é mantida separadamente pelo mecanismo de data warehouse, incluindo a movimentação de linhas do armazenamento Delta para os segmentos de índice columnstore e a consolidação de alterações de dados.  A carga de trabalho de manutenção fica mais alta quando o número de exibições materializadas e as alterações na tabela base aumentam.   Os usuários devem verificar se o custo incorrido de todas as exibições materializadas pode ser deslocado pelo lucro de desempenho da consulta.  
+
+Você pode executar essa consulta para a lista de exibições materializadas em um banco de dados: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Opções para reduzir o número de exibições materializadas: 
 
@@ -346,5 +348,5 @@ Verifique o plano de execução da consulta original novamente.  Agora, o númer
 
 Com exibições materializadas, a mesma consulta é executada muito mais rapidamente sem qualquer alteração de código.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para mais sugestões de desenvolvimento, consulte [Descrição geral do desenvolvimento no SQL Data Warehouse](sql-data-warehouse-overview-develop.md).

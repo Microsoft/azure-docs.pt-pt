@@ -3,7 +3,7 @@ title: Usar o Terraform para criar uma VM Linux completa no Azure | Microsoft Do
 description: Saiba como usar o Terraform para criar e gerenciar um ambiente de máquina virtual Linux completo no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2017
-ms.author: gwallace
-ms.openlocfilehash: 83fba1ae29c2912e440f8983ded844414443a1a7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/20/2019
+ms.author: tarcher
+ms.openlocfilehash: b9e379907f28c0d8698eb11aacb88970cf8d6dc4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100809"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173863"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Create a complete Linux virtual machine infrastructure in Azure with Terraform (Criar uma infraestrutura completa de máquina virtual do Linux no Azure com o Terraform)
 
@@ -35,7 +35,7 @@ A `provider` seção informa Terraform para usar um provedor do Azure. Para obte
 > [!TIP]
 > Se você criar variáveis de ambiente para os valores ou estiver usando a [experiência de Bash Azure cloud Shell](/azure/cloud-shell/overview) , não precisará incluir as declarações de variáveis nesta seção.
 
-```tf
+```hcl
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -46,7 +46,7 @@ provider "azurerm" {
 
 A seção a seguir cria um grupo de `myResourceGroup` recursos chamado `eastus` no local:
 
-```tf
+```hcl
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "eastus"
@@ -62,7 +62,7 @@ Em seções adicionais, você faz referência ao grupo de recursos com *$ {azure
 ## <a name="create-virtual-network"></a>Criar a rede virtual
 A seção a seguir cria uma rede virtual chamada *myVnet* no espaço de endereço *10.0.0.0/16* :
 
-```tf
+```hcl
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
@@ -77,7 +77,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 
 A seção a seguir cria uma sub-rede chamada mysubnet na rede virtual *myVnet* :
 
-```tf
+```hcl
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
     resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
@@ -90,7 +90,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 ## <a name="create-public-ip-address"></a>Criar um endereço IP público
 Para acessar recursos na Internet, crie e atribua um endereço IP público à sua VM. A seção a seguir cria um endereço IP público chamado *myPublicIP*:
 
-```tf
+```hcl
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
@@ -107,7 +107,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 ## <a name="create-network-security-group"></a>Criar grupo de segurança de rede
 Os grupos de segurança de rede controlam o fluxo de entrada e saída de tráfego de rede de sua VM. A seção a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* e define uma regra para permitir o tráfego ssh na porta TCP 22:
 
-```tf
+```hcl
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
@@ -135,7 +135,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 ## <a name="create-virtual-network-interface-card"></a>Criar placa de interface de rede virtual
 Uma NIC (placa de interface de rede) virtual conecta sua VM a uma determinada rede virtual, endereço IP público e grupo de segurança de rede. A seção a seguir em um modelo Terraform cria uma NIC virtual denominada *myNIC* conectada aos recursos de rede virtual que você criou:
 
-```tf
+```hcl
 resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "eastus"
@@ -159,7 +159,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 ## <a name="create-storage-account-for-diagnostics"></a>Criar conta de armazenamento para diagnóstico
 Para armazenar o diagnóstico de inicialização para uma VM, você precisa de uma conta de armazenamento. Esses diagnósticos de inicialização podem ajudá-lo a solucionar problemas e monitorar o status de sua VM. A conta de armazenamento que você cria é apenas para armazenar os dados de diagnóstico de inicialização. Como cada conta de armazenamento deve ter um nome exclusivo, a seção a seguir gera um texto aleatório:
 
-```tf
+```hcl
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
@@ -172,7 +172,7 @@ resource "random_id" "randomId" {
 
 Agora você pode criar uma conta de armazenamento. A seção a seguir cria uma conta de armazenamento com o nome com base no texto aleatório gerado na etapa anterior:
 
-```tf
+```hcl
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -193,7 +193,7 @@ A etapa final é criar uma VM e usar todos os recursos criados. A seção a segu
 
  Os dados da chave SSH são fornecidos na seção *ssh_keys* . Forneça uma chave SSH pública válida no campo *key_data* .
 
-```tf
+```hcl
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
@@ -243,7 +243,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
 Para reunir todas essas seções e ver Terraform em ação, crie um arquivo chamado *terraform_azure. TF* e cole o seguinte conteúdo:
 
-```tf
+```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -421,7 +421,7 @@ terraform plan
 
 Depois de executar o comando anterior, você verá algo semelhante à tela a seguir:
 
-```bash
+```console
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
@@ -456,7 +456,7 @@ terraform apply
 
 Quando o Terraform for concluído, sua infraestrutura de VM estará pronta. Obtenha o endereço IP público de sua VM com [AZ VM show](/cli/azure/vm):
 
-```azurecli
+```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
 ```
 
@@ -466,5 +466,5 @@ Em seguida, você pode SSH para sua VM:
 ssh azureuser@<publicIps>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Você criou a infraestrutura básica no Azure usando o Terraform. Para cenários mais complexos, incluindo exemplos que usam balanceadores de carga e conjuntos de dimensionamento de máquinas virtuais, consulte vários [exemplos de Terraform para o Azure](https://github.com/hashicorp/terraform/tree/master/examples). Para obter uma lista atualizada de provedores do Azure com suporte, consulte a [documentação do Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).

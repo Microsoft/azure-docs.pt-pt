@@ -3,7 +3,7 @@ title: Recursos e extensões de VM do Azure para Linux | Microsoft Docs
 description: Saiba quais extensões estão disponíveis para máquinas virtuais do Azure, agrupadas pelo que elas fornecem ou aperfeiçoadas.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: 1a3fe1f70143e2c33a3e4d309991f1174eb2d6dd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092395"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169008"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões de máquina virtual para Linux
 
@@ -71,7 +71,7 @@ Para redirecionar solicitações de tráfego de agente, o agente Linux tem supor
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
-Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, use [AZ VM Extension Image List](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo a seguir lista todas as extensões disponíveis no local westus:
+Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, use [AZ VM Extension Image List](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo a seguir lista todas as extensões disponíveis no local *westus* :
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -85,7 +85,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões de VM do Azure podem ser executadas em uma VM existente com o comando [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado MyResource Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o\/script a ser executado (https:/RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
+As extensões de VM do Azure podem ser executadas em uma VM existente com o comando [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o\/script a ser executado (https:/RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -263,7 +263,7 @@ O ' agente de estado de meta ' é a versão de atualização automática.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
-Quando uma atualização de extensão está disponível, o agente do Linux baixa e atualiza a extensão. As atualizações de extensão automáticas são *secundária* ou de *hotfix*. Você pode aceitar ou recusar atualizações secundárias de extensões ao provisionar a extensão. O exemplo a seguir mostra como atualizar as versões secundárias automaticamente em um modelo do Resource Manager com *autoUpgradeMinorVersion ": true,"* :
+Quando uma atualização de extensão está disponível, o agente do Linux baixa e atualiza a extensão. As atualizações de extensão automáticas são *secundária* ou de *hotfix*. Você pode aceitar ou recusar atualizações *secundárias* de extensões ao provisionar a extensão. O exemplo a seguir mostra como atualizar as versões secundárias automaticamente em um modelo do Resource Manager com *autoUpgradeMinorVersion ": true,"* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -336,7 +336,7 @@ As etapas de solução de problemas a seguir se aplicam a todas as extensões de
 
 1. Para verificar o log do agente do Linux, examine a atividade quando sua extensão estava sendo provisionada no */var/log/waagent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em *\</var/log/Azure/ExtensionName >*
+2. Verifique os logs de extensão reais para obter mais detalhes em */var/log/Azure/\<ExtensionName >*
 
 3. Verifique as seções de solução de problemas de documentação específica da extensão para obter códigos de erro, problemas conhecidos etc.
 
@@ -410,6 +410,6 @@ Você também pode remover uma extensão na portal do Azure da seguinte maneira:
 | Extensão do Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).

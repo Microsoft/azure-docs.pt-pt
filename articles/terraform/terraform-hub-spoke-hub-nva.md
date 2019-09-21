@@ -1,40 +1,40 @@
 ---
-title: Criar uma aplicação de rede virtual de hub com o Terraform no Azure
-description: Tutorial implementa a criação da VNet do Hub que age como um ponto de ligação comum entre todas as outras redes
+title: Criar um dispositivo de rede virtual de Hub com o Terraform no Azure
+description: O tutorial implementa a criação de VNet de Hub que atua como um ponto de conexão comum entre todas as outras redes
 services: terraform
 ms.service: azure
-keywords: terraform, hub- and -spoke, redes, redes de híbridas, devops, máquina virtual, do azure, o VNet peering, hub-and-spoke, hub.
+keywords: Terraform, Hub e spoke, redes, redes híbridas, DevOps, máquina virtual, Azure, emparelhamento de VNet, hub-spoke, Hub.
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 4155a67f70ccc238c6046c07dded7f0214689617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 1fae21e9a60f533533607e74609853ef68348daf
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886831"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173410"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Tutorial: Criar uma aplicação de rede virtual de hub com o Terraform no Azure
+# <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Tutorial: Criar um dispositivo de rede virtual de Hub com o Terraform no Azure
 
-R **dispositivo VPN** é um dispositivo que fornece conectividade externa a uma rede no local. O dispositivo VPN pode ser um dispositivo de hardware ou uma solução de software. Um exemplo de uma solução de software é de encaminhamento e acesso remoto (RRAS) no Windows Server 2012. Para obter mais informações sobre aplicações de VPN, consulte [acerca dos dispositivos VPN para ligações de Gateway de VPN de Site a Site](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+Um **dispositivo VPN** é um dispositivo que fornece conectividade externa a uma rede local. O dispositivo VPN pode ser um dispositivo de hardware ou uma solução de software. Um exemplo de uma solução de software é o RRAS (serviço de roteamento e acesso remoto) no Windows Server 2012. Para obter mais informações sobre os dispositivos VPN, consulte [sobre dispositivos VPN para conexões de gateway de VPN site a site](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-O Azure suporta uma ampla variedade de aplicações virtuais de rede do que selecionar. Para este tutorial, é utilizada uma imagem de Ubuntu. Para saber mais sobre a ampla variedade de soluções de dispositivos suportados no Azure, veja a [home page do aplicações de rede](https://azure.microsoft.com/solutions/network-appliances/).
+O Azure dá suporte a uma ampla variedade de soluções de virtualização de rede a partir da qual selecionar. Para este tutorial, é usada uma imagem do Ubuntu. Para saber mais sobre a ampla variedade de soluções de dispositivo com suporte no Azure, consulte os [dispositivos de rede Home Page](https://azure.microsoft.com/solutions/network-appliances/).
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Utilize o HCL (HashiCorp Language) para implementar a VNet do Hub na topologia hub-and-spoke
-> * Utilize o Terraform para criar a máquina de Virtual de rede Hub que funciona como da aplicação
-> * Utilize o Terraform para ativar as rotas com extensões de CustomScript
-> * Utilize o Terraform para criar tabelas de rotas de gateway do Hub- and -Spoke
+> * Use a HCL (linguagem HashiCorp) para implementar a VNet do Hub na topologia hub-spoke
+> * Use Terraform para criar uma máquina virtual de rede de Hub que atue como dispositivo
+> * Usar Terraform para habilitar rotas usando extensões CustomScript
+> * Usar Terraform para criar tabelas de rotas de Hub e de gateway de spoke
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Criar um hub- and -spoke topologia de rede híbrida com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
-1. [Criar rede virtual no local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
-1. [Criar uma rede virtual do concentrador com o Terraform no Azure](./terraform-hub-spoke-hub-network.md).
+1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
+1. [Crie uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
+1. [Crie uma rede virtual de Hub com Terraform no Azure](./terraform-hub-spoke-hub-network.md).
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
@@ -56,11 +56,11 @@ Este tutorial abrange as seguintes tarefas:
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-network-appliance"></a>Declarar a aplicação de rede hub
+## <a name="declare-the-hub-network-appliance"></a>Declarar o dispositivo de rede de Hub
 
-Crie o ficheiro de configuração do Terraform que declara a rede Virtual de no local.
+Crie o arquivo de configuração Terraform que declara a rede virtual local.
 
-1. No Cloud Shell, crie um novo ficheiro designado `hub-nva.tf`.
+1. Em Cloud Shell, crie um novo arquivo chamado `hub-nva.tf`.
 
     ```bash
     code hub-nva.tf
@@ -68,7 +68,7 @@ Crie o ficheiro de configuração do Terraform que declara a rede Virtual de no 
 
 1. Cole o seguinte código no editor:
     
-    ```JSON
+    ```hcl
     locals {
       prefix-hub-nva         = "hub-nva"
       hub-nva-location       = "CentralUS"
@@ -272,9 +272,9 @@ Crie o ficheiro de configuração do Terraform que declara a rede Virtual de no 
 
     ```
 
-1. Guarde o ficheiro e saia do editor.
+1. Salve o arquivo e saia do editor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um spoke redes virtuais com o Terraform no Azure](./terraform-hub-spoke-spoke-network.md)
+> [Criar redes virtuais spoke com Terraform no Azure](./terraform-hub-spoke-spoke-network.md)

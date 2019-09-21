@@ -2,19 +2,19 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 04/17/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bed3f15d5a27e482041d4f45ef45b8d927a91d70
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2ea82f80396c5254ac4ad47bd2395413682a96bc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184268"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168651"
 ---
-## <a name="supported-ssh-key-formats"></a>Formatos de chaves SSH suportados
+## <a name="supported-ssh-key-formats"></a>Formatos de chave SSH com suporte
 
-Azure atualmente suporta SSH de protocolo 2 RSA (SSH-2) públicas-privadas pares de chaves com um comprimento mínimo de 2048 bits. Não são suportados outros formatos de chave, como ED25519 e ECDSA. 
+Atualmente, o Azure dá suporte a pares de chaves públicas-privadas do protocolo SSH 2 (SSH-2) com um comprimento mínimo de 2048 bits. Não há suporte para outros formatos de chave, como ED25519 e ECDSA. 

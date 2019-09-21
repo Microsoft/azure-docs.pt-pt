@@ -8,19 +8,19 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 06f1c0123d6bdf56b5182605016d2feb80adf18b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172972"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172837"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para Azure App serviço com implantação e integração contínua Jenkins
 
 Este tutorial implanta um aplicativo Web Java de exemplo do GitHub para o [serviço Azure app no Linux](/azure/app-service/containers/app-service-linux-intro) Configurando CI (integração contínua) e CD (implantação contínua) em Jenkins. Quando você atualiza o aplicativo enviando confirmações por push ao GitHub, o Jenkins compila e Republica automaticamente seu aplicativo para Azure App serviço. O aplicativo de exemplo neste tutorial foi desenvolvido usando a estrutura [Spring boot](https://projects.spring.io/spring-boot/) . 
 
-![Descrição geral](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![Visão geral da implantação do GitHub para Azure App Service](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 Neste tutorial, você concluirá estas tarefas:
 
@@ -69,7 +69,7 @@ Para concluir este tutorial, você precisará destes itens:
 
    Se esses plug-ins não aparecerem, verifique se eles ainda não estão instalados marcando a guia **instalado** .
 
-1. Para instalar os plug-ins selecionados, selecione **baixar agora e instalar após**a reinicialização.
+1. Para instalar os plug-ins selecionados, selecione **baixar agora e instalar após a reinicialização**.
 
 1. Depois de terminar, no menu Jenkins, selecione **gerenciar Jenkins** para retornar à página de gerenciamento do Jenkins para futuras etapas.
 
@@ -97,19 +97,19 @@ Para que o Jenkins monitore o GitHub e responda quando novas confirmações são
 
 1. Na página **gerenciar Jenkins** , selecione **Configurar sistema**. 
 
-   ![Configurar o sistema](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Configurar o sistema no Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. Na seção do **GitHub** , forneça detalhes para o servidor github. Na lista **Adicionar servidor GitHub** , selecione **servidor GitHub**. 
 
-   ![Adicionar servidor GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Adicionar servidor GitHub no Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. Se a propriedade **gerenciar ganchos** não estiver selecionada, selecione essa propriedade. Selecione **avançado** para que você possa especificar outras configurações. 
 
-   ![Escolha "avançado" para obter mais configurações](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Especificar configurações de Jenkins avançadas para o servidor GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. Na lista **Gerenciar ações adicionais do GitHub** , selecione **converter logon e senha em token**.
 
-   ![Escolha "Gerenciar ações adicionais do GitHub"](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Converter o logon e a senha para o token para o GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
 1. Selecione **de logon e senha** para que você possa inserir seu nome de usuário e senha do github. Quando terminar, selecione **criar credenciais de token**, que cria um [Pat (token de acesso pessoal) do GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
@@ -181,11 +181,11 @@ No Jenkins, crie o trabalho de pipeline para compilar e implantar seu aplicativo
 
 1. Volte para o home page Jenkins e selecione **novo item**. 
 
-   ![Selecione "Novo Item"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Criar um pipeline do Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. Forneça um nome para seu trabalho de pipeline, por exemplo, "My-Java-Web-App" e selecione **pipeline**. Na parte inferior, selecione **OK**.  
 
-   ![Selecione "pipeline"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Nomear o trabalho do pipeline do Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Configure o Jenkins com sua entidade de serviço para que o Jenkins possa implantar no Azure sem usar suas próprias credenciais.
 
@@ -199,7 +199,7 @@ No Jenkins, crie o trabalho de pipeline para compilar e implantar seu aplicativo
       WEB_APP=yourWebAppName
       ```
 
-      ![Selecione "preparar um ambiente para a execução" e defina as variáveis de ambiente](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![Preparar um ambiente para a execução e definir as variáveis de ambiente](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
 1. Quando tiver terminado, selecione **Guardar**.
 
@@ -254,7 +254,7 @@ Agora, especifique o script de compilação e implantação que você deseja que
 
 1. Em Jenkins, selecione o trabalho de pipeline criado anteriormente. 
 
-   ![Selecione o trabalho de pipeline para seu aplicativo Web](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Selecione o trabalho de pipeline do Jenkins para seu aplicativo Web](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. No menu à esquerda, selecione **Configurar**.
 
@@ -272,7 +272,7 @@ Agora, especifique o script de compilação e implantação que você deseja que
 
    Quando terminar, sua definição de pipeline será parecida com este exemplo: 
 
-   ![Pipeline de ponto no script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Aponte seu pipeline do Jenkins no script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. Quando tiver terminado, selecione **Guardar**.
 
@@ -326,7 +326,7 @@ Em seguida, compile e implante seu aplicativo no serviço Azure App.
 
 Se você encontrar bugs com os plug-ins Jenkins, execute um problema no [Jenkins JIRA](https://issues.jenkins-ci.org/) para o componente específico.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents) (Utilizar VMs do Azure como agentes de compilação)

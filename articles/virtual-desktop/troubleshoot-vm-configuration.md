@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 09/20/2019
 ms.author: helohr
-ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163306"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174112"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -76,7 +76,7 @@ Siga estas instruções se você estiver tendo problemas para ingressar VMs no d
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>O agente de área de trabalho virtual do Windows e o carregador de inicialização do Windows Virtual Desktop não estão instalados
 
-A maneira recomendada para provisionar VMs é usar a Azure Resource Manager criar e provisionar o modelo **de pool de hosts da área de trabalho virtual do Windows** O modelo instala automaticamente o agente de área de trabalho virtual do Windows e o carregador de inicialização do agente de desktop virtual do Windows.
+A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **criar e provisionar o modelo de pool de hosts da área de trabalho virtual do Windows** O modelo instala automaticamente o agente de área de trabalho virtual do Windows e o carregador de inicialização do agente de desktop virtual do Windows.
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
@@ -296,19 +296,78 @@ Se o seu sistema operacional for o Microsoft Windows 10, continue com as instru�
 
 16. Quando os cmdlets forem concluídos em execução, reinicie a VM com a pilha lado a lado com problemas.
 
-## <a name="remote-licensing-model-is-not-configured"></a>O modelo de licenciamento remoto não está configurado
+## <a name="remote-licensing-model-isnt-configured"></a>O modelo de licenciamento remoto não está configurado
 
-Se você entrar no Windows 10 Enterprise Multi-Session usando uma conta administrativa, poderá receber uma notificação dizendo que "o modo de licenciamento Área de Trabalho Remota não está configurado, Serviços de Área de Trabalho Remota deixará de funcionar em X dias. No servidor do agente de conexão, use Gerenciador do Servidor para especificar o modo de licenciamento de Área de Trabalho Remota ". Se você vir essa mensagem, isso significa que você precisa configurar manualmente o modo de licenciamento para **por usuário**.
+Se você entrar no Windows 10 Enterprise Multi-Session usando uma conta administrativa, poderá receber uma notificação dizendo que "o modo de licenciamento Área de Trabalho Remota não está configurado, Serviços de Área de Trabalho Remota deixará de funcionar em X dias. No servidor do agente de conexão, use Gerenciador do Servidor para especificar o modo de licenciamento de Área de Trabalho Remota ".
 
-Para configurar manualmente o modo de licenciamento:  
+Se o limite de tempo expirar, será exibida uma mensagem de erro dizendo "a sessão remota foi desconectada porque não há licenças de acesso de cliente Área de Trabalho Remota disponíveis para este computador".
 
-1. Vá para a caixa de pesquisa do **menu iniciar** e localize e abra **gpedit. msc** para acessar o editor de política de grupo local. 
-2. Vá para **configuração** > do computador**modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** host da sessão da área de trabalho remota >  >  **Licenciamento**. 
-3. Selecione **definir o modo de licenciamento área de trabalho remota** e altere-o para **por usuário**.
+Se você vir uma dessas mensagens, isso significa que precisará abrir o editor de Política de Grupo e configurar manualmente o modo de licenciamento para **por usuário**. O processo de configuração manual é diferente dependendo da versão do Windows 10 Enterprise Multi-Session que você está usando. As seções a seguir explicam como verificar o número de versão e o que fazer para cada um.
 
-Estamos procurando os problemas de tempo limite de notificação e período de carência e pretendemos solucioná-los em uma atualização futura. 
+>[!NOTE]
+>A área de trabalho virtual do Windows requer uma CAL (licença de acesso para cliente) do RDS quando o pool de hosts contém hosts de sessão do Windows Server. Para saber como configurar um RDS CAL, confira [licenciar sua implantação de RDS com licenças de acesso para cliente](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificar qual versão do Windows 10 Enterprise Multi-Session você está usando
+
+Para verificar qual versão do Windows 10 Enterprise Multi-Session você tem:
+
+1. Entre com sua conta de administrador.
+2. Digite "sobre" na barra de pesquisa ao lado do menu iniciar.
+3. Selecione **sobre seu PC**.
+4. Verifique o número ao lado de "versão". O número deve ser "1809" ou "1903", conforme mostrado na imagem a seguir.
+   
+    ![Uma captura de tela da janela especificações do Windows. O número de versão é realçado em azul.](media/windows-specifications.png)
+
+Agora que você conhece o número de versão, pule para a seção relevante.
+
+### <a name="version-1809"></a>Versão 1809
+
+Se o seu número de versão diz "1809", você pode atualizar para o Windows 10 Enterprise Multi-Session, versão 1903 ou reimplantar o pool de hosts com a imagem mais recente.
+
+Para atualizar para o Windows 10, versão 1903:
+
+1. Se você ainda não fez isso, baixe e instale o [Windows 10 de maio de 2019 atualização](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Entre em seu computador com sua conta de administrador.
+3. Execute **gpedit. msc** para abrir o editor de política de grupo.
+4. Em configuração do computador, vá **para modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > licenciamento**host da sessão da área de trabalho remota** > .
+5. Selecione **definir o modo de licenciamento área de trabalho remota**.
+6. Na janela que é aberta, primeiro selecione **habilitada**e, em opções, especifique o modo de licenciamento para o servidor de host da Sessão RD de acordo com o **usuário**, conforme mostrado na imagem a seguir.
+    
+    ![Uma captura de tela da janela "definir o modo de licenciamento Área de Trabalho Remota" configurada de acordo com as instruções na etapa 6.](media/group-policy-editor-per-user.png)
+
+7. Selecione **Aplicar**.
+8. Selecione **OK**.
+9.  Reinicie o computador.
+
+Para reimplantar o pool de hosts com a imagem mais recente:
+
+1. Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](create-host-pools-azure-marketplace.md) até que você seja solicitado a escolher uma versão do so da imagem. Você pode escolher o Windows 10 Enterprise Multi-Session com ou sem o Office365 ProPlus.
+2. Entre em seu computador com sua conta de administrador.
+3. Execute **gpedit. msc** para abrir o editor de política de grupo.
+4. Em configuração do computador, vá **para modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > licenciamento**host da sessão da área de trabalho remota** > .
+5. Selecione **definir o modo de licenciamento área de trabalho remota**.
+6. Na janela que é aberta, primeiro selecione **habilitada**e, em opções, especifique o modo de licenciamento para o servidor de host da Sessão RD de acordo com o **usuário**.
+7. Selecione **Aplicar**.
+8. Selecione **OK**.
+9.  Reinicie o computador.
+
+### <a name="version-1903"></a>Versão 1903
+
+Se o seu número de versão diz "1903", siga estas instruções:
+
+1. Entre em seu computador com sua conta de administrador.
+2. Execute **gpedit. msc** para abrir o editor de política de grupo.
+3. Em configuração do computador, vá **para modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > licenciamento**host da sessão da área de trabalho remota** > .
+4. Selecione **definir o modo de licenciamento área de trabalho remota**.
+6. Na janela que é aberta, primeiro selecione **habilitada**e, em opções, especifique o modo de licenciamento para o servidor de host da Sessão RD de acordo com o **usuário**, conforme mostrado na imagem a seguir.
+    
+    ![Uma captura de tela da janela "definir o modo de licenciamento Área de Trabalho Remota" configurada de acordo com as instruções na etapa 6.](media/group-policy-editor-per-user.png)
+
+7. Selecione **Aplicar**.
+8. Selecione **OK**.
+9.  Reinicie o computador.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
-ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138348"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173477"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure a partir de uma imagem personalizada do Packer
 
@@ -42,9 +42,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Crie três novos ficheiros num diretório vazio com os seguintes nomes:
 
-- ```variables.tf``` – este ficheiro contém os valores das variáveis utilizadas no modelo.
-- ```output.tf``` – este ficheiro descreve as definições que são apresentadas após a implementação.
-- ```vmss.tf```Esse arquivo contém o código da infraestrutura que você está implantando.
+- `variables.tf` : Esse arquivo contém os valores das variáveis usadas no modelo.
+- `output.tf` : Esse arquivo descreve as configurações que são exibidas após a implantação.
+- `vmss.tf` : Esse arquivo contém o código da infraestrutura que você está implantando.
 
 ##  <a name="create-the-variables"></a>Criar as variáveis 
 
@@ -52,7 +52,7 @@ Neste passo, irá definir as variáveis que personalizam os recursos criados pel
 
 Edite o ficheiro `variables.tf`, copie o código seguinte e, em seguida, guarde as alterações.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 Guarde o ficheiro.
 
-Ao implementar o modelo do Terraform, deve obter o nome de domínio completamente qualificado que é utilizado para aceder à aplicação. Utilize o tipo de recurso ```output``` do Terraform e obtenha a propriedade ```fqdn``` do recurso. 
+Ao implementar o modelo do Terraform, deve obter o nome de domínio completamente qualificado que é utilizado para aceder à aplicação. Utilize o tipo de recurso `output` do Terraform e obtenha a propriedade `fqdn` do recurso. 
 
 Edite o ficheiro `output.tf` e copie o código seguinte para expor o nome de domínio completamente qualificado para as máquinas virtuais. 
 
@@ -89,9 +89,9 @@ Nesta etapa, irá criar a seguinte infraestrutura de rede num novo grupo de recu
 
 Precisa também de um grupo de recursos onde todos os recursos são criados. 
 
-Edite e copie o seguinte código para o ficheiro ```vmss.tf```: 
+Edite e copie o seguinte código para o ficheiro `vmss.tf`: 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -145,7 +145,7 @@ Inicialize o ambiente do Terraform ao executar o seguinte comando no diretório 
 terraform init 
 ```
  
-Os plug-ins do fornecedor são transferidos a partir do registo do Terraform para a pasta ```.terraform``` no diretório onde executou o comando.
+Os plug-ins do fornecedor são transferidos a partir do registo do Terraform para a pasta `.terraform` no diretório onde executou o comando.
 
 Execute o seguinte comando para implementar a infraestrutura no Azure.
 
@@ -185,8 +185,7 @@ Neste passo, vai criar os seguintes recursos na rede que foi anteriormente imple
 
 Adicione o seguinte código ao fim do ficheiro `vmss.tf`.
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -303,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Personalize a implementação, ao adicionar o seguinte código a `variables.tf`:
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80
@@ -456,7 +455,7 @@ terraform destroy
 
 Escreva `yes` quando lhe for pedido para confirmar a eliminação dos recursos. O processo de destruição pode demorar alguns minutos a ser concluído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, implementou um conjunto de dimensionamento de máquinas virtuais e uma jumpbox no Azure através do Terraform. Aprendeu a:
 

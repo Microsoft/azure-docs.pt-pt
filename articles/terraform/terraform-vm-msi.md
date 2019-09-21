@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 3/12/2018
-ms.openlocfilehash: e3aaf943b5eecd9ec1853c09ea36156b98560d3d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 835170448db8709812ca62ac67f8659b3b6a2807
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648714"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173053"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com identidades geridas para recursos do Azure
 
@@ -50,7 +50,7 @@ Introduza os seguintes dados no separador **Criar Terraform**:
    * **Nome**: O nome da sua máquina virtual Terraform.
    * **Nome de usuário**: A primeira ID de entrada da conta.
    * **Senha**: A primeira senha da conta. (Pode utilizar uma chave pública SSH em vez de uma palavra-passe.)
-   * **Assinatura**: A assinatura na qual o computador deve ser criado e cobrado. Tem de ter privilégios de criação de recursos para esta subscrição.
+   * **Subscrição**: A assinatura na qual o computador deve ser criado e cobrado. Tem de ter privilégios de criação de recursos para esta subscrição.
    * **Grupo de recursos**: Um grupo de recursos novo ou existente.
    * **Local**: O datacenter mais apropriado. Normalmente corresponde ao datacenter que tem a maior parte dos seus dados ou a um que esteja mais próximo da sua localização física, para um acesso de rede mais rápido.
 
@@ -93,7 +93,7 @@ O script anterior utiliza o mecanismo de [início de sessão interativo do AZ CL
 
  Para mais informações sobre a Gestão de Estado Remoto, veja [esta página sobre o estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso ao armazenamento está exposta neste ficheiro e tem de ser excluída antes de consolidar os ficheiros de configuração do Terraform no controlo de origem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a configurar uma máquina virtual Terraform do Linux no Azure. Aqui estão alguns recursos adicionais para o ajudar a saber mais acerca do Terraform no Azure: 
 
  [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  

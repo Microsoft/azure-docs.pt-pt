@@ -3,18 +3,18 @@ title: Computação do Azure-extensão de diagnóstico do Linux | Microsoft Docs
 description: Como configurar a extensão de diagnóstico Linux do Azure (LAD) para coletar métricas e eventos de log de VMs Linux em execução no Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
-manager: sankalpsoni
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: c4028ff4fef5472ba2a964f70db6d4fe11eeaba6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1da5d8aba92ac5cca5f7cdc281e169ce284b202d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918803"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169170"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs
 
@@ -703,7 +703,7 @@ Esse instantâneo de uma sessão de Gerenciador de Armazenamento do Microsoft Az
 
 Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) para saber como consumir mensagens publicadas em um ponto de extremidade do EventHubs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Crie alertas de métrica em [Azure monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas coletadas.
 * Crie [gráficos de monitoramento](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para suas métricas.

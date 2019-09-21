@@ -1,68 +1,58 @@
 ---
-title: Configurar as funções do Azure para fornecedores personalizados do Azure
-description: Este tutorial irá abordar como criar uma função do Azure e configurá-lo para trabalhar com fornecedores de personalizados do Azure
+title: Configurar Azure Functions para provedores personalizados do Azure
+description: Este tutorial vai sobre como criar um aplicativo de funções do Azure e configurá-lo para trabalhar com os provedores personalizados do Azure
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: d7e4de43659db88bfd9aad40cc3b9f1753189bba
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 6b5ab6948d382a9925c9ced91e04f360ecf51a0e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799995"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173022"
 ---
-# <a name="setup-azure-functions-for-azure-custom-providers"></a>Configurar as funções do Azure para fornecedores personalizados do Azure
+# <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar Azure Functions para provedores personalizados do Azure
 
-Fornecedores personalizados permitem-lhe personalizar fluxos de trabalho no Azure. Um provedor personalizado é um contrato entre o Azure e um `endpoint`. Este tutorial irá percorrer o processo de configuração de uma função do Azure para funcionar como um provedor personalizado `endpoint`.
+Um provedor personalizado é um contrato entre o Azure e um ponto de extremidade. Com provedores personalizados, você pode alterar os fluxos de trabalho no Azure. Este tutorial mostra como configurar um aplicativo de funções do Azure para funcionar como um ponto de extremidade de provedor personalizado.
 
-Este tutorial é dividido nos seguintes passos:
-
-- Criar a função do Azure
-- Instalar os enlaces de tabelas do Azure
-- Atualizar os métodos RESTful HTTP
-- Adicionar pacotes NuGet do Azure Resource Manager
-
-Neste tutorial, irá criar nos tutoriais seguintes:
-
-- [Criar a sua primeira função do Azure através do portal do Azure](../azure-functions/functions-create-first-azure-function.md)
-
-## <a name="creating-the-azure-function"></a>Criar a função do Azure
+## <a name="create-the-azure-function-app"></a>Criar o aplicativo de funções do Azure
 
 > [!NOTE]
-> Neste tutorial, vamos criar um ponto de extremidade de serviço simples usando uma função do Azure, mas um provedor personalizado, pode utilizar qualquer público acessível `endpoint`. O Azure Logic Apps, API Management do Azure e aplicações Web do Azure são algumas ótimas alternativas.
+> Neste tutorial, você cria um ponto de extremidade de serviço simples que usa um aplicativo de funções do Azure. No entanto, um provedor personalizado pode usar qualquer ponto de extremidade publicamente acessível. As alternativas incluem aplicativos lógicos do Azure, gerenciamento de API do Azure e o recurso de aplicativos Web do serviço de Azure App.
 
-Para iniciar este tutorial, deve seguir o tutorial [criando sua primeira função do Azure no portal do Azure](../azure-functions/functions-create-first-azure-function.md). O tutorial irá criar uma função de webhook do .NET core que pode ser modificada no portal do Azure.
+Para iniciar este tutorial, primeiro você deve seguir o tutorial [criar seu primeiro aplicativo de funções do Azure no portal do Azure](../azure-functions/functions-create-first-azure-function.md). Esse tutorial cria uma função de webhook do .NET Core que pode ser modificada no portal do Azure. Também é a base para o tutorial atual.
 
-## <a name="install-azure-table-bindings"></a>Instalar os enlaces de tabelas do Azure
+## <a name="install-azure-table-storage-bindings"></a>Instalar associações de armazenamento de tabelas do Azure
 
-Nesta secção irá percorrer os passos rápidos para instalar os enlaces de armazenamento de tabelas do Azure.
+Para instalar as associações de armazenamento de tabela do Azure:
 
-1. Navegue para o `Integrate` separador para o HttpTrigger.
-2. Clique no `+ New Input`.
-3. Selecione `Azure Table Storage`.
-4. Instalar o `Microsoft.Azure.WebJobs.Extensions.Storage` se não estiver já instalado.
-5. Atualização do `Table parameter name` para "tableStorage" e o `Table name` para "myCustomResources".
-6. Guarde o parâmetro de entrada atualizado.
+1. Vá para a guia **integrar** para o HttpTrigger.
+1. Selecione **+ nova entrada**.
+1. Selecione **armazenamento de tabelas do Azure**.
+1. Instale a extensão Microsoft. Azure. webjobs. Extensions. Storage se ela ainda não estiver instalada.
+1. Na caixa **nome do parâmetro de tabela** , digite **tableStorage**.
+1. Na caixa **nome da tabela** , digite **myCustomResources**.
+1. Selecione **salvar** para salvar o parâmetro de entrada atualizado.
 
-![Descrição geral do fornecedor personalizado](./media/create-custom-providers/azure-functions-table-bindings.png)
+![Visão geral do provedor personalizado mostrando associações de tabela](./media/create-custom-providers/azure-functions-table-bindings.png)
 
-## <a name="update-restful-http-methods"></a>Atualizar os métodos RESTful HTTP
+## <a name="update-restful-http-methods"></a>Atualizar métodos de HTTP RESTful
 
-Esta secção irá percorrer passos rápidos para configurar a função do Azure incluir os métodos de pedido RESTful do fornecedor personalizado.
+Para configurar a função do Azure para incluir os métodos de solicitação RESTful de provedor personalizado:
 
-1. Navegue para o `Integrate` separador para o HttpTrigger.
-2. Atualização do `Selected HTTP methods` para: OBTER, POST, DELETE e PUT.
+1. Vá para a guia **integrar** para o HttpTrigger.
+1. Em **métodos http selecionados**, selecione **obter**, **postar**, **excluir**e **colocar**.
 
-![Descrição geral do fornecedor personalizado](./media/create-custom-providers/azure-functions-http-methods.png)
+![Visão geral do provedor personalizado mostrando métodos HTTP](./media/create-custom-providers/azure-functions-http-methods.png)
 
-## <a name="modifying-the-csproj"></a>Modificar o csproj
+## <a name="add-azure-resource-manager-nuget-packages"></a>Adicionar Azure Resource Manager pacotes NuGet
 
 > [!NOTE]
-> Se o csproj está em falta do diretório, podem ser adicionado manualmente ou irá aparecer uma vez o `Microsoft.Azure.WebJobs.Extensions.Storage` extensão está instalada na função.
+> Se o C# arquivo de projeto estiver ausente no diretório do projeto, você poderá adicioná-lo manualmente. Ou ele será exibido depois que a extensão Microsoft. Azure. webjobs. Extensions. Storage estiver instalada no aplicativo de funções.
 
-Em seguida, vamos atualizar o ficheiro csproj para incluir as bibliotecas NuGet útil que tornam mais fácil de analisar pedidos recebidos de fornecedores personalizados. Siga os passos indicados em [adicionar extensões a partir do portal do](../azure-functions/install-update-binding-extensions-manual.md) e atualizar o csproj para incluir as seguintes referências de pacote:
+Em seguida, atualize C# o arquivo de projeto para incluir bibliotecas de NuGet úteis. Essas bibliotecas facilitam a análise de solicitações de entrada de provedores personalizados. Siga as etapas para [adicionar extensões do portal](../azure-functions/install-update-binding-extensions-manual.md) e atualizar o C# arquivo de projeto para incluir as seguintes referências de pacote:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -70,7 +60,7 @@ Em seguida, vamos atualizar o ficheiro csproj para incluir as bibliotecas NuGet 
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-Ficheiro de exemplo csproj:
+O seguinte elemento XML é um exemplo C# de arquivo de projeto:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -86,8 +76,9 @@ Ficheiro de exemplo csproj:
 </Project>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, vamos configurar uma função do Azure para funcionar como um provedor personalizado do Azure `endpoint`. Vá para o artigo seguinte para saber como criar um provedor personalizado RESTful `endpoint`.
+Neste tutorial, você configura um aplicativo de funções do Azure para trabalhar como um ponto de extremidade do provedor personalizado do Azure.
 
-- [Tutorial: Criação de um ponto de extremidade RESTful fornecedor personalizado](./tutorial-custom-providers-function-authoring.md)
+Para saber como criar um ponto de extremidade do provedor personalizado RESTful [, consulte o tutorial: Criação de um ponto de extremidade](./tutorial-custom-providers-function-authoring.md)do provedor personalizado RESTful.
+

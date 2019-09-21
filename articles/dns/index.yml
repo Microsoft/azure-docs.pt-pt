@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 09/20/2019
-  ms.openlocfilehash: 5149324e7de1052bd3a3123758985dd8b722c116
-  ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+  ms.openlocfilehash: 97ba213c59c463abeccd8ce0fe268d39672210d2
+  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71162055"
+  ms.locfileid: "71172581"
 landingContent:
 - title: Saiba mais sobre o Azure DNS
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: dns-getstarted-portal.md
   - linkListType: tutorial
     links:
-    - text: Alojar o seu domínio no DNS do Azure
+    - text: Aloje o seu domínio no DNS do Azure
       url: dns-delegate-domain-azure-dns.md
 - title: Implementar uma zona DNS privada
   linkLists:

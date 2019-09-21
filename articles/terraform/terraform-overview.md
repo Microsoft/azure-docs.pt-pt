@@ -1,6 +1,6 @@
 ---
 title: Utilizar o Terraform com o Azure
-description: Introdução ao uso do Terraform para a versão e implementar a infraestrutura do Azure.
+description: Introdução ao uso do Terraform para a versão e implantação da infraestrutura do Azure.
 services: terraform
 ms.service: azure
 keywords: terraform, devops, descrição geral, planear, aplicar, automatizar
@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/31/2018
-ms.openlocfilehash: 8b5ad3f060e2c8760014d7fc1990b971976388f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 4e51b8b5aa1cd00fcdd2481d73c40458d01d38c4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884448"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173081"
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure
 
@@ -43,7 +43,7 @@ O Terraform oferece uma interface de linha de comandos (CLI) que permite aos uti
 
 O Terraform é uma opção de ferramenta popular para cenários de várias clouds, em que a infraestrutura semelhante é implementada no Azure e em fornecedores de serviços cloud adicionais ou datacenters no local. Permite que os programadores utilizem as mesmas ferramentas e ficheiros de configuração para gerir a infraestrutura de vários fornecedores de cloud.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma descrição geral do Terraform e dos seus benefícios, eis os passos sugeridos:
 

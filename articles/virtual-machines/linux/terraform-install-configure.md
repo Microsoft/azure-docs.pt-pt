@@ -3,7 +3,7 @@ title: Instalar e configurar o Terraform para provisionar recursos do Azure | Mi
 description: Saiba como instalar e configurar o Terraform para criar recursos do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd6052db1328fce5ef1a846fbab94fd7066079f6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090726"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168733"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Instalar e configurar o Terraform para provisionar recursos do Azure
  
@@ -37,7 +37,7 @@ Para instalar o Terraform, [Baixe](https://www.terraform.io/downloads.html) o pa
 
 Verifique a configuração do caminho com `terraform` o comando. Uma lista de opções de Terraform disponíveis é mostrada, como na seguinte saída de exemplo:
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -94,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 Crie um arquivo `test.tf` em um diretório vazio e cole o script a seguir.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -111,7 +111,7 @@ terraform init
 
 O resultado é semelhante ao seguinte exemplo:
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -125,7 +125,7 @@ terraform apply
 
 O resultado é semelhante ao seguinte exemplo:
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
@@ -145,7 +145,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você instalou o Terraform ou usou o Cloud Shell para configurar as credenciais do Azure e iniciar a criação de recursos em sua assinatura do Azure. Para criar uma implantação mais completa do Terraform no Azure, consulte o seguinte artigo:
 

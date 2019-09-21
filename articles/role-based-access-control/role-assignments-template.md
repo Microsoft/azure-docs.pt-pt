@@ -10,87 +10,156 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2019
+ms.date: 09/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e6511ff84c251577a5ff483f892387ab7d3d4d41
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d9ec2fc76fb1cc33898c331a79167f9291fc8c63
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360495"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172996"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando os [modelos](../azure-resource-manager/resource-group-authoring-templates.md)RBAC e Azure Resource Manager. Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como você pode gerenciar o acesso usando RBAC e modelos.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como você pode gerenciar o acesso usando RBAC e modelos.
 
-## <a name="assign-role-to-resource-group-or-subscription"></a>Atribuir função ao grupo de recursos ou à assinatura
+## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Criar uma atribuição de função em um escopo de grupo de recursos (sem parâmetros)
 
-No RBAC, para conceder acesso, crie uma atribuição de função. O modelo a seguir demonstra:
-- Como atribuir uma função a um usuário, grupo ou aplicativo no escopo do grupo de recursos ou da assinatura
+No RBAC, para conceder acesso, crie uma atribuição de função. O modelo a seguir mostra uma maneira básica de criar uma atribuição de função. Alguns valores são especificados no modelo. O modelo a seguir demonstra:
+
+-  Como atribuir a função [leitor](built-in-roles.md#reader) a um usuário, grupo ou aplicativo em um escopo de grupo de recursos
+
+Para usar o modelo, você deve fazer o seguinte:
+
+- Criar um novo arquivo JSON e copiar o modelo
+- Substituir `<your-principal-id>` pelo identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função. O identificador tem o formato:`11111111-1111-1111-1111-111111111111`
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[guid(resourceGroup().id)]",
+            "properties": {
+                "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+                "principalId": "<your-principal-id>"
+            }
+        }
+    ]
+}
+```
+
+Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um grupo de recursos denominado myGroup.
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
+```
+
+```azurecli
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
+```
+
+Veja a seguir um exemplo de atribuição de função de leitor para um usuário para um grupo de recursos após a implantação do modelo.
+
+![Atribuição de função no escopo do grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
+
+## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Criar uma atribuição de função em um grupo de recursos ou escopo de assinatura
+
+O modelo anterior não é muito flexível. O modelo a seguir usa parâmetros e pode ser usado em escopos diferentes. O modelo a seguir demonstra:
+
+- Como atribuir uma função a um usuário, grupo ou aplicativo em um grupo de recursos ou escopo de assinatura
 - Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
 
 Para usar o modelo, você deve especificar as seguintes entradas:
+
 - O identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função
 - A função a ser atribuída
 - Um identificador exclusivo que será usado para a atribuição de função ou você poderá usar o identificador padrão
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "The principal to assign the role to"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "principalId": {
+            "type": "string",
+            "metadata": {
+                "description": "The principal to assign the role to"
+            }
+        },
+        "builtInRoleType": {
+            "type": "string",
+            "allowedValues": [
+                "Owner",
+                "Contributor",
+                "Reader"
+            ],
+            "metadata": {
+                "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
+            }
+        }
     },
-    "builtInRoleType": {
-      "type": "string",
-      "allowedValues": [
-        "Owner",
-        "Contributor",
-        "Reader"
-      ],
-      "metadata": {
-        "description": "Built-in role to assign"
-      }
+    "variables": {
+        "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+        "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     },
-    "roleNameGuid": {
-      "type": "string",
-      "defaultValue": "[newGuid()]",
-      "metadata": {
-        "description": "A new GUID used to identify the role assignment"
-      }
-    }
-  },
-  "variables": {
-    "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('roleNameGuid')]",
-      "properties": {
-        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[parameters('principalId')]"
+            }
+        }
+    ]
 }
 ```
 
-Veja a seguir um exemplo de uma atribuição de função de leitor para um usuário para um grupo de recursos após a implantação do modelo.
+Para obter o identificador exclusivo de um usuário ao qual atribuir a função, você pode usar os comandos [Get-AzADUser](/powershell/module/az.resources/get-azaduser) ou [AZ ad User show](/cli/azure/ad/user#az-ad-user-show) .
 
-![Atribuição de função usando um modelo](./media/role-assignments-template/role-assignment-template.png)
+```azurepowershell
+$userid = (Get-AzADUser -DisplayName "{name}").id
+```
 
-O escopo da atribuição de função é determinado do nível da implantação. Os comandos de implantação do grupo de recursos e do nível de assinatura são mostrados neste artigo.
+```azurecli
+userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
+```
 
-## <a name="assign-role-to-resource"></a>Atribuir função ao recurso
+O escopo da atribuição de função é determinado do nível da implantação. Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um escopo de grupo de recursos.
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+```
+
+```azurecli
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+```
+
+Aqui estão exemplos de comandos [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) e [AZ Deployment Create](/cli/azure/deployment#az-deployment-create) para saber como iniciar a implantação em um escopo de assinatura e especificar o local.
+
+```azurepowershell
+New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+```
+
+```azurecli
+az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+```
+
+## <a name="create-a-role-assignment-at-a-resource-scope"></a>Criar uma atribuição de função em um escopo de recurso
 
 Se você precisar criar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Você fornece o namespace do provedor de recursos e o tipo de recurso do recurso ao qual atribuir a função. Você também inclui o nome do recurso no nome da atribuição de função.
 
@@ -101,245 +170,168 @@ Para o tipo e o nome da atribuição de função, use o seguinte formato:
 "name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
 ```
 
-O modelo a seguir implanta uma conta de armazenamento e atribui uma função a ela. Você o implanta com os comandos do grupo de recursos.
+O modelo a seguir demonstra:
+
+- Como criar uma nova conta de armazenamento
+- Como atribuir uma função a um usuário, grupo ou aplicativo no escopo da conta de armazenamento
+- Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
+
+Para usar o modelo, você deve especificar as seguintes entradas:
+
+- O identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função
+- A função a ser atribuída
+- Um identificador exclusivo que será usado para a atribuição de função ou você poderá usar o identificador padrão
+
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "The principal to assign the role to"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "principalId": {
+            "type": "string",
+            "metadata": {
+                "description": "The principal to assign the role to"
+            }
+        },
+        "builtInRoleType": {
+            "type": "string",
+            "allowedValues": [
+                "Owner",
+                "Contributor",
+                "Reader"
+            ],
+            "metadata": {
+                "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
     },
-    "builtInRoleType": {
-      "type": "string",
-      "allowedValues": [
-        "Owner",
-        "Contributor",
-        "Reader"
-      ],
-      "metadata": {
-        "description": "Built-in role to assign"
-      }
+    "variables": {
+        "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+        "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+        "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
     },
-    "roleNameGuid": {
-      "type": "string",
-      "defaultValue": "[newGuid()]",
-      "metadata": {
-        "description": "A new GUID used to identify the role assignment"
-      }
-    },
-    "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "variables": {
-    "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "apiVersion": "2019-04-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-          "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
-      "dependsOn": [
-          "[variables('storageName')]"
-      ],
-      "properties": {
-        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+            "dependsOn": [
+                "[variables('storageName')]"
+            ],
+            "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[parameters('principalId')]"
+            }
+        }
+    ]
 }
 ```
 
-Veja a seguir um exemplo de uma atribuição de função de colaborador para um usuário para uma conta de armazenamento após a implantação do modelo.
-
-![Atribuição de função usando um modelo](./media/role-assignments-template/role-assignment-template-resource.png)
-
-## <a name="deploy-template-using-azure-powershell"></a>Implantar modelo usando o Azure PowerShell
-
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
-
-Para implantar o modelo anterior em um grupo de recursos ou uma assinatura usando Azure PowerShell, siga estas etapas.
-
-1. Crie um novo arquivo chamado RBAC-RG. JSON e copie o modelo anterior.
-
-1. Iniciar sessão no [Azure PowerShell](/powershell/azure/authenticate-azureps).
-
-1. Obtenha o identificador exclusivo de um usuário, grupo ou aplicativo. Por exemplo, você pode usar o comando [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para listar os usuários do Azure AD.
-
-    ```azurepowershell
-    $userid = (Get-AzADUser -DisplayName "{name}").id
-    ```
-
-1. O modelo gera um valor padrão para o GUID que é usado para identificar a atribuição de função. Se você precisar especificar um GUID específico, passe esse valor para para o parâmetro roleNameGuid. O identificador tem o formato:`11111111-1111-1111-1111-111111111111`
-
-Para atribuir a função no nível de um recurso ou grupo de recursos, siga estas etapas:
-
-1. Crie um grupo de recursos de exemplo.
-
-    ```azurepowershell
-    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
-    ```
-
-1. Use o comando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) para iniciar a implantação.
-
-    ```azurepowershell
-    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
-    ```
-
-    Veja a seguir um exemplo da saída.
-
-    ```Output
-    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
-    
-    DeploymentName          : rbac-rg
-    ResourceGroupName       : ExampleGroup
-    ProvisioningState       : Succeeded
-    Timestamp               : 7/17/2018 7:46:32 PM
-    Mode                    : Incremental
-    TemplateLink            :
-    Parameters              :
-                              Name             Type                       Value
-                              ===============  =========================  ==========
-                              principalId      String                     22222222-2222-2222-2222-222222222222
-                              builtInRoleType  String                     Reader
-                              roleNameGuid     String                     11111111-1111-1111-1111-111111111111
-    
-    Outputs                 :
-    DeploymentDebugLogLevel :
-    ```
-
-Para atribuir a função no nível de uma assinatura, use o comando [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) e especifique um local para a implantação.
+Para implantar o modelo anterior, use os comandos do grupo de recursos. Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um escopo de recurso.
 
 ```azurepowershell
-New-AzDeployment -Location centralus -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Contributor
 ```
-
-Ele tem uma saída semelhante ao comando de implantação para grupos de recursos.
-
-## <a name="deploy-template-using-the-azure-cli"></a>Implantar modelo usando o CLI do Azure
-
-Para implantar o modelo anterior usando o CLI do Azure para um grupo de recursos ou uma assinatura, siga estas etapas.
-
-1. Crie um novo arquivo chamado RBAC-RG. JSON e copie o modelo anterior.
-
-1. Entre no [CLI do Azure](/cli/azure/authenticate-azure-cli).
-
-1. Obtenha o identificador exclusivo de um usuário, grupo ou aplicativo. Por exemplo, você pode usar o comando [AZ ad User show](/cli/azure/ad/user#az-ad-user-show) para mostrar um usuário do Azure AD.
-
-    ```azurecli
-    userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
-    ```
-
-1. O modelo gera um valor padrão para o GUID que é usado para identificar a atribuição de função. Se você precisar especificar um GUID específico, passe esse valor para para o parâmetro roleNameGuid. O identificador tem o formato:`11111111-1111-1111-1111-111111111111`
-
-Para atribuir a função no nível de um recurso ou grupo de recursos, siga estas etapas:
-
-1. Crie um grupo de recursos de exemplo.
-
-    ```azurecli
-    az group create --name ExampleGroup --location "Central US"
-    ```
-
-1. Use o comando [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para iniciar a implantação.
-
-    ```azurecli
-    az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
-    ```
-
-    Veja a seguir um exemplo da saída.
-
-    ```Output
-    C:\Azure\Templates>az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
-    
-    {
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/rbac-rg",
-      "name": "rbac-rg",
-      "properties": {
-        "additionalProperties": {
-          "duration": "PT9.5323924S",
-          "outputResources": [
-            {
-              "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleGroup/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111",
-              "resourceGroup": "ExampleGroup"
-            }
-          ],
-          "templateHash": "0000000000000000000"
-        },
-        "correlationId": "33333333-3333-3333-3333-333333333333",
-        "debugSetting": null,
-        "dependencies": [],
-        "mode": "Incremental",
-        "outputs": null,
-        "parameters": {
-          "builtInRoleType": {
-            "type": "String",
-            "value": "Reader"
-          },
-          "principalId": {
-            "type": "String",
-            "value": "22222222-2222-2222-2222-222222222222"
-          },
-          "roleNameGuid": {
-            "type": "String",
-            "value": "11111111-1111-1111-1111-111111111111"
-          }
-        },
-        "parametersLink": null,
-        "providers": [
-          {
-            "id": null,
-            "namespace": "Microsoft.Authorization",
-            "registrationState": null,
-            "resourceTypes": [
-              {
-                "aliases": null,
-                "apiVersions": null,
-                "locations": [
-                  null
-                ],
-                "properties": null,
-                "resourceType": "roleAssignments"
-              }
-            ]
-          }
-        ],
-        "provisioningState": "Succeeded",
-        "template": null,
-        "templateLink": null,
-        "timestamp": "2018-07-17T19:00:31.830904+00:00"
-      },
-      "resourceGroup": "ExampleGroup"
-    }
-    ```
-
-Para atribuir a função no nível de uma assinatura, use o comando [AZ Deployment Create](/cli/azure/deployment#az-deployment-create) e especifique um local para a implantação.
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Contributor
 ```
 
-Ele tem uma saída semelhante ao comando de implantação para grupos de recursos.
+Veja a seguir um exemplo de atribuição de função de colaborador para um usuário para uma conta de armazenamento depois de implantar o modelo.
+
+![Atribuição de função no escopo de recurso](./media/role-assignments-template/role-assignment-template-resource.png)
+
+## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Criar uma atribuição de função para uma nova entidade de serviço
+
+Se você criar uma nova entidade de serviço e tentar atribuir imediatamente uma função a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma nova identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade de serviço no mesmo modelo de Azure Resource Manager, a atribuição de função poderá falhar. O motivo dessa falha é provavelmente um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve definir a `principalType` Propriedade como `ServicePrincipal` ao criar a atribuição de função.
+
+O modelo a seguir demonstra:
+
+- Como criar uma nova entidade de serviço de identidade gerenciada
+- Como especificar o`principalType`
+- Como atribuir a função de colaborador a essa entidade de serviço em um escopo de grupo de recursos
+
+Para usar o modelo, você deve especificar as seguintes entradas:
+
+- O nome de base da identidade gerenciada ou você pode usar a cadeia de caracteres padrão
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "baseName": {
+            "type": "string",
+            "defaultValue": "msi-test"
+        }
+    },
+    "variables": {
+        "identityName": "[concat(parameters('baseName'), '-bootstrap')]",
+        "bootstrapRoleAssignmentId": "[guid(concat(resourceGroup().id, 'contributor'))]",
+        "contributorRoleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "name": "[variables('identityName')]",
+            "apiVersion": "2018-11-30",
+            "location": "[resourceGroup().location]"
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[variables('bootstrapRoleAssignmentId')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
+            ],
+            "properties": {
+                "roleDefinitionId": "[variables('contributorRoleDefinitionId')]",
+                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName')), '2018-11-30').principalId]",
+                "scope": "[resourceGroup().id]",
+                "principalType": "ServicePrincipal"
+            }
+        }
+    ]
+}
+```
+
+Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um escopo de grupo de recursos.
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
+```
+
+```azurecli
+az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
+```
+
+Veja a seguir um exemplo da atribuição de função de colaborador para uma nova entidade de serviço de identidade gerenciada após a implantação do modelo.
+
+![Atribuição de função para uma nova entidade de serviço de identidade gerenciada](./media/role-assignments-template/role-assignment-template-msi.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

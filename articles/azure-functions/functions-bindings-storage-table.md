@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: d647a643dafe50a5768261c2b09bf8c4154be469
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 464c1a8ab27f6615fdffd8efa6ab20d75e10a7c1
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086250"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171179"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure para Azure Functions
 
@@ -529,7 +529,7 @@ A associação de entrada de armazenamento de tabela dá suporte aos seguintes c
 
 * **Ler uma ou mais linhas em JavaScript**
 
-  Defina as `filter` propriedades `take` e. Não defina `partitionKey` ou `rowKey`. Acesse a entidade (ou entidades) da tabela `context.bindings.<name>`de entrada usando. Os objetos desserializados têm `RowKey` propriedades `PartitionKey` e.
+  Defina as `filter` propriedades `take` e. Não defina `partitionKey` ou `rowKey`. Acesse a entidade (ou entidades) da tabela `context.bindings.<BINDING_NAME>`de entrada usando. Os objetos desserializados têm `RowKey` propriedades `PartitionKey` e.
 
 ## <a name="output"></a>Output
 
@@ -786,7 +786,7 @@ A associação de saída de armazenamento de tabela dá suporte aos seguintes ce
 
 * **Gravar uma ou mais linhas em JavaScript**
 
-  Em funções do JavaScript, acesse a saída `context.bindings.<name>`da tabela usando.
+  Em funções do JavaScript, acesse a saída `context.bindings.<BINDING_NAME>`da tabela usando.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 
@@ -796,7 +796,7 @@ A associação de saída de armazenamento de tabela dá suporte aos seguintes ce
 | BLOB, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila | [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

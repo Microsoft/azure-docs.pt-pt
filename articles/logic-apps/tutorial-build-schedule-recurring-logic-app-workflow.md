@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 9392cfc9c789a757c3ad533a3dbd4719f5292be5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931567"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172176"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Crie fluxos de trabalho recorrentes, baseados em agendamento e automatizados usando aplicativos lógicos do Azure
 
@@ -235,7 +235,7 @@ Em seguida, adicione uma condição que verifica se o tempo de deslocação atua
 
 1. Na ação anterior, selecione **nova etapa**.
 
-1. Em **escolher uma ação**, selecione **interno**e procure "condição" e selecione a ação **condição** .
+1. Em **escolher uma ação**, selecione **interno**. Na caixa de pesquisa, digite "Condition" como filtro. Na lista ações, selecione a ação **condição** .
 
    ![Selecionar ação de "condição"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -243,19 +243,19 @@ Em seguida, adicione uma condição que verifica se o tempo de deslocação atua
 
 1. Crie uma condição que verifica se o valor da propriedade de **viagem** excede o limite especificado, conforme descrito e mostrado aqui:
 
-   1. Dentro da condição, clique dentro da caixa **escolher um valor** no lado esquerdo da condição.
+   1. Na condição, clique dentro da caixa **escolher um valor** no lado esquerdo da condição.
 
-   1. Quando a lista de conteúdo dinâmico aparecer, em **variáveis**, selecione a propriedade **viagem** .
+   1. Na lista de conteúdo dinâmico que aparece, em **variáveis**, selecione a propriedade **viagem** .
 
       ![Lado esquerdo da condição de compilação](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. Na caixa de comparação, selecione o operador **is greater than** (é maior do que)
+   1. Na caixa comparação intermediária, selecione o operador **é maior que** .
 
    1. Na caixa **escolher um valor** no lado direito da condição, insira este limite:`15`
 
       Quando terminar, a condição será parecida com este exemplo:
 
-      ![Criar condição](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Condição concluída](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Guarde a aplicação lógica.
 
@@ -364,7 +364,7 @@ Quando você não precisar mais do aplicativo lógico de exemplo, exclua o grupo
 
 1. Insira o nome do grupo de recursos como confirmação e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma aplicação lógica que verifica o tráfego com base numa agenda específica (nos dias úteis de manhã) e realiza uma ação (envia e-mails) se o tempo de deslocação exceder um limite especificado. Agora, saiba como compilar uma aplicação lógica que envia pedidos de listas de correio para aprovação através da integração de serviços do Azure, de serviços Microsoft e de outras aplicações de SaaS.
 

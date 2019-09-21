@@ -2,28 +2,28 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
 ms.date: 10/09/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8e0e549f88caf4a541642bab77faf54b5e536b29
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184251"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174982"
 ---
-## <a name="deploy-an-image-with-marketplace-terms"></a>Implementar uma imagem com os termos do Marketplace
+## <a name="deploy-an-image-with-marketplace-terms"></a>Implantar uma imagem com os termos do Marketplace
 
-Algumas imagens VM no Azure Marketplace têm adicionais de licença e que têm de aceitar antes de poder implementá-las por meio de programação de termos de compra.  
+Algumas imagens de VM no Azure Marketplace têm licença adicional e termos de compra que você deve aceitar para poder implantá-las programaticamente.  
 
-Para implementar uma VM a partir de uma imagem desse tipo, terá de aceitar os termos da imagem e ativar a implementação programática. Só precisará fazer isto vez por subscrição. Depois disso, sempre que implementar uma VM através de programação da imagem também terá de especificar *compra do plano* parâmetros.
+Para implantar uma VM de tal imagem, você precisará aceitar os termos da imagem e habilitar a implantação programática. Você só precisará fazer isso uma vez por assinatura. Posteriormente, sempre que você implantar uma VM programaticamente a partir da imagem, também precisará especificar os parâmetros do *plano de compra* .
 
-As secções seguintes mostram como:
+As seções a seguir mostram como:
 
-* Descubra se a uma imagem do Marketplace tem termos de licenciamento adicionais 
-* Aceite os termos de forma programática
-* Fornecer os parâmetros de plano de compra ao implementar uma VM através de programação
+* Descubra se uma imagem do Marketplace tem termos de licença adicionais 
+* Aceite os termos programaticamente
+* Fornecer parâmetros de plano de compra ao implantar uma VM programaticamente
 

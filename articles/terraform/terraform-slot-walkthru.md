@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 4/05/2018
-ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889343"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169819"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar o Terraform para aprovisionar infraestruturas com os blocos de implementação do Azure
 
@@ -24,9 +24,9 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Conta do GitHub**: É necessário um [GitHub](https://www.github.com) conta para bifurcar e utilizar o repositório do GitHub de teste.
+- **Conta do GitHub**: Você precisa de uma conta do [GitHub](https://www.github.com) para bifurcar e usar o repositório GitHub de teste.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o plano do Terraform
 
@@ -74,7 +74,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
 1. Cole o seguinte código no editor:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -266,7 +266,7 @@ Para testar a alternância entre os dois blocos de implementação, execute os s
 
 1. Cole o seguinte código no editor:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 

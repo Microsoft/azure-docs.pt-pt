@@ -1,38 +1,28 @@
 ---
-title: Criar e utilizar um fornecedor personalizado do Azure
-description: Este tutorial irá abordar como criar e utilizar um fornecedor personalizado.
+title: Criar e usar um provedor personalizado
+description: Este tutorial vai sobre como criar e usar um provedor personalizado.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 65a8e60d8216e1da16af987c9e699e24ecaec3ec
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 053cf9fca03bf58cf10c313ae2569ce1918a46b9
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800002"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172895"
 ---
-# <a name="authoring-a-restful-endpoint-for-custom-providers"></a>Criação de um ponto de extremidade RESTful para fornecedores personalizados
+# <a name="create-and-use-a-custom-provider"></a>Criar e usar um provedor personalizado
 
-Fornecedores personalizados permitem-lhe personalizar fluxos de trabalho no Azure. Um provedor personalizado é um contrato entre o Azure e um `endpoint`. Este tutorial irá percorrer o processo de criação de um fornecedor personalizado. Se não estiver familiarizado com fornecedores personalizados do Azure, veja [a visão geral sobre provedores de recursos personalizados](./custom-providers-overview.md).
+Um provedor personalizado é um contrato entre o Azure e um ponto de extremidade. Com provedores personalizados, você pode alterar os fluxos de trabalho no Azure. Este tutorial mostra o processo de criação de um provedor personalizado. Se você não estiver familiarizado com os provedores personalizados do Azure, consulte [a visão geral dos provedores de recursos personalizados do Azure](./custom-providers-overview.md).
 
-Este tutorial é dividido nos seguintes passos:
-
-- O que é um provedor personalizado
-- Definição de ações personalizadas e recursos
-- Implementar o provedor personalizado
-
-Neste tutorial, irá criar nos tutoriais seguintes:
-
-- [Criação de um ponto de extremidade RESTful para fornecedores personalizados](./tutorial-custom-providers-function-authoring.md)
-
-## <a name="creating-a-custom-provider"></a>Criar um provedor personalizado
+## <a name="create-a-custom-provider"></a>Criar um provedor personalizado
 
 > [!NOTE]
-> Este tutorial não será transmitido pela criação de um ponto de extremidade. Siga os [tutorial sobre a criação de pontos de extremidade RESTful](./tutorial-custom-providers-function-authoring.md) se não tiver um ponto de extremidade RESTful.
+> Este tutorial não mostra como criar um ponto de extremidade. Se você não tiver um ponto de extremidade RESTFUL, siga o [tutorial sobre como criar pontos de extremidades RESTful](./tutorial-custom-providers-function-authoring.md), que é a base para o tutorial atual.
 
-Uma vez a `endpoint` é criado, pode gerar o criar um provedor personalizado para gerar um contrato entre ele e o `endpoint`. Um provedor personalizado permite-lhe especificar uma lista de definições de ponto final.
+Depois de criar um ponto de extremidade, você pode criar um provedor personalizado para gerar um contrato entre o provedor e o ponto de extremidade. Com um provedor personalizado, você pode especificar uma lista de definições de ponto de extremidade:
 
 ```JSON
 {
@@ -42,17 +32,17 @@ Uma vez a `endpoint` é criado, pode gerar o criar um provedor personalizado par
 }
 ```
 
-Propriedade | Necessário | Descrição
+Propriedade | Requerido | Descrição
 ---|---|---
-name | *Sim* | O nome da definição do ponto final. Azure irá expor este nome por meio de sua API em ' /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
-routingType | *no* | Determina o tipo de contrato com o `endpoint`. Se não for especificado, será predefinido para "Proxy".
-endpoint | *Sim* | O ponto final para encaminhar os pedidos para. Isto irá processar a resposta, bem como quaisquer efeitos colaterais do pedido.
+**name** | Sim | O nome da definição do ponto de extremidade. O Azure expõe esse nome por meio de sua API em/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
+**roteamentotype** | Não | O tipo de contrato do ponto de extremidade. Se o valor não for especificado, o padrão será "proxy".
+**extremidade** | Sim | O ponto de extremidade para o qual rotear as solicitações. Esse ponto de extremidade manipula a resposta e quaisquer efeitos colaterais da solicitação.
 
-Neste caso, o `endpoint` é o URL do acionador da função do Azure. O `<yourapp>`, `<funcname>`, e `<functionkey>` devem ser substituídas por valores para a função criada.
+O valor do **ponto de extremidade** é a URL do gatilho do aplicativo de funções do Azure. Os `<yourapp>`espaços `<funcname>`reservados, `<functionkey>` e devem ser substituídos por valores para seu aplicativo de funções criado.
 
-## <a name="defining-custom-actions-and-resources"></a>Definição de ações personalizadas e recursos
+## <a name="define-custom-actions-and-resources"></a>Definir ações e recursos personalizados
 
-O provedor personalizado contém uma lista de definições de ponto final modelada sob `actions` e `resourceTypes`. `actions` o mapa para as ações personalizadas exposto pelo fornecedor personalizado, embora `resourceTypes` são os recursos personalizados. Para este tutorial, iremos definir um provedor personalizado com uma `action` chamado `myCustomAction` e uma `resourceType` chamado `myCustomResources`.
+O provedor personalizado contém uma lista de definições de ponto de extremidade modeladas nas propriedades **Actions** e **ResourceTypes** . A propriedade **Actions** é mapeada para as ações personalizadas expostas pelo provedor personalizado, e a propriedade **ResourceTypes** são os recursos personalizados. Neste tutorial, o provedor personalizado tem uma propriedade **Actions** chamada `myCustomAction` e uma propriedade **ResourceTypes** chamada `myCustomResources`.
 
 ```JSON
 {
@@ -76,14 +66,12 @@ O provedor personalizado contém uma lista de definições de ponto final modela
 }
 ```
 
-Substitua `endpoint` com o URL de Acionador a partir da função criada anteriormente no tutorial anterior.
-
-## <a name="deploying-the-custom-provider"></a>Implementar o provedor personalizado
+## <a name="deploy-the-custom-provider"></a>Implantar o provedor personalizado
 
 > [!NOTE]
-> O `endpoint` deve ser substituído com o URL da função.
+> Você deve substituir os valores do **ponto de extremidade** pela URL do gatilho do aplicativo de funções criado no tutorial anterior.
 
-O provedor personalizado acima pode ser implementado com um modelo de Gestor de recursos do Azure.
+Você pode implantar o provedor personalizado anterior usando um modelo de Azure Resource Manager:
 
 ```JSON
 {
@@ -116,16 +104,16 @@ O provedor personalizado acima pode ser implementado com um modelo de Gestor de 
 }
 ```
 
-## <a name="using-custom-actions-and-resources"></a>Utilizar ações personalizadas e recursos
+## <a name="use-custom-actions-and-resources"></a>Usar ações e recursos personalizados
 
-Depois criamos um provedor personalizado, podemos pode utilizar as novas APIs do Azure. A secção seguinte irá explicar como chamar e utilizar um fornecedor personalizado.
+Depois de criar um provedor personalizado, você pode usar as novas APIs do Azure. As guias a seguir explicam como chamar e usar um provedor personalizado.
 
 ### <a name="custom-actions"></a>Ações personalizadas
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!NOTE]
-> O `{subscriptionId}` e `{resourceGroupName}` deve ser substituído com a subscrição e o resourceGroup em que o provedor personalizado foi implementado.
+> Você deve substituir os `{subscriptionId}` espaços `{resourceGroupName}` reservados e pela assinatura e grupo de recursos de onde você implantou o provedor personalizado.
 
 ```azurecli-interactive
 az resource invoke-action --action myCustomAction \
@@ -136,11 +124,11 @@ az resource invoke-action --action myCustomAction \
                             }'
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Requerido | Descrição
 ---|---|---
-ação | *Sim* | O nome da ação definida no fornecedor personalizado criado.
-ids | *Sim* | O ID de recurso do fornecedor personalizado criado.
-corpo do pedido | *no* | O corpo do pedido que será enviado para o `endpoint`.
+*Action* | Sim | O nome da ação definida no provedor personalizado
+*identidade* | Sim | A ID de recurso do provedor personalizado
+*corpo da solicitação* | Não | O corpo da solicitação que será enviado ao ponto de extremidade
 
 # <a name="templatetabtemplate"></a>[Modelo](#tab/template)
 
@@ -153,9 +141,9 @@ Nenhum.
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!NOTE]
-> O `{subscriptionId}` e `{resourceGroupName}` deve ser substituído com a subscrição e o resourceGroup em que o provedor personalizado foi implementado.
+> Você deve substituir os `{subscriptionId}` espaços `{resourceGroupName}` reservados e pela assinatura e grupo de recursos de onde você implantou o provedor personalizado.
 
-Crie um recurso personalizado:
+#### <a name="create-a-custom-resource"></a>Criar um recurso personalizado
 
 ```azurecli-interactive
 az resource create --is-full-object \
@@ -169,35 +157,35 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Requerido | Descrição
 ---|---|---
-is-full-object | *Sim* | Indica que o objeto de propriedades inclui outras opções, como a localização, marcas, sku e/ou plano.
-id | *Sim* | O ID de recurso do recurso personalizado. Isso deve existir fora o provedor personalizado criado.
-properties | *Sim* | O corpo do pedido que será enviado para o `endpoint`.
+*é-Full-Object* | Sim | Indica se o objeto de propriedades inclui outras opções, como localização, marcas, SKU ou plano.
+*id* | Sim | A ID de recurso do recurso personalizado. Essa ID é uma extensão da ID de recurso do provedor personalizado.
+*Propriedades* | Sim | O corpo da solicitação que será enviado ao ponto de extremidade.
 
-Elimine um recurso personalizado do Azure:
+#### <a name="delete-a-custom-resource"></a>Excluir um recurso personalizado
 
 ```azurecli-interactive
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Requerido | Descrição
 ---|---|---
-id | *Sim* | O ID de recurso do recurso personalizado. Isso deve existir fora o provedor personalizado criado.
+*id* | Sim | A ID de recurso do recurso personalizado. Essa ID é uma extensão da ID de recurso do provedor personalizado.
 
-Obter um recurso personalizado do Azure:
+#### <a name="retrieve-a-custom-resource"></a>Recuperar um recurso personalizado
 
 ```azurecli-interactive
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Requerido | Descrição
 ---|---|---
-id | *Sim* | O ID de recurso do recurso personalizado. Isso deve existir fora o provedor personalizado criado.
+*id* | Sim | A ID de recurso do recurso personalizado. Essa ID é uma extensão da ID de recurso do provedor personalizado.
 
 # <a name="templatetabtemplate"></a>[Modelo](#tab/template)
 
-Exemplo modelo do Resource Manager do Azure:
+Um modelo do Resource Manager de exemplo:
 
 ```JSON
 {
@@ -217,20 +205,20 @@ Exemplo modelo do Resource Manager do Azure:
 }
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Requerido | Descrição
 ---|---|---
-resourceTypeName | *Sim* | O `name` das *resourceType* definidas no fornecedor personalizado.
-resourceProviderName | *Sim* | O nome da instância de fornecedor personalizado.
-customResourceName | *Sim* | O nome de recurso personalizado.
+*resourceTypename* | Sim | O `name` valor da propriedade **ResourceTypes** definida no provedor personalizado.
+*resourceProviderName* | Sim | O nome da instância do provedor personalizado.
+*customResourceName* | Sim | O nome do recurso personalizado.
 
 ---
 
 > [!NOTE]
-> Depois de o implementar e utilizar o provedor personalizado, lembre-se de limpar quaisquer recursos criados, incluindo a função do Azure.
+> Depois de concluir a implantação e o uso do provedor personalizado, lembre-se de limpar todos os recursos criados, incluindo o aplicativo de funções do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre fornecedores personalizados. Vá para o artigo seguinte para criar um provedor personalizado.
+Neste artigo, você aprendeu sobre provedores personalizados. Para obter mais informações, consulte:
 
-- [How To: Adicionar ações personalizadas a API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [How To: Adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)
+- [How to: Adicionando ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
+- [How to: Adicionando recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)
