@@ -51,7 +51,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extre
 | TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado em UTC |
 | Type | Tipo do log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID da assinatura à qual o servidor pertence |
-| GrupoRecursos | Nome do grupo de recursos ao qual o servidor pertence |
+| ResourceGroup | Nome do grupo de recursos ao qual o servidor pertence |
 | ResourceProvider | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | URI de recurso |
@@ -67,7 +67,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extre
 | DatatypeName | Nome do tipo de dados (se aplicável) |
 | LogicalServerName | Nome do servidor | 
 | _ResourceId | URI de recurso |
-| Prefixo | Prefixo da linha de log |
+| Prefix | Prefixo da linha de log |
 
 
 
