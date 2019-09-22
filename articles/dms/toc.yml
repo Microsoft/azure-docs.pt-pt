@@ -47,6 +47,7 @@
     - name: Migrar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Recursos
+  expanded: true
   items:
     - name: Estado do cenário da migração de base de dados
       href: resource-scenario-status.md
