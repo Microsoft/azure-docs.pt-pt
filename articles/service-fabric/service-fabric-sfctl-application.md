@@ -28,9 +28,9 @@ Criar, excluir e gerenciar aplicativos e tipos de aplicativos.
 |Comando|Descrição|
 | --- | --- |
 | create | Cria um aplicativo Service Fabric usando a descrição especificada. |
-| eliminar | Exclui um aplicativo Service Fabric existente. |
+| delete | Exclui um aplicativo Service Fabric existente. |
 | deployed | Obtém as informações sobre um aplicativo implantado em um Service Fabric nó. |
-| implantado-integridade | Obtém as informações sobre a integridade de um aplicativo implantado em um Service Fabric nó. |
+| deployed-health | Obtém as informações sobre a integridade de um aplicativo implantado em um Service Fabric nó. |
 | deployed-list | Obtém a lista de aplicativos implantados em um nó de Service Fabric. |
 | health | Obtém a integridade do aplicativo do Service Fabric. |
 | info | Obtém informações sobre um aplicativo Service Fabric. |
@@ -40,12 +40,12 @@ Criar, excluir e gerenciar aplicativos e tipos de aplicativos.
 | provision | Provisiona ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote. sfpkg no armazenamento externo ou usando o pacote de aplicativos no repositório de imagens. |
 | report-health | Envia um relatório de integridade sobre o aplicativo Service Fabric. |
 | type | Obtém a lista de tipos de aplicativos no Cluster Service Fabric que correspondem exatamente ao nome especificado. |
-| lista de tipos | Obtém a lista de tipos de aplicativos no Cluster Service Fabric. |
+| type-list | Obtém a lista de tipos de aplicativos no Cluster Service Fabric. |
 | unprovision | Remove ou cancela o registro de um tipo de aplicativo Service Fabric do cluster. |
 | upgrade | Inicia a atualização de um aplicativo no Cluster Service Fabric. |
-| atualização-retomar | Retoma a atualização de um aplicativo no Cluster Service Fabric. |
+| upgrade-resume | Retoma a atualização de um aplicativo no Cluster Service Fabric. |
 | upgrade-rollback | Inicia a reversão da atualização atual em andamento de um aplicativo no Cluster Service Fabric. |
-| atualização-status | Obtém detalhes para a atualização mais recente executada neste aplicativo. |
+| upgrade-status | Obtém detalhes para a atualização mais recente executada neste aplicativo. |
 | upload | Copie um pacote de aplicativos Service Fabric para o repositório de imagens. |
 
 ## <a name="sfctl-application-create"></a>criação de aplicativo sfctl
