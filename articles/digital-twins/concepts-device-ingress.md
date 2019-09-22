@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638515"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177115"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de conectividade e telemetria de dispositivo
 
@@ -67,7 +67,7 @@ Você pode personalizar o formato e a carga de mensagens do dispositivo para ate
 
  O conteúdo da carga de uma **mensagem** pode ser dados arbitrários de até 256 KB de tamanho. Há alguns requisitos esperados para as propriedades do [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) tipo. A tabela mostra as propriedades obrigatórias e opcionais com suporte no sistema.
 
-| Nome da propriedade | Valor | Requerido | Descrição |
+| Nome da propriedade | Value | Requerido | Descrição |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sim | Um identificador exclusivo do sensor que envia a **mensagem**. Esse valor deve corresponder à propriedade **HardwareID** de um objeto para o sistema processá-lo. Por exemplo, `00FF0643BE88-CO2`. |
@@ -78,6 +78,6 @@ Você pode personalizar o formato e a carga de mensagens do dispositivo para ate
 
 Use a chamada DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) ou [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) para enviar sua mensagem para o gêmeos digital.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o processamento de dados do Azure digital gêmeos e recursos de funções definidas pelo usuário, leia [processamento de dados do gêmeos e funções definidas pelo usuário do Azure digital](concepts-user-defined-functions.md).

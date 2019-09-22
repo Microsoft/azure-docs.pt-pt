@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 9/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515429"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178273"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -97,7 +97,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
         Esse é o caminho LDAP para a UO (unidade organizacional) em que as contas de máquina do servidor SMB serão criadas. Ou seja, OU = segundo nível, OU = primeiro nível. 
     * Credenciais, incluindo seu **nome de usuário** e **senha**
 
-    ![Ingressar Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Associar o Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Clique em **Associar**.  
 
@@ -118,7 +118,9 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
     * **Nome do volume**      
         Especifique o nome do volume que está a criar.   
 
-        Um nome de volume deve ser exclusivo em cada pool de capacidade. Deve ter pelo menos três caracteres de comprimento. Você pode usar qualquer caractere alfanumérico.
+        Um nome de volume deve ser exclusivo em cada pool de capacidade. Deve ter pelo menos três caracteres de comprimento. Você pode usar qualquer caractere alfanumérico.   
+
+        Você não pode `default` usar como o nome do volume.
 
     * **Pool de capacidade**  
         Especifique o pool de capacidade no qual você deseja que o volume seja criado.
@@ -156,7 +158,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
  
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

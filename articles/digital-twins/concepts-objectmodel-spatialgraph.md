@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638491"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177064"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial
 
@@ -23,9 +23,7 @@ Os modelos de objeto gêmeos digital descrevem conceitos, categorias e proprieda
 
 Com os modelos de objetos do digital gêmeos e um ontologia no lugar, você pode preencher um _grafo espacial_. Grafos espaciais são representações virtuais das muitas relações entre espaços, dispositivos e pessoas que são relevantes para uma solução de IoT. Este diagrama mostra um exemplo de um grafo espacial que usa um ontologia de construção inteligente.
 
-![Criação de grafo espacial digital gêmeos][1]
-
-<a id="model"></a>
+[![Criação de grafo espacial digital gêmeos](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 O grafo espacial reúne espaços, dispositivos, sensores e usuários. Cada uma é vinculada de uma forma que modela o mundo real. Neste exemplo, o local 43 tem quatro andares, cada um com muitas áreas diferentes. Os usuários estão associados às estações de trabalho e recebem acesso a partes do grafo. Um administrador tem os direitos de fazer alterações no grafo espacial, enquanto um visitante tem direitos para exibir apenas determinados dados de compilação.
 
@@ -41,22 +39,20 @@ Os modelos de objetos do digital gêmeos dão suporte a essas principais categor
 Outras categorias de objetos são:
 
 - Os **recursos** são anexados a um espaço e normalmente representam os recursos do Azure a serem usados por objetos no grafo espacial, `IoTHub`por exemplo,.
-- Os BLOBs são anexados a objetos (como espaços, dispositivos, sensores e usuários). Eles são usados como arquivos com tipo MIME e metadados, por exemplo `maps` `pictures`,, e `manuals`.
+- Os **BLOBs** são anexados a objetos (como espaços, dispositivos, sensores e usuários). Eles são usados como arquivos com tipo MIME e metadados, por exemplo `maps` `pictures`,, e `manuals`.
 - Os **tipos estendidos** são enumerações extensíveis que aumentam as entidades com características `SpaceType` específicas `SpaceSubtype`, por exemplo, e.
 - **Ontologies** representa um conjunto de tipos estendidos, por exemplo `Default`, `Building` `BACnet`,, e `EnergyGrid`.
 - **As chaves de propriedade e os valores** são características personalizadas de espaços, dispositivos, sensores e usuários. Eles podem ser usados junto com características internas, por exemplo, `DeltaProcessingRefreshTime` como chave e `10` como valor.
 - As **funções** são conjuntos de permissões atribuídas a usuários e dispositivos no grafo espacial, por exemplo `Space Administrator` `User Administrator`,, e `Device Administrator`.
-- As atribuições de **função** são a associação entre uma função e um objeto no grafo espacial. Por exemplo, um usuário ou uma entidade de serviço pode receber permissão para gerenciar um espaço no grafo espacial.
-- Os repositórios de **chaves de segurança** fornecem as chaves de segurança para todos os dispositivos na hierarquia em um determinado objeto de espaço para permitir que o dispositivo se comunique com segurança com o gêmeos digital.
+- As **atribuições de função** são a associação entre uma função e um objeto no grafo espacial. Por exemplo, um usuário ou uma entidade de serviço pode receber permissão para gerenciar um espaço no grafo espacial.
+- Os **repositórios de chaves de segurança** fornecem as chaves de segurança para todos os dispositivos na hierarquia em um determinado objeto de espaço para permitir que o dispositivo se comunique com segurança com o gêmeos digital.
 - **Funções definidas pelo usuário** (UDFs) permitir processamento de telemetria de sensor personalizável dentro do grafo espacial. Por exemplo, um UDF pode:
   - Defina um valor de sensor.
   - Execute a lógica personalizada com base nas leituras do sensor e defina a saída como um espaço.
   - Anexe metadados a um espaço.
   - Enviar notificações quando condições predefinidas forem atendidas. Atualmente, as UDFs podem ser escritas em JavaScript.
-- Os correspondências são objetos que determinam quais UDFs são executados para uma determinada mensagem de telemetria.
+- Os **correspondências** são objetos que determinam quais UDFs são executados para uma determinada mensagem de telemetria.
 - Os **pontos de extremidade** são os locais onde as mensagens de telemetria e os eventos de gêmeos digital podem `Event Hub`ser roteados `Event Grid`, por exemplo `Service Bus`,, e.
-
-<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Gráfico de inteligência espacial
 
@@ -82,14 +78,14 @@ Depois de implantar o gêmeos digital do [portal do Azure](https://portal.azure.
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Substituir |
+| Name | Substituir |
 | --- | --- |
 | YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
 | YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
 
  O formato da URL completa aparece nessa imagem.
 
-![API de gerenciamento do digital gêmeos Portal][2]
+(![API de gerenciamento do digital gêmeos Portal](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (Media/Concepts/digital-Twins-Spatial-Graph-Management-API-URL. png # Lightbox)
 
 Para obter mais detalhes sobre como usar grafos de inteligência espacial, visite a versão prévia de APIs de gerenciamento de gêmeos digital do Azure.
 
@@ -101,12 +97,8 @@ Saiba mais sobre [como usar o Swagger](how-to-use-swagger.md).
 
 Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as [convenções de diretrizes da API REST da Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retornam coleções dão suporte a opções de consulta do sistema [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a conectividade do dispositivo e como enviar mensagens de telemetria para gêmeos digital, leia [entrada de conectividade e telemetria do dispositivo gêmeos do Azure digital](concepts-device-ingress.md).
 
 - Para saber mais sobre limitações e restrições da API de gerenciamento, leia [Gerenciamento e limitações do Azure digital gêmeos API](concepts-service-limits.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png

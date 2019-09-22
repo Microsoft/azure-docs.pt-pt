@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ab0a622dcb72072621e6696d423a1d4d2917bedc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813340"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178414"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automático
 
@@ -66,11 +66,11 @@ Para uma única assinatura, há limitações no número de solicitações de res
 Atualmente, não há um método interno para restaurar todo o servidor. O [banco de dados SQL do Azure: O script de](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) recuperação de servidor completo é um exemplo de como você pode realizar essa tarefa.
 
 > [!IMPORTANT]
-> Para recuperar usando backups automatizados, você deve ser membro da função de colaborador de SQL Server na assinatura ou ser o proprietário da assinatura [-consulte RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md). Pode recuperar através do portal do Azure, do PowerShell ou da API REST. Não é possível utilizar Transact-SQL.
+> Para recuperar usando backups automatizados, você deve ser membro da função de colaborador de SQL Server na assinatura ou ser o proprietário da assinatura [-consulte RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando portal do Azure, PowerShell ou a API REST. Não é possível utilizar Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-Você pode restaurar um banco de dados autônomo, em pool ou de instância para um ponto anterior no tempo usando o portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). A solicitação pode especificar qualquer camada de serviço ou tamanho de computação para o banco de dados restaurado. Verifique se você tem recursos suficientes no servidor para o qual você está restaurando o banco de dados. Depois de concluído, um novo banco de dados será criado no mesmo servidor que o banco de dados original. O banco de dados restaurado será cobrado com taxas normais com base em sua camada de serviço e tamanho de computação. Você não incorrerá em encargos até que a restauração do banco de dados seja concluída.
+Você pode restaurar um banco de dados autônomo, em pool ou de instância para um ponto anterior no tempo usando portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). A solicitação pode especificar qualquer camada de serviço ou tamanho de computação para o banco de dados restaurado. Verifique se você tem recursos suficientes no servidor para o qual você está restaurando o banco de dados. Depois de concluído, um novo banco de dados será criado no mesmo servidor que o banco de dados original. O banco de dados restaurado será cobrado com taxas normais com base em sua camada de serviço e tamanho de computação. Você não incorrerá em encargos até que a restauração do banco de dados seja concluída.
 
 Geralmente, você restaura um banco de dados para um ponto anterior para fins de recuperação. Você pode tratar o banco de dados restaurado como uma substituição para o banco de dados original ou usá-lo como um dado de origem para atualizar o banco original.
 
@@ -82,7 +82,7 @@ Geralmente, você restaura um banco de dados para um ponto anterior para fins de
 
   Se você planeja recuperar dados do banco de dado restaurado para se recuperar de um erro de usuário ou aplicativo, você precisa gravar e executar um script de recuperação de dados que extrai dados do banco de dado restaurado e aplica-se ao banco de dado original. Embora a operação de restauração possa levar muito tempo para ser concluída, o banco de dados de restauração fica visível na lista de banco de dados durante o processo de restauração. Se você excluir o banco de dados durante a restauração, a operação de restauração será cancelada e você não será cobrado pelo banco de dados que não concluiu a restauração.
 
-Para recuperar um banco de dados único, em pool ou de instância para um ponto no tempo usando o portal do Azure, abra a página do banco de dados e clique em **restaurar** na barra de ferramentas.
+Para recuperar um banco de dados único, em pool ou de instância para um ponto no tempo usando portal do Azure, abra a página do banco de dados e clique em **restaurar** na barra de ferramentas.
 
 ![tempo de restauração pontual](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -91,7 +91,7 @@ Para recuperar um banco de dados único, em pool ou de instância para um ponto 
 
 ## <a name="deleted-database-restore"></a>Restauração de banco de dados excluída
 
-Você pode restaurar um banco de dados excluído para a hora de exclusão ou para um ponto anterior no mesmo servidor de banco de dados SQL usando o portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)ou o [REST (= Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Você pode [restaurar o banco de dados excluído no instância gerenciada usando o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+Você pode restaurar um banco de dados excluído para a hora de exclusão ou para um ponto anterior no mesmo servidor de banco de dados SQL usando portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)ou o [REST (= Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Você pode [restaurar o banco de dados excluído no instância gerenciada usando o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
 
 > [!TIP]
 > Para obter um exemplo de script do PowerShell mostrando como restaurar um banco de dados excluído, consulte [restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -100,7 +100,7 @@ Você pode restaurar um banco de dados excluído para a hora de exclusão ou par
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>Restauração de banco de dados excluída usando o portal do Azure
 
-Para recuperar um banco de dados excluído usando o portal do Azure, abra a página do servidor e, na área operações, clique em bancos de dados **excluídos**.
+Para recuperar um banco de dados excluído usando portal do Azure, abra a página do servidor e, na área operações, clique em bancos de dados **excluídos**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -117,21 +117,56 @@ A restauração geográfica é a opção de recuperação padrão quando seu ban
 
 ![restauração geográfica](./media/sql-database-geo-restore/geo-restore-2.png)
 
-> [!TIP]
-> Para obter um exemplo de script do PowerShell mostrando como executar uma restauração geográfica, consulte [restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
+### <a name="geo-restore-using-azure-portal"></a>Restauração geográfica usando portal do Azure
+
+O conceito geral para restaurar geograficamente um banco de dados do portal do Azure é executado por meio da criação de um novo banco de dados de instância única ou gerenciada e a seleção de um backup de restauração geográfica disponível na tela criar banco de dados. O banco de dados recém-criado conterá o backup com restauração geográfica.
+
+#### <a name="single-azure-sql-database"></a>Banco de dados SQL do Azure individual
+
+Para restaurar geograficamente um único banco de dados SQL do Azure de portal do Azure na região e no servidor de sua escolha, siga estas etapas:
+
+1. Clique em Adicionar **+ Adicionar** no Marketplace e selecione **criar banco de dados SQL**, preencha as informações necessárias na **guia noções básicas**
+2. Selecione a guia **configurações adicionais**
+3. Em usar dados existentes, clique em **backup**
+4. Selecione um backup na lista suspensa de backups de restauração geográfica disponíveis
+
+![restauração geográfica de um único banco de dados SQL do Azure](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+
+Conclua o processo de criação de um novo banco de dados. Depois que o banco de dados SQL único do Azure for criado, ele conterá o backup de restauração geográfica restaurado.
+
+#### <a name="managed-instance-database"></a>Banco de dados de instância gerenciada
+
+Para restaurar geograficamente a instância gerenciada do banco de dados de portal do Azure para uma instância gerenciada existente em uma região de sua escolha, selecione uma instância gerenciada na qual você deseja que um banco de dados seja restaurado e siga estas etapas:
+
+1. Clique em **+ novo banco de dados**
+2. Digite um nome de banco de dados desejado
+3. Em usar dados existentes selecione a opção **backup**
+4. Selecione um backup na lista suspensa de backups de restauração geográfica disponíveis
+
+![banco de dados de instância gerenciada de restauração geográfica](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+
+Conclua o processo de criação de um novo banco de dados. Depois que o banco de dados de instância for criado, ele conterá o backup de restauração geográfica restaurado.
+
+### <a name="geo-restore-using-powershell"></a>Restauração geográfica usando o PowerShell
+
+#### <a name="single-azure-sql-database"></a>Banco de dados SQL do Azure individual
+
+Para o script do PowerShell mostrando como executar a restauração geográfica para um único banco de dados SQL do Azure, consulte [usar o PowerShell para restaurar um banco de dados do SQL Azure individual para um ponto anterior no tempo](scripts/sql-database-restore-database-powershell.md).
+
+#### <a name="managed-instance-database"></a>Banco de dados de instância gerenciada
+
+Para o script do PowerShell mostrando como executar a restauração geográfica para um banco de dados de instância gerenciada, consulte [usar o PowerShell para restaurar um banco de dados de instância gerenciada para outra região geográfica](scripts/sql-managed-instance-restore-geo-backup.md).
+
+### <a name="geo-restore-considerations"></a>Considerações sobre restauração geográfica
 
 Atualmente, não há suporte para a restauração pontual em um secundário geográfico. A restauração pontual só pode ser feita em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [recuperar de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
 > A restauração geográfica é a solução de recuperação de desastre mais básica disponível no banco de dados SQL. Ele depende de backups replicados geograficamente criados automaticamente com RPO = 1 hora e o tempo de recuperação estimado de até 12 horas. Ele não garante que a região de destino terá a capacidade de restaurar seus bancos de dados após um ourage regional, pois será provável que um aumento preciso da demanda seja. Para um aplicativo não comercialmente crítico que usa bancos de dados relativamente pequenos, a restauração geográfica é uma solução de recuperação de desastre apropriada. Para aplicativos críticos para os negócios que usam grandes bancos de dados e devem garantir a continuidade dos negócios, você deve usar [grupos de failover automático](sql-database-auto-failover-group.md). Ele oferece um RPO e RTO muito menores, e a capacidade é sempre garantida. Para obter mais informações sobre as opções de continuidade de negócios, consulte [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
-### <a name="geo-restore-using-the-azure-portal"></a>Restauração geográfica usando o portal do Azure
-
-Para fazer a restauração geográfica de um banco de dados usando o portal do Azure, abra a página SQL databases e clique em **Adicionar**. Na caixa de texto **selecionar origem** , selecione **backup**. Especifique o backup do qual executar a recuperação na região e no servidor de sua escolha. 
-
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Executando programaticamente a recuperação usando backups automatizados
 
-Conforme discutido anteriormente, além da portal do Azure, a recuperação de banco de dados pode ser realizada programaticamente usando Azure PowerShell ou a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis.
+Conforme discutido anteriormente, além de portal do Azure, a recuperação de banco de dados pode ser realizada programaticamente usando Azure PowerShell ou a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -177,9 +212,9 @@ Para restaurar um banco de dados individual ou em pool usando a API REST:
 
 Os backups automáticos protegem seus bancos de dados contra erros de usuário e aplicativo, exclusão acidental de banco de dados e interrupções prolongadas. Esse recurso interno está disponível para todas as camadas de serviço e tamanhos de computação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
-- Para saber mais sobre backups automatizados do banco [de dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre backups automatizados do banco [](sql-database-automated-backups.md)de dados SQL
 - Para saber mais sobre retenção de longo prazo, confira [retenção de longo prazo](sql-database-long-term-retention.md).
 - Para saber mais sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md) ou [grupos de failover automático](sql-database-auto-failover-group.md).

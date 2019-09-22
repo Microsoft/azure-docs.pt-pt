@@ -1,19 +1,20 @@
 ---
-title: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para a API de Cassandra
-description: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para a API de Cassandra
+title: Azure PowerShell script – Azure Cosmos DB atualização RU/s para API do Cassandra
+description: Azure PowerShell script – Azure Cosmos DB atualização RU/s para API do Cassandra
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9df7884d56acf47d3bb7bdcf7679631713cf2725
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7109c393aa37faf1eaddb37cb2861030ef2900e7
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602529"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178986"
 ---
-# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Atualizar RU/s para um keyspace ou tabela para o Azure Cosmos DB - API de Cassandra
+# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Atualizar RU/s para um keyspace ou uma tabela para Azure Cosmos DB API do Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -43,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

@@ -1,33 +1,30 @@
 ---
-title: Ferramenta Search Explorer para consultar dados em portal do Azure Azure Search
-description: Use ferramentas de portal do Azure como o Search Explorer para consultar índices em Azure Search. Insira os termos de pesquisa ou cadeias de caracteres de pesquisa totalmente qualificadas com sintaxe avançada.
+title: Usar a ferramenta Search Explorer para consultar dados em portal do Azure Azure Search
+description: O Search Explorer é integrado ao portal do Azure, útil para explorar o conteúdo e validar consultas no Azure Search. Insira cadeias de caracteres para pesquisa de termo ou frase ou expressões de pesquisa totalmente qualificadas com sintaxe avançada.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649959"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178145"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Gerenciador de pesquisa para consultar dados em Azure Search 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Use o Gerenciador de pesquisa no portal do Azure para consultar documentos no Azure Search 
 
-Este artigo mostra como consultar um índice de Azure Search existente usando o **Search Explorer** no portal do Azure. Você pode usar o Search Explorer para enviar cadeias de consulta de Lucene simples ou completas para qualquer índice existente em seu serviço. 
+Este artigo mostra como consultar um índice de Azure Search existente usando o **Search Explorer** no portal do Azure. Você pode iniciar o Search Explorer na barra de comandos para enviar expressões de consulta de Lucene simples ou completas para qualquer índice existente em seu serviço. 
 
    ![Comando Search Explorer no portal](./media/search-explorer/search-explorer-cmd2.png "Comando Search Explorer no portal")
 
-
-Para obter ajuda para começar, consulte [iniciar o Gerenciador de pesquisa](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Cadeias de caracteres de pesquisa básica
 
-Os exemplos a seguir pressupõem o índice de exemplo realestate interno. Para obter ajuda para criar esse índice [, consulte início rápido: Importar, indexar e consultar em portal do Azure](search-get-started-portal.md).
+Os exemplos a seguir pressupõem o índice de exemplo interno de imóveis. Você pode criar esse índice usando o assistente para importar dados no portal, escolhendo **exemplos** como a fonte de dados.
 
 ### <a name="example-1---empty-search"></a>Exemplo 1-pesquisa vazia
 
@@ -142,14 +139,14 @@ Dicas para pesquisar no **Gerenciador de pesquisa**:
 
 + Os resultados são retornados como documentos JSON detalhados para que você possa exibir a construção e o conteúdo do documento, em sua totalidade. Você pode usar expressões de consulta, mostradas nos exemplos, para limitar quais campos são retornados.
 
-+ Os documentos são compostos de todos os campos marcados como recuperáveis no índice. Para exibir atributos de índice no portal, clique em *realestate-US-Sample* na lista **índices** na página Visão geral da pesquisa.
++ Os documentos são compostos de todos os campos marcados como **recuperáveis** no índice. Para exibir atributos de índice no portal, clique em *realestate-US-Sample* na lista **índices** na página Visão geral da pesquisa.
 
 + Consultas de forma livre, semelhantes ao que você pode inserir em um navegador da Web comercial, são úteis para testar uma experiência do usuário final. Por exemplo, supondo que o índice de exemplo interno realestate, você poderia inserir "Seattle Apartments Lake Washington" e, em seguida, pode usar Ctrl-F para encontrar os termos nos resultados da pesquisa. 
 
 + Expressões de filtro e consulta devem ser articuladas em uma sintaxe com suporte pelo Azure Search. O padrão é uma [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mas você pode opcionalmente usar o [Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [Expressões de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe OData.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes recursos fornecem informações de sintaxe de consulta adicionais e exemplos.
 

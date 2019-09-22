@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033759"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176950"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -80,7 +80,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, primeiro você 
     ![Linha do tempo de listagem do aplicativo OpenID Connect na Galeria](./media/howto-app-gallery-listing/openid.png)
 
     * Se você quiser adicionar seu aplicativo para listar na Galeria usando o OpenID Connect, selecione **OpenID connect & OAuth 2,0** como acima.
-    * Se você tiver problemas com relação ao acesso, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Se você tiver problemas com relação ao acesso, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2,0** ou **WS-alimentado**: Se seu aplicativo der suporte ao SAML 2,0, você poderá integrá-lo diretamente a um locatário do Azure AD usando as [instruções para adicionar um aplicativo personalizado](../active-directory-saas-custom-apps.md).
 
@@ -98,6 +98,12 @@ Crie um aplicativo Web que tenha uma página de entrada HTML para configurar o [
 * Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de senha, selecione **SSO de senha** como acima.
 * Se você tiver problemas com relação ao acesso, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+## <a name="requesting-for-user-provisioning"></a>Solicitando provisionamento de usuário
+
+Siga o processo abaixo para solicitar o provisionamento de usuários-
+
+   ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
 
 Para atualizar ou remover um aplicativo existente na Galeria de aplicativos do Azure AD, primeiro você precisa enviar a solicitação no [portal de rede do aplicativo](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se você tiver uma conta do Office 365, use-a para entrar neste portal. Caso contrário, use o conta Microsoft (como o Outlook ou hotmail) para entrar.
@@ -106,9 +112,9 @@ Para atualizar ou remover um aplicativo existente na Galeria de aplicativos do A
 
     ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * Se você quiser atualizar um aplicativo existente, selecione **Atualizar listagem de aplicativos existentes**.
-    * Se você quiser remover um aplicativo existente da galeria do Azure AD, selecione **remover listagem de aplicativos existentes**.
-    * Se você tiver problemas com relação ao acesso, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Se você quiser atualizar um aplicativo existente, selecione a opção apropriada de acordo com seu requisito.
+    * Se você quiser remover um aplicativo existente da galeria do Azure AD, selecione **remover minha listagem de aplicativos da Galeria**.
+    * Se você tiver problemas com relação ao acesso, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="listing-requests-by-customers"></a>Listando solicitações por clientes
 
@@ -120,15 +126,15 @@ Abaixo está o fluxo de aplicativos solicitados pelo cliente-
 
 ![Mostra o fluxo de aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Linhas cronológicas
+## <a name="timelines"></a>Linhas
 
 A linha do tempo para o processo de listagem de um aplicativo SAML 2,0 ou WS-enalimentado na galeria é de 7-10 dias úteis.
 
-   ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline.png)
+  ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline.png)
 
 A linha do tempo para o processo de listagem de um aplicativo OpenID Connect na galeria é de 2-5 dias úteis.
 
-   ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline2.png)
+  ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalonamentos
 

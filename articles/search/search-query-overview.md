@@ -7,76 +7,60 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647976"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178038"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
+# <a name="query-types-and-composition-in-azure-search"></a>Tipos de consulta e composição no Azure Search
 
-No Azure Search, uma consulta é uma especificação completa de uma operação de viagem de ida e volta. Os parâmetros na solicitação fornecem critérios de correspondência para localizar documentos em um índice, instruções de execução para o mecanismo e diretivas para formatar a resposta. 
+No Azure Search, uma consulta é uma especificação completa de uma operação de viagem de ida e volta. Os parâmetros na solicitação fornecem critérios de correspondência para localizar documentos em um índice, quais campos incluir ou excluir, instruções de execução passadas para o mecanismo e diretivas para formatar a resposta. Não especificado (`search=*`), uma consulta é executada em todos os campos pesquisáveis como uma operação de pesquisa de texto completo, retornando um conjunto de resultados não pontuados em ordem arbitrária.
 
-Uma solicitação de consulta é uma construção avançada, especificando quais campos estão no escopo, como Pesquisar, quais campos retornar, se deseja classificar ou filtrar e assim por diante. Não especificado, uma consulta é executada em todos os campos pesquisáveis como uma operação de pesquisa de texto completo, retornando um conjunto de resultados não pontuados em ordem arbitrária.
-
-## <a name="apis-and-tools-for-testing"></a>APIs e ferramentas para teste
-
-A tabela a seguir lista as APIs e abordagens baseadas em ferramentas para enviar consultas.
-
-| Metodologia | Descrição |
-|-------------|-------------|
-| [Gerenciador de pesquisa (Portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para as seleções de índice e versão de API. Os resultados são retornados como documentos JSON. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
-| [Postmaster ou Fiddler](search-get-started-postman.md) | As ferramentas de teste na Web são uma excelente opção para chamadas REST formular. A API REST dá suporte a todas as operações possíveis no Azure Search. Neste artigo, saiba como configurar um cabeçalho de solicitação HTTP e o corpo para enviar solicitações para Azure Search.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice de Azure Search.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Pesquisar documentos (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET ou POST em um índice, usando parâmetros de consulta para entrada adicional.  |
-
-## <a name="a-first-look-at-query-requests"></a>Uma primeira olhada nas solicitações de consulta
-
-Exemplos são úteis para introduzir novos conceitos. Como uma consulta representativa construída na [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), este exemplo tem como alvo o [índice de demonstração de imóveis](search-get-started-portal.md) e inclui parâmetros comuns.
+O exemplo a seguir é uma consulta representativa construída na [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Este exemplo visa o [índice de demonstração de hotéis](search-get-started-portal.md) e inclui parâmetros comuns.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** define o analisador, que em Azure Search pode ser o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o analisador de [consulta Lucene completo](search-query-lucene-examples.md) usado para construções de consulta avançada, como expressões regulares, pesquisa de proximidade, difusa e curinga Pesquise, para citar alguns.
++ **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para nomear um pouco.
 
 + **`search`** fornece os critérios de correspondência, geralmente texto, mas geralmente acompanhados por operadores boolianos. Termos autônomos únicos são consultas de *termo* . As consultas de várias partes entre aspas são consultas de *frase-chave* . A pesquisa pode ser indefinida, como **`search=*`** em, mas é mais provável que ela seja composta por termos, frases e operadores semelhantes ao que aparece no exemplo.
 
-+ **`searchFields`** é opcional, usado para restringir a execução da consulta a campos específicos.
++ **`searchFields`** restringe a execução da consulta a campos específicos. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro.
 
-As respostas também são moldadas pelos parâmetros que você inclui na consulta. No exemplo, o conjunto de resultados consiste em campos listados na **`select`** instrução. Somente os 10 principais acertos são retornados nessa consulta, mas **`count`** informa quantos documentos correspondem ao geral. Nessa consulta, as linhas são classificadas por daysOnMarket.
+As respostas também são moldadas pelos parâmetros que você inclui na consulta. No exemplo, o conjunto de resultados consiste em campos listados na **`select`** instrução. Somente os campos marcados como *recuperáveis* podem ser usados em uma instrução $SELECT. Além disso, somente **`top`** os 10 acertos são retornados nessa consulta, **`count`** enquanto informa quantos documentos correspondem geral, o que pode ser maior que o retornado. Nessa consulta, as linhas são classificadas por classificação em ordem decrescente.
 
 No Azure Search, a execução da consulta é sempre em relação a um índice, autenticado usando uma chave de API fornecida na solicitação. Em repouso, ambos são fornecidos nos cabeçalhos de solicitação.
 
 ### <a name="how-to-run-this-query"></a>Como executar esta consulta
 
-Para executar essa consulta, use [o Gerenciador de pesquisa e o índice de demonstração de imóveis](search-get-started-portal.md). 
+Para executar essa consulta, use [o Search Explorer e o índice de demonstração de hotéis](search-get-started-portal.md). 
 
-Você pode colar essa cadeia de caracteres de consulta na barra de pesquisa do Gerenciador:`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+Você pode colar essa cadeia de caracteres de consulta na barra de pesquisa do Gerenciador:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Como as operações de consulta são habilitadas pelo índice
 
 Design de índice e design de consulta são rigidamente acoplados em Azure Search. Um fato essencial para saber antecipadamente é que o *esquema de índice*, com atributos em cada campo, determina o tipo de consulta que você pode criar. 
 
-Atributos de índice em um campo definem as operações permitidas-se um campo é pesquisável no índice, *recuperável* em Results, *classificável*, *filtrável*e assim por diante. Na cadeia de caracteres de consulta `"$orderby": "daysOnMarket"` de exemplo, só funciona porque o campo daysOnMarket está marcado como *classificável* no esquema de índice. 
+Atributos de índice em um campo definem as operações permitidas-se um campo é *pesquisável* no índice, *recuperável* em Results, *classificável*, *filtrável*e assim por diante. Na cadeia de caracteres de consulta `"$orderby": "Rating"` de exemplo, só funciona porque o campo de classificação está marcado como *classificável* no esquema de índice. 
 
-![Definição de índice para o exemplo de espaço real](./media/search-query-overview/realestate-sample-index-definition.png "Definição de índice para o exemplo de espaço real")
+![Definição de índice para o exemplo de Hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para o exemplo de Hotel")
 
-A captura de tela acima é uma lista parcial de atributos de índice para o exemplo de espaço real. Você pode exibir o esquema de índice inteiro no Portal. Para obter mais informações sobre atributos de índice, consulte [criar API REST de índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+A captura de tela acima é uma lista parcial de atributos de índice para o exemplo de hotéis. Você pode exibir o esquema de índice inteiro no Portal. Para obter mais informações sobre atributos de índice, consulte [criar API REST de índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Algumas funcionalidades de consulta são habilitadas para índice em vez de em uma base por campo. Esses recursos incluem: [mapas](search-synonyms.md)de sinônimos, [analisadores personalizados](index-add-custom-analyzers.md), construções de sugestores [(para consultas de preenchimento automático e sugerido)](index-add-suggesters.md), [lógica de Pontuação para resultados de classificação](index-add-scoring-profiles.md).
+> Algumas funcionalidades de consulta são habilitadas para índice em vez de em uma base por campo. Esses recursos incluem: [mapas de sinônimos](search-synonyms.md), [analisadores personalizados](index-add-custom-analyzers.md), [construções de sugestores (para consultas de preenchimento automático e sugerido)](index-add-suggesters.md), [lógica de Pontuação para resultados de classificação](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementos de uma solicitação de consulta
 
@@ -92,22 +76,33 @@ Os elementos necessários em uma solicitação de consulta incluem os seguintes 
 
 Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista completa de atributos, consulte [criar índice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Para uma análise mais detalhada de como os parâmetros são usados durante o processamento, consulte [como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md).
 
+## <a name="choose-apis-and-tools"></a>Escolher APIs e ferramentas
+
+A tabela a seguir lista as APIs e abordagens baseadas em ferramentas para enviar consultas.
+
+| Metodologia | Descrição |
+|-------------|-------------|
+| [Gerenciador de pesquisa (Portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para as seleções de índice e versão de API. Os resultados são retornados como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
+| [O postmaster ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste na Web são uma excelente opção para chamadas REST formular. A API REST dá suporte a todas as operações possíveis no Azure Search. Neste artigo, saiba como configurar um cabeçalho de solicitação HTTP e o corpo para enviar solicitações para Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice de Azure Search.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Pesquisar documentos (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET ou POST em um índice, usando parâmetros de consulta para entrada adicional.  |
+
 ## <a name="choose-a-parser-simple--full"></a>Escolha um analisador: simples | completo
 
 Azure Search se encontra na parte superior do Apache Lucene e oferece a você uma opção entre dois analisadores de consulta para lidar com consultas típicas e especializadas. As solicitações que usam o analisador simples são formuladas usando a [sintaxe de consulta simples](query-simple-syntax.md), selecionada como o padrão para sua velocidade e eficácia em consultas de texto de forma livre. Essa sintaxe oferece suporte a vários operadores de pesquisa comuns, incluindo os operadores e, ou, não, frase, sufixo e precedência.
 
 A [sintaxe de consulta Lucene completa](query-Lucene-syntax.md#bkmk_syntax), habilitada quando `queryType=full` você adiciona à solicitação, expõe a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). A sintaxe completa estende a sintaxe simples. Qualquer consulta que você escreve para a sintaxe simples é executada no analisador Lucene completo. 
 
-Os exemplos a seguir ilustram o ponto: a mesma consulta, mas com configurações de QueryType diferentes, produzem resultados diferentes. Na primeira consulta, o `^3` é tratado como parte do termo de pesquisa.
+Os exemplos a seguir ilustram o ponto: a mesma consulta, mas com configurações de QueryType diferentes, produzem resultados diferentes. Na primeira consulta, o `^3` After `historic` é tratado como parte do termo de pesquisa. O resultado mais classificado para essa consulta é "Marquis pedágio & Suites", que tem o *oceano* em sua descrição
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-A mesma consulta que usa o analisador Lucene completo interpreta o aumento no campo em "Ranch", que aumenta a classificação de pesquisa de resultados que contêm esse termo específico.
+A mesma consulta `^3` que usa o analisador Lucene completo interpreta como um preforçador de termo em campo. A alternância de analisadores altera a classificação, com os resultados que contêm o termo *histórico* movendo para a parte superior.
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>
@@ -118,8 +113,8 @@ O Azure Search dá suporte a uma ampla variedade de tipos de consulta.
 
 | Tipo de consulta | Utilização | Exemplos e mais informações |
 |------------|--------|-------------------------------|
-| Pesquisa de texto de forma livre | Parâmetro de pesquisa e o analisador| A pesquisa de texto completo procura um ou mais termos em todos os campos pesquisáveis em seu índice e funciona da forma como você esperaria que um mecanismo de pesquisa como o Google ou o Bing funcionasse. O exemplo na introdução é pesquisa de texto completo.<br/><br/>A pesquisa de texto completo passa por uma análise de texto usando o analisador Lucene padrão (por padrão) para reduzir todos os termos, remover palavras de parada como "a". Você pode substituir o padrão por analisadores [não-inglês](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores independentes de linguagem especializada](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise de texto. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. Isso é útil para dados como CEPs, IDs e alguns nomes de produtos. | 
-| Pesquisa filtrada | [Expressão de filtro OData](query-odata-filter-orderby-syntax.md) e um analisador | As consultas de filtro avaliam uma expressão booliana em todos os campos filtráveis em um índice. Ao contrário da pesquisa, uma consulta de filtro corresponde ao conteúdo exato de um campo, incluindo a diferenciação de maiúsculas e minúsculas nos campos de cadeia de caracteres. Outra diferença é que as consultas de filtro são expressas na sintaxe do OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
+| Pesquisa de texto de forma livre | Parâmetro de pesquisa e o analisador| A pesquisa de texto completo procura um ou mais termos em todos os campos *pesquisáveis* em seu índice e funciona da forma como você esperaria que um mecanismo de pesquisa como o Google ou o Bing funcionasse. O exemplo na introdução é pesquisa de texto completo.<br/><br/>A pesquisa de texto completo passa por uma análise de texto usando o analisador Lucene padrão (por padrão) para reduzir todos os termos, remover palavras de parada como "a". Você pode substituir o padrão por analisadores [não-inglês](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores independentes de linguagem especializada](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise de texto. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. Isso é útil para dados como CEPs, IDs e alguns nomes de produtos. | 
+| Pesquisa filtrada | [Expressão de filtro OData](query-odata-filter-orderby-syntax.md) e um analisador | As consultas de filtro avaliam uma expressão booliana em todos os campos *filtráveis* em um índice. Ao contrário da pesquisa, uma consulta de filtro corresponde ao conteúdo exato de um campo, incluindo a diferenciação de maiúsculas e minúsculas nos campos de cadeia de caracteres. Outra diferença é que as consultas de filtro são expressas na sintaxe do OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Pesquisa geográfica | [EDM. GeographyPoint tipo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) no campo, expressão de filtro e qualquer analisador | As coordenadas armazenadas em um campo com um EDM. GeographyPoint são usadas para "localizar perto de mim" ou controles de pesquisa baseados em mapa. <br/>[Exemplo de pesquisa geográfica](search-query-simple-examples.md#example-5-geo-search)|
 | Pesquisa de intervalo | expressão de filtro e analisador simples | Em Azure Search, as consultas de intervalo são criadas usando o parâmetro de filtro. <br/>[Exemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
 | [Pesquisa em campo](query-lucene-syntax.md#bkmk_fields) | Parâmetro de pesquisa e analisador completo | Crie uma expressão de consulta composta direcionada a um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-2-fielded-search) |

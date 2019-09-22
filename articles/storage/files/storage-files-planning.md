@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3140aff93c9afcf9a911fe1f381859ff93efef14
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036339"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178353"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -215,6 +215,7 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |East US        |LRS     |Não    |Ainda não|
 |França Central |LRS, ZRS|Não    |LRS-Sim, ZRS-ainda não|
 |Sul de França   |LRS     |Não    |Sim|
+|Europa do Norte   |LRS     |Não    |Sim|
 |Sul da Índia    |LRS     |Não    |Ainda não|
 |Sudeste Asiático |LRS, ZRS|Não    |Sim|
 |EUA Centro-Oeste|LRS     |Não    |Ainda não|
@@ -273,7 +274,7 @@ Há muitas opções fáceis para transferir dados em massa de um compartilhament
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

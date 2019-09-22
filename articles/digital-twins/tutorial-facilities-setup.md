@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: eebf6f58000178f2aa8021fbd435aa863fb70e49
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622993"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177202"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar o Azure digital gêmeos Preview e configurar um grafo espacial
 
@@ -43,15 +43,11 @@ Estes tutoriais utilizam e modificam os mesmos exemplos que o artigo [Quickstart
 
 - [Visual Studio Code](https://code.visualstudio.com/), para explorar o código de exemplo. 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>Implementar o Digital Twins
 
 Utilize os passos nesta secção para criar uma nova instância do serviço duplos Digital do Azure. Pode ser criada apenas uma instância por subscrição. Se já tiver um executado, avance para a secção seguinte. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Conceder permissões à sua aplicação
 
@@ -76,7 +72,7 @@ Se já tiver transferido os exemplos para [Quickstart to find available rooms](q
 
 Na pasta de exemplo extraídos, abra o ficheiro **digital-twins-samples-csharp\digital-twins-samples.code-workspace** no Visual Studio Code. Inclui dois projetos:
 
-* Pode utilizar o exemplo de aprovisionamento **ocupação-quickstart** para configurar e aprovisionar um [gráfico de inteligência geográficos](concepts-objectmodel-spatialgraph.md#graph). Este gráfico é a imagem digitais de seus espaços de físicos e os recursos nas mesmas. Ele usa um [modelo de objeto](concepts-objectmodel-spatialgraph.md#model), que define objetos para um edifício inteligente. Para obter uma lista completa de objetos duplos Digital e REST APIs, visite [esta documentação da REST API](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou o URL da API de gestão que foi criada para [sua instância](#deploy).
+* Pode utilizar o exemplo de aprovisionamento **ocupação-quickstart** para configurar e aprovisionar um [gráfico de inteligência geográficos](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Este gráfico é a imagem digitais de seus espaços de físicos e os recursos nas mesmas. Ele usa um [modelo de objeto](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), que define objetos para um edifício inteligente. Para obter uma lista completa de objetos duplos Digital e REST APIs, visite [esta documentação da REST API](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou o URL da API de gestão que foi criada para [sua instância](#deploy-digital-twins).
 
    Para explorar o exemplo para ver como ele se comunica com a instância de duplos Digital, pode começar com o **src\actions** pasta. Os ficheiros nesta pasta implementam os comandos que utilizará estes tutoriais:
     - O **provisionSample.cs** ficheiro mostra como aprovisionar o seu gráfico espacial.
@@ -101,17 +97,15 @@ Na pasta de exemplo extraídos, abra o ficheiro **digital-twins-samples-csharp\d
     ```
 
 1. No Visual Studio Code, abra a [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) de ficheiros a **ocupação-quickstart** projeto. Atualize os valores seguintes:
-   * **ClientId**: Insira a ID do aplicativo do registro do aplicativo do Azure AD. Observou este ID na secção onde [definir permissões de aplicação](#permissions).
-   * **Locatário**: Insira a ID de diretório do seu [locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Também observa que este ID na secção onde [definir permissões de aplicação](#permissions).
-   * **BaseUrl**: Insira a URL da sua instância de gêmeos digital. Para obter essa URL, substitua os espaços reservados nesta URL pelos valores da sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy). Substitua **swagger /** com **api/v1.0/** .
+   * **ClientId**: Insira a ID do aplicativo do registro do aplicativo do Azure AD. Observou este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
+   * **Locatário**: Insira a ID de diretório do seu [locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Também observa que este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
+   * **BaseUrl**: Insira a URL da sua instância de gêmeos digital. Para obter essa URL, substitua os espaços reservados nesta URL pelos valores da sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy-digital-twins). Substitua **swagger /** com **api/v1.0/** .
 
 1. Ver uma lista das funcionalidades de duplos Digital que pode ser explorado utilizando o exemplo. Execute o seguinte comando:
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Compreender o processo de aprovisionamento
 

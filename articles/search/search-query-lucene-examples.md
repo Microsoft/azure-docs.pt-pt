@@ -1,5 +1,5 @@
 ---
-title: Exemplos de consulta do Lucene – Azure Search
+title: Usar sintaxe de consulta Lucene completa-Azure Search
 description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa de proximidade, aumento de termo, pesquisa de expressão regular e pesquisas de curinga em um serviço de Azure Search.
 author: HeidiSteen
 manager: nitinme
@@ -7,24 +7,24 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fcfc668022d0d8fc74258657bb93642aec49bd08
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648226"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178152"
 ---
-# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "completa" do Lucene (consultas avançadas no Azure Search)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Use a sintaxe de pesquisa "completa" do Lucene (consultas avançadas no Azure Search)
 
-Ao construir consultas para Azure Search, você pode substituir o analisador de [consulta simples](query-simple-syntax.md) padrão pelo analisador de [consulta Lucene mais avançado no Azure Search](query-lucene-syntax.md) para formular definições de consulta especializadas e avançadas. 
+Ao construir consultas para Azure Search, você pode substituir o [analisador de consulta simples](query-simple-syntax.md) padrão pelo [analisador de consulta Lucene mais avançado no Azure Search](query-lucene-syntax.md) para formular definições de consulta especializadas e avançadas. 
 
 O analisador Lucene dá suporte a construções de consultas complexas, como consultas com escopo de campo, pesquisa de curingas difusas e de prefixo, pesquisa por proximidade, aumento de termo e pesquisa de expressão regular. O poder adicional é fornecido com requisitos de processamento adicionais, portanto, você deve esperar um tempo de execução um pouco mais longo. Neste artigo, você pode percorrer exemplos demonstrando as operações de consulta disponíveis ao usar a sintaxe completa.
 
 > [!Note]
-> Muitas das construções de consulta especializadas habilitadas por meio da sintaxe de consulta Lucene completa não são analisadas por [texto](search-lucene-query-architecture.md#stage-2-lexical-analysis), o que pode ser surpreendente se você esperar lematização ou lematização. A análise lexical só é realizada em termos completos (uma consulta de termo ou consulta de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de caractere curinga, consulta de Regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação executada em termos de consulta incompletos está em letras minúsculas. 
+> Muitas das construções de consulta especializadas habilitadas por meio da sintaxe de consulta Lucene completa não são [analisadas por texto](search-lucene-query-architecture.md#stage-2-lexical-analysis), o que pode ser surpreendente se você esperar lematização ou lematização. A análise lexical só é realizada em termos completos (uma consulta de termo ou consulta de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de caractere curinga, consulta de Regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação executada em termos de consulta incompletos está em letras minúsculas. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Formular solicitações no postmaster
@@ -181,7 +181,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 
 > [!Note]
-> As consultas difusas não [](search-lucene-query-architecture.md#stage-2-lexical-analysis)são analisadas. Tipos de consulta com termos incompletos (consulta de prefixo, consulta de caractere curinga, consulta de Regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação executada em termos de consulta incompletos está em letras minúsculas.
+> As consultas difusas não são [analisadas](search-lucene-query-architecture.md#stage-2-lexical-analysis). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de caractere curinga, consulta de Regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação executada em termos de consulta incompletos está em letras minúsculas.
 >
 
 ## <a name="example-4-proximity-search"></a>Exemplo 4: Pesquisa de proximidade
@@ -257,7 +257,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
   ![Consulta Regex](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> As consultas Regex não [](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)são analisadas. A única transformação executada em termos de consulta incompletos está em letras minúsculas.
+> As consultas Regex não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A única transformação executada em termos de consulta incompletos está em letras minúsculas.
 >
 
 ## <a name="example-7-wildcard-search"></a>Exemplo 7: Pesquisa de curinga
@@ -279,7 +279,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
   ![Consulta curinga](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> As consultas curinga não [](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)são analisadas. A única transformação executada em termos de consulta incompletos está em letras minúsculas.
+> As consultas curinga não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A única transformação executada em termos de consulta incompletos está em letras minúsculas.
 >
 
 ## <a name="next-steps"></a>Passos seguintes

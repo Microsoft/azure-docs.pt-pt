@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091738"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179086"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do Azure HDInsight para o Apache HBase
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+Siga etapas semelhantes ao reduzir verticalmente o cluster: Libere as tabelas e desabilite as tabelas para interromper os dados de entrada. Não é possível reduzir verticalmente o cluster para menos de três nós.
+
+Seguir essas etapas garantirá uma redução bem-sucedida da escala e evitará a possibilidade de um namenode entrar no modo de segurança devido a arquivos temporários ou replicados.
+
+Se o seu namenode entrar em modo de segurança após uma redução para baixo, use os comandos do HDFS para replicar novamente os blocos em replicação e obtenha o HDFS fora do modo seguro. Essa rereplicação permitirá que você reinicie o HBase com êxito.
 
 ## <a name="next-steps"></a>Passos seguintes
 

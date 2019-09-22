@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861250"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178189"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Endereços IP do gerenciamento de API do Azure
 
@@ -61,7 +61,7 @@ Em [implantações de várias regiões](api-management-howto-deploy-multi-region
 
 Se o serviço de gerenciamento de API estiver dentro de uma rede virtual, ele terá dois tipos de endereços IP – público e privado.
 
-Os endereços IP públicos são usados para comunicação interna na `3443` porta-para gerenciar a configuração (por exemplo, por meio de Azure Resource Manager). Além disso, quando uma solicitação é enviada do gerenciamento de API para um back-end voltado para o público (voltado para a Internet), um endereço IP público ficará visível como a origem da solicitação.
+Os endereços IP públicos são usados para comunicação interna na `3443` porta-para gerenciar a configuração (por exemplo, por meio de Azure Resource Manager). Na configuração de VNET externa, eles também são usados para o tráfego de API de tempo de execução. Quando uma solicitação é enviada do gerenciamento de API para um back-end voltado para o público (voltado para a Internet), um endereço IP público ficará visível como a origem da solicitação.
 
 Endereços VIP (IP virtual privado) são usados para se conectar de dentro da rede a pontos de extremidade de gerenciamento de API-gateways, portal do desenvolvedor e plano de gerenciamento para acesso direto à API. Você pode usá-los para configurar os registros DNS na rede.
 

@@ -7,12 +7,12 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 8d679a95cc89c2ae7774b7f7b51b9d0aadd89d12
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b28e8e4dccf75d36b318e838e35de23d176c5c23
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390964"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176731"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Criar um aplicativo node. js no Azure
 
@@ -30,7 +30,7 @@ Você também precisará instalar a [extensão de serviço Azure app](vscode:ext
 
 Depois que a extensão for instalada, faça logon em sua conta do Azure. Na barra de atividades, clique no logotipo do Azure para mostrar o Gerenciador do **serviço de aplicativo do Azure** . Clique em **entrar no Azure...** e siga as instruções.
 
-![entrar no Azure](./media/quickstart-nodejs/sign-in.png)
+![Entrar no Azure](./media/quickstart-nodejs/sign-in.png)
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
@@ -168,27 +168,19 @@ Quando solicitado, escolha habilitar registro em log e reiniciar o aplicativo. D
 
 ![Habilitar registro em log e reiniciar](./media/quickstart-nodejs/enable-restart.png)
 
-Após alguns segundos, você verá uma mensagem indicando que você está conectado ao serviço de streaming de log.
+Após alguns segundos, você verá uma mensagem indicando que você está conectado ao serviço de streaming de log. Atualize a página algumas vezes para ver mais atividades.
 
-```bash
-Connecting to log-streaming service...
-2017-12-21 17:33:51.428 INFO  - Container practical-mustache_2 for site practical-mustache initialized successfully.
-2017-12-21 17:33:56.500 INFO  - Container logs
-```
-
-Atualize a página algumas vezes no navegador para ver a saída do log.
-
-```bash
-2017-12-21 17:35:17.774 INFO  - Container logs
-2017-12-21T17:35:14.955412230Z GET / 304 141.798 ms - -
-2017-12-21T17:35:15.248930479Z GET /stylesheets/style.css 304 3.180 ms - -
-2017-12-21T17:35:15.378623115Z GET /favicon.ico 404 53.839 ms - 995
-```
+    ```bash
+    2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+    2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+    2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+    2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+    ```
 
 > [!div class="nextstepaction"]
 > [Ocorreu um problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, você concluiu com êxito este guia de início rápido!
 

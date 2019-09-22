@@ -1,19 +1,20 @@
 ---
-title: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para a MongoDB API
-description: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para a MongoDB API
+title: Azure PowerShell script – Azure Cosmos DB atualizar RU/s para API do MongoDB
+description: Azure PowerShell script – Azure Cosmos DB atualizar RU/s para API do MongoDB
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 517857116bf077814b936e5d7ecb54d841959657
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d2dd99d5a5f1d0f03c5fe4980fde376ffdd55bca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603876"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178829"
 ---
-# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>RU/s de atualização para uma base de dados ou uma coleção para o Azure Cosmos DB - API de MongoDB
+# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Atualizar RU/s para um banco de dados ou uma coleção para a API Azure Cosmos DB MongoDB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -43,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

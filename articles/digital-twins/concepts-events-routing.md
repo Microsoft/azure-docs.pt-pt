@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a013525109fe85ad70e5aaa5895da20f5abc3237
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638525"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177081"
 ---
 # <a name="routing-events-and-messages"></a>Encaminhar eventos e mensagens
 
@@ -29,7 +29,7 @@ O Azure digital gêmeos oferece duas maneiras de conectar eventos de IoT com out
 
 Os usuários podem especificar um ou mais pontos de extremidade de saída para enviar eventos ou para encaminhar mensagens. Os eventos e as mensagens serão enviados para os pontos de extremidade de acordo com essas preferências de roteamento predefinidas. Em outras palavras, os usuários podem especificar um determinado ponto de extremidade para receber eventos de operação de grafo, outro para receber eventos de telemetria de dispositivo e assim por diante.
 
-![Roteamento de eventos do gêmeos digital do Azure][1]
+[![Roteamento de eventos do gêmeos digital do Azure](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 O roteamento para hubs de eventos mantém a ordem em que as mensagens de telemetria são enviadas. Portanto, eles chegam ao ponto de extremidade na mesma sequência que foram recebidos originalmente. A grade de eventos e o barramento de serviço não garantem que os pontos de extremidade receberão eventos na mesma ordem em que ocorreram. No entanto, o esquema de evento inclui um carimbo de data/hora que pode ser usado para identificar a ordem depois que os eventos chegam ao ponto de extremidade.
 
@@ -41,7 +41,7 @@ O serviço de gêmeos digital do Azure atualmente dá suporte ao seguinte **Endp
 * **ServiceBus** é o ponto de extremidade de cadeia de conexão do barramento de serviço.
 * **EventGrid** é o ponto de extremidade da cadeia de conexão da grade de eventos.
 
-Atualmente, o Azure digital gêmeos dá suporte aos seguintes EventTypes que serão enviados para o ponto de extremidade escolhido:
+Atualmente, o Azure digital gêmeos dá suporte aos seguintes **EventTypes** que serão enviados para o ponto de extremidade escolhido:
 
 * **DeviceMessages** são mensagens de telemetria enviadas dos dispositivos dos usuários e encaminhadas pelo sistema.
 * **TopologyOperation** é uma operação que altera o grafo ou os metadados do grafo. Um exemplo é adicionar ou excluir uma entidade, como um espaço.
@@ -51,7 +51,7 @@ Atualmente, o Azure digital gêmeos dá suporte aos seguintes EventTypes que ser
 
 > [!IMPORTANT]  
 > Nem todos os **EndpointTypes** dão suporte a todos os **EventTypes**.
-> Consulte a tabela a seguir para os EventTypes que são permitidos para cada **ponto de extremidade**.
+> Consulte a tabela a seguir para os **EventTypes** que são permitidos para cada **ponto de extremidade**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,11 +62,8 @@ Atualmente, o Azure digital gêmeos dá suporte aos seguintes EventTypes que ser
 >[!NOTE]  
 >Para obter mais informações sobre como criar pontos de extremidade e exemplos de esquema de eventos, consulte [saída e pontos de extremidade](how-to-egress-endpoints.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre os limites de visualização do Azure digital gêmeos, consulte [limites de serviço de visualização pública](concepts-service-limits.md).
 
 - Para experimentar um exemplo de gêmeos digital do Azure, consulte o guia de [início rápido para localizar as salas disponíveis](quickstart-view-occupancy-dotnet.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-events-routing.png

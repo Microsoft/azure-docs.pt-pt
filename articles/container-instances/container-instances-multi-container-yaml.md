@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325820"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178564"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implantar um grupo de vários contêineres usando um arquivo YAML
 
@@ -24,7 +24,7 @@ ms.locfileid: "68325820"
 
 As instâncias de contêiner do Azure dão suporte à implantação de vários contêineres em um único host usando um [grupo](container-instances-container-groups.md)de contêineres. Um grupo de contêineres é útil ao criar um aplicativo sidecar para registro em log, monitoramento ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
 
-Neste tutorial, você seguirá as etapas para executar uma configuração simples de sidecar de dois contêineres implantando um arquivo YAML usando o CLI do Azure. Um arquivo YAML fornece um formato conciso para especificar as configurações de instância. Saiba como:
+Neste tutorial, você seguirá as etapas para executar uma configuração simples de sidecar de dois contêineres implantando um [arquivo YAML](container-instances-reference-yaml.md) usando o CLI do Azure. Um arquivo YAML fornece um formato conciso para especificar as configurações de instância. Saiba como:
 
 > [!div class="checklist"]
 > * Configurar um arquivo YAML
@@ -126,7 +126,7 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-container-logs"></a>Ver registos de contentor
+## <a name="view-container-logs"></a>Ver registos do contentor
 
 Exiba a saída de log de um contêiner usando o comando [AZ container logs][az-container-logs] . O `--container-name` argumento especifica o contêiner do qual efetuar pull de logs. Neste exemplo, o `aci-tutorial-app` contêiner é especificado.
 
@@ -171,7 +171,7 @@ Connection: keep-alive
 
 Como você pode ver, o sidecar está periodicamente fazendo uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo para garantir que ele esteja em execução. Este exemplo de sidecar poderia ser expandido para disparar um alerta se ele recebeu um código de resposta `200 OK`http diferente de.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você usou um arquivo YAML para implantar um grupo de vários contêineres em instâncias de contêiner do Azure. Aprendeu a:
 

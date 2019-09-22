@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142338"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178619"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com Azure Data Factory
 
@@ -52,6 +52,10 @@ Você pode visualizar todas as execuções de depuração que estão em andament
 
 ![Lista de exemplos de execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image2.png)
 
+Se você tiver sessões de depuração de fluxo de dados ativas, essas sessões serão exibidas na parte inferior da janela de depuração ativa. Você pode selecionar uma sessão de fluxo de dados ativa e parar o respectivo cluster.
+
+![Lista de exemplos de execuções de depuração de fluxo de dados ativas](media/data-flow/dfsessions.png)
+
 ## <a name="monitoring-debug-runs"></a>Monitorando execuções de depuração
 
 As execuções de teste iniciadas com a capacidade de **depuração** não estão disponíveis na lista na guia **Monitor** . Você só pode ver execuções disparadas com gatilhos de **janela** de **gatilho agora**, **agendamento**ou em cascata na guia **monitorar** . Você pode ver a última execução de teste iniciada com a capacidade de **depuração** na janela **saída** da tela do pipeline.
@@ -70,5 +74,5 @@ Depois de selecionar a opção *depurar até* , ela é alterada para um círculo
 
 ![Depois de definir um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Integração e implantação contínuas no Azure Data Factory](continuous-integration-deployment.md)

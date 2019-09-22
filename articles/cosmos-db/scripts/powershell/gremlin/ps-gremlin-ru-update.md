@@ -1,19 +1,20 @@
 ---
-title: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para o API do Gremlin
-description: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para o API do Gremlin
+title: Azure PowerShell script – Azure Cosmos DB atualização RU/s para API Gremlin
+description: Azure PowerShell script – Azure Cosmos DB atualização RU/s para API Gremlin
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 70fc0f0357a091e990a2c11f39985d7b7e60cd6c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 85344d4a8f37bfa34ab14d2dfb9152860973dd1a
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603922"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178914"
 ---
-# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>RU/s de atualização para uma base de dados ou um gráfico para o Azure Cosmos DB - Gremlin API
+# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Atualizar RU/s para um banco de dados ou grafo para a API Azure Cosmos DB-Gremlin
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -43,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

@@ -16,14 +16,14 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965222"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176830"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory logon único contínuo: Início rápido
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory logon único contínuo: Guia de introdução
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implantar o logon único contínuo
 
@@ -203,7 +203,7 @@ O SSO contínuo não funciona no modo de navegação particular nos navegadores 
 
 Para testar o recurso para um usuário específico, verifique se todas as condições a seguir estão em vigor:
   - O usuário entra em um dispositivo corporativo.
-  - O dispositivo está ingressado em seu domínio de Active Directory. O dispositivo _não_ precisa ser ingressado no [Azure ad](../active-directory-azureadjoin-overview.md).
+  - O dispositivo está ingressado em seu domínio de Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure ad](../active-directory-azureadjoin-overview.md).
   - O dispositivo tem uma conexão direta com seu DC (controlador de domínio), seja na rede corporativa com ou sem fio ou por meio de uma conexão de acesso remoto, como uma conexão VPN.
   - Você [distribuiu o recurso](##step-3-roll-out-the-feature) para esse usuário por meio de política de grupo.
 
@@ -221,7 +221,7 @@ Na etapa 2, Azure AD Connect cria contas de computador (representando o Azure AD
 >[!IMPORTANT]
 >A chave de descriptografia Kerberos em uma conta de computador, se vazada, pode ser usada para gerar tíquetes Kerberos para qualquer usuário em sua floresta do AD. Os atores mal-intencionados podem representar as entradas do Azure AD para usuários comprometidos. É altamente recomendável que você reverta periodicamente essas chaves de descriptografia Kerberos: pelo menos uma vez a cada 30 dias.
 
-Para obter instruções sobre como sobrepor chaves, consulte [Azure Active Directory logon único contínuo: Perguntas](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)frequentes. Estamos trabalhando em uma capacidade de introduzir a substituição automatizada de chaves.
+Para obter instruções sobre como sobrepor chaves, consulte [Azure Active Directory logon único contínuo: Perguntas](how-to-connect-sso-faq.md)frequentes. Estamos trabalhando em uma capacidade de introduzir a substituição automatizada de chaves.
 
 >[!IMPORTANT]
 >Você não precisa fazer essa etapa _imediatamente_ depois de habilitar o recurso. Passe as chaves de descriptografia Kerberos pelo menos uma vez a cada 30 dias.

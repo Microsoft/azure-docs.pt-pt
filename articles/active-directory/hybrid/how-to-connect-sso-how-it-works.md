@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Totalmente integrado Single Sign-On - como funciona | Documentos da Microsoft'
-description: Este artigo descreve como funciona o recurso do Azure Active Directory totalmente integrada início de sessão único.
+title: 'Azure AD Connect: Logon único contínuo-como funciona | Microsoft Docs'
+description: Este artigo descreve como o Azure Active Directory recurso de logon único contínuo funciona.
 services: active-directory
-keywords: o que é o Azure AD Connect, a instalação do Active Directory, necessário componentes para o Azure AD, SSO, Single Sign-on
+keywords: o que é Azure AD Connect, instalar Active Directory, componentes necessários para o Azure AD, SSO, logon único
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -16,86 +16,86 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242317"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176669"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>O Azure Active Directory totalmente integrada início de sessão único: Análise técnica aprofundada
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory logon único contínuo: Aprofundamento técnico
 
-Este artigo fornece detalhes técnicos sobre como funciona o recurso do Azure Active Directory totalmente integrada início de sessão único (SSO totalmente integrado).
+Este artigo fornece detalhes técnicos sobre como o recurso de Azure Active Directory logon único contínuo (SSO contínuo) funciona.
 
-## <a name="how-does-seamless-sso-work"></a>Como funciona o SSO totalmente integrado?
+## <a name="how-does-seamless-sso-work"></a>Como funciona o SSO contínuo?
 
-Esta secção tem três partes a ele:
+Esta seção tem três partes:
 
-1. A configuração do recurso SSO totalmente integrado.
-2. Como uma transação de início de sessão do utilizador único num navegador da web funciona com o SSO totalmente integrado.
-3. Como uma transação de início de sessão do utilizador único num cliente nativo funciona com o SSO totalmente integrado.
+1. A configuração do recurso SSO contínuo.
+2. Como uma transação de entrada de usuário único em um navegador da Web funciona com o SSO contínuo.
+3. Como uma transação de entrada de usuário único em um cliente nativo funciona com o SSO contínuo.
 
 ### <a name="how-does-set-up-work"></a>Como configurar o trabalho?
 
-SSO totalmente integrado é ativada através do Azure AD Connect, conforme mostrado [aqui](how-to-connect-sso-quick-start.md). Ao ativar a funcionalidade, ocorrem os seguintes passos:
+O SSO contínuo é habilitado usando Azure AD Connect, como mostrado [aqui](how-to-connect-sso-quick-start.md). Ao habilitar o recurso, ocorrem as seguintes etapas:
 
-- Uma conta de computador (`AZUREADSSOACC`) é criado na sua no local do Active Directory (AD) em cada floresta do AD que sincronizar com o Azure AD (com o Azure AD Connect).
-- Além disso, um número de nomes de principal de serviço (SPNs) Kerberos é criado para ser usado durante o processo de início de sessão do Azure AD.
-- Chave de desencriptação do Kerberos da conta de computador é compartilhado de forma segura com o Azure AD. Se existirem várias florestas do AD, cada conta de computador terá sua própria chave de desencriptação do Kerberos exclusivo.
+- Uma conta de computador`AZUREADSSOACC`() é criada no seu Active Directory local (AD) em cada floresta do AD que você sincroniza com o Azure AD (usando Azure ad Connect).
+- Além disso, um número de nomes de entidade de serviço (SPNs) Kerberos é criado para ser usado durante o processo de entrada do Azure AD.
+- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada conta de computador terá sua própria chave de descriptografia Kerberos exclusiva.
 
 >[!IMPORTANT]
-> O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada e que nenhuma outra conta no Active Directory tem permissões de delegação no `AZUREADSSOACC` conta de computador.... Store a conta de computador numa unidade organizacional (UO) onde eles estejam protegidos contra eliminações acidentais e, em que apenas os administradores de domínio têm acesso. A chave de desencriptação do Kerberos da conta de computador também deve ser tratada como confidenciais. É altamente recomendável que [o rollover da chave de desencriptação do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) do `AZUREADSSOACC` conta de computador, pelo menos, a cada 30 dias.
+> A `AZUREADSSOACC` conta do computador precisa estar fortemente protegida por motivos de segurança. Somente administradores de domínio devem ser capazes de gerenciar a conta de computador. Verifique se a delegação de Kerberos na conta do computador está desabilitada e se nenhuma outra conta no Active Directory tem permissões de `AZUREADSSOACC` delegação na conta do computador. Armazene a conta de computador em uma UO (unidade organizacional) em que elas estão protegidas contra exclusões acidentais e em que somente administradores de domínio têm acesso. A chave de descriptografia Kerberos na conta do computador também deve ser tratada como confidencial. É altamente recomendável que você [reverta a chave de descriptografia Kerberos](how-to-connect-sso-faq.md) da `AZUREADSSOACC` conta do computador pelo menos a cada 30 dias.
 
-Assim que a configuração estiver concluída, o SSO totalmente integrado funciona da mesma forma que qualquer outro início de sessão que utiliza autenticação integrada do Windows (IWA).
+Após a conclusão da instalação, o SSO contínuo funciona da mesma maneira que qualquer outra entrada que usa a autenticação integrada do Windows (IWA).
 
-### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Como iniciar sessão num navegador da web com o trabalho de SSO totalmente integrado?
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Como a entrada em um navegador da Web com o SSO contínuo funciona?
 
-O fluxo de início de sessão num navegador da web é o seguinte:
+O fluxo de entrada em um navegador da Web é o seguinte:
 
-1. O utilizador tenta aceder a aplicações web (por exemplo, o Outlook Web App - https://outlook.office365.com/owa/) de um dispositivo da empresa associado a um domínio no interior da rede empresarial.
-2. Se o utilizador não está já iniciou sessão, o utilizador é redirecionado para a página de início de sessão do Azure AD.
-3. O usuário digita no respetivo nome de utilizador para a página de início de sessão do Azure AD.
+1. O usuário tenta acessar um aplicativo Web (por exemplo, o Outlook Web App- https://outlook.office365.com/owa/) de um dispositivo corporativo ingressado no domínio dentro de sua rede corporativa.
+2. Se o usuário ainda não estiver conectado, o usuário será redirecionado para a página de entrada do Azure AD.
+3. O usuário digita em seu nome de usuário na página de entrada do Azure AD.
 
    >[!NOTE]
-   >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), passos 2 e 3 são ignorados.
+   >Para [determinados aplicativos](./how-to-connect-sso-faq.md), as etapas 2 & 3 são ignoradas.
 
-4. Usando o JavaScript em segundo plano, o Azure AD desafios ao navegador, via uma resposta 401 não autorizado, para fornecer um tíquete Kerberos.
-5. O navegador, por sua vez, solicita um pedido de suporte do Active Directory para o `AZUREADSSOACC` conta de computador (que representa o Azure AD).
-6. Active Directory localiza a conta de computador e retorna um tíquete Kerberos para o navegador encriptado com o segredo da conta de computador.
-7. O browser encaminha o pedido de Kerberos adquiriu do Active Directory para o Azure AD.
-8. O Azure AD desencripta o tíquete Kerberos, que inclui a identidade do utilizador com sessão iniciada no dispositivo da empresa, utilizando a chave partilhada anteriormente.
-9. Após a avaliação, do Azure AD devolve um token de volta para a aplicação ou pede ao utilizador para efetuar provas adicionais, como o multi-factor Authentication.
-10. Se o utilizador inicie sessão for bem-sucedida, o utilizador é capaz de aceder à aplicação.
+4. Usando o JavaScript em segundo plano, o Azure AD desafia o navegador, por meio de uma resposta não autorizada do 401, para fornecer um tíquete Kerberos.
+5. O navegador, por sua vez, solicita um tíquete de Active Directory para `AZUREADSSOACC` a conta de computador (que representa o Azure AD).
+6. Active Directory localiza a conta de computador e retorna um tíquete Kerberos para o navegador criptografado com o segredo da conta do computador.
+7. O navegador encaminha o tíquete Kerberos que adquiriu do Active Directory para o Azure AD.
+8. O Azure AD descriptografa o tíquete Kerberos, que inclui a identidade do usuário conectado ao dispositivo corporativo, usando a chave compartilhada anteriormente.
+9. Após a avaliação, o Azure AD retorna um token de volta para o aplicativo ou solicita que o usuário execute provas adicionais, como a autenticação multifator.
+10. Se a entrada do usuário for bem-sucedida, o usuário será capaz de acessar o aplicativo.
 
-O diagrama seguinte ilustra a todos os componentes e as etapas envolvidas.
+O diagrama a seguir ilustra todos os componentes e as etapas envolvidas.
 
-![Início de sessão único totalmente integrado no - Web fluxo da aplicação](./media/how-to-connect-sso-how-it-works/sso2.png)
+![Logon único contínuo-fluxo do aplicativo Web](./media/how-to-connect-sso-how-it-works/sso2.png)
 
-SSO totalmente integrado é oportunista, o que significa que se falhar, a experiência de início de sessão no retrocede para seu comportamento regular - ou seja, o utilizador tem de introduzir a palavra-passe para iniciar sessão.
+O SSO contínuo é oportuno, o que significa que, se ele falhar, a experiência de entrada voltará a seu comportamento regular, ou seja, o usuário precisará inserir sua senha para entrar.
 
-### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Como iniciar sessão num cliente nativo com o trabalho de SSO totalmente integrado?
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Como funciona o logon em um cliente nativo com SSO contínuo?
 
-O fluxo de início de sessão num cliente nativo é o seguinte:
+O fluxo de entrada em um cliente nativo é o seguinte:
 
-1. O utilizador tenta acessar um aplicativo nativo (por exemplo, o cliente do Outlook) a partir de um dispositivo da empresa associado a um domínio no interior da rede empresarial.
-2. Se o utilizador não está já iniciou sessão, o aplicativo nativo obtém o nome de utilizador do utilizador da sessão do Windows do dispositivo.
-3. A aplicação envia o nome de utilizador para o Azure AD e recupera o ponto de extremidade do seu inquilino MEX de WS-Trust. Esse ponto de extremidade do WS-Trust é usado exclusivamente pela funcionalidade de SSO totalmente integrado e não é uma implementação geral do protocolo WS-Trust no Azure AD.
-4. A aplicação, em seguida, consulta o ponto de extremidade de MEX de WS-Trust para ver se integrado o ponto final de autenticação está disponível. O ponto de final de autenticação integrada é utilizado exclusivamente pela funcionalidade de SSO totalmente integrado.
-5. Se tiver êxito passo 4, é emitido um desafio de Kerberos.
-6. Se a aplicação é possível obter o tíquete Kerberos, ela encaminha até o ponto final de autenticação integrada do Azure AD.
-7. Azure AD desencripta o tíquete Kerberos e validá-lo.
-8. Azure AD assina o utilizador no e emite um token SAML para a aplicação.
-9. A aplicação, em seguida, envia o token SAML para o ponto final de token OAuth2 do Azure AD.
-10. Azure AD valida o token SAML e emite para a aplicação, um token de acesso e um token de atualização para o recurso especificado e um token de id.
-11. O utilizador obtém acesso a recursos da aplicação.
+1. O usuário tenta acessar um aplicativo nativo (por exemplo, o cliente do Outlook) de um dispositivo corporativo ingressado no domínio dentro de sua rede corporativa.
+2. Se o usuário ainda não estiver conectado, o aplicativo nativo recuperará o nome de usuário da sessão do Windows do dispositivo.
+3. O aplicativo envia o nome de usuário para o Azure AD e recupera o ponto de extremidade MEX WS-Trust do seu locatário. Esse ponto de extremidade WS-Trust é usado exclusivamente pelo recurso SSO contínuo e não é uma implementação geral do protocolo WS-Trust no Azure AD.
+4. Em seguida, o aplicativo consulta o ponto de extremidade MEX do WS-Trust para ver se o ponto de extremidade de autenticação integrada está disponível. O ponto de extremidade de autenticação integrado é usado exclusivamente pelo recurso SSO contínuo.
+5. Se a etapa 4 tiver sucesso, um desafio Kerberos será emitido.
+6. Se o aplicativo for capaz de recuperar o tíquete Kerberos, ele o encaminhará para o ponto de extremidade de autenticação integrada do Azure AD.
+7. O Azure AD descriptografa o tíquete Kerberos e o valida.
+8. O Azure AD assina o usuário e emite um token SAML para o aplicativo.
+9. Em seguida, o aplicativo envia o token SAML para o ponto de extremidade do token OAuth2 do Azure AD.
+10. O Azure AD valida o token SAML e emite para o aplicativo um token de acesso e um token de atualização para o recurso especificado e um token de ID.
+11. O usuário obtém acesso ao recurso do aplicativo.
 
-O diagrama seguinte ilustra a todos os componentes e as etapas envolvidas.
+O diagrama a seguir ilustra todos os componentes e as etapas envolvidas.
 
-![Inicie sessão único totalmente integrado no - fluxo de aplicação nativa](./media/how-to-connect-sso-how-it-works/sso14.png)
+![Logon único contínuo-fluxo de aplicativo nativo](./media/how-to-connect-sso-how-it-works/sso14.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [**Início Rápido** ](how-to-connect-sso-quick-start.md) - colocar em funcionamento o SSO totalmente integrado do Azure AD.
-- [**Perguntas mais frequentes** ](how-to-connect-sso-faq.md) -respostas para perguntas mais frequentes.
-- [**Resolução de problemas** ](tshoot-connect-sso.md) -Saiba como resolver problemas comuns com a funcionalidade.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para preenchimento de pedidos de novas funcionalidades.
+- [**Início rápido**](how-to-connect-sso-quick-start.md) -obtenha e execute o SSO contínuo do Azure AD.
+- [**Perguntas**](how-to-connect-sso-faq.md) frequentes-respostas para perguntas frequentes.
+- [**Solução de problemas**](tshoot-connect-sso.md) -saiba como resolver problemas comuns com o recurso.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) -para o arquivamento de novas solicitações de recursos.

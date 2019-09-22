@@ -1,574 +1,637 @@
 ---
-title: Realizar operações nos dados - Azure Logic Apps | Documentos da Microsoft
-description: Converter, gerir e manipular dados saídas e formatos no Azure Logic Apps
+title: Executar operações em dados – aplicativos lógicos do Azure
+description: Converter, gerenciar e manipular saídas de dados e formatos em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/30/2018
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.topic: article
+ms.date: 09/20/2019
+ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206199"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179632"
 ---
-# <a name="perform-data-operations-in-azure-logic-apps"></a>Efetuar operações de dados no Azure Logic Apps
+# <a name="perform-data-operations-in-azure-logic-apps"></a>Executar operações de dados em aplicativos lógicos do Azure
 
-Este artigo mostra como pode trabalhar com dados nas suas aplicações lógicas ao adicionar ações para essas tarefas e muito mais:
+Este artigo mostra como você pode trabalhar com dados em seus aplicativos lógicos adicionando ações para essas tarefas e muito mais:
 
-* Crie tabelas de matrizes.
-* Crie as matrizes de partir de outras matrizes com base numa condição.
-* Crie tokens amigável de utilizador a partir das propriedades de objeto JavaScript Object Notation (JSON), para que pode facilmente usar essas propriedades no fluxo de trabalho.
+* Crie tabelas a partir de matrizes.
+* Crie matrizes de outras matrizes com base em uma condição.
+* Crie tokens amigáveis de propriedades de objeto JavaScript Object Notation (JSON) para que você possa usar facilmente essas propriedades em seu fluxo de trabalho.
 
-Se não encontrar a ação que pretende aqui, tente navegar as muitas várias [funções de manipulação de dados](../logic-apps/workflow-definition-language-functions-reference.md) que fornece o Logic Apps. 
+Se você não encontrar a ação desejada aqui, tente navegar pelas várias funções de [manipulação de dados](../logic-apps/workflow-definition-language-functions-reference.md) que o aplicativo lógico do Azure fornece.
 
-Estas tabelas resumem os dados de operações que pode utilizar e está organizados com base nos tipos de dados de origem que as operações funcionam no, mas cada descrição é apresentada por ordem alfabética.
+Essas tabelas resumem as operações de dados que você pode usar e são organizadas com base nos tipos de dados de origem em que as operações funcionam, mas cada descrição aparece em ordem alfabética.
 
 **Ações de matriz** 
 
-Estas ações ajudam a trabalhar com dados em matrizes.
+Essas ações ajudam você a trabalhar com dados em matrizes.
 
-| Ação | Descrição | 
-|--------|-------------| 
-| [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela de valores separados por vírgulas (CSV) de uma matriz. | 
-| [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. | 
-| [**Matriz de filtro**](#filter-array-action) | Crie um subconjunto de matriz de uma matriz com base no filtro especificado ou condição. | 
-| [**Join**](#join-action) | Criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar cada item pelo caractere especificado. | 
-| [**Select**](#select-action) | Crie uma matriz das propriedades especificadas para todos os itens numa matriz de diferente. | 
+| Action | Descrição |
+|--------|-------------|
+| [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela de valores separados por vírgulas (CSV) de uma matriz. |
+| [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML de uma matriz. |
+| [**Filtrar matriz**](#filter-array-action) | Crie um subconjunto de matriz de uma matriz com base no filtro ou na condição especificada. |
+| [**Em**](#join-action) | Crie uma cadeia de caracteres de todos os itens em uma matriz e separe cada item com o caractere especificado. |
+| [**Não**](#select-action) | Crie uma matriz a partir das propriedades especificadas para todos os itens em uma matriz diferente. |
 ||| 
 
-**Ações de JSON**
+**Ações JSON**
 
-Estas ações ajudam a trabalhar com dados no formato de JavaScript Object Notation (JSON).
+Essas ações ajudam você a trabalhar com dados no formato JavaScript Object Notation (JSON).
 
-| Ação | Descrição | 
-|--------|-------------| 
-| [**Compor**](#compose-action) | Crie uma mensagem ou a cadeia de caracteres, a partir de várias entradas, que podem ter vários tipos de dados. Em seguida, pode usar essa cadeia de caracteres como uma única entrada, em vez de introduzir repetidamente as mesmas entradas. Por exemplo, pode criar uma única mensagem JSON de várias entradas. | 
-| [**Parse JSON**](#parse-json-action) | Crie tokens de dados amigável para as propriedades no JSON conteúdo para que possa mais fácil de utilizar as propriedades nas suas aplicações lógicas. | 
-||| 
+| Action | Descrição |
+|--------|-------------|
+| [**Compose**](#compose-action) | Crie uma mensagem, ou uma cadeia de caracteres, de várias entradas que podem ter vários tipos de dados. Você pode usar essa cadeia de caracteres como uma única entrada, em vez de inserir repetidamente as mesmas entradas. Por exemplo, você pode criar uma única mensagem JSON de várias entradas. |
+| [**Analisar JSON**](#parse-json-action) | Crie tokens de dados amigáveis para propriedades no conteúdo JSON para que você possa usar com mais facilidade as propriedades em seus aplicativos lógicos. |
+|||
 
-Para criar transformações de JSON mais complexas, consulte [executar transformações de JSON com modelos de fluidos avançadas](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
+Para criar transformações JSON mais complexas, consulte [executar transformações JSON avançadas com modelos líquidos](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir os exemplos neste artigo, precisa destes itens:
+* Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
+* O aplicativo lógico em que você precisa da operação para trabalhar com dados
 
-* A aplicação lógica em que precisa que a operação para trabalhar com dados 
+  Se você for novo em aplicativos lógicos, examine [o que é o aplicativo lógico do Azure?](../logic-apps/logic-apps-overview.md) e [o início rápido: Crie seu primeiro aplicativo](../logic-apps/quickstart-create-first-logic-app-workflow.md)lógico.
 
-  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa em seu aplicativo lógico 
 
-* R [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa na sua aplicação lógica 
-
-  Operações de dados estão disponíveis apenas como ações, antes de poder utilizar estas ações, iniciar a aplicação lógica com um acionador e incluem quaisquer outras ações necessárias para a criação de saídas quer.
+  As operações de dados estão disponíveis somente como ações, portanto, antes de poder usar essas ações, inicie o aplicativo lógico com um gatilho e inclua as outras ações necessárias para criar as saídas desejadas.
 
 <a name="compose-action"></a>
 
 ## <a name="compose-action"></a>Ação de composição
 
-Para construir uma única saída, como um objeto JSON a partir de várias entradas, pode utilizar o **operações de dados - compor** ação. Suas entradas podem ter vários tipos, como números inteiros, booleanos, matrizes, objetos JSON e quaisquer outro nativo escreva que suporta Azure Logic Apps, por exemplo, o binário e XML. Em seguida, pode utilizar a saída nas ações que se seguem após a **Compose** ação. O **Compose** também ação se pode poupar da introduzir repetidamente as mesmas entradas enquanto cria o fluxo de trabalho da sua aplicação lógica. 
+Para construir uma única saída, como um objeto JSON de várias entradas, você pode usar a ação **compor** . Suas entradas podem ter vários tipos, como inteiros, Boolianos, matrizes, objetos JSON e qualquer outro tipo nativo ao qual o aplicativo lógico do Azure dá suporte, por exemplo, binary e XML. Você pode usar a saída em ações que acompanham após a ação de **composição** . A ação **compor** também pode evitar que você insira repetidamente as mesmas entradas enquanto cria o fluxo de trabalho do aplicativo lógico.
 
-Por exemplo, pode construir uma mensagem JSON a partir de várias variáveis, como variáveis de cadeia de caracteres que armazenam os nomes das pessoas e o apelido e uma variável de inteiro que armazena a idade das pessoas. Aqui, o **Compose** ação aceita estas entradas:
+Por exemplo, você pode construir uma mensagem JSON de várias variáveis, como variáveis de cadeia de caracteres que armazenam nomes e sobrenomes de pessoas e uma variável de inteiro que armazena as idades das pessoas. Aqui, a ação de **composição** aceita estas entradas:
 
 `{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }`
 
-e cria esta saída:
+e cria essa saída:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Para experimentar um exemplo, siga estes passos, utilizando o Estruturador da aplicação lógica. Ou, se preferir trabalhar no editor de vista de código, pode copiar o exemplo **Compose** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - compor](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Para testar um exemplo, siga estas etapas usando o designer de aplicativo lógico. Ou, se você preferir trabalhar no editor de exibição de código, poderá copiar as definições de ação de **composição** de exemplo e de **inicialização** deste artigo para a definição de fluxo de trabalho subjacente de seu próprio aplicativo lógico: [Exemplos de código de operação de dados-Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e vários **Initialize variable** ações. 
-   Estas ações são configuradas para a criação de duas variáveis de cadeia de caracteres e uma variável de inteiro. Quando testar a sua aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e várias ações de **variável de inicialização** . Essas ações são configuradas para criar duas variáveis de cadeia de caracteres e uma variável de inteiro. Quando você testar o aplicativo lógico posteriormente, poderá executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
 
-2. Na sua aplicação lógica onde pretende criar a saída, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja criar a saída, siga uma destas etapas: 
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-compose-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "compor" como o filtro. Na lista de ações, selecione a ação: **Compor**
+1. Em **escolher uma ação**, na caixa de pesquisa, insira `compose` como seu filtro. Na lista ações, selecione a ação **compor** .
 
-   ![Selecione a ação de "Compor"](./media/logic-apps-perform-data-operations/select-compose-action.png)
+   ![Selecione a ação "compor"](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
-4. Na **entradas** caixa, fornecer as entradas que pretende para a criação da saída. 
+1. Na caixa **entradas** , forneça as entradas desejadas para criar a saída.
 
-   Neste exemplo, quando clica dentro da **entradas** caixa, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar as variáveis criadas anteriormente:
+   Para este exemplo, quando você clica dentro da caixa **entradas** , a lista de conteúdo dinâmico é exibida para que você possa selecionar as variáveis criadas anteriormente:
 
-   ![Selecione entradas para compor](./media/logic-apps-perform-data-operations/configure-compose-action.png)
+   ![Selecionar entradas para compor](./media/logic-apps-perform-data-operations/configure-compose-action.png)
 
-   Eis o exemplo concluído **Compose** ação: 
+   Aqui está a ação de **composição** de exemplo concluída: 
 
-   ![Ação de "Compor" concluída](./media/logic-apps-perform-data-operations/finished-compose-action.png)
+   ![Ação "compor" concluída](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
-5. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacentes, consulte a [ação de composição](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action). 
+Para obter mais informações sobre essa ação em sua definição de fluxo de trabalho subjacente, consulte a [ação compor](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action).
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
 
-Para confirmar se o **Compose** ação cria os resultados esperados, envie uma notificação que inclui a saída a partir do **Compose** ação.
+Para confirmar se a ação de **composição** cria os resultados esperados, envie a si mesmo uma notificação que inclua a saída da ação de **composição** .
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **Compose** ação.
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação **compor** .
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando a lista de conteúdo dinâmico é aberto, menos os **Compose** ação, selecione **saída**. 
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico for aberta, na ação **compor** , selecione **saída**.
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui o **saída** campos no corpo e assunto do e-mail:
+   Este exemplo usa a ação **enviar um email** e inclui os campos de **saída** no corpo e no assunto do email:
 
-   ![Campos de "Saída" na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
+   ![Campos de "saída" na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**.
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
 
-   ![Enviar um e-mail com os resultados de ação "Compor"](./media/logic-apps-perform-data-operations/compose-email-results.png)
+   ![Enviar por email com resultados de ação de "compor"](./media/logic-apps-perform-data-operations/compose-email-results.png)
 
 <a name="create-csv-table-action"></a>
 
-## <a name="create-csv-table-action"></a>Criar uma ação de tabela CSV
+## <a name="create-csv-table-action"></a>Criar ação de tabela CSV
 
-Para criar uma tabela de valores separados por vírgulas (CSV) que tem as propriedades e os valores dos objetos JavaScript Object Notation (JSON) numa matriz, utilize o **operações de dados - criar tabela CSV** ação. Em seguida, pode utilizar a tabela resultante nas ações que se seguem a **criar tabela CSV** ação. 
+Para criar uma tabela de valores separados por vírgulas (CSV) que tenha as propriedades e valores de objetos JavaScript Object Notation (JSON) em uma matriz, use a ação **criar tabela CSV** . Em seguida, você pode usar a tabela resultante em ações que seguem a ação **criar tabela CSV** .
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **criar tabela CSV** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - criar tabela CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Se você preferir trabalhar no editor de exibição de código, copie o exemplo **criar tabela CSV** e inicializar definições de ação de **variável** deste artigo em sua própria definição de fluxo de trabalho subjacente do aplicativo lógico: [Exemplos de código de operação de dados – criar tabela CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e uma **Initialize variable** ação. 
-   A ação está definida para a criação de uma variável cujo valor inicial é uma matriz que tem algumas propriedades e valores no formato JSON. 
-   Quando testar a sua aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e uma ação de **variável de inicialização** . A ação é configurada para criar uma variável cujo valor inicial é uma matriz que tem algumas propriedades e valores no formato JSON. Quando você testar o aplicativo lógico posteriormente, poderá executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
-2. Na sua aplicação lógica onde pretende criar a tabela CSV, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja criar a tabela CSV, siga uma destas etapas: 
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "Criar tabela csv" como o filtro. Na lista de ações, selecione a ação: **Criar tabela CSV**
+1. Em **escolher uma ação**, na caixa de pesquisa, insira `create csv table` como seu filtro. Na lista ações, selecione a ação **criar tabela CSV** .
 
-   ![Selecione "Criar CSV tabela" ação](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
+   ![Selecione a ação "criar tabela CSV"](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
-4. Na **partir** caixa, forneça a matriz ou uma expressão que pretende para criar a tabela. 
+1. Na caixa **de** , forneça a matriz ou expressão que você deseja para criar a tabela.
 
-   Neste exemplo, quando clica dentro da **de** caixa, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar a variável criada anteriormente:
+   Para este exemplo, quando você clica dentro da caixa de, a lista **de** conteúdo dinâmico é exibida para que você possa selecionar a variável criada anteriormente:
 
-   ![Selecione a saída de matriz para a criação de tabela CSV](./media/logic-apps-perform-data-operations/configure-create-csv-table-action.png)
-
-   Eis o exemplo concluído **criar tabela CSV** ação: 
-
-   ![Concluída "Criar CSV tabela" ação](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
-
-   Por predefinição, esta ação cria automaticamente as colunas com base nos itens de matriz. 
-   Para criar manualmente os cabeçalhos de coluna e os valores, escolha **Mostrar opções avançadas**. 
-   Para fornecer apenas os valores personalizados, altere **colunas** ao **personalizado**. 
-   Para fornecer também os cabeçalhos de coluna personalizada, altere **incluir cabeçalhos** ao **Sim**. 
+   ![Selecione a saída da matriz para criar a tabela CSV](./media/logic-apps-perform-data-operations/configure-create-csv-table-action.png)
 
    > [!TIP]
-   > Para criar tokens amigáveis para as propriedades de objetos JSON, pelo que pode selecionar essas propriedades como entradas, utilize o [Parse JSON](#parse-json-action) antes de chamar os **criar tabela CSV** ação.
+   > Para criar tokens amigáveis para as propriedades em objetos JSON para que você possa selecionar essas propriedades como entradas, use o [JSON de análise](#parse-json-action) antes de chamar a ação **criar tabela CSV** .
 
-5. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+   Aqui está o exemplo de ação de **criação de tabela CSV** concluída: 
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacentes, consulte a [ação de tabela](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+   ![Ação "criar tabela CSV" concluída](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para confirmar se o **criar tabela CSV** ação cria os resultados esperados, envie uma notificação que inclui a saída a partir do **criar tabela CSV** ação.
+### <a name="customize-table-format"></a>Personalizar formato de tabela
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **criar tabela CSV** ação.
+Por padrão, a propriedade **Columns** é definida para criar automaticamente as colunas da tabela com base nos itens da matriz. 
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando a lista de conteúdo dinâmico é aberto, menos os **criar tabela CSV** ação, selecione **saída**. 
+Para especificar cabeçalhos e valores personalizados, siga estas etapas:
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui o **saída** campo no corpo do e-mail:
+1. Abra a lista **colunas** e selecione **personalizado**.
 
-   ![Campos de "Saída" na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+1. Na propriedade **header** , especifique o texto do cabeçalho personalizado para usar em vez disso.
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Na propriedade de **chave** , especifique o valor personalizado a ser usado em vez disso.
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+Para fazer referência e editar os valores da matriz, você pode usar a `@item()` função na definição de JSON da ação **criar tabela CSV** .
 
-   ![Por e-mail para "Criar CSV tabela" resultados de ação](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
+1. Na barra de ferramentas do designer, selecione **modo de exibição de código**. 
+
+1. No editor de código, edite a `inputs` seção da ação para personalizar a saída da tabela da maneira desejada.
+
+Este exemplo retorna apenas os valores de coluna e não os cabeçalhos da `columns` matriz, definindo a `header` Propriedade como um valor vazio e desfazendo a `value` referência a cada propriedade:
+
+```json
+"Create_CSV_table": {
+   "inputs": {
+      "columns": [
+         { 
+            "header": "",
+            "value": "@item()?['Description']"
+         },
+         { 
+            "header": "",
+            "value": "@item()?['Product_ID']"
+         }
+      ],
+      "format": "CSV",
+      "from": "@variables('myJSONArray')"
+   }
+}
+```
+
+Este é o resultado que este exemplo retorna:
+
+```text
+Results from Create CSV table action:
+
+Apples,1
+Oranges,2
+```
+
+No designer, a ação **criar tabela CSV** agora aparece dessa forma:
+
+!["Criar tabela CSV" sem cabeçalhos de coluna](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+
+Para obter mais informações sobre essa ação em sua definição de fluxo de trabalho subjacente, consulte a [ação da tabela](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+
+Para confirmar se a ação **criar tabela CSV** cria os resultados esperados, envie-se a você mesmo uma notificação que inclui a saída da ação **criar tabela CSV** .
+
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação **criar tabela CSV** .
+
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico for aberta, na ação **criar tabela CSV** , selecione **saída**. 
+
+   Este exemplo usa a ação **enviar um email** para o Outlook do Office 365 e inclui o campo de **saída** no corpo do email:
+
+   ![Campos de "saída" na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**.
+
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
+
+   ![Enviar por email com os resultados da ação "criar tabela CSV"](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
 
 <a name="create-html-table-action"></a>
 
-## <a name="create-html-table-action"></a>Criar uma ação de tabela HTML
+## <a name="create-html-table-action"></a>Ação de criar tabela HTML
 
-Para criar uma tabela HTML que tem as propriedades e os valores dos objetos JavaScript Object Notation (JSON) numa matriz, utilize o **operações de dados - criar tabela HTML** ação. Em seguida, pode utilizar a tabela resultante nas ações que se seguem a **criar tabela HTML** ação.
+Para criar uma tabela HTML que tenha as propriedades e valores de objetos JavaScript Object Notation (JSON) em uma matriz, use a ação **criar tabela HTML** . Em seguida, você pode usar a tabela resultante em ações que seguem a ação **criar tabela HTML** .
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **criar tabela HTML** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - criar tabela HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Se você preferir trabalhar no editor de modo de exibição de código, copie o exemplo **criar tabela HTML** e inicializar definições de ação de **variável** deste artigo para a definição de fluxo de trabalho subjacente de seu próprio aplicativo lógico: [Exemplos de código de operação de dados – criar tabela HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e uma **Initialize variable** ação. 
-   A ação está definida para a criação de uma variável cujo valor inicial é uma matriz que tem algumas propriedades e valores no formato JSON. 
-   Quando testar a sua aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e uma ação de **variável de inicialização** . A ação é configurada para criar uma variável cujo valor inicial é uma matriz que tem algumas propriedades e valores no formato JSON. Quando você testar o aplicativo lógico posteriormente, poderá executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
-2. Na sua aplicação lógica onde pretende criar uma tabela HTML, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja criar uma tabela HTML, siga uma destas etapas:
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "Criar tabela html" como o filtro. Na lista de ações, selecione a ação: **Criar tabela HTML**
+1. Em **escolher uma ação**, na caixa de pesquisa, insira `create html table` como seu filtro. Na lista ações, selecione a ação **criar tabela HTML** .
 
-   ![Selecione a ação de "Tabela de criar HTML"](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
+   ![Selecione a ação "criar tabela HTML"](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
-4. Na **partir** caixa, forneça a matriz ou uma expressão que pretende para criar a tabela. 
+1. Na caixa **de** , forneça a matriz ou expressão que você deseja para criar a tabela.
 
-   Neste exemplo, quando clica dentro da **de** caixa, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar a variável criada anteriormente:
+   Para este exemplo, quando você clica dentro da caixa de, a lista **de** conteúdo dinâmico é exibida para que você possa selecionar a variável criada anteriormente:
 
-   ![Selecione a saída de matriz para a criação de tabela HTML](./media/logic-apps-perform-data-operations/configure-create-html-table-action.png)
-
-   Eis o exemplo concluído **criar tabela HTML** ação: 
-
-   ![Ação de "Tabela de criar HTML" concluído](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
-
-   Por predefinição, esta ação cria automaticamente as colunas com base nos itens de matriz. 
-   Para criar manualmente os cabeçalhos de coluna e os valores, escolha **Mostrar opções avançadas**. 
-   Para fornecer apenas os valores personalizados, altere **colunas** ao **personalizado**. 
-   Para fornecer também os cabeçalhos de coluna personalizada, altere **incluir cabeçalhos** ao **Sim**. 
+   ![Selecione a saída da matriz para criar a tabela HTML](./media/logic-apps-perform-data-operations/configure-create-html-table-action.png)
 
    > [!TIP]
-   > Para criar tokens amigáveis para as propriedades de objetos JSON, pelo que pode selecionar essas propriedades como entradas, utilize o [Parse JSON](#parse-json-action) antes de chamar os **criar tabela HTML** ação.
+   > Para criar tokens amigáveis para as propriedades em objetos JSON para que você possa selecionar essas propriedades como entradas, use o [JSON de análise](#parse-json-action) antes de chamar a ação **criar tabela HTML** .
 
-5. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+   Aqui está o exemplo de ação de **criação de tabela HTML** concluída:
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacentes, consulte a [ação de tabela](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+   ![Ação "criar tabela HTML" concluída](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para confirmar se o **criar tabela HTML** ação cria os resultados esperados, envie uma notificação que inclui a saída a partir do **criar tabela HTML** ação.
+### <a name="customize-table-format"></a>Personalizar formato de tabela
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **criar tabela HTML** ação.
+Por padrão, a propriedade **Columns** é definida para criar automaticamente as colunas da tabela com base nos itens da matriz. 
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando a lista de conteúdo dinâmico é aberto, menos os **criar tabela HTML** ação, selecione **saída**. 
+Para especificar cabeçalhos e valores personalizados, siga estas etapas:
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui o **saída** campo no corpo do e-mail:
+1. Abra a lista **colunas** e selecione **personalizado**.
 
-   ![Campos de "Saída" na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+1. Na propriedade **header** , especifique o texto do cabeçalho personalizado para usar em vez disso.
+
+1. Na propriedade de **chave** , especifique o valor personalizado a ser usado em vez disso.
+
+Para fazer referência e editar os valores da matriz, você pode usar a `@item()` função na definição de JSON da ação **criar tabela HTML** .
+
+1. Na barra de ferramentas do designer, selecione **modo de exibição de código**. 
+
+1. No editor de código, edite a `inputs` seção da ação para personalizar a saída da tabela da maneira desejada.
+
+Este exemplo retorna apenas os valores de coluna e não os cabeçalhos da `columns` matriz, definindo a `header` Propriedade como um valor vazio e desfazendo a `value` referência a cada propriedade:
+
+```json
+"Create_HTML_table": {
+   "inputs": {
+      "columns": [
+         { 
+            "header": "",
+            "value": "@item()?['Description']"
+         },
+         { 
+            "header": "",
+            "value": "@item()?['Product_ID']"
+         }
+      ],
+      "format": "HTML",
+      "from": "@variables('myJSONArray')"
+   }
+}
+```
+
+Este é o resultado que este exemplo retorna:
+
+```text
+Results from Create HTML table action:
+
+Apples    1
+Oranges   2
+```
+
+No designer, a ação **criar tabela HTML** agora aparece dessa forma:
+
+!["Criar tabela HTML" sem cabeçalhos de coluna](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+
+Para obter mais informações sobre essa ação em sua definição de fluxo de trabalho subjacente, consulte a [ação da tabela](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+
+Para confirmar se a ação **criar tabela HTML** cria os resultados esperados, envie-se a você mesmo uma notificação que inclui a saída da ação **criar tabela HTML** .
+
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação **criar tabela HTML** .
+
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico for aberta, na ação **criar tabela HTML** , selecione **saída**. 
+
+   Este exemplo usa a ação **enviar um email** para o Outlook do Office 365 e inclui o campo de **saída** no corpo do email:
+
+   ![Campos de "saída" na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
    
    > [!NOTE]
-   > Ao incluir a tabela HTML de saída numa ação de e-mail, certifique-se de que defina o **é HTML** propriedade **Sim** no e-mail de ação avançadas do opções. Dessa forma, a ação de e-mail corretamente formata a tabela HTML.
+   > Ao incluir a saída da tabela HTML em uma ação de email, certifique-se de definir a propriedade **HTML is** como **Sim** nas opções avançadas da ação de email. Dessa forma, a ação de email formata corretamente a tabela HTML.
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**.
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
 
-   ![Enviar um e-mail com os resultados de ação de "Tabela de criar HTML"](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+   ![Enviar por email com os resultados da ação "criar tabela HTML"](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
-## <a name="filter-array-action"></a>Ação de matriz de filtro
+## <a name="filter-array-action"></a>Filtrar ação de matriz
 
-Para criar uma matriz mais pequena que tem itens, que satisfazem critérios específicos, de uma matriz existente, utilize o **operações de dados - matriz de filtro** ação. Em seguida, pode utilizar a matriz filtrada nas ações que se seguem após a **matriz de filtro** ação. 
+Para criar uma matriz menor que tenha itens, que atendam a critérios específicos, de uma matriz existente, use a ação **Filtrar matriz** . Em seguida, você pode usar a matriz filtrada em ações que seguem após a ação **Filtrar matriz** .
 
 > [!NOTE]
-> Qualquer texto de filtro que utilizar na sua condição diferencia maiúsculas de minúsculas. Além disso, esta ação não é possível alterar o formato ou componentes de itens na matriz. 
+> Qualquer texto de filtro que você usa em sua condição diferencia maiúsculas de minúsculas. Além disso, essa ação não pode alterar o formato ou os componentes dos itens na matriz. 
 > 
-> Para ações utilizar a saída de matriz do **matriz de filtro** ação, essas ações devem aceitar matrizes como entrada ou poderá ter de transformar a matriz de saída em formato compatível com o outro. 
+> Para ações para usar a saída de matriz da ação **Filtrar matriz** , essas ações devem aceitar matrizes como entrada ou você pode ter que transformar a matriz de saída em outro formato compatível.
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **matriz de filtro** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - matriz de filtro](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Se você preferir trabalhar no editor de exibição de código, poderá copiar a **matriz de filtro** de exemplo e inicializar as definições de ação de **variável** deste artigo na definição de fluxo de trabalho subjacente de seu próprio aplicativo lógico: [Exemplos de código de operação de dados – matriz de filtro](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e uma **Initialize variable** ação. 
-   A ação está definida para a criação de uma variável cujo valor inicial é uma matriz que tem alguns números inteiros de exemplo. Quando testar a sua aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e uma ação de **variável de inicialização** . A ação é configurada para criar uma variável cujo valor inicial é uma matriz que tem alguns inteiros de exemplo. Quando você testar o aplicativo lógico posteriormente, poderá executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
    > [!NOTE]
-   > Embora este exemplo utiliza uma matriz de inteiros simples, esta ação é especialmente útil para as matrizes de onde pode filtrar com base nas propriedades dos objetos e os valores de objeto JSON.
+   > Embora este exemplo use uma matriz de inteiros simples, essa ação é especialmente útil para matrizes de objetos JSON, em que você pode filtrar com base nas propriedades e nos valores dos objetos.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
 
-2. Na sua aplicação lógica onde pretende criar a matriz filtrada, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja criar a matriz filtrada, siga uma destas etapas: 
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "matriz de filtro" como o filtro. Na lista de ações, selecione a ação: **Matriz de filtro**
+1. Na caixa de pesquisa, insira `filter array` como seu filtro. Na lista ações, selecione a ação **Filtrar matriz** .
 
-   ![Selecione a ação "Filtrar matriz"](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
+   ![Selecione a ação "filtrar matriz"](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
-4. Na **partir** caixa, forneça a matriz ou uma expressão que pretende filtrar. 
+1. Na caixa **de** , forneça a matriz ou expressão que você deseja filtrar.
 
-   Neste exemplo, quando clica dentro da **de** caixa, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar a variável criada anteriormente:
+   Para este exemplo, quando você clica dentro da caixa de, a lista **de** conteúdo dinâmico é exibida para que você possa selecionar a variável criada anteriormente:
 
-   ![Selecione a saída de matriz para a criação de matriz filtrado](./media/logic-apps-perform-data-operations/configure-filter-array-action.png)
+   ![Selecione a saída da matriz para criar a matriz filtrada](./media/logic-apps-perform-data-operations/configure-filter-array-action.png)
 
-5. Para a condição, especifique os itens de matriz para comparar, selecione o operador de comparação e especificar o valor de comparação.
+1. Para a condição, especifique os itens de matriz a serem comparados, selecione o operador de comparação e especifique o valor de comparação.
 
-   Este exemplo utiliza a **item()** função para aceder a cada item da matriz ao mesmo tempo a **matriz de filtro** pesquisas de ação para a matriz de itens cujo valor é superior a 1:
+   Este exemplo usa a `item()` função para acessar cada item na matriz, enquanto a ação de **matriz de filtro** procura itens de matriz cujo valor é maior que um:
    
-   ![Conclusão da ação "Filtrar matriz"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
+   ![Ação "filtrar matriz" concluída](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
-6. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacente, veja [ação de consulta](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
+Para obter mais informações sobre essa ação em sua definição de fluxo de trabalho subjacente, consulte [ação de consulta](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
 
-Para confirmar se **matriz de filtro** ação cria os resultados esperados, envie uma notificação que inclui a saída a partir do **matriz de filtro** ação.
+Para confirmar se a ação da **matriz de filtro** cria os resultados esperados, envie a si mesmo uma notificação que inclua a saída da ação **Filtrar matriz** .
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **matriz de filtro** ação.
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação **Filtrar matriz** .
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando abre a lista de conteúdo dinâmico, escolha **expressão**. Para obter o resultado de matriz do **matriz de filtro** ação, introduza a expressão que inclui a **matriz de filtro** nome da ação:
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico for aberta, selecione **expressão**. Para obter a saída da matriz da ação **Filtrar matriz** , insira esta expressão que inclui o nome da ação da **matriz de filtro** :
 
-   ```
-   @actionBody('Filter_array')
-   ```
+   `@actionBody('Filter_array')`
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui as saídas resultantes a **actionBody('Filter_array')** expressão no corpo do e-mail:
+   Este exemplo usa a ação **enviar um email** do Outlook do Office 365 e inclui as saídas da expressão **ActionBody (' Filter_array ')** no corpo do email:
 
-   ![Ação produz na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
+   ![Saídas de ação na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**.
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
 
-   ![Enviar um e-mail com os resultados de ação "Matriz de filtro"](./media/logic-apps-perform-data-operations/filter-array-email-results.png)
+   ![Enviar por email com os resultados da ação "filtrar matriz"](./media/logic-apps-perform-data-operations/filter-array-email-results.png)
 
 <a name="join-action"></a>
 
-## <a name="join-action"></a>Junte-se a ação
+## <a name="join-action"></a>Ação de junção
 
-Para criar uma cadeia de caracteres que tem todos os itens de uma matriz e separar esses itens com um caráter delimitador específica, utilize o **operações de dados - associar** ação. Em seguida, pode utilizar a cadeia de caracteres nas ações que se seguem após a **associar** ação.
+Para criar uma cadeia de caracteres que tenha todos os itens de uma matriz e separar os itens com um caractere delimitador específico, use a ação de **junção** . Em seguida, você pode usar a cadeia de caracteres em ações que seguem após a ação de **junção** .
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **aderir** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes da definição de fluxo de trabalho: [Junte-se exemplos de código de operação de dados-](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Se você preferir trabalhar no editor de exibição de código, copie as definições de ação de **junção** de exemplo e **inicialização** deste artigo para a definição de fluxo de trabalho subjacente de seu próprio aplicativo lógico: [Exemplos de código de operação de dados – junção](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e uma **Initialize variable** ação. 
-   Esta ação é configurada para a criação de uma variável cujo valor inicial é uma matriz que tem alguns números inteiros de exemplo. 
-   Ao testar a aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e uma ação de **variável de inicialização** . Essa ação é configurada para criar uma variável cujo valor inicial é uma matriz que tem alguns inteiros de exemplo. Ao testar seu aplicativo lógico mais tarde, você pode executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
 
-2. Na sua aplicação lógica onde pretende criar a cadeia de caracteres a partir de uma matriz, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja criar a cadeia de caracteres de uma matriz, siga uma destas etapas:
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-join-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "associar" como o filtro. Na lista de ações, selecione a ação: **Associar**
+1. Na caixa de pesquisa, insira `join` como seu filtro. Na lista ações, selecione esta ação: **Associar**
 
-   ![Selecione a ação de "Dados operações – associar"](./media/logic-apps-perform-data-operations/select-join-action.png)
+   ![Selecione a ação "ingressar"](./media/logic-apps-perform-data-operations/select-join-action.png)
 
-4. Na **partir** caixa, forneça a matriz que tenha os itens que pretende associar como uma cadeia de caracteres. 
+1. Na caixa **de** , forneça a matriz que contém os itens que você deseja unir como uma cadeia de caracteres.
 
-   Neste exemplo, quando clica dentro da **de** caixa de lista de conteúdo dinâmico que aparece, pelo que pode selecionar a variável criada anteriormente:  
+   Para este exemplo, quando você clica dentro da caixa de, a lista **de** conteúdo dinâmico que aparece para que você possa selecionar a variável criada anteriormente:  
 
-   ![Selecione a saída de matriz para criar a cadeia de caracteres](./media/logic-apps-perform-data-operations/configure-join-action.png)
+   ![Selecione a saída da matriz para criar a cadeia de caracteres](./media/logic-apps-perform-data-operations/configure-join-action.png)
 
-5. Na **associar** , introduza o caráter que pretende para separar cada item da matriz. 
+1. Na caixa **unir com** , insira o caractere desejado para separar cada item da matriz. 
 
-   Este exemplo utiliza dois pontos (:) como separador.
+   Este exemplo usa dois-pontos (:) como o separador.
 
-   ![Fornecer o caráter de separação](./media/logic-apps-perform-data-operations/finished-join-action.png)
+   ![Forneça o caractere separador](./media/logic-apps-perform-data-operations/finished-join-action.png)
 
-6. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacentes, consulte a [Junte-se a ação](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
+Para obter mais informações sobre essa ação em sua definição de fluxo de trabalho subjacente, consulte a [ação de junção](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
 
-Para confirmar se o **aderir** ação cria os resultados esperados, envie uma notificação que inclui a saída do **associar** ação. 
+Para confirmar se a ação de **junção** cria os resultados esperados, envie a si mesmo uma notificação que inclua a saída da ação de **junção** .
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **associar** ação.
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação de **junção** .
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando a lista de conteúdo dinâmico é aberto, menos os **aderir** ação, selecione **saída**. 
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico é aberta, sob a ação de **junção** , selecione **saída**. 
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui o **saída** campo no corpo do e-mail:
+   Este exemplo usa a ação **enviar um email** para o Outlook do Office 365 e inclui o campo de **saída** no corpo do email:
 
-   ![Campos de "Saída" na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-join-action.png)
+   ![Campos de "saída" na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**.
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
 
-   ![Enviar um e-mail com resultados de ação "Join"](./media/logic-apps-perform-data-operations/join-email-results.png)
+   ![Enviar por email com os resultados da ação "ingressar"](./media/logic-apps-perform-data-operations/join-email-results.png)
 
 <a name="parse-json-action"></a>
 
-## <a name="parse-json-action"></a>Analisar a ação de JSON
+## <a name="parse-json-action"></a>Analisar ação JSON
 
-As propriedades de referência ou de acesso em JavaScript Object Notation (JSON) conteúdo, pode criar campos amigáveis ou tokens para as propriedades utilizando o **operações de dados - Parse JSON** ação.
-Dessa forma, pode selecionar as propriedades da lista de conteúdo dinâmica ao especificar entradas para a aplicação lógica. Para esta ação, pode fornecer um esquema JSON ou gerar um esquema JSON do conteúdo JSON de exemplo ou payload.
+Para referenciar ou acessar propriedades no conteúdo JavaScript Object Notation (JSON), você pode criar campos amigáveis ou tokens para essas propriedades usando a ação **analisar JSON** . Dessa forma, você pode selecionar essas propriedades na lista de conteúdo dinâmico quando especificar entradas para seu aplicativo lógico. Para essa ação, você pode fornecer um esquema JSON ou gerar um esquema JSON a partir do conteúdo JSON de exemplo ou da carga.
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **Parse JSON** e **Initialize variable** definição de fluxo de trabalho subjacentes do definições de ação do artigo na sua própria aplicação lógica : [Exemplos de código de operação de dados - analisar JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
+Se você preferir trabalhar no editor de modo de exibição de código, você poderá copiar o exemplo de **análise JSON** e inicializar definições de ação de **variável** deste artigo para a definição de fluxo de trabalho subjacente de seu próprio aplicativo lógico: [Exemplos de código de operação de dados – analisar JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e uma **Initialize variable** ação. 
-   A ação está definida para a criação de uma variável cujo valor inicial é um objeto JSON que tem propriedades e valores. 
-   Quando testar a sua aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e uma ação de **variável de inicialização** . A ação é configurada para criar uma variável cujo valor inicial é um objeto JSON que tem propriedades e valores. Quando você testar o aplicativo lógico posteriormente, poderá executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
 
-2. Na sua aplicação lógica em que pretende analisar o conteúdo JSON, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja analisar o conteúdo JSON, siga uma destas etapas:
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "analisar json" como o filtro. Na lista de ações, selecione a ação: **Analisar JSON**
+1. Na caixa de pesquisa, insira `parse json` como seu filtro. Na lista ações, selecione a ação **analisar JSON** .
 
-   ![Selecione a ação "Parse JSON"](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
+   ![Selecione a ação "analisar JSON"](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
-4. Na **conteúdo** caixa, forneça o conteúdo JSON que pretende analisar. 
+1. Na caixa **conteúdo** , forneça o conteúdo JSON que você deseja analisar.
 
-   Neste exemplo, quando clica dentro da **conteúdo** caixa, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar a variável criada anteriormente:
+   Para este exemplo, quando você clica dentro da caixa de **conteúdo** , a lista de conteúdo dinâmico é exibida para que você possa selecionar a variável criada anteriormente:
 
-   ![Selecione o objeto JSON para ação parse JSON](./media/logic-apps-perform-data-operations/configure-parse-json-action.png)
+   ![Selecione o objeto JSON para a ação analisar JSON](./media/logic-apps-perform-data-operations/configure-parse-json-action.png)
 
-5. Introduza o esquema JSON que descreve o conteúdo JSON que está analisando. 
+1. Insira o esquema JSON que descreve o conteúdo JSON que você está analisando.
 
-   Neste exemplo, aqui está o esquema JSON:
+   Neste exemplo, este é o esquema JSON:
 
-   ![Fornecer o esquema JSON para o objeto JSON que pretende analisar](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png)
+   ![Forneça o esquema JSON para o objeto JSON que você deseja analisar](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png)
 
-   Se não tiver o esquema, pode gerar esse esquema do conteúdo JSON, ou *payload*, se estiver analisando. 
+   Se você não tiver o esquema, poderá gerar esse esquema a partir do conteúdo JSON, ou da *carga*, que está analisando. 
    
-   1. Na **Parse JSON** ação, selecione **utilizar payload de amostra para gerar esquema**.
+   1. Na ação **analisar JSON** , selecione **usar conteúdo de exemplo para gerar o esquema**.
 
-   2. Sob **introduza ou cole um payload JSON de exemplo**, forneça o conteúdo JSON e, em seguida, escolha **feito**.
+   1. Em **Inserir ou colar um exemplo de carga JSON**, forneça o conteúdo JSON e, em seguida, selecione **concluído**.
 
-      ![Introduza o conteúdo JSON para gerar o esquema](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
+      ![Insira o conteúdo JSON para gerar o esquema](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
 
-6. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacente, veja [ação Parse JSON](../logic-apps/logic-apps-workflow-actions-triggers.md).
+Para obter mais informações sobre essa ação na definição de fluxo de trabalho subjacente, consulte [analisar ação JSON](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
 
-Para confirmar se o **Parse JSON** ação cria os resultados esperados, envie uma notificação que inclui a saída a partir do **Parse JSON** ação.
+Para confirmar se a ação de **análise JSON** cria os resultados esperados, envie-se a você mesmo uma notificação que inclui a saída da ação **analisar JSON** .
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **Parse JSON** ação.
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação **analisar JSON** .
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando a lista de conteúdo dinâmico é aberto, menos os **Parse JSON** ação, agora, pode selecionar as propriedades do conteúdo JSON analisado.
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico é aberta, sob a ação **analisar JSON** , agora você pode selecionar as propriedades do conteúdo JSON analisado.
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui o **FirstName**, **LastName**, e **E-Mail** campos no corpo do e-mail:
+   Este exemplo usa a ação **enviar um email** do Outlook do Office 365 e inclui os campos **FirstName**, **LastName**e **email** no corpo do email:
 
-   ![Propriedades JSON na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
+   ![Propriedades JSON na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 
-   Esta é a ação de e-mail foi concluído:
+   Esta é a ação de email concluída:
 
-   ![Ação de e-mail foi concluído](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
+   ![Ação de email concluída](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**. 
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
 
-   ![Enviar um e-mail com resultados de ação "Join"](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+   ![Enviar por email com os resultados da ação "ingressar"](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
 <a name="select-action"></a>
 
-## <a name="select-action"></a>Ação de seleção
+## <a name="select-action"></a>Selecionar ação
 
-Para criar uma matriz com objetos JSON criados a partir de valores numa matriz existente, utilize o **operações de dados - selecionar** ação. Por exemplo, pode criar um objeto JSON para cada valor numa matriz de número inteiro especificando as propriedades que cada objeto JSON tem de ter e como mapear os valores da matriz de origem para essas propriedades. E embora possa alterar os componentes nesses objetos JSON, a matriz de saída tem sempre o mesmo número de itens que a matriz de origem.
+Para criar uma matriz que tenha objetos JSON criados a partir de valores em uma matriz existente, use a ação **selecionar** . Por exemplo, você pode criar um objeto JSON para cada valor em uma matriz de inteiros especificando as propriedades que cada objeto JSON deve ter e como mapear os valores na matriz de origem para essas propriedades. E, embora você possa alterar os componentes nesses objetos JSON, a matriz de saída sempre tem o mesmo número de itens que a matriz de origem.
 
 > [!NOTE]
-> Para ações utilizar a saída de matriz do **selecione** ação, essas ações devem aceitar matrizes como entrada ou poderá ter de transformar a matriz de saída em formato compatível com o outro. 
+> Para ações usar a saída de matriz da ação **Select** , essas ações devem aceitar matrizes como entrada ou você pode ter que transformar a matriz de saída em outro formato compatível. 
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **selecionar** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes da definição de fluxo de trabalho: [Exemplos de código de operação de dados - selecione](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Se você preferir trabalhar no editor de exibição de código, poderá copiar o exemplo **selecionar** e **inicializar** definições de ação de variável deste artigo em sua própria definição de fluxo de trabalho subjacente do aplicativo lógico: [Exemplos de código de operação de dados-selecione](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
-1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o portal do Azure e uma aplicação lógica com um **periodicidade** acionador e uma **Initialize variable** ação. 
-   A ação está definida para a criação de uma variável cujo valor inicial é uma matriz que tem alguns números inteiros de exemplo. 
-   Quando testar a sua aplicação lógica mais tarde, pode executar manualmente a sua aplicação sem aguardar o disparador seja acionado.
+   Este exemplo usa o portal do Azure e um aplicativo lógico com um gatilho de **recorrência** e uma ação de **variável de inicialização** . A ação é configurada para criar uma variável cujo valor inicial é uma matriz que tem alguns inteiros de exemplo. Quando você testar o aplicativo lógico posteriormente, poderá executar o aplicativo manualmente sem esperar que o gatilho seja acionado.
 
-   ![Aplicação de lógica de exemplo inicial](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
+   ![Iniciando aplicativo lógico de exemplo](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
 
-2. Na sua aplicação lógica onde pretende criar a matriz, siga um destes passos: 
+1. Em seu aplicativo lógico em que você deseja criar a matriz, siga uma destas etapas: 
 
-   * Para adicionar uma ação no último passo, escolha **novo passo** > **adicionar uma ação**.
+   * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
      ![Adicionar ação](./media/logic-apps-perform-data-operations/add-select-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
-   Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal **+** de adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "selecionar" como o filtro. Na lista de ações, selecione a ação: **Selecionar**
+1. Em **escolher uma ação**, selecione **interno**. Na caixa de pesquisa, insira `select` como seu filtro. Na lista ações, selecione a ação **selecionar** .
 
-   ![Selecione a ação "Select"](./media/logic-apps-perform-data-operations/select-select-action.png)
+   ![Selecionar a ação "selecionar"](./media/logic-apps-perform-data-operations/select-select-action.png)
 
-4. Na **partir** caixa, especifique a matriz de origem que pretende.
+1. Na caixa **de** , especifique a matriz de origem desejada.
 
-   Neste exemplo, quando clica dentro da **de** caixa, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar a variável criada anteriormente:
+   Para este exemplo, quando você clica dentro da caixa de, a lista **de** conteúdo dinâmico é exibida para que você possa selecionar a variável criada anteriormente:
 
-   ![Selecione a matriz de origem para a ação de seleção](./media/logic-apps-perform-data-operations/configure-select-action.png)
+   ![Selecionar matriz de origem para a ação de seleção](./media/logic-apps-perform-data-operations/configure-select-action.png)
 
-5. Na **mapa** coluna de lado esquerdo da caixa, forneça o nome de propriedade que pretende atribuir a cada valor na matriz de origem. Na coluna da direita, especifique uma expressão que representa o valor que pretende atribuir a propriedade.
+1. Na coluna do lado esquerdo da caixa **mapa** , forneça o nome da propriedade que você deseja atribuir a cada valor na matriz de origem. Na coluna à direita, especifique uma expressão que represente o valor que você deseja atribuir à propriedade.
 
-   Este exemplo especifica "Product_ID" como o nome da propriedade para atribuir a cada valor na matriz de números inteiros, utilizando o **item()** função numa expressão que acede a cada item da matriz. 
+   Este exemplo especifica "product_id" como o nome da propriedade para atribuir cada valor na matriz de inteiros usando a `item()` função em uma expressão que acessa cada item de matriz. 
 
-   ![Especificar a propriedade do objeto JSON e os valores para a matriz que pretende criar](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
+   ![Especifique a propriedade e os valores do objeto JSON para a matriz que você deseja criar](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
-   Esta é a ação foi concluída:
+   Aqui está a ação concluída:
 
-   ![Conclusão da ação de seleção](./media/logic-apps-perform-data-operations/finished-select-action.png)
+   ![Ação de seleção concluída](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
-6. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
 
-Para obter mais informações sobre esta ação na sua definição de fluxo de trabalho subjacente, veja [selecionar ação](../logic-apps/logic-apps-workflow-actions-triggers.md).
+Para obter mais informações sobre essa ação em sua definição de fluxo de trabalho subjacente, consulte [Selecionar ação](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
 
-Para confirmar se o **selecione** ação cria os resultados esperados, envie uma notificação que inclui a saída a partir do **selecione** ação.
+Para confirmar se a ação **Select** cria os resultados esperados, envie a si mesmo uma notificação que inclua a saída da ação **selecionar** .
 
-1. Na sua aplicação lógica, adicionar uma ação que pode enviar os resultados a partir da **selecione** ação.
+1. Em seu aplicativo lógico, adicione uma ação que possa enviar os resultados da ação **Select** .
 
-2. Em ação, clique em qualquer local que pretende que os resultados sejam apresentados. Quando abre a lista de conteúdo dinâmico, escolha **expressão**. Para obter o resultado de matriz do **selecionar** ação, introduza a expressão que inclui a **selecione** nome da ação:
+1. Nessa ação, clique em qualquer lugar em que você deseja que os resultados sejam exibidos. Quando a lista de conteúdo dinâmico for aberta, selecione **expressão**. Para obter a saída da matriz da ação **Select** , insira esta expressão que inclui o nome da ação **Select** :
 
-   ```
-   @actionBody('Select')
-   ```
+   `@actionBody('Select')`
 
-   Este exemplo utiliza a **Office 365 Outlook - enviar um e-mail** ação e inclui as saídas resultantes a **actionBody('Select')** expressão no corpo do e-mail:
+   Este exemplo usa a ação **enviar um email** do Outlook do Office 365 e inclui as saídas `@actionBody('Select')` da expressão no corpo do email:
 
-   ![Ação produz na ação "Enviar e-mail"](./media/logic-apps-perform-data-operations/send-email-select-action.png)
+   ![Saídas de ação na ação "enviar um email"](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
-3. Agora, executar manualmente a aplicação lógica. Na barra de ferramentas da estruturador, escolha **executar**. 
+1. Agora, execute manualmente seu aplicativo lógico. Na barra de ferramentas do designer, selecione **executar**.
 
-   Com base no conector de e-mail que utilizou, seguem-se os resultados obtidos:
+   Com base no conector de email que você usou, aqui estão os resultados obtidos:
 
-   ![Enviar um e-mail com os resultados de ação "Select"](./media/logic-apps-perform-data-operations/select-email-results.png)
+   ![Enviar por email com os resultados da ação "selecionar"](./media/logic-apps-perform-data-operations/select-email-results.png)
 
-## <a name="get-support"></a>Obter suporte
+## <a name="next-steps"></a>Passos seguintes
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
-
-## <a name="next-steps"></a>Passos Seguintes
-
-* Saiba mais sobre [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre [conectores de aplicativos lógicos](../connectors/apis-list.md)
