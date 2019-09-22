@@ -66,17 +66,17 @@ O JSON a seguir mostra o esquema para a extensão de integridade do aplicativo. 
 | Nome | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | Cadeia de caracteres |
-| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | Cadeia de caracteres |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Definições
 
 | Name | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
-| protocol | `http` ou `tcp` | Cadeia de caracteres |
+| protocol | `http` ou `tcp` | string |
 | port | Opcional quando o protocolo `http`é, obrigatório quando o protocolo é`tcp` | int |
-| requestPath | Obrigatório quando o protocolo `http`é, não é permitido quando o protocolo é`tcp` | Cadeia de caracteres |
+| requestPath | Obrigatório quando o protocolo `http`é, não é permitido quando o protocolo é`tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implantar a extensão de integridade do aplicativo
 Há várias maneiras de implantar a extensão de integridade do aplicativo em seus conjuntos de dimensionamento, conforme detalhado nos exemplos abaixo.
