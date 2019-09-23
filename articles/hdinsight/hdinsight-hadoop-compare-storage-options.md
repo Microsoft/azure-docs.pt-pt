@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104543"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180762"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar as opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -42,17 +42,17 @@ Para obter mais informações sobre as camadas de acesso de armazenamento [do Az
 
 Você pode criar um cluster usando diferentes combinações de serviços para armazenamento secundário primário e opcional. A tabela a seguir resume as configurações de armazenamento de cluster que atualmente têm suporte no HDInsight:
 
-| Versão do HDInsight | Armazenamento Primário | Armazenamento secundário | Suportadas |
+| Versão do HDInsight | Armazenamento primário | Armazenamento secundário | Suportadas |
 |---|---|---|---|
 | 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Ger2 | Não |
+| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen2 | Não |
 | 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Ger1 | Sim |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Armazenamento do Data Lake Ger2 | Sim |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sim |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3,6 & 4,0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
+| 3,6 & 4,0 | Data Lake Storage Gen2 | Armazenamento do Data Lake Ger1 | Não |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger1 | Sim |
 | 3.6 | Armazenamento do Data Lake Ger1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
+| 3.6 | Armazenamento do Data Lake Ger1 | Data Lake Storage Gen2 | Não |
 | 4.0 | Armazenamento do Data Lake Ger1 | Any | Não |
 
 \* = Isso pode ser uma ou várias contas de Data Lake Storage Gen2, desde que todas as configurações usem a mesma identidade gerenciada para acesso ao cluster.
@@ -95,9 +95,9 @@ Para obter mais informações, [consulte o driver do sistema de arquivos de blob
 
 Azure Data Lake Storage Gen2 usa um novo esquema de URI para acessar arquivos no armazenamento do Azure do HDInsight:
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-O esquema de URI fornece acesso criptografado por`abfss://` SSL (prefixo) e acesso não`abfs://` criptografado (prefixo). Use `abfss` sempre que possível, mesmo ao acessar dados que residem dentro da mesma região no Azure.
+O esquema de URI fornece acesso criptografado por SSL.
 
 `<FILE_SYSTEM_NAME>`Identifica o caminho do sistema de arquivos Data Lake Storage Gen2.
 
@@ -108,8 +108,8 @@ O esquema de URI fornece acesso criptografado por`abfss://` SSL (prefixo) e aces
 Se os valores `<FILE_SYSTEM_NAME>` de `<ACCOUNT_NAME>` e não forem especificados, o sistema de arquivos padrão será usado. Para os arquivos no sistema de arquivos padrão, use um caminho relativo ou um caminho absoluto. Por exemplo, o `hadoop-mapreduce-examples.jar` arquivo que vem com clusters HDInsight pode ser referenciado usando um dos seguintes caminhos:
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]

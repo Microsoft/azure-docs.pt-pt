@@ -1,19 +1,19 @@
 ---
-title: Adicionar armazenamento a um cache HPC do Azure
+title: Adicionar armazenamento a um cache do HPC do Azure (visualização)
 description: Como definir destinos de armazenamento para que o cache HPC do Azure possa usar seu sistema NFS local ou contêineres de blob do Azure para o armazenamento de arquivos de longo prazo
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037225"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181005"
 ---
-# <a name="add-storage"></a>Adicionar armazenamento
+# <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
 Os *destinos de armazenamento* são armazenamento de back-end para arquivos que são acessados por meio de uma instância de cache do Azure HPC. Você pode adicionar armazenamento NFS, como um sistema de hardware local, ou armazenar dados no blob do Azure.
 
@@ -112,8 +112,8 @@ Para cada exportação, preencha estes valores:
 
 Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
-### <a name="choose-a-usage-model"></a>Escolher um modelo de uso 
-<!-- link in GUI to this heading -->
+### <a name="choose-a-usage-model"></a>Escolher um modelo de uso
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 Ao criar um destino de armazenamento que aponta para um sistema de armazenamento NFS, você precisa escolher o *modelo de uso* para esse destino. Esse modelo determina como os dados são armazenados em cache.
 
@@ -123,7 +123,7 @@ Ao criar um destino de armazenamento que aponta para um sistema de armazenamento
 
 * Clientes ignoram o cache-escolha esta opção se seus clientes gravarem dados diretamente no sistema de armazenamento sem primeiro gravar no cache.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar destinos de armazenamento, considere uma destas tarefas:
 

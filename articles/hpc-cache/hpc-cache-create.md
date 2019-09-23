@@ -1,21 +1,21 @@
 ---
-title: Criar um cache HPC do Azure
+title: Criar um cache do HPC do Azure (versão prévia)
 description: Como criar uma instância de cache do HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1cc77b24c96514f40c86115f7d611076facd406b
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036997"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181037"
 ---
-# <a name="create-an-azure-hpc-cache"></a>Criar um cache HPC do Azure
+# <a name="create-an-azure-hpc-cache-preview"></a>Criar um cache do HPC do Azure (versão prévia)
 
-Use o portal do Azure para criar o cache.
+Use o portal do Azure para criar o cache. 
 
 ![captura de tela da visão geral do cache no portal do Azure, com o botão criar na parte inferior](media/hpc-cache-home-page.png)
 
@@ -32,7 +32,7 @@ Em **detalhes do serviço**, defina o nome do cache e esses outros atributos:
 * Sub-rede – escolha ou crie uma sub-rede com pelo menos 64 endereços IP (/24) que serão usados somente para o cache do HPC do Azure.
 
 ## <a name="set-cache-capacity"></a>Definir capacidade de cache
-<!-- change link in GUI -->
+<!-- referenced from GUI - update aka.ms link if you change this header text -->
 
 Na página **cache** , você deve definir a capacidade do cache do Azure HPC. Esse valor determina a quantidade de dados que seu cache pode conter e a rapidez com que ele pode atender às solicitações do cliente. Após o período de visualização pública, a capacidade também afetará o custo do cache.
 
@@ -61,7 +61,7 @@ Clique no **link Adicionar destino de armazenamento** para definir seus sistemas
 
 Você pode definir até dez destinos de armazenamento diferentes.
 
-As instruções passo a passo para adicionar um destino de armazenamento estão incluídas em [Adicionar armazenamento](hpc-cache-add-storage.md). O procedimento é diferente para armazenamento de BLOBs ou para exportações NFS.
+As instruções passo a passo para adicionar um destino de armazenamento estão incluídas em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md). O procedimento é diferente para armazenamento de BLOBs ou para exportações NFS.
 
 Aqui estão algumas dicas: 
 
@@ -87,7 +87,7 @@ Quando a criação for concluída, uma notificação será exibida com um link p
 
 ![captura de tela da instância de cache do HPC do Azure no portal do Azure](media/hpc-cache-new-overview.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois que o cache aparecer na lista de **recursos** , você poderá montá-lo para acesso de cliente, usá-lo para mover seus dados de conjunto de trabalho para um novo destino de armazenamento de BLOBs do Azure ou definir fontes de dados adicionais.
 

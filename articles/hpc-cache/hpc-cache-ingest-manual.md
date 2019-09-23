@@ -1,19 +1,19 @@
 ---
-title: Ingestão de dados do cache HPC do Azure-cópia manual
+title: Ingestão de dados de visualização do cache HPC do Azure – cópia manual
 description: Como usar comandos CP para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775237"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180984"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure-método de cópia manual
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure (visualização)-método de cópia manual
 
 Este artigo fornece instruções detalhadas para copiar manualmente os dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure. Ele usa operações paralelas multi-threaded para otimizar a velocidade de cópia.
 

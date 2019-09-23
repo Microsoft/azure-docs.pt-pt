@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 49fd69c124ff9053f3934aefd349e039b437df0d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: de738461776be7bdfd1abc45dde24dc1202d3a3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354968"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180746"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário do Python (UDF) com Apache Hive e Apache Pig no HDInsight
 
@@ -29,7 +29,7 @@ O HDInsight também inclui Jython, que é uma implementação do Python escrita 
 
 * **Um cluster Hadoop no HDInsight**. Consulte [introdução ao HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Um cliente SSH**. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria wasb://para o armazenamento do Azure, abfs://para Azure Data Lake Storage Gen2 ou adl://para Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure ou Data Lake Storage Gen2, o URI seria wasbs://ou abfss://, respectivamente, consulte também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure `abfs://` , por Azure data Lake Storage Gen2 ou ADL://para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI seria wasbs://.  Consulte também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 * **Alteração possível na configuração de armazenamento.**  Consulte [configuração de armazenamento](#storage-configuration) se estiver usando o `BlobStorage`tipo de conta de armazenamento.
 * Opcional.  Se estiver planejando usar o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) instalado.
 
@@ -37,7 +37,7 @@ O HDInsight também inclui Jython, que é uma implementação do Python escrita 
 > A conta de armazenamento usada neste artigo foi o armazenamento do Azure com a [transferência segura](../../storage/common/storage-require-secure-transfer.md) habilitada e, portanto, `wasbs` é usada em todo o artigo.
 
 ## <a name="storage-configuration"></a>Configuração do armazenamento
-Nenhuma ação será necessária se a conta de armazenamento usada for do `Storage (general purpose v1)` tipo `StorageV2 (general purpose v2)`ou.  O processo neste artigo produzirá a saída para pelo menos `/tezstaging`.  Uma configuração padrão do Hadoop conterá `/tezstaging` `fs.azure.page.blob.dir` na variável de configuração `core-site.xml` no para `HDFS`o serviço.  Essa configuração fará com que a saída para o diretório seja blobs de páginas, que não têm suporte para o `BlobStorage`tipo de conta de armazenamento.  Para usar `BlobStorage` neste artigo, remova `/tezstaging` da variável de `fs.azure.page.blob.dir` configuração.  A configuração pode ser acessada na [interface do usuário](../hdinsight-hadoop-manage-ambari.md)do amAmbari.  Caso contrário, você receberá a mensagem de erro:`Page blob is not supported for this account type.`
+Nenhuma ação será necessária se a conta de armazenamento usada for do `Storage (general purpose v1)` tipo `StorageV2 (general purpose v2)`ou.  O processo neste artigo produzirá a saída para pelo menos `/tezstaging`.  Uma configuração padrão do Hadoop conterá `/tezstaging` `fs.azure.page.blob.dir` na variável de configuração `core-site.xml` no para `HDFS`o serviço.  Essa configuração fará com que a saída para o diretório seja blobs de páginas, que não têm suporte para o `BlobStorage`tipo de conta de armazenamento.  Para usar `BlobStorage` neste artigo, remova `/tezstaging` da variável de `fs.azure.page.blob.dir` configuração.  A configuração pode ser acessada na [interface do usuário do amAmbari](../hdinsight-hadoop-manage-ambari.md).  Caso contrário, você receberá a mensagem de erro:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > As etapas neste documento fazem as seguintes suposições:  
@@ -73,7 +73,7 @@ Veja o que este exemplo faz:
 
 <a name="streamingpy"></a>
 
-### <a name="create-file"></a>Criar ficheiro
+### <a name="create-file"></a>Criar arquivo
 
 Em seu ambiente de desenvolvimento, crie um arquivo de `hiveudf.py`texto chamado. Use o código a seguir como o conteúdo do arquivo:
 
@@ -313,7 +313,7 @@ Veja o que este exemplo faz:
 3. Em seguida, ele itera sobre os registros no `LOG` e usa `GENERATE` para invocar `create_structure` o método contido no script Python/Jython carregado como `myfuncs`. `LINE`é usado para passar o registro atual para a função.
 4. Por fim, as saídas são despejadas para stdout `DUMP` usando o comando. Esse comando exibe os resultados após a conclusão da operação.
 
-### <a name="create-file"></a>Criar ficheiro
+### <a name="create-file"></a>Criar arquivo
 
 Em seu ambiente de desenvolvimento, crie um arquivo de `pigudf.py`texto chamado. Use o código a seguir como o conteúdo do arquivo:
 

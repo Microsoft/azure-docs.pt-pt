@@ -116,8 +116,8 @@ Para adicionar mais módulos à sua solução, execute o comando **Azure IOT Edg
 
 O código de módulo padrão que vem com a solução está localizado no seguinte local:
 
-- Azure FunctionsC#(): **módulos  *&lt;> seu módulo&gt;nomear* >  *&lt;seu&gt;módulo nome*. cs
-- C#: **módulos >  *&lt;nome&gt; do módulo* > Program.cs
+- Azure FunctionsC#(): **módulos  *&lt;> seu módulo&gt;nomear* >  *&lt;seu&gt;módulo nome*. cs**
+- C#: **módulos >  *&lt;nome&gt; do módulo* > Program.cs**
 - Python: **módulos >  *&lt;nome&gt; do módulo* > Main.py**
 - Node. js: **módulos >  *&lt;nome&gt; do módulo* > app. js**
 - Java: **modules >  *&lt;o nome&gt; do módulo* > src > Principal > Java > com > edgemodulemodules > app. java**

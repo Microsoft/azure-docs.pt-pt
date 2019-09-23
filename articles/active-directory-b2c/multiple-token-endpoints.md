@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta seção, você atualiza o código para especificar que ambos os pontos de extremidade do emissor do token sejam válidos.
 
 1. Abra a solução **B2C-WebAPI-dotnet. sln** no Visual Studio
-1. No projeto **TaskService** , abra o arquivo *TaskService\\App_Start\\* * Startup.auth.cs** * em seu editor
+1. No projeto **TaskService** , abra o arquivo *TaskService\\App_Start\\**Startup.auth.cs*** em seu editor
 1. Adicione a seguinte `using` diretiva à parte superior do arquivo:
 
     `using System.Collections.Generic;`
@@ -122,7 +122,7 @@ Como mencionado anteriormente, outras bibliotecas OWIN geralmente fornecem um re
 
 Agora, com os dois URIs compatíveis com sua API Web, você precisa atualizar seu aplicativo Web para que ele recupere tokens do ponto de extremidade b2clogin.com.
 
-Por exemplo, você pode configurar o aplicativo Web de exemplo para usar o novo ponto de extremidade `ida:AadInstance` modificando o valor no arquivo *TaskWebApp\\* * Web. config** * do projeto **TaskWebApp** .
+Por exemplo, você pode configurar o aplicativo Web de exemplo para usar o novo ponto de extremidade `ida:AadInstance` modificando o valor no arquivo *TaskWebApp\\**Web. config*** do projeto **TaskWebApp** .
 
 Altere o `ida:AadInstance` valor no *Web. config* de TaskWebApp para que ele faça referência `{your-b2c-tenant-name}.b2clogin.com` em vez `login.microsoftonline.com`de.
 

@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adicionar o ficheiro HTTPCommunicationListener.java
 
-O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/Statelessservice* e selecione **novo * *** * * arquivo.  Nomeie o arquivo *HttpCommunicationListener. java* e selecione **concluir**.
+O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/Statelessservice* e selecione **novo****arquivo**.  Nomeie o arquivo *HttpCommunicationListener. java* e selecione **concluir**.
 
 Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Posteriormente, em atualizar o arquivo HttpCommunicationListener. Java, esse arquivo é modificado para renderizar, ler e gravar dados de votação do serviço de back-end.  Por agora, o serviço de escuta devolve simplesmente o HTML estático da aplicação de Voto.
 

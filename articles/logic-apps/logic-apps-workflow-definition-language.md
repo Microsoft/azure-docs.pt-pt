@@ -117,11 +117,11 @@ No atributo, defina a simulação `outputs` de uma ação e `status` a ação re
 
 | Atributo | Requerido | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| <*static-Result-Definition-Name*> | Sim | Cadeia | O nome de uma definição de resultado estático que uma definição de ação pode referenciar por meio de um `runtimeConfiguration.staticResult` objeto. Para obter mais informações, consulte [definições de configuração de tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Você pode usar qualquer nome exclusivo que desejar. Por padrão, esse nome exclusivo é acrescentado com um número, que é incrementado conforme necessário. |
+| <*static-Result-Definition-Name*> | Sim | String | O nome de uma definição de resultado estático que uma definição de ação pode referenciar por meio de um `runtimeConfiguration.staticResult` objeto. Para obter mais informações, consulte [definições de configuração de tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Você pode usar qualquer nome exclusivo que desejar. Por padrão, esse nome exclusivo é acrescentado com um número, que é incrementado conforme necessário. |
 | <*output-attributes-and-values-returned*> | Sim | Varia | Os requisitos para esses atributos variam de acordo com as diferentes condições. Por exemplo, quando o `status` é `Succeeded`, o `outputs` atributo inclui atributos e valores retornados como saídas de imitação pela ação. `status` `message` Se for `errors` , o `outputs` atributo incluirá o atributo, que é uma matriz com um ou mais objetos de erro que têm informações de erro. `Failed` |
 | <*valores de cabeçalho*> | Não | JSON | Todos os valores de cabeçalho retornados pela ação |
-| <*status-code-returned*> | Sim | Cadeia | O código de status retornado pela ação |
-| <*action-status*> | Sim | Cadeia | O status da ação, por exemplo, `Succeeded` ou`Failed` |
+| <*status-code-returned*> | Sim | String | O código de status retornado pela ação |
+| <*action-status*> | Sim | String | O status da ação, por exemplo, `Succeeded` ou`Failed` |
 |||||
 
 Por exemplo, nessa definição de ação http, o `runtimeConfiguration.staticResult.name` atributo faz `HTTP0` referência dentro `staticResults` do atributo onde as saídas de simulação para a ação são definidas. O `runtimeConfiguration.staticResult.staticResultOptions` atributo especifica que a configuração de resultado estático `Enabled` está na ação http.
@@ -280,7 +280,7 @@ Aqui está a estrutura geral para uma definição de saída:
 
 | Atributo | Requerido | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| <*key-name*> | Sim | Cadeia | O nome da chave para o valor de retorno de saída |
+| <*key-name*> | Sim | String | O nome da chave para o valor de retorno de saída |
 | <*key-type*> | Sim | int, float, string, securestring, bool, array, objeto JSON | O tipo para o valor de retorno de saída |
 | <*chave-valor*> | Sim | Mesmo que <*key-type*> | O valor de retorno de saída |
 |||||

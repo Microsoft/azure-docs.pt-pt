@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441998"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181103"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -38,7 +38,7 @@ O HDInsight ingressado no domínio dá suporte a vários usuários e a permissõ
 
 O FQDN (nome de domínio totalmente qualificado) a ser usado ao conectar-se ao cluster da `CLUSTERNAME.azurehdinsight.net` Internet `CLUSTERNAME-ssh.azurehdinsight.net` é ou (somente para SSH).
 
-Internamente, cada nó no cluster tem um nome atribuído durante a configuração do cluster. Para localizar os nomes de cluster, consulte  a página hosts na interface do usuário do amAmbari Web. Você também pode usar o seguinte para retornar uma lista de hosts da API REST do amAmbari:
+Internamente, cada nó no cluster tem um nome atribuído durante a configuração do cluster. Para localizar os nomes de cluster, consulte a página **hosts** na interface do usuário do amAmbari Web. Você também pode usar o seguinte para retornar uma lista de hosts da API REST do amAmbari:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -103,7 +103,7 @@ Ao usar o HDInsight, os arquivos de dados são armazenados de maneira escalonáv
 * Acessibilidade de serviços externos, como sites, utilitários de upload/download de arquivos, vários SDKs de linguagem e navegadores da Web.
 * Capacidade de arquivo grande e armazenamento escalonável grande.
 
-Para obter mais informações, [](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) consulte Understanding BLOBs and [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+Para obter mais informações, consulte [Understanding BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 Ao usar o armazenamento do Azure ou o Data Lake Storage, você não precisa fazer nada especial do HDInsight para acessar os dados. Por exemplo, o comando a seguir lista os arquivos `/example/data` na pasta, independentemente de estarem armazenados no armazenamento do Azure ou data Lake Storage:
 
@@ -124,11 +124,9 @@ Ao usar o __armazenamento do Azure__, use um dos seguintes esquemas de URI:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Usado ao se comunicar com uma conta de armazenamento não padrão. Por exemplo, quando você tem uma conta de armazenamento adicional ou ao acessar dados armazenados em uma conta de armazenamento publicamente acessível.
 
-Ao usar __Azure data Lake Storage Gen2__, use um dos seguintes esquemas de URI:
+Ao usar __Azure data Lake Storage Gen2__, use o seguinte esquema de URI:
 
-* `abfs:///`: Acesse o armazenamento padrão usando comunicação não criptografada.
-
-* `abfss:///`: Acesse o armazenamento padrão usando a comunicação criptografada.  O esquema abfss tem suporte apenas do HDInsight versão 3,6 em diante.
+* `abfs://`: Acesse o armazenamento padrão usando a comunicação criptografada.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Usado ao se comunicar com uma conta de armazenamento não padrão. Por exemplo, quando você tem uma conta de armazenamento adicional ou ao acessar dados armazenados em uma conta de armazenamento publicamente acessível.
 
@@ -241,7 +239,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
     * **Interface do usuário do Storm**: Use as etapas a seguir para reequilibrar uma topologia usando a interface do usuário do Storm.
 
         1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` o no navegador da Web, `CLUSTERNAME` em que é o nome do cluster Storm. Se solicitado, insira o nome do administrador do cluster HDInsight (admin) e a senha que você especificou ao criar o cluster.
-        2. Selecione a topologia que você deseja reequilibrar e, em  seguida, selecione o botão rebalancear. Insira o atraso antes que a operação de rebalanceamento seja executada.
+        2. Selecione a topologia que você deseja reequilibrar e, em seguida, selecione o botão **rebalancear** . Insira o atraso antes que a operação de rebalanceamento seja executada.
 
 * **Kafka**: Você deve reequilibrar réplicas de partição após as operações de dimensionamento. Para obter mais informações, consulte a [alta disponibilidade de dados com o Apache Kafka no documento HDInsight](./kafka/apache-kafka-high-availability.md) .
 
@@ -283,7 +281,7 @@ Para usar uma versão diferente de um componente, carregue a versão necessária
 >
 > Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de que você envolva canais disponíveis para as tecnologias de software livre em que a profunda experiência para essa tecnologia é encontrada. Por exemplo, há muitos sites de comunidade que podem ser usados, como: [Fórum do MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Além disso, os projetos do Apache [https://apache.org](https://apache.org)têm sites de projeto em, por exemplo: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerenciar clusters HDInsight usando a API REST do Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 8a1bb4f0315be70cfe8debab0ee9eb1e4b576738
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259136"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181124"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache beeline com Apache Hive
 
@@ -111,12 +111,12 @@ Ao se conectar diretamente do nó principal do cluster ou de um recurso dentro d
 
 * Um cluster Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Observe o [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário do seu cluster. Por exemplo, `wasb://` para o armazenamento do `abfs://` Azure, por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure ou data Lake Storage Gen2 `wasbs://` , `abfss://`o URI será ou, respectivamente. Para obter mais informações, consulte [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* Observe o [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário do seu cluster. Por exemplo, `wasb://` para o armazenamento do `abfs://` Azure, por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure `wasbs://`, o URI será. Para obter mais informações, consulte [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
 
-* Opção 1: Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md). A maioria das etapas neste documento pressupõe que você está usando o beeline de uma sessão SSH para o cluster.
+* Opção 1: Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md). A maioria das etapas neste documento pressupõe que você está usando o beeline de uma sessão SSH para o cluster.
 
-* Opção 2:  Um cliente beeline local.
+* Opção 2:  Um cliente beeline local.
 
 
 ## <a id="beeline"></a>Executar uma consulta de Hive

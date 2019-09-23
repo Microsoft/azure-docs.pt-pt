@@ -132,7 +132,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | respondingtransactionSetControlNumber | String | Número de controlo do conjunto de transações está a responder. (Opcional) |
 | respondingTransactionSetId | String | ID, que mapeia para AK201 na confirmação do conjunto de transações está a responder. (Opcional) |
 | statusCode | Boolean | Código de estado de confirmação do conjunto de transações. (Obrigatório) |
-| segmentsCount | Enum | Código de estado de confirmação. Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
+| segmentsCount | Enum | Código de estado de confirmação. Valores permitidos são **Accepted**, **Rejected**, e **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Estado de processamento da confirmação. Valores permitidos são **recebidos**, **Generated**, e **enviados**. (Obrigatório) |
 | CorrelationMessageId | String | ID de mensagem de correlação. Uma combinação de {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Opcional) |
 | isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
@@ -236,7 +236,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | isaSegment | String | Segmento ISA para a confirmação de técnica de parceiros é recebido. (Opcional) |
 | respondingInterchangeControlNumber |String | Número de controlo para a confirmação técnica recebidos de parceiros de intercâmbio. (Opcional) |
 | isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
-| statusCode | Enum | Intercâmbio do código de estado de confirmação. Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
+| statusCode | Enum | Intercâmbio do código de estado de confirmação. Valores permitidos são **Accepted**, **Rejected**, e **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Estado de confirmação. Valores permitidos são **recebidos**, **Generated**, e **enviados**. (Obrigatório) |
 | ta102 | String | Intercâmbio data. (Opcional) |
 | ta103 | String | Intercâmbio do tempo. (Opcional) |

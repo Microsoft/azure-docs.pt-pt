@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: c24370c91c7164786503cdd8e3c44de60abc8370
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b0cb5f9fa0a0bc64b38225fba03568cf31021572
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122499"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181089"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -37,7 +37,7 @@ Você também pode usar o Oozie para agendar trabalhos que são específicos de 
 
 * **Um banco de dados SQL do Azure**.  Consulte [criar um banco de dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started.md).  Este artigo usa um banco de `oozietest`dados denominado.
 
-* O [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure `abfs://` , por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure ou data Lake Storage Gen2, `wasbs://` o `abfss://`URI será ou, respectivamente, verá também a [transferência segura](../storage/common/storage-require-secure-transfer.md).
+* O [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure `abfs://` , por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, `wasbs://`o URI será. Consulte também a [transferência segura](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 

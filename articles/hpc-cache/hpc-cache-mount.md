@@ -1,19 +1,19 @@
 ---
-title: Montar um cache HPC do Azure
+title: Montar um cache HPC do Azure (versão prévia)
 description: Como conectar clientes a um serviço de cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b7a59afa0dea300e200b953d045d38218e99b22
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036967"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180922"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>Montar o cache HPC do Azure
+# <a name="mount-the-azure-hpc-cache-preview"></a>Montar o cache do HPC do Azure (visualização)
 
 Depois que o cache é criado, os clientes NFS podem acessá-lo com um comando de montagem simples.
 
@@ -54,11 +54,11 @@ Para uma montagem de cliente robusta, passe essas configurações e argumentos n
 
 | Configurações de comando de montagem recomendadas | |
 --- | --- 
-``hard`` | As montagens suaves no cluster vFXT são associadas a falhas de aplicativos e à possível perda de dados. 
+``hard`` | As montagens suaves no cache do HPC do Azure estão associadas a falhas do aplicativo e à possível perda de dados. 
 ``proto=netid`` | Essa opção dá suporte ao tratamento apropriado de erros de rede NFS.
 ``mountproto=netid`` | Essa opção dá suporte ao tratamento apropriado de erros de rede para operações de montagem.
 ``retry=n`` | Defina ``retry=30`` para evitar falhas de montagem transitórias. (Um valor diferente é recomendado em montagens de primeiro plano.)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para mover dados para os destinos de armazenamento do cache, leia [popular novo armazenamento de BLOBs do Azure](hpc-cache-ingest.md).

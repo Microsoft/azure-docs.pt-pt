@@ -1,19 +1,19 @@
 ---
-title: Ingestão de dados do cache HPC do Azure-msrsync
+title: Ingestão de dados de visualização do cache HPC do Azure – msrsync
 description: Como usar o msrsync para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: d49c2ba45b125f8e42ea5d10dcf3dcd68558a52c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 265ec55a6e013a37cf963b6256e900c070311f72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775640"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180948"
 ---
-# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingestão de dados do cache HPC do Azure – método msrsync
+# <a name="azure-hpc-cache-preview-data-ingest---msrsync-method"></a>Ingestão de dados do cache HPC do Azure (visualização) – método msrsync
 
 Este artigo fornece instruções detalhadas sobre como usar ``msrsync`` o utilitário para copiar dados para um contêiner de armazenamento de BLOBs do Azure para uso com o cache HPC do Azure.
 

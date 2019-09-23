@@ -85,7 +85,7 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
     ![Nome do pacote no GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 4. Defina a versão de destino do Android para o projeto como **Android 9,0 (pizza)** seguindo estas etapas: 
     1. Clique com o botão direito do mouse no projeto e selecione **Propriedades**. 
-    1. Para a **compilação usando a versão do Android: (Estrutura de destino) , selecione **Android 9,0 (pizza).**** 
+    1. Para a **compilação usando a versão do Android: (Estrutura de destino) ,** selecione **Android 9,0 (pizza).** 
     1. Selecione **Sim** na caixa de mensagem para continuar com a alteração da estrutura de destino.
 1. Adicione os pacotes NuGet necessários ao projeto seguindo estas etapas:
     1. Clique com o botão direito do rato no projeto e selecione **Gerir Pacotes NuGet...** .

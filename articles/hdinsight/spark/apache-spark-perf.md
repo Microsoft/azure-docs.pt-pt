@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995571"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181074"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar Apache Spark trabalhos no HDInsight
 
@@ -60,7 +60,7 @@ Ao criar um novo cluster Spark, você tem a opção de selecionar o armazenament
 | Tipo de repositório | Sistema de ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
 | Armazenamento de Blobs do Azure | **wasb:** //url/ | **Standard** | Sim | Cluster transitório |
-| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Meio** | Sim | Cluster transitório |
+| Azure Data Lake Storage Gen 2| **abfs:** //URL/ | **Meio** | Sim | Cluster transitório |
 | Armazenamento do Azure Data Lake Ger 1| **adl:** //url/ | **Meio** | Sim | Cluster transitório |
 | HDFS local | **hdfs:** //url/ | **Fastest** | Não | Cluster interativo 24/7 |
 
@@ -210,7 +210,7 @@ A chave para o desempenho de consulta do Spark 2. x é o mecanismo Tungsten, que
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Depurar trabalhos do Apache Spark em execução no Azure HDInsight](apache-spark-job-debugging.md)
 * [Gerenciar recursos para um cluster Apache Spark no HDInsight](apache-spark-resource-manager.md)

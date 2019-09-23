@@ -1,19 +1,19 @@
 ---
-title: Visão geral do cache HPC do Azure
+title: Visão geral da visualização do cache HPC do Azure
 description: Descreve o cache do HPC do Azure, uma solução de acelerador de acesso a arquivo para computação de alto desempenho
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/06/2019
+ms.date: 09/19/2019
 ms.author: v-erkell
-ms.openlocfilehash: 77eca3ef58733a616705fdaac1d2880b5a990e8a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: f4c858d7a71cf02b4a8fe181deecbf3a1b652885
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036874"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180678"
 ---
-# <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
+# <a name="what-is-azure-hpc-cache-preview"></a>O que é o Azure HPC Cache? (Pré-visualização)
 
 O cache do HPC do Azure acelera o acesso aos seus dados para tarefas HPC (computação de alto desempenho). Ao armazenar arquivos em cache no Azure, ele torna a escalabilidade da computação em nuvem disponível mesmo para fluxos de trabalho em que os dados são armazenados em links de WAN, como em seu ambiente NAS (armazenamento conectado à rede) do datacenter local.
 
@@ -57,6 +57,10 @@ O cache do HPC do Azure está disponível nessas regiões do Azure:
 * EUA Oeste 2
 
 Verifique a [página do produto de cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
+
+## <a name="preview-availability"></a>Disponibilidade de visualização
+
+A visualização pública do cache HPC do Azure é restrita para garantir a qualidade do serviço. Solicitar acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois que sua assinatura for adicionada à lista de acesso, você poderá criar caches de teste.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,13 +5,13 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
-ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/22/2019
+ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992328"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180851"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -90,6 +90,13 @@ Clicar nesse ícone exibirá o plano de execução e o perfil de desempenho subs
 * Dentro do designer de fluxo de dados, use a guia Visualização de dados em transformações para exibir os resultados da lógica de transformação.
 * Teste de unidade seus dados fluem do designer de pipeline, colocando uma atividade de fluxo de dados na tela de design do pipeline e usando o botão "depurar" para testar.
 * O teste no modo de depuração funcionará em um ambiente de cluster dinâmico quente sem a necessidade de aguardar uma rotação de cluster just-in-time.
+* Durante a depuração da visualização de dados dentro da experiência do designer de fluxo de dados, você pode limitar a quantidade de dados que testa para cada fonte definindo o limite de linha no link configurações de depuração na interface do usuário do designer de fluxo de dados. Observe que você deve ativar o modo de depuração primeiro.
+
+![Configurações de depuração](media/data-flow/debug-settings.png "Configurações de depuração")
+
+* Ao testar os fluxos de dados de uma execução de depuração de pipeline, você pode limitar o número de linhas usadas para teste definindo o tamanho de amostragem em cada uma de suas fontes. Certifique-se de desabilitar a amostragem ao agendar seus pipelines em um agendamento operacional regular.
+
+![Amostragem de linha](media/data-flow/source1.png "Amostragem de linha")
 
 ### <a name="disable-indexes-on-write"></a>Desabilitar índices na gravação
 * Use uma atividade de procedimento armazenado do pipeline do ADF antes de sua atividade de fluxo de dados que desabilita os índices nas tabelas de destino que estão sendo gravadas do seu coletor.
@@ -141,7 +148,11 @@ Por exemplo, se eu tiver uma lista de arquivos de dados de julho de 2019 que des
 
 Isso terá um desempenho melhor do que uma pesquisa no repositório de BLOB em um pipeline que, em seguida, itera em todos os arquivos correspondentes usando um ForEach com uma atividade executar fluxo de dados dentro do.
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="increase-the-size-of-your-debug-cluster"></a>Aumentar o tamanho do cluster de depuração
+
+Por padrão, a ativação da depuração usará o tempo de execução de integração do Azure padrão criado automaticamente para cada data factory. Essa Azure IR padrão é definida para 8 núcleos, 4 para um nó de driver e 4 para um nó de trabalho, usando propriedades de computação gerais. Ao testar com dados maiores, você pode aumentar o tamanho do cluster de depuração criando um novo Azure IR com configurações maiores e escolher essa nova Azure IR quando você alternar para depuração. Isso instruirá o ADF a usar essa Azure IR para visualização de dados e depuração de pipeline com fluxos de dados.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os outros artigos de fluxo de dados relacionados ao desempenho:
 

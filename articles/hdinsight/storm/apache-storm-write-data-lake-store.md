@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 752bf1919634d29221a00d983b4e88fefaf628d5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b6114a764d0834b7bcfe4b95d34fae6a03a8a40e
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736343"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181031"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Gravar em Apache Hadoop HDFS de Apache Storm no Azure HDInsight
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 
 * Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure `abfs://` , por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure ou data Lake Storage Gen2, `wasbs://` o `abfss://`URI será ou, respectivamente, verá também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure `abfs://` , por Azure data Lake Storage Gen2 `adl://` ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, `wasbs://`o URI será.  Consulte também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
 ### <a name="example-configuration"></a>Configuração de exemplo
 
@@ -209,7 +209,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a usar Apache Storm para gravar dados no armazenamento compatível com HDFS usado pelo Apache Storm no HDInsight.
 
