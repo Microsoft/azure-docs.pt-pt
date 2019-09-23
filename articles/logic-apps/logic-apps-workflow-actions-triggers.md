@@ -52,10 +52,10 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*trigger-name*> | Cadeia | O nome do gatilho | 
-| <*trigger-type*> | Cadeia | O tipo de gatilho, como "http" ou "ApiConnection" | 
+| <*trigger-name*> | String | O nome do gatilho | 
+| <*trigger-type*> | String | O tipo de gatilho, como "http" ou "ApiConnection" | 
 | <*trigger-inputs*> | Objeto JSON | As entradas que definem o comportamento do gatilho | 
-| <*time-unit*> | Cadeia | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
+| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
 | <*number-of-time-units*> | Integer | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>Mês 1-16 meses </br>Diário 1-500 dias </br>Dia 1 a 12000 horas </br>Demorar 1 a 72000 minutos </br>Microssegundo 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
 |||| 
 
