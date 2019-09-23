@@ -42,9 +42,9 @@ Você pode usar os seguintes parâmetros:
 
 | Nome | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
-| sensitivityLevel |Cadeia de caracteres: ' low ', ' Medium ', ' High ' |Define o nível de sensibilidade no qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |médio |
+| sensitivityLevel |String: 'low', 'medium', 'high' |Define o nível de sensibilidade no qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |médio |
 | frameSamplingValue |Inteiro positivo |Define a frequência na qual o algoritmo é executado. 1 é igual a cada quadro, 2 significa cada segundo quadro e assim por diante. |1 |
-| detectLightChange |Booliano: ' true ', ' false ' |Define se as alterações leves são relatadas nos resultados |For |
+| detectLightChange |Boolean: 'true', 'false' |Define se as alterações leves são relatadas nos resultados |For |
 | mergeTimeThreshold |XS-time: Hh:mm:ss<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre eventos de movimento em que dois eventos são combinados e relatados como 1. |00:00:00 |
 | detectionZones |Uma matriz de zonas de detecção:<br/>-A zona de detecção é uma matriz de três ou mais pontos<br/>-Point é uma coordenada x e y de 0 a 1. |Descreve a lista de zonas de detecção poligonal a serem usadas.<br/>Os resultados são relatados com as zonas como uma ID, com a primeira sendo ' ID ': 0 |Zona única, que abrange todo o quadro. |
 
