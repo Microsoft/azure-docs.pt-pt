@@ -79,17 +79,17 @@ A seguir estão as descrições de propriedade:
 | --- | --- | --- | --- |
 | name | Cadeia de caracteres | --- | nome exclusivo para a extensão |
 | type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode | --- | Identifica o sistema operacional Service Fabric está carregando para |
-| autoUpgradeMinorVersion | verdadeiro ou falso | --- | Habilitar a atualização automática de versões secundárias do Runtime da it |
+| autoUpgradeMinorVersion | true ou false | --- | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | publisher | Microsoft.Azure.ServiceFabric | --- | nome do editor de extensão de Service Fabric |
 | clusterEndpont | cadeia | --- | URI: porta para ponto de extremidade de gerenciamento |
 | nodeTypeRef | cadeia | --- | nome do nodeType |
-| durabilityLevel | bronze, prata, ouro, platina | --- | tempo permitido para pausar a infraestrutura imutável do Azure |
-| enableParallelJobs | verdadeiro ou falso | --- | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
+| durabilityLevel | bronze, silver, gold, platinum | --- | tempo permitido para pausar a infraestrutura imutável do Azure |
+| enableParallelJobs | true ou false | --- | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
 | nicPrefixOverride | Cadeia de caracteres | --- | Prefixo de sub-rede como "10.0.0.0/24" |
 | commonNames | string[] | --- | Nomes comuns de certificados de cluster instalados |
 | x509StoreName | Cadeia de caracteres | --- | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1.1 | --- | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | Cadeia de caracteres | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
+| dataPath | Cadeia de caracteres | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte a [visão geral do recurso "implantar em qualquer lugar" e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md).
