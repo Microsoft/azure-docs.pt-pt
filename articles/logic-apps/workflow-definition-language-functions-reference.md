@@ -4159,7 +4159,7 @@ E retorna esse resultado:`"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>unida
+### <a name="union"></a>union
 
 Retorna uma coleção que tem *todos* os itens das coleções especificadas.
 Para aparecer no resultado, um item pode aparecer em qualquer coleção passada para essa função. Se um ou mais itens tiverem o mesmo nome, o último item com esse nome aparecerá no resultado.
