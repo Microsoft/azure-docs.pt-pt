@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 8d91768d46d3e4a793982418da91f2d1877c5a79
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092013"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162545"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -65,93 +65,93 @@ Você verá a tela de **introdução** , já que este é seu primeiro experiment
 
 1. Selecione **criar experimento**. 
 
-1. Insira **My-1º-automl-experimento** como o nome do experimento.
+1. Insira este nome de experimento:`my-1st-automl-experiment`
 
-1. Selecione **criar uma nova computação**. Uma computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar sua implantação de serviço. Para este experimento, usamos uma computação baseada em nuvem. 
+1. Selecione **criar uma nova computação** e configure seu destino de computação. Um destino de computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar sua implantação de serviço. Para este experimento, usamos uma computação baseada em nuvem. 
 
-    1. Configure seu contexto de computação para este experimento.
-        
-        Campo | Value
-        ----|---
-        Nome de computação |  Insira um nome exclusivo que identifique o contexto de computação. Para este exemplo, use **automl-Compute**.
-        Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para sua computação. Use o padrão **Standard_DS12_V2**.
-        Definições adicionais| *Nó mínimo*: 1. Para habilitar a criação de perfil de dados, você deve ter um ou mais nós. <br> *Nó máximo*: 6.
- 
-    1. Para criar sua nova computação, selecione **criar**. Isso leva alguns minutos para ser concluído. 
+   Campo | Descrição | Valor do tutorial
+   ----|---|---
+   Nome de computação |Um nome exclusivo que identifica o contexto de computação.|automl-computação
+   Tamanho&nbsp;da&nbsp;máquina virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
+   Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós.|Nós mínimos: 1<br>Máximo de nós: 6
 
-    1. Quando a criação for concluída, selecione a nova computação na lista suspensa e, em seguida, selecione **Avançar**.
+   >[!NOTE]
+   >Para este tutorial, você usará a conta de armazenamento padrão e o contêiner criado com sua nova computação. Eles são preenchidos automaticamente no formulário.
+    
+1. Selecione **criar** para obter o destino de computação. 
+   **Isso leva alguns minutos para ser concluído.** 
 
-    >[!NOTE]
-    >Para este tutorial, você usará a conta de armazenamento padrão e o contêiner criado com sua nova computação. Eles são preenchidos automaticamente no formulário.
+1. Após a criação, selecione o novo destino de computação na lista suspensa e selecione **Avançar**.
 
-1. Selecione **carregar do arquivo local**. A partir daqui, você cria um novo conjunto de uma com o arquivo **bankmarketing_train. csv** que você baixou anteriormente para este tutorial. 
+1. Selecione **carregar do arquivo local** para começar a criar um novo conjunto de um. 
 
-    1. Selecione **procurar** e, em seguida, selecione o arquivo **bankmarketing_train. csv** no computador local. 
+    1. Selecione **Procurar**.
+    
+    1. Escolha o arquivo **bankmarketing_train. csv** no computador local. Esse é o arquivo que você baixou como um [pré-requisito](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Dê um nome exclusivo ao seu conjunto de dado e forneça uma descrição opcional. 
 
-    1. Selecione **Avançar** para carregá-lo no contêiner padrão que foi configurado automaticamente durante a criação do seu espaço de trabalho. A visualização pública dá suporte apenas a carregamentos de arquivos locais. 
+    1. Selecione **Avançar** na parte inferior esquerda para carregá-lo no contêiner padrão que foi configurado automaticamente durante a criação do espaço de trabalho. A visualização pública dá suporte apenas a carregamentos de arquivos locais. 
 
     1. Quando o upload for concluído, as **configurações e** o formulário de visualização serão preenchidos de forma inteligente com base no tipo de arquivo. Verifique se o formulário está preenchido da seguinte maneira.
         
         Campo|Value
         ---|---
-        Formato de arquivo| Delimitados
+        Formato do ficheiro| Delimitado
         Delimitador| Vírgula
         Codificação| UTF-8
-        Cabeçalhos de coluna| Todos os arquivos têm os mesmos cabeçalhos
+        Cabeçalhos de coluna| Todos os ficheiros têm os mesmos cabeçalhos
         Ignorar linhas | Nenhum
-
-        >[!NOTE]
-        > Se qualquer uma das configurações neste formulário for atualizada, a versão prévia atualizará adequadamente.
 
         Selecione **Seguinte**.
     
-
     1. O formulário de **esquema** permite a configuração adicional de seus dados para esse experimento. Para este exemplo, selecione a opção Alternar para o recurso **day_of_week** para não incluí-lo para este experimento. Selecione **concluído**, para concluir o carregamento do arquivo e a criação do conjunto de um para o experimento.
 
         ![Configuração da guia de visualização](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-        
 1. Selecione **classificação** como a tarefa de previsão.
 
 1. Selecione **y** como a coluna de destino, o que você deseja prever. Esta coluna indica se o cliente assinou um termo de depósito ou não.
 
 1. Expanda **Configurações avançadas** e preencha os campos da seguinte maneira.
 
-    Definições avançadas|Value
-    ------|------
-    Métrica primária| AUC_weighted 
-    Critérios de saída| Quando qualquer um desses critérios é atendido, o trabalho de treinamento termina antes da conclusão completa: <br> *Tempo de trabalho de treinamento (minutos)* : 5  <br> *Número máximo de iterações*: 10 
-    Pré-processamento| Habilita o pré-processamento feito pelo aprendizado de máquina automatizado. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.
-    Validação| Selecione a validação cruzada de K-e **2** para o número de validações cruzadas. 
-    Simultaneidade| Selecione **5** para o número máximo de iterações simultâneas.
-
    >[!NOTE]
-   > Para este experimento, você não define uma métrica ou um limite máximo de núcleos por iterações. Você também não impede que os algoritmos sejam testados.
+   > Para este experimento, você não define uma pontuação de métrica ou o limite máximo de núcleos por iterações. Você também não impede que os algoritmos sejam testados.
+   
+    Configurações&nbsp;avançadas|Descrição|Valor&nbsp;do&nbsp;tutorial
+    ------|---------|---
+    Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|**AUC_weighted** 
+    Critérios de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento será encerrado mesmo que ele não tenha sido totalmente concluído. |Tempo&nbsp;&nbsp;de trabalho de treinamento (minutos):&nbsp; **05**  <br> <br> Máximo&nbsp;# de iterações&#58;10&nbsp;&nbsp; 
+    Pré-processamento| Habilita o pré-processamento feito pelo aprendizado de máquina automatizado. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
+    Validação| Tipo de validação e número de testes. | Validação cruzada de **K-fold**<br><br>  validações cruzadas: **2** 
+    Simultaneidade| O número máximo de iterações simultâneas.|**5**
 
-1. Selecione **Iniciar** para executar o experimento.
+1. Selecione **Iniciar** para executar o experimento. Uma tela é exibida com uma mensagem de status à medida que a preparação do experimento é iniciada.
 
-   Quando o experimento for iniciado, você verá uma tela em branco com uma mensagem de status na parte superior.
+>[!IMPORTANT]
+> A preparação leva de **10-15 minutos** para preparar a execução do experimento. Uma vez em execução, leva **2-3 minutos mais para cada iteração**.  
+>
+> Em produção, você provavelmente se desapareceria por um pouco. Mas para este tutorial, sugerimos que você comece a explorar os resultados da iteração conforme eles são concluídos enquanto os outros ainda estão em execução. 
 
-O processo de preparação do experimento leva vários minutos. Quando esse processo é concluído, a mensagem de status muda para **execução está em execução**.
+##  <a name="explore-iteration-results"></a>Explorar resultados de iteração
 
-##  <a name="view-experiment-details"></a>Exibir detalhes do experimento
+À medida que o experimento progride, a tela atualiza o **gráfico de iteração** e a **lista de iteração** com as diferentes iterações (modelos) criadas conforme elas são concluídas e as ordena por Pontuação de métrica. Por padrão, o modelo que classifica o mais alto com base na métrica de **AUC_weighted** escolhida está na parte superior da lista.
 
-À medida que o experimento progride, a tela atualiza o **gráfico de iteração** e a **lista de iteração** com as diferentes iterações (modelos) que são executadas. A lista de iterações está em ordem por pontuação da métrica. Por padrão, o modelo que pontua o mais alto com base em nossa métrica **AUC_weighted** está na parte superior da lista.
+Enquanto você aguarda até que todas as iterações de experimento sejam concluídas, selecione o **nome** de uma iteração concluída para explorar seus detalhes de desempenho. 
+   
+O exemplo a seguir mostra os gráficos e as métricas de execução geradas para cada iteração, como uma curva de recall de precisão, matriz de confusão, pontuações de precisão ponderada, etc. 
 
->[!WARNING]
-> Os trabalhos de treinamento levam vários minutos para que cada pipeline termine a execução.
-
-[![Painel de detalhes de execução](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+![Detalhes da execução de iteração](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
-Usando o Machine Learning automatizado na página de aterrissagem do espaço de trabalho, você pode implantar o melhor modelo como um serviço Web em algumas etapas. A implantação é a integração do modelo para que ele possa prever novos dados e identificar possíveis áreas de oportunidade. Para este experimento, a implantação em um serviço Web significa que a instituição financeira agora tem uma solução Web iterativa e escalonável para identificar clientes de depósito de prazo fixo. 
+O Machine Learning automatizado na página de aterrissagem do espaço de trabalho permite que você implante o melhor modelo como um serviço Web em algumas etapas. A implantação é a integração do modelo para que ele possa prever novos dados e identificar possíveis áreas de oportunidade. Para este experimento, a implantação em um serviço Web significa que a instituição financeira agora tem uma solução Web iterativa e escalonável para identificar clientes de depósito de prazo fixo. 
+
+Quando a execução for concluída, navegue de volta para o **gráfico de iteração** e a página de detalhes da **lista de iterações** . 
 
 Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
 
-1. Na página **executar detalhe** , selecione o botão **implantar melhor modelo** no canto superior direito.
+1. Selecione o botão **implantar melhor modelo** no canto superior direito.
 
 1. Preencha o painel **implantar melhor modelo** da seguinte maneira:
 
@@ -186,7 +186,7 @@ Exclua apenas a instância de implantação do portal do Azure, se você quiser 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você usou a página de aterrissagem do espaço de trabalho para criar e implantar um modelo de classificação. Consulte estes artigos para obter mais informações e as próximas etapas:
 

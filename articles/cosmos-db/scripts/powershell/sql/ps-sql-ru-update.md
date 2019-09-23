@@ -1,19 +1,20 @@
 ---
-title: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para o SQL API (principal)
-description: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para o SQL API (principal)
+title: Azure PowerShell script – Azure Cosmos DB atualizar RU/s para a API do SQL (Core)
+description: Azure PowerShell script – Azure Cosmos DB atualizar RU/s para a API do SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6b54b6021baf7a91c79309f8fa69b4df67d3887e
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603838"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178744"
 ---
-# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>RU/s de atualização para uma base de dados ou o contentor para o Azure Cosmos DB - SQL API (principal)
+# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Atualizar RU/s para um banco de dados ou contêiner para a API Azure Cosmos DB-SQL (Core)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -43,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
