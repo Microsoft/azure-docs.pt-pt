@@ -1,119 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Máquinas Virtuais do Linux
+### YamlMime:Landing
+title: Máquinas virtuais do Linux no Azure
+summary: Documentação sobre como criar e gerir máquinas virtuais do Linux no Azure.
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: 'Documentação da Máquina Virtual do Azure para Linux - Tutoriais, Referência da API'
-  meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
-  services: virtual-machines\linux
-  author: georgewallace
-  manager: gwallace
+  title: Máquinas virtuais do Linux no Azure
+  description: Documentação sobre como criar e gerir máquinas virtuais do Linux no Azure.
+  services: virtual-machines-linux
   ms.service: virtual-machines-linux
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: gwallace
-abstract:
-  description: 'As Máquinas Virtuais do Linux no Azure fornecem uma infraestrutura a pedido, altamente dimensionável, segura e virtualizada através do Red Hat, Ubuntu ou da distribuição do Linux da sua preferência. Saiba como criar, configurar, gerir, atualizar e dimensionar VMs do Linux com os nossos inícios rápidos, tutoriais e exemplos.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png'
-      width: 250
-    title: 'Crie uma Máquina Virtual do Linux. (4:11)'
-    href: 'https://azure.microsoft.com/resources/videos/create-linux-virtual-machine/'
-    width: 250
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar um servidor Web NGINX numa Máquina Virtual que execute o Ubuntu:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI do Azure
-            href: 'https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Portal do Azure
-            href: 'https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar, gerir e dimensionar VMs do Linux no Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Criar e gerir VMs do Linux</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Criar e gerir discos de VM</a></li>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatizar a configuração da VM</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Criar imagens de VM personalizadas</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Criar VMs de elevada disponibilidade</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Criar um conjunto de dimensionamento de VM</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Balanceamento de carga de VMs</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Gerir VMs e redes virtuais</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Fazer cópias de segurança de VMs</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-govern-resources">Governar VMs</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorizar e atualizar VMs</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Gerir a segurança em VMs</a>
-          - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Criar uma infraestrutura de CI/CD com Jenkins, Docker e GitHub</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD com Pipelines do Azure</a>
-          - html: 'Criar uma pilha de servidor Web com <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> ou <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Proteger um servidor Web com SSL</a>
-  - title: Desenvolva as suas competências com o Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: "\_Criar uma máquina virtual do Linux no Azure"
-            href: /learn/modules/create-linux-virtual-machine-in-azure/
-            image:
-              src: /learn/achievements/create-linux-virtual-machine-in-azure.svg
-              href: /learn/modules/create-linux-virtual-machine-in-azure/
-          - title: Criar e executar uma aplicação Web com a pilha MEAN numa máquina virtual do Linux no Azure
-            href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
-            image:
-              src: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
-              href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-virtual-machines">Mais aprendizagem interativa...</a>
-  - title: Vídeo de Formação Gratuita da PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Administrador do Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-  - title: Amostras
-    items:
-      - type: paragraph
-        text: Implemente a sua primeira aplicação no Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">CLI do Azure</a>
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">O Azure PowerShell</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p>
-          - title: Linguagens
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/compute">Referência da API REST</a></p>
+  author: cynthn
+  ms.author: cynthn
+  ms.date: 09/19/2019
+  ms.openlocfilehash: 7f40abe01042c5b55437f57f69a27a69421f5cf8
+  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/20/2019
+  ms.locfileid: "71168588"
+landingContent:
+- title: Funcionalidades mais recentes
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Pré-visualização dos anfitriões dedicados
+      url: dedicated-hosts.md
+    - text: Pré-visualização dos grupos de colocação em proximidade
+      url: proximity-placement-groups.md
+    - text: Discos efémeros
+      url: ephemeral-os-disks.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: CLI do Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli
+    - text: Portal do Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar e gerir VMs do Linux
+      url: /azure/virtual-machines/linux/tutorial-manage-vm
+    - text: Discos de VM
+      url: /azure/virtual-machines/linux/tutorial-manage-disks
+    - text: Automatizar a configuração da VM
+      url: /azure/virtual-machines/linux/tutorial-automate-vm-deployment
+    - text: Criar imagens de VM personalizadas
+      url: /azure/virtual-machines/linux/tutorial-custom-images
+    - text: Gerir VMs com redes virtuais
+      url: /azure/virtual-machines/linux/tutorial-virtual-network
+- title: Formação personalizada
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: " Criar uma máquina virtual do Linux no Azure"
+      url: https://docs.microsoft.com/learn/modules/create-linux-virtual-machine-in-azure/

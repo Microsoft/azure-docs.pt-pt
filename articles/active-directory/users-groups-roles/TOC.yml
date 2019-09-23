@@ -36,27 +36,25 @@
   items:
     - name: Gerir utilizadores
       items:
-        - name: Adicionar novos utilizadores ao Azure AD
+        - name: Criar utilizadores
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Criação em volume de utilizadores (pré-visualização)
+          href: users-bulk-add.md
         - name: Gerir perfis de utilizador
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Operações em massa (pré-visualização)
-          items:
-            - name: Transferir utilizadores (pré-visualização)
-              href: users-bulk-download.md
-            - name: Importação em volume de utilizadores (pré-visualização)
-              href: users-bulk-add.md
-            - name: Eliminação em massa de utilizadores (pré-visualização)
-              href: users-bulk-delete.md
-            - name: Restauro em massa de utilizadores (pré-visualização)
-              href: users-bulk-restore.md
+        - name: Transferir as informações do utilizador (pré-visualização)
+          href: users-bulk-download.md
         - name: Partilhar contas de utilizador
           href: users-sharing-accounts.md
         - name: Atribuir utilizadores a funções de administrador
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Eliminação em massa de utilizadores (pré-visualização)
+          href: users-bulk-delete.md
         - name: Restaurar um utilizador eliminado
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Fechar a sua conta num diretório não gerido
+        - name: Restauro em massa de utilizadores (pré-visualização)
+          href: users-bulk-restore.md
+        - name: Fechar uma conta num diretório não gerido
           href: users-close-account.md
         - name: Adicionar utilizadores B2B
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -86,28 +84,26 @@
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Pesquisar listas de membros e grupos (pré-visualização)
           href: groups-members-owners-search.md
+        - name: Criar um grupo (portal do Azure)
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Gerir grupos no PowerShell for Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Gerir grupos de PowerShell MSOnline
           href: groups-settings-cmdlets.md
-        - name: Gerir membros do grupo
+        - name: Adicionar ou remover membros do grupo
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Adição em volume de utilizadores (pré-visualização)
+          href: groups-bulk-import-members.md
+        - name: Remoção em massa de membros (pré-visualização)
+          href: groups-bulk-remove-members.md
+        - name: Transferência em volume da lista de membros (pré-visualização)
+          href: groups-bulk-download-members.md
         - name: Gerir proprietários de grupos
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Operações em massa (pré-visualização)
-          items:
-            - name: Importação em volume de membros (pré-visualização)
-              href: groups-bulk-import-members.md
-            - name: Transferência em massa de membros (pré-visualização)
-              href: groups-bulk-download-members.md
-            - name: Remoção em massa de membros (pré-visualização)
-              href: groups-bulk-remove-members.md
-            - name: Transferência em massa de uma lista de grupos (pré-visualização)
-              href: groups-bulk-download.md
+        - name: Transferência em volume da lista de grupos (pré-visualização)
+          href: groups-bulk-download.md
         - name: Gerir grupos em grupos
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Criar um grupo (portal do Azure)
-          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Adicionar acesso do grupo às aplicações SaaS
           href: groups-saasapps.md
         - name: Referência de atribuição de nomes de grupos

@@ -13,7 +13,7 @@ metadata:
   ms.service: dms
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 03/12/2019
+  ms.date: 09/22/2019
 abstract:
   description: 'O Azure Database Migration Service permite migrações totalmente integradas a partir de várias origens de bases de dados para as plataformas de Dados do Azure com um período de indisponibilidade mínimo. O serviço utiliza o Assistente de Migração de Dados para gerar relatórios de avaliação que fornecem recomendações para o guiar pelas alterações necessárias antes de realizar uma migração. Quando estiver preparado para iniciar o processo de migração, o Azure Database Migration Service realiza todos os passos necessários.'
   aside:
@@ -40,19 +40,36 @@ sections:
   - title: Tutoriais Passo-a-Passo
     items:
       - type: paragraph
-        text: 'Saiba como migrar bases de dados com o Database Migration Service:'
+        text: 'Saiba como migrar bases de dados com o Azure Database Migration Service:'
       - type: list
-        style: ordered
+        style: unordered
         items:
-          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure offline com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure online com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrar o SQL Server de RDS para a Instância Gerida da Base de Dados SQL do Azure online ou para a Base de Dados SQL do Azure com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrar o MongoDB para a API Mongo do Azure Cosmos DB offline com o DMS</a>
-          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrar o MongoDB para a API Mongo do Azure Cosmos DB online com o DMS</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrar o SQL Server para a Base de Dados SQL do Azure offline</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrar o SQL Server para a Base de Dados SQL do Azure online</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrar o SQL Server para a instância gerida da Base de Dados SQL do Azure offline</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrar o SQL Server para a instância gerida da Base de Dados SQL do Azure online</a>
+          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrar o SQL Server de RDS para a Base de Dados SQL do Azure ou a instância gerida da Base de Dados SQL do Azure online</a>
+          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrar o MySQL para a Base de Dados do Azure para MySQL online</a>
+          - html: <a href="/azure/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online">Migrar o MySQL de RDS para a Base de Dados do Azure para MySQL online</a>
+          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online</a>
+          - html: <a href="/azure/dms/tutorial-rds-postgresql-server-azure-db-for-postgresql-online">Migrar o PostgreSQL de RDS para a Base de Dados do Azure para PostgreSQL online</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrar a API Mongo do MongoDB para o Azure Cosmos DB offline</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrar a API Mongo do MongoDB para o Azure Cosmos DB online</a>
+          - html: <a href="/azure/dms/tutorial-oracle-azure-postgresql-online">Migrar o Oracle para a Base de Dados do Azure para PostgreSQL online</a>
+  - title: Vídeos
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/">Utilizar o Guia de Migração da Base de Dados</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/">O processo de migração e ferramentas/serviços recomendados</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/">Endereçar pré-requisitos e criar uma instância do DMS</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/">Migrar o SQL Server 2008 para a instância gerida da Base de Dados SQL do Azure</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/">Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/">Monitorizar uma migração online e executar transferência</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/">Migrar o Oracle para a Base de Dados SQL do Azure</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/">Migrar o MongoDB para o Azure Cosmos DB</a>'
   - title: Amostras
     items:
       - type: list

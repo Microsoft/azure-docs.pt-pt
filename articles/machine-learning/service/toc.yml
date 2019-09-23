@@ -26,7 +26,7 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. Implementar um modelo
               href: tutorial-deploy-models-with-aml.md
-        - name: Regressão (dados dos táxis de Nova Iorque)
+        - name: Regressão com ML Automatizado (dados de táxi de NYC)
           items:
             - name: Preparar automaticamente um modelo de ML
               displayName: 'automl, automated, auto ml,'
@@ -44,7 +44,7 @@
         - name: 2. Implementar o modelo de regressão
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
-    - name: Aprendizagem automática automatizada
+    - name: ML Automatizado (interface)
       items:
         - name: Classificação (Dados bancários)
           displayName: 'automl, automated, auto ml, portal, ui'
@@ -104,16 +104,16 @@
           href: how-to-manage-workspace.md
         - name: Utilizar a CLI do Azure
           href: how-to-manage-workspace-cli.md
-        - name: Utilizar modelo do Resource Manager
+        - name: Utilizar o modelo do Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Configurar o ambiente de desenvolvimento
+    - name: Configurar o ambiente
       items:
         - name: Configurar ambientes de desenvolvimento
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Gerir o ambiente de software
-          displayName: 'pip, Conda'
+        - name: Configurar ambientes de software
+          displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
         - name: Ativar registo
           displayName: 'troubleshoot, log, files, tracing'

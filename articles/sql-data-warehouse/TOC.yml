@@ -140,7 +140,11 @@
             - name: Guia de otimização do desempenho
               href: performance-tuning-ordered-CCI.md
         - name: Colocação em cache dos resultados
-          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
+          items:
+            - name: Definir para uma base de dados
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
+            - name: Definir para uma sessão
+              href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tabelas
           items:
             - name: Descrição geral

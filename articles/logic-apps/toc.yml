@@ -17,9 +17,9 @@
   items:
     - name: Criar fluxos de trabalho baseados em agenda
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: Gerir pedidos de lista de correio
+    - name: Criar fluxos de trabalho baseados em aprovação
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: Processar anexos de e-mail
+    - name: Criar um fluxo de trabalho do Armazenamento do Azure e das Funções do Azure
       href: tutorial-process-email-attachments-workflow.md
 - name: Amostras
   items:
@@ -31,7 +31,7 @@
   items:
     - name: Conectores para as Logic Apps
       href: ../connectors/apis-list.md
-    - name: Agendar fluxos de trabalho periódicos automatizados
+    - name: Agendar fluxos de trabalho periódicos
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Sem servidor com o Azure
       href: logic-apps-serverless-overview.md
@@ -105,12 +105,18 @@
           href: logic-apps-diagnosing-failures.md
     - name: Desenvolver para cenários B2B
       items:
-        - name: Criar uma conta de Integração
+        - name: Criar uma conta de integração
           href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Parceiros comerciais
           href: logic-apps-enterprise-integration-partners.md
         - name: Contratos
           href: logic-apps-enterprise-integration-agreements.md
+        - name: Esquemas para validação XML
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Mapas para transformação XML
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Certificados
+          href: logic-apps-enterprise-integration-certificates.md
         - name: Metadados de artefactos
           href: logic-apps-enterprise-integration-metadata.md
         - name: Receber mensagens B2B
@@ -141,20 +147,14 @@
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: Processar ficheiros simples
           href: logic-apps-enterprise-integration-flatfile.md
+        - name: Transformar XML
+          href: logic-apps-enterprise-integration-transform.md
         - name: Processar XML
           href: logic-apps-enterprise-integration-xml.md
         - name: Validar XML
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Adicionar esquemas para a validação de XML
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: Transformar XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Adicionar mapas para a transformação XML
-          href: logic-apps-enterprise-integration-maps.md
         - name: Transformar JSON
           href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: Adicionar certificados de segurança
-          href: logic-apps-enterprise-integration-certificates.md
         - name: Resolver erros de B2B
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Criar um plano de recuperação após desastre

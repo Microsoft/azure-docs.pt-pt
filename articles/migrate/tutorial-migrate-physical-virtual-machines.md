@@ -176,7 +176,7 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Voc�
 
 ### <a name="download-the-replication-appliance-installer"></a>Baixar o instalador do dispositivo de replicação
 
-1. No projeto de migração do Azure > **servidores**, no *** migrações para Azure: Migração**de servidor, clique em **descobrir**.
+1. No projeto de migração do Azure > **servidores**, no \***migrações para Azure: Migração**de servidor, clique em **descobrir**.
 
     ![Detetar VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 

@@ -251,18 +251,18 @@
               href: knowledge-store-connect-power-bi.md
     - name: Consultar documentos
       items:
-        - name: Criar uma consulta básica
+        - name: Tipos de consulta e composição
           href: search-query-overview.md
-        - name: Explorador de Procura (portal)
+        - name: Criar uma consulta simples
+          href: search-query-simple-examples.md
+        - name: Utilizar sintaxe Lucene completo
+          href: search-query-lucene-examples.md
+        - name: Utilizar o Explorador de Procura (portal)
           href: search-explorer.md
         - name: Sintaxe de consulta simples
           href: query-simple-syntax.md
         - name: Sintaxe de consulta Lucene completo
           href: query-lucene-syntax.md
-        - name: Exemplos (sintaxe simples)
-          href: search-query-simple-examples.md
-        - name: Exemplos (Lucene completo)
-          href: search-query-lucene-examples.md
         - name: moreLikeThis (pré-visualização)
           href: search-more-like-this.md
     - name: Aplicar filtros

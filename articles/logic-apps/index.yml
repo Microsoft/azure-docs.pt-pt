@@ -1,57 +1,155 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Azure Logic Apps
+summary: Crie fluxos de trabalho dimensionáveis, processos de negócios e orquestrações empresariais automatizados para integrar os seus dados e aplicações nos serviços cloud e sistemas no local.
 metadata:
-  title: 'Documentação do Azure Logic Apps - Tutoriais, Referência da API | Microsoft Docs'
-  description: 'O Azure Logic Apps simplifica como cria fluxos de trabalho dimensionáveis automatizados que integram aplicações e serviços de dados na cloud e em sistemas locais. Saiba como criar, conceber e implementar aplicações lógicas que automatizam procedimentos empresariais com os nossos inícios rápidos, tutoriais, modelos e APIs.'
+  title: Documentação do Azure Logic Apps
+  description: Crie fluxos de trabalho dimensionáveis, processos de negócios e orquestrações empresariais automatizados para integrar os seus dados e aplicações nos serviços cloud e sistemas no local.
   services: logic-apps
-  author: ecfan
-  manager: carmonm
   ms.service: logic-apps
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: logic-apps
-  ms.date: 01/09/2018
-  ms.author: estfan
-abstract:
-  description: 'O Azure Logic Apps simplifica como cria fluxos de trabalho dimensionáveis automatizados que integram aplicações e serviços de dados na cloud e em sistemas locais. Saiba como criar, conceber e implementar aplicações lógicas que automatizam procedimentos empresariais com os nossos inícios rápidos, tutoriais, modelos e APIs.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Saiba como criar uma aplicação lógica que executa no Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portal do Azure
-            href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio
-            href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio Code
-            href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como criar aplicações lógicas que executem numa agenda e integrar dados pelos serviços do Azure, serviços Microsoft e outras aplicações de software como serviço (SaaS).'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Verificar o tráfego com uma aplicação lógica baseada numa agenda</a>
-          - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Gerir pedidos de lista de correio com uma aplicação lógica</a>
-          - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Processar e-mails e anexos com uma aplicação lógica</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/logic/">Referência da API REST</a></p>
+  ms.topic: landing-page
+  author: ecfan
+  ms.author: estfan; logicappspm
+  ms.date: 09/18/2019
+  ms.openlocfilehash: d23fac0d030c1d288e1491273d39e07d80426885
+  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71147303"
+landingContent:
+- title: Acerca do Azure Logic Apps
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Logic Apps?
+      url: logic-apps-overview.md
+  - linkListType: concept
+    links:
+    - text: Conectores do Azure Logic Apps
+      url: /azure/connectors/apis-list.md
+    - text: Agendar fluxos de trabalho periódicos
+      url: concepts-schedule-automated-recurring-tasks-workflows.md
+    - text: Integração empresarial B2B
+      url: logic-apps-enterprise-integration-overview.md
+  - linkListType: learn
+    links:
+    - text: Introdução ao Azure Logic Apps
+      url: https://docs.microsoft.com/learn/modules/intro-to-logic-apps/
+  - linkListType: video
+    links:
+    - text: Apresentação do Azure Logic Apps
+      url: https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps
+    - text: Azure Logic Apps - Integração gratuita do código e da API
+      url: https://www.youtube.com/watch?v=Z3qaBQS0w20
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar uma aplicação lógica - Portal do Azure
+      url: quickstart-create-first-logic-app-workflow.md
+    - text: Criar uma aplicação lógica - Visual Studio
+      url: quickstart-create-logic-apps-with-visual-studio.md
+  - linkListType: get-started
+    links:
+    - text: 'Modelo: Executar tarefas de temporizador com base numa agenda'
+      url: https://azure.microsoft.com/resources/templates/301-logicapps-jobscheduler/
+  - linkListType: learn
+    links:
+    - text: Encaminhar e processar dados automaticamente
+      url: https://docs.microsoft.com/learn/modules/route-and-process-data-logic-apps
+  - linkListType: tutorial
+    links:
+    - text: Criar um fluxo de trabalho com base numa agenda
+      url: tutorial-build-schedule-recurring-logic-app-workflow.md
+    - text: Criar um fluxo de trabalho baseado em aprovação
+      url: tutorial-process-mailing-list-subscriptions-workflow.md
+    - text: Criar um fluxo de trabalho das Funções do Azure e do Armazenamento do Azure
+      url: tutorial-process-email-attachments-workflow.md
+  - linkListType: video
+    links:
+    - text: Seja o herói dos agendamentos com o Azure Logic Apps
+      url: https://azure.microsoft.com/resources/videos/ignite-2018-be-the-scheduler-hero-with-azure-logic-apps
+- title: Aceder a dados no local ou a redes virtuais
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é um gateway de dados no local?
+      url: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
+    - text: O que é um ambiente de serviço de integração?
+      url: connect-virtual-network-vnet-isolated-environment-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Instalar um gateway de dados no local
+      url: logic-apps-gateway-install.md
+    - text: Ligar a origens de dados no local
+      url: logic-apps-gateway-connection.md
+    - text: Ligar a redes virtuais
+      url: connect-virtual-network-vnet-isolated-environment-overview.md
+  - linkListType: video
+    links:
+    - text: Introdução ao Ambiente de Serviço de Integração
+      url: https://azure.microsoft.com/resources/videos/azure-friday-introduction-to-azure-integration-service-environment-for-logic-apps/
+- title: Criar integrações empresariais B2B
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar e gerir contas de integração
+      url: logic-apps-enterprise-integration-create-integration-account.md
+    - text: Adicionar parceiros comerciais
+      url: logic-apps-enterprise-integration-partners.md
+    - text: Criar contratos entre parceiros
+      url: logic-apps-enterprise-integration-agreements.md
+  - linkListType: learn
+    links:
+    - text: 'Exemplo: Ligar à conta de integração e implementar com o DevOps do Azure'
+      url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/
+  - linkListType: architecture
+    links:
+    - text: Integração enterprise básica
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+- title: Gerir e proteger aplicações lógicas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir aplicações lógicas - Visual Studio
+      url: manage-logic-apps-with-visual-studio.md
+    - text: Gerir um ambiente de serviço de integração
+      url: ise-manage-integration-service-environment.md
+    - text: Proteger o acesso e os dados
+      url: logic-apps-securing-a-logic-app.md
+    - text: Autenticar com identidades geridas
+      url: create-managed-service-identity.md
+- title: Implementar aplicações lógicas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Automatizar a implementação de uma aplicação lógica
+      url: logic-apps-azure-resource-manager-templates-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar modelos de aplicação lógica
+      url: logic-apps-create-azure-resource-manager-templates.md
+    - text: Implementar modelos de aplicação lógica
+      url: logic-apps-deploy-azure-resource-manager-templates.md
+  - linkListType: learn
+    links:
+    - text: Criar e implementar com modelos do Resource Manager
+      url: https://docs.microsoft.com/learn/modules/create-deploy-logic-apps-using-arm-templates/
+    - text: 'Exemplo: Ligar ao Armazenamento do Azure e implementar com o DevOps do Azure'
+      url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
+    - text: 'Exemplo: Ligar ao Azure Service Bus e implementar com o DevOps do Azure'
+      url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
+- title: Mais informações
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Limites e configuração do serviço
+      url: logic-apps-limits-and-config.md
+    - text: Modelo preços
+      url: logic-apps-pricing.md
+    - text: Esquema de Linguagem de Definição de Fluxo de Trabalho
+      url: logic-apps-workflow-definition-language.md
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.logicapp/
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/logic/

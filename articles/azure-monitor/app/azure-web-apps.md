@@ -100,7 +100,7 @@ Para direcionar a estrutura completa do .NET Core, a implantação independente 
 
 O monitoramento no lado do cliente é opcional para ASP.NET. Para habilitar o monitoramento do lado do cliente:
 
-* Selecione **configurações** > * * * * configurações do aplicativo * * * *
+* Selecione **configurações** > ** **configurações do aplicativo** **
    * Em configurações do aplicativo, adicione um novo nome e **valor**de **configuração de aplicativo** :
 
      Nomes`APPINSIGHTS_JAVASCRIPT_ENABLED`

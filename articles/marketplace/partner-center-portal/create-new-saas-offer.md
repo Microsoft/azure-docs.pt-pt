@@ -441,7 +441,7 @@ Selecione a frequência com que os clientes devem pagar o preço listado. Pelo m
 - **Preço**: USD por mês ou USD por ano
 
 Os preços definidos na moeda local (USD = Estados Unidos dólar) são convertidos na moeda local de todos os mercados selecionados usando as tarifas de câmbio atuais disponíveis durante a instalação. Valide esses preços antes de publicar exportando a planilha de preços e revisando o preço em cada mercado. Se você quiser definir preços personalizados em um mercado individual, modifique e importe a planilha de preços. Você é responsável por validar esse preço e possuir essas configurações.
-**Você deve primeiro salvar as alterações de preços para habilitar a exportação de dados de preços.*
+* *Você deve primeiro salvar as alterações de preços para habilitar a exportação de dados de preços.*
 
 Examine seus preços cuidadosamente antes de publicar, pois há algumas restrições sobre o que pode ser alterado depois que um plano é publicado:
 

@@ -9,12 +9,22 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Resolução de nomes - portal
-      href: dns-getstarted-portal.md
-    - name: Resolução de nomes - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: Resolução de nomes - CLI
-      href: dns-getstarted-cli.md
+    - name: DNS público
+      items:
+        - name: Criar uma zona pública - portal
+          href: dns-getstarted-portal.md
+        - name: Criar uma zona pública - PowerShell
+          href: dns-getstarted-powershell.md
+        - name: Criar uma zona pública - CLI
+          href: dns-getstarted-cli.md
+    - name: DNS Privado
+      items:
+        - name: Criar uma zona privada - portal
+          href: private-dns-getstarted-portal.md
+        - name: Criar uma zona privada - CLI
+          href: private-dns-getstarted-cli.md
+        - name: Criar uma zona privada - PowerShell
+          href: private-dns-getstarted-powershell.md
 - name: Tutoriais
   items:
     - name: DNS público
@@ -29,10 +39,6 @@
           href: tutorial-alias-pip.md
         - name: Registos de alias para registos de zona
           href: tutorial-alias-rr.md
-    - name: DNS Privado
-      items:
-        - name: Criar zona e um registo DNS privados
-          href: private-dns-portal.md
 - name: Amostras
   items:
     - name: CLI do Azure
@@ -63,12 +69,6 @@
           href: private-dns-scenarios.md
 - name: Procedimento
   items:
-    - name: DNS Privado
-      items:
-        - name: Criar uma zona privada - CLI
-          href: private-dns-getstarted-cli.md
-        - name: Criar uma zona privada - PowerShell
-          href: private-dns-getstarted-powershell.md
     - name: DNS público
       items:
         - name: Registos de alias para aplicações web de carga balanceada

@@ -18,7 +18,7 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Criar um Balanceador de Carga Standard - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Criar um Balanceador de Carga Standard - Modelo do Azure Resource Manager
+    - name: Criar um Balanceador de Carga Standard - modelo
       displayName: ARM
       href: quickstart-load-balancer-standard-public-template.md
 - name: Tutoriais

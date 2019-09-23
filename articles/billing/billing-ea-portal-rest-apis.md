@@ -4,16 +4,16 @@ description: Este artigo descreve as APIs REST para usar com a sua inscrição d
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900867"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105446"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
 
@@ -31,7 +31,7 @@ Os clientes Microsoft Azure Enterprise podem obter as informações de utilizaç
 
 **Custo da Loja do Marketplace –** a [API de Custo da Loja do Marketplace](billing-enterprise-api-marketplace-storecharge.md) apresenta os custos do marketplace com base na utilização, discriminados por dia relativamente ao período de faturação especificado ou às datas de início e de fim. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) (APIs de Relatórios para clientes Enterprise – Custo da Loja Marketplace).
 
-**Folha de Preços –**  a [API da Folha de Preços](/billing-enterprise-api-pricesheet.md) fornece a tarifa aplicável de cada medidor para uma inscrição e o período de faturação. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) (APIs de Relatórios para clientes Enterprise – Folha de Preços).
+**Folha de Preços –**  a [API da Folha de Preços](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a tarifa aplicável de cada medidor para uma inscrição e o período de faturação. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) (APIs de Relatórios para clientes Enterprise – Folha de Preços).
 
 **Períodos de Faturação –**  a [API de Períodos de Faturação](billing-enterprise-api-billing-periods.md) apresenta, por ordem cronológica inversa, uma lista dos períodos de faturação que têm dados de consumo para uma inscrição. Cada período contém uma propriedade que aponta para a rota da API para os quatro conjuntos de dados: BalanceSummary, UsageDetails, Marketplace Charges e PriceSheet. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) (APIs de Relatórios para clientes Enterprise – Períodos de Faturação).
 
@@ -68,7 +68,7 @@ Se quiser fornecer as chaves de acesso da API a pessoas que não são administra
 
 Transmita a chave de API para cada chamada para autenticação e autorização. Transmita a seguinte propriedade aos cabeçalhos HTTP:
 
-| Chave do Cabeçalho do Pedido | Valor |
+| Chave do cabeçalho do pedido | Valor |
 | --- | --- |
 | Autorização | Especifique o valor neste formato: **token de portador {API\_KEY}**
 Exemplo: token de portador \&lt; ApiKey\&gt; |
@@ -81,7 +81,7 @@ Está disponível um ponto final do Swagger em [Enterprise Reporting v3 APIs](ht
 
 Quando utiliza uma API, são mostrados os códigos de estado da resposta. A tabela seguinte descreve-os.
 
-| Código de Estado da Resposta | Mensagem | Descrição |
+| Código de estado da resposta | Mensagem | Descrição |
 | --- | --- | --- |
 | 200 | OK | Sem erros |
 | 401 | Não autorizado | Chave de API não encontrada, Inválida, Expirada, etc. |
@@ -95,7 +95,7 @@ Os ficheiros dos dados de utilização e de faturação são atualizados a cada 
 
 ### <a name="test-enrollment-for-development"></a>Inscrição de teste para desenvolvimento
 
-Se for um parceiro ou um programador sem uma inscrição Azure Enterprise e quiser aceder à API, poderá utilizar a inscrição de teste. O nome da inscrição é _EnrollmentNumber 100_. Assim, pode <bpt id="p1">[</bpt>testar com a chave de acesso da inscrição<ept id="p1">](https://automaticbillingspec.blob.core.windows.net/spec/TestEnrollmentUsageApiKey.txt)</ept> para chamar a API e ver dados de exemplo.
+Se for um parceiro ou um programador sem uma inscrição Azure Enterprise e quiser aceder à API, poderá utilizar a inscrição de teste. O nome da inscrição é _EnrollmentNumber 100_. Em seguida, pode [testar com a chave de acesso de inscrição](https://automaticbillingspec.blob.core.windows.net/spec/TestEnrollmentUsageApiKey.txt) para chamar a API e ver os dados de exemplo.
 
 ### <a name="azure-service-catalog"></a>Catálogo de serviços do Azure
 
@@ -105,11 +105,11 @@ Todos os serviços do Azure estão publicados num catálogo em formato CSV num b
 
 As informações a seguir descrevem as propriedades dos relatórios da API.
 
-#### <a name="usage-summary"></a>Resumo da Utilização
+#### <a name="usage-summary"></a>Resumo da utilização
 
 O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato é igual ao formato CSV do resumo. O nome da coluna é mantido, pelo que deve anular a serialização numa tabela de dados ao consumir os dados de resumo JSON.
 
-| Nome da Coluna CSV | Nome da Coluna Json | Nova Coluna Json | Comentário |
+| Nome da coluna CSV | Nome da coluna JSON | Nova coluna JSON | Comentário |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Nome da Conta | AccountName | AccountName |   |
@@ -145,7 +145,7 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 
 #### <a name="azure-marketplace-report"></a>Relatório do Azure Marketplace
 
-| Nome da Coluna CSV | Nome da Coluna Json | Nova Coluna Json |
+| Nome da coluna CSV | Nome da coluna JSON | Nova coluna JSON |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | Nome da Conta | AccountName | AccountName |
@@ -172,9 +172,9 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | Centro de Custos | CostCenters |  CostCenter |
 | Grupo de Recursos | ResourceGroup |  ResourceGroup |
 
-#### <a name="price-sheet"></a>Folha de Preços
+#### <a name="price-sheet"></a>Folha de preços
 
-| Nome da Coluna CSV | Nome da Coluna Json | Comentário |
+| Nome da coluna CSV | Nome da coluna JSON | Comentário |
 | --- | --- | --- |
 | Serviço | Serviço |  Sem alteração no preço |
 | Unidade de Medida | UnitOfMeasure |   |
