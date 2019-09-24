@@ -138,6 +138,8 @@
           href: 'functions-reference-node.md#typescript'
     - name: Diagnóstico
       href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Custos do plano de consumo
+      href: functions-consumption-costs.md
     - name: Considerações de desempenho
       href: functions-best-practices.md
     - name: Proxies de Funções

@@ -6,18 +6,8 @@
       href: hpc-cache-overview.md
 - name: Conceitos
   items:
-    - name: Utilizar um espaço de nomes agregado
+    - name: Planear o espaço de nomes agregado
       href: hpc-cache-namespace.md
-    - name: Povoar o novo Armazenamento de blobs
-      href: hpc-cache-ingest.md
-    - name: Métodos de ingestão de dados alternativos
-      items:
-        - name: Povoar a cache com a cópia paralela
-          href: hpc-cache-ingest-parallelcp.md
-        - name: Povoar a cache com o msrsync
-          href: hpc-cache-ingest-msrsync.md
-        - name: Povoar a cache através da cópia manual de ficheiros
-          href: hpc-cache-ingest-manual.md
 - name: Guias de procedimentos
   items:
     - name: Pré-requisitos
@@ -25,9 +15,20 @@
     - name: Criar a cache
       href: hpc-cache-create.md
     - name: Adicionar armazenamento
-      href: hpc-cache-add-storage.md
-    - name: Ligar à cache
-      href: hpc-cache-mount.md
+      items:
+        - name: Adicionar destinos de armazenamento
+          href: hpc-cache-add-storage.md
+        - name: Mover dados para o armazenamento em cache
+          items:
+            - name: Pré-carregar o novo Armazenamento de blobs
+              href: hpc-cache-ingest.md
+            - name: Métodos de ingestão de dados alternativos
+            - name: Povoar a cache com a cópia paralela
+              href: hpc-cache-ingest-parallelcp.md
+            - name: Povoar a cache com o msrsync
+              href: hpc-cache-ingest-msrsync.md
+            - name: Povoar a cache através da cópia manual de ficheiros
+              href: hpc-cache-ingest-manual.md
 - name: Recursos
   items:
     - name: Abrir um pedido de suporte

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/04/2019
-  ms.openlocfilehash: e5f784b7411d3e5454efd586d91953b03ff8a05a
-  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.openlocfilehash: 8234ea3e9f82716346e38c572a66cf87fc505269
+  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/13/2019
-  ms.locfileid: "70967018"
+  ms.lasthandoff: 09/23/2019
+  ms.locfileid: "71203899"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -40,6 +40,10 @@ landingContent:
       url: quickstarts-sdk/csharp-sdk.md
     - text: Utilizar o SDK Python
       url: quickstarts-sdk/python-sdk.md
+    - text: Utilizar o SDK Java
+      url: quickstarts-sdk/java-sdk.md
+    - text: Utilizar o SDK Node
+      url: quickstarts-sdk/node-sdk.md
 - title: Detetar objetos em imagens
   linkLists:
   - linkListType: concept
@@ -54,6 +58,8 @@ landingContent:
       url: quickstarts-sdk/python-sdk.md
     - text: Utilizar o SDK Java
       url: quickstarts-sdk/java-sdk.md
+    - text: Utilizar o SDK Node
+      url: quickstarts-sdk/node-sdk.md
 - title: Aplicação de etiquetas de conteúdo a imagens
   linkLists:
   - linkListType: concept
@@ -68,6 +74,8 @@ landingContent:
       url: quickstarts-sdk/python-sdk.md
     - text: Utilizar o SDK Java
       url: quickstarts-sdk/java-sdk.md
+    - text: Utilizar o SDK Node
+      url: quickstarts-sdk/node-sdk.md
 - title: Utilizar contentores
   linkLists:
   - linkListType: get-started
@@ -98,6 +106,8 @@ landingContent:
       url: quickstarts-sdk/python-sdk.md
     - text: Utilizar o SDK Java
       url: quickstarts-sdk/java-sdk.md
+    - text: Utilizar o SDK Node
+      url: quickstarts-sdk/node-sdk.md
 - title: Referência
   linkLists:
   - linkListType: reference
