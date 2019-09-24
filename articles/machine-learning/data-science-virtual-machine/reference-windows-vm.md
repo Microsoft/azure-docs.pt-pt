@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 8ed083ad39c3ace3a0f66a61936974b462ed418f
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: be4397de477891f2a698c9f7dcb131da79479529
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174698"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200023"
 ---
 # <a name="reference-windows-data-science-virtual-machine"></a>Referência: Máquina Virtual de Ciência de Dados do Windows
 
@@ -132,4 +132,6 @@ Você pode usar o [Microsoft Web Platform Installer](https://www.microsoft.com/w
 > [!NOTE]
 > Na edição do Windows Server 2012 do DSVM e do Windows Server 2016 Edition antes de março de 2018, o ambiente Anaconda padrão é Python 2,7. O ambiente secundário é Python 3,5, localizado em C:\Anaconda\envs\py35.
 
+## <a name="next-steps"></a>Passos seguintes
 
+Tem mais dúvidas? Considere criar um [tíquete de suporte](https://azure.microsoft.com/support/create-ticket/).

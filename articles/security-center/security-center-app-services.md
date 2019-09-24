@@ -1,70 +1,66 @@
 ---
-title: Proteger serviços de aplicações no Centro de segurança do Azure | Documentos da Microsoft
-description: Este artigo ajuda-o a começar a proteger os seus serviços de aplicação no Centro de segurança do Azure.
+title: Protegendo os serviços de aplicativos na central de segurança do Azure | Microsoft Docs
+description: Este artigo ajuda você a começar a proteger seus serviços de aplicativos na central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 01/27/2019
+ms.author: memildin
+ms.openlocfilehash: 68f7c47f0a0f56085d632f1c1741318f440b41ee
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551865"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202477"
 ---
-# <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
-Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.
+# <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicativo com a central de segurança do Azure
+Este artigo ajuda você a usar a central de segurança do Azure para monitorar e proteger seus aplicativos em execução na parte superior do serviço de aplicativo.
 
-Serviço de aplicações permite-lhe criar e alojar aplicações web na linguagem de programação da sua preferência sem ter de gerir infraestrutura. Serviço de aplicações oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux, os e implementações automáticas a partir do GitHub, do Azure DevOps ou qualquer repositório de Git. 
+O serviço de aplicativo permite que você crie e hospede aplicativos Web na linguagem de programação de sua escolha sem gerenciar a infraestrutura. O serviço de aplicativo oferece dimensionamento automático e alta disponibilidade, oferece suporte ao Windows e ao Linux, bem como implantações automatizadas do GitHub, Azure DevOps ou qualquer repositório git. 
 
-Vulnerabilidades em aplicativos web com freqüência são exploradas pelos atacantes, porque eles têm uma interface comum e dinâmica para quase todas as organizações na Internet. Pedidos de aplicações em execução com base no serviço de aplicações vai através de vários gateways implementadas nos centros de dados do Azure em todo o mundo, responsável pelo encaminhamento de cada pedido para seu aplicativo correspondente. 
+Vulnerabilidades em aplicativos Web são frequentemente exploradas por invasores, pois têm uma interface comum e dinâmica para quase todas as organizações na Internet. Solicitações para aplicativos em execução na parte superior do serviço de aplicativo passam por vários gateways implantados em data centers do Azure em todo o mundo, responsável por rotear cada solicitação para seu aplicativo correspondente. 
 
-Centro de segurança do Azure pode executar avaliações e as recomendações nas suas aplicações em execução no serviço de aplicações em áreas de segurança na sua VM ou instâncias a pedido. Ao tirar partido da visibilidade que o Azure tem como fornecedor de cloud, o Centro de segurança analisa os registos de internos do serviço de aplicações para monitorizar ataques de aplicação web comuns, que, muitas vezes, ser executados em vários destinos.
+A central de segurança do Azure pode executar avaliações e recomendações em seus aplicativos em execução no serviço de aplicativo nas áreas restritas em suas VMs ou instâncias sob demanda. Aproveitando a visibilidade que o Azure tem como provedor de nuvem, a central de segurança analisa os logs internos do serviço de aplicativo para monitorar ataques comuns de aplicativos Web que geralmente são executados em vários destinos.
 
-Centro de segurança tira partido da escala da cloud para identificar ataques nas suas aplicações de serviço de aplicações e concentre-se sobre ataques emergentes, enquanto os atacantes estão em fase de reconhecimento, análise para identificar vulnerabilidades em vários sites, alojados no Azure. Centro de segurança utiliza análises e modelos de machine learning para cobrir todas as interfaces que permite aos clientes interagirem com seus aplicativos, se por HTTP ou por meio de métodos de gestão. Além disso, como um serviço original no Azure, o Centro de segurança é também numa posição única para oferecer a análise de segurança baseada em anfitrião que abrange os nós de computação subjacente para esta PaaS, permitir que o Centro de segurança detetar ataques contra aplicações web que foram já exploradas.
+A central de segurança aproveita a escala da nuvem para identificar ataques em seus aplicativos do serviço de aplicativo e se concentrar em ataques emergentes, enquanto os invasores estão na fase de reconhecimento, examinando para identificar vulnerabilidades em vários sites, hospedados no Azure. A central de segurança usa modelos de análise e aprendizado de máquina para abranger todas as interfaces que permitem que os clientes interajam com seus aplicativos, seja por HTTP ou por meio de métodos de gerenciamento. Além disso, como um serviço de terceiros no Azure, a central de segurança também está em uma posição única para oferecer análise de segurança baseada em host que abrange os nós de computação subjacentes para essa PaaS, permitindo que a central de segurança detecte ataques contra aplicativos Web que foram Já explorado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para monitorizar e proteger o Serviço de Aplicações, precisa de um plano do Serviço de Aplicações associado a computadores dedicados. Estes planos são: Básico, Standard, Premium, Isolado ou Linux. O Centro de Segurança do Azure não suporta os planos Gratuito, Partilhado ou Consumo. Para obter mais informações, consulte [planos do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Para monitorizar e proteger o Serviço de Aplicações, precisa de um plano do Serviço de Aplicações associado a computadores dedicados. Estes planos são: Básico, Standard, Premium, Isolado ou Linux. O Centro de Segurança do Azure não suporta os planos Gratuito, Partilhado ou Consumo. Para obter mais informações, consulte [planos do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-## <a name="security-center-protection"></a>Proteção de centro de segurança
+## <a name="security-center-protection"></a>Proteção da central de segurança
 
-Centro de segurança do Azure protege a instância VM em que o serviço de aplicações está em execução e a interface de gestão. Ele também monitora os pedidos e respostas enviadas de e para as suas aplicações em execução no serviço de aplicações.
+A central de segurança do Azure protege a instância de VM na qual seu serviço de aplicativo está sendo executado e a interface de gerenciamento. Ele também monitora solicitações e respostas enviadas de e para seus aplicativos em execução no serviço de aplicativo.
 
-Centro de segurança nativamente está integrado com o serviço de aplicações, eliminando a necessidade de implementação e integração - a integração é completamente transparente.
+A central de segurança é integrada nativamente com o serviço de aplicativo, eliminando a necessidade de implantação e integração-ela é completamente transparente.
 
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Ativar a monitorização e a proteção do serviço de aplicações
+## <a name="enabling-monitoring-and-protection-of-app-service"></a>Habilitando o monitoramento e a proteção do serviço de aplicativo
 
-1. No Azure, escolha o Centro de segurança.
-2. Aceda a **preços & definições** e escolha uma subscrição.
-3. Sob **escalão de preço**, na **serviço de aplicações** da linha, alternar o seu plano para **ativado**.
+1. No Azure, escolha central de segurança.
+2. Vá para **preços & configurações** e escolha uma assinatura.
+3. Em **tipo de preço**, na linha **serviço de aplicativo** , alterne o plano para **habilitado**.
 
-![Ativar/desativar de serviço de aplicações](./media/security-center-app-services/app-services-toggle.png)
+![alternância do serviço de aplicativo](./media/security-center-app-services/app-services-toggle.png)
 
 >[!NOTE]
-> O número de instâncias listado para a quantidade de recurso representa o número de instâncias relevantes do Active Directory no momento quando aberto o painel de escalão de preços do serviço de aplicações. Uma vez que este número pode mudar com base nas opções de dimensionamento que selecionou, o número de instâncias, que é-lhe cobrada em conformidade será modificado.
+> O número de instâncias listadas para a quantidade de recursos representa o número de instâncias relevantes do serviço de aplicativo ativo no momento em que você abriu a folha tipo de preço. Como esse número pode mudar com base nas opções de dimensionamento selecionadas, o número de instâncias para as quais você é cobrado será modificado de acordo.
 
-Para desativar a monitorização e recomendações para o serviço de aplicações, repita este processo e um botão de alternar sua **serviço de aplicações** planeja **desativado**.
+Para desabilitar o monitoramento e as recomendações para o serviço de aplicativo, repita esse processo e alterne o plano do **serviço de aplicativo** para **desabilitado**.
 
 
 
 ## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md): Saiba como configurar definições de segurança no Centro de segurança do Azure.
-* [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerir e responder a alertas de segurança.
-* [Serviços aplicacionais](security-center-virtual-machine-protection.md#app-services):  Ver uma lista dos seus ambientes de serviço de aplicações com resumos de estado de funcionamento.
-* [Monitorizar soluções de parceiros no Centro de segurança do Azure](security-center-partner-solutions.md): Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
-* [FAQ do Centro de segurança do Azure](security-center-faq.md): Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
+* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md): Saiba como definir as configurações de segurança na central de segurança do Azure.
+* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerir e responder a alertas de segurança.
+* [Serviços de aplicativos](security-center-virtual-machine-protection.md#app-services):  Exiba uma lista de seus ambientes de serviço de aplicativo com resumos de integridade.
+* [Monitorando soluções de parceiros com a central de segurança do Azure](security-center-partner-solutions.md): Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
+* [Perguntas frequentes da central de segurança do Azure](security-center-faq.md): Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 * [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

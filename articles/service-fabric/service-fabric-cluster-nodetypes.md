@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501368"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200454"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de Service Fabric do Azure e conjuntos de dimensionamento de máquinas virtuais
-Os conjuntos de dimensionamento de [máquinas virtuais](/azure/virtual-machine-scale-sets) são um recurso de computação do Azure. Você pode usar conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster de Service Fabric do Azure define uma escala separada.  O tempo de execução do Service Fabric instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual Microsoft. Azure. perfabric. Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, alterar a SKU do sistema operacional em execução em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes.
+Os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets) são um recurso de computação do Azure. Você pode usar conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster de Service Fabric do Azure define uma escala separada.  O tempo de execução do Service Fabric instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual Microsoft. Azure. perfabric. Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, alterar a SKU do sistema operacional em execução em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes.
 
 A figura a seguir mostra um cluster que tem dois tipos de nó, chamados FrontEnd e back-end. Cada tipo de nó tem cinco nós.
 
@@ -78,11 +78,11 @@ A seguir estão as descrições de propriedade:
 | **Name** | **Valores permitidos** | ** --- ** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
 | name | Cadeia de caracteres | --- | nome exclusivo para a extensão |
-| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode | --- | Identifica o sistema operacional Service Fabric está carregando para |
+| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | --- | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | --- | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | publisher | Microsoft.Azure.ServiceFabric | --- | nome do editor de extensão de Service Fabric |
-| clusterEndpont | cadeia | --- | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | cadeia | --- | nome do nodeType |
+| clusterEndpont | Cadeia de caracteres | --- | URI: porta para ponto de extremidade de gerenciamento |
+| nodeTypeRef | Cadeia de caracteres | --- | nome do nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | --- | tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | --- | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
 | nicPrefixOverride | Cadeia de caracteres | --- | Prefixo de sub-rede como "10.0.0.0/24" |

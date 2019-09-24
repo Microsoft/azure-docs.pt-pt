@@ -3,9 +3,8 @@ title: Proteger os serviços de armazenamento e dados do Azure na central de seg
 description: Este documento aborda as recomendações na central de segurança do Azure que ajudam a proteger seus dados e o serviço SQL do Azure e manter a conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: memildin
+ms.openlocfilehash: 80611fe0c37af7dfd27b561186f3e967ad3159b4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100944"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201034"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteger os serviços de armazenamento e dados do Azure na central de segurança do Azure
 Este tópico mostra como exibir e implementar recomendações de segurança para dados e recursos de armazenamento. A central de segurança do Azure encontrou essas recomendações ao analisar o estado de segurança de seus recursos do Azure.

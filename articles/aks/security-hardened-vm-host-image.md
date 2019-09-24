@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b7e079e92c2f438fa7acc87a7d7333c371fe8e54
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099463"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202976"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Proteção de segurança em hosts de máquina virtual AKS 
 
@@ -77,15 +77,13 @@ O AKS-Engine não promove ou adere a nenhum padrão de segurança específico no
 |5.4.4 |Garantir que o usuário padrão umask seja 027 ou mais restritivo |
 |5.6 |Verifique se o acesso ao comando su está restrito|
 
-(*) Deve ser habilitado. Consulte a [documentação](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md)de definição de cluster.
-
 ## <a name="additional-notes"></a>Notas adicionais
  
 * Para reduzir ainda mais a área de superfície de ataque, alguns drivers de módulo de kernel desnecessários foram desabilitados no sistema operacional. 
 
 * Não há suporte para o sistema operacional protegido de segurança fora da plataforma AKS. 
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 Consulte os artigos a seguir para obter mais informações sobre a segurança do AKS: 
 

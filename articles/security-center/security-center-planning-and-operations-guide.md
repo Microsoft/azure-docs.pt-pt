@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910598"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201865"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia é para profissionais de ti (tecnologia da informação), arquitetos de ti, analistas de segurança de informações e administradores de nuvem para usar a central de segurança do Azure.
@@ -182,13 +182,13 @@ A secção **Deteção** é mais reativa, pois trata-se de alertas relativos a p
 Considere visitar a opção [informações sobre ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) como parte das suas operações de segurança diárias. Aí, pode identificar ameaças de segurança relativas a cada ambiente, como, por exemplo, identificar se um determinado computador faz parte de um botnet.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitorização de recursos novos ou alterados
-A maior parte dos ambientes do Azure são dinâmicos, com recursos novos que são regularmente acelerados ou desacelerados, configurações ou alterações, etc. O Centro de Segurança ajuda-o a garantir que tem visibilidade em relação ao estado de segurança destes novos recursos.
+A maioria dos ambientes do Azure é dinâmica, com recursos sendo criados regularmente, girados ou reduzidos, reconfigurados e alterados. O Centro de Segurança ajuda-o a garantir que tem visibilidade em relação ao estado de segurança destes novos recursos.
 
 Quando adicionar novos recursos (VMs, BDs SQL) ao seu Ambiente do Azure, o Centro de Segurança irá detetar automaticamente estes recursos e começar a monitorizar a segurança dos mesmos. Isto também inclui funções da Web e funções de trabalho PaaS. Se a Recolha de Dados estiver ativada na [Política de Segurança](tutorial-security-policy.md), serão ativadas automaticamente capacidades de monitorização adicionais para as suas máquinas virtuais.
 
 ![Áreas principais](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. Para máquinas virtuais, clique em **Computação**, na secção **Prevenção**. Quaisquer problemas com a ativação de dados ou recomendações relacionadas aparecerão no separador **Descrição Geral** e na secção **Recomendações de Monitorização**.
+1. Para máquinas virtuais, clique em **computação & aplicativos**, na seção **higiene de segurança de recursos** . Quaisquer problemas com a ativação de dados ou recomendações relacionadas aparecerão no separador **Descrição Geral** e na secção **Recomendações de Monitorização**.
 2. Visualize as **Recomendações** para ver que riscos de segurança foram identificados para o novo recurso, se for o caso.
 3. É muito comum que, quando novas VMs são adicionadas ao seu ambiente, apenas o sistema operativo é inicialmente instalado. O proprietário do recurso pode necessitar de algum tempo para implementar outras aplicações que serão utilizadas por estas VMs.  Idealmente, deve ter conhecimento da intenção final desta carga de trabalho. Vai ser um Servidor de Aplicações? Com base no que esta nova carga de trabalho vai ser, pode ativar a **Política de Segurança** adequada, que é o terceiro passo deste fluxo de trabalho.
 4. À medida que novos recursos são adicionados ao seu ambiente do Azure, novos alertas podem aparecer no bloco **alertas de segurança** . Procure novos alertas neste bloco e siga as recomendações.
@@ -244,7 +244,7 @@ No [como aproveitar a central de segurança do Azure & Microsoft Operations Mana
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)

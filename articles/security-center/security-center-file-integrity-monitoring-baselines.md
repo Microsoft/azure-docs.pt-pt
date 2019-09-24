@@ -3,9 +3,8 @@ title: Comparar linhas de base com o monitoramento de integridade de arquivo na 
 description: Saiba como comparar linhas de base com o monitoramento de integridade de arquivo na central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afc03baa71f17deb0b923f483fde214a86c5e9b4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296474"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202135"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base usando o monitoramento de integridade de arquivo (FIM)
 
@@ -37,7 +36,7 @@ Na verdade, muitos padrões de conformidade regulatória, como PCI-DSS & ISO 177
 
 Os padrões do hive do registro do FIM fornecem uma maneira conveniente de monitorar alterações recursivas em áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para ser executado no contexto de LOCAL_SYSTEM Configurando uma execução na inicialização ou no desligamento.  Para monitorar as alterações desse tipo, habilite a verificação interna.  
 
-![Registry](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registo](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > Verificações recursivas se aplicam somente a hives de segurança recomendados e não a caminhos de registro personalizados.  

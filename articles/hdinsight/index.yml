@@ -4,19 +4,19 @@ summary: O Azure HDInsight é um serviço gerido do Apache Hadoop que permite ex
 metadata:
   title: Azure HDInsight
   description: O Azure HDInsight é um serviço cloud gerido do Apache Hadoop que permite executar o Apache Spark, o Apache Hive, o Apache Kafka, o Apache HBase e muito mais.
-  services: service
+  services: hdinsight
   ms.service: hdinsight
   ms.topic: landing-page
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: 51c9e1b662cd82811ee43afa34c20dfef8e2fb90
-  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.openlocfilehash: e4504bbfc84dbafcd1efa45c9536a63569230a8a
+  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/14/2019
-  ms.locfileid: "70995705"
+  ms.lasthandoff: 09/23/2019
+  ms.locfileid: "71204108"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:

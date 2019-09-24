@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d802e48231a03fbf3fee9439894371188f31d5e1
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576657"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200956"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso condicional: Bloquear a autenticação legada
 
@@ -24,7 +24,7 @@ Devido ao maior risco associado aos protocolos de autenticação herdados, a Mic
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas executem a autenticação multifator.
+As etapas a seguir ajudarão a criar uma política de acesso condicional para bloquear as solicitações de autenticação herdadas.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue até **Azure Active Directory** > **acesso condicional**.
@@ -45,7 +45,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

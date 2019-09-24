@@ -3,9 +3,8 @@ title: Proteger as máquinas e aplicações no Centro de segurança do Azure | D
 description: Este documento aborda recomendações no Centro de segurança que o ajudam a proteger as suas máquinas virtuais e computadores e suas aplicações web e ambientes de serviço de aplicações.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910566"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200783"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 A central de segurança do Azure analisa o estado de segurança de seus recursos do Azure, servidores não Azure e máquinas virtuais. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -85,7 +84,7 @@ Para ver os detalhes das recomendações, clique no nome da atualização em fal
 
 
 > [!NOTE]
-> As recomendações de segurança aqui são as mesmas que as sob o **recomendações** mosaico. Ver [implementar recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) para obter mais informações sobre como resolver recomendações.
+> As recomendações de segurança aqui são as mesmas que as sob o **recomendações** mosaico. Para obter mais informações sobre como resolver recomendações, consulte [implementando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md).
 >
 >
 
@@ -108,6 +107,7 @@ Existem quatro tipos de ícones representados nesta lista:
 O ícone apresentado em cada recomendação ajuda-o a identificar rapidamente a VM e o computador que precisa de atenção e o tipo de recomendação. Você também pode usar os filtros para pesquisar a lista por **tipo de recurso** e por **severidade**.
 
 Para fazer uma busca detalhada nas recomendações de segurança para cada VM, clique na VM.
+Aqui verá os detalhes de segurança para o computador ou VM. Na parte inferior, você pode ver a ação recomendada e a gravidade de cada problema.
 ![Serviços cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Serviços em nuvem
@@ -233,7 +233,7 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 

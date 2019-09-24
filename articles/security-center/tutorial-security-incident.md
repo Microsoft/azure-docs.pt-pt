@@ -3,9 +3,8 @@ title: Tutorial do Centro de Segurança do Azure - Responder a incidentes de seg
 description: Tutorial do Centro de Segurança do Azure - Responder a incidentes de segurança
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.author: memildin
+ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992079"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200619"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -118,7 +117,7 @@ Se pretender desativar aprovisionamento automático:
 > Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a conhecer as funcionalidades do Centro de Segurança que devem ser utilizadas para responder a incidentes de segurança, tais como:
 
 > [!div class="checklist"]

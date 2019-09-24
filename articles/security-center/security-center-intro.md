@@ -3,9 +3,8 @@ title: O que é o Centro de Segurança do Azure? | Microsoft Docs
 description: Saiba mais sobre o Centro de Segurança do Azure, as suas capacidades principais e como funciona.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/06/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 762ab2800193aa084b771b7d000b383a7004097e
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.date: 06/06/2019
+ms.author: memildin
+ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984923"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202107"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -142,7 +141,7 @@ A central de segurança fornece integração nativa e integrada com os recursos 
 
 Coleta de log extensiva – os logs do Windows e do Linux são todos utilizados no mecanismo de análise de segurança e usados para criar recomendações e alertas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - O escalão de preço Gratuito do Centro de Segurança está ativado com a sua subscrição do Azure. Para tirar partido da gestão de segurança avançada e das capacidades de deteção de ameaças, tem de atualizar para o escalão de preço Standard. A camada Standard pode ser tentada gratuitamente. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.

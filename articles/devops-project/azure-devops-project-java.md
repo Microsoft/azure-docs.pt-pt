@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898055"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203716"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Início rápido: Configurar um pipeline de CI/CD para um aplicativo Java com Azure DevOps Projects
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, poderá obter uma gratuitamente por
 
 2. Selecione **Criar**.
 
-    ![Iniciar a configuração da Entrega Contínua](_img/azure-devops-project-java/fullbrowser.png)
+    ![Criar um recurso do Azure no DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e serviço do Azure
 
@@ -62,7 +62,7 @@ Os exemplos de Java incluem várias opções de arquiteturas de aplicações.
 
 2. Selecione **procurar** para exibir o aplicativo em execução.
 
-    ![Vista do Dashboard](_img/azure-devops-project-java/dashboardnopreview.png) 
+    ![Exibir painel de aplicativos no portal do Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
     
    DevOps Projects configurou automaticamente um gatilho de Build e versão de CI.  Agora, está pronto para colaborar com uma equipa na sua aplicação Java com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
 
@@ -145,7 +145,7 @@ Os registos contêm informações úteis sobre o processo de implementação. Po
 
 Você pode excluir Azure App serviço e outros recursos relacionados quando não precisar mais deles. Utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Quando você configurou o processo de CI/CD, os pipelines de compilação e de versão foram criados automaticamente. Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Para saber mais sobre o pipeline de CI/CD, consulte:
 

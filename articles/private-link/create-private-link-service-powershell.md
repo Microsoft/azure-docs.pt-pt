@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 09158a935aac023382049d3aa9ce23a711972023
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8ed3b8e507a93f75b036b3a97eb34395ce525314
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104751"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202933"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando Azure PowerShell.
@@ -98,7 +98,7 @@ $privateLinkService = New-AzPrivateLinkService `
 -ServiceName $plsName `
 -ResourceGroupName $rgName `
 -Location $location `
--LoadBalancerFrontendIpConfiguration $frontendIP`
+-LoadBalancerFrontendIpConfiguration $frontendIP `
 -IpConfiguration $IPConfig 
 ```
 
@@ -133,6 +133,7 @@ $vnetPE = New-AzVirtualNetwork `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 
 ```
+
 ### <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 Crie um ponto de extremidade privado para consumir o serviço de vínculo privado criado acima em sua rede virtual:
  
@@ -141,13 +142,14 @@ Crie um ponto de extremidade privado para consumir o serviço de vínculo privad
 $plsConnection= New-AzPrivateLinkServiceConnection `
 -Name plsConnection `
 -PrivateLinkServiceId  $privateLinkService.Id  
+
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
- ```
-### Get private endpoint
-Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
+```
+ 
+### <a name="get-private-endpoint"></a>Obter ponto de extremidade privado
+Obtenha o endereço IP do ponto de extremidade privado `Get-AzPrivateEndpoint` com como a seguir:
 
 ```azurepowershell
-
 # Get Private Endpoint and its IP Address 
 $pe =  Get-AzPrivateEndpoint `
 -Name $peName `
@@ -155,8 +157,9 @@ $pe =  Get-AzPrivateEndpoint `
 -ExpandResource networkinterfaces
 
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
- ```
-  
+
+```
+
 ### <a name="approve-the-private-endpoint-connection"></a>Aprovar a conexão de ponto de extremidade particular
 Aprove a conexão do ponto de extremidade particular com o serviço de link privado com ' Approve-AzPrivateEndpointConnection '.
 
@@ -167,7 +170,9 @@ $pls = Get-AzPrivateLinkService `
 -ResourceGroupName $rgName 
 
 Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
- ``` 
-## <a name="next-steps"></a>Passos Seguintes
+
+``` 
+
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o [link privado do Azure](private-link-overview.md)
  

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32e47f688150333ac78091589d8a252641d4c7d6
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076985"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204227"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar Apache Spark streaming estruturado com Apache Kafka no HDInsight
 
@@ -186,12 +186,15 @@ Este exemplo demonstra como usar o streaming estruturado do Spark com Kafka no H
 
 4. Carregue os pacotes usados pelo Notebook inserindo as informações a seguir em uma célula do bloco de anotações. Execute o comando usando **Ctrl + Enter**.
 
+O streaming do Spark tem microlote, o que significa que os dados são fornecidos como lotes e executáveis executados nos lotes de dados. Se o executor tiver um tempo limite ocioso menor que o tempo necessário para processar o lote, os executores seriam constantemente adicionados e removidos. Se o tempo limite de ociosidade de executores for maior que a duração do lote, o executor nunca será removido. Portanto, **recomendamos que você desabilite a alocação dinâmica definindo Spark. dynamicAllocation. Enabled como false ao executar aplicativos de streaming.**
+
     ```
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```
@@ -328,7 +331,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 > 
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a usar [Apache Spark streaming estruturado](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) para gravar e ler dados de [Apache Kafka](https://kafka.apache.org/) no HDInsight. Use o link a seguir para aprender a usar o [Apache Storm](https://storm.apache.org/) com o Kafka.
 

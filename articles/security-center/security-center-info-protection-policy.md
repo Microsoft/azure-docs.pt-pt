@@ -1,11 +1,10 @@
 ---
-title: Personalizar a política de proteção de informações de SQL no Centro de segurança do Azure | Documentos da Microsoft
-description: Saiba como personalizar as políticas de proteção de informações no Centro de segurança do Azure.
+title: Personalizando a política de proteção de informações do SQL na central de segurança do Azure | Microsoft Docs
+description: Saiba como personalizar as políticas de proteção de informações na central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
 ms.service: security-center
 ms.devlang: na
@@ -13,79 +12,79 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
-ms.author: rkarlin
-ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875611"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202087"
 ---
-# <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações de SQL no Centro de segurança do Azure (pré-visualização)
+# <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na central de segurança do Azure (versão prévia)
  
-Uma política de proteção de informações do SQL pode ser definida e personalizada para o inquilino do Azure completo, no Centro de segurança do Azure.
+Uma política de proteção de informações do SQL pode ser definida e personalizada para todo o locatário do Azure, na central de segurança do Azure.
 
-Proteção de informações é um recurso de segurança avançadas para detetar, classificar, Etiquetar e proteger dados confidenciais em seus recursos de dados do Azure. A detetar e classificar os dados mais confidenciais (comerciais, financeiros, saúde, PII, etc.) pode desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
-- Ajudar a atender a requisitos de conformidade a normas e de normas de privacidade de dados
-- Vários cenários de segurança, como monitorização (auditoria) e os alertas no anómalo acesso a dados confidenciais
-- Armazena, controlar o acesso ao e a segurança dos dados de sistema de proteção que contêm dados altamente confidenciais
+A proteção de informações é uma funcionalidade de segurança avançada para descobrir, classificar, rotular e proteger dados confidenciais em seus recursos de dados do Azure. Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, de saúde, dados pessoais etc.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Ele pode servir como uma infraestrutura para:
+- Ajudando a cumprir os padrões de privacidade de dados e os requisitos de conformidade regulatória
+- Vários cenários de segurança, como monitoramento (auditoria) e alertas de acesso anormal a dados confidenciais
+- Controlando o acesso e protegendo a segurança de armazenamentos de dados que contêm dados altamente confidenciais
  
-[Proteção de informações de SQL](../sql-database/sql-database-data-discovery-and-classification.md) implementa esse paradigma para seus arquivos de dados SQL, atualmente, suportado para a base de dados do Azure SQL. Proteção de informações de SQL automaticamente Deteta e classifica os dados potencialmente confidenciais, fornece um mecanismo de etiquetagem de forma permanente os dados confidenciais com atributos de classificação de marcação e fornece a mostrar um dashboard detalhadas a Estado de classificação da base de dados. Além disso, ele calcula o resultado definido sensibilidade das consultas SQL, para que as consultas que extraem dados confidenciais podem ser auditadas explicitamente, e os dados podem ser protegidos. Para obter mais detalhes sobre a proteção de informações de SQL, consulte [deteção de dados do Azure SQL da base de dados e classificação](../sql-database/sql-database-data-discovery-and-classification.md).
+A [proteção de informações do SQL](../sql-database/sql-database-data-discovery-and-classification.md) implementa esse paradigma para seus armazenamentos de dados SQL, atualmente com suporte no banco de dado SQL do Azure. A proteção de informações do SQL descobre e classifica automaticamente dados potencialmente confidenciais, fornece um mecanismo de rotulagem para marcar de forma persistente os dados confidenciais com atributos de classificação e fornece um painel detalhado que mostra o Estado de classificação do banco de dados. Além disso, ele calcula a sensibilidade do conjunto de resultados de consultas SQL, para que as consultas que extraem dados confidenciais possam ser auditadas explicitamente e os dados possam ser protegidos. Para obter mais detalhes sobre a proteção de informações do SQL, confira [descoberta e classificação de dados do Azure SQL Database](../sql-database/sql-database-data-discovery-and-classification.md).
  
-O mecanismo de classificação baseia-se em duas construções primárias que compõem a taxonomia de classificação - **etiquetas** e **tipos de informações**.
-- **Etiquetas** – os atributos de classificação principal, utilizados para definir o nível de sensibilidade dos dados armazenados na coluna. 
-- **Tipos de informações** – fornece a granularidade adicional para o tipo de dados armazenados na coluna.
+O mecanismo de classificação baseia-se em duas construções principais que compõem os **Rótulos** de taxonomia de classificação e os **tipos de informações**.
+- **Rótulos** – os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna. 
+- **Tipos de informações** – fornece granularidade adicional ao tipo de dados armazenados na coluna.
  
-Proteção de informações é fornecido com um conjunto interno de etiquetas e tipos de informações, que são utilizados por predefinição. Para personalizá-los, pode personalizar a política de proteção de informações no Centro de segurança do Azure.
+A proteção de informações vem com um conjunto interno de rótulos e tipos de informações, que são usados por padrão. Para personalizá-los, você pode personalizar a política de proteção de informações na central de segurança do Azure.
  
 ## <a name="customize-the-information-protection-policy"></a>Personalizar a política de proteção predefinida
-Para personalizar a política de proteção de informações para o seu inquilino do Azure, tem de ter [privilégios administrativos no grupo de gestão de raiz do inquilino](security-center-management-groups.md). 
+Para personalizar a política de proteção de informações para seu locatário do Azure, você precisa ter [privilégios administrativos no grupo de gerenciamento raiz do locatário](security-center-management-groups.md). 
  
-1. Na segurança Center menu principal, em **higiene de troca de segurança de recursos** aceda ao **dados e armazenamento** e clique nas **proteção de informações de SQL** botão.
+1. No menu principal da central de segurança, em **higiene de segurança de recursos** , acesse **dados & armazenamento** e clique no botão proteção de informações do **SQL** .
 
-   ![Configurar a política de proteção de informações](./media/security-center-info-protection-policy/security-policy.png) 
+   ![Configurar política de proteção de informações](./media/security-center-info-protection-policy/security-policy.png) 
  
-2. Na **proteção de informações de SQL** página, pode ver o conjunto atual de etiquetas. Estes são os atributos de classificação principal que são utilizados para categorizar o nível de sensibilidade dos seus dados. A partir daqui, pode configurar o **etiquetas de proteção de informações** e **tipos de informações** para o inquilino. 
+2. Na página **proteção de informações do SQL** , você pode exibir seu conjunto atual de rótulos. Esses são os principais atributos de classificação que são usados para categorizar o nível de sensibilidade de seus dados. A partir daqui, você pode configurar os **Rótulos de proteção de informações** e os tipos de **informações** para o locatário. 
  
-### <a name="customizing-labels"></a>Personalizando as etiquetas
+### <a name="customizing-labels"></a>Personalizando rótulos
  
-1. Pode editar ou eliminar qualquer etiqueta existente ou adicionar uma nova etiqueta. Para editar uma etiqueta existente, selecione essa etiqueta e, em seguida, clique em **configurar**, na parte superior ou no menu de contexto à direita. Para adicionar uma nova etiqueta, clique em **criar etiqueta** na barra de menus superior, ou na parte inferior da tabela de etiquetas.
-2. Na **etiqueta de sensibilidade configurar** ecrã, pode criar ou alterar o nome de etiqueta e a descrição. Também pode definir se a etiqueta está desativada ou Active Directory, Ativando a **ativado** mudar ou desativar. Por fim, pode adicionar ou remover tipos de informações associados com a etiqueta. Todos os dados detetados que corresponda ao que tipo de informações incluirá automaticamente a etiqueta de sensibilidade associado nas recomendações de classificação.
+1. Você pode editar ou excluir qualquer rótulo existente ou adicionar um novo rótulo. Para editar um rótulo existente, selecione esse rótulo e, em seguida, clique em **Configurar**, na parte superior ou no menu de contexto à direita. Para adicionar um novo rótulo, clique em **criar rótulo** na barra de menus superior ou na parte inferior da tabela de rótulos.
+2. Na tela **Configurar rótulo de sensibilidade** , você pode criar ou alterar o nome do rótulo e a descrição. Você também pode definir se o rótulo está ativo ou desabilitado alternando a opção **habilitada** ativar ou desativar. Por fim, você pode adicionar ou remover tipos de informações associados ao rótulo. Todos os dados descobertos que correspondem a esse tipo de informação incluirão automaticamente o rótulo de sensibilidade associado nas recomendações de classificação.
 3. Clique em **OK**.
  
-   ![Configurar a etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Configurar etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
-4. As etiquetas são listadas por ordem de ascendente sensibilidade. Para alterar a classificação entre as etiquetas, arraste as etiquetas para reordenar na tabela ou utilize o **mover para cima** e **mover para baixo** botões para alterar a ordem. 
+4. Os rótulos são listados na ordem de sensibilidade crescente. Para alterar a classificação entre os rótulos, arraste os rótulos para reordená-los na tabela ou use os botões **mover para cima** e **mover para baixo** para alterar a ordem. 
  
-    ![Configurar a política de proteção de informações](./media/security-center-info-protection-policy/move-up.png)
+    ![Configurar política de proteção de informações](./media/security-center-info-protection-policy/move-up.png)
  
-5. Certifique-se de que clique em **guardar** na parte superior do ecrã quando tiver terminado.
+5. Certifique-se de clicar em **salvar** na parte superior da tela quando tiver terminado.
  
  
 ## <a name="adding-and-customizing-information-types"></a>Adicionando e personalizando tipos de informações
  
-1. Pode gerir e personalizar os tipos de informações ao clicar em **gerir tipos de informações**.
-2. Para adicionar um novo **tipo de informação**, selecione **criar o tipo de informações** no menu superior. Pode configurar um nome, descrição e pesquisar cadeias de caracteres padrão para o **tipo de informações**. Cadeias de caracteres de padrão de pesquisa, opcionalmente, podem utilizar palavras-chave com carateres universais (usando o caráter '%'), que o mecanismo de descoberta automática utiliza para identificar os dados confidenciais em bancos de dados, com base nos metadados das colunas.
+1. Você pode gerenciar e personalizar tipos de informações clicando em **gerenciar tipos de informações**.
+2. Para adicionar um novo **tipo de informação**, selecione **criar tipo de informação** no menu superior. Você pode configurar um nome, uma descrição e as cadeias de caracteres de padrão de pesquisa para o **tipo de informações**. As cadeias de caracteres de padrão de pesquisa podem, opcionalmente, usar palavras-chave com curingas (usando o caractere "%"), que o mecanismo de descoberta automatizado usa para identificar dados confidenciais em seus bancos, com base nos metadados das colunas.
  
-    ![Configurar a política de proteção de informações](./media/security-center-info-protection-policy/info-types.png)
+    ![Configurar política de proteção de informações](./media/security-center-info-protection-policy/info-types.png)
  
-3. Também pode configurar o incorporado **tipos de informações** adicionando adicionais de pesquisa padrão cadeias de caracteres, desativar algumas das cadeias de caracteres existentes, ou ao alterar a descrição. Não é possível eliminar incorporado **tipos de informações** ou editar os respetivos nomes. 
-4. **Tipos de informações** estão listados por ordem de ascendente de classificação de deteção, o que significa que os tipos mais altos na lista irão tentar corresponder ao primeiro. Para alterar a classificação entre tipos de informação, arraste os tipos no lugar certo na tabela ou utilizar o **mover para cima** e **mover para baixo** botões para alterar a ordem. 
-5. Clique em **OK** quando tiver terminado.
-6. Depois de concluída a gerir os seus tipos de informações, certifique-se de que associa os tipos relevantes etiquetas relevantes, ao clicar em **configurar** para uma etiqueta específica e adicionar ou eliminar a tipos de informações conforme apropriado.
-7. Certifique-se de que clique em **salvar** no principal **etiquetas** painel para aplicar todas as alterações.
+3. Você também pode configurar os **tipos de informações** internas adicionando cadeias de caracteres de padrão de pesquisa adicionais, desabilitando algumas das cadeias de caracteres existentes ou alterando a descrição. Você não pode excluir tipos de **informações** internas ou editar seus nomes. 
+4. Os **tipos de informações** são listados em ordem crescente de classificação de descoberta, o que significa que os tipos mais altos na lista tentarão corresponder primeiro. Para alterar a classificação entre os tipos de informações, arraste os tipos para o local certo na tabela ou use os botões **mover para cima** e mover para **baixo** para alterar a ordem. 
+5. Clique em **OK** quando terminar.
+6. Depois de concluir o gerenciamento dos tipos de informações, lembre-se de associar os tipos relevantes aos rótulos relevantes, clicando em **Configurar** para um rótulo específico e adicionando ou excluindo tipos de informações conforme apropriado.
+7. Certifique-se de clicar em **salvar** na folha **Rótulos** principais para aplicar todas as suas alterações.
  
-Depois da política de proteção de informações é totalmente definida e guardada, será aplicada à classificação de dados em todas as bases de dados SQL do Azure no seu inquilino.
+Depois que a política de proteção de informações estiver totalmente definida e salva, ela será aplicada à classificação de dados em todos os bancos de dado SQL do Azure em seu locatário.
  
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
  
-Neste artigo, aprendeu sobre como definir uma política de proteção de informações de SQL no Centro de segurança do Azure. Para saber mais sobre como utilizar a proteção de informações de SQL para classificar e proteger dados confidenciais em seus bancos de dados SQL, veja [deteção de dados do Azure SQL da base de dados e classificação](../sql-database/sql-database-data-discovery-and-classification.md). 
+Neste artigo, você aprendeu a definir uma política de proteção de informações do SQL na central de segurança do Azure. Para saber mais sobre como usar a proteção de informações do SQL para classificar e proteger dados confidenciais nos bancos de dados SQL, confira [descoberta e classificação de dado do Azure SQL Database](../sql-database/sql-database-data-discovery-and-classification.md). 
 
-Para obter mais informações sobre políticas de segurança e a segurança de dados no Centro de segurança do Azure, consulte os artigos seguintes:
+Para obter mais informações sobre políticas de segurança e segurança de dados na central de segurança do Azure, consulte os seguintes artigos:
  
-- [Descrição geral das políticas de segurança](security-center-policies-overview.md): Obtenha uma visão geral das políticas de segurança no Centro de segurança
-- [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos
-- [Segurança de dados do Centro de segurança do Azure](security-center-data-security.md): Saiba como o Centro de segurança gere e protege os dados
+- [Visão geral das políticas de segurança](security-center-policies-overview.md): Obtenha uma visão geral das políticas de segurança na central de segurança
+- [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure
+- [Segurança de dados da central de segurança do Azure](security-center-data-security.md): Saiba como a central de segurança gerencia e protege os dados
 
 

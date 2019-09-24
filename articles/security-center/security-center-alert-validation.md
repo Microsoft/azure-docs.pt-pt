@@ -1,67 +1,66 @@
 ---
-title: Alerta de validação (ficheiro de teste EICAR) no Centro de segurança do Azure | Documentos da Microsoft
+title: Validação de alerta (arquivo de teste EICAR) na central de segurança do Azure | Microsoft Docs
 description: Este documento ajuda-o a validar os alertas de segurança no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: f65b4b74a1a91fa081bd9c0d8146d055cebb0de6
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 32f67fb94b207735e77583a6db62f7c8703dd991
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626304"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202737"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alertas (ficheiro de teste EICAR) no Centro de segurança do Azure
+# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alerta (arquivo de teste EICAR) na central de segurança do Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
-Os alertas são notificações de centro de segurança gera quando detetar ameaças nos seus recursos. Ele dá prioridade e apresenta uma lista de alertas, juntamente com as informações necessárias para investigar rapidamente o problema. Centro de segurança também fornece recomendações sobre como pode remediar um ataque.
-Para obter mais informações, consulte [alertas de segurança no Centro de segurança do Azure](security-center-alerts-overview.md) e [gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md)
+Alertas são as notificações que a central de segurança gera quando detecta ameaças em seus recursos. Ele prioriza e lista os alertas junto com as informações necessárias para que você investigue rapidamente o problema. A central de segurança também fornece recomendações sobre como você pode corrigir um ataque.
+Para obter mais informações, consulte [alertas de segurança na central de segurança do Azure](security-center-alerts-overview.md) e [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 
 ## <a name="alert-validation"></a>Validação de alertas
 
 * [Windows](#validate-windows)
 * [Linux](#validate-linux)
 
-## Validar o alerta numa VM do Windows <a name="validate-windows"></a>
+## Validar o alerta na VM do Windows<a name="validate-windows"></a>
 
-Depois do Centro de segurança agente está instalado no seu computador, siga estes passos do computador onde pretende que seja o recurso atacado do alerta:
+Depois que o agente da central de segurança estiver instalado no computador, siga estas etapas do computador no qual você deseja ser o recurso atacado do alerta:
 
-1. Copie um executável (por exemplo **calc.exe**) para a área de trabalho do computador, ou outro diretório da sua comodidade e renomeá-lo como **ASC_AlertTest_662jfi039N.exe**.
-1. Abra a linha de comandos e execute este ficheiro com um argumento (apenas um nome de argumento FALSO), tais como: ```ASC_AlertTest_662jfi039N.exe -foo```
-1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Um alerta semelhante para o [exemplo](#alert-validate) abaixo que deverá ser apresentada:
+1. Copie um executável (por exemplo, **Calc. exe**) na área de trabalho do computador ou em outro diretório de sua conveniência e renomeie-o como **ASC_AlertTest_662jfi039N. exe**.
+1. Abra o prompt de comando e execute esse arquivo com um argumento (apenas um nome de argumento falso), como:```ASC_AlertTest_662jfi039N.exe -foo```
+1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Um alerta semelhante ao [exemplo](#alert-validate) abaixo deve ser exibido:
 
 > [!NOTE]
-> Ao rever este alerta de teste para Windows, certifique-se de que o campo **auditoria de argumentos ativada** é **verdadeiro**. Se for **false**, em seguida, tem de ativar a auditoria de argumentos da linha de comandos. Para o ativar, utilize a seguinte linha de comando:
+> Ao revisar este alerta de teste para o Windows, verifique se a auditoria de argumentos de campo **habilitada** é **verdadeira**. Se for **false**, você precisará habilitar a auditoria de argumentos de linha de comando. Para habilitá-lo, use a seguinte linha de comando:
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validar o alerta numa VM do Linux <a name="validate-linux"></a>
+## Validar o alerta na VM do Linux<a name="validate-linux"></a>
 
-Depois do Centro de segurança agente está instalado no seu computador, siga estes passos do computador onde pretende que seja o recurso atacado do alerta:
-1. Copie um executável numa localização conveniente e mude o nome para **. / asc_alerttest_662jfi039n**, por exemplo:
+Depois que o agente da central de segurança estiver instalado no computador, siga estas etapas do computador no qual você deseja ser o recurso atacado do alerta:
+1. Copie um executável para um local conveniente e renomeie-o para **./asc_alerttest_662jfi039n**, por exemplo:
 
     ```cp /bin/echo ./asc_alerttest_662jfi039n```
 
-1. Abra a linha de comandos e execute este ficheiro:
+1. Abra o prompt de comando e execute este arquivo:
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Um alerta semelhante para o [exemplo](#alert-validate) abaixo que deverá ser apresentada:
+1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Um alerta semelhante ao [exemplo](#alert-validate) abaixo deve ser exibido:
 
-### Exemplo de alerta <a name="alert-validate"></a>
+### Exemplo de alerta<a name="alert-validate"></a>
 
-![Exemplo de validação de alertas](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+![Exemplo de validação de alerta](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
 ## <a name="see-also"></a>Consulte também
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:

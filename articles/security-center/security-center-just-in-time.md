@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910614"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202012"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando just-in-time
 
@@ -38,7 +38,7 @@ Uma maneira de reduzir a exposição a um ataque de força bruta é limitar a qu
 
 Quando o just-in-time está habilitado, a central de segurança bloqueia o tráfego de entrada para suas VMs do Azure criando uma regra NSG. Você seleciona as portas na VM para a qual o tráfego de entrada será bloqueado. Essas portas são controladas pela solução just-in-time.
 
-Quando um usuário solicita acesso a uma VM, a central de segurança verifica se o usuário tem permissões de [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) que permitem que eles solicitem acesso com êxito a uma VM. Se a solicitação for aprovada, a central de segurança configurará automaticamente os NSGs (grupos de segurança de rede) e o Firewall do Azure para permitir o tráfego de entrada para as portas selecionadas e os endereços ou intervalos de IP de origem solicitados, para o período de tempo especificado. Depois que o tempo expirou, a central de segurança restaura o NSGs para seus Estados anteriores. No entanto, essas conexões já estabelecidas não estão sendo interrompidas.
+Quando um usuário solicita acesso a uma VM, a central de segurança verifica se o usuário tem permissões de [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para essa VM. Se a solicitação for aprovada, a central de segurança configurará automaticamente os NSGs (grupos de segurança de rede) e o Firewall do Azure para permitir o tráfego de entrada para as portas selecionadas e os endereços ou intervalos de IP de origem solicitados, para o período de tempo especificado. Depois que o tempo expirou, a central de segurança restaura o NSGs para seus Estados anteriores. No entanto, essas conexões já estabelecidas não estão sendo interrompidas.
 
  > [!NOTE]
  > Se uma solicitação de acesso JIT for aprovada para uma VM por trás de um firewall do Azure, a central de segurança alterará automaticamente as regras de política de firewall e NSG. Para o período de tempo especificado, as regras permitem o tráfego de entrada para as portas selecionadas e os endereços ou intervalos IP de origem solicitados. Após o tempo, a central de segurança restaura as regras de firewall e NSG para seus Estados anteriores.
@@ -283,7 +283,7 @@ Execute o seguinte no PowerShell:
 
 Para obter mais informações, consulte a documentação do cmdlet do PowerShell.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu como o acesso just-in-time à VM na central de segurança ajuda a controlar o acesso às máquinas virtuais do Azure.
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:

@@ -3,9 +3,8 @@ title: Gerenciar problemas do Endpoint Protection com a central de segurança do
 description: Saiba como gerenciar problemas do Endpoint Protection na central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
-ms.author: rkarlin
-ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.author: memildin
+ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231315"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202079"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas do Endpoint Protection com a central de segurança do Azure
 A central de segurança do Azure monitora o status da proteção antimalware e relata isso na folha problemas do Endpoint Protection. A central de segurança realça problemas, como ameaças detectadas e proteção insuficiente, que podem tornar suas VMs (máquinas virtuais) e computadores vulneráveis a ameaças antimalware. Usando as informações em **problemas do Endpoint Protection**, você pode identificar um plano para resolver quaisquer problemas identificados.
@@ -97,7 +96,7 @@ Outro resultado da pesquisa é aberto com informações filtradas somente para e
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este artigo mostrou como implementar a recomendação "instalar Endpoint Protection" da central de segurança. Para saber mais sobre como habilitar o Microsoft Antimalware no Azure, consulte o seguinte documento:
 
 * [Microsoft antimalware para serviços de nuvem e máquinas virtuais](../security/fundamentals/antimalware.md) – saiba como implantar o Microsoft antimalware.

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146478"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203552"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -79,7 +79,6 @@ Ao indexar um resultado parcial do canal para esses modelos estará disponível
 
 * **Extração de palavras-chave**: Extrai palavras-chave de fala e texto visual.
 * **Extração de entidades nomeadas**: Extrai marcas, locais e pessoas de fala e texto visual por meio do NLP (processamento de idioma natural).
-* **Extração de marcas**: Extrai marcas da fala e do texto visual.
 * **Inferência de tópico**: Faz a inferência de tópicos principais de transcrições. A taxonomia IPTC de 1º nível está incluída.
 * **Artefatos**: Extrai um conjunto avançado de artefatos de "próximo nível de detalhes" para cada um dos modelos.
 * **Análise de sentimentos**: Identifica as opiniões positivas, negativas e neutras de fala e texto visual.

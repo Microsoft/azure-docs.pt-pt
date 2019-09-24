@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 02/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6a12ef422211a77299ece00c5333a6c9f10c9427
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 79f99aa80179fc46eab00a804e61e41aae3cedbf
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183928"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203919"
 ---
-Para aceder ao armazenamento do Azure, terá uma subscrição do Azure. Se ainda não tiver uma subscrição, em seguida, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para acessar o armazenamento do Azure, você precisará de uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Todos os acessos ao armazenamento do Azure ocorre através de uma conta de armazenamento. Neste início rápido, crie uma conta de armazenamento com o [portal do Azure](https://portal.azure.com/), o Azure PowerShell ou da CLI do Azure. Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md).
+Todo o acesso ao armazenamento do Azure ocorre por meio de uma conta de armazenamento. Para este guia de início rápido, crie uma conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), Azure PowerShell ou CLI do Azure. Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md).

@@ -1,11 +1,10 @@
 ---
 title: Aplicar atualizações do sistema na central de segurança do Azure | Microsoft Docs
-description: Este documento mostra como implementar as recomendações da central de segurança do Azure **aplicar atualizações do sistema** e reinicializar **após as atualizações do sistema**.
+description: Este documento mostra como implementar as recomendações da central de segurança do Azure **aplicar atualizações do sistema** e **reinicializar após as atualizações do sistema**.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 7f9c5b702c0da8de4476508114be911a9d74f78a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.author: memildin
+ms.openlocfilehash: 1688e85c6e6ed57892ccdffdf0813c8628127cc5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69531462"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202460"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema na central de segurança do Azure
 A central de segurança do Azure monitora as VMs (máquinas virtuais) do Windows e Linux e os computadores com atualizações de sistema operacional ausentes. A central de segurança recupera uma lista de atualizações críticas e de segurança disponíveis do Windows Update ou do Windows Server Update Services (WSUS), dependendo de qual serviço está configurado em um computador com Windows. A central de segurança também verifica as atualizações mais recentes em sistemas Linux. Se sua VM ou computador não tiver uma atualização do sistema, a central de segurança recomendará que você aplique as atualizações do sistema.
@@ -71,7 +70,7 @@ Neste exemplo, usaremos a **computação**.
 
     ![Pesquisa de logs de Azure Monitor][5]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.

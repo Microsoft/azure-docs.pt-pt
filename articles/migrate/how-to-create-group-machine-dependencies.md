@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906380"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200195"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência para avaliação
 
@@ -61,7 +61,7 @@ Anexe um espaço de trabalho da seguinte maneira:
 
     ![Adicionar área de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - Depois de especificar um nome para um novo espaço de trabalho, ele é criado na mesma geografia que o projeto de migrações para Azure.
+    - Depois de especificar um nome para um novo espaço de trabalho, você pode escolher a [região](https://azure.microsoft.com/global-infrastructure/regions/) na qual o espaço de trabalho será criado.
     - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração.
     - Você precisa de acesso de leitor ao espaço de trabalho para poder anexá-lo.
     - Você não pode modificar o espaço de trabalho associado a um projeto depois que ele é anexado.

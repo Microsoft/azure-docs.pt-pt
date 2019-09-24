@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: de9e0a936c68f181665e44ea6115f60c6dc60e98
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179063"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200313"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurar o IR auto-hospedado como um proxy para Azure-SSIS IR no ADF
 Este artigo descreve como executar pacotes do SQL Server Integration Services (SSIS) em Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF) com o IR auto-hospedado configurado como um proxy.  Esse recurso permite que você acesse dados localmente sem [ingressar seu Azure-SSIS ir em uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Isso é útil quando sua rede corporativa tem uma política de configuração/restritiva muito complexa para você injetar sua Azure-SSIS IR.
@@ -86,10 +86,11 @@ As primeiras tarefas de preparo em execução no IR auto-hospedado serão cobrad
 As segunda tarefas de preparo em execução no seu Azure-SSIS IR não serão cobradas separadamente, mas suas Azure-SSIS IR em execução serão cobradas conforme especificado no artigo sobre [preços de Azure-SSIS ir](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
 ## <a name="current-limitations"></a>Limitações atuais
-- No momento, somente os gerenciadores de conexões de arquivo simples/OleDb e OLEDB/fontes de arquivo simples têm suporte.
+
+- No momento, somente os gerenciadores de conexões de arquivo simples/OleDb e OLEDB/fontes de arquivo simples têm suporte. 
 - Somente os serviços vinculados do armazenamento de BLOBs do Azure configurados com a **chave**/de conta autenticação da**entidade de serviço** do**URI**/do
 - Somente o IR de hospedagem interna provisionado no mesmo ADF em que o Azure-SSIS IR é provisionado tem suporte no momento.
-- Não há suporte para variáveis e parâmetros do SSIS.
+- Não há suporte para o uso de parâmetros/variáveis do SSIS nas propriedades de fontes de arquivo OLEDB/Flat e gerenciadores de conexões.
 
 ## <a name="next-steps"></a>Passos seguintes
 Depois de configurar o IR auto-hospedado como um proxy para seu Azure-SSIS IR, você pode implantar e executar seus pacotes para acessar dados localmente como atividades executar pacote SSIS em pipelines do ADF, consulte [executar pacotes SSIS como atividades executar pacote SSIS em pipelines do ADF ](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

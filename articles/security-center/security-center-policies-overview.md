@@ -1,56 +1,55 @@
 ---
-title: Definições do Centro de segurança do Azure | Documentos da Microsoft
-description: Configure as definições do Centro de segurança do Azure.
+title: Configurações da central de segurança do Azure | Microsoft Docs
+description: Defina as configurações da central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: ec674641991a1b5a1e0ca92c133be235dd91dfae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/03/2018
+ms.author: memildin
+ms.openlocfilehash: 4a7254d4ac67ee7d1bf203baf5741638dbc8f3dd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703528"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201620"
 ---
 # <a name="security-center-settings"></a>Definições do Centro de Segurança
-Este artigo fornece uma descrição geral das definições no Centro de segurança.
+Este artigo fornece uma visão geral das configurações na central de segurança.
 
-As seguintes definições podem ser contatadas em política de segurança:
+As configurações a seguir podem ser acessadas em política de segurança:
 
-- **Recolha de dados**: Determina o aprovisionamento do agente e [recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) definições.
-- **Política de segurança**: Determina que controla o Centro de segurança monitoriza e recomenda. Pode editar a [política de segurança](tutorial-security-policy.md) no Centro de segurança. Também pode utilizar [do Azure Policy](tutorial-security-policy.md) para criar definições novas, definir políticas adicionais e atribuir políticas a vários grupos de gestão. 
-- **Notificações por e-mail**: Determina os contactos de segurança, e [notificação por e-mail](security-center-provide-security-contact-details.md) definições.
-- **Escalão de preço**: Define o gratuito ou standard [seleção de preço](security-center-pricing.md). O escalão que escolhe determina as funcionalidades do Centro de Segurança que estão disponíveis para recursos no âmbito. Pode especificar um escalão para as subscrições e áreas de trabalho.
+- **Coleta de dados**: Determina as configurações de provisionamento de agente e de [coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) .
+- **Política de segurança**: Determina quais controles a central de segurança monitora e recomenda. Você pode editar a [política de segurança](tutorial-security-policy.md) na central de segurança. Você também pode usar [Azure Policy](tutorial-security-policy.md) para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento. 
+- **Notificações por email**: Determina os contatos de segurança e as configurações de [notificação por email](security-center-provide-security-contact-details.md) .
+- **Tipo de preço**: Define a seleção de [preços](security-center-pricing.md)gratuita ou padrão. O escalão que escolhe determina as funcionalidades do Centro de Segurança que estão disponíveis para recursos no âmbito. Você pode especificar uma camada para assinaturas e espaços de trabalho.
 
 > [!NOTE]
-> Pode definir tudo isso por subscrição. Para áreas de trabalho, pode definir apenas a recolha de dados e o escalão de preço.
+> Você pode definir todos eles por assinatura. Para espaços de trabalho, você pode definir apenas a coleta de dados e o tipo de preço.
 >
 
 
-## <a name="who-can-edit-security-policies"></a>Quem pode editar as políticas de segurança?
-Centro de segurança utiliza baseada em funções controlo de acesso (RBAC), que fornece funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços no Azure. Quando os utilizadores abrem o Centro de segurança, veem apenas informações relacionadas com a recursos que aos quais têm acesso. O que significa que os utilizadores são atribuídos a função de *proprietário*, *contribuinte*, ou *leitor* pertence à subscrição para o recurso. Além destas funções, há duas funções específicas do Centro de Segurança:
+## <a name="who-can-edit-security-policies"></a>Quem pode editar políticas de segurança?
+A central de segurança usa o RBAC (controle de acesso baseado em função), que fornece funções internas que podem ser atribuídas a usuários, grupos e serviços no Azure. Quando os usuários abrem a central de segurança, eles veem apenas as informações relacionadas aos recursos aos quais eles têm acesso. Isso significa que os usuários recebem a função de *proprietário*, *colaborador*ou *leitor* à assinatura à qual o recurso pertence. Além destas funções, há duas funções específicas do Centro de Segurança:
 
-- **Leitor de segurança**: Tem a ver direitos ao centro de segurança, que incluem recomendações, alertas, políticas e estado de funcionamento, mas eles não podem fazer alterações.
-- **Administrador de segurança**: Têm os mesmos direitos de exibição como *leitor de segurança*, e também pode atualizar a política de segurança e ignorar recomendações e alertas.
+- **Leitor de segurança**: Ter direitos de exibição para a central de segurança, que inclui recomendações, alertas, política e integridade, mas não podem fazer alterações.
+- **Administrador de segurança**: Ter os mesmos direitos de exibição que o *leitor de segurança*, e eles também podem atualizar a política de segurança e ignorar recomendações e alertas.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu sobre as políticas de segurança no Centro de segurança do Azure. Para saber mais sobre o Centro de segurança do Azure, veja os artigos seguintes:
+## <a name="next-steps"></a>Passos seguintes
+Neste artigo, você aprendeu sobre as políticas de segurança na central de segurança do Azure. Para saber mais sobre a central de segurança do Azure, consulte os seguintes artigos:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure.
-* [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md): Saiba como as recomendações do Centro de segurança ajudá-lo a proteger os seus recursos do Azure.
-* [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md): Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
-* [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerir e responder a alertas de segurança.
-* [Monitorizar soluções de parceiros no Centro de segurança do Azure](security-center-partner-solutions.md): Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
-* [Segurança de dados do Centro de segurança do Azure](security-center-data-security.md): Saiba como o Centro de segurança gere e protege os dados.
-* [FAQ do Centro de segurança do Azure](security-center-faq.md): Encontre respostas para as perguntas mais frequentes sobre o serviço.
-* [Blogue de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Obtenha as notícias mais recentes de segurança do Azure e as informações.
+* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para suas assinaturas do Azure.
+* [Gerenciando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md): Saiba como as recomendações da central de segurança ajudam a proteger seus recursos do Azure.
+* [Monitoramento de integridade de segurança na central de segurança do Azure](security-center-monitoring.md): Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
+* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerir e responder a alertas de segurança.
+* [Monitorando soluções de parceiros com a central de segurança do Azure](security-center-partner-solutions.md): Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
+* [Segurança de dados da central de segurança do Azure](security-center-data-security.md): Saiba como a central de segurança gerencia e protege os dados.
+* [Perguntas frequentes da central de segurança do Azure](security-center-faq.md): Encontre respostas para as perguntas mais frequentes sobre o serviço.
+* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Obtenha as últimas notícias e informações de segurança do Azure.

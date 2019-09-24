@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/21/2019
 ms.author: diberry
-ms.openlocfilehash: 57407846ba2b1a71ceb91678c3ec4587d99814ad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 90712012f904f7b098af01433fee4a97ee8f2160
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947472"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203768"
 ---
 # <a name="quickstart-qna-maker-client-library-for-python"></a>Início rápido: Biblioteca de cliente QnA Maker para Python
 
@@ -101,19 +101,22 @@ Em seguida, crie um objeto CognitiveServicesCredentials com sua chave e use-o co
 Uma base de dados de conhecimento armazena pares de perguntas e respostas para o objeto [CreateKbDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-python) de três fontes:
 
 * Para **conteúdo editorial**, use o objeto [QnADTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-python) .
-* Para **arquivos**, use o [](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-python) objeto encampoto. 
+* Para **arquivos**, use o objeto [encampoto](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-python) . 
 * Para **URLs**, use uma lista de cadeias de caracteres.
 
 Chame o método [Create](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#create-create-kb-payload--custom-headers-none--raw-false----operation-config-) e, em seguida, passe a ID da operação retornada para o método [Operations. GetDetails](#get-status-of-an-operation) para sondar o status. 
 
 [!code-python[Create a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=createkb&highlight=15)]
 
+Certifique-se de incluir [`_monitor_operation`](#get-status-of-an-operation) a função, referenciada no código acima, para criar com êxito uma base de dados de conhecimento. 
 
 ## <a name="update-a-knowledge-base"></a>Atualizar uma base de dados de conhecimento
 
 Você pode atualizar uma base de dados de conhecimento passando a ID da base de dados de conhecimento e um [UpdateKbOperationDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-python) contendo [Adicionar](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-python), [Atualizar](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-python)e [excluir](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-python) objetos dto para o método [Update](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#update-kb-id--update-kb--custom-headers-none--raw-false----operation-config-) . Use o método [Operation. getdetail](#get-status-of-an-operation) para determinar se a atualização foi bem-sucedida.
 
 [!code-python[Update a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=updatekb&highlight=2)]
+
+Certifique-se de incluir [`_monitor_operation`](#get-status-of-an-operation) a função, referenciada no código acima, para atualizar com êxito uma base de dados de conhecimento. 
 
 ## <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 
@@ -137,13 +140,15 @@ Exclua a base de dados de conhecimento usando o método [delete](https://docs.mi
 
 Alguns métodos, como criar e atualizar, podem levar tempo suficiente que, em vez de aguardar a conclusão do processo, uma [operação](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation%28class%29?view=azure-python) é retornada. Use a ID da operação da operação para sondagem (com lógica de repetição) para determinar o status do método original. 
 
-A chamada setTimeout no bloco de código a seguir é usada para simular código assíncrono. Substituir pela lógica de repetição. 
+A chamada _setTimeout_ no bloco de código a seguir é usada para simular código assíncrono. Substituir pela lógica de repetição. 
 
 [!code-python[Monitor an operation](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=monitorOperation&highlight=7)]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Execute o aplicativo com `python knowledgebase_quickstart.py` o comando do diretório do aplicativo.
+
+Todos os trechos de código neste artigo estão [disponíveis](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) e podem ser executados como um único arquivo. 
 
 ```console
 python knowledgebase_quickstart.py
@@ -164,4 +169,3 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [O que é o API de QnA Maker?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)
 * [Obter análise de uso](../how-to/get-analytics-knowledge-base.md)
-* O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py).

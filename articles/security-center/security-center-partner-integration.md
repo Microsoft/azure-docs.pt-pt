@@ -3,23 +3,22 @@ title: Integrar soluções de segurança no Centro de Segurança do Azure | Micr
 description: Saiba como é que o Centro de Segurança do Azure se integra com parceiros, para melhorar a segurança geral dos seus recursos do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9d52526f87f20a855c045f4e565793ac29abf04a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 03/20/2019
+ms.author: memildin
+ms.openlocfilehash: 25e7262842de2bcf3823a51dfe6d97b5558b16fe
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101003"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201755"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -32,7 +31,7 @@ O Centro de Segurança facilita a ativação de soluções de segurança integra
 
 - **Implantação simplificada**: A central de segurança oferece provisionamento simplificado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidades, o Centro de Segurança pode aprovisionar o agente necessário nas suas máquinas virtuais e para aplicações de firewall, o Centro de Segurança pode assegurar grande parte da configuração de rede necessária.
 - **Detecções integradas**: Os eventos de segurança das soluções de parceiros são automaticamente recolhidos, agregados e apresentados como parte dos alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
-- **Monitoramento e gerenciamento de integridade**unificados: Os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções do parceiro de forma rápida. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
+- **Monitoramento e gerenciamento de integridade unificados**: Os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções do parceiro de forma rápida. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
 
 Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidades de [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e o Firewall do aplicativo Web do Microsoft Application Gateway.
 
@@ -147,7 +146,7 @@ Aqui estão algumas consultas Splunk que você pode usar para efetuar pull de da
 | Obter informações de alertas: Hora, nome, estado, ID e assinatura | index = Main Microsoft. Security/Locations/ \| Alerts Table \_time, propriedades. EventName, estado, propriedades. operationId, am_subscriptionId |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a integrar soluções de parceiros no Centro de Segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 

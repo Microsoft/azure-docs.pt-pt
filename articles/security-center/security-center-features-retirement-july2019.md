@@ -8,25 +8,24 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b4367bacf13e121220f12b6587c5ad60ad59d031
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910579"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202203"
 ---
+# <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
+
 > [!NOTE]
 > Este documento detalha a lista de recursos que foram desativados da central de segurança do Azure em 31 de julho de 2019.
 >
 >
 
-
-# <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
-
 Fizemos várias [melhorias](https://azure.microsoft.com/updates/?product=security-center) na central de segurança do Azure durante os seis meses, levando até 2019 de julho.
 Com esses recursos aprimorados, removemos alguns recursos redundantes e APIs relacionadas da central de segurança em 31 de julho de 2019.
 
-A maioria desses recursos de reativação pode ser substituída por novas funcionalidades na central de segurança do Azure ou no Azure Log Analytics. Outros recursos podem ser implementados usando o [Azure Sentinel (visualização)](https://azure.microsoft.com/services/azure-sentinel/).
+A maioria desses recursos desativados pode ser substituída por outras funcionalidades na central de segurança do Azure ou no Azure Log Analytics. Outros recursos podem ser implementados usando o [Azure Sentinel (visualização)](https://azure.microsoft.com/services/azure-sentinel/).
 
 Os recursos desativados da central de segurança incluem:
 
@@ -104,11 +103,11 @@ Removemos o botão **ir para mapa de eventos de segurança** e o painel por espa
 
 ![Mapa de alertas de segurança-botão][10]
 
-Ao selecionar o botão **ir para mapa de eventos de segurança** , você abre o painel inteligência contra ameaças. Desativamos o painel de inteligência contra ameaças.
+Quando você seleciona o botão **ir para mapa de eventos de segurança** , ele abriu o painel de inteligência contra ameaças (agora desativado).
 
 ![Dashboard Informações sobre Ameaças][11]
 
-Ao escolher um espaço de trabalho para exibir seu painel de inteligência contra ameaças, você abre a tela mapa de alertas de segurança (versão prévia) no Log Analytics. Desativamos esta tela.
+Ao escolher um espaço de trabalho para exibir seu painel de inteligência contra ameaças, você abriu a tela (visualização) mapa de alertas de segurança (versão prévia) no Log Analytics.
 
 ![Mapeamento de alertas de segurança no Log Analytics][12]
 

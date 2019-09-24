@@ -3,23 +3,19 @@ title: Integração dos produtos de segurança do Azure na central de segurança
 description: Este tópico apresenta os produtos de segurança do Azure que foram integrados à central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: beac7d08a973dd8dc7e450840669bfd5687e76ed
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 6560db7e2f1cb363e0b8ca7af3a08f6babd9b36b
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013314"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202406"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Integração dos produtos de segurança do Azure na central de segurança do Azure
 

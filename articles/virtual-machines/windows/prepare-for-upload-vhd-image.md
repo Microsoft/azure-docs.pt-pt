@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: a14dca066ec60f4aeec79fe6b4c532445b4392f1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: d2922f79c0b2ef7098e0f51e0c3bf6ab18a1b0e3
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086909"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200290"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -153,7 +153,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Verifique se as seguintes configurações estão definidas corretamente para acesso remoto:
 
 >[!NOTE] 
->Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;`. Você pode ignorar essa mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
+>Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`. Você pode ignorar essa mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
 
 1. O protocolo RDP (RDP) está habilitado:
    
@@ -272,23 +272,19 @@ Verifique se a VM está íntegra, segura e RDP acessível:
     > Use uma janela do PowerShell com privilégios elevados para executar esses comandos.
    
    ```powershell
-    cmd
-
-    bcdedit /set {bootmgr} integrityservices enable
-    bcdedit /set {default} device partition=C:
-    bcdedit /set {default} integrityservices enable
-    bcdedit /set {default} recoveryenabled Off
-    bcdedit /set {default} osdevice partition=C:
-    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+    bcdedit /set "{bootmgr}" integrityservices enable
+    bcdedit /set "{default}" device partition=C:
+    bcdedit /set "{default}" integrityservices enable
+    bcdedit /set "{default}" recoveryenabled Off
+    bcdedit /set "{default}" osdevice partition=C:
+    bcdedit /set "{default}" bootstatuspolicy IgnoreAllFailures
 
     #Enable Serial Console Feature
-    bcdedit /set {bootmgr} displaybootmenu yes
-    bcdedit /set {bootmgr} timeout 5
-    bcdedit /set {bootmgr} bootems yes
-    bcdedit /ems {current} ON
+    bcdedit /set "{bootmgr}" displaybootmenu yes
+    bcdedit /set "{bootmgr}" timeout 5
+    bcdedit /set "{bootmgr}" bootems yes
+    bcdedit /ems "{current}" ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
-
-    exit
    ```
 3. O log de despejo pode ser útil para solucionar problemas de falha do Windows. Habilitar a coleta de log de despejo:
 
@@ -445,7 +441,7 @@ As configurações a seguir não afetam o carregamento do VHD. No entanto, é al
    ```
   Se um disco de dados estiver anexado à VM, a letra do volume da unidade temporal normalmente será *D*. Essa designação pode ser diferente, dependendo de suas configurações e do número de unidades disponíveis.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Carregar uma imagem de VM do Windows no Azure para implantações do Gerenciador de recursos](upload-generalized-managed.md)
 * [Solucionar problemas de ativação de VM do Windows do Azure](troubleshoot-activation-problems.md)
 

@@ -3,9 +3,8 @@ title: Início Rápido do Centro de Segurança do Azure - Carregar os computador
 description: Este início rápido mostra como carregar os computadores Linux para o Centro de Segurança.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: memildin
+ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68816133"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202883"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Linux à central de segurança do Azure
 Depois de integrar suas assinaturas do Azure, você pode habilitar a central de segurança para recursos do Linux em execução fora do Azure, por exemplo, no local ou em outras nuvens, provisionando um agente. O agente é chamado de Microsoft Monitoring Agent (MMA), mas também é conhecido como agente do OMS.
@@ -44,7 +43,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
 5. Clique em **Configurar** em **Adicionar novos computadores não Azure** e será apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
-    ![Adicionar computador não Azure](./media/quick-onboard-linux-computer/non-azure.png)
+    ![Adicionar computador não pertencente ao Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
 6. Na página **Agente Direto**, em **TRANSFERIR E CARREGAR AGENTE PARA LINUX**, selecione o botão **copiar** para copiar o comando *wget*.
 
@@ -82,7 +81,7 @@ Para remover o agente:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste início rápido, aprovisionou o agente num computador Linux. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
+Neste guia de início rápido, você provisionou o agente em um computador Linux. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Definir e avaliar políticas de segurança](tutorial-security-policy.md)

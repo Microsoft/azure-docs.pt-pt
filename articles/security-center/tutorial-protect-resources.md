@@ -3,9 +3,8 @@ title: Tutorial do Centro de Segurança do Azure – proteger os seus recursos c
 description: Este tutorial mostra como configurar uma política de acesso à VM just-in-time e uma política de controlo de aplicações.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 7533a8636697db92a69cfec99d0e89138164d7b7
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.date: 12/03/2018
+ms.author: memildin
+ms.openlocfilehash: 28da3933cf1f1970758fcaec1358c9c16558af03
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147890"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200657"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteja seus recursos com a central de segurança do Azure
 O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso à VM (just-in-time) de máquina virtual (JIT) reduz sua exposição a ataques, permitindo que você negue o acesso persistente às VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
@@ -116,7 +115,7 @@ Se pretender desativar aprovisionamento automático:
 > Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a limitar a exposição a ameaças ao:
 
 > [!div class="checklist"]

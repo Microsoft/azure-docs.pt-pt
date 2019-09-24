@@ -3,9 +3,8 @@ title: Segurança de dados avançada para IaaS na central de segurança do Azure
 description: " Saiba como habilitar a segurança de dados avançada para IaaS na central de segurança do Azure. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295762"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202168"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Segurança de dados avançada para servidores SQL em máquinas virtuais do Azure (visualização pública)
 A segurança de dados avançada para servidores SQL em máquinas virtuais do Azure é um pacote unificado para recursos avançados de segurança do SQL. Atualmente, ele (em visualização pública) inclui a funcionalidade de identificando e a redução de vulnerabilidades de banco de dados potenciais e a detecção de atividades anormais que podem indicar uma ameaça ao seu banco de dados. 
@@ -72,7 +71,7 @@ Você pode exibir e gerenciar seus alertas de segurança atuais.
 
 1. Para exibir detalhes e ações de alerta para investigar a ameaça atual e tratar futuras ameaças, role para baixo na página **informações gerais** e, na seção **etapas de correção** , clique no link **etapas de investigação** .
 
-    ![Etapas de correção](./media/security-center-advanced-iaas-data/remediation-steps.png)
+    ![Passos de Remediação](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
 1. Para exibir os logs associados ao disparo do alerta, vá para **espaços de trabalho do log Analytics** e execute as seguintes etapas:
 
@@ -81,7 +80,7 @@ Você pode exibir e gerenciar seus alertas de segurança atuais.
 
     1. Verifique se as colunas estão exibindo o **tipo de preço** e as colunas **workspaceid** . (Os**espaços de trabalho** > do log Analytics editam**colunas**, adicionam **tipo de preço** e **workspaceid**.)
 
-     ![Editar colunas](./media/security-center-advanced-iaas-data/edit-columns.png)
+     ![Editar Colunas](./media/security-center-advanced-iaas-data/edit-columns.png)
 
     1. Clique no espaço de trabalho que tem os logs de alerta.
 
@@ -89,7 +88,7 @@ Você pode exibir e gerenciar seus alertas de segurança atuais.
 
     1. Clique nos olhos ao lado da tabela **SQLAdvancedThreatProtection** . Os logs são listados.
 
-     ![Exibir logs](./media/security-center-advanced-iaas-data/view-logs.png)
+     ![Ver Registos](./media/security-center-advanced-iaas-data/view-logs.png)
 
 ## <a name="set-up-email-notification-for-atp-alerts"></a>Configurar notificação por email para alertas ATP 
 
@@ -102,7 +101,7 @@ Você pode definir uma lista de destinatários para receber uma notificação po
 1. No menu **configurações** , clique em **notificações de email**. 
 1. Na caixa de texto **endereço de email** , insira os endereços de email para receber as notificações. Você pode inserir mais de um endereço de email separando os endereços de email com uma vírgula (,).  Por exemplo admin1@mycompany.com,admin2@mycompany.comadmin3@mycompany.com
 
-      ![Definições de E-mail](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![Definições de Correio Eletrónico](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Nas configurações de **notificação de email** , defina as seguintes opções:
   

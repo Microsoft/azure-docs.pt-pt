@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999974"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203706"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha a camada certa do Hub IoT para sua solução
 
@@ -47,6 +47,7 @@ Somente um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hu
 | [Dispositivo gêmeos](iot-hub-devguide-device-twins.md), [módulo gêmeos](iot-hub-devguide-module-twins.md)e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | Sim |
 | [Fluxos de dispositivo (visualização)](iot-hub-device-streams-overview.md) |   | Sim |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sim |
+| [Visualização de Plug and Play de IoT](../iot-pnp/overview-iot-plug-and-play.md) |   | Sim |
 
 O Hub IoT também oferece uma camada gratuita destinada a testes e avaliação. Ele tem todos os recursos da camada Standard, mas as concessões de mensagens limitadas. Não é possível atualizar da camada gratuita para Basic ou Standard.
 

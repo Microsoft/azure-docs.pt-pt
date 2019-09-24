@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: d0ef228f9f019b6f975ba32cf6a579f328226ae2
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966978"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203452"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para Java
 
@@ -24,6 +24,7 @@ Introdução à biblioteca de cliente do Pesquisa Visual Computacional para Java
 Use a biblioteca de cliente do Pesquisa Visual Computacional para Java para:
 
 * Analise uma imagem para marcas, descrição de texto, rostos, conteúdo adulto e muito mais.
+* Reconheça o texto impresso e manuscrito com a API de leitura em lote.
 
 [](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) [do artefato da documentação de referência (Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | 
 
@@ -115,6 +116,7 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a biblio
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Analisar uma imagem](#analyze-an-image)
+* [Ler texto impresso e manuscrito](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -211,6 +213,29 @@ O código a seguir analisa dados sobre os pontos de referência detectados na im
 O código a seguir imprime informações sobre o tipo&mdash;de imagem, seja Clip-Art ou desenho de linha.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
+## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
+
+Pesquisa Visual Computacional pode ler o texto visível em uma imagem e convertê-lo em um fluxo de caracteres.
+
+> [!NOTE]
+> Você também pode ler texto em uma imagem remota usando sua URL. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) para cenários que envolvem imagens remotas.
+
+### <a name="call-the-recognize-api"></a>Chamar a API de reconhecimento
+
+Primeiro, use o código a seguir para chamar o método **recognizePrintedTextInStream** para a imagem fornecida. Ao adicionar esse código ao seu projeto, você precisa substituir o valor de `localTextImagePath` pelo caminho para a imagem local. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
+### <a name="print-recognize-results"></a>Imprimir resultados de reconhecimento
+
+O bloco de código a seguir processa o texto retornado e o analisa para imprimir a primeira palavra em cada linha. Você pode usar esse código para entender rapidamente a estrutura de uma instância do **OcrResult** .
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_read_print)]
+
+Por fim, feche o bloco try/catch e a definição do método.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_read_catch)]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 

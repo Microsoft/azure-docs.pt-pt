@@ -3,9 +3,8 @@ title: Protegendo seus recursos de rede na central de segurança do Azure | Micr
 description: Este documento aborda as recomendações na central de segurança do Azure que ajudam a proteger os recursos de rede do Azure e a manter a conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910462"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201710"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger seus recursos de rede na central de segurança do Azure
 A central de segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para práticas recomendadas de segurança de rede. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.

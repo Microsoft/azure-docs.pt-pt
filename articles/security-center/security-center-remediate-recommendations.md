@@ -3,9 +3,8 @@ title: Corrigir recomendações na central de segurança do Azure | Microsoft Do
 description: Este documento explica como corrigir recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure e manter a conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a32e344ffe33f411bae85763ae3b919040c1109b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.author: memildin
+ms.openlocfilehash: 9bd1586193d2e36c370217e37b77409298821a67
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575597"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200996"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Corrigir recomendações na central de segurança do Azure
 
@@ -46,7 +45,7 @@ Para implementar a correção de um clique:
 
    ![Selecione a correção com um clique](./media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)
 
-2. Na guia **recursos** não íntegros, selecione os recursos em que você deseja implementar a recomendação e clique em **corrigir**. 
+2. Na guia **recursos não íntegros** , selecione os recursos em que você deseja implementar a recomendação e clique em **corrigir**. 
 
     > [!NOTE]
     > Alguns dos recursos listados podem estar desabilitados, pois você não tem as permissões apropriadas para modificá-los.
@@ -94,7 +93,7 @@ A operação de correção usa uma implantação de modelo ou chamada à API de 
 |Os logs de diagnóstico no Key Vault devem ser habilitados|Esta ação habilita os logs de diagnóstico em cofres de chaves. Os logs de diagnóstico e as métricas são salvos no espaço de trabalho selecionado.|
 |Os logs de diagnóstico no barramento de serviço devem ser habilitados|Essa ação habilita os logs de diagnóstico no barramento de serviço. Os logs de diagnóstico e as métricas são salvos no espaço de trabalho selecionado.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a central de segurança, consulte os seguintes tópicos:
 

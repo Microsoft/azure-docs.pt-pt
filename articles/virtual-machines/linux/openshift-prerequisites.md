@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: ab8814f1620cc019a0bee872c7b8f42cbb427365
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dae521902d0568f2d79725bad792d4df64daa1c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091745"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204018"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implantar o OpenShift no Azure
 
@@ -70,7 +70,7 @@ az group create --name keyvaultrg --location eastus
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 Crie um cofre de chaves para armazenar as chaves SSH para o cluster com o comando [AZ keyvault Create](/cli/azure/keyvault) . O nome do cofre de chaves deve ser globalmente exclusivo e deve ser habilitado para implantação de modelo, ou a implantação falhará com o erro "KeyVaultParameterReferenceSecretRetrieveFailed".
 
-O exemplo a seguir cria um cofre de chaves chamado keyvault no grupo de recursos *keyvaultrg* :
+O exemplo a seguir cria um cofre de chaves chamado *keyvault* no grupo de recursos *keyvaultrg* :
 
 ```azurecli 
 az keyvault create --resource-group keyvaultrg --name keyvault \
@@ -116,7 +116,7 @@ Criar entidade de serviço:
 scope=`az group show --name openshiftrg --query id`
 az ad sp create-for-rbac --name openshiftsp \
       --role Contributor --password {Strong Password} \
-      --scopes $scope
+      --scopes $scope \
 ```
 Se você estiver usando o Windows, ```az group show --name openshiftrg --query id``` execute e use a saída no lugar de $Scope.
 
@@ -147,7 +147,7 @@ Por padrão, o modelo implantará um cluster OpenShift usando certificados autoa
 
 Você precisará armazenar esses arquivos em Key Vault segredos.  Use o mesmo Key Vault como aquele usado para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes de segredo, o modelo é embutido em código para usar nomes de segredo específicos para cada um dos arquivos de certificado SSL.  Armazene os dados do certificado usando as informações da tabela a seguir.
 
-| Nome do segredo      | Ficheiro de certificado   |
+| Nome do Segredo      | Ficheiro de certificado   |
 |------------------|--------------------|
 | mastercafile     | arquivo de AC mestre     |
 | mastercertfile   | arquivo de certificado mestre   |
@@ -162,7 +162,7 @@ Crie os segredos usando o CLI do Azure. Veja abaixo um exemplo.
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo abordou os seguintes tópicos:
 > [!div class="checklist"]

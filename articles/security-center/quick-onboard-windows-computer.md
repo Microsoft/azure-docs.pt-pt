@@ -3,9 +3,8 @@ title: Início Rápido do Centro de Segurança do Azure - Incluir os computadore
 description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,15 +13,15 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: memildin
+ms.openlocfilehash: 46fffc40b315109c348247ac09f02f9bb8dbb3b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077909"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202792"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Integrar computadores do Windows ao centro de segurança do Azure
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Windows à central de segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
 
 Este início rápido mostra-lhe como instalar o MMA num computador Windows.
@@ -30,7 +29,7 @@ Este início rápido mostra-lhe como instalar o MMA num computador Windows.
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode experimentar o escalão Standard do Centro de segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Você pode experimentar o padrão da central de segurança sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 
@@ -85,7 +84,7 @@ Estão representados dois tipos de ícone no painel **Computação**:
 
 ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Computador não pertencente ao Azure
 
-![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) VM do Azure
+![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, pode remover o agente do computador Windows.
@@ -96,7 +95,7 @@ Para remover o agente:
 2. Abra **Programas e Funcionalidades**.
 3. Em **Programas e Funcionalidades**, selecione **Microsoft Monitoring Agent** e clique em **Desinstalar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, aprovisionou o MMA num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]

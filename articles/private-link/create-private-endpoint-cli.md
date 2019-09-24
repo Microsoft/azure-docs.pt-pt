@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 33383f42c3731d8a5aefdcde5008d706d5a9eed8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 46c08f48efc00c1e4d88ceccb680c0cfd1671b2f
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104789"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203570"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Criar um ponto de extremidade privado usando CLI do Azure
 O ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual, um servidor de banco de dados SQL com um ponto de extremidade privado usando CLI do Azure. Em seguida, você pode acessar a VM para e acessar com segurança o recurso de link privado (um servidor de banco de dados SQL do Azure privado neste exemplo). 
@@ -107,7 +107,7 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --registration-enabled false 
 
 #Query for the network interface ID  
-az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id'
+networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
  
  
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
@@ -177,6 +177,6 @@ Quando não for mais necessário, você pode usar AZ Group Delete para remover o
 az group delete --name myResourceGroup --yes 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o [link privado do Azure](private-link-overview.md)
  

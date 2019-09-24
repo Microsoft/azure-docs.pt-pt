@@ -3,9 +3,8 @@ title: Monitorizar a identidade e o acesso no Centro de Segurança do Azure | Mi
 description: Saiba como utilizar a capacidade de identidade e acesso no Centro de Segurança do Azure para monitorizar a atividade de acesso dos seus utilizadores e os problemas relacionados com identidades.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: memildin
+ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905348"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202272"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorar identidade e acesso na central de segurança do Azure (versão prévia)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
@@ -125,7 +124,7 @@ Use a tabela abaixo como referência para ajudá-lo a entender a identidade disp
 > [!NOTE]
 > Se você criou uma política de acesso condicional que exige MFA, mas tem exclusões definidas, a avaliação de recomendação do MFA da central de segurança considera a política como não compatível, pois permite que alguns usuários entrem no Azure sem MFA.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 - [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)

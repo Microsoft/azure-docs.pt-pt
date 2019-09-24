@@ -1,11 +1,11 @@
 ---
-title: Permissões no Centro de segurança do Azure | Documentos da Microsoft
-description: Este artigo explica como o Centro de segurança do Azure utiliza o controlo de acesso baseado em funções para atribuir permissões a utilizadores e identifica as ações permitidas para cada função.
+title: Permissões na central de segurança do Azure | Microsoft Docs
+description: Este artigo explica como a central de segurança do Azure usa o controle de acesso baseado em função para atribuir permissões a usuários e identifica as ações permitidas para cada função.
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.workload: na
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: aa6c154e14fbf5291e2493f4f27b9d4501ba18f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60905624"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201656"
 ---
-# <a name="permissions-in-azure-security-center"></a>Permissões no Centro de segurança do Azure
+# <a name="permissions-in-azure-security-center"></a>Permissões na central de segurança do Azure
 
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
 
@@ -29,38 +29,38 @@ Centro de segurança avalia a configuração dos seus recursos para identificar 
 
 Além destas funções, há duas funções específicas do Centro de Segurança:
 
-* **Leitor de segurança**: Um utilizador que pertence a esta função tem a ver direitos ao centro de segurança. O utilizador pode ver recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações.
-* **Administrador de segurança**: Um utilizador que pertence a esta função tem os mesmos direitos que o leitor de segurança e pode também atualizar a política de segurança e dispensar alertas e recomendações.
+* **Leitor de segurança**: Um usuário que pertence a essa função tem direitos de exibição para a central de segurança. O usuário pode exibir recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações.
+* **Administrador de segurança**: Um usuário que pertence a essa função tem os mesmos direitos que o leitor de segurança e também pode atualizar a política de segurança e ignorar alertas e recomendações.
 
 > [!NOTE]
-> As funções de segurança, leitor de segurança e o administrador de segurança, tem acesso apenas no Centro de segurança. As funções de segurança não tem acesso a outras áreas de serviço do Azure como armazenamento, Web e móveis ou de Internet das coisas.
+> As funções de segurança, o leitor de segurança e o administrador de segurança têm acesso apenas na central de segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure, como armazenamento, Web & móvel ou Internet das Coisas.
 >
 >
 
 ## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
-A tabela seguinte mostra as funções e permitido ações no Centro de segurança. Um X indica que a ação tem permissões para essa função.
+A tabela a seguir exibe funções e ações permitidas na central de segurança. Um X indica que a ação é permitida para essa função.
 
-| Função | Editar política de segurança | Aplicar recomendações de segurança de um recurso | Dispensar alertas e recomendações | Ver alertas e recomendações |
+| Role | Editar política de segurança | Aplicar recomendações de segurança para um recurso | Ignorar alertas e recomendações | Exibir alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
-| Proprietário da subscrição | X | X | X | X |
-| Contribuinte da subscrição | -- | X | X | X |
+| Proprietário da assinatura | X | X | X | X |
+| Colaborador da assinatura | -- | X | X | X |
 | Proprietário do grupo de recursos | -- | X | -- | X |
-| Contribuinte do grupo de recursos | -- | X | -- | X |
+| Colaborador do grupo de recursos | -- | X | -- | X |
 | Leitor | -- | -- | -- | X |
 | Administrador de Segurança | X | -- | X | X |
-| Leitor de segurança | -- | -- | -- | X |
+| Leitor de Segurança | -- | -- | -- | X |
 
 > [!NOTE]
-> Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua a função de leitor para utilizadores que apenas precisam de ver informações sobre o estado de funcionamento de segurança de um recurso, mas não tomar medidas, como aplicar recomendações ou editar políticas.
+> Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua a função leitor a usuários que precisam apenas exibir informações sobre a integridade de segurança de um recurso, mas não executar ações, como aplicar recomendações ou editar políticas.
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
-Este artigo explicou como o Centro de segurança utiliza o RBAC para atribuir permissões a utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de função necessárias para monitorizar o estado de segurança da sua subscrição, editar as políticas de segurança e aplicar recomendações, saiba como:
+## <a name="next-steps"></a>Passos seguintes
+Este artigo explicou como a central de segurança usa o RBAC para atribuir permissões aos usuários e identificar as ações permitidas para cada função. Agora que você está familiarizado com as atribuições de função necessárias para monitorar o estado de segurança de sua assinatura, editar políticas de segurança e aplicar recomendações, saiba como:
 
-- [Definir políticas de segurança no Centro de segurança](tutorial-security-policy.md)
-- [Gerir recomendações de segurança no Centro de segurança](security-center-recommendations.md)
-- [Monitorizar o estado de funcionamento de segurança dos seus recursos do Azure](security-center-monitoring.md)
+- [Definir políticas de segurança na central de segurança](tutorial-security-policy.md)
+- [Gerenciar recomendações de segurança na central de segurança](security-center-recommendations.md)
+- [Monitorar a integridade da segurança de seus recursos do Azure](security-center-monitoring.md)
 - [Gerir e responder a alertas de segurança no Centro de Segurança](security-center-managing-and-responding-alerts.md)
-- [Monitorizar soluções de segurança de parceiros](security-center-partner-solutions.md)
+- [Monitorar soluções de segurança de parceiros](security-center-partner-solutions.md)

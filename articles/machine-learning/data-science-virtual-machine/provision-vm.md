@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: f543db0240d59cf99f3bd793e059b7985f1ffe22
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: e08287fec79ec634d6e2353328854e19565533ca
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170644"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204054"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início rápido: Configurar o Máquina Virtual de Ciência de Dados para Windows
 
@@ -28,10 +28,12 @@ Para criar uma instância de DSVM:
 
 1. Vá para a [portal do Azure](https://portal.azure.com) você pode ser solicitado a entrar em sua conta do Azure, se você ainda não tiver entrado.
 1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados-Windows 2016".
+
     ![Listagem de VM do Windows](./media/provision-vm/search-windows.png)
+
 1. Selecione o botão **criar** na parte inferior.
 
-   ![Listagem de máquinas virtuais na portal do Azure, com o botão criar](./media/provision-vm/create-windows.png)
+    [![](media/provision-vm/create-windows.png "Botão para criar um computador Windows")](media/provision-vm/create-windows-expanded.png#lightbox)
 
 1. Você deve ser redirecionado para a folha "criar uma máquina virtual".
    ![Guia básico correspondente à máquina virtual do Windows](./media/provision-vm/review-create-windows.png)

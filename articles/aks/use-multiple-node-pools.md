@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171501"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202957"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -35,7 +35,7 @@ Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurad
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI do AKS-Preview
 
-Para usar vários pools de nós, você precisa da extensão da CLI do *AKs* versão 0.4.12 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
+Para usar vários pools de nós, você precisa da extensão da CLI do *AKs* versão 0.4.16 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -178,7 +178,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > As operações de atualização e dimensionamento em um cluster ou pool de nós não podem ocorrer simultaneamente, se uma tentativa de erro for retornada. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Leia mais sobre isso em nosso [Guia de solução de problemas](https://aka.ms/aks-pending-upgrade).
 
-Quando o cluster AKs foi inicialmente criado na primeira etapa, um `--kubernetes-version` de *1.13.10* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós padrão. Os comandos nesta seção explicam como atualizar um único pool de nós específico. A relação entre a atualização da versão kubernetes do plano de controle e o pool de nós é explicada na [seção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Quando o cluster AKs foi inicialmente criado na primeira etapa, um `--kubernetes-version` de *1.13.10* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós padrão. Os comandos nesta seção explicam como atualizar um único pool de nós específico.
+
+A relação entre a atualização da versão kubernetes do plano de controle e o pool de nós é explicada na [seção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > A versão da imagem do sistema operacional do pool de nós está vinculada à versão kubernetes do cluster. Você só obterá atualizações de imagem do sistema operacional, seguindo uma atualização de cluster.
@@ -193,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> Para atualizar o plano de controle para *1.14.6*, `az aks upgrade -k 1.14.6`execute. Saiba mais sobre as [atualizações de plano de controle com vários pools de nós aqui](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Liste o status dos pools de nós novamente usando o comando [AZ AKs node pool List][az-aks-nodepool-list] . O exemplo a seguir mostra que *mynodepool* está no estado *atualizando* para *1.13.10*:
 
@@ -232,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Leva alguns minutos para atualizar os nós para a versão especificada.
 
-Como prática recomendada, você deve atualizar todos os pools de nós em um cluster AKS para a mesma versão kubernetes. A capacidade de atualizar pools de nós individuais permite executar uma atualização sem interrupção e agendar pods entre pools de nós para manter o tempo de atividade do aplicativo dentro das restrições acima mencionadas.
+Como prática recomendada, você deve atualizar todos os pools de nós em um cluster AKS para a mesma versão kubernetes. O comportamento padrão do `az aks upgrade` é atualizar todos os pools de nós junto com o plano de controle para alcançar esse alinhamento. A capacidade de atualizar pools de nós individuais permite executar uma atualização sem interrupção e agendar pods entre pools de nós para manter o tempo de atividade do aplicativo dentro das restrições acima mencionadas.
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualizar um plano de controle de cluster com vários pools de nós
 
@@ -243,11 +242,12 @@ Como prática recomendada, você deve atualizar todos os pools de nós em um clu
 > * A versão do pool de nós pode ser uma versão secundária menor que a versão do plano de controle.
 > * A versão do pool de nós pode ser qualquer versão de patch contanto que as outras duas restrições sejam seguidas.
 
-Um cluster AKS tem dois objetos de recurso de cluster. A primeira é uma versão kubernetes do plano de controle. O segundo é um pool de agentes com uma versão kubernetes. Um plano de controle é mapeado para um ou vários pools de nós e cada um tem sua própria versão kubernetes. O comportamento de uma operação de atualização depende de qual recurso é direcionado e qual versão da API subjacente é chamada.
+Um cluster AKS tem dois objetos de recurso de cluster com versões do kubernetes associadas. A primeira é uma versão kubernetes do plano de controle. O segundo é um pool de agentes com uma versão kubernetes. Um plano de controle é mapeado para um ou vários pools de nós. O comportamento de uma operação de atualização depende de qual CLI do Azure comando é usado.
 
 1. A atualização do plano de controle requer o uso do`az aks upgrade`
-   * Isso também atualizará todos os pools de nós no cluster
-1. Atualizando com o`az aks nodepool upgrade`
+   * Isso atualizará a versão do plano de controle e todos os pools de nós no cluster
+   * Ao passar `az aks upgrade` com o `--control-plane-only` sinalizador, você atualizará apenas o plano de controle de cluster e nenhum dos pools de `--control-plane-only` nós associados * o sinalizador estará disponível na **extensão AKs-Preview v 0.4.16** ou superior
+1. A atualização de pools de nós individuais requer o uso do`az aks nodepool upgrade`
    * Isso atualizará apenas o pool de nós de destino com a versão especificada do kubernetes
 
 A relação entre as versões do kubernetes mantidas por pools de nós também deve seguir um conjunto de regras.

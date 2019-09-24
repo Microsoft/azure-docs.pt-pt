@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 58b6531a394db8f9d29dcc0fe9b4b40d1725e70a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774588"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204197"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para Windows
 
@@ -53,7 +53,7 @@ Se o seu script estiver em um servidor local, talvez você ainda precise que as 
 * A extensão apenas executará um script de uma vez. Se quiser executar um script a cada arranque, tem de utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Se quiser agendar a execução de um script, deve utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se quiser atualizações de estado mais frequentes de um script em execução, terá de criar a sua própria solução.
-* A extensão de script personalizado não dá suporte nativo a servidores proxy, no entanto, você pode usar uma ferramenta de transferência de arquivo que dá suporte a servidores proxy em seu script, como ondulação
+* A extensão de script personalizado não dá suporte nativo a servidores proxy, no entanto, você pode usar uma ferramenta de transferência de arquivo que dá suporte a servidores proxy em seu script, como *ondulação*
 * Tenha em atenção as localizações de diretório não predefinidas de que os scripts ou comandos possam depender. Tenha uma lógica para lidar com esta situação.
 * A extensão de script personalizado será executada na conta LocalSystem
 
@@ -69,7 +69,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "config-app",
+    "name": "virtualMachineName/config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
@@ -101,6 +101,9 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 > [!NOTE]
 > Somente uma versão de uma extensão pode ser instalada em uma VM em um ponto no tempo, especificar o script personalizado duas vezes no mesmo modelo do Resource Manager para a mesma VM falhará.
 
+> [!NOTE]
+> Podemos usar esse esquema dentro do recurso VirtualMachine ou como um recurso autônomo. O nome do recurso deve estar nesse formato "virtualMachineName/ExtensionName", se essa extensão for usada como um recurso autônomo no modelo ARM. 
+
 ### <a name="property-values"></a>Valores de propriedade
 
 | Nome | Valor / exemplo | Tipo de Dados |
@@ -112,8 +115,8 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | fileuris (por exemplo,) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (por exemplo) | 123456789 | inteiro de 32 bits |
 | commandToExecute (por exemplo,) | PowerShell-ExecutionPolicy Unrestricted-File configure-Music-app. ps1 | Cadeia de caracteres |
-| storageAccountName (por exemplo,) | examplestorageacct | cadeia |
-| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia |
+| storageAccountName (por exemplo,) | examplestorageacct | Cadeia de caracteres |
+| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Cadeia de caracteres |
 
 >[!NOTE]
 >Esses nomes de propriedade diferenciam maiúsculas de minúsculas. Para evitar problemas de implantação, use os nomes conforme mostrado aqui.

@@ -3,9 +3,8 @@ title: Trabalhando com políticas de segurança | Microsoft Docs
 description: Este artigo descreve como trabalhar com políticas de segurança na central de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 07/18/2019
+ms.author: memildin
+ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910364"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200487"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -246,7 +245,7 @@ A central de segurança usa o RBAC (controle de acesso baseado em função), que
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu a editar as políticas de segurança no Azure Policy. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 * [Guia de planejamento e operações da central de segurança do Azure](security-center-planning-and-operations-guide.md): Saiba como planejar e entender as considerações de design sobre a central de segurança do Azure.

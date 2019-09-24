@@ -2,18 +2,18 @@
 title: Definições de política do Azure monitoradas na central de segurança do Azure | Microsoft Docs
 description: Definições de política do Azure monitoradas na central de segurança do Azure.
 services: security-center
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: 892b33f52788bd37d430f221f14ba4c98f764cfb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910358"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201677"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança do Azure monitoradas pela central de segurança
 Este artigo fornece uma lista de definições de Azure Policy que você pode monitorar na central de segurança do Azure. Para obter mais informações sobre políticas de segurança, consulte [trabalhando com políticas de segurança](tutorial-security-policy.md).

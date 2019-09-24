@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991633"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203536"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
@@ -123,7 +123,7 @@ Isso deve ser tratado como parte de uma atualização.
 
 ## <a name="is-data-stored-in-etcd-encrypted-on-aro"></a>Os dados são armazenados no etcd criptografados na toa?
 
-Ele não é criptografado no nível de etcd. No momento, não há suporte para a opção de ativá-lo. O OpenShift dá suporte a esse recurso, mas os esforços de engenharia são necessários para fazê-lo no mapa de estrada. Os dados são criptografados no nível do disco. Para obter mais informações [, consulte Criptografando dados na camada de armazenamento](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) de Datastore.
+Ele não é criptografado no nível de etcd. No momento, não há suporte para a opção de ativá-lo. O OpenShift dá suporte a esse recurso, mas os esforços de engenharia são necessários para fazê-lo no mapa de estrada. Os dados são criptografados no nível do disco. Para obter mais informações [, consulte Criptografando dados na camada de armazenamento de datastore](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) .
 
 ## <a name="can-logs-of-underlying-vms-be-streamed-out-to-a-customer-log-analysis-system"></a>Os logs de VMs subjacentes podem ser transmitidos para um sistema de análise de log do cliente?
 
@@ -164,3 +164,45 @@ Consulte [docs OpenShift upstream](https://docs.openshift.com/container-platform
 O Azure Red Hat OpenShift dá suporte ao emparelhamento de VNET e permite que o cliente forneça uma VNET para emparelhar com e um CIDR de VNET no qual a rede OpenShift funcionará.
 
 A VNET criada pela toa será protegida e não aceitará alterações de configuração. A VNET emparelhada é controlada pelo cliente e reside em sua assinatura.
+
+## <a name="does-the-cluster-reside-in-a-customer-subscription"></a>O cluster reside em uma assinatura de cliente? 
+
+O aplicativo gerenciado do Azure reside em um grupo de recursos bloqueado com a assinatura do cliente. O cliente pode exibir objetos nesse RG, mas não modificar.
+
+## <a name="is-the-sdn-module-configurable"></a>O módulo SDN é configurável?
+
+SDN é openshift-OVS-NetworkPolicy e não é configurável.
+
+## <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quais direitos do UNIX (no IaaS) estão disponíveis para nós mestres/de infraestrutura/aplicativo?
+
+Não aplicável a esta oferta. O acesso ao nó é proibido.
+
+## <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Quais direitos de OCP temos? Cluster-administrador? Projeto-administrador?
+
+Para obter detalhes, consulte a [visão geral da administração do cluster](https://docs.openshift.com/aro/admin_guide/index.html)do Azure Red Hat OpenShift.
+
+## <a name="which-kind-of-federation-with-ldap"></a>Qual tipo de Federação com LDAP?
+
+Isso seria obtido por meio da integração do Azure AD. 
+
+## <a name="is-there-any-element-in-aro-shared-with-other-customers-or-is-everything-independent"></a>Há algum elemento na toa compartilhado com outros clientes? Ou é independente de tudo?
+
+Cada cluster do Azure Red Hat OpenShift é dedicado a um determinado cliente e reside na assinatura do cliente. 
+
+## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Podemos escolher qualquer solução de armazenamento persistente. OCS? 
+
+Duas classes de armazenamento estão disponíveis para seleção: Disco do Azure e arquivo do Azure.
+
+## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Como um cluster é atualizado (incluindo grandes e menores devido a vulnerabilidades)?
+
+Veja o [que é o processo de atualização geral?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
+
+## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Qual balanceador de carga do Azure é usado por toa?  É padrão ou básico e é configurável?
+
+A toa usa Azure Load Balancer padrão e não é configurável.
+
+## <a name="can-aro-use-netapp-based-storage"></a>A toa pode usar o armazenamento baseado em NetApp?
+
+No momento, as únicas opções de armazenamento com suporte são o disco do Azure e as classes de armazenamento de arquivos do Azure. 
+
+

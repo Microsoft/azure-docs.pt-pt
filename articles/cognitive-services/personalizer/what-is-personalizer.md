@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: ee17e204082389db19e1ebe463352a40d7ecd5ae
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155247"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203797"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -53,7 +53,7 @@ Por exemplo, seu aplicativo cliente pode adicionar personalizador a:
 * Escolha uma resposta de bot de chat para esclarecer a intenção do usuário ou sugerir uma ação.
 * Priorize sugestões do que um usuário deve fazer como a próxima etapa em um processo de negócios.
 
-O personalizador não é um serviço para persistir e gerenciar informações de perfil do usuário ou para registrar as preferências ou o histórico de usuários individuais. O personalizado aprende com os recursos de cada interação na ação um contexto de um único modelo que pode obter recompensas máximas quando ocorrem recursos semelhantes. 
+O personalizador não é um serviço para persistir e gerenciar informações de perfil do usuário ou para registrar as preferências ou o histórico de usuários individuais. O personalizado aprende dos recursos de cada interação na ação de um contexto em um único modelo que pode obter recompensas máximas quando ocorrem recursos semelhantes. 
 
 ## <a name="personalization-for-developers"></a>Personalização para desenvolvedores
 

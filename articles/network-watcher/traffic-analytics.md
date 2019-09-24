@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
-ms.reviewer: yagup
-ms.openlocfilehash: dbc0829adc29848c9047368295a2ade589834e8b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.reviewer: vinigam
+ms.openlocfilehash: 6c11f415fc1ea3a578893f6d14a60dfc1c4fddb0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031863"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203005"
 ---
 # <a name="traffic-analytics"></a>Análises de Tráfego
 
@@ -30,6 +30,8 @@ Análise de Tráfego é uma solução baseada em nuvem que fornece visibilidade 
 - Entenda os padrões de fluxo de tráfego entre regiões do Azure e a Internet para otimizar a implantação de rede para desempenho e capacidade.
 - Identifique as configurações incorretas de rede que levam a conexões com falha na rede.
 
+> [!NOTE]
+> Análise de Tráfego agora dá suporte à coleta de dados de logs de fluxo NSG em uma frequência mais alta de 10 minutos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -85,7 +87,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Oeste do Japão
 * Gov (US) - Virginia
 
-## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: Espaços de trabalho do Log Analytics
+## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: Áreas de trabalho do Log Analytics
 
 O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * Canadá Central
@@ -181,7 +183,7 @@ Selecione as seguintes opções, conforme mostrado na imagem:
 > [!IMPORTANT]
 > Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram seu período de retenção para evitar qualquer cobrança incorrida. Para obter mais informações sobre como excluir o blog de armazenamento de log de fluxo do NSG, consulte [excluir blobs de armazenamento de log de fluxo NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 5. Selecione *ativado* para obter **análise de tráfego status**.
-6. Selecione o intervalo de processamento. Com base em sua escolha, os logs de fluxo serão coletados da conta de armazenamento e processados pelo Análise de Tráfego. Você pode escolher o intervalo de processamento de cada uma hora ou a cada 10 minutos.
+6. Selecione o intervalo de processamento. Com base em sua escolha, os logs de fluxo serão coletados da conta de armazenamento e processados pelo Análise de Tráfego. Você pode escolher o intervalo de processamento de cada uma hora ou a cada 10 minutos. 
 7. Selecione um espaço de trabalho existente do Log Analytics (OMS) ou selecione **criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho Log Analytics é usado pelo Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um espaço de trabalho existente, ele deverá existir em uma das [regiões com suporte](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se você não quiser atualizar um espaço de trabalho existente ou não tiver um espaço de trabalho em uma região com suporte, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualização de log Analytics do Azure para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     O espaço de trabalho do log Analytics que hospeda a solução de análise de tráfego e o NSGs não precisa estar na mesma região. Por exemplo, você pode ter análise de tráfego em um espaço de trabalho na região Europa Ocidental, embora você possa ter NSGs no leste dos EUA e oeste dos EUA. Vários NSGs podem ser configurados no mesmo espaço de trabalho.
@@ -375,7 +377,7 @@ Você tem tráfego mal-intencionado em seu ambiente? De onde ele se origina? Par
 
 Para obter respostas para perguntas frequentes, consulte [perguntas frequentes sobre análise de tráfego](traffic-analytics-faq.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber como habilitar os logs de fluxo, consulte Habilitando o [log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para entender o esquema e os detalhes de processamento de Análise de Tráfego, consulte [esquema de análise de tráfego](traffic-analytics-schema.md).

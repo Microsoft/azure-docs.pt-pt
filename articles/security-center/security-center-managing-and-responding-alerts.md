@@ -3,9 +3,8 @@ title: Gerir alertas de segurança no Centro de Segurança do Azure | Microsoft 
 description: Este documento ajuda-o a utilizar as capacidades de Centro de Segurança do Azure para gerir e responder a alertas de segurança.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
 ms.topic: conceptual
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a31b6006ff3345947fc0c64b9427d79e3870a2b6
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.author: memildin
+ms.openlocfilehash: c3134988452efe16044ab7b7740cafd02e8cf27a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052037"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201916"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerenciar e responder a alertas de segurança na central de segurança do Azure
 

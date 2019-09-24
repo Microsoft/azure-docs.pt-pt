@@ -1,6 +1,6 @@
 ---
-title: Proteção de palavra-passe do Azure AD - Azure Active Directory
-description: Banir senhas fracas no Active Directory no local ao utilizar a proteção de palavra-passe do Azure AD
+title: Proteção de senha do Azure AD-Azure Active Directory
+description: Proibir senhas fracas no local Active Directory usando a proteção por senha do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,85 +11,85 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013a14505f7ac1382bce369e161fdae834f605fc
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694772"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200228"
 ---
-# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção de senha do Azure AD ao Windows Server Active Directory
 
-Proteção de palavra-passe do Azure AD é uma funcionalidade que melhora a políticas de palavra-passe de uma organização. Implementação no local de proteção de palavra-passe utiliza os dois as globais e personalizadas banida de palavra-passe listas que são armazenadas no Azure AD. Ele faz o mesmo verificações no local como o Azure AD para alterações com base na cloud.
+A proteção por senha do Azure AD é um recurso que aprimora as políticas de senha em uma organização. A implantação local da proteção por senha usa as listas de senhas excluídas globais e personalizadas que são armazenadas no Azure AD. Ele faz as mesmas verificações locais que o Azure AD faz para alterações baseadas em nuvem. Essas verificações são executadas durante as alterações de senha e os cenários de redefinição de senha.
 
 ## <a name="design-principles"></a>Princípios de conceção
 
-Proteção de palavra-passe do Azure AD destina-se com esses princípios em mente:
+A proteção de senha do Azure AD é projetada com esses princípios em mente:
 
-* Controladores de domínio nunca precisam se comunicar diretamente com a internet.
-* Não existem novas portas de rede estão abertas nos controladores de domínio.
-* Sem alterações de esquema do Active Directory são necessárias. O software utiliza o Active Directory existente **contentor** e **serviceConnectionPoint** objetos de esquema.
-* Nenhum Active Directory domínio ou floresta funcional nível mínimo (DFL/FFL) é necessário.
-* O software não criar ou necessitar de contas em domínios do Active Directory por ele protegidos.
-* Palavras-passe de texto não encriptado do utilizador nunca deixam o controlador de domínio, durante as operações de validação da palavra-passe ou em qualquer outra altura.
-* O software não é dependente de outros recursos do Azure AD; Por exemplo, sincronização de hash de palavra-passe do Azure AD não está relacionado com e não é necessário para que proteção de palavra-passe do Azure AD para a função.
-* Implantação incremental for suportada, no entanto, a política de palavra-passe é imposta apenas onde está instalado o agente de controlador de domínio (DC agente). Consulte o tópico seguinte para obter mais detalhes.
+* Os controladores de domínio nunca precisam se comunicar diretamente com a Internet.
+* Nenhuma nova porta de rede é aberta em controladores de domínio.
+* Nenhuma alteração de esquema de Active Directory é necessária. O software usa o **contêiner** de Active Directory existente e os objetos de esquema do **serviceConnectionPoint** .
+* Nenhum nível funcional de domínio ou floresta de Active Directory mínimo (DFL/FFL) é necessário.
+* O software não cria ou exige contas nos domínios de Active Directory que ele protege.
+* As senhas de texto não criptografado do usuário nunca deixam o controlador de domínio, seja durante as operações de validação de senha ou a qualquer outro momento.
+* O software não depende de outros recursos do Azure AD; por exemplo, a sincronização de hash de senha do Azure AD não está relacionada e não é necessária para que a proteção de senha do Azure AD funcione.
+* A implantação incremental tem suporte, no entanto, a política de senha só é imposta quando o agente de controlador de domínio (agente DC) está instalado. Consulte o próximo tópico para obter mais detalhes.
 
 ## <a name="incremental-deployment"></a>Implantação incremental
 
-Proteção de palavra-passe do Azure AD suporta implantação incremental entre controladores de domínio num domínio do Active Directory, mas é importante compreender o que isso realmente significa e quais são as compensações.
+A proteção de senha do Azure AD dá suporte à implantação incremental entre controladores de domínio em um domínio Active Directory, mas é importante entender o que isso realmente significa e quais são as compensações.
 
-O software de agente de proteção DC de palavra-passe do Azure AD só pode validar palavras-passe quando é instalado num controlador de domínio e apenas para alterações de palavra-passe que são enviadas para esse controlador de domínio. Não é possível controlar os controladores de domínio são escolhidos por máquinas de cliente do Windows para o processamento de alterações de palavra-passe do utilizador. Para garantir um comportamento consistente e a imposição de segurança de proteção de palavra-passe universal, o software do agente DC tem de ser instalado em todos os controladores de domínio num domínio.
+O software de agente DC de proteção de senha do Azure AD só pode validar senhas quando ele está instalado em um controlador de domínio e apenas para alterações de senha enviadas para esse controlador de domínio. Não é possível controlar quais controladores de domínio são escolhidos por computadores cliente Windows para processar alterações de senha de usuário. Para garantir o comportamento consistente e a imposição de segurança de proteção por senha universal, o software do agente de DC deve ser instalado em todos os controladores de domínio em um domínio.
 
-Muitas organizações desejarão fazer um teste cuidadoso de proteção de palavra-passe do Azure AD num subconjunto dos seus controladores de domínio antes de fazer uma implantação completa. Proteção de palavra-passe do Azure AD suportam a implementação parcial, ie o software do agente DC num determinado DC ativamente validará as palavras-passe, mesmo quando os outros controladores de domínio no domínio não tem o software do agente DC instalado. Parciais implementações deste tipo não são seguras e não são recomendados que para fins de teste.
+Muitas organizações desejarão fazer um teste cuidadoso de proteção de senha do Azure AD em um subconjunto de controladores de domínio antes de fazer uma implantação completa. A proteção de senha do Azure AD oferece suporte à implantação parcial, o IE o software do agente de DC em um determinado DC validará ativamente as senhas mesmo quando outros DCs no domínio não tiverem o software do agente de DC instalado. Implantações parciais desse tipo não são seguras e não são recomendadas além de para fins de teste.
 
-## <a name="architectural-diagram"></a>Diagrama da arquitetura
+## <a name="architectural-diagram"></a>Diagrama arquitetônico
 
-É importante compreender a estrutura subjacente e conceitos de função antes de implementar a proteção de palavra-passe do Azure AD no ambiente do Active Directory no local. O diagrama seguinte mostra como os componentes de proteção de palavra-passe funcionam em conjunto:
+É importante entender os conceitos subjacentes de design e função antes de implantar a proteção de senha do Azure AD em um ambiente de Active Directory local. O diagrama a seguir mostra como os componentes da proteção por senha funcionam em conjunto:
 
-![Como os componentes de proteção de palavra-passe do Azure AD funcionam em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Como os componentes de proteção de senha do Azure AD funcionam em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-* O serviço de Proxy de proteção de palavra-passe do Azure AD é executado em qualquer computador associado a um domínio na floresta do Active Directory atual. Seu objetivo principal é reencaminhar pedidos de transferência da política de palavra-passe de controladores de domínio para o Azure AD. Em seguida, devolve as respostas do Azure AD para o controlador de domínio.
-* O filtro de palavras-passe DLL do agente DC recebe pedidos de validação da palavra-passe de utilizador do sistema operativo. Reencaminha-os para o serviço de agente do DC que está a executar localmente no controlador de domínio.
-* O serviço de controlador de domínio de agente de proteção de palavra-passe recebe pedidos de validação da palavra-passe do filtro de palavras-passe DLL do agente DC. Ele as processa através da política de palavra-passe (disponível localmente) atual e devolve o resultado: *passar* ou *falhar*.
+* O serviço de proxy de proteção de senha do Azure AD é executado em qualquer computador ingressado no domínio na floresta de Active Directory atual. Sua principal finalidade é encaminhar solicitações de download de política de senha de controladores de domínio para o Azure AD. Em seguida, ele retorna as respostas do Azure AD para o controlador de domínio.
+* A DLL de filtro de senha do agente de DC recebe solicitações de validação de senha de usuário do sistema operacional. Ele os encaminha para o serviço de agente de DC que está sendo executado localmente no controlador de domínio.
+* O serviço de agente de controlador de domínio da proteção por senha recebe solicitações de validação de senha da DLL de filtro de senha do agente de DC. Ele os processa usando a política de senha atual (disponível localmente) e retorna o resultado: *aprovado* ou *falha*.
 
-## <a name="how-password-protection-works"></a>Como funciona a proteção de palavra-passe
+## <a name="how-password-protection-works"></a>Como funciona a proteção de senha
 
-Cada instância de serviço de Proxy de proteção de palavra-passe do Azure AD anuncia próprio aos controladores de domínio na floresta através da criação de um **serviceConnectionPoint** objeto no Active Directory.
+Cada instância de serviço de proxy de proteção de senha do Azure AD anuncia-se para os controladores de domínio na floresta criando um objeto **serviceConnectionPoint** no Active Directory.
 
-Cada serviço de agente do controlador de domínio para a proteção de palavra-passe também cria um **serviceConnectionPoint** objeto no Active Directory. Este objeto é utilizado principalmente para geração de relatórios e diagnósticos.
+Cada serviço de agente de controlador de domínio para proteção por senha também cria um objeto **serviceConnectionPoint** no Active Directory. Esse objeto é usado principalmente para relatórios e diagnósticos.
 
-O serviço de agente do controlador de domínio é responsável por iniciar a transferência de uma nova política de palavra-passe do Azure AD. A primeira etapa é localizar um serviço de Proxy de proteção de palavra-passe do Azure AD através da consulta da floresta para o proxy **serviceConnectionPoint** objetos. Quando um serviço de proxy disponível é encontrado, o agente de DC envia um pedido de transferência de política de palavra-passe para o serviço de proxy. O serviço de proxy por sua vez envia o pedido para o Azure AD. O serviço de proxy, em seguida, devolve a resposta para o serviço de agente do controlador de domínio.
+O serviço de agente de controlador de domínio é responsável por iniciar o download de uma nova política de senha do Azure AD. A primeira etapa é localizar um serviço de proxy de proteção por senha do Azure AD consultando a floresta em busca de objetos **serviceConnectionPoint** de proxy. Quando um serviço de proxy disponível é encontrado, o agente de DC envia uma solicitação de download de política de senha para o serviço de proxy. O serviço de proxy, por sua vez, envia a solicitação ao Azure AD. Em seguida, o serviço de proxy retorna a resposta ao serviço de agente de controlador de domínio.
 
-Depois do serviço de agente do controlador de domínio recebe uma nova política de palavra-passe do Azure AD, o serviço armazena a política numa pasta dedicada na raiz do domínio *sysvol* partilha de pasta. O serviço de agente do controlador de domínio também monitora esta pasta no caso de políticas mais recentes replicar de outros serviços do agente de controlador de domínio no domínio.
+Depois que o serviço de agente de controlador de domínio recebe uma nova política de senha do Azure AD, o serviço armazena a política em uma pasta dedicada na raiz de seu compartilhamento de pasta *SYSVOL* de domínio. O serviço de agente de controlador de domínio também monitora essa pasta caso as políticas mais recentes repliquem em de outros serviços de agente de DC no domínio.
 
-O serviço do agente DC sempre solicita uma nova política durante o arranque do serviço. Depois do serviço do agente DC é iniciado, ele verifica a idade da política atual disponível localmente por hora. Se a política for com mais de uma hora, o agente de controlador de domínio solicita uma nova política do Azure AD através do serviço de proxy, tal como descrito anteriormente. Se a política atual não é mais antiga do que uma hora, o agente de controlador de domínio continua a utilizar essa política.
+O serviço de agente de controlador de domínio sempre solicita uma nova política na inicialização do serviço. Depois que o serviço de agente de controlador de domínio é iniciado, ele verifica a duração da política disponível localmente atual por hora. Se a política for anterior a uma hora, o agente de DC solicitará uma nova política do Azure AD por meio do serviço de proxy, conforme descrito anteriormente. Se a política atual não tiver mais de uma hora, o agente de DC continuará a usar essa política.
 
-Sempre que uma política de palavra-passe de proteção de palavra-passe do Azure AD é transferida, essa política é específica para um inquilino. Em outras palavras, as políticas de palavra-passe são sempre uma combinação da lista de banida de palavra-passe global da Microsoft e a lista de banida de palavra-passe personalizada por inquilino.
+Sempre que uma política de senha de proteção de senha do Azure AD é baixada, essa política é específica para um locatário. Em outras palavras, as políticas de senha sempre são uma combinação da lista global banida de senhas da Microsoft e da lista personalizada de senha proibida por locatário.
 
-O agente de controlador de domínio se comunica com o serviço de proxy através de RPC sobre TCP. O serviço de proxy escuta para essas chamadas numa porta RPC dinâmica ou estática, dependendo da configuração.
+O agente de DC se comunica com o serviço de proxy via RPC sobre TCP. O serviço de proxy escuta essas chamadas em uma porta RPC dinâmica ou estática, dependendo da configuração.
 
-O agente de controlador de domínio nunca escuta numa porta de rede disponível.
+O agente de DC nunca escuta em uma porta disponível de rede.
 
-O serviço de proxy nunca chama o serviço de agente do controlador de domínio.
+O serviço de proxy nunca chama o serviço de agente de controlador de domínio.
 
-O serviço de proxy é sem monitoração de estado. Ele nunca caches de políticas ou qualquer outro Estado transferido a partir do Azure.
+O serviço de proxy não tem estado. Ele nunca armazena em cache as políticas ou qualquer outro Estado baixado do Azure.
 
-O serviço do agente DC utiliza sempre a política de palavra-passe localmente disponível mais recente para avaliar a palavra-passe de um utilizador. Se nenhuma política de palavra-passe está disponível no controlador de domínio local, a palavra-passe é automaticamente aceites. Quando isso acontece, uma mensagem de evento é registada para avisar o administrador.
+O serviço de agente de controlador de domínio sempre usa a política de senha mais recente disponível localmente para avaliar a senha de um usuário. Se nenhuma política de senha estiver disponível no controlador de domínio local, a senha será aceita automaticamente. Quando isso acontece, uma mensagem de evento é registrada para avisar o administrador.
 
-Proteção de palavra-passe do Azure AD não é um motor de aplicação de política em tempo real. Pode haver um atraso entre quando uma alteração de configuração de política de palavra-passe é feita no Azure AD e quando alterar a atingir e são aplicadas a todos os controladores de domínio.
+A proteção por senha do Azure AD não é um mecanismo de aplicativo de política em tempo real. Pode haver um atraso entre o momento em que uma alteração de configuração de política de senha é feita no Azure AD e quando essa alteração atinge e é imposta em todos os controladores de domínio.
 
-Proteção de palavra-passe do Azure AD funciona como um suplemento para as políticas de palavra-passe do Active Directory existentes, não uma substituição. Isto inclui qualquer outra palavra-passe de 3rd party filtro dlls que pode ser instalado. Do Active Directory sempre requer que todos os componentes de validação da palavra-passe concordam antes de aceitar uma palavra-passe.
+A proteção de senha do Azure AD atua como um suplemento para as políticas de senha de Active Directory existentes, não com uma substituição. Isso inclui qualquer outra DLL de filtro de senha de terceiros que possa ser instalada. Active Directory sempre exige que todos os componentes de validação de senha concordem antes de aceitar uma senha.
 
-## <a name="foresttenant-binding-for-password-protection"></a>Enlace de inquilino/floresta para proteção de palavra-passe
+## <a name="foresttenant-binding-for-password-protection"></a>Associação de floresta/locatário para proteção de senha
 
-Implementação de proteção de palavra-passe do Azure AD numa floresta do Active Directory requer o registo de nessa floresta com o Azure AD. Cada serviço de proxy que é implementado também tem de ser registado com o Azure AD. Esses registros de floresta e de proxy estão associados a específicas de uma inquilino do Azure AD, o que é identificado implicitamente pelas credenciais que são utilizadas durante o registo.
+A implantação da proteção de senha do Azure AD em uma floresta Active Directory requer o registro dessa floresta com o Azure AD. Cada serviço de proxy implantado também deve ser registrado com o Azure AD. Esses registros de floresta e proxy são associados a um locatário específico do Azure AD, que é identificado implicitamente pelas credenciais que são usadas durante o registro.
 
-Floresta do Active Directory e todos os serviços de proxy implementado dentro de uma floresta tem de ser registados com o mesmo inquilino. Não é suportado para ter uma floresta do Active Directory ou de quaisquer serviços de proxy, em que floresta que está a ser registrada no Azure AD diferentes inquilinos. Os sintomas de tipo de implementação configurado incorretamente incluem a impossibilidade de transferir as políticas de palavra-passe.
+A floresta Active Directory e todos os serviços de proxy implantados em uma floresta devem ser registrados com o mesmo locatário. Não há suporte para ter uma floresta Active Directory ou quaisquer serviços de proxy na floresta que estão sendo registrados em locatários diferentes do Azure AD. Os sintomas de tal implantação mal configurada incluem a incapacidade de baixar políticas de senha.
 
 ## <a name="download"></a>Transferência
 
-Os dois programas de instalação do agente necessárias para a proteção de palavra-passe do Azure AD estão disponíveis a partir da [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+Os dois instaladores de agente necessários para a proteção de senha do Azure AD estão disponíveis no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Implementar proteção de palavras-passe do Azure AD](howto-password-ban-bad-on-premises-deploy.md)

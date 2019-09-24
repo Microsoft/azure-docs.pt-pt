@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020194"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203259"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Compilar um aplicativo Web Python (Django) com PostgreSQL no serviço Azure App
 
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 > [!NOTE]
 > Antes de criar um banco de dados do Azure para PostgreSQL, verifique [qual geração de computação está disponível em sua região](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores).
 
-Pode seguir os passos neste artigo no macOS. As instruções do Linux e Windows são as mesmas na maioria dos casos, mas as diferenças não estão descritas neste tutorial.
+Você pode seguir as etapas neste artigo sobre as instruções do macOS, Linux e Windows são as mesmas na maioria dos casos, mas as diferenças não são detalhadas neste tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -410,7 +410,7 @@ Por padrão, o portal mostra a página de **visão geral** do aplicativo. Esta p
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

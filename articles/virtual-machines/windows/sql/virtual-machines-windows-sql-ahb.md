@@ -6,20 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
-ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2cce369f6a0670790ede7367609f87c18672ddd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5d740224adb15dc2d772689d77ab1c510532c901
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100618"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203994"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual SQL Server no Azure
 Este artigo descreve como alterar o modelo de licença para uma VM (máquina virtual) SQL Server no Azure usando o novo provedor de recursos de VM do SQL, **Microsoft. SqlVirtualMachine**.
@@ -176,7 +176,7 @@ Use o código a seguir para verificar sua versão do Azure PowerShell:
   Get-Module -ListAvailable -Name Azure -Refresh
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 

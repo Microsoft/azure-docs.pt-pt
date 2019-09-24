@@ -3,9 +3,8 @@ title: Início Rápido do Centro de Segurança do Azure - Carregar uma subscriç
 description: Este início rápido mostra como fazer a atualização para o escalão de preço Standard do Centro de Segurança para obter segurança adicional.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,16 +13,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 4464796e655cefd28f858cb732ff3d5721a7aa47
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: memildin
+ms.openlocfilehash: 138d3fd74b95fe8d51593fcbb2cedda017e35d80
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206821"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202163"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Carregar sua subscrição do Azure para o Centro de segurança Standard
-O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure à central de segurança Standard
+O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Neste artigo, vai fazer a atualização para o escalão Standard para obter segurança adicional e instalar o Microsoft Monitoring Agent nas suas máquinas virtuais para monitorizar ameaças e vulnerabilidades de segurança.
 
@@ -51,7 +50,7 @@ Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poder
 Para tirar total partido do Centro de Segurança, tem de executar os passos abaixo para fazer a atualização para o escalão Standard e instalar o Microsoft Monitoring Agent.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para o escalão Standard
-Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de atualizar para o escalão Standard. Existe uma avaliação gratuita do Centro de segurança Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
+Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de atualizar para o escalão Standard. Há uma avaliação gratuita do Standard da central de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. No menu principal do Centro de Segurança, selecione **Introdução**.
  
@@ -103,11 +102,11 @@ Se pretender desativar aprovisionamento automático:
 > Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, fez a atualização para o escalão Standard e aprovisionou o Microsoft Monitoring Agent para gestão de segurança unificada e proteção contra ameaças entre as cargas de trabalho da cloud híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Integrar computadores do Windows ao centro de segurança do Azure](quick-onboard-windows-computer.md)
+> [Quickstart: Integrar computadores Windows à central de segurança do Azure](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

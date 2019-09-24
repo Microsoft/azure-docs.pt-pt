@@ -3,23 +3,22 @@ title: Use as recomendações da central de segurança do Azure para aprimorar a
 description: " Saiba como usar as políticas de segurança e recomendações na central de segurança do Azure para ajudar a mitigar um ataque de segurança. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 08/22/2019
+ms.author: memildin
+ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990550"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200696"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da central de segurança do Azure para aumentar a segurança
 Você pode reduzir as chances de um evento de segurança significativo Configurando uma política de segurança e, em seguida, implementando as recomendações fornecidas pela central de segurança do Azure. Este artigo mostra como usar as políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança. 
@@ -72,7 +71,7 @@ Jeff continua a percorrer as recomendações de alta prioridade e prioridade mé
 As recomendações de monitoramento na central de segurança ajudam a eliminar vulnerabilidades de segurança antes que ocorra um ataque. Quando você corrige recomendações, sua pontuação segura e a postura de segurança de suas cargas de trabalho melhoram. A central de segurança descobre automaticamente novos recursos que você implanta, avalia-os em relação à sua política de segurança e fornece novas recomendações para protegê-los.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Certifique-se de que você tenha um processo de monitoramento em vigor, no qual você verifica regularmente as recomendações na central de segurança para que você possa garantir que seus recursos sejam protegidos ao longo do tempo.
 
 Este cenário mostrou como usar políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança.

@@ -1,97 +1,96 @@
 ---
-title: Utilizar o PowerShell para carregar o Centro de segurança do Azure e a proteger sua rede | Documentos da Microsoft
-description: Este documento descreve o processo de integração do Azure do Centro de segurança utilizando cmdlets do PowerShell.
+title: Usar o PowerShell para carregar a central de segurança do Azure e proteger sua rede | Microsoft Docs
+description: Este documento orienta você pelo processo de integração da central de segurança do Azure usando cmdlets do PowerShell.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9bf2704fbbaa2c7a469dcefa3dc3f3cd7e4d5504
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 10/02/2018
+ms.author: memildin
+ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626269"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201216"
 ---
-# <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar a inclusão do Centro de segurança do Azure com o PowerShell
+# <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar a integração da central de segurança do Azure usando o PowerShell
 
-Pode proteger cargas de trabalho do Azure através de programação, utilizando o módulo do PowerShell do Centro de segurança do Azure.
-Com o PowerShell permite-lhe automatizar tarefas e evitar o erro humano inerente a tarefas manuais. Isso é especialmente útil em Implantações em grande escala que envolvam dezenas de subscrições com centenas de milhares de recursos – todos os quais tem de estar protegidos desde o início.
+Você pode proteger suas cargas de trabalho do Azure programaticamente, usando o módulo PowerShell da central de segurança do Azure.
+O uso do PowerShell permite automatizar tarefas e evitar o erro humano inerente às tarefas manuais. Isso é especialmente útil em implantações em larga escala que envolvem dezenas de assinaturas com centenas e milhares de recursos – todos eles devem ser protegidos desde o início.
 
-Centro de segurança do Azure do integração com o PowerShell permite-lhe automatizar a gestão dos seus recursos do Azure e de integração e adicionar os controles de segurança necessários através de programação.
+A integração da central de segurança do Azure usando o PowerShell permite automatizar programaticamente a integração e o gerenciamento de recursos do Azure e adicionar os controles de segurança necessários.
 
-Este artigo fornece um script do PowerShell de exemplo que pode ser modificado e utilizado no seu ambiente para implementar o Centro de segurança nas suas subscrições. 
+Este artigo fornece um exemplo de script do PowerShell que pode ser modificado e usado em seu ambiente para distribuir a central de segurança em suas assinaturas. 
 
-Neste exemplo, vamos ativar o Centro de segurança de uma subscrição com o ID: d07c0080-170c-4c24-861d-9c817742786c e aplicar as definições recomendadas, que fornecem um elevado nível de proteção, implementando o escalão Standard do Centro de segurança, que fornece capacidades de deteção e proteção avançada contra ameaças:
+Neste exemplo, Habilitaremos a central de segurança em uma assinatura com ID: d07c0080-170C-4C24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, implementando a camada Standard da central de segurança, que fornece proteção avançada contra ameaças e recursos de detecção:
 
-1. Definir o [nível padrão do ASC de proteção](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Defina o [nível de proteção padrão ASC](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Defina a área de trabalho do Log Analytics para o qual o agente de monitorização da Microsoft irá enviar os dados que coleta nas VMs associadas à subscrição – neste exemplo, uma área de trabalho de definidas pelo utilizador existentes (myWorkspace).
+2. Defina o espaço de trabalho Log Analytics ao qual o Microsoft Monitoring Agent enviará os dados coletados pelas VMs associadas à assinatura – neste exemplo, um espaço de trabalho definido pelo usuário existente (MyWorkspace).
 
-3. Ativar o automática do agente Centro de segurança de aprovisionamento que [implementa o Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Ative o provisionamento automático de agente da central de segurança, que [implanta o Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Definir da organização [CISO como o contacto de segurança para os alertas ASC e eventos notáveis](security-center-provide-security-contact-details.md).
+5. Defina o ciso da organização [como o contato de segurança para alertas ASC e eventos notáveis](security-center-provide-security-contact-details.md).
 
-6. Centro de segurança a atribuir [predefinido de políticas de segurança](tutorial-security-policy.md).
+6. Atribua [as políticas de segurança padrão](tutorial-security-policy.md)da central de segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Estes passos devem ser efetuados antes de executar os cmdlets do Centro de segurança:
+Essas etapas devem ser executadas antes de executar os cmdlets da central de segurança:
 
-1.  Executar o PowerShell como administrador.
-2.  Execute os seguintes comandos do PowerShell:
+1.  Execute o PowerShell como administrador.
+2.  Execute os seguintes comandos no PowerShell:
       
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
         Install-Module -Name Az.Security -Force
 
-## <a name="onboard-security-center-using-powershell"></a>Integrar o Centro de segurança com o PowerShell
+## <a name="onboard-security-center-using-powershell"></a>Central de segurança integrada usando o PowerShell
 
-1.  Registe as suas subscrições para o fornecedor de recursos do Centro de segurança:
+1.  Registre suas assinaturas no provedor de recursos da central de segurança:
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Opcional: Definir o nível de cobertura (escalão de preço) das subscrições (se não definido, o escalão de preço é definido para gratuito):
+2.  Opcional: Defina o nível de cobertura (tipo de preço) das assinaturas (se não definido, o tipo de preço é definido como livre):
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
 
-3.  Configure uma área de trabalho do Log Analytics para o qual os agentes irão comunicar. Tem de ter uma área de trabalho do Log Analytics que já criou, que VMs a subscrição irão reportar. Pode definir várias subscrições para reportar a mesma área de trabalho. Se não definido, será utilizada a área de trabalho predefinida.
+3.  Configure um espaço de trabalho Log Analytics para o qual os agentes serão relatados. Você deve ter um espaço de trabalho Log Analytics que você já criou, que as VMs da assinatura relatarão. Você pode definir várias assinaturas para relatar para o mesmo espaço de trabalho. Se não estiver definido, o espaço de trabalho padrão será usado.
 
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Instalação de aprovisionamento automático do Microsoft Monitoring Agent nas suas VMs do Azure:
+4.  Instalação de provisionamento automático do Microsoft Monitoring Agent em suas VMs do Azure:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
         Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
     > [!NOTE]
-    > Recomenda-se para ativar o aprovisionamento automático para se certificar de que as máquinas virtuais do Azure são automaticamente protegidas pelo centro de segurança do Azure.
+    > É recomendável habilitar o provisionamento automático para garantir que suas máquinas virtuais do Azure sejam protegidas automaticamente pela central de segurança do Azure.
     >
 
-5.  Opcional: É altamente recomendável que definir os detalhes de contacto de segurança para as subscrições sua integração, que será utilizada como os destinatários de alertas e notificações geradas pelo centro de segurança:
+5.  Opcional: É altamente recomendável que você defina os detalhes de contato de segurança para as assinaturas que você carregar, que serão usadas como os destinatários de alertas e notificações gerados pela central de segurança:
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
-6.  Atribua a iniciativa de política do Centro de segurança predefinida:
+6.  Atribua a iniciativa de política da central de segurança padrão:
 
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
         $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
-Agora com êxito integrado do Azure Security Center com o PowerShell!
+Agora você integrou com êxito a central de segurança do Azure com o PowerShell!
 
-Agora, pode utilizar estes cmdlets do PowerShell com scripts de automatização para iterar por meio de programação em subscrições e recursos. Isto poupa tempo e reduz a probabilidade de erro humano. Pode utilizá-lo [script de exemplo](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) como referência.
+Agora você pode usar esses cmdlets do PowerShell com scripts de automação para iterar programaticamente em assinaturas e recursos. Isso poupa tempo e reduz a probabilidade de erro humano. Você pode usar este [script de exemplo](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) como referência.
 
 
 
@@ -99,11 +98,11 @@ Agora, pode utilizar estes cmdlets do PowerShell com scripts de automatização 
 
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre como pode utilizar o PowerShell para automatizar a adesão ao centro de segurança, consulte o artigo seguinte:
+Para saber mais sobre como você pode usar o PowerShell para automatizar a integração à central de segurança, consulte o seguinte artigo:
 
-* [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
+* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security).
 
-Para saber mais sobre o Centro de segurança, consulte o artigo seguinte:
+Para saber mais sobre a central de segurança, consulte o seguinte artigo:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
