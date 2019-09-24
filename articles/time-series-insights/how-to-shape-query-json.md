@@ -163,21 +163,21 @@ Exemplo de carga JSON:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unidade |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | DADOS\_DE LINHA | UE | Taxa de fluxo | ft3/s |
-   | FXXX | oilPressure | DADOS\_DE LINHA | UE | Pressão do óleo do motor | psi |
-   | FYYY | pumpRate | DADOS\_DE LINHA | EUA | Taxa de fluxo | ft3/s |
-   | FYYY | oilPressure | DADOS\_DE LINHA | EUA | Pressão do óleo do motor | psi |
+   | FXXX | pumpRate | LINE\_DATA | EU | Taxa de fluxo | ft3/s |
+   | FXXX | oilPressure | LINE\_DATA | EU | Pressão do óleo do motor | psi |
+   | FYYY | pumpRate | LINE\_DATA | US | Taxa de fluxo | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | US | Pressão do óleo do motor | psi |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unidade | timestamp | série. valor |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | DADOS\_DE LINHA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | DADOS\_DE LINHA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | DADOS\_DE LINHA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | DADOS\_DE LINHA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | DADOS\_DE LINHA | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | DADOS\_DE LINHA | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | LINE\_DATA | EU | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINE\_DATA | EU | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34.7 |
+   | FXXX | pumpRate | LINE\_DATA | EU | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINE\_DATA | EU | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49.2 |
+   | FYYY | pumpRate | LINE\_DATA | US | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | US | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 Observações sobre estas duas tabelas:
 
