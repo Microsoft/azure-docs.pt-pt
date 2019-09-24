@@ -89,7 +89,7 @@ A seguir estão as descrições de propriedade:
 | commonNames | string[] | --- | Nomes comuns de certificados de cluster instalados |
 | x509StoreName | Cadeia de caracteres | --- | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1.1 | --- | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | Cadeia de caracteres | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
+| dataPath | Cadeia de caracteres | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte a [visão geral do recurso "implantar em qualquer lugar" e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md).
