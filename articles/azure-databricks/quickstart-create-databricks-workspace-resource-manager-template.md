@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
 ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68932601"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início rápido: Executar um trabalho do Spark em Azure Databricks usando o modelo de Azure Resource Manager
@@ -184,7 +184,7 @@ Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho 
 
 Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados do armazenamento do Azure. Também pode ver a página [Origens de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras origens de dados para o Azure Databricks. Também pode ver o modelo do Resource Manager para [Criar uma área de trabalho do Azure Databricks com um endereço VNET personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Para obter a sintaxe e as propriedades JSON a serem usadas em um modelo, consulte referência de modelo [do Microsoft. databricks/espaços de trabalho](/azure/templates/microsoft.databricks/workspaces) .
 

@@ -8,12 +8,12 @@ ms.custom: seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: b025315391ceb15fc1ae76f0365898f02882dd0b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: b729881d30248bb4c3a717d70009cd68da91cf94
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563437"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211837"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início rápido: Usar o Java para se conectar e consultar dados no Azure Database para PostgreSQL-servidor único
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação Java. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
@@ -34,7 +34,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 2. No menu à esquerda no portal do Azure, selecione **todos os recursos**e procure o servidor que você criou (como **mydemoserver**).
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-java/1-connection-string.png)
+ ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-java/azure-database-postgresql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 Utilize o código seguinte para se ligar e carregar os dados para a base de dados através da função com a instrução SQL **INSERT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) servem para se ligar à base de dados, remover e criar a tabela. O objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) é utilizado para criar os comandos de introdução, com setString() e setInt() que unem os valores do parâmetro. O método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) executa o comando para cada conjunto de parâmetros. 
@@ -383,6 +383,6 @@ public class DeleteTable {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

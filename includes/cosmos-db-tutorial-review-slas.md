@@ -4,22 +4,23 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 03/22/2019
 ms.author: sngun
-ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.custom: seo-java-september2019
+ms.openlocfilehash: a8162afadb5a7d327804d7202b29ca0dccf275c4
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67184803"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210308"
 ---
-O portal do Azure monitoriza o débito de conta do Cosmos DB, armazenamento, disponibilidade, latência e consistência. Gráficos para métricas associadas com uma [do Azure Cosmos DB ao nível do contrato serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) Mostrar o valor de SLA em comparação comparado o desempenho real. Este conjunto de métricas faz com que seus SLAs transparentes de monitorização.
+O portal do Azure monitora a taxa de transferência, o armazenamento, a disponibilidade, a latência e a consistência da conta do Cosmos DB. Gráficos para métricas associadas a um [SLA (Azure Cosmos DB contrato de nível de serviço)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) mostram o valor do SLA em comparação com o desempenho real. Esse pacote de métricas torna o monitoramento de seus SLAs transparente.
 
-Para rever as métricas e SLAs: 
+Para examinar as métricas e os SLAs: 
 
-1. Selecione **métricas** no menu de navegação da sua conta do Cosmos DB.
+1. Selecione **métricas** no menu de navegação da sua Cosmos DB conta.
    
-2. Selecione como um separador **latência**e selecione um período de tempo à direita. Compare os **real** e **SLA** linhas dos gráficos.
+2. Selecione uma guia, como **latência**, e selecione um período à direita. Compare as linhas **reais** e **SLA** nos gráficos.
    
-   ![Conjunto de métricas do Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   ![Conjunto de métricas do Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-metrics-suite.png)
    
-3. Reveja as métricas das outras guias. 
+3. Examine as métricas nas outras guias. 
 

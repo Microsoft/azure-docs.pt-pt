@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414070"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212118"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início rápido: Reposição personalizada de palavra-passe
 
@@ -26,12 +26,12 @@ Neste início rápido, vai percorrer a configuração da reposição personaliza
 
 * Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
 * Uma conta com privilégios de Administrador Global.
-* Um utilizador de teste não-administrador com uma palavra-passe, sabe, se precisar de criar uma utilizador, consulte o artigo [início rápido: Adicionar novos utilizadores ao Azure Active Directory](../add-users-azure-active-directory.md).
+* Um usuário de teste que não seja administrador com uma senha que você sabe, se precisar criar um usuário, consulte [o artigo início rápido: Adicione novos usuários a Azure Active Directory](../add-users-azure-active-directory.md).
 * Um grupo piloto para testar do qual o utilizador de teste não administrador seja membro. Se precisar de criar um grupo, veja o artigo [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 
-> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+[Exibir este processo como um vídeo no YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
 1. No seu inquilino existente do Azure AD, no **portal do Azure**, em **Azure Active Directory**, selecione **Reposição de palavra-passe**.
 
@@ -40,17 +40,17 @@ Neste início rápido, vai percorrer a configuração da reposição personaliza
     * Clique em **Guardar**.
 
 3. Na página **Métodos de autenticação**, selecione o seguinte:
-   * Número de métodos necessários para repor: **1**
+   * Número de métodos necessários para redefinir: **1**
    * Métodos disponíveis para os utilizadores:
-      * **E-mail**
-      * **Código de aplicação móvel (pré-visualização)**
+      * **e-mail**
+      * **Código do aplicativo móvel (visualização)**
    * Clique em **Guardar**.
 
-     ![Escolher métodos de autenticação para SSPR][Authentication]
+     ![Escolhendo métodos de autenticação para SSPR][Authentication]
 
 4. Na página **Registo**, selecione as seguintes opções:
-   * Exigir que os utilizadores se registem quando iniciam sessão: **Sim**
-   * Defina o número de dias antes de ser pedido aos utilizadores que voltem as informações de autenticação a: **365**
+   * Exigir que os usuários se registrem ao entrarem: **Sim**
+   * Defina o número de dias antes que os usuários sejam solicitados a reconfirmar suas informações de autenticação: **365**
 
 ## <a name="test-self-service-password-reset"></a>Testar a reposição personalizada de palavra-passe
 
@@ -65,9 +65,9 @@ Agora, vamos testar a configuração SSPR com um utilizador de teste. Desde que 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-É fácil desativar a reposição de palavras-passe self-service. Abra o seu inquilino do Azure AD e aceda à **propriedades** > **reposição de palavra-passe**e, em seguida, selecione **None** em **reposição personalizada de palavra-passe Ativado**.
+É fácil desativar a reposição de palavras-passe self-service. Abra seu locatário do Azure AD e vá para **Propriedades** > **redefinição de senha**e selecione **nenhum** na **redefinição de senha de autoatendimento habilitada**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a configurar a reposição personalizada de palavra-passe para os utilizadores apenas da cloud. Para obter informações sobre como concluir uma implementação mais detalhada, avance para o nosso guia de implementação.
 

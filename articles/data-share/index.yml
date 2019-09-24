@@ -4,7 +4,7 @@ summary: A Pré-visualização do Azure Data Share é um serviço seguro e fiáv
 metadata:
   title: Azure Data Share (pré-visualização)
   description: O Azure Data Share (pré-visualização) é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros.
-  services: service
+  services: data-share
   ms.service: data-share
   ms.subservice: subservice
   ms.topic: landing-page
@@ -12,12 +12,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 09/13/2019
-  ms.openlocfilehash: 7e44541fae4cb9987f4c2e3b68a6ec3ff61c1bcf
-  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.openlocfilehash: d75af1eea77bea89f3facf782b836a26fcdabdde
+  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/14/2019
-  ms.locfileid: "70993943"
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71218004"
 landingContent:
 - title: Sobre o Azure Data Share
   linkLists:

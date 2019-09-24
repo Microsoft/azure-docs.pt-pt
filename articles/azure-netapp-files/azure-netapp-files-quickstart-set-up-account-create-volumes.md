@@ -1,6 +1,6 @@
 ---
-title: Início rápido - definir NetApp serviço ficheiros do Azure e criar um volume NFS | Documentos da Microsoft
-description: Início rápido - descreve como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente.
+title: Início rápido-configurar Azure NetApp Files e criar um volume de NFS | Microsoft Docs
+description: Início rápido – descreve como configurar rapidamente Azure NetApp Files e criar um volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,159 +12,408 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 4/16/2019
+ms.date: 9/11/2019
 ms.author: b-juche
-ms.openlocfilehash: 4ea511bec75557bc6f7d37b1724b4b0db65ba9cc
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d7bc07ddce605838cf7aa966c6c94b85dad6b58c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299434"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212209"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: Configurar o Azure NetApp Files e criar um volume NFS 
 
-Este artigo mostra-lhe como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente. 
+Este artigo mostra como configurar rapidamente Azure NetApp Files e criar um volume. 
 
-Neste início rápido, irá configurar os seguintes itens:
+Neste guia de início rápido, você configurará os seguintes itens:
 
-- Registo de ficheiros NetApp do Azure e o fornecedor de recursos de NetApp
-- Uma conta de NetApp
-- Um conjunto de capacidade
-- Um volume NFS para ficheiros de NetApp do Azure
+- Registro para Azure NetApp Files e provedor de recursos da NetApp
+- Uma conta do NetApp
+- Um pool de capacidade
+- Um volume do NFS para Azure NetApp Files
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar 
 
 > [!IMPORTANT] 
-> Tem de ser concedido acesso ao serviço ficheiros do Azure NetApp.  Para pedir acesso ao serviço, consulte a [página de submissão de lista de espera de ficheiros do Azure NetApp](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Tem de aguardar um e-mail de confirmação oficial da equipa do Azure NetApp ficheiros antes de continuar. 
+> Você precisa receber acesso ao serviço de Azure NetApp Files.  Para solicitar acesso ao serviço, consulte a [página de envio Azure NetApp files Waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Você deve aguardar um email de confirmação oficial da equipe de Azure NetApp Files antes de continuar. 
 
-## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registre-se para ficheiros NetApp do Azure e o fornecedor de recursos de NetApp
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-1. No portal do Azure, clique no ícone do Azure Cloud Shell no canto superior direito.
+---
 
-    ![Ícone do Azure do Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
+## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrar-se para o provedor de recursos Azure NetApp Files e NetApp
 
-2. Especifique a subscrição que estava na lista de permissões para ficheiros de NetApp do Azure:
-    
-        az account set --subscription <subscriptionId>
+> [!NOTE]
+> O processo de registro pode levar algum tempo para ser concluído.
+>
 
-3. Registe o fornecedor de recursos do Azure: 
-    
-        az provider register --namespace Microsoft.NetApp --wait  
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-    O processo de registo pode demorar algum tempo a concluir.
+Para obter as etapas de registro usando o portal, abra uma sessão de Cloud Shell conforme indicado acima e siga estas CLI do Azure etapas:
+
+[!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell). Se preferir, você pode usar Cloud Shell console em uma sessão do PowerShell.
+
+1. Em um prompt de comando do PowerShell (ou sessão Cloud Shell do PowerShell), especifique a assinatura que está na lista de permissões para Azure NetApp Files:
+    ```powershell-interactive
+    Select-AzSubscription -Subscription <subscriptionId>
+    ```
+
+2. Registrar o provedor de recursos do Azure:
+    ```powershell-interactive
+    Register-AzResourceProvider -ProviderNamespace Microsoft.NetApp
+    ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+---
 
 ## <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 
-1. Na caixa de pesquisa do portal do Azure, introduza **ficheiros do Azure NetApp** e, em seguida, selecione **ficheiros do Azure NetApp** na lista que é apresentada.
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-      ![Selecione ficheiros NetApp do Azure](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
+1. Na caixa de pesquisa do portal do Azure, digite **Azure NetApp files** e, em seguida, selecione **Azure NetApp files** na lista exibida.
+
+      ![Selecionar Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
 2. Clique em **+ Adicionar** para criar uma nova conta NetApp.
 
-     ![Criar nova conta de NetApp](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
+     ![Criar nova conta do NetApp](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
-3. Na janela da nova conta de NetApp, forneça as seguintes informações: 
-   1. Introduza **myaccount1** para o nome da conta. 
+3. Na janela nova conta do NetApp, forneça as seguintes informações: 
+   1. Insira **myaccount1** para o nome da conta. 
    2. Selecione a sua subscrição.
-   3. Selecione **criar novo** para criar novo grupo de recursos. Introduza **myRG1** para o nome do grupo de recursos. Clique em **OK**. 
-   4. Selecione seu local de conta.  
+   3. Selecione **criar novo** para criar um novo grupo de recursos. Insira **myRG1** para o nome do grupo de recursos. Clique em **OK**. 
+   4. Selecione o local da sua conta.  
 
-      ![Nova janela de conta de NetApp](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![Janela nova conta da NetApp](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-      ![Janela de grupo de recursos](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Janela do grupo de recursos](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
-4. Clique em **criar** para criar a sua nova conta de NetApp.
+4. Clique em **criar** para criar sua nova conta do NetApp.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Defina algumas variáveis para que possamos consultá-las em todo o restante dos exemplos:
+
+    ```powershell-interactive
+    $resourceGroup = "myRG1"
+    $location = "eastus"
+    $anfAccountName = "myaccount1"
+    ``` 
+
+    > [!NOTE]
+    > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
+    > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use`Get-AzLocation | select Location`
+    >
+
+1. Crie um novo grupo de recursos usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
+
+    ```powershell-interactive
+    New-AzResourceGroup -Name $resourceGroup -Location $location
+    ```
+
+2. Crie Azure NetApp Files conta com o comando [New-AzNetAppFilesAccount](/powershell/module/az.netappfiles/New-AzNetAppFilesAccount) :
+   
+    ```powershell-interactive
+    New-AzNetAppFilesAccount -ResourceGroupName $resourceGroup -Location $location -Name $anfAccountName
+    ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+1. Defina algumas variáveis para que possamos consultá-las em todo o restante dos exemplos:
+
+    ```azurecli-interactive
+    RESOURCE_GROUP="myRG1"
+    LOCATION="eastus"
+    ANF_ACCOUNT_NAME="myaccount1"
+    ``` 
+
+    > [!NOTE]
+    > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
+    > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use`az account list-locations -query "[].{Region:name}" --out table`
+    >
+
+2. Crie um novo grupo de recursos usando o comando [AZ Group Create](/cli/azure/group#az-group-create) :
+
+    ```azurecli-interactive
+    az group create \
+        --name $RESOURCE_GROUP \
+        --location $LOCATION
+    ```
+
+3. Crie Azure NetApp Files conta com o comando [AZ netappfiles Account Create](/cli/azure/netappfiles/account#az-netappfiles-account-create) :
+   
+    ```azurecli-interactive
+    az netappfiles account create \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --account-name $ANF_ACCOUNT_NAME
+    ```
+---
 
 ## <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
 
-1. No painel de gestão do Azure NetApp ficheiros, selecione a sua conta de NetApp (**myaccount1**).
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-    ![Selecione a conta de NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)  
+1. Na folha gerenciamento de Azure NetApp Files, selecione sua conta do NetApp (**myaccount1**).
 
-2. No painel de gestão do Azure NetApp ficheiros da sua conta de NetApp, clique em **conjuntos de capacidade**.
+    ![Selecionar conta do NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)  
 
-    ![Clique em conjuntos de capacidade](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)  
+2. Na folha gerenciamento de Azure NetApp Files da sua conta do NetApp, clique em **pools de capacidade**.
 
-3. Clique em **+ adicionar agrupamentos**. 
+    ![Clique em pools de capacidade](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)  
 
-    ![Clique em Adicionar agrupamentos](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+3. Clique em **+ Adicionar pools**. 
 
-4. Forneça informações para o conjunto de capacidade: 
-    1. Introduza **mypool1** como o nome do conjunto.
-    2. Selecione **Premium** do nível de serviço. 
-    3. Especifique **4 (TiB)** como o tamanho do conjunto. 
+    ![Clique em Adicionar pools](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+
+4. Forneça informações para o pool de capacidade: 
+    1. Insira **mypool1** como o nome do pool.
+    2. Selecione **Premium** para o nível de serviço. 
+    3. Especifique **4 (TIB)** como o tamanho do pool. 
 
 5. Clique em **OK**.
 
-## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para ficheiros de NetApp do Azure
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. No painel de gestão do Azure NetApp ficheiros da sua conta de NetApp, clique em **Volumes**.
+1. Definindo algumas novas variáveis para referência futura
 
-    ![Clicar em Volumes](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)  
+    ```powershell-interactive
+    $poolName = "mypool1"
+    $poolSizeBytes = 4398046511104 # 4TiB
+    $serviceLevel = "Premium" # Valid values are Standard, Premium and Ultra
+    ```
+
+1. Criar um novo pool de capacidade usando o [New-AzNetAppFilesPool](/powershell/module/az.netappfiles/new-aznetappfilespool)
+
+    ```powershell-interactive
+    New-AzNetAppFilesPool -ResourceGroupName $resourceGroup -Location $location -AccountName $anfAccountName -Name $poolName -PoolSize $poolSizeBytes -ServiceLevel $serviceLevel
+    ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+1. Definindo algumas novas variáveis para referência futura
+
+    ```azurecli-interactive
+    POOL_NAME="mypool1"
+    POOL_SIZE_TiB=4 # Size in Azure CLI needs to be in TiB unit (minimum 4 TiB)
+    SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
+    ```
+
+2. Criar um novo pool de capacidade usando o [AZ netappfiles pool Create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create) 
+
+    ```azurecli-interactive
+    az netappfiles pool create \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --account-name $ANF_ACCOUNT_NAME \
+        --pool-name $POOL_NAME \
+        --size $POOL_SIZE_TiB \
+        --service-level $SERVICE_LEVEL
+    ```
+
+---
+
+## <a name="create-nfs-volume-for-azure-netapp-files"></a>Criar volume NFS para Azure NetApp Files
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+1. Na folha gerenciamento de Azure NetApp Files da sua conta do NetApp, clique em **volumes**.
+
+    ![Clique em volumes](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)  
 
 2. Clique em **+ Adicionar volume**.
 
     ![Clique em Adicionar volumes](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
-3. Criar uma janela de Volume, fornecem informações para o volume: 
-   1. Introduza **myvol1** como o nome do volume. 
-   3. Selecione o conjunto de capacidade (**mypool1**).
-   4. Utilize o valor predefinido para a quota. 
-   5. Numa rede virtual, clique em **criar novo** para criar um novo Azure virtual network (Vnet).  Em seguida, preencha as seguintes informações:
-       * Introduza **myvnet1** como o nome da Vnet.
-       * Especifique um espaço de endereços para sua configuração, por exemplo, 10.7.0.0/16
-       * Introduza **myANFsubnet** como o nome da sub-rede.
-       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24. Tenha em atenção que não é possível partilhar a sub-rede dedicada com outros recursos.
-       * Selecione **Microsoft.NetApp/volumes** para delegação de sub-rede.
-       * Clique em **OK** para criar a Vnet.
-   6. Na sub-rede, selecione a Vnet criada recentemente (**myvnet1**) como a sub-rede do delegado.
+3. Na janela criar um volume, forneça informações para o volume: 
+   1. Insira **myvol1** como o nome do volume. 
+   2. Selecione o pool de capacidade (**mypool1**).
+   3. Use o valor padrão para cota. 
+   4. Em rede virtual, clique em **criar novo** para criar uma nova vnet (rede virtual) do Azure.  Em seguida, preencha as seguintes informações:
+       * Insira **myvnet1** como o nome da vnet.
+       * Especifique um espaço de endereço para sua configuração, por exemplo, 10.7.0.0/16
+       * Insira **myANFsubnet** como o nome da sub-rede.
+       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24. Observe que você não pode compartilhar a sub-rede dedicada com outros recursos.
+       * Selecione **Microsoft. NetApp/volumes** para delegação de sub-rede.
+       * Clique em **OK** para criar a vnet.
+   5. Em sub-rede, selecione a vnet recentemente criada (**myvnet1**) como a sub-rede delegada.
 
       ![Criar uma janela de volume](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-      ![Criar a janela de rede virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Janela criar rede virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Clique em **protocolo**, em seguida, selecione **NFS** como o tipo de protocolo para o volume.   
+4. Clique em **protocolo**e, em seguida, selecione **NFS** como o tipo de protocolo para o volume.   
 
-    Introduza **myfilepath1** como o caminho do ficheiro que será utilizado para criar o caminho de exportação para o volume. 
+    Insira **myfilepath1** como o caminho do arquivo que será usado para criar o caminho de exportação para o volume. 
 
-    ![Especifique o protocolo NFS para o início rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Especificar o protocolo NFS para início rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Clique em **Rever + criar**.
 
-    ![Reveja e criar a janela](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
+    ![Revisar e criar janela](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
-5. Rever as informações do volume, em seguida, clique em **criar**.  
-    O volume criado é apresentada no painel de Volumes.
+6. Examine as informações do volume e clique em **criar**.  
+    O volume criado aparece na folha volumes.
 
     ![Volume criado](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Crie uma delegação de sub-rede para "Microsoft. NetApp/volumes" com o comando [New-AzDelegation](/powershell/module/az.network/new-azdelegation) .
+
+    ```powershell-interactive
+    $anfDelegation = New-AzDelegation -Name ([guid]::NewGuid().Guid) -ServiceName "Microsoft.NetApp/volumes"
+    ```
+
+2. Crie uma configuração de sub-rede usando o comando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) .
+
+    ```powershell-interactive
+    $subnet = New-AzVirtualNetworkSubnetConfig -Name "myANFSubnet" -AddressPrefix "10.7.0.0/24" -Delegation $anfDelegation
+    ```
+
+3. Crie a rede virtual usando o comando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) .
+    
+    ```powershell-interactive
+    $vnet = New-AzVirtualNetwork -Name "myvnet1" -ResourceGroupName $resourceGroup -Location $location -AddressPrefix "10.7.0.0/16" -Subnet $subnet
+    ```
+
+4. Crie o volume usando o comando [New-AzNetAppFilesVolume](/powershell/module/az.netappfiles/new-aznetappfilesvolume) .
+   
+    ```powershell-interactive
+    $volumeSizeBytes = 1099511627776 # 100GiB
+    $subnetId = $vnet.Subnets[0].Id
+
+    New-AzNetAppFilesVolume -ResourceGroupName $resourceGroup `
+        -Location $location `
+        -AccountName $anfAccountName `
+        -PoolName $poolName `
+        -Name "myvol1" `
+        -UsageThreshold $volumeSizeBytes `
+        -SubnetId $subnetId `
+        -CreationToken "myfilepath1" `
+        -ServiceLevel $serviceLevel `
+        -ProtocolType NFSv3
+    ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+1. Definição de algumas variáveis para uso posterior.
+    
+    ```azurecli-interactive
+    VNET_NAME="myvnet1"
+    SUBNET_NAME="myANFSubnet"
+    ```
+
+1. Crie uma rede virtual sem sub-rede usando o comando [AZ Network vnet Create](/cli/azure/network/vnet#az-network-vnet-create) .
+    
+    ```azurecli-interactive
+    az network vnet create \
+        --resource-group $RESOURCE_GROUP \
+        --name $VNET_NAME \
+        --location $LOCATION \
+        --address-prefix "10.7.0.0/16"
+
+    ```
+
+2. Crie uma sub-rede delegada usando o comando [AZ Network vnet subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) .
+
+    ```azurecli-interactive
+    az network vnet subnet create \
+        --resource-group $RESOURCE_GROUP \
+        --vnet-name $VNET_NAME \
+        --name $SUBNET_NAME \
+        --address-prefixes "10.7.0.0/24" \
+        --delegations "Microsoft.NetApp/volumes"
+    ```
+
+3. Crie o volume usando o comando [AZ netappfiles volume Create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) .
+   
+    ```azurecli-interactive
+    VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
+    SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
+    VOLUME_SIZE_GiB=100 # 100 GiB
+    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+
+    az netappfiles volume create \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --account-name $ANF_ACCOUNT_NAME \
+        --pool-name $POOL_NAME \
+        --name "myvol1" \
+        --service-level $SERVICE_LEVEL \
+        --vnet $VNET_ID \
+        --subnet $SUBNET_ID \
+        --usage-threshold $VOLUME_SIZE_GiB \
+        --creation-token $UNIQUE_FILE_PATH \
+        --protocol-types "NFSv3"
+    ```
+
+---
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado e se quiser, pode eliminar o grupo de recursos. A ação de eliminação de um grupo de recursos é irreversível.  
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Quando terminar e se desejar, você poderá excluir o grupo de recursos. A ação de excluir um grupo de recursos é irreversível.  
 
 > [!IMPORTANT]
-> Todos os recursos os grupos de recursos serão eliminados permanentemente e não podem ser anulados. 
+> Todos os recursos dentro dos grupos de recursos serão excluídos permanentemente e não poderão ser desfeitos. 
 
-1. Na caixa de pesquisa do portal do Azure, introduza **ficheiros do Azure NetApp** e, em seguida, selecione **ficheiros do Azure NetApp** na lista que é apresentada.
+1. Na caixa de pesquisa do portal do Azure, digite **Azure NetApp files** e, em seguida, selecione **Azure NetApp files** na lista exibida.
 
-2. Na lista de subscrições, clique no grupo de recursos (myRG1) que pretende eliminar. 
+2. Na lista de assinaturas, clique no grupo de recursos (myRG1) que você deseja excluir. 
 
-    ![Navegue para grupos de recursos](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+    ![Navegar até grupos de recursos](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
-3. Na página do grupo de recursos, clique em **eliminar grupo de recursos**.
+3. Na página grupo de recursos, clique em **excluir grupo de recursos**.
 
     ![Eliminar grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     É aberta uma janela com um aviso sobre os recursos que serão eliminados com o grupo de recursos.
 
-4. Introduza o nome do grupo de recursos (myRG1) para confirmar que pretende eliminar permanentemente o grupo de recursos e todos os recursos no mesmo e, em seguida, clique em **eliminar**.
+4. Insira o nome do grupo de recursos (myRG1) para confirmar que deseja excluir permanentemente o grupo de recursos e todos os recursos nele e clique em **excluir**.
 
     ![Eliminar grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
-## <a name="next-steps"></a>Passos Seguintes  
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Quando terminar e se desejar, você poderá excluir o grupo de recursos. A ação de excluir um grupo de recursos é irreversível.  
+
+> [!IMPORTANT]
+> Todos os recursos dentro dos grupos de recursos serão excluídos permanentemente e não poderão ser desfeitos.
+
+1. Exclua o grupo de recursos usando o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
+   
+    ```powershell-interactive
+    Remove-AzResourceGroup -Name $resourceGroup
+    ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Quando terminar e se desejar, você poderá excluir o grupo de recursos. A ação de excluir um grupo de recursos é irreversível.  
+
+> [!IMPORTANT]
+> Todos os recursos dentro dos grupos de recursos serão excluídos permanentemente e não poderão ser desfeitos.
+
+1. Exclua o grupo de recursos usando o comando [AZ Group Delete](/cli/azure/group#az-group-delete) .
+   
+    ```azurecli-interactive
+    az group delete \
+        --name $RESOURCE_GROUP
+    ```
+---
+
+## <a name="next-steps"></a>Passos seguintes  
 
 > [!div class="nextstepaction"]
-> [Gerir volumes através do serviço ficheiros do Azure NetApp](azure-netapp-files-manage-volumes.md)  
+> [Gerenciar volumes usando Azure NetApp Files](azure-netapp-files-manage-volumes.md)  

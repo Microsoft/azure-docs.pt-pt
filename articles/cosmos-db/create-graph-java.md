@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 8689cb74e35d5b87c300f5fce239993691652ee2
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172533"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212635"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Início rápido: Criar um banco de dados de grafo com o SDK do Java e o Azure Cosmos DB API de Tabela
 
@@ -110,7 +110,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
     Copie a primeira parte do valor do URI.
 
-    ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-java/keys.png)
+    ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. Abra o ficheiro src/remote.yaml e cole o valor de ID único em `$name$` no `hosts: [$name$.graphs.azure.com]`.
 
     A Linha 1 do remote.yaml deve agora ter um aspeto semelhante a 
@@ -219,15 +219,15 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 12. Agora, pode ligar rakesh e ashley. Verifique **se Ashley** está selecionado na lista de **resultados** e, ![em seguida, selecione alterar o destino de um](./media/create-graph-java/edit-pencil-button.png) vértice em um grafo ao lado de **destinos** no lado direito inferior. Poderá ter de alargar a janela para ver o botão.
 
-    ![Alterar o destino de um vértice de um gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Alterar o destino de um vértice em um grafo-Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Na caixa **destino** , insira *Rakesh*e, na caixa **rótulo de borda** , digite *saiba*e, em seguida, marque a caixa de seleção.
 
-    ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Adicionar uma conexão no Data Explorer-CosmosDB do Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão ligados. 
 
-    ![Dois vértices ligados no Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Dois vértices conectados no Data Explorer-Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     Esta ação conclui a parte da criação de recursos deste tutorial. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
 
