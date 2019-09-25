@@ -1,27 +1,27 @@
 ---
 title: Desempenho de cargas de trabalho Apache Spark com o cache de e/s do Azure HDInsight (versão prévia)
 description: Saiba mais sobre o cache de e/s do Azure HDInsight e como usá-lo para melhorar o desempenho de Apache Spark.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: f3f171d4dfd3642dc71724afbe084c3fcbf8beaa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091079"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266188"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight 
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
 
 O cache de e/s é um serviço de cache de dados para o Azure HDInsight que melhora o desempenho de trabalhos de Apache Spark. O cache de e/s também funciona com as cargas de trabalho do [Apache tez](https://tez.apache.org/) e [Apache Hive](https://hive.apache.org/) , que podem ser executadas em clusters [Apache Spark](https://spark.apache.org/) . O cache de e/s usa um componente de cache de código aberto chamado RubiX. RubiX é um cache de disco local para uso com Big Data mecanismos de análise que acessam dados de sistemas de armazenamento em nuvem. O RubiX é exclusivo entre sistemas de cache, pois usa SSDs (unidades de estado sólido) em vez de reservar a memória operacional para fins de cache. O serviço de cache de e/s inicia e gerencia servidores de metadados RubiX em cada nó de trabalho do cluster. Ele também configura todos os serviços do cluster para uso transparente do cache RubiX.
 
 A maioria dos SSDs fornece mais de 1 GB por segundo de largura de banda. Essa largura de banda, complementada pelo cache de arquivo na memória do sistema operacional, fornece largura de banda suficiente para carregar Big Data mecanismos de processamento de computação, como Apache Spark. A memória operacional é deixada disponível para Apache Spark processar tarefas dependentes de memória intensas, como embaralhamentos. Ter uso exclusivo da memória operacional permite que Apache Spark obter o uso de recursos ideal.  
 
->[!Note]  
->O cache de e/s atualmente usa RubiX como um componente de cache, mas isso pode ser alterado em versões futuras do serviço. Use interfaces de cache de e/s e não faça dependências diretamente na implementação de RubiX.
+> [!Note]  
+> O cache de e/s atualmente usa RubiX como um componente de cache, mas isso pode ser alterado em versões futuras do serviço. Use interfaces de cache de e/s e não faça dependências diretamente na implementação de RubiX.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Benefícios do cache de e/s do Azure HDInsight
 
@@ -70,7 +70,7 @@ Você pode obter erros de espaço em disco executando trabalhos do Spark depois 
 
 1. Selecione **reiniciar** > **reiniciar todos os afetados**.
 
-    ![Reiniciar todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
+    O ![Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
 
 1. Selecione **confirmar reiniciar tudo**.
 

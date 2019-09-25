@@ -9,16 +9,16 @@ manager: cshankar
 ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d411e8d41f3026476ca8344e8ff9736701d6af6
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: ffa4424dd3173cf6493ec219fe92925c970ad08c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736175"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258314"
 ---
-# <a name="what-is-azure-time-series-insights-preview"></a>O que é Azure Time Series Insights versão prévia?
+# <a name="what-is-azure-time-series-insights-preview"></a>O que é a Pré-visualização do Azure Time Series Insights?
 
 A versão prévia do Azure Time Series Insights é uma oferta de PaaS (plataforma como serviço) de ponta a ponta. Ele é usado para coletar, processar, armazenar, analisar e consultar dados altamente contextuais e com escala de IoT otimizados para a série temporal. Time Series Insights é ideal para exploração de dados ad hoc e análise operacional. Time Series Insights é uma oferta de serviço extensível e personalizada exclusiva que atende às amplas necessidades de implantações de IoT industriais.
 
@@ -83,7 +83,7 @@ Com a introdução desses principais recursos de IoT industrial, Time Series Ins
 | Análise de causa raiz e detecção de anomalias | O [Azure Time Series insights Preview Explorer](./time-series-insights-update-explorer.md) dá suporte a modos de exibição de padrão e perspectiva para conduzir e salvar a análise de causa raiz de várias etapas. Em combinação com Azure Stream Analytics, você pode usar Time Series Insights para detectar alertas e anomalias quase em tempo real. |
 | Aplicativos personalizados criados na plataforma Time Series Insights | Time Series Insights dá suporte ao [SDK do JavaScript](./tutorial-explore-js-client-lib.md). O SDK fornece controles avançados e acesso simplificado às consultas. Use o SDK para criar aplicativos de IoT personalizados sobre Time Series Insights para atender às suas necessidades de negócios específicas. Você também pode usar as Time Series Insights [APIs de consulta](./time-series-insights-update-tsq.md) diretamente para impulsionar dados em aplicativos de IOT personalizados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução à versão prévia do Azure Time Series Insights:
 

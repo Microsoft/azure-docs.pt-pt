@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 88bca1a799d55ba59c8f5d2263f3219cfb66700e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 83d368e419550f38c173a7a1dca42c84db7d542f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946725"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259845"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Aplicativo Web Blueprint de Segurança e Conformidade do Azure-IaaS para NIST SP 800-171
 
@@ -65,7 +65,7 @@ Essa solução usa os seguintes serviços do Azure. Para obter mais informaçõe
 - Storage do Azure
 - Automatização do Azure
 - Testemunha de nuvem
-- Cofre dos Serviços de Recuperação
+- Cofre de Serviços de Recuperação
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A seção a seguir detalha os elementos de implantação e implementação.
@@ -76,7 +76,7 @@ Essa solução cria uma VM como um host de bastiões ingressado no domínio com 
 -   [Extensão Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 -   [Extensão de diagnóstico do Azure](../../virtual-machines/windows/extensions-diagnostics-template.md).
 -   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) usando Key Vault.
--   Uma [política](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) de desligamento automático para reduzir o consumo de recursos da VM quando não estiver em uso.
+-   Uma [política de desligamento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos da VM quando não estiver em uso.
 -   O [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) está habilitado para que as credenciais e outros segredos sejam executados em um ambiente protegido isolado do sistema operacional em execução.
 
 ### <a name="virtual-network"></a>Rede virtual
@@ -105,7 +105,7 @@ A arquitetura protege os dados em repouso por meio de várias medidas. Essas med
 
 **SQL Server**: A instância de SQL Server usa as seguintes medidas de segurança de banco de dados:
 -   [SQL Server auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) rastreia eventos de banco de dados e os grava em logs de auditoria.
--   A Transparent [Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) executa criptografia e descriptografia em tempo real do banco de dados, backups associados e arquivos de log de transações para proteger informações em repouso. A Transparent Data Encryption fornece garantia de que os dados armazenados não estão sujeitos a acesso não autorizado.
+-   A [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) executa criptografia e descriptografia em tempo real do banco de dados, backups associados e arquivos de log de transações para proteger informações em repouso. A Transparent Data Encryption fornece garantia de que os dados armazenados não estão sujeitos a acesso não autorizado.
 -   [As regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedem todo o acesso a servidores de banco de dados até que sejam concedidas permissões adequadas A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
 -   As [colunas criptografadas](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-wizard?view=sql-server-2017) garantem que os dados confidenciais nunca apareçam como texto sem formatação no sistema de banco de dados. Depois que a criptografia de dados é habilitada, somente aplicativos cliente ou servidores de aplicativos com acesso às chaves podem acessar dados de texto sem formatação.
 - A [máscara de dados dinâmicos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017) limita a exposição de dados confidenciais mascarando os dados para usuários ou aplicativos sem privilégios. Ele pode descobrir dados potencialmente confidenciais automaticamente e sugerir as máscaras apropriadas a serem aplicadas. O mascaramento de dados dinâmicos ajuda a reduzir o acesso para que os dados confidenciais não saiam do banco por meio de acesso não autorizado. *Os clientes são responsáveis por ajustar as configurações para aderir ao seu esquema de banco de dados.*
@@ -129,13 +129,13 @@ As tecnologias a seguir fornecem recursos para gerenciar o acesso aos dados no a
 - As operações de criptografia permitidas para chaves são restritas às necessárias.
 - A solução é integrada com Key Vault para gerenciar chaves e segredos de criptografia de disco de VM IaaS.
 
-**Gerenciamento**de patches: As VMs do Windows implantadas como parte dessa arquitetura de referência são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também inclui o serviço de [automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) por meio do qual implantações atualizadas podem ser criadas para corrigir as VMs quando necessário.
+**Gerenciamento de patches**: As VMs do Windows implantadas como parte dessa arquitetura de referência são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também inclui o serviço de [automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) por meio do qual implantações atualizadas podem ser criadas para corrigir as VMs quando necessário.
 
 **Proteção contra malware**: [O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para VMs fornece recursos de proteção em tempo real que ajudam a identificar e remover vírus, spyware e outros softwares mal-intencionados. Os clientes podem configurar alertas que geram quando softwares mal-intencionados ou indesejados conhecidos tentam ser instalados ou executados em VMs protegidas.
 
 **Central de segurança do Azure**: Com a [central de segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem aplicar e gerenciar centralmente políticas de segurança entre cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques. A central de segurança também acessa as configurações existentes dos serviços do Azure para fornecer recomendações de configuração e serviço para ajudar a melhorar a postura de segurança e proteger os dados.
 
-A central de segurança usa uma variedade de recursos de detecção para alertar os clientes sobre possíveis ataques direcionados a seus ambientes. Estes alertas contêm informações valiosas sobre o que acionou o alerta, os recursos afetados e a origem do ataque. A central de segurança tem um conjunto de [alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) predefinidos que são disparados quando ocorre uma ameaça ou atividade suspeita. Os clientes podem usar [regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) para definir novos alertas de segurança com base nos dados que já foram coletados de seu ambiente.
+A central de segurança usa uma variedade de recursos de detecção para alertar os clientes sobre possíveis ataques direcionados a seus ambientes. Estes alertas contêm informações valiosas sobre o que acionou o alerta, os recursos afetados e a origem do ataque. A central de segurança tem um conjunto de [alertas de segurança predefinidos](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) que são disparados quando ocorre uma ameaça ou atividade suspeita. Os clientes podem usar [regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) para definir novos alertas de segurança com base nos dados que já foram coletados de seu ambiente.
 
 A central de segurança fornece incidentes e alertas de segurança priorizados. A central de segurança torna mais simples para os clientes descobrir e resolver problemas potenciais de segurança. Um [relatório de inteligência contra ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) é gerado para cada ameaça detectada. As equipes de resposta a incidentes podem usar os relatórios ao investigar e corrigir ameaças.
 
@@ -160,11 +160,11 @@ Essa arquitetura de referência usa o recurso de [avaliação de vulnerabilidade
 
 **Testemunha de nuvem**: A [testemunha em nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunha de quorum de cluster de failover no Windows Server 2016 que usa o Azure como ponto de arbitragem. A testemunha de nuvem, como qualquer outra testemunha de quorum, obtém um voto e pode participar dos cálculos de quorum. Ele usa o armazenamento de BLOBs padrão do Azure disponível publicamente. Essa organização elimina a sobrecarga de manutenção extra das VMs hospedadas em uma nuvem pública.
 
-### <a name="logging-and-auditing"></a>Registro em log e auditoria
+### <a name="logging-and-auditing"></a>Registo e auditoria
 
 Os serviços do Azure registram extensivamente a atividade do sistema e do usuário, bem como a integridade do sistema:
 - **Logs de atividade**: [Os logs de atividade](../../azure-monitor/platform/activity-logs-overview.md) fornecem informações sobre as operações executadas nos recursos em uma assinatura. Os logs de atividades podem ajudar a determinar o iniciador de uma operação, a hora de ocorrência e o status.
-- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall. Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. Os usuários podem configurar o período de retenção, até 730 dias, para atender a seus requisitos específicos.
+- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall. Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. Os usuários podem configurar o período de retenção, até 730 dias, para atender a seus requisitos específicos.
 
 **Logs de Azure monitor**: Esses logs são consolidados em [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de Dashboard. Depois que os dados são coletados, eles são organizados em tabelas separadas para cada tipo de dados dentro dos espaços de trabalho Log Analytics. Dessa forma, todos os dados podem ser analisados juntos, independentemente de sua fonte original. A central de segurança se integra aos logs de Azure Monitor. Os clientes podem usar consultas Kusto para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
 

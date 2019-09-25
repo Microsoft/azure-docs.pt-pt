@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127053"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259147"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -167,7 +167,7 @@ Este artigo descreve o esquema de logon de entrada do Azure Active Directory (AD
 | Location | Fornece o local da atividade de entrada. |
 | properties | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Esse esquema usa os mesmos nomes de atributo que o recurso de entrada, para facilitar a leitura.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Interpretar o esquema dos registos de auditoria no Azure Monitor)
-* [Leia mais sobre os logs de diagnóstico do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Leia mais sobre os logs de diagnóstico do Azure](../../azure-monitor/platform/resource-logs-overview.md)

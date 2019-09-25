@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: a9992fbaa20b0137fd503992fc9efba11c2dfd3b
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: b86c0d0de95581f7a47de428ffbf0b161353df83
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213506"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260750"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 
@@ -58,7 +58,7 @@ As informações nesta seção pressupõem que você está usando um registro de
     Ao usar imagens armazenadas no __registro de contêiner para o espaço de trabalho__, você não precisa se autenticar no registro. A autenticação é tratada pelo espaço de trabalho.
 
     > [!WARNING]
-    > O Rzegistry de contêiner do Azure para seu espaço de trabalho é __criado na primeira vez que você treina ou implanta um modelo__ usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não for treinado ou criado um modelo, nenhum registro de contêiner do Azure existirá para o espaço de trabalho.
+    > O registro de contêiner do Azure para seu espaço de trabalho é __criado na primeira vez que você treina ou implanta um modelo__ usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não for treinado ou criado um modelo, nenhum registro de contêiner do Azure existirá para o espaço de trabalho.
 
     Para obter informações sobre como recuperar o nome do registro de contêiner do Azure para seu espaço de trabalho, consulte a seção [obter nome do registro de contêiner](#getname) deste artigo.
 

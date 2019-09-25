@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899931"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262804"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Blueprint de Segurança e Conformidade do Azure-aplicativo Web IaaS de três camadas para o Reino Unido
 
@@ -158,7 +158,7 @@ Esses VNets ainda são gerenciados como recursos separados, mas aparecem como um
 
 **Registro em log e auditoria**: O [log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) captura as operações executadas nos recursos em sua assinatura, como quem iniciou a operação, quando a operação ocorreu, o status da operação e os valores de outras propriedades que podem ajudá-lo a Pesquisar a operação. O log de atividades do Azure é um serviço da plataforma Azure que captura todas as ações em uma assinatura. Os logs podem ser arquivados ou exportados, se necessário.
 
-**Monitoramento e alertas de rede**: O observador de [rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) é um serviço de plataforma que fornece captura de pacotes de rede, registro em log de fluxo, ferramentas de topologia e diagnóstico para tráfegos de rede em seu VNets.
+**Monitoramento e alertas de rede**: O [observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) é um serviço de plataforma que fornece captura de pacotes de rede, registro em log de fluxo, ferramentas de topologia e diagnóstico para tráfegos de rede em seu VNets.
 
 ## <a name="guidance-and-recommendations"></a>Diretrizes e recomendações
 
@@ -172,7 +172,7 @@ Esses VNets ainda são gerenciados como recursos separados, mas aparecem como um
 
 **Logs de atividade**: Configure [os logs de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) para fornecer informações sobre as operações que foram realizadas em recursos em sua assinatura.
 
-**Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) são todos os logs emitidos por um recurso. Esses logs podem incluir logs do sistema de eventos do Windows, BLOB, tabela e logs de fila.
+**Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) são todos os logs emitidos por um recurso. Esses logs podem incluir logs do sistema de eventos do Windows, BLOB, tabela e logs de fila.
 
 **Logs de firewall**: O gateway de aplicativo fornece logs completos de diagnóstico e acesso. Os registos de firewall estão disponíveis para recursos de gateway de aplicações que tenham a WAF ativada.
 
@@ -228,7 +228,7 @@ Além disso, a CSA (Cloud Security Alliance) publicou a matriz de controle de nu
 
 Há dois métodos que os usuários de implantação podem usar para implantar essa automação do Blueprint. O primeiro método usa um script do PowerShell, enquanto o segundo método utiliza o portal do Azure para implantar a arquitetura de referência. Instruções de implantação detalhadas estão disponíveis [aqui](https://aka.ms/ukofficial-iaaswa-repo).
 
-## <a name="disclaimer"></a>Exclusão de responsabilidade
+## <a name="disclaimer"></a>Exclusão de Responsabilidade
 
  - Este documento é apenas para fins informativos. A MICROSOFT NÃO OFERECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU ESTATUTÁRIA, QUANTO ÀS INFORMAÇÕES CONTIDAS NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e as exibições expressas neste documento, incluindo URLs e outras referências de site da Internet, podem ser alteradas sem aviso prévio. Os clientes que lêem este documento trazem o risco de usá-lo.
  - Este documento não fornece aos clientes nenhum direito legal sobre qualquer propriedade intelectual em qualquer produto ou solução da Microsoft.

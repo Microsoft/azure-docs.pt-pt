@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e3f58e596db26c04a8f3be4f87eb129fadf5e328
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ef0001059026421584efde4c165e882197eda7a6
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141743"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266228"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando Python
 
@@ -36,6 +36,8 @@ Para instalar o pacote do Python para o Data Explorer do Azure (Kusto), abra um 
 
 ```
 pip install azure-mgmt-kusto
+pip install adal
+pip install msrestazure
 ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster de Data Explorer do Azure
@@ -45,10 +47,19 @@ pip install azure-mgmt-kusto
     ```Python
     from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
+    from adal import AuthenticationContext
+    from msrestazure.azure_active_directory import AdalAuthentication
 
-    credentials = xxxxxxxxxxxxxxx
-    
-    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
+    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
+                                         resource="https://management.core.windows.net/",
+                                         client_id=client_id,
+                                         client_secret=client_secret)
+
     location = 'Central US'
     sku = 'D13_v2'
     capacity = 5

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564200"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261978"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconheça os logotipos de serviço do Azure em imagens da câmera
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
-- A carga de trabalho do Xamarin para Visual Studio (consulte Instalando o [Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- A carga de trabalho do Xamarin para Visual Studio (consulte [instalando o Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - Um emulador do iOS ou Android para Visual Studio
 - O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
 
@@ -49,7 +49,7 @@ Entre no site do [visão personalizada](https://customvision.ai/) e crie um novo
 
 ## <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
 
-Em seguida, treine o algoritmo de detecção de logotipo carregando imagens de logotipos de serviço do Azure e marcando-as manualmente. O repositório AIVisualProvision inclui um conjunto de imagens de treinamento que você pode usar. No site, selecione o botão **Adicionar imagens** na guia **imagens de treinamento** . Em seguida, vá para a pasta Documents/ **images/Training_DataSet** do repositório. Você precisará marcar manualmente os logotipos em cada imagem, portanto, se estiver apenas testando esse projeto, talvez você queira carregar apenas um subconjunto das imagens. Carregue pelo menos 15 instâncias de cada marca que você planeja usar.
+Em seguida, treine o algoritmo de detecção de logotipo carregando imagens de logotipos de serviço do Azure e marcando-as manualmente. O repositório AIVisualProvision inclui um conjunto de imagens de treinamento que você pode usar. No site, selecione o botão **Adicionar imagens** na guia **imagens de treinamento** . Em seguida, vá para a pasta **Documents/images/Training_DataSet** do repositório. Você precisará marcar manualmente os logotipos em cada imagem, portanto, se estiver apenas testando esse projeto, talvez você queira carregar apenas um subconjunto das imagens. Carregue pelo menos 15 instâncias de cada marca que você planeja usar.
 
 Depois de carregar as imagens de treinamento, selecione a primeira na exibição. A janela de marcação será exibida. Desenhe caixas e atribua marcas para cada logotipo em cada imagem. 
 
@@ -57,7 +57,7 @@ Depois de carregar as imagens de treinamento, selecione a primeira na exibição
 
 O aplicativo está configurado para trabalhar com cadeias de caracteres de marca específicas. Você encontrará as definições no arquivo *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 Depois de marcar uma imagem, acesse a direita para marcar a próxima. Feche a janela de marcação quando terminar.
 
@@ -73,19 +73,19 @@ Depois que o modelo for treinado, você estará pronto para integrá-lo ao seu a
 
 ![O site Visão Personalizada, mostrando uma janela API de previsão que exibe um endereço URL e uma chave de API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copie a URL do arquivo de imagem e o valor da **chave de previsão** para os campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* :
+Copie a URL do ponto de extremidade e o valor da **chave de previsão** para os campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* :
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## <a name="examine-custom-vision-usage"></a>Examinar o uso de Visão Personalizada
 
 Abra o arquivo *Source/VisualProvision/Services/rerecognition/CustomVisionService. cs* para ver como o aplicativo usa sua chave de visão personalizada e a URL do ponto de extremidade. O método **PredictImageContentsAsync** usa um fluxo de bytes de um arquivo de imagem junto com um token de cancelamento (para gerenciamento de tarefas assíncronas), chama a API de previsão de visão personalizada e retorna o resultado da previsão. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 Esse resultado assume a forma de uma instância de **PredictionResult** , que contém uma lista de instâncias de **previsão** . Uma **previsão** contém uma marca detectada e seu local de caixa delimitadora na imagem.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 Para saber mais sobre como o aplicativo lida com esses dados, comece com o método **GetResourcesAsync** . Esse método é definido no arquivo *Source/VisualProvision/Services/rerecognition/RecognitionService. cs* .  
 
@@ -99,7 +99,7 @@ Assine o serviço de Pesquisa Visual Computacional para obter uma URL de chave e
 
 Em seguida, abra o arquivo *Source\VisualProvision\AppSettings.cs* e popule `ComputerVisionKey` as `ComputerVisionEndpoint` variáveis e com os valores corretos.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
@@ -133,7 +133,7 @@ Após a conclusão bem-sucedida, você deverá ver a saída JSON a seguir, inclu
 
 Anote os `clientId` valores e `tenantId` . Adicione-os aos campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* .
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## <a name="run-the-app"></a>Executar a aplicação
 

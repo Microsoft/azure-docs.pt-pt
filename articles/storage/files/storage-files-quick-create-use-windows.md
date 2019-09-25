@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699741"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260386"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: Criar e gerenciar o compartilhamento de arquivos do Azure com máquinas virtuais do Windows
 
@@ -46,7 +46,7 @@ Depois, crie uma partilha de ficheiros.
 
     ![Selecionar arquivos](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Selecione **+ compartilhamento de arquivos**.
+1. Selecione **compartilhamento de arquivos**.
 
     ![Selecione o botão Adicionar compartilhamento de arquivos](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -179,7 +179,7 @@ Assim como ocorre com instantâneos do VSS locais, você pode exibir os instant�
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Utilizar uma partilha de ficheiros do Azure com Windows](storage-how-to-use-files-windows.md)

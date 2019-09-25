@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Processar dados de hubs de eventos do Azure com Apache Spark no HDInsight'
 description: Tutorial-conectar Apache Spark no Azure HDInsight aos hubs de eventos do Azure e processar os dados de streaming.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 2483ba22d3d502479e87ae385bcc837ec87a103c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735340"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266202"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
 
@@ -252,11 +252,11 @@ Com o HDInsight, seus dados são armazenados no armazenamento do Azure ou Azure 
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
-![Eliminar o cluster do HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Eliminar o cluster do HDInsight")
+![Portal do Azure do HDInsight excluir cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, está a eliminar o cluster do Spark no HDInsight e a conta de armazenamento predefinida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a criar um aplicativo de streaming de Apache Spark para enviar Tweets para um hub de eventos do Azure e criou outro aplicativo para ler os tweets do hub de eventos.  Avance para o próximo artigo para ver você pode criar um aplicativo de aprendizado de máquina.
 

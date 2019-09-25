@@ -5,21 +5,20 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259158"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265857"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
 
-A pesquisa cognitiva tem vários recursos para trabalhar com imagens e arquivos de imagem. Durante a quebra de documento, você pode usar o parâmetro imageaction para extrair texto de fotos ou imagens que contêm texto alfanumérico, como a palavra "Stop" em um sinal de parada. Outros cenários incluem a geração de uma representação de texto de uma imagem, como "Dandelion" para uma foto de um dandelion ou a cor "amarelo". Você também pode extrair metadados sobre a imagem, como seu tamanho.
+A pesquisa cognitiva tem vários recursos para trabalhar com imagens e arquivos de imagem. Durante a quebra de documento, você pode usar o parâmetro *imageaction* para extrair texto de fotos ou imagens que contêm texto alfanumérico, como a palavra "Stop" em um sinal de parada. Outros cenários incluem a geração de uma representação de texto de uma imagem, como "Dandelion" para uma foto de um dandelion ou a cor "amarelo". Você também pode extrair metadados sobre a imagem, como seu tamanho.
 
 Este artigo aborda o processamento de imagem em mais detalhes e fornece diretrizes para trabalhar com imagens em um pipeline de pesquisa cognitiva.
 
@@ -38,13 +37,13 @@ Não é possível desativar a normalização de imagem. As habilidades que itera
 |  normalizedImageMaxHeight | A altura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é 10000.|
 
 > [!NOTE]
-> Se você definir a Propriedade imageaction como algo diferente de "None", não será possível definir a propriedade *parsingMode* como algo diferente de "default".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
+> Se você definir a propriedade *imageaction* como algo diferente de "None", não será possível definir a propriedade *parsingMode* como algo diferente de "default".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
 
 Defina o parâmetro **parsingMode** como `json` (para indexar cada blob como um único documento) `jsonArray` ou (se seus BLOBs contiverem matrizes JSON e se você precisar que cada elemento de uma matriz seja tratado como um documento separado).
 
 O padrão de 2000 pixels para a largura e a altura máximas das imagens normalizadas baseia-se nos tamanhos máximos com suporte da [habilidade de OCR](cognitive-search-skill-ocr.md) e da [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md). A [habilidade de OCR](cognitive-search-skill-ocr.md) dá suporte a uma largura e altura máxima de 4200 para idiomas que não estão em inglês e 10000 para inglês.  Se você aumentar os limites máximos, o processamento poderá falhar em imagens maiores, dependendo da sua definição de Skills e do idioma dos documentos. 
 
-Você especifica a imageaction na [definição](https://docs.microsoft.com/rest/api/searchservice/create-indexer) do indexador da seguinte maneira:
+Você especifica a imageaction na [definição do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) da seguinte maneira:
 
 ```json
 {
@@ -66,7 +65,7 @@ Quando *imageaction* é definido com um valor diferente de "None", o novo campo 
 |--------------------|-----------------------------------------|
 | data               | Cadeia de caracteres codificada em BASE64 da imagem normalizada no formato JPEG.   |
 | Largura              | Largura da imagem normalizada em pixels. |
-| tamanho             | Altura da imagem normalizada em pixels. |
+| Tamanho             | Altura da imagem normalizada em pixels. |
 | originalWidth      | A largura original da imagem antes da normalização. |
 | originalHeight      | A altura original da imagem antes da normalização. |
 | rotationFromOriginal |  Rotação no sentido anti-horário em graus que ocorreu para criar a imagem normalizada. Um valor entre 0 graus e 360 graus. Esta etapa lê os metadados da imagem que é gerada por uma câmera ou um scanner. Geralmente, um múltiplo de 90 graus. |
@@ -109,7 +108,7 @@ Um cenário comum envolve a criação de uma única cadeia de caracteres contend
 
 1. [Extrair normalized_images](#get-normalized-images)
 1. Executar a habilidade do OCR `"/document/normalized_images"` usando como entrada
-1. Mescle a representação de texto dessas imagens com o texto bruto extraído do arquivo. Você pode usar a habilidade de mesclagem de [texto](cognitive-search-skill-textmerger.md) para consolidar as partes de texto em uma única cadeia de caracteres grande.
+1. Mescle a representação de texto dessas imagens com o texto bruto extraído do arquivo. Você pode usar a habilidade de [mesclagem de texto](cognitive-search-skill-textmerger.md) para consolidar as partes de texto em uma única cadeia de caracteres grande.
 
 O seguinte contenção de exemplo cria um campo *merged_text* contendo o conteúdo textual do documento. Ele também inclui o texto OCRed de cada uma das imagens inseridas. 
 

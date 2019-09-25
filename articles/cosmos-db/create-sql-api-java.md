@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a34cb8e13d32cbeb6d289869dca3a8cb1391d68f
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 5c9cae2fadfccadfd4f178021160e3a4ecd0fab8
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390861"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266295"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início rápido: Compilar um aplicativo Java para gerenciar Azure Cosmos DB dados da API do SQL
 
@@ -191,7 +191,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 7. A aplicação não elimina os recursos criados. Mude novamente para o portal para [limpar os recursos](#clean-up-resources).  da sua conta, para que não incorra em custos.
 
-    ![Saída da consola](./media/create-sql-api-java/rxjava-console-output.png)
+    ![Exibir a saída na janela do console](./media/create-sql-api-java/rxjava-console-output.png)
 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure

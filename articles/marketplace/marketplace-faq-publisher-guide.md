@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
-ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309024"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259944"
 ---
 # <a name="marketplace-faqs"></a>FAQs do Marketplace
 
@@ -245,6 +245,14 @@ As compras feitas do [Azure Marketplace](https://azuremarketplace.microsoft.com/
 
 Os clientes devem entrar em contato diretamente com o Publicador para obter quaisquer problemas técnicos relacionados ao serviço do Marketplace ou à compra. As informações de contato do Publicador e/ou um link para o site de suporte podem ser encontradas na página de detalhes da solução no Azure Marketplace.
 
+**Como as adições de licenças são tratadas quando há um aumento no prazo médio?**
+
+As licenças adicionadas a uma assinatura existente são classificadas em tempo proporcional para o restante da duração da assinatura.
+
+**Como as remoções de licença são tratadas quando há um período médio?**
+
+As licenças canceladas estarão sujeitas à política de reembolso encontrada nestas perguntas frequentes.  Todas as licenças canceladas são removidas imediatamente da sua conta e não estarão mais disponíveis para uso.
+
 ## <a name="faq-for-publishers"></a>Perguntas frequentes para Publicadores
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>O que necessita de saber sobre o Azure Marketplace
@@ -319,7 +327,7 @@ Os leads são clientes que estão implantando seus produtos do Marketplace. Se s
 
 **Onde posso obter ajuda para configurar meu destino de Lead?**
 
-Saiba mais em [portal do Cloud Partner-obtenha a documentação de leads do cliente](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) ou envie um [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) tíquete de suporte pelo selecionando seu tipo de oferta e gerenciamento de Lead.
+Saiba mais em [portal do Cloud Partner-obtenha](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) a documentação de leads do cliente ou envie um [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) tíquete de suporte pelo selecionando seu tipo de oferta e gerenciamento de Lead.
 
 **Eu preciso configurar um destino de Lead para publicar uma oferta no Marketplace?**
 

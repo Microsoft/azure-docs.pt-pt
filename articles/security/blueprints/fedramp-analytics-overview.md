@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7b07fee46bce4c7b80346eb0b4c0fccd5245d87f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946879"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257596"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Esquema de Segurança e Conformidade do Azure: Análise para FedRAMP
 
@@ -44,7 +44,7 @@ O banco de dados SQL do Azure é normalmente gerenciado por meio do SQL Server M
 ![Análise do diagrama da arquitetura de referência do FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Análise do diagrama da arquitetura de referência do FedRAMP")
 
 ### <a name="roles"></a>Funções
-O plano gráfico de análise descreve um cenário com três tipos de usuário gerais: o usuário operacional, o administrador de SQL/dados e o engenheiro de sistemas. O RBAC (controle de acesso baseado em função) do Azure permite a implementação do gerenciamento de acesso preciso por meio de funções personalizadas internas. Os recursos estão disponíveis para configurar o [controle de acesso baseado em função e a](../../role-based-access-control/role-assignments-portal.md) estrutura de tópicos e a implementação de [funções](../../role-based-access-control/built-in-roles.md)predefinidas.
+O plano gráfico de análise descreve um cenário com três tipos de usuário gerais: o usuário operacional, o administrador de SQL/dados e o engenheiro de sistemas. O RBAC (controle de acesso baseado em função) do Azure permite a implementação do gerenciamento de acesso preciso por meio de funções personalizadas internas. Os recursos estão disponíveis para configurar o [controle de acesso baseado em função e a](../../role-based-access-control/role-assignments-portal.md) estrutura de tópicos e a implementação de [funções predefinidas](../../role-based-access-control/built-in-roles.md).
 
 #### <a name="systems-engineer"></a>Engenheiro de sistemas
 O engenheiro de sistemas possui a assinatura de cliente do Azure e configura a implantação da solução por meio do portal do Azure.
@@ -105,13 +105,13 @@ AzureDiskEncryption
 -   [As regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedem todo o acesso a servidores de banco de dados até que sejam concedidas permissões adequadas A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
 -   A [detecção de ameaças do SQL](../../sql-database/sql-database-threat-detection.md) permite a detecção e a resposta a ameaças potenciais à medida que elas ocorrem, fornecendo alertas de segurança para atividades suspeitas de banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso de banco de dados anormais
 -   [Always Encrypted colunas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca apareçam como texto não criptografado no sistema de banco de dados. Depois de habilitar a criptografia de dados, somente aplicativos cliente ou servidores de aplicativos com acesso às chaves podem acessar dados de texto sem formatação.
--   O mascaramento de [dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
+-   O [mascaramento de dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
 
 ### <a name="logging-and-audit"></a>Registro em log e auditoria
 O [Azure monitor](../../azure-monitor/overview.md) gera uma exibição completa dos dados de monitoramento, incluindo logs de atividades, métricas e dados de diagnóstico, permitindo que os clientes criem uma visão geral da integridade do sistema.  
 [Os logs de Azure monitor](../azure-security-disk-encryption-overview.md) fornecem log extensivo de atividade do sistema e do usuário, bem como a integridade do sistema. Ele coleta e analisa os dados gerados pelos recursos no Azure e em ambientes locais.
 - **Logs de atividade**: [Os logs de atividade](../../azure-monitor/platform/activity-logs-overview.md) fornecem informações sobre as operações executadas nos recursos em uma assinatura.
-- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows e armazenamento de BLOBs do Azure, tabelas e logs de fila.
+- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows e armazenamento de BLOBs do Azure, tabelas e logs de fila.
 - **Logs de firewall**: O gateway de aplicativo fornece logs completos de diagnóstico e acesso. Os logs de firewall estão disponíveis para recursos de gateway de aplicativo habilitados para WAF.
 - **Arquivamento de log**: Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento com um período de retenção definido de 2 dias. Esses logs se conectam a logs de Azure Monitor para processamento, armazenamento e relatórios de painel.
 
@@ -157,7 +157,7 @@ Essa solução PaaS não incorpora nenhuma VM IaaS do Azure. Um cliente pode cri
 
 ##### <a name="security"></a>Segurança
 - **Proteção contra malware**: [O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para máquinas virtuais fornece recursos de proteção em tempo real que ajudam a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando um software mal-intencionado ou indesejado conhecido tenta instalar ou executar em máquinas virtuais protegidas.
-- **Gerenciamento**de patches: As máquinas virtuais do Windows implantadas como parte dessa arquitetura de referência são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também inclui o serviço de [automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) por meio do qual implantações atualizadas podem ser criadas para aplicar patch às máquinas virtuais quando necessário.
+- **Gerenciamento de patches**: As máquinas virtuais do Windows implantadas como parte dessa arquitetura de referência são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também inclui o serviço de [automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) por meio do qual implantações atualizadas podem ser criadas para aplicar patch às máquinas virtuais quando necessário.
 
 #### <a name="azure-commercial"></a>Comercial do Azure
 Embora essa arquitetura de análise de dados não seja destinada à implantação no ambiente [comercial do Azure](https://azure.microsoft.com/overview/what-is-azure/) , objetivos semelhantes podem ser obtidos por meio dos serviços descritos nesta arquitetura de referência, bem como serviços adicionais disponíveis somente no ambiente comercial do Azure. Observe que o Azure Commercial mantém um FedRAMP JAB P-ATO no nível de impacto moderado, permitindo que agências governamentais e parceiros implantem informações moderadamente confidenciais na nuvem, aproveitando o ambiente comercial do Azure.

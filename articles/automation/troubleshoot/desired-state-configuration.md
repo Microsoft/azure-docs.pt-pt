@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850262"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259163"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
@@ -40,7 +40,7 @@ Quando você tem erros de compilação ou implantação de configurações na co
 
    Para instalar o **xDscDiagnostics** em seu computador do Azure, você pode usar [AZ VM execute-Command](/cli/azure/vm/run-command) ou [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Você também pode usar a opção **executar comando** do portal, seguindo as etapas encontradas em [executar scripts do PowerShell em sua VM do Windows com o comando executar](../../virtual-machines/windows/run-command.md).
 
-   Para obter informações sobre como usar o **xDscDiagnostics**, consulte [usando o xDscDiagnostics para analisar os logs de DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), bem como os cmdlets do [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+   Para obter informações sobre como usar o **xDscDiagnostics**, consulte [usando o xDscDiagnostics para analisar os logs de DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), bem como os [cmdlets do xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 3. **Verifique se os nós e o espaço de trabalho de automação têm os módulos necessários:** A configuração de estado desejado depende dos módulos instalados no nó.  Ao usar a configuração de estado da automação do Azure, importe os módulos necessários para sua conta de automação usando as etapas listadas em [Importar módulos](../shared-resources/modules.md#import-modules). As configurações também podem ter uma dependência em versões específicas de módulos.  Para obter mais informações, consulte [solucionar problemas de módulos](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com a DSC (configuração de estado desejado)
@@ -149,7 +149,7 @@ Você atualizou a versão do WMF e corrompeu o WMI.
 
 #### <a name="resolution"></a>Resolução
 
-Para corrigir o problema, siga as instruções no artigo [problemas conhecidos e limitações do DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) .
+Para corrigir o problema, siga as instruções no artigo [problemas conhecidos e limitações do DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
 ### <a name="issue-using-credential"></a>Cenário Não é possível usar uma credencial em uma configuração DSC
 
@@ -222,7 +222,7 @@ Problema conhecido com o serviço de compilação.
 
 A melhor solução alternativa seria compilar localmente ou em um pipeline de CI/CD e carregar os arquivos MOF diretamente no serviço.  Se a compilação no serviço for um requisito, a melhor solução alternativa seria dividir os trabalhos de compilação para que não haja sobreposição em nomes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

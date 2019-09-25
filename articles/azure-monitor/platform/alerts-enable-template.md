@@ -1,6 +1,6 @@
 ---
 title: Criar um alerta de métrica clássico no Azure com um modelo do Resource Manager
-description: Saiba como utilizar um modelo do Resource Manager para criar um alerta de métrica clássico para receber notificações por e-mail ou webhook.
+description: Saiba como usar um modelo do Resource Manager para criar um alerta de métrica clássico para receber notificações por email ou webhook.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776444"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262095"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
-Este artigo mostra como pode utilizar um [modelo Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métricas do Azure. Isto permite-lhe configurar automaticamente a alertas nos seus recursos quando forem criados para se certificar de que todos os recursos são monitorizados corretamente.
+Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica do Azure. Isso permite que você configure automaticamente alertas em seus recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
 
 > [!NOTE]
 > 
-> Este artigo descreve a criação **alertas de métricas clássicas** utilizando modelos do Resource Manager. Se estiver à procura para a criação [alertas de métricas mais recente](../../azure-monitor/platform/alerts-metric-near-real-time.md) usando modelos [este artigo](alerts-metric-create-templates.md) fornece os detalhes.
+> Este artigo descreve como criar **alertas de métrica clássicos** usando modelos do Resource Manager. Se você estiver procurando criar [alertas de métrica mais recentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) usando modelos, [Este artigo](alerts-metric-create-templates.md) fornecerá os detalhes.
 >
 
 
-Os passos básicos são os seguintes:
+As etapas básicas são as seguintes:
 
-1. Crie um modelo como um ficheiro JSON que descreve como criar o alerta.
-2. [Implementar o modelo com qualquer método de implementação](../../azure-resource-manager/resource-group-template-deploy.md).
+1. Crie um modelo como um arquivo JSON que descreve como criar o alerta.
+2. [Implante o modelo usando qualquer método de implantação](../../azure-resource-manager/resource-group-template-deploy.md).
 
-Abaixo descrevem como criar um modelo do Resource Manager pela primeira vez as de um alerta sozinho, em seguida, para que um alerta durante a criação de outro recurso.
+Abaixo, descrevemos como criar um modelo do Resource Manager primeiro para um alerta sozinho, em seguida, para um alerta durante a criação de outro recurso.
 
 ## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Modelo do Resource Manager para um alerta de métrica clássico
-Para criar um alerta com um modelo do Resource Manager, crie um recurso do tipo `Microsoft.Insights/alertRules` e preencher todas as respetivas propriedades. Segue-se um modelo que cria uma regra de alerta.
+Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do `Microsoft.Insights/alertRules` tipo e preenche todas as propriedades relacionadas. Abaixo está um modelo que cria uma regra de alerta.
 
 ```json
 {
@@ -179,10 +179,10 @@ Para criar um alerta com um modelo do Resource Manager, crie um recurso do tipo 
 }
 ```
 
-Obter uma explicação sobre o esquema e propriedades para uma regra de alerta [está disponível aqui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Uma explicação do esquema e das propriedades de uma regra de alerta [está disponível aqui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modelo do Resource Manager para um recurso com um alerta de métrica clássico
-Um alerta num modelo do Resource Manager com mais freqüência é útil para criar um alerta ao criar um recurso. Por exemplo, pode querer garantir que um "CPU % > 80" regra está configurada, sempre que implementar uma Máquina Virtual. Para fazer isso, adicione a regra de alerta como um recurso da matriz de recursos para o modelo VM e adicionar uma dependência a `dependsOn` propriedade para o ID de recurso VM. Eis um exemplo completo que cria uma VM do Windows e adiciona um alerta que notifica os administradores da subscrição quando a utilização da CPU for superior a 80%.
+Um alerta em um modelo do Resource Manager é geralmente útil ao criar um alerta ao criar um recurso. Por exemplo, talvez você queira garantir que uma regra "CPU% > 80" seja configurada sempre que você implantar uma máquina virtual. Para fazer isso, você adiciona a regra de alerta como um recurso na matriz de recursos para seu modelo de VM e adiciona uma dependência `dependsOn` usando a propriedade à ID de recurso da VM. Aqui está um exemplo completo que cria uma VM do Windows e adiciona um alerta que notifica os administradores de assinatura quando a utilização da CPU ficar acima de 80%.
 
 ```json
 {
@@ -402,7 +402,7 @@ Um alerta num modelo do Resource Manager com mais freqüência é útil para cri
 ```
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Obtenha mais informações sobre alertas](alerts-overview.md)
-* [Adicionar definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-stream-template.md) ao modelo do Resource Manager
-* Para a sintaxe JSON e propriedades, consulte [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) referência de modelo.
+* [Leia mais sobre alertas](alerts-overview.md)
+* [Adicionar configurações de diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) ao modelo do Resource Manager
+* Para obter a sintaxe e as propriedades JSON, consulte referência de modelo [Microsoft. insights/alertrules](/azure/templates/microsoft.insights/alertrules) .
 

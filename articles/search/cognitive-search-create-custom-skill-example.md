@@ -5,16 +5,15 @@ manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d77b4e3a002757bcf6c91b6611876e732273fcf9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183519"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266337"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: Criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
 
@@ -476,7 +475,7 @@ Aqui, estamos contando com a habilidade de reconhecimento de [entidade](cognitiv
 },
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Parabéns! Você criou seu primeiro aprimorado personalizado. Agora você pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. 
 
 + [Adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva](cognitive-search-custom-skill-interface.md)

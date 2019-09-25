@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bac37eed33535962ac0f1e6dbb34d8c396507682
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6632bee77d400dcfd6e8e4afa05efb84e1c1794a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063637"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258179"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Amazon usando políticas personalizadas no Azure Active Directory B2C
 
@@ -88,7 +88,7 @@ Você pode definir uma conta da Amazon como um provedor de declarações adicion
           <Key Id="client_secret" StorageReferenceId="B2C_1A_AmazonSecret" />
         </CryptographicKeys>
         <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+          <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
           <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
           <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
           <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="amazon.com" />

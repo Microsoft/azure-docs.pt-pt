@@ -1,5 +1,5 @@
 ---
-title: Adicionar IDs de correlação para mensagens de IoT com o rastreio distribuído (pré-visualização)
+title: Adicionar IDs de correlação a mensagens de IoT com rastreamento distribuído (versão prévia)
 description: ''
 author: jlian
 manager: briz
@@ -8,89 +8,89 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400853"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259361"
 ---
-# <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Mensagens de dispositivo-para-cloud do Azure IoT com o rastreio distribuído (pré-visualização) de rastreio
+# <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens do dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
-IoT Hub do Microsoft Azure suporta atualmente o rastreio distribuído como um [funcionalidade de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Microsoft Azure Hub IoT atualmente dá suporte ao rastreamento distribuído como um [recurso de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-O IoT Hub é um dos primeiros serviços do Azure para suportar o rastreio distribuído. As mais serviços do Azure suportam o rastreio distribuído, estará mensagens de IoT de capaz de rastreamento em todo os envolvidos na sua solução de serviços do Azure. Para um plano de fundo no rastreio distribuído, consulte [rastreio distribuído](../azure-monitor/app/distributed-tracing.md).
+O Hub IoT é um dos primeiros serviços do Azure para dar suporte ao rastreamento distribuído. À medida que mais serviços do Azure dão suporte ao rastreamento distribuído, você poderá rastrear mensagens de IoT em todos os serviços do Azure envolvidos em sua solução. Para obter um plano de fundo sobre o rastreamento distribuído, consulte [rastreamento distribuído](../azure-monitor/app/distributed-tracing.md).
 
-Ativar o rastreio distribuído para o IoT Hub dá-lhe a capacidade de:
+Habilitar o rastreamento distribuído para o Hub IoT oferece a capacidade de:
 
-- Monitorizar com precisão o fluxo de cada mensagem através do IoT Hub com [contexto de rastreio](https://github.com/w3c/trace-context). Este contexto de rastreio inclui IDs que permitem-lhe correlacionar eventos de um componente com eventos a partir de outro componente de correlação. Pode ser aplicada para um subconjunto ou todas as mensagens de dispositivo de IoT usando [dispositivo duplo](iot-hub-devguide-device-twins.md).
-- O contexto de rastreio para início de sessão automático [registos de diagnóstico do Azure Monitor](iot-hub-monitor-resource-health.md).
-- Analise e compreenda o fluxo de mensagens e a latência dos dispositivos ao IoT Hub e o encaminhamento de pontos de extremidade.
-- Começar a considerar a forma como pretende implementar o rastreio distribuído para os serviços não pertencente ao Azure na sua solução de IoT.
+- Monitore precisamente o fluxo de cada mensagem por meio do Hub IoT usando o [contexto de rastreamento](https://github.com/w3c/trace-context). Esse contexto de rastreamento inclui IDs de correlação que permitem correlacionar eventos de um componente com eventos de outro componente. Ele pode ser aplicado a um subconjunto ou a todas as mensagens do dispositivo IoT usando o [dispositivo](iot-hub-devguide-device-twins.md).
+- Registre automaticamente o contexto de rastreamento para [Azure monitor logs de diagnóstico](iot-hub-monitor-resource-health.md).
+- Meça e entenda o fluxo de mensagens e a latência de dispositivos para o Hub IoT e pontos de extremidade de roteamento.
+- Comece a considerar como você deseja implementar o rastreamento distribuído para os serviços que não são do Azure em sua solução de IoT.
 
-Neste artigo, vai utilizar o [Azure IoT device SDK para C](./iot-hub-device-sdk-c-intro.md) com o rastreio distribuído. Suporte de rastreio distribuído ainda está em curso para os outros SDKs.
+Neste artigo, você usa o [SDK do dispositivo IOT do Azure para C](./iot-hub-device-sdk-c-intro.md) com o rastreamento distribuído. O suporte ao rastreamento distribuído ainda está em andamento para os outros SDKs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A pré-visualização do rastreio distribuído é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
+- Atualmente, a visualização do rastreamento distribuído só tem suporte para hubs IoT criados nas seguintes regiões:
 
-  - **Europa do Norte**
-  - **Sudeste asiático**
-  - **E.U.A. oeste 2**
+  - **Europa Setentrional**
+  - **Sudeste da Ásia**
+  - **Oeste dos EUA 2**
 
-- Este artigo pressupõe que esteja familiarizado com o envio de mensagens de telemetria ao seu hub IoT. Certifique-se de que concluiu o [enviar telemetria início rápido de C](./quickstart-send-telemetry-c.md).
+- Este artigo pressupõe que você esteja familiarizado com o envio de mensagens de telemetria para o Hub IoT. Verifique se você concluiu o [início rápido enviar telemetria C](./quickstart-send-telemetry-c.md).
 
-- Registe um dispositivo com o seu IoT hub (passos disponíveis em cada início rápido) e anote a cadeia de ligação.
+- Registre um dispositivo com o Hub IoT (etapas disponíveis em cada início rápido) e anote a cadeia de conexão.
 
 - Instale a versão mais recente do [Git](https://git-scm.com/download/).
 
-## <a name="configure-iot-hub"></a>Configurar o IoT Hub
+## <a name="configure-iot-hub"></a>Configurar o Hub IoT
 
-Nesta secção, configurou um IoT Hub para iniciar o rastreio distribuído atributos (IDs de correlação e carimbos de data /).
+Nesta seção, você configura um hub IoT para registrar em log os atributos de rastreamento distribuído (IDs de correlação e carimbos de data/hora).
 
-1. Navegue até ao seu hub IoT no [portal do Azure](https://portal.azure.com/).
+1. Navegue até o Hub IoT no [portal do Azure](https://portal.azure.com/).
 
-1. No painel esquerdo do seu hub IoT, desloque para baixo para o **monitorização** secção e clique em **as definições de diagnóstico**.
+1. No painel esquerdo do Hub IoT, role para baixo até a seção **monitoramento** e clique em **configurações de diagnóstico**.
 
-1. Se as definições de diagnóstico já não estiverem ativadas, clique em **ativar os diagnósticos**. Se já tiver ativado as definições de diagnóstico, clique em **Adicionar definição de diagnóstico**.
+1. Se as configurações de diagnóstico ainda não estiverem ativadas, clique em **Ativar diagnóstico**. Se você já tiver habilitado as configurações de diagnóstico, clique em **Adicionar configuração de diagnóstico**.
 
-1. Na **nome** , insira um nome para uma nova definição de diagnóstico. Por exemplo, **DistributedTracingSettings**.
+1. No campo **nome** , insira um nome para uma nova configuração de diagnóstico. Por exemplo, **DistributedTracingSettings**.
 
-1. Escolha um ou mais das seguintes opções que determinam em que será enviado o registo:
+1. Escolha uma ou mais das seguintes opções que determinam onde o log será enviado:
 
-    - **Arquivo para uma conta de armazenamento**: Configure uma conta de armazenamento para armazenar as informações de registo.
-    - **Stream para um hub de eventos**: Configure um hub de eventos para conter as informações de registo.
-    - **Enviar para o Log Analytics**: Configure uma área de trabalho do log analytics para conter as informações de registo.
+    - **Arquivar em uma conta de armazenamento**: Configure uma conta de armazenamento para conter as informações de log.
+    - **Transmitir para um hub de eventos**: Configure um hub de eventos para conter as informações de log.
+    - **Enviar para log Analytics**: Configure um espaço de trabalho do log Analytics para conter as informações de log.
 
-1. Na **Log** secção, selecione as operações que pretende que as informações de registo para.
+1. Na seção **log** , selecione as operações para as quais você deseja registrar informações.
 
-    Certifique-se de incluir **DistributedTracing**e configurar um **retenção** quantos dias pretende obter o Registro em log retido. Retenção do registo afeta os custos de armazenamento.
+    Certifique-se de incluir **DistributedTracing**e configurar uma **retenção** de quantos dias você deseja que o log seja retido. A retenção de log afeta os custos de armazenamento.
 
-    ![Captura de ecrã que mostra onde a categoria de DistributedTracing é para as definições de diagnóstico de IoT](./media/iot-hub-distributed-tracing/diag-logs.png)
+    ![Captura de tela mostrando onde a categoria DistributedTracing é para configurações de diagnóstico de IoT](./media/iot-hub-distributed-tracing/diag-logs.png)
 
-1. Clique em **guardar** para a nova definição.
+1. Clique em **salvar** para a nova configuração.
 
-1. (Opcional) Para ver as mensagens fluam para locais diferentes e configure as [regras de encaminhamento para, pelo menos, dois pontos de extremidade diferentes](iot-hub-devguide-messages-d2c.md).
+1. Adicional Para ver o fluxo de mensagens para locais diferentes, configure [as regras de roteamento para pelo menos dois pontos de extremidade diferentes](iot-hub-devguide-messages-d2c.md).
 
-Assim que o registo está ativado, o IoT Hub regista um registo de quando uma mensagem que contém as propriedades de rastreio válido é encontrada em qualquer uma das seguintes situações:
+Depois que o registro em log for ativado, o Hub IoT registrará um log quando uma mensagem contendo propriedades de rastreamento válidas for encontrada em qualquer uma das seguintes situações:
 
-- As mensagens chegam gateway do IoT Hub.
-- A mensagem é processada pelo IoT Hub.
-- A mensagem é encaminhada para os pontos finais personalizados. Encaminhamento tem de estar ativado.
+- As mensagens chegam ao gateway do Hub IoT.
+- A mensagem é processada pelo Hub IoT.
+- A mensagem é roteada para pontos de extremidade personalizados. O roteamento deve estar habilitado.
 
-Para saber mais sobre estes registos e dos respetivos esquemas, veja [distribuídas de rastreio nos registos de diagnóstico do IoT Hub](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Para saber mais sobre esses logs e seus esquemas, consulte [rastreamento distribuído em logs de diagnóstico do Hub IOT](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
-## <a name="set-up-device"></a>Configurar o dispositivo
+## <a name="set-up-device"></a>Configurar dispositivo
 
-Nesta secção, deve preparar-se um ambiente de desenvolvimento para utilização com o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). Em seguida, modifique um dos exemplos para ativar o rastreio distribuído em mensagens de telemetria do seu dispositivo.
+Nesta seção, você prepara um ambiente de desenvolvimento para uso com o [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c). Em seguida, modifique um dos exemplos para habilitar o rastreamento distribuído nas mensagens de telemetria do dispositivo.
 
-Estas instruções são para a criação de exemplo no Windows. Para outros ambientes, veja [Compile o SDK de C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) ou [previamente incluídas em pacotes SDK de C para plataforma de desenvolvimento específicas](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development).
+Estas instruções são para a criação do exemplo no Windows. Para outros ambientes, consulte [compilar o SDK do c ou o](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) [SDK do c empacotado para o desenvolvimento específico da plataforma](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development).
 
 ### <a name="clone-the-source-code-and-initialize"></a>Clonar o código-fonte e inicializar
 
-1. Instale [carga de trabalho "Ambiente de trabalho de desenvolvimento com C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) para Visual Studio 2015 ou 2017.
+1. Instale a [carga de trabalho C++"desenvolvimento de desktops com"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) para o Visual Studio 2015 ou 2017.
 
-1. Instale [CMake](https://cmake.org/). Certifique-se de que ele está no seu `PATH` digitando `cmake -version` num prompt de comando.
+1. Instale o [CMake](https://cmake.org/). Verifique se ele está no seu `PATH` digitando `cmake -version` a partir de um prompt de comando.
 
 1. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
 
@@ -109,7 +109,7 @@ Estas instruções são para a criação de exemplo no Windows. Para outros ambi
     cmake ..
     ```
 
-    Se `cmake` não é possível encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Se `cmake` o não conseguir C++ localizar seu compilador, você poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
@@ -127,105 +127,105 @@ Estas instruções são para a criação de exemplo no Windows. Para outros ambi
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Editar o exemplo de telemetria de envio para ativar o rastreio distribuído
+### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Editar o exemplo enviar telemetria para habilitar o rastreamento distribuído
 
-1. Utilize um editor para abrir o `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` ficheiro de origem.
+1. Use um editor para abrir o `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` arquivo de origem.
 
 1. Procure a declaração da constante `connectionString`:
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    Substitua o valor do `connectionString` constante com a cadeia de ligação do dispositivo anotou no [registar um dispositivo](./quickstart-send-telemetry-c.md#register-a-device) seção do [enviar telemetria início rápido de C](./quickstart-send-telemetry-c.md).
+    Substitua o valor da `connectionString` constante pela cadeia de conexão do dispositivo anotada na seção [registrar um dispositivo](./quickstart-send-telemetry-c.md#register-a-device) do [início rápido enviar telemetria C](./quickstart-send-telemetry-c.md).
 
-1. Alteração da `MESSAGE_COUNT` definir para `5000`:
+1. Altere a `MESSAGE_COUNT` definição de `5000`para:
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
 
-1. Localize a linha de código que chama `IoTHubDeviceClient_LL_SetConnectionStatusCallback` registrar uma função de retorno de chamada de estado de ligação antes do loop de mensagem de envio. Adicionar código sob essa linha, conforme mostrado abaixo, para chamar `IoTHubDeviceClient_LL_EnablePolicyConfiguration` ativar o rastreio distribuído para o dispositivo:
+1. Localize a linha de código que chama `IoTHubDeviceClient_LL_SetConnectionStatusCallback` para registrar uma função de retorno de chamada de status de conexão antes do loop de mensagem de envio. Adicione o código sob essa linha, conforme mostrado abaixo `IoTHubDeviceClient_LL_EnablePolicyConfiguration` para chamar habilitando o rastreamento distribuído para o dispositivo:
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
 
-    O `IoTHubDeviceClient_LL_EnablePolicyConfiguration` função permite que as políticas para funcionalidades específicas do IoTHub que estão configuradas por meio [dispositivos duplos](./iot-hub-devguide-device-twins.md). Uma vez `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` está ativado com a linha de código acima, o comportamento de rastreamento do dispositivo irá refletir as alterações de rastreio distribuído feitas no dispositivo duplo.
+    A `IoTHubDeviceClient_LL_EnablePolicyConfiguration` função habilita políticas para recursos específicos do IoTHub configurados por meio do [dispositivo gêmeos](./iot-hub-devguide-device-twins.md). Uma `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` vez habilitado com a linha de código acima, o comportamento de rastreamento do dispositivo refletirá as alterações de rastreamento distribuídas feitas no dispositivo.
 
-1. Para manter a aplicação de exemplo em execução sem utilizar a segurança de todos os sua quota, adicione um atraso de um segundo no final do loop de mensagem de envio:
+1. Para manter o aplicativo de exemplo em execução sem usar toda a sua cota, adicione um atraso de um segundo no final do loop de envio de mensagem:
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
 
 ### <a name="compile-and-run"></a>Compilar e executar
 
-1. Navegue para o *iothub_ll_telemetry_sample* diretório do projeto do diretório CMake (`azure-iot-sdk-c/cmake`) que criou anteriormente e compile o exemplo:
+1. Navegue até o diretório do projeto *iothub_ll_telemetry_sample* do diretório CMake (`azure-iot-sdk-c/cmake`) criado anteriormente e compile o exemplo:
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Execute a aplicação. O dispositivo envia telemetria de rastreio distribuído de suporte.
+1. Execute a aplicação. O dispositivo envia telemetria com suporte ao rastreamento distribuído.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
     ```
 
-1. Mantenha a executar a aplicação. Opcionalmente, observe a mensagem enviada para o IoT Hub ao observar a janela da consola.
+1. Mantenha o aplicativo em execução. Como opção, observe a mensagem que está sendo enviada ao Hub IoT examinando a janela do console.
 
 <!-- For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).  -->
 
-### <a name="workaround-for-third-party-clients"></a>Solução para clientes de terceiros
+### <a name="workaround-for-third-party-clients"></a>Solução alternativa para clientes de terceiros
 
-Ele possui **não trivial** para pré-visualizar a funcionalidade de rastreio distribuído sem utilizar o SDK de C. Portanto, essa abordagem não é recomendada.
+Não é **trivial** Visualizar o recurso de rastreamento distribuído sem usar o SDK do C. Portanto, essa abordagem não é recomendada.
 
-Em primeiro lugar, deve implementar todas as primitivas de protocolo de IoT Hub nas suas mensagens, seguindo o Guia do programador [criar e ler mensagens do IoT Hub](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens para adicionar MQTT/AMQP `tracestate` como **propriedade de sistema**. Mais concretamente:
+Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP `tracestate` para adicionar como **Propriedade do sistema**. Mais concretamente:
 
-* Para MQTT, adicione `%24.tracestate=timestamp%3d1539243209` para o tópico de mensagens, onde `1539243209` deve ser substituído pela hora de criação da mensagem no formato unix timestamp. Por exemplo, consulte a implementação [no SDK de C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
-* Para AMQP, adicione `key("tracestate")` e `value("timestamp=1539243209")` como mensagem de anotação. Para uma implementação de referência, consulte [aqui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+* Para MQTT, adicione `%24.tracestate=timestamp%3d1539243209` ao tópico da mensagem, onde `1539243209` deve ser substituído pelo horário de criação da mensagem no formato de carimbo de data/hora do UNIX. Por exemplo, consulte a implementação [no SDK do C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* Para AMQP, adicione `key("tracestate")` e `value("timestamp=1539243209")` como anotação de mensagem. Para obter uma implementação de referência, consulte [aqui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
 
-Para controlar a percentagem de mensagens que contêm esta propriedade, implemente a lógica para escutar eventos iniciadas por nuvem, como atualizações de duplo.
+Para controlar a porcentagem de mensagens que contêm essa propriedade, implemente a lógica para escutar eventos iniciados na nuvem, como atualizações de atualização.
 
-## <a name="update-sampling-options"></a>Opções de atualização de amostragem 
+## <a name="update-sampling-options"></a>Atualizar opções de amostragem 
 
-Para alterar a percentagem de mensagens de rastreamento da cloud, tem de atualizar o dispositivo duplo. Pode conseguir este várias formas, incluindo o editor de JSON no portal e o SDK do serviço IoT Hub. As subsecções seguintes fornecem exemplos.
+Para alterar a porcentagem de mensagens a serem rastreadas da nuvem, você deve atualizar o dispositivo. Você pode fazer isso de várias maneiras, incluindo o editor de JSON no portal e o SDK do serviço de Hub IoT. As subseções a seguir fornecem exemplos.
 
-### <a name="update-using-the-portal"></a>Atualizar com o portal
+### <a name="update-using-the-portal"></a>Atualizar usando o portal
 
-1. Navegue até ao seu IoT hub no [portal do Azure](https://portal.azure.com/), em seguida, clique em **dispositivos IoT**.
+1. Navegue até o Hub IoT em [portal do Azure](https://portal.azure.com/)e clique em **dispositivos IOT**.
 
-1. Clique no seu dispositivo.
+1. Clique em seu dispositivo.
 
-1. Procure **distribuídas de ativar o rastreio (pré-visualização)** , em seguida, selecione **ativar**.
+1. Procure **habilitar o rastreamento distribuído (versão prévia)** e, em seguida, selecione **habilitar**.
 
-    ![Ativar o rastreio distribuído no portal do Azure](./media/iot-hub-distributed-tracing/azure-portal.png)
+    ![Habilitar o rastreamento distribuído no portal do Azure](./media/iot-hub-distributed-tracing/azure-portal.png)
 
-1. Escolher uma **taxa de amostragem** entre 0% e 100%.
+1. Escolha uma **taxa de amostragem** entre 0% e 100%.
 
 1. Clique em **Guardar**.
 
-1. Aguarde alguns segundos e prima **atualizar**, em seguida, se confirmar com êxito por dispositivo, é apresentado um ícone de sincronização com uma marca de verificação.
+1. Aguarde alguns segundos e clique em **Atualizar**e, se for confirmado com êxito pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
 
-1. Volte para a janela da consola para a aplicação de mensagem de telemetria. Verá as mensagens enviadas com `tracestate` nas propriedades da aplicação.
+1. Volte para a janela do console do aplicativo de mensagem de telemetria. Você verá as mensagens sendo enviadas com `tracestate` as propriedades do aplicativo.
 
-    ![Estado de rastreio](./media/iot-hub-distributed-tracing/MicrosoftTeams-image.png)
+    ![Estado de rastreamento](./media/iot-hub-distributed-tracing/MicrosoftTeams-image.png)
 
-1. (Opcional) Alterar a frequência de amostragem para um valor diferente e observe a alteração na frequência com que as mensagens incluem `tracestate` nas propriedades da aplicação.
+1. Adicional Altere a taxa de amostragem para um valor diferente e observe a alteração na frequência em que as `tracestate` mensagens incluem nas propriedades do aplicativo.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Atualização usando o Kit de ferramentas do Azure IoT Hub para o VS Code
+### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Atualizar usando o kit de ferramentas do Hub IoT do Azure para VS Code
 
-1. Instalar o VS Code, em seguida, instale a versão mais recente do Kit de ferramentas do Azure IoT Hub para o código VS a partir [aqui](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Instale o VS Code e instale a versão mais recente do kit de ferramentas do Hub IoT do Azure para VS Code [aqui](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
-1. Abra o VS Code e [configurar a cadeia de ligação do IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
+1. Abra VS Code e [Configure a cadeia de conexão do Hub IOT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expanda o dispositivo e procure **distribuído rastreio definição (pré-visualização)** . Clique em **distribuído rastreio definição de atualização (pré-visualização)** do nó de sub-rotina.
+1. Expanda o dispositivo e procure **configuração de rastreamento distribuído (versão prévia)** . Sob ele, clique em **Atualizar configuração de rastreamento distribuído (versão prévia)** do subnó.
 
-    ![Ativar o rastreio distribuído no Kit de ferramentas do Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Habilitar o rastreamento distribuído no kit de ferramentas do Hub IoT do Azure](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
-1. Na janela de pop-up, selecione **ativar**, em seguida, prima Enter para confirmar a 100 como taxa de amostragem.
+1. Na janela pop-up, selecione **habilitar**e pressione ENTER para confirmar 100 como taxa de amostragem.
 
-    ![Modo de amostragem de atualização](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
+    ![Atualizar modo de amostragem](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Frequência de amostragem de atualização](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Taxa de amostragem de atualização](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>Atualização em massa para vários dispositivos
 
-Para atualizar a configuração de amostragem de rastreio distribuído para vários dispositivos, utilize [configuração do dispositivo automática](iot-hub-auto-device-config.md). Certifique-se de que segue este esquema de duplo:
+Para atualizar a configuração de amostragem de rastreamento distribuído para vários dispositivos, use [configuração automática de dispositivo](iot-hub-auto-device-config.md). Certifique-se de seguir este esquema de entrelaçamento:
 
 ```json
 {
@@ -240,18 +240,18 @@ Para atualizar a configuração de amostragem de rastreio distribuído para vár
 }
 ```
 
-| Nome do elemento | Necessário | Tipo | Descrição |
+| Nome do elemento | Requerido | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sim | Integer | Dois valores de modo são atualmente suportados para ativar e desativar a amostragem. `1` está ativada e, `2` está desativada. |
-| `sampling_rate` | Sim | Integer | Este valor é uma percentagem. Apenas os valores da `0` para `100` (inclusive) são permitidos.  |
+| `sampling_mode` | Sim | Integer | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1`é on e, `2` está desativado. |
+| `sampling_rate` | Sim | Integer | Esse valor é uma porcentagem. Somente os valores `0` de `100` para (inclusivo) são permitidos.  |
 
-## <a name="query-and-visualize"></a>Consultar e visualizar
+## <a name="query-and-visualize"></a>Consulta e visualização
 
-Para ver todos os rastreios registados por um IoT Hub, consulte o arquivo de log que selecionou nas definições de diagnóstico. Esta secção descreve algumas opções diferentes.
+Para ver todos os rastreamentos registrados por um hub IoT, consulte o repositório de logs que você selecionou nas configurações de diagnóstico. Esta seção percorre algumas opções diferentes.
 
-### <a name="query-using-log-analytics"></a>Consultar com o Log Analytics
+### <a name="query-using-log-analytics"></a>Consultar usando Log Analytics
 
-Se configurou [Log Analytics com os registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-stream-log-store.md), consulta, procurando registos no `DistributedTracing` categoria. Por exemplo, esta consulta apresenta todos os rastreios registados:
+Se você tiver configurado [log Analytics com logs de diagnóstico](../azure-monitor/platform/resource-logs-collect-storage.md), consulte procurando logs na `DistributedTracing` categoria. Por exemplo, essa consulta mostra todos os rastreamentos registrados em log:
 
 ```Kusto
 // All distributed traces 
@@ -261,63 +261,63 @@ AzureDiagnostics
 | order by TimeGenerated asc  
 ```
 
-Registos de exemplo conforme apresentado pelo Log Analytics:
+Logs de exemplo, conforme mostrado por Log Analytics:
 
-| TimeGenerated | OperationName | Category | Nível | CorrelationId | DurationMs | Propriedades |
+| TimeGenerated | OperationName | Category | Nível | CorrelationId | DurationMs | properties |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
-Para compreender os diferentes tipos de registos, consulte [registos de diagnóstico do IoT Hub do Azure](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Para entender os diferentes tipos de logs, consulte [logs de diagnóstico do Hub IOT do Azure](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
 ### <a name="application-map"></a>Mapeamento de Aplicações
 
-Para visualizar o fluxo de mensagens de IoT, configure a aplicação de exemplo do mapa da aplicação. A aplicação de exemplo envia os registos de rastreio distribuído para [mapa da aplicação](../application-insights/app-insights-app-map.md) usando uma função do Azure e um Hub de eventos.
+Para visualizar o fluxo de mensagens de IoT, configure o aplicativo de exemplo do mapa do aplicativo. O aplicativo de exemplo envia os logs de rastreamento distribuídos para o [mapa do aplicativo](../application-insights/app-insights-app-map.md) usando uma função do Azure e um hub de eventos.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no github</a>
 
-Esta imagem abaixo mostra o rastreio distribuído no mapa da aplicação com três pontos de extremidade de encaminhamento:
+Esta imagem abaixo mostra o rastreamento distribuído no mapa do aplicativo com três pontos de extremidade de roteamento:
 
-![IoT distribuído rastreio no mapa da aplicação](./media/iot-hub-distributed-tracing/app-map.png)
+![Rastreamento distribuído de IoT no mapa do aplicativo](./media/iot-hub-distributed-tracing/app-map.png)
 
-## <a name="understand-azure-iot-distributed-tracing"></a>Compreender o que rastreamento de distribuídas de IoT do Azure
+## <a name="understand-azure-iot-distributed-tracing"></a>Entender o rastreamento distribuído do Azure IoT
 
 ### <a name="context"></a>Contexto
 
-Muitas soluções de IoT, incluindo a nossa própria [arquitetura de referência](https://aka.ms/iotrefarchitecture) (apenas em inglês), em geral, siga uma variante do [uma arquitetura de microsserviço](https://docs.microsoft.com/azure/architecture/microservices/). À medida que uma solução de IoT aumenta mais complexa, acaba com microsserviços de uma dúzia ou mais. Estes microsserviços podem ou não ser do Azure. Indicar onde as mensagens IoT são remover ou tornar mais lentos pode se tornar um desafio. Por exemplo, tem uma solução de IoT que utiliza 5 diferentes serviços do Azure e os dispositivos ativos 1500. Cada dispositivo envia 10 dispositivo-para-cloud mensagens por segundo (para um total de 15 000 mensagens por segundo), mas notar que a aplicação web vê apenas 10 000 mensagens por segundo. Onde está o problema? Como encontra o culpado?
+Muitas soluções de IoT, incluindo nossa própria [arquitetura de referência](https://aka.ms/iotrefarchitecture) (somente em inglês), geralmente seguem uma variante da arquitetura de [microserviço](https://docs.microsoft.com/azure/architecture/microservices/). À medida que uma solução de IoT cresce mais complexa, você acaba usando uma dúzia ou mais de microserviços. Esses microserviços podem ou não ser do Azure. Identificar onde as mensagens de IoT estão descartando ou diminuindo pode se tornar desafiador. Por exemplo, você tem uma solução de IoT que usa 5 serviços do Azure e 1500 dispositivos ativos diferentes. Cada dispositivo envia 10 mensagens do dispositivo para a nuvem/segundo (para um total de 15.000 mensagens/segundo), mas você percebe que seu aplicativo Web vê apenas 10.000 mensagens/segundo. Onde está o problema? Como você acha o culpado?
 
-### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Padrão de rastreio distribuído numa arquitetura de microsserviço
+### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Padrão de rastreamento distribuído na arquitetura de microserviço
 
-Para reconstruir o fluxo de uma mensagem de IoT em todos os serviços diferentes, cada serviço deve propagar uma *ID de correlação* que identifica exclusivamente a mensagem. Depois de recolhidos num sistema centralizado, o IDs de correlação permitem-lhe ver o fluxo de mensagens. Esse método é chamado de [padrão de rastreio distribuído](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+Para reconstruir o fluxo de uma mensagem de IoT entre diferentes serviços, cada serviço deve propagar uma *ID de correlação* que identifica exclusivamente a mensagem. Depois de coletados em um sistema centralizado, as IDs de correlação permitem ver o fluxo de mensagens. Esse método é chamado de [padrão de rastreamento distribuído](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
-Para suportar mais ampla adoção para rastreio distribuído, a Microsoft está contribuindo com [proposta padrão do W3C para rastreio distribuído](https://w3c.github.io/trace-context/).
+Para dar suporte à adoção mais ampla para o rastreamento distribuído, a Microsoft está contribuindo para a [proposta padrão do W3C para rastreamento distribuído](https://w3c.github.io/trace-context/).
 
-### <a name="iot-hub-support"></a>Suporte do IoT Hub
+### <a name="iot-hub-support"></a>Suporte ao Hub IoT
 
-Uma vez ativada, o suporte de rastreio distribuído para o IoT Hub seguir este fluxo:
+Uma vez habilitado, o suporte de rastreamento distribuído para o Hub IoT seguirá este fluxo:
 
-1. É gerada uma mensagem no dispositivo IoT.
-1. O dispositivo de IoT decide (com a ajuda da cloud) que esta mensagem deve ser atribuída com um contexto de rastreio.
-1. O SDK adiciona um `tracestate` para a propriedade de aplicativo de mensagem, que contém o carimbo de hora de criação de mensagem.
-1. O dispositivo de IoT envia a mensagem para o IoT Hub.
-1. A mensagem chega no gateway do hub IoT.
-1. IoT Hub procura o `tracestate` nas propriedades da mensagem de aplicativo e verifica se está no formato correto.
-1. Se, por isso, o IoT Hub gera e faz a `trace-id` e `span-id` para os registos de diagnóstico do Azure Monitor na categoria `DiagnosticIoTHubD2C`.
-1. Quando o processamento da mensagem for concluído, o IoT Hub gera outra `span-id` e regista-lo juntamente com a atual `trace-id` sob a categoria `DiagnosticIoTHubIngress`.
-1. Se o encaminhamento é ativado para a mensagem, o IoT Hub escreve-os para o ponto final personalizado e registos de outro `span-id` com o mesmo `trace-id` sob a categoria `DiagnosticIoTHubEgress`.
-1. Os passos acima são repetidos para cada mensagem gerada.
+1. Uma mensagem é gerada no dispositivo IoT.
+1. O dispositivo IoT decide (com ajuda da nuvem) que essa mensagem deve ser atribuída com um contexto de rastreamento.
+1. O SDK adiciona um `tracestate` à propriedade de aplicativo de mensagem, que contém o carimbo de data/hora de criação da mensagem.
+1. O dispositivo IoT envia a mensagem para o Hub IoT.
+1. A mensagem chega ao gateway do Hub IoT.
+1. O Hub IOT procura o `tracestate` nas propriedades do aplicativo de mensagem e verifica se ele está no formato correto.
+1. Nesse caso, o Hub IOT gera e registra `trace-id` o `span-id` e para Azure monitor logs de diagnóstico na `DiagnosticIoTHubD2C`categoria.
+1. Depois que o processamento da mensagem for concluído, o Hub `span-id` IOT gerará outro e o registrará junto com `DiagnosticIoTHubIngress`o existente `trace-id` na categoria.
+1. Se o roteamento estiver habilitado para a mensagem, o Hub IOT o gravará no ponto de extremidade personalizado `span-id` e registrará `trace-id` outro com o `DiagnosticIoTHubEgress`mesmo na categoria.
+1. As etapas acima são repetidas para cada mensagem gerada.
 
-## <a name="public-preview-limits-and-considerations"></a>Limites de pré-visualização pública e considerações
+## <a name="public-preview-limits-and-considerations"></a>Considerações e limites de visualização pública
 
-- Proposta para o standard de contexto de rastreio do W3C é atualmente um rascunho funcional.
-- Atualmente, a linguagem de desenvolvimento apenas suportada pelo SDK de cliente é C.
-- Não está disponível para a capacidade de nuvem para o dispositivo duplo [escalão básico do IoT Hub](iot-hub-scaling.md#basic-and-standard-tiers). No entanto, o IoT Hub ainda regista para o Azure Monitor se encontrar um cabeçalho de contexto de rastreio corretamente formado.
-- Para garantir a operação eficiente, o IoT Hub irá impor uma limitação à tarifa de registo que pode ocorrer como parte do rastreio distribuído.
+- A proposta para o padrão de contexto de rastreamento W3C atualmente é um rascunho funcional.
+- Atualmente, a única linguagem de desenvolvimento com suporte do SDK do cliente é C.
+- A funcionalidade de computação de nuvem para dispositivo não está disponível para a [camada básica do Hub IOT](iot-hub-scaling.md#basic-and-standard-tiers). No entanto, o Hub IoT ainda fará logon no Azure Monitor se vir um cabeçalho de contexto de rastreamento composto corretamente.
+- Para garantir uma operação eficiente, o Hub IoT imporá uma limitação na taxa de registro em log que pode ocorrer como parte do rastreamento distribuído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre o padrão geral de rastreio distribuído em microsserviços, veja [padrão de arquitetura de Microsserviços: distribuído rastreio](https://microservices.io/patterns/observability/distributed-tracing.html).
-- Para definir a configuração para aplicar definições de rastreio distribuído para um grande número de dispositivos, consulte [configurar e monitorizar dispositivos de IoT em escala](iot-hub-auto-device-config.md).
-- Para saber mais sobre o Azure Monitor, consulte [o que é o Azure Monitor?](../azure-monitor/overview.md).
+- Para saber mais sobre o padrão de rastreamento distribuído geral em microservices, consulte [padrão de arquitetura de microserviço: rastreamento distribuído](https://microservices.io/patterns/observability/distributed-tracing.html).
+- Para definir a configuração para aplicar configurações de rastreamento distribuído a um grande número de dispositivos, consulte [configurar e monitorar dispositivos IOT em escala](iot-hub-auto-device-config.md).
+- Para saber mais sobre Azure Monitor, confira [o que é Azure monitor?](../azure-monitor/overview.md).

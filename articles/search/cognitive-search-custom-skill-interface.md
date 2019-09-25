@@ -8,17 +8,16 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: c424fec550a52830db8e32682b68f49f486ba119
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b5529babfae37fa0d9f4de46018bb3b107ce4eae
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183488"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265832"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva
 
-Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado de [habilidades](cognitive-search-predefined-skills.md) predefinidas, bem como [habilidades personalizadas](cognitive-search-custom-skill-web-api.md) que você cria pessoalmente e adiciona ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite que ela seja incluída em um pipeline de pesquisa cognitiva. 
+Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado de [habilidades predefinidas](cognitive-search-predefined-skills.md) , bem como [habilidades personalizadas](cognitive-search-custom-skill-web-api.md) que você cria pessoalmente e adiciona ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite que ela seja incluída em um pipeline de pesquisa cognitiva. 
 
 A criação de uma habilidade personalizada oferece uma maneira de inserir transformações exclusivas para seu conteúdo. Uma habilidade personalizada é executada de forma independente, aplicando qualquer etapa de enriquecimento necessária. Por exemplo, você pode definir entidades personalizadas específicas de campo, criar modelos de classificação personalizados para diferenciar contratos comerciais e financeiros e documentos ou adicionar uma habilidade de reconhecimento de fala para alcançar mais detalhes em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: Criar uma habilidade personalizada para pesquisa](cognitive-search-create-custom-skill-example.md)cognitiva.
 
@@ -45,7 +44,7 @@ Suponha que você queira criar um enriquecimento simples que identifique a prime
 
 Sua API Web deve estar pronta para receber um lote de registros de entrada. Cada membro da matriz de *valores* representa a entrada para um registro específico. Cada registro é necessário para ter os seguintes elementos:
 
-+ Um membro recordId que é o identificador exclusivo de um registro específico. Quando o enriquecimento retorna os resultados, ele deve fornecer esse recordId para permitir que o chamador corresponda os resultados do registro à sua entrada.
++ Um membro *recordId* que é o identificador exclusivo de um registro específico. Quando o enriquecimento retorna os resultados, ele deve fornecer esse *recordId* para permitir que o chamador corresponda os resultados do registro à sua entrada.
 
 + Um membro de *dados* , que é essencialmente um conjunto de campos de entrada para cada registro.
 
@@ -153,7 +152,7 @@ Quando você cria um aprimorador de API Web, pode descrever os cabeçalhos e os 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + [Exemplo: Criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

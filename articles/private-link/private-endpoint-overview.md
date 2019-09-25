@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7394a9e1b1fa90741bc26fc0e9b6b7e6284d75e0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104687"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266376"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
@@ -43,7 +43,7 @@ Aqui estão alguns detalhes importantes sobre pontos de extremidade privados:
  
 - Vários pontos de extremidade privados podem ser criados usando o mesmo recurso de link privado. Para uma única rede usando uma configuração de servidor DNS comum, a prática recomendada é usar um único ponto de extremidade privado para um determinado recurso de link privado para evitar entradas duplicadas ou conflitos na resolução de DNS. 
  
-- Vários pontos de extremidade privados podem ser criados nas mesmas ou em sub-redes diferentes na mesma rede virtual. Há limites para o número de pontos de extremidade privados que você pode criar em uma assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Vários pontos de extremidade privados podem ser criados nas mesmas ou em sub-redes diferentes na mesma rede virtual. Há limites para o número de pontos de extremidade privados que você pode criar em uma assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
  
@@ -124,10 +124,10 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 |As regras do NSG (grupo de segurança de rede) não se aplicam ao ponto de extremidade privado    |Não há suporte para NSG em pontos de extremidade privados. Embora as sub-redes que contenham o ponto de extremidade privado possam ter NSG associado a ela, as regras não serão efetivas no tráfego processado pelo ponto de extremidade privado. Você deve ter [imposição de políticas de rede desabilitada](disable-private-endpoint-network-policy.md) para implantar pontos de extremidade privados em uma sub-rede. O NSG ainda é imposto em outras cargas de trabalho hospedadas na mesma sub-rede.   | Controle o tráfego usando regras de NSG para o tráfego de saída em clientes de origem.        |
 |Os pontos de extremidade privados não podem ser criados em sub-redes habilitadas para ponto de extremidades de serviço ou cargas de trabalho especializadas    |Pontos de extremidade privados não podem ser implantados em sub-redes habilitadas para pontos de extremidade de serviço ou sub-redes delegadas a cargas de trabalho especializadas|  Crie uma sub-rede separada para implantar os pontos de extremidade privados.        |
 |o ponto de extremidade privado só pode ser mapeado para o serviço de vínculo privado (pertencente ao cliente) na mesma região    |   Não há suporte para a conexão a um serviço de vínculo privado (seu próprio) de uma região diferente       |  Durante a visualização, você deve implantar seu serviço de vínculo privado na mesma região.        |
-|Cargas de trabalho especializadas não podem acessar pontos de extremidade privados    |   Os seguintes serviços implantados em sua rede virtual não podem acessar nenhum recurso de link privado usando pontos de extremidade privados:<br>Plano de Serviço de Aplicações</br>Instância de Contentor do Azure</br>Ficheiros NetApp do Azure</br>HSM Dedicado do Azure<br>       |   Sem mitigação durante a visualização.       |
+|Cargas de trabalho especializadas não podem acessar pontos de extremidade privados    |   Os seguintes serviços implantados em sua rede virtual não podem acessar nenhum recurso de link privado usando pontos de extremidade privados:<br>Plano do Serviço de Aplicações</br>Instância de Contentor do Azure</br>Ficheiros NetApp do Azure</br>HSM Dedicado do Azure<br>       |   Sem mitigação durante a visualização.       |
 |  O portal não oferece suporte à criação de pontos de extremidade privados usando alias  |   O portal permite apenas a criação de pontos de extremidade privados usando o URI de recurso      | Usar URI de recurso para solicitar conexões de ponto de extremidade particulares        |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o portal](create-private-endpoint-portal.md)
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando a CLI](create-private-endpoint-cli.md)

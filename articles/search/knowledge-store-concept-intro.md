@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 07a0d3ef8660d32d14b8339fb76fa296b1c9635b
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202991"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265209"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de conhecimento em Azure Search?
 

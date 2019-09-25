@@ -3,8 +3,7 @@ title: Exemplo de Script do Azure PowerShell - Migrar blobs em várias contas de
 description: Ao utilizar o AzCopy, copia os conteúdos do Blob de uma conta de Armazenamento do Azure para outra.
 services: storage
 documentationcenter: na
-author: roygara
-manager: jeconnoc
+author: normesta
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -12,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
-ms.author: rogarana
-ms.openlocfilehash: 88eb97a206bc75bc9635da90eb9d48818ceef0f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.openlocfilehash: 0af945177289760ca0d2a97133a300d9978ce702
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61365588"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260630"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migrar os blobs para várias contas de armazenamento com AzCopy no Windows
 
@@ -26,7 +25,7 @@ Este exemplo copia todos os objetos do blob de uma conta de armazenamento de ori
 
 Para fazê-lo, é utilizado o comando `Get-AzStorageContainer`, que lista todos os contentores numa conta de armazenamento. Depois, o exemplo emite comandos AzCopy, copiando cada contentor da conta de armazenamento de origem para a de destino. Se ocorrerem falhas, o exemplo repete $retryTimes (a predefinição é três vezes, mas pode ser modificada com o parâmetro `-RetryTimes`). Se as falhas se verificarem em todas as repetições, o utilizador pode voltar a executar o script ao fornecer ao exemplo o último contentor copiado com êxito através do comando `-LastSuccessContainerName`. Em seguida, o exemplo continua a copiar contentores a partir desse ponto.
 
-Este exemplo requer a versão do módulo de armazenamento do Azure PowerShell **0,7** ou posterior. Pode utilizar `Get-Module -ListAvailable Az.storage` para verificar a versão que tem instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell). 
+Este exemplo requer o módulo de armazenamento Azure PowerShell versão **0,7** ou posterior. Pode utilizar `Get-Module -ListAvailable Az.storage` para verificar a versão que tem instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,7 +70,7 @@ Este script utiliza os seguintes comandos para copiar dados de uma conta de arma
 | [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Devolve os contentores associados a esta conta de armazenamento. |
 | [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Cria um contexto de armazenamento do Azure. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

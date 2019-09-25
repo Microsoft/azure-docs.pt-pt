@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
-ms.openlocfilehash: 8d91768d46d3e4a793982418da91f2d1877c5a79
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 09/26/2019
+ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162545"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259319"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -58,10 +58,11 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
 
 1. Selecione **introdução**.
 
-1.  Selecione **ml automatizado** na seção **criação** , no painel do lado esquerdo.
-Você verá a tela de **introdução** , já que este é seu primeiro experimento com o Machine Learning automatizado.
+1. No painel esquerdo, selecione **ml automatizado** na seção **criação** .
 
-    ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
+   Como esse é seu primeiro experimento de ML automatizado, você verá a tela introdução.
+
+   ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
 1. Selecione **criar experimento**. 
 
@@ -79,6 +80,7 @@ Você verá a tela de **introdução** , já que este é seu primeiro experiment
    >Para este tutorial, você usará a conta de armazenamento padrão e o contêiner criado com sua nova computação. Eles são preenchidos automaticamente no formulário.
     
 1. Selecione **criar** para obter o destino de computação. 
+
    **Isso leva alguns minutos para ser concluído.** 
 
 1. Após a criação, selecione o novo destino de computação na lista suspensa e selecione **Avançar**.
@@ -92,18 +94,18 @@ Você verá a tela de **introdução** , já que este é seu primeiro experiment
     1. Dê um nome exclusivo ao seu conjunto de dado e forneça uma descrição opcional. 
 
     1. Selecione **Avançar** na parte inferior esquerda para carregá-lo no contêiner padrão que foi configurado automaticamente durante a criação do espaço de trabalho. A visualização pública dá suporte apenas a carregamentos de arquivos locais. 
-
-    1. Quando o upload for concluído, as **configurações e** o formulário de visualização serão preenchidos de forma inteligente com base no tipo de arquivo. Verifique se o formulário está preenchido da seguinte maneira.
+    
+       Quando o upload for concluído, as configurações e o formulário de visualização serão preenchidos previamente com base no tipo de arquivo. 
+       
+    1. Verifique se as **configurações e** o formulário de visualização estão preenchidos da seguinte maneira e selecione **Avançar**.
         
-        Campo|Value
+        Campo|Valor do tutorial
         ---|---
         Formato do ficheiro| Delimitado
         Delimitador| Vírgula
         Codificação| UTF-8
         Cabeçalhos de coluna| Todos os ficheiros têm os mesmos cabeçalhos
         Ignorar linhas | Nenhum
-
-        Selecione **Seguinte**.
     
     1. O formulário de **esquema** permite a configuração adicional de seus dados para esse experimento. Para este exemplo, selecione a opção Alternar para o recurso **day_of_week** para não incluí-lo para este experimento. Selecione **concluído**, para concluir o carregamento do arquivo e a criação do conjunto de um para o experimento.
 
@@ -116,16 +118,17 @@ Você verá a tela de **introdução** , já que este é seu primeiro experiment
 1. Expanda **Configurações avançadas** e preencha os campos da seguinte maneira.
 
    >[!NOTE]
-   > Para este experimento, você não define uma pontuação de métrica ou o limite máximo de núcleos por iterações. Você também não impede que os algoritmos sejam testados.
+   > Neste tutorial, você não definirá uma pontuação de métrica ou um limite máximo de núcleos por iterações. Nem você bloqueará o teste de algoritmos.
    
-    Configurações&nbsp;avançadas|Descrição|Valor&nbsp;do&nbsp;tutorial
-    ------|---------|---
-    Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|**AUC_weighted** 
-    Critérios de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento será encerrado mesmo que ele não tenha sido totalmente concluído. |Tempo&nbsp;&nbsp;de trabalho de treinamento (minutos):&nbsp; **05**  <br> <br> Máximo&nbsp;# de iterações&#58;10&nbsp;&nbsp; 
-    Pré-processamento| Habilita o pré-processamento feito pelo aprendizado de máquina automatizado. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
-    Validação| Tipo de validação e número de testes. | Validação cruzada de **K-fold**<br><br>  validações cruzadas: **2** 
-    Simultaneidade| O número máximo de iterações simultâneas.|**5**
-
+   Configurações&nbsp;avançadas|Descrição|Valor&nbsp;do&nbsp;tutorial
+   ------|---------|---
+   Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|AUC_weighted
+   Critérios de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Hora&nbsp;do&nbsp;trabalho de treinamento: 5 <br> <br> Máximo&nbsp;de#iterações&#58;10&nbsp;&nbsp;
+   Pré-processamento| Habilita o pré-processamento feito pelo aprendizado de máquina automatizado. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
+   Tipo de validação | Escolha um tipo de validação cruzada.|Validação cruzada de K-fold
+   Número de validações | Número de testes. | 2 validações cruzadas 
+   Simultaneidade| O número máximo de iterações simultâneas.|5
+   
 1. Selecione **Iniciar** para executar o experimento. Uma tela é exibida com uma mensagem de status à medida que a preparação do experimento é iniciada.
 
 >[!IMPORTANT]

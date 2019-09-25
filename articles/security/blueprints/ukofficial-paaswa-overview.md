@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946523"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262772"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Esquema de Segurança e Conformidade do Azure: Hospedagem de aplicativos Web de PaaS para cargas de trabalho oficiais do Reino Unido
 
@@ -112,8 +112,8 @@ Este modelo implanta os seguintes recursos do serviço de aplicativo:
 - [Padrão](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) Camada do plano do serviço de aplicativo
 - Vários slots de [implantação](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)do serviço de aplicativo: Dev, Preview, QA, UAT e, é claro, Production (slot padrão).
 - [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity) para se conectar ao [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (isso também pode ser usado para fornecer acesso ao [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) 
-- Integração com o [aplicativo Azure](../../azure-monitor/app/azure-web-apps.md) insights para monitorar o desempenho
-- [Registos de Diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- Integração com o [aplicativo Azure insights](../../azure-monitor/app/azure-web-apps.md) para monitorar o desempenho
+- [Registos de Diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) 
 - [Alertas](../../azure-monitor/app/alerts.md) de métrica 
 - [Aplicações API do Azure](https://azure.microsoft.com/services/app-service/api/) 
 
@@ -126,7 +126,7 @@ Banco de dados SQL do Azure neste projeto
 A instância do banco de dados SQL do Azure usa as seguintes medidas de segurança de banco de dados:
 
 - Regras de firewall no nível de [servidor e de banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)ou por meio de [pontos de extremidade de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regras de rede virtual](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
-- A Transparent [Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ajuda a proteger o banco de dados SQL do Azure e o Azure data warehouse contra a ameaça de atividades mal-intencionadas. Ele executa criptografia e descriptografia em tempo real do banco de dados, backups associados e arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.
+- A [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ajuda a proteger o banco de dados SQL do Azure e o Azure data warehouse contra a ameaça de atividades mal-intencionadas. Ele executa criptografia e descriptografia em tempo real do banco de dados, backups associados e arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.
 - [Autenticação do Azure ad](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication), você pode gerenciar centralmente as identidades dos usuários do banco de dados e outros serviços da Microsoft em um local central. O gerenciamento de identificação central fornece um único local para gerenciar usuários de banco de dados e simplifica o gerenciamento de permissões.
 - Uso de Azure Active Directory para administração de banco de dados
 - [Logs de auditoria](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para contas de armazenamento

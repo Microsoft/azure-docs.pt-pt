@@ -14,18 +14,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 19291e233e4086815488973629167cc7d7dc9f4a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240547"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261872"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
-
-
 
 Microsoft Azure Sentinel é uma solução de disparar **(gerenciamento de eventos de informações de segurança)** escalonável, nativa de nuvem e de ingestão de **segurança (** Siem). O Azure Sentinel fornece análise de segurança inteligente e inteligência contra ameaças em toda a empresa, fornecendo uma solução única para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças. 
 
@@ -73,10 +71,9 @@ Por exemplo, se você usar o sistema de tíquetes do ServiceNow, poderá usar as
 ![Manuais de procedimentos](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
+## <a name="investigation"></a>Investigação
 
-## <a name="investigation-preview"></a>Investigação (versão prévia)
-
-As ferramentas de [investigação profunda](tutorial-investigate-cases.md) do Azure Sentinel ajudam você a entender o escopo e encontrar a causa raiz de uma possível ameaça à segurança. Você pode escolher uma entidade no gráfico interativo para fazer perguntas interessantes para uma entidade específica e fazer uma busca detalhada nessa entidade e suas conexões para chegar à causa raiz da ameaça. 
+Atualmente em visualização, as ferramentas de [investigação profunda](tutorial-investigate-cases.md) do Azure Sentinel ajudam você a entender o escopo e encontrar a causa raiz de uma possível ameaça à segurança. Você pode escolher uma entidade no gráfico interativo para fazer perguntas interessantes para uma entidade específica e fazer uma busca detalhada nessa entidade e suas conexões para chegar à causa raiz da ameaça. 
 
 ![Investigação](./media/tutorial-investigate-cases/map-timeline.png)
 

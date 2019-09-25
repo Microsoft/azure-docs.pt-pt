@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5b5efa4a8c6d92f9937709f57f99851c90058dda
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067685"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266261"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Início rápido: Personalizar a biblioteca de cliente para Python
 
@@ -128,6 +128,12 @@ O código a seguir no `main` método do programa executa um loop em um ciclo de 
 
 Examine de perto as chamadas de classificação e recompensa nas seções a seguir.
 
+Adicione os seguintes métodos, que [obtêm as opções de conteúdo](#get-content-choices-represented-as-actions), antes de executar o arquivo de código:
+
+* get_user_preference
+* get_user_timeofday
+* get_actions
+
 ## <a name="request-a-rank"></a>Solicitar uma classificação
 
 Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar `currentContent` uma das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
@@ -161,7 +167,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Como o personalizador funciona](how-personalizer-works.md)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984890"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260295"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início rápido: Criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/).
@@ -29,7 +29,7 @@ Para criar uma partilha de ficheiros do Azure:
 2. Na página da conta de armazenamento, na secção **Serviços**, selecione **Ficheiros**.
     ![Uma captura de ecrã da secção Serviços da conta de armazenamento; selecione o Serviço de Ficheiros](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. No menu na parte superior da página **Serviço de Ficheiros**, clique em **+ Partilha de ficheiros**. É apresentada a página **Nova partilha de ficheiros**.
+3. No menu na parte superior da página **serviço de arquivo** , clique em **compartilhamento de arquivos**. É apresentada a página **Nova partilha de ficheiros**.
 4. Em **Nome**, escreva *myshare*.
 5. Clique em **OK** para criar a partilha de ficheiros do Azure.
 

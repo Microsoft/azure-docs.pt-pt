@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 2d97e46578775cd0d5612fb8d94680bb5be8080a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174776"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260049"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -48,7 +48,7 @@ Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinat
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
-1. No [GitHub](https://github/com), procure seu repositório, selecione **configurações** > **segredos** > **Adicionar um novo segredo**.
+1. No [GitHub](https://github.com), procure seu repositório, selecione **configurações** > **segredos** > **Adicionar um novo segredo**.
 
     ![Adicionar segredo](media/functions-how-to-github-actions/add-secret.png)
 
