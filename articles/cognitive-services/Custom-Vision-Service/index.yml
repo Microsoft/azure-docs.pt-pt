@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: d17e8eb8d7d70fa59919bb7ef0821189c5ea70c8
-  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.openlocfilehash: 931f67bd0f5c73426781da39ded3bcfff0a8dea3
+  ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/23/2019
-  ms.locfileid: "71203859"
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71211969"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -80,6 +80,8 @@ landingContent:
       url: test-your-model.md
     - text: Melhore o seu modelo
       url: getting-started-improving-your-classifier.md
+    - text: Utilizar as etiquetas sugeridas
+      url: suggested-tags.md
 - title: Exportar modelos
   linkLists:
   - linkListType: how-to-guide

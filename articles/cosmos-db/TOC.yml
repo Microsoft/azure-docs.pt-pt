@@ -227,6 +227,10 @@
           href: spark-api-introduction.md
         - name: Arquitetura de lambda
           href: lambda-architecture.md
+    - name: Análise incorporada com blocos de notas Jupyter
+      items:
+        - name: Descrição geral dos blocos de notas Jupyter
+          href: cosmosdb-jupyter-notebooks.md
     - name: Programação do lado do servidor
       items:
         - name: 'Procedimentos armazenados, acionadores e UDFs'
@@ -675,6 +679,10 @@
         - name: Transmissão em fluxo com o Apache Kafka e Cosmos DB
           href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
           maintainContext: true
+    - name: Blocos de notas Jupyter incorporados
+      items:
+        - name: Ativar blocos de notas
+          href: enable-notebooks.md
     - name: Programação do lado do servidor
       items:
         - name: 'Escrever procedimentos, acionadores e UDFs armazenados'
