@@ -142,10 +142,10 @@ Usando `AADClientCertificate`:
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | Cadeia de caracteres |
 | type | AzureDiskEncryptionForLinux | Cadeia de caracteres |
-| typeHandlerVersion | 0,1, 1,1 | int |
-| (esquema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | volume | 
-| (esquema 0,1) AADClientSecret | password | Cadeia de caracteres |
-| (esquema 0,1) AADClientCertificate | thumbprint | Cadeia de caracteres |
+| typeHandlerVersion | 0.1, 1,1 | int |
+| (esquema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | volume | 
+| (esquema 0.1) AADClientSecret | password | Cadeia de caracteres |
+| (esquema 0.1) AADClientCertificate | thumbprint | Cadeia de caracteres |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | Cadeia de caracteres | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | Cadeia de caracteres |
