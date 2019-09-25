@@ -1,6 +1,6 @@
 ---
-title: Mapeamento de esquema na atividade de cópia | Documentos da Microsoft
-description: Saiba mais sobre como a atividade de cópia no Azure Data Factory mapeia tipos de dados e esquemas de origem de dados para dados de sink, quando se copiam dados.
+title: Mapeamento de esquema na atividade de cópia | Microsoft Docs
+description: Saiba mais sobre como a atividade de cópia no Azure Data Factory mapeia esquemas e tipos de dados de dados de origem para coletar dados ao copiar dados.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,28 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b705123dc6492466c30b3c1ddaf4b330b0d684a1
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875807"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272268"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 
-Este artigo descreve como a atividade de cópia de fábrica de dados do Azure faz o mapeamento de esquema e o mapeamento de tipo de dados de origem de dados para dados de sink quando executar a cópia de dados.
+Este artigo descreve como a Azure Data Factory atividade de cópia faz mapeamento de esquema e mapeamento de tipo de dados dos dados de origem para coletar dados ao executar a cópia de dados.
 
 ## <a name="schema-mapping"></a>Mapeamento de esquema
 
-Mapeamento de colunas aplica-se ao copiar dados de origem para o sink. Por predefinição, a atividade de cópia **mapear dados de origem para o sink por nomes de coluna**. Pode especificar [mapeamento explícito](#explicit-mapping) para personalizar o mapeamento de colunas com base nas suas necessidades. Mais especificamente, a atividade de cópia:
+O mapeamento de coluna se aplica ao copiar dados da origem para o coletor. Por padrão, a atividade copiar **dados de origem do mapa para o coletor por nomes de coluna**. Você pode especificar o [mapeamento explícito](#explicit-mapping) para personalizar o mapeamento de coluna com base em sua necessidade. Mais especificamente, atividade de cópia:
 
-1. Ler os dados de origem e determinar o esquema de origem
-2. Utilizar o mapeamento de colunas predefinido para mapear colunas por nome ou aplicar o mapeamento de colunas explícita se for especificado.
-3. Escrever os dados de sink
+1. Ler os dados da origem e determinar o esquema de origem
+2. Use o mapeamento de coluna padrão para mapear colunas por nome ou aplicar mapeamento de coluna explícito, se especificado.
+3. Gravar os dados no coletor
 
 ### <a name="explicit-mapping"></a>Mapeamento explícito
 
-Pode especificar as colunas para mapear na atividade de cópia -> `translator`  ->  `mappings` propriedade. O exemplo seguinte define uma atividade de cópia num pipeline para copiar dados de texto delimitado para a base de dados do Azure SQL.
+Você pode especificar as colunas a serem mapeadas na Propriedade Copy `translator` ->.  ->  `mappings` O exemplo a seguir define uma atividade de cópia em um pipeline para copiar dados de um texto delimitado para o Azure SQL Database.
 
 ```json
 {
@@ -86,33 +86,33 @@ Pode especificar as colunas para mapear na atividade de cópia -> `translator`  
 }
 ```
 
-As seguintes propriedades são suportadas ao abrigo `translator`  ->  `mappings` -> objeto com `source` e `sink`:
+As propriedades a seguir têm suporte `translator` no  ->  `mappings` objeto-> `source` com `sink`e:
 
-| Propriedade | Descrição                                                  | Necessário |
+| Propriedade | Descrição                                                  | Requerido |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | Nome da coluna de origem ou sink.                           | Sim      |
-| ordinal  | Índice de coluna. Comece com 1. <br>Aplicam-se e é necessário quando utilizar delimitados por texto sem a linha de cabeçalho. | Não       |
-| path     | Expressão de caminho JSON para cada campo extrair ou mapear. Aplicam-se para dados hierárquicos por exemplo, MongoDB/REST.<br>Para os campos no objeto raiz, o caminho JSON é iniciado com a raiz $; para os campos dentro da matriz escolhida pela `collectionReference` propriedade, caminho JSON começa a partir do elemento de matriz. | Não       |
-| type     | Tipo de dados intermediárias de fábrica de dados da coluna de origem ou sink. | Não       |
-| culture  | Cultura da coluna de origem ou sink. <br>Aplicam-se quando é do tipo `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não       |
-| format   | Formatar a cadeia de caracteres a ser utilizado quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte a [data de personalizado e cadeias de caracteres de formato de tempo](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar datetime. | Não       |
+| name     | Nome da coluna de origem ou do coletor.                           | Sim      |
+| ordinal  | Índice de coluna. Comece com 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
+| path     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para dados hierárquicos, por exemplo, MongoDB/REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` Propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Não       |
+| type     | Data Factory tipo de dados provisório da coluna de origem ou do coletor. | Não       |
+| culture  | Cultura da coluna de origem ou do coletor. <br>Aplicar quando o tipo `Datetime` for `Datetimeoffset`ou. A predefinição é `en-us`. | Não       |
+| format   | Cadeia de caracteres de formato a ser usada `Datetime` quando `Datetimeoffset`o tipo é ou. Consulte [cadeias de caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não       |
 
-As seguintes propriedades são suportadas ao abrigo `translator`  ->  `mappings` além de objeto com `source` e `sink`:
+As propriedades a seguir têm suporte `translator`  ->  `mappings` em adição ao objeto com `source` e `sink`:
 
-| Propriedade            | Descrição                                                  | Necessário |
+| Propriedade            | Descrição                                                  | Requerido |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Suportado apenas quando dados hierárquicos por exemplo, a MongoDB/REST são origem.<br>Se pretender iterar e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e convertem-se por linha por objeto, especifique o caminho JSON dessa matriz entre-aplicar. | Não       |
+| collectionReference | Com suporte apenas quando dados hierárquicos, por exemplo, MongoDB/REST, é origem.<br>Se você quiser iterar e extrair dados dos objetos **dentro de um campo de matriz** com o mesmo padrão e convertê-los em por linha por objeto, especifique o caminho JSON dessa matriz para fazer a aplicação cruzada. | Não       |
 
-### <a name="alternative-column-mapping"></a>Mapeamento de colunas alternativo
+### <a name="alternative-column-mapping"></a>Mapeamento de coluna alternativo
 
-Pode especificar cópia atividade -> `translator`  ->  `columnMappings` para mapeamento entre os dados em forma tabela. Neste caso, a seção de "estrutura" é necessária para conjuntos de dados de entrada e saídos. Suporta de mapeamento de coluna **mapeamento todos ou subconjunto de colunas no conjunto de dados de origem "estrutura" para todas as colunas no conjunto de dados de sink "estrutura"** . Seguem-se as condições de erro que resultam numa exceção:
+Você pode especificar a atividade de cópia `translator` ->  ->  `columnMappings` para mapear entre dados em formato tabular. Nesse caso, a seção "Structure" é necessária para os conjuntos de dados de entrada e saída. O mapeamento de coluna dá suporte ao **mapeamento de todos ou subconjunto de colunas no conjunto de dados de origem "Structure" para todas as colunas no conjunto de dados do coletor "Structure"** . Veja a seguir as condições de erro que resultam em uma exceção:
 
-* Resultado não tem um nome de coluna especificado na seção de "estrutura" conjunto de dados de entrada de consulta de arquivo de dados de origem.
-* Arquivo de dados de sink (se com o esquema predefinido) não tem um nome de coluna especificado na seção de "estrutura" do conjunto de dados de saída.
-* Menos colunas ou mais colunas na "estrutura" do conjunto de dados de sink que especificado no mapeamento.
-* Mapeamento de duplicados.
+* O resultado da consulta do repositório de dados de origem não tem um nome de coluna especificado na seção "estrutura" do conjunto de dado de entrada.
+* O repositório de dados do coletor (se com o esquema predefinido) não tem um nome de coluna especificado na seção "estrutura" do conjunto de dado de saída.
+* Uma quantidade menor de colunas ou mais colunas na "estrutura" do conjunto de dados do coletor do que o especificado no mapeamento.
+* Mapeamento duplicado.
 
-No exemplo a seguir, o conjunto de dados de entrada tem uma estrutura e aponta para uma tabela numa base de dados Oracle no local.
+No exemplo a seguir, o conjunto de dados de entrada tem uma estrutura, e aponta para uma tabela em um Oracle Database local.
 
 ```json
 {
@@ -136,7 +136,7 @@ No exemplo a seguir, o conjunto de dados de entrada tem uma estrutura e aponta p
 }
 ```
 
-Neste exemplo, o conjunto de dados de saída tem uma estrutura e aponta para uma tabela no Salesfoce.
+Neste exemplo, o conjunto de dados de saída tem uma estrutura e aponta para uma tabela em Salesfoce.
 
 ```json
 {
@@ -160,7 +160,7 @@ Neste exemplo, o conjunto de dados de saída tem uma estrutura e aponta para uma
 }
 ```
 
-O JSON seguinte define uma atividade de cópia num pipeline. As colunas de origem mapeado para colunas no sink utilizando o **translator** -> **columnMappings** propriedade.
+O JSON a seguir define uma atividade de cópia em um pipeline. As colunas da origem são mapeadas para as colunas no coletor usando a propriedade do **Tradutor** -> **ColumnMappings** .
 
 ```json
 {
@@ -195,21 +195,21 @@ O JSON seguinte define uma atividade de cópia num pipeline. As colunas de orige
 }
 ```
 
-Se estiver a utilizar a sintaxe do `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` para especificar o mapeamento de colunas, ainda é suportado como-é.
+Se você estiver usando a sintaxe de `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` para especificar o mapeamento de coluna, ainda terá suporte como está.
 
 ### <a name="alternative-schema-mapping"></a>Mapeamento de esquema alternativo
 
-Pode especificar cópia atividade -> `translator`  ->  `schemaMapping` para mapear entre hierárquicas em forma de dados e os dados em forma tabela, por exemplo, copiar do MongoDB/REST para o ficheiro de texto e a cópia do Oracle para a API do Azure Cosmos DB para o MongoDB. As seguintes propriedades são suportadas na atividade de cópia `translator` secção:
+Você pode especificar a atividade de cópia `translator` ->  ->  `schemaMapping` para mapear entre dados em formato hierárquico e dados em formato de tabela, por exemplo, copiar do MongoDB/REST para o arquivo de texto e copiar do Oracle para a API do Azure Cosmos DB para MongoDB. As propriedades a seguir têm suporte na seção `translator` atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de conversor de atividade de cópia tem de ser definida: **TabularTranslator** | Sim |
-| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado de origem para o sink do lado do**.<br/>- **Key:** origem representa. Para **origem tabular**, especifique o nome da coluna, conforme definido na estrutura do conjunto de dados; para **origem hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear.<br>- **Value:** representa sink. Para **tabular sink**, especifique o nome da coluna, conforme definido na estrutura do conjunto de dados; para **sink hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear. <br>No caso de dados hierárquicos, para os campos no objeto raiz, o caminho JSON começa com a raiz $; para os campos dentro da matriz escolhida pela `collectionReference` propriedade, caminho JSON começa a partir do elemento de matriz.  | Sim |
-| collectionReference | Se pretender iterar e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e convertem-se por linha por objeto, especifique o caminho JSON dessa matriz entre-aplicar. Esta propriedade só é suportada quando dados hierárquicos são a origem. | Não |
+| type | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim |
+| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Key:** origem representa. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Value:** representa sink. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` Propriedade, o caminho JSON é iniciado a partir do elemento da matriz.  | Sim |
+| collectionReference | Se você quiser iterar e extrair dados dos objetos **dentro de um campo de matriz** com o mesmo padrão e convertê-los em por linha por objeto, especifique o caminho JSON dessa matriz para fazer a aplicação cruzada. Há suporte para essa propriedade somente quando os dados hierárquicos são de origem. | Não |
 
-**Exemplo: copie do MongoDB para Oracle:**
+**Exemplo: copiar do MongoDB para a Oracle:**
 
-Por exemplo, se tiver o documento do MongoDB com o seguinte conteúdo:
+Por exemplo, se você tiver um documento do MongoDB com o seguinte conteúdo:
 
 ```json
 {
@@ -236,15 +236,15 @@ Por exemplo, se tiver o documento do MongoDB com o seguinte conteúdo:
 }
 ```
 
-e quiser copiá-lo para uma tabela de SQL do Azure no seguinte formato, ao cruzá-los os dados no interior da matriz *(order_pd e order_price)* e em vários Junte-se com as informações de raiz comuns *(número, data e Cidade)* :
+e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, mesclando os dados dentro da matriz *(order_pd e order_price)* e Cross Join com as informações de raiz comuns *(número, data e cidade)* :
 
-| orderNumber | orderDate | order_pd | order_price | city |
+| orderNumber | Pedido | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
 | 01 | 20170122 | P1 | 23 | Seattle |
 | 01 | 20170122 | P2 | 13 | Seattle |
 | 01 | 20170122 | P3 | 231 | Seattle |
 
-Configure a regra de mapeamento de esquema como o seguinte exemplo JSON de atividade de cópia:
+Configure a regra de mapeamento de esquema como o seguinte exemplo de JSON da atividade de cópia:
 
 ```json
 {
@@ -274,19 +274,19 @@ Configure a regra de mapeamento de esquema como o seguinte exemplo JSON de ativi
 
 ## <a name="data-type-mapping"></a>Mapeamento de tipo de dados
 
-Atividade de cópia executa os tipos de origem para o sink de tipos de mapeamento com a seguinte abordagem de passo 2:
+A atividade de cópia executa tipos de origem no mapeamento de tipos de coletor com a seguinte abordagem de duas etapas:
 
-1. Converter de tipos de origem nativas para tipos de dados intermediárias do Azure Data Factory
-2. Converter entre tipos de dados intermediárias do Azure Data Factory para o tipo de sink nativo
+1. Converter de tipos de origem nativos em Azure Data Factory tipos de dados provisórios
+2. Converter de Azure Data Factory tipos de dados provisórios em tipo de coletor nativo
 
-Pode encontrar o mapeamento entre o tipo nativo para o tipo intermediário na seção "Mapeamento de tipo de dados" em cada tópico de conector.
+Você pode encontrar o mapeamento entre o tipo nativo para o tipo provisório na seção "mapeamento de tipo de dados" em cada tópico de conector.
 
-### <a name="supported-data-types"></a>Tipos de dados suportados
+### <a name="supported-data-types"></a>Tipos de dados com suporte
 
-Data Factory suporta os seguintes tipos de dados intermediárias: Pode especificar valores abaixo ao configurar informações de tipo no [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure-or-schema) configuração:
+O Data Factory dá suporte aos seguintes tipos de dados provisórios: Você pode especificar os valores abaixo ao configurar informações de tipo na configuração de [estrutura do conjunto](concepts-datasets-linked-services.md#dataset-structure-or-schema) de dados:
 
 * Byte[]
-* Boolean
+* Booleano
 * Datetime
 * Datetimeoffset
 * Decimal
@@ -296,10 +296,10 @@ Data Factory suporta os seguintes tipos de dados intermediárias: Pode especific
 * Int32
 * Int64
 * Single
-* String
-* Timespan
+* Cadeia
+* Período de tempo
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)

@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: memildin
-ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202272"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268852"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorar identidade e acesso na central de segurança do Azure (versão prévia)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
-
-> [!NOTE]
-> O link "exibir acesso à identidade *clássica* &" será desativado em 31 de julho de 2019. Clique [aqui](security-center-features-retirement-july2019.md#menu_classicidentity) para saber mais sobre serviços alternativos.
 
 > [!NOTE]
 > O monitoramento de identidade e acesso está em visualização e disponível somente na camada Standard da central de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
@@ -67,7 +64,7 @@ Em **identidade & acesso**, há duas guias:
 ### <a name="overview-section"></a>Seção de visão geral
 Em **visão geral**, há uma lista de recomendações. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de assinaturas afetadas por essa recomendação. A terceira coluna mostra a gravidade do problema.
 
-1. Selecione uma recomendação. A janela da recomendação é aberta e exibe:
+1. Selecione uma recomendação. A janela recomendações é aberta e exibe:
 
    - Descrição da recomendação
    - Lista de assinaturas não íntegras e íntegras
@@ -80,7 +77,7 @@ Em **visão geral**, há uma lista de recomendações. A primeira coluna indica 
 ### <a name="subscriptions-section"></a>Seção assinaturas
 Em **assinaturas**, há uma lista de assinaturas. A primeira coluna lista as assinaturas. A segunda coluna mostra o número total de recomendações para cada assinatura. A terceira coluna mostra as severidades dos problemas.
 
-![Guia da assinatura][4]
+![Guia assinaturas][4]
 
 1. Selecione uma subscrição. É aberta uma vista de resumida com três separadores:
 
@@ -125,13 +122,13 @@ Use a tabela abaixo como referência para ajudá-lo a entender a identidade disp
 > Se você criou uma política de acesso condicional que exige MFA, mas tem exclusões definidas, a avaliação de recomendação do MFA da central de segurança considera a política como não compatível, pois permite que alguns usuários entrem no Azure sem MFA.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
+Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes artigos:
 
 - [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
 - [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 - [Protegendo o serviço e os dados do SQL Azure na central de segurança do Azure](security-center-sql-service-recommendations.md)
 
-Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre respostas para as perguntas mais frequentes sobre o Centro de Segurança.

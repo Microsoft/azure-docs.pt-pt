@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097559"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268658"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -100,6 +100,8 @@ Não. Como o servidor proxy não tem estado, não é importante qual servidor pr
 **P: Há algum problema em implantar o serviço proxy de proteção por senha do Azure AD lado a lado com outros serviços, como Azure AD Connect?**
 
 Sim. O serviço proxy de proteção de senha do Azure AD e Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+
+Infelizmente, uma incompatibilidade foi encontrada entre a versão do serviço do atualizador do agente do Microsoft Azure AD Connect que é instalado pelo software de proxy de proteção de senha do Azure AD e a versão do serviço que é instalada pelo [Azure active ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)Software de proxy de aplicativo de diretório. Essa incompatibilidade pode fazer com que o serviço atualizador do agente não consiga contatar o Azure para atualizações de software. Não é recomendável instalar o proxy de proteção de senha do Azure AD e Proxy de Aplicativo do Azure Active Directory no mesmo computador.
 
 **P: Em que ordem os agentes e proxies de DC devem ser instalados e registrados?**
 

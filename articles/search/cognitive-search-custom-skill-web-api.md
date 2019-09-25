@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: a01518158e063d68734b1230f11cae78f461faac
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183466"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266313"
 ---
 # <a name="custom-web-api-skill"></a>Habilidades da API Web personalizada
 
@@ -197,7 +196,7 @@ A "saída" corresponde à resposta retornada de sua API da Web. A API Web deve r
 Além de sua API Web estar indisponível ou enviar códigos de status não bem-sucedidos, os seguintes são considerados casos errados:
 
 * Se a API da Web retornar um código de status de êxito, mas a resposta indicar `application/json` que ela não é, a resposta será considerada inválida e nenhum aperfeiçoamento será executado.
-* Se houver registros inválidos `recordId` (com não na solicitação original ou com valores duplicados) na matriz de `values` resposta, nenhum enriquecimento será executado para **esses** registros.
+* Se houver registros **inválidos** (com `recordId` não na solicitação original ou com valores duplicados) na matriz de `values` resposta, nenhum enriquecimento será executado para **esses** registros.
 
 Para casos em que a API Web não está disponível ou retorna um erro de HTTP, um erro amigável com todos os detalhes disponíveis sobre o erro HTTP será adicionado ao histórico de execução do indexador.
 

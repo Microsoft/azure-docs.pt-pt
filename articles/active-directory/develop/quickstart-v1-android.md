@@ -1,6 +1,6 @@
 ---
 title: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android | Microsoft Docs
-description: Saiba como iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android.
+description: Saiba como conectar usuários e chamar a API de Microsoft Graph do meu aplicativo Android.
 services: active-directory
 documentationcenter: android
 author: rwike77
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ebfce2b96da51b9c33646c1626495d280d7b8a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ac4007cc9379aa98d88099df13ba303063f9831f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592240"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268513"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo Android
 
@@ -88,7 +88,7 @@ Terá de ter uma aplicação cliente nativa registada na Microsoft com o [portal
     - Selecione **novo registro**.
     - Introduza um nome de aplicação no campo **Nome**.
     - Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
-    - Em **URI**de redirecionamento, selecione **cliente público (móvel e área de trabalho)** na lista suspensa e insira `http://localhost`.
+    - Em **URI de redirecionamento**, selecione **cliente público (móvel e área de trabalho)** na lista suspensa e insira `http://localhost`.
     - Clique em **registrar**.
 
 3. Configurar o Microsoft Graph
@@ -122,7 +122,7 @@ Pode encontrar toda a configuração para este exemplo de código no ficheiro **
 2. Selecione **Executar > Executar aplicação**.
 3. A aplicação deve criar e mostrar alguma UX básica. Quando clica no botão `Call Graph API`, irá pedir um início de sessão e, em seguida, chamar silenciosamente a Microsoft Graph API com o novo token.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 1. Consulte o [Wiki ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) para obter mais informações sobre a mecânica da biblioteca e como configurar novos cenários e capacidades.
 2. Em cenários Nativos, a aplicação vai utilizar uma Webview incorporada e não deixará a aplicação. O `Redirect URI` pode ser arbitrário.

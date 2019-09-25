@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018175"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268780"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -233,7 +233,11 @@ A conclusão dessas etapas faz com que a extensão seja reinstalada durante o pr
 
 ### <a name="clean_up_restore_point_collection"></a>Limpar coleção de pontos de restauração
 
-Depois de remover o bloqueio, os pontos de restauração precisam ser limpos. Para limpar os pontos de restauração, siga qualquer um dos métodos:<br>
+Depois de remover o bloqueio, os pontos de restauração precisam ser limpos.
+
+Se você excluir o grupo de recursos da VM ou a própria VM, os instantâneos de restauração instantânea dos discos gerenciados permanecerão ativos e expirarão de acordo com o conjunto de retenção. Para excluir os instantâneos de restauração instantânea (se você não precisar mais deles) que são armazenados na coleção de pontos de restauração, limpe a coleção de pontos de restauração de acordo com as etapas fornecidas abaixo.
+
+Para limpar os pontos de restauração, siga qualquer um dos métodos:<br>
 
 - [Limpar a coleção de pontos de restauração executando backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Limpar coleção de pontos de restauração de portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000803"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268835"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor de Azure Key Vault
 
@@ -29,26 +29,6 @@ Para obter mais informações gerais sobre Azure Key Vault, consulte [o que é K
 ## <a name="public-previews"></a>Visualizações públicas
 
 Periodicamente, lançamos uma visualização pública de um novo recurso Key Vault. Experimente-os e diga-nos o que você imagina azurekeyvault@microsoft.compor meio de nosso endereço de email de comentários.
-
-### <a name="storage-account-keys---july-10-2017"></a>Chaves de conta de armazenamento-10 de julho de 2017
-
->[!NOTE]
->Para esta atualização de Azure Key Vault somente o recurso de **chaves de conta de armazenamento** está em versão prévia.
-
-Essa visualização inclui nosso novo recurso de chaves de conta de armazenamento, disponível por meio dessas interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) e [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-Para obter mais informações sobre o novo recurso de chaves de conta de armazenamento, consulte [Azure Key Vault visão geral das chaves de conta de armazenamento](key-vault-ovw-storage-keys.md).
-
-## <a name="videos"></a>Os meus vídeos
-
-Este vídeo mostra como criar seu próprio cofre de chaves e como usá-lo no aplicativo de exemplo ' Olá Key Vault '.
-
-- [Key Vault Developer – guia de início rápido](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Recursos mencionados no vídeo acima:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault código de exemplo](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Criando e gerenciando cofres de chaves
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: 230bd4c0d53404ca5ac8d7e1385e8b0533880ca7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881138"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273920"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início rápido: Usar o cache do Azure para Redis com Java
 
@@ -135,7 +135,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor em cache, o qual foi definido com a Consola Redis no portal do Azure. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
 
-![Aplicação de cache concluída](./media/cache-java-get-started/cache-app-complete.png)
+![Cache do Azure para aplicativo Redis concluído](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -151,7 +151,7 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 
 1. Na caixa de texto **Filtrar por nome** , digite o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. Em seu grupo de recursos na lista de resultados, selecione **...** em seguida, **excluir grupo de recursos**.
 
-   ![Eliminar](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Grupo de recursos do Azure excluído](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
 1. É-lhe pedido que confirme a eliminação do grupo de recursos. Digite o nome do seu grupo de recursos para confirmar e selecione **excluir**.
 

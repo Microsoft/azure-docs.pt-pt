@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860876"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268396"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Aplicativo de desktop que chama APIs Web-registro de aplicativo
 
@@ -51,6 +51,7 @@ Os URIs de redirecionamento a serem usados no aplicativo da área de trabalho de
   > [!IMPORTANT]
   > Hoje, o MSAL.NET usa outro URI de redirecionamento por padrão em aplicativos`urn:ietf:wg:oauth:2.0:oob`de área de trabalho em execução no Windows (). No futuro, vamos querer alterar esse padrão e, portanto, recomendamos que você use`https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+- Se você estiver criando um aplicativo Objective-C ou Swift nativo para macOS, convém registrar o redirectUri com base no identificador de pacote do seu aplicativo no seguinte formato: **msauth. < seu. app. Bundle. id >://auth** (substituir < seu. app. Bundle. ID > com o identificador de pacote do seu aplicativo)
 - Se seu aplicativo estiver usando apenas a autenticação integrada do Windows ou nome de usuário/senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esses fluxos fazem uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft e seu aplicativo não será chamado novamente em qualquer URI específico.
 - Para distinguir o fluxo de código do dispositivo, a autenticação integrada do Windows e o nome de usuário/senha de um fluxo de aplicativo cliente confidencial que não tem URIs de redirecionamento (o fluxo de credencial do cliente usado em aplicativos de daemon), você precisa expressar que o seu o aplicativo é um aplicativo cliente público. Para obter essa configuração, vá para a seção de **autenticação** do seu aplicativo. Em seguida, na subseção **Configurações avançadas** , no **tipo de cliente padrão** parágrafo, escolha **Sim** para o **aplicativo pergunta tratar como um cliente público**.
 

@@ -1,19 +1,19 @@
 ---
-title: O que é o serviço Azure SignalR?
-description: Uma visão geral do serviço Azure SignalR.
+title: O que é o serviço de Signaler do Azure?
+description: Uma visão geral do serviço de sinalizador do Azure.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: zhshang
-ms.openlocfilehash: dc7ba3585ec49921c0a0e66185fc5550d3d4a006
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e7bdc62f7fa46bbacce7f264d8f331ea64b05430
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303620"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273696"
 ---
-# <a name="what-is-azure-signalr-service"></a>O que é o serviço Azure SignalR?
+# <a name="what-is-azure-signalr-service"></a>O que é o serviço de Signaler do Azure?
 
 O Azure SignalR Service simplifica o processo de acrescentar a funcionalidade Web de tempo real a aplicações através de HTTP. Esta funcionalidade em tempo real permite que o serviço envie atualizações de conteúdo a clientes ligados, como uma única página Web ou aplicação móvel. Como resultado, os clientes são atualizados sem que tenham de consultar o servidor ou submeter novos pedidos HTTP para as atualizações.
 
@@ -22,55 +22,55 @@ Este artigo disponibiliza uma descrição geral do Azure SignalR Service.
 
 ## <a name="what-is-azure-signalr-service-used-for"></a>Para que serve o Azure SignalR Service?
 
-Qualquer cenário que requeira a enviar dados a partir do servidor ao cliente em tempo real, pode utilizar o serviço Azure SignalR.
+Qualquer cenário que exija o envio de dados do servidor para o cliente em tempo real pode usar o serviço de Signaler do Azure.
 
-Tradicionais em tempo real recursos que, muitas vezes, necessitam de sondagem do servidor, também pode utilizar o serviço Azure SignalR.
+Os recursos tradicionais em tempo real que geralmente exigem a sondagem do servidor também podem usar o serviço de Signaler do Azure.
 
-Serviço Azure SignalR foi usado numa ampla variedade de indústrias, para qualquer tipo de aplicação que necessita de atualizações de conteúdo em tempo real. Listamos alguns exemplos que são bons utilizar o serviço Azure SignalR:
+O serviço de Signaler do Azure foi usado em uma ampla variedade de setores, para qualquer tipo de aplicativo que exija atualizações de conteúdo em tempo real. Listamos alguns exemplos que são bons para usar o serviço do Azure Signalr:
 
-* **Atualizações de dados de elevada frequência:** leilões de jogos, votar, consulta,.
-* **Dashboards e monitorização:** da empresa dashboard, dados de mercado financeiro, atualização de vendas instantânea, quadro líder de jogos de vários jogadores e monitorização de IoT.
-* **Bate-papo:** live sala de bate-papo, chatbot, suporte ao cliente online, Assistente de compra em tempo real, messenger, chat no jogo e assim por diante.
-* **Localização em tempo real no mapa:** controlo logística, controlo de estado de entrega, as atualizações de estado de transporte, aplicações GPS.
-* **Em tempo real visados anúncios:** personalizadas de anúncios de push de tempo de leitura e ofertas, anúncios interativos.
-* **Aplicações de colaboração:** coautoria, aplicações de quadro de comunicações e a equipe de software de reunião.
-* **Notificações push:** rede social, o e-mail, o jogo, o alerta de viagem.
-* **Difusão em tempo real:** live difusão de áudio/vídeo, estar a legenda codificada, tradução, difusão de eventos/notícias.
-* **IoT e dispositivos conectados:** métricas de IoT em tempo real, o controlo remoto, o estado em tempo real e o controle de localização.
-* **Automatização:** acionador em tempo real dos eventos a montante.
+* **Atualizações de dados de alta frequência:** jogos, votação, sondagem, leilão.
+* **Painéis e monitoramento:** painel da empresa, dados de mercado financeiro, atualização de vendas instantâneas, quadro líder de jogos de vários jogadores e monitoramento de IOT.
+* **Chat:** sala de chat ao vivo, bot de chat, suporte ao cliente online, assistente de compras em tempo real, Messenger, bate-papo em jogo e assim por diante.
+* **Local em tempo real no mapa:** controle de logística, acompanhamento de status de entrega, atualizações de status de transporte, aplicativos de GPS.
+* **Anúncios direcionados em tempo real:** anúncios e ofertas de push em tempo real personalizados, anúncios interativos.
+* **Aplicativos de colaboração:** coautoria, aplicativos de quadro de comunicações e software de reunião de equipe.
+* **Notificações por push:** rede social, email, jogo, alerta de viagem.
+* **Transmissão em tempo real:** transmissão de vídeo/áudio ao vivo, legenda dinâmica, tradução, eventos/difusão de notícias.
+* **Dispositivos de IOT e conectados:** métricas de IOT em tempo real, controle remoto, status em tempo real e rastreamento de local.
+* **Automação:** gatilho em tempo real de eventos upstream.
 
-## <a name="what-are-the-benefits-using-azure-signalr-service"></a>Quais são os benefícios com o serviço Azure SignalR?
+## <a name="what-are-the-benefits-using-azure-signalr-service"></a>Quais são os benefícios que usam o serviço do Azure Signalr?
 
-**Standard com base em:**
+**Baseado em padrão:**
 
 O SignalR oferece uma abstração através de um número de técnicas utilizadas para compilar aplicações Web em tempo real. [WebSockets](https://wikipedia.org/wiki/WebSocket) é o transporte ideal, mas podem ser utilizadas outras técnicas como [Server-Sent Events (SSE)](https://wikipedia.org/wiki/Server-sent_events) e Long Polling, se não estiverem disponíveis outras opções. O SignalR deteta e inicializa automaticamente o transporte adequado com base nas funcionalidades que o servidor e o cliente suportam.
 
-**Suporte nativo do ASP.NET Core:**
+**Suporte nativo a ASP.NET Core:**
 
-Serviço SignalR fornece uma experiência de programação nativa com o ASP.NET Core e o ASP.NET. Desenvolvimento de aplicativo de SignalR novo com o serviço SignalR ou a migrar do SignalR existente aplicação com base no serviço SignalR requer um esforço mínimo.
-Serviço SignalR também suporta a funcionalidade nova do ASP.NET Core, Blazor do lado do servidor.
+O serviço signalr fornece experiência de programação nativa com ASP.NET Core e ASP.NET. O desenvolvimento de um novo aplicativo Signalr com o serviço Signalr ou a migração de um aplicativo com base no Signalr existente para o serviço Signalr requer esforços mínimos.
+O serviço signalr também dá suporte ao novo recurso do ASP.NET Core, mais bem no servidor.
 
-**Suporte abrangente de cliente:**
+**Amplo suporte a clientes:**
 
-Serviço SignalR funciona com uma ampla gama de clientes, tais como web e o browsers para dispositivos móveis, aplicativos de desktop, aplicações móveis, o processo do servidor, dispositivos IoT e consolas de jogos. Serviço SignalR oferece SDKs em idiomas diferentes. Para além do ASP.NET Core nativo ou do ASP.NET C# SDKs, o serviço SignalR também fornece SDK, para permitir que os clientes web e muitas estruturas JavaScript de cliente de JavaScript. SDK de cliente Java também é suportada para aplicações de Java, incluindo as aplicações Android nativas. O serviço SignalR suporta a API REST e sem servidor através de integrações com as funções do Azure e o Event Grid.
+O serviço signalr funciona com uma ampla variedade de clientes, como navegadores Web e móveis, aplicativos de desktop, aplicativos móveis, processo de servidor, dispositivos IoT e consoles de jogos. O serviço signalr oferece SDKs em diferentes idiomas. Além dos SDKs nativos ASP.NET Core ou ASP.NET C# , o serviço signalr também fornece o SDK de cliente JavaScript, para habilitar clientes Web e muitas estruturas JavaScript. O SDK do cliente Java também tem suporte para aplicativos Java, incluindo aplicativos nativos do Android. O serviço signalr dá suporte à API REST e sem servidor por meio de integrações com Azure Functions e a grade de eventos.
 
 **Lidar com conexões de cliente em larga escala:**
 
-Serviço SignalR foi concebido para aplicações em tempo real em grande escala. Serviço SignalR permite que várias instâncias para funcionarem em conjunto de dimensionamento para milhões de ligações de cliente. O serviço também suporta várias regiões globais para fins de recuperação após desastre, elevada disponibilidade ou fragmentação.
+O serviço signalr foi projetado para aplicativos em tempo real em grande escala. O serviço signalr permite que várias instâncias trabalhem em conjunto para serem dimensionadas para milhões de conexões de clientes. O serviço também dá suporte a várias regiões globais para fins de fragmentação, alta disponibilidade ou recuperação de desastre.
 
-**Remova a carga para a hospedagem SignalR:**
+**Remova a carga para o Signalr de autoatendimento:**
 
-Em comparação com aplicativos do SignalR autoalojados, mudar para o serviço SignalR irá remover a necessidade de gerir planos de back-que processam as escalas e ligações de cliente. O serviço completamente gerido também simplifica a aplicativos web e guarda o custo de alojamento. Serviço SignalR oferece alcance global e o Centro de dados de nível mundial e rede, pode ser dimensionada para milhões de conexões, garante SLA, ao mesmo tempo, a conformidade e segurança em standard do Azure.
+Em comparação com os aplicativos de Signaler autohospedados, alternar para o serviço de sinalização removerá a necessidade de gerenciar planos de fundo que lidam com as conexões de escala e cliente. O serviço totalmente gerenciado também simplifica os aplicativos Web e economiza o custo de hospedagem. O serviço signalr oferece um alcance global e data center e rede de nível mundial, escala para milhões de conexões, garante SLA e, ao mesmo tempo, fornece toda a conformidade e segurança no Azure Standard.
 
-![Serviço gerido do SignalR](./media/signalr-overview/managed-signalr-service.png)
+![Serviço de Signaler gerenciado](./media/signalr-overview/managed-signalr-service.png)
 
-**APIs avançadas para diferentes padrões de mensagens da oferta:**
+**Ofereça APIs avançadas para diferentes padrões de mensagens:**
 
-Serviço SignalR permite ao servidor enviar mensagens para uma ligação específica, todas as ligações ou um subconjunto de ligações que pertencem a um utilizador específico, ou que foram colocadas num grupo de arbitrário.
+O serviço signalr permite que o servidor envie mensagens a uma conexão específica, a todas as conexões ou a um subconjunto de conexões que pertencem a um usuário específico ou que foram colocadas em um grupo arbitrário.
 
 ## <a name="how-to-use-azure-signalr-service"></a>Como utilizar o Azure SignalR Service
 
-Existem várias formas diferentes de programa com o serviço Azure SignalR como alguns dos exemplos listados aqui:
+Há várias maneiras diferentes de programar com o serviço de Signaler do Azure, como alguns dos exemplos listados aqui:
 
 - **[Dimensionar uma Aplicação do SignalR do ASP.NET Core](signalr-concept-scale-aspnet-core.md)** - Integrar o Azure SignalR Service numa aplicação do SignalR do ASP.NET Core para aumentar horizontalmente para centenas de milhares de ligações.
 - **[Criar aplicações em tempo real sem servidor](signalr-concept-azure-functions.md)** - Utilize a integração das Funções do Azure com o Azure SignalR Service para criar aplicações em tempo real sem servidor em linguagens como JavaScript, C# e Java.

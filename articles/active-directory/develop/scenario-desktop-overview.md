@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5288fe57b2f83522b140f65fa62e08f9c63a7af5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852692"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268355"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicação de ambiente de trabalho que chama APIs Web
 
@@ -32,7 +32,7 @@ Saiba tudo o que você precisa para criar um aplicativo de desktop que chama API
 
 ## <a name="getting-started"></a>Introdução
 
-Se você ainda não fez isso, crie seu primeiro aplicativo seguindo o início rápido da área de trabalho do .NET ou o início rápido do UWP:
+Se você ainda não fez isso, crie seu primeiro aplicativo seguindo o guia de início rápido da área de trabalho do .NET, o início rápido do UWP ou o início rápido do aplicativo macOS nativo:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo da área de trabalho do Windows](./quickstart-v2-windows-desktop.md)
@@ -41,13 +41,16 @@ Se você ainda não fez isso, crie seu primeiro aplicativo seguindo o início r�
 > [!div class="nextstepaction"]
 > [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo UWP](./quickstart-v2-uwp.md)
 
+> [!div class="nextstepaction"]
+> [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo nativo do macOS](./quickstart-v2-ios.md)
+
 ## <a name="overview"></a>Descrição geral
 
 Você escreve um aplicativo de área de trabalho e deseja conectar usuários ao seu aplicativo e chamar APIs da Web, como o Microsoft Graph, outras APIs da Microsoft ou sua própria API Web. Você tem várias possibilidades:
 
 - Você pode usar a aquisição de token interativo:
 
-  - Se o seu aplicativo de área de trabalho oferecer suporte a controles gráficos, por exemplo, se for um aplicativo Windows. Form ou um aplicativo do WPF.
+  - Se seu aplicativo de área de trabalho oferecer suporte a controles gráficos, por exemplo, se for um aplicativo do Windows. Form, um aplicativo do WPF ou um aplicativo nativo do macOS.
   - De se trata-se de um aplicativo .NET Core e você concorda em ter a interação de autenticação com o AD do Azure ocorre no navegador do sistema
 
 - Para aplicativos hospedados do Windows, também é possível para aplicativos em execução em computadores ingressados em um domínio do Windows ou o AAD ingressado para adquirir um token silenciosamente usando a autenticação integrada do Windows.

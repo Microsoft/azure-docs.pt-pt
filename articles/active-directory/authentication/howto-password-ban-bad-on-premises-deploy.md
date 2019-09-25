@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959925"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268671"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -43,23 +43,24 @@ Depois que o recurso estiver sendo executado no modo de auditoria por um períod
 ## <a name="deployment-requirements"></a>Requisitos de implantação
 
 * Os requisitos de licenciamento para proteção de senha do Azure AD podem ser encontrados no artigo [eliminar senhas inadequadas em sua organização](concept-password-ban-bad.md#license-requirements).
-* Todos os controladores de domínio que obtêm o serviço de agente de DC para a proteção de senha do Azure AD instalado devem executar o Windows Server 2012 ou posterior. Esse requisito não significa que o domínio ou floresta de Active Directory também deve estar no nível funcional de domínio ou floresta do Windows Server 2012. Conforme mencionado nos [princípios de design](concept-password-ban-bad-on-premises.md#design-principles), não há nenhum DFL ou FFL mínimo necessário para a execução do agente DC ou do software proxy.
+* Todos os computadores em que o software do agente DC da proteção de senha do Azure AD serão instalados devem executar o Windows Server 2012 ou posterior. Esse requisito não significa que o domínio ou floresta de Active Directory também deve estar no nível funcional de domínio ou floresta do Windows Server 2012. Conforme mencionado nos [princípios de design](concept-password-ban-bad-on-premises.md#design-principles), não há nenhum DFL ou FFL mínimo necessário para a execução do agente DC ou do software proxy.
 * Todos os computadores que obtêm o serviço de agente de DC instalado devem ter o .NET 4,5 instalado.
-* Todos os computadores que obtêm o serviço proxy para a proteção de senha do Azure AD instalado devem executar o Windows Server 2012 R2 ou posterior.
+* Todos os computadores nos quais o serviço proxy de proteção de senha do Azure AD será instalado devem executar o Windows Server 2012 R2 ou posterior.
    > [!NOTE]
    > A implantação do serviço de proxy é um requisito obrigatório para implantar a proteção de senha do Azure AD, embora o controlador de domínio possa ter conectividade de Internet direta de saída. 
    >
 * Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter o .NET 4,7 instalado.
   O .NET 4,7 já deve estar instalado em um Windows Server totalmente atualizado. Se esse não for o caso, baixe e execute o instalador encontrado no [instalador offline do .NET Framework 4,7 para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-* Todos os computadores, incluindo controladores de domínio, que obtêm os componentes de proteção de senha do Azure AD instalados devem ter o tempo de execução universal C instalado. Você pode obter o tempo de execução, certificando-se de que você tenha todas as atualizações de Windows Update. Ou você pode obtê-lo em um pacote de atualização específico do sistema operacional. Para obter mais informações, consulte [atualizar para tempo de execução C universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Todas as máquinas, incluindo controladores de domínio, que têm os componentes de proteção de senha do Azure AD instalados, devem ter o tempo de execução universal C instalado. Você pode obter o tempo de execução, certificando-se de que você tenha todas as atualizações de Windows Update. Ou você pode obtê-lo em um pacote de atualização específico do sistema operacional. Para obter mais informações, consulte [atualizar para tempo de execução C universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospede o serviço de proxy para proteção por senha. Essa conectividade deve permitir que o controlador de domínio acesse a porta 135 do mapeador de ponto de extremidade RPC e a porta do servidor RPC no serviço de proxy. Por padrão, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [usar uma porta estática](#static).
-* Todos os computadores que hospedam o serviço de proxy devem ter acesso à rede para os seguintes pontos de extremidade:
+* Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter acesso à rede para os seguintes pontos de extremidade:
 
     |**Endpoint**|**Objetivo**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Solicitações de autenticação|
     |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de senha do Azure AD|
 
+  Você também deve habilitar o acesso à rede para o conjunto de portas e URLs especificadas nos [procedimentos de configuração do ambiente de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). Essas etapas de configuração são necessárias para que o serviço de atualizador do agente do Microsoft Azure AD Connect seja capaz de funcionar (esse serviço é instalado lado a lado com o serviço de proxy). Não é recomendável instalar o proxy de proteção de senha do Azure AD e o proxy de aplicativo lado a lado no mesmo computador, devido a incompatibilidades entre as versões do software de atualizador do agente Microsoft Azure AD Connect.
 * Todos os computadores que hospedam o serviço de proxy para proteção por senha devem ser configurados para conceder aos controladores de domínio a capacidade de fazer logon no serviço de proxy. Isso é controlado por meio da atribuição de privilégio "acessar este computador pela rede".
 * Todos os computadores que hospedam o serviço de proxy para proteção por senha devem ser configurados para permitir o tráfego HTTP 1,2 de saída do TLS.
 * Uma conta de administrador global para registrar o serviço de proxy para a proteção e a floresta de senha com o Azure AD.
@@ -333,7 +334,7 @@ A principal preocupação de disponibilidade para proteção por senha é a disp
 
 O design do software do agente de DC atenua os problemas comuns associados à alta disponibilidade. O agente de DC mantém um cache local da política de senha baixada mais recentemente. Mesmo se todos os servidores proxy registrados ficarem indisponíveis, os agentes de DC continuarão impõem a política de senha armazenada em cache. Uma frequência de atualização razoável para diretivas de senha em uma implantação grande geralmente é dias, não horas ou menos. Portanto, poucas interrupções dos servidores proxy não afetam significativamente a proteção de senha do Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você instalou os serviços necessários para a proteção de senha do Azure AD nos servidores locais, [Execute a configuração pós-instalação e colete as informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 

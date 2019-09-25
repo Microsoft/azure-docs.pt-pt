@@ -1,41 +1,30 @@
 ---
-title: Exemplos de CLI do Azure para Azure Cosmos DB
-description: Exemplos de CLI do Azure – Criar e gerir contas, bases de dados, contentores, regiões e firewalls do Azure Cosmos DB.
+title: Exemplos de CLI do Azure para a API do Azure Cosmos DB SQL (Core)
+description: Exemplos de CLI do Azure para a API do Azure Cosmos DB SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 9/25/2019
 ms.author: mjbrown
-ms.reviewer: sngun
-ms.openlocfilehash: d7ce5e2c12feeee770de8acfd5df81d340e0a7d0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: defeacc3f0bc4cd9d77e538f8ceac5ca09a4068a
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615577"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272362"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
+# <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Exemplos de CLI do Azure para a API do Azure Cosmos DB SQL (Core)
 
-A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo para o Azure Cosmos DB. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](/cli/azure/cosmosdb).
+A tabela a seguir inclui links para scripts de CLI do Azure de exemplo para a API do Azure Cosmos DB SQL (Core). As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](/cli/azure/cosmosdb). Para obter CLI do Azure exemplos para outras APIs Azure Cosmos DB consulte, [API do Cassandra](cli-samples-cassandra.md), [API do MongoDB](cli-samples-mongodb.md), api do [Gremlin](cli-samples-gremlin.md)e [API de tabela](cli-samples-table.md). Todos os exemplos de script da CLI do Azure Cosmos DB podem ser encontrados no [repositório GitHub Azure Cosmos DB CLI](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
 | |  |
 |---|---|
-|**Criar a conta, a base de dados e os contentores do Azure Cosmos DB**||
-| [Criar uma conta de Azure Cosmos DB usando a API do SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma única conta de Azure Cosmos DB, banco de dados e contêiner. |
-| [Criar uma conta de Azure Cosmos DB usando a API do Cosmos DB para MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta de Azure Cosmos DB, um banco de dados e uma coleção. |
-| [Criar uma conta de Azure Cosmos DB usando a API do Gremlin](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta de Azure Cosmos DB, banco de dados e grafo. |
-| [Criar uma conta de Azure Cosmos DB usando API do Cassandra](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta de Azure Cosmos DB e um banco de dados. |
-| [Criar uma conta de Azure Cosmos DB usando API de Tabela](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta de Azure Cosmos DB, banco de dados e tabela. |
-|**Dimensionar o Azure Cosmos DB**||
-| [Dimensionar o débito do contentor](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Altera o débito aprovisionado num contentor.|
-| [Replicar a conta do banco de dados Cosmos do Azure em várias regiões e configurar as prioridades de failover](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replica globalmente os dados da conta em várias regiões com uma prioridade de ativação pós-falha especificada.|
-|**Proteger o Azure Cosmos DB**||
-| [Obter chaves de contas](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém as chaves de escrita mestra primária e secundária, e as chaves só de leitura primária e secundária da conta.|
-| [Obter a cadeia de conexão para a conta Cosmos configurada com a API do Azure Cosmos DB para MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém a cadeia de conexão para conectar o aplicativo MongoDB à sua conta de Azure Cosmos DB.|
-| [Voltar a gerar chaves da conta](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Regenere as chaves da conta.|
-| [Criar uma firewall](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma política de controlo de acesso IP de entrada para limitar o acesso à conta a partir de um conjunto aprovado de computadores e/ou serviços cloud.|
-|**Elevada disponibilidade, recuperação após desastre, cópia de segurança e restauro**||
-| [Configurar política de ativação pós-falha](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Define a prioridade de ativação pós-falha de cada região em que a conta é replicada.|
-|**Ligar o Azure Cosmos DB a recursos**||
-| [Ligar uma aplicação Web ao Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Crie e conecte um banco de dados Cosmos do Azure e um aplicativo Web do Azure.|
+| [Criar uma conta, um banco de dados e um contêiner do Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta Azure Cosmos DB, um banco de dados e um contêiner para a API do SQL (núcleo). |
+| [Alterar taxa de transferência](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s em um banco de dados e contêiner.|
+| [Adicionar ou regiões de failover](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Adicionar uma região, alterar a prioridade do failover, disparar um failover manual.|
+| [Chaves de conta e cadeias de conexão](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | Listar chaves de conta, chaves somente leitura, regenerar chaves e listar cadeias de conexão.|
+| [Proteger com o firewall de IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma conta do cosmos com o firewall IP configurado.|
+| [Proteger nova conta com pontos de extremidade de serviço](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma conta do cosmos e proteja-se com os pontos de extremidade de serviço.|
+| [Proteger a conta existente com pontos de extremidade de serviço](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Atualize uma conta do cosmos para proteger com pontos de extremidade de serviço quando a sub-rede for eventualmente configurada.|
 |||

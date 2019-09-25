@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: b3bd9b800da4f096639d02c78b718216441621a9
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5eb05df7ed97839ef80798a752565234d180f0e2
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803978"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268827"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para o Azure Data Explorer usando Azure Data Factory 
 
@@ -96,6 +96,9 @@ Há duas maneiras de carregar dados no Azure Data Explorer usando Azure Data Fac
     * Especifique o valor da **chave de acesso de segredo** .
     * Selecione **testar conexão** para testar a conexão de serviço vinculado que você criou.
     * Selecione **Concluir**.
+    
+    > [!NOTE]
+    > No Amazon S3, selecione seu nome de usuário do Amazon na barra de navegação e selecione **minhas credenciais de segurança** para localizar sua **chave de acesso**. 
 
 1. Na página **armazenamento de dados de origem** , você verá sua nova conexão AmazonS31. Selecione **Seguinte**.
 
@@ -184,7 +187,7 @@ O Azure Data Explorer novo serviço vinculado é criado para copiar os dados par
 
     ![Página de implementação](media/data-factory-load-data/deployment.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [conector de data Explorer do Azure](/azure/data-factory/connector-azure-data-explorer) no Azure data Factory.
 

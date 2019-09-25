@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642eb15c62c895e85add55b725318b150b51658e
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: df8dfc72dea9289fc13d648b05b59f6d1bd9b3e0
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179968"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273595"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com a IDC
 
@@ -90,7 +90,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **definir URLs adicionais** e execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL:`https://cas.idc.com/saml-welcome/AzureAppDirectory`
+    Na caixa de texto **URL de logon** , digite uma URL:`https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador e a URL de resposta reais. Contate a [equipe de suporte ao cliente do IDC](mailto:webchanneldev@idc.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -139,7 +139,7 @@ Para configurar o logon único no lado do **IDC** , é necessário enviar o XML 
 
 ### <a name="create-idc-test-user"></a>Criar usuário de teste do IDC
 
-Nesta seção, você criará um usuário chamado Brenda Simon no IDC. Trabalhe com a [equipe de suporte da IDC](mailto:webchanneldev@idc.com) para adicionar os usuários na plataforma IDC. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Um usuário não precisa ser criado no IDC com antecedência. O usuário será criado automaticamente depois que usar o logon único pela primeira vez.
 
 ## <a name="test-sso"></a>Testar SSO 
 

@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101515"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266434"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use o reparticionamento para otimizar o processamento com Azure Stream Analytics
 
@@ -56,7 +56,7 @@ Experimente e observe o uso de recursos de seu trabalho para determinar o númer
 
 Quando seu trabalho usa o banco de dados SQL para saída, use o reparticionamento explícito para corresponder à contagem de partições ideal para maximizar a taxa de transferência. Como o SQL funciona melhor com oito gravadores, reparticionar o fluxo para oito antes de liberar, ou em outro lugar, pode beneficiar o desempenho do trabalho. 
 
-Quando há mais de 8 partições de entrada, a herança do esquema de particionamento de entrada pode não ser uma opção apropriada. Considere o [uso do em em](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) sua consulta para especificar explicitamente o número de gravadores de saída. 
+Quando há mais de 8 partições de entrada, a herança do esquema de particionamento de entrada pode não ser uma opção apropriada. Considere o [uso do em em](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) sua consulta para especificar explicitamente o número de gravadores de saída. 
 
 O exemplo a seguir lê a partir da entrada, independentemente de ser particionado naturalmente, e reparticiona o fluxo tenfold de acordo com a dimensão DeviceID e libera os dados para a saída. 
 
@@ -67,7 +67,7 @@ SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
 Para obter mais informações, consulte [Azure Stream Analytics saída para o banco de dados SQL do Azure](stream-analytics-sql-output-perf.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aproveitar a paralelização de consultas no Azure Stream Analytics](stream-analytics-parallelization.md)

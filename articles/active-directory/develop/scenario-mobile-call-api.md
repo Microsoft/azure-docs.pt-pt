@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76f0cddfa889376d3795726e74d82e53417b31f1
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 1ada6ee6247deb3d4c72edb8237a40a0f47f96be
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413567"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268320"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicativo móvel que chama APIs Web – chamar uma API da Web
 
@@ -88,28 +88,34 @@ Depois de ter o token de acesso, é fácil chamar uma API da Web. Seu aplicativo
         queue.add(request);
 ```
 
-### <a name="ios"></a>iOS
+### <a name="msal-for-ios-and-macos"></a>MSAL para iOS e macOS
+
+Os métodos para adquirir tokens retornam um `MSALResult` objeto. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API da Web. O token de acesso deve ser adicionado ao cabeçalho de autorização HTTP, antes de fazer a chamada para acessar a API Web protegida.
+
+Objective-C:
+
+```objc
+NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
+urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
+urlRequest.HTTPMethod = @"GET";
+urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
+        
+NSURLSessionDataTask *task =
+[[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
+     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
+[task resume];
+```
+
+Swift
 
 ```swift
-        let url = URL(string: kGraphURI)
-        var request = URLRequest(url: url!)
-
-        // Put access token in HTTP request.
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                self.updateLogging(text: "Couldn't get graph result: \(error)")
-                return
-            }
-            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                self.updateLogging(text: "Couldn't deserialize result JSON")
-                return
-            }
-
-            // Successfully got data from Graph.
-            self.updateLogging(text: "Result from Graph: \(result))")
-        }.resume()
+let urlRequest = NSMutableURLRequest()
+urlRequest.url = URL(string: "https://contoso.api.com")!
+urlRequest.httpMethod = "GET"
+urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
+     
+let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
+task.resume()
 ```
 
 ### <a name="xamarin"></a>Xamarin

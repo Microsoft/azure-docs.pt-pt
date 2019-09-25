@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cfb4bda597b2b7ab4658244c46253f5118723402
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073808"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273533"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gerenciamento de API
 
@@ -76,11 +76,11 @@ Use a `check-header` política para impor que uma solicitação tenha um cabeça
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada, saída
 
--   Escopos de **política:** todos os escopos
+-   **Escopos de política:** todos os escopos
 
 ## <a name="LimitCallRate"></a>Limitar a taxa de chamada por assinatura
 
@@ -122,7 +122,7 @@ A `rate-limit` política impede picos de uso da API por assinatura, limitando a 
 
 | Name      | Descrição                                                                                                                                                                                                                                                                                              | Requerido |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| definir limite | Elemento raiz.                                                                                                                                                                                                                                                                                            | Sim      |
+| taxa-limite | Elemento raiz.                                                                                                                                                                                                                                                                                            | Sim      |
 | api       | Adicione um ou mais desses elementos para impor um limite de taxa de chamada em APIs dentro do produto. Os limites de taxa de chamada de API e produto são aplicados de forma independente. A API pode ser referenciada `name` via `id`ou. Se ambos os atributos forem fornecidos `id` , serão usados e `name` serão ignorados.                    | Não       |
 | operation | Adicione um ou mais desses elementos para impor um limite de taxa de chamada em operações em uma API. Os limites de taxa de chamada de produto, API e operação são aplicados de forma independente. A operação pode ser referenciada `name` via `id`ou. Se ambos os atributos forem fornecidos `id` , serão usados e `name` serão ignorados. | Não       |
 
@@ -136,11 +136,11 @@ A `rate-limit` política impede picos de uso da API por assinatura, limitando a 
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada
 
--   Escopos de **política:** produto, API, operação
+-   **Escopos de política:** produto, API, operação
 
 ## <a name="LimitCallRateByKey"></a>Limitar a taxa de chamada por chave
 
@@ -185,9 +185,9 @@ No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamado
 
 ### <a name="elements"></a>Elementos
 
-| Name      | Descrição   | Requerido |
-| --------- | ------------- | -------- |
-| definir limite | Elemento raiz. | Sim      |
+| Name              | Descrição   | Requerido |
+| ----------------- | ------------- | -------- |
+| taxa-limite por chave | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
@@ -200,11 +200,11 @@ No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamado
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada
 
--   Escopos de **política:** todos os escopos
+-   **Escopos de política:** todos os escopos
 
 ## <a name="RestrictCallerIPs"></a>Restringir IPs do chamador
 
@@ -247,10 +247,10 @@ No exemplo a seguir, a política só permite solicitações provenientes do ende
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada
--   Escopos de **política:** todos os escopos
+-   **Escopos de política:** todos os escopos
 
 ## <a name="SetUsageQuota"></a>Definir cota de uso por assinatura
 
@@ -304,10 +304,10 @@ A `quota` política impõe um volume de chamada renovável ou de tempo de vida e
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada
--   Escopos de **política:** produto
+-   **Escopos de política:** produto
 
 ## <a name="SetUsageQuotaByKey"></a>Definir cota de uso por chave
 
@@ -365,10 +365,10 @@ No exemplo a seguir, a cota é codificada pelo endereço IP do chamador.
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada
--   Escopos de **política:** todos os escopos
+-   **Escopos de política:** todos os escopos
 
 ## <a name="ValidateJWT"></a>Validar JWT
 
@@ -542,7 +542,7 @@ Este exemplo mostra como usar a política [validar JWT](api-management-access-re
 | nome do parâmetro de consulta            | O nome do parâmetro de consulta que contém o token.                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name` Umou`token-value`deveserespecificado. `query-parameter-name` | N/A                                                                               |
 | valor do token                     | Expressão que retorna uma cadeia de caracteres que contém o token JWT                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name` Umou`token-value`deveserespecificado. `query-parameter-name` | N/A                                                                               |
 | id                              | O `id` atributo `kid` no elemento permite que você especifique a cadeia de caracteres que será correspondida com a declaração no token (se presente) para descobrir a chave apropriada a ser usada para validação de assinatura. `key`                                                                                                                                                                                                                                           | Não                                                                               | N/A                                                                               |
-| Correspondência                           | O `match` atributo`claim` no elemento especifica se cada valor de declaração na política deve estar presente no token para que a validação seja realizada com sucesso. Os valores possíveis são:<br /><br /> - `all`-cada valor de declaração na política deve estar presente no token para que a validação seja realizada com sucesso.<br /><br /> - `any`-pelo menos um valor de declaração deve estar presente no token para que a validação seja concluída com sucesso.                                                       | Não                                                                               | tudo                                                                               |
+| Correspondência                           | O `match` atributo`claim` no elemento especifica se cada valor de declaração na política deve estar presente no token para que a validação seja realizada com sucesso. Os valores possíveis são:<br /><br /> - `all`-cada valor de declaração na política deve estar presente no token para que a validação seja realizada com sucesso.<br /><br /> - `any`-pelo menos um valor de declaração deve estar presente no token para que a validação seja concluída com sucesso.                                                       | Não                                                                               | all                                                                               |
 | require-expiration-time         | Boolean. Especifica se uma declaração de expiração é necessária no token.                                                                                                                                                                                                                                                                                                                                                                               | Não                                                                               | true                                                                              |
 | exigir-esquema                  | O nome do esquema de token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de autorização.                                                                                                                                                                                                                                                                                    | Não                                                                               | N/A                                                                               |
 | require-signed-tokens           | Boolean. Especifica se um token deve ser assinado.                                                                                                                                                                                                                                                                                                                                                                                           | Não                                                                               | true                                                                              |
@@ -552,12 +552,12 @@ saída-token-variável-nome|Strings. Nome da variável de contexto que receberá
 
 ### <a name="usage"></a>Utilização
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos escopos de política a seguir. [](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política a seguir.
 
 -   **Seções de política:** entrada
--   Escopos de **política:** todos os escopos
+-   **Escopos de política:** todos os escopos
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 
