@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
-ms.openlocfilehash: 4619545ab1fed5f55504e80eede0d1cf240eea87
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 09/23/2019
+ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488696"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240410"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança corporativa no Azure HDInsight
 
@@ -52,7 +52,7 @@ A auditoria de todo o acesso aos recursos de cluster e dos dados é necessária 
 
 O administrador pode exibir e relatar todo o acesso aos dados e recursos do cluster HDInsight. O administrador também pode exibir e relatar todas as alterações nas políticas de controle de acesso criadas em pontos de extremidade com suporte do Apache Ranger. 
 
-Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs de acesso SSH, [habilite Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) e exiba os registros de auditoria relacionados.
+Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs de acesso SSH, [habilite Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e exiba as tabelas que fornecem registros de auditoria.
 
 ### <a name="encryption"></a>Encriptação
 
@@ -72,7 +72,8 @@ A tabela a seguir fornece links para recursos para cada tipo de solução de seg
 |---|---|---|
 | Segurança de acesso a dados | Configurar [ACLs de listas de controle de acesso](../../storage/blobs/data-lake-storage-access-control.md) para Azure data Lake Storage Gen1 e Gen2  | Cliente |
 |  | Habilite a propriedade ["transferência segura obrigatória"](../../storage/common/storage-require-secure-transfer.md) em contas de armazenamento. | Cliente |
-|  | Configurar redes virtuais e firewalls de [armazenamento do Azure](../../storage/common/storage-network-security.md) | Cliente |
+|  | Configurar redes virtuais e [firewalls de armazenamento do Azure](../../storage/common/storage-network-security.md) | Cliente |
+|  | Configurar [pontos de extremidade de serviço de rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Cosmos DB e [BD SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Cliente |
 |  | Verifique se a [criptografia TLS](../../storage/common/storage-security-tls.md) está habilitada para os dados em trânsito. | Cliente |
 |  | Configurar [chaves gerenciadas pelo cliente](../../storage/common/storage-encryption-keys-portal.md) para a criptografia de armazenamento do Azure | Cliente |
 | Segurança de aplicativo e middleware | Integrar com o AAD-DS e [Configurar a autenticação](apache-domain-joined-configure-using-azure-adds.md) | Cliente |
@@ -86,7 +87,7 @@ A tabela a seguir fornece links para recursos para cada tipo de solução de seg
 | Infraestrutura virtualizada | N/A | HDInsight (provedor de nuvem) |
 | Segurança de infraestrutura física | N/A | HDInsight (provedor de nuvem) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Planejar clusters HDInsight com ESP](apache-domain-joined-architecture.md)
 * [Configurar clusters HDInsight com o ESP](apache-domain-joined-configure.md)

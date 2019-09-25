@@ -1,6 +1,6 @@
 ---
-title: Ligar a dados do Microsoft web application firewall para a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como ligar a dados do Microsoft web application firewall a sentinela do Azure.
+title: Conectar dados do firewall do aplicativo Web da Microsoft ao Azure Sentinel | Microsoft Docs
+description: Saiba como conectar dados do firewall do aplicativo Web da Microsoft ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,44 +13,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0a308394c3cfa77f80db1361b5a49a485ee5ca0e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611356"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240029"
 ---
-# <a name="connect-data-from-microsoft-web-application-firewall"></a>Ligar dados a partir de firewall de aplicações do Microsoft web
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar dados do firewall do aplicativo Web da Microsoft
 
-> [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode transmitir em fluxo registos de firewall de aplicações do Azure do Gateway de aplicação Microsoft web (WAF). Este WAF protege seus aplicativos contra vulnerabilidades web comuns, como injeção de SQL e scripts entre sites e permite-lhe personalizar regras para reduzir os falsos positivos. Siga estas instruções para transmitir os registos de firewall de aplicação Web da Microsoft para o Azure sentinela.
+
+Você pode transmitir logs do WAF (Microsoft Web Application Firewall) do gateway de Aplicativo Azure. Esse WAF protege seus aplicativos contra vulnerabilidades comuns da Web, como injeção de SQL e script entre sites, e permite que você personalize regras para reduzir falsos positivos. Siga estas instruções para transmitir os logs do firewall do aplicativo Web da Microsoft para o Azure Sentinel.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um recurso de gateway de aplicação existente
+- Um recurso de gateway de aplicativo existente
 
-## <a name="connect-to-microsoft-web-application-firewall"></a>Ligar à firewall de aplicações do Microsoft web
+## <a name="connect-to-microsoft-web-application-firewall"></a>Conectar-se ao firewall do aplicativo Web da Microsoft
 
-Se já tiver o firewall de aplicações do Microsoft web, certifique-se de que tem um recurso de gateway existente.
-Assim que a firewall de aplicações do Microsoft web é implementada e obtenção de dados, os dados de alertas podem facilmente ser transmitidos em sentinela do Azure.
+Se você já tiver o Firewall do aplicativo Web da Microsoft, verifique se você tem um recurso de gateway existente.
+Depois que o Firewall do aplicativo Web da Microsoft for implantado e estiver obtendo dados, os dados de alerta poderão ser facilmente transmitidos para o Azure Sentinel.
     
-1. No portal do Azure sentinela, selecione **conectores de dados**.
-1. Na página de conectores de dados, selecione o **WAF** mosaico.
-1. Aceda a [recurso de Gateway de aplicação](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) e escolha o WAF.
-    1. Selecione **das definições de diagnóstico**.
-    1. Selecione **+ Adicionar definição de diagnóstico** na tabela.
-    1. Na **das definições de diagnóstico** página, escreva um **nome** e selecione **enviar para o Log Analytics**.
-    1. Sob **área de trabalho do Log Analytics** selecione a área de trabalho de sentinela do Azure.
-    1. Selecione os tipos de registo que pretende analisar. Recomendamos que: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
-1. Para utilizar o esquema relevante no Log Analytics para os alertas de firewall de aplicação do Microsoft web, procure **AzureDiagnostics**.
+1. No portal do Azure Sentinel, selecione **conectores de dados**.
+1. Na página conectores de dados, selecione o bloco **WAF** .
+1. Vá para [recurso](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) de gateway de aplicativo e escolha seu WAF.
+    1. Selecione **configurações de diagnóstico**.
+    1. Selecione **+ Adicionar configuração de diagnóstico** na tabela.
+    1. Na página **configurações de diagnóstico** , digite um **nome** e selecione **Enviar para log Analytics**.
+    1. Em **log Analytics espaço de trabalho** , selecione o espaço de trabalho do Azure Sentinel.
+    1. Selecione os tipos de log que você deseja analisar. Recomendamos: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
+1. Para usar o esquema relevante no Log Analytics para os alertas de firewall do aplicativo Web da Microsoft, procure **AzureDiagnostics**.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar a firewall de aplicações do Microsoft web ao Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
-- Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
-- Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
+Neste documento, você aprendeu a conectar o Firewall do aplicativo Web da Microsoft ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

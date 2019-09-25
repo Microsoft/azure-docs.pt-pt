@@ -1,27 +1,29 @@
 ---
-title: Exemplos de Hubs de notificação do Azure
-description: Uma lista dos SDKs de Hubs de notificação do Azure disponível
+title: Exemplos de hubs de notificação do Azure
+description: Uma lista dos SDKs de hubs de notificação do Azure disponíveis
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/28/2019
+ms.openlocfilehash: 5c7c2b073d0684d908b677d3dda1586f6baa8f61
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60559930"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213317"
 ---
-# <a name="azure-notification-hubs-samples"></a>Exemplos de Hubs de notificação do Azure
-Este artigo fornece ligações para exemplos que demonstram os principais recursos do Notification Hubs do Azure.
+# <a name="azure-notification-hubs-samples"></a>Exemplos de hubs de notificação do Azure
+Este artigo fornece links para exemplos que demonstram os principais recursos nos hubs de notificação do Azure.
 
-## <a name="samples"></a>Exemplos
+## <a name="samples"></a>Amostras
 
 - [.NET](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples)
 - [Android](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples)
@@ -29,5 +31,5 @@ Este artigo fornece ligações para exemplos que demonstram os principais recurs
 - [Ionic](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Ionic)
 - [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
-## <a name="next-steps"></a>Passos Seguintes
-Veja tutoriais no **tutoriais** secção do índice (índice).
+## <a name="next-steps"></a>Passos seguintes
+Consulte os tutoriais na seção **tutoriais** do Sumário (índice analítico).

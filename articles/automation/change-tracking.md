@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2d6976e872223cbb66682b9a02ce343487bec35d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953000"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240266"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações em seu ambiente com a solução Controle de Alterações
 
@@ -75,7 +75,7 @@ A central de segurança do Azure adicionou o FIM (monitoramento de integridade d
 
 - Alterações de software
 - Serviços do Windows
-- Linux Daemons
+- Daemons do Linux
 
 Se você já tiver habilitado o FIM e quiser experimentar a solução de Controle de Alterações completa, você precisará executar as etapas a seguir. As configurações não são removidas por esse processo.
 
@@ -100,7 +100,7 @@ Use as etapas a seguir para configurar o rastreamento de arquivos em computadore
 |Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser acompanhado.        |
 |Grupo     | Um nome de grupo para agrupar logicamente os arquivos.        |
-|Introduzir Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*. conf"       |
+|Introduzir o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*. conf"       |
 |Tipo de Caminho     | Tipo de item a ser acompanhado, os valores possíveis são arquivo e diretório.        |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
@@ -123,7 +123,7 @@ Use as etapas a seguir para configurar o rastreamento de arquivos em computadore
 |Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser acompanhado.        |
 |Grupo     | Um nome de grupo para agrupar logicamente os arquivos.        |
-|Introduzir Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **True** ou **false**.|
 
@@ -155,7 +155,7 @@ Use as etapas a seguir para configurar o rastreamento de chave do registro em co
 |Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave do registro a ser rastreada.        |
 |Grupo     | Um nome de grupo para agrupar logicamente as chaves do registro.        |
-|Chave de Registo do Windows   | O caminho para verificar a chave do registro. Por exemplo: "Inicialização do Folders\Common do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell"      |
+|Chave do Registo do Windows   | O caminho para verificar a chave do registro. Por exemplo: "Inicialização do Folders\Common do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell"      |
 
 ## <a name="limitations"></a>Limitações
 
@@ -187,7 +187,7 @@ A tabela a seguir mostra a frequência de coleta de dados para os tipos de alter
 | Registro do Windows | 50 minutos |
 | Arquivo do Windows | 30 minutos |
 | Arquivo do Linux | 15 minutos |
-| Serviços Windows | 10 segundos a 30 minutos</br> Predefinição: 30 minutos |
+| Serviços Windows | 10 segundos a 30 minutos</br> Os 30 minutos |
 | Daemons do Linux | 5 minutos |
 | Software do Windows | 30 minutos |
 | Software Linux | 5 minutos |
@@ -198,7 +198,7 @@ A tabela a seguir mostra os limites de item acompanhados por computador para Con
 |---|---|---|
 |Ficheiro|500||
 |Registo|250||
-|Software do Windows|250|Não inclui atualizações de software|
+|Software do Windows|250|Não inclui hotfixes de software|
 |Pacotes do Linux|1250||
 |Serviços|250||
 |Daemon|250||
@@ -273,7 +273,7 @@ Os endereços a seguir são necessários especificamente para Controle de Altera
 
 Depois que a solução estiver habilitada, você poderá exibir o resumo das alterações para os computadores monitorados selecionando **controle de alterações** em **Gerenciamento de configuração** em sua conta de automação.
 
-Você pode exibir as alterações em seus computadores e, em seguida, detalhar os detalhes de cada evento. Os menus suspensos estão disponíveis na parte superior do gráfico para limitar o gráfico e as informações detalhadas com base no tipo de alteração e nos intervalos de tempo. Você também pode clicar e arrastar o gráfico para selecionar um intervalo de tempo personalizado. **O tipo de alteração** será um dos seguintes **eventos**de valores, **daemons**, **arquivos**, registro, **software**e serviços **do** **Windows**. Categoria mostra o tipo de alteração e pode ser **adicionada**, **modificada**ou removida.
+Você pode exibir as alterações em seus computadores e, em seguida, detalhar os detalhes de cada evento. Os menus suspensos estão disponíveis na parte superior do gráfico para limitar o gráfico e as informações detalhadas com base no tipo de alteração e nos intervalos de tempo. Você também pode clicar e arrastar o gráfico para selecionar um intervalo de tempo personalizado. **O tipo de alteração** será um dos seguintes **eventos**de valores, **daemons**, **arquivos**, **registro**, **software**e serviços do **Windows**. Categoria mostra o tipo de alteração e pode ser **adicionada**, **modificada**ou **removida**.
 
 ![imagem do painel de Controle de Alterações](./media/change-tracking/change-tracking-dash01.png)
 

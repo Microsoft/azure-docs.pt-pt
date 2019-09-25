@@ -1,6 +1,6 @@
 ---
-title: DNS inverso para os serviços do Azure | Documentos da Microsoft
-description: Saiba como configurar as pesquisas de DNS inversas para serviços alojados no Azure
+title: DNS reverso para serviços do Azure | Microsoft Docs
+description: Saiba como configurar pesquisas inversas de DNS para serviços hospedados no Azure
 services: dns
 documentationcenter: na
 author: vhorne
@@ -12,56 +12,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: e162d838cb4895841428a827b56bec28e3e16b8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c33914fb404467a20a9799df9643e9702234c300
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160912"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224489"
 ---
-# <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar DNS inverso para os serviços alojados no Azure
+# <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar o DNS reverso para serviços hospedados no Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este artigo explica como configurar as pesquisas de DNS inversas para serviços alojados no Azure.
+Este artigo explica como configurar pesquisas inversas de DNS para serviços hospedados no Azure.
 
-Serviços do Azure utilizam endereços IP atribuído pelo Azure e que pertence à Microsoft. Estes registos DNS inversos (registos PTR) tem de ser criados as correspondentes pertencentes à Microsoft zonas DNS inversas pesquisa. Este artigo explica como fazer isso.
+Os serviços no Azure usam endereços IP atribuídos pelo Azure e de propriedade da Microsoft. Esses registros DNS reversos (registros PTR) devem ser criados nas zonas de pesquisa inversa de DNS de propriedade da Microsoft correspondentes. Este artigo explica como fazer isso.
 
-Este cenário não deve ser confundido com a capacidade de [alojar zonas de pesquisa DNS inversas para os intervalos IP atribuídos no DNS do Azure](dns-reverse-dns-hosting.md). Neste caso, os intervalos IP representados por zona de pesquisa inversa devem ser atribuídos à sua organização, normalmente pelo seu ISP.
+Esse cenário não deve ser confundido com a capacidade de [hospedar as zonas de pesquisa inversa de DNS para seus intervalos de IP atribuídos no DNS do Azure](dns-reverse-dns-hosting.md). Nesse caso, os intervalos de IP representados pela zona de pesquisa inversa devem ser atribuídos à sua organização, normalmente pelo seu ISP.
 
-Antes de ler este artigo, deve estar familiarizado com isso [descrição geral do DNS inverso e de suporte no Azure](dns-reverse-dns-overview.md).
+Antes de ler este artigo, você deve estar familiarizado com esta [visão geral do DNS reverso e do suporte no Azure](dns-reverse-dns-overview.md).
 
-No DNS do Azure, os recursos de computação (por exemplo, máquinas virtuais, os conjuntos de dimensionamento de máquinas virtuais ou clusters do Service Fabric) são expostos por meio de um recurso de PublicIpAddress. Pesquisas de DNS inversas são configuradas usando a propriedade 'ReverseFqdn' do PublicIpAddress.
+No DNS do Azure, os recursos de computação (como máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais ou clusters de Service Fabric) são expostos por meio de um recurso PublicIpAddress. As pesquisas de DNS reverso são configuradas usando a propriedade ' ReverseFqdn ' de PublicIpAddress.
 
 
-DNS inversa não é atualmente suportada para o serviço de aplicações do Azure.
+O DNS reverso não tem suporte no momento para o serviço de Azure App.
 
-## <a name="validation-of-reverse-dns-records"></a>Validação de registos DNS inversos
+## <a name="validation-of-reverse-dns-records"></a>Validação de registros DNS reversos
 
-Uma aplicação de terceiros não deve ser capaz de criar registos DNS inversos para seu mapeamento de serviço do Azure para os domínios DNS. Para evitar esta situação, Azure apenas permite a criação de um registo DNS inversa em que o nome de domínio especificado no registo DNS inverso é o mesmo ou é resolvido para o nome DNS ou endereço IP de um PublicIpAddress ou serviço em nuvem na mesma subscrição do Azure.
+Terceiros não devem ser capazes de criar registros DNS reversos para seu mapeamento de serviço do Azure para seus domínios DNS. Para evitar isso, o Azure permite a criação de um registro DNS reverso em que o nome de domínio especificado no registro DNS reverso é o mesmo que ou resolve para o nome DNS ou o endereço IP de um PublicIpAddress ou serviço de nuvem na mesma assinatura do Azure.
 
-Esta validação só é executada quando o registo DNS reverso é definir ou modificado. Não é efetuada a validação de reavaliação periódica.
+Essa validação é executada somente quando o registro DNS reverso é definido ou modificado. A revalidação periódica não é executada.
 
-Por exemplo: suponha que o recurso de PublicIpAddress tem o contosoapp1.northus.cloudapp.azure.com de nome DNS e o endereço IP 23.96.52.53. O ReverseFqdn para PublicIpAddress pode ser especificado como:
+Por exemplo: Suponha que o recurso PublicIpAddress tenha o nome DNS contosoapp1.northus.cloudapp.azure.com e o endereço IP 23.96.52.53. O ReverseFqdn para PublicIpAddress pode ser especificado como:
 * O nome DNS para o PublicIpAddress, contosoapp1.northus.cloudapp.azure.com
-* O nome DNS para um PublicIpAddress diferente na mesma subscrição, como contosoapp2.westus.cloudapp.azure.com
-* Um personalizado de nomes DNS, como app1.contoso.com, desde que este nome é *primeiro* configurado como um CNAME para contosoapp1.northus.cloudapp.azure.com ou para um PublicIpAddress diferente na mesma subscrição.
-* Um personalizado de nomes DNS, como app1.contoso.com, desde que este nome é *primeiro* configurado como um registo para o endereço IP 23.96.52.53 ou para o endereço IP de um PublicIpAddress diferente na mesma subscrição.
+* O nome DNS para um PublicIpAddress diferente na mesma assinatura, como contosoapp2.westus.cloudapp.azure.com
+* Um nome DNS intuitivo, como app1.contoso.com, desde que esse nome seja configurado *pela primeira vez* como um CNAME para contosoapp1.NORTHUS.cloudapp.Azure.com ou para um PublicIpAddress diferente na mesma assinatura.
+* Um nome DNS intuitivo, como app1.contoso.com, desde que esse nome seja configurado *pela primeira vez* como um registro a para o endereço IP 23.96.52.53 ou para o endereço IP de um PublicIpAddress diferente na mesma assinatura.
 
-As mesmas restrições quanto se aplicam ao DNS inverso para os serviços Cloud.
+As mesmas restrições se aplicam ao DNS reverso para serviços de nuvem.
 
 
-## <a name="reverse-dns-for-publicipaddress-resources"></a>DNS inverso para obter recursos PublicIpAddress
+## <a name="reverse-dns-for-publicipaddress-resources"></a>DNS reverso para recursos PublicIpAddress
 
-Esta secção fornece instruções detalhadas sobre como configurar o DNS inverso para obter recursos PublicIpAddress no modelo de implementação do Resource Manager, utilizando o Azure PowerShell, CLI clássica do Azure ou da CLI do Azure. Configurar DNS inverso para obter recursos PublicIpAddress não é atualmente suportada através do portal do Azure.
+Esta seção fornece instruções detalhadas sobre como configurar o DNS reverso para recursos PublicIpAddress no modelo de implantação do Gerenciador de recursos, usando Azure PowerShell, CLI clássica do Azure ou CLI do Azure. A configuração do DNS reverso para recursos PublicIpAddress não tem suporte no momento por meio do portal do Azure.
 
-Azure atualmente suporta DNS inverso apenas pelos recursos PublicIpAddress de IPv4. Não é suportada para IPv6.
+Atualmente, o Azure dá suporte ao DNS reverso somente para recursos de PublicIpAddress IPv4. Não há suporte para IPv6.
 
-### <a name="add-reverse-dns-to-an-existing-publicipaddresses"></a>Adicionar DNS inverso para um PublicIpAddresses existente
+### <a name="add-reverse-dns-to-an-existing-publicipaddresses"></a>Adicionar o DNS reverso a um PublicIpAddresses existente
 
 #### <a name="powershell"></a>PowerShell
 
-Para adicionar DNS inverso para um PublicIpAddress existente:
+Para atualizar o DNS reverso para um PublicIpAddress existente:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -69,7 +69,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-Para adicionar DNS inverso para um PublicIpAddress existente que já não tem um nome DNS, também tem de especificar um nome DNS:
+Para adicionar o DNS reverso a um PublicIpAddress existente que ainda não tem um nome DNS, você também deve especificar um nome DNS:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -81,13 +81,13 @@ Set-AzPublicIpAddress -PublicIpAddress $pip
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
-Para adicionar DNS inverso para um PublicIpAddress existente:
+Para adicionar o DNS reverso a um PublicIpAddress existente:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-Para adicionar DNS inverso para um PublicIpAddress existente que já não tem um nome DNS, também tem de especificar um nome DNS:
+Para adicionar o DNS reverso a um PublicIpAddress existente que ainda não tem um nome DNS, você também deve especificar um nome DNS:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
@@ -95,21 +95,21 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f con
 
 #### <a name="azure-cli"></a>CLI do Azure
 
-Para adicionar DNS inverso para um PublicIpAddress existente:
+Para adicionar o DNS reverso a um PublicIpAddress existente:
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com.
 ```
 
-Para adicionar DNS inverso para um PublicIpAddress existente que já não tem um nome DNS, também tem de especificar um nome DNS:
+Para adicionar o DNS reverso a um PublicIpAddress existente que ainda não tem um nome DNS, você também deve especificar um nome DNS:
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com --dns-name contosoapp1
 ```
 
-### <a name="create-a-public-ip-address-with-reverse-dns"></a>Criar um endereço IP público com o DNS inverso
+### <a name="create-a-public-ip-address-with-reverse-dns"></a>Criar um endereço IP público com DNS reverso
 
-Para criar um novo PublicIpAddress com a propriedade DNS reversa já especificada:
+Para criar um novo PublicIpAddress com a propriedade de DNS reverso já especificada:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -129,9 +129,9 @@ azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d conto
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
 ```
 
-### <a name="view-reverse-dns-for-an-existing-publicipaddress"></a>DNS inverso do modo de exibição para um PublicIpAddress existente
+### <a name="view-reverse-dns-for-an-existing-publicipaddress"></a>Exibir o DNS reverso para um PublicIpAddress existente
 
-Para ver o valor configurado para um PublicIpAddress existente:
+Para exibir o valor configurado para um PublicIpAddress existente:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -151,9 +151,9 @@ azure network public-ip show -n PublicIp -g MyResourceGroup
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
 ```
 
-### <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Remover inversa de DNS de endereços IP públicos existentes
+### <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Remover o DNS reverso de Endereços IP Públicos existentes
 
-Para remover uma propriedade DNS inversa de um PublicIpAddress existente:
+Para remover uma propriedade de DNS reverso de um PublicIpAddress existente:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,37 +176,37 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 ```
 
 
-## <a name="configure-reverse-dns-for-cloud-services"></a>Configurar DNS inverso para serviços Cloud
+## <a name="configure-reverse-dns-for-cloud-services"></a>Configurar o DNS reverso para serviços de nuvem
 
-Esta secção fornece instruções detalhadas sobre como configurar o DNS inversos para serviços em nuvem no modelo de implementação clássico, com o Azure PowerShell. Configurar DNS inverso para os serviços Cloud não é suportada através do portal do Azure, CLI clássica do Azure ou da CLI do Azure.
+Esta seção fornece instruções detalhadas sobre como configurar o DNS reverso para serviços de nuvem no modelo de implantação clássico, usando Azure PowerShell. Não há suporte para configurar o DNS reverso para serviços de nuvem por meio do portal do Azure, CLI clássica do Azure ou CLI do Azure.
 
-### <a name="add-reverse-dns-to-existing-cloud-services"></a>Adicionar DNS inversos para serviços Cloud existentes
+### <a name="add-reverse-dns-to-existing-cloud-services"></a>Adicionar o DNS reverso aos serviços de nuvem existentes
 
-Para adicionar um registo DNS inverso para um serviço Cloud existente:
+Para adicionar um registro DNS reverso a um serviço de nuvem existente:
 
 ```powershell
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
-### <a name="create-a-cloud-service-with-reverse-dns"></a>Criar um serviço Cloud com o DNS inverso
+### <a name="create-a-cloud-service-with-reverse-dns"></a>Criar um serviço de nuvem com DNS reverso
 
-Para criar um novo serviço Cloud com a propriedade DNS reversa já especificada:
+Para criar um novo serviço de nuvem com a propriedade DNS reverso já especificada:
 
 ```powershell
 New-AzureService –ServiceName "contosoapp1" –Location "West US" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
-### <a name="view-reverse-dns-for-existing-cloud-services"></a>Vista DNS inversos para serviços Cloud existentes
+### <a name="view-reverse-dns-for-existing-cloud-services"></a>Exibir o DNS reverso para serviços de nuvem existentes
 
-Para ver a propriedade DNS inversa para um serviço Cloud existente:
+Para exibir a propriedade de DNS reverso para um serviço de nuvem existente:
 
 ```powershell
 Get-AzureService "contosoapp1"
 ```
 
-### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Remover inversa de DNS de serviços Cloud existentes
+### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Remover o DNS reverso dos serviços de nuvem existentes
 
-Para remover uma propriedade DNS inversa de um serviço Cloud existente:
+Para remover uma propriedade de DNS reverso de um serviço de nuvem existente:
 
 ```powershell
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
@@ -214,45 +214,45 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 ## <a name="faq"></a>FAQ
 
-### <a name="how-much-do-reverse-dns-records-cost"></a>Quanto inverter o custo de registos DNS?
+### <a name="how-much-do-reverse-dns-records-cost"></a>Quanto custam os registros DNS reversos?
 
-Eles são gratuitos!  Não existe nenhum custo adicional para registos DNS inversos ou consultas.
+Eles são gratuitos!  Não há nenhum custo adicional para consultas ou registros DNS reversos.
 
-### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>Meu registos DNS inversos resolverá da internet?
+### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>Meus registros DNS reversos serão resolvidos da Internet?
 
-Sim. Depois de definir a propriedade DNS inversa para o seu serviço do Azure, o Azure gere todas as delegações DNS e zonas DNS necessárias para garantir que o registo DNS reverso é resolvido para todos os utilizadores de Internet.
+Sim. Depois de definir a propriedade DNS reverso para seu serviço do Azure, o Azure gerencia todas as delegações de DNS e as zonas DNS necessárias para garantir que o registro DNS reverso seja resolvido para todos os usuários da Internet.
 
-### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Os registos DNS inversos do padrão são criados para meus serviços do Azure?
+### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>São registros DNS reversos padrão criados para meus serviços do Azure?
 
-Não. DNS inverso é um recurso opcional. Não existem registos DNS inversos padrão são criados se optar por não configurá-las.
+Não. O DNS reverso é um recurso opcional. Nenhum registro DNS reverso padrão será criado se você optar por não configurá-los.
 
-### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>O que é o formato para o nome de domínio completamente qualificado (FQDN)?
+### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>Qual é o formato do FQDN (nome de domínio totalmente qualificado)?
 
-FQDNs são especificados na ordem de frente e tem de ser terminadas por um ponto (por exemplo, "app1.contoso.com.").
+Os FQDNs são especificados em ordem de encaminhamento e devem ser terminados por um ponto (por exemplo, "app1.contoso.com.").
 
-### <a name="what-happens-if-the-validation-check-for-the-reverse-dns-ive-specified-fails"></a>O que acontece se a verificação de validação do DNS inverso que especifiquei falha?
+### <a name="what-happens-if-the-validation-check-for-the-reverse-dns-ive-specified-fails"></a>O que acontece se a verificação de validação para o DNS reverso que especifiquei falhar?
 
-Quando a verificação de validação do DNS inversa falhar, a operação para configurar o registo DNS reverso falhará. Corrija o valor DNS reverso conforme necessário e tente novamente.
+Quando a verificação de validação de DNS reverso falha, a operação para configurar o registro de DNS reverso falha. Corrija o valor de DNS reverso conforme necessário e tente novamente.
 
-### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Pode configurar DNS inverso para o serviço de aplicações do Azure?
+### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Posso configurar o DNS reverso para o serviço Azure App?
 
-Não. DNS inversa não é suportada para o serviço de aplicações do Azure.
+Não. Não há suporte para o DNS reverso para o serviço Azure App.
 
-### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Pode configurar vários registos DNS inversos para o meu serviço do Azure?
+### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Posso configurar vários registros DNS reversos para meu serviço do Azure?
 
-Não. O Azure suporta um único registo DNS inverso para cada serviço Cloud do Azure ou um PublicIpAddress.
+Não. O Azure dá suporte a um único registro DNS reverso para cada serviço de nuvem do Azure ou PublicIpAddress.
 
-### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Pode configurar DNS inverso para obter recursos IPv6 PublicIpAddress?
+### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Posso configurar o DNS reverso para recursos de PublicIpAddress IPv6?
 
-Não. Azure atualmente suporta DNS inverso apenas para recursos PublicIpAddress de IPv4 e serviços em nuvem.
+Não. Atualmente, o Azure dá suporte ao DNS reverso somente para recursos de PublicIpAddress e serviços de nuvem IPv4.
 
-### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Posso enviar e-mails para domínios externos de meus serviços de computação do Azure?
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Posso enviar emails para domínios externos de meus serviços de computação do Azure?
 
-A habilidade técnica de enviar o e-mail diretamente a partir de uma implementação do Azure depende do tipo de subscrição. Independentemente do tipo de subscrição, a Microsoft recomenda a utilização de serviços de reencaminhamento de correio fidedigna para enviar a saída de emails. Para obter mais detalhes, consulte [segurança avançada do Azure para o envio de E-mails – Novembro de 2017 atualização](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+A capacidade técnica de enviar email diretamente de uma implantação do Azure depende do tipo de assinatura. Independentemente do tipo de assinatura, a Microsoft recomenda usar serviços de retransmissão de email confiáveis para enviar emails de saída. Para obter mais detalhes, consulte [segurança aprimorada do Azure para enviar emails – atualização de novembro de 2017](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre DNS inverso, consulte [pesquisa reversa de DNS na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para obter mais informações sobre o DNS reverso, consulte [pesquisa reversa de DNS na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Saiba como [alojam a zona de pesquisa inversa para o seu intervalo IP atribuído por ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [hospedar a zona de pesquisa inversa para seu intervalo de IP atribuído pelo ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
 

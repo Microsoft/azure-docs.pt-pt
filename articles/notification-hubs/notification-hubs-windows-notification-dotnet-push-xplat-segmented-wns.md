@@ -3,9 +3,9 @@ title: Enviar notificações para dispositivos específicos (Plataforma Universa
 description: Utilize os Hubs de Notificação do Azure com etiquetas no registo para enviar notícias de última hora para uma aplicação da Plataforma Universal do Windows.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: efe668e42e04942cc0d9fc99670057ab5bdd302a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872384"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212122"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Tutorial: Notificações push para dispositivos específicos do Windows que executam aplicações de plataforma Universal do Windows
+# <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Tutorial: Notificações por push para dispositivos Windows específicos que executam Plataforma Universal do Windows aplicativos
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -47,13 +49,13 @@ Neste tutorial, siga os passos seguintes:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o [Tutorial: Enviar notificações para aplicações da plataforma Universal do Windows com os Hubs de notificação do Azure] [ get-started] antes de começar este tutorial.  
+Conclua [o tutorial: Envie notificações para plataforma universal do Windows aplicativos usando os hubs][get-started] de notificação do Azure antes de iniciar este tutorial.  
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias à aplicação
 
 O primeiro passo é adicionar os elementos da IU à sua página principal existente, de modo a que os utilizadores possam selecionar as categorias em que se vão registar. As categorias selecionadas são armazenadas nos dispositivos. Quando a aplicação é iniciada, é criado um registo do dispositivo no seu hub de notificação com as categorias selecionadas como etiquetas.
 
-1. Abra o ficheiro de projeto de mainpage. XAML e, em seguida, copie o seguinte código no `Grid` elemento:
+1. Abra o arquivo de projeto MainPage. XAML e copie o seguinte código no `Grid` elemento:
 
     ```xml
     <Grid>
@@ -79,7 +81,7 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
     </Grid>
     ```
 
-2. Na **Explorador de soluções**, com o botão direito no projeto, adicione uma nova classe: **Notificações**. Adicionar a **pública** modificador à definição de classe e, em seguida, adicione o seguinte `using` instruções para o novo arquivo de código:
+2. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto, adicione uma nova classe: **Notificações**. Adicione o modificador **público** à definição de classe e, em seguida, `using` adicione as seguintes instruções ao novo arquivo de código:
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -88,7 +90,7 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
     using System.Threading.Tasks;
     ```
 
-3. Copie o seguinte código para o novo `Notifications` classe:
+3. Copie o seguinte código para a nova `Notifications` classe:
 
     ```csharp
     private NotificationHub hub;
@@ -130,7 +132,7 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
     }
     ```
 
-    Esta classe utiliza o armazenamento local para armazenar as categorias de notícias que este dispositivo tem de receber. Em vez de chamar o `RegisterNativeAsync` método, chamada `RegisterTemplateAsync` registar para as categorias com um registo de modelo.
+    Esta classe utiliza o armazenamento local para armazenar as categorias de notícias que este dispositivo tem de receber. Em vez de chamar `RegisterNativeAsync` o método, `RegisterTemplateAsync` chame o registro para as categorias usando um registro de modelo.
 
     Se quiser registar mais de um modelo (por exemplo, um para notificações de alerta e outro para mosaicos), indique um nome para o modelo (como "simpleWNSTemplateExample"). Deve dar nomes aos modelos para poder atualizá-los ou eliminá-los.
 
@@ -139,26 +141,26 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
 
     Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
 
-4. No arquivo de projeto App.xaml.cs, adicione a seguinte propriedade para o `App` classe:
+4. No arquivo de projeto App.XAML.cs, adicione a seguinte propriedade à `App` classe:
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
     ```
 
-    Use essa propriedade para criar e aceder a um `Notifications` instância.
+    Você usa essa propriedade para criar e acessar uma `Notifications` instância do.
 
     No código, substitua os marcadores de posição `<hub name>` e `<connection string with listen access>` pelo nome do seu hub de notificação e pela cadeia de ligação de *DefaultListenSharedAccessSignature*, que obteve anteriormente.
 
    > [!NOTE]
    > Uma vez que, de um modo geral, as credenciais que são distribuídas com uma aplicação cliente não são seguras, distribua a chave apenas para acesso de *escuta* com a sua aplicação cliente. Com o acesso de escuta, a sua aplicação pode registar-se para receber notificações, mas não é possível modificar registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço de back-end protegido para o envio de notificações e a alteração de registos existentes.
 
-5. Na `MainPage.xaml.cs` de ficheiros, adicione a seguinte linha:
+5. `MainPage.xaml.cs` No arquivo, adicione a seguinte linha:
 
     ```csharp
     using Windows.UI.Popups;
     ```
 
-6. Na `MainPage.xaml.cs` de ficheiros, adicione o seguinte método:
+6. `MainPage.xaml.cs` No arquivo, adicione o seguinte método:
 
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
@@ -179,7 +181,7 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
     }
     ```
 
-    Este método cria uma lista de categorias e utiliza o `Notifications` classe para armazenar a lista no armazenamento local. Também regista as etiquetas correspondentes no seu hub de notificação. Quando as categorias são alteradas, o registo é recriado com as categorias novas.
+    Esse método cria uma lista de categorias e usa a `Notifications` classe para armazenar a lista no armazenamento local. Também regista as etiquetas correspondentes no seu hub de notificação. Quando as categorias são alteradas, o registo é recriado com as categorias novas.
 
 A aplicação pode agora armazenar um conjunto de categorias no armazenamento local do dispositivo. A aplicação regista-se no hub de notificação sempre que os utilizadores alteram a seleção de categorias.
 
@@ -190,7 +192,7 @@ Nesta secção, vai utilizar as categorias que foram armazenadas no armazenament
 > [!NOTE]
 > Tendo em conta que o URI do canal que é atribuído pelo Windows Notification Service (WNS) pode ser alterado em qualquer altura, deve registar-se para receber notificações com frequência, a fim de evitar falhas de notificação. Este exemplo regista-se em notificações sempre que a aplicação é iniciada. Relativamente às aplicações que executa com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo de modo a preservar a largura de banda caso tenha passado menos de um dia desde o registo anterior.
 
-1. Para utilizar o `notifications` classe subscrever com base em categorias, abra o ficheiro App.xaml.cs e, em seguida, atualize o `InitNotificationsAsync` método.
+1. Para usar a `notifications` classe para assinar com base em categorias, abra o arquivo app.XAML.cs e, em seguida `InitNotificationsAsync` , atualize o método.
 
     ```csharp
     // *** Remove or comment out these lines ***
@@ -201,8 +203,8 @@ Nesta secção, vai utilizar as categorias que foram armazenadas no armazenament
     var result = await notifications.SubscribeToCategories();
     ```
 
-    Este processo garante que, sempre que a aplicação é iniciada, obtém as categorias do armazenamento local e pede o registo das mesmas. Que criou o `InitNotificationsAsync` método como parte do [introdução aos Hubs de notificação] [ get-started] tutorial.
-2. Na `MainPage.xaml.cs` ficheiros do projeto, adicione o seguinte código para o `OnNavigatedTo` método:
+    Este processo garante que, sempre que a aplicação é iniciada, obtém as categorias do armazenamento local e pede o registo das mesmas. Você criou o `InitNotificationsAsync` método como parte do tutorial [introdução aos hubs de notificação][get-started] .
+2. No arquivo de `OnNavigatedTo` projeto,adicioneoseguinte`MainPage.xaml.cs` código ao método:
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -222,7 +224,7 @@ Nesta secção, vai utilizar as categorias que foram armazenadas no armazenament
 
 A aplicação está agora concluída e pode armazenar um conjunto de categorias no armazenamento local do dispositivo que é utilizado para fazer o registo no hub de notificação quando os utilizadores alteram a seleção das categorias. Na próxima secção, vai definir um back-end apto a enviar notificações de categorias para esta aplicação.
 
-## <a name="run-the-uwp-app"></a>Executar a aplicação UWP 
+## <a name="run-the-uwp-app"></a>Executar o aplicativo UWP 
 1. No Visual Studio, selecione **F5** para compilar e iniciar a aplicação. A IU da aplicação disponibiliza um conjunto de seletores que lhe permitem escolher as categorias que quer subscrever.
 
     ![Aplicação de Notícias de Última Hora](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
@@ -233,19 +235,19 @@ A aplicação está agora concluída e pode armazenar um conjunto de categorias 
 
     ![Seletores de categorias e botão Subscribe](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-## <a name="create-a-console-app-to-send-tagged-notifications"></a>Criar uma aplicação de consola para enviar notificações marcadas
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>Criar um aplicativo de console para enviar notificações marcadas
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-console-app-to-send-tagged-notifications"></a>Executar a aplicação de consola para enviar notificações marcadas
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>Executar o aplicativo de console para enviar notificações marcadas
 
-1. Execute a aplicação que criou na secção anterior.
-2. As notificações das categorias selecionadas são apresentadas como notificações de alerta. Se selecionar a notificação, verá a primeira janela de aplicação UWP. 
+1. Execute o aplicativo criado na seção anterior.
+2. As notificações das categorias selecionadas são apresentadas como notificações de alerta. Se você selecionar a notificação, verá a primeira janela do aplicativo UWP. 
 
      ![Notificações de alerta](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a difundir notícias de última hora por categoria. A aplicação de back-end envia as notificações com etiquetas para os dispositivos que se registaram para receber notificações para essas etiquetas. Para saber como enviar notificações para utilizadores específicos independentemente do dispositivo que utilizem, avance para o próximo tutorial:
 

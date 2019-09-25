@@ -3,9 +3,9 @@ title: Enviar notificações push para utilizadores de aplicações Android espe
 description: Saiba como enviar notificações push para utilizadores específicos com os Hubs de Notificação do Azure.
 documentationcenter: android
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,22 +14,24 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: d125e0c0818efbc6ec8f317122859411a37a0d20
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 1b867d571e97209c4385c1f23b49fe5a03ab94d5
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232744"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212072"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificação push para utilizadores específicos de aplicação Android com Notification Hubs do Azure e o Google Cloud Messaging (preterido)
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificação por push para usuários de aplicativos Android específicos usando hubs de notificação do Azure e Google Cloud Messaging (preterido)
 
 > [!WARNING]
-> A partir de 10 de Abril de 2018, o Google preteriu Google Cloud Messaging (GCM). O servidor do GCM e APIs de cliente foram preteridos e serão removidas assim, 29 de Maio de 2019. Para obter mais informações, consulte [GCM e o FCM perguntas mais frequentes](https://developers.google.com/cloud-messaging/faq).
+> A partir de 10 de abril de 2018, o Google preteriu Google Cloud Messaging (GCM). As APIs de cliente e servidor GCM foram preteridas e serão removidas assim que 29 de maio de 2019. Para obter mais informações, consulte perguntas frequentes do [GCM e do FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end WebAPI de ASP.NET é utilizado para autenticar clientes e gerar notificações, conforme mostrado no artigo de documentação de orientação [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Este tutorial baseia-se no notification hub que criou no [Tutorial: Enviar notificações push para dispositivos Android com Notification Hubs do Azure e o Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end WebAPI de ASP.NET é utilizado para autenticar clientes e gerar notificações, conforme mostrado no artigo de documentação de orientação [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Este tutorial se baseia no Hub de notificação que você criou no [tutorial: Notificações por push para dispositivos Android usando os hubs de notificação e](notification-hubs-android-push-notification-google-gcm-get-started.md)Google Cloud Messaging do Azure.
 
 Neste tutorial, siga os passos seguintes:
 
@@ -40,15 +42,15 @@ Neste tutorial, siga os passos seguintes:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o [Tutorial: Enviar notificações push para dispositivos Android com Notification Hubs do Azure e o Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) antes de fazer este tutorial.
+Conclua [o tutorial: Notificações por push para dispositivos Android usando os hubs de notificação e](notification-hubs-android-push-notification-google-gcm-get-started.md) Google Cloud Messaging do Azure antes de fazer este tutorial.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="create-the-android-project"></a>Criar o Projeto para Android
 
-A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar notificações push para dispositivos Android com Notification Hubs do Azure e o Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+A próxima etapa é atualizar o aplicativo Android criado no [tutorial: Notificações por push para dispositivos Android usando os hubs de notificação e](notification-hubs-android-push-notification-google-gcm-get-started.md)Google Cloud Messaging do Azure.
 
-1. Abra sua `res/layout/activity_main.xml` do ficheiro, substitua as seguintes definições de conteúdo:
+1. Abra o `res/layout/activity_main.xml` arquivo, substitua as seguintes definições de conteúdo:
 
     Adiciona novos controlos EditText para iniciar sessão como um utilizador. Também é adicionado um campo para uma etiqueta username que irá fazer parte de notificações que enviar:
 
@@ -139,7 +141,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     />  
     </RelativeLayout>
     ```
-2. Abra sua `res/values/strings.xml` do ficheiro e substitua o `send_button` definição com as seguintes linhas, redefina a cadeia de caracteres para o `send_button` e acrescentar cadeias de caracteres para os outros controles:
+2. Abra o `send_button` `send_button` arquivo e substitua a definição pelas seguintes linhas que redefinem a cadeia de caracteres para o e adicione cadeias para os outros controles: `res/values/strings.xml`
 
     ```xml
     <string name="usernameHint">Username</string>
@@ -150,10 +152,10 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     <string name="notification_message_tag_hint">Recipient username</string>
     ```
 
-    Sua `main_activity.xml` layout gráfico deve agora ter um aspeto semelhante à imagem seguinte:
+    O `main_activity.xml` layout gráfico agora deve ser semelhante à imagem a seguir:
 
     ![][A1]
-3. Criar uma nova classe denominada `RegisterClient` no mesmo pacote como sua `MainActivity` classe. Utilize o código abaixo para o ficheiro da nova classe.
+3. Crie uma nova classe chamada `RegisterClient` no mesmo pacote que a sua `MainActivity` classe. Utilize o código abaixo para o ficheiro da nova classe.
 
     ```java
     import java.io.IOException;
@@ -260,7 +262,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     }
     ```
 
-    Este componente implementa as chamadas REST necessárias para contactar o back-end da aplicação, de modo a registar-se para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ele usa um token de autorização armazenado no armazenamento local, ao clicar o **iniciar sessão** botão.
+    Este componente implementa as chamadas REST necessárias para contactar o back-end da aplicação, de modo a registar-se para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ele usa um token de autorização armazenado no armazenamento local quando você clica no botão **entrar** .
 4. Na sua classe, remova ou acrescente delimitadores de comentário ao campo privado para `NotificationHub` e adicione um campo para a classe `RegisterClient` e uma cadeia para o ponto final do back-end de ASP.NET. Certifique-se de que substitui `<Enter Your Backend Endpoint>` pelo ponto final do back-end propriamente dito que obteve antes. Por exemplo, `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -322,7 +324,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Em seguida, adicione os seguintes métodos para lidar com o **iniciar sessão** clique de botão, eventos e enviar notificações push.
+9. Em seguida, adicione os seguintes métodos para manipular o evento de clique **no botão entrar** e enviar notificações por push.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -404,7 +406,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     }
     ```
 
-    O `login` manipulador para o **iniciar sessão** botão gera uma autenticação básica do token usando na entrada de nome de utilizador e palavra-passe (representa qualquer token utiliza o seu esquema de autenticação), em seguida, ele usa `RegisterClient` para chamar o back-end para o registo.
+    O `login` manipulador para o botão **entrar** gera um token de autenticação básico usando o nome de usuário de entrada e a senha (representa qualquer token usado pelo esquema de autenticação) e `RegisterClient` , em seguida, ele usa para chamar o back-end para o registro .
 
     O método `sendPush` chama o back-end para acionar uma notificação segura para o utilizador com base na etiqueta do mesmo. O serviço de notificação de plataforma visado por `sendPush` depende da cadeia `pns` transmitida.
 
@@ -459,7 +461,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
         }
     }
     ```
-12. Na `build.gradle` de ficheiros, adicione a seguinte linha para o `android` secção após o `buildTypes` secção.
+12. No arquivo, adicione a seguinte linha `android` à seção após a `buildTypes` seção. `build.gradle`
 
     ```java
     useLibrary 'org.apache.http.legacy'
@@ -470,7 +472,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
 
 1. Execute a aplicação num dispositivo ou num emulador com o Android Studio.
 2. Na aplicação Android, introduza um nome de utilizador e uma palavra-passe. Ambos têm de ter o mesmo valor de cadeia e nenhum deles pode conter espaços ou carateres especiais.
-3. Na aplicação do Android, clique em **iniciar sessão**. Aguarde por uma mensagem de alerta com a indicação **Logged in and registered**. Esta ativa o botão **Send Notification**.
+3. No aplicativo Android, clique em **entrar**. Aguarde por uma mensagem de alerta com a indicação **Logged in and registered**. Esta ativa o botão **Send Notification**.
 
     ![][A2]
 4. Clique nos botões de alternar para ativar todas as plataformas em que executou a aplicação e registou um utilizador.
@@ -478,7 +480,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
 6. Introduza uma mensagem para o utilizador receber como uma mensagem de notificação push.
 7. Clique em **Send Notification**.  Cada dispositivo que tiver um registo com a etiqueta de nome de utilizador correspondente receberá a notificação push.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 

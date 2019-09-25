@@ -1,9 +1,9 @@
 ---
 title: Enviar notificações push para aplicações Xamarin.Android com Hubs de Notificação do Azure | Microsoft Docs
 description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Xamarin Android.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/01/2019
-ms.author: jowargo
-ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 08/01/2019
+ms.openlocfilehash: cba84b0f07db3a69cc964e47657a3f6b64659e6a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742405"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213559"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Xamarin. Android usando hubs de notificação do Azure
 
@@ -322,7 +324,7 @@ Pode testar a receção das notificações na aplicação com a opção **Envio 
 
 Normalmente, as notificações push são enviadas num serviço de back-end, como Mobile Services ou ASP.NET, através de uma biblioteca compatível. Se uma biblioteca não estiver disponível para seu back-end, você também poderá usar a API REST diretamente para enviar mensagens de notificação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, enviou notificações de difusão para todos os dispositivos Android registados no back-end. Para saber como enviar notificações push para dispositivos Android específicos, avance para o tutorial seguinte:
 

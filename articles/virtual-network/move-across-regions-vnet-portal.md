@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 2a1ee358a6c97b721ec6f0da3eb70269239b0737
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a09ce7b77dfcaa51e7c82f67a5d20000f3e22b61
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077675"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71220007"
 ---
 # <a name="move-azure-virtual-network-to-another-region-using-the-azure-portal"></a>Mover a rede virtual do Azure para outra região usando o portal do Azure
 
@@ -27,7 +27,7 @@ Você pode usar um modelo de Azure Resource Manager para concluir a movimentaç�
 - Para exportar uma rede virtual e implantar um modelo para criar uma rede virtual em outra região, você precisará da função de colaborador de rede ou superior.
 
 - Os emparelhamentos de rede virtual não serão recriados e ocorrerão falhas se ainda estiverem presentes no modelo.  Você precisará remover os pares de rede virtual antes de exportar o modelo e, em seguida, restabelecer os pares após a movimentação da rede virtual.
-    
+
 - Identifique o layout de rede de origem e todos os recursos que você está usando no momento. Esse layout inclui, mas não se limita a balanceadores de carga, NSGs (grupos de segurança de rede) e IPs públicos.
 
 - Verifique se sua assinatura do Azure permite que você crie redes virtuais na região de destino usada. Contacte o suporte para ativar a quota necessária.
@@ -40,13 +40,13 @@ As etapas a seguir mostram como preparar a rede virtual para a movimentação us
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportar o modelo e implantar por meio do portal
 
-1. Faça logon no [portal do Azure](http://portal.azure.com) > **grupos de recursos**.
+1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos**.
 2. Localize o grupo de recursos que contém a rede virtual de origem e clique nele.
 3. Selecione **configurações** > de >**modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
 5. Clique em **modelo** > **Editar parâmetros** para abrir o arquivo **Parameters. JSON** no editor online.
 6. Para editar o parâmetro do nome da rede virtual, altere a propriedade **Value** em **parâmetros**:
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -62,7 +62,7 @@ As etapas a seguir mostram como preparar a rede virtual para a movimentação us
 
 8.  Clique em **salvar** no editor.
 
-9.  Clique em **modelo** > **Editar modelo** para abrir o arquivo **Template. JSON** no editor online. 
+9.  Clique em **modelo** > **Editar modelo** para abrir o arquivo **Template. JSON** no editor online.
 
 10. Para editar a região de destino em que a VNET será movida, altere a propriedade **local** em **recursos** no editor online:
 
@@ -83,11 +83,11 @@ As etapas a seguir mostram como preparar a rede virtual para a movimentação us
                         },
 
     ```
- 
+
 11. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central** = **centralus**.
- 
+
 12. Você também pode alterar outros parâmetros no modelo se escolher e forem opcionais, dependendo dos seus requisitos:
-    
+
     * **Espaço de endereço** -o espaço de endereço da VNET pode ser alterado antes de salvar modificando a seção **recursos** > de**addressSpace** e alterando a propriedade **addressPrefixes** no arquivo **Template. JSON** :
 
         ```json
@@ -179,7 +179,7 @@ As etapas a seguir mostram como preparar a rede virtual para a movimentação us
 
 14. Clique em**assinatura** **básica** > para escolher a assinatura na qual a VNET de destino será implantada.
 
-15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente. 
+15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
 
 16. Verifique se o**local** **básico** > está definido como o local de destino onde você deseja que a VNET seja implantada.
 
@@ -189,7 +189,7 @@ As etapas a seguir mostram como preparar a rede virtual para a movimentação us
 
 19. Clique no botão **comprar** para implantar a rede virtual de destino.
 
-## <a name="discard"></a>Dispensar 
+## <a name="discard"></a>Rejeitar
 
 Se você quiser descartar a rede virtual de destino, exclua o grupo de recursos que contém a rede virtual de destino.  Para fazer isso, selecione o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior da página Visão geral.
 

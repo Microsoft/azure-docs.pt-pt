@@ -12,19 +12,21 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: d2d52d2faf9122b7dc87f71ac7b1be53eaa99878
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: adca1bdd0cf525627cc284b1c0d3509beddef131
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534978"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219384"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para o serviço de porta frontal do Azure
 Este artigo mostra como configurar regras de restrição de IP em um WAF (firewall do aplicativo Web) para o serviço de porta frontal do Azure usando o CLI do Azure, Azure PowerShell ou um modelo de Azure Resource Manager.
 
 Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP em formato CIDR (roteamento entre domínios sem classificação).
 
-Por padrão, seu aplicativo Web pode ser acessado pela Internet. Se você quiser limitar o acesso a clientes de uma lista de endereços IP conhecidos ou intervalos de endereços IP, você poderá criar uma regra de correspondência de IP que contenha a lista de endereços IP como valores correspondentes e definir operador como "Not" (negar é verdadeiro) ea ação a ser bloqueada. Depois que uma regra de restrição de IP é aplicada, as solicitações originadas de endereços fora dessa lista de permissão recebem uma resposta de 403 Proibido.  
+Por padrão, seu aplicativo Web pode ser acessado pela Internet. Se você quiser limitar o acesso a clientes de uma lista de endereços IP conhecidos ou intervalos de endereços IP, você poderá criar uma regra de correspondência de IP que contenha a lista de endereços IP como valores correspondentes e definir operador como "Not" (negar é verdadeiro) e a ação a ser **bloqueada**. Depois que uma regra de restrição de IP é aplicada, as solicitações originadas de endereços fora dessa lista de permissão recebem uma resposta de 403 Proibido.  
+
+Um endereço IP do cliente pode ser diferente do endereço IP WAF observa, por exemplo, quando um cliente acessa WAF por meio de um proxy. Você pode criar regras de restrição de IP com base nos endereços IP do cliente (RemoteAddr) ou nos endereços IP do soquete vistos pelo WAF (SocketAddr). 
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Configurar uma política de WAF com o CLI do Azure
 
@@ -67,7 +69,7 @@ az network front-door waf-policy rule create \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI --defer
 ```
-Em seguida, adicione a condição de correspondência à regra:
+Em seguida, adicione a condição de correspondência de IP do cliente à regra:
 
 ```azurecli
 az network front-door waf-policy rule match-condition add\
@@ -79,9 +81,19 @@ az network front-door waf-policy rule match-condition add\
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI 
   ```
-                                                   
-### <a name="find-the-id-of-a-waf-policy"></a>Localizar a ID de uma política de WAF 
-Localize a ID de uma política de WAF usando o comando [AZ Network front-door WAF-Policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) . Substitua *IPAllowPolicyExampleCLI* no exemplo a seguir pela sua política exclusiva que você criou anteriormente.
+Para a condição de correspondência de IP de soquete (SocketAddr):
+  ```azurecli
+az network front-door waf-policy rule match-condition add\
+--match-variable SocketAddr \
+--operator IPMatch
+--values "ip-address-range-1" "ip-address-range-2"
+--negate true\
+--name IPAllowListRule\
+  --resource-group <resource-group-name> \
+  --policy-name IPAllowPolicyExampleCLI                                                  
+
+### Find the ID of a WAF policy 
+Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -141,7 +153,17 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1
 ```
-     
+
+Para a condição de correspondência de IP de soquete (SocketAddr):   
+```powershell
+$IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
+-MatchVariable  SocketAddr `
+-OperatorProperty IPMatch `
+-MatchValue "ip-address-range-1", "ip-address-range-2"
+-NegateCondition 1
+```
+
+
 ### <a name="create-a-custom-ip-allow-rule"></a>Criar uma regra de permissão de IP personalizada
 
 Use o comando [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) para definir uma ação e definir uma prioridade. No exemplo a seguir, as solicitações não dos IPs de cliente que correspondem à lista serão bloqueadas.
@@ -186,6 +208,6 @@ Vincule um objeto de política WAF a um host front-end existente e atualize as p
 Para exibir o modelo que cria uma política de serviço do Azure front door e uma política de WAF com regras de restrição de IP personalizadas, vá para [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um perfil de serviço de porta frontal do Azure](quickstart-create-front-door.md).

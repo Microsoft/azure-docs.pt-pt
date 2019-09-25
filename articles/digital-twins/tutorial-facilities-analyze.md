@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 0244d6ac51b7cad6b74139c39914223928e2b627
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: d155d3566ef87e8a21cdc3e701892144c613f694
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827829"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219282"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualize e analise eventos de seus espaços de gêmeos digitais do Azure usando Time Series Insights
 
@@ -37,6 +37,9 @@ Neste tutorial, parte-se do princípio de que [configurou](tutorial-facilities-s
 - Uma instância do Digital Twins em execução.
 - Os [exemplos do Digital Twins em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) transferidos e extraídos para o computador de trabalho.
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para executar o exemplo. Execute `dotnet --version` para verificar se a versão correta está instalada.
+
+> [!TIP]
+> Use um nome de instância de gêmeos digital exclusivo se você estiver Provisionando uma nova instância.
 
 ## <a name="stream-data-by-using-event-hubs"></a>Transmitir dados usando hubs de eventos
 
@@ -130,7 +133,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 1. No painel esquerdo da [portal do Azure](https://portal.azure.com), selecione **criar um recurso**. 
 
-1. Procure e selecione um recurso novo do **Time Series Insights**. Selecione **Criar**.
+1. Pesquise e selecione um recurso de GA (disponibilidade geral) **Time Series insights** . Selecione **Criar**.
 
 1. Introduza um **Nome** para a instância do Time Series Insights e selecione a sua **Subscrição**. Selecione o **grupo de recursos** que você usou para sua instância de gêmeos digital e seu **local**. Selecione **avançar: Botão origem** do evento ou a guia **origem do evento** .
 
@@ -169,7 +172,7 @@ Se você quiser interromper a exploração do Azure digital gêmeos além desse 
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Vá para o próximo artigo para saber mais sobre gráficos de inteligência espacial e modelos de objeto no gêmeos digital do Azure.
 

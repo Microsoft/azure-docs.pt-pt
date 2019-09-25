@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172060"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229532"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância de Azure Active Directory Domain Services
 
@@ -65,6 +65,15 @@ Ao criar uma instância de AD DS do Azure, você especifica um nome DNS. Há alg
 * **Nomes de domínio personalizados:** A abordagem mais comum é especificar um nome de domínio personalizado, normalmente um que você já possui e é roteável. Quando você usa um domínio reroteável, personalizado, o tráfego pode fluir corretamente conforme necessário para dar suporte aos seus aplicativos.
 * **Sufixos de domínio não roteáveis:** Geralmente, recomendamos que você evite um sufixo de nome de domínio não roteável, como *contoso. local*. O sufixo *. local* não é roteável e pode causar problemas com a resolução DNS.
 
+> [!TIP]
+> Se você criar um nome de domínio personalizado, tome cuidado com os namespaces DNS existentes. É recomendável incluir um prefixo exclusivo para o nome de domínio. Por exemplo, se o nome raiz do DNS for *contoso.com*, crie um domínio gerenciado AD DS do Azure com o nome de domínio personalizado *Corp.contoso.com* ou *DS.contoso.com*. Em um ambiente híbrido com um ambiente de AD DS local, esses prefixos já podem estar em uso. Use um prefixo exclusivo para AD DS do Azure.
+>
+> Você pode usar o nome DNS raiz para seu domínio gerenciado AD DS do Azure, mas talvez precise criar alguns registros DNS adicionais para outros serviços em seu ambiente. Por exemplo, se você executar um servidor Webque hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
+>
+> Nesses tutoriais e artigos de instruções, o domínio personalizado do *contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
+>
+> Para obter mais informações, consulte [selecionar um prefixo de nomenclatura para o domínio][naming-prefix].
+
 As seguintes restrições de nome DNS também se aplicam:
 
 * **Restrições de prefixo de domínio:** Você não pode criar um domínio gerenciado com um prefixo com mais de 15 caracteres. O prefixo do nome de domínio especificado (como *contoso* no nome de domínio *contoso.com* ) deve conter 15 caracteres ou menos.
@@ -101,7 +110,7 @@ Preencha os campos na janela *rede* da seguinte maneira:
 1. Na janela **rede** , escolha **selecionar rede virtual**.
 1. Para este tutorial, opte por **criar uma nova** rede virtual na qual implantar o Azure AD DS.
 1. Insira um nome para a rede virtual, como *myVnet*, em seguida, forneça um intervalo de endereços, como *10.1.0.0/16*.
-1. Crie uma sub-rede dedicada com um nome claro, como DomainServices. Forneça um intervalo de endereços, como *10.1.0.0/24*.
+1. Crie uma sub-rede dedicada com um nome claro, como *DomainServices*. Forneça um intervalo de endereços, como *10.1.0.0/24*.
 
     ![Criar uma rede virtual e uma sub-rede para uso com Azure AD Domain Services](./media/tutorial-create-instance/create-vnet.png)
 
@@ -110,7 +119,7 @@ Preencha os campos na janela *rede* da seguinte maneira:
     > [!TIP]
     > Na página **escolher rede virtual** , as redes virtuais existentes são exibidas que pertencem ao grupo de recursos e ao local do Azure que você selecionou anteriormente. Você precisa [criar uma sub-rede dedicada][create-dedicated-subnet] antes de implantar AD DS do Azure.
 
-1. Com a rede virtual e a sub-rede criadas, a sub-rede deve ser selecionada automaticamente, comoDomainServices. Em vez disso, você pode escolher uma sub-rede existente alternativa que faça parte da rede virtual selecionada:
+1. Com a rede virtual e a sub-rede criadas, a sub-rede deve ser selecionada automaticamente, como *DomainServices*. Em vez disso, você pode escolher uma sub-rede existente alternativa que faça parte da rede virtual selecionada:
 
     ![Escolha a sub-rede dedicada dentro da rede virtual](./media/tutorial-create-instance/choose-subnet.png)
 
@@ -150,7 +159,7 @@ Na página **Resumo** do assistente, examine as definições de configuração d
 
     ![Notificação na portal do Azure da implantação em andamento](./media/tutorial-create-instance/deployment-in-progress.png)
 
-1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *contoso.com*. A guia **visão geral** mostra que o domínio gerenciado estásendo implantado no momento. Você não pode configurar o domínio gerenciado até que ele seja totalmente provisionado.
+1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *contoso.com*. A guia **visão geral** mostra que o domínio gerenciado está sendo *implantado*no momento. Você não pode configurar o domínio gerenciado até que ele seja totalmente provisionado.
 
     ![Status dos serviços de domínio durante o estado de provisionamento](./media/tutorial-create-instance/provisioning-in-progress.png)
 
@@ -204,7 +213,7 @@ Para alterar a senha de um usuário somente em nuvem, o usuário deve concluir a
 
 Levará alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS e entrar com êxito em computadores ingressados no domínio gerenciado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -228,3 +237,6 @@ Para ver esse domínio gerenciado em ação, crie e ingresse uma máquina virtua
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+
+<!-- EXTERNAL LINKS -->
+[naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

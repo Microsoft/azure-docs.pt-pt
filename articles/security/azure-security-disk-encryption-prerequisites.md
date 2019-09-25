@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845872"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224514"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption
 
@@ -28,7 +28,7 @@ Antes de ativar o Azure Disk Encryption em VMs de IaaS do Azure para os cenário
 
 ## <a name="supported-vm-sizes"></a>Tamanhos de VM suportados
 
-O Azure Disk Encryption não está disponível nas [VMs da série A básica](/pricing/details/virtual-machines/series/). Azure Disk Encryption está disponível em outras máquinas virtuais que atendem a esses requisitos mínimos de memória:
+O Azure Disk Encryption não está disponível nas [VMs da série A básica](https://azure.microsoft.com/pricing/details/virtual-machines/series/). Azure Disk Encryption está disponível em outras máquinas virtuais que atendem a esses requisitos mínimos de memória:
 
 | Máquina virtual | Requisito mínimo de memória |
 |--|--|
@@ -40,7 +40,7 @@ O Azure Disk Encryption não está disponível nas [VMs da série A básica](/pr
 Depois que o processo de criptografia de disco do sistema operacional for concluído em máquinas virtuais Linux, a VM poderá ser configurada para ser executada com menos memória. 
 
 > [!NOTE]
-> A criptografia de disco do SO Linux não está disponível para conjuntos de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/index.yml).
+> A criptografia de disco do SO Linux não está disponível para [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/index.yml).
 
 Azure Disk Encryption também está disponível para VMs com armazenamento Premium. 
 

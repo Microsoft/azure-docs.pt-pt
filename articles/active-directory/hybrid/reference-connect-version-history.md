@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097601"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212322"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -46,7 +46,13 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->Anteriormente, os computadores de nível inferior do Windows que ingressaram no AD local estavam sendo sincronizados incorretamente para a nuvem em algumas circunstâncias. Por exemplo, o valor do atributo userCertificate para dispositivos de nível inferior do Windows no AD é populado. Mas esses dispositivos no Azure AD sempre ficam no estado "pendente" porque essas versões do sistema operacional não foram projetadas para serem registradas com o Azure AD via AAD Sync. Nesta versão do Azure AD Connect, AAD Sync interromperá a sincronização de computadores de nível inferior do Windows com o Azure AD e também removerá os dispositivos de nível inferior do Windows previamente sincronizados anteriormente do Azure AD. Observe que essa alteração não excluirá nenhum dispositivo de nível inferior do Windows registrado corretamente com o Azure AD usando o pacote MSI. Esses dispositivos continuarão a funcionar conforme o esperado para fins de acesso condicional com base no dispositivo. Alguns clientes podem ver que alguns ou todos os seus dispositivos de nível inferior do Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo nunca foram realmente usadas pelo Azure AD durante a autorização de acesso condicional. Esses clientes talvez precisem revisitar https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan e obter seus dispositivos de nível inferior do Windows registrados corretamente para garantir que esses dispositivos possam participar totalmente do acesso condicional baseado em dispositivo. Observe que, se você vir essas exclusões de objetos de computador/dispositivo de nível inferior no Azure AD excedendo o limite de exclusão de exportação, é recomendável que o cliente permita que essas exclusões passem.
+>Computadores Windows registrados como ingressados no Azure AD híbrido são representados no Azure AD como objetos de dispositivo. Esses objetos de dispositivo podem ser usados para acesso condicional. Os computadores com Windows 10 são sincronizados com a nuvem por meio de Azure AD Connect, os computadores Windows de nível inferior são registrados diretamente usando AD FS ou o logon único contínuo.
+>
+>Somente computadores com Windows 10 com um valor de atributo usercertificar específico configurado pela junção híbrida do Azure AD devem ser sincronizados com a nuvem pelo Azure AD Connect.  Em versões anteriores do Azure AD Connect esse requisito não era rigorosamente imposto, resultando em objetos de dispositivo desnecessários no Azure AD. Esses dispositivos no Azure AD sempre ficam no estado "pendente" porque esses computadores não se destinam a serem registrados com o Azure AD.
+>
+>Esta versão do Azure AD Connect sincronizará apenas computadores com Windows 10 que estão configurados corretamente para serem ingressados no Azure AD híbrido. Azure AD Connect nunca deve estar sincronizando [dispositivos Windows de nível inferior](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Todos os dispositivos no Azure AD anteriormente sincronizados incorretamente agora serão excluídos do Azure AD.  No entanto, essa alteração não excluirá nenhum dispositivo Windows registrado corretamente com o Azure AD para ingresso híbrido no Azure AD. 
+>
+>Alguns clientes podem ver que alguns ou todos os seus dispositivos Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo não são usadas pelo AD do Azure durante a autorização de acesso condicional. Alguns clientes talvez precisem revisitar [como: Planeje sua implementação](../../active-directory/devices/hybrid-azuread-join-plan.md) de junção de Azure Active Directory híbrida para colocar seus computadores Windows registrados corretamente e garantir que esses dispositivos possam participar totalmente do acesso condicional com base no dispositivo. Se Azure AD Connect estiver tentando excluir [dispositivos Windows de nível inferior](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) , o dispositivo não será aquele que foi criado pelo [Microsoft Workplace Join para MSI de computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) e não poderá ser consumido por nenhum outro recurso do Azure AD.  Se você vir as exclusões de objetos de computador/dispositivo no Azure AD excedendo o limite de exclusão de exportação, é recomendável que o cliente permita que essas exclusões passem.
 
 ### <a name="release-status"></a>Status da versão
 9/10/2019: Liberado somente para atualização automática
@@ -450,7 +456,7 @@ Bloqueie o acesso à conta de AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto específico, exceto ACEs específicas para si mesma. Queremos manter as permissões padrão intactas quando se trata de si mesma.
 *   Atribua estas permissões específicas:
 
-Type     | Name                          | Aceder               | Aplica-se A
+Type     | Name                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SISTEMA                        | Controlo Total         | Este objeto  |
 Allow    | Administradores corporativos             | Controlo Total         | Este objeto  |
@@ -1312,5 +1318,5 @@ Liberado setembro de 2014
 
 **Versão inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

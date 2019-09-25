@@ -4,9 +4,9 @@ description: Saiba como usar os hubs de notificação para enviar notificações
 keywords: notificação por push, notificações por push, push do node. js, push do IOS
 services: notification-hubs
 documentationcenter: nodejs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67706217"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213186"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviando notificações por push com hubs de notificação do Azure e node. js
 
@@ -98,7 +100,7 @@ O `NotificationHubService` objeto expõe as seguintes instâncias de objeto para
 - **Windows Phone** -use o `MpnsService` objeto, que está disponível em`notificationHubService.mpns`
 - **Plataforma universal do Windows** -use o `WnsService` objeto, que está disponível em`notificationHubService.wns`
 
-### <a name="how-to-send-push-notifications-to-android-applications"></a>Como: Enviar notificações por push para aplicativos Android
+### <a name="how-to-send-push-notifications-to-android-applications"></a>Como: Enviar notificações push para aplicações Android
 
 O `GcmService` objeto fornece um `send` método que pode ser usado para enviar notificações por push para aplicativos Android. O `send` método aceita os seguintes parâmetros:
 

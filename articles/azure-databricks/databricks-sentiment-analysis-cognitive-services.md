@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68619548"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
@@ -133,7 +133,7 @@ Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores
 
 Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs de Eventos. Também pode utilizar o [Conector de Hubs de eventos do Spark](https://github.com/Azure/azure-event-hubs-spark?WT.mc_id=sparkeventhubs-docs-alehall) para ler e escrever dados em Hubs de Eventos do Azure. Para usar essas APIs como parte do cluster, adicione-as como bibliotecas para Azure Databricks e associá-las ao cluster do Spark. As instruções a seguir mostram como adicionar uma biblioteca.
 
-1. No espaço de trabalho Azure Databricks, selecione clusters e escolha o cluster Spark existente. No menu do cluster, escolha **bibliotecas** e clique em **instalar novo**.
+1. No espaço de trabalho Azure Databricks, selecione **clusters**e escolha o cluster Spark existente. No menu do cluster, escolha **bibliotecas** e clique em **instalar novo**.
 
    ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Adicionar biblioteca localizar cluster")
 
@@ -216,7 +216,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 No notebook **SendTweetsToEventHub** , Cole o código a seguir e substitua os espaços reservados por valores para seu namespace de hubs de eventos e o aplicativo do Twitter que você criou anteriormente. Este bloco de notas transmite os tweets com a palavra-chave "Azure" para os Hubs de Eventos em tempo real.
 
 > [!NOTE]
-> A API do Twitter tem determinadas restrições [](https://developer.twitter.com/en/docs/basics/rate-limiting.html)de solicitação e cotas. Se você não estiver satisfeito com a limitação de taxa padrão na API do Twitter, poderá gerar conteúdo de texto sem usar a API do Twitter neste exemplo. Para fazer isso, defina **DataSource** de variável `test` como em `twitter` vez de e preencha  o TestName da lista com a entrada de teste preferencial.
+> A API do Twitter tem determinadas restrições de solicitação e [cotas](https://developer.twitter.com/en/docs/basics/rate-limiting.html). Se você não estiver satisfeito com a limitação de taxa padrão na API do Twitter, poderá gerar conteúdo de texto sem usar a API do Twitter neste exemplo. Para fazer isso, defina **DataSource** de variável `test` como em `twitter` vez de e preencha o **TestName** da lista com a entrada de teste preferencial.
 
 ```scala
     import scala.collection.JavaConverters._

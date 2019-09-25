@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: caaf708b3efd8ffbe059f8ad249b7945d31fd7cc
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fb306ec3f8abe2eedb97f83d01836745779db914
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601167"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240763"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Conectar Azure Stack máquinas virtuais ao Azure Sentinel
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 Com o Azure Sentinel, você pode monitorar suas VMs em execução no Azure e Azure Stack em um único local. Para integrar seus computadores Azure Stack ao Azure Sentinel, primeiro você precisa adicionar a extensão da máquina virtual às suas máquinas virtuais Azure Stack existentes. 
@@ -53,7 +51,7 @@ Adicione a extensão de máquina virtual de **Gerenciamento de Azure monitor, at
 
 Para obter mais informações sobre como instalar e configurar o agente para Windows, consulte [conectar computadores Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
-Para a solução de problemas do agente para Linux, consulte solucionar problemas do [agente do Azure log Analytics Linux](../azure-monitor/platform/agent-linux-troubleshoot.md).
+Para a solução de problemas do agente para Linux, consulte [solucionar problemas do agente do Azure log Analytics Linux](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 No portal do Azure Sentinel no Azure, em **máquinas virtuais**, você tem uma visão geral de todas as VMs e computadores junto com seu status. 
 
@@ -67,9 +65,9 @@ Para remover a extensão:
 3. Selecione **extensões**, selecione a extensão **Microsoft. EnterpriseCloud. Monitoring**.
 4. Clique em **desinstalar**e confirme sua seleção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 - Transmita dados de [dispositivos de formato de erro comuns](connect-common-event-format.md) para o Azure Sentinel.

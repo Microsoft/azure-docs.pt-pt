@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 71b7e4bd9406e7fb300ebccd86908820b7628c29
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "71000767"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves protegidas por HSM para Azure Key Vault
@@ -562,6 +562,6 @@ Para essa etapa final, na estação de trabalho conectada à Internet, use o cmd
 
 Se o upload for bem-sucedido, você verá exibindo as propriedades da chave que você acabou de adicionar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você pode usar essa chave protegida por HSM em seu cofre de chaves. Para obter mais informações, consulte esta [comparação](https://azure.microsoft.com/pricing/details/key-vault/)de preço e recurso.

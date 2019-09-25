@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742009"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224559"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido do PowerShell no Azure Cloud Shell
 
@@ -186,14 +186,15 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   Supondo que você tenha uma VM, MyVM1, vamos `Invoke-AzVMCommand` usar para invocar um bloco de script do PowerShell no computador remoto.
 
   ```azurepowershell-interactive
-  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
   ```
 
   Você também pode navegar até o diretório VirtualMachines primeiro e executar `Invoke-AzVMCommand` da seguinte maneira.
 
   ```azurepowershell-interactive
-  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
 
   # You will see output similar to the following:
 
@@ -215,13 +216,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 Você pode usar `Enter-AzVM` o para fazer logon interativamente em uma VM em execução no Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
 Você também pode navegar até o `VirtualMachines` diretório primeiro e executar `Enter-AzVM` da seguinte maneira
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
  ```
 
 ### <a name="discover-webapps"></a>Descobrir webapps
@@ -334,7 +335,7 @@ Na próxima vez que você usar o PowerShell no Cloud Shell `helloworld.ps1` , o 
 Você pode personalizar o ambiente do PowerShell criando perfil (s) do PowerShell- `profile.ps1` (ou `Microsoft.PowerShell_profile.ps1`).
 Salve-o `$profile.CurrentUserAllHosts` em ( `$profile.CurrentUserAllHosts`ou), para que ele possa ser carregado em cada PowerShell na sessão Cloud Shell.
 
-Para saber como criar um perfil, consulte [about][profile]Profiles.
+Para saber como criar um perfil, consulte [about Profiles][profile].
 
 ## <a name="use-git"></a>Usar git
 

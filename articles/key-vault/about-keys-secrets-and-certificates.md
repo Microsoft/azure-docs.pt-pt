@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4bbe9d9bfaf49fe93631787b347a3446e4b0f817
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000572"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241060"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 

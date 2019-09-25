@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ecd1212385473e33d05f38f67db5708bff060daa
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035304"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218238"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 
@@ -147,7 +147,8 @@ O `target_path` parâmetro é o local do diretório local para o qual baixar os 
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>Acesse seus dados durante o treinamento
 
-Para acessar dados durante o treinamento, você pode baixar ou montar seus dados de seus serviços de armazenamento do Azure para o destino de computação por meio de armazenamentos.
+> [!IMPORTANT]
+> Usar [Azure Machine Learning conjuntos de dados (versão prévia)](how-to-create-register-datasets.md) é a nova maneira recomendada de acessar os seus dados no treinamento. Os conjuntos de dados fornecem funções que carregam dados tabulares em pandas ou Spark dataframe e a capacidade de baixar ou montar arquivos de qualquer formato do blob do Azure, arquivo do Azure, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, PostgreSQL do Azure. Saiba mais sobre [como treinar com conjuntos de](how-to-train-with-datasets.md)os.
 
 A tabela a seguir lista os métodos que dizem ao destino de computação como usar os repositórios de armazenamento durante as execuções. 
 
@@ -243,7 +244,7 @@ Azure Machine Learning fornece várias maneiras de usar seus modelos para pontua
 Para situações em que o SDK não fornece acesso a repositórios de dados, você poderá criar um código personalizado usando o SDK do Azure relevante para acessar o dado. Por exemplo, usando o [SDK de armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python) para acessar dados armazenados em BLOBs.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar um modelo](how-to-train-ml-models.md)
 

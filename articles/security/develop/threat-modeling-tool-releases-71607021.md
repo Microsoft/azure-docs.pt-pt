@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: jegeib
-ms.openlocfilehash: 889704a2312bc51e57c18f25875fdbc838876522
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928049"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219846"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Versão de atualização do Threat Modeling Tool 7.1.60702.1-7/2/2019
 
@@ -43,7 +43,7 @@ Um conjunto de estênceis para modelagem de dispositivos médicos foi contribuí
 - Sistemas Operativos Suportados
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
 - Versão do .NET necessária
-  - [.NET 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos Adicionais
   - Uma conexão com a Internet é necessária para receber atualizações para a ferramenta, bem como modelos.
 
@@ -51,6 +51,6 @@ Um conjunto de estênceis para modelagem de dispositivos médicos foi contribuí
 
 - A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](threat-modeling-tool.md)e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Baixe a versão mais recente do [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3c8d0d3ec0f11592610363e9150be47112995853
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203552"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219870"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
-Os serviços de mídia do Azure Video Indexer é uma solução de ia criada nos serviços cognitivas do Azure. O Video Indexer fornece a capacidade de extrair informações aprofundadas (sem necessidade de análise de dados ou habilidades de codificação) usando modelos de aprendizado de máquina com base em vários canais (voz, vozes, Visual). Você pode personalizar e treinar os modelos. O serviço permite a pesquisa profunda, reduz os custos operacionais, permite novas oportunidades de monetização, novas experiências de usuário em grandes arquivos de vídeos (com barreiras de baixa entrada). 
+Video Indexer (VI) é a solução de ia dos serviços de mídia do Azure e parte da marca de serviços cognitivas da Microsoft. O Video Indexer fornece a capacidade de extrair informações aprofundadas (sem necessidade de análise de dados ou habilidades de codificação) usando modelos de aprendizado de máquina com base em vários canais (voz, vozes, Visual). Você pode personalizar e treinar os modelos. O serviço permite a pesquisa profunda, reduz os custos operacionais, permite novas oportunidades de monetização, novas experiências de usuário em grandes arquivos de vídeos (com barreiras de baixa entrada). 
 
 Para começar a extrair informações com Video Indexer, você precisa criar uma conta e carregar vídeos. Quando você carrega seus vídeos para Video Indexer, ele analisa os elementos visuais e áudio executando modelos de ia diferentes. Como Video Indexer analisa seu vídeo, as informações que são extraídas pelos modelos.
+
+O diagrama a seguir é uma ilustração e não uma explicação técnica de como Video Indexer funciona no back-end.
 
 ![Diagrama de fluxo](./media/video-indexer-overview/model-chart.png)
 

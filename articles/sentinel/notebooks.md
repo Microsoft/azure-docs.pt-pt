@@ -1,5 +1,5 @@
 ---
-title: Recursos de busca usando blocos de anotações na visualização do Azure Sentinel | Microsoft Docs
+title: Recursos de busca usando blocos de anotações no Azure Sentinel | Microsoft Docs
 description: Este artigo descreve como usar blocos de anotações com os recursos de busca do Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -16,23 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6372a7958caf108903321e5ee87ea6bf1a42271c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5b90ecc1db686b698668b07bd839304b425445ca
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689529"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240534"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use blocos de anotações do Jupyter para procurar ameaças de segurança
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 A base do Azure Sentinel é o armazenamento de dados; Ele combina consultas de alto desempenho, esquema dinâmico e escalas para grandes volumes de dados. O portal do Azure Sentinel e todas as ferramentas do Azure Sentinel usam uma API comum para acessar esse armazenamento de dados. A mesma API também está disponível para ferramentas externas, como notebooks [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser executadas no portal, o Jupyter estende o escopo do que você pode fazer com esses dados. Ele combina programação completa com uma enorme coleção de bibliotecas para aprendizado de máquina, visualização e análise de dados. Esses atributos tornam o Jupyter uma ferramenta atraente para investigação de segurança e busca.
 
-![bloco de anotações de exemplo](./media/notebooks/sentinel-notebooks-map.png)
+![Bloco de anotações de exemplo](./media/notebooks/sentinel-notebooks-map.png)
 
 Nós integramos a experiência do Jupyter no portal do Azure Sentinel, facilitando a criação e a execução de notebooks para analisar seus dados. A biblioteca *Kqlmagic* fornece a cola que permite que você faça consultas do Azure Sentinel e execute-as diretamente dentro de um notebook. As consultas usam a [linguagem de consulta Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Vários notebooks, desenvolvidos por alguns dos analistas de segurança da Microsoft, são empacotados com o Azure Sentinel. Alguns desses notebooks são criados para um cenário específico e podem ser usados no estado em que se encontram. Outras são destinadas a exemplos para ilustrar técnicas e recursos que você pode copiar ou adaptar para uso em seus próprios blocos de anotações. Outros blocos de anotações também podem ser importados do GitHub da Comunidade do Azure Sentinel.
 
@@ -74,7 +69,7 @@ No exemplo a seguir, criamos um projeto Azure Notebooks no portal do Azure Senti
 
    ![Importar bloco de anotações](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. Ao criar um novo projeto, você precisará nomear o projeto-Use o nome padrão ou digite um novo. Não marque a opção clonar recursivamente – essa opção se refere a repositórios do GitHub vinculado. Clicar em **importar** inicia a clonagem do conteúdo do GitHub, o que pode levar alguns minutos para ser concluído.
+3. Ao criar um novo projeto, você precisará nomear o projeto-Use o nome padrão ou digite um novo. Não marque a opção **clonar recursivamente** – essa opção se refere a repositórios do GitHub vinculado. Clicar em **importar** inicia a clonagem do conteúdo do GitHub, o que pode levar alguns minutos para ser concluído.
 
    ![Importar bloco de anotações](./media/notebooks/sentinel-create-project.png)
 
@@ -90,7 +85,7 @@ No exemplo a seguir, criamos um projeto Azure Notebooks no portal do Azure Senti
 
    ![selecionar bloco de anotações](./media/notebooks/sentinel-select-kernel.png)
 
-Para obter uma breve introdução à consulta de dados no Azure Sentinel, examine o [](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) bloco de anotações getstarted na pasta do bloco de anotações principal. Blocos de anotações de exemplo adicionais podem ser encontrados na subpasta de **blocos de anotações de exemplo** . Os blocos de anotações de exemplo foram salvos com dados, para que seja mais fácil ver a saída pretendida (Recomendamos exibi-los em [nbviewer](https://nbviewer.jupyter.org/)). A pasta HOWTOs contém blocos de anotações que descrevem, por exemplo: definir a versão padrão do Python, configurar um DSVM, criar indicadores do Azure Sentinel de um notebook e outros assuntos.
+Para obter uma breve introdução à consulta de dados no Azure Sentinel, examine o bloco de anotações [getstarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) na pasta do bloco de anotações principal. Blocos de anotações de exemplo adicionais podem ser encontrados na subpasta de **blocos de anotações de exemplo** . Os blocos de anotações de exemplo foram salvos com dados, para que seja mais fácil ver a saída pretendida (Recomendamos exibi-los em [nbviewer](https://nbviewer.jupyter.org/)). A pasta **HOWTOs** contém blocos de anotações que descrevem, por exemplo: definir a versão padrão do Python, configurar um DSVM, criar indicadores do Azure Sentinel de um notebook e outros assuntos.
 
 Esses notebooks destinam-se a ferramentas úteis e ilustrações e exemplos de código que você pode usar no desenvolvimento de seus próprios blocos de anotações.
 

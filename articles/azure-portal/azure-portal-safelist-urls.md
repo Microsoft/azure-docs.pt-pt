@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 78c752423d20d183c561d5bcf0bb95246b84ab49
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076665"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218050"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
 
@@ -75,13 +75,13 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 > O tráfego para esses pontos de extremidade usa portas TCP padrão para HTTP (80) e HTTPS (443).
 >
 >
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Precisa de endereços IP de resafelist? Baixe a lista de intervalos de IP do datacenter Microsoft Azure para sua nuvem:
 
 * [Pelo](https://www.microsoft.com/download/details.aspx?id=56519)
-* [RELATIVAS Instituições](http://www.microsoft.com/download/details.aspx?id=57063)
-* [Alemanha](http://www.microsoft.com/download/details.aspx?id=57064)
-* [China](http://www.microsoft.com/download/details.aspx?id=57062)
+* [RELATIVAS Instituições](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
+* [China](https://www.microsoft.com/download/details.aspx?id=57062)
 
 Outros serviços da Microsoft usam URLs e endereços IP adicionais para conectividade. Para otimizar a conectividade de rede para serviços de Microsoft 365, consulte [configurar sua rede para o Office 365](/office365/enterprise/set-up-network-for-office-365).

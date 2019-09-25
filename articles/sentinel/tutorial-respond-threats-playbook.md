@@ -1,5 +1,5 @@
 ---
-title: Executar um guia estratégico na visualização do Azure Sentinel | Microsoft Docs
+title: Executar um guia estratégico no Azure Sentinel | Microsoft Docs
 description: Este artigo descreve como executar um guia estratégico no Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/21/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7ab4c4ba4553e7e5f15e563c67c845758a53766f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018790"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229500"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configurar respostas de ameaças automatizadas na visualização do Azure Sentinel
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configurar respostas de ameaças automatizadas no Azure Sentinel
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Este tutorial ajuda você a usar guias estratégicos de segurança no Azure Sentinel para definir respostas automatizadas de ameaças a problemas relacionados à segurança detectados pelo Azure Sentinel.
 
@@ -78,7 +76,9 @@ Siga estas etapas para criar um novo manual de segurança no Azure Sentinel:
 
 6. Você é levado ao designer do aplicativo lógico, onde você pode criar um novo ou editar o modelo. Para obter mais informações sobre como criar um guia estratégico com [aplicativos lógicos](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Se você estiver criando um manual em branco, no campo **Pesquisar todos os conectores e gatilhos** , digite *Azure Sentinel*e selecione **quando uma resposta a um alerta do Azure Sentinel é**disparada. <br>Depois de criado, o novo guia estratégico aparece na lista **Guias estratégicos** . Se ele não aparecer, clique em **Atualizar**. 
+7. Se você estiver criando um manual em branco, no campo **Pesquisar todos os conectores e gatilhos** , digite *Azure Sentinel*e selecione **quando uma resposta a um alerta do Azure Sentinel é disparada**. <br>Depois de criado, o novo guia estratégico aparece na lista **Guias estratégicos** . Se ele não aparecer, clique em **Atualizar**.
+
+1. Use as funções **obter entidades** , que permitem que você obtenha as entidades relevantes de dentro da lista de **entidades** , como contas, endereços IP e hosts. Isso permitirá que você execute ações em entidades específicas.
 
 7. Agora, pode definir o que acontece quando aciona o playbook. Você pode adicionar uma ação, condição lógica, condições de caso de alternância ou loops.
 
@@ -105,7 +105,7 @@ Muitos, se não a maioria, desses alertas estão em conformidade com padrões re
 Para automatizar as respostas:
 
 1. Selecione o alerta para o qual você deseja automatizar a resposta.
-1. Na página **Editar regra de alerta** , em **automação em tempo real**, escolha o **guia estratégico** disparado que você deseja executar quando essa regra de alerta for correspondida.
+1. Na página **Editar regra de alerta** , em **automação em tempo real**, escolha o **guia estratégico disparado** que você deseja executar quando essa regra de alerta for correspondida.
 1. Selecione **Guardar**.
 
    ![automação em tempo real](./media/tutorial-detect-threats/rt-configuration.png)
@@ -115,7 +115,7 @@ Para automatizar as respostas:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a executar um guia estratégico no Azure Sentinel. Continue na [busca de ameaças de forma proativa usando o](hunting.md) Azure Sentinel.
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775215"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219757"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Mapeando padrões de coluna de fluxos de dados
 
@@ -56,6 +56,6 @@ Crie suas regras usando o construtor de expressões. Suas expressões retornarã
 * `stream`representa o nome associado a cada fluxo ou transformação em seu fluxo
 * `position`é a posição ordinal de colunas em seu fluxo de dados
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre a [linguagem de expressão](http://aka.ms/dataflowexpressions) de fluxo de dados de mapeamento do ADF para transformações de dados
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre a [linguagem de expressão](https://aka.ms/dataflowexpressions) de fluxo de dados de mapeamento do ADF para transformações de dados
 * Usar padrões de coluna na [transformação do coletor](data-flow-sink.md) e [selecionar a transformação](data-flow-select.md) com mapeamento baseado em regras

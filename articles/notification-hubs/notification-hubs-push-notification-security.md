@@ -3,9 +3,9 @@ title: Segurança dos hubs de notificação
 description: Este tópico explica a segurança para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: jowargo
-ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/31/2019
+ms.openlocfilehash: 753493100bbdb34255574656a47217560e2d321a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891580"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213057"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
 
@@ -43,7 +45,7 @@ Semelhante a outras entidades, as operações do hub de notificação são permi
 
 | Afirmação   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Vigiar  | Criar/atualizar, ler e excluir registros únicos | Criar/atualizar registro<br><br>Ler registro<br><br>Ler todos os registros de um identificador<br><br>Excluir registro |
+| Escutar  | Criar/atualizar, ler e excluir registros únicos | Criar/atualizar registro<br><br>Ler registro<br><br>Ler todos os registros de um identificador<br><br>Excluir registro |
 | Enviar    | Enviar mensagens para o Hub de notificação                | Enviar mensagem |
 | Gerir  | CRUDs em hubs de notificação (incluindo atualização de credenciais do PNS e chaves de segurança) e ler registros com base em marcas |Criar/atualizar/ler/excluir hubs de notificação<br><br>Ler registros por marca |
 

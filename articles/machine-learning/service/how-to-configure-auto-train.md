@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ef501af63628b47bc52d416930c90057569b5de
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035033"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213515"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 
@@ -202,7 +202,7 @@ Alguns exemplos incluem:
         n_cross_validations=5)
     ```
 
-Os três valores `task` de parâmetro diferentes determinam a lista de algoritmos a serem aplicados.  Use os `whitelist` parâmetros `blacklist` ou para modificar ainda mais as iterações com os algoritmos disponíveis para incluir ou excluir. A lista de modelos com suporte pode ser encontrada na [classe SupportedAlgorithms](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
+Os três valores `task` de parâmetro diferentes determinam a lista de modelos a serem aplicados.  Use os `whitelist` parâmetros `blacklist` ou para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos com suporte pode ser encontrada na [classe SupportedModels](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Métrica primária
 A métrica primária; conforme mostrado nos exemplos acima, determina a métrica a ser usada durante o treinamento do modelo para otimização. A métrica primária que você pode selecionar é determinada pelo tipo de tarefa que você escolher. Abaixo está uma lista de métricas disponíveis.
@@ -570,7 +570,7 @@ RunDetails(automl_run).show()
 
 Para obter mais informações sobre como as explicações de modelo e a importância do recurso podem ser habilitadas em outras áreas do SDK fora do aprendizado de máquina automatizado, consulte o artigo [conceito](machine-learning-interpretability-explainability.md) sobre interpretação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [como e onde implementar um modelo](how-to-deploy-and-where.md).
 

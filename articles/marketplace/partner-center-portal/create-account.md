@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 09/10/2019
-ms.openlocfilehash: fd1da6a43e4c1d7d6b66d5dbacb2d7a587c2856a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9d19b31ccce8feeb2d5ce12353d9b79841b40724
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898688"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219440"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
 
@@ -60,7 +60,7 @@ Entre com uma conta de trabalho para que você possa vincular o domínio da cont
 
 ### <a name="agree-to-terms-and-conditions"></a>Concordar com os termos e condições
 
-Você precisará concordar com os termos e condições no [contrato de Microsoft Marketplace editor](http://go.microsoft.com/fwlink/?LinkID=699560).
+Você precisará concordar com os termos e condições no [contrato de Microsoft Marketplace editor](https://go.microsoft.com/fwlink/?LinkID=699560).
 
 ### <a name="provide-your-publisher-profile"></a>Forneça seu perfil do Publicador
 
@@ -103,7 +103,7 @@ Depois de entrar, use as etapas nesta seção para concluir a configuração da 
 
 1. No Partner Center, selecione **configurações** > **configurações** > do parceiro**programas** > de**introdução**.
 2. Microsoft Partner Network detecta sua assinatura e exibe a página de perfil do Publicador para inserir o nome da sua empresa e a ID do MPN.
-3. Leia os termos e condições no [contrato do Microsoft Marketplace Publisher](http://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
+3. Leia os termos e condições no [contrato do Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
 
 Depois de registrado, você será levado para a página de visão geral do Marketplace comercial. O **Marketplace comercial** é exibido na barra de navegação à esquerda. Se você selecionar **configurações** > configurações do**parceiro** > **programas**, verá que o Marketplace comercial está listado como registrado.
 

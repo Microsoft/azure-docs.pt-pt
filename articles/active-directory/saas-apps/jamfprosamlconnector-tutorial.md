@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c8a2fb278515306848f46206db67b7f37ea2ac
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034248"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212374"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integração do SSO do Azure Active Directory com o JAMF pro
 
@@ -87,7 +87,7 @@ Nesta seção, você habilitará o SSO do Azure AD no portal do Azure.
 1. Selecione **definir URLs adicionais**. Se você quiser configurar o aplicativo no modo **iniciado pelo SP** , na caixa de texto **URL de logon** , insira uma URL que usa a seguinte fórmula:`https://<subdomain>.jamfcloud.com`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Você obterá o valor do identificador real de * a seção de **logon único** no portal do JAMF pro, que é explicada posteriormente no tutorial. Você pode extrair o valor de subdomínio real do valor do identificador e usar essas informações de subdomínio como URL de logon e URL de resposta. Você também pode consultar as fórmulas mostradas na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Você obterá o valor do identificador real da seção **logon único** no portal do JAMF pro, que é explicada posteriormente no tutorial. Você pode extrair o valor de subdomínio real do valor do identificador e usar essas informações de subdomínio como URL de logon e URL de resposta. Você também pode consultar as fórmulas mostradas na seção **configuração básica do SAML** no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , vá para a seção **certificado de autenticação SAML** , selecione o botão **copiar** para copiar a URL de **metadados de Federação do aplicativo**e, em seguida, salve-o em seu computador.
 

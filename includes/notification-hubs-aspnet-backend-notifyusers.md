@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "70934120"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI

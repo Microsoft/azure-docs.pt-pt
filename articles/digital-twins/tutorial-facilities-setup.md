@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: eebf6f58000178f2aa8021fbd435aa863fb70e49
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177202"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219752"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar o Azure digital gêmeos Preview e configurar um grafo espacial
 
@@ -80,7 +80,7 @@ Na pasta de exemplo extraídos, abra o ficheiro **digital-twins-samples-csharp\d
     - O **getAvailableAndFreshSpaces.cs** ficheiro obtém os resultados de uma função personalizada chamada uma função definida pelo utilizador.
     - O **createEndpoints.cs** ficheiro cria pontos de extremidade para interagir com outros serviços.
 
-* O exemplo de simulação **conectividade do dispositivo** simula dados de sensores e envia-os para o hub IoT que está aprovisionado para a sua instância de duplos Digital. Irá utilizar este exemplo na [o próximo tutorial depois de aprovisionar o seu gráfico geográfico](tutorial-facilities-udf.md#simulate). Os identificadores de sensor e do dispositivo que utiliza para configurar este exemplo devem ser o mesmo que o que irá utilizar para aprovisionar o seu gráfico.
+* O exemplo de simulação **conectividade do dispositivo** simula dados de sensores e envia-os para o hub IoT que está aprovisionado para a sua instância de duplos Digital. Irá utilizar este exemplo na [o próximo tutorial depois de aprovisionar o seu gráfico geográfico](tutorial-facilities-udf.md#simulate-sensor-data). Os identificadores de sensor e do dispositivo que utiliza para configurar este exemplo devem ser o mesmo que o que irá utilizar para aprovisionar o seu gráfico.
 
 ### <a name="configure-the-provisioning-sample"></a>Configurar o exemplo de aprovisionamento
 

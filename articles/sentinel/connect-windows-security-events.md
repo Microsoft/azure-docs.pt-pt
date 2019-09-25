@@ -1,6 +1,6 @@
 ---
-title: Ligar a dados de eventos de segurança do Windows para a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como ligar a dados de eventos de segurança do Windows para sentinela do Azure.
+title: Conectar dados de eventos de segurança do Windows ao Azure Sentinel | Microsoft Docs
+description: Saiba como conectar dados de eventos de segurança do Windows ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673771"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240509"
 ---
 # <a name="connect-windows-security-events"></a>Ligar aos eventos de segurança do Windows 
 
-> [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode transmitir em fluxo todos os eventos de segurança de servidores do Windows ligado à sua área de trabalho de sentinela do Azure. Esta ligação permite-lhe ver os dashboards e criar alertas personalizados e a melhorar a investigação. Isso dá-lhe mais informações sobre a rede da sua organização e melhora as capacidades de operação de segurança.  Pode selecionar os eventos para transmitir em fluxo:
 
-- **Todos os eventos** -segurança de todos os Windows e eventos do AppLocker.
-- **Comuns** -um conjunto padrão de eventos para fins de auditoria. Uma trilha de auditoria de utilizador completo está incluída neste conjunto. Por exemplo, este conjunto contém o início de sessão de utilizador e o início de sessão do utilizador os eventos (evento ID 4634). Podemos incluir a auditoria de ações como alterações do grupo de segurança, operações de Kerberos do controlador de domínio de chaves e outros eventos que são recomendados por organizações do setor.
+Você pode transmitir todos os eventos de segurança dos servidores Windows conectados ao seu espaço de trabalho do Azure Sentinel. Essa conexão permite que você exiba painéis, crie alertas personalizados e melhore a investigação. Isso lhe dá mais informações sobre a rede da sua organização e aprimora seus recursos de operação de segurança.  Você pode selecionar quais eventos transmitir:
+
+- **Todos os eventos** -todos os eventos de segurança e AppLocker do Windows.
+- **Comum** -um conjunto padrão de eventos para fins de auditoria. Uma trilha de auditoria de usuário completa está incluída neste conjunto. Por exemplo, esse conjunto contém os eventos de entrada do usuário e saída do usuário (ID do evento 4634). Podemos incluir a auditoria de ações como alterações do grupo de segurança, operações de Kerberos do controlador de domínio de chaves e outros eventos que são recomendados por organizações do setor.
 
 Eventos com um volume muito baixa foram incluídos em comum definir como a principal motivação para escolher ao longo de todos os eventos é reduzir o volume e não para filtrar os eventos específicos.
-- **Mínimo** -um pequeno conjunto de eventos que possam indicar a potenciais ameaças. Ao ativar esta opção, não será possível ter um registo de auditoria completo.  Este conjunto aborda apenas os eventos que podem indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador login bem e mal-sucedidas (evento IDs 4624, 4625), mas não contém informações que é importante para auditoria, mas não significativo para deteção e tem relativamente grande volume de sessão. A maioria do volume de dados deste conjunto é o início de sessão nos eventos e eventos de criação de processo (evento ID 4688).
-- **Nenhum** -sem segurança ou eventos do AppLocker.
+- **Mínimo** -um pequeno conjunto de eventos que pode indicar possíveis ameaças. Ao habilitar essa opção, você não poderá ter uma trilha de auditoria completa.  Esse conjunto abrange apenas os eventos que podem indicar uma violação bem-sucedida e eventos importantes que têm um volume muito baixo. Por exemplo, esse conjunto contém logon bem-sucedido e com falha do usuário (IDs de evento 4624, 4625), mas não contém informações de saída que são importantes para auditoria, mas não são significativas para detecção e tem um volume relativamente alto. A maior parte do volume de dados desse conjunto é os eventos de entrada e o evento de criação de processo (ID do evento 4688).
+- **Nenhum** -nenhum evento de segurança ou AppLocker.
 
 > [!NOTE]
 > 
-> - Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
+> - Se a central de segurança do Azure e o Azure Sentinel estiverem em execução no mesmo espaço de trabalho, o conector de eventos de segurança só poderá ser conectado da central de segurança do Azure ou do Azure Sentinel. Para gerenciar esses eventos do Azure Sentinel, é recomendável desconectá-lo da central de segurança do Azure e conectá-lo somente ao Azure Sentinel.
 
-A lista seguinte fornece uma repartição completa de segurança e do App Locker do ID de evento para cada conjunto:
+
+A lista a seguir fornece uma análise completa das IDs de evento de segurança e do armário de aplicativo para cada conjunto:
 
 | Camada de dados | Indicadores de eventos recolhidos |
 | --- | --- |
@@ -57,21 +57,21 @@ A lista seguinte fornece uma repartição completa de segurança e do App Locker
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Configurar o conector de eventos de segurança do Windows
 
-Para integrar totalmente os eventos de segurança do Windows com o Azure sentinela:
+Para integrar totalmente seus eventos de segurança do Windows com o Azure sentinela:
 
-1. No portal do Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **eventos de segurança do Windows** mosaico. 
-1. Selecione os tipos de dados que pretende transmitir em fluxo.
+1. No portal do Azure Sentinel, selecione **conectores de dados** e clique no bloco **eventos de segurança do Windows** . 
+1. Selecione os tipos de dados que você deseja transmitir.
 1. Clique em **Atualizar**.
-6. Para utilizar o esquema relevante no Log Analytics para os eventos de segurança do Windows, procure **SecurityEvent**.
+6. Para usar o esquema relevante no Log Analytics para os eventos de segurança do Windows, procure **SecurityEvent**.
 
-## <a name="validate-connectivity"></a>Validar a conectividade
+## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar cerca de 20 minutos até que os seus registos começam a aparecer no Log Analytics. 
+Pode levar cerca de 20 minutos até que os logs comecem a aparecer na Log Analytics. 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste documento, aprendeu a ligar eventos de segurança do Windows para sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
-- Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
-- Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
+## <a name="next-steps"></a>Passos seguintes
+Neste documento, você aprendeu a conectar eventos de segurança do Windows ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

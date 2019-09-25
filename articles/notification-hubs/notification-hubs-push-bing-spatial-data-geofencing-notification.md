@@ -4,9 +4,9 @@ description: Neste tutorial, irá aprender a entregar notificações push com ba
 services: notification-hubs
 documentationcenter: windows
 keywords: notificação push, notificação push
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,15 +15,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460112"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213240"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: Com base na localização de notificações push com Notification Hubs do Azure e dados geográficos do Bing
+# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações baseadas no local com os hubs de notificação do Azure e dados espaciais do Bing
 
 Neste tutorial, irá aprender a entregar notificações push com base na localização com Hubs de Notificação do Azure e Dados Geográficos do Bing.
 
@@ -37,7 +39,7 @@ Neste tutorial, siga os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**. Se não tiver uma subscrição do Azure, [criar uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição do Azure**. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) ou posterior ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
 * Versão mais recente do [Azure SDK](https://azure.microsoft.com/downloads/).
 * [Conta do Dev Center do Bing Maps](https://www.bingmapsportal.com/) (pode criar uma gratuitamente e associá-la à conta Microsoft).
@@ -51,7 +53,7 @@ Neste tutorial, siga os seguintes passos:
 3. Se não vir uma origem de dados existente, verá uma ligação para criar uma origem de dados. Selecione **Carregar dados como uma origem de dados**. Também pode utilizar o menu **Origens de dados** > **Carregar dados**.
 
     ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
-4. Crie um ficheiro `NotificationHubsGeofence.pipe` no disco rígido com o seguinte conteúdo: Neste tutorial, vai utilizar um ficheiro com base em pipe de exemplo que enquadra uma área da frente marítima de San Francisco:
+4. Crie um arquivo `NotificationHubsGeofence.pipe` no disco rígido com o seguinte conteúdo: Neste tutorial, você usa um arquivo baseado em pipe de exemplo que moldura uma área de São Francisco orla marítima:
 
     ```text
     Bing Spatial Data Services, 1.0, TestBoundaries
@@ -64,7 +66,7 @@ Neste tutorial, siga os seguintes passos:
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Na página **Carregar uma origem de dados**, faça o seguinte:
    1. Selecione **pipe** para **Formato de dados**.
-   2. Procure e selecione o `NotificationHubGeofence.pipe` ficheiro que criou no passo anterior.
+   2. Procure e selecione o `NotificationHubGeofence.pipe` arquivo que você criou na etapa anterior.
    3. Selecione o botão **Carregar**.
 
       > [!NOTE]
@@ -101,7 +103,7 @@ Neste tutorial, siga os seguintes passos:
 
 ## <a name="set-up-the-uwp-application"></a>Configurar a aplicação UWP
 
-1. No Visual Studio, inicie um novo projeto do tipo **Aplicação em Branco (Universal Windows)**.
+1. No Visual Studio, inicie um novo projeto do tipo **Aplicação em Branco (Universal Windows)** .
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
@@ -387,7 +389,7 @@ Neste tutorial, siga os seguintes passos:
 
     ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Existem alguns passos que poderá ter de seguir para se certificar de que a solução está pronta para produção.
 

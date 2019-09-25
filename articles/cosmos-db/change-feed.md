@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615674"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219905"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed em Azure Cosmos DB-visão geral
 
@@ -42,7 +42,7 @@ Esta funcionalidade é atualmente suportada pelas seguintes APIs do Azure Cosmos
 
 ## <a name="change-feed-and-different-operations"></a>Feed de alterações e operações diferentes
 
-Hoje em dia, verá todas as operações no feed de alterações. A funcionalidade de onde pode controlar alterar feed, para operações específicas, como apenas atualizações e inserções não ainda não está disponível. Pode adicionar um marcador"soft" no item para atualizações e filtrar com base no que, durante o processamento de itens no feed de alterações. Atualmente o feed de alterações não registar eliminações. Semelhante ao exemplo anterior, pode adicionar um marcador de forma recuperável nos itens que estão a ser eliminados, por exemplo, pode adicionar um atributo no item chamado "eliminado" e defini-lo como "true" e definir um valor de TTL no item, para que sejam eliminado automaticamente. É possível ler que a alteração de itens de feed para itens de históricos, por exemplo, que foram adicionados cinco anos atrás. Se o item não for eliminado pode ler a alteração do feed com relação às General a origem do seu contentor.
+Hoje em dia, verá todas as operações no feed de alterações. A funcionalidade de onde pode controlar alterar feed, para operações específicas, como apenas atualizações e inserções não ainda não está disponível. Pode adicionar um marcador"soft" no item para atualizações e filtrar com base no que, durante o processamento de itens no feed de alterações. Atualmente o feed de alterações não registar eliminações. Semelhante ao exemplo anterior, pode adicionar um marcador de forma recuperável nos itens que estão a ser eliminados, por exemplo, pode adicionar um atributo no item chamado "eliminado" e defini-lo como "true" e definir um valor de TTL no item, para que sejam eliminado automaticamente. Você pode ler o feed de alterações para itens históricos (a alteração mais recente correspondente ao item, não inclui as alterações intermediárias), por exemplo, itens que foram adicionados cinco anos atrás. Se o item não for eliminado pode ler a alteração do feed com relação às General a origem do seu contentor.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>A ordem dos itens no feed de alterações de classificação
 

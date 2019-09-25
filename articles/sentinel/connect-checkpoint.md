@@ -1,32 +1,29 @@
 ---
-title: Conectar dados do Check Point à visualização do Azure Sentinel | Microsoft Docs
+title: Conectar dados do Check Point ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do Check Point ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: ea9cb7997f86c10bb09c01dfc345aaeeef46708a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1bfa59e92ce2cde45b448174260396f4e93a6282
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679344"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240143"
 ---
 # <a name="connect-your-check-point-appliance"></a>Conectar seu dispositivo de verificação de ponto
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Você pode conectar o Azure Sentinel a qualquer dispositivo de verificação de ponto salvando os arquivos de log como syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas nos dados do arquivo de log do Check Point. Para obter mais informações sobre como o Azure Sentinel ingeri dados de CEF, consulte [conectar dispositivos CEF](connect-common-event-format.md).
 
@@ -45,7 +42,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de dados](connect-data-sources.md).
 
 ### <a name="deploy-the-agent"></a>Implantar o agente
-1. No portal do Azure Sentinel, clique em conectores de **dados** e selecione **ponto de verificação** e **abra a página conector**. 
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione **ponto de verificação** e **abra a página conector**. 
 
 1. Em **baixar e instalar o agente de syslog**, selecione o tipo de computador, o Azure ou o local. 
 1. Na tela **máquinas virtuais** que é aberta, selecione o computador que você deseja usar e clique em **conectar**.
@@ -143,5 +140,5 @@ Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, você aprendeu a conectar dispositivos do Check Point ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

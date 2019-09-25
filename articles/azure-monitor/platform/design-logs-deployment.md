@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034728"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211995"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
 
@@ -36,6 +36,8 @@ Um espaço de trabalho Log Analytics fornece:
 
 Este artigo fornece uma visão geral detalhada das considerações de design e migração, visão geral do controle de acesso e uma compreensão das implementações de design recomendadas para sua organização de ti.
 
+
+
 ## <a name="important-considerations-for-an-access-control-strategy"></a>Considerações importantes para uma estratégia de controle de acesso
 
 Identificar o número de espaços de trabalho de que você precisa é influenciado por um ou mais dos seguintes requisitos:
@@ -47,7 +49,7 @@ Identificar o número de espaços de trabalho de que você precisa é influencia
 Hoje, as organizações de ti são modeladas seguindo um híbrido centralizado, descentralizado ou um entre as duas estruturas. Como resultado, os seguintes modelos de implantação de espaço de trabalho foram comumente usados para mapear para uma dessas estruturas organizacionais:
 
 * **Centralizado**: Todos os logs são armazenados em um espaço de trabalho central e administrados por uma única equipe, com Azure Monitor fornecendo acesso diferenciado por equipe. Nesse cenário, é fácil de gerenciar, Pesquisar entre recursos e correlacionar logs de forma cruzada. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados coletados de vários recursos em sua assinatura, com sobrecarga administrativa adicional para manter o controle de acesso a diferentes usuários.
-* Descentralizado: Cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
+* **Descentralizado**: Cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
 * **Híbrido**: Os requisitos de conformidade de auditoria de segurança complicam ainda mais esse cenário porque muitas organizações implementam ambos os modelos de implantação em paralelo. Isso normalmente resulta em uma configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
 
 Ao usar os agentes de Log Analytics para coletar dados, você precisa entender o seguinte para planejar a implantação do agente:
@@ -109,7 +111,7 @@ A tabela a seguir resume os modos de acesso:
 | Qual é o escopo das permissões? | Espaço. Os usuários com acesso ao espaço de trabalho podem consultar todos os logs no espaço de trabalho de tabelas às quais eles têm permissões. Consulte [controle de acesso à tabela](manage-access.md#table-level-rbac) | Recurso do Azure. O usuário pode consultar logs de recursos específicos, grupos de recursos ou assinaturas aos quais eles têm acesso de qualquer espaço de trabalho, mas não podem consultar logs para outros recursos. |
 | Como o usuário pode acessar os logs? | <ul><li>Inicie **os logs** no menu **Azure monitor** .</li></ul> <ul><li>Iniciar **logs** de **log Analytics espaços de trabalho**.</li></ul> <ul><li>De [pastas de trabalho](../visualizations.md#workbooks)do Azure monitor.</li></ul> | <ul><li>Iniciar **logs** no menu do recurso do Azure</li></ul> <ul><li>Inicie **os logs** no menu **Azure monitor** .</li></ul> <ul><li>Iniciar **logs** de **log Analytics espaços de trabalho**.</li></ul> <ul><li>De [pastas de trabalho](../visualizations.md#workbooks)do Azure monitor.</li></ul> |
 
-## <a name="access-control-mode"></a>Modo de controle de acesso
+## <a name="access-control-mode"></a>Modo de controlo de acesso
 
 O *modo de controle de acesso* é uma configuração em cada espaço de trabalho que define como as permissões são determinadas para o espaço de trabalho.
 
@@ -129,6 +131,19 @@ O *modo de controle de acesso* é uma configuração em cada espaço de trabalho
     > Se um usuário tiver apenas permissões de recurso para o espaço de trabalho, ele só poderá acessar o espaço de trabalho usando o modo de contexto de recurso, supondo que o modo de acesso do espaço de trabalho esteja definido para **usar permissões de recurso ou espaço de trabalho**.
 
 Para saber como alterar o modo de controle de acesso no portal, com o PowerShell ou usando um modelo do Resource Manager, consulte [Configurar o modo de controle de acesso](manage-access.md#configure-access-control-mode).
+
+## <a name="ingestion-volume-rate-limit"></a>Limite da taxa de volume de ingestão
+
+Azure Monitor é um serviço de dados de alta escala que atende a milhares de clientes enviando terabytes de dados por mês em um ritmo crescente. O limite de taxa de ingestão padrão é definido como **500 MB/min** por espaço de trabalho. Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho abrindo uma solicitação de suporte.
+ 
+Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a base de lógica de alerta no número de resultados mais rígidos que zero.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -153,6 +168,6 @@ Ao planejar a migração para esse modelo, considere o seguinte:
 * Remova a permissão de equipes de aplicativo para ler e consultar o espaço de trabalho.
 * Habilite e configure qualquer solução de monitoramento, informações como Azure Monitor para contêineres e/ou Azure Monitor para VMs, suas contas de automação e soluções de gerenciamento, como Gerenciamento de Atualizações, iniciar/parar VMs, etc., que foram implantadas no original espaço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para implementar as permissões de segurança e os controles recomendados neste guia, examine [gerenciar o acesso aos logs](manage-access.md).

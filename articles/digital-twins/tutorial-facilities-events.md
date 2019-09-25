@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: f598eecca2623c888e44f6171f12681f8e9c017b
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827826"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219297"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos
 
@@ -38,6 +38,9 @@ Neste tutorial, parte-se do princípio de que [configurou](tutorial-facilities-s
 - Os [exemplos do Digital Twins em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) transferidos e extraídos para o computador de trabalho.
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para executar o exemplo. Execute `dotnet --version` para verificar se a versão correta está instalada.
 - Uma conta do Office 365 para enviar e-mails de notificação.
+
+> [!TIP]
+> Use um nome de instância de gêmeos digital exclusivo se você estiver Provisionando uma nova instância.
 
 ## <a name="integrate-events-with-event-grid"></a>Integrar eventos com o Event Grid
 
@@ -85,7 +88,7 @@ Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma i
 
 1. Substitua o espaço `<Secondary connection string for your Event Grid>` reservado pelo valor de **YOUR_KEY_2**.
 
-1. Substitua o espaço reservado pelo caminho pelo caminho do tópico da grade de eventos. Obtenha esse caminho removendo **https://** e os caminhos de recurso à direita da URL do **ponto de extremidade do tópico** . Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
+1. Substitua o espaço reservado **pelo caminho pelo caminho** do tópico da grade de eventos. Obtenha esse caminho removendo **https://** e os caminhos de recurso à direita da URL do **ponto de extremidade do tópico** . Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Introduza todos os valores, sem aspas. Verifique se há pelo menos um caractere de espaço após os dois-pontos no arquivo YAML. Você também pode validar o conteúdo do arquivo YAML usando qualquer validador YAML online, como [essa ferramenta](https://onlineyamltools.com/validate-yaml).

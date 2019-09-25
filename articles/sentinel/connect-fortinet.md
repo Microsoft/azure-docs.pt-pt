@@ -1,5 +1,5 @@
 ---
-title: Conectar a Fortinet data à visualização do Azure Sentinel | Microsoft Docs
+title: Conectar a Fortinet data ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar o Fortinet data ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 339b8c1b59720989016f68fdb94fae30c26b42f0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 20079fd0c95da3e3aec9518f194ea39561a5e662
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679272"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240705"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Conecte seu dispositivo Fortinet
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço. Não é recomendável para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Você pode conectar o Azure Sentinel a qualquer dispositivo da Fortinet salvando os arquivos de log como CEF (formato comum de evento) do syslog. Com a integração com o Azure Sentinel, você pode facilmente executar análises e consultas nos dados do arquivo de log da Fortinet. Para obter mais informações sobre como o Azure Sentinel ingeri dados de CEF, consulte [conectar dispositivos CEF](connect-common-event-format.md).
 
@@ -46,7 +44,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 
 ### <a name="deploy-the-agent"></a>Implantar o agente
 
-1. No portal do Azure Sentinel, clique em conectores de **dados** e selecione **Fortinet** e, em seguida, **abra a página conector**. 
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione **Fortinet** e, em seguida, **abra a página conector**. 
 
 1. Em **baixar e instalar o agente de syslog**, selecione o tipo de computador, o Azure ou o local. 
 1. Na tela **máquinas virtuais** que é aberta, selecione o computador que você deseja usar e clique em **conectar**.
@@ -144,8 +142,8 @@ Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
       
      Reinicie o daemon do syslog usando este comando:`sudo service syslog-ng restart`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu a conectar o Fortinet appliances ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

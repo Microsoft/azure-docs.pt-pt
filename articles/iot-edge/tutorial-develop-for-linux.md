@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 30b1af29d1a7e3a01659353b27d8c997e739e702
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a523028fb312f030bc453692daceb0f254f844b6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030995"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240956"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
@@ -44,7 +44,7 @@ Ao desenvolver módulos IoT Edge, é importante entender a diferença entre a m�
 
 Este tutorial destina-se a dispositivos Linux que executam o IoT Edge. Você pode usar seu sistema operacional preferido, desde que seu computador de desenvolvimento possa executar contêineres do Linux. É recomendável usar Visual Studio Code para desenvolver para dispositivos Linux, portanto, é isso que este tutorial usará. Você também pode usar o Visual Studio, embora haja diferenças no suporte entre as duas ferramentas.
 
-A tabela a seguir lista os cenários de desenvolvimento com suporte para contêineres do **Linux** no Visual Studio Code e no Visual Studio.
+A tabela a seguir lista os cenários de desenvolvimento com suporte para **contêineres do Linux** no Visual Studio Code e no Visual Studio.
 
 |   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
@@ -63,6 +63,7 @@ Este tutorial ensina as etapas de desenvolvimento para Visual Studio Code. Se vo
 Um computador de desenvolvimento:
 
 * Você pode usar seu próprio computador ou uma máquina virtual, dependendo de suas preferências de desenvolvimento.
+  * Verifique se o computador de desenvolvimento dá suporte à virtualização aninhada. Esse recurso é necessário para executar um mecanismo de contêiner, que você instala na próxima seção.
 * A maioria dos sistemas operacionais que podem executar um mecanismo de contêiner pode ser usada para desenvolver módulos IoT Edge para dispositivos Linux. Este tutorial usa um computador Windows, mas indica diferenças conhecidas no MacOS ou Linux. 
 * Instale o [git](https://git-scm.com/)para extrair pacotes de modelo de módulo posteriormente neste tutorial.  
 * [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
@@ -140,7 +141,7 @@ Na paleta de comandos do Visual Studio Code, procure e selecione **Azure IOT Edg
 Depois que a nova solução for carregada na janela de Visual Studio Code, Reserve um tempo para se familiarizar com os arquivos que criou: 
 
 * A pasta **. vscode** contém um arquivo chamado **Launch. JSON**, que é usado para depurar módulos.
-* A pasta modules contém uma pasta para cada módulo em sua solução. No momento, isso só deve ser **SampleModule**ou qualquer nome que você tenha fornecido ao módulo. A pasta SampleModule contém o código do programa principal, os metadados do módulo e vários arquivos do Docker. 
+* A pasta **modules** contém uma pasta para cada módulo em sua solução. No momento, isso só deve ser **SampleModule**ou qualquer nome que você tenha fornecido ao módulo. A pasta SampleModule contém o código do programa principal, os metadados do módulo e vários arquivos do Docker. 
 * O arquivo **. env** contém as credenciais para o registro de contêiner. Essas credenciais são compartilhadas com seu dispositivo IoT Edge para que ele tenha acesso para efetuar pull das imagens de contêiner. 
 * O arquivo **Deployment. Debug. Template. JSON** e o arquivo **Deployment. Template. JSON** são modelos que ajudam a criar um manifesto de implantação. Um *manifesto de implantação* é um arquivo que define exatamente quais módulos você deseja que sejam implantados em um dispositivo, como eles devem ser configurados e como eles podem se comunicar entre si e com a nuvem. Os arquivos de modelo usam ponteiros para alguns valores. Quando você transforma o modelo em um manifesto de implantação real, os ponteiros são substituídos por valores extraídos de outros arquivos de solução. Localize os dois espaços reservados comuns em seu modelo de implantação: 
 
@@ -191,7 +192,7 @@ O código C# de exemplo que vem com o modelo de projeto usa a [classe ModuleClie
 
 6. Abra o arquivo **Deployment. Template. JSON** .
 
-7. Localize a Propriedade Modules do $edgeAgent propriedades desejadas. 
+7. Localize a propriedade **modules** do $edgeAgent propriedades desejadas. 
 
    Deve haver dois módulos listados aqui. O primeiro é **SimulatedTemperatureSensor**, que é incluído em todos os modelos por padrão para fornecer dados de temperatura simulados que você pode usar para testar seus módulos. O segundo é o módulo **SampleModule** que você criou como parte dessa solução.
 
@@ -321,7 +322,7 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
 
    Os logs de SimulatedTemperatureSensor e SampleModule devem mostrar as mensagens que estão processando. O módulo edgeAgent é responsável por iniciar os outros módulos, de modo que seus logs terão informações sobre a implementação do manifesto de implantação. Se qualquer módulo não estiver listado ou não estiver em execução, os logs do edgeAgent provavelmente terão os erros. O módulo edgeHub é responsável por comunicações entre os módulos e o Hub IoT. Se os módulos estiverem em execução, mas as mensagens não chegarem ao seu hub IoT, os logs do edgeHub provavelmente terão os erros. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configura Visual Studio Code em seu computador de desenvolvimento e implantou seu primeiro módulo IoT Edge a partir dele. Agora que você conhece os conceitos básicos, tente adicionar funcionalidade a um módulo para que ele possa analisar os dados que passam por ele. Escolha seu idioma preferencial: 
 

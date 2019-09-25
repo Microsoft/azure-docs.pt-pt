@@ -1,5 +1,5 @@
 ---
-title: Como monitorar uma conta de armazenamento do Azure | Microsoft Docs
+title: Como monitorar uma conta de armazenamento do Azure no portal do Azure | Microsoft Docs
 description: Saiba como monitorar uma conta de armazenamento no Azure usando o portal do Azure.
 author: normesta
 ms.service: storage
@@ -8,16 +8,18 @@ ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844913"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211850"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
-[Análise de armazenamento do Azure](storage-analytics.md) fornece métricas para todos os serviços de armazenamento e logs para BLOBs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) para configurar quais métricas e logs são registrados para sua conta e configurar gráficos que fornecem representações visuais dos dados de métricas.
+[Análise de armazenamento do Azure](storage-analytics.md) fornece métricas para todos os serviços de armazenamento e logs para BLOBs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) para configurar quais métricas e logs são registrados para sua conta e configurar gráficos que fornecem representações visuais dos dados de métricas. 
+
+Recomendamos que você examine [Azure monitor para armazenamento](../../azure-monitor/insights/storage-insights-overview.md) (versão prévia). É um recurso do Azure Monitor que oferece monitoramento abrangente de suas contas de armazenamento do Azure, fornecendo uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços de armazenamento do Azure. Ele não exige que você habilite ou configure nada, e você pode exibir imediatamente essas métricas dos gráficos interativos predefinidos e de outras visualizações incluídas.
 
 > [!NOTE]
 > Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [análise de armazenamento](storage-analytics.md).
@@ -86,7 +88,7 @@ A lista de métricas disponíveis muda com base em qual serviço você escolheu 
 
 As métricas que você selecionou em **diagnóstico** determinam a resolução das métricas que estão disponíveis para sua conta:
 
-* O monitoramento agregado fornece métricas como entrada/saída, disponibilidade, latência e percentuais de sucesso. Essas métricas são agregadas dos serviços BLOB, tabela, arquivo e fila.
+* O monitoramento **agregado** fornece métricas como entrada/saída, disponibilidade, latência e percentuais de sucesso. Essas métricas são agregadas dos serviços BLOB, tabela, arquivo e fila.
 * **Por API** fornece uma resolução mais refinada, com métricas disponíveis para operações de armazenamento individuais, além de agregações de nível de serviço.
 
 ## <a name="configure-metrics-alerts"></a>Configurar alertas de métricas
@@ -98,7 +100,7 @@ Você pode criar alertas para notificá-lo quando os limites tiverem sido atingi
 3. Insira um **nome** e uma **Descrição** para a nova regra de alerta.
 4. Selecione a **métrica** para a qual você deseja adicionar um alerta, uma **condição**de alerta e um **limite**. O tipo de unidade de limite é alterado dependendo da métrica escolhida. Por exemplo, "Count" é o tipo de unidade para *ContainerCount*, enquanto a unidade para a métrica *PercentNetworkError* é uma porcentagem.
 5. Selecione o **período**. As métricas que atingem ou excedem o limite dentro do período disparam um alerta.
-6. Adicional Configurar notificações **por email** e webhook. Para obter mais informações sobre WebHooks, consulte [configurar um webhook em um alerta de métrica do Azure](../../azure-monitor/platform/alerts-webhooks.md). Se você não configurar notificações por email ou webhook, os alertas serão exibidos apenas no portal do Azure.
+6. Adicional Configurar notificações **por email** e **webhook** . Para obter mais informações sobre WebHooks, consulte [configurar um webhook em um alerta de métrica do Azure](../../azure-monitor/platform/alerts-webhooks.md). Se você não configurar notificações por email ou webhook, os alertas serão exibidos apenas no portal do Azure.
 
 ![Folha ' adicionar uma regra de alerta ' no portal do Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 

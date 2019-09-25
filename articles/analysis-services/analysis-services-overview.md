@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/27/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ebb6c05645a991d22ac30ee013e5a51007994eb6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 81cda4648b97562e0ee557af0f28515d98a734b6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073857"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240917"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -53,7 +53,7 @@ Este escalão é recomendado para soluções de produção com modelos em tabela
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
-|B2    |    80     |    20     |
+|B2    |    80     |    16     |
 
 ### <a name="standard-tier"></a>Escalão Standard
 
@@ -255,7 +255,7 @@ As coisas evoluem rapidamente. Obtenha as informações mais recentes no [blog P
 
 O Analysis Services tem uma vibrante comunidade de utilizadores. Junte-se à conversa no [fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Inscreva-se numa Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   

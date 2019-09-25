@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 46c08f48efc00c1e4d88ceccb680c0cfd1671b2f
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203570"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219363"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Criar um ponto de extremidade privado usando CLI do Azure
 O ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual, um servidor de banco de dados SQL com um ponto de extremidade privado usando CLI do Azure. Em seguida, você pode acessar a VM para e acessar com segurança o recurso de link privado (um servidor de banco de dados SQL do Azure privado neste exemplo). 
@@ -144,7 +144,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.  
 
-## <a name="access-dql-database-server-privately-from-the-vm"></a>Acessar o servidor de banco de dados DQL de forma privada da VM
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL privadamente da VM
 
 Nesta seção, você se conectará ao servidor do banco de dados SQL da VM usando o ponto de extremidade privado.
 

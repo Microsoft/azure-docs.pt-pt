@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70392899"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210309"
 ---
 **Retenção e volume de coleta de dados** 
 
@@ -63,7 +63,20 @@ ms.locfileid: "70392899"
 | Máximo de colunas em uma tabela         | 500 | |
 | Máximo de caracteres para o nome da coluna | 500 | |
 | Regiões em capacidade | EUA Centro-Oeste | No momento, não é possível criar um novo espaço de trabalho nesta região, pois ele está em um limite de capacidade temporário. Esse limite está planejado para ser resolvido até o final de outubro de 2019. |
-| Exportação de dados | Não disponível no momento | Use o Azure Function ou o aplicativo lógico para agregar e exportar dados. | 
+| Exportar dados | Não disponível no momento | Use o Azure Function ou o aplicativo lógico para agregar e exportar dados. | 
+
+**Taxa de ingestão de dados**
+
+Azure Monitor é um serviço de dados de alta escala que atende a milhares de clientes enviando terabytes de dados por mês em um ritmo crescente. O limite de taxa de ingestão padrão é definido como **500 MB/min** por espaço de trabalho. Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho abrindo uma solicitação de suporte.
+ 
+Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](../articles/azure-monitor/platform/alerts-log.md) usando a consulta a seguir com a base de lógica de alerta no número de resultados mais rígidos que zero.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 >[!NOTE]
 >Dependendo de quanto tempo você esteve usando Log Analytics, você pode ter acesso a tipos de preço herdados. Saiba mais sobre [log Analytics tipos de preço herdados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596119"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240890"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o serviço kubernetes do Azure
 
@@ -95,7 +95,7 @@ A Microsoft e os clientes compartilham responsabilidade para nós de trabalho ku
   * Docker ou daemon do Moby
 
 > [!NOTE]
-> Em um nó de trabalho, se um componente de plano de controle não estiver operacional, a equipe AKS poderá precisar reinicializar todo o nó de trabalho. Devido ao seu acesso restrito à carga de trabalho e aos dados ativos do cliente, a equipe do AKS reinicializará um nó do trabalhador somente se o cliente escalar o problema. Sempre que possível, a equipe AKS trabalha para impedir que uma reinicialização necessária afete o aplicativo.
+> Em um nó de trabalho, se um componente de plano de controle não estiver operacional, a equipe AKS poderá precisar reinicializar componentes individuais ou o nó de trabalho inteiro. Essas operações de reinicialização são automatizadas e fornecem correção automática para problemas comuns. Essas reinicializações ocorrem apenas no nível do _nó_ e não no cluster, a menos que sejam uma manutenção ou interrupção de emergência.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilidades do cliente para nós de trabalho do AKS
 

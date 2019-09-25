@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0dd460f7ed829bf82c285b80e59778dacd882404
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 839e608aa4bba26712ae5b0c160da40db279bbc9
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059323"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219199"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Mover o NSG (grupo de segurança de rede) do Azure para outra região usando o portal do Azure
 
@@ -27,7 +27,7 @@ Os grupos de segurança do Azure não podem ser movidos de uma região para outr
 - Os grupos de segurança de rede do Azure não podem ser movidos entre regiões.  Você precisará associar o novo NSG aos recursos na região de destino.
 
 - Para exportar uma configuração do NSG e implantar um modelo para criar um NSG em outra região, você precisará da função de colaborador de rede ou superior.
-   
+
 - Identifique o layout de rede de origem e todos os recursos que você está usando no momento. Esse layout inclui, mas não se limita a balanceadores de carga, IPs públicos e redes virtuais.
 
 - Verifique se sua assinatura do Azure permite que você crie NSGs na região de destino que é usada. Contacte o suporte para ativar a quota necessária.
@@ -41,7 +41,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportar o modelo e implantar por meio do portal
 
-1. Faça logon no [portal do Azure](http://portal.azure.com) > **grupos de recursos**.
+1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos**.
 2. Localize o grupo de recursos que contém o NSG de origem e clique nele.
 3. Selecione **configurações** > de >**modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
@@ -77,19 +77,19 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
             "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
+                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
              }
             }
            ]
 
     ```
-  
+
 11. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central** = **centralus**.
-    
+
 12. Você também pode alterar outros parâmetros no modelo se escolher e forem opcionais, dependendo dos seus requisitos:
 
     * **Regras de segurança** – você pode editar quais regras são implantadas no NSG de destino adicionando ou removendo regras para a seção **securityRules** no arquivo **Template. JSON** :
-    
+
         ```json
            "resources": [
             {
@@ -155,7 +155,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 14. Clique em**assinatura** **básica** > para escolher a assinatura na qual o NSG de destino será implantado.
 
-15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos no qual o NSG de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o NSG de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do NSG existente. 
+15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos no qual o NSG de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o NSG de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do NSG existente.
 
 16. Verifique se o**local** **básico** > está definido como o local de destino onde você deseja que o NSG seja implantado.
 
@@ -165,7 +165,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 19. Clique no botão **comprar** para implantar o grupo de segurança de rede de destino.
 
-## <a name="discard"></a>Dispensar 
+## <a name="discard"></a>Rejeitar
 
 Se você quiser descartar o NSG de destino, exclua o grupo de recursos que contém o NSG de destino.  Para fazer isso, selecione o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior da página Visão geral.
 

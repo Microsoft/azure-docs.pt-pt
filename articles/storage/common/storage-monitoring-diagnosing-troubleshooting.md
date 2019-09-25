@@ -4,16 +4,16 @@ description: Use recursos como análise de armazenamento, registro em log do lad
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2017
+ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 08c19daa0af226834ea70db8847e1637c2373351
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855355"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212830"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -27,7 +27,7 @@ Para gerenciar esses aplicativos com êxito, você deve monitorá-los proativame
 > Os arquivos do Azure não dão suporte ao registro em log no momento.
 >
 
-Para obter um guia prático de solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte solução de problemas de ponta [a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy](../storage-e2e-troubleshooting.md)e analisador de mensagem.
+Para obter um guia prático de solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte solução de problemas de ponta [a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e analisador de mensagem](../storage-e2e-troubleshooting.md).
 
 * [Introdução]
   * [Como este guia é organizado]
@@ -98,9 +98,11 @@ A seção "[Orientação na resolução de problemas]" fornece diretrizes de sol
 Os "[Appendices]" incluem informações sobre como usar outras ferramentas, como Wireshark e Netmon, para analisar dados de pacote de rede, o Fiddler para analisar mensagens HTTP/HTTPS e o Microsoft Message Analyzer para correlacionar os dados de log.
 
 ## <a name="monitoring-your-storage-service"></a>Monitorando seu serviço de armazenamento
-Se você estiver familiarizado com o monitoramento de desempenho do Windows, poderá considerar as métricas de armazenamento como sendo um equivalente do armazenamento do Azure dos contadores do monitor de desempenho do Windows. Em métricas de armazenamento, você encontrará um conjunto abrangente de métricas (contadores na terminologia do monitor de desempenho do Windows), como a disponibilidade do serviço, o número total de solicitações de serviço ou a porcentagem de solicitações bem-sucedidas para o serviço. Para obter uma lista completa das métricas disponíveis, consulte [análise de armazenamento esquema de tabela](https://msdn.microsoft.com/library/azure/hh343264.aspx)de métricas. Você pode especificar se deseja que o serviço de armazenamento colete e agregue métricas a cada hora ou a cada minuto. Para obter mais informações sobre como habilitar métricas e monitorar suas contas de armazenamento, consulte Habilitando métricas de [armazenamento e exibindo dados](https://go.microsoft.com/fwlink/?LinkId=510865)de métricas.
+Se você estiver familiarizado com o monitoramento de desempenho do Windows, poderá considerar as métricas de armazenamento como sendo um equivalente do armazenamento do Azure dos contadores do monitor de desempenho do Windows. Em métricas de armazenamento, você encontrará um conjunto abrangente de métricas (contadores na terminologia do monitor de desempenho do Windows), como a disponibilidade do serviço, o número total de solicitações de serviço ou a porcentagem de solicitações bem-sucedidas para o serviço. Para obter uma lista completa das métricas disponíveis, consulte [análise de armazenamento esquema de tabela de métricas](https://msdn.microsoft.com/library/azure/hh343264.aspx). Você pode especificar se deseja que o serviço de armazenamento colete e agregue métricas a cada hora ou a cada minuto. Para obter mais informações sobre como habilitar métricas e monitorar suas contas de armazenamento, consulte [habilitando métricas de armazenamento e exibindo dados de métricas](https://go.microsoft.com/fwlink/?LinkId=510865).
 
 Você pode escolher quais métricas por hora deseja exibir no [portal do Azure](https://portal.azure.com) e configurar regras que notificam os administradores por email sempre que uma métrica por hora excede um limite específico. Para obter mais informações, consulte [receber notificações de alerta](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
+
+Recomendamos que você examine [Azure monitor para armazenamento](../../azure-monitor/insights/storage-insights-overview.md) (versão prévia). É um recurso do Azure Monitor que oferece monitoramento abrangente de suas contas de armazenamento do Azure, fornecendo uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços de armazenamento do Azure. Ele não exige que você habilite ou configure nada, e você pode exibir imediatamente essas métricas dos gráficos interativos predefinidos e de outras visualizações incluídas.
 
 O serviço de armazenamento coleta métricas usando um melhor esforço, mas pode não registrar cada operação de armazenamento.
 
@@ -128,7 +130,7 @@ Nota: Essas informações estavam disponíveis anteriormente, juntamente com os 
 Embora o [portal do Azure](https://portal.azure.com) colete informações de integridade de dentro dos data centers do Azure (monitoramento interno), você também pode considerar a adoção de uma abordagem externa para gerar transações sintéticas que acessam periodicamente sua web hospedada no Azure aplicativo de vários locais. Os serviços oferecidos pelo [dynaTrace](https://www.dynatrace.com/en/synthetic-monitoring) e pelo Application insights para DevOps do Azure são exemplos dessa abordagem. Para obter mais informações sobre Application insights do Azure DevOps, consulte o apêndice["Apêndice 5: Monitoramento com o Application Insights do Azure](#appendix-5)DevOps. "
 
 ### <a name="monitoring-capacity"></a>Capacidade de monitoramento
-As métricas de armazenamento armazenam somente métricas de capacidade para o serviço blob porque os BLOBs normalmente se descontam para a maior proporção de dados armazenados (no momento da gravação, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você poderá encontrar esses dados na tabela **$MetricsCapacityBlob** se tiver habilitado o monitoramento para o serviço BLOB. As métricas de armazenamento registram esses dados uma vez por dia e você pode usar o valor de **RowKey** para determinar se a linha contém uma entidade relacionada a dados de usuário ( **dados**de valor) ou dados de análise (valor **Analytics**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**capacidade** medida em bytes) e o número atual de contêineres (**ContainerCount**) e blobs (objectCount) em uso na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob** , consulte [análise de armazenamento esquema de tabela](https://msdn.microsoft.com/library/azure/hh343264.aspx)de métricas.
+As métricas de armazenamento armazenam somente métricas de capacidade para o serviço blob porque os BLOBs normalmente se descontam para a maior proporção de dados armazenados (no momento da gravação, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você poderá encontrar esses dados na tabela **$MetricsCapacityBlob** se tiver habilitado o monitoramento para o serviço BLOB. As métricas de armazenamento registram esses dados uma vez por dia e você pode usar o valor de **RowKey** para determinar se a linha contém uma entidade relacionada a dados de usuário ( **dados**de valor) ou dados de análise (valor **Analytics**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**capacidade** medida em bytes) e o número atual de contêineres (**ContainerCount**) e blobs (**objectCount**) em uso na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob** , consulte [análise de armazenamento esquema de tabela de métricas](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
 > Você deve monitorar esses valores para obter um aviso antecipado de que está se aproximando dos limites de capacidade de sua conta de armazenamento. No portal do Azure, você pode adicionar regras de alerta para notificá-lo se o uso de armazenamento agregado exceder ou cair abaixo dos limites que você especificar.
@@ -208,7 +210,7 @@ O SDK do Azure inclui um emulador de armazenamento que você pode executar em um
 A seção "[Orientação na resolução de problemas]" deste guia descreve alguns problemas comuns encontrados usando o emulador de armazenamento.
 
 ### <a name="storage-logging-tools"></a>Ferramentas de log de armazenamento
-O log de armazenamento fornece registro em log de solicitações de armazenamento no lado do servidor em sua conta de armazenamento do Azure. Para obter mais informações sobre como habilitar o registro em log do lado do servidor e acessar os dados de log, consulte Habilitando o [log de armazenamento e acessando dados de log](https://go.microsoft.com/fwlink/?LinkId=510867).
+O log de armazenamento fornece registro em log de solicitações de armazenamento no lado do servidor em sua conta de armazenamento do Azure. Para obter mais informações sobre como habilitar o registro em log do lado do servidor e acessar os dados de log, consulte [habilitando o log de armazenamento e acessando dados de log](https://go.microsoft.com/fwlink/?LinkId=510867).
 
 A biblioteca de cliente de armazenamento para .NET permite que você colete dados de log do lado do cliente relacionados às operações de armazenamento executadas pelo seu aplicativo. Para obter mais informações, veja [Client-side Logging with the .NET Storage Client Library](https://go.microsoft.com/fwlink/?LinkId=510868) (Registo do Lado do Cliente com a Biblioteca de Clientes de Armazenamento .NET).
 
@@ -257,7 +259,7 @@ O serviço de armazenamento gera automaticamente IDs de solicitação do servido
 >
 >
 
-Se a biblioteca de cliente de armazenamento gerar uma StorageException no cliente, a propriedade **RequestInformation** conterá um objeto **RequestResult** que inclui uma propriedade de um **pedido** . Você também pode acessar um objeto **RequestResult** de uma instância do **OperationContext** .
+Se a biblioteca de cliente de armazenamento gerar uma **StorageException** no cliente, a propriedade **RequestInformation** conterá um objeto **RequestResult** que inclui uma propriedade de um **pedido** . Você também pode acessar um objeto **RequestResult** de uma instância do **OperationContext** .
 
 O exemplo de código abaixo demonstra como definir um valor de **ClientRequestId** personalizado anexando um objeto **OperationContext** à solicitação ao serviço de armazenamento. Ele também mostra como recuperar o valor de **ServerRequestId** da mensagem de resposta.
 
@@ -408,7 +410,7 @@ Valores de alta **AverageServerLatency** também podem ser um sintoma de tabelas
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Você está enfrentando atrasos inesperados na entrega de mensagens em uma fila
 Se você estiver enfrentando um atraso entre a hora em que um aplicativo adiciona uma mensagem a uma fila e o tempo que ela torna disponível para leitura da fila, execute as seguintes etapas para diagnosticar o problema:
 
-* Verifique se o aplicativo está adicionando as mensagens à fila com êxito. Verifique se o aplicativo não está repetindo o Método AddMessage várias vezes antes de ter sucesso. Os logs da biblioteca de cliente de armazenamento mostrarão novas tentativas repetidas de operações de armazenamento.
+* Verifique se o aplicativo está adicionando as mensagens à fila com êxito. Verifique se o aplicativo não está repetindo o método **AddMessage** várias vezes antes de ter sucesso. Os logs da biblioteca de cliente de armazenamento mostrarão novas tentativas repetidas de operações de armazenamento.
 * Verifique se não há nenhuma distorção de relógio entre a função de trabalho que adiciona a mensagem à fila e a função de trabalho que lê a mensagem da fila que a torna exibida como se houver um atraso no processamento.
 * Verifique se a função de trabalho que lê as mensagens da fila está falhando. Se um cliente de fila chamar o método **GetMessage** , mas não responder com uma confirmação, a mensagem permanecerá invisível na fila até que o período de **invisibilityTimeout** expire. Neste ponto, a mensagem fica disponível para processamento novamente.
 * Verifique se o comprimento da fila está crescendo ao longo do tempo. Isso pode ocorrer se você não tiver trabalhadores suficientes disponíveis para processar todas as mensagens que outros trabalhadores estão colocando na fila. Verifique também as métricas para ver se as solicitações de exclusão estão falhando e se o remover da fila as mensagens, o que pode indicar tentativas de falha repetidas para excluir a mensagem.
@@ -466,7 +468,7 @@ A causa mais comum desse erro é a desconexão de um cliente antes do tempo limi
 ### <a name="the-client-is-receiving-403-messages"></a>O cliente está recebendo mensagens HTTP 403 (proibido)
 Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela a seguir mostra um exemplo do log do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra esse problema ocorrendo:
 
-| Source | Verbosidade | Verbosidade | ID de pedido do cliente | Texto da operação |
+| Source | Detalhamento | Detalhamento | ID de pedido do cliente | Texto da operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |-... 85d077ab |Iniciando a operação com o local primário por modo de local PrimaryOnly. |
 | Microsoft.Azure.Storage |Information |3 |-... 85d077ab |Iniciando solicitação síncrona para<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
@@ -560,7 +562,7 @@ Se o aplicativo cliente tentar usar uma chave SAS que não inclua as permissões
 
 A tabela a seguir mostra um exemplo de mensagem de log do lado do servidor do arquivo de log de log de armazenamento:
 
-| Nome | Valor |
+| Name | Value |
 | --- | --- |
 | Hora de início da solicitação | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
@@ -623,7 +625,7 @@ A causa mais provável desse cenário é que o cliente enviou uma solicitação 
 Se esse problema ocorrer com frequência, você deve investigar por que o cliente está falhando em receber confirmações do serviço tabela. Se o problema for intermitente, você deverá interceptar o erro "HTTP (404) não encontrado" e o registrar no cliente, mas permitir que o cliente continue.
 
 ### <a name="the-client-is-receiving-409-messages"></a>O cliente está recebendo mensagens HTTP 409 (conflito)
-A tabela a seguir mostra uma extração do log do lado do servidor para duas operações do cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de contêiner de BLOB. Cada operação do cliente resulta em duas solicitações enviadas ao servidor, primeiro uma solicitação getcontainerproperties para verificar se o contêiner existe, seguido pela solicitação **DeleteContainer** ou **createcontêiner** .
+A tabela a seguir mostra uma extração do log do lado do servidor para duas operações do cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de contêiner de BLOB. Cada operação do cliente resulta em duas solicitações enviadas ao servidor, primeiro **uma solicitação** **getcontainerproperties** para verificar se o contêiner existe, seguido pela solicitação **DeleteContainer** ou createcontêiner.
 
 | Timestamp | Operação | Resultado | Nome do contentor | ID de pedido do cliente |
 | --- | --- | --- | --- | --- |
@@ -778,7 +780,7 @@ O rastreamento de **proxy da Web** interno no analisador de mensagem da Microsof
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnosticando problemas de rede usando o Microsoft Message Analyzer
 Além de usar o rastreamento de **proxy da Web** do Microsoft Message Analyzer para capturar detalhes do tráfego http/https entre o aplicativo cliente e o serviço de armazenamento, você também pode usar o rastreamento de **camada de link local** interno para capturar a rede informações de pacote. Isso permite que você capture dados semelhantes aos que você pode capturar com o Wireshark e diagnostique problemas de rede, como pacotes descartados.
 
-A captura de tela a seguir mostra um exemplo de rastreamento de **camada de link local** com algumas mensagens informativas na coluna **DiagnosisTypes** . Clicar em um ícone na coluna **DiagnosisTypes** mostra os detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem #305 porque ela não recebeu uma confirmação do cliente:
+A captura de tela a seguir mostra um exemplo de rastreamento de **camada de link local** com algumas mensagens **informativas** na coluna **DiagnosisTypes** . Clicar em um ícone na coluna **DiagnosisTypes** mostra os detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem #305 porque ela não recebeu uma confirmação do cliente:
 
 ![][9]
 
@@ -789,15 +791,15 @@ Ao criar a sessão de rastreamento no analisador de mensagens da Microsoft, voc�
 Para obter mais informações sobre o rastreamento de camada de link local do Microsoft Message Analyzer, consulte [provedor Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4"></a>Apêndice 4: Usando o Excel para exibir métricas e dados de log
-Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento do armazenamento de tabelas do Azure em um formato delimitado que facilita a carga dos dados no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de BLOBs do Azure já estão em um formato delimitado que você pode carregar no Excel. No entanto, você precisará adicionar títulos de coluna apropriados com base nas informações em [análise de armazenamento formato de log](https://msdn.microsoft.com/library/azure/hh343259.aspx) e [análise de armazenamento esquema de tabela](https://msdn.microsoft.com/library/azure/hh343264.aspx)de métricas.
+Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento do armazenamento de tabelas do Azure em um formato delimitado que facilita a carga dos dados no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de BLOBs do Azure já estão em um formato delimitado que você pode carregar no Excel. No entanto, você precisará adicionar títulos de coluna apropriados com base nas informações em [análise de armazenamento formato de log](https://msdn.microsoft.com/library/azure/hh343259.aspx) e [análise de armazenamento esquema de tabela de métricas](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 Para importar os dados de log de armazenamento para o Excel depois de baixá-los do armazenamento de BLOBs:
 
 * No menu **dados** , clique em **do texto**.
 * Navegue até o arquivo de log que você deseja exibir e clique em **importar**.
-* Na etapa 1 do **Assistente de importação de texto**, selecione delimitado.
+* Na etapa 1 do **Assistente de importação de texto**, selecione **delimitado**.
 
-Na etapa 1 do **Assistente de importação de texto**, selecione **ponto e vírgula** como o único delimitador e escolha aspas duplas como o qualificador de **texto**. Em seguida, clique em **concluir** e escolha onde inserir os dados em sua pasta de trabalho.
+Na etapa 1 do **Assistente de importação de texto**, selecione **ponto e vírgula** como o único delimitador e escolha aspas duplas como o **qualificador de texto**. Em seguida, clique em **concluir** e escolha onde inserir os dados em sua pasta de trabalho.
 
 ### <a name="appendix-5"></a>Apêndice 5: Monitoramento com o Application Insights para DevOps do Azure
 Você também pode usar o recurso Application Insights para o Azure DevOps como parte de seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
@@ -807,11 +809,11 @@ Você também pode usar o recurso Application Insights para o Azure DevOps como 
 
 Você pode encontrar mais informações em [o que é Application insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre análise no armazenamento do Azure, consulte estes recursos:
 
-* [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
+* [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Análise de armazenamento](storage-analytics.md)
 * [Métricas de análise de armazenamento](storage-analytics-metrics.md)
 * [Esquema de tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816026"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240373"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usar logs de Azure Monitor para monitorar clusters HDInsight
 
@@ -110,6 +110,15 @@ Uma vez que o cluster é um cluster totalmente novo, o relatório não mostra to
 
 O Azure monitor também dá suporte à coleta e análise de métricas de desempenho para os nós no cluster. Para obter mais informações sobre como habilitar e configurar esse recurso, consulte [fontes de dados de desempenho do Linux no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="cluster-auditing"></a>Auditoria de cluster
+
+O HDInsight dá suporte à auditoria de cluster com logs de Azure Monitor, importando os seguintes tipos de logs:
+
+* `log_gateway_audit_CL`-Esta tabela fornece logs de auditoria de nós de gateway de cluster que mostram tentativas de logon bem-sucedidas e com falha.
+* `log_auth_CL`-Esta tabela fornece logs SSH com tentativas de logon bem-sucedidas e com falha.
+* `log_ambari_audit_CL`-Esta tabela fornece logs de auditoria do Ambari.
+* `log_ranger_audti_CL`-Esta tabela fornece logs de auditoria do Apache Ranger em clusters ESP.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consultar logs de Azure Monitor para monitorar clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)

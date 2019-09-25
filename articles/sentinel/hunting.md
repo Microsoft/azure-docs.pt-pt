@@ -1,5 +1,5 @@
 ---
-title: Recursos de busca na visualização do Azure Sentinel | Microsoft Docs
+title: Recursos de busca no Azure Sentinel | Microsoft Docs
 description: Este artigo descreve como usar os recursos de busca do Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780452"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240616"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Procurar ameaças com a visualização do Azure Sentinel
+# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Procurar ameaças com o Azure Sentinel
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Se você é um investigador que deseja ser proativo sobre a procura de ameaças à segurança, o Azure Sentinel cria poderosas ferramentas de pesquisa e consulta para procurar ameaças à segurança nas fontes de dados de sua organização. Mas seus sistemas e dispositivos de segurança geram montanhas de dados que podem ser difíceis de analisar e filtrar em eventos significativos. Para ajudar os analistas de segurança a procurarem de forma pró-ativa as novas anomalias que não foram detectadas pelos seus aplicativos de segurança, as consultas de busca interna do Azure Sentinel o orientam a fazer as perguntas certas para encontrar problemas nos dados que você já tem em sua rede. 
 
@@ -41,8 +39,7 @@ Com a busca do Azure Sentinel, você pode aproveitar os seguintes recursos:
 
 - Linguagem de consulta avançada com o IntelliSense: Criado com base em uma linguagem de consulta que oferece a flexibilidade que você precisa para fazer buscas no próximo nível.
 
-- Crie seus próprios indicadores: Durante o processo de busca, você pode encontrar correspondências ou descobertas, painéis ou atividades que parecem incomuns ou suspeitas. Para marcar esses itens para que você possa voltar a eles no futuro, use a funcionalidade de indicador. Os indicadores permitem salvar itens para mais tarde, para serem usados para criar um incidente para investigação. Para obter mais informações sobre indicadores, consulte usar [indicadores na busca].
-
+- Crie seus próprios indicadores: Durante o processo de busca, você pode encontrar correspondências ou descobertas, painéis ou atividades que parecem incomuns ou suspeitas. Para marcar esses itens para que você possa voltar a eles no futuro, use a funcionalidade de indicador. Os indicadores permitem salvar itens para mais tarde, para serem usados para criar um incidente para investigação. Para obter mais informações sobre indicadores, consulte [usar indicadores na busca](hunting.md).
 - Use blocos de anotações para automatizar a investigação: Os notebooks são como guias passo a passo que você pode criar para percorrer as etapas de uma investigação e uma busca.  Os notebooks encapsulam todas as etapas de busca em um manual reutilizável que pode ser compartilhado com outras pessoas em sua organização. 
 - Consultar os dados armazenados: Os dados podem ser acessados em tabelas para consulta. Por exemplo, você pode consultar a criação de processos, eventos DNS e muitos outros tipos de eventos.
 
@@ -100,7 +97,7 @@ A linguagem de consulta é poderosa e tem muitos operadores disponíveis, alguns
 
 **Where** -filtra uma tabela para o subconjunto de linhas que satisfazem um predicado.
 
-resumir – produzir uma tabela que agrega o conteúdo da tabela de entrada.
+**resumir** – produzir uma tabela que agrega o conteúdo da tabela de entrada.
 
 **unir** – mesclar as linhas de duas tabelas para formar uma nova tabela por meio da correspondência de valores das colunas especificadas de cada tabela.
 
@@ -134,7 +131,7 @@ Criar uma nova consulta de busca:
 Clonar e modificar uma consulta de busca existente:
 
 1. Selecione a consulta de busca na tabela que você deseja modificar.
-2. Selecione as reticências (...) na linha da consulta que você deseja modificar e selecione clonar **consulta**.
+2. Selecione as reticências (...) na linha da consulta que você deseja modificar e selecione **clonar consulta**.
 
    ![clonar consulta](./media/tutorial-hunting/clone-query.png)
  
@@ -143,7 +140,7 @@ Clonar e modificar uma consulta de busca existente:
 
    ![consulta personalizada](./media/tutorial-hunting/custom-query.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu a executar uma investigação de busca com o Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
 

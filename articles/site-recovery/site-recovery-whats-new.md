@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010251"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212809"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -411,6 +411,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Mantenha-se atualizado com nossas atualizações na página [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .

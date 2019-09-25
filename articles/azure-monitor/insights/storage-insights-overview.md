@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996247"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212775"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorando seu serviço de armazenamento com o Azure Monitor para armazenamento (versão prévia)
 
@@ -241,7 +241,7 @@ Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns 
 
 Para ajudar a solucionar problemas relacionados ao armazenamento que você identifica com Azure Monitor para armazenamento (versão prévia), consulte as [diretrizes de solução de problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)do armazenamento do Azure.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

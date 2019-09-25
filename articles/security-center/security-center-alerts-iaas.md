@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 0070ab94196dfe752e048e97dd40a8f69cf98373
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0d6f05524be41693ba280b0f0162f65b517ec281
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202607"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219633"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Detecção de ameaças para VMs e servidores na central de segurança do Azure
 
@@ -35,7 +35,7 @@ A central de segurança estende suas plataformas de proteção de carga de traba
 > [!NOTE]
 > O sensor do Windows Server defender ATP é habilitado automaticamente em servidores Windows que usam a central de segurança.
 
-Quando o Windows Server defender ATP detecta uma ameaça, ele dispara um alerta. O alerta é mostrado no painel da central de segurança. No painel, você pode dinamizar para o console do Windows Defender ATP e executar uma investigação detalhada para descobrir o escopo do ataque. Para obter mais informações sobre o Windows Server defender ATP, consulte [servidores integrados ao serviço do Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+Quando o Windows Server defender ATP detecta uma ameaça, ele dispara um alerta. O alerta é mostrado no painel da central de segurança. No painel, você pode dinamizar para o console do Microsoft defender ATP e executar uma investigação detalhada para descobrir o escopo do ataque. Para obter mais informações sobre o Windows Server defender ATP, consulte [servidores integrados ao serviço Microsoft defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Análise de despejo de memória<a nanme="windows-dump"></a>
 

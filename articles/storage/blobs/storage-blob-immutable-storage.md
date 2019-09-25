@@ -9,14 +9,14 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036412"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212436"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage"></a>Armazene dados críticos para os negócios no armazenamento de BLOBs do Azure
+# <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Armazene dados críticos para os negócios no armazenamento de BLOBs do Azure immutably 
 
 O armazenamento imutável para o armazenamento de BLOBs do Azure permite que os usuários armazenem objetos de dados críticos para os negócios em um estado de WORM (gravar uma vez, ler muitos). Esse estado torna os dados não apagáveis e não modificáveis para um intervalo especificado pelo usuário. Os objetos de blob podem ser criados e lidos, mas não modificados ou excluídos, durante a duração do intervalo de retenção. O armazenamento imutável é habilitado para Uso Geral V2 e contas de armazenamento de BLOBs em todas as regiões do Azure.
 

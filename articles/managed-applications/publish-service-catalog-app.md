@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 1d28a9d330dd001e3fdc05e37f7bbcdd2db7ee6e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609884"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224548"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição da aplicação gerida
 
@@ -139,6 +139,7 @@ Adicione o seguinte JSON inicial ao arquivo e salve-o.
             "location": "[location()]"
         }
     }
+}
 ```
 
 Para saber mais, confira [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
@@ -215,7 +216,7 @@ New-AzManagedApplicationDefinition `
 
 Tem acesso à definição de aplicação gerida, mas deve verificar se outros utilizadores na sua organização podem aceder à mesma. Conceda-lhes, pelo menos, a função de Leitor na definição. Estes podem ter herdado este nível de acesso através da subscrição ou do grupo de recursos. Para verificar quem tem acesso à definição e adicionar utilizadores ou grupos, veja [Utilizar o Controlo de Acesso Baseado em Função para gerir o acesso aos recursos da subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para publicar a aplicação gerida no Microsoft Azure Marketplace, veja [Aplicações geridas do Azure no Marketplace](publish-marketplace-app.md).
 * Para implementar uma instância da aplicação gerida, veja [Implementar aplicação de serviço de catálogo através do portal do Azure](deploy-service-catalog-quickstart.md).

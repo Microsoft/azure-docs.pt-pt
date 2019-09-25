@@ -1,6 +1,6 @@
 ---
-title: Expor um serviço de REST do WCF no local para o cliente externo com o reencaminhamento de WCF do Azure | Documentos da Microsoft
-description: Crie uma aplicação de cliente e o serviço utilizando o reencaminhamento do WCF.
+title: Expor um serviço REST do WCF local para o cliente externo usando o Azure Retransmissão do WCF | Microsoft Docs
+description: Crie um aplicativo de cliente e de serviço usando Retransmissão do WCF.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,79 +12,84 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2018
+ms.date: 09/12/2019
 ms.author: spelluru
-ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4707e56a09c257c9e03e6db070083c81ffde07b6
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790083"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212898"
 ---
-# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Expor um serviço de REST do WCF no local para o cliente externo com o reencaminhamento de WCF do Azure
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Expor um serviço REST do WCF local para o cliente externo usando o Azure Retransmissão do WCF
 
-Este tutorial descreve como criar um cliente simples do reencaminhamento do WCF, aplicação e do serviço com o reencaminhamento do Azure. Para obter um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Este tutorial descreve como criar um aplicativo cliente do Retransmissão do WCF e um serviço usando a retransmissão do Azure. Para obter um tutorial semelhante que usa o [sistema de mensagens do barramento de serviço](../service-bus-messaging/service-bus-messaging-overview.md), consulte Introdução [às filas do barramento de serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
-Trabalhar com este tutorial ficará a saber os passos necessários para criar uma aplicação de cliente e o serviço de reencaminhamento do WCF. Como seus homólogos WCF originais, um serviço é uma construção que expõe um ou mais pontos de extremidade, cada um dos quais expõe uma ou mais operações de serviço. O ponto final de um serviço especifica um endereço onde pode ser encontrado o serviço, um enlace que contém as informações que um cliente deve comunicar com o serviço e um contrato que define a funcionalidade fornecida pelo serviço aos seus clientes. A principal diferença entre o WCF e o reencaminhamento do WCF é que o ponto final é exposto na nuvem em vez de localmente no seu computador.
+O trabalho neste tutorial fornece uma compreensão das etapas para criar um aplicativo de cliente e serviço Retransmissão do WCF. Assim como suas contrapartes WCF originais, um serviço é um constructo que expõe um ou mais pontos de extremidade. Cada ponto de extremidade expõe uma ou mais operações de serviço. O ponto final de um serviço especifica um endereço onde pode ser encontrado o serviço, um enlace que contém as informações que um cliente deve comunicar com o serviço e um contrato que define a funcionalidade fornecida pelo serviço aos seus clientes. A principal diferença entre o WCF e o Retransmissão do WCF é que o ponto de extremidade é exposto na nuvem em vez de localmente em seu computador.
 
-Quando completar a sequência de tópicos deste tutorial, terá um serviço em execução e um cliente que pode invocar as operações do serviço. O primeiro tópico descreve como configurar uma conta. Os passos seguintes descrevem como definir um serviço que utiliza um contrato, como implementar esse serviço e como configurá-lo em código. Também descreve como alojar e executar o serviço. O serviço criado aloja-se a si mesmo e o cliente e o serviço são executados no mesmo computador. Pode configurar o serviço utilizando código ou um ficheiro de configuração.
+Depois de trabalhar na sequência de seções deste tutorial, você terá um serviço em execução. Você também terá um cliente que pode invocar as operações do serviço. 
 
-Os últimos três passos descrevem como criar uma aplicação cliente, configurá-la, e criar e utilizar um cliente que possa aceder à funcionalidade do anfitrião.
-
-Siga os passos seguintes neste tutorial:
+Você realiza as seguintes tarefas neste tutorial:
 
 > [!div class="checklist"]
-> * Crie um espaço de nomes do reencaminhamento.
-> * Criar um contrato de serviço do WCF
-> * Implementar o contrato WCF
-> * Alojar e executar o serviço WCF para registar com o serviço de reencaminhamento
-> * Criar um cliente WCF para o contrato de serviço
-> * Configurar o cliente de WCF
-> * Implementar o cliente WCF
-> * Execute as aplicações. 
+>
+> * Instale os pré-requisitos para este tutorial.
+> * Crie um namespace de retransmissão.
+> * Crie um contrato de serviço WCF.
+> * Implemente o contrato do WCF.
+> * Hospede e execute o serviço WCF para se registrar no serviço de retransmissão.
+> * Crie um cliente WCF para o contrato de serviço.
+> * Configure o cliente WCF.
+> * Implemente o cliente WCF.
+> * Execute os aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
-- Azure SDK para .NET. Instale-o a partir da [página de downloads do SDK](https://azure.microsoft.com/downloads/).
+* Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
+* SDK do Azure para .NET. Instale-o na [página de downloads do SDK](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-relay-namespace"></a>Criar um espaço de nomes do reencaminhamento
-A primeira etapa é criar um espaço de nomes e obter um [assinatura de acesso partilhado (SAS)](../service-bus-messaging/service-bus-sas.md) chave. Um espaço de nomes fornece um limite de aplicação para cada aplicação exposta através do serviço de reencaminhamento. O sistema gera uma chave SAS automaticamente quando se cria um espaço de nomes de serviço. A combinação do espaço de nomes de serviço e da chave SAS fornece as credenciais do Azure autenticar o acesso a uma aplicação.
+## <a name="create-a-relay-namespace"></a>Criar um namespace de retransmissão
+
+A primeira etapa é criar um namespace e obter uma chave de [assinatura de acesso compartilhado (SAS)](../service-bus-messaging/service-bus-sas.md) . Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do serviço de retransmissão. Uma chave SAS é gerada automaticamente pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e da chave SAS fornece as credenciais do Azure para autenticar o acesso a um aplicativo.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="define-a-wcf-service-contract"></a>Definir um contrato de serviço do WCF
-O contrato de serviço Especifica quais as operações (a terminologia do serviço web para funções ou métodos) o serviço suporta. Os contratos são criados através da definição de uma interface em C++, C# ou Visual Basic. Cada método da interface corresponde a uma operação de serviço específica. Todas as interfaces devem ter aplicado o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) e todas as operações devem ter aplicado o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx). Se um método numa interface que tem o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx), não tem o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), esse método não será exposto. O código utilizado nestas tarefas surge no exemplo que segue o procedimento. Para uma descrição completa de contratos e serviços, consulte o artigo [Desenhar e implementar serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
+## <a name="define-a-wcf-service-contract"></a>Definir um contrato de serviço WCF
 
-### <a name="create-a-relay-contract-with-an-interface"></a>Criar um contrato de reencaminhamento com uma interface
+O contrato de serviço especifica a quais operações o serviço dá suporte. As operações são métodos ou funções de serviço da Web. Os contratos são criados através da definição de uma interface em C++, C# ou Visual Basic. Cada método da interface corresponde a uma operação de serviço específica. Todas as interfaces devem ter aplicado o atributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) e todas as operações devem ter aplicado o atributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute). Se um método em uma interface que tem o atributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) não tiver o atributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) , esse método não será exposto. O código utilizado nestas tarefas surge no exemplo que segue o procedimento. Para obter uma discussão maior sobre contratos e serviços, consulte [projetando e implementando serviços](/dotnet/framework/wcf/designing-and-implementing-services).
 
-1. Abra o Visual Studio como administrador, para tal clique com o botão direito no programa no menu **Iniciar** e selecione **Executar como administrador**.
-2. Crie um novo projeto de aplicação de consola. Clique no menu **Ficheiro**, selecione **Novo** e clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique nas **aplicação de consola (.NET Framework)** modelo e o nomeio **EchoService**. Clique em **OK** para criar o projeto.
+### <a name="create-a-relay-contract-with-an-interface"></a>Criar um contrato de retransmissão com uma interface
 
-    ![Criar uma aplicação de consola][2]
+1. Inicie Microsoft Visual Studio como administrador. Para fazer isso, clique com o botão direito do mouse no ícone do programa do Visual Studio e selecione **Executar como administrador**.
+1. No Visual Studio, selecione **criar um novo projeto**.
+1. Em **criar um novo projeto**, escolha **aplicativo de console (.NET Framework)** para C# e selecione **Avançar**.
+1. Nomeie o projeto *EchoService* e selecione **criar**.
 
-3. Instale o pacote NuGet do Service Bus. Este pacote adiciona automaticamente referências para as bibliotecas do Service Bus, bem como o **System.ServiceModel** do WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o espaço de nomes que permite o acesso através de programação às funcionalidades básicas do WCF. O Service Bus utiliza muitos dos objetos e atributos de WCF para definir os contratos de serviço.
+   ![Criar uma aplicação de consola][2]
 
-    No Solution Explorer, clique com o botão direito no projeto e, em seguida, clique em **gerir pacotes NuGet...** . Clique no separador **Procurar** e, em seguida, procure **WindowsAzure.ServiceBus**. Certifique-se de que o nome do projeto está selecionado na caixa **Versões**. Clique em **Instalar** e aceite os termos de utilização.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **gerenciar pacotes NuGet**. No **Gerenciador de pacotes NuGet**, selecione **procurar**e, em seguida, pesquise e escolha **WindowsAzure. ServiceBus**. Selecione **instalar**e aceite os termos de uso.
 
-    ![Pacote do Service Bus][3]
-4. No Explorador de Soluções, faça duplo clique no ficheiro Program.cs para abri-lo no editor, caso não esteja ainda aberto.
-5. Adicione o seguinte utilizando declarações na parte superior do ficheiro:
+    ![Pacote do barramento de serviço][3]
+
+   Esse pacote adiciona automaticamente referências às bibliotecas do barramento de serviço e ao `System.ServiceModel`WCF. [System.ServiceModel](/dotnet/api/system.servicemodel) é o espaço de nomes que permite o acesso através de programação às funcionalidades básicas do WCF. O Service Bus utiliza muitos dos objetos e atributos de WCF para definir os contratos de serviço.
+
+1. Adicione as seguintes `using` instruções na parte superior de *Program.cs*:
 
     ```csharp
     using System.ServiceModel;
     using Microsoft.ServiceBus;
     ```
-6. Altere o nome de espaço de nomes a partir do respetivo nome predefinido de **EchoService** para **Microsoft.ServiceBus.Samples**.
+
+1. Altere o nome do espaço de nomes a partir do respetivo nome predefinido de `EchoService` para `Microsoft.ServiceBus.Samples`.
 
    > [!IMPORTANT]
-   > Este tutorial utiliza o espaço de nomes c# **Samples**, que é o espaço de nomes do contrato com base no tipo que é utilizado no ficheiro de configuração no gerido a [configurar o cliente WCF](#configure-the-wcf-client) passo. Pode especificar o espaço de nomes que quiser quando construir este exemplo; no entanto, o tutorial não funcionará, a menos que modifique os espaços de nomes de contrato e serviço em conformidade, no ficheiro de configuração de aplicação. O espaço de nomes especificado no ficheiro App.config tem de ser o mesmo que o espaço de nomes especificado nos seus ficheiros C#.
+   > Este tutorial usa o C# namespace `Microsoft.ServiceBus.Samples` que é o namespace do tipo gerenciado baseado em contrato que é usado no arquivo de configuração na seção [Configurar o cliente WCF](#configure-the-wcf-client) . Você pode especificar qualquer namespace que desejar ao criar esse exemplo. No entanto, o tutorial não funcionará a menos que você modifique os namespaces do contrato e do serviço de acordo, no arquivo de configuração do aplicativo. O namespace especificado no arquivo *app. config* deve ser o mesmo que o namespace especificado em seus C# arquivos.
    >
-   >
-7. Imediatamente depois do `Microsoft.ServiceBus.Samples` declaração de namespace, mas dentro do espaço de nomes, defina uma nova interface com o nome `IEchoContract` e aplicar a `ServiceContractAttribute` atributo para a interface com um valor de espaço de nomes de `https://samples.microsoft.com/ServiceModel/Relay/`. O valor do espaço de nomes difere do espaço de nomes que utiliza em todo o âmbito do seu código. Em vez disso, o valor do espaço de nomes utiliza-se como identificador exclusivo para este contrato. A especificação explícita do espaço de nomes impede que o valor de espaço de nomes predefinido seja adicionado ao nome do contrato. Cole o seguinte código depois da declaração de espaço de nomes:
+
+1. Diretamente após a `Microsoft.ServiceBus.Samples` declaração do namespace, mas dentro do namespace, defina uma nova interface `IEchoContract` chamada e aplique `ServiceContractAttribute` o atributo à interface com um valor de namespace `https://samples.microsoft.com/ServiceModel/Relay/`de. Cole o código a seguir após a declaração de namespace:
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -93,28 +98,32 @@ O contrato de serviço Especifica quais as operações (a terminologia do servi�
     }
     ```
 
+    O valor do espaço de nomes difere do espaço de nomes que utiliza em todo o âmbito do seu código. Em vez disso, o valor do espaço de nomes utiliza-se como identificador exclusivo para este contrato. A especificação explícita do espaço de nomes impede que o valor de espaço de nomes predefinido seja adicionado ao nome do contrato.
+
    > [!NOTE]
-   > Normalmente, o espaço de nomes do contrato de serviço contém um esquema de nomenclatura que inclui a informação da versão. Ao incluir a informação de versão no espaço de nomes de contrato de serviço, tal permite que os serviços possam isolar as alterações mais importantes, através da definição de um novo contrato de serviço com um novo espaço de nomes e a sua exposição num novo ponto final. Desta forma, os clientes podem continuar a utilizar o contrato de serviço anterior sem ter de ser atualizado. A informação de versão pode consistir numa data ou número de compilação. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). Para este tutorial, o esquema de nomenclatura do espaço de nomes de contrato de serviço não contém informação da versão.
+   > Normalmente, o espaço de nomes do contrato de serviço contém um esquema de nomenclatura que inclui a informação da versão. Ao incluir a informação de versão no espaço de nomes de contrato de serviço, tal permite que os serviços possam isolar as alterações mais importantes, através da definição de um novo contrato de serviço com um novo espaço de nomes e a sua exposição num novo ponto final. Dessa maneira, os clientes podem continuar a usar o contrato de serviço antigo sem precisar ser atualizado. A informação de versão pode consistir numa data ou número de compilação. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](/dotnet/framework/wcf/service-versioning). Para este tutorial, o esquema de nomenclatura do namespace do contrato de serviço não contém informações de versão.
    >
-   >
-8. Dentro do `IEchoContract` interface, declare um método para a operação única a `IEchoContract` contrato expõe na interface e aplique o `OperationContractAttribute` de atributo para o método que deseja expor como parte do contrato público de reencaminhamento do WCF, da seguinte forma:
+
+1. Dentro da `IEchoContract` interface, declare um método para a única operação que `IEchoContract` o contrato expõe na interface e aplique o `OperationContractAttribute` atributo ao método que você deseja expor como parte do contrato de retransmissão do WCF público, da seguinte maneira:
 
     ```csharp
     [OperationContract]
     string Echo(string text);
     ```
-9. Imediatamente depois da definição de interface `IEchoContract`, declare um canal que herda de `IEchoContract` e também da interface `IClientChannel`, conforme se mostra aqui:
+
+1. Imediatamente depois da definição de interface `IEchoContract`, declare um canal que herda de `IEchoContract` e também da interface `IClientChannel`, conforme se mostra aqui:
 
     ```csharp
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
 
-    Um canal é o objeto de WCF através do qual o anfitrião e o cliente passam informações entre si. Mais tarde, escreverá código para o canal a fim de enviar informações entre as duas aplicações.
-10. No menu **Compilar**, clique em **Compilar Solução** ou prima **Ctrl+Shift+B** para confirmar a precisão do seu trabalho até ao momento.
+    Um canal é o objeto de WCF através do qual o anfitrião e o cliente passam informações entre si. Posteriormente, você escreverá código no canal para ecoar informações entre os dois aplicativos.
 
-### <a name="example"></a>Exemplo
+1. Selecione **criar** > **solução de compilação** ou selecione CTRL + SHIFT + B para confirmar a precisão de seu trabalho até o momento.
 
-O código seguinte mostra uma interface básica que define um contrato de reencaminhamento do WCF.
+### <a name="example-of-a-wcf-contract"></a>Exemplo de um contrato do WCF
+
+O código a seguir mostra uma interface básica que define um contrato de Retransmissão do WCF.
 
 ```csharp
 using System;
@@ -142,9 +151,9 @@ namespace Microsoft.ServiceBus.Samples
 
 Agora que a interface está criada, pode implementá-la.
 
-## <a name="implement-the-wcf-contract"></a>Implementar o contrato WCF
+## <a name="implement-the-wcf-contract"></a>Implementar o contrato do WCF
 
-A criação de um reencaminhamento do Azure requer que crie primeiro o contrato, que é definido através de uma interface. Para obter mais informações sobre como criar a interface, consulte o passo anterior. O passo seguinte consiste em implementar a interface. Isto implica a criação de uma classe com o nome `EchoService` que implementa a interface `IEchoContract` definida pelo utilizador. Depois de implementar a interface, esta deve ser configurada utilizando um ficheiro de configuração App.config. O ficheiro de configuração contém as informações necessárias para a aplicação, como o nome do serviço, o nome do contrato e o tipo de protocolo que é utilizado para comunicar com o serviço de reencaminhamento. O código utilizado para estas tarefas surge no exemplo que segue o procedimento. Para um debate mais geral sobre como implementar um contrato de serviço, consulte o artigo [Implementação de Contratos de Serviço](https://msdn.microsoft.com/library/ms733764.aspx) na documentação de WCF.
+A criação de uma retransmissão do Azure exige que você primeiro crie o contrato usando uma interface. Para obter mais informações sobre como criar a interface, consulte a seção anterior. O próximo procedimento implementa a interface. Essa tarefa envolve a criação de uma `EchoService` classe chamada que implementa a interface `IEchoContract` definida pelo usuário. Depois de implementar a interface, você configura a interface usando um arquivo de configuração *app. config* . O arquivo de configuração contém as informações necessárias para o aplicativo. Essas informações incluem o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o serviço de retransmissão. O código usado para essas tarefas é fornecido no exemplo que segue o procedimento. Para obter uma discussão mais geral sobre como implementar um contrato de serviço, consulte [implementando contratos de serviço](/dotnet/framework/wcf/implementing-service-contracts).
 
 1. Criar uma nova classe com o nome `EchoService` imediatamente depois da definição da interface `IEchoContract`. A classe `EchoService` implementa a interface `IEchoContract`.
 
@@ -154,8 +163,9 @@ A criação de um reencaminhamento do Azure requer que crie primeiro o contrato,
     }
     ```
 
-    Tal como noutras implementações de interface, pode implementar a definição num ficheiro diferente. No entanto, neste tutorial, a implementação aparece no mesmo ficheiro que a definição de interface e o método `Main`.
-2. Aplique o atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) à interface `IEchoContract`. O atributo especifica o nome de serviço e o espaço de nomes. Depois de fazê-lo, aparecerá a classe `EchoService` da seguinte forma:
+    Tal como noutras implementações de interface, pode implementar a definição num ficheiro diferente. No entanto, neste tutorial, a implementação aparece no mesmo ficheiro que a definição de interface e o método `Main()`.
+
+1. Aplique o atributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) à interface `IEchoContract`. O atributo especifica o nome de serviço e o espaço de nomes. Depois de fazê-lo, aparecerá a classe `EchoService` da seguinte forma:
 
     ```csharp
     [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -163,7 +173,8 @@ A criação de um reencaminhamento do Azure requer que crie primeiro o contrato,
     {
     }
     ```
-3. Implemente o método `Echo` definido na interface `IEchoContract` na classe `EchoService`.
+
+1. Implemente o método `Echo` definido na interface `IEchoContract` na classe `EchoService`.
 
     ```csharp
     public string Echo(string text)
@@ -172,14 +183,16 @@ A criação de um reencaminhamento do Azure requer que crie primeiro o contrato,
         return text;
     }
     ```
-4. Clique em **Compilar** e, em seguida, em **Compilar Solução** para confirmar a precisão do seu trabalho.
 
-### <a name="define-the-configuration-for-the-service-host"></a>Definir a configuração para o anfitrião do serviço
+1. Selecione **criar** > **solução de compilação** ou selecione CTRL + SHIFT + B.
 
-1. O ficheiro de configuração é muito semelhante a um ficheiro de configuração do WCF. Ele inclui o nome do serviço, o ponto final (ou seja, a localização que o reencaminhamento do Azure expõe para clientes e anfitriões para comunicar entre si) e o enlace (do tipo de protocolo que é utilizado para comunicar). A principal diferença é que o ponto final de serviço configurado se refere a um enlace [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding), que não faz parte do .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) é um dos enlaces definidos pelo serviço.
-2. No **Explorador de Soluções**, faça duplo clique no ficheiro App.config para abri-lo no editor do Visual Studio.
-3. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
-4. Dentro das etiquetas `<system.serviceModel>`, adicione um elemento `<services>`. Pode definir vários aplicativos de reencaminhamento num único ficheiro de configuração. No entanto, este tutorial define apenas um.
+### <a name="define-the-configuration-for-the-service-host"></a>Definir a configuração para o host de serviço
+
+O arquivo de configuração é semelhante a um arquivo de configuração do WCF. Ele inclui o nome do serviço, o ponto de extremidade e a associação. O ponto de extremidade é o local que a retransmissão do Azure expõe para clientes e hosts se comunicarem entre si. A associação é o tipo de protocolo usado para comunicação. A principal diferença é que esse ponto de extremidade de serviço configurado refere-se a uma associação [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) , que não faz parte do .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) é uma das associações definidas pelo serviço.
+
+1. Em **Gerenciador de soluções**, clique duas vezes em **app. config** para abrir o arquivo no editor do Visual Studio.
+1. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
+1. Dentro das etiquetas `<system.serviceModel>`, adicione um elemento `<services>`. Você pode definir vários aplicativos de retransmissão em um único arquivo de configuração. No entanto, este tutorial define apenas um.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -191,22 +204,25 @@ A criação de um reencaminhamento do Azure requer que crie primeiro o contrato,
       </system.serviceModel>
     </configuration>
     ```
-5. Dentro do elemento `<services>`, adicione um elemento `<service>` para definir o nome do serviço.
+
+1. Dentro do elemento `<services>`, adicione um elemento `<service>` para definir o nome do serviço.
 
     ```xml
     <service name="Microsoft.ServiceBus.Samples.EchoService">
     </service>
     ```
-6. Dentro do elemento `<service>`, defina a localização do contrato de ponto final, bem como o tipo de enlace para o ponto final.
+
+1. Dentro do elemento `<service>`, defina a localização do contrato de ponto final, bem como o tipo de enlace para o ponto final.
 
     ```xml
     <endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
     ```
 
-    O ponto final define onde o cliente procurará a aplicação anfitriã. Mais tarde, o tutorial utiliza este passo para criar um URI que expõe totalmente o anfitrião através do reencaminhamento do Azure. O enlace declara que estamos a utilizar TCP como protocolo para comunicar com o serviço de reencaminhamento.
-7. No menu **Compilar**, clique em **Compilar Solução** para confirmar a precisão do seu trabalho.
+    O ponto final define onde o cliente procurará a aplicação anfitriã. Posteriormente, o tutorial usa essa etapa para criar um URI que expõe totalmente o host por meio da retransmissão do Azure. A associação declara que estamos usando TCP como o protocolo para se comunicar com o serviço de retransmissão.
 
-### <a name="example"></a>Exemplo
+1. Selecione **criar** > **solução de compilação** ou selecione CTRL + SHIFT + B para confirmar a precisão de seu trabalho até o momento.
+
+### <a name="example-of-implementation-of-a-service-contract"></a>Exemplo de implementação de um contrato de serviço
 
 O código seguinte mostra a implementação do contrato de serviço.
 
@@ -223,7 +239,7 @@ O código seguinte mostra a implementação do contrato de serviço.
     }
 ```
 
-O código seguinte mostra o formato básico do ficheiro de configuração App.config associado ao anfitrião do serviço.
+O código a seguir mostra o formato básico do arquivo *app. config* associado ao host de serviço.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -244,11 +260,11 @@ O código seguinte mostra o formato básico do ficheiro de configuração App.co
 </configuration>
 ```
 
-## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Alojar e executar o serviço WCF para registar com o serviço de reencaminhamento
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Hospedar e executar o serviço WCF para se registrar no serviço de retransmissão
 
-Este passo descreve como executar um serviço de reencaminhamento do Azure.
+Esta etapa descreve como executar um serviço de retransmissão do Azure.
 
-### <a name="create-the-relay-credentials"></a>Criar as credenciais de reencaminhamento
+### <a name="create-the-relay-credentials"></a>Criar as credenciais de retransmissão
 
 1. Em `Main()`, crie duas variáveis para armazenar o espaço de nomes e a chave SAS que são lidos a partir da janela da consola.
 
@@ -259,8 +275,9 @@ Este passo descreve como executar um serviço de reencaminhamento do Azure.
     string sasKey = Console.ReadLine();
     ```
 
-    A chave SAS será posteriormente utilizada para aceder ao seu projeto. O espaço de nomes é passado como parâmetro em `CreateServiceUri` para criar um URI de serviço.
-2. Com um objeto [TransportClientEndpointBehavior](/dotnet/api/microsoft.servicebus.transportclientendpointbehavior), declare que estará a utilizar uma chave SAS como tipo de credencial. Adicione o seguinte código imediatamente depois do código adicionado no último passo.
+    A chave SAS será usada posteriormente para acessar seu projeto. O espaço de nomes é passado como parâmetro em `CreateServiceUri` para criar um URI de serviço.
+
+1. Usando um objeto [TransportClientEndpointBehavior](/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) , declare que você usará uma chave SAS como o tipo de credencial. Adicione o seguinte código imediatamente depois do código adicionado no último passo.
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
@@ -269,46 +286,50 @@ Este passo descreve como executar um serviço de reencaminhamento do Azure.
 
 ### <a name="create-a-base-address-for-the-service"></a>Criar um endereço base para o serviço
 
-Depois do código adicionado no último passo, crie um `Uri` instância para o endereço base do serviço. Este URI especifica o esquema de Service Bus, o espaço de nomes e o percurso da interface de serviço.
+Após o código adicionado na seção anterior, crie uma `Uri` instância para o endereço base do serviço. Este URI especifica o esquema de Service Bus, o espaço de nomes e o percurso da interface de serviço.
 
 ```csharp
 Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
 ```
 
-"sb" é a abreviatura de esquema de Service Bus e indica que está a utilizar o TCP como protocolo. Isto também foi indicado anteriormente no ficheiro de configuração, quando [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) se especificou como enlace.
+O valor "SB" é uma abreviação do esquema do barramento de serviço. Isso indica que estamos usando TCP como o protocolo. Esse esquema também foi indicado anteriormente no arquivo de configuração, quando [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) foi especificado como a associação.
 
 Para este tutorial, o URI é `sb://putServiceNamespaceHere.windows.net/EchoService`.
 
-### <a name="create-and-configure-the-service-host"></a>Criar e configurar o anfitrião do serviço
+### <a name="create-and-configure-the-service-host"></a>Criar e configurar o host de serviço
 
-1. Defina o modo de conectividade como `AutoDetect`.
+1. Ainda trabalhando no `Main()`, defina o modo de conectividade `AutoDetect`como.
 
     ```csharp
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
     ```
 
-    O modo de conectividade descreve o protocolo utilizado pelo serviço para comunicar com o serviço de reencaminhamento; HTTP ou TCP. Com as definições predefinidas `AutoDetect`, o serviço tenta ligar ao reencaminhamento do Azure através de HTTP e TCP, se estiver disponível, se o TCP não está disponível. Tenha em atenção que isto difere do protocolo especificado pelo serviço para a comunicação do cliente. Esse protocolo é determinado pelo enlace utilizado. Por exemplo, um serviço pode utilizar o [BasicHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.basichttprelaybinding.aspx) ligação, que especifica que o seu ponto de extremidade se comunica com os clientes através de HTTP. Que o mesmo serviço poderia especificar **Connectivitymode** para que o serviço se comunica com o reencaminhamento do Azure através de TCP.
-2. Crie o anfitrião do serviço, utilizando o URI criado anteriormente nesta secção.
+    O modo de conectividade descreve o protocolo que o serviço usa para se comunicar com o serviço de retransmissão; HTTP ou TCP. Usando a configuração `AutoDetect`padrão, o serviço tenta se conectar à retransmissão do Azure por TCP, se estiver disponível, e http se o TCP não estiver disponível. Esse resultado é diferente do protocolo que o serviço especifica para comunicação do cliente. Esse protocolo é determinado pelo enlace utilizado. Por exemplo, um serviço pode usar a associação [BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) , que especifica que seu ponto de extremidade se comunica com clientes via http. Esse mesmo serviço pode especificar `ConnectivityMode.AutoDetect` para que o serviço se comunique com a retransmissão do Azure por TCP.
+
+1. Crie o anfitrião do serviço, utilizando o URI criado anteriormente nesta secção.
 
     ```csharp
     ServiceHost host = new ServiceHost(typeof(EchoService), address);
     ```
 
-    O anfitrião do serviço é o objeto de WCF que cria uma instância no serviço. Neste caso, passa-se o tipo de serviço que pretende criar (um tipo `EchoService`) e também o endereço onde pretende expor o serviço.
-3. Na parte superior do ficheiro Program.cs, adicione as referências [System.ServiceModel.Description](https://msdn.microsoft.com/library/system.servicemodel.description.aspx) e [Microsoft.ServiceBus.Description](/dotnet/api/microsoft.servicebus.description).
+    O anfitrião do serviço é o objeto de WCF que cria uma instância no serviço. Aqui, você passa a ele o tipo de serviço que deseja criar, um `EchoService` tipo e também o endereço no qual você deseja expor o serviço.
+
+1. Na parte superior do arquivo *Program.cs* , adicione referências a [System. ServiceModel. Description](/dotnet/api/system.servicemodel.description) e [Microsoft. ServiceBus. Description](/dotnet/api/microsoft.servicebus.description).
 
     ```csharp
     using System.ServiceModel.Description;
     using Microsoft.ServiceBus.Description;
     ```
-4. De novo em `Main()`, configure o ponto final para ativar o acesso público.
+
+1. De novo em `Main()`, configure o ponto final para ativar o acesso público.
 
     ```csharp
     IEndpointBehavior serviceRegistrySettings = new ServiceRegistrySettings(DiscoveryType.Public);
     ```
 
-    Este passo informa o serviço de reencaminhamento que seu aplicativo pode ser encontrado publicamente, examinando o ATOM feed para o seu projeto. Se definir **DiscoveryType** como **privado**, um cliente poderia continuar a ter acesso ao serviço. No entanto, o serviço não apareceria quando se procura o espaço de nomes do reencaminhamento. Em vez disso, o cliente terá de conhecer de antemão o percurso do ponto final.
-5. Aplique as credenciais de serviço para os pontos finais de serviço definidos no ficheiro de App.config:
+    Esta etapa informa ao serviço de retransmissão que seu aplicativo pode ser encontrado publicamente examinando o feed ATOM do seu projeto. Se você definir `DiscoveryType` como `private`, um cliente ainda poderá acessar o serviço. No entanto, o serviço não apareceria quando `Relay` pesquisa o namespace. Em vez disso, o cliente terá de conhecer de antemão o percurso do ponto final.
+
+1. Aplique as credenciais de serviço aos pontos de extremidade de serviço definidos no arquivo *app. config* :
 
     ```csharp
     foreach (ServiceEndpoint endpoint in host.Description.Endpoints)
@@ -318,32 +339,35 @@ Para este tutorial, o URI é `sb://putServiceNamespaceHere.windows.net/EchoServi
     }
     ```
 
-    Conforme se indicou no passo anterior, pode ter declarado vários serviços e pontos finais no ficheiro de configuração. Se o tiver feito, este código percorreria o ficheiro de configuração e pesquisaria cada ponto final para o qual se devem aplicar as credenciais. No entanto, para este tutorial, o ficheiro de configuração tem apenas um ponto final.
+    Como mencionado anteriormente, você poderia ter declarado vários serviços e pontos de extremidade no arquivo de configuração. Se o tiver feito, este código percorreria o ficheiro de configuração e pesquisaria cada ponto final para o qual se devem aplicar as credenciais. Para este tutorial, o arquivo de configuração tem apenas um ponto de extremidade.
 
 ### <a name="open-the-service-host"></a>Abrir o host de serviço
 
-1. Abra o serviço.
+1. Ainda em `Main()`, adicione a seguinte linha para abrir o serviço.
 
     ```csharp
     host.Open();
     ```
-2. Informe o utilizador que o serviço está em execução e explique-lhe como encerrá-lo.
+
+1. Informe o utilizador que o serviço está em execução e explique-lhe como encerrá-lo.
 
     ```csharp
     Console.WriteLine("Service address: " + address);
     Console.WriteLine("Press [Enter] to exit");
     Console.ReadLine();
     ```
-3. Quando terminar, feche o serviço anfitrião.
+
+1. Quando terminar, feche o serviço anfitrião.
 
     ```csharp
     host.Close();
     ```
-4. Prima **Ctrl + Shift + B**para compilar o projeto.
 
-### <a name="example"></a>Exemplo
+1. Selecione CTRL + SHIFT + B para compilar o projeto.
 
-Código do serviço concluído deverá aparecer da seguinte forma. O código inclui o contrato de serviço e a implementação dos passos anteriores no tutorial e aloja o serviço num aplicativo de console.
+### <a name="example-that-hosts-a-service-in-a-console-application"></a>Exemplo que hospeda um serviço em um aplicativo de console
+
+O código de serviço completo deve aparecer da seguinte maneira. O código inclui o contrato de serviço e a implementação de etapas anteriores no tutorial e hospeda o serviço em um aplicativo de console.
 
 ```csharp
 using System;
@@ -421,25 +445,30 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>Criar um cliente WCF para o contrato de serviço
 
-A próxima etapa é criar uma aplicação cliente e definir o contrato de serviço que implementará em passos posteriores. Tenha em atenção que muitos destes passos assemelham-se os passos utilizados para criar um serviço: definir um contrato, editar um App. config de ficheiros, com as credenciais para ligar ao serviço de reencaminhamento e assim por diante. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+A próxima tarefa é criar um aplicativo cliente e definir o contrato de serviço que você implementará posteriormente. Essas etapas se assemelham às etapas usadas para criar um serviço: definir um contrato, editar um arquivo *app. config* , usar credenciais para se conectar ao serviço de retransmissão e assim por diante. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
-1. Crie um novo projeto na atual solução de Visual Studio para o cliente efetuando o seguinte procedimento:
+1. Crie um novo projeto na solução atual do Visual Studio para o cliente:
 
-   1. No Explorador de Soluções, na mesma solução que contém o serviço, clique com o botão direito na solução atual (não o projeto) e clique em **Adicionar**. Em seguida, clique em **Novo Projeto**.
-   2. Na **adicionar novo projeto** caixa de diálogo, clique em **Visual c#** (se **Visual C#** não aparecer, procure em **outras linguagens**), selecione o **Aplicação de consola (.NET Framework)** modelo e o nomeio **EchoClient**.
-   3. Clique em **OK**.
-      <br />
-2. No Explorador de Soluções, faça duplo clique no ficheiro Program.cs no projeto **EchoClient** para abri-lo no editor, caso não esteja ainda aberto.
-3. Altere o nome do espaço de nomes a partir do respetivo nome predefinido de `EchoClient` para `Microsoft.ServiceBus.Samples`.
-4. Instalar o [pacote NuGet do Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus): no Explorador de soluções, clique com botão direito a **EchoClient** projeto e, em seguida, clique em **gerir pacotes NuGet**. Clique no separador **Procurar** e, em seguida, procure `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de utilização.
+   1. Em **Gerenciador de soluções**, clique com o botão direito do mouse na solução atual (não no projeto) e selecione **Adicionar** > **novo projeto**.
+   1. Em **Adicionar um novo projeto**, selecione **aplicativo de console (.NET Framework)** para C#e selecione **Avançar**.
+   1. Nomeie Project *EchoClient* e selecione **Create**.
 
-    ![][3]
-5. Adicione uma declaração `using`para o espaço de nomes [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) no ficheiro Program.cs.
+1. Em **Gerenciador de soluções**, no projeto **EchoClient** , clique duas vezes em **Program.cs** para abrir o arquivo no editor, se ele ainda não estiver aberto.
+1. Altere o nome do espaço de nomes a partir do respetivo nome predefinido de `EchoClient` para `Microsoft.ServiceBus.Samples`.
+1. Instale o [pacote NuGet do barramento de serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus):
+
+   1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **EchoClient** e selecione **gerenciar pacotes NuGet**.
+   1. Selecione **procurar**e, em seguida, pesquise e selecione **WindowsAzure. ServiceBus**. Selecione **instalar**e aceite os termos de uso.
+
+      ![Instalar pacote do barramento de serviço][4]
+
+1. Adicione uma `using` instrução para o namespace [System. ServiceModel](/dotnet/api/system.servicemodel) no arquivo *Program.cs* .
 
     ```csharp
     using System.ServiceModel;
     ```
-6. Adicione a definição do contrato de serviço ao espaço de nomes, conforme se mostra no exemplo seguinte. Tenha em atenção que esta definição é idêntica à definição utilizada no projeto **Serviço**. Deve adicionar este código na parte superior do espaço de nomes `Microsoft.ServiceBus.Samples`.
+
+1. Adicione a definição do contrato de serviço ao espaço de nomes, conforme se mostra no exemplo seguinte. Essa definição é idêntica à definição usada no projeto de **serviço** . Adicione este código na parte superior do `Microsoft.ServiceBus.Samples` namespace.
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -451,11 +480,12 @@ A próxima etapa é criar uma aplicação cliente e definir o contrato de servi�
 
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
-7. Prima **Ctrl+Shift+B** para compilar o cliente.
 
-### <a name="example"></a>Exemplo
+1. Selecione CTRL + SHIFT + B para criar o cliente.
 
-O código a seguir mostra o estado atual do ficheiro Program.cs no **EchoClient** projeto.
+### <a name="example-of-the-echoclient-project"></a>Exemplo do projeto EchoClient
+
+O código a seguir mostra o status atual do arquivo *Program.cs* no projeto **EchoClient** .
 
 ```csharp
 using System;
@@ -486,11 +516,11 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>Configurar o cliente de WCF
 
-Neste passo, criará um ficheiro App.config para uma aplicação cliente básica que acede ao serviço criado anteriormente neste tutorial. Este ficheiro App.config define o contrato, o enlace e o nome do ponto final. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+Nesta etapa, você cria um arquivo *app. config* para um aplicativo cliente básico que acessa o serviço criado anteriormente neste tutorial. Esse arquivo *app. config* define o contrato, a associação e o nome do ponto de extremidade. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
-1. No Explorador de Soluções, no projeto **EchoClient**, faça duplo clique **App.config**para abrir o ficheiro no editor de Visual Studio.
-2. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
-3. Dentro do elemento system.serviceModel, adicione um elemento `<client>`.
+1. No **Gerenciador de soluções**, no projeto **EchoClient** , clique duas vezes em **app. config** para abrir o arquivo no editor do Visual Studio.
+1. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
+1. Dentro do `system.serviceModel` elemento, adicione um `<client>` elemento.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -502,8 +532,9 @@ Neste passo, criará um ficheiro App.config para uma aplicação cliente básica
     </configuration>
     ```
 
-    Este passo declara que está a definir uma aplicação cliente de estilo WCF.
-4. Dentro do elemento `client`, defina o nome, o contrato e o tipo de enlace para o ponto final.
+    Esse código declara que você está definindo um aplicativo cliente no estilo WCF.
+
+1. Dentro do elemento `client`, defina o nome, o contrato e o tipo de enlace para o ponto final.
 
     ```xml
     <endpoint name="RelayEndpoint"
@@ -511,12 +542,13 @@ Neste passo, criará um ficheiro App.config para uma aplicação cliente básica
                     binding="netTcpRelayBinding"/>
     ```
 
-    Este passo define o nome do ponto de extremidade, o contrato definido no serviço e o fato de que a aplicação de cliente utiliza TCP para comunicar com o reencaminhamento do Azure. O nome do ponto final é utilizado no próximo passo para ligar esta configuração de ponto final com o URI do serviço.
-5. Clique em **arquivo**, em seguida, clique em **Save All**.
+    Esse código define o nome do ponto de extremidade. Ele também define o contrato definido no serviço e o fato de que o aplicativo cliente usa TCP para se comunicar com a retransmissão do Azure. O nome do ponto final é utilizado no próximo passo para ligar esta configuração de ponto final com o URI do serviço.
 
-### <a name="example"></a>Exemplo
+1. Selecione **arquivo** > **salvar tudo**.
 
-O código seguinte mostra o ficheiro App.config para o cliente de Echo.
+### <a name="example-of-the-appconfig-file"></a>Exemplo do arquivo app. config
+
+O código a seguir mostra o arquivo *app. config* para o cliente Echo.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -538,25 +570,28 @@ O código seguinte mostra o ficheiro App.config para o cliente de Echo.
 ```
 
 ## <a name="implement-the-wcf-client"></a>Implementar o cliente WCF
-Neste passo, implementará uma aplicação cliente básica que acede ao serviço que criou anteriormente neste tutorial. Semelhante ao serviço, o cliente efetua muitas das mesmas operações para acessar o reencaminhamento do Azure:
 
-1. Define o modo de conectividade.
-2. Cria o URI que localiza o serviço anfitrião.
-3. Define as credenciais de segurança.
-4. Aplica as credenciais para a ligação.
-5. Abre a ligação.
-6. Efetua as tarefas específicas da aplicação.
-7. Fecha a ligação.
+Nesta seção, você implementará um aplicativo cliente básico que acessa o serviço criado anteriormente neste tutorial. Semelhante ao serviço, o cliente faz muitas das mesmas operações para acessar a retransmissão do Azure:
 
-No entanto, uma das principais diferenças é que a aplicação de cliente utiliza um canal para ligar ao serviço de reencaminhamento, ao passo que o serviço utiliza uma chamada para **ServiceHost**. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+* Define o modo de conectividade.
+* Cria o URI que localiza o serviço anfitrião.
+* Define as credenciais de segurança.
+* Aplica as credenciais para a ligação.
+* Abre a ligação.
+* Efetua as tarefas específicas da aplicação.
+* Fecha a ligação.
 
-### <a name="implement-a-client-application"></a>Implemente uma aplicação de cliente
-1. Defina o modo de conectividade como **AutoDetect**. Adicione o seguinte código dentro do método `Main()` da aplicação **EchoClient**.
+No entanto, uma das principais diferenças é que o aplicativo cliente usa um canal para se conectar ao serviço de retransmissão. O serviço usa uma chamada para **ServiceHost**. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+
+### <a name="implement-a-client-application"></a>Implementar um aplicativo cliente
+
+1. Defina o modo de conectividade como `AutoDetect`. Adicione o seguinte código dentro do método `Main()` da aplicação **EchoClient**.
 
     ```csharp
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
     ```
-2. Defina variáveis para conter os valores para o espaço de nomes do serviço e a chave SAS que são lidos desde a consola.
+
+1. Defina variáveis para conter os valores para o espaço de nomes do serviço e a chave SAS que são lidos desde a consola.
 
     ```csharp
     Console.Write("Your Service Namespace: ");
@@ -564,36 +599,42 @@ No entanto, uma das principais diferenças é que a aplicação de cliente utili
     Console.Write("Your SAS Key: ");
     string sasKey = Console.ReadLine();
     ```
-3. Crie o URI que define o local do host no seu projeto de reencaminhamento.
+
+1. Crie o URI que define o local do host em seu projeto de retransmissão.
 
     ```csharp
     Uri serviceUri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
     ```
-4. Crie o objeto de credencial para o ponto final do espaço de nomes do serviço.
+
+1. Crie o objeto de credencial para o ponto final do espaço de nomes do serviço.
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
     sasCredential.TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", sasKey);
     ```
-5. Crie a fábrica de canais que carrega a configuração descrita no ficheiro App.config.
+
+1. Crie a fábrica de canais que carrega a configuração descrita no arquivo *app. config* .
 
     ```csharp
     ChannelFactory<IEchoChannel> channelFactory = new ChannelFactory<IEchoChannel>("RelayEndpoint", new EndpointAddress(serviceUri));
     ```
 
     Uma fábrica de canais é um objeto de WCF que cria um canal através do qual comunicam as aplicações cliente e de serviço.
-6. Aplique as credenciais.
+
+1. Aplique as credenciais.
 
     ```csharp
     channelFactory.Endpoint.Behaviors.Add(sasCredential);
     ```
-7. Crie e abra o canal para o serviço.
+
+1. Crie e abra o canal para o serviço.
 
     ```csharp
     IEchoChannel channel = channelFactory.CreateChannel();
     channel.Open();
     ```
-8. Escreva a interface do utilizador básico e a funcionalidade para o eco.
+
+1. Escreva a interface do utilizador básico e a funcionalidade para o eco.
 
     ```csharp
     Console.WriteLine("Enter text to echo (or [Enter] to exit):");
@@ -612,17 +653,18 @@ No entanto, uma das principais diferenças é que a aplicação de cliente utili
     }
     ```
 
-    Tenha em atenção que o código utiliza a instância do objeto de canal como um proxy para o serviço.
-9. Feche o canal e feche a fábrica.
+    O código usa a instância do objeto de canal como um proxy para o serviço.
+
+1. Feche o canal e feche a fábrica.
 
     ```csharp
     channel.Close();
     channelFactory.Close();
     ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-code-for-this-tutorial"></a>Exemplo de código para este tutorial
 
-O código de conclusão deve ser apresentado como a seguir, que mostra como criar uma aplicação cliente, como chamar as operações do serviço e como fechar o cliente após a chamada de operação é concluída.
+O código completo deve aparecer da seguinte maneira. Este código mostra como criar um aplicativo cliente, como chamar as operações do serviço e como fechar o cliente após a conclusão da chamada de operação.
 
 ```csharp
 using System;
@@ -691,48 +733,58 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="run-the-applications"></a>Executar as aplicações
 
-1. Prima **Ctrl+Shift+B** para compilar a solução. Isto compila o projeto de cliente e o projeto de serviço que criou nos passos anteriores.
-2. Antes de executar a aplicação cliente, tem de se certificar de que a aplicação de serviço está em execução. No Explorador de Soluções no Visual Studio, clique com o botão direito na solução **EchoService** e, em seguida, clique em **Propriedades**.
-3. Na caixa de diálogo das propriedades da solução, clique em **Projeto de Arranque** e no botão **Vários projetos de arranque**. Certifique-se **EchoService** aparece em primeiro lugar na lista.
-4. Defina a caixa **Ação** para os projetos **EchoService** e **EchoClient** para **Iniciar**.
+1. Selecione CTRL + SHIFT + B para compilar a solução. Essa ação cria o projeto de cliente e o projeto de serviço que você criou nas etapas anteriores.
+1. Antes de executar a aplicação cliente, tem de se certificar de que a aplicação de serviço está em execução. Em **Gerenciador de soluções**, clique com o botão direito do mouse na solução **EchoService** e selecione **Propriedades**.
+1. Em **páginas de propriedades**,**projeto de inicialização**de **Propriedades** > comuns e, em seguida, escolha **vários projetos de inicialização**. Certifique-se **EchoService** aparece em primeiro lugar na lista.
+1. Defina a caixa **Ação** para os projetos **EchoService** e **EchoClient** para **Iniciar**.
 
-    ![][5]
-5. Clique em **Dependências do Projeto**. Na caixa **Projetos**, selecione **EchoClient**. Na caixa **Depende de**, certifique-se que a opção **EchoService** está marcada.
+    ![Páginas de propriedades do projeto][5]
 
-    ![][6]
-6. Clique em **OK** para dispensar a caixa de diálogo **Propriedades**.
-7. Prima **F5** para executar ambos os projetos.
-8. Ambas as janelas de consola abrem-se e solicitam-lhe o nome do espaço de nomes. Primeiro tem de ser executado o serviço, por isso, além da janela de consola **EchoService**, introduza o espaço de nomes e, em seguida, prima **Enter**.
-9. Em seguida, é-lhe pedida novamente a sua chave SAS. Introduza a chave SAS e prima ENTER.
+1. Selecione **dependências do projeto**. Em **projetos**, selecione **EchoClient**. Para **depende de**, verifique se **EchoService** está selecionado.
 
-    Este é o exemplo da saída da janela da consola. Tenha em atenção que os valores aqui fornecidos servem apenas como exemplo.
+    ![Dependências do projeto][6]
 
-    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
+1. Selecione **OK** para fechar as **páginas de propriedades**.
+1. Selecione F5 para executar ambos os projetos.
+1. Ambas as janelas de consola abrem-se e solicitam-lhe o nome do espaço de nomes. O serviço deve ser executado primeiro, portanto, na janela do console do **EchoService** , insira o namespace e, em seguida, selecione Enter.
+1. Em seguida, o console solicitará sua chave SAS. Insira a chave SAS e selecione Enter.
+
+    Este é o exemplo da saída da janela da consola. Os valores aqui são apenas exemplos.
+
+    `Your Service Namespace: myNamespace`
+
+    `Your SAS Key: <SAS key value>`
 
     A aplicação de serviço imprime na janela de consola o endereço no qual está a escutar, como se vê no exemplo a seguir.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
-10. Na janela de consola **EchoClient**, introduza as mesmas informações que introduziu anteriormente para a aplicação de serviço. Siga os passos anteriores para introduzir o mesmo espaço de nomes do serviço e valores de chave SAS para a aplicação cliente.
-11. Depois de introduzir estes valores, o cliente abrirá um canal para o serviço e pede-lhe que introduza algum texto, conforme se verifica no seguinte exemplo de saída de consola.
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
+
+    `Press [Enter] to exit`
+
+1. Na janela de consola **EchoClient**, introduza as mesmas informações que introduziu anteriormente para a aplicação de serviço. Insira os mesmos valores de namespace de serviço e chave SAS para o aplicativo cliente.
+1. Depois de introduzir estes valores, o cliente abrirá um canal para o serviço e pede-lhe que introduza algum texto, conforme se verifica no seguinte exemplo de saída de consola.
 
     `Enter text to echo (or [Enter] to exit):`
 
-    Introduza algum texto para enviar para a aplicação de serviço e prima Enter. Este texto é enviado para o serviço através da operação de serviço Eco e é apresentado na janela da consola de serviço, como se mostra na saída no exemplo seguinte.
+    Insira algum texto para enviar ao aplicativo de serviço e selecione Enter. Este texto é enviado para o serviço através da operação de serviço Eco e é apresentado na janela da consola de serviço, como se mostra na saída no exemplo seguinte.
 
     `Echoing: My sample text`
 
-    A aplicação cliente recebe o valor devolvido da operação `Echo`, que é o texto original, e imprime-o para a janela de consola. A seguir está o exemplo da saída da janela da consola do cliente.
+    A aplicação cliente recebe o valor devolvido da operação `Echo`, que é o texto original, e imprime-o para a janela de consola. O texto a seguir é um exemplo de saída da janela do console do cliente.
 
     `Server echoed: My sample text`
-12. Pode continuar a enviar mensagens de texto do cliente para o serviço desta forma. Quando tiver terminado, prima Enter nas janelas de consola do cliente e do serviço para terminar as duas aplicações.
 
-## <a name="next-steps"></a>Passos Seguintes
-Avançar para o tutorial seguinte: 
+1. Pode continuar a enviar mensagens de texto do cliente para o serviço desta forma. Quando tiver terminado, selecione Enter nas janelas do console do cliente e do serviço para encerrar ambos os aplicativos.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Avançar para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
->[Expor um serviço de REST do WCF no local para um cliente fora da rede](service-bus-relay-rest-tutorial.md)
+>[Expor um serviço REST do WCF local para um cliente fora da sua rede](service-bus-relay-rest-tutorial.md)
 
-[2]: ./media/service-bus-relay-tutorial/create-console-app.png
-[3]: ./media/service-bus-relay-tutorial/install-nuget.png
+[2]: ./media/service-bus-relay-tutorial/configure-echoservice-console-app.png
+[3]: ./media/service-bus-relay-tutorial/install-nuget-service-bus.png
+[4]: ./media/service-bus-relay-tutorial/install-nuget-service-bus-client.png
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png

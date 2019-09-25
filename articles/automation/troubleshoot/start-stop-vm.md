@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688038"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240854"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solucionar problemas da solução iniciar/parar VMs fora do horário comercial
 
@@ -44,6 +44,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### <a name="cause"></a>Causa
 
 As implantações podem falhar devido a um dos seguintes motivos:
@@ -52,6 +60,7 @@ As implantações podem falhar devido a um dos seguintes motivos:
 2. Uma política está em vigor que não permite a implantação da solução iniciar/parar VMs.
 3. Os `Microsoft.OperationsManagement`tipos `Microsoft.Insights`de recurso `Microsoft.Automation` , ou não são registrados.
 4. Seu espaço de trabalho do Log Analytics tem um bloqueio.
+5. Você tem uma versão desatualizada dos módulos do AzureRM ou a solução iniciar/parar.
 
 ### <a name="resolution"></a>Resolução
 
@@ -66,6 +75,7 @@ Examine a lista a seguir para obter as possíveis soluções para o problema ou 
 
    Consulte [resolver erros de registro do provedor de recursos](../../azure-resource-manager/resource-manager-register-provider-errors.md) para saber mais sobre erros ao registrar provedores.
 4. Se você tiver um bloqueio em seu espaço de trabalho Log Analytics, vá para seu espaço de trabalho no portal do Azure e remova os bloqueios no recurso.
+5. Se as resoluções acima não resolverem o problema, siga as instruções em [atualizar a solução](../automation-solution-vm-management.md#update-the-solution) para reimplantar a solução de início/parada.
 
 ## <a name="all-vms-fail-to-startstop"></a>Cenário Falha ao iniciar/parar todas as VMs
 
@@ -193,7 +203,7 @@ Esse problema pode ser causado por uma conta Executar como configurada incorreta
 
 Para verificar se sua conta Executar como está configurada corretamente, acesse sua conta de automação no portal do Azure e selecione **contas Executar como** em **configurações da conta**. Aqui você verá o status de suas contas Executar como, se uma conta Executar como estiver incorretamente configurada ou expirar, o status mostrará isso.
 
-Se sua conta Executar como estiver [](../manage-runas-account.md#misconfiguration)configurada incorretamente, você deverá excluir e recriar sua conta Executar como.
+Se sua conta Executar como estiver [configurada incorretamente](../manage-runas-account.md#misconfiguration), você deverá excluir e recriar sua conta Executar como.
 
 Se o certificado tiver expirado para sua conta Executar como, siga as etapas listadas em [renovação de certificado autoassinado](../manage-runas-account.md#cert-renewal) para renovar o certificado.
 
@@ -203,20 +213,20 @@ O problema pode ser causado por falta de permissões. Para saber como verificar 
 
 ### <a name="issue"></a>Problema
 
-Você enfrenta um problema ou resultado inesperado ao usar a solução iniciar/parar VMs fora do horário comercial que não está listada nesta página.
+Você enfrenta um problema ou resultado inesperado ao usar a solução Iniciar/Parar VMs fora do horário comercial que não está listada nesta página.
 
 ### <a name="cause"></a>Causa
 
 Muitas vezes, erros podem ser causados pelo uso de uma versão antiga e desatualizada da solução.
 
 > [!NOTE]
-> A solução iniciar/parar VMs fora do horário comercial foi testada com os módulos do Azure que são importados para sua conta de automação quando você implanta a solução. Atualmente, a solução não funciona com versões mais recentes do módulo do Azure. Isso afeta apenas a conta de automação que você usa para executar a solução iniciar/parar VMs fora do horário comercial. Você ainda pode usar versões mais recentes do módulo do Azure em suas outras contas de automação, conforme descrito em [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md)
+> A solução Iniciar/Parar VMs fora do horário comercial foi testada com os módulos do Azure que são importados para sua conta de automação quando você implanta a solução. Atualmente, a solução não funciona com versões mais recentes do módulo do Azure. Isso afeta apenas a conta de automação que você usa para executar a solução de Iniciar/Parar VMs fora do horário comercial. Você ainda pode usar versões mais recentes do módulo do Azure em suas outras contas de automação, conforme descrito em [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md)
 
 ### <a name="resolution"></a>Resolução
 
 Para resolver muitos erros, é recomendável remover e atualizar a solução. Para saber como atualizar a solução, consulte [atualizar a solução iniciar/parar VMs fora do horário comercial](../automation-solution-vm-management.md#update-the-solution). Além disso, você pode verificar os [fluxos de trabalho](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para procurar quaisquer erros. No portal, acesse sua conta de automação e selecione **trabalhos** em **automação de processo**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

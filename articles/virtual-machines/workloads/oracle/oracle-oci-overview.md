@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101423"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241009"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicativos Oracle que integram Microsoft Azure e a infraestrutura de nuvem da Oracle (versão prévia)
 
@@ -50,7 +50,7 @@ O diagrama a seguir é uma visão geral de alto nível da solução conectada. P
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* A conectividade entre nuvem na visualização é limitada à região do Azure leste dos EUA (lesteus) e à região de OCI Ashburn (US-Ashburn-1).
+* A conectividade entre as nuvens na visualização é limitada às regiões do Azure leste dos EUA (lesteus) & Sul do Reino Unido (uksouth) e às regiões do OCI Ashburn (leste dos EUA) & Londres (Sul do Reino Unido). Por Sul do Reino Unido, use o domínio de disponibilidade 1 (AD 1) no OCI ao implantar a inter-Connect para latências mais baixas.
 
 ## <a name="networking"></a>Redes
 
@@ -68,11 +68,11 @@ Além disso, você pode configurar [listas de segurança](https://docs.cloud.ora
  
 ## <a name="identity"></a>identidade
 
-A identidade é um dos pilares principais da parceria entre a Microsoft e a Oracle. Foi feito um trabalho significativo para integrar o IDCS ( [serviço de nuvem](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) de identidades) da Oracle com o [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e acesso baseado em nuvem da Microsoft. Ele ajuda os usuários a entrar e acessar vários recursos. O AD do Azure também permite que você gerencie seus usuários e suas permissões.
+A identidade é um dos pilares principais da parceria entre a Microsoft e a Oracle. Foi feito um trabalho significativo para integrar o IDCS ( [serviço de nuvem de identidades](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) ) da Oracle com o [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e acesso baseado em nuvem da Microsoft. Ele ajuda os usuários a entrar e acessar vários recursos. O AD do Azure também permite que você gerencie seus usuários e suas permissões.
 
 Atualmente, essa integração permite que você gerencie em um local central, que é Azure Active Directory. O Azure AD sincroniza todas as alterações no diretório com o diretório Oracle correspondente e é usado para logon único em soluções do Oracle de nuvem cruzada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução a uma [rede entre nuvens](configure-azure-oci-networking.md) entre o Azure e o OCI. 
 

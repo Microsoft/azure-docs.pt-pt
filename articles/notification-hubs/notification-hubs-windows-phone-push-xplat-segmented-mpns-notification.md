@@ -3,9 +3,9 @@ title: Enviar notificações push para dispositivos Windows Phone específicos c
 description: Neste tutorial, vai aprender a utilizar os Hubs de Notificação do Azure para enviar notificações push para dispositivos Windows Phone 8 ou Windows Phone 8.1 específicos (não todos) registados com o back-end da aplicação.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 10f8c2e21f2dcf8c108576d54fe6776ecf04a0f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872491"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213404"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Notificações push para dispositivos Windows Phone específicos ao utilizar os Hubs de notificação do Azure
+# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Notificações por push para dispositivos Windows Phone específicos usando os hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -43,13 +45,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o [Tutorial: Notificações push para aplicações Windows Phone ao utilizar os Hubs de notificação do Azure](notification-hubs-windows-mobile-push-notifications-mpns.md). Neste tutorial, irá atualizar a aplicação móvel de modo a poder registar-se para receber categorias de notícias de última hora do seu interesse e receber apenas notificações push relativas a essas categorias.
+Conclua [o tutorial: Notificações por push para aplicativos Windows Phone usando os hubs](notification-hubs-windows-mobile-push-notifications-mpns.md)de notificação do Azure. Neste tutorial, irá atualizar a aplicação móvel de modo a poder registar-se para receber categorias de notícias de última hora do seu interesse e receber apenas notificações push relativas a essas categorias.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Adicionar a seleção de categorias à aplicação móvel
 
 O primeiro passo consiste em adicionar os elementos de IU à sua página principal existente que permitem ao utilizador selecionar as categorias a registar. As categorias selecionadas por um utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado o registo do dispositivo no seu Hub de Notificação com as categorias selecionadas como etiquetas.
 
-1. Abra o `MainPage.xaml` de ficheiros, em seguida, substitua o `Grid` elementos com o nome `TitlePanel` e `ContentPanel` com o código a seguir:
+1. Abra o `MainPage.xaml` arquivo e substitua os `Grid` elementos chamados `TitlePanel` e `ContentPanel` pelo código a seguir:
 
     ```xml
     <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
@@ -77,7 +79,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
         <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
     ```
-2. Adicionar uma classe chamada `Notifications` ao projeto. Adicionar o `public` modificador à definição de classe. Em seguida, adicione o seguinte `using` instruções para o novo ficheiro:
+2. Adicione uma classe chamada `Notifications` ao projeto. Adicione o `public` modificador à definição de classe. Em seguida, adicione as `using` seguintes instruções ao novo arquivo:
 
     ```csharp
     using Microsoft.Phone.Notification;
@@ -85,7 +87,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
     using System.IO.IsolatedStorage;
     using System.Windows;
     ```
-3. Copie o seguinte código para o novo `Notifications` classe:
+3. Copie o código a seguir na nova `Notifications` classe:
 
     ```csharp
     private NotificationHub hub;
@@ -205,7 +207,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
     ```
 
     Esta classe utiliza o armazenamento isolado para armazenar as categorias de notícias que este dispositivo irá receber. Também contém métodos com vista a registar-se para receber estas categorias através de um registo de notificação [modelo](notification-hubs-templates-cross-platform-push-messages.md).
-4. Na `App.xaml.cs` ficheiros do projeto, adicione a seguinte propriedade para o `App` classe. Substitua os marcadores de posição `<hub name>` e `<connection string with listen access>` pelo nome do seu hub de notificação e pela cadeia de ligação de *DefaultListenSharedAccessSignature* que obteve anteriormente.
+4. No arquivo de `App` projeto,adicioneapropriedadea`App.xaml.cs` seguir à classe. Substitua os marcadores de posição `<hub name>` e `<connection string with listen access>` pelo nome do seu hub de notificação e pela cadeia de ligação de *DefaultListenSharedAccessSignature* que obteve anteriormente.
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
@@ -214,7 +216,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
    > [!NOTE]
    > Uma vez que, de um modo geral, as credenciais que são distribuídas com uma aplicação cliente não são seguras, só deve distribuir a chave para acesso de escuta com a sua aplicação cliente. O acesso de escuta permite que a sua aplicação seja registada para receber notificações, mas não é possível modificar os registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço back-end protegido para enviar notificações e alterar registos existentes.
 
-5. Na `MainPage.xaml.cs`, adicione a seguinte linha:
+5. `MainPage.xaml.cs`No, adicione a seguinte linha:
 
     ```csharp
     using Windows.UI.Popups;
@@ -239,7 +241,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
     }
     ```
 
-    Este método cria uma lista de categorias e utiliza o `Notifications` etiquetas de classe para armazenar a lista no armazenamento local e registe-se de que o correspondente com o seu hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
+    Esse método cria uma lista de categorias e usa a `Notifications` classe para armazenar a lista no armazenamento local e registrar as marcas correspondentes no Hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
 
 A sua aplicação pode agora armazenar um conjunto de categorias no armazenamento local do dispositivo e ficar registada no Hub de Notificação sempre que o utilizador alterar a seleção das categorias.
 
@@ -250,7 +252,7 @@ Estes passos efetuam o registo através do hub de notificação no arranque medi
 > [!NOTE]
 > Tendo em conta que o URI do canal atribuído pelo Serviço de Notificações Push da Microsoft (MPNS) pode ser alterado em qualquer altura, deve registar-se para receber notificações com frequência a fim de evitar falhas de notificação. Este exemplo efetua o registo para receber notificações sempre que a aplicação é iniciada. Relativamente às aplicações executadas com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo para poupar a largura de banda, caso tenha passado menos de um dia desde o registo anterior.
 
-1. Abra o ficheiro App.xaml.cs e adicione a `async` modificador para `Application_Launching` método e substitua o registo dos Notification Hubs código que adicionou no [introdução aos Hubs de notificação] com o código a seguir:
+1. Abra o arquivo app.XAML.cs e adicione o `async` modificador `Application_Launching` ao método e substitua o código de registro dos hubs de notificação que você adicionou na introdução [Introdução aos Hubs de Notificação] com o seguinte código:
 
     ```csharp
     private async void Application_Launching(object sender, LaunchingEventArgs e)
@@ -266,7 +268,7 @@ Estes passos efetuam o registo através do hub de notificação no arranque medi
     ```
 
     Este código garante que, sempre que a aplicação é iniciada, as categorias são obtidas a partir do armazenamento local e é pedido o registo destas categorias.
-2. No arquivo de projeto MainPage.xaml.cs, adicione o seguinte código que implementa o `OnNavigatedTo` método:
+2. No arquivo de projeto MainPage.XAML.cs, adicione o seguinte código que implementa o `OnNavigatedTo` método:
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -306,7 +308,7 @@ A aplicação está agora completa, sendo capaz de armazenar um conjunto de cate
 
     ![Mensagem de notificação][3]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar notificações push para dispositivos específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push para utilizadores específicos que podem utilizar vários dispositivos, avance para o tutorial seguinte: 
 

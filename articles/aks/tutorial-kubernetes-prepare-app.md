@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68740955"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o serviço kubernetes do Azure (AKS)
@@ -105,7 +105,7 @@ docker-compose down
 
 Quando o aplicativo local tiver sido removido, você terá uma imagem do Docker que contém o aplicativo de voto do Azure, *Azure-vote-front*, para uso com o próximo tutorial.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas para a aplicação. Aprendeu a:
 

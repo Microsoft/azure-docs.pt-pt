@@ -2,24 +2,17 @@
 title: 'Locais e provedores de conectividade: Azure ExpressRoute | Microsoft Docs'
 description: Este artigo fornece uma descrição geral detalhada das localizações onde os serviços são oferecidos e como ligar a regiões do Azure. Ordenado por localização.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.date: 09/23/2019
 ms.author: cherylmc
-ms.openlocfilehash: 192bafc0b53483c21e52602b4de8c57f66fdee3c
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 61ac896d2135790ca2e757ec56303fdb783d2865
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172560"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219660"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -74,9 +67,11 @@ A conectividade em regiões geopolíticas não é suportada no SKU do ExpressRou
 
 ## <a name="partners"></a>Fornecedores de conectividade do ExpressRoute
 
-A tabela seguinte mostra as localizações de conectividade e os fornecedores de serviços para cada localização. Se pretender ver os fornecedores de serviços e as localizações para as quais podem fornecer serviços, veja [Localizações por fornecedor de serviços](expressroute-locations.md). 
+A tabela seguinte mostra as localizações de conectividade e os fornecedores de serviços para cada localização. Se pretender ver os fornecedores de serviços e as localizações para as quais podem fornecer serviços, veja [Localizações por fornecedor de serviços](expressroute-locations.md).
 
-As **regiões locais do Azure** são aquelas que o [ExpressRoute local](expressroute-faqs.md) em cada local de emparelhamento pode acessar. **n/a** indica que o ExpressRoute local não está disponível nesse local de emparelhamento.
+* As **regiões locais do Azure** são aquelas que o [ExpressRoute local](expressroute-faqs.md) em cada local de emparelhamento pode acessar. **n/a** indica que o ExpressRoute local não está disponível nesse local de emparelhamento.
+
+* **Zona** refere-se aos [preços](https://azure.microsoft.com/pricing/details/expressroute/).
 
 
 ### <a name="production-azure"></a>Azure de Produção

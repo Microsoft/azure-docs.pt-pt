@@ -2,9 +2,9 @@
 title: Enviar notificações para utilizadores específicos com Hubs de Notificação do Azure | Microsoft Docs
 description: Saiba como enviar notificações para utilizadores específicos com as aplicações de Plataforma Universal do Windows (UWP).
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: a4949b12076ea7cdbbf882d199279410da95e005
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558658"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212052"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para usuários específicos usando os hubs de notificação do Azure
 
@@ -335,7 +337,7 @@ Nesta seção, você atualiza o código no projeto que você concluiu para o [tu
 
     ![][15]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 

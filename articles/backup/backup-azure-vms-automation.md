@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 372851686b43e6d2caf4695b988789990077e8fe
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f1aa2c4b6fbe554304bfff239c6220d245fe7467
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090843"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219450"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -320,9 +320,9 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 > De AZ PS versão 1.6.0 em diante, é possível atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell
 
 ````powershell
-$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
+$bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
 $bkpPol.SnapshotRetentionInDays=7
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
+Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
 O valor padrão será 2, o usuário poderá definir o valor com um mínimo de 1 e o máximo de 5. Para políticas de backup semanais, o período é definido como 5 e não pode ser alterado.

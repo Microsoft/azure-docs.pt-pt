@@ -1,52 +1,52 @@
 ---
-title: 'Início rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta eC#'
+title: 'Início rápido: Reconhecer tinta digital com a API REST do reconhecedor de tinta eC#'
 titleSuffix: Azure Cognitive Services
-description: Utilize a API do reconhecedor de tinta para iniciar a reconhecer traços de tinta digital.
+description: Use a API do reconhecedor de tinta para começar a reconhecer os traços de tinta digital.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721256"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211782"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Início rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta eC#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Início rápido: Reconhecer tinta digital com a API REST do reconhecedor de tinta eC#
 
-Utilize este guia de introdução para começar a enviar de traços de tinta digital para a API do reconhecedor de tinta. Isso C# aplicação envia um pedido de API que contêm dados de traços de tinta formatada em JSON e obtém a resposta.
+Use este guia de início rápido para começar a enviar traços de tinta digital para a API do reconhecedor de tinta. Esse C# aplicativo envia uma solicitação de API que contém dados de traço de tinta formatados para JSON e obtém a resposta.
 
-Embora esse aplicativo é escrito em C#, a API é um serviço RESTful web compatível com a maioria das linguagens de programação.
+Embora esse aplicativo seja escrito no C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Normalmente, chamaria a API de uma aplicação de escrita a tinta digital. Este guia de introdução envia dados de traços de tinta para o seguinte exemplo de manuscrito a partir de um ficheiro JSON.
+Normalmente, você chamaria a API de um aplicativo de tinta digital. Este início rápido envia dados de traço de tinta para a seguinte amostra manuscrita de um arquivo JSON.
 
 ![uma imagem de texto manuscrito](../media/handwriting-sample.jpg)
 
-O código-fonte para este início rápido, pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+O código-fonte para este guia de início rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Qualquer edição do [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Para instalar newtonsoft como um pacote de NuGet no Visual studio:
-        1. Clique com o botão direito do rato sobre o **Manager da solução**
-        2. Clique em **gerir pacotes NuGet...**
-        3. Procure `Newtonsoft.Json` e instalar o pacote
-- Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).
+    - Para instalar o Newtonsoft. JSON como um pacote NuGet no Visual Studio:
+        1. Clique com o botão direito do mouse no **Gerenciador de soluções**
+        2. Clique em **gerenciar pacotes NuGet...**
+        3. `Newtonsoft.Json` Pesquisar e instalar o pacote
+- Se você estiver usando o linux/MacOS, esse aplicativo poderá ser executado usando o [mono](https://www.mono-project.com/).
 
-- Os dados de traços de tinta de exemplo para este início rápido, podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- Os dados de traço de tinta de exemplo para este guia de início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 
 ## <a name="create-a-new-application"></a>Criar uma nova aplicação
 
-1. No Visual Studio, crie uma nova solução de consola e adicione os seguintes pacotes. 
+1. No Visual Studio, crie uma nova solução de console e adicione os pacotes a seguir. 
 
     ```csharp
     using System;
@@ -60,7 +60,7 @@ O código-fonte para este início rápido, pode ser encontrado no [GitHub](https
     using Newtonsoft.Json.Linq;
     ```
 
-2. Crie variáveis para a chave de subscrição e o ponto final. Segue-se o URI que pode utilizar para reconhecimento de tinta. Ele será anexado ao seu ponto final de serviço mais tarde para criar a API do URl do pedido.
+2. Crie variáveis para sua chave de assinatura e seu ponto de extremidade. Substitua o ponto de extremidade abaixo pelo que foi gerado para o recurso de reconhecimento de tinta. Anexe-o ao URI do reconhecedor de tinta para se conectar à API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -70,17 +70,17 @@ O código-fonte para este início rápido, pode ser encontrado no [GitHub](https
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar pedidos
+## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
 
-1. Criar uma nova função de async chamada `Request` que usa as variáveis criadas acima.
+1. Crie uma nova função Async chamada `Request` que usa as variáveis criadas acima.
 
-2. Defina o protocolo de segurança do cliente e informações de cabeçalho usando um `HttpClient` objeto. Certifique-se de que adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho. Em seguida, crie um `StringContent` objeto para o pedido.
+2. Defina o protocolo de segurança do cliente e as informações de `HttpClient` cabeçalho usando um objeto. Certifique-se de adicionar sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho. Em seguida, `StringContent` crie um objeto para a solicitação.
  
-3. Enviar o pedido com `PutAsync()`. Se a solicitação for bem-sucedida, devolve a resposta.  
+3. Envie a solicitação com `PutAsync()`. Se a solicitação for bem-sucedida, retorne a resposta.  
     
     ```csharp
     static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -102,11 +102,11 @@ O código-fonte para este início rápido, pode ser encontrado no [GitHub](https
     }
     ```
 
-## <a name="send-an-ink-recognition-request"></a>Enviar um pedido de reconhecimento de tinta
+## <a name="send-an-ink-recognition-request"></a>Enviar uma solicitação de reconhecimento de tinta
 
-1. Criar uma nova função chamada `recognizeInk()`. Construa a solicitação e enviá-lo ao chamar o `Request()` função com o ponto de final, a chave de subscrição, o URL para a API e os dados de traços de tinta digital.
+1. Crie uma nova função chamada `recognizeInk()`. Construa a solicitação e envie-a chamando a `Request()` função com o ponto de extremidade, a chave de assinatura, a URL da API e os dados de traço de tinta digital.
 
-2. Anular a serialização do objeto JSON e gravá-lo na consola. 
+2. Desserializar o objeto JSON e gravá-lo no console. 
     
     ```csharp
     static void recognizeInk(string requestData){
@@ -123,9 +123,9 @@ O código-fonte para este início rápido, pode ser encontrado no [GitHub](https
     }
     ```
 
-## <a name="load-your-digital-ink-data"></a>Carregue os dados de tinta digital
+## <a name="load-your-digital-ink-data"></a>Carregue seus dados de tinta digital
 
-Criar uma função chamada `LoadJson()` ao carregar o ficheiro JSON de dados de tinta. Utilize um `StreamReader` e `JsonTextReader` para criar um `JObject` e retorná-lo.
+Crie uma função chamada `LoadJson()` para carregar o arquivo JSON de dados de tinta. Use um `StreamReader` e `JsonTextReader` para criar um `JObject` e retorná-lo.
     
 ```csharp
 public static JObject LoadJson(string fileLocation){
@@ -140,11 +140,11 @@ public static JObject LoadJson(string fileLocation){
 }
 ```
 
-## <a name="send-the-api-request"></a>Enviar o pedido de API
+## <a name="send-the-api-request"></a>Enviar a solicitação de API
 
-1. No método principal da sua aplicação, carregar os dados JSON com a função criada acima. 
+1. No método principal do seu aplicativo, carregue os dados JSON com a função criada acima. 
 
-2. Chamar o `recognizeInk()` função criada acima. Utilize `System.Console.ReadKey()` para manter a janela da consola aberta após executar a aplicação.
+2. Chame a `recognizeInk()` função criada acima. Use `System.Console.ReadKey()` para manter a janela do console aberta depois de executar o aplicativo.
     
     ```csharp
     static void Main(string[] args){
@@ -157,18 +157,18 @@ public static JObject LoadJson(string fileLocation){
         }
     ```
 
-## <a name="run-the-application-and-view-the-response"></a>Executar o aplicativo e ver a resposta
+## <a name="run-the-application-and-view-the-response"></a>Executar o aplicativo e exibir a resposta
 
-Execute a aplicação. Uma resposta com êxito, é devolvida no formato JSON. Também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
+Execute a aplicação. Uma resposta bem-sucedida é retornada no formato JSON. Você também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Para ver como a API de reconhecimento de tinta funciona num aplicativo de escrita a tinta digital, veja as seguintes aplicações de exemplo no GitHub:
+Para ver como a API de reconhecimento de tinta funciona em um aplicativo de escrita digital, dê uma olhada nos seguintes aplicativos de exemplo no GitHub:
 * [C# e Plataforma Universal do Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
 * [C# e Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Aplicação de browser Javascript](https://go.microsoft.com/fwlink/?linkid=2089908)       

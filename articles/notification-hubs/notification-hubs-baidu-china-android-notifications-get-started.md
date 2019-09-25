@@ -3,21 +3,23 @@ title: Introdução aos Hubs de Notificação do Azure utilizando o Baidu | Micr
 description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para emitir notificações via push para dispositivos Android que utilizam o Baidu.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 06/19/2019
-ms.author: jowargo
-ms.openlocfilehash: 7a3a9affc0fd5e83c7f6046e70d198cce08cb3e1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 06/19/2019
+ms.openlocfilehash: de02c1add1d6ea3a98d30407b7661e71a28458fe
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886049"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211925"
 ---
 # <a name="deprecated-get-started-with-notification-hubs-using-baidu"></a>Preterido Introdução aos Notification Hubs utilizando o Baidu
 

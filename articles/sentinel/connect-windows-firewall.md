@@ -1,6 +1,6 @@
 ---
-title: Ligue os dados de firewall do Windows para a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como ligar os dados de firewall do Windows ao sentinela do Azure.
+title: Conectar dados do firewall do Windows ao Azure Sentinel | Microsoft Docs
+description: Saiba como conectar dados do firewall do Windows ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,53 +13,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a863910ee338da5655e9f3b5610b0a8049b8b2a9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620781"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240633"
 ---
 # <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
 
-> [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-O conector de firewall do Windows permite-lhe ligar facilmente os seus registos de firewalls do Windows, se estiverem ligados à sua área de trabalho de sentinela do Azure. Esta ligação permite-lhe ver os dashboards e criar alertas personalizados e a melhorar a investigação. Isso dá-lhe mais informações sobre a rede da sua organização e melhora as capacidades de operação de segurança. A solução recolhe os eventos de firewall do Windows das máquinas Windows no qual está instalado um agente do Log Analytics. 
+
+O conector do firewall do Windows permite que você conecte seus logs do firewall do Windows com facilidade, se eles estiverem conectados ao seu espaço de trabalho do Azure Sentinel. Essa conexão permite que você exiba painéis, crie alertas personalizados e melhore a investigação. Isso lhe dá mais informações sobre a rede da sua organização e aprimora seus recursos de operação de segurança. A solução coleta eventos de firewall do Windows dos computadores Windows nos quais um agente de Log Analytics está instalado. 
 
 
 > [!NOTE]
-> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 
-## <a name="enable-the-connector"></a>Ativar o conector 
+## <a name="enable-the-connector"></a>Habilitar o conector 
 
-1. No portal do Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **firewall do Windows** mosaico. 
-1.  Se forem suas máquinas do Windows no Azure:
-    1. Clique em **instalar o agente na máquina de virtual do Windows Azure**.
-    1. Na **máquinas virtuais** , selecione a máquina do Windows que pretende transmitir para o Azure sentinela. Certifique-se de que esta é uma VM do Windows.
-    1. Na janela que se abre para essa VM, clique em **Connect**.  
-    1. Clique em **habilitar** no **conector de firewall do Windows** janela. 
+1. No portal do Azure Sentinel, selecione **conectores de dados** e clique no bloco **Firewall do Windows** . 
+1.  Se seus computadores Windows estiverem no Azure:
+    1. Clique em **instalar agente na máquina virtual do Windows do Azure**.
+    1. Na lista **máquinas virtuais** , selecione o computador Windows que você deseja transmitir para o Azure Sentinel. Verifique se esta é uma VM do Windows.
+    1. Na janela que é aberta para essa VM, clique em **conectar**.  
+    1. Clique em **habilitar** na janela **conector do firewall do Windows** . 
 
-2. Se o seu computador Windows não é uma VM do Azure:
-    1. Clique em **instalar o agente em máquinas não Azure**.
-    1. Na **agente direto** janela, selecione **agente de transferir o Windows (64 bits)** ou **agente de transferir o Windows (32 bits)** .
-    1. Instale o agente no seu computador Windows. Copiar o **ID da área de trabalho**, **chave primária**, e **chave secundária** e utilizá-los quando lhe for pedido durante a instalação.
+2. Se seu computador Windows não for uma VM do Azure:
+    1. Clique em **instalar agente em computadores não Azure**.
+    1. Na janela **agente direto** , selecione baixar o **agente do Windows (64 bits)** ou **baixar o agente do Windows (32 bits)** .
+    1. Instale o agente em seu computador Windows. Copie a **ID do espaço de trabalho**, a **chave primária**e a **chave secundária** e use-as quando solicitado durante a instalação.
 
-4. Selecione os tipos de dados que pretende transmitir em fluxo.
-5. Clique em **instalar a solução**.
-6. Para utilizar o esquema relevante no Log Analytics para o firewall do Windows, procure **SecurityEvent**.
+4. Selecione os tipos de dados que você deseja transmitir.
+5. Clique em **instalar solução**.
+6. Para usar o esquema relevante no Log Analytics para o Firewall do Windows, procure por **SecurityEvent**.
 
-## <a name="validate-connectivity"></a>Validar a conectividade
+## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no Log Analytics. 
+Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste documento, aprendeu a ligar-se a firewall do Windows para sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
-- Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
-- Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
+## <a name="next-steps"></a>Passos seguintes
+Neste documento, você aprendeu a conectar o Firewall do Windows ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

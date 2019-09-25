@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4816ea2dc67df717e46df61c955d6d156b14d7e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 253e01b6bfa6609b4ec41d69a3c4b1bbe405ba5a
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129668"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240292"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -71,11 +71,11 @@ Não há suporte para um computador registrado para Gerenciamento de Atualizaç�
 
 ### <a name="supported-client-types"></a>Tipos de cliente suportados
 
-A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
+A tabela a seguir mostra uma lista de sistemas operacionais com suporte para avaliações de atualização. A aplicação de patch requer um Hybrid Runbook Worker. Para obter informações sobre requisitos de Hybrid Runbook Worker, consulte os guias de instalação do [Windows HRW](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) e [Linux HRW](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|**Avaliações de atualização**: Suportadas<br><br>**Aplicação de patch**: Requer Hybrid Runbook Worker. Consulte [os requisitos de Hybrid runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)||
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. A aplicação de patches baseada em classificação requer ' yum ' para retornar dados de segurança que o CentOS não está pronto para uso. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, consulte [Atualizar classificações no Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -249,6 +249,9 @@ Para criar uma nova implantação de atualização, selecione **agendar implanta
 | Controle de reinicialização| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
 As implantações de atualização também podem ser criadas programaticamente. Para saber como criar uma implantação de atualização com a API REST, consulte [Software Update Configurations-Create](/rest/api/automation/softwareupdateconfigurations/create). Também há um runbook de exemplo que pode ser usado para criar uma implantação semanal de atualização. Para saber mais sobre esse runbook, confira [criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+> [!NOTE]
+> As chaves do registro listadas em [chaves do registro usadas para gerenciar](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) a reinicialização podem causar um evento de reinicialização se o **controle de reinicialização** for definido como **nunca**
 
 ### <a name="maintenance-windows"></a>Janelas de manutenção
 

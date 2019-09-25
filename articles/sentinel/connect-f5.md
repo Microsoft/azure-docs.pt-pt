@@ -1,5 +1,5 @@
 ---
-title: Conectar dados F5 à visualização do Azure Sentinel | Microsoft Docs
+title: Conectar dados F5 ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do F5 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7ad95515ff58e2990102fa2b71d0ce66d4377617
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 64ea16b6e5a2821db4f053928e4b95ba80d177dd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679303"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240017"
 ---
 # <a name="connect-your-f5-appliance"></a>Conectar seu dispositivo F5
 
-> [!IMPORTANT]
-> O Azure Sentinel está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Você pode conectar o Azure Sentinel a qualquer dispositivo F5 salvando os arquivos de log como syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas nos dados do arquivo de log de F5. Para obter mais informações sobre como o Azure Sentinel ingeri dados de CEF, consulte [conectar dispositivos CEF](connect-common-event-format.md).
 
@@ -46,7 +44,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 
 ### <a name="deploy-the-agent"></a>Implantar o agente 
 
-1. No portal do Azure Sentinel, clique em conectores de **dados** e selecione **F5** e, em seguida, **abra a página conector**. 
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione **F5** e, em seguida, **abra a página conector**. 
 
 1. Em **baixar e instalar o agente de syslog**, selecione o tipo de computador, o Azure ou o local. 
 1. Na tela **máquinas virtuais** que é aberta, selecione o computador que você deseja usar e clique em **conectar**.
@@ -75,7 +73,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 
 Configure F5 para encaminhar mensagens de syslog no formato CEF para seu espaço de trabalho do Azure por meio do agente de syslog:
 
-Acesse F5 Configurando o [log de eventos de segurança do aplicativo](https://aka.ms/asi-syslog-f5-forwarding)e siga as instruções para configurar o log remoto, usando as seguintes diretrizes:
+Acesse F5 [Configurando o log de eventos de segurança do aplicativo](https://aka.ms/asi-syslog-f5-forwarding)e siga as instruções para configurar o log remoto, usando as seguintes diretrizes:
   - Defina o **tipo de armazenamento remoto** como **CEF**.
   - Defina o **protocolo** como **UDP**.
   - Defina o **endereço IP** para o endereço IP do servidor syslog.
@@ -127,8 +125,8 @@ Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, você aprendeu a conectar os dispositivos F5 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

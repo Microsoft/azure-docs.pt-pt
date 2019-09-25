@@ -4,9 +4,9 @@ description: Este tópico descreve o uso de notificações agendadas com os hubs
 services: notification-hubs
 documentationcenter: .net
 keywords: notificações por push, notificação por push, agendando notificações por push
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 94af0dede158c091ae64ae317db3c3153063ce79
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347353"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213013"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Como: Enviar notificações agendadas
 
@@ -44,7 +46,7 @@ await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 Não há limites para o número de notificações agendadas que você pode enviar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Veja os tutoriais seguintes:
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e8c6c21efd1ea406c8293819a2889e198e8455bd
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242004"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240927"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Core no Azure
 
@@ -84,7 +84,7 @@ Crie um aplicativo Web ASP.NET Core seguindo estas etapas:
 
 1. Para **grupo de recursos**, selecione **novo**.
 
-1. Em **novo nome do grupo de recursos**, insira MyResource Group e selecione **OK**.
+1. Em **novo nome do grupo de recursos**, insira *MyResource* Group e selecione **OK**.
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -153,7 +153,7 @@ Quando a publicação estiver concluída, o Visual Studio inicia um browser para
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core com a Base de Dados SQL](app-service-web-tutorial-dotnetcore-sqldb.md)

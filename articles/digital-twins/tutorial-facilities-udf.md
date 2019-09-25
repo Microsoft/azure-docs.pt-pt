@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/20/2019
 ms.author: alinast
-ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e483ac8e56ce39cbb05c5d00634c6327b497bab5
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622891"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219906"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provisione sua criação e monitore condições de trabalho com o Azure digital gêmeos Preview
 
@@ -37,11 +37,14 @@ Este tutorial pressupõe que você [concluiu a instalação do gêmeos digital d
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para compilar e executar o exemplo. Execute `dotnet --version` para verificar se a versão correta está instalada. 
 - [Visual Studio Code](https://code.visualstudio.com/), para explorar o código de exemplo. 
 
+> [!TIP]
+> Use um nome de instância de gêmeos digital exclusivo se você estiver Provisionando uma nova instância.
+
 ## <a name="define-conditions-to-monitor"></a>Definir as condições a monitorizar
 
-Você pode definir um conjunto de condições específicas para monitorar nos dados do dispositivo ou do sensor,chamados correspondências. Em seguida, você pode definir funções chamadas *de funções definidas pelo usuário*. As funções definidas pelo usuário executam lógica personalizada nos dados provenientes de seus espaços e dispositivos, quando as condições especificadas pelos correspondentes ocorrerem. Para obter mais informações, leia [processamento de dados e funções definidas pelo usuário](concepts-user-defined-functions.md). 
+Você pode definir um conjunto de condições específicas para monitorar nos dados do dispositivo ou do sensor, chamados *correspondências*. Em seguida, você pode definir funções chamadas *de funções definidas pelo usuário*. As funções definidas pelo usuário executam lógica personalizada nos dados provenientes de seus espaços e dispositivos, quando as condições especificadas pelos correspondentes ocorrerem. Para obter mais informações, leia [processamento de dados e funções definidas pelo usuário](concepts-user-defined-functions.md). 
 
-No projeto de exemplo **ocupação-início rápido** , abra o arquivo **src\actions\provisionSample.YAML** em Visual Studio Code. Repare na secção que começa com o tipo **matchers**. Cada entrada sob esse tipo cria uma correspondência com o **nome**especificado. O correspondente monitorará um sensor do tipo datatypevalue. Observe como ele se relaciona ao espaço chamado sala de *foco a1*, que tem um nó de **dispositivos** que contém alguns sensores. Para provisionar um correspondente que rastreará um desses sensores, certifique-se de que seu **tipo** de dados corresponde ao **DataType**do sensor. 
+No projeto de exemplo **ocupação-início rápido** , abra o arquivo **src\actions\provisionSample.YAML** em Visual Studio Code. Repare na secção que começa com o tipo **matchers**. Cada entrada sob esse tipo cria uma correspondência com o **nome**especificado. O correspondente monitorará um sensor do tipo **Datatypevalue**. Observe como ele se relaciona ao espaço chamado sala de *foco a1*, que tem um nó de **dispositivos** que contém alguns sensores. Para provisionar um correspondente que rastreará um desses sensores, certifique-se de que seu **tipo** de dados corresponde ao **DataType**do sensor. 
 
 Adicione o seguinte correspondente abaixo dos correspondentes existentes. Verifique se as chaves estão alinhadas e se os espaços não são substituídos por guias. Essas linhas também estão presentes no arquivo *provisionSample. YAML* como linhas comentadas. Você pode remover os comentários removendo o `#` caractere na frente de cada linha.
 
@@ -50,25 +53,23 @@ Adicione o seguinte correspondente abaixo dos correspondentes existentes. Verifi
         dataTypeValue: Temperature
 ```
 
-Esse correspondente rastreará o sensor de SAMPLE_SENSOR_TEMPERATURE que você adicionou no [primeiro tutorial](tutorial-facilities-setup.md). 
-
-<a id="udf"></a>
+Esse correspondente acompanhará o `SAMPLE_SENSOR_TEMPERATURE` sensor que você adicionou no [primeiro tutorial](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
 Você pode usar funções definidas pelo usuário para personalizar o processamento dos dados do sensor. São códigos JavaScript personalizados que podem ser executados em sua instância de gêmeos digital do Azure, quando condições específicas, conforme descrito pelos correspondentes, ocorrem. Você pode criar correspondências e funções definidas pelo usuário para cada sensor que você deseja monitorar. Para obter mais informações, leia [processamento de dados e funções definidas pelo usuário](concepts-user-defined-functions.md). 
 
-No arquivo provisionSample. YAML de exemplo, procure uma seção que comece com o tipo **UserDefinedFunctions**. Esta seção provisiona uma função definida pelo usuário com um determinado **nome**. Esse UDF atua na lista de correspondências em **matcherNames**. Repare que pode fornecer o seu próprio ficheiro JavaScript para a UDF como o **script**.
+No arquivo *provisionSample. YAML* de exemplo, procure uma seção que comece com o tipo **UserDefinedFunctions**. Esta seção provisiona uma função definida pelo usuário com um determinado **nome**. Esse UDF atua na lista de correspondências em **matcherNames**. Repare que pode fornecer o seu próprio ficheiro JavaScript para a UDF como o **script**.
 
 Veja também a secção com o nome **roleassignments**. Ele atribui a função de administrador de espaço à função definida pelo usuário. Essa função permite que ele acesse os eventos provenientes de qualquer um dos espaços provisionados. 
 
-1. Configure o UDF para incluir o correspondente de temperatura adicionando ou removendo a marca de comentário da linha a `matcherNames` seguir no nó do arquivo provisionSample. YAML:
+1. Configure a UDF para incluir o matcher “temperatura” ao adicionar ou remover o comentário na linha seguinte do nó `matcherNames` do ficheiro *provisionSample.yaml*:
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. Abra o arquivo **src\actions\userDefinedFunctions\availability.js** no editor. Esse é o arquivo referenciado no elemento **script** de provisionSample. YAML. A função definida pelo usuário nesse arquivo procura condições quando nenhum movimento é detectado nos níveis de sala e dióxido de carbono estão abaixo de 1.000 ppm. 
+1. Abra o arquivo **src\actions\userDefinedFunctions\availability.js** no editor. Esse é o arquivo referenciado no elemento **script** de *provisionSample. YAML*. A função definida pelo usuário nesse arquivo procura condições quando nenhum movimento é detectado nos níveis de sala e dióxido de carbono estão abaixo de 1.000 ppm. 
 
    Modifique o arquivo JavaScript para monitorar a temperatura e outras condições. Adicione as seguintes linhas de código para procurar condições quando nenhum movimento for detectado na sala, os níveis de dióxido de carbono estão abaixo de 1.000 ppm e a temperatura está abaixo de 78 graus Fahrenheit.
 
@@ -135,15 +136,12 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
@@ -182,7 +180,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
    > [!IMPORTANT]
    > Para impedir o acesso não autorizado à sua API de gerenciamento de gêmeos digital, o aplicativo **ocupação-início rápido** exige que você entre com suas credenciais de conta do Azure. Ele salva suas credenciais por um breve período, portanto, talvez você não precise entrar toda vez que executá-la. Na primeira vez em que este programa é executado e quando suas credenciais salvas expiram depois disso, o aplicativo o direciona para uma página de entrada e fornece um código específico da sessão para entrar nessa página. Siga os pedidos para iniciar sessão com a conta do Azure.
 
-1. Depois que sua conta for autenticada, o aplicativo começará a criar um grafo espacial de exemplo conforme configurado em provisionSample. YAML. Aguarde até que o provisionamento seja concluído. Levará alguns minutos. Depois disso, observe as mensagens na janela de comando e observe como o grafo espacial é criado. Observe como o aplicativo cria um hub IoT no nó raiz ou no `Venue`.
+1. Depois que sua conta for autenticada, o aplicativo começará a criar um grafo espacial de exemplo conforme configurado em *provisionSample. YAML*. Aguarde até que o provisionamento seja concluído. Levará alguns minutos. Depois disso, observe as mensagens na janela de comando e observe como o grafo espacial é criado. Observe como o aplicativo cria um hub IoT no nó raiz ou no `Venue`.
 
 1. Na saída na janela de comando, copie o valor de `ConnectionString`, `Devices` na seção, para a área de transferência. Você precisará desse valor para simular a conexão do dispositivo na próxima seção.
 
@@ -190,8 +188,6 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
 
 > [!TIP]
 > Se você receber uma mensagem de erro semelhante a "a operação de e/s foi anulada devido a uma saída de thread ou a uma solicitação de aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer se o cliente HTTP esgotou o tempo limite de um problema de rede.
-
-<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simular dados do sensor
 
@@ -209,9 +205,9 @@ Nesta seção, você usará o projeto chamado *dispositivo-conectividade* no exe
 
    a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na janela de saída da seção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possa se conectar corretamente com o Hub IoT.
 
-   b. **HardwareID** na matriz de **sensores** : Como você está simulando eventos de sensores provisionados para sua instância de gêmeos digital do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao `sensors` nó do arquivo provisionSample. YAML.
+   b. **HardwareID** na matriz de **sensores** : Como você está simulando eventos de sensores provisionados para sua instância de gêmeos digital do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao `sensors` nó do arquivo *provisionSample. YAML* .
 
-      Adicione uma nova entrada para o sensor de temperatura. O nó de **sensores** em appSettings. JSON deve ser semelhante ao seguinte:
+      Adicione uma nova entrada para o sensor de temperatura. O nó de **sensores** em *appSettings. JSON* deve ser semelhante ao seguinte:
 
       ```JSON
       "Sensors": [{
@@ -251,7 +247,7 @@ A janela saída mostra como a função definida pelo usuário é executada e int
 
    ![Saída para o UDF](./media/tutorial-facilities-udf/udf-running.png)
 
-Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#udf). A `GetAvailableAndFreshSpaces` função imprime a mensagem no console.
+Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A `GetAvailableAndFreshSpaces` função imprime a mensagem no console.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -264,7 +260,7 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você provisionou seus espaços e criou uma estrutura para disparar notificações personalizadas, você pode ir para um dos seguintes tutoriais:
 

@@ -1,101 +1,103 @@
 ---
-title: Autenticação baseada em tokens (HTTP/2) para o APNS nos Hubs de notificação do Azure | Documentos da Microsoft
-description: Este tópico explica como tirar partido da autenticação de token novo para o APNS
+title: Autenticação baseada em token (HTTP/2) para APNS nos hubs de notificação do Azure | Microsoft Docs
+description: Este tópico explica como aproveitar a nova autenticação de token para o APNS
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/13/2019
-ms.author: jowargo
-ms.openlocfilehash: 890577c013a96fc06acf3b05881649ad8202a083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: a7fdaae33e28bd543b44c54868324339d1269bc2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60872417"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213118"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em tokens (HTTP/2) para o APNS
+# <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo fornece detalhes sobre como utilizar o novo protocolo HTTP/2 APNS com autenticação baseada em token.
+Este artigo fornece detalhes sobre como usar o novo protocolo de HTTP/2 APNS com autenticação baseada em token.
 
-As principais vantagens de utilizar o novo protocolo incluem:
+Os principais benefícios do uso do novo protocolo incluem:
 
-* Geração de tokens é relativamente livre de complicações (em comparação comparada certificados)
-* Não existem mais datas de expiração – são no controlo dos seus tokens de autenticação e a sua revogação
-* Payloads podem agora ser até 4 KB
-* Comentários síncrono
-* Está no protocolo de mais recente da Apple – certificados continuar a utilizar o protocolo binário, que é marcado para descontinuação
+* A geração de tokens é relativamente sem complicações (em comparação com os certificados)
+* Não há mais datas de expiração – você está no controle de seus tokens de autenticação e sua revogação
+* Agora, as cargas podem ser de até 4 KB
+* Comentários síncronos
+* Você está no protocolo mais recente da Apple – os certificados ainda usam o protocolo binário, que é marcado para substituição
 
-Usando esse novo mecanismo pode ser feito em duas etapas dentro de alguns minutos:
+O uso desse novo mecanismo pode ser feito em duas etapas em alguns minutos:
 
-1. Obter as informações necessárias a partir do portal da conta de programador da Apple
-2. Configurar o notification hub com novas informações
+1. Obter as informações necessárias do portal de conta de desenvolvedor da Apple
+2. Configurar o Hub de notificação com as novas informações
 
-Os Hubs de notificação está agora pronto para utilizar o novo sistema de autenticação com APNS.
+Os hubs de notificação agora estão todos configurados para usar o novo sistema de autenticação com o APNS.
 
-Tenha em atenção que se tiver migrado com as credenciais de certificado de APNS:
+Observe que, se você migrou do usando credenciais de certificado para APNS:
 
-* as propriedades do token substituir o certificado no nosso sistema,
-* mas a sua aplicação continua a receber notificações de forma totalmente integrada.
+* as propriedades do token substituem seu certificado em nosso sistema,
+* Mas seu aplicativo continua a receber notificações diretamente.
 
-## <a name="obtaining-authentication-information-from-apple"></a>Obter informações de autenticação da Apple
+## <a name="obtaining-authentication-information-from-apple"></a>Obtendo informações de autenticação da Apple
 
-Para ativar a autenticação baseada em tokens, tem as seguintes propriedades da sua conta de programador da Apple:
+Para habilitar a autenticação baseada em token, você precisa das seguintes propriedades de sua conta de desenvolvedor da Apple:
 
-### <a name="key-identifier"></a>Identificador de chave
+### <a name="key-identifier"></a>Identificador de Chave
 
-O identificador de chave pode ser obtido a partir da página de "Chaves" na sua conta de programador da Apple
+O identificador de chave pode ser obtido na página "chaves" em sua conta de desenvolvedor da Apple
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
-### <a name="application-identifier--application-name"></a>Identificador da aplicação & nome da aplicação
+### <a name="application-identifier--application-name"></a>Identificador do aplicativo & nome do aplicativo
 
-O nome da aplicação está disponível através da página de IDs de aplicações na conta de desenvolvedor.
+O nome do aplicativo está disponível por meio da página IDs do aplicativo na conta de desenvolvedor.
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-O identificador da aplicação está disponível através da página de detalhes de associação na conta de desenvolvedor.
+O identificador de aplicativo está disponível por meio da página de detalhes de associação na conta de desenvolvedor.
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-id.png)
 
 ### <a name="authentication-token"></a>Token de autenticação
 
-O token de autenticação pode ser baixado depois de gerar um token para a sua aplicação. Para obter detalhes sobre como gerar este token, consulte [documentação de programador da Apple](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
+O token de autenticação pode ser baixado depois que você gera um token para seu aplicativo. Para obter detalhes sobre como gerar esse token, consulte a [documentação do desenvolvedor da Apple](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
 
-## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>Configurar o notification hub para utilizar a autenticação baseada em tokens
+## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>Configurando o Hub de notificação para usar a autenticação baseada em token
 
-### <a name="configure-via-the-azure-portal"></a>Configurar através do portal do Azure
+### <a name="configure-via-the-azure-portal"></a>Configurar por meio do portal do Azure
 
-Para ativar a autenticação baseada em token no portal, inicie sessão no portal do Azure e aceda ao seu Hub de notificação > Serviços de notificação > Painel de APNS.
+Para habilitar a autenticação baseada em token no portal, faça logon no portal do Azure e vá para o Hub de notificação > Notification Services > painel APNS.
 
-Há uma nova propriedade – *modo de autenticação*. Selecionar Token permite-lhe atualizar o seu hub com todas as propriedades de token relevantes.
+Há uma nova propriedade – *modo de autenticação*. Selecionar token permite que você atualize seu hub com todas as propriedades de token relevantes.
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-* Introduza as propriedades que obteve da sua conta de programador da Apple
-* Escolha o modo de aplicativo (de produção ou de Sandbox)
-* Clique nas **guardar** botão para atualizar as suas credenciais do APNS
+* Insira as propriedades que você recuperou de sua conta de desenvolvedor da Apple
+* Escolha o modo do aplicativo (produção ou área restrita)
+* Clique no botão **salvar** para atualizar suas credenciais de APNS
 
-### <a name="configure-via-management-api-rest"></a>Configurar através da gestão de API (REST)
+### <a name="configure-via-management-api-rest"></a>Configurar via API de gerenciamento (REST)
 
-Pode utilizar o nosso [APIs de gestão](https://msdn.microsoft.com/library/azure/dn495827.aspx) para atualizar o seu hub de notificação para utilizar a autenticação baseada em tokens.
-Dependendo da aplicação que estiver a configurar a é uma aplicação de Sandbox ou produção (especificada na sua conta de programador Apple), utilize um dos pontos de extremidade correspondentes:
+Você pode usar nossas [APIs de gerenciamento](https://msdn.microsoft.com/library/azure/dn495827.aspx) para atualizar seu hub de notificação para usar a autenticação baseada em token.
+Dependendo se o aplicativo que você está configurando for um aplicativo de área restrita ou de produção (especificado em sua conta de desenvolvedor da Apple), use um dos pontos de extremidade correspondentes:
 
-* Ponto final de sandbox: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
-* Ponto final de produção: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
+* Ponto de extremidade de área restrita:[https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+* Ponto de extremidade de produção:[https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]
-> Autenticação baseada em tokens requer uma versão de API do: **04 de 2017 ou posterior**.
+> A autenticação baseada em token requer uma versão de API de: **2017-04 ou posterior**.
 
-Eis um exemplo de um pedido PUT para atualizar um hub com a autenticação baseada em tokens:
+Aqui está um exemplo de uma solicitação PUT para atualizar um hub com autenticação baseada em token:
 
     ```text
     PUT https://{namespace}.servicebus.windows.net/{Notification Hub}?api-version=2017-04
@@ -112,11 +114,11 @@ Eis um exemplo de um pedido PUT para atualizar um hub com a autenticação basea
       }
     ```
 
-### <a name="configure-via-the-net-sdk"></a>Configurar através do SDK de .NET
+### <a name="configure-via-the-net-sdk"></a>Configurar por meio do SDK do .NET
 
-Pode configurar o hub para usar o token de autenticação com base em nossa [SDK de cliente mais recente](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.8).
+Você pode configurar seu hub para usar a autenticação baseada em token usando nosso [SDK do cliente mais recente](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.8).
 
-Eis um exemplo de código que ilustram o uso correto:
+Aqui está um exemplo de código que ilustra o uso correto:
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
@@ -130,6 +132,6 @@ desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/de
 nm.UpdateNotificationHubAsync(desc);
 ```
 
-## <a name="reverting-to-using-certificate-based-authentication"></a>Reverter para utilizar a autenticação baseada em certificado
+## <a name="reverting-to-using-certificate-based-authentication"></a>Revertendo para usando a autenticação baseada em certificado
 
-Pode reverter a qualquer momento para utilizar a autenticação baseada em certificado usando qualquer método anterior e passando o certificado em vez das propriedades do token. Essa ação substitui as credenciais armazenadas anteriormente.
+Você pode reverter a qualquer momento para usar a autenticação baseada em certificado usando qualquer método anterior e passando o certificado em vez das propriedades do token. Essa ação substitui as credenciais armazenadas anteriormente.

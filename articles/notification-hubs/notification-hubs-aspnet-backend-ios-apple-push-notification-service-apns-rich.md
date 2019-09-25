@@ -3,9 +3,9 @@ title: Push avançado dos hubs de notificação do Azure
 description: Saiba como enviar notificações por push avançadas para um aplicativo iOS do Azure. Exemplos de código escritos em Objective- C#C e.
 documentationcenter: ios
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348474"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212204"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push avançado dos hubs de notificação do Azure
 
@@ -145,7 +147,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *ID* de 
 2. Clique em **recursos**, ative os **modos de segundo plano**e marque a caixa de seleção **notificações remotas** .
 
     ![][IOS3]
-3. Abra `Main.storyboard`o e verifique se você tem um controlador de exibição (conhecido como controlador de exibição de página inicial neste tutorial) em notificar o tutorial do [usuário](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Abra `Main.storyboard`o e verifique se você tem um controlador de exibição (conhecido como controlador de exibição de página inicial neste tutorial) em [notificar](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) o tutorial do usuário.
 4. Adicione um **controlador de navegação** ao seu storyboard e arraste para o controlador de exibição página inicial para torná-lo a **exibição raiz** da navegação. Verifique se o **controlador de exibição inicial está** no Inspetor de atributos está selecionado apenas para o controlador de navegação.
 5. Adicione um **controlador de exibição** ao storyboard e adicione uma **exibição de imagem**. Esta é a página que os usuários verão quando escolherem saber mais clicando na notificação. O storyboard deve ter a seguinte aparência:
 

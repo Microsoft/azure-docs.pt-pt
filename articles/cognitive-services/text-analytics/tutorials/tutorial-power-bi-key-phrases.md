@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697350"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241015"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar Power BI com o serviço de Análise de Texto cognitiva
 
@@ -114,13 +114,14 @@ Agora, no friso **Base** no grupo **Nova Consulta**, abra o menu pendente **Nova
 Agora, no friso **Base**, no grupo **Consulta**, clique em **Editor Avançado** para abrir a janela deste editor. Elimine o código que já aparece na janela e cole o código seguinte. 
 
 > [!NOTE]
-> Os exemplos abaixo pressupõem que o ponto final da API de Análise de Texto começa com `https://westus.api.cognitive.microsoft.com`. A Análise de Texto permite-lhe criar subscrições em 13 regiões diferentes. Se se tiver inscrito no serviço noutra região, confirme que utiliza o ponto final da região que selecionou. Pode encontrar este ponto final ao iniciar sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/), ao selecionar a sua subscrição de Análise de Texto e selecionar a página Descrição Geral.
+> Substitua o ponto de extremidade de exemplo `<your-custom-subdomain>`abaixo (contendo) pelo ponto de extremidade gerado para seu recurso de análise de texto. Você pode encontrar esse ponto de extremidade entrando no [portal do Azure](https://azure.microsoft.com/features/azure-portal/), selecionando sua assinatura do análise de texto e selecionando `Quick start`.
+
 
 ```fsharp
 // Returns key phrases from the text in a comma-separated list
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics" & "/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -164,7 +165,8 @@ Clique em **Editar Credenciais**, garantindo que `Anonymous` está selecionado n
 > [!NOTE]
 > Selecione `Anonymous` dado que o serviço de Análise de Texto efetua a sua autenticação quando utilizar a sua chave de acesso, dessa forma, o Power BI não tem de proporcionar credenciais para o pedido de HTTP em si.
 
-![[definir a autenticação como anónima]](../media/tutorials/power-bi/access-web-content.png)
+> [!div class="mx-imgBorder"]
+> ![[Configurando a autenticação para anônimo]](../media/tutorials/power-bi/access-web-content.png)
 
 Caso veja a faixa Editar Credenciais mesmo depois de escolher o acesso anónimo, pode ter-se esquecido de colar a chave de acesso da Análise de Texto no código da `KeyPhrases` [função personalizada](#CreateCustomFunction).
 
@@ -223,7 +225,7 @@ A função Sentiment Analysis, abaixo, devolve uma classificação que indica at
 // Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/sentiment",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -240,7 +242,7 @@ Eis duas versões de uma função Language Detection. O primeiro método retorna
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -254,7 +256,7 @@ in  language
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +276,7 @@ Por fim, segue-se uma variação da função Key Phrases já apresentada que dev
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -285,7 +287,7 @@ Por fim, segue-se uma variação da função Key Phrases já apresentada que dev
 in  keyphrases
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 <a name="NextSteps"></a>
 
 Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Power Query ou o Power BI.

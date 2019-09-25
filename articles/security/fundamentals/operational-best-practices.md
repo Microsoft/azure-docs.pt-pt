@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129333"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219498"
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de segurança operacional do Azure
 Este artigo fornece um conjunto de práticas recomendadas operacionais para proteger seus dados, aplicativos e outros ativos no Azure.
@@ -95,7 +95,7 @@ A camada gratuita da central de segurança oferece segurança limitada apenas pa
 
 Use a central de segurança para obter uma exibição central do estado de segurança de todos os seus recursos do Azure. Em um relance, verifique se os controles de segurança apropriados estão em vigor e configurados corretamente e identifique rapidamente os recursos que precisam de atenção.
 
-A central de segurança também se integra à [ATP (proteção avançada contra ameaças) do Windows Defender](../../security-center/security-center-wdatp.md), que fornece recursos de EDR (detecção e resposta de ponto de extremidade) abrangentes. Com a integração do Windows Defender ATP, você pode identificar anormalidades. Você também pode detectar e responder a ataques avançados em pontos de extremidade de servidor monitorados pela central de segurança.
+A central de segurança também se integra à [ATP (proteção avançada contra ameaças) do Microsoft defender](../../security-center/security-center-wdatp.md), que fornece recursos de EDR (detecção e resposta de ponto de extremidade) abrangentes. Com a integração do Microsoft defender ATP, você pode identificar anormalidades. Você também pode detectar e responder a ataques avançados em pontos de extremidade de servidor monitorados pela central de segurança.
 
 Quase todas as organizações empresariais têm um sistema SIEM (gerenciamento de informações e eventos de segurança) para ajudar a identificar ameaças emergentes, consolidando informações de log de diferentes dispositivos de coleta de sinais. Os logs são então analisados por um sistema de análise de dados para ajudar a identificar o que é "interessante" do ruído que é inevitável em todas as soluções de coleta e análise de logs.
 
@@ -121,12 +121,12 @@ A pontuação segura, que é baseada em controles de CIS (Center for Internet Se
 **Detalhe**: Use [Azure monitor para coletar e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Essa prática é essencial para habilitar a investigação de incidentes de segurança e a retenção de log online é limitada. Se você estiver usando o Azure Sentinel, consulte [conectar fontes de dados](../../sentinel/connect-data-sources.md).
 
 **Prática recomendada**: Acelere seus processos de investigação e busca e reduza os falsos positivos integrando recursos de EDR (detecção de ponto de extremidade e resposta) à sua investigação de ataque.   
-**Detalhe**: [Habilite a integração do Windows Defender ATP](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) por meio da sua política de segurança da central de segurança. Considere usar o Azure Sentinel para a busca de ameaças e a resposta a incidentes.
+**Detalhe**: [Habilite a integração do Microsoft defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) por meio da sua política de segurança da central de segurança. Considere usar o Azure Sentinel para a busca de ameaças e a resposta a incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorar o monitoramento de rede baseado em cenário de ponta a ponta
 Os clientes criam uma rede de ponta a ponta no Azure combinando recursos de rede como uma rede virtual, ExpressRoute, gateway de aplicativo e balanceadores de carga. O monitoramento está disponível em cada um dos recursos de rede.
 
-O observador de [rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço regional. Use suas ferramentas de diagnóstico e visualização para monitorar e diagnosticar condições em um nível de cenário de rede em, para e do Azure.
+O [observador de rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço regional. Use suas ferramentas de diagnóstico e visualização para monitorar e diagnosticar condições em um nível de cenário de rede em, para e do Azure.
 
 Veja a seguir as práticas recomendadas para o monitoramento de rede e as ferramentas disponíveis.
 
@@ -164,7 +164,7 @@ Você pode usar [Azure Resource Manager](https://azure.microsoft.com/documentati
 O [Apache JMeter](https://jmeter.apache.org/) é uma ferramenta de software livre gratuita e popular com um forte suporte de comunidade.
 
 **Prática recomendada**: Monitorar o desempenho do aplicativo.  
-**Detalhe**: O [aplicativo Azure](../../azure-monitor/app/app-insights-overview.md) insights é um serviço de gerenciamento de desempenho de aplicativos (APM) extensível para desenvolvedores da Web em várias plataformas. Use Application Insights para monitorar seu aplicativo Web em tempo real. Ele detecta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os usuários realmente fazem com seu aplicativo. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
+**Detalhe**: O [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md) é um serviço de gerenciamento de desempenho de aplicativos (APM) extensível para desenvolvedores da Web em várias plataformas. Use Application Insights para monitorar seu aplicativo Web em tempo real. Ele detecta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os usuários realmente fazem com seu aplicativo. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Reduzir e proteger contra DDoS
 O DDoS (negação de serviço distribuído) é um tipo de ataque que tenta esgotar os recursos do aplicativo. O objetivo é afetar a disponibilidade do aplicativo e sua capacidade de lidar com solicitações legítimas. Esses ataques estão se tornando mais sofisticados e maiores em tamanho e impacto. Eles podem ser direcionados a qualquer ponto de extremidade publicamente acessível pela Internet.
@@ -220,7 +220,7 @@ Para obter mais informações, consulte [criar e gerenciar políticas para impor
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorar relatórios de risco do Azure AD
 A grande maioria das violações de segurança ocorre quando os invasores têm acesso a um ambiente, roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure AD usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar ações suspeitas relacionadas às suas contas de usuário. Cada ação suspeita detectada é armazenada em um registro chamado [detecção de risco](../../active-directory/reports-monitoring/concept-risk-events.md). As detecções de risco são registradas nos relatórios de segurança do Azure AD. Para obter mais informações, leia sobre o [relatório de segurança de usuários em risco](../../active-directory/reports-monitoring/concept-user-at-risk.md) e o [relatório de segurança de entradas arriscadas](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.
 
 Os recursos a seguir estão disponíveis para fornecer informações mais gerais sobre segurança do Azure e serviços da Microsoft relacionados:

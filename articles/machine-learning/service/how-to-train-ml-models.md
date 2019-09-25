@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 041f80937e3ebae15dd5bd64858ccbd8269104a0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 43597113c439f2b88bee0834dddc8cb37ec0202a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002586"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213533"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com Azure Machine Learning usando o estimador
 
@@ -94,13 +94,14 @@ Deverá ter já criado seu [destino de computação](how-to-set-up-training-targ
 
 ```Python
 from azureml.train.estimator import Estimator
+from azureml.core.runconfig import MpiConfiguration
 
 estimator = Estimator(source_directory='./my-keras-proj',
                       compute_target=compute_target,
                       entry_script='train.py',
                       node_count=2,
                       process_count_per_node=1,
-                      distributed_backend='mpi',     
+                      distributed_training=MpiConfiguration(),        
                       conda_packages=['tensorflow', 'keras'],
                       custom_docker_image='continuumio/miniconda')
 ```
@@ -112,7 +113,8 @@ Parâmetro | Descrição | Predefinição
 `custom_docker_image`| Nome da imagem que pretende utilizar. Forneça apenas as imagens disponíveis nos repositórios de docker público (no caso este Docker Hub). Para usar uma imagem de um repositório do Docker privado, use o parâmetro `environment_definition` do Construtor em vez disso. [Consulte o exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Número de nós a utilizar para a tarefa de preparação. | `1`
 `process_count_per_node`| Número de processos (ou "funcionários") para executar em cada nó. Neste caso, utilize o `2` GPUs disponíveis em cada nó.| `1`
-`distributed_backend`| Back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI.  Para realizar treinamentos paralelos ou distribuídos (por exemplo `node_count`, > 1 `process_count_per_node`ou > 1 ou ambos), `distributed_backend='mpi'`defina. É a implementação de MPI usada pelo AML [MPI aberto](https://www.open-mpi.org/).| `None`
+`distributed_training`| Objeto [MPIConfiguration]('https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py') para iniciar o treinamento distribuído usando o back-end MPI.  | `None`
+
 
 Por fim, submeta a tarefa de preparação:
 ```Python

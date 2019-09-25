@@ -4,39 +4,37 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e3617f68d58e51f24affaae7d69812195b72fd0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184487"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210310"
 ---
-1. Inicie sessão no [Portal do Azure][Azure portal].
-2. No menu do lado esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Reencaminhamento**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito. 
-3. Em **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-4. Na caixa **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
-5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.  
-6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
-   
-    ![Create namespace][create-namespace]
-7. Selecione **Criar**. O sistema cria o seu espaço de nomes e ativa o mesmo. Após alguns minutos, o sistema aprovisiona recursos para a sua conta.
+1. Inicie sessão no [portal do Azure][Azure portal].
+1. Selecione **criar um recurso**. Em seguida, selecione **Integração** > **Reencaminhamento**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito.
+1. Selecione **criar**e insira um nome de namespace no campo **nome** . Portal do Azure verifica se o nome está disponível.
+1. Escolha uma assinatura do Azure na qual criar o namespace.
+1. Para [grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), escolha um grupo de recursos existente no qual o namespace será colocado ou crie um novo.  
+1. Selecione o país ou região no qual o namespace deve ser hospedado.
+
+    ![Criar espaço de nomes][create-namespace]
+
+1. Selecione **Criar**. O portal do Azure cria o namespace e o habilita. Após alguns minutos, o sistema aprovisiona recursos para a sua conta.
 
 ### <a name="get-management-credentials"></a>Obter credenciais de gestão
 
-1. Selecione **Todos os recursos** e, em seguida, selecione o nome do espaço de nomes criado recentemente.
-2. No espaço de nomes Reencaminhamento, clique em **Políticas de acesso partilhado**.  
-3. Em **Políticas de acesso partilhado**, selecione **RootManageSharedAccessKey**.
-   
-    ![connection-info][connection-info]
-4. Em **política: RootManageSharedAccessKey**, selecione o **cópia** junto a **ligação cadeia de caracteres – chave primária**. Esta ação copia a cadeia de ligação para a sua área de transferência, para que possa utilizá-la posteriormente. Cole este valor no Bloco de Notas ou noutra localização temporária.
-   
-    ![connection-string][connection-string]
+1. Selecione **todos os recursos**e, em seguida, escolha o nome do namespace recém-criado.
+1. Selecione **políticas de acesso compartilhado**.  
+1. Em **Políticas de acesso partilhado**, selecione **RootManageSharedAccessKey**.
+1. Em **política SAS: RootManageSharedAccessKey**, selecione o botão **copiar** ao lado da **cadeia de conexão primária**. Essa ação copia a cadeia de conexão para a área de transferência para uso posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
+1. Repita o passo anterior para copiar e colar o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.  
 
-5. Repita o passo anterior para copiar e colar o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.  
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace-vs2019.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

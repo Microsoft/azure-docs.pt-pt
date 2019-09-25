@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ed20ef023a884ac79150cd31f25fde86b715c752
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073399"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219465"
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta seção fornece uma referência para as seguintes políticas de gerenciamento de API. Para obter informações sobre como adicionar e configurar políticas, consulte [políticas no gerenciamento de API](api-management-howto-policies.md).  
@@ -44,13 +44,13 @@ Esta seção fornece uma referência para as seguintes políticas de gerenciamen
     -   [Resposta de simulação](api-management-advanced-policies.md#mock-response) – anula a execução do pipeline e retorna uma resposta fictícia diretamente para o chamador.
     -   [Retry](api-management-advanced-policies.md#Retry) -repete a execução das instruções de política incluídas, se e até que a condição seja atendida. A execução será repetida nos intervalos de tempo especificados e até a contagem de repetições especificada.  
     -   [Retornar resposta](api-management-advanced-policies.md#ReturnResponse) – anula a execução do pipeline e retorna a resposta especificada diretamente para o chamador.  
-    -   [Enviar solicitação](api-management-advanced-policies.md#SendOneWayRequest) unidirecional – envia uma solicitação para a URL especificada sem aguardar uma resposta.  
+    -   [Enviar solicitação unidirecional](api-management-advanced-policies.md#SendOneWayRequest) – envia uma solicitação para a URL especificada sem aguardar uma resposta.  
     -   [Enviar solicitação](api-management-advanced-policies.md#SendRequest) – envia uma solicitação para a URL especificada.
     -   [Definir proxy http](api-management-advanced-policies.md#SetHttpProxy) – permite rotear solicitações encaminhadas por meio de um proxy http.
     -   [Definir variável](api-management-advanced-policies.md#set-variable) – manter um valor em uma variável de contexto nomeada para acesso posterior.  
     -   [Definir método de solicitação](api-management-advanced-policies.md#SetRequestMethod) – permite que você altere o método http para uma solicitação.  
     -   [Definir código de status](api-management-advanced-policies.md#SetStatus) -altera o código de status HTTP para o valor especificado.  
-    -   [Trace](api-management-advanced-policies.md#Trace) – adiciona uma cadeia de caracteres à saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) .  
+    -   [Trace](api-management-advanced-policies.md#Trace) – adiciona rastreamentos personalizados na saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application insights telemetrias e logs de diagnóstico.  
     -   [Wait](api-management-advanced-policies.md#Wait) -aguarda a conclusão das políticas de [envio por solicitação](api-management-advanced-policies.md#SendRequest), [obtenção de valor do cache](api-management-caching-policies.md#GetFromCacheByKey)ou [fluxo de controle](api-management-advanced-policies.md#choose) antes de continuar.  
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar com Basic](api-management-authentication-policies.md#Basic) -autenticar com um serviço de back-end usando a autenticação básica.  

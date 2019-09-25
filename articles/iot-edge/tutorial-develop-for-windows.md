@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f62698cc736bb7df51d013199d3054b25598240e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147387"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240962"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -57,6 +57,7 @@ Um computador de desenvolvimento:
 
 * Windows 10 com atualização 1809 ou mais recente.
 * Você pode usar seu próprio computador ou uma máquina virtual, dependendo de suas preferências de desenvolvimento.
+  * Verifique se o computador de desenvolvimento dá suporte à virtualização aninhada. Esse recurso é necessário para executar um mecanismo de contêiner, que você instala na próxima seção.
 * Instale o [Git](https://git-scm.com/). 
 
 Um dispositivo Azure IoT Edge no Windows:

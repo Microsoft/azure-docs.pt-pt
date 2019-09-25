@@ -1,5 +1,5 @@
 ---
-title: Conectar dados do Symantec AWS à visualização do Azure Sentinel | Microsoft Docs
+title: Conectar dados do Symantec AWS ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do Symantec AWS ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 46ad8f6478e632cd57c009700de182993ce01be1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295626"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240866"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar o Azure Sentinel ao AWS CloudTrail
 
@@ -79,8 +79,8 @@ Você deve ter permissão de gravação no espaço de trabalho do Azure Sentinel
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, você aprendeu a conectar o AWS CloudTrail ao Azure sentinela. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

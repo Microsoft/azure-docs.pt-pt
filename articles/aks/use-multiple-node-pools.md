@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202957"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212264"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -245,15 +245,15 @@ Como prática recomendada, você deve atualizar todos os pools de nós em um clu
 Um cluster AKS tem dois objetos de recurso de cluster com versões do kubernetes associadas. A primeira é uma versão kubernetes do plano de controle. O segundo é um pool de agentes com uma versão kubernetes. Um plano de controle é mapeado para um ou vários pools de nós. O comportamento de uma operação de atualização depende de qual CLI do Azure comando é usado.
 
 1. A atualização do plano de controle requer o uso do`az aks upgrade`
-   * Isso atualizará a versão do plano de controle e todos os pools de nós no cluster
-   * Ao passar `az aks upgrade` com o `--control-plane-only` sinalizador, você atualizará apenas o plano de controle de cluster e nenhum dos pools de `--control-plane-only` nós associados * o sinalizador estará disponível na **extensão AKs-Preview v 0.4.16** ou superior
+   * Isso atualiza a versão do plano de controle e todos os pools de nós no cluster
+   * Ao passar `az aks upgrade` com o `--control-plane-only` sinalizador, somente o plano de controle de cluster é atualizado e nenhum dos pools de nós associados é alterado. O `--control-plane-only` sinalizador está disponível na **extensão AKs-Preview v 0.4.16** ou superior.
 1. A atualização de pools de nós individuais requer o uso do`az aks nodepool upgrade`
-   * Isso atualizará apenas o pool de nós de destino com a versão especificada do kubernetes
+   * Isso atualiza somente o pool de nós de destino com a versão especificada do kubernetes
 
 A relação entre as versões do kubernetes mantidas por pools de nós também deve seguir um conjunto de regras.
 
 1. Não é possível fazer downgrade do plano de controle nem de uma versão kubernetes do pool de nós.
-1. Se uma versão de kubernetes do pool de nós não for especificada, o padrão usado será retornado para a versão do plano de controle.
+1. Se uma versão de kubernetes do pool de nós não for especificada, o comportamento dependerá do cliente que está sendo usado. Para a declaração no modelo ARM, a versão existente definida para o pool de nós é usada, se nenhuma for definida, a versão do plano de controle será usada.
 1. Você pode atualizar ou dimensionar um plano de controle ou pool de nós em um determinado momento, não é possível enviar ambas as operações simultaneamente.
 1. Uma versão de kubernetes do pool de nós deve ser a mesma versão principal que o plano de controle.
 1. Uma versão de kubernetes do pool de nós pode ser no máximo duas (2) versões secundárias inferiores ao plano de controle, nunca maior.
@@ -593,7 +593,7 @@ Os nós AKS não exigem seus próprios endereços IP públicos para comunicaçã
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicionando a propriedade de valor booliano a seguir "enableNodePublicIP" no agentPoolProfiles. Defina como, por padrão, será definido como `false` se não for especificado. `true` Esta é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
+Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicionando a propriedade de valor booliano a seguir "enableNodePublicIP" no agentPoolProfiles. Defina como, por padrão, é definido como `false` se não for especificado. `true` Esta é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
 
 ```
 "agentPoolProfiles":[  

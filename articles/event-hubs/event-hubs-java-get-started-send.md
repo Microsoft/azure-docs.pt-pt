@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: a24263e80f50d880be269238441545785e2f51e8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967621"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219421"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Usar o Java para enviar eventos ou receber eventos dos hubs de eventos do Azure
 
@@ -181,11 +181,11 @@ Para usar o EventProcessorHost, você deve ter uma [conta de armazenamento do Az
 1. Conecte-se à [portal do Azure](https://portal.azure.com)e selecione **criar um recurso** no lado esquerdo da tela.
 2. Selecione **armazenamento**e, em seguida, selecione **conta de armazenamento**. Na **criar conta de armazenamento** janela, escreva um nome para a conta de armazenamento. Preencha o restante dos campos, selecione a região desejada e, em seguida, selecione **criar**.
    
-    ![Criar conta de armazenamento](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Criar uma conta de armazenamento no portal do Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. Selecione a conta de armazenamento recém-criada e, em seguida, selecione **chaves de acesso**:
    
-    ![Obter chaves de acesso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Obter suas chaves de acesso no portal do Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Copie o valor de chave1 para uma localização temporária. Vai utilizá-lo mais tarde no tutorial.
 
@@ -421,7 +421,7 @@ Pode usar qualquer arquivo de dados que está disponível no seu ambiente.
 A classe com.microsoft.azure.eventprocessorhost.EventProcessorHost oferece dois construtores que permitem que substitua o Gestor de ponto de verificação para o EventProcessorHost.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Leia os seguintes artigos: 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)

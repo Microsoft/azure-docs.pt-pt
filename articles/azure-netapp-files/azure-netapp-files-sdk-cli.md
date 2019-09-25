@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: a99fb3b61d8193f1671fa1d8e228439941659d57
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09a1e48d2eb9ab9b117cb1b1161d5137607400ad
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141168"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212096"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs de Azure NetApp Files e ferramentas CLI
+# <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs do Azure NetApp Files e ferramentas da CLI
 
 Este artigo lista os SDKs e as ferramentas de linha de comando (CLI) com suporte pelo Azure NetApp Files.
 
@@ -33,7 +33,7 @@ A tabela a seguir lista os SDKs com suporte.  Você pode encontrar detalhes sobr
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure-SDK-para-rede](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure-SDK-para-Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
-|    Ir Para    |    [Azure/Azure-SDK-para-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Ir    |    [Azure/Azure-SDK-para-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/Azure-SDK-para-Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
 |    JavaScript    |    [Azure/Azure-SDK-para-JS](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure-SDK-para-Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
@@ -54,7 +54,7 @@ A tabela a seguir lista exemplos de código para sua referência.
 |    Idioma/ferramenta    |    Documentação de exemplo de código    |
 |------------------|--------------------------------------------|
 |    .NET   |    [Azure NetApp Files exemplo de SDK para. NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
-|    Pythons    |    [Exemplo de SDK Azure NetApp Files para Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+|    Python    |    [Exemplo de SDK Azure NetApp Files para Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>Passos seguintes   
  [Baixar SDKs do Azure](https://azure.microsoft.com/downloads/)
