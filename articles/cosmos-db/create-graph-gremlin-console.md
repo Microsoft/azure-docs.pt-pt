@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 0a6ddfe1337575f4f61f4bba4638a16e54b0cde6
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735260"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261592"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início rápido: Criar, consultar e percorrer um banco de dados de Azure Cosmos DB grafo usando o console do Gremlin
 
@@ -60,7 +60,7 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/). Util
     o nome de utilizador|*O seu nome de utilizador*|O recurso do formulário `/dbs/<db>/colls/<coll>`, em que `<db>` é o nome da base de dados e `<coll>` é o nome da coleção.
     palavra-passe|*A chave primária*| Veja a segunda captura de ecrã abaixo. Esta é a chave primária, que pode ser obtida na página Chaves do portal do Azure, na caixa Chave Primária. Utilize o botão de copiar, no lado esquerdo da caixa, para copiar o valor.
     connectionPool|{enableSsl: true}|A definição do conjunto de ligações para SSL.
-    serializador|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Defina como este valor e elimine eventuais quebras de linha `\n` quando colar o valor.
+    serializador|{ className: org.apache.tinkerpop.gremlin.<br>Driver. ser. GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Defina como este valor e elimine eventuais quebras de linha `\n` quando colar o valor.
 
     Para o valor dos hosts, copie o valor do **URI Gremlin** da página **visão geral** : ![Ver e copiar o valor do URI do Gremlin na página Descrição Geral no portal do Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
 

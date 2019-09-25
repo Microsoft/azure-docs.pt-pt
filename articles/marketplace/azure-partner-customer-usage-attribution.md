@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105618"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260092"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 

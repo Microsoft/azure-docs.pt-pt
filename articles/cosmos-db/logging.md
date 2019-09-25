@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232374"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261404"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
 
@@ -251,7 +251,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Aceder aos seus registos
-Os logs de Azure Cosmos DB para a categoria **DataPlaneRequests** são armazenados no contêiner insights **-logs-DataPlaneRequests** na conta de armazenamento que você forneceu. 
+Os logs de Azure Cosmos DB para a categoria **DataPlaneRequests** são armazenados no contêiner **insights-logs-DataPlaneRequests** na conta de armazenamento que você forneceu. 
 
 Primeiro, crie uma variável para o nome do contentor. A variável é utilizada em todo a passo a passo.
 
@@ -481,7 +481,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para compreender como ativar o registo e também as categorias de métricas e registos que são suportadas por vários serviços do Azure, leia ambos os [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure os registos de diagnóstico ](../azure-monitor/platform/diagnostic-logs-overview.md) artigos.
+- Para compreender como ativar o registo e também as categorias de métricas e registos que são suportadas por vários serviços do Azure, leia ambos os [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure os registos de diagnóstico ](../azure-monitor/platform/resource-logs-overview.md) artigos.
 - Leia os seguintes artigos para saber mais sobre os hubs de eventos:
    - [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

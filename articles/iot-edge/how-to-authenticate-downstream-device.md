@@ -4,17 +4,17 @@ description: Como autenticar dispositivos downstream ou dispositivos de folha no
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7a032056a684107de3dd00fe4861f34c013a80db
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003623"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266131"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -32,7 +32,7 @@ As etapas neste artigo mostram o provisionamento manual de dispositivos, não o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as etapas em [configurar um dispositivo de IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md).
+Conclua as etapas em [configurar um dispositivo de IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md). Se você estiver usando a autenticação X. 509 para seu dispositivo downstream, você precisará usar o mesmo script que gera o certificado que você configurou no artigo gateway transparente. 
 
 Este artigo refere-se ao *nome de host do gateway* em vários pontos. O nome do host do gateway é declarado no parâmetro **hostname** do arquivo config. YAML no dispositivo de gateway de IOT Edge. Ele é usado para criar os certificados neste artigo e é referenciado na cadeia de conexão dos dispositivos downstream. O nome do host do gateway precisa ser resolvido para um endereço IP, usando o DNS ou uma entrada de arquivo de host.
 
@@ -386,6 +386,6 @@ private static String privateKeyString =
 DeviceClient client = new DeviceClient(connectionString, protocol, publicKeyCertificateString, false, privateKeyString, false);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Ao concluir este artigo, você deve ter um dispositivo IoT Edge funcionando como um gateway transparente e um dispositivo downstream registrado com um hub IoT. Em seguida, você precisa configurar seus dispositivos downstream para confiar no dispositivo de gateway e enviar mensagens para ele. Para obter mais informações, consulte [ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).

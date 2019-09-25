@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875209"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258577"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do serviço Azure App
 
-A habilitação do monitoramento em seus aplicativos Web baseados em .NET e .NET Core em execução no [Azure app Services](https://docs.microsoft.com/azure/app-service/) agora está mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
+Habilitar o monitoramento em seus ASP.NET e ASP.NET Core aplicativos Web com base em execução em [serviços de Azure app](https://docs.microsoft.com/azure/app-service/) agora está mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
 
 > [!NOTE]
 > A adição manual de uma extensão de site Application insights por meio de**extensões** de **ferramentas** > de desenvolvimento foi preterida. Esse método de instalação de extensão foi dependente de atualizações manuais para cada nova versão. A versão estável mais recente da extensão agora é [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicativo. Os arquivos estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizados automaticamente com cada versão estável. Se você seguir as instruções baseadas em agente para habilitar o monitoramento abaixo, ela removerá automaticamente a extensão preterida para você.
@@ -122,7 +122,7 @@ Se por algum motivo você quiser desabilitar o monitoramento no lado do cliente:
 * Selecione **configurações** > **configurações do aplicativo**
    * Em configurações do aplicativo, adicione um novo nome e **valor**de **configuração de aplicativo** :
 
-     nomes`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Nomes`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valor:`false`
 
@@ -326,6 +326,9 @@ Abaixo está nosso guia de solução de problemas passo a passo para o monitoram
 > [!NOTE]
 > Os aplicativos Java e node. js só têm suporte em serviços Azure App por meio da instrumentação baseada em SDK manual e, portanto, as etapas a seguir não se aplicam a esses cenários.
 
+> [!NOTE]
+> Não há suporte para aplicativos ASP.NET Core 3,0. Siga a [Instrumentação manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) por meio de código para ASP.NET Core aplicativos 3,0.
+
 1. Verifique se o aplicativo é monitorado `ApplicationInsightsAgent`via.
     * Verifique se `ApplicationInsightsAgent_EXTENSION_VERSION` a configuração do aplicativo está definida com um valor de "~ 2".
 2. Verifique se o aplicativo atende aos requisitos a serem monitorados.
@@ -367,7 +370,7 @@ Isso ocorre porque a configuração do aplicativo APPINSIGHTS_JAVASCRIPT_ENABLED
 
 Para obter as informações mais recentes sobre a extensão/agente de Application Insights, Confira as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Run the profiler on your live app](../app/profiler.md) (Executar o gerador de perfis na sua aplicação publicada).
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitorize Funções do Azure com o Application Insights
 * [Ativar os diagnósticos do Azure](../platform/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.

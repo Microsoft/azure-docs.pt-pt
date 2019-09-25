@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 61e210d1b41966c493099e0619e969cf5ce30c50
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094002"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260958"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
@@ -33,7 +33,7 @@ Uma maneira de recuperar eventos de seu log de atividades é usar o portal do Az
 
 ## <a name="batch-account-level-monitoring"></a>Monitoramento em nível de conta do lote
 
-Monitore cada conta do lote usando os recursos do [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta métricas e, opcionalmente, [logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos com escopo no nível de uma conta do lote, como pools, trabalhos e tarefas. [](../azure-monitor/platform/data-platform-metrics.md) Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades em sua conta do lote e para diagnosticar problemas. Para obter detalhes, consulte [métricas do lote, alertas e logs para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
+Monitore cada conta do lote usando os recursos do [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta métricas e, opcionalmente, [logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) para recursos com escopo no nível de uma conta do lote, como pools, trabalhos e tarefas. [](../azure-monitor/platform/data-platform-metrics.md) Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades em sua conta do lote e para diagnosticar problemas. Para obter detalhes, consulte [métricas do lote, alertas e logs para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
  
 > [!NOTE]
 > As métricas estão disponíveis por padrão em sua conta do lote sem configuração adicional e têm um histórico contínuo de 30 dias. Você deve habilitar o log de diagnóstico para uma conta do lote e pode incorrer em custos adicionais para armazenar ou processar dados de log de diagnóstico. 
@@ -65,7 +65,7 @@ Em seus aplicativos do lote, use as APIs do lote para monitorar ou consultar o s
 * [Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do lote do Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Opcionalmente, configure sua solução do lote para [exibir dados de Application insights](https://github.com/Azure/batch-insights) , como contadores de desempenho de VM no batch Explorer.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Saiba mais sobre o [log de diagnóstico](batch-diagnostics.md) com o lote.

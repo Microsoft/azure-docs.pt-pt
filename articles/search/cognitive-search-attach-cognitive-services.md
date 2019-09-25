@@ -5,22 +5,21 @@ manager: nitinme
 author: LuisCabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
-ms.openlocfilehash: dcdef8df25bdf6a7a60b1221d1463e6be5486875
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639438"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265934"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivas com um conconhecimento em Azure Search 
 
-Os algoritmos de ia orientam os pipelines de [indexação cognitiva](cognitive-search-concept-intro.md) usados para o enriquecimento de documentos no Azure Search. Esses algoritmos são baseados nos recursos de serviços cognitivas do Azure, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconhecimento de entidade, extração de frases-chave e outros aprimoramentos . Conforme usado pelo Azure Search para fins de enriquecimento de documentos, os algoritmos são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
+Os algoritmos de ia orientam os [pipelines de indexação cognitiva](cognitive-search-concept-intro.md) usados para o enriquecimento de documentos no Azure Search. Esses algoritmos são baseados nos recursos de serviços cognitivas do Azure, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconhecimento de entidade, extração de frases-chave e outros aprimoramentos . Conforme usado pelo Azure Search para fins de enriquecimento de documentos, os algoritmos são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
 
-Você pode enriquecer um número limitado de documentos gratuitamente. Ou então, você pode anexar um recurso de serviços de cognitiva Faturável a um conconhecimento para cargas de trabalho maiores e mais frequentes. Neste artigo, você aprenderá a anexar um recurso de serviços de cognitiva Faturável para enriquecer documentos durante [](search-what-is-an-index.md)a indexação de Azure Search.
+Você pode enriquecer um número limitado de documentos gratuitamente. Ou então, você pode anexar um recurso de serviços de cognitiva Faturável a um *conconhecimento* para cargas de trabalho maiores e mais frequentes. Neste artigo, você aprenderá a anexar um recurso de serviços de cognitiva Faturável para enriquecer documentos durante a [indexação](search-what-is-an-index.md)de Azure Search.
 
 > [!NOTE]
 > Os eventos faturáveis incluem chamadas para API de Serviços Cognitivos e extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há nenhum encargo para a extração de texto de documentos ou para habilidades que não chamam serviços cognitivas.
@@ -58,7 +57,7 @@ Recursos gratuitos (aprimoramentos limitados) são restritos a 20 documentos por
 
 Para cargas de trabalho que criam mais de 20 aprimoramentos por dia, lembre-se de anexar um recurso de serviços cognitivas cobráveis. É recomendável que você sempre anexe um recurso de serviços de cognitiva Faturável, mesmo que você nunca pretenda chamar API de Serviços Cognitivos. A anexação de um recurso substitui o limite diário.
 
-Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos. Você não é cobrado por [habilidades personalizadas](cognitive-search-create-custom-skill-example.md)ou habilidades como [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md)e modelador, que não são baseados em API. [](cognitive-search-skill-shaper.md)
+Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos. Você não é cobrado por [habilidades personalizadas](cognitive-search-create-custom-skill-example.md)ou habilidades como [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md)e [modelador](cognitive-search-skill-shaper.md), que não são baseados em API.
 
 1. Abra o assistente para importar dados, escolha uma fonte de dados e continue a **Adicionar pesquisa cognitiva (opcional)** .
 
@@ -94,7 +93,7 @@ Se você tiver um contratador de qualificações existente, poderá anexá-lo a 
 
 1. Selecione o nome do conconhecedor e, em seguida, selecione um recurso existente ou crie um novo. Selecione **OK** para confirmar suas alterações.
 
-   ![Lista de recursos] do skillset (./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Lista de recursos") do skillset
+   ![Lista de recursos do skillset](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Lista de recursos do skillset")
 
    Lembre-se de que a opção **gratuito (aprimoramentos limitados)** limita-se a 20 documentos diariamente, e que você pode usar **criar novos recursos de serviços cognitivas** para provisionar um novo recurso faturável. Se você criar um novo recurso, selecione **Atualizar** para atualizar a lista de recursos de serviços cognitivas e, em seguida, selecione o recurso.
 

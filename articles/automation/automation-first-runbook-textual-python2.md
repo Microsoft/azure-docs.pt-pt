@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6808ad101a828708ff4fe77bb4b8a55cf8c5fec7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135438"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265090"
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook do Python
 
@@ -146,7 +146,7 @@ Para gerenciar recursos do Azure, o script precisa se autenticar usando as crede
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Adicionar código para criar o cliente de computação do Python e iniciar a VM
 
-Para trabalhar com VMs do Azure, crie uma instância do [cliente de computação do Azure para Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
+Para trabalhar com VMs do Azure, crie uma instância do [cliente de computação do Azure para Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use o cliente de computação para iniciar a VM. Adicione o seguinte código ao runbook:
 
@@ -164,7 +164,7 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-Em que MyResource Group é o nome do grupo de recursos que contém a VM e _TestVM_ é o nome da VM que você deseja iniciar.
+Em que _MyResource_ Group é o nome do grupo de recursos que contém a VM e _TestVM_ é o nome da VM que você deseja iniciar.
 
 Teste e execute o runbook novamente para ver que ele inicia a VM.
 

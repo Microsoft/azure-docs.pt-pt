@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0a776c793bab9aee76cf338bc19c560ab700e787
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063948"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258200"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OpenID Connect em uma política personalizada de Azure Active Directory B2C
 
@@ -84,7 +84,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | scope | Não | O escopo da solicitação que é definido de acordo com a especificação do OpenID Connect Core 1,0. `openid`Como, `profile`e. `email` |
 | HttpBinding | Não | A associação HTTP esperada para o token de acesso e os pontos de extremidade do token de declarações. Valores possíveis: `GET` ou `POST`.  |
 | ValidTokenIssuerPrefixes | Não | Uma chave que pode ser usada para entrar em cada um dos locatários ao usar um provedor de identidade multilocatário, como Azure Active Directory. |
-| UsePolicyInRedirectUri | Não | Indica se uma política deve ser usada ao construir o URI de redirecionamento. Ao configurar seu aplicativo no provedor de identidade, você precisa especificar o URI de redirecionamento. O URI de redirecionamento aponta `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` para Azure ad B2C, (login.microsoftonline.com pode mudar com Your-Tenant-Name.b2clogin.com).  Se você especificar `false`, precisará adicionar um URI de redirecionamento para cada política usada. Por exemplo: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
+| UsePolicyInRedirectUri | Não | Indica se uma política deve ser usada ao construir o URI de redirecionamento. Ao configurar seu aplicativo no provedor de identidade, você precisa especificar o URI de redirecionamento. O URI de redirecionamento aponta `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`para Azure ad B2C,.  Se você especificar `false`, precisará adicionar um URI de redirecionamento para cada política usada. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | Não | Indica se uma solicitação para um serviço externo deve ser marcada como uma falha se o código de status http estiver no intervalo 5xx. A predefinição é `false`. |
 | DiscoverMetadataByTokenIssuer | Não | Indica se os metadados OIDC devem ser descobertos usando o emissor no token JWT. |
 
@@ -98,28 +98,10 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
 
-Ao configurar o URI de redirecionamento do seu provedor de `https://login.microsoftonline.com/te/tenant/oauth2/authresp`identidade, digite. Certifique-se de substituir o **locatário** pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com) ou a ID do locatário. O URI de redirecionamento precisa estar em letras minúsculas.
-
-Se você estiver usando o domínio **b2clogin.com** em vez de **login.microsoftonline.com** , certifique-se de usar b2clogin.com em vez de login.microsoftonline.com.
+Ao configurar o URI de redirecionamento do seu provedor de `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`identidade, digite. Certifique-se de `{your-tenant-name}` substituir pelo nome do locatário. O URI de redirecionamento precisa estar em letras minúsculas.
 
 Exemplos:
 
 - [Adicionar a MSA (conta da Microsoft) como um provedor de identidade usando políticas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
 - [Entrar usando contas do Azure AD](active-directory-b2c-setup-aad-custom.md)
 - [Permitir que os usuários entrem em um provedor de identidade multilocatário do Azure AD usando políticas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

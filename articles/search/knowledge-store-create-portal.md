@@ -4,16 +4,15 @@ description: Crie um repositório de conhecimento Azure Search para persistir ap
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 14996d0ac9ee4e086a5dccd9275ef694adca06ca
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fb979a7ff4144694aecad0985c5bce9be2de05bd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963023"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265203"
 ---
 # <a name="create-an-azure-search-knowledge-store-in-the-azure-portal"></a>Criar um repositório de conhecimento Azure Search no portal do Azure
 
@@ -78,7 +77,7 @@ Nesta etapa do assistente, você criará uma fonte de dados do blob do Azure com
 1. Para o **modo de análise**, selecione **texto delimitado**e, em seguida, selecione a caixa de seleção a **primeira linha contém cabeçalho** . Verifique se o **caractere delimitador** é uma vírgula (,).
 1. Insira a cadeia de **conexão** do serviço de armazenamento que você salvou em uma etapa anterior.
 1. Para **nome do contêiner**, `hotel-reviews`insira.
-1. Clique **em Avançar: Adicionar pesquisa cognitiva (opcional)** .
+1. Clique em **Seguinte: Adicionar pesquisa cognitiva (opcional)** .
 
       ![Criar um objeto de fonte de dados](media/knowledge-store-create-portal/hotel-reviews-ds.png "Criar um objeto de fonte de dados")
 
@@ -107,7 +106,7 @@ Nesta etapa do assistente, você criará um configurador de habilidades com apri
 
     ![Configurar o repositório de conhecimento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurar o repositório de conhecimento")
 
-1. Clique **em Avançar: Personalizar índice**de destino.
+1. Clique em **Seguinte: Personalizar índice**de destino.
 
 ### <a name="import-data-import-data-wizard"></a>Importar dados (Assistente de importação de dados)
 
@@ -123,7 +122,7 @@ Nesta etapa do assistente, você configurará um índice para consultas de pesqu
 
     ![Configurar um índice](media/knowledge-store-create-portal/hotel-reviews-idx.png "Configurar um índice")
 
-1. Clique **em Avançar: Criar um indexador**.
+1. Clique em **Seguinte: Criar um indexador**.
 
 ### <a name="create-an-indexer"></a>Criar um indexador
 
@@ -137,7 +136,7 @@ Nesta etapa do assistente, você configurará um indexador que reunirá a fonte 
 
 1. No portal do Azure, monitore o log de atividades de notificações para obter um link de status de **notificação Azure Search** clicável. A execução pode levar vários minutos para ser concluída.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você enriqueceu seus dados usando serviços cognitivas e projetou os resultados em uma loja de conhecimento, você pode usar Gerenciador de Armazenamento ou Power BI para explorar seu conjunto de dados aprimorado.
 

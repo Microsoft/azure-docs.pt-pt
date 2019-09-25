@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: fc1657be4dbff1acee186e3a85d9d1e772055f73
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061909"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262750"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as práticas recomendadas de segurança para VMs e sistemas operacionais.
@@ -75,7 +75,7 @@ Se sua VM executar aplicativos críticos que precisam ter alta disponibilidade, 
 Um conjunto de disponibilidade é um agrupamento lógico que você pode usar no Azure para garantir que os recursos de VM colocados dentro dele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou de software do Azure, apenas um subconjunto de suas VMs será afetado e seu aplicativo geral continuará disponível para seus clientes. Os conjuntos de disponibilidade são uma funcionalidade essencial quando você deseja criar soluções de nuvem confiáveis.
 
 ## <a name="protect-against-malware"></a>Proteja-se contra o software maligno
-Você deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar [o Microsoft Antimalware](antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection)e [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
+Você deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Microsoft Antimalware](antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection)e [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
 O Microsoft Antimalware inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Para ambientes hospedados separadamente do seu ambiente de produção, você pode usar uma extensão antimalware para ajudar a proteger suas VMs e serviços de nuvem.
 
@@ -146,7 +146,7 @@ O abuso de recursos pode ser um problema quando processos de VM consomem mais re
 
 Recomendamos que você use [Azure monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) para obter visibilidade da integridade do recurso. Recursos de Azure Monitor:
 
-- [Arquivos de log de diagnóstico de recurso](../../azure-monitor/platform/diagnostic-logs-overview.md): Monitora os recursos da VM e identifica possíveis problemas que podem comprometer o desempenho e a disponibilidade.
+- [Arquivos de log de diagnóstico de recurso](../../azure-monitor/platform/resource-logs-overview.md): Monitora os recursos da VM e identifica possíveis problemas que podem comprometer o desempenho e a disponibilidade.
 - [Extensão de diagnóstico do Azure](/azure/azure-monitor/platform/diagnostics-extension-overview): Fornece recursos de monitoramento e diagnóstico em VMs do Windows. Você pode habilitar esses recursos incluindo a extensão como parte do modelo de [Azure Resource Manager](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 As organizações que não monitoram o desempenho da VM não podem determinar se determinadas alterações nos padrões de desempenho são normais ou anormais. Uma VM que está consumindo mais recursos do que o normal pode indicar um ataque de um recurso externo ou um processo comprometido em execução na VM.
@@ -187,7 +187,7 @@ Monitore e restrinja a conectividade direta com a Internet da VM. Os invasores e
 **Prática recomendada**: Restrinja as portas de gerenciamento (RDP, SSH).   
 **Detalhe**: O [acesso à VM just-in-time (JIT)](../../security-center/security-center-just-in-time.md) pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. Quando o JIT está habilitado, a central de segurança bloqueia o tráfego de entrada para suas VMs do Azure criando uma regra de grupo de segurança de rede. Você seleciona as portas na VM para a qual o tráfego de entrada será bloqueado. Essas portas são controladas pela solução JIT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.
 
 Os recursos a seguir estão disponíveis para fornecer informações mais gerais sobre segurança do Azure e serviços da Microsoft relacionados:

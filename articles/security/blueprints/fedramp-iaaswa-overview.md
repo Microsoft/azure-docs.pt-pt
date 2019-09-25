@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e1d481c6019feebf3d62f0e23480f5572363869c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: bcce4dcac35b783efefe81abc2090506502e9931
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946849"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257287"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Esquema de Segurança e Conformidade do Azure: Aplicativo Web IaaS para FedRAMP
 
@@ -62,13 +62,13 @@ Essa solução usa os seguintes serviços do Azure. Os detalhes da arquitetura d
 - Balanceador de Carga do Azure
 - Gateway de Aplicação do Azure
     - (1) WAF do gateway de aplicativo habilitado
-        - modo de firewall: prevenção
-        - conjunto de regras: OWASP 3.0
+        - Modo de firewall: prevenção
+        - Conjunto de regras: OWASP 3.0
         - ouvinte: porta 443
 - Storage do Azure
     - (7) contas de armazenamento com redundância geográfica
 - Testemunha de nuvem do Azure
-- Cofre dos Serviços de Recuperação
+- Cofre de Serviços de Recuperação
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
@@ -110,7 +110,7 @@ Os clientes também podem configurar as seguintes SQL Server medidas de seguran�
 -   [As regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedem todo o acesso a servidores de banco de dados até que sejam concedidas permissões adequadas A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
 -   A [detecção de ameaças do SQL](../../sql-database/sql-database-threat-detection.md) permite a detecção e a resposta a ameaças potenciais à medida que elas ocorrem, fornecendo alertas de segurança para atividades suspeitas de banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso de banco de dados anormais
 -   [Always Encrypted colunas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca apareçam como texto não criptografado no sistema de banco de dados. Depois de habilitar a criptografia de dados, somente aplicativos cliente ou servidores de aplicativos com acesso às chaves podem acessar dados de texto sem formatação.
--   O mascaramento de [dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
+-   O [mascaramento de dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
 
 **Azure Disk Encryption**: Azure Disk Encryption é usado para criptografar discos de máquina virtual IaaS do Windows. [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) aproveita o recurso BitLocker do Windows para fornecer criptografia de volume para o sistema operacional e discos de dados. A solução é integrada com Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
 
@@ -125,7 +125,7 @@ As tecnologias a seguir fornecem recursos de gerenciamento de identidade no ambi
 ### <a name="security"></a>Segurança
 **Gerenciamento de segredos**: A solução usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Azure Key Vault ajuda a gerenciar chaves de criptografia de disco de máquina virtual IaaS e segredos para essa arquitetura de referência.
 
-**Gerenciamento**de patches: As máquinas virtuais do Windows implantadas por esse Blueprint de Segurança e Conformidade do Azure automação são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também implanta a solução de automação do Azure por meio da qual implantações de atualização podem ser criadas para implantar patches em servidores Windows quando necessário.
+**Gerenciamento de patches**: As máquinas virtuais do Windows implantadas por esse Blueprint de Segurança e Conformidade do Azure automação são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também implanta a solução de automação do Azure por meio da qual implantações de atualização podem ser criadas para implantar patches em servidores Windows quando necessário.
 
 **Proteção contra malware**: [O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para máquinas virtuais fornece recursos de proteção em tempo real que ajudam a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando um software mal-intencionado ou indesejado conhecido tenta instalar ou executar em máquinas virtuais protegidas.
 
@@ -145,12 +145,12 @@ As tecnologias a seguir fornecem recursos de gerenciamento de identidade no ambi
 
 **Testemunha de nuvem**: A [testemunha em nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunha de quorum de cluster de failover no Windows Server 2016 que aproveita o Azure como ponto de arbitragem. A testemunha de nuvem, como qualquer outra testemunha de quorum, obtém um voto e pode participar dos cálculos de quorum, mas usa o armazenamento de BLOBs do Azure disponível publicamente. Isso elimina a sobrecarga de manutenção extra das VMs hospedadas em uma nuvem pública.
 
-### <a name="logging-and-auditing"></a>Registro em log e auditoria
+### <a name="logging-and-auditing"></a>Registo e auditoria
 
 Os logs de Azure Monitor fornecem log extensivo de atividade do sistema e do usuário, bem como a integridade do sistema. A solução de [logs de Azure monitor](../azure-security-disk-encryption-overview.md) coleta e analisa os dados gerados pelos recursos no Azure e em ambientes locais.
 
 - **Logs de atividade:**  [Os logs de atividade](../../azure-monitor/platform/activity-logs-overview.md) fornecem informações sobre as operações executadas nos recursos em uma assinatura. Os logs de atividades podem ajudar a determinar o iniciador de uma operação, a hora de ocorrência e o status.
-- **Logs de diagnóstico:**  Os [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) são todos os logs emitidos por todos os recursos. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall.
+- **Logs de diagnóstico:**  Os [logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) são todos os logs emitidos por todos os recursos. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall.
 - **Arquivamento de log:**  Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, até 730 dias, para atender aos requisitos de retenção específicos da organização. Esses logs se conectam a logs de Azure Monitor para processamento, armazenamento e relatórios de painel.
 
 Além disso, as soluções de monitoramento a seguir são instaladas como parte dessa arquitetura. Observe que é responsabilidade do cliente configurar essas soluções para se alinhar com os controles de segurança FedRAMP:

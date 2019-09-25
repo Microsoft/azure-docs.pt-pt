@@ -1,82 +1,82 @@
 ---
-title: Registos do servidor da base de dados do Azure para MySQL
-description: Descreve os registos de consulta lenta disponíveis no banco de dados do Azure para MySQL e os parâmetros disponíveis para ativar os níveis de registo diferente.
+title: Logs de servidor do banco de dados do Azure para MySQL
+description: Descreve os logs de consulta lento disponíveis no banco de dados do Azure para MySQL e os parâmetros disponíveis para habilitar diferentes níveis de log.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062399"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262284"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consulta lenta na base de dados do Azure para MySQL
-Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas.
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logs de consulta lentos no banco de dados do Azure para MySQL
+No banco de dados do Azure para MySQL, o log de consultas lentas está disponível para os usuários. Não há suporte para o acesso ao log de transações. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
 
-Para obter mais informações sobre o registo de consulta lenta MySQL, consulte o manual de referência de MySQL [lento secção de registo de consulta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+Para obter mais informações sobre o log de consultas lentas do MySQL, consulte a [seção log de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)do manual de referência do MySQL.
 
-## <a name="access-slow-query-logs"></a>Aceder aos registos de consulta lenta
-Pode listar e transferir a base de dados do Azure para os registos de consulta lenta MySQL com o portal do Azure e a CLI do Azure.
+## <a name="access-slow-query-logs"></a>Acessar logs de consulta lentos
+Você pode listar e baixar logs de consulta lenta do banco de dados do Azure para MySQL usando o portal do Azure e o CLI do Azure.
 
-No portal do Azure, selecione a base de dados do Azure para o servidor MySQL. Sob o **monitorização** cabeçalho, selecione a **os registos do servidor** página.
+No portal do Azure, selecione a base de dados do Azure para o servidor MySQL. No cabeçalho **monitoramento** , selecione a página **logs do servidor** .
 
-Para obter mais informações sobre a CLI do Azure, consulte [acesso e configurar os registos do servidor com a CLI do Azure](howto-configure-server-logs-in-cli.md).
+Para obter mais informações sobre CLI do Azure, consulte [configurar e acessar logs de servidor usando CLI do Azure](howto-configure-server-logs-in-cli.md).
 
-## <a name="log-retention"></a>Retenção do registo
-Os registos estão disponíveis até sete dias desde a sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, em seguida, os mais antigos ficheiros são eliminados até que o espaço está disponível. 
+## <a name="log-retention"></a>Retenção de log
+Os logs estão disponíveis por até sete dias a partir da criação. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível. 
 
-Os registos são revezados cada 24 horas ou 7 GB, o que ocorrer primeiro.
+Os logs são girados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
 
-## <a name="configure-slow-query-logging"></a>Configurar o registo de consulta lenta 
-Por predefinição, o registo de consulta lenta está desativado. Para ativá-lo, defina slow_query_log on.
+## <a name="configure-slow-query-logging"></a>Configurar o log de consultas lentas 
+Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina slow_query_log como ON.
 
-Outros parâmetros que pode ajustar incluem:
+Outros parâmetros que você pode ajustar incluem:
 
-- **long_query_time**: se uma consulta demora mais tempo do que long_query_time (em segundos) dessa consulta é registada. A predefinição é 10 segundos.
-- **log_slow_admin_statements**: se no inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções escritas para o slow_query_log.
-- **log_queries_not_using_indexes**: determina se as consultas que não utilizam os índices são registadas a slow_query_log
-- **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não índice que podem ser gravados no log de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido como ligado.
+- **long_query_time**: se uma consulta demorar mais do que long_query_time (em segundos) em que a consulta é registrada. O padrão é 10 segundos.
+- **log_slow_admin_statements**: se on inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas no slow_query_log.
+- **log_queries_not_using_indexes**: determina se as consultas que não usam índices são registradas no slow_query_log
+- **log_throttle_queries_not_using_indexes**: Esse parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando log_queries_not_using_indexes é definido como ON.
 
-Consulte o MySQL [lento de documentação do log de consulta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) para descrições completas dos parâmetros de registo de consulta lenta.
+Consulte a [documentação do log de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) do MySQL para obter descrições completas dos parâmetros de log de consulta lenta.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-Base de dados do Azure para MySQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos de consulta lenta no seu servidor MySQL, pode optar por fazê-los emitidos para os registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, ver como a secção a [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+O banco de dados do Azure para MySQL é integrado com Azure Monitor logs de diagnóstico. Depois de habilitar os logs de consulta lentos em seu servidor MySQL, você pode optar por que eles sejam emitidos para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como habilitar os logs de diagnóstico, consulte a seção como da [documentação dos logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md).
 
 > [!IMPORTANT]
-> Esta funcionalidade de diagnóstico para os registos do servidor só está disponível nos fins gerais e com otimização de memória [escalões de preço](concepts-pricing-tiers.md).
+> Esse recurso de diagnóstico para logs de servidor só está disponível nos [tipos de preço](concepts-pricing-tiers.md)uso geral e com otimização de memória.
 
-A tabela seguinte descreve as novidades em cada registo. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
+A tabela a seguir descreve o que está em cada log. Dependendo do método de saída, os campos incluídos e a ordem na qual eles aparecem podem variar.
 
 | **Propriedade** | **Descrição** |
 |---|---|
-| `TenantId` | O ID de inquilino |
+| `TenantId` | Sua ID de locatário |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Carimbo de hora quando o registo foi registado em UTC |
-| `Type` | Tipo do registo. Sempre `AzureDiagnostics` |
-| `SubscriptionId` | GUID da subscrição que o servidor pertence a |
-| `ResourceGroup` | Nome do grupo de recursos do servidor pertence a |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
+| `TimeGenerated`HORÁRIO | Carimbo de data/hora quando o log foi gravado em UTC |
+| `Type` | Tipo do log. Sempre `AzureDiagnostics` |
+| `SubscriptionId` | GUID da assinatura à qual o servidor pertence |
+| `ResourceGroup` | Nome do grupo de recursos ao qual o servidor pertence |
+| `ResourceProvider` | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
-| `ResourceId` | URI do recurso |
+| `ResourceId` | URI de recurso |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t` [UTC] | Tempo que começou a consulta |
-| `query_time_s` | A consulta demorou a executar o tempo total |
-| `lock_time_s` | Tempo total que a consulta foi bloqueada |
+| `start_time_t`HORÁRIO | Hora em que a consulta começou |
+| `query_time_s` | Tempo total que a consulta levou para ser executada |
+| `lock_time_s` | Tempo total de bloqueio da consulta |
 | `user_host_s` | Nome de utilizador |
-| `rows_sent_s` | Número de linhas enviados |
-| `rows_examined_s` | Número de linhas examinado |
+| `rows_sent_s` | Número de linhas enviadas |
+| `rows_examined_s` | Número de linhas examinadas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
-| `server_id_s` | ID do servidor |
+| `server_id_s` | A ID do servidor |
 | `thread_id_s` | ID do thread |
-| `\_ResourceId` | URI do recurso |
+| `\_ResourceId` | URI de recurso |
 
 ## <a name="next-steps"></a>Próximos Passos
-- [Como configurar e aceder a registos do servidor a partir da CLI do Azure](howto-configure-server-logs-in-cli.md).
+- [Como configurar e acessar logs de servidor do CLI do Azure](howto-configure-server-logs-in-cli.md).

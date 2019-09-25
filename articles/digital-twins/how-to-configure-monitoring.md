@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d0f5f9a1d488b6be8ca91fdd057880e351ae0b3f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950116"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261031"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento no Azure digital gêmeos
 
@@ -57,7 +57,7 @@ Para o registro em log de atividades avançadas:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Habilitar logs de diagnóstico do cliente
 
-[As configurações de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) do Azure podem ser definidas para cada instância do Azure para complementar o log de atividades. Embora os logs de atividade pertençam a eventos de nível de assinatura, o log de diagnóstico fornece informações sobre o histórico operacional dos próprios recursos.
+[As configurações de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) do Azure podem ser definidas para cada instância do Azure para complementar o log de atividades. Embora os logs de atividade pertençam a eventos de nível de assinatura, o log de diagnóstico fornece informações sobre o histórico operacional dos próprios recursos.
 
 Exemplos de log de diagnóstico incluem:
 
@@ -129,6 +129,6 @@ O Azure digital gêmeos também dá suporte ao log específico do aplicativo e �
 
 - Saiba mais sobre [os logs de atividades](../azure-monitor/platform/activity-logs-overview.md)do Azure.
 
-- Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md).
 
 - Leia mais sobre [logs de Azure monitor](../azure-monitor/log-query/get-started-portal.md).

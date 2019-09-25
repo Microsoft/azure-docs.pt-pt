@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: d77557f6d5d6a7bb741b9ff6caa4ea8f76db19c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567869"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262167"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados
 
@@ -44,19 +44,19 @@ Após a detecção de um problema de degradação de desempenho de várias métr
 
 ![Fluxo de trabalho de análise de desempenho de banco](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
-As métricas usadas para medir e detectar problemas de desempenho de banco de dados baseiam-se na duração da consulta, solicitações de tempo limite, tempos de espera excessivos e solicitações com erros. Para obter mais informações sobre métricas, consulte a seção métricas de [detecção](sql-database-intelligent-insights.md#detection-metrics) deste documento.
+As métricas usadas para medir e detectar problemas de desempenho de banco de dados baseiam-se na duração da consulta, solicitações de tempo limite, tempos de espera excessivos e solicitações com erros. Para obter mais informações sobre métricas, consulte a seção [métricas de detecção](sql-database-intelligent-insights.md#detection-metrics) deste documento.
 
 As degradações de desempenho do banco de dados SQL identificadas são registradas no log de diagnóstico com entradas inteligentes que consistem nas seguintes propriedades:
 
 | Propriedade             | Detalhes              |
 | :------------------- | ------------------- |
-| Informações do banco de dados | Metadados sobre um banco de dados no qual uma informação foi detectada, como um URI de recurso. |
+| informações do banco de dados | Metadados sobre um banco de dados no qual uma informação foi detectada, como um URI de recurso. |
 | Intervalo de tempo observado | Hora de início e término do período da Insight detectada. |
 | Métricas impactadas | Métricas que causaram a geração de uma percepção: <ul><li>Aumento da duração da consulta [segundos].</li><li>Espera excessiva [segundos].</li><li>Solicitações de tempo limite [percentual].</li><li>Solicitações com erro [percentual].</li></ul>|
 | Valor de impacto | Valor de uma métrica medida. |
 | Consultas afetadas e códigos de erro | Hash de consulta ou código de erro. Eles podem ser usados para correlacionar facilmente a consultas afetadas. São fornecidas métricas que consistem em aumento da duração da consulta, tempo de espera, contagens de tempo limite ou códigos de erro. |
 | Deteções | Detecção identificada no banco de dados durante o tempo de um evento. Há 15 padrões de detecção. Para obter mais informações, consulte [solucionar problemas de desempenho do banco de dados com o Intelligent insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Análise de causa raiz | Análise da causa raiz do problema identificado em um formato legível por humanos. Algumas informações podem conter uma recomendação de melhoria de desempenho sempre que possível. |
+| Análise da origem do problema | Análise da causa raiz do problema identificado em um formato legível por humanos. Algumas informações podem conter uma recomendação de melhoria de desempenho sempre que possível. |
 |||
 
 Para obter uma visão geral prática sobre como usar Intelligent Insights com Análise de SQL do Azure e para cenários de uso típicos, consulte o vídeo incorporado:
@@ -96,7 +96,7 @@ O exemplo a seguir mostra um Intelligent Insights exibido por meio de Análise d
 
 ### <a name="set-up-with-event-hubs"></a>Configurar com hubs de eventos
 
-Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [transmitir logs de diagnóstico do Azure para os hubs de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
+Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [transmitir logs de diagnóstico do Azure para os hubs de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Para usar os hubs de eventos para configurar o monitoramento e alertas personalizados, consulte [o que fazer com métricas e logs de diagnóstico em hubs de eventos](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -174,9 +174,9 @@ O log de Intelligent Insights gera a contagem de solicitações com erros. Indic
 
 Se qualquer uma das exceções críticas monitoradas cruzar os limites absolutos gerenciados pelo sistema, uma percepção inteligente será gerada com detalhes de exceção crítica.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [solucionar problemas de desempenho do banco de dados SQL com o Intelligent insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use o [log de diagnóstico de desempenho do banco de dados SQL Intelligent insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Saiba como [monitorar o banco de dados SQL usando a análise de SQL](../azure-monitor/insights/azure-sql.md).
-- Saiba como [coletar e consumir dados de log de seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Saiba como [coletar e consumir dados de log de seus recursos do Azure](../azure-monitor/platform/resource-logs-overview.md).

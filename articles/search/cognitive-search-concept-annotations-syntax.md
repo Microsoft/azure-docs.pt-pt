@@ -5,23 +5,22 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: e4b94e7a6e41a5c6beaf94069c0fb6bed795ca6d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183512"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265541"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como fazer referência a anotações em um congrau de conhecimento de pesquisa cognitiva
 
 Neste artigo, você aprenderá a fazer referência a anotações em definições de habilidades, usando exemplos para ilustrar vários cenários. Como o conteúdo de um documento flui por um conjunto de habilidades, ele é aprimorado com anotações. As anotações podem ser usadas como entradas para aprimoramentos posteriores de downstream ou mapeadas para um campo de saída em um índice. 
  
-Os exemplos neste artigo baseiam-se no campo de *conteúdo* gerado automaticamente pelos indexadores de [blob do Azure](search-howto-indexing-azure-blob-storage.md) como parte da fase de violação do documento. Ao fazer referência a documentos de um contêiner de BLOB, use um formato como `"/document/content"`, em que o campo *conteúdo* faz parte do *documento*. 
+Os exemplos neste artigo baseiam-se no campo de *conteúdo* gerado automaticamente pelos [indexadores de blob do Azure](search-howto-indexing-azure-blob-storage.md) como parte da fase de violação do documento. Ao fazer referência a documentos de um contêiner de BLOB, use um formato como `"/document/content"`, em que o campo *conteúdo* faz parte do *documento*. 
 
 ## <a name="background-concepts"></a>Conceitos de segundo plano
 

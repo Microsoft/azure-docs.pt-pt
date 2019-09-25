@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608111"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259416"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protegendo o acesso privilegiado para implantações híbridas e na nuvem no Azure AD
 
@@ -139,7 +139,7 @@ Com o aumento no BYOD (Traga seu próprio dispositivo) e nas políticas de traba
 
 * Identifique os usuários que têm funções administrativas e os serviços onde eles podem gerenciar.
 * Use o Azure AD PIM para descobrir quais usuários em sua organização têm acesso de administrador ao Azure AD, incluindo funções adicionais além das listadas no estágio 1.
-* Além das funções definidas no Azure AD, o Office 365 vem com um conjunto de funções de administrador que você pode atribuir a usuários em sua organização. Cada função de administrador é mapeada para funções comerciais comuns e concede às pessoas em sua organização permissões para realizar tarefas específicas no [centro de administração Microsoft 365](https://admin.microsoft.com). Use o centro de administração Microsoft 365 para descobrir quais usuários em sua organização têm acesso de administrador ao Office 365, incluindo por meio de funções não gerenciadas no Azure AD. Para obter mais informações, consulte [sobre as funções de administrador do office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [as práticas recomendadas de segurança para o Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Além das funções definidas no Azure AD, o Office 365 vem com um conjunto de funções de administrador que você pode atribuir a usuários em sua organização. Cada função de administrador é mapeada para funções comerciais comuns e concede às pessoas em sua organização permissões para realizar tarefas específicas no [centro de administração Microsoft 365](https://admin.microsoft.com). Use o centro de administração Microsoft 365 para descobrir quais usuários em sua organização têm acesso de administrador ao Office 365, incluindo por meio de funções não gerenciadas no Azure AD. Para obter mais informações, consulte [sobre as funções de administrador do office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [as práticas recomendadas de segurança para o Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Execute o inventário em outros serviços de que sua organização depende, como Azure, Intune ou Dynamics 365.
 * Certifique-se de que suas contas de administrador (contas que são usadas para fins de administração, não apenas as contas do dia a dia dos usuários) tenham endereços de email anexados a elas e tenham se registrado para o Azure MFA ou use o MFA local.
 * Peça aos usuários sua justificativa de negócios para acesso administrativo.
@@ -173,7 +173,7 @@ Ativar:
 
 Se você usar o Windows Hello para empresas, o requisito de MFA poderá ser atendido usando a experiência de entrada do Windows Hello. Para obter mais informações, consulte [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
-#### <a name="configure-identity-protection"></a>Configurar Identity Protection 
+#### <a name="configure-identity-protection"></a>Configurar a proteção de identidade 
 
 Azure AD Identity Protection é uma ferramenta de monitoramento e relatório baseada em algoritmos que você pode usar para detectar possíveis vulnerabilidades que afetam as identidades da sua organização. Você pode configurar respostas automatizadas para as atividades suspeitas detectadas e tomar as devidas medidas para resolvê-las. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
@@ -215,7 +215,7 @@ O log de atividades do Azure fornece um histórico de eventos de nível de assin
 
 #### <a name="configure-conditional-access-policies"></a>Configurar políticas de acesso condicional
 
-Prepare políticas de acesso condicional para aplicativos locais e hospedados na nuvem. Se você tiver usuários ingressados no local de trabalho, obtenha mais informações em Configurando o [acesso condicional local usando Azure Active Directory registro de dispositivo](../active-directory-device-registration-on-premises-setup.md).
+Prepare políticas de acesso condicional para aplicativos locais e hospedados na nuvem. Se você tiver usuários ingressados no local de trabalho, obtenha mais informações em [Configurando o acesso condicional local usando Azure Active Directory registro de dispositivo](../active-directory-device-registration-on-premises-setup.md).
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Estágio 3: Criar visibilidade e assumir controle total da atividade do administrador
@@ -298,7 +298,7 @@ A integração de log do Azure permite que você integre logs brutos de seus rec
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>Implementar o provisionamento de usuários para aplicativos conectados
 
-O Azure AD permite automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos de nuvem (SaaS), como dropbox, Salesforce, ServiceNow e assim por diante. Para obter mais informações, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure ad](../manage-apps/user-provisioning.md).
+O Azure AD permite automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos de nuvem (SaaS), como dropbox, Salesforce, ServiceNow e assim por diante. Para obter mais informações, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure ad](../manage-apps/user-provisioning.md).
 
 #### <a name="integrate-information-protection"></a>Integrar a proteção de informações
 

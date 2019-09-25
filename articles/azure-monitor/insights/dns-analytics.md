@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982595"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265172"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -179,11 +179,17 @@ Na página de pesquisa de registos, pode criar uma consulta. Pode filtrar os res
 1. Na **caixa de consulta de pesquisa**, tipo `DnsInventory` para ver todos os DNS relacionadas com o inventário dados para os servidores DNS geridos pela solução. Os resultados listam os dados de registo para servidores DNS, zonas DNS e registos de recursos.
 
     ![Pesquisa de registos de DnsInventory](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>Resolução de problemas
+
+Etapas de solução de problemas do Commopn:
+
+1. Dados de pesquisas de DNS ausentes-para solucionar esse problema, tente redefinir a configuração ou apenas carregar a página de configuração uma vez no Portal. Para redefinir, basta alterar uma configuração para outro valor e, em seguida, alterá-la de volta para o valor original e salvar a configuração.
 
 ## <a name="feedback"></a>Comentários
 
 Para fornecer comentários, visite a [página log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) para postar ideias para análise de DNS recursos para trabalhar. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Logs de consulta](../log-query/log-query-overview.md) para exibir registros de log DNS detalhados.

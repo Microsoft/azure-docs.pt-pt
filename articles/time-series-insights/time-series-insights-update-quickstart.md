@@ -10,13 +10,13 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 07/29/2019
-ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.date: 09/23/2019
+ms.openlocfilehash: 633eb00b479c6d2e2bf233b42aff7d393b110fd2
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677718"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258422"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -78,7 +78,7 @@ Usando Time Series Insights e nossa telemetria de sensor, descobrimos uma tendê
 * Corrija o problema.
 * Coloque sistemas de notificação de alerta superiores em vigor.
 
-## <a name="root-cause-analysis"></a>Análise de causa raiz
+## <a name="root-cause-analysis"></a>Análise da origem do problema
 
 1. Alguns cenários exigem uma análise sofisticada para revelar pistas sutis nos dados. Selecione Windmill **W6** na data **6/25**.
 
@@ -123,7 +123,7 @@ Agora que você concluiu o tutorial, limpe os recursos que criou:
 1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, localize o grupo de recursos Azure Time Series insights.
 1. Exclua todo o grupo de recursos (e todos os recursos contidos nele) selecionando **excluir** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você está pronto para criar seu próprio ambiente de visualização de Time Series Insights. Para iniciar:
 

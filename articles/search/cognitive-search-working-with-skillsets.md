@@ -5,16 +5,15 @@ manager: eladz
 author: vkurpad
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: df2c469ef825863f958c8c263253c7d1c6f6c732
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004413"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265686"
 ---
 # <a name="working-with-skillsets"></a>Trabalhando com habilidades
 Este artigo é para os desenvolvedores que precisam de uma compreensão mais profunda de como o pipeline de enriquecimento funciona e pressupõe que você tenha um entendimento conceitual do processo de pesquisa cognitiva. Se você for novo na pesquisa cognitiva, comece com:
@@ -297,7 +296,7 @@ A abordagem de modelagem embutida não requer uma habilidade de formador, pois t
   
 Uma observação de ambas as abordagens é como os valores `"Keyphrases"` de são projetados usando o `"sourceContext"`. O `"Keyphrases"` nó, que contém uma coleção de cadeias de caracteres, é, em si, um filho do texto da página. No entanto, como as projeções exigem um objeto JSON e a página é uma primitiva (cadeia `"sourceContext"` de caracteres), a é usada para encapsular a frase-chave em um objeto com uma propriedade nomeada. Essa técnica permite que até mesmo primitivos sejam projetados de forma independente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como uma próxima etapa, crie seu primeiro Conmy Skill com habilidades cognitivas.
 

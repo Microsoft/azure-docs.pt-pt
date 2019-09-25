@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135180"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260325"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Log de diagnóstico e métricas do banco de dados SQL do Azure
 
@@ -33,7 +33,7 @@ Bancos de dados individuais, bancos de dados em pool em pools elásticos e banco
 Para obter mais informações sobre as métricas e as categorias de log com suporte nos vários serviços do Azure, consulte:
 
 - [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 Este artigo fornece orientação para ajudá-lo a habilitar a telemetria de diagnóstico para bancos de dados SQL do Azure, pools elásticos e instâncias gerenciadas. Ele também pode ajudá-lo a entender como configurar o Análise de SQL do Azure como uma ferramenta de monitoramento para exibir a telemetria do diagnóstico de banco de dados.
 
@@ -72,7 +72,7 @@ Você pode configurar bancos de dados SQL do Azure e bancos de dados de instânc
 | [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos em um banco de dados. | Sim | Não |
 | [Deadlocks](#deadlocks-dataset): Contém informações sobre eventos de deadlock em um banco de dados. | Sim | Não |
 | [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre as recomendações de ajuste automático para um banco de dados. | Sim | Não |
-| [](#intelligent-insights-dataset)Sqlsights: Contém Intelligent Insights no desempenho de um banco de dados. Para saber mais, consulte [Intelligent insights](sql-database-intelligent-insights.md). | Sim | Sim |
+| [Sqlsights](#intelligent-insights-dataset): Contém Intelligent Insights no desempenho de um banco de dados. Para saber mais, consulte [Intelligent insights](sql-database-intelligent-insights.md). | Sim | Sim |
 
 > [!IMPORTANT]
 > Os pools elásticos e as instâncias gerenciadas têm sua própria telemetria de diagnóstico separada dos bancos de dados que eles contêm. É importante observar que a telemetria de diagnóstico é configurada separadamente para cada um desses recursos, conforme documentado abaixo.
@@ -135,7 +135,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados in
    ![Habilitar o diagnóstico para bancos de dados únicos, em pool ou de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Insira um nome de configuração para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
-1. Para obter a experiência de monitoramento padrão baseada em eventos, marque as seguintes caixas de seleção para a telemetria do log de diagnóstico de banco de dados:Sqlsights, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **erros**, **DatabaseWaitStatistics**, **tempos limite**, **blocos**e **deadlocks**.
+1. Para obter a experiência de monitoramento padrão baseada em eventos, marque as seguintes caixas de seleção para a telemetria do log de diagnóstico de banco de dados: **Sqlsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **erros**, **DatabaseWaitStatistics**, **tempos limite**, **blocos**e **deadlocks**.
 1. Para uma experiência de monitoramento avançada, com base em um minuto, marque a caixa de seleção para métricas **básicas** .
    ![Configurar o diagnóstico para bancos de dados únicos, em pool ou de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selecione **Guardar**.
@@ -198,7 +198,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados de
 
 1. Insira um nome de configuração para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
-1. Marque as caixas de seleção para telemetria de diagnóstico de banco de dados:Sqlsights, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **erros**.
+1. Marque as caixas de seleção para telemetria de diagnóstico de banco de dados: **Sqlsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **erros**.
    ![Configurar o diagnóstico para bancos de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Selecione **Guardar**.
 1. Repita essas etapas para cada banco de dados de instância que você deseja monitorar.
@@ -250,7 +250,7 @@ Pode combinar estes parâmetros para ativar várias opções de saída.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Para configurar vários recursos do Azure
 
-Para dar suporte a várias assinaturas, use o script do PowerShell de habilitar o log de métricas de [recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
+Para dar suporte a várias assinaturas, use o script do PowerShell de [habilitar o log de métricas de recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
 Forneça a ID \<de recurso do\> espaço de trabalho $WSID como um parâmetro `Enable-AzureRMDiagnostics.ps1` ao executar o script para enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
 
@@ -304,7 +304,7 @@ Leia sobre como [alterar as configurações de diagnóstico usando a API REST do
 
 ### <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-Leia sobre como [habilitar as configurações de diagnóstico na criação de recursos usando um modelo do Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md).
+Leia sobre como [habilitar as configurações de diagnóstico na criação de recursos usando um modelo do Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ## <a name="stream-into-azure-sql-analytics"></a>Transmitir para Análise de SQL do Azure
 
@@ -314,7 +314,7 @@ Análise de SQL do Azure é uma solução de nuvem que monitora o desempenho de 
 
 As métricas e os logs de diagnóstico do banco de dados SQL podem ser transmitidos em Análise de SQL do Azure usando a opção **Enviar para log Analytics** interna na guia Configurações de diagnóstico no Portal. Você também pode habilitar o log Analytics usando uma configuração de diagnóstico por meio de cmdlets do PowerShell, o CLI do Azure ou a API REST do Azure Monitor.
 
-### <a name="installation-overview"></a>Visão geral da instalação
+### <a name="installation-overview"></a>Descrição geral da instalação
 
 Você pode monitorar uma frota de banco de dados SQL com Análise de SQL do Azure. Execute as seguintes etapas:
 
@@ -372,7 +372,7 @@ Você pode usar métricas transmitidas em hubs de eventos para:
 
 ## <a name="stream-into-storage"></a>Transmitir para o armazenamento
 
-Você pode armazenar as métricas do banco de dados SQL e os logs de diagnóstico no armazenamento do Azure usando a opção interno arquivar em **uma conta de armazenamento** no portal do Azure. Você também pode habilitar o armazenamento usando uma configuração de diagnóstico por meio de cmdlets do PowerShell, o CLI do Azure ou a API REST do Azure Monitor.
+Você pode armazenar as métricas do banco de dados SQL e os logs de diagnóstico no armazenamento do Azure usando a opção interno **arquivar em uma conta de armazenamento** no portal do Azure. Você também pode habilitar o armazenamento usando uma configuração de diagnóstico por meio de cmdlets do PowerShell, o CLI do Azure ou a API REST do Azure Monitor.
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Esquema de métricas e logs de diagnóstico na conta de armazenamento
 
@@ -443,10 +443,10 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 |Type|Constante AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante ResourceUsageStats |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante MANAGEDINSTANCES |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome da instância gerenciada |
 |ResourceId|URI de recurso |
 |SKU_s|SKU de produto de instância gerenciada |
@@ -469,10 +469,10 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Constante QueryStoreRuntimeStatisticsEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -520,10 +520,10 @@ Saiba mais sobre [repositório de consultas dados de estatísticas de tempo de e
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Constante QueryStoreWaitStatisticsEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -558,10 +558,10 @@ Saiba mais sobre [repositório de consultas dados de estatísticas de espera](ht
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante Erros |
 |OperationName|Nome da operação. Constante ErrorEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -587,10 +587,10 @@ Saiba mais sobre [SQL Server mensagens de erro](https://msdn.microsoft.com/libra
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante DatabaseWaitStatistics |
 |OperationName|Nome da operação. Constante DatabaseWaitStatisticsEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -616,10 +616,10 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante Tempos limite |
 |OperationName|Nome da operação. Constante TimeoutEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -639,10 +639,10 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante Trava |
 |OperationName|Nome da operação. Constante BlockEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -663,10 +663,10 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante Impasses |
 |OperationName|Nome da operação. Constante DeadlockEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
@@ -683,10 +683,10 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 |Type|Constante AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
 |Category|Nome da categoria. Constante AutomaticTuning |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
 |SubscriptionId|GUID de assinatura do banco de dados |
-|GrupoRecursos|Nome do grupo de recursos para o banco de dados |
+|ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |LogicalDatabaseName_s|Nome do banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
@@ -701,18 +701,18 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 |IncludedColumns_s|Colunas incluídas |
 |EstimatedImpact_s|Impacto estimado do JSON de recomendação de ajuste automático |
 |Event_s|Tipo de evento de ajuste automático |
-|Timestamp_t|Último carimbo de data/hora atualizado |
+|Timestamp_t|Carimbo de data/hora da última atualização |
 
 ### <a name="intelligent-insights-dataset"></a>Conjunto de Intelligent Insights
 
 Saiba mais sobre o [formato de log de Intelligent insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como habilitar o registro em log e entender as métricas e as categorias de log com suporte nos vários serviços do Azure, consulte:
 
 - [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 Para saber mais sobre os hubs de eventos, leia:
 

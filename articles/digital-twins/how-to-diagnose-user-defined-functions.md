@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876574"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260846"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -35,7 +35,7 @@ O Azure digital gêmeos dá suporte ao registro em log, monitoramento e análise
 
 * Para a configuração de log específica do Azure digital gêmeos, leia [como configurar o monitoramento e o registro em log](./how-to-configure-monitoring.md).
 * Consulte a visão geral de [Azure monitor](../azure-monitor/overview.md) para saber mais sobre configurações de log avançadas habilitadas por meio de Azure monitor.
-* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para definir as configurações de log de diagnóstico no Azure digital gêmeos por meio do portal do azure, CLI do Azure ou PowerShell.
+* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/resource-logs-overview.md) para definir as configurações de log de diagnóstico no Azure digital gêmeos por meio do portal do azure, CLI do Azure ou PowerShell.
 
 Uma vez configurado, você poderá selecionar todas as categorias de log, métricas e usar espaços de trabalho de Azure Monitor do log Analytics eficientes para dar suporte aos seus esforços de depuração.
 
@@ -205,7 +205,7 @@ Se você habilitar as configurações de diagnóstico, poderá encontrar essas e
 
 1. **Não autorizado**: se sua função definida pelo usuário não tem uma atribuição de função definida ou não tem permissão suficiente para acessar determinados metadados da topologia, a operação falha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como habilitar o [monitoramento e os logs](./how-to-configure-monitoring.md) no gêmeos digital do Azure.
 

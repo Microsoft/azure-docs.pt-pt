@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240680"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262706"
 ---
-# <a name="connect-data-from-threat-intelligence-providers---preview"></a>Conectar dados de provedores de inteligência contra ameaças – versão prévia
+# <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de provedores de inteligência contra ameaças
 
 > [!IMPORTANT]
-> A inteligência contra ameaças no Azure Sentinel está atualmente em visualização pública.
+> O conector de dados das plataformas de inteligência contra ameaças no Azure Sentinel está atualmente em visualização pública.
 > Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Azure Sentinel permite que você importe os indicadores de ameaça que sua organização está usando, o que pode aprimorar a capacidade dos analistas de segurança de detectar e priorizar ameaças conhecidas. Vários recursos do Azure Sentinel ficam disponíveis ou são aprimorados:

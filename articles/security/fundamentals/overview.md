@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999195"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262764"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -93,7 +93,7 @@ Application Insights cria gráficos e tabelas que mostram, por exemplo, quais ho
 Se houver falhas, falhas ou problemas de desempenho, você poderá pesquisar os dados de telemetria em detalhes para diagnosticar a causa. E o serviço enviará emails se houver alterações na disponibilidade e no desempenho do seu aplicativo. Assim, o Application Insight torna-se uma ferramenta de segurança valiosa, pois ajuda com a disponibilidade no Tríade de segurança, integridade e confiabilidade de disponibilidade.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-O [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) oferece visualização, consulta, roteamento, alertas, dimensionamento automático e automação nos dados da infraestrutura do Azure (log de[atividades](../../azure-monitor/platform/activity-logs-overview.md)) e de cada recurso individual do Azure ([logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md)). Você pode usar Azure Monitor para alertá-lo sobre eventos relacionados à segurança que são gerados nos logs do Azure.
+O [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) oferece visualização, consulta, roteamento, alertas, dimensionamento automático e automação nos dados da infraestrutura do Azure (log de[atividades](../../azure-monitor/platform/activity-logs-overview.md)) e de cada recurso individual do Azure ([logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md)). Você pode usar Azure Monitor para alertá-lo sobre eventos relacionados à segurança que são gerados nos logs do Azure.
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 [Logs de Azure monitor](https://azure.microsoft.com/documentation/services/log-analytics/) – fornece uma solução de gerenciamento de ti para infraestrutura local e de terceiros baseada em nuvem (como AWS), além dos recursos do Azure. Os dados de Azure Monitor podem ser roteados diretamente para Azure Monitor logs para que você possa ver as métricas e os logs de todo o seu ambiente em um único lugar.
@@ -141,7 +141,7 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
 -   Log de servidor Web-informações sobre transações HTTP usando o formato de arquivo de log estendido W3C. Isso é útil ao determinar as métricas gerais do site, como o número de solicitações tratadas ou quantas solicitações são de um endereço IP específico.
 
-#### <a name="application-diagnostics"></a>Application diagnostics
+#### <a name="application-diagnostics"></a>Diagnóstico de aplicativos
 O [Application Diagnostics](../../app-service/troubleshoot-diagnostic-logs.md) permite que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) para registrar informações no log do Application Diagnostics. Em Application Diagnostics, há dois tipos principais de eventos, aqueles relacionados ao desempenho do aplicativo e os relacionados a erros e falhas do aplicativo. As falhas e erros podem ser divididos em problemas de conectividade, segurança e falha. Problemas de falha geralmente estão relacionados a um problema com o código do aplicativo.
 
 No Application Diagnostics, você pode exibir eventos agrupados das seguintes maneiras:
@@ -156,7 +156,7 @@ A seção fornece informações adicionais sobre os principais recursos de segur
 ### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
 Você pode proteger sua conta de armazenamento com RBAC (controle de acesso baseado em função). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e aos princípios de segurança de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função RBAC apropriada a grupos e aplicativos em um determinado escopo. Você pode usar [funções RBAC internas](../../role-based-access-control/built-in-roles.md), como colaborador da conta de armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o modelo de [Azure Resource Manager](../../storage/common/storage-security-guide.md) pode ser controlado por meio do controle de acesso baseado em função (RBAC).
 
-### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
+### <a name="shared-access-signature"></a>Assinatura de Acesso Partilhado
 As [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por um período especificado e com um conjunto especificado de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito

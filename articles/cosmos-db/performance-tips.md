@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 9a758ce56356da21fc94f426d575a55f7dc762a0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200317"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261316"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para Azure Cosmos DB e .NET
 
@@ -47,7 +47,6 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
      |Modo de conexão  |Protocolo com suporte  |SDKs com suporte  |Porta de API/serviço  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
-     |Direto    |    HTTPS     |  SDK do .NET e do Java    |   Portas dentro do intervalo de 10000 a 20.000    |
      |Direto    |     TCP    |  SDK .NET    | Portas dentro do intervalo de 10000 a 20.000 |
 
      O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O TCP direto e o HTTPS usam SSL para autenticação inicial e criptografia de tráfego. Para obter o melhor desempenho, use o protocolo TCP quando possível.
@@ -60,8 +59,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
+        ConnectionMode = ConnectionMode.Direct
      });
      ```
 
@@ -130,13 +128,13 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
 
      O SDK do SQL .NET versão 1.9.0 e superior oferece suporte a consultas paralelas, que permitem consultar uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados ao trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência de consulta e a taxa de transferência em relação à sua contraparte serial. As consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos requisitos personalizados, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições, então, pode ser consultado em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados previamente buscados.
 
-    (a) o ***ajuste\:***  da consulta paralela MaxDegreeOfParallelism funciona consultando várias partições em paralelo. No entanto, os dados de uma coleta particionada individual são buscados em série em relação à consulta. Portanto, definir o MaxDegreeOfParallelism como o número de partições tem a chance máxima de obter a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir MaxDegreeOfParallelism como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o MaxDegreeOfParallelism.
+    (a) o ***grau de ajuste da\: consulta paralela de paralelismo*** funciona consultando várias partições em paralelo. No entanto, os dados de uma partição individual são buscados em série em relação à consulta. A definição `MaxDegreeOfParallelism` do no [SDK v2](sql-api-sdk-dotnet.md) ou `MaxConcurrency` no [SDK v3](sql-api-sdk-dotnet-standard.md) para o número de partições tem a chance máxima de obter a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir o grau de paralelismo como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau de paralelismo.
 
     É importante observar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente entre todas as partições em relação à consulta. Se a coleção particionada for particionada de forma que toda ou a maioria dos dados retornados por uma consulta esteja concentrada em algumas partições (uma partição, no pior caso), o desempenho da consulta seria afunilado por essas partições.
 
     (b) ***ajuste MaxBufferedItemCount\:***  a consulta paralela foi projetada para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados previamente buscados. A definição de MaxBufferedItemCount como o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o máximo benefício da busca prévia.
 
-    A busca prévia funciona da mesma maneira, independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.  
+    A busca prévia funciona da mesma maneira, independentemente do grau de paralelismo, e há um único buffer para os dados de todas as partições.  
 6. **Ativar GC do lado do servidor**
 
     Reduzir a frequência da coleta de lixo pode ajudar em alguns casos. Em .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.

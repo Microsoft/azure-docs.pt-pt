@@ -5,32 +5,32 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 43e6fe301cf28b7a342ba2e802c9fce19bfeec4d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 09/24/2019
+ms.openlocfilehash: 55e802aa1f7bdf0d67d1a9c3f020d255afdc8130
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815866"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261911"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejo e restauração
-Você pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados PostgreSQL em um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar o banco de dados PostgreSQL de um arquivo morto criado pelo pg_dump.
+Você pode usar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair um banco de dados PostgreSQL em um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) para restaurar o banco de dados PostgreSQL de um arquivo morto criado pelo pg_dump.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer este guia de instruções, você precisa de:
 - Um [banco de dados do Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md) com regras de firewall para permitir o acesso e o banco de dados sob ele.
-- utilitários de linha de comando [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) instalados
+- utilitários de linha de comando [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) instalados
 
 Siga estas etapas para despejar e restaurar o banco de dados PostgreSQL:
 
 ## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Criar um arquivo de despejo usando pg_dump que contém os dados a serem carregados
 Para fazer backup de um banco de dados PostgreSQL existente localmente ou em uma VM, execute o seguinte comando:
 ```bash
-pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
+pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> -f <database>.dump
 ```
 Por exemplo, se você tiver um servidor local e um banco de dados chamado **TestDB** nele
 ```bash
-pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
+pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb.dump
 ```
 
 
@@ -57,14 +57,14 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço banco de dados do Azure para PostgreSQL é fazer backup do banco de dados na origem e restaurá-lo no Azure. Para minimizar o tempo necessário para concluir a migração, considere usar os parâmetros a seguir com os comandos backup e Restore.
 
 > [!NOTE]
-> Para obter informações detalhadas de sintaxe, consulte os artigos [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+> Para obter informações detalhadas de sintaxe, consulte os artigos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html).
 >
 
 ### <a name="for-the-backup"></a>Para o backup
 - Faça o backup com a opção-FC para que você possa executar a restauração em paralelo para acelerar a ti. Por exemplo:
 
     ```
-    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
 ### <a name="for-the-restore"></a>Para a restauração

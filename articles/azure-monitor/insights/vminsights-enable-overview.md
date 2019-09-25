@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2019
+ms.date: 09/24/2019
 ms.author: magoedte
-ms.openlocfilehash: f3aca6f62ff529dc2ea8356e18a0162e7d9a85d8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 477343e188bece55f72a59debbab8c9a3f3e2905
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067054"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265003"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -182,7 +182,7 @@ Você pode baixar o Dependency Agent nestes locais:
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
@@ -261,6 +261,6 @@ Para obter mais informações sobre a recolha de dados e a utilização, consult
 
 Agora que você habilitou o monitoramento para sua VM, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md). Para ver dependências de aplicações detetadas, consulte [vista do Azure Monitor para o mapa de VMs](vminsights-maps.md).

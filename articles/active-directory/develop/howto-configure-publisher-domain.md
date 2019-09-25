@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835147"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257921"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Como: Configurar o domínio do Publicador de um aplicativo (versão prévia)
 
-O domínio do Publicador de um aplicativo é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md) para permitir que os usuários saibam onde suas informações estão sendo enviadas. Aplicativos multilocatários que são registrados após 21 de maio de 2019 que não têm um domínio do Publicadoraparecem como não verificados. Aplicativos multilocatários são aplicativos que dão suporte a contas fora de um único diretório organizacional; por exemplo, dar suporte a todas as contas do Azure AD ou dar suporte a todas as contas do Azure AD e contas pessoais da Microsoft.
+O domínio do Publicador de um aplicativo é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md) para permitir que os usuários saibam onde suas informações estão sendo enviadas. Aplicativos multilocatários que são registrados após 21 de maio de 2019 que não têm um domínio do Publicador aparecem como não **verificados**. Aplicativos multilocatários são aplicativos que dão suporte a contas fora de um único diretório organizacional; por exemplo, dar suporte a todas as contas do Azure AD ou dar suporte a todas as contas do Azure AD e contas pessoais da Microsoft.
 
 ## <a name="new-applications"></a>Novos aplicativos
 
@@ -64,7 +64,7 @@ Para definir o domínio do Publicador do aplicativo, siga estas etapas.
 
 1. Na página **visão geral** do aplicativo, selecione a seção **identidade visual** .
 
-1. Localize o campo **domínio** do Publicador e selecione uma das seguintes opções:
+1. Localize o campo **domínio do Publicador** e selecione uma das seguintes opções:
 
    - Selecione **configurar um domínio** se ainda não tiver configurado um domínio.
    - Selecione **Atualizar domínio** se um domínio já tiver sido configurado.
@@ -97,6 +97,12 @@ Se seu aplicativo não estiver registrado em um locatário, você verá apenas a
 
 - Se o seu locatário tiver domínios verificados, selecione um dos domínios na lista suspensa **selecionar um domínio verificado** .
 
+>[!Note]
+> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json`. Você pode receber um erro, conforme mencionado abaixo, se você usar qualquer outra coisa como`application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
+
 ## <a name="implications-on-the-app-consent-prompt"></a>Implicações no prompt de consentimento do aplicativo
 
 Configurar o domínio do Publicador tem um impacto sobre o que os usuários veem no prompt de consentimento do aplicativo. Para entender totalmente os componentes do prompt de consentimento, consulte [noções básicas sobre as experiências de consentimento do aplicativo](application-consent-experience.md).
@@ -111,7 +117,7 @@ O comportamento para novos aplicativos criados após 21 de maio de 2019 depender
 
 ## <a name="implications-on-redirect-uris"></a>Implicações em URIs de redirecionamento
 
-Os aplicativos que conectam usuários com qualquer conta corporativa ou de estudante ou contas pessoais da[](single-and-multi-tenant-apps.md)Microsoft (multilocatário) estão sujeitos a algumas restrições ao especificar URIs de redirecionamento.
+Os aplicativos que conectam usuários com qualquer conta corporativa ou de estudante ou contas pessoais da Microsoft ([multilocatário](single-and-multi-tenant-apps.md)) estão sujeitos a algumas restrições ao especificar URIs de redirecionamento.
 
 ### <a name="single-root-domain-restriction"></a>Restrição de domínio de raiz única
 

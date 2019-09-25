@@ -1,6 +1,6 @@
 ---
 title: Planejar uma implantação do painel de acesso do Azure Active Directory
-description: Diretrizes sobre a implantação da funcionalidade do painel de acesso do Azure AD
+description: Orientação sobre a implantação do painel de acesso do Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -15,23 +15,24 @@ ms.date: 08/16/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448af7075297c2b18df1eceaeaac34d5da762489
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576527"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258509"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planejar uma implantação do painel de acesso do Azure Active Directory
 
-O painel de acesso Azure Active Directory é um portal baseado na Web que permite que você reduza os custos de suporte, aumente a produtividade e a segurança e reduza a frustração do usuário. O sistema inclui relatórios detalhados que controlam quando os usuários acessam o sistema e notificam os administradores sobre o uso indevido ou abuso.
+O painel de acesso do Azure Active Directory (AD do Azure) é um portal baseado na Web que ajuda a reduzir os custos de suporte, aumentar a produtividade e a segurança e reduzir a frustração do usuário. O sistema inclui relatórios detalhados que controlam quando você acessa o sistema e notifica os administradores de uso indevido ou abuso.
 
-O painel de acesso do Azure Active Directory permite que os usuários:
+Usando o painel de acesso do AD do Azure, você pode:
 
-* Descubra e acesse todos os Azure Active Directory recursos conectados da sua empresa, como aplicativos.
-* Solicite acesso a novos aplicativos e grupos ou gerencie o acesso a esses recursos para outras pessoas.
-* Gerencie redefinições de senha de autoatendimento e configurações de autenticação multifator.
-* Gerencie seus dispositivos.
+* Descubra e acesse todos os recursos conectados ao Azure AD de sua empresa, como aplicativos
+* Solicitar acesso a novos aplicativos e grupos
+* Gerenciar o acesso a esses recursos para outras pessoas
+* Gerenciar redefinições de senha de autoatendimento e configurações de autenticação multifator do Azure
+* Gerenciar seus dispositivos
 
 Ele também permite que os administradores gerenciem:
 
@@ -40,41 +41,41 @@ Ele também permite que os administradores gerenciem:
 * Revisões de acesso
 
 
-## <a name="benefits-of-azure-active-directory-access-panel-integration"></a>Benefícios da integração do painel de acesso do Azure Active Directory
+## <a name="benefits-of-azure-ad-access-panel-integration"></a>Benefícios da integração do painel de acesso do Azure AD
 
-O painel de acesso do Microsoft Azure Active Directory (AD do Azure) beneficia as empresas das seguintes maneiras:
+O painel de acesso do AD do Azure beneficia as empresas das seguintes maneiras:
 
-**Fornece uma experiência de usuário intuitiva**: Habilitar o painel de acesso fornece aos usuários a capacidade de ter um único painel de inicialização para todos os seus aplicativos conectados de logon único do Azure. Como recursos como gerenciamento de grupo e redefinição de senha de autoatendimento são adicionados, os usuários continuam a ter um portal unificado para encontrar essas configurações. A experiência intuitiva permitirá que os usuários voltem a funcionar mais rapidamente e sejam mais produtivos, ao mesmo tempo em que reduzem sua frustração.
+**Fornece uma experiência de usuário intuitiva**: O painel de acesso fornece uma única plataforma para todos os seus aplicativos conectados ao SSO (logon único) do Azure. Você tem um portal unificado para encontrar configurações existentes e novos recursos, como gerenciamento de grupo e redefinição de senha de autoatendimento, conforme eles são adicionados. A experiência intuitiva permite que os usuários retornem para o trabalho mais rápido e sejam mais produtivos, ao mesmo tempo em que reduzem sua frustração.
 
-**Aumenta a produtividade**: Todos os aplicativos de usuário no painel de acesso têm o SSO (logon único) habilitado. Habilitar o logon único entre aplicativos empresariais e o Office 365 fornece uma experiência de entrada superior para os usuários existentes, reduzindo ou eliminando prompts de entrada adicionais. O painel de acesso permite o autoatendimento e a associação dinâmica e melhora a segurança geral do seu sistema de identidade, garantindo que as pessoas certas gerenciem o acesso aos aplicativos. O painel de acesso serve como uma página de aterrissagem coerente para que um usuário encontre recursos rapidamente e continue as tarefas de trabalho.
+**Aumenta a produtividade**: Todos os aplicativos de usuário no painel de acesso têm o SSO habilitado. Habilitar o SSO entre aplicativos empresariais e o Office 365 cria uma experiência de entrada superior ao reduzir ou eliminar prompts de entrada adicionais. O painel de acesso usa associação dinâmica e de autoatendimento e melhora a segurança geral do seu sistema de identidade. Ele faz isso garantindo que as pessoas certas gerenciam o acesso aos aplicativos. O painel de acesso serve como uma página de aterrissagem coerente para que você encontre recursos rapidamente e continue as tarefas de trabalho.
 
-**Gerencia o custo**: Habilitar o painel de acesso com Azure Active Directory pode permitir o dimissão de infraestruturas locais. Ele reduz os custos de suporte, permitindo que os usuários tenham um portal consistente para localizar todos os seus aplicativos, solicitar acesso a recursos e gerenciar sua conta.
+**Gerencia o custo**: Habilitar o painel de acesso com o Azure AD pode ajudar com o dibenefício das infraestruturas locais. Ele reduz os custos de suporte fornecendo um portal consistente para localizar todos os seus aplicativos, solicitar acesso a recursos e gerenciar contas.
 
-**Aumenta a flexibilidade e a segurança**: O painel de acesso permite que você acesse a segurança e a flexibilidade que uma plataforma de nuvem fornece. Os administradores podem facilmente alterar as configurações para aplicativos e recursos e acomodar novos requisitos de segurança sem afetar os usuários.
+**Aumenta a flexibilidade e a segurança**: O painel de acesso oferece acesso à segurança e à flexibilidade que uma plataforma de nuvem fornece. Os administradores podem facilmente alterar as configurações para aplicativos e recursos e podem acomodar novos requisitos de segurança sem afetar os usuários.
 
-**Permite o acompanhamento robusto da auditoria e do uso**: A auditoria e o acompanhamento de uso para todos os recursos do usuário final permitem que você saiba quando os usuários estão usando seus recursos e garante que você avalie a segurança.
+**Permite o acompanhamento robusto da auditoria e do uso**: A auditoria e o acompanhamento de uso para todos os recursos de usuário permitem que você saiba quando os usuários estão usando seus recursos e garante que você possa avaliar a segurança.
 
 ### <a name="licensing-considerations"></a>Considerações sobre licenciamento
 
-O painel de acesso é gratuito e não requer licenças para usar em um todos os usuários básicos. No entanto, o número de objetos em seu diretório e os recursos que você deseja implantar podem exigir licenças adicionais. Os cenários comuns do AD do Azure incluem os seguintes recursos de segurança que têm requisitos de licenciamento.
+O painel de acesso é gratuito e não requer licenças para usar em um nível básico. No entanto, o número de objetos em seu diretório e os recursos adicionais que você deseja implantar podem exigir licenças adicionais. Alguns cenários comuns do AD do Azure que têm requisitos de licenciamento incluem os seguintes recursos de segurança:
 
 * [Autenticação Multifator do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
 * [Associação baseada em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Requisito de senha de autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Reposição personalizada de palavras-passe](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
-* [Proteção de identidade](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
-Consulte o [Guia de licenciamento completo para Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Consulte o [Guia de licenciamento completo do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Pré-requisitos para implantar o painel de acesso do AD do Azure
 
-Os pré-requisitos a seguir devem ser concluídos antes do início deste projeto.
+Conclua os seguintes pré-requisitos antes de iniciar este projeto:
 
-* [Integração de SSO de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
+* [Integrar SSO de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 
-* [Infraestrutura de usuário e grupo do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Gerenciar a infraestrutura de usuário e grupo do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-the-azure-ad-access-panel-deployment"></a>Planejar a implantação do painel de acesso do Azure AD
 
@@ -82,14 +83,14 @@ A tabela a seguir descreve os principais casos de uso para uma implantação do 
 
 | Área| Descrição |
 | - | - |
-| Aceder| O portal do painel de acesso pode ser acessado de dispositivos corporativos e pessoais na rede corporativa. |
-|Aceder | O portal do painel de acesso é acessível para dispositivos corporativos fora da rede corporativa. |
+| Acesso| O portal do painel de acesso pode ser acessado de dispositivos corporativos e pessoais na rede corporativa. |
+|Acesso | O portal do painel de acesso pode ser acessado de dispositivos corporativos fora da rede corporativa. |
 | Auditoria| Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias. |
-| Governação| O ciclo de vida das atribuições de usuário aos aplicativos e grupos conectados do Azure AD é definido e monitorado. |
+| Governação| O ciclo de vida das atribuições de usuário para aplicativos e grupos conectados ao Azure AD é definido e monitorado. |
 | Segurança| O acesso aos recursos é controlado por meio de atribuições de usuário e de grupo. Somente usuários autorizados podem gerenciar o acesso a recursos. |
 | Desempenho| As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. |
 | Experiência do usuário| Os usuários estão cientes dos recursos do painel de acesso e de como usá-los.|
-| Experiência do usuário| Os usuários podem gerenciar automaticamente seu acesso a aplicativos e grupos.|
+| Experiência do usuário| Os usuários podem gerenciar seu acesso a aplicativos e grupos.|
 | Experiência do usuário| Os usuários podem gerenciar suas contas. |
 | Experiência do usuário| Os usuários estão cientes da compatibilidade do navegador. |
 | Suporte| Os usuários podem encontrar suporte para problemas do painel de acesso. |
@@ -123,26 +124,26 @@ A tabela a seguir lista várias configurações importantes do painel de acesso 
 
 | Configuração| Valores típicos |
 | - | - |
-| Determinar os grupos-piloto| Identifique o grupo de segurança do Azure AD a ser usado e verifique se todos os membros do piloto fazem parte do grupo. |
-| Determine o grupo ou grupos a serem habilitados para produção.| Identifique o grupo de segurança do Azure AD ou os grupos do AD sincronizados com o Azure AD, a serem usados. Verifique se todos os membros do piloto fazem parte do grupo. |
-| Permitir que os usuários usem o logon único para quais tipos de aplicativos| SSO Federado, OAuth, SSO de senha, proxy de aplicativo |
-| Permitir que os usuários usem a redefinição de senha de autoatendimento| Sim |
+| Determinar os grupos piloto| Identifique o grupo de segurança do Azure AD a ser usado e verifique se todos os membros do piloto fazem parte do grupo. |
+| Determine o grupo ou grupos a serem habilitados para produção.| Identifique os grupos de segurança do Azure AD ou os grupos de Active Directory sincronizados com o Azure AD, a serem usados. Verifique se todos os membros do piloto fazem parte do grupo. |
+| Permitir que os usuários usem o SSO para determinados tipos de aplicativos| SSO Federado, OAuth, SSO de senha, proxy de aplicativo |
+| Permitir que os usuários usem a redefinição de senha de autoatendimento | Sim |
 | Permitir que os usuários usem a autenticação multifator| Sim |
-| Permitir que os usuários usem o gerenciamento de grupo de autoatendimento para quais tipos de grupos| Grupos de segurança, grupos do O365 |
+| Permitir que os usuários usem o gerenciamento de grupo de autoatendimento para determinados tipos de grupos| Grupos de segurança, grupos do Office 365 |
 | Permitir que os usuários usem o gerenciamento de aplicativo de autoatendimento| Sim |
 | Permitir que os usuários usem as revisões de acesso| Sim |
 
 ### <a name="plan-consent-strategy"></a>Planejar estratégia de consentimento
 
-Os usuários ou administradores devem consentir os termos de uso e as políticas de privacidade do aplicativo. Se possível dadas suas regras de negócios, aconselhamos o uso do consentimento do administrador, o que oferece aos usuários uma experiência melhor.
+Os usuários ou administradores devem consentir os termos de uso e as políticas de privacidade do aplicativo. Se possível, dadas suas regras de negócio, use o consentimento do administrador, o que oferece aos usuários uma experiência melhor.
 
-Para usar o consentimento do administrador, você deve ser um administrador global do locatário e os aplicativos devem ser:
+Para usar o consentimento do administrador, você deve ser um administrador global da organização e os aplicativos devem ser:
 
-* Registrado em seu locatário ou
+* Registrado em sua organização
 
-* Registrado em outro locatário do Azure AD e anteriormente consentido pelo menos um usuário final.
+* Registrado em outra organização do Azure AD e consentiu anteriormente por pelo menos um usuário
 
-Para obter mais informações, consulte [Configurar a maneira como os usuários finais consentim em um aplicativo no Azure Active Directory](configure-user-consent.md).
+Para obter mais informações, consulte [Configurar a maneira como os usuários finais concordam com um aplicativo no Azure Active Directory](configure-user-consent.md).
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
@@ -152,7 +153,7 @@ Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a ex
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Informe de forma proativa aos usuários como e quando sua experiência será alterada e como obter suporte, se necessário.
 
-Embora o painel de acesso normalmente não crie problemas de usuário, é importante se preparar. Crie guias e uma lista de todos os recursos para sua equipe de suporte antes do início.
+Embora o painel de acesso normalmente não crie problemas de usuário, é importante preparar-se. Crie guias e uma lista de todos os recursos para sua equipe de suporte antes do início.
 
 #### <a name="communications-templates"></a>Modelos de comunicação
 
@@ -160,39 +161,39 @@ A Microsoft fornece [modelos personalizáveis para emails e outras comunicaçõe
 
 ## <a name="plan-your-sso-configuration"></a>Planejar sua configuração de SSO
 
-Quando um usuário entra em um aplicativo, ele passa por um processo de autenticação e precisa provar quem eles estão. Sem logon único, uma senha armazenada no aplicativo e o usuário precisa saber essa senha. Com credenciais de usuários de logon único (SSO) são passadas para o aplicativo para que não precisem reinserir senhas para cada aplicativo.
+Quando um usuário entra em um aplicativo, ele passa por um processo de autenticação e precisa provar quem eles estão. Sem o SSO, uma senha é armazenada no aplicativo e o usuário precisa saber essa senha. Com o SSO, as credenciais dos usuários são passadas para o aplicativo, portanto, não precisam reinserir senhas para cada aplicativo.
 
-Para iniciar aplicativos em meus aplicativos, o SSO (logon único) deve ser habilitado para os aplicativos.
+Para iniciar aplicativos em meus aplicativos, o SSO deve estar habilitado.
 
-O Azure AD dá suporte a três maneiras diferentes de habilitar o [logon único para aplicativos](what-is-single-sign-on.md):
+O Azure AD dá suporte a três maneiras diferentes de habilitar o [logon único em aplicativos](what-is-single-sign-on.md):
 
 * **Logon único federado** 
-    * Permite que um aplicativo Redirecione para o Azure AD para autenticação de usuário em vez de solicitar uma senha. 
-    * O tem suporte para aplicativos que usam protocolos como SAML 2,0, WS-Federation ou OpenID Connect e é o modo mais avançado de logon único.
+    * Permite que um aplicativo Redirecione para o Azure AD para autenticação de usuário, em vez de solicitar uma senha. 
+    * Tem suporte para aplicativos que usam protocolos, como SAML 2,0, WS-Federation ou OpenID Connect, e é o modo mais avançado de logon único.
 
 * **Logon único baseado em senha** 
-    * Habilita o armazenamento de senha de aplicativo seguro e a reprodução usando uma extensão de navegador da Web ou aplicativo móvel. 
-    * Aproveita o processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas. Não é necessário que o usuário saiba a senha.
+    * Permite o armazenamento de senha de aplicativo seguro e a reprodução usando uma extensão de navegador da Web ou aplicativo móvel. 
+    * Aproveita o processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas. O usuário não precisa saber a senha.
 
 * **Logon único existente** 
-    * Permite que o Azure AD utilize qualquer logon único existente que tenha sido configurado para o aplicativo.
+    * Permite que o Azure AD Tire proveito de qualquer logon único existente que tenha sido configurado para o aplicativo.
     * Permite que esses aplicativos sejam vinculados aos portais do painel de acesso do Office 365 ou do Azure AD. 
     * Habilita relatórios adicionais no Azure AD quando os aplicativos são iniciados lá. 
     * Inclui o uso de Aplicativo Azure proxy e o modo de logon único vinculado.
 
 Saiba como configurar o modo SSO de um aplicativo aqui: [Logon único para aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Para obter a melhor experiência com a página meus aplicativos, é recomendável começar com a integração de aplicativos de nuvem disponíveis para SSO Federado. O SSO Federado permite que os usuários tenham uma experiência consistente com um único clique em seu aplicativo iniciando superfícies e tende a ser mais robusto no controle de configuração.
+Para obter a melhor experiência com a página meus aplicativos, comece com a integração de aplicativos em nuvem que estão disponíveis para SSO Federado. O SSO Federado permite que os usuários tenham uma experiência consistente com um único clique em seu aplicativo iniciando superfícies e tende a ser mais robusto no controle de configuração.
 
 Use o SSO Federado com o Azure AD (OpenID Connect/SAML) quando um aplicativo oferecer suporte a ele, em vez de SSO baseado em senha e ADFS.
 
-Para obter mais informações sobre como implantar e configurar aplicativos SaaS, consulte o [plano de implantação de SSO do SaaS](https://aka.ms/deploymentplans/sso).
+Para obter mais informações sobre como implantar e configurar seus aplicativos SaaS, consulte o [plano de implantação de SSO do SaaS](https://aka.ms/deploymentplans/sso).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planejar a implantação da extensão do navegador meus aplicativos
 
-Se os aplicativos de SSO baseados em senha forem disponibilizados para os usuários finais, eles precisarão instalar a extensão de entrada segura de meus aplicativos para entrar. A extensão executa um script que transmite a senha para o formulário de entrada do aplicativo. Os usuários serão solicitados a instalar a extensão quando iniciarem o aplicativo SSO baseado em senha pela primeira vez. Mais informações sobre a extensão podem ser encontradas em nossa documentação sobre [a instalação da extensão do navegador do painel de acesso](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
+Quando os usuários entram em aplicativos de SSO baseados em senha, eles precisam instalar e usar a extensão de entrada segura dos meus aplicativos. A extensão executa um script que transmite a senha para o formulário de entrada do aplicativo. Os usuários são solicitados a instalar a extensão quando iniciam o aplicativo SSO baseado em senha pela primeira vez. Mais informações sobre a extensão podem ser encontradas nesta documentação sobre como [instalar a extensão do navegador do painel de acesso](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
 
-Se for necessário integrar aplicativos SSO baseados em senha, você deverá definir um mecanismo para implantar a extensão em escala com os [navegadores com suporte](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). As opções incluem:
+Se você precisar integrar aplicativos SSO baseados em senha, defina um mecanismo para implantar a extensão em escala com os [navegadores com suporte](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). As opções incluem:
 
 * [Política de Grupo para o Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
@@ -210,7 +211,7 @@ Veja o que o usuário verá ao iniciar um aplicativo SSO baseado em senha pela p
 
 #### <a name="plan-for-mobile-access"></a>Planejar o acesso móvel
 
-Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Managed Browser) será necessário para que os usuários móveis iniciem aplicativos de SSO baseados em senha. Um navegador protegido por política permite a transferência da senha salva para o aplicativo. O Microsoft Edge ou o navegador gerenciado fornece um conjunto de recursos de proteção de dados da Web. Você também pode usar o Microsoft Edge para cenários empresariais em dispositivos iOS e Android. O Microsoft Edge dá suporte aos mesmos cenários de gerenciamento que o Intune Managed Browser e melhora a experiência do usuário final. Saiba mais: [Gerenciar o acesso à Web usando um navegador protegido por política Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Managed Browser) é necessário para usuários móveis que iniciam aplicativos de SSO baseados em senha. Um navegador protegido por política permite a transferência da senha salva para o aplicativo. O Microsoft Edge ou o navegador gerenciado fornece um conjunto de recursos de proteção de dados da Web. Você também pode usar o Microsoft Edge para cenários empresariais em dispositivos iOS e Android. O Microsoft Edge dá suporte aos mesmos cenários de gerenciamento que o Intune Managed Browser e melhora a experiência do usuário. Saiba mais: [Gerencie o acesso à Web usando um navegador Microsoft Intune protegido por política](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Planejar a implantação de meus aplicativos
 
@@ -220,44 +221,45 @@ A base do painel de acesso é o iniciador do aplicativo meus aplicativos, que os
 
 Os mesmos aplicativos serão mostrados no iniciador de aplicativos do Office 365 quando os usuários estiverem usando o portal do Office 365.
 
-Planeje a ordem na qual você adicionará aplicativos ao iniciador meus aplicativos e se você os fará de forma gradual ou todos de uma só vez. Para fazer isso, crie um inventário de aplicativos listando o tipo de autenticação e quaisquer integrações de SSO (logon único) existentes para cada aplicativo.
+Planeje a ordem na qual você adicionará aplicativos ao iniciador meus aplicativos e decida se irá distribuí-los gradualmente ou todos de uma vez. Para fazer isso, crie um inventário de aplicativos listando o tipo de autenticação e todas as integrações de SSO existentes para cada aplicativo.
 
 #### <a name="add-applications-to-the-my-apps-panel"></a>Adicionar aplicativos ao painel meus aplicativos
 
-Qualquer aplicativo habilitado para SSO do Azure AD pode ser adicionado ao inicializador meus aplicativos. Outros aplicativos são adicionados usando a opção de SSO vinculado. Você pode configurar um bloco de aplicativo que se vincule à URL do seu aplicativo Web existente. O SSO vinculado permite que você comece a direcionar usuários para o portal meus aplicativos sem precisar migrar todos os aplicativos para Azure Active Directory SSO. Você pode migrar gradualmente para os aplicativos configurados pelo SSO do Azure AD sem interromper a experiência dos usuários.
+Qualquer aplicativo habilitado para SSO do Azure AD pode ser adicionado ao inicializador meus aplicativos. Outros aplicativos são adicionados usando a opção de SSO vinculado. Você pode configurar um bloco de aplicativo que se vincule à URL do seu aplicativo Web existente. O SSO vinculado permite que você comece a direcionar usuários para o portal meus aplicativos sem migrar todos os aplicativos para o SSO do Azure AD. Você pode migrar gradualmente para os aplicativos configurados pelo SSO do Azure AD sem interromper a experiência dos usuários.
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planejar se deseja usar meus aplicativos ou um portal existente
 
-Seus usuários já podem ter um aplicativo ou portal diferente de meus aplicativos. Nesse caso, decida se os dois portais serão compatíveis ou se você usará apenas um.
+Os usuários podem já ter um aplicativo ou portal diferente de meus aplicativos. Nesse caso, decida se deseja dar suporte a ambos os portais ou usar apenas um.
 
-Se um portal existente já estiver sendo usado como um ponto de partida para os usuários, você poderá integrar a funcionalidade de meus aplicativos usando "URLs de acesso do usuário". As URLs de acesso do usuário funcionam como links diretos para os aplicativos disponíveis no portal meus aplicativos. Essas URLs podem ser inseridas em qualquer site existente. Quando um usuário clica no link, ele inicia o aplicativo no portal meus aplicativos.
+Se um portal existente já estiver sendo usado como um ponto de partida para os usuários, você poderá integrar a funcionalidade de aplicativos usando as URLs de acesso do usuário. As URLs de acesso do usuário funcionam como links diretos para os aplicativos disponíveis no portal meus aplicativos. Essas URLs podem ser inseridas em qualquer site existente. Quando um usuário seleciona o link, ele abre o aplicativo no portal meus aplicativos.
 
-Você pode encontrar a propriedade URL de acesso do usuário na área Propriedades do aplicativo na portal do Azure.
+Você pode encontrar a propriedade URL de acesso do usuário na área **Propriedades** do aplicativo na portal do Azure.
 
 ![Uma captura de tela do painel de aplicativos](media/access-panel-deployment-plan/ap-dp-user-access-url.png)
 
 
 ## <a name="plan-self-service-application-discovery-and-access"></a>Planejar descoberta e acesso de aplicativos de autoatendimento
 
-Depois que um conjunto principal de aplicativos é implantado na página meus aplicativos de um usuário, é recomendável habilitar recursos de gerenciamento de aplicativo de autoatendimento. A descoberta de aplicativo de autoatendimento permite:
-* Os usuários encontrem novos aplicativos que eles podem adicionar aos meus aplicativos. 
-* Os usuários podem adicionar aplicativos opcionais que você talvez não saiba que precisam durante a instalação.
+Depois que um conjunto principal de aplicativos é implantado na página meus aplicativos de um usuário, você deve habilitar os recursos de gerenciamento de aplicativo de autoatendimento. A descoberta de aplicativos de autoatendimento permite que os usuários:
+
+* Encontre novos aplicativos para adicionar aos meus aplicativos. 
+* Adicione aplicativos opcionais que eles podem não saber que precisam durante a instalação.
 
 Os fluxos de trabalho de aprovação estão disponíveis para aprovação explícita para acessar aplicativos. Os usuários que são aprovadores receberão notificações no portal meus aplicativos quando houver uma solicitação pendente de acesso ao aplicativo.
 
 ## <a name="plan-self-service-group-membership"></a>Planejar Associação de grupo de autoatendimento 
 
-Você pode permitir que os usuários criem e gerenciem seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (AD do Azure). O proprietário do grupo pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Os recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas para email.
+Você pode permitir que os usuários criem e gerenciem seus próprios grupos de segurança ou grupos do Office 365 no Azure AD. O proprietário do grupo pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Os recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas para email.
 
-Para planejar a associação de grupo de autoatendimento, determine se você permitirá que todos os usuários em sua organização criem e gerenciem grupos ou apenas um subconjunto de usuários. Se um subconjunto de usuários, você precisará configurar um grupo ao qual essas pessoas são adicionadas. Consulte [Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para obter detalhes sobre como habilitar esses cenários.
+Para planejar a associação de grupo de autoatendimento, determine se você permitirá que todos os usuários em sua organização criem e gerenciem grupos ou apenas um subconjunto de usuários. Se você estiver permitindo um subconjunto de usuários, precisará configurar um grupo ao qual essas pessoas são adicionadas. Consulte [Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para obter detalhes sobre como habilitar esses cenários.
 
 ## <a name="plan-reporting-and-auditing"></a>Planejar relatórios e auditoria
 
-O Azure AD fornece [relatórios que oferecem informações técnicas e de negócios](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Trabalhe com seus proprietários de aplicativos técnicos e de negócios para assumir a propriedade e consumir esses relatórios regularmente. A tabela a seguir fornece alguns exemplos de cenários de relatório típicos.
+O Azure AD fornece [relatórios que oferecem informações técnicas e de negócios](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Trabalhe com seus proprietários de aplicativos técnicos e de negócios para assumir a propriedade desses relatórios e consumi-los regularmente. A tabela a seguir fornece alguns exemplos de cenários de relatório típicos.
 
 |   | Faça a gestão do risco.| Aumentar a produtividade| Governação e conformidade |
 |  - |- | - | - |
-| Tipos de relatório|  Uso e permissões do aplicativo.| Atividade de provisionamento de conta| Revisar quem está acessando os aplicativos |
+| Tipos de relatório|  Permissões e uso do aplicativo| Atividade de provisionamento de conta| Revisar quem está acessando os aplicativos |
 | Ações potenciais| Acesso de auditoria; revogar permissões| Corrigir quaisquer erros de provisionamento| Revogar acesso |
 
 O Azure AD mantém a maioria dos dados de auditoria por 30 dias. Os dados estão disponíveis por meio do portal de administração do Azure ou da API para que você faça o download em seus sistemas de análise.
@@ -266,11 +268,11 @@ O Azure AD mantém a maioria dos dados de auditoria por 30 dias. Os dados estão
 
 Os logs de auditoria para acesso ao aplicativo estão disponíveis por 30 dias. Se a auditoria de segurança em sua empresa exigir maior retenção, os logs precisarão ser exportados para uma ferramenta SIEM (Event Information and Management, gerenciamento de informações de segurança), como Splunk ou ArcSight.
 
-Para backups de auditoria, relatórios e recuperação de desastres, documente a frequência necessária de download, o sistema de destino é e quem é responsável por gerenciar cada backup. Talvez você não precise de backups de auditoria e de relatórios separados. O backup de recuperação de desastre deve ser uma entidade separada.
+Para backups de auditoria, relatórios e recuperação de desastres, documente a frequência necessária de download, o que é o sistema de destino e quem é responsável por gerenciar cada backup. Talvez você não precise de backups de auditoria e de relatórios separados. O backup de recuperação de desastre deve ser uma entidade separada.
 
 ## <a name="deploy-applications-to-users-my-apps-panel"></a>Implantar aplicativos no painel meus aplicativos dos usuários
 
-Depois que um aplicativo tiver sido configurado para SSO, os grupos receberão acesso. Os usuários nos grupos atribuídos terão acesso e verão o aplicativo em seus aplicativos e no iniciador de aplicativos do Office 365
+Depois que um aplicativo tiver sido configurado para SSO, os grupos receberão acesso. Os usuários nos grupos atribuídos terão acesso, e eles verão o aplicativo em seus aplicativos e no iniciador de aplicativos do Office 365.
 
 Consulte [atribuir usuários e grupos a um aplicativo no Active Directory](methods-for-assigning-users-and-groups.md).
 
@@ -278,19 +280,19 @@ Se, durante o teste ou a implantação, você quiser adicionar os grupos, mas ai
 
 ### <a name="deploy-microsoft-office-365-applications-to-my-apps"></a>Implantar aplicativos Microsoft Office 365 em meus aplicativos
 
-Para aplicativos do Office 365, os usuários recebem uma cópia do Office com base em licenças atribuídas a eles. Um pré-requisito para o acesso aos aplicativos do Office é atribuir usuários às licenças corretas vinculadas aos aplicativos do Office. Quando você atribuir a um usuário a licença, eles verão automaticamente os aplicativos associados à licença em sua página meus aplicativos e no inicializador de aplicativos do O365.
+Para aplicativos do Office 365, os usuários recebem uma cópia do Office com base em licenças atribuídas a eles. Um pré-requisito para o acesso aos aplicativos do Office é que os usuários recebam as licenças corretas vinculadas aos aplicativos do Office. Quando você atribui um usuário a uma licença, ele verá automaticamente os aplicativos associados à licença em sua página meus aplicativos e no iniciador de aplicativos do Office 365.
 
-Se você quiser ocultar um conjunto de aplicativos do Office de usuários, há uma opção para ocultar aplicativos do portal meus aplicativos e, ao mesmo tempo, permitir o acesso do portal do O365. Encontre essas configurações na parte configurações do usuário do aplicativo. Saiba mais: [Ocultar um aplicativo da experiência do usuário em Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
+Se você quiser ocultar um conjunto de aplicativos do Office de usuários, há uma opção para ocultar aplicativos do portal meus aplicativos e, ao mesmo tempo, permitir o acesso do portal do Office 365. Encontre essas configurações na parte configurações do usuário do aplicativo. Saiba mais: [Ocultar um aplicativo da experiência do usuário em Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ![Uma captura de tela da configuração de como ocultar aplicativos](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
 
 ### <a name="deploy-application-self-service-capabilities"></a>Implantar recursos de autoatendimento de aplicativo
 
-O acesso ao aplicativo de autoatendimento permite que os usuários autodescubram e solicitem acesso a qualquer aplicativo. Os usuários recebem a liberdade de obter acesso aos aplicativos de que precisam sem passar por um grupo de ti a cada vez para solicitar acesso. Quando um usuário solicita acesso e é aprovado automaticamente ou manualmente por um proprietário de aplicativo, eles são adicionados a um grupo no back-end. O relatório está habilitado em quem solicitou, aprovou ou removeu o acesso e dá a você controle sobre o gerenciamento das funções atribuídas.
+O acesso de aplicativo de autoatendimento permite que os usuários autodescubram e solicitem acesso a aplicativos. Os usuários têm a liberdade de acessar os aplicativos de que precisam sem passar por um grupo de ti a cada vez para solicitar acesso. Quando um usuário solicita acesso e é aprovado, seja automaticamente ou manualmente por um proprietário de aplicativo, eles são adicionados a um grupo no back-end. O relatório está habilitado em quem solicitou, aprovou ou removeu o acesso e oferece controle sobre o gerenciamento das funções atribuídas.
 
-Você pode delegar a aprovação de solicitações de acesso do aplicativo para os aprovadores de negócios. O aprovador de negócios pode definir as senhas de acesso ao aplicativo diretamente na página meus aplicativos do aprovador de negócios.
+Você pode delegar a aprovação de solicitações de acesso do aplicativo para os aprovadores de negócios. O aprovador de negócios pode definir as senhas de acesso do aplicativo na página meus aplicativos do aprovador de negócios.
 
-Saiba mais: [Como usar o acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)
+Saiba mais: [Como usar o acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
 
 ![Uma captura de tela de configuração do gerenciamento de aplicativos de autoatendimento](media/access-panel-deployment-plan/ap-dp-salesforce.png)
 
@@ -298,7 +300,7 @@ Saiba mais: [Como usar o acesso de aplicativo de autoatendimento](https://docs.m
 
 Verifique se a implantação do painel de acesso foi exaustivamente testada e se um plano de reversão está em vigor.
 
-Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporativa e dispositivos pessoais. Esses casos de teste também devem refletir seus casos de uso de negócios. A seguir estão alguns casos com base nos requisitos de negócios de exemplo deste documento e em cenários técnicos típicos. Adicione outras pessoas específicas às suas necessidades.
+Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporativa e dispositivos pessoais. Esses casos de teste também devem refletir seus casos de uso de negócios. A seguir estão alguns casos com base nos requisitos de negócios de exemplo neste documento e em cenários técnicos típicos. Adicione outras pessoas específicas às suas necessidades.
 
 #### <a name="application-sso-access-test-case-examples"></a>Exemplos de casos de teste de acesso de SSO de aplicativo:
 
@@ -309,7 +311,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 | O usuário inicia um aplicativo SSO Federado| O usuário é conectado automaticamente ao aplicativo |
 | O usuário inicia um aplicativo de SSO de senha pela primeira vez| O usuário precisa instalar a extensão meus aplicativos |
 | O usuário inicia um aplicativo de SSO de senha uma hora subsequente| O usuário é conectado automaticamente ao aplicativo |
-| O usuário inicia um aplicativo do portal do O365| O usuário é conectado automaticamente ao aplicativo |
+| O usuário inicia um aplicativo no portal do Office 365| O usuário é conectado automaticamente ao aplicativo |
 | O usuário inicia um aplicativo do Managed Browser| O usuário é conectado automaticamente ao aplicativo |
 
 
@@ -323,28 +325,28 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 ### <a name="rollback-steps"></a>Etapas de reversão
 
-É importante planejar o que fazer caso sua implantação não vá conforme planejado. Se a configuração de SSO falhar durante a implantação, você deve entender como [solucionar problemas de SSO](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) e reduzir o impacto para os usuários. Em circunstâncias extremas, talvez seja necessário [reverter o SSO](../manage-apps/plan-sso-deployment.md).
+É importante planejar o que fazer se a sua implantação não for planejada. Se a configuração de SSO falhar durante a implantação, você deve entender como [solucionar problemas de SSO](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) e reduzir o impacto para os usuários. Em circunstâncias extremas, talvez seja necessário [reverter o SSO](../manage-apps/plan-sso-deployment.md).
 
 
 ## <a name="manage-your-implementation"></a>Gerenciar sua implementação
 
-A Microsoft recomenda usar a função menos privilegiada para realizar uma tarefa necessária dentro de Azure Active Directory. A Microsoft recomenda [examinar as diferentes funções disponíveis](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e escolher a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
+Você deve usar a função menos privilegiada para realizar uma tarefa necessária dentro de Azure Active Directory. [Examine as diferentes funções que estão disponíveis](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
 
 | Pessoas fictícias| Funções| Função do Azure AD  |
 | - | -| -|
 | Administrador de assistência técnica| Suporte da camada 1| Nenhum |
-| Administrador de identidade| Configurar e depurar quando os problemas afetam o Azure AD| Admin Global |
+| Administrador de identidade| Configurar e depurar quando os problemas afetam o Azure AD| Administrador global |
 | Administrador do aplicativo| Atestado de usuário no aplicativo, configuração de usuários com permissões| Nenhum |
-| Administradores de infraestrutura| Proprietário da substituição do certificado| Admin Global |
+| Administradores de infraestrutura| Proprietário da substituição do certificado| Administrador global |
 | Proprietário da empresa/participante| Atestado de usuário no aplicativo, configuração de usuários com permissões| Nenhum |
 
-É recomendável usar [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
+Você pode usar [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 
 ### <a name="troubleshoot-access-panel-issues"></a>Solucionar problemas do painel de acesso
 
-Crie guias de solução de problemas para sua organização de suporte com cenários comuns e apontando para a documentação da Microsoft sobre suas resoluções. Talvez você queira criar guias que interrompem o suporte nas camadas usadas pela sua organização.
+Crie guias de solução de problemas para sua organização de suporte com cenários comuns, que apontam para a documentação da Microsoft em suas resoluções. Talvez você queira criar guias que interrompem o suporte nas camadas usadas pela sua organização.
 
-Consulte os guias de solução de problemas abaixo para referência:
+Consulte estes guias de solução de problemas para referência:
 
 [Aplicativos não aparecendo](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
 
@@ -356,6 +358,6 @@ Consulte os guias de solução de problemas abaixo para referência:
 
 [Problemas com a extensão do navegador](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Planejar uma implantação de Azure Active Directory autenticação multifator](https://aka.ms/deploymentplans/mfa)
+[Planejar uma implantação da autenticação multifator do Azure](https://aka.ms/deploymentplans/mfa)

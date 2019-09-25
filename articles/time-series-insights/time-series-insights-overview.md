@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0c65f364e9e72d87d6618944ab296354e03a1fc
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 706960f18080b4883735195b21ed05c3763e8617
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736184"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264503"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
@@ -91,7 +91,7 @@ Este diagrama mostra um exemplo de dados de análises de séries temporais exibi
 
 ![Explorador do Time Series Insights](media/time-series-insights-explorer/explorer4.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Explore a Azure Time Series Insights ambiente de [demonstração gratuita](./time-series-quickstart.md)de disponibilidade geral.
 - Saiba mais sobre como [planejar seu ambiente de time Series insights](time-series-insights-environment-planning.md) .

@@ -8,14 +8,13 @@ ms.service: search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: cmacdo
-ms.subservice: cognitive-search
-ms.openlocfilehash: 407fd246313e582a3d28a6cbb474edefecd7f0af
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.author: chalton
+ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183323"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265717"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
 
@@ -48,7 +47,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada     | Descrição |
+| Introduzir nome     | Descrição |
 |--------------------|-------------|
 | text | O texto a ser traduzido.|
 | toLanguageCode    | Uma cadeia de caracteres que indica o idioma no qual o texto deve ser convertido. Se essa entrada não for especificada, o defaultToLanguageCode será usado para traduzir o texto. <br/>Veja a [lista completa de idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|

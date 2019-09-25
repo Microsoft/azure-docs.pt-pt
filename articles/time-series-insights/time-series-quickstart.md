@@ -10,13 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 07/29/2019
-ms.openlocfilehash: 04bd4378a0820444ab31c9c696e58fccf3026d14
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 09/23/2019
+ms.openlocfilehash: b5fb0c4de82d5ff5f5290127ec529787cabad64a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720891"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258347"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Início rápido: Explorar o Azure Time Series Insights
 
@@ -88,7 +88,7 @@ Agora que você concluiu o tutorial, limpe os recursos que criou:
 1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, localize o grupo de recursos Azure Time Series insights.
 1. Exclua todo o grupo de recursos (e todos os recursos contidos nele) selecionando **excluir** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você está pronto para criar seu próprio ambiente de Time Series Insights:
 > [!div class="nextstepaction"]

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 27e927425faec045c4f304ae6de155f2337307d9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 67bddea31a4bb375657b0df5e21fab1ab3d732f5
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104677"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265559"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -68,7 +68,7 @@ Um serviço de vínculo privado especifica as seguintes propriedades:
  
 - Um único serviço de vínculo privado pode ser acessado de vários pontos de extremidade privados que pertencem a diferentes VNets, assinaturas e/ou locatários Active Directory. A conexão é estabelecida por meio de um fluxo de trabalho de conexão. 
  
-- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
  
 - O serviço de vínculo privado pode ter mais de uma configuração de IP NAT vinculada a ela. A escolha de mais de uma configuração de IP NAT pode ajudar os provedores de serviços a dimensionar. Hoje, os provedores de serviços podem atribuir até oito endereços IP de NAT por serviço de vínculo privado. Com cada endereço IP de NAT, você pode atribuir mais portas para suas conexões TCP e, portanto, escalar horizontalmente. Depois de adicionar vários endereços IP NAT a um serviço de vínculo privado, você não pode excluir os endereços IP de NAT. Isso é feito para garantir que as conexões ativas não sejam afetadas durante a exclusão dos endereços IP de NAT.
 
@@ -104,6 +104,6 @@ A seguir estão as limitações conhecidas ao usar o serviço de link privado:
 - Não há suporte para criar e gerenciar a experiência do portal do Azure
 - As informações de conexão dos clientes usando o protocolo proxy não estão disponíveis para o provedor de serviços
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
 - [Criar um serviço de vínculo privado usando CLI do Azure](create-private-link-service-cli.md)

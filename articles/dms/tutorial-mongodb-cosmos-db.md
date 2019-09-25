@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/04/2019
-ms.openlocfilehash: baf3c372d0c84d4daf439fdc92fa6eeac5d12d0b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 09/25/2019
+ms.openlocfilehash: 96540a8ea40efcc3a2d115980999c8d470b85180
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501026"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265955"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: Migrar o MongoDB para a API do Azure Cosmos DB para MongoDB offline usando DMS
 
@@ -117,6 +117,9 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 1. Na tela **detalhes da origem** , especifique os detalhes de conexão para o servidor MongoDB de origem.
 
+   > [!IMPORTANT]
+   > O serviço de migração de banco de dados do Azure não oferece suporte a Azure Cosmos DB como origem.
+
     Há três modos para se conectar a uma fonte:
    * **Modo padrão**, que aceita um nome de domínio totalmente qualificado ou um endereço IP, número da porta e credenciais de conexão.
    * **Modo de cadeia de conexão**, que aceita uma cadeia de conexão do MongoDB, conforme descrito no [formato URI da cadeia de conexão](https://docs.mongodb.com/manual/reference/connection-string/)do artigo.
@@ -165,7 +168,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
     Se a cadeia de caracteres **Create** aparecer ao lado do nome do banco de dados, isso indica que o serviço de migração de banco de dados do Azure não encontrou o banco de dados de destino e o serviço criará o banco de dados para você.
 
-    Neste ponto da migração, você pode provisionar a [taxa de transferência](https://docs.microsoft.com/azure/cosmos-db/set-throughput). No Cosmos DB, é possível provisionar a taxa de transferência no nível do banco de dados ou individualmente para cada coleção. A taxa de transferência é medida em [unidades de solicitação](https://docs.microsoft.com/azure/cosmos-db/request-units) (RUs). Saiba mais sobre [preços de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+    Neste ponto da migração, você pode [provisionar a taxa de transferência](https://docs.microsoft.com/azure/cosmos-db/set-throughput). No Cosmos DB, é possível provisionar a taxa de transferência no nível do banco de dados ou individualmente para cada coleção. A taxa de transferência é medida em [unidades de solicitação](https://docs.microsoft.com/azure/cosmos-db/request-units) (RUs). Saiba mais sobre [preços de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
     ![Mapa para as bases de dados de destino](media/tutorial-mongodb-to-cosmosdb/dms-map-target-databases.png)
 
@@ -220,6 +223,6 @@ Depois de migrar os dados armazenados no banco de dados MongoDB para a API do Az
 
 * [Informações do serviço Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Examine as diretrizes de migração para ver cenários adicionais no [Guia de migração de banco de dados](https://datamigration.microsoft.com/)da Microsoft.

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989173"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262213"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
-O Azure Monitor maximiza a disponibilidade e o desempenho de seus aplicativos, fornecendo uma solução abrangente para coletar, analisar e agir na telemetria de seus ambientes de nuvem e locais. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem.
+O Azure Monitor maximiza a disponibilidade e o desempenho das aplicações ao disponibilizar uma solução abrangente para recolher, analisar e agir na telemetria dos ambientes na cloud e no local. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
@@ -57,7 +57,7 @@ Azure Monitor pode coletar dados de uma variedade de fontes. Você pode consider
 
 Assim que você criar uma assinatura do Azure e começar a adicionar recursos, como máquinas virtuais e aplicativos Web, Azure Monitor começará a coletar dados.  [Os logs de atividade](platform/activity-logs-overview.md) registram quando os recursos são criados ou modificados. [](platform/data-platform.md) As métricas informam como o recurso está sendo executado e os recursos que ele está consumindo. 
 
-Estenda os dados que você está coletando para a operação real dos recursos, habilitando o [diagnóstico](platform/diagnostic-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para computar recursos. Isso coletará a telemetria para a operação interna do recurso e permitirá que você configure diferentes [fontes de dados](platform/agent-data-sources.md) para coletar logs e métricas do sistema operacional convidado Windows e Linux. 
+Estenda os dados que você está coletando para a operação real dos recursos, habilitando o [diagnóstico](platform/resource-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para computar recursos. Isso coletará a telemetria para a operação interna do recurso e permitirá que você configure diferentes [fontes de dados](platform/agent-data-sources.md) para coletar logs e métricas do sistema operacional convidado Windows e Linux. 
 
 Habilite o monitoramento do [aplicativo de serviços de aplicativos](app/azure-web-apps.md) ou da VM e do aplicativo do conjunto de dimensionamento de [máquinas virtuais](app/azure-vm-vmss-apps.md)para permitir que Application insights colete informações detalhadas sobre o aplicativo, incluindo exibições de página, solicitações de aplicativo e exceção. Verifique melhor a disponibilidade do seu aplicativo Configurando um [teste de disponibilidade](app/monitor-web-app-availability.md) para simular o tráfego do usuário.
 
@@ -140,7 +140,7 @@ Os [aplicativos lógicos](https://azure.microsoft.com/services/logic-apps) são 
 ### <a name="api"></a>API
 Várias APIs estão disponíveis para ler e gravar métricas e logs de e para Azure Monitor além de acessar alertas gerados. Você também pode configurar e recuperar alertas. Isso fornece possibilidades essencialmente ilimitadas para criar soluções personalizadas que se integram ao Azure Monitor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre:
 
 * [Métricas e logs](platform/data-platform.md) para os dados coletados por Azure monitor.

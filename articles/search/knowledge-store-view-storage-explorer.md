@@ -4,16 +4,15 @@ description: Exiba e analise uma loja de conhecimento Azure Search com o Gerenci
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 6c90cec91e85f64397f70b015ffde15a2ea6deaf
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962974"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265606"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir uma loja de conhecimento com Gerenciador de Armazenamento
 
@@ -56,7 +55,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como conectar essa loja de conhecimento a Power BI, consulte o artigo a seguir.
 

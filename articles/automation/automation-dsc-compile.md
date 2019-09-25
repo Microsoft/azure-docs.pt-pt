@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d72b474e5f5e62ded6423fcc756e1cd51b905f4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850670"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265131"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilando configurações DSC na configuração de estado da automação do Azure
 
@@ -69,7 +69,7 @@ $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any
 
 A declaração de parâmetro em configurações DSC, incluindo tipos de parâmetro e propriedades, funciona da mesma forma que nos runbooks de automação do Azure. Consulte [iniciando um runbook na automação do Azure](automation-starting-a-runbook.md) para saber mais sobre parâmetros de runbook.
 
-O exemplo a seguir usa dois parâmetros chamados FeatureName e ispresente, para determinar os valores das propriedades na configuração do nó **ParametersExample. Sample** , gerada durante a compilação.
+O exemplo a seguir usa dois parâmetros chamados **FeatureName** e **ispresente**, para determinar os valores das propriedades na configuração do nó **ParametersExample. Sample** , gerada durante a compilação.
 
 ```powershell
 Configuration ParametersExample
@@ -120,7 +120,7 @@ $Parameters = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ParametersExample' -Parameters $Parameters
 ```
 
-Para obter informações sobre como passar PSCredentials como parâmetros, consulte [ativos](#credential-assets) de credencial abaixo.
+Para obter informações sobre como passar PSCredentials como parâmetros, consulte [ativos de credencial](#credential-assets) abaixo.
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Compilando configurações na automação do Azure que contêm recursos de composição
 
@@ -259,7 +259,7 @@ Uma configuração de nó assinado é verificada localmente em um nó gerenciado
 > [!NOTE]
 > Um arquivo de configuração de nó não deve ter mais de 1 MB para permitir que ele seja importado para a automação do Azure.
 
-Para obter mais informações sobre como assinar configurações de nó, consulte [melhorias no WMF 5,1-como assinar a configuração e o módulo](/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations).
+Para obter mais informações sobre como assinar configurações de nó, consulte [melhorias no WMF 5,1-como assinar a configuração e o módulo](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations).
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>Compilando uma configuração no Windows PowerShell
 
@@ -287,7 +287,7 @@ Você pode usar o cmdlet [Import-AzureRmAutomationDscNodeConfiguration](/powersh
 Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [introdução à configuração de estado de automação do Azure](automation-dsc-getting-started.md)
 - Para saber mais sobre como compilar configurações DSC para que você possa atribuí-las aos nós de destino, consulte [compilando configurações na configuração de estado da automação do Azure](automation-dsc-compile.md)

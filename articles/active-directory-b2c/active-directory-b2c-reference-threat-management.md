@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065426"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256907"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerenciar ameaças a recursos e dados no Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ Os 10 primeiros períodos de bloqueio têm um minuto de duração. Os próximos 
 
 Para gerenciar as configurações de proteção de senha, incluindo o limite de bloqueio:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior direito do portal e, em seguida, selecione seu locatário Azure ad B2C.
-1. Selecione **Azure Active Directory** no menu à esquerda (ou selecione **todos os serviços** na seção superior esquerda do portal, em seguida, procure e selecione *Azure Active Directory*).
-1. Em **segurança**, selecione **métodos de autenticação**e, em seguida, **proteção por senha**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Use o filtro **diretório + assinatura** no menu superior para selecionar o diretório que contém seu locatário Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Em **segurança**, selecione **métodos de autenticação (versão prévia)** e selecione **proteção por senha**.
 1. Insira as configurações de proteção de senha desejadas e, em seguida, selecione **salvar**.
 
     ![Página de proteção de senha portal do Azure nas configurações do Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

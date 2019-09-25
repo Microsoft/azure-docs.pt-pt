@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 467ec25bb9e41180da36f118094324e4fea48cf8
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982968"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266106"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
@@ -34,7 +34,7 @@ Há três etapas gerais para configurar uma conexão de gateway transparente bem
 
 Para que um dispositivo funcione como um gateway, ele precisa ser capaz de se conectar com segurança a seus dispositivos downstream. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para configurar ligações seguras entre dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente. Para manter a segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo de gateway. Essa verificação de identidade impede que os dispositivos se conectem a gateways potencialmente mal-intencionados.
 
-Um dispositivo de downstream pode ser qualquer aplicação ou a plataforma que têm uma identidade criada com o [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub) serviço em nuvem. Em muitos casos, estas aplicações se utilizar o [do Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Para todos os fins práticos, um dispositivo de downstream ainda pode ser uma aplicação em execução no dispositivo de gateway do IoT Edge em si. 
+Um dispositivo downstream em um cenário de gateway transparente pode ser qualquer aplicativo ou plataforma que tenha uma identidade criada com o serviço de nuvem do [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub) . Em muitos casos, estas aplicações se utilizar o [do Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Para todos os fins práticos, um dispositivo de downstream ainda pode ser uma aplicação em execução no dispositivo de gateway do IoT Edge em si. No entanto, um dispositivo de IoT Edge não pode ser downstream de um gateway de IoT Edge. 
 
 Pode criar qualquer infraestrutura de certificado que permite a confiança necessária para a sua topologia de gateway de dispositivo. Neste artigo, assumimos a mesma configuração de certificado que você usaria para habilitar a [segurança de autoridade de certificação x. 509](../iot-hub/iot-hub-x509ca-overview.md) no Hub IOT, que envolve um certificado de autoridade de certificação x. 509 associado a um hub IOT específico (a AC raiz do Hub IOT), uma série de certificados assinados com essa autoridade de certificação e uma CA para o dispositivo IoT Edge.
 
@@ -49,7 +49,8 @@ As etapas a seguir orientam você pelo processo de criação dos certificados e 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um dispositivo Azure IoT Edge para configurar como um gateway. Use as etapas de instalação do IoT Edge para um dos seguintes sistemas operacionais:
+* Um computador de desenvolvimento para criar certificados. 
+* Um dispositivo Azure IoT Edge para configurar como um gateway. Use as etapas de instalação do IoT Edge para um dos seguintes sistemas operacionais:
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
 
@@ -63,7 +64,7 @@ Os certificados gerados nesta secção destinam-se para finalidades de teste.
 
 Instale o OpenSSL para o Windows na máquina que está a utilizar para gerar os certificados. Se você já tiver o OpenSSL instalado em seu dispositivo Windows, poderá ignorar esta etapa, mas verifique se o OpenSSL. exe está disponível em sua variável de ambiente PATH. 
 
-Existem várias formas, pode instalar o OpenSSL:
+Há várias maneiras de instalar o OpenSSL, incluindo:
 
 * **Fáceis** Baixe e instale quaisquer [binários do OpenSSL](https://wiki.openssl.org/index.php/Binaries)de terceiros, por exemplo, do [OpenSSL no SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para openssl.exe a variável de ambiente PATH. 
    
@@ -319,6 +320,6 @@ Com esse recurso, os módulos locais ou dispositivos downstream podem se autenti
 
 Para habilitar recursos offline estendidos, você estabelece uma relação pai-filho entre um dispositivo IoT Edge gateway e dispositivos downstream que se conectarão a ele. Essas etapas são explicadas em mais detalhes em [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem um dispositivo IoT Edge como gateway transparente a funcionar, terá de configurar os seus dispositivos jusante para o gateway de confiança e enviar mensagens ao mesmo. Para obter mais informações, consulte [conectar um dispositivo downstream a um Azure IOT Edge gateway](how-to-connect-downstream-device.md) e [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md).
+Agora que tem um dispositivo IoT Edge como gateway transparente a funcionar, terá de configurar os seus dispositivos jusante para o gateway de confiança e enviar mensagens ao mesmo. Continue em para [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md) para as próximas etapas em Configurando seu cenário de gateway transparente. 

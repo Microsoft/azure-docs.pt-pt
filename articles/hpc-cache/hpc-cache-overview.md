@@ -4,18 +4,18 @@ description: Descreve o cache do HPC do Azure, uma solução de acelerador de ac
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f4c858d7a71cf02b4a8fe181deecbf3a1b652885
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 093116a8def69e3f63af9aeb963abc60841cbe85
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180678"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257014"
 ---
 # <a name="what-is-azure-hpc-cache-preview"></a>O que é o Azure HPC Cache? (Pré-visualização)
 
-O cache do HPC do Azure acelera o acesso aos seus dados para tarefas HPC (computação de alto desempenho). Ao armazenar arquivos em cache no Azure, ele torna a escalabilidade da computação em nuvem disponível mesmo para fluxos de trabalho em que os dados são armazenados em links de WAN, como em seu ambiente NAS (armazenamento conectado à rede) do datacenter local.
+O cache do HPC do Azure acelera o acesso aos seus dados para tarefas HPC (computação de alto desempenho). Ao armazenar arquivos em cache no Azure, o cache HPC do Azure traz a escalabilidade da computação em nuvem para o fluxo de trabalho existente. Esse serviço pode ser usado até mesmo para fluxos de trabalho em que os dados são armazenados em links de WAN, como em seu ambiente NAS (armazenamento conectado à rede) do datacenter local.
 
 O cache HPC do Azure é fácil de iniciar e monitorar da portal do Azure. O armazenamento NFS existente ou novos contêineres de blob podem se tornar parte de seu namespace agregado, o que torna o acesso de cliente simples, mesmo se você alterar o destino de armazenamento de back-end.
 
@@ -37,13 +37,13 @@ Em mídia e entretenimento, o cache HPC do Azure pode acelerar o acesso a dados 
 
 Muitos fluxos de trabalho de ciências biomédicas podem se beneficiar do cache de arquivos de escalabilidade horizontal.
 
-Um Instituto de pesquisa que deseja portar seus fluxos de trabalho de análise de genoma para o Azure pode facilmente deslocar usando o cache do HPC do Azure. Como o cache fornece acesso a arquivos POSIX, eles podem executar o fluxo de trabalho existente no lado do cliente na nuvem sem nenhuma alteração.
+Um Instituto de pesquisa que deseja portar seus fluxos de trabalho de análise de genoma para o Azure pode facilmente deslocar usando o cache do HPC do Azure. Como o cache fornece acesso a arquivos POSIX, nenhuma alteração no lado do cliente é necessária para executar o fluxo de trabalho do cliente existente na nuvem.
 
 O cache HPC do Azure também pode ser aproveitado para melhorar a eficiência em tarefas como análise secundária, simulação de Pharmacological ou análise de imagem orientada por ia.
 
 ### <a name="financial-services-analytics"></a>Análise de serviços financeiros
 
-Um cache HPC do Azure pode ajudar a acelerar cálculos de análise quantitativos, cargas de trabalho de análise de risco e simulações Monte Carlo para fornecer às empresas de serviços financeiros melhores insights para tomar decisões estratégicas.
+Uma implantação de cache do HPC do Azure pode ajudar a acelerar cálculos de análise quantitativos, cargas de trabalho de análise de risco e simulações Monte Carlo para fornecer às empresas de serviços financeiros melhores insights para tomar decisões estratégicas.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 

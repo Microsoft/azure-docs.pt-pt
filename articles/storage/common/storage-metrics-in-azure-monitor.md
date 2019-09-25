@@ -8,12 +8,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e31ad78e24f329eb46cd85ba4a5962442a216779
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c2f6847a286a9c106fc094e9f0aa315d6b1f337d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844840"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257088"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre
 
 O Azure Monitor proporciona várias formas de métricas de acesso. Você pode acessá-los do [portal do Azure](https://portal.azure.com), as APIs de Azure monitor (REST e .net) e as soluções de análise, como os hubs de eventos. Para obter mais informações, consulte [Azure monitor métricas](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-As métricas são habilitadas por padrão e você pode acessar os últimos 93 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) no Azure Monitor.
+As métricas são habilitadas por padrão e você pode acessar os últimos 93 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) no Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Métricas de acesso no portal do Azure
 
@@ -302,19 +302,19 @@ O seguinte mostra o formato para especificar a ID de recurso para uma conta de a
 
 O seguinte mostra o formato para especificar a ID de recurso para cada um dos serviços de armazenamento.
 
-* ID do recurso do serviço blob
+* ID de recurso do serviço de blob
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* ID do recurso do serviço tabela
+* ID de recurso do serviço de tabela
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* ID do recurso de serviço Fila
+* ID de recurso do serviço de fila
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
-* ID do recurso do serviço de arquivo
+* ID de recurso do serviço do ficheiros
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 ```
@@ -399,7 +399,7 @@ O armazenamento do Azure dá suporte às seguintes dimensões para métricas no 
 | **ApiName** | O nome da operação. Por exemplo: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autenticação** | Tipo de autenticação usado em transações. Os valores disponíveis incluem: <br/> <li>**AccountKey**: A transação é autenticada com a chave da conta de armazenamento.</li> <li>**SAS**: A transação é autenticada com assinaturas de acesso compartilhado.</li> <li>**OAuth**: A transação é autenticada com tokens de acesso OAuth.</li> <li>**Anônimo**: A transação é solicitada anonimamente. Ele não inclui solicitações de simulação.</li> <li>**AnonymousPreflight**: A transação é uma solicitação de simulação.</li> |
 
-Para as métricas com suporte a dimensões, você precisa especificar o valor da dimensão para ver os valores correspondentes de métricas. Por exemplo, se você examinar o valor de **Transações** para respostas bem-sucedidas, será necessário filtrar a dimensão ResponseType com **êxito**. Ou, se você examinar o valor de **BlobCount** para blob de blocos, precisará filtrar a dimensão **BlobType** com **BlockBlob**.
+Para as métricas com suporte a dimensões, você precisa especificar o valor da dimensão para ver os valores correspondentes de métricas. Por exemplo, se você examinar o valor de **Transações** para respostas bem-sucedidas, será necessário filtrar a dimensão **ResponseType** com **êxito**. Ou, se você examinar o valor de **BlobCount** para blob de blocos, precisará filtrar a dimensão **BlobType** com **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuidade de serviço de métricas herdadas
 
@@ -417,7 +417,7 @@ Não, a computação do Azure dá suporte às métricas em discos. Consulte o [a
 
 **Como mapear e migrar métricas clássicas com novas métricas?**
 
-Você pode encontrar mapeamento detalhado entre métricas clássicas e novas métricas na migração de métricas de [armazenamento do Azure](./storage-metrics-migration.md).
+Você pode encontrar mapeamento detalhado entre métricas clássicas e novas métricas na [migração de métricas de armazenamento do Azure](./storage-metrics-migration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

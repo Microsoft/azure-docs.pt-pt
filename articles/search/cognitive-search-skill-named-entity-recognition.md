@@ -9,20 +9,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: f91d0b17cfc984ccf56ad4a25ef2ece651dcbed5
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b152d5a48d49e78818602e7f66574937bebce2ac
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183341"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265752"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade nomeada
 
 A habilidade de **reconhecimento de entidade nomeada** extrai entidades nomeadas do texto. As entidades disponíveis incluem os `person`tipos `location` e `organization`.
 
 > [!IMPORTANT]
-> A habilidade de reconhecimento de entidade nomeada agora foi descontinuada substituída por [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). O suporte parou em 15 de fevereiro de 2019 e a API foi removida do produto em 2 de maio de 2019. Siga as recomendações em [habilidades de pesquisa cognitiva](cognitive-search-skill-deprecated.md) preteridas para migrar para uma habilidade com suporte.
+> A habilidade de reconhecimento de entidade nomeada agora foi descontinuada substituída por [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). O suporte parou em 15 de fevereiro de 2019 e a API foi removida do produto em 2 de maio de 2019. Siga as recomendações em [habilidades de pesquisa cognitiva preteridas](cognitive-search-skill-deprecated.md) para migrar para uma habilidade com suporte.
 
 > [!NOTE]
 > Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
@@ -42,13 +41,13 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categories    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"`, `"Organization"`,. Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
+| categorias    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"`, `"Organization"`,. Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas:`de, en, es, fr, it`|
 | minimumPrecision  | Um número entre 0 e 1. Se a precisão for menor que esse valor, a entidade não será retornada. O padrão é 0.|
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Introduzir nome      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
 | text          | O texto a ser analisado.          |
@@ -60,7 +59,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia representa o nome de uma pessoa. |
 | locations  | Uma matriz de cadeias de caracteres em que cada cadeia representa um local. |
 | organizações  | Uma matriz de cadeias de caracteres em que cada cadeia representa uma organização. |
-| entidades | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>Categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa a confiança de que o valor é uma entidade real)</li></ul> |
+| Contabilidade | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>Categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa a confiança de que o valor é uma entidade real)</li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

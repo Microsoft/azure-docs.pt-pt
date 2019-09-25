@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638284"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266157"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node. js)
 
@@ -135,7 +135,7 @@ Use os cabos placa universal e jumper para conectar um LED e um BME280 ao PI da 
 
 ![O Raspberry Pi e a conexão do sensor](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-O sensor BME280 pode coletar dados de temperatura e umidade. O LED pisca quando o dispositivo envia uma mensagem para a nuvem. 
+O sensor BME280 pode coletar dados de temperatura e umidade. O LED pisca quando o dispositivo envia uma mensagem para a nuvem.
 
 Para Pins de sensor, use a seguinte fiação:
 
@@ -170,8 +170,8 @@ Ative o PI usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 1. Conecte-se ao seu Raspberry Pi com um dos seguintes clientes SSH do seu computador host:
 
    **Usuários do Windows**
-  
-   a. Baixe e instale [](https://www.putty.org/) o inacabamento para o Windows. 
+
+   a. Baixe e instale o [inacabamento](https://www.putty.org/) para o Windows.
 
    b. Copie o endereço IP do PI na seção nome do host (ou endereço IP) e selecione SSH como o tipo de conexão.
 
@@ -192,10 +192,10 @@ Ative o PI usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
    node -v
    ```
 
-   Se a versão for inferior a 11. x ou se não houver node. js em seu PI, instale a versão mais recente.
+   Se a versão for inferior a 10. x ou se não houver node. js em seu PI, instale a versão mais recente.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -209,7 +209,7 @@ Ative o PI usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   npm install
    ```
 
    > [!NOTE]
@@ -223,11 +223,13 @@ Ative o PI usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
    nano config.json
    ```
 
-   ![Ficheiro de configuração](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Arquivo de configuração](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    Há dois itens neste arquivo que você pode configurar. O primeiro é `interval`, que define o intervalo de tempo (em milissegundos) entre as mensagens enviadas para a nuvem. O segundo é `simulatedData`, que é um valor booliano para se usar ou não dados de sensor simulados.
 
    Se você **não tiver o sensor**, defina o `simulatedData` valor como `true` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
+
+   *Nota: O endereço I2C usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, ele também pode ser 0x76: se você encontrar um erro I2C, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado pelo sensor, execute `sudo i2cdetect -y 1` em um shell no Raspberry Pi*
 
 2. Salve e saia digitando Control-O > Insira > Control-X.
 
@@ -252,7 +254,7 @@ Uma maneira de monitorar as mensagens recebidas pelo Hub IoT do seu dispositivo 
 
 Para obter mais maneiras de processar dados enviados pelo seu dispositivo, continue na próxima seção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los para o Hub IoT.
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 726fc2d2f53e904fdf7f50be5aef7b274dcc51ac
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736144"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264523"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Visualizar casos de uso
 
@@ -40,11 +40,15 @@ Explore e analise instantaneamente milhares de milhões de eventos para detetar 
 
 [![Data Explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
-A maioria dos clientes concorda que o tempo de insight está entre os ativos mais fortes de Time Series Insights. Time Series Insights não requer preparação de dados antecipada. Ele funciona rapidamente para se conectar a bilhões de eventos em seu hub IoT do Azure ou hubs de eventos do Azure em minutos. Uma vez conectado, você pode visualizar e analisar bilhões de eventos para identificar anomalias e descobrir tendências ocultas em seus dados.
+A maioria dos clientes concorda que a quantidade mínima de tempo necessária para obter informações é um dos recursos Principals da Time Series Insights:
 
-Time Series Insights é intuitivo e simples de usar. Você pode interagir com seus dados sem escrever uma única linha de código. Também não há nenhuma nova linguagem para aprender. Time Series Insights fornece consulta granular baseada em texto para usuários avançados que estão familiarizados com o SQL. Ele também fornece exploração de seleção e clique para iniciantes.
+* Time Series Insights não requer preparação de dados antecipada. 
+* Ele funciona rapidamente para se conectar a bilhões de eventos em seu hub IoT do Azure ou hubs de eventos do Azure em minutos. 
+* Uma vez conectado, você pode visualizar e analisar bilhões de eventos para identificar anomalias e descobrir tendências ocultas em seus dados.
 
-Os clientes tiram proveito da velocidade para diagnosticar problemas relacionados ao ativo rapidamente. Eles podem executar DevOps para obter a causa raiz de um bug em uma solução de IoT. Eles também podem identificar áreas para investigar iniciativas de ciência de dados.  
+Time Series Insights é intuitivo e simples de usar. Você pode interagir com seus dados sem escrever uma única linha de código. Também não há nenhuma nova linguagem que você precisa aprender, embora Time Series Insights forneça uma linguagem de consulta baseada em texto granular para usuários avançados que estão familiarizados com o SQL. Ele também fornece exploração de seleção e clique para iniciantes.
+
+Os clientes podem aproveitar a velocidade para diagnosticar problemas relacionados ao ativo rapidamente. Eles podem executar a análise de DevOps para chegar à causa raiz de um bug em uma solução de IoT. Eles também podem identificar áreas a serem sinalizadas para uma investigação mais aprofundada como parte de suas iniciativas de ciência de dados.  
 
 Há três maneiras principais de interagir com os dados armazenados no Time Series Insights:
 
@@ -94,7 +98,7 @@ Time Series Insights preenche a lacuna entre os dados de IoT e a análise avanç
 
 - Em segundo lugar, Time Series Insights pode ser alimentado a saída de modelos de aprendizado de máquina e de previsão para visualizar e armazenar seus resultados. Este procedimento ajuda as organizações a otimizar e ajustar seus modelos. Time Series Insights simplifica a visualização de dados de telemetria de streaming no mesmo plano que as saídas de modelo treinadas. Dessa forma, ele ajuda as equipes de ciência de dados a identificar anomalias e detectar padrões.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Gerenciador de visualização Time Series insights](./time-series-insights-update-explorer.md).
 - Leia [Time Series insights planejar a visualização](./time-series-insights-update-plan.md) para planejar seu ambiente.

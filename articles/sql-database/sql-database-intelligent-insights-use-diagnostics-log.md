@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567895"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262139"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usar o Intelligent Insights log de diagnóstico de desempenho do banco de dados SQL do Azure
 
-Esta página fornece informações sobre como usar o log de diagnóstico de desempenho do banco de dados SQL do Azure gerado por [Intelligent insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades de desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página fornece informações sobre como usar o log de diagnóstico de desempenho do banco de dados SQL do Azure gerado por [Intelligent insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades de desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 ## <a name="log-header"></a>Cabeçalho do log
 
@@ -136,7 +136,7 @@ A última parte do log de desempenho Intelligent Insights pertence à análise d
 
 Você pode usar o log de desempenho Intelligent Insights com [Azure monitor logs]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre os conceitos de [Intelligent insights](sql-database-intelligent-insights.md) .
 - Saiba como [solucionar problemas de desempenho do banco de dados SQL do Azure com o Intelligent insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Saiba como [monitorar o banco de dados SQL do Azure usando análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

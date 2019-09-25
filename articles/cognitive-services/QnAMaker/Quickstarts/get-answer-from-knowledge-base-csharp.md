@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: ead314e4c889b79892857eb07ecdd63377131b12
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 21c7220fe10537f56ac7d935f576aa9dac57f64f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376358"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261940"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento comC#
 
@@ -49,13 +49,13 @@ Na parte superior do arquivo Program.cs, substitua a única instrução using pe
 
 Na parte superior da `Program` classe, dentro do `Main`, adicione as constantes necessárias para acessar QnA Maker. Esses valores estão na página **publicar** depois que você publicar a base de dados de conhecimento. 
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=14-30 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=9-41 "Add the required constants")]
 
 ## <a name="add-a-post-request-to-send-question-and-get-answer"></a>Adicionar uma solicitação POST para enviar pergunta e obter resposta
 
 O código a seguir faz uma solicitação HTTPS para o API de QnA Maker para enviar a pergunta para a base de dados de conhecimento e recebe a resposta:
 
-[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
+[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=43-76 "Add a POST request to send question to knowledge base")]
 
 O `Authorization` valor do cabeçalho inclui a cadeia `EndpointKey`de caracteres. 
 

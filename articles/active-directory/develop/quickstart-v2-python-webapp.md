@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 682582c8c695550f7dfdfcc079e1d0bf04828180
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c5817427102bf10dcd1ece932b0f582d973efaf7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997377"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257894"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Python
 
@@ -37,7 +37,7 @@ Quando você tiver concluído o guia, seu aplicativo aceitará entradas de conta
 Para executar este exemplo, será necessário:
 
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) ou [Python 3 +](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https:/pythonhosted.org/Flask-Session/), [solicitações](https://2.python-requests.org/en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [solicitações](https://2.python-requests.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
 - Um locatário do Azure Active Directory (Azure AD). Para obter mais informações sobre como obter um locatário do Azure AD, consulte [como obter um locatário do Azure AD.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
@@ -47,14 +47,14 @@ Para executar este exemplo, será necessário:
 >
 > Você tem duas opções para iniciar seu aplicativo de início rápido: Express (opção 1) e manual (opção 2)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
 >
 > 1. Vá para o [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Selecione **novo registro**.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para baixar e configurar automaticamente seu novo aplicativo.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 >

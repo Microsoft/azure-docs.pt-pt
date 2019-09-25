@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a8cffe83ec0f2cdfd2e71accfa55966e5dedcd89
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051814"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259128"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas com suporte com Azure Monitor
 
@@ -145,21 +145,21 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |connectedclients|Clientes Ligados|Count|Máximo||ShardId|
-|totalcommandsprocessed|Total de Operações|Count|Total||ShardId|
-|cachehits|Acertos na Cache|Count|Total||ShardId|
-|cachemisses|Falhas na Cache|Count|Total||ShardId|
-|comandos|Obtém|Count|Total||ShardId|
+|totalcommandsprocessed|Total de operações|Count|Total||ShardId|
+|cachehits|Acertos do cache|Count|Total||ShardId|
+|cachemisses|Erros de cache|Count|Total||ShardId|
+|comandos|Visível|Count|Total||ShardId|
 |comandos|Conjuntos|Count|Total||ShardId|
 |operationsPerSecond|Operações por segundo|Count|Máximo||ShardId|
-|evictedkeys|Chaves Excluídas|Count|Total||ShardId|
-|totalkeys|Chaves Totais|Count|Máximo||ShardId|
-|expiredkeys|Chaves Expiradas|Count|Total||ShardId|
-|usedmemory|Memória Utilizada|Bytes|Máximo||ShardId|
+|evictedkeys|Chaves removidas|Count|Total||ShardId|
+|totalkeys|Total de chaves|Count|Máximo||ShardId|
+|expiredkeys|Chaves expiradas|Count|Total||ShardId|
+|usedmemory|Memória usada|Bytes|Máximo||ShardId|
 |usedmemorypercentage|Porcentagem de memória usada|Percent|Máximo||ShardId|
 |usedmemoryRss|Memória RSS usada|Bytes|Máximo||ShardId|
-|serverLoad|Carga do Servidor|Percent|Máximo||ShardId|
-|cacheWrite|Escrita na Cache|BytesPerSecond|Máximo||ShardId|
-|cacheRead|Leitura da Cache|BytesPerSecond|Máximo||ShardId|
+|serverLoad|Carga do servidor|Percent|Máximo||ShardId|
+|cacheWrite|Gravação de cache|BytesPerSecond|Máximo||ShardId|
+|cacheRead|Leitura de cache|BytesPerSecond|Máximo||ShardId|
 |percentProcessorTime|CPU|Percent|Máximo||ShardId|
 |cacheLatency|Microssegundos de latência de cache (versão prévia)|Count|Average||Fragmentid, Amostratype|
 |erros|Erros|Count|Máximo||ShardId, ErrorType|
@@ -352,20 +352,20 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TotalCalls|Total de Chamadas|Count|Total|Número total de chamadas.|ApiName, OperationName, região|
+|TotalCalls|Total de chamadas|Count|Total|Número total de chamadas.|ApiName, OperationName, região|
 |SuccessfulCalls|Chamadas com êxito|Count|Total|Número de chamadas bem-sucedidas.|ApiName, OperationName, região|
-|TotalErrors|Total de Erros|Count|Total|Número total de chamadas com resposta de erro (código de resposta HTTP 4xx ou 5xx).|ApiName, OperationName, região|
-|BlockedCalls|Chamadas Bloqueadas|Count|Total|Número de chamadas que excederam a taxa ou o limite de cota.|ApiName, OperationName, região|
+|TotalErrors|Total de erros|Count|Total|Número total de chamadas com resposta de erro (código de resposta HTTP 4xx ou 5xx).|ApiName, OperationName, região|
+|BlockedCalls|Chamadas bloqueadas|Count|Total|Número de chamadas que excederam a taxa ou o limite de cota.|ApiName, OperationName, região|
 |ServerErrors|Erros no Servidor|Count|Total|Número de chamadas com erro interno do serviço (código de resposta HTTP 5xx).|ApiName, OperationName, região|
 |ClientErrors|Erros do Cliente|Count|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|ApiName, OperationName, região|
 |Dados de|Entrada de Dados|Bytes|Total|Tamanho dos dados de entrada em bytes.|ApiName, OperationName, região|
 |DataOut|Saída de Dados|Bytes|Total|Tamanho dos dados de saída em bytes.|ApiName, OperationName, região|
 |Latência|Latência|Milissegundos|Average|Latência em milissegundos.|ApiName, OperationName, região|
-|CharactersTranslated|Carateres Traduzidos|Count|Total|Número total de caracteres na solicitação de texto de entrada.|ApiName, OperationName, região|
+|CharactersTranslated|Caracteres traduzidos|Count|Total|Número total de caracteres na solicitação de texto de entrada.|ApiName, OperationName, região|
 |CharactersTrained|Caracteres treinados|Count|Total|Número total de caracteres treinados.|ApiName, OperationName, região|
-|SpeechSessionDuration|Duração da Sessão de Voz|Segundos|Total|Duração total da sessão de fala em segundos.|ApiName, OperationName, região|
-|TotalTransactions|Total de Transações|Count|Total|Número total de transações.|Nenhuma dimensão|
-|TotalTokenCalls|Chamadas de Token Totais|Count|Total|Número total de chamadas de token.|ApiName, OperationName, região|
+|SpeechSessionDuration|Duração da sessão de fala|Segundos|Total|Duração total da sessão de fala em segundos.|ApiName, OperationName, região|
+|TotalTransactions|Total de transações|Count|Total|Número total de transações.|Nenhuma dimensão|
+|TotalTokenCalls|Total de chamadas de token|Count|Total|Número total de chamadas de token.|ApiName, OperationName, região|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -376,10 +376,10 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Saída de Rede|Saída de rede Faturável|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|Nenhuma dimensão|
 |Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|Nenhuma dimensão|
 |Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes gravados no disco durante o período de monitoramento|Nenhuma dimensão|
-|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de Leitura do Disco|Nenhuma dimensão|
-|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de Escrita de Disco|Nenhuma dimensão|
-|Créditos CPU Restantes|Créditos CPU Restantes|Count|Average|Número total de créditos disponíveis para intermitência|Nenhuma dimensão|
-|Créditos CPU Consumidos|Créditos CPU Consumidos|Count|Average|Número total de créditos consumidos pela máquina virtual|Nenhuma dimensão|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de leitura de disco|Nenhuma dimensão|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de gravação de disco|Nenhuma dimensão|
+|Créditos de CPU restantes|Créditos de CPU restantes|Count|Average|Número total de créditos disponíveis para intermitência|Nenhuma dimensão|
+|Créditos de CPU consumidos|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos pela máquina virtual|Nenhuma dimensão|
 |Bytes de leitura por disco/s|Bytes de leitura do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento|SlotId|
 |Bytes de gravação por disco/s|Bytes de gravação do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
 |Operações de leitura por disco/s|Operações de leitura de disco de dados/s (preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
@@ -408,8 +408,8 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Erro de leitura do cache do disco de dados Premium|Cache do disco de dados Premium-erro de leitura (visualização)|Percent|Average|Erro de leitura do cache do disco de dados Premium|LUN|
 |Cache de disco do sistema operacional Premium-acesso de leitura|Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)|Percent|Average|Cache de disco do sistema operacional Premium-acesso de leitura|Nenhuma dimensão|
 |Erro de leitura do cache de disco do so premium|Erro de leitura do cache de disco do so premium (visualização)|Percent|Average|Erro de leitura do cache de disco do so premium|Nenhuma dimensão|
-|Total de rede|Total de rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|Nenhuma dimensão|
-|Total de saída de rede|Total de saída de rede|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|Nenhuma dimensão|
+|Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|Nenhuma dimensão|
+|Rede de Saída Total|Rede de Saída Total|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|Nenhuma dimensão|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -420,10 +420,10 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Saída de Rede|Saída de rede Faturável|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|VMName|
 |Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|VMName|
 |Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes gravados no disco durante o período de monitoramento|VMName|
-|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de Leitura do Disco|VMName|
-|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de Escrita de Disco|VMName|
-|Créditos CPU Restantes|Créditos CPU Restantes|Count|Average|Número total de créditos disponíveis para intermitência|Nenhuma dimensão|
-|Créditos CPU Consumidos|Créditos CPU Consumidos|Count|Average|Número total de créditos consumidos pela máquina virtual|Nenhuma dimensão|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de leitura de disco|VMName|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de gravação de disco|VMName|
+|Créditos de CPU restantes|Créditos de CPU restantes|Count|Average|Número total de créditos disponíveis para intermitência|Nenhuma dimensão|
+|Créditos de CPU consumidos|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos pela máquina virtual|Nenhuma dimensão|
 |Bytes de leitura por disco/s|Bytes de leitura do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento|SlotId|
 |Bytes de gravação por disco/s|Bytes de gravação do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
 |Operações de leitura por disco/s|Operações de leitura de disco de dados/s (preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
@@ -452,14 +452,14 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Erro de leitura do cache do disco de dados Premium|Cache do disco de dados Premium-erro de leitura (visualização)|Percent|Average|Erro de leitura do cache do disco de dados Premium|LUN, VMName|
 |Cache de disco do sistema operacional Premium-acesso de leitura|Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)|Percent|Average|Cache de disco do sistema operacional Premium-acesso de leitura|VMName|
 |Erro de leitura do cache de disco do so premium|Erro de leitura do cache de disco do so premium (visualização)|Percent|Average|Erro de leitura do cache de disco do so premium|VMName|
-|Total de rede|Total de rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|VMName|
-|Total de saída de rede|Total de saída de rede|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|VMName|
+|Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|VMName|
+|Rede de Saída Total|Rede de Saída Total|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|VMName|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Os|Utilização da CPU|Count|Average|Uso da CPU em todos os núcleos em milicores.|containerName|
+|Os|Utilização do CPU|Count|Average|Uso da CPU em todos os núcleos em milicores.|containerName|
 |MemoryUsage|Utilização da Memória|Bytes|Average|Uso total de memória em byte.|containerName|
 |NetworkBytesReceivedPerSecond|Bytes de Rede Recebidos Por Segundo|Bytes|Average|Os bytes de rede recebidos por segundo.|Nenhuma dimensão|
 |NetworkBytesTransmittedPerSecond|Bytes de Rede Transmitidos por Segundo|Bytes|Average|Os bytes de rede transmitidos por segundo.|Nenhuma dimensão|
@@ -515,7 +515,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |DCIProfilesCount|Contagem de instâncias de perfil|Count|Último||Nenhuma dimensão|
 |DCIInteractionsPerMonthCount|A contagem de interações por mês|Count|Último||Nenhuma dimensão|
 |DCIKpisCount|Contagem de KPIs|Count|Último||Nenhuma dimensão|
-|DCISegmentsCount|Contagem de Segmentos|Count|Último||Nenhuma dimensão|
+|DCISegmentsCount|Contagem de segmentos|Count|Último||Nenhuma dimensão|
 |DCIPredictiveMatchPoliciesCount|Contagem de correspondência preditiva|Count|Último||Nenhuma dimensão|
 |DCIPredictionsCount|Contagem de previsão|Count|Último||Nenhuma dimensão|
 
@@ -531,7 +531,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |TotalCapacity|Capacidade Total|Bytes|Average|Capacidade Total|Nenhuma dimensão|
 |AvailableCapacity|Capacidade Disponível|Bytes|Average|A capacidade disponível em bytes durante o período de relatório.|Nenhuma dimensão|
 |CloudUploadThroughput|Débito de Carregamento na Cloud|BytesPerSecond|Average|A taxa de transferência de upload de nuvem para o Azure durante o período de relatório.|Nenhuma dimensão|
-|CloudReadThroughput|Taxa de transferência de download da nuvem|BytesPerSecond|Average|A taxa de transferência de download de nuvem para o Azure durante o período de relatório.|Nenhuma dimensão|
+|CloudReadThroughput|Débito de Transferência na Cloud|BytesPerSecond|Average|A taxa de transferência de download de nuvem para o Azure durante o período de relatório.|Nenhuma dimensão|
 |BytesUploadedToCloud|Bytes de nuvem carregados (dispositivo)|Bytes|Average|O número total de bytes que são carregados no Azure de um dispositivo durante o período de relatório.|Nenhuma dimensão|
 |HyperVVirtualProcessorUtilization|Computação de borda – percentual de CPU|Percent|Average|Percentagem de utilização da CPU|InstanceName|
 |HyperVMemoryUtilization|Computação de borda-uso de memória|Percent|Average|Quantidade de RAM em Utilização|InstanceName|
@@ -595,7 +595,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |serverlog_storage_usage|Armazenamento de log do servidor usado|Bytes|Average|Armazenamento de log do servidor usado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de log do servidor|Bytes|Average|Limite de armazenamento de log do servidor|Nenhuma dimensão|
 |active_connections|Conexões ativas|Count|Average|Conexões ativas|Nenhuma dimensão|
-|connections_failed|Ligações com Falhas|Count|Total|Ligações com Falhas|Nenhuma dimensão|
+|connections_failed|Ligações Falhadas|Count|Total|Ligações Falhadas|Nenhuma dimensão|
 |seconds_behind_master|Atraso de replicação em segundos|Count|Average|Atraso de replicação em segundos|Nenhuma dimensão|
 |backup_storage_used|Armazenamento de backup usado|Bytes|Average|Armazenamento de backup usado|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Saída de rede entre conexões ativas|Nenhuma dimensão|
@@ -615,7 +615,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |serverlog_storage_usage|Armazenamento de log do servidor usado|Bytes|Average|Armazenamento de log do servidor usado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de log do servidor|Bytes|Average|Limite de armazenamento de log do servidor|Nenhuma dimensão|
 |active_connections|Conexões ativas|Count|Average|Conexões ativas|Nenhuma dimensão|
-|connections_failed|Ligações com Falhas|Count|Total|Ligações com Falhas|Nenhuma dimensão|
+|connections_failed|Ligações Falhadas|Count|Total|Ligações Falhadas|Nenhuma dimensão|
 |seconds_behind_master|Atraso de replicação em segundos|Count|Average|Atraso de replicação em segundos|Nenhuma dimensão|
 |backup_storage_used|Armazenamento de backup usado|Bytes|Average|Armazenamento de backup usado|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Saída de rede entre conexões ativas|Nenhuma dimensão|
@@ -635,7 +635,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |serverlog_storage_usage|Armazenamento de log do servidor usado|Bytes|Average|Armazenamento de log do servidor usado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de log do servidor|Bytes|Average|Limite de armazenamento de log do servidor|Nenhuma dimensão|
 |active_connections|Conexões ativas|Count|Average|Conexões ativas|Nenhuma dimensão|
-|connections_failed|Ligações com Falhas|Count|Total|Ligações com Falhas|Nenhuma dimensão|
+|connections_failed|Ligações Falhadas|Count|Total|Ligações Falhadas|Nenhuma dimensão|
 |backup_storage_used|Armazenamento de backup usado|Bytes|Average|Armazenamento de backup usado|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Saída de rede entre conexões ativas|Nenhuma dimensão|
 |network_bytes_ingress|Entrada de Rede|Bytes|Total|Entrada de rede em conexões ativas|Nenhuma dimensão|
@@ -743,7 +743,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |DocumentCount|Contagem de documentos|Count|Total|Contagem total de documentos relatados à granularidade de 5 minutos|CollectionName, DatabaseName, região|
 |DocumentQuota|Cota de documentos|Bytes|Total|Cota de armazenamento total relatada à granularidade de 5 minutos|CollectionName, DatabaseName, região|
 |IndexUsage|Uso do índice|Bytes|Total|Uso total do índice relatado à granularidade de 5 minutos|CollectionName, DatabaseName, região|
-|MetadataRequests|Solicitações de metadados|Count|Count|Contagem de solicitações de metadados. Cosmos DB mantém a coleção de metadados do sistema para cada conta, que permite enumerar coleções, bancos de dados, etc e suas configurações, gratuitamente.|DatabaseName, CollectionName, região, StatusCode, |
+|MetadataRequests|Solicitações de metadados|Count|Count|Contagem de solicitações de metadados. Cosmos DB mantém a coleção de metadados do sistema para cada conta, que permite enumerar coleções, bancos de dados, etc., e suas configurações, gratuitamente.|DatabaseName, CollectionName, região, StatusCode, |
 |MongoRequestCharge|Encargo de solicitação do Mongo|Count|Total|Unidades de solicitação Mongo consumidas|DatabaseName, CollectionName, região, CommandName, ErrorCode|
 |MongoRequests|Solicitações Mongo|Count|Count|Número de solicitações Mongo feitas|DatabaseName, CollectionName, região, CommandName, ErrorCode|
 |ProvisionedThroughput|Débito Aprovisionado|Count|Máximo|Débito Aprovisionado|DatabaseName, CollectionName|
@@ -785,7 +785,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Pedidos com Êxito|Count|Total|Solicitações bem-sucedidas para o Microsoft. EventHub.|EntityName |
+|SuccessfulRequests|Pedidos Com Êxito|Count|Total|Solicitações bem-sucedidas para o Microsoft. EventHub.|EntityName |
 |ServerErrors|Erros do servidor.|Count|Total|Erros de servidor para Microsoft. EventHub.|EntityName |
 |UserErrors|Erros do usuário.|Count|Total|Erros de usuário para Microsoft. EventHub.|EntityName |
 |QuotaExceededErrors|A cota excedeu erros.|Count|Total|A cota excedeu erros para o Microsoft. EventHub.|EntityName |
@@ -855,10 +855,10 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Valor de Métrica observado|Count|Average|O valor calculado por autoescala quando executado|MetricTriggerSource|
-|MetricThreshold|Limiar de Métrica|Count|Average|O limite de dimensionamento automático configurado quando o dimensionamento automático foi executado.|MetricTriggerRule|
+|ObservedMetricValue|Valor de métrica observado|Count|Average|O valor calculado por autoescala quando executado|MetricTriggerSource|
+|MetricThreshold|Limite de métrica|Count|Average|O limite de dimensionamento automático configurado quando o dimensionamento automático foi executado.|MetricTriggerRule|
 |ObservedCapacity|Capacidade observada|Count|Average|A capacidade relatada para dimensionamento automático quando executada.|Nenhuma dimensão|
-|ScaleActionsInitiated|Ações de Dimensionamento Iniciadas|Count|Total|A direção da operação de dimensionamento.|ScaleDirection|
+|ScaleActionsInitiated|Ações de escala iniciadas|Count|Total|A direção da operação de dimensionamento.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
@@ -867,7 +867,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |availabilityResults/availabilityPercentage|Disponibilidade|Percentagem|Average|Percentual de testes de disponibilidade concluídos com êxito|availabilityResult/nome, availabilityResult/local|
-|availabilityResults/contagem|Testes de disponibilidade|Count|Count|Contagem de testes de disponibilidade|availabilityResult/nome, availabilityResult/local, availabilityResult/êxito|
+|availabilityResults/contagem|Testes de disponibilidade|Count|Count|Número de testes de disponibilidade|availabilityResult/nome, availabilityResult/local, availabilityResult/êxito|
 |availabilityResults/duration|Duração do teste de disponibilidade|Milissegundos|Average|Duração do teste de disponibilidade|availabilityResult/nome, availabilityResult/local, availabilityResult/êxito|
 |browserTimings/networkDuration|Tempo de ligação da rede de carregamento de páginas|Milissegundos|Average|Tempo entre a solicitação de usuário e a conexão de rede. Inclui a pesquisa de DNS e a conexão de transporte.|Nenhuma dimensão|
 |browserTimings/processingDuration|Tempo de processamento do cliente|Milissegundos|Average|Tempo entre o recebimento do último byte de um documento até que o DOM seja carregado. As solicitações assíncronas ainda podem estar sendo processadas.|Nenhuma dimensão|
@@ -876,7 +876,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |browserTimings/totalDuration|Tempo de carregamento de páginas do browser|Milissegundos|Average|Tempo desde a solicitação do usuário até que DOM, folhas de estilo, scripts e imagens sejam carregados.|Nenhuma dimensão|
 |dependências/contagem|Chamadas de dependência|Count|Count|Contagem de chamadas feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, dependência/êxito, operação/sintética, nuvem/roleInstance, nuvem/roleName|
 |dependências/duração|Duração da dependência|Milissegundos|Average|Duração das chamadas feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, dependência/êxito, operação/sintética, nuvem/roleInstance, nuvem/roleName|
-|dependências/com falha|Falhas de chamada de dependência|Count|Count|Contagem de chamadas de dependência com falha feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, operação/sintética, nuvem/roleInstance, nuvem/roleName|
+|dependências/com falha|Falhas de chamadas de dependência|Count|Count|Contagem de chamadas de dependência com falha feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, operação/sintética, nuvem/roleInstance, nuvem/roleName|
 |pageViews/contagem|Visualizações da página|Count|Count|Contagem de exibições de página.|operação/sintética|
 |pageViews/duração|Duração de carregamento da visualização de página|Milissegundos|Average|Duração de carregamento da visualização de página|operação/sintética|
 |performanceCounters/requestExecutionTime|Tempo de execução do pedido HTTP|Milissegundos|Average|Tempo de execução da solicitação mais recente.|cloud/roleInstance|
@@ -891,9 +891,9 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |solicitações/duração|Tempo de resposta do servidor|Milissegundos|Average|Tempo entre o recebimento de uma solicitação HTTP e a conclusão do envio da resposta.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
 |solicitações/contagem|Pedidos ao servidor|Count|Count|Contagem de solicitações HTTP concluída.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
 |solicitações/com falha|Pedidos falhados|Count|Count|Contagem de solicitações HTTP marcadas como com falha. Na maioria dos casos, essas são solicitações com um código de resposta > = 400 e não iguais a 401.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, nuvem/roleName|
-|solicitações/taxa|Taxa de solicitações do servidor|CountPerSecond|Average|Taxa de solicitações de servidor por segundo|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
+|solicitações/taxa|Taxa de pedidos do servidor|CountPerSecond|Average|Taxa de solicitações de servidor por segundo|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
 |exceções/contagem|Exceções|Count|Count|Contagem combinada de todas as exceções não capturadas.|Cloud/roleName, nuvem/roleInstance, cliente/tipo|
-|exceções/navegador|Exceções do browser|Count|Count|Contagem de exceções não capturadas lançadas no navegador.|Nenhuma dimensão|
+|exceções/navegador|Exceções de browser|Count|Count|Contagem de exceções não capturadas lançadas no navegador.|Nenhuma dimensão|
 |exceções/servidor|Exceções de servidor|Count|Count|Contagem de exceções não capturadas lançadas no aplicativo de servidor.|Cloud/roleName, nuvem/roleInstance|
 |rastreamentos/contagem|Rastreios|Count|Count|Contagem do documento de rastreio|Trace/nível, operação/sintético, nuvem/roleName, nuvem/roleInstance|
 
@@ -933,36 +933,36 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|RunsStarted|Execuções Iniciadas|Count|Total|Número de execuções de fluxo de trabalho iniciadas.|Nenhuma dimensão|
-|RunsCompleted|Execuções Concluídas|Count|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunsSucceeded|Execuções com Êxito|Count|Total|Número de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
-|RunsFailed|Execuções Falhadas|Count|Total|Número de execuções de fluxo de trabalho com falha.|Nenhuma dimensão|
+|RunsStarted|Execuções iniciadas|Count|Total|Número de execuções de fluxo de trabalho iniciadas.|Nenhuma dimensão|
+|RunsCompleted|Execuções concluídas|Count|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|RunsSucceeded|Execuções com êxito|Count|Total|Número de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunsFailed|Execuções com falha|Count|Total|Número de execuções de fluxo de trabalho com falha.|Nenhuma dimensão|
 |RunsCancelled|Execuções canceladas|Count|Total|Número de execuções de fluxo de trabalho canceladas.|Nenhuma dimensão|
-|RunLatency|Latência de Execução|Segundos|Average|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunSuccessLatency|Latência de Execução com Êxito|Segundos|Average|Latência de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
-|RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de ações de fluxo de trabalho ou eventos restringidos de gatilho.|Nenhuma dimensão|
-|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Falha na porcentagem de execuções de fluxo de trabalho.|Nenhuma dimensão|
-|ActionsStarted|Ações Iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
-|ActionsCompleted|Ações Concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunLatency|Latência de execução|Segundos|Average|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|RunSuccessLatency|Latência de execução bem-sucedida|Segundos|Average|Latência de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunThrottledEvents|Executar eventos limitados|Count|Total|Número de ações de fluxo de trabalho ou eventos restringidos de gatilho.|Nenhuma dimensão|
+|RunFailurePercentage|Percentual de falha de execução|Percent|Total|Falha na porcentagem de execuções de fluxo de trabalho.|Nenhuma dimensão|
+|ActionsStarted|Ações iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
+|ActionsCompleted|Ações concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|ActionsSucceeded|Ações com êxito |Count|Total|Número de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
 |ActionsFailed|Ações Falhadas|Count|Total|Número de ações de fluxo de trabalho com falha.|Nenhuma dimensão|
-|ActionsSkipped|Ações Ignoradas |Count|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhuma dimensão|
-|ActionLatency|Latência da Ação |Segundos|Average|Latência de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Average|Latência de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
-|ActionThrottledEvents|Eventos Limitados em relação a Ação|Count|Total|Número de eventos restritos da ação de fluxo de trabalho.|Nenhuma dimensão|
-|TriggersStarted|Acionadores Iniciados |Count|Total|Número de gatilhos de fluxo de trabalho iniciados.|Nenhuma dimensão|
-|TriggersCompleted|Acionadores Concluídos |Count|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggersSucceeded|Acionadores Com Êxito |Count|Total|Número de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
-|TriggersFailed|Acionadores Com Falha |Count|Total|Número de gatilhos de fluxo de trabalho com falha.|Nenhuma dimensão|
-|TriggersSkipped|Acionadores Ignorados|Count|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhuma dimensão|
-|TriggersFired|Acionadores Disparados |Count|Total|Número de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
-|TriggerLatency|Latência de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
-|TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
-|TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos restringidos do gatilho de fluxo de trabalho.|Nenhuma dimensão|
-|BillableActionExecutions|Execuções de Ação a Cobrar|Count|Total|Número de execuções de ação de fluxo de trabalho sendo faturadas.|Nenhuma dimensão|
-|BillableTriggerExecutions|Execuções de Acionador a Cobrar|Count|Total|Número de execuções de gatilho de fluxo de trabalho sendo cobradas.|Nenhuma dimensão|
-|TotalBillableExecutions|Total de Execuções a Cobrar|Count|Total|Número de execuções de fluxo de trabalho sendo cobradas.|Nenhuma dimensão|
+|ActionsSkipped|Ações ignoradas |Count|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhuma dimensão|
+|ActionLatency|Latência da ação |Segundos|Average|Latência de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|ActionSuccessLatency|Latência de êxito da ação |Segundos|Average|Latência de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|ActionThrottledEvents|Eventos com restrição de ação|Count|Total|Número de eventos restritos da ação de fluxo de trabalho.|Nenhuma dimensão|
+|TriggersStarted|Gatilhos iniciados |Count|Total|Número de gatilhos de fluxo de trabalho iniciados.|Nenhuma dimensão|
+|TriggersCompleted|Gatilhos concluídos |Count|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggersSucceeded|Gatilhos com êxito |Count|Total|Número de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggersFailed|Gatilhos com falha |Count|Total|Número de gatilhos de fluxo de trabalho com falha.|Nenhuma dimensão|
+|TriggersSkipped|Gatilhos ignorados|Count|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhuma dimensão|
+|TriggersFired|Gatilhos acionados |Count|Total|Número de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerLatency|Latência de gatilho |Segundos|Average|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggerFireLatency|Latência de disparo de gatilho |Segundos|Average|Latência de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerSuccessLatency|Latência de êxito do gatilho |Segundos|Average|Latência de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggerThrottledEvents|Disparar eventos restringidos|Count|Total|Número de eventos restringidos do gatilho de fluxo de trabalho.|Nenhuma dimensão|
+|BillableActionExecutions|Execuções de ações faturáveis|Count|Total|Número de execuções de ação de fluxo de trabalho sendo faturadas.|Nenhuma dimensão|
+|BillableTriggerExecutions|Execuções de gatilho Faturável|Count|Total|Número de execuções de gatilho de fluxo de trabalho sendo cobradas.|Nenhuma dimensão|
+|TotalBillableExecutions|Total de execuções faturáveis|Count|Total|Número de execuções de fluxo de trabalho sendo cobradas.|Nenhuma dimensão|
 |BillingUsageNativeOperation|Uso de cobrança para execuções de operação nativa|Count|Total|Número de execuções de operações nativas sendo cobradas.|Nenhuma dimensão|
 |BillingUsageStandardConnector|Uso de cobrança para execuções de conector padrão|Count|Total|Número de execuções de conector padrão sendo cobradas.|Nenhuma dimensão|
 |BillingUsageStorageConsumption|Uso de cobrança para execuções de consumo de armazenamento|Count|Total|Número de execuções de consumo de armazenamento sendo cobradas.|Nenhuma dimensão|
@@ -974,34 +974,34 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|RunsStarted|Execuções Iniciadas|Count|Total|Número de execuções de fluxo de trabalho iniciadas.|Nenhuma dimensão|
-|RunsCompleted|Execuções Concluídas|Count|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunsSucceeded|Execuções com Êxito|Count|Total|Número de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
-|RunsFailed|Execuções Falhadas|Count|Total|Número de execuções de fluxo de trabalho com falha.|Nenhuma dimensão|
+|RunsStarted|Execuções iniciadas|Count|Total|Número de execuções de fluxo de trabalho iniciadas.|Nenhuma dimensão|
+|RunsCompleted|Execuções concluídas|Count|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|RunsSucceeded|Execuções com êxito|Count|Total|Número de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunsFailed|Execuções com falha|Count|Total|Número de execuções de fluxo de trabalho com falha.|Nenhuma dimensão|
 |RunsCancelled|Execuções canceladas|Count|Total|Número de execuções de fluxo de trabalho canceladas.|Nenhuma dimensão|
-|RunLatency|Latência de Execução|Segundos|Average|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunSuccessLatency|Latência de Execução com Êxito|Segundos|Average|Latência de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
-|RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de ações de fluxo de trabalho ou eventos restringidos de gatilho.|Nenhuma dimensão|
-|RunStartThrottledEvents|Executar eventos restritos de início|Count|Total|Número de eventos restritos de início de fluxo de trabalho.|Nenhuma dimensão|
-|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Falha na porcentagem de execuções de fluxo de trabalho.|Nenhuma dimensão|
-|ActionsStarted|Ações Iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
-|ActionsCompleted|Ações Concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunLatency|Latência de execução|Segundos|Average|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|RunSuccessLatency|Latência de execução bem-sucedida|Segundos|Average|Latência de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunThrottledEvents|Executar eventos limitados|Count|Total|Número de ações de fluxo de trabalho ou eventos restringidos de gatilho.|Nenhuma dimensão|
+|RunStartThrottledEvents|Eventos Limitados em relação ao Início da Execução|Count|Total|Número de eventos restritos de início de fluxo de trabalho.|Nenhuma dimensão|
+|RunFailurePercentage|Percentual de falha de execução|Percent|Total|Falha na porcentagem de execuções de fluxo de trabalho.|Nenhuma dimensão|
+|ActionsStarted|Ações iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
+|ActionsCompleted|Ações concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|ActionsSucceeded|Ações com êxito |Count|Total|Número de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
 |ActionsFailed|Ações Falhadas |Count|Total|Número de ações de fluxo de trabalho com falha.|Nenhuma dimensão|
-|ActionsSkipped|Ações Ignoradas |Count|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhuma dimensão|
-|ActionLatency|Latência da Ação |Segundos|Average|Latência de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Average|Latência de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
-|ActionThrottledEvents|Eventos Limitados em relação a Ação|Count|Total|Número de eventos restritos da ação de fluxo de trabalho.|Nenhuma dimensão|
-|TriggersStarted|Acionadores Iniciados |Count|Total|Número de gatilhos de fluxo de trabalho iniciados.|Nenhuma dimensão|
-|TriggersCompleted|Acionadores Concluídos |Count|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggersSucceeded|Acionadores Com Êxito |Count|Total|Número de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
-|TriggersFailed|Acionadores Com Falha |Count|Total|Número de gatilhos de fluxo de trabalho com falha.|Nenhuma dimensão|
-|TriggersSkipped|Acionadores Ignorados|Count|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhuma dimensão|
-|TriggersFired|Acionadores Disparados |Count|Total|Número de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
-|TriggerLatency|Latência de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
-|TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
-|TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos restringidos do gatilho de fluxo de trabalho.|Nenhuma dimensão|
+|ActionsSkipped|Ações ignoradas |Count|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhuma dimensão|
+|ActionLatency|Latência da ação |Segundos|Average|Latência de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|ActionSuccessLatency|Latência de êxito da ação |Segundos|Average|Latência de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|ActionThrottledEvents|Eventos com restrição de ação|Count|Total|Número de eventos restritos da ação de fluxo de trabalho.|Nenhuma dimensão|
+|TriggersStarted|Gatilhos iniciados |Count|Total|Número de gatilhos de fluxo de trabalho iniciados.|Nenhuma dimensão|
+|TriggersCompleted|Gatilhos concluídos |Count|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggersSucceeded|Gatilhos com êxito |Count|Total|Número de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggersFailed|Gatilhos com falha |Count|Total|Número de gatilhos de fluxo de trabalho com falha.|Nenhuma dimensão|
+|TriggersSkipped|Gatilhos ignorados|Count|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhuma dimensão|
+|TriggersFired|Gatilhos acionados |Count|Total|Número de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerLatency|Latência de gatilho |Segundos|Average|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggerFireLatency|Latência de disparo de gatilho |Segundos|Average|Latência de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerSuccessLatency|Latência de êxito do gatilho |Segundos|Average|Latência de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggerThrottledEvents|Disparar eventos restringidos|Count|Total|Número de eventos restringidos do gatilho de fluxo de trabalho.|Nenhuma dimensão|
 |IntegrationServiceEnvironmentWorkflowProcessorUsage|Uso do processador de fluxo de trabalho para Ambiente de Serviço de Integração|Percent|Average|Uso do processador do fluxo de trabalho para o ambiente do serviço de integração.|Nenhuma dimensão|
 |IntegrationServiceEnvironmentWorkflowMemoryUsage|Uso de memória do fluxo de trabalho para Ambiente de Serviço de Integração|Percent|Average|Uso de memória do fluxo de trabalho para o ambiente do serviço de integração.|Nenhuma dimensão|
 |IntegrationServiceEnvironmentConnectorProcessorUsage|Uso do processador do conector para Ambiente de Serviço de Integração|Percent|Average|Uso do processador do conector para o ambiente do serviço de integração.|Nenhuma dimensão|
@@ -1135,7 +1135,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |UnhealthyHostCount|Contagem de hosts não íntegros|Count|Average|Número de hosts de back-end não íntegros|BackendSettingsPool|
 |HealthyHostCount|Contagem de hosts íntegros|Count|Average|Número de hosts de back-end íntegros|BackendSettingsPool|
 |TotalRequests|Total de Pedidos|Count|Total|Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu|BackendSettingsPool|
-|FailedRequests|Pedidos com Falhas|Count|Total|Contagem de solicitações com falha que o gateway de aplicativo serviu|BackendSettingsPool|
+|FailedRequests|Pedidos Falhados|Count|Total|Contagem de solicitações com falha que o gateway de aplicativo serviu|BackendSettingsPool|
 |ResponseStatus|Status da resposta|Count|Total|Status de resposta http retornado pelo gateway de aplicativo|HttpStatusGroup|
 |CurrentConnections|Conexões atuais|Count|Total|Contagem de conexões atuais estabelecidas com o gateway de aplicativo|Nenhuma dimensão|
 |CapacityUnits|Unidades de capacidade atuais|Count|Average|Unidades de capacidade consumidas|Nenhuma dimensão|
@@ -1207,68 +1207,68 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|registration.all|Operações de Registo|Count|Total|A contagem de todas as operações de registro bem-sucedidas (cria consultas e exclusões de atualizações). |Nenhuma dimensão|
-|registration.create|Operações de Criação de Registo|Count|Total|A contagem de todas as criações de registro bem-sucedidas.|Nenhuma dimensão|
-|registration.update|Operações de Atualização de Registo|Count|Total|A contagem de todas as atualizações de registro bem-sucedidas.|Nenhuma dimensão|
-|registration.get|Operações de Leitura de Registo|Count|Total|A contagem de todas as consultas de registro bem-sucedidas.|Nenhuma dimensão|
-|registration.delete|Operações de Eliminação de Registo|Count|Total|A contagem de todas as exclusões de registro bem-sucedidas.|Nenhuma dimensão|
-|recebidos|Mensagens Recebidas|Count|Total|A contagem de todas as chamadas de API de envio bem-sucedidas. |Nenhuma dimensão|
-|incoming.scheduled|Notificações Push Agendadas Enviadas|Count|Total|Notificações por push agendadas canceladas|Nenhuma dimensão|
+|registration.all|Operações de registro|Count|Total|A contagem de todas as operações de registro bem-sucedidas (cria consultas e exclusões de atualizações). |Nenhuma dimensão|
+|registration.create|Operações de criação de registro|Count|Total|A contagem de todas as criações de registro bem-sucedidas.|Nenhuma dimensão|
+|registration.update|Operações de atualização de registro|Count|Total|A contagem de todas as atualizações de registro bem-sucedidas.|Nenhuma dimensão|
+|registration.get|Operações de leitura de registro|Count|Total|A contagem de todas as consultas de registro bem-sucedidas.|Nenhuma dimensão|
+|registration.delete|Operações de exclusão de registro|Count|Total|A contagem de todas as exclusões de registro bem-sucedidas.|Nenhuma dimensão|
+|Recebidos|Mensagens Recebidas|Count|Total|A contagem de todas as chamadas de API de envio bem-sucedidas. |Nenhuma dimensão|
+|incoming.scheduled|Notificações por push agendadas enviadas|Count|Total|Notificações por push agendadas canceladas|Nenhuma dimensão|
 |incoming.scheduled.cancel|Notificações por push agendadas canceladas|Count|Total|Notificações por push agendadas canceladas|Nenhuma dimensão|
-|agendado. pendente|Notificações Agendadas Pendentes|Count|Total|Notificações Agendadas Pendentes|Nenhuma dimensão|
-|instalação. todos|Operações de Gestão de Instalação|Count|Total|Operações de Gestão de Instalação|Nenhuma dimensão|
-|installation.get|Obter Operações de Instalação|Count|Total|Obter Operações de Instalação|Nenhuma dimensão|
-|installation.upsert|Criar ou Atualizar Operações de Instalação|Count|Total|Criar ou Atualizar Operações de Instalação|Nenhuma dimensão|
-|installation.patch|Corrigir Operações de Instalação|Count|Total|Corrigir Operações de Instalação|Nenhuma dimensão|
-|installation.delete|Eliminar Operações de Instalação|Count|Total|Eliminar Operações de Instalação|Nenhuma dimensão|
-|outgoing.allpns.success|Notificações com êxito|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
-|outgoing.allpns.invalidpayload|Erros de Payload|Count|Total|A contagem de Pushes que falharam porque o PNS retornou um erro de carga inadequada.|Nenhuma dimensão|
-|outgoing.allpns.pnserror|Erros de Sistema de Notificação Externos|Count|Total|A contagem de Pushes que falharam porque houve um problema de comunicação com o PNS (exclui problemas de autenticação).|Nenhuma dimensão|
-|outgoing.allpns.channelerror|Erros de Canal|Count|Total|A contagem de Pushes que falharam porque o canal era inválido não associado ao aplicativo correto limitado ou expirou.|Nenhuma dimensão|
-|outgoing.allpns.badorexpiredchannel|Erros de Canal Incorreto ou Expirado|Count|Total|A contagem de Pushes que falharam porque o canal/token/RegistrationId no registro expirou ou é inválido.|Nenhuma dimensão|
-|outgoing.wns.success|Notificações com Êxito do WNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|agendado. pendente|Notificações agendadas pendentes|Count|Total|Notificações agendadas pendentes|Nenhuma dimensão|
+|instalação. todos|Operações de gerenciamento de instalação|Count|Total|Operações de gerenciamento de instalação|Nenhuma dimensão|
+|installation.get|Obter operações de instalação|Count|Total|Obter operações de instalação|Nenhuma dimensão|
+|installation.upsert|Criar ou atualizar operações de instalação|Count|Total|Criar ou atualizar operações de instalação|Nenhuma dimensão|
+|installation.patch|Operações de instalação de patch|Count|Total|Operações de instalação de patch|Nenhuma dimensão|
+|installation.delete|Excluir operações de instalação|Count|Total|Excluir operações de instalação|Nenhuma dimensão|
+|outgoing.allpns.success|Notificações bem-sucedidas|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.allpns.invalidpayload|Erros de carga|Count|Total|A contagem de Pushes que falharam porque o PNS retornou um erro de carga inadequada.|Nenhuma dimensão|
+|outgoing.allpns.pnserror|Erros do sistema de notificação externa|Count|Total|A contagem de Pushes que falharam porque houve um problema de comunicação com o PNS (exclui problemas de autenticação).|Nenhuma dimensão|
+|outgoing.allpns.channelerror|Erros de canal|Count|Total|A contagem de Pushes que falharam porque o canal era inválido não associado ao aplicativo correto limitado ou expirou.|Nenhuma dimensão|
+|outgoing.allpns.badorexpiredchannel|Erros de canal insatisfatórios ou expirados|Count|Total|A contagem de Pushes que falharam porque o canal/token/RegistrationId no registro expirou ou é inválido.|Nenhuma dimensão|
+|outgoing.wns.success|Notificações com êxito do WNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
 |outgoing.wns.invalidcredentials|Erros de autorização do WNS (credenciais inválidas)|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas. (O Windows Live não reconhece as credenciais).|Nenhuma dimensão|
-|outgoing.wns.badchannel|Erro de Canal Incorreto do WNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro não foi reconhecido (status do WNS: 404 não encontrado).|Nenhuma dimensão|
-|outgoing.wns.expiredchannel|Erro de Canal Expirado do WNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI está expirado (status do WNS: 410).|Nenhuma dimensão|
-|outgoing.wns.throttled|Notificações Limitadas do WNS|Count|Total|A contagem de Pushes que falharam porque o WNS está limitando este aplicativo (status do WNS: 406 não aceitável).|Nenhuma dimensão|
+|outgoing.wns.badchannel|Erro de canal insatisfatório do WNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro não foi reconhecido (status do WNS: 404 não encontrado).|Nenhuma dimensão|
+|outgoing.wns.expiredchannel|Erro de canal expirado do WNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI está expirado (status do WNS: 410).|Nenhuma dimensão|
+|outgoing.wns.throttled|Notificações limitadas do WNS|Count|Total|A contagem de Pushes que falharam porque o WNS está limitando este aplicativo (status do WNS: 406 não aceitável).|Nenhuma dimensão|
 |outgoing.wns.tokenproviderunreachable|Erros de autorização do WNS (inacessível)|Count|Total|O Windows Live não está acessível.|Nenhuma dimensão|
 |outgoing.wns.invalidtoken|Erros de autorização do WNS (token inválido)|Count|Total|O token fornecido ao WNS não é válido (status do WNS: 401 não autorizado).|Nenhuma dimensão|
 |outgoing.wns.wrongtoken|Erros de autorização do WNS (token incorreto)|Count|Total|O token fornecido ao WNS é válido, mas para outro aplicativo (status do WNS: 403 Proibido). Isso pode acontecer se o ChannelURI no registro estiver associado a outro aplicativo. Verifique se o aplicativo cliente está associado ao mesmo aplicativo cujas credenciais estão no Hub de notificação.|Nenhuma dimensão|
-|outgoing.wns.invalidnotificationformat|Formato de Notificação Inválido do WNS|Count|Total|O formato da notificação é inválido (status do WNS: 400). Observe que o WNS não rejeita todas as cargas inválidas.|Nenhuma dimensão|
-|outgoing.wns.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do WNS|Count|Total|A carga de notificação é muito grande (status do WNS: 413).|Nenhuma dimensão|
-|outgoing.wns.channelthrottled|Canal do WNS Limitado|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (cabeçalho de resposta do WNS: X-WNS-NotificationStatus: channelThrottled).|Nenhuma dimensão|
-|outgoing.wns.channeldisconnected|Canal do WNS Desligado|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (cabeçalho de resposta do WNS: X-WNS-DeviceConnectionStatus: desconectado).|Nenhuma dimensão|
-|outgoing.wns.dropped|Notificações Removidas do WNS|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (X-WNS-NotificationStatus: descartado, mas não X-WNS-DeviceConnectionStatus: desconectado).|Nenhuma dimensão|
-|outgoing.wns.pnserror|Erros do WNS|Count|Total|Notificação não entregue devido a erros de comunicação com o WNS.|Nenhuma dimensão|
-|outgoing.wns.authenticationerror|Erros de Autenticação do WNS|Count|Total|Notificação não entregue devido a erros de comunicação com credenciais inválidas do Windows Live ou token incorreto.|Nenhuma dimensão|
-|outgoing.apns.success|Notificações com Êxito do APNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
-|outgoing.apns.invalidcredentials|Erros de Autorização do APNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
-|outgoing.apns.badchannel|Erro de Canal Incorreto do APNS|Count|Total|A contagem de Pushes que falharam porque o token é inválido (código de status do protocolo binário APNS: 8. Código de status do protocolo HTTP APNS: 400 com "BadDeviceToken").|Nenhuma dimensão|
-|outgoing.apns.expiredchannel|Erro de Canal Expirado do APNS|Count|Total|A contagem de tokens que foram invalidados pelo canal de comentários do APNS.|Nenhuma dimensão|
-|outgoing.apns.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do APNS|Count|Total|A contagem de Pushes que falharam porque o conteúdo era muito grande (código de status do protocolo binário APNS: 7).|Nenhuma dimensão|
-|outgoing.apns.pnserror|Erros do APNS|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o APNS.|Nenhuma dimensão|
-|outgoing.gcm.success|Notificações com Êxito do GCM|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.wns.invalidnotificationformat|Formato de notificação inválido do WNS|Count|Total|O formato da notificação é inválido (status do WNS: 400). Observe que o WNS não rejeita todas as cargas inválidas.|Nenhuma dimensão|
+|outgoing.wns.invalidnotificationsize|Erro de tamanho de notificação inválido do WNS|Count|Total|A carga de notificação é muito grande (status do WNS: 413).|Nenhuma dimensão|
+|outgoing.wns.channelthrottled|Canal do WNS limitado|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (cabeçalho de resposta do WNS: X-WNS-NotificationStatus: channelThrottled).|Nenhuma dimensão|
+|outgoing.wns.channeldisconnected|Canal do WNS desconectado|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (cabeçalho de resposta do WNS: X-WNS-DeviceConnectionStatus: desconectado).|Nenhuma dimensão|
+|outgoing.wns.dropped|Notificações descartadas do WNS|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (X-WNS-NotificationStatus: descartado, mas não X-WNS-DeviceConnectionStatus: desconectado).|Nenhuma dimensão|
+|outgoing.wns.pnserror|Erros de WNS|Count|Total|Notificação não entregue devido a erros de comunicação com o WNS.|Nenhuma dimensão|
+|outgoing.wns.authenticationerror|Erros de autenticação WNS|Count|Total|Notificação não entregue devido a erros de comunicação com credenciais inválidas do Windows Live ou token incorreto.|Nenhuma dimensão|
+|outgoing.apns.success|Notificações bem-sucedidas do APNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.apns.invalidcredentials|Erros de autorização de APNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
+|outgoing.apns.badchannel|Erro de canal insatisfatório de APNS|Count|Total|A contagem de Pushes que falharam porque o token é inválido (código de status do protocolo binário APNS: 8. Código de status do protocolo HTTP APNS: 400 com "BadDeviceToken").|Nenhuma dimensão|
+|outgoing.apns.expiredchannel|Erro de canal expirado APNS|Count|Total|A contagem de tokens que foram invalidados pelo canal de comentários do APNS.|Nenhuma dimensão|
+|outgoing.apns.invalidnotificationsize|Erro de tamanho de notificação inválido do APNS|Count|Total|A contagem de Pushes que falharam porque o conteúdo era muito grande (código de status do protocolo binário APNS: 7).|Nenhuma dimensão|
+|outgoing.apns.pnserror|Erros de APNS|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o APNS.|Nenhuma dimensão|
+|outgoing.gcm.success|Notificações de êxito do GCM|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
 |outgoing.gcm.invalidcredentials|Erros de autorização do GCM (credenciais inválidas)|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
-|outgoing.gcm.badchannel|Erro de Canal Incorreto do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro não foi reconhecido (resultado do GCM: Registro inválido).|Nenhuma dimensão|
-|outgoing.gcm.expiredchannel|Erro de Canal Expirado do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro expirou (resultado do GCM: Não registrado).|Nenhuma dimensão|
-|outgoing.gcm.throttled|Notificações Limitadas do GCM|Count|Total|A contagem de Pushes que falharam porque o GCM restringiu este aplicativo (código de status do GCM: 501-599 ou resultado: não disponível).|Nenhuma dimensão|
-|outgoing.gcm.invalidnotificationformat|Formato de Notificação Inválido do GCM|Count|Total|A contagem de Pushes que falharam porque a carga não foi formatada corretamente (resultado do GCM: InvalidDataKey ou InvalidTtl).|Nenhuma dimensão|
-|outgoing.gcm.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do GCM|Count|Total|A contagem de Pushes que falharam porque o conteúdo era muito grande (resultado do GCM: MessageTooBig).|Nenhuma dimensão|
-|outgoing.gcm.wrongchannel|Erro de Canal Errado do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro não está associado ao aplicativo atual (resultado do GCM: InvalidPackageName).|Nenhuma dimensão|
+|outgoing.gcm.badchannel|Erro de canal insatisfatório do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro não foi reconhecido (resultado do GCM: Registro inválido).|Nenhuma dimensão|
+|outgoing.gcm.expiredchannel|Erro de canal expirado do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro expirou (resultado do GCM: Não registrado).|Nenhuma dimensão|
+|outgoing.gcm.throttled|Notificações limitadas do GCM|Count|Total|A contagem de Pushes que falharam porque o GCM restringiu este aplicativo (código de status do GCM: 501-599 ou resultado: não disponível).|Nenhuma dimensão|
+|outgoing.gcm.invalidnotificationformat|Formato de notificação inválido do GCM|Count|Total|A contagem de Pushes que falharam porque a carga não foi formatada corretamente (resultado do GCM: InvalidDataKey ou InvalidTtl).|Nenhuma dimensão|
+|outgoing.gcm.invalidnotificationsize|Erro de tamanho de notificação inválido do GCM|Count|Total|A contagem de Pushes que falharam porque o conteúdo era muito grande (resultado do GCM: MessageTooBig).|Nenhuma dimensão|
+|outgoing.gcm.wrongchannel|Erro de canal incorreto do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro não está associado ao aplicativo atual (resultado do GCM: InvalidPackageName).|Nenhuma dimensão|
 |outgoing.gcm.pnserror|Erros do GCM|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o GCM.|Nenhuma dimensão|
-|outgoing.gcm.authenticationerror|Erros de Autenticação do GCM|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas as credenciais estão bloqueadas ou a SenderId não está configurada corretamente no aplicativo (resultado do GCM: MismatchedSenderId).|Nenhuma dimensão|
-|outgoing.mpns.success|Notificações com Êxito do MPNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
-|outgoing.mpns.invalidcredentials|Credenciais Inválidas do MPNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
-|outgoing.mpns.badchannel|Erro de Canal Incorreto do MPNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro não foi reconhecido (status do MPNS: 404 não encontrado).|Nenhuma dimensão|
-|outgoing.mpns.throttled|Notificações Limitadas do MPNS|Count|Total|A contagem de Pushes que falharam porque o MPNS está limitando este aplicativo (WNS MPNS: 406 não aceitável).|Nenhuma dimensão|
-|outgoing.mpns.invalidnotificationformat|Formato de Notificação Inválido do MPNS|Count|Total|A contagem de Pushes que falharam porque a carga da notificação era muito grande.|Nenhuma dimensão|
-|outgoing.mpns.channeldisconnected|Canal do MPNS Desligado|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro foi desconectado (status do MPNS: 412 não encontrado).|Nenhuma dimensão|
-|outgoing.mpns.dropped|Notificações Removidas do MPNS|Count|Total|A contagem de Pushes que foram descartados pelo MPNS (cabeçalho de resposta MPNS: X-NotificationStatus: QueueFull ou suprimido).|Nenhuma dimensão|
+|outgoing.gcm.authenticationerror|Erros de autenticação do GCM|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas as credenciais estão bloqueadas ou a SenderId não está configurada corretamente no aplicativo (resultado do GCM: MismatchedSenderId).|Nenhuma dimensão|
+|outgoing.mpns.success|Notificações bem-sucedidas do MPNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.mpns.invalidcredentials|Credenciais inválidas do MPNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
+|outgoing.mpns.badchannel|Erro de canal insatisfatório do MPNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro não foi reconhecido (status do MPNS: 404 não encontrado).|Nenhuma dimensão|
+|outgoing.mpns.throttled|Notificações limitadas do MPNS|Count|Total|A contagem de Pushes que falharam porque o MPNS está limitando este aplicativo (WNS MPNS: 406 não aceitável).|Nenhuma dimensão|
+|outgoing.mpns.invalidnotificationformat|Formato de notificação inválido do MPNS|Count|Total|A contagem de Pushes que falharam porque a carga da notificação era muito grande.|Nenhuma dimensão|
+|outgoing.mpns.channeldisconnected|Canal do MPNS desconectado|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro foi desconectado (status do MPNS: 412 não encontrado).|Nenhuma dimensão|
+|outgoing.mpns.dropped|Notificações ignoradas do MPNS|Count|Total|A contagem de Pushes que foram descartados pelo MPNS (cabeçalho de resposta MPNS: X-NotificationStatus: QueueFull ou suprimido).|Nenhuma dimensão|
 |outgoing.mpns.pnserror|Erros do MPNS|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o MPNS.|Nenhuma dimensão|
-|outgoing.mpns.authenticationerror|Erros de Autenticação do MPNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
-|notificationhub.pushes|Todas as Notificações Enviadas|Count|Total|Todas as notificações de saída do hub de notificação|Nenhuma dimensão|
-|incoming.all.requests|Todos os Pedidos Recebidos|Count|Total|Total de solicitações de entrada para um hub de notificação|Nenhuma dimensão|
-|incoming.all.failedrequests|Todos os Pedidos Falhados Recebidos|Count|Total|Total de solicitações de entrada com falha para um hub de notificação|Nenhuma dimensão|
+|outgoing.mpns.authenticationerror|Erros de autenticação do MPNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
+|notificationhub.pushes|Todas as notificações de saída|Count|Total|Todas as notificações de saída do hub de notificação|Nenhuma dimensão|
+|incoming.all.requests|Todas as solicitações de entrada|Count|Total|Total de solicitações de entrada para um hub de notificação|Nenhuma dimensão|
+|incoming.all.failedrequests|Todas as solicitações com falha de entrada|Count|Total|Total de solicitações de entrada com falha para um hub de notificação|Nenhuma dimensão|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
@@ -1399,8 +1399,8 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |ActiveMessages|Contagem de mensagens ativas em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens ativas em uma fila/tópico. (Pré-visualização)|EntityName|
 |DeadletteredMessages|Contagem de mensagens mortas em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens mortas em uma fila/tópico. (Pré-visualização)|EntityName|
 |ScheduledMessages|Contagem de mensagens agendadas em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens agendadas em uma fila/tópico. (Pré-visualização)|EntityName|
-|CPUXNS|Utilização da CPU por espaço de nomes|Percent|Máximo|Métrica de uso de CPU do namespace Premium do barramento de serviço|Nenhuma dimensão|
-|WSXNS|Utilização do tamanho da memória por espaço de nomes|Percent|Máximo|Métrica de uso de memória do namespace Premium do barramento de serviço|Nenhuma dimensão|
+|CPUXNS|Uso da CPU por namespace|Percent|Máximo|Métrica de uso de CPU do namespace Premium do barramento de serviço|Nenhuma dimensão|
+|WSXNS|Uso do tamanho da memória por namespace|Percent|Máximo|Métrica de uso de memória do namespace Premium do barramento de serviço|Nenhuma dimensão|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1434,18 +1434,18 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percent|Average|Percentagem de CPU|Nenhuma dimensão|
-|physical_data_read_percent|Percentagem de E/S de Dados|Percent|Average|Percentagem de E/S de Dados|Nenhuma dimensão|
-|log_write_percent|Percentagem de E/S de Registo|Percent|Average|Percentual de e/s de log. Não aplicável a data warehouses.|Nenhuma dimensão|
+|physical_data_read_percent|Percentagem de E/S de dados|Percent|Average|Percentagem de E/S de dados|Nenhuma dimensão|
+|log_write_percent|Percentagem de E/S de registo|Percent|Average|Percentual de e/s de log. Não aplicável a data warehouses.|Nenhuma dimensão|
 |dtu_consumption_percent|Percentagem de DTU|Percent|Average|Porcentagem de DTU. Aplica-se a bancos de dados baseados em DTU.|Nenhuma dimensão|
 |armazenamento|Espaço de dados utilizado|Bytes|Máximo|Tamanho total do banco de dados. Não aplicável a data warehouses.|Nenhuma dimensão|
 |connection_successful|Conexões com êxito|Count|Total|Conexões com êxito|Nenhuma dimensão|
-|connection_failed|Ligações com Falhas|Count|Total|Ligações com Falhas|Nenhuma dimensão|
+|connection_failed|Ligações Falhadas|Count|Total|Ligações Falhadas|Nenhuma dimensão|
 |blocked_by_firewall|Bloqueado pelo firewall|Count|Total|Bloqueado pelo firewall|Nenhuma dimensão|
-|bloqueado|Impasses|Count|Total|Deadlocks. Não aplicável a data warehouses.|Nenhuma dimensão|
+|Bloqueado|Impasses|Count|Total|Deadlocks. Não aplicável a data warehouses.|Nenhuma dimensão|
 |storage_percent|Porcentagem de espaço de dados usada|Percent|Máximo|Porcentagem de tamanho do banco de dados. Não aplicável a data warehouses ou a bancos de dados de hiperescala.|Nenhuma dimensão|
 |xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Percent|Average|Porcentagem de armazenamento OLTP na memória. Não aplicável a data warehouses.|Nenhuma dimensão|
-|workers_percent|Porcentagem de trabalhadores|Percent|Average|Porcentagem de trabalhadores. Não aplicável a data warehouses.|Nenhuma dimensão|
-|sessions_percent|Porcentagem de sessões|Percent|Average|Porcentagem de sessões. Não aplicável a data warehouses.|Nenhuma dimensão|
+|workers_percent|Percentagem de funcionários|Percent|Average|Porcentagem de trabalhadores. Não aplicável a data warehouses.|Nenhuma dimensão|
+|sessions_percent|Percentagem de sessões|Percent|Average|Porcentagem de sessões. Não aplicável a data warehouses.|Nenhuma dimensão|
 |dtu_limit|Limite de DTU|Count|Average|Limite de DTU. Aplica-se a bancos de dados baseados em DTU.|Nenhuma dimensão|
 |dtu_used|DTU usado|Count|Average|DTU usado. Aplica-se a bancos de dados baseados em DTU.|Nenhuma dimensão|
 |cpu_limit|Limite de CPU|Count|Average|Limite de CPU. Aplica-se a bancos de dados baseados em vCore.|Nenhuma dimensão|
@@ -1458,7 +1458,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |cache_hit_percent|Porcentagem de acesso ao cache|Percent|Máximo|Porcentagem de acesso ao cache. Aplica-se somente a data warehouses.|Nenhuma dimensão|
 |cache_used_percent|Percentual de cache usado|Percent|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Nenhuma dimensão|
 |local_tempdb_usage_percent|Porcentagem de tempdb local|Percent|Average|Porcentagem de tempdb local. Aplica-se somente a data warehouses.|Nenhuma dimensão|
-|app_cpu_billed|CPU do aplicativo cobrada|Count|Total|CPU do aplicativo cobrada. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
+|app_cpu_billed|Faturação da CPU da aplicação|Count|Total|CPU do aplicativo cobrada. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
 |app_cpu_percent|Porcentagem de CPU do aplicativo|Percent|Average|Porcentagem de CPU do aplicativo. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
 |app_memory_percent|Porcentagem de memória usada do aplicativo|Percent|Average|Porcentagem de memória usada do aplicativo. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Average|Espaço de dados alocado. Não aplicável a data warehouses.|Nenhuma dimensão|
@@ -1468,14 +1468,14 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percent|Average|Percentagem de CPU|Nenhuma dimensão|
-|physical_data_read_percent|Percentagem de E/S de Dados|Percent|Average|Percentagem de E/S de Dados|Nenhuma dimensão|
-|log_write_percent|Percentagem de E/S de Registo|Percent|Average|Percentagem de E/S de Registo|Nenhuma dimensão|
+|physical_data_read_percent|Percentagem de E/S de dados|Percent|Average|Percentagem de E/S de dados|Nenhuma dimensão|
+|log_write_percent|Percentagem de E/S de registo|Percent|Average|Percentagem de E/S de registo|Nenhuma dimensão|
 |dtu_consumption_percent|Percentagem de DTU|Percent|Average|Porcentagem de DTU. Aplica-se a pools elásticos baseados em DTU.|Nenhuma dimensão|
 |storage_percent|Porcentagem de espaço de dados usada||Percent|Average|Porcentagem de armazenamento|Nenhuma dimensão|
-|workers_percent|Porcentagem de trabalhadores|Percent|Average|Porcentagem de trabalhadores|Nenhuma dimensão|
-|sessions_percent|Porcentagem de sessões|Percent|Average|Porcentagem de sessões|Nenhuma dimensão|
+|workers_percent|Percentagem de funcionários|Percent|Average|Percentagem de funcionários|Nenhuma dimensão|
+|sessions_percent|Percentagem de sessões|Percent|Average|Percentagem de sessões|Nenhuma dimensão|
 |eDTU_limit|limite de eDTU|Count|Average|limite de eDTU. Aplica-se a pools elásticos baseados em DTU.|Nenhuma dimensão|
-|storage_limit|Tamanho máximo de dados|Bytes|Average|Limite de armazenamento|Nenhuma dimensão|
+|storage_limit|Tamanho máximo dos dados|Bytes|Average|Limite de armazenamento|Nenhuma dimensão|
 |eDTU_used|eDTU usado|Count|Average|eDTU usado. Aplica-se a pools elásticos baseados em DTU.|Nenhuma dimensão|
 |storage_used|Espaço de dados utilizado|Bytes|Average|Armazenamento utilizado|Nenhuma dimensão|
 |xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Percent|Average|Porcentagem de armazenamento OLTP na memória|Nenhuma dimensão|
@@ -1528,7 +1528,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de|Capacidade de Ficheiros|Bytes|Average|A quantidade de armazenamento usada pelo serviço de arquivo da conta de armazenamento em bytes.|Nenhuma dimensão|
-|FileCount|Contagem de ficheiros|Count|Average|O número de arquivos no serviço de arquivo da conta de armazenamento.|Nenhuma dimensão|
+|FileCount|Contagem de Ficheiros|Count|Average|O número de arquivos no serviço de arquivo da conta de armazenamento.|Nenhuma dimensão|
 |FileShareCount|Contagem de Partilha de Ficheiros|Count|Average|O número de compartilhamentos de arquivos no serviço de arquivo da conta de armazenamento.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Geotipo, ApiName, autenticação|
@@ -1655,7 +1655,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |---|---|---|---|---|---|
 |CpuPercentage|Percentagem de CPU|Percent|Average|Percentagem de CPU|Instância|
 |MemoryPercentage|Percentagem de Memória|Percent|Average|Percentagem de Memória|Instância|
-|DiskQueueLength|Comprimento da Fila de Discos|Count|Average|Comprimento da Fila de Discos|Instância|
+|DiskQueueLength|Comprimento da fila de discos|Count|Average|Comprimento da fila de discos|Instância|
 |HttpQueueLength|Comprimento da Fila de http|Count|Average|Comprimento da Fila de http|Instância|
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
 |BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
@@ -1678,10 +1678,10 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Http4xx|Http 4xx|Count|Total|Http 4xx|Instância|
 |Http5xx|Erros de Servidor http|Count|Total|Erros de Servidor http|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Average|Conjunto de trabalho de memória|Instância|
-|AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Average|Média do conjunto de trabalho de memória|Instância|
+|AverageMemoryWorkingSet|Média da memória do conjunto de trabalho|Bytes|Average|Média da memória do conjunto de trabalho|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Average|Tempo de Resposta Médio|Instância|
 |AppConnections|Ligações|Count|Average|Ligações|Instância|
-|Identificadores|N.º de Identificadores|Count|Average|N.º de Identificadores|Instância|
+|Alça|N.º de Identificadores|Count|Average|N.º de Identificadores|Instância|
 |Threads|Número de Threads|Count|Average|Número de Threads|Instância|
 |PrivateBytes|Bytes Privados|Bytes|Average|Bytes Privados|Instância|
 |IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|
@@ -1706,7 +1706,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
 |Http5xx|Erros de Servidor http|Count|Total|Erros de Servidor http|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Average|Conjunto de trabalho de memória|Instância|
-|AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Average|Média do conjunto de trabalho de memória|Instância|
+|AverageMemoryWorkingSet|Média da memória do conjunto de trabalho|Bytes|Average|Média da memória do conjunto de trabalho|Instância|
 |FunctionExecutionUnits|Unidades de Execução de Funções|MB/milissegundos|Total|[Unidades de execução de função](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Count|Total|Contagem de Execuções de Função|Instância|
 |PrivateBytes|Bytes Privados|Bytes|Average|Bytes Privados|Instância|
@@ -1742,12 +1742,12 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Http4xx|Http 4xx|Count|Total|Http 4xx|Instância|
 |Http5xx|Erros de Servidor http|Count|Total|Erros de Servidor http|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Average|Conjunto de trabalho de memória|Instância|
-|AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Average|Média do conjunto de trabalho de memória|Instância|
+|AverageMemoryWorkingSet|Média da memória do conjunto de trabalho|Bytes|Average|Média da memória do conjunto de trabalho|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Average|Tempo de Resposta Médio|Instância|
 |FunctionExecutionUnits|Unidades de Execução de Funções|Count|Total|Unidades de Execução de Funções|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Count|Total|Contagem de Execuções de Função|Instância|
 |AppConnections|Ligações|Count|Average|Ligações|Instância|
-|Identificadores|N.º de Identificadores|Count|Average|N.º de Identificadores|Instância|
+|Alça|N.º de Identificadores|Count|Average|N.º de Identificadores|Instância|
 |Threads|Número de Threads|Count|Average|Número de Threads|Instância|
 |PrivateBytes|Bytes Privados|Bytes|Average|Bytes Privados|Instância|
 |IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|
@@ -1783,7 +1783,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Average|Tempo de Resposta Médio|Instância|
 |CpuPercentage|Percentagem de CPU|Percent|Average|Percentagem de CPU|Instância|
 |MemoryPercentage|Percentagem de Memória|Percent|Average|Percentagem de Memória|Instância|
-|DiskQueueLength|Comprimento da Fila de Discos|Count|Average|Comprimento da Fila de Discos|Instância|
+|DiskQueueLength|Comprimento da fila de discos|Count|Average|Comprimento da fila de discos|Instância|
 |HttpQueueLength|Comprimento da Fila de http|Count|Average|Comprimento da Fila de http|Instância|
 |ActiveRequests|Pedidos Ativos|Count|Total|Pedidos Ativos|Instância|
 |TotalFrontEnds|Total de Front Ends|Count|Average|Total de Front Ends|Nenhuma dimensão|
@@ -1804,4 +1804,4 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 ## <a name="next-steps"></a>Passos seguintes
 * [Leia sobre métricas no Azure Monitor](data-platform.md)
 * [Criar alertas em métricas](alerts-overview.md)
-* [Exportar métricas para armazenamento, Hub de eventos ou Log Analytics](diagnostic-logs-overview.md)
+* [Exportar métricas para armazenamento, Hub de eventos ou Log Analytics](resource-logs-overview.md)

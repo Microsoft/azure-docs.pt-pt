@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 25e7262842de2bcf3823a51dfe6d97b5558b16fe
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ce8aa0229d9a9b873a489209065ada588adbffff
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201755"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257746"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -133,7 +133,7 @@ Consulte o seguinte artigo fluxo de [atividades do Stream para hubs de eventos](
 
 O roteamento dos dados de monitoramento para um hub de eventos com o Azure Monitor permite que você se integre facilmente às ferramentas de monitoramento e SIEM do parceiro.
 
-Consulte o link a seguir para ver a lista de [Siems com suporte](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Consulte o link a seguir para ver a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
 
 ### <a name="example-for-querying-data"></a>Exemplo para consultar dados 
 

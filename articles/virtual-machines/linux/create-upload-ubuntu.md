@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: szark
-ms.openlocfilehash: fe9eed24ef641ef1403aa940b88790e38512e874
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdf2c6c0d5621223655fc4571affcdde4563ac97
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083537"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258272"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ O Ubuntu agora publica VHDs oficiais do Azure para download [https://cloud-image
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 16.04/Xenial: [Ubuntu-16, 4-Server-cloudimg-AMD64-DISK1. vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
 * Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
 * Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
@@ -75,7 +75,7 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Ubun
         # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
         # sudo apt-get update
 
-4. As imagens do Ubuntu Azure agora estão seguindo o kernel de habilitação de *hardware* (Hwe). Atualize o sistema operacional para o kernel mais recente executando os seguintes comandos:
+4. As imagens do Ubuntu Azure agora estão seguindo o kernel de *habilitação de hardware* (Hwe). Atualize o sistema operacional para o kernel mais recente executando os seguintes comandos:
 
     Ubuntu 12.04:
    
@@ -136,6 +136,6 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Ubun
 ## <a name="references"></a>Referências
 [Kernel de habilitação de hardware do Ubuntu (HWE)](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora você está pronto para usar seu Ubuntu Linux disco rígido virtual para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você está carregando o arquivo. vhd no Azure, consulte [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 

@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: eb196b9ff72201358982764f227ab7935489f05d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: ad2fef96491c2d1a15ad9ff5f57d2911dfecaa36
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183399"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265794"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade
 
@@ -39,7 +38,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categories    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"` `"Organization"`, ,,`"Quantity"`,, ,.`"Email"` `"URL"` `"Datetime"` Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
+| categorias    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"` `"Organization"`, ,,`"Quantity"`,, ,.`"Email"` `"URL"` `"Datetime"` Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas:`de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para uso futuro. |
 |includeTypelessEntities | Quando definido como true se o texto contiver uma entidade bem conhecida, mas não puder ser Categorizado em uma das categorias com suporte, ele será retornado como parte do `"entities"` campo de saída complexo. 
@@ -48,7 +47,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Introduzir nome      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
 | text          | O texto a ser analisado.          |
@@ -68,7 +67,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
 | URLs | Uma matriz de cadeias de caracteres em que cada cadeia representa uma URL |
 | e-mails | Uma matriz de cadeias de caracteres em que cada cadeia representa um email |
 | namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>category</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usada por enquanto. Será definido como um valor de-1)</li></ul> |
-| entidades | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídas do texto, com os campos a seguir <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipédiaid</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subtipo (disponível somente para determinadas categorias, isso fornece uma exibição mais granular do tipo de entidade)</li><li> corresponde (uma coleção complexa que contém)<ul><li>texto (o texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto da entidade)</li></ul></li></ul> |
+| Contabilidade | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídas do texto, com os campos a seguir <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipédiaid</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subtipo (disponível somente para determinadas categorias, isso fornece uma exibição mais granular do tipo de entidade)</li><li> corresponde (uma coleção complexa que contém)<ul><li>texto (o texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto da entidade)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

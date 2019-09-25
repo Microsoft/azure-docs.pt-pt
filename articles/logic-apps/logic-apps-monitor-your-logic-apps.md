@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385539"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261356"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnóstico e ativar alertas para aplicativos lógicos do Azure
 
@@ -158,7 +158,7 @@ Para refinar sua consulta adicionando um filtro, escolha **+ Adicionar**.
 Juntamente com os logs de Azure Monitor, você pode estender como usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
 
 * [Arquivar logs de Diagnóstico do Azure no armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Transmitir logs de Diagnóstico do Azure para os hubs de eventos do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Transmitir logs de Diagnóstico do Azure para os hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
 Em seguida, você pode obter o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) e [Power bi](../azure-monitor/platform/powerbi.md). Por exemplo:
 
@@ -291,7 +291,7 @@ Por exemplo, o `ActionCompleted` evento tem as `clientTrackingId` propriedades `
   }
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Cenários B2B com Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

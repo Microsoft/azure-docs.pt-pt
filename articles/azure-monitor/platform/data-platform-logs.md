@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f6eaeb7c4a4d28fcf11ec9acda14629a79d00791
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9aed19c88517868c2e8cb860dc01d01b7a7c3127
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814324"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262083"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "68814324"
 Os logs em Azure Monitor são especialmente úteis para executar análises complexas em dados de uma variedade de fontes. Este artigo descreve como os logs são estruturados em Azure Monitor, o que você pode fazer com os dados e identifica diferentes fontes de dados que armazenam dados em logs.
 
 > [!NOTE]
-> É importante distinguir entre Azure Monitor logs e fontes de dados de log no Azure. Por exemplo, os eventos de nível de assinatura no Azure são gravados em um [log de atividades](activity-logs-overview.md) que você pode exibir no menu Azure monitor. A maioria dos recursos irá gravar informações operacionais em um [log de diagnóstico](diagnostic-logs-overview.md) que você pode encaminhar para locais diferentes. Os logs de Azure Monitor são uma plataforma de dados de log que coleta logs de atividade e logs de diagnóstico junto com outros dados de monitoramento para fornecer análise profunda em todo o seu conjunto de recursos.
+> É importante distinguir entre Azure Monitor logs e fontes de dados de log no Azure. Por exemplo, os eventos de nível de assinatura no Azure são gravados em um [log de atividades](activity-logs-overview.md) que você pode exibir no menu Azure monitor. A maioria dos recursos irá gravar informações operacionais em um [log de diagnóstico](resource-logs-overview.md) que você pode encaminhar para locais diferentes. Os logs de Azure Monitor são uma plataforma de dados de log que coleta logs de atividade e logs de diagnóstico junto com outros dados de monitoramento para fornecer análise profunda em todo o seu conjunto de recursos.
 
 ## <a name="what-are-azure-monitor-logs"></a>O que são Azure Monitor logs?
 
@@ -46,7 +46,7 @@ A tabela a seguir lista as diferentes maneiras que você pode usar logs em Azure
 | Analisar | Use [log Analytics](../log-query/get-started-portal.md) no portal do Azure para gravar [consultas de log](../log-query/log-query-overview.md) e analisar interativamente os dados de log usando o poderoso mecanismo de análise de data Explorer.<br>Use o [console do Application insights Analytics](../app/analytics.md) no portal do Azure para gravar consultas de log e analisar interativamente os dados de log de Application insights. |
 | Visualizar | Fixe os resultados da consulta renderizados como tabelas ou gráficos em um [painel do Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie uma [pasta de trabalho](../app/usage-workbooks.md) para combinar com vários conjuntos de dados em um relatório interativo. <br>Exportar os resultados de uma consulta para [Power BI](powerbi.md) utilizar visualizações diferentes e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta para [Grafana](grafana-plugin.md) para aproveitar seu painel e combinar com outras fontes de dados.|
 | Alerta | Configurar uma [regra de alerta de registo](alerts-log.md) que envia uma notificação ou demora [automatizada ação](action-groups.md) quando os resultados da consulta correspondem um resultado específico.<br>Configure uma [regra de alerta de métrica](alerts-metric-logs.md) em determinados logs de dados de log extraídos como métricas. |
-| Obter | Acessar resultados da consulta de log de uma linha de comando usando [CLI do Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Acessar resultados da consulta de log de uma linha de comando usando cmdlets do [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Acessar resultados da consulta de log de um aplicativo personalizado usando a [API REST](https://dev.loganalytics.io/). |
+| Recuperado | Acessar resultados da consulta de log de uma linha de comando usando [CLI do Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Acessar resultados da consulta de log de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Acessar resultados da consulta de log de um aplicativo personalizado usando a [API REST](https://dev.loganalytics.io/). |
 | Exportar | Crie um fluxo de trabalho para recuperar dados de log e copie-os para um local externo usando [aplicativos lógicos](~/articles/logic-apps/index.yml). |
 
 
@@ -85,9 +85,9 @@ Azure Monitor pode coletar dados de log de uma variedade de fontes no Azure e de
 
 | Data | Descrição |
 |:---|:---|
-| Diagnóstico de recursos | Defina as configurações de diagnóstico para gravar em dados de diagnóstico, incluindo métricas para um espaço de trabalho Log Analytics. Consulte [transmitir logs de diagnóstico do Azure para log Analytics](diagnostic-logs-stream-log-store.md). |
+| Diagnóstico de recursos | Defina as configurações de diagnóstico para gravar em dados de diagnóstico, incluindo métricas para um espaço de trabalho Log Analytics. Consulte [transmitir logs de diagnóstico do Azure para log Analytics](resource-logs-collect-storage.md). |
 | Soluções de monitorização | As soluções de monitoramento gravam dados que coletam para seu espaço de trabalho Log Analytics. Consulte [detalhes da coleta de dados para soluções de gerenciamento no Azure](../insights/solutions-inventory.md) para obter uma lista de soluções. Consulte [Monitoring Solutions in Azure monitor](../insights/solutions.md) para obter detalhes sobre como instalar e usar soluções. |
-| Métricas | Envie métricas de plataforma para Azure Monitor recursos a um espaço de trabalho Log Analytics para manter os dados de log por períodos mais longos e para executar uma análise complexa com outros tipos de dados usando a [linguagem de consulta Kusto](/azure/kusto/query/). Consulte [transmitir logs de diagnóstico do Azure para log Analytics](diagnostic-logs-stream-log-store.md). |
+| Métricas | Envie métricas de plataforma para Azure Monitor recursos a um espaço de trabalho Log Analytics para manter os dados de log por períodos mais longos e para executar uma análise complexa com outros tipos de dados usando a [linguagem de consulta Kusto](/azure/kusto/query/). Consulte [transmitir logs de diagnóstico do Azure para log Analytics](resource-logs-collect-storage.md). |
 | Armazenamento de tabelas do Azure | Coletar dados do armazenamento do Azure onde alguns recursos do Azure gravam dados de monitoramento. Consulte [usar o armazenamento de BLOBs do Azure para o IIS e o armazenamento de tabelas do Azure para eventos com log Analytics](azure-storage-iis-table.md). |
 
 ### <a name="virtual-machines"></a>Virtual Machines
@@ -103,9 +103,9 @@ Azure Monitor pode coletar dados de log de uma variedade de fontes no Azure e de
 
 | Data | Descrição |
 |:---|:---|
-| Solicitações e exceções | Os dados detalhados sobre as solicitações e exceções doaplicativo estão nas tabelas requests, _pageViews_e _Exceptions_ . As chamadas para [componentes externos](../app/asp-net-dependencies.md) estão na tabela de dependências. |
-| Uso e desempenho | O desempenho do aplicativo está disponível nas tabelasrequests, _browserTimings_ e _PerformanceCounters_ . Os dados para [métricas personalizadas](../app/api-custom-events-metrics.md#trackevent) estão na tabela _customMetrics_ .|
-| Dados de rastreamento | Os resultados do [rastreamento distribuído](../app/distributed-tracing.md) são armazenados na tabela de rastreamentos. |
+| Solicitações e exceções | Os dados detalhados sobre as solicitações e exceções do aplicativo estão nas tabelas _requests_, _pageViews_e _Exceptions_ . As chamadas para [componentes externos](../app/asp-net-dependencies.md) estão na tabela de _dependências_ . |
+| Uso e desempenho | O desempenho do aplicativo está disponível nas tabelas _requests_, _browserTimings_ e _PerformanceCounters_ . Os dados para [métricas personalizadas](../app/api-custom-events-metrics.md#trackevent) estão na tabela _customMetrics_ .|
+| Dados de rastreamento | Os resultados do [rastreamento distribuído](../app/distributed-tracing.md) são armazenados na tabela de _rastreamentos_ . |
 | Testes de disponibilidade | Os dados de resumo dos [testes de disponibilidade](../app/monitor-web-app-availability.md) são armazenados na tabela _availabilityResults_ . Os dados detalhados desses testes estão em armazenamento separado e acessados de Application Insights no portal do Azure. |
 
 ### <a name="insights"></a>Informações
@@ -130,7 +130,7 @@ Azure Monitor pode coletar dados de log de uma variedade de fontes no Azure e de
 | Azure Sentinel | O [Azure Sentinel](/azure/sentinel/) armazena dados de fontes de dados em um espaço de trabalho log Analytics. Consulte [conectar fontes de dados](/azure/sentinel/connect-data-sources).  |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [plataforma de dados Azure monitor](data-platform.md).
 - Saiba mais sobre as [métricas em Azure monitor](data-platform-metrics.md).

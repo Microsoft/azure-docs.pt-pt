@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002409"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265989"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>CI/CD (integração e entrega contínuas) no Azure Data Factory
 
@@ -669,7 +669,7 @@ Se você não tiver o Git configurado, os modelos vinculados poderão ser acessa
 
 ## <a name="hot-fix-production-branch"></a>Branch de produção de correção automática
 
-Se você implantar uma fábrica na produção e perceber que há um bug que precisa ser corrigido imediatamente, mas não é possível implantar o Branch de colaboração atual, talvez seja necessário implantar uma correção automática.
+Se você implantar uma fábrica na produção e perceber que há um bug que precisa ser corrigido imediatamente, mas não é possível implantar o Branch de colaboração atual, talvez seja necessário implantar uma correção automática. Essa abordagem é conhecida como engenharia de correção rápida ou QFE. 
 
 1.  No Azure DevOps, vá para a versão que foi implantada para produção e localize a última confirmação implantada.
 
@@ -705,8 +705,11 @@ Se você estiver usando a integração do git com seu data factory e tiver um pi
 
 ## <a name="unsupported-features"></a>Funcionalidades não suportadas
 
--   Não é possível publicar recursos individuais. As entidades do data Factory dependem umas das outras e o controle de dependências variáveis pode ser difícil e levar a um comportamento inesperado. Por exemplo, os gatilhos dependem de pipelines, os pipelines dependem de conjuntos de valores e outros pipelines, um assim por diante. Se fosse possível publicar apenas um subconjunto de todo o conjunto de alterações, alguns erros imprevistos podem ocorrer.
+- Por design _, o ADF não permite_ confirmações de seleção de Cherry ou publicação seletiva de recursos. As publicações incluirão **todas** as alterações feitas no data Factory
 
--   Não é possível publicar de branches particulares.
+    - As entidades do data Factory dependem umas das outras, por exemplo, os gatilhos dependem de pipelines, os pipelines dependem de conjuntos de dados e outros pipelines, etc. A publicação seletiva de um subconjunto de recursos _pode_ levar a comportamentos e erros inesperados
+    - Em raras ocasiões em que a publicação seletiva é necessária, você pode considerar uma correção automática. Para obter mais informações, consulte [Branch de produção de correção automática](#hot-fix-production-branch)
 
--   Você não pode hospedar projetos em bitbucket.
+-   Não é possível publicar de branches particulares
+
+-   A partir de agora, você não pode hospedar projetos no bitbucket

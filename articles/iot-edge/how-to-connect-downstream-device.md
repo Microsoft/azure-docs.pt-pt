@@ -4,17 +4,17 @@ description: Como configurar dispositivos downstream ou de folha para se conecta
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999409"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266111"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo jusante a um gateway do Azure IoT Edge
 
@@ -33,6 +33,10 @@ Este artigo identifica os problemas comuns com ligações de dispositivos de dow
 * Percorrendo o IoT do Azure a utilizar o exemplos em vários idiomas para ajudá-lo. 
 
 Neste artigo, os termos *gateway* e *gateway do IoT Edge* consulte um dispositivo IoT Edge configurado como um gateway transparente. 
+
+## <a name="prerequisites"></a>Pré-requisitos 
+
+Tenha o arquivo de certificado **Azure-IOT-Test-only. root. ca. cert. pem** que foi gerado em [configurar um dispositivo IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md) disponível em seu dispositivo downstream. O dispositivo downstream usa esse certificado para validar a identidade do dispositivo de gateway. 
 
 ## <a name="prepare-a-downstream-device"></a>Preparar um dispositivo de downstream
 
@@ -89,6 +93,14 @@ Deverá ver uma mensagem que diz, "certificados de atualização no /etc/ssl/cer
 ### <a name="windows"></a>Windows
 
 Os seguintes passos são um exemplo de como instalar um certificado de AC num host do Windows. Este exemplo pressupõe que você esteja usando o certificado **Azure-IOT-Test-only. root. ca. cert. pem** dos artigos de pré-requisitos e que você copiou o certificado em um local no dispositivo downstream.
+
+Você pode instalar certificados usando o [importar certificado](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) do PowerShell como administrador:
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+Você também pode instalar certificados usando o utilitário **certlm** : 
 
 1. No menu Iniciar, procure e selecione **gerir certificados de computador**. Um utilitário chamado **certlm** abre.
 2. Navegue para **certificados - Computador Local** > **autoridades de certificação de raiz fidedigna**.
@@ -191,6 +203,6 @@ Se o dispositivo de folha tiver uma conexão intermitente com seu dispositivo de
 2. O nome do host do gateway é resolvido para um endereço IP? Você pode resolver conexões intermitentes usando DNS ou adicionando uma entrada de arquivo de host no dispositivo de folha.
 3. As portas de comunicação são abertas em seu firewall? A comunicação baseada no protocolo usado (MQTTS: 8883/AMQPS: 5671/HTTPS: 433) deve ser possível entre o dispositivo downstream e o IoT Edge transparente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como pode estender o IoT Edge [recursos offline](offline-capabilities.md) a jusante dispositivos. 

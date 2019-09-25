@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: d6cecdce9bc4f7fee9ec936ac73b6accc77084c4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7568742c4a01903eddf7681da71e4f243cac1e56
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648824"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265616"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Como começar a usar a loja de conhecimento no Azure Search
 
@@ -23,7 +22,7 @@ ms.locfileid: "69648824"
 >
 A [loja de conhecimento](knowledge-store-concept-intro.md) salva os documentos aprimorados do ia criados durante a indexação para sua conta de armazenamento do Azure para downstream Data Mining em outros aplicativos. Você também pode usar aprimoramentos salvos para entender e refinar um pipeline de indexação de Azure Search. 
 
-Uma loja de conhecimento é definida por um qualificable e criada porum indexador. A expressão física de um repositório de conhecimento é especificada por meio de projeções que determinam as estruturas de dados no armazenamento. No momento em que você concluir este passo a passos, você terá criado todos esses objetos e saberá como eles se encaixam juntos. 
+Uma loja de conhecimento é definida por um *qualificable* e criada por um *indexador*. A expressão física de um repositório de conhecimento é especificada por meio de *projeções* que determinam as estruturas de dados no armazenamento. No momento em que você concluir este passo a passos, você terá criado todos esses objetos e saberá como eles se encaixam juntos. 
 
 Neste exercício, comece com os dados de exemplo, os serviços e as ferramentas para aprender o fluxo de trabalho básico para criar e usar sua primeira loja de conhecimento, com ênfase na definição de Skills.
 
@@ -69,7 +68,7 @@ Nesta tarefa, você criará um contêiner de BLOBs do Azure para esses documento
 
 1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, cliqueem BLOBs e, em seguida, clique em **+ contêiner**.
 
-1. [Crie um contêiner](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) de BLOBs para conter dados de exemplo: 
+1. [Crie um contêiner de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo: 
 
    1. Nomeie o contêiner `caselaw-test`. 
    
@@ -268,7 +267,7 @@ A segunda solicitação usa a [API criar fonte de dados](https://docs.microsoft.
 
 ## <a name="create-a-skillset-and-knowledge-store"></a>Criar um habilidades e uma loja de conhecimento
 
-A terceira solicitação usa a [API criar](https://docs.microsoft.com/rest/api/searchservice/create-skillset)conjunto de qualificações, criando um objeto de Azure Search que especifica quais habilidades cognitivas deve ser chamada, como encadear habilidades e, mais importante, para este passo-a-como especificar uma loja de conhecimento.
+A terceira solicitação usa a [API criar conjunto de qualificações](https://docs.microsoft.com/rest/api/searchservice/create-skillset), criando um objeto de Azure Search que especifica quais habilidades cognitivas deve ser chamada, como encadear habilidades e, mais importante, para este passo-a-como especificar uma loja de conhecimento.
 
 1. Na URL `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/skillsets?api-version=2019-05-06-Preview`, substitua `YOUR-AZURE-SEARCH-SERVICE-NAME` pelo nome do serviço de pesquisa. 
 

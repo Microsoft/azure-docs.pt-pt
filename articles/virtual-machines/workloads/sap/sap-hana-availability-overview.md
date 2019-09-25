@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe4a47161e86614807e69b613b49e8808a35e041
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077239"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266066"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA alta disponibilidade para máquinas virtuais do Azure
 
@@ -60,13 +60,13 @@ O Azure tem diferentes SLAs de disponibilidade para diferentes componentes, como
 
 O [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) descreve três diferentes SLAs, para três configurações diferentes:
 
-- Uma única VM que usa o [SSDs Premium do Azure](../../wi https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/ows/disks-types.md) para o disco do sistema operacional e todos os discos de dados. Essa opção fornece um tempo de atividade mensal de 99,9%.
+- Uma única VM que usa o [SSDs Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) para o disco do sistema operacional e todos os discos de dados. Essa opção fornece um tempo de atividade mensal de 99,9%.
 - Várias VMs (pelo menos duas) que são organizadas em um [conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Essa opção fornece um tempo de atividade mensal de 99,95%.
 - Várias VMs (pelo menos duas) que são organizadas em uma [zona de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Essa opção forneceu um tempo de atividade mensal de 99,99%.
 
 Meça seu requisito de disponibilidade em relação aos SLAs que os componentes do Azure podem fornecer. Em seguida, escolha seus cenários para SAP HANA obter o nível de disponibilidade necessário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [disponibilidade de SAP Hana em uma região do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
 - Saiba mais sobre a [disponibilidade de SAP Hana nas regiões do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 

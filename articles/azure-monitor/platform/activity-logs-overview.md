@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fa1737a8627fe9561a2a84e7f0ef69aefb6deb14
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ee3a1fef379e2950172dddc389b30e0a363127ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170626"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262131"
 ---
 # <a name="overview-of-azure-activity-log"></a>Visão geral do log de atividades do Azure
 
@@ -23,10 +23,10 @@ Use o log de atividades para determinar o _que_, _quem_e _quando_ para qualquer 
 
 O log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo clássico/RDFE.
 
-## <a name="comparison-to-diagnostic-logs"></a>Comparação com os logs de diagnóstico
-Há um único log de atividades para cada assinatura do Azure. Ele fornece dados sobre as operações em um recurso de fora (o "plano de controle"). Os [logs de diagnóstico](diagnostic-logs-overview.md) são emitidos por um recurso e fornecem informações sobre a operação desse recurso (o "plano de dados"). Você deve habilitar as configurações de diagnóstico para cada recurso.
+## <a name="comparison-to-resource-logs"></a>Comparação com os logs de recursos
+Há um único log de atividades para cada assinatura do Azure. Ele fornece dados sobre as operações em um recurso de fora (o "plano de controle"). Os [logs de recursos](resource-logs-overview.md) são emitidos por um recurso e fornecem informações sobre a operação desse recurso (o "plano de dados"). Você deve criar uma configuração de diagnóstico para cada recurso para coletar logs de recursos.
 
-![Logs de atividade em comparação com os logs de diagnóstico](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Logs de atividade em comparação com os logs de recursos](media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Cada evento no log de atividades tem uma categoria específica que são descrita
 |:---|:---|
 | Administrativa | Contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Exemplos de eventos administrativos incluem _criar máquina virtual_ e _excluir grupo de segurança de rede_.<br><br>Cada ação tomada por um usuário ou aplicativo usando o Resource Manager é modelada como uma operação em um determinado tipo de recurso. Se o tipo de operação for _gravação_, _exclusão_ou _ação_, os registros de início e êxito ou falha da operação serão registrados na categoria administrativa. Os eventos administrativos também incluem quaisquer alterações no controle de acesso baseado em função em uma assinatura. |
 | Service Health | Contém o registro de qualquer incidente de integridade do serviço que ocorreu no Azure. Um exemplo de SQL Azure de eventos de integridade do serviço _no leste dos EUA está apresentando tempo de inatividade_. <br><br>Os eventos de integridade do serviço são fornecidos em seis variedades: _Ação necessária_, _recuperação assistida_, _incidente_, _manutenção_, _informações_ou _segurança_. Esses eventos serão criados somente se você tiver um recurso na assinatura que seria impactado pelo evento.
-| Estado de Funcionamento de Recursos | Contém o registro dos eventos de integridade do recurso que ocorreram para os recursos do Azure. Um exemplo de um evento de Resource Health é o _status de integridade da máquina virtual alterado para indisponível_.<br><br>Resource Health eventos podem representar um dos quatro status de integridade: _Disponível_, _indisponível_, _degradado_e _desconhecido_. Além disso, Resource Health eventos podem ser categorizados como sendo _iniciado pela plataforma_ ou _pelo usuário_. |
+| Estado de funcionamento do Recurso | Contém o registro dos eventos de integridade do recurso que ocorreram para os recursos do Azure. Um exemplo de um evento de Resource Health é o _status de integridade da máquina virtual alterado para indisponível_.<br><br>Resource Health eventos podem representar um dos quatro status de integridade: _Disponível_, _indisponível_, _degradado_e _desconhecido_. Além disso, Resource Health eventos podem ser categorizados como sendo _iniciado pela plataforma_ ou _pelo usuário_. |
 | Alerta | Contém o registro de ativações para alertas do Azure. Um exemplo de um evento de alerta é _% de CPU em myVM tem mais de 80 para os últimos 5 minutos_.|
 | Dimensionamento Automático | Contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em qualquer configuração de dimensionamento automático que você definiu em sua assinatura. Um exemplo de um evento de dimensionamento automático é a _ação de escalabilidade vertical com falha_. |
 | Recomendação | Contém eventos de recomendação do Azure Advisor. |

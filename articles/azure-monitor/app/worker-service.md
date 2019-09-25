@@ -12,21 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: cithomas
-ms.openlocfilehash: 8cd76a67715898972aac8fc24707085883da8618
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 653710d2f57385fa6d608a501f72b0dde2f3bb46
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174672"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258494"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
 
 O Application insights está lançando um novo SDK `Microsoft.ApplicationInsights.WorkerService`, chamado, que é mais adequado para cargas de trabalho não http, como mensagens, tarefas em segundo plano, aplicativos de console, etc. Esses tipos de aplicativos não têm a noção de uma solicitação HTTP de entrada como um aplicativo Web ASP.NET/ASP.NET Core tradicional e, portanto, o uso de pacotes de Application Insights para aplicativos [ASP.net](asp-net.md) ou [ASP.NET Core](asp-net-core.md) não é suportado.
 
 O novo SDK não faz nenhuma coleção de telemetria por si só. Em vez disso, ele traz outros bem conhecidos Application Insights coletores automáticos como [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) , etc. Este SDK expõe métodos de `IServiceCollection` extensão para habilitar e configurar a coleta de telemetria.
-
-> [!NOTE]
-> Este artigo trata de um novo pacote de Application Insights SDK para serviços de trabalho. Este pacote está disponível como um pacote beta hoje. Este documento será atualizado quando um pacote estável estiver disponível.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -43,7 +40,7 @@ Uma chave de instrumentação de Application Insights válida. Essa chave é nec
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
     </ItemGroup>
 ```
 
@@ -299,7 +296,7 @@ O seguinte lista a telemetria completa coletada automaticamente pelo Application
 
 ### <a name="live-metrics"></a>Métricas Dinâmicas
 
-As [métricas dinâmicas](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) podem ser usadas para verificar rapidamente se Application insights está configurado corretamente. Embora possa levar alguns minutos antes que a telemetria comece a aparecer no portal e na análise, as métricas ao vivo mostrarão o uso da CPU do processo em execução quase em tempo real. Ele também pode mostrar outras telemetrias, como solicitações, dependências, rastreamentos etc.
+As [métricas dinâmicas](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) podem ser usadas para verificar rapidamente se Application insights monitoramento está configurado corretamente. Embora possa levar alguns minutos antes que a telemetria comece a aparecer no portal e na análise, as métricas ao vivo mostrarão o uso da CPU do processo em execução quase em tempo real. Ele também pode mostrar outras telemetrias, como solicitações, dependências, rastreamentos etc.
 
 ### <a name="ilogger-logs"></a>Logs do ILogger
 
@@ -311,31 +308,7 @@ A coleção de dependências é habilitada por padrão. [Este](asp-net-dependenc
 
 ### <a name="eventcounter"></a>EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), é um método de plataforma cruzada para publicar e consumir contadores no .NET/.NET Core. Embora esse recurso existisse antes, não havia provedores internos que publicaram esses contadores. A partir do .NET Core 3,0, vários contadores são publicados prontos para uso, como contadores CLR, CPU etc.
-
-Por padrão, o SDK coleta os seguintes contadores (disponíveis somente no .NET Core 3,0 ou superior), e esses contadores podem ser consultados em Metrics Explorer ou usando uma consulta de análise direcionando a tabela PerformanceCounter. O nome dos contadores estará no formato "categoria | Counter ".
-
-|Category | Contador|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
+`EventCounterCollectionModule`é habilitado por padrão e coletará um conjunto padrão de contadores de aplicativos .NET Core 3,0. O tutorial [EventCounter](eventcounters.md) lista o conjunto padrão de contadores coletados. Ele também tem instruções sobre como personalizar a lista.
 
 ### <a name="manually-tracking-additional-telemetry"></a>Acompanhamento manual de telemetria adicional
 

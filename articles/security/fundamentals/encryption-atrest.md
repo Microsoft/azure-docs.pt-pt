@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 3e745d5f38d5623aab17ef7a3e3fbfa2c616e6d4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984858"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262814"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso
 
@@ -262,7 +262,7 @@ A criptografia do lado do cliente de dados do Azure SQL Database é suportada po
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lado do servidor usando chave gerenciada pelo serviço**     | **Lado do servidor usando chave gerenciada pelo cliente**             | **No lado do cliente usando gerenciado pelo cliente**      |
 | **IA e Machine Learning**      |                    |                    |                    |
-| Azure Search                     | Sim                | -                  | -                  |
+| Azure Search                     | Sim                | Pré-visualização            | -                  |
 | Serviço Azure Machine Learning   | Sim                | -                  | -                  |
 | Azure Machine Learning Studio    | Sim                | Versão prévia, RSA 2048 bits | -               |
 | Power BI                         | Sim                | Versão prévia, RSA 2048 bits | -                  |
@@ -294,7 +294,7 @@ A criptografia do lado do cliente de dados do Azure SQL Database é suportada po
 | Azure Cosmos DB                  | Sim                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
 | DevOps do Azure                     | Sim                | -                  | Sim                |
-| Repositórios do Azure                      | Sim                | -                  | Sim                |
+| Azure Repos                      | Sim                | -                  | Sim                |
 | **Identidade**                     |                    |                    |                    |
 | Azure Active Directory           | Sim                | -                  | -                  |
 | Azure Active Directory Domain Services | Sim          | Sim, RSA 2048 bits  | -                  |

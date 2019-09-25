@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 11c58a891a730c57aae3500911741623dde5d51b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881103"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265888"
 ---
 # <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de enriquecimento de ia usando habilidades cognitivas no Azure Search
 
@@ -174,7 +173,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Dependendo de como você provisionou o recurso de serviços cognitivas, você pode experimentar a indexação e o enriquecimento executando novamente o assistente com diferentes habilidades e campos de dados de origem. Para repetir os passos, elimine o índice e o indexador e, em seguida, recrie o indexador com uma nova combinação de seleções.
 

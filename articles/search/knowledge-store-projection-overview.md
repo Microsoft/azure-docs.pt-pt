@@ -8,13 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
-ms.subservice: cognitive-search
-ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c5fb547b18bc4014f91341070f49c4af84c01005
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004008"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265187"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Search
 

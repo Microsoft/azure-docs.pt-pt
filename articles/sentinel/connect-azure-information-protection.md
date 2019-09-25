@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: 7584a884d41451c5a248b84a40eb45815bfb6bdf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240733"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261824"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Conectar dados da proteção de informações do Azure
+
+> [!IMPORTANT]
+> O conector de dados da proteção de informações do Azure no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode transmitir informações de log da [proteção de informações do Azure](https://azure.microsoft.com/services/information-protection/) para o Azure Sentinel Configurando o conector de dados da proteção de informações do Azure. A proteção de informações do Azure ajuda a controlar e proteger seus dados confidenciais, sejam eles armazenados na nuvem ou no local.
 
@@ -54,10 +58,6 @@ No entanto, se as informações de log da proteção de informações do Azure e
 - A proteção de informações do Azure foi adicionada ao portal do Azure. Se precisar de ajuda com esta etapa, consulte [Adicionar proteção de informações do Azure ao portal do Azure](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## <a name="connect-to-azure-information-protection"></a>Conectar-se à proteção de informações do Azure
-
-> [!IMPORTANT]
-> O conector de dados da proteção de informações do Azure no Azure Sentinel está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use as instruções a seguir se você não tiver configurado um espaço de trabalho Log Analytics para a proteção de informações do Azure ou se precisar alterar o espaço de trabalho que armazena as informações de log da proteção de informações do Azure.
 

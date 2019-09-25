@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4426c070d2fd2e26e0d4368a94996bc32e95129d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fdfb2d7d33111f1adf998cd75446576d2010a365
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103963"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257786"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
 
@@ -36,7 +36,7 @@ Este artigo pressupõe que você já tenha um aplicativo Xamarin iOS integrado a
 
 ### <a name="what-are-brokers"></a>O que são agentes?
 
-Os agentes são aplicativos fornecidos pela Microsoft no Android e no iOS. (Consulte o aplicativo [Microsoft Authenticator](https://www.microsoft.com/account/authenticator) no Ios e Android e o aplicativo portal da empresa do Intune no Android.) 
+Os agentes são aplicativos fornecidos pela Microsoft no Android e no iOS. (Consulte o aplicativo [Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) no Ios e Android e o aplicativo portal da empresa do Intune no Android.) 
 
 Eles permitem:
 
@@ -242,6 +242,6 @@ Exemplo:
 
 Para obter mais informações sobre como registrar o URI de redirecionamento no portal, consulte [aproveitar o agente em aplicativos Xamarin. Ios](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [Considerações específicas do Xamarin Ios com o MSAL.net](msal-net-xamarin-ios-considerations.md). 

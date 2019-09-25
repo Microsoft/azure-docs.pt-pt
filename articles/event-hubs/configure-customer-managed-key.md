@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035899"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260862"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -84,7 +84,7 @@ Depois que a chave de criptografia for revogada, o serviço de hubs de eventos n
 > Se você excluir uma chave de criptografia existente do cofre de chaves e substituí-la por uma nova chave no namespace de hubs de eventos, já que a chave de exclusão ainda é válida (já que ela é armazenada em cache) por até uma hora, seus dados antigos (que foram criptografados com a chave antiga) ainda podem estar acessíveis ao longo  com os novos dados, que agora são acessíveis apenas usando a nova chave. Esse comportamento é por design na versão de visualização do recurso. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurar os registos de diagnóstico 
-A configuração de logs de diagnóstico para namespaces habilitados para BYOK fornece as informações necessárias sobre as operações quando um namespace é criptografado com chaves gerenciadas pelo cliente. Esses logs podem ser habilitados e transmitidos posteriormente para um hub de eventos ou analisados por meio do log Analytics ou transmitidos para o armazenamento para executar análises personalizadas. Para saber mais sobre os logs de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+A configuração de logs de diagnóstico para namespaces habilitados para BYOK fornece as informações necessárias sobre as operações quando um namespace é criptografado com chaves gerenciadas pelo cliente. Esses logs podem ser habilitados e transmitidos posteriormente para um hub de eventos ou analisados por meio do log Analytics ou transmitidos para o armazenamento para executar análises personalizadas. Para saber mais sobre os logs de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Habilitar logs do usuário
 Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
@@ -110,7 +110,7 @@ Todos os registos são armazenados no formato de JavaScript Object Notation (JSO
 | ActivityId | ID interna que é usada para acompanhamento. |
 | category | Define a classificação da tarefa. Por exemplo, se a chave do cofre de chaves estiver sendo desabilitada, ela seria uma categoria de informações ou, se uma chave não puder ser desativada, ela poderá ficar com erro. |
 | resourceId | ID do recurso de Azure Resource Manager |
-| keyVault | Nome completo do cofre de chaves. |
+| KeyVault | Nome completo do cofre de chaves. |
 | key | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
 | version | A versão da chave que está sendo usada. |
 | operation | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
@@ -173,7 +173,7 @@ Veja a seguir os códigos de erros comuns a serem procurados quando a criptograf
 > Se os pontos de extremidade de serviço de rede virtual (VNet) estiverem configurados em Azure Key Vault para seu namespace de hubs de eventos, não haverá suporte para BYOK. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Descrição geral dos Hubs de Eventos](event-hubs-about.md)
 - [Visão geral de Key Vault](../key-vault/key-vault-overview.md)

@@ -4,18 +4,18 @@ description: Lista de serviços que dão suporte a identidades gerenciadas para 
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/19/2019
+ms.date: 09/24/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eba245933bc94e9fb631abd3b4ff495f8c6d67
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f4a5ae01376358ca78cd804cc853489ca007217
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087606"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264237"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -124,7 +124,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para Azure Dat
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-### <a name="azure-api-management"></a>Gestão de API do Azure
+### <a name="azure-api-management"></a>API Management do Azure
 
 Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
@@ -197,7 +197,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
 
-### <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>SQL do Azure 
 
 | Nuvem | ID de recurso | State |
 |--------|------------|--------|
@@ -215,7 +215,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
 
-### <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Service Bus do Azure
 
 | Nuvem | ID de recurso | State |
 |--------|------------|--------|
@@ -224,14 +224,31 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
 
+
+
+
+
+
+
+
+
 ### <a name="azure-storage-blobs-and-queues"></a>BLOBs e filas do armazenamento do Azure
 
 | Nuvem | ID de recurso | State |
 |--------|------------|--------|
 | Global do Azure | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponível |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponível |
-| Azure Alemanha | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponível |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponível |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Disponível |
+| Azure Alemanha | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Disponível |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Disponível |
+
+
+
+
+
+
+
+
+
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

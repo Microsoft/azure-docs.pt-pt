@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68370672"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262016"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão em logs de Azure Monitor
 Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](../log-query/logs-structure.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de propriedades. Muitos tipos de dados terão propriedades padrão comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como você pode usá-las em consultas.
@@ -26,7 +26,7 @@ Os dados em logs de Azure Monitor são [armazenados como um conjunto de registro
 > Alguns dos padrões de propriedade padrão não serão mostrados na exibição de esquema ou no IntelliSense no Log Analytics e não serão mostrados nos resultados da consulta, a menos que você especifique explicitamente a propriedade na saída.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated e timestamp
-As Propriedades TimeGenerated (log Analytics espaço de trabalho) e **timestamp** (Application insights aplicativo) contêm a data e a hora em que o registro foi criado pela fonte de dados. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
+As propriedades **TimeGenerated** (log Analytics espaço de trabalho) e **timestamp** (Application insights aplicativo) contêm a data e a hora em que o registro foi criado pela fonte de dados. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
 
 **TimeGenerated** e **timestamp** fornecem uma propriedade comum a ser usada para filtrar ou resumir por tempo. Quando você seleciona um intervalo de tempo para um modo de exibição ou painel no portal do Azure, ele usa TimeGenerated ou timestamp para filtrar os resultados. 
 
@@ -52,7 +52,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_De recebimento
-A propriedade timereceberd contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure.  **\_** Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso com os dados enviados de um agente. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
+**A\_Propriedade timereceberd** contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure. Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso com os dados enviados de um agente. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
 
 A consulta a seguir fornece a latência média por hora para registros de eventos de um agente. Isso inclui o tempo do agente para a nuvem e o tempo total para que o registro esteja disponível para consultas de log.
 
@@ -82,7 +82,7 @@ A propriedade ItemId mantém um identificador exclusivo para o registro.  **\_**
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-A Propriedade ResourceId contém um identificador exclusivo para o recurso ao qual o registro está associado.  **\_** Isso lhe dá uma propriedade padrão a ser usada para fazer o escopo de sua consulta somente para registros de um recurso específico ou para unir dados relacionados em várias tabelas.
+**A\_Propriedade ResourceId** contém um identificador exclusivo para o recurso ao qual o registro está associado. Isso lhe dá uma propriedade padrão a ser usada para fazer o escopo de sua consulta somente para registros de um recurso específico ou para unir dados relacionados em várias tabelas.
 
 Para recursos do Azure, o valor de **_ResourceId** é a [URL da ID de recurso do Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). A propriedade está atualmente limitada aos recursos do Azure, mas será estendida para recursos fora do Azure, como computadores locais.
 
@@ -128,7 +128,7 @@ union withsource = tt *
 Use essas `union withsource = tt *` consultas com moderação, pois as verificações entre os tipos de dados são caras de serem executadas.
 
 ## <a name="_isbillable"></a>\_Isnotable
-A propriedade isbillable especifica se os dados ingeridos são faturáveis.  **\_** Os dados  **\_** com isbillable igual a _false_ são coletados gratuitamente e não são faturados para sua conta do Azure.
+**A\_Propriedade isbillable** especifica se os dados ingeridos são faturáveis. Os dados com  **\_isbillable** igual a _false_ são coletados gratuitamente e não são faturados para sua conta do Azure.
 
 ### <a name="examples"></a>Exemplos
 Para obter uma lista de computadores que enviam tipos de dados cobrados, use a seguinte consulta:
@@ -155,7 +155,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-**\_**  **A\_Propriedade BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se isbillble for true.
+**A\_Propriedade BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se  **\_isbillble** for true.
 
 
 ### <a name="examples"></a>Exemplos
@@ -211,7 +211,7 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre como [Azure monitor dados de log são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre como [escrever consultas de log](../../azure-monitor/log-query/get-started-queries.md).

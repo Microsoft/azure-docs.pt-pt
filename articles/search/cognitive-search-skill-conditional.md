@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: 29e50a3d978338eaa46566574e6a20685a14bda4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186388"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265805"
 ---
 #   <a name="conditional-skill"></a>Habilidade condicional
 
@@ -175,7 +174,7 @@ Neste exemplo, não usamos o aspecto condicional da habilidade porque a condiç�
 Alguns parâmetros são avaliados, portanto, você precisa ser especialmente cuidadoso para seguir o padrão documentado. As expressões devem começar com um sinal de igual. Um caminho deve ser delimitado por "$ (" e ")". Certifique-se de colocar cadeias de caracteres entre aspas simples. Isso ajuda o avaliador a distinguir entre cadeias de caracteres e os caminhos e os operadores reais. Além disso, certifique-se de colocar o espaço em branco em volta de operadores (por exemplo, um "*" em um caminho significa algo diferente de multiplicação).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

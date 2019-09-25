@@ -8,17 +8,16 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 8d367f7588feb892f667522a515ad4411bf96624
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 061d969269eb526b8f02f14de58e2da20c459a38
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183447"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265482"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Habilidades predefinidas para enriquecimento de conteúdo (Azure Search)
 
-Neste artigo, você aprenderá sobre as habilidades cognitivas fornecidas com Azure Search. Uma *habilidade cognitiva* é uma operação que transforma o conteúdo de alguma maneira. Geralmente, é um componente que extrai dados ou infere a estrutura e, portanto, aumenta nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Um conjunto de qualificações é uma coleção de habilidades que definem o pipeline de enriquecimento. 
+Neste artigo, você aprenderá sobre as habilidades cognitivas fornecidas com Azure Search. Uma *habilidade cognitiva* é uma operação que transforma o conteúdo de alguma maneira. Geralmente, é um componente que extrai dados ou infere a estrutura e, portanto, aumenta nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Um *conjunto de qualificações* é uma coleção de habilidades que definem o pipeline de enriquecimento. 
 
 > [!NOTE]
 > Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.

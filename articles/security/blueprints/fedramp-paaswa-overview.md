@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: b74373201db26405653584fc4000993b9d6fdf43
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: e8458d505575a5bf39bbd0a9970c5044b9cbd0f0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946818"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257328"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Esquema de Segurança e Conformidade do Azure: Aplicativo Web de PaaS para FedRAMP
 
@@ -39,7 +39,7 @@ Essa solução usa os seguintes serviços do Azure. Os detalhes da arquitetura d
     - (1) Firewall do aplicativo Web
         - Modo de firewall: prevenção
         - Conjunto de regras: OWASP 3.0
-        - Ouvinte: porta 443
+        - ouvinte: porta 443
 - Rede virtual do Azure
 - Grupos de segurança de rede
 - DNS do Azure
@@ -111,7 +111,7 @@ AzureDiskEncryption
 -   A [detecção de ameaças do SQL](../../sql-database/sql-database-threat-detection.md) permite a detecção e a resposta a ameaças potenciais à medida que elas ocorrem, fornecendo alertas de segurança para atividades suspeitas de banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso de banco de dados anormais
 -   [Always Encrypted colunas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca apareçam como texto não criptografado no sistema de banco de dados. Depois de habilitar a criptografia de dados, somente aplicativos cliente ou servidores de aplicativos com acesso às chaves podem acessar dados de texto sem formatação.
 - A [segurança em nível de linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite que os usuários definam políticas para restringir o acesso aos dados para o processamento descontinuado.
-- O mascaramento de [dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
+- O [mascaramento de dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
 
 ### <a name="identity-management"></a>Gestão de identidades
 As tecnologias a seguir fornecem recursos de gerenciamento de identidade no ambiente do Azure:
@@ -141,10 +141,10 @@ As tecnologias a seguir fornecem recursos de gerenciamento de identidade no ambi
 - [Investigações de integridade personalizadas](../../application-gateway/quick-create-portal.md)
 - A [central de segurança do Azure](https://azure.microsoft.com/services/security-center) e o [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) fornecem proteção e notificações adicionais. A central de segurança do Azure também fornece um sistema de reputação.
 
-### <a name="logging-and-auditing"></a>Registro em log e auditoria
+### <a name="logging-and-auditing"></a>Registo e auditoria
 O Azure Monitor fornece log extensivo de atividade do sistema e do usuário, bem como a integridade do sistema. Ele coleta e analisa os dados gerados pelos recursos no Azure e em ambientes locais.
 - **Logs de atividade**: [Os logs de atividade](../../azure-monitor/platform/activity-logs-overview.md) fornecem informações sobre as operações executadas nos recursos em uma assinatura. Os logs de atividades podem ajudar a determinar o iniciador de uma operação, a hora de ocorrência e o status.
-- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall.
+- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall.
 - **Arquivamento de log**: Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, até 730 dias, para atender aos requisitos de retenção específicos da organização. Esses logs se conectam a logs de Azure Monitor para processamento, armazenamento e relatórios de painel.
 
 Além disso, as soluções de monitoramento a seguir são incluídas como parte dessa arquitetura:

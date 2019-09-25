@@ -8,19 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 457157b93e6fb6be8ed734ae6f58c3b8717fc83d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183473"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265520"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um congrau de habilidade em um pipeline de enriquecimento
 
-A pesquisa cognitiva extrai e enriquece os dados para torná-los pesquisáveis em Azure Search. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto de qualificações referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: Criar uma habilidade personalizada para a pesquisa](cognitive-search-create-custom-skill-example.md) cognitiva para obter mais informações).
+A pesquisa cognitiva extrai e enriquece os dados para torná-los pesquisáveis em Azure Search. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto de *qualificações* referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: Criar uma habilidade personalizada para a pesquisa](cognitive-search-create-custom-skill-example.md) cognitiva para obter mais informações).
 
-Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que deseja usar. Um contratador de qualificações é [](search-indexer-overview.md)anexado a um indexador de Azure Search. Uma parte do design de pipeline, abordada neste artigo, está construindo o próprio próprio contratador. 
+Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que deseja usar. Um contratador de qualificações é anexado a um [indexador](search-indexer-overview.md)de Azure Search. Uma parte do design de pipeline, abordada neste artigo, está construindo o próprio próprio contratador. 
 
 > [!NOTE]
 > Outra parte do design do pipeline é especificar um indexador, abordado na [próxima etapa](#next-step). Uma definição de indexador inclui uma referência para o skillset, além de mapeamentos de campo usados para conectar entradas a saídas no índice de destino.
@@ -37,7 +36,7 @@ Uma etapa inicial recomendada é decidir quais dados serão extraídos dos dados
 
 Suponha que você esteja interessado em processar um conjunto de comentários de analistas financeiros. Para cada arquivo, você deseja extrair os nomes da empresa e o inconveniente geral dos comentários. Você também pode querer escrever um aprimoramento personalizado que usa o serviço de Pesquisa de Entidade do Bing para encontrar informações adicionais sobre a empresa, como o tipo de negócios em que a empresa está envolvida. Essencialmente, você deseja extrair informações como as seguintes, indexadas para cada documento:
 
-| registro-texto | das | sentimento | descrições da empresa |
+| registro-texto | das | Sentimento | descrições da empresa |
 |--------|-----|-----|-----|
 |amostra-registro| ["Microsoft", "LinkedIn"] | 0,99 | ["A Microsoft Corporation é uma empresa de tecnologia multinacional americana...", "o LinkedIn é uma rede social, orientada a negócios e empregos..."]
 
@@ -46,7 +45,7 @@ O diagrama a seguir ilustra um pipeline de enriquecimento hipotético:
 ![Um pipeline de enriquecimento hipotético](media/cognitive-search-defining-skillset/sample-skillset.png "Um pipeline de enriquecimento hipotético")
 
 
-Depois de ter uma ideia justa do que você deseja no pipeline, você pode expressar o tipo de habilidade que fornece essas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador para Azure Search. Para saber mais sobre como carregar o indexador, consulte a [documentação](https://docs.microsoft.com/rest/api/searchservice/create-indexer)do indexador.
+Depois de ter uma ideia justa do que você deseja no pipeline, você pode expressar o tipo de habilidade que fornece essas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador para Azure Search. Para saber mais sobre como carregar o indexador, consulte a [documentação do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
 No diagrama, a etapa de *quebra de documento* ocorre automaticamente. Essencialmente, Azure Search sabe como abrir arquivos bem conhecidos e cria um campo de *conteúdo* que contém o texto extraído de cada documento. As caixas brancas são aprimoramentos internos e a caixa "Pesquisa de Entidade do Bing" pontilhada representa um aprimorado personalizado que você está criando. Conforme ilustrado, o skillset contém três habilidades.
@@ -276,6 +275,6 @@ Você pode optar por salvar os documentos aprimorados como tabelas com relaçõe
 
 <a name="next-step"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você está familiarizado com o pipeline de enriquecimento e habilidades, continue com [como fazer referência a anotações em um](cognitive-search-concept-annotations-syntax.md) configurador de habilidades ou [como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 

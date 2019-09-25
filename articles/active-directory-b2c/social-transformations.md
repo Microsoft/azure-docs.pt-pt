@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a25c5fed4fd88866f46a9ca254213cae5db893a4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: cd4839e2c8ad6605a29f3c8b824375185384f78c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063592"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258155"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
 
@@ -51,7 +51,7 @@ Use essa transformação de declarações para gerar `alternativeSecurityId` um 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="socialIdpUserId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
     <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034853"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258476"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 O [log de atividades do Azure](activity-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
@@ -60,13 +60,9 @@ O perfil de log define o seguinte.
 Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
 
-
-> [!WARNING]
-> O formato dos dados de log na conta de armazenamento mudou para linhas JSON em 1º de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](diagnostic-logs-append-blobs.md)
-
-
 > [!IMPORTANT]
 > Você pode receber um erro ao criar um perfil de log se o provedor de recursos Microsoft. insights não estiver registrado. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/resource-manager-supported-services.md) para registrar este provedor.
+
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Criar perfil de log usando o portal do Azure
 
@@ -168,6 +164,9 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 ## <a name="activity-log-schema"></a>Esquema do log de atividades
 Seja enviado para o armazenamento do Azure ou Hub de eventos, os dados do log de atividades serão gravados em JSON com o formato a seguir.
 
+
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de diagnóstico arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
+
 ``` JSON
 {
     "records": [
@@ -238,7 +237,7 @@ Os elementos neste JSON são descritos na tabela a seguir.
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Eventos que compartilham uma CorrelationId pertencem à mesma ação Uber. |
 | identity |Blob JSON que descreve a autorização e as declarações. |
 | authorization |Blob de propriedades RBAC do evento. Geralmente inclui as propriedades "Action", "role" e "Scope". |
-| level |Nível do evento. Um dos seguintes valores: _Crítico_, _erro_, _aviso_,informativo e _detalhado_ |
+| level |Nível do evento. Um dos seguintes valores: _Crítico_, _erro_, _aviso_, _informativo_e _detalhado_ |
 | location |Região em que o local ocorreu (ou global). |
 | properties |Conjunto de `<Key, Value>` pares (ou seja, dicionário) que descreve os detalhes do evento. |
 
@@ -247,7 +246,7 @@ Os elementos neste JSON são descritos na tabela a seguir.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o log de atividades](../../azure-resource-manager/resource-group-audit.md)
 * [Coletar log de atividades em logs de Azure Monitor](activity-log-collect.md)

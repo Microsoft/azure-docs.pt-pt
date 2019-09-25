@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d740224adb15dc2d772689d77ab1c510532c901
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203994"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262858"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual SQL Server no Azure
 Este artigo descreve como alterar o modelo de licença para uma VM (máquina virtual) SQL Server no Azure usando o novo provedor de recursos de VM do SQL, **Microsoft. SqlVirtualMachine**.
@@ -125,7 +125,7 @@ Se você provisionou uma VM SQL Server das imagens pré-pagas do Azure Marketpla
 
 Você só está qualificado para instalar automaticamente SQL Server em uma VM do Azure por meio de Benefício Híbrido do Azure. Você deve [registrar essas VMs com o provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md) definindo a licença de SQL Server como benefício híbrido do Azure, para indicar o uso de benefício híbrido do Azure de acordo com os termos de produto da Microsoft.
 
-Você pode alterar o tipo de licença de uma VM SQL Server como pré-pago ou Benefício Híbrido do Azure somente se a VM SQL Server estiver registrada com o provedor de recursos de VM do SQL. Todas as VMs SQL Server devem ser registradas com o provedor de recursos para conformidade com licenças.
+Você pode alterar o tipo de licença de uma VM SQL Server como pré-pago ou Benefício Híbrido do Azure somente se a VM SQL Server estiver registrada com o provedor de recursos de VM do SQL.
 
 ## <a name="remarks"></a>Observações
 

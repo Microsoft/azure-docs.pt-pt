@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 602623d48457498963cb5928081d24c1d1132ad4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935255"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264652"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para Azure Time Series Insights API
 
@@ -100,6 +100,50 @@ Por **etapa 3**, separar o seu aplicativo e suas credenciais de usuário permite
     ```
 
 1. Em seguida, o token pode ser passado `Authorization` no cabeçalho quando o aplicativo chama a API Time Series insights.
+
+## <a name="common-headers-and-parameters"></a>Cabeçalhos e parâmetros comuns
+
+Esta seção descreve os cabeçalhos de solicitação HTTP comuns e os parâmetros usados para fazer consultas em relação às APIs de versão Time Series Insights GA e versão prévia. Os requisitos específicos da API são abordados com mais detalhes na [documentação de referência da API REST do time Series insights](https://docs.microsoft.com/rest/api/time-series-insights/).
+
+### <a name="authentication"></a>Authentication
+
+Para executar consultas autenticadas em relação às [APIs REST do time Series insights](https://docs.microsoft.com/rest/api/time-series-insights/), um token de portador OAuth 2,0 válido deve ser passado no [cabeçalho Authorization](/rest/api/apimanagement/authorizationserver/createorupdate) usando um cliente REST de sua escolha (post, JavaScript C#,). 
+
+> [!IMPORTANT]
+> O token deve ser emitido exatamente para o `https://api.timeseries.azure.com/` recurso (também conhecido como "público" do token).
+> * O [](https://www.getpostman.com/) **AuthURL** de postmaster com, portanto, está em conformidade com:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+
+> [!TIP]
+> Consulte o tutorial [explorar o Azure Time Series insights biblioteca de cliente JavaScript](tutorial-explore-js-client-lib.md#authentication) para saber como autenticar com as APIs de time Series insights de forma programática usando o [SDK do cliente JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+
+### <a name="http-headers"></a>Cabeçalhos HTTP
+
+Cabeçalhos de solicitação necessários:
+
+- `Authorization`para autenticação e autorização, um token de portador OAuth 2,0 válido deve ser passado no cabeçalho de autorização. O token deve ser emitido exatamente para o `https://api.timeseries.azure.com/` recurso (também conhecido como "público" do token).
+
+Cabeçalhos de solicitação opcionais:
+
+- `Content-type`-Há `application/json` suporte apenas para.
+- `x-ms-client-request-id`-uma ID de solicitação do cliente. O serviço registra esse valor. Permite que o serviço rastreie a operação entre serviços.
+- `x-ms-client-session-id`-uma ID de sessão de cliente. O serviço registra esse valor. Permite que o serviço rastreie um grupo de operações relacionadas entre serviços.
+- `x-ms-client-application-name`-nome do aplicativo que gerou esta solicitação. O serviço registra esse valor.
+
+Cabeçalhos de resposta:
+
+- `Content-type`-Há `application/json` suporte apenas para.
+- `x-ms-request-id`-ID da solicitação gerada pelo servidor. Pode ser usado para contatar a Microsoft para investigar uma solicitação.
+
+### <a name="http-parameters"></a>Parâmetros HTTP
+
+Parâmetros de cadeia de caracteres de consulta de URL necessários:
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+Parâmetros opcionais da cadeia de consulta de URL:
+
+- `timeout=<timeout>`– tempo limite do lado do servidor para a execução da solicitação. Aplicável somente para as APIs [obter eventos de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [obter agregações de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . O valor de tempo limite deve estar no formato de duração ISO `"PT20S"` 8601, por exemplo, e `1-30 s`deve estar no intervalo. O valor padrão `30 s`é.
 
 ## <a name="next-steps"></a>Passos seguintes
 

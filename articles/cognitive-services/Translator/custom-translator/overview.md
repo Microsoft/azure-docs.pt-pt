@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: cdbbe9006f57c8b29e19fda85eefc0795da95a00
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0269b4e611432093ea677e2ea7e429c84ce9db87
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595500"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257654"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
@@ -40,7 +40,7 @@ O tradutor personalizado fornece recursos diferentes para criar um sistema de tr
 
 O Microsoft Translator liberou a [conversão de máquina neural (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) em 2016. A NMT forneceu grandes avanços na qualidade da tradução em relação à tecnologia [SMT (conversão de máquina estatística)](https://en.wikipedia.org/wiki/Statistical_machine_translation) padrão do setor. Como o NMT captura melhor o contexto de frases completas antes de translada-las, ele fornece maior qualidade, mais sons humanos e mais traduções fluentes. O [Tradutor personalizado](https://portal.customtranslator.azure.ai) fornece NMT para seus modelos personalizados, resultando em melhor qualidade de tradução.
 
-Você pode usar documentos traduzidos anteriormente para criar um sistema de tradução. Esses documentos incluem terminologia e estilo específicos de domínio, melhor do que um sistema de tradução genérico. Os usuários podem carregar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX e XLSX.
+Você pode usar documentos traduzidos anteriormente para criar um sistema de tradução. Esses documentos incluem terminologia e estilo específicos de domínio, melhor do que um sistema de tradução padrão. Os usuários podem carregar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX e XLSX.
 
 O tradutor personalizado também aceita dados que são paralelos no nível do documento para tornar a coleta e a preparação dos dados mais eficientes. Se os usuários tiverem acesso a versões do mesmo conteúdo em vários idiomas, mas em documentos separados, o tradutor personalizado poderá corresponder automaticamente frases entre documentos.
 
@@ -60,7 +60,7 @@ O custo de usar um modelo personalizado para traduzir conteúdo é baseado no ti
 
 Os sistemas personalizados podem ser acessados e integrados diretamente em qualquer produto ou fluxo de trabalho de negócios, e em qualquer dispositivo, por meio do Microsoft API de Tradução de Texto por meio da tecnologia REST padrão.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre os [detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 

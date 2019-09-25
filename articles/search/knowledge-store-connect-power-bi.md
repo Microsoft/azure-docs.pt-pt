@@ -4,16 +4,15 @@ description: Conecte um Azure Search repositório de conhecimento com Power BI p
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: fa6187dc270b18f513b5ee4046d0a6c085f9ae12
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: de282213535a2e49f73bc30e476bae02d470fdb2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963051"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265658"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar uma loja de conhecimento com Power BI
 
@@ -100,7 +99,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como explorar essa loja de conhecimento usando Gerenciador de Armazenamento, consulte o artigo a seguir.
 

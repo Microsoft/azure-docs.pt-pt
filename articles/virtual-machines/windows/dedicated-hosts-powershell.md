@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 2482fb4ab74a3c1e032a32890c3dc2c3920b5e6b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725631"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261703"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Pré-visualização: Implantar VMs em hosts dedicados usando o Azure PowerShell
 
@@ -26,7 +26,7 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 Verifique se você instalou Azure PowerShell versão 2.4.2 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. Para instalar a versão 2.4.2, abra um prompt do PowerShell e digite:
 
 ```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
+Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
 ```
 
 Será necessário pelo menos a versão 1.6.0 do módulo PowerShellGet para habilitar a funcionalidade do módulo de visualização no PowerShell. As versões mais recentes do PowerShell Core têm isso criado automaticamente, mas para versões mais antigas do PowerShell, você pode executar o seguinte comando para atualizar para a versão mais recente:
@@ -48,7 +48,7 @@ Install-Module -Name PowerShellGet -Repository PSGallery -Force
 
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts
 
-Um **grupo** de hosts é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
+Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
 - Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.
 - Alcance entre vários domínios de falha que são mapeados para racks físicos. 
  
@@ -215,7 +215,7 @@ Remove-AzResourceGroup -Name $rgName
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
 

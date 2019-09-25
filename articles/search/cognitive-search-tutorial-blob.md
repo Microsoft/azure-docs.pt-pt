@@ -8,13 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6f7c5e2955c57e0e1891593504e5eec1a06bbb04
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274120"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265372"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Tutorial: Adicionar estrutura a "conteúdo não estruturado" com pesquisa cognitiva
 
@@ -63,7 +62,7 @@ Este passo a passos usa Azure Search para indexação e consultas, serviços cog
 
 1. Após a criação, clique em **ir para o recurso** para abrir a página Visão geral.
 
-1. Clique em serviço BLOBs.
+1. Clique em serviço **BLOBs** .
 
 1. Clique em **+ contêiner** para criar um contêiner e nomeie-o *engrenagem-Search-demo*.
 
@@ -512,7 +511,7 @@ Por fim, aprendeu como testar os resultados e repor o sistema para iterações f
 
 A forma mais rápida de os limpar no final do tutorial passa por eliminar o grupo de recursos que contém o serviço do Azure Search e o serviço Blob do Azure. Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu. 
 
