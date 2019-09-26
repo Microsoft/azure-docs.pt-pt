@@ -2,7 +2,7 @@
 title: Alterar as informações de perfil da sua conta do Azure | Microsoft Docs
 description: Descreve como alterar o perfil de sua conta administrativa do Azure e o endereço de e-mail de contacto.
 author: genlin
-manager: alherz
+manager: dcscontentpm
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
 ms.service: billing
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dea54f2e692174e12cb2dc1f0e0e0ed9fca127bc
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e52d1f80f4e4028bd3d450c245ec02b65bcce69c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68516579"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121648"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Alterar as informações de perfil da sua conta do Azure
 
