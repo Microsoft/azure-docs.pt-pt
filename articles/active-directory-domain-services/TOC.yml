@@ -95,22 +95,22 @@
       items:
         - name: Erros comuns
           href: troubleshoot.md
-        - name: Alertas comuns
-          items:
-            - name: Alertas comuns
-              href: troubleshoot-alerts.md
-            - name: Corrigir uma configuração de rede danificada
-              href: alert-nsg.md
-            - name: Restaurar principais de serviço em falta
-              href: alert-service-principal.md
-            - name: Alertas do Secure LDAP
-              href: alert-ldaps.md
         - name: Erros de inquilino não correspondentes
           href: mismatched-tenant-error.md
         - name: Domínios suspensos
           href: suspension.md
         - name: Secure LDAP
           href: tshoot-ldaps.md
+        - name: Problemas conhecidos
+          items:
+            - name: Alertas comuns
+              href: troubleshoot-alerts.md
+            - name: Alertas de rede
+              href: alert-nsg.md
+            - name: Alertas do principal de serviço
+              href: alert-service-principal.md
+            - name: Alertas do Secure LDAP
+              href: alert-ldaps.md
 - name: Recursos
   items:
     - name: FAQs

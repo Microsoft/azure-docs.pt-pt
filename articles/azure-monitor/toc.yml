@@ -431,6 +431,8 @@
                   href: app/asp-net-trace-logs.md
                 - name: Contadores de desempenho
                   href: app/performance-counters.md
+                - name: EventCounters
+                  href: app/eventcounters.md
                 - name: Dependências
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
@@ -519,6 +521,8 @@
                   items:
                     - name: Descrição geral
                       href: platform/diagnostics-extension-overview.md
+                    - name: Recolher registos
+                      href: platform/azure-storage-iis-table.md
                     - name: Windows
                       items:
                         - name: Histórico de versões
@@ -644,22 +648,20 @@
               href: insights/service-map.md
             - name: Grupos de computadores
               href: platform/computer-groups.md
-        - name: Recursos do Azure
+        - name: Plataforma Azure
           items:
-            - name: Registos de diagnósticos
+            - name: Descrição geral dos registos da plataforma
+              href: platform/platform-logs-overview.md
+            - name: Registos do recurso
               items:
                 - name: Descrição geral
-                  href: platform/diagnostic-logs-overview.md
-                - name: Recolher nos Registos
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Recolher a partir do Armazenamento do Azure
-                  href: platform/azure-storage-iis-table.md
+                  href: platform/resource-logs-overview.md
+                - name: Recolher nos Registos do Azure Monitor
+                  href: platform/resource-logs-collect-workspace.md
                 - name: Arquivar no armazenamento
-                  href: platform/archive-diagnostic-logs.md
-                - name: Ativar com os modelos do Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
-        - name: Subscrição do Azure
-          items:
+                  href: platform/resource-logs-collect-storage.md
+                - name: Transmitir em Fluxo para os Hubs de Eventos
+                  href: platform/resource-logs-stream-event-hubs.md
             - name: Registo de atividades
               items:
                 - name: Descrição geral
@@ -674,6 +676,14 @@
                   href: platform/activity-log-export.md
                 - name: Esquema
                   href: platform/activity-log-schema.md
+            - name: Definições de diagnóstico
+              items:
+                - name: Criar definição de diagnóstico
+                  href: platform/diagnostic-settings.md
+                - name: Criar definição de diagnóstico com o Resource Manager
+                  href: platform/diagnostic-settings-template.md
+                - name: Alterar para o formato de armazenamento de blobs
+                  href: platform/resource-logs-blob-format.md
             - name: Transmitir dados para os Hubs de Eventos
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Análise do Key Vault
@@ -685,6 +695,7 @@
         - name: Armazenamento
           items:
             - name: Azure Monitor para o Armazenamento
+              displayname: 'storage, monitor, insights, storage accounts, azure storage'
               href: insights/storage-insights-overview.md
         - name: Bases de Dados
           items:
@@ -747,7 +758,7 @@
             - name: Ligar Gestor de Configuração
               href: platform/collect-sccm.md
         - name: Transmitir dados para os Hubs de Eventos
-          href: platform/diagnostic-logs-stream-event-hubs.md
+          href: platform/resource-logs-stream-event-hubs.md
     - name: Analisar dados
       items:
         - name: Métricas

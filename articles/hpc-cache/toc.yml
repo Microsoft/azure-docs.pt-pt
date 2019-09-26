@@ -18,7 +18,7 @@
       items:
         - name: Adicionar destinos de armazenamento
           href: hpc-cache-add-storage.md
-        - name: Mover dados para o armazenamento em cache
+        - name: Mover dados para destinos de armazenamento (se necessário)
           items:
             - name: Pré-carregar o novo Armazenamento de blobs
               href: hpc-cache-ingest.md

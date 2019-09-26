@@ -84,7 +84,11 @@
     - name: Balancear carga de VMs dentro de uma zona (CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: Configurar as regras de saída
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: Configurar as regras de saída - CLI
+          href: configure-load-balancer-outbound-cli.md
+        - name: Configurar as regras de saída - PowerShell
+          href: configure-load-balancer-outbound-powershell.md
     - name: Criar um balanceador de carga do Azure com a API REST
       href: create-load-balancer-rest-api.md
     - name: Criar Balanceador de Carga Básico (Modelo)

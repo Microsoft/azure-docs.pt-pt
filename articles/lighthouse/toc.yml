@@ -19,7 +19,7 @@
       displayName: scenarios
       href: ./concepts/cross-tenant-management-experience.md
     - name: Ofertas de serviços geridos no Azure Marketplace
-      displayName: 'managed services offer, azure marketplace'
+      displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
     - name: Práticas de segurança recomendadas
       displayName: 'mfa, authentication, secure, group'
@@ -27,6 +27,9 @@
     - name: Considerações sobre o programa do Fornecedor de Soluções Cloud
       displayName: 'csp, aobo, partner'
       href: ./concepts/cloud-solution-provider.md
+    - name: Azure Lighthouse em cenários empresariais
+      displayName: 'corporation, IT, consolidate'
+      href: ./concepts/enterprise.md
 - name: Guias de procedimentos
   items:
     - name: Integrar um cliente na gestão de recursos delegados do Azure
