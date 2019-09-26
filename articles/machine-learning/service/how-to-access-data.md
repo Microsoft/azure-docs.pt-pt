@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecd1212385473e33d05f38f67db5708bff060daa
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 9de3232bcd7908f775dadff4dc584f2a687b0c68
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218238"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299764"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 
- Neste artigo, saiba como acessar facilmente seus dados nos serviços de armazenamento do Azure por meio de repositórios de Azure Machine Learning. Os armazenamentos de dados são usados para armazenar informações de conexão, como sua ID de assinatura e autorização de token, para acessar seu armazenamento sem ter que embutir em código essas informações em seus scripts.
+Neste artigo, saiba como acessar facilmente seus dados nos serviços de armazenamento do Azure por meio de repositórios de Azure Machine Learning. Os armazenamentos de dados são usados para armazenar informações de conexão, como sua ID de assinatura e autorização de token. O uso de armazenamentos de dados permite que você acesse seu armazenamento sem precisar codificar informações de conexão em seus scripts.
 
 Este "como" mostra exemplos das seguintes tarefas:
 * [Registrar repositórios de armazenamento](#access)
@@ -49,7 +49,7 @@ Todos os métodos de registro estão na [`Datastore`](https://docs.microsoft.com
 
 Os exemplos a seguir mostram que você deve registrar um contêiner de blob do Azure ou um compartilhamento de arquivos do Azure como um repositório de armazenamento.
 
-+ Para um **armazenamento de contêiner de blob do Azure**, use[`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
++ Para um **armazenamento de contêiner de blob do Azure**, use[`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
   ```Python
   datastore = Datastore.register_azure_blob_container(workspace=ws, 
@@ -84,7 +84,7 @@ Para obter um repositório de armazenamento específico registrado no espaço de
 #get named datastore from current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-Para obter a lista de armazenamentos de dados registrados com um determinado espaço de trabalho, você `datastores` pode usar a propriedade em um objeto de espaço de trabalho:
+Para obter a lista de armazenamentos de dados registrados com um determinado espaço de trabalho, você [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py#datastores) pode usar a propriedade em um objeto de espaço de trabalho:
 
 ```Python
 #list all datastores registered in current workspace
@@ -110,7 +110,7 @@ ws.set_default_datastore('your datastore name')
 
 <a name="up-and-down"></a>
 ## <a name="upload--download-data"></a>Carregar & Baixar dados
-Os [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) métodos [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) e descritos nos exemplos a seguir são específicos para e operam de forma idêntica para as classes [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) .
+Os [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) métodos [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) e descritos nos exemplos a seguir são específicos para e operam de forma idêntica para as classes [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) .
 
 ### <a name="upload"></a>Carregar
 
@@ -155,8 +155,8 @@ A tabela a seguir lista os métodos que dizem ao destino de computação como us
 Aparência|Método|Descrição|
 ----|-----|--------
 Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Use para montar o repositório de armazenamento no destino de computação.
-Transferência|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Use para baixar o conteúdo do seu repositório de armazenamento para o local especificado `path_on_compute`por. <br> Esse download ocorre antes da execução.
-Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Use para carregar um arquivo do local especificado pelo `path_on_compute` para seu repositório de armazenamento. <br> Esse carregamento ocorre após a execução.
+Transferência|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Use para baixar o conteúdo do seu repositório de armazenamento para o local especificado `path_on_compute`por. <br><br> Esse download ocorre antes da execução.
+Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Use para carregar um arquivo do local especificado pelo `path_on_compute` para seu repositório de armazenamento. <br><br> Esse carregamento ocorre após a execução.
 
 Para fazer referência a uma pasta ou arquivo específico em seu repositório de armazenamento e disponibilizá-lo no destino de computação, [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) use o método de armazenamento de Datastore.
 
@@ -168,13 +168,13 @@ datastore.as_mount()
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
-> Qualquer `datastore` objeto `datastore.path` ou é resolvido para um nome de variável de ambiente do formato `"$AZUREML_DATAREFERENCE_XXXX"`, cujo valor representa o caminho de montagem/download na computação de destino. O caminho do repositório de armazenamento na computação de destino pode não ser o mesmo que o caminho de execução para o script de treinamento.
+> Qualquer especificado `datastore` ou `datastore.path` objeto é resolvido para um nome de variável de ambiente do formato `"$AZUREML_DATAREFERENCE_XXXX"`, cujo valor representa o caminho de montagem/download na computação de destino. O caminho do repositório de armazenamento na computação de destino pode não ser o mesmo que o caminho de execução para o script de treinamento.
 
 ### <a name="examples"></a>Exemplos 
 
 Os exemplos de código a seguir são específicos [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) para a classe para acessar dados durante o treinamento. 
 
-`script_params`é um dicionário que contém parâmetros para o entry_script. Você pode usá-lo para passar um armazenamento de dados e descrever como os dados devem ser disponibilizados no destino de computação. Saiba mais em nosso [tutorial](tutorial-train-models-with-aml.md)de ponta a ponta.
+`script_params`é um dicionário que contém parâmetros para o entry_script. Use-o para passar um armazenamento de dados e descrever como os dados são disponibilizados no destino de computação. Saiba mais em nosso [tutorial](tutorial-train-models-with-aml.md)de ponta a ponta.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -241,7 +241,7 @@ Azure Machine Learning fornece várias maneiras de usar seus modelos para pontua
 | [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implantar modelo (s) como um serviço Web. |
 | [Módulo IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implantar modelo (s) para IoT Edge dispositivos. |
 
-Para situações em que o SDK não fornece acesso a repositórios de dados, você poderá criar um código personalizado usando o SDK do Azure relevante para acessar o dado. Por exemplo, usando o [SDK de armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python) para acessar dados armazenados em BLOBs.
+Para situações em que o SDK não fornece acesso a repositórios de dados, você poderá criar um código personalizado usando o SDK do Azure relevante para acessar o dado. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de cliente que você pode usar para acessar dados armazenados em BLOBs ou arquivos.
 
 
 ## <a name="next-steps"></a>Passos seguintes

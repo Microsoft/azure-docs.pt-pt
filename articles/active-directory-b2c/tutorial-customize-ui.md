@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063287"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291097"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface de experiências do usuário no Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Embora seja possível armazenar seus arquivos de várias maneiras, para este tut
 
 1. No menu, selecione **CORS**.
 2. Para **origens permitidas**, `https://your-tenant-name.b2clogin.com`insira. Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário.
-3. Para **métodos permitidos**, selecione `GET` e `OPTIONS`.
+3. Para **métodos permitidos**, selecione `GET`,`PUT`e `OPTIONS`.
 4. Para **cabeçalhos permitidos**, insira um asterisco (*).
 5. Para **cabeçalhos expostos**, insira um asterisco (*).
 6. Para **idade máxima**, insira 200.

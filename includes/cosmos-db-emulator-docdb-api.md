@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 85fe028e35165ece0bdb143181bb1d8a6d4e1841
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c071cd289a1304a561a821fc6b5ad86d9bf986af
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67184011"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299333"
 ---
-Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [Emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com um URI de `https://localhost:8081`. A Chave Primária é fornecida em [Autenticar pedidos](../articles/cosmos-db/local-emulator.md#authenticating-requests).
+Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [Emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com um URI de `https://localhost:8081`. Para a chave a ser usada com o emulador, consulte [Autenticando solicitações](../articles/cosmos-db/local-emulator.md#authenticating-requests).

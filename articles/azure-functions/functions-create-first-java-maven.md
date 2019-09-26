@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 381298abcfa4fa707af6b382565b4bfb990e96e6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5447fdcfa86c35b7c5cf079ae8446c30785e893f
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899506"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299405"
 ---
 # <a name="quickstart-use-java-to-create-and-publish-a-function-to-azure-functions"></a>Início rápido: Use Java para criar e publicar uma função para Azure Functions
 
@@ -223,7 +223,7 @@ Terá resultados atualizados:
 Hi, AzureFunctionsTest
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Criou uma aplicação de funções do Java com um acionador HTTP simples e implementou o mesmo nas Funções do Azure.
 
@@ -231,3 +231,6 @@ Criou uma aplicação de funções do Java com um acionador HTTP simples e imple
 - Adicione mais funções com diferentes acionadores ao seu projeto com o destino do Maven `azure-functions:add`.
 - Escreva e depure funções localmente com o [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) e [Eclipse](functions-create-maven-eclipse.md). 
 - Depure funções implementadas no Azure com o Visual Studio Code. Veja a documentação do Visual Studio Code sobre [aplicações Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) para obter instruções.
+
+> [!NOTE] 
+> Você também pode criar um projeto Azure Functions baseado em Kotlin usando o Azure-Functions-Kotlin-arquétipo, em vez disso. Visite o [repositório do GitHub](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) para obter mais informações.

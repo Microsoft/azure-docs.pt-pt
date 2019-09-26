@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779089"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290766"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory autenticação de passagem: Perguntas mais frequentes
 
@@ -44,8 +44,7 @@ Não. A autenticação de passagem só está disponível na instância Mundial d
 Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A autenticação de passagem dá suporte à "ID alternativa" como o nome de usuário, em vez de "userPrincipalName"?
-
-Sim, a autenticação de passagem dá `Alternate ID` suporte como o nome de usuário quando configurado no Azure ad Connect. Como pré-requisito, Azure ad Connect precisa sincronizar o atributo Active Directory `UserPrincipalName` local com o Azure AD. Para obter mais informações, consulte [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os aplicativos do Office `Alternate ID`365 dão suporte ao. Consulte a declaração de suporte de documentação do aplicativo específico.
+Para uma extensão limitada, a autenticação de passagem dá suporte à ID alternativa como o nome de usuário quando configurado no Azure AD Connect. Como pré-requisito, Azure ad Connect precisa sincronizar o atributo Active Directory `UserPrincipalName` local com o Azure AD. Isso faz com `UserPrincipalName` que o no AD local e no Azure ad se torne idêntico. Se desejar usar outro atributo para sincronizar do AD local como o UPN para o Azure AD, você precisará usar a sincronização de hash de senha ou AD FS. Para obter mais informações, consulte [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os aplicativos do Office `Alternate ID`365 dão suporte ao. Consulte a declaração de suporte de documentação do aplicativo específico.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha atua como um fallback para autenticação de passagem?
 
@@ -112,9 +111,9 @@ A comunicação entre cada agente de autenticação de passagem e o Azure AD é 
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como fazer remover um agente de autenticação de passagem?
 
-Desde que um agente de autenticação de passagem esteja em execução, ele permanece ativo e processa continuamente as solicitações de entrada do usuário. Se você quiser desinstalar um agente de autenticação, vá para **painel de controle-> programas-> programas e recursos** e desinstale o **agente de autenticação do Microsoft Azure ad Connect** e o atualizador do **agente do Microsoft Azure ad Connect** suplementa.
+Desde que um agente de autenticação de passagem esteja em execução, ele permanece ativo e processa continuamente as solicitações de entrada do usuário. Se você quiser desinstalar um agente de autenticação, vá para **painel de controle-> programas-> programas e recursos** e desinstale o **agente de autenticação do Microsoft Azure ad Connect** e o **atualizador do agente do Microsoft Azure ad Connect** suplementa.
 
-Se você verificar a folha de autenticação de passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, você verá o agente de autenticação exibido como inativo. Isso é _esperado_. O agente de autenticação é descartado automaticamente da lista após alguns dias.
+Se você verificar a folha de autenticação de passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, você verá o agente de autenticação exibido como **inativo**. Isso é _esperado_. O agente de autenticação é descartado automaticamente da lista após alguns dias.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Eu já uso AD FS para entrar no Azure AD. Como fazer mudar para a autenticação de passagem?
 

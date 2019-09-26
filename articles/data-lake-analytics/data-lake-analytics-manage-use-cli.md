@@ -1,6 +1,6 @@
 ---
-title: Gerir o Azure Data Lake Analytics com Interface de linha de comandos do Azure
-description: Este artigo descreve como utilizar a CLI do Azure para gerir tarefas do Data Lake Analytics, origens de dados e os utilizadores.
+title: Gerenciar Azure Data Lake Analytics usando CLI do Azure
+description: Este artigo descreve como usar o CLI do Azure para gerenciar Data Lake Analytics trabalhos, fontes de dados & usuários.
 services: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -8,23 +8,23 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387061"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309744"
 ---
-# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerir o Azure Data Lake Analytics com a Interface de linha de comandos (CLI do Azure)
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerenciar Azure Data Lake Analytics usando a CLI (interface de linha de comando) do Azure
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como gerir contas do Azure Data Lake Analytics, origens de dados, os utilizadores e tarefas com a CLI do Azure. Para ver tópicos de gestão com outras ferramentas, clique em Selecionar o separador acima.
+Saiba como gerenciar contas de Azure Data Lake Analytics, fontes de dados, usuários e trabalhos usando o CLI do Azure. Para ver os tópicos de gerenciamento usando outras ferramentas, clique na guia selecionar acima.
 
 
 **Pré-requisitos**
 
-Antes de começar este tutorial, tem de ter os seguintes recursos:
+Antes de iniciar este tutorial, você deve ter os seguintes recursos:
 
 * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -32,14 +32,14 @@ Antes de começar este tutorial, tem de ter os seguintes recursos:
 
    * Transfira e instale o **pré-lançamento** [Ferramentas CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
 
-* Autenticar com o `az login` de comandos e selecione a subscrição que pretende utilizar. Para mais informações sobre a autenticação através de uma conta escolar ou profissional, consulte [Ligar a uma subscrição do Azure a partir da CLI do Azure](/cli/azure/authenticate-azure-cli).
+* Autentique usando o `az login` comando e selecione a assinatura que você deseja usar. Para mais informações sobre a autenticação através de uma conta escolar ou profissional, consulte [Ligar a uma subscrição do Azure a partir da CLI do Azure](/cli/azure/authenticate-azure-cli).
 
    ```azurecli
    az login
    az account set --subscription <subscription id>
    ```
 
-   Agora pode acessar os comandos de Data Lake Analytics e Data Lake Store. Execute o seguinte comando para listar os comandos de Data Lake Store e do Data Lake Analytics:
+   Agora você pode acessar os comandos Data Lake Analytics e Data Lake Store. Execute o seguinte comando para listar os comandos de Data Lake Store e Data Lake Analytics:
 
    ```azurecli
    az dls -h
@@ -48,56 +48,56 @@ Antes de começar este tutorial, tem de ter os seguintes recursos:
 
 ## <a name="manage-accounts"></a>Gerir contas
 
-Antes de executar as tarefas de Data Lake Analytics, tem de ter uma conta do Data Lake Analytics. Ao contrário do Azure HDInsight, não paga uma conta do Analytics quando não está em execução uma tarefa. Paga apenas o tempo quando está em execução uma tarefa.  Para obter mais informações, consulte [descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md).  
+Antes de executar qualquer trabalho de Data Lake Analytics, você deve ter uma conta de Data Lake Analytics. Ao contrário do Azure HDInsight, você não paga por uma conta de análise quando não está executando um trabalho. Você paga apenas pelo tempo em que está executando um trabalho.  Para obter mais informações, consulte [Azure data Lake Analytics visão geral](data-lake-analytics-overview.md).  
 
 ### <a name="create-accounts"></a>Criar contas
 
-Execute o seguinte comando para criar uma conta do Data Lake, 
+Execute o comando a seguir para criar uma conta de Data Lake, 
 
    ```azurecli
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
    ```
 
-### <a name="update-accounts"></a>Contas de atualização
+### <a name="update-accounts"></a>Atualizar contas
 
-O seguinte comando atualiza as propriedades de uma conta existente do Data Lake Analytics
+O comando a seguir atualiza as propriedades de uma conta existente do Data Lake Analytics
 
    ```azurecli
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
    ```
 
-### <a name="list-accounts"></a>Contas de lista
+### <a name="list-accounts"></a>Listar contas
 
-Contas de análise do Data Lake da lista dentro de um grupo de recursos específico
+Listar contas Data Lake Analytics dentro de um grupo de recursos específico
 
    ```azurecli
    az dla account list "<Resource group name>"
    ```
 
-## <a name="get-details-of-an-account"></a>Obter os detalhes de uma conta
+## <a name="get-details-of-an-account"></a>Obter detalhes de uma conta
 
    ```azurecli
    az dla account show --account "<Data Lake Analytics account name>" --resource-group "<Resource group name>"
    ```
 
-### <a name="delete-an-account"></a>Eliminar uma conta
+### <a name="delete-an-account"></a>Excluir uma conta
 
    ```azurecli
    az dla account delete --account "<Data Lake Analytics account name>" --resource-group "<Resource group name>"
    ```
 
-## <a name="manage-data-sources"></a>Gerir origens de dados
+## <a name="manage-data-sources"></a>Gerenciar fontes de dados
 
-Atualmente, o Data Lake Analytics suporta as seguintes origens de dados de dois:
+O Data Lake Analytics atualmente dá suporte às duas fontes de dados a seguir:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Armazenamento do Azure](../storage/common/storage-introduction.md)
 
-Quando cria uma conta do Analytics, tem de designar uma conta de armazenamento do Azure Data Lake para ser a conta de armazenamento predefinida. A conta de armazenamento do Data Lake predefinida é utilizada para armazenar registos de auditoria de metadados e a tarefa de tarefa. Depois de criar uma conta de análise, pode adicionar mais contas de armazenamento do Data Lake e/ou a conta de armazenamento do Azure. 
+Ao criar uma conta de análise, você deve designar uma conta de Azure Data Lake Storage para ser a conta de armazenamento padrão. A conta de armazenamento de Data Lake padrão é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta de análise, você pode adicionar mais contas de Data Lake Storage e/ou conta de armazenamento do Azure. 
 
-### <a name="find-the-default-data-lake-store-account"></a>Localizar a conta do Data Lake Store predefinida
+### <a name="find-the-default-data-lake-store-account"></a>Localizar a conta de Data Lake Store padrão
 
-Pode ver a conta do Data Lake Store predefinida utilizada ao executar o `az dla account show` comando. Nome da conta predefinida é listado sob a propriedade defaultDataLakeStoreAccount.
+Você pode exibir a conta de data Lake Store padrão usada ao executar `az dla account show` o comando. O nome da conta padrão é listado na propriedade defaultDataLakeStoreAccount.
 
    ```azurecli
    az dla account show --account "<Data Lake Analytics account name>"
@@ -110,28 +110,28 @@ Pode ver a conta do Data Lake Store predefinida utilizada ao executar o `az dla 
    ```
 
 > [!NOTE]
-> São suportados apenas BLOBs armazenamento nomes abreviados. Não utilize o FQDN, por exemplo "myblob.blob.core.windows.net".
+> Somente nomes curtos de armazenamento de BLOBs têm suporte. Não use o FQDN, por exemplo, "myblob.blob.core.windows.net".
 > 
 
-### <a name="add-additional-data-lake-store-accounts"></a>Adicionar mais contas do Data Lake Store
+### <a name="add-additional-data-lake-store-accounts"></a>Adicionar contas de Data Lake Store adicionais
 
-O seguinte comando atualiza a conta do Data Lake Analytics especificada com uma conta do Data Lake Store adicional:
+O comando a seguir atualiza a conta de Data Lake Analytics especificada com uma conta de Data Lake Store adicional:
 
    ```azurecli
    az dla account data-lake-store add --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="update-existing-data-source"></a>Atualizar a origem de dados existente
+### <a name="update-existing-data-source"></a>Atualizar fonte de dados existente
 
-Para atualizar uma chave de conta de armazenamento de Blob existente:
+Para atualizar uma chave de conta de armazenamento de BLOBs existente:
 
    ```azurecli
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="list-data-sources"></a>Lista de origens de dados:
+### <a name="list-data-sources"></a>Listar fontes de dados:
 
-Para listar as contas do Data Lake Store:
+Para listar as contas de Data Lake Store:
 
    ```azurecli
    az dla account data-lake-store list --account "<Data Lake Analytics account name>"
@@ -143,49 +143,49 @@ Para listar a conta de armazenamento de BLOBs:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Origem de dados de lista do Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Fonte de dados da lista de Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-### <a name="delete-data-sources"></a>Elimine origens de dados:
-Para eliminar uma conta do Data Lake Store:
+### <a name="delete-data-sources"></a>Excluir fontes de dados:
+Para excluir uma conta de Data Lake Store:
 
    ```azurecli
    az dla account data-lake-store delete --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Azure Data Lake Store account name>"
    ```
 
-Para eliminar uma conta de armazenamento de BLOBs:
+Para excluir uma conta de armazenamento de BLOBs:
 
    ```azurecli
    az dla account blob-storage delete --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
 ## <a name="manage-jobs"></a>Gerir tarefas
-Tem de ter uma conta do Data Lake Analytics antes de poder criar uma tarefa.  Para obter mais informações, consulte [contas de gerir o Data Lake Analytics](#manage-accounts).
+Você deve ter uma conta de Data Lake Analytics antes de poder criar um trabalho.  Para obter mais informações, consulte [gerenciar contas de data Lake Analytics](#manage-accounts).
 
-### <a name="list-jobs"></a>Lista de tarefas
+### <a name="list-jobs"></a>Listar trabalhos
 
    ```azurecli
    az dla job list --account "<Data Lake Analytics account name>"
    ```
 
-   ![Origem de dados de lista do Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+   ![Fonte de dados da lista de Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
 
-### <a name="get-job-details"></a>Obter os detalhes da tarefa
+### <a name="get-job-details"></a>Obter detalhes do trabalho
 
    ```azurecli
    az dla job show --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
 
-### <a name="submit-jobs"></a>Submeter tarefas
+### <a name="submit-jobs"></a>Enviar trabalhos
 
 > [!NOTE]
-> A prioridade de padrão de uma tarefa é 1000 e o grau de padrão de paralelismo para uma tarefa é 1.
+> A prioridade padrão de um trabalho é 1000, e o grau padrão de paralelismo para um trabalho é 1.
 > 
 >    ```azurecli
 >    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
 >    ```
 
 ### <a name="cancel-jobs"></a>Cancelar tarefas
-Utilize o comando de lista para localizar o id da tarefa e, em seguida, utilize Cancelar para cancelar a tarefa.
+Use o comando list para localizar a ID do trabalho e, em seguida, use Cancel para cancelar o trabalho.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

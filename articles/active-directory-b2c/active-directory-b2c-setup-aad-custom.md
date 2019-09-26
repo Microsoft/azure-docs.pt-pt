@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 527c7120ad2d890c8abf32d29827ed7454b0ebfd
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 205809c34eb64255af511f316f138be1efd9983b
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065308"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315072"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta de Azure Active Directory usando políticas personalizadas no Azure Active Directory B2C
 
@@ -179,15 +179,7 @@ Agora que você tem um botão em vigor, é necessário vinculá-lo a uma ação.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você registra em seu locatário B2C. Esta seção lista as etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório + filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário de Azure ad B2C.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-1. Insira um nome para o aplicativo, por exemplo, *testapp1*.
-1. Para **aplicativo Web/API Web**, selecione `Yes`e, em seguida `https://jwt.ms` , insira para a **URL de resposta**.
-1. Selecione **Criar**.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
 
@@ -205,7 +197,7 @@ Atualize o arquivo RP (terceira parte confiável) que inicia o percurso do usuá
 
 Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado por Azure ad B2C.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Ao trabalhar com políticas personalizadas, às vezes você pode precisar de informações adicionais ao solucionar problemas de uma política durante seu desenvolvimento.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414584"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299851"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
 
@@ -100,11 +100,14 @@ Quando criar uma inscrição em pontos de distribuição, terá a oportunidade p
 
    1. Selecione **Guardar**.
 
-Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Certifique-se de copiar o valor de **chave primária** do registro a ser usado ao criar a chave do dispositivo.
+Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Certifique-se de copiar o valor de **chave primária** do registro a ser usado ao instalar o IOT Edge Runtime ou se você pretende criar chaves de dispositivo para uso com um registro de grupo.
 
 ## <a name="derive-a-device-key"></a>Derivar uma chave de dispositivo
 
-Seu dispositivo usa a chave de dispositivo derivada com sua ID de registro exclusiva para executar o atestado de chave simétrica com o registro durante o provisionamento. Para gerar a chave do dispositivo, use a chave que você copiou de seu registro de DPS para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro exclusiva para o dispositivo e converta o resultado no formato base64.
+> [!NOTE]
+> Esta seção é necessária somente se você estiver usando um registro de grupo.
+
+Cada dispositivo usa sua chave de dispositivo derivada com sua ID de registro exclusiva para executar o atestado de chave simétrica com o registro durante o provisionamento. Para gerar a chave do dispositivo, use a chave que você copiou de seu registro de DPS para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro exclusiva para o dispositivo e converta o resultado no formato base64.
 
 Não inclua a chave primária ou secundária do registro em seu código de dispositivo.
 
@@ -159,7 +162,10 @@ Você precisará das seguintes informações ao provisionar seu dispositivo:
 
 * O valor de **escopo da ID** de DPS
 * A **ID de registro** do dispositivo que você criou
-* A chave de dispositivo derivada do dispositivo para o atestado de chave simétrica
+* A **chave primária** que você copiou do registro do DPS
+
+> [!TIP]
+> Para registros de grupo, você precisa da [chave derivada](#derive-a-device-key) de cada dispositivo em vez da chave de registro de DPS.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
@@ -235,6 +241,6 @@ iotedge list
 
 Você pode verificar se o registro individual criado no serviço de provisionamento de dispositivos foi usado. Navegue até a instância do serviço de provisionamento de dispositivos no portal do Azure. Abra os detalhes de registro para o registro individual que você criou. Observe que o status do registro é **atribuído** e a ID do dispositivo é listada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O processo de inscrição do serviço aprovisionamento de dispositivos permite-lhe definir o ID de dispositivo e etiquetas do dispositivo duplo ao mesmo tempo, como aprovisionar o novo dispositivo. Pode utilizar esses valores para dispositivos individuais ou grupos de dispositivos com a gestão de dispositivos automático de destino. Saiba como [implementar e monitorizar módulos em dimensionar no portal do Azure do IoT Edge](how-to-deploy-monitor.md) ou [com a CLI do Azure](how-to-deploy-monitor-cli.md).

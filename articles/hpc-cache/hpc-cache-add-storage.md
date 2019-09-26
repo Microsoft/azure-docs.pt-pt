@@ -4,14 +4,14 @@ description: Como definir destinos de armazenamento para que o cache HPC do Azur
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181005"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300032"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -21,11 +21,11 @@ Você pode definir até dez destinos de armazenamento diferentes para um cache. 
 
 Lembre-se de que as exportações de armazenamento devem ser acessíveis da rede virtual do seu cache. Para o armazenamento de hardware local, talvez seja necessário configurar um servidor DNS que possa resolver nomes de host para acesso de armazenamento NFS. Leia mais em [acesso DNS](hpc-cache-prereqs.md#dns-access).
 
-Você pode adicionar destinos de armazenamento ao criar o cache do HPC do Azure ou posteriormente. O procedimento é ligeiramente diferente dependendo se você está adicionando o armazenamento de BLOBs do Azure ou uma exportação de NFS. Os detalhes de cada um estão abaixo.
+Você pode adicionar destinos de armazenamento ao criar o cache ou posteriormente. O procedimento é ligeiramente diferente dependendo se você está adicionando o armazenamento de BLOBs do Azure ou uma exportação de NFS. Os detalhes de cada um estão abaixo.
 
 ## <a name="add-storage-targets-while-creating-the-cache"></a>Adicionar destinos de armazenamento ao criar o cache
 
-Use a guia **destinos de armazenamento** do assistente de criação de cache para definir o armazenamento ao mesmo tempo em que cria a instância de cache.
+Use a guia **destinos de armazenamento** do assistente de criação do cache HPC do Azure para definir o armazenamento ao mesmo tempo em que você cria a instância de cache.
 
 ![captura de tela da página de destinos de armazenamento](media/hpc-cache-storage-targets-pop.png)
 
@@ -39,11 +39,13 @@ No portal do Azure, abra sua instância de cache e clique em **destinos de armaz
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Adicionar um novo destino de armazenamento de BLOBs do Azure
 
-Um novo destino de armazenamento de BLOBs precisa de um contêiner de blob vazio ou um contêiner que é preenchido com dados no formato de sistema de arquivos de nuvem do cache HPC do Azure. Leia mais sobre pré-carregando um contêiner de BLOBs em [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
+Um novo destino de armazenamento de BLOBs precisa de um contêiner de blob vazio ou um contêiner que é preenchido com dados no formato do sistema de arquivos da nuvem de cache do HPC do Azure. Leia mais sobre pré-carregando um contêiner de BLOBs em [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
 Para definir um contêiner de blob do Azure, insira essas informações.
 
 ![captura de tela da página Adicionar destino de armazenamento, preenchida com informações para um novo destino de armazenamento de BLOBs do Azure](media/hpc-cache-add-blob.png)
+
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
 
 * **Nome do destino de armazenamento** -defina um nome que identifique esse destino de armazenamento no cache do HPC do Azure.
 * **Tipo de destino** -escolha **blob**.
@@ -52,7 +54,7 @@ Para definir um contêiner de blob do Azure, insira essas informações.
   Você precisará autorizar a instância de cache a acessar a conta de armazenamento, conforme descrito em [Adicionar as funções de acesso](#add-the-access-control-roles-to-your-account).
 * **Contêiner de armazenamento** -selecione o contêiner de BLOB para este destino.
 
-* **Caminho do namespace virtual** -defina o filePath voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
+* **Caminho do namespace virtual** -defina o caminho do arquivo voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
 
 Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
@@ -98,11 +100,16 @@ Forneça essas informações para um destino de armazenamento com backup em NFS:
 
 * **Modelo de uso** – escolha um dos perfis de cache de dados com base em seu fluxo de trabalho, descrito em [escolher um modelo de uso, abaixo](#choose-a-usage-model).
 
-Você pode criar vários caminhos de namespace para representar exportações diferentes no mesmo sistema de armazenamento NFS, mas deve criá-los todos de um destino de armazenamento.
+### <a name="nfs-namespace-paths"></a>Caminhos de namespace NFS
 
-Para cada exportação, preencha estes valores:
+Um destino de armazenamento NFS pode ter vários caminhos virtuais, desde que cada caminho represente uma exportação ou subdiretório diferente no mesmo sistema de armazenamento.
 
-* **Caminho do namespace virtual** -defina o filePath voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
+Crie todos os caminhos de um destino de armazenamento.
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Preencha esses valores para cada caminho de namespace: 
+
+* **Caminho do namespace virtual** -defina o caminho do arquivo voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
 
 <!--  The virtual path should start with a slash ``/``. -->
 

@@ -17,12 +17,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: cb279441e8ed0c0110a5b18d32609ed5b01bd7e2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074267"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291034"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
@@ -80,7 +80,7 @@ Essa lista mostra as declarações que estão na maioria dos id_tokens por padr�
 |`email` | Cadeia | A `email` declaração está presente por padrão para contas de convidado que têm um endereço de email.  Seu aplicativo pode solicitar a declaração de email para usuários gerenciados (aqueles do mesmo locatário que o recurso) usando `email` a [declaração opcional](active-directory-optional-claims.md).  No ponto de extremidade v 2.0, seu aplicativo também pode solicitar `email` o escopo do OpenID Connect – você não precisa solicitar a declaração opcional e o escopo para obter a declaração.  A declaração de email dá suporte apenas a email endereçável das informações de perfil do usuário. |
 |`name` | Cadeia | A `name` declaração fornece um valor legível que identifica o assunto do token. O valor não é garantido como exclusivo, é mutável e foi projetado para ser usado somente para fins de exibição. O `profile` escopo é necessário para receber essa declaração. |
 |`nonce`| Cadeia | O nonce corresponde ao parâmetro incluído na solicitação original de/Authorize para o IDP. Se não corresponder, seu aplicativo deverá rejeitar o token. |
-|`oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto no sistema de identidade da Microsoft, nesse caso, uma conta de usuário. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na `oid` declaração. O Microsoft Graph retornará essa ID como a `id` propriedade para uma determinada conta de usuário. Como o `oid` permite que vários aplicativos correlacionem os usuários `profile` , o escopo é necessário para receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário. eles são considerados contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
+|`oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto no sistema de identidade da Microsoft, nesse caso, uma conta de usuário. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na `oid` declaração. O Microsoft Graph retornará essa ID como a `id` propriedade para uma determinada conta de usuário. Como o `oid` permite que vários aplicativos correlacionem os usuários `profile` , o escopo é necessário para receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário. eles são considerados contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. A `oid` declaração é um GUID e não pode ser reutilizada. |
 |`roles`| matriz de cadeias de caracteres | O conjunto de funções que foram atribuídas ao usuário que está fazendo logon. |
 |`rh` | Cadeia de caracteres opaca |Uma declaração interna usada pelo Azure para revalidar tokens. Deve ser ignorado. |
 |`sub` | Cadeia de caracteres, um GUID | A entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado. O assunto é um identificador emparelhado-ele é exclusivo para uma ID de aplicativo específica. Se um único usuário entrar em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração de assunto. Isso pode ou não ser desejado dependendo dos requisitos de arquitetura e privacidade. |
@@ -99,7 +99,7 @@ Para validar manualmente o token, consulte os detalhes das etapas em [Validando 
 * Audience: a `aud` declaração deve corresponder à ID do aplicativo para seu aplicativo.
 * Nonce: a `nonce` declaração na carga deve corresponder ao parâmetro nonce passado para o ponto de extremidade/Authorize durante a solicitação inicial.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre tokens de [acesso](access-tokens.md)
+* Saiba mais sobre [tokens de acesso](access-tokens.md)
 * Personalize as declarações em seu id_token usando [declarações opcionais](active-directory-optional-claims.md).

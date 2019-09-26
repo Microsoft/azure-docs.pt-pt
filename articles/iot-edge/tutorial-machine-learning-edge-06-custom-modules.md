@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840115"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299872"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implantar módulos de IoT Edge personalizados
 
@@ -27,7 +27,7 @@ IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de
 Queremos que o dispositivo IoT Edge realize quatro coisas para nós:
 
 * Receber dados dos dispositivos folha
-* Prever RUL para o dispositivo que enviou os dados
+* Prever a vida útil restante (RUL) para o dispositivo que enviou os dados
 * Enviar uma mensagem com apenas o RUL para o dispositivo para o Hub IoT (essa função poderá ser modificada para somente enviar dados se o RUL cair abaixo de algum nível)
 * Salve os dados do dispositivo de folha em um arquivo local no dispositivo IoT Edge. Esse arquivo de dados é carregado periodicamente no Hub IoT por meio do carregamento de arquivo para refinar o treinamento do modelo de aprendizado de máquina. O uso do carregamento de arquivos em vez do streaming de mensagens constantes é mais econômico.
 
@@ -56,7 +56,7 @@ As etapas neste artigo normalmente são executadas por um desenvolvedor de nuvem
 
 ## <a name="create-a-new-iot-edge-solution"></a>Criar uma nova solução de IoT Edge
 
-Durante a execução do segundo dos dois Azure Notebooks, criamos e publicamos uma imagem de contêiner contendo nosso modelo RUL. Azure Machine Learning, como parte do processo de criação de imagem, criado nas partes para tornar a imagem implantável como um módulo Azure IoT Edge. Nesta etapa, vamos criar uma solução de Azure IoT Edge usando o módulo "Azure Machine Learning" e apontar o módulo para a imagem que publicamos usando Azure Notebooks.
+Durante a execução do segundo dos dois Azure Notebooks, criamos e publicamos uma imagem de contêiner contendo nosso modelo RUL. Azure Machine Learning, como parte do processo de criação de imagem, empacotado esse modelo para que a imagem seja implantável como um módulo de Azure IoT Edge. Nesta etapa, vamos criar uma solução de Azure IoT Edge usando o módulo "Azure Machine Learning" e apontar o módulo para a imagem que publicamos usando Azure Notebooks.
 
 1. Abra uma sessão de área de trabalho remota para seu computador de desenvolvimento.
 
@@ -322,7 +322,7 @@ O módulo de gravador do Avro tem duas responsabilidades em nossa solução para
 
 1. Quando solicitado, escolha **prompt de comando**.
 
-1. Abra um novo terminal Shell, > terminal**novo**terminais.
+1. Abra um novo terminal **shell,**  > terminal**novo**terminais.
 
 1. Clique com o botão direito do mouse na pasta modules em Visual Studio Code e escolha **Adicionar módulo IOT Edge**.
 
@@ -608,7 +608,7 @@ Com o roteador e o classificador em vigor, esperamos receber mensagens regulares
 
 4. Nomeie a rota **RulMessageRoute**.
 
-5. Selecione **Adicionar** ao lado do seletor de **ponto de extremidade** e escolha **armazenamento**de BLOBs.
+5. Selecione **Adicionar** ao lado do seletor de **ponto de extremidade** e escolha **armazenamento de BLOBs**.
 
 6. No formulário **Adicionar um ponto de extremidade de armazenamento** , nomeie o ponto de extremidade **ruldata**.
 
@@ -756,7 +756,7 @@ Depois que a compilação for concluída com êxito, poderáremos usar o portal 
 
     ![Navegar até o registro do espaço de trabalho do serviço de Machine Learning](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 
-2. No navegador do lado do registro,selecione repositórios.
+2. No navegador do lado do registro, selecione **repositórios**.
 
 3. Observe que os dois módulos que você criou, **avrofilewriter** e **turbofanrouter**, aparecem como repositórios.
 
@@ -821,13 +821,13 @@ Ao fazer logon no dispositivo de IoT Edge, você pode obter acesso a uma boa dos
    sudo docker exec -it avroFileWriter bash
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criamos uma solução IoT Edge em Visual Studio Code com três módulos, um classificador, um roteador e um gravador/carregador de arquivos. Configuramos as rotas para permitir que os módulos se comuniquem entre si no dispositivo de borda, modificamos a configuração do dispositivo de borda e atualizamos o Dockerfiles para instalar dependências e adicionar montagens de ligação aos contêineres dos módulos. Em seguida, atualizamos a configuração do Hub IoT para rotear nossas mensagens com base no tipo e manipular carregamentos de arquivos. Com tudo em vigor, implantamos os módulos no dispositivo IoT Edge e garantimos que os módulos estivessem sendo executados corretamente.
 
 Mais informações podem ser encontradas nas seguintes páginas:
 
-* [Saiba como implantar módulos e estabelecer rotas no IoT Edge](module-composition.md)
+* [Saiba como implementar módulos e estabelecer rotas no IoT Edge](module-composition.md)
 * [Sintaxe de consulta de roteamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
 * [Roteamento de mensagens do Hub IoT: agora com roteamento no corpo da mensagem](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
 * [Carregar ficheiros com o Hub IoT](../iot-hub/iot-hub-devguide-file-upload.md)

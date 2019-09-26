@@ -11,24 +11,52 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: aea1434acdbfd97bcc9096dddd497ef031a74b94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170555"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299381"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor do Azure Functions Java
 
 O tempo de execução do Azure Functions dá suporte a [Java se 8 LTS (Zulu 8.31.0.2-JRE 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Este guia contém informações sobre as complexidades de escrever Azure Functions com Java.
 
-Uma função Java é um `public` método, decorado com a `@FunctionName`anotação. Esse método define a entrada para uma função Java e deve ser exclusivo em um pacote específico. 
+Como acontece com outras linguagens, um Aplicativo de funções pode ter uma ou mais funções. Uma função Java é um `public` método, decorado com a `@FunctionName`anotação. Esse método define a entrada para uma função Java e deve ser exclusivo em um pacote específico. Uma Aplicativo de funções escrita em Java pode ter várias classes com vários métodos públicos anotados com `@FunctionName`.
 
 Este artigo pressupõe que você já tenha lido o [Azure Functions referência do desenvolvedor](functions-reference.md). Você também deve concluir o guia de início rápido do Functions para criar sua primeira função, usando [Visual Studio Code](functions-create-first-function-vs-code.md) ou [Maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Modelo de programação 
 
 Os conceitos de [gatilhos e associações](functions-triggers-bindings.md) são fundamentais para Azure functions. Os gatilhos iniciam a execução do seu código. As associações fornecem uma maneira de passar dados e retornar dados de uma função, sem precisar escrever código de acesso a dados personalizado.
+
+## <a name="project-scaffolding"></a>Scaffolding do projeto
+
+A maneira mais simples de Scaffold um projeto de função do Azure baseado em Java é `Apache Maven` usar arquétipos. Você também pode encontrar assistentes de geração de projeto em Visual Studio Code e os kits de as do Azure para Eclipse e IntelliJ.
+
+Atualmente, há duas Azure Functions arquétipos para Maven:
+
+### <a name="java-archetype"></a>Arquétipo Java
+
+Esse arquétipo é publicado sob o seguinte GroupID e artefatoid [com. Microsoft. Azure: Azure-Functions-arquétipo](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Arquétipo Kotlin (visualização)
+
+Esse arquétipo é publicado sob o seguinte GroupID e artefatoid [com. Microsoft. Azure: Azure-Functions-Kotlin-arquétipo](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+O código-fonte desses arquétipos pode ser encontrado no [repositório GitHub de arquétipos do Azure Maven](https://github.com/microsoft/azure-maven-archetypes).
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -55,6 +83,8 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
+
+_* O projeto Kotlin parece muito semelhante, pois ainda é Maven_
 
 Você pode usar um arquivo [host. JSON](functions-host-json.md) compartilhado para configurar o aplicativo de funções. Cada função tem seu próprio arquivo de código (. java) e o arquivo de configuração de associação (Function. JSON).
 

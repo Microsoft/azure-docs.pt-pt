@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876785"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301004"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é a versão prévia da área de trabalho virtual do Windows? 
 
@@ -76,6 +76,8 @@ Sua infraestrutura precisa dos seguintes itens para dar suporte à área de trab
 * Um Active Directory do Windows Server em sincronia com o Azure Active Directory. Isso pode ser habilitado por meio de:
   * Azure AD Connect
   * Azure AD Domain Services
+  >[!NOTE]
+  >A área de trabalho virtual do Windows só dá suporte a Azure AD Domain Services usuários originados de Azure Active Directory. Os usuários originados no AD do Windows Server não têm suporte no momento.
 * Uma assinatura do Azure, que contém uma rede virtual que contém ou está conectada ao Windows Server Active Directory
   
 As máquinas virtuais do Azure criadas para a área de trabalho virtual do Windows devem ser:
@@ -108,7 +110,7 @@ A área de trabalho virtual do Windows dá suporte às seguintes imagens de so:
 * Várias sessões do Windows 10 Enterprise
 * Windows Server 2016
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, você precisará criar um locatário. Para saber mais sobre como criar um locatário, continue para o tutorial de criação de locatário.
 

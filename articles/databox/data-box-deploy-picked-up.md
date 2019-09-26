@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898182"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172657"
 ---
 ::: zone target="docs"
 
@@ -93,6 +93,26 @@ Se quiser devolver o dispositivo nos EUA, Canadá ou Europa, siga os passos abai
     Em vez de agendar a recolha, também pode entregar o Data Box na localização de entrega mais próxima.
 4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de controlo.
 
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminação de dados do Data Box
+ 
+Após o carregamento para o Azure, o Data Box elimina os dados dos discos de acordo com as [diretrizes SP 800-88 Revision 1 da NIST](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+
+
+::: zone-end
+
 
 ## <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
 
@@ -126,6 +146,24 @@ Para questões relativas à encomenda por telefone:
 - Envie, primeiro, um e-mail para recolha.
 - Forneça o nome da encomenda por telefone.
 
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminação de dados do Data Box
+ 
+Após o carregamento para o Azure, o Data Box elimina os dados dos discos de acordo com as [diretrizes SP 800-88 Revision 1 da NIST](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+
 ## <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan) 
 
 1. Mantenha a embalagem original utilizada para enviar o dispositivo para a devolução.
@@ -156,69 +194,23 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 - E-mail：Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
-::: zone target="docs"
-
-## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
-
-Quando a Microsoft receber e analisar o dispositivo, o estado da encomenda será atualizado para **Received (Recebido)** . O dispositivo, em seguida, passa pela verificação física para verificar os danos ou sinais de adulteração.
-
-Depois de a verificação estar concluída, o Data Box é ligado à rede no datacenter do Azure. A cópia de dados é iniciada automaticamente. Consoante o tamanho dos dados, a operação de cópia poderá demorar algumas horas a dias para concluir. Pode monitorizar o progresso da tarefa de cópia no portal.
-
-Quando a cópia for concluída, o estado da encomenda será atualizado para **Completed (Concluído)** .
-
-Confirme se os dados foram carregados para o Azure antes de os eliminar da origem. Os dados podem estar:
-
-- Na(s) conta(s) do Armazenamento do Microsoft Azure. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
-
-  - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
-
-    Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
-
-- No(s) grupo(s) de recursos dos discos geridos. Ao criar discos geridos, os VHDs são carregados como blobs de páginas e convertidos em discos geridos. Os discos geridos são anexados aos grupos de recursos especificados no momento da criação da encomenda. 
-
-    - Se a cópia para os discos geridos no Azure tiver sido realizada com êxito, poderá aceder aos **Detalhes da encomenda** no portal do Azure e anotar os grupos de recursos especificados para os discos geridos.
-
-        ![Identificar os grupos de recursos dos discos geridos](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
-
-        Aceda ao grupo de recursos anotado e localize os discos geridos.
-
-        ![Disco gerido anexado aos grupos de recursos](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
-
-    - Se copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de teste como um blob de páginas, mas a conversão do VHD em disco gerido falhará. Aceda à **Conta de armazenamento > Blobs** de teste e, em seguida, selecione o contentor apropriado – SSD Standard, HDD Standard ou SSD Premium. Os VHDs são carregados como blobs de páginas na conta de armazenamento de teste.
-
-::: zone-end
-
 ::: zone target="chromeless"
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
-::: zone-end
-
 ## <a name="erasure-of-data-from-data-box"></a>Eliminação de dados do Data Box
  
 Após o carregamento para o Azure, o Data Box elimina os dados dos discos de acordo com as [diretrizes SP 800-88 Revision 1 da NIST](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
+::: zone-end
+
 ::: zone target="docs"
 
-## <a name="next-steps"></a>Passos seguintes
-
-Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
-
-> [!div class="checklist"]
-> * Pré-requisitos
-> * Preparar para enviar
-> * Enviar o Data Box para a Microsoft
-> * Verificar o carregamento de dados para o Azure
-> * Eliminação de dados do Data Box
-
-Avance para o artigo seguinte para saber como gerir o Data Box através da IU da Web local.
-
-> [!div class="nextstepaction"]
-> [Utilizar a IU da Web local para administrar um Azure Data Box](./data-box-local-web-ui-admin.md)
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
+
 
 

@@ -1,6 +1,6 @@
 ---
 title: Confiança do conteúdo no Azure Container Registry
-description: Saiba como ativar a confiança do conteúdo para o seu registo de contentor do Azure e como enviar e extrair imagens assinadas.
+description: Saiba como habilitar a confiança de conteúdo para o registro de contêiner do Azure e enviar por push e receber imagens assinadas.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f14d4d32d2423b12786095da17305af605088fb7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959190"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300430"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
 
@@ -197,7 +197,7 @@ Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no
 
 ![Desativar a confiança do conteúdo num registo no portal do Azure][content-trust-03-portal]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [Content Trust in Docker][docker-content-trust] para obter informações adicionais sobre a confiança de conteúdo. Embora este artigo tenha abordado vários pontos importantes, a confiança do conteúdo é um tópico extenso e é descrito mais pormenorizadamente na documentação do Docker.
 

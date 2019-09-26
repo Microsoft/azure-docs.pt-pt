@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 280ef8550177a514a6704a8bfab226745222f91e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 0e5c1974ecb1b3efb8df602c76700b7db04a88d7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029842"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310531"
 ---
 O armazenamento do Azure oferece vários tipos de contas de armazenamento. Cada tipo dá suporte a recursos diferentes e tem seu próprio modelo de preços. Considere essas diferenças antes de criar uma conta de armazenamento para determinar o tipo de conta que é melhor para seus aplicativos. Os tipos de contas de armazenamento são:
 
 - **Contas de uso geral v2**: Tipo de conta de armazenamento básico para BLOBs, arquivos, filas e tabelas. Recomendado para a maioria dos cenários usando o armazenamento do Azure.
 - **Contas de uso geral v1**: Tipo de conta herdada para BLOBs, arquivos, filas e tabelas. Use contas de uso geral V2 em vez disso, quando possível.
-- **Bloquear contas de armazenamento**de BLOBs: Contas de armazenamento somente blob com características de desempenho premium. Recomendado para cenários com altas taxas de transações, usando objetos menores ou exigindo latência de armazenamento consistentemente baixa.
+- **Bloquear contas de armazenamento de BLOBs**: Contas de armazenamento somente blob com características de desempenho premium. Recomendado para cenários com altas taxas de transações, usando objetos menores ou exigindo latência de armazenamento consistentemente baixa.
 - **Contas de armazenamento de armazenamento**em File: Somente arquivos contas de armazenamento com características de desempenho premium. Recomendado para aplicativos de escala empresarial ou de alto desempenho.
-- **Contas de armazenamento**de BLOBs: Contas de armazenamento somente BLOB. Use contas de uso geral V2 em vez disso, quando possível.
+- **Contas de armazenamento de BLOBs**: Contas de armazenamento somente BLOB. Use contas de uso geral V2 em vez disso, quando possível.
 
 A tabela a seguir descreve os tipos de contas de armazenamento e seus recursos:
 
 | Tipo de conta de armazenamento | Serviços suportados                       | Níveis de desempenho com suporte      | Níveis de acesso com suporte         | Opções de replicação               | Modelo de implementação<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Encriptação<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Uso geral v2   | BLOB, arquivo, fila, tabela e disco       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Quente, frio e arquivo morto<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, ZGRS (visualização), RA-ZGRS (versão prévia)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Encriptado              |
+| Uso geral v2   | BLOB, arquivo, fila, tabela e disco       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Quente, frio e arquivo morto<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (visualização), RA-GZRS (versão prévia)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Encriptado              |
 | Uso geral v1   | BLOB, arquivo, fila, tabela e disco       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Gerenciador de recursos, clássico    | Encriptado              |
 | Armazenamento de blobs de blocos   | BLOB (BLOBs de blocos e blobs de acréscimo) | Premium                       | N/A                            | LRS                               | Resource Manager             | Encriptado              |
 | Armazenamento de   | Somente arquivos | Premium                       | N/A                            | LRS                               | Resource Manager             | Encriptado              |

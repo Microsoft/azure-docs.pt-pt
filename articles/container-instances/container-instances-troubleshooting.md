@@ -6,19 +6,21 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325593"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300465"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns em instâncias de contêiner do Azure
 
-Este artigo mostra como solucionar problemas comuns de gerenciamento ou implantação de contêineres em instâncias de contêiner do Azure. Consulte também [perguntas frequentes](container-instances-faq.md).
+Este artigo mostra como solucionar problemas comuns de gerenciamento ou implantação de contêineres em instâncias de contêiner do Azure. Consulte também [perguntas frequentes](container-instances-faq.md). 
+
+Se precisar de suporte adicional, consulte Opções de **ajuda + suporte** disponíveis no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
@@ -28,8 +30,8 @@ Ao definir a especificação do contêiner, determinados parâmetros exigem a ad
 | --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contêineres | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Portas de contêiner | Entre 1 e 65535 |Número inteiro |Inteiro entre 1 e 65535 |`<port-number>` |`443` |
-| Rótulo de nome DNS | 5-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
+| Portas de contêiner | Entre 1 e 65535 |Integer |Inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Etiqueta de nome DNS | 5-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou o último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5-63 |Não sensível a maiúsculas e minúsculas |Letras minúsculas e números e hifens em qualquer lugar, exceto o primeiro ou o último caractere. Não pode conter dois hifens consecutivos. |`<name>` |`batch-output-volume` |
 
@@ -143,7 +145,7 @@ A API de instâncias de contêiner e portal do Azure `restartCount` inclui uma p
 ```
 
 > [!NOTE]
-> A maioria das imagens de contêiner para distribuições do Linux define um shell, como bash, como o comando padrão. Como um shell por si só não é um serviço de execução longa, esses contêineres são imediatamente encerrados e se encaixam em um loop  de reinicialização quando configurados com a política padrão Always restart.
+> A maioria das imagens de contêiner para distribuições do Linux define um shell, como bash, como o comando padrão. Como um shell por si só não é um serviço de execução longa, esses contêineres são imediatamente encerrados e se encaixam em um loop de reinicialização quando configurados com a política padrão Always restart.
 
 ## <a name="container-takes-a-long-time-to-start"></a>O contêiner leva muito tempo para iniciar
 
@@ -200,11 +202,30 @@ Esse erro indica que, devido à carga pesada na região em que você está tenta
 
 As instâncias de contêiner do Azure não expõem o acesso direto à infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e na execução de contêineres privilegiados. Se você precisar de interação com o Docker, consulte a [documentação de referência REST](https://aka.ms/aci/rest) para ver a que a API ACI dá suporte. Se houver algo ausente, envie uma solicitação nos fóruns de [comentários do ACI](https://aka.ms/aci/feedback).
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Os IPs podem não estar acessíveis devido a portas incompatíveis
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
 
-Atualmente, as instâncias de contêiner do Azure não dão suporte ao mapeamento de porta como com a configuração regular do Docker. no entanto, essa correção está no roteiro. Se você achar que os IPs não estão acessíveis quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe em seu `ports` grupo de contêineres com a propriedade.
+As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe `ports` em seu grupo de contêineres com a propriedade.
 
-## <a name="next-steps"></a>Passos Seguintes
+Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma `aci-helloworld` implantação da imagem que expõe a porta. Execute também o `aci-helloworld` aplicativo para que ele escute na porta. `aci-helloworld`aceita uma variável `PORT` de ambiente opcional para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000:
+
+1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável de ambiente:
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Localize o endereço IP do grupo de contêineres na saída de comando `az container create`de. Procure o valor de **IP**. 
+1. Depois que o contêiner for provisionado com êxito, navegue até o endereço IP e a porta do aplicativo de contêiner em seu navegador, por exemplo: `192.0.2.0:9000`. 
+
+    Você deve ver o "bem-vindo às instâncias de contêiner do Azure!" mensagem exibida pelo aplicativo Web.
+1. Quando você terminar o contêiner, remova-o usando o `az container delete` comando:
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 

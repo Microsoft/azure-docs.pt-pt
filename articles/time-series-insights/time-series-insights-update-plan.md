@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72d98e0ca4f75835e7dcc2e7a14b037ccf0d6d7f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 6141f898a33b4b37c2a1f16e115b184e21163a5a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840559"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300700"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
@@ -32,7 +32,7 @@ Para começar a usar o Time Series Insights, é melhor se você entender:
 * Quais [são suas IDs de série temporal e propriedades de carimbo de data/hora](#configure-time-series-ids-and-timestamp-properties).
 * Qual é o novo [modelo de série temporal](#understand-the-time-series-model)e como criar os seus próprios.
 * Como [enviar eventos com eficiência no JSON](#shape-your-events).
-* Time Series Insights [Opções de recuperação](#business-disaster-recovery)de desastres de negócios.
+* Time Series Insights [Opções de recuperação de desastres de negócios](#business-disaster-recovery).
 
 Azure Time Series Insights emprega um modelo de negócios pago conforme o uso. Para obter mais informações sobre cobranças e capacidade, consulte [preços de time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -86,7 +86,7 @@ Para obter mais informações, consulte [eventos de forma](./time-series-insight
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
 

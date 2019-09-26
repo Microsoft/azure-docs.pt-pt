@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b5ddbff646104b3d4a35c26c1ecf3968dea31d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 988c73236d9f5ef360ded03bca36a4bb24ebd308
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852913"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290825"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início rápido: Conectar usuários e adquirir um token de acesso de um aplicativo de página única do JavaScript
 
@@ -96,7 +96,8 @@ Selecione a opção adequada ao seu ambiente de desenvolvimento:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -169,7 +170,8 @@ O código de início rápido também mostra como inicializar a biblioteca MSAL:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -182,8 +184,9 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 > |Onde  |  |
 > |---------|---------|
-> |`ClientId`     | A ID do aplicativo que está registrado no portal do Azure.|
+> |`clientId`     | A ID do aplicativo que está registrado no portal do Azure.|
 > |`authority`    | Adicional A URL de autoridade que dá suporte a tipos de conta, conforme descrito anteriormente na seção de configuração. A autoridade padrão é `https://login.microsoftonline.com/common`. |
+> |`redirectURI`     | O URI de resposta/redirecionamento configurado do registro do aplicativo. Nesse caso, `http://localhost:30662/`. |
 > |`cacheLocation`  | Adicional Define o armazenamento do navegador para o estado de autenticação. O padrão é sessionStorage.   |
 > |`storeAuthStateInCookie`  | Adicional A biblioteca que armazena o estado de solicitação de autenticação necessário para a validação dos fluxos de autenticação nos cookies do navegador. Esse cookie é definido para navegadores do IE e do Edge para atenuar determinados [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 

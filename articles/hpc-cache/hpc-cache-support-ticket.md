@@ -4,14 +4,14 @@ description: Como abrir uma solicitação de ajuda para o cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 29750ab19f74ef1ceab8c69792d12b9f9ca2a297
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 630af5322483782c1e26cd792bf7d7957e555d84
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180883"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299953"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>Abrir um tíquete de suporte para o cache do HPC do Azure (visualização)
 
@@ -24,6 +24,8 @@ Selecione sua assinatura na lista.
 Para localizar o serviço de visualização do cache HPC do Azure, clique no botão **todos os serviços** e procure HPC.
 
 ![Captura de tela da guia noções básicas de solicitação de suporte, parcialmente preenchida conforme descrito](media/hpc-cache-support-request.png)
+
+<!-- update screenshot after preview to update product name -->
 
 Preencha o restante dos campos com suas informações e preferências e, em seguida, envie o tíquete quando estiver pronto.
 

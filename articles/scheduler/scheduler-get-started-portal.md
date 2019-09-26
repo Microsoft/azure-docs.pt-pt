@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531862"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300980"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar a primeira tarefa com o Microsoft Azure Scheduler – portal do Azure
 
 > [!IMPORTANT]
-> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
 
 Este tutorial mostra como pode criar e agendar facilmente uma tarefa e, em seguida, monitorizar e gerir essa tarefa. 
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    | Propriedade | Valor de exemplo | Descrição |
    |----------|---------------|-------------| 
-   | **Nome** | getMicrosoft | O nome da tarefa | 
+   | **Name** | getMicrosoft | O nome da tarefa | 
    | **Coleção de tarefas** | <*job-collection-name*> | Criar uma coleção de tarefas ou selecionar uma coleção existente | 
    | **Subscrição** | <*Azure-subscription-name*> | O nome para a subscrição do Azure | 
    |||| 
@@ -93,7 +93,7 @@ Para obter mais informações sobre estas áreas, selecione uma área:
 
 <a name="properties"></a>
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>properties
 
 Para ver as propriedades só de leitura que descrevem os metadados de gestão da tarefa, selecione **Propriedades**.
 
@@ -144,7 +144,7 @@ Para ver os detalhes do histórico de cada execução, tal como a resposta compl
 
 Pode gerir o acesso ao Azure Scheduler para cada utilizador num nível granular com o Controlo de Acesso Baseado em Funções (RBAC). Para saber como configurar o acesso baseado em funções, veja [Gerir o acesso através do RBAC](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)

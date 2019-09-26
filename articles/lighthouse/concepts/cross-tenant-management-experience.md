@@ -4,15 +4,15 @@ description: O gerenciamento de recursos delegado do Azure permite uma experiên
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/25/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f6468e62e9969aa87d51e25ed220bf7d4bed989e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971574"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309659"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -88,12 +88,16 @@ Atualmente, a experiência de gerenciamento entre locatários dá suporte aos se
   - Verifique se os servidores estão executando apenas os aplicativos e processos que eles devem estar com controles de aplicativo adaptáveis
   - Monitorar alterações em arquivos importantes e entradas de registro com o monitoramento de integridade de arquivo (FIM)
 
+[Sentinela do Azure](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
+
+- Gerenciar recursos do Azure Sentinel em locatários do cliente
+
 [Integridade do serviço do Azure](https://docs.microsoft.com/azure/service-health/):
 
 - Monitore a integridade dos recursos do cliente com o Azure Resource Health
 - Acompanhe a integridade dos serviços do Azure usados por seus clientes
 
-[Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/):
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
 
 - Gerenciar opções de recuperação de desastre para máquinas virtuais do Azure em locatários do cliente (Observe que você não pode usar contas Executar como para copiar extensões de VM)
 
@@ -116,7 +120,7 @@ Solicitações de suporte:
 Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
 - As solicitações manipuladas pelo Azure Resource Manager podem ser executadas usando o gerenciamento de recursos delegado do Azure. Os URIs de operação para essas solicitações começam `https://management.azure.com`com. No entanto, as solicitações que são manipuladas por uma instância de um tipo de recurso (por exemplo, acesso a dados de armazenamento ou acesso aos segredos do keyvault) não têm suporte com o gerenciamento de recursos delegado do Azure. Os URIs de operação para essas solicitações normalmente começam com um endereço que é exclusivo de sua instância, `https://myaccount.blob.core.windows.net` como ou. `https://mykeyvault.vault.azure.net/` A última opção também são operações de dados em vez de operações de gerenciamento. 
-- As atribuições de função devem usar [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto para proprietário, administrador de acesso do usuário ou qualquer função [](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) interna com permissão de dataactions. As funções personalizadas e as [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) também não têm suporte.
+- As atribuições de função devem usar [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto para proprietário, administrador de acesso do usuário ou qualquer função interna com permissão de [Dataactions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) . As funções personalizadas e as [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) também não têm suporte.
 - No momento, não é possível carregar uma assinatura (ou grupo de recursos em uma assinatura) para o gerenciamento de recursos delegado do Azure se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura tiver sido registrada para integração com o provedor de recursos **Microsoft. managedservices** , você não poderá criar um espaço de trabalho do databricks para essa assinatura no momento.
 
 ## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>Usando APIs e ferramentas de gerenciamento com gerenciamento entre locatários

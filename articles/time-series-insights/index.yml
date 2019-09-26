@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/04/2019
-  ms.openlocfilehash: 46d97b411971b7dbd844a6f5aa23d97d1c59d30c
-  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.openlocfilehash: 46cea77843b388f128885891dcdbb9b01b6cd2f5
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71145565"
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71289167"
 landingContent:
 - title: Acerca do Azure Time Series Insights
   linkLists:
@@ -61,6 +61,8 @@ landingContent:
       url: time-series-insights-how-to-add-an-event-source-eventhub.md
     - text: Ligar a um Hub IoT
       url: time-series-insights-how-to-add-an-event-source-iothub.md
+    - text: Planear o ambiente
+      url: time-series-insights-update-plan.md
     - text: Entrada e armazenamento de dados
       url: time-series-insights-update-storage-ingress.md
   - linkListType: how-to-guide

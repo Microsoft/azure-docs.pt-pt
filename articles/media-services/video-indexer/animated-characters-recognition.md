@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: ac31a2945e59df3b57000a0ffdcbca8344e44c18
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 584d3fa787fbd44ad47d21c51ea67f301c04436d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122297"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300326"
 ---
 # <a name="animated-character-detection-preview"></a>Detecção de caracteres animados (versão prévia)
 
@@ -91,12 +91,13 @@ Se você possui uma conta paga Video Indexer, você precisa conectar uma conta d
     1. Depois de digitar o novo nome, clique no ícone de verificação ao lado do novo nome. Isso salva o novo nome no modelo em Video Indexer.
     1. Depois de concluir a edição de todos os nomes desejados, você precisará treinar o modelo.
 
-        Abra a página personalização e clique na guia **caracteres animados** . Se você tiver uma conta paga, poderá clicar no link **gerenciar modelos no Customer Vision** (como mostrado abaixo). Em seguida, você será encaminhado para a página do modelo em Visão Personalizada. Clique no botão **treinar** para treinar seu modelo. 
-        
+        Abra a página personalização e clique na guia **caracteres animados** e, em seguida, clique no botão **treinar** para treinar seu modelo.
+         
+        Se você tiver uma conta paga, poderá clicar no link **gerenciar modelos no Customer Vision** (como mostrado abaixo). Em seguida, você será encaminhado para a página do modelo em **visão personalizada**.
+ 
         ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-        Se você tiver uma conta de avaliação, o link **gerenciar modelos no cliente da visão** não estará presente. Nesse caso, você pode pressionar **treinar** diretamente na página **personalização do modelo de conteúdo** .
-    1. Uma vez treinado, qualquer vídeo que será indexado ou reindexado com esse modelo reconhecerá os caracteres treinados. 
+     1. Uma vez treinado, qualquer vídeo que será indexado ou reindexado com esse modelo reconhecerá os caracteres treinados. 
     Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
 1. Excluir um caractere animado.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952811"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314938"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de proteção de senha do Azure AD
 
@@ -56,17 +56,23 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>O agente de DC não pode criptografar ou descriptografar arquivos de política de senha
 
-Esse problema pode ser manifestado com uma variedade de sintomas, mas geralmente tem uma causa raiz comum.
+A proteção por senha do Azure AD tem uma dependência crítica da funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves da Microsoft. Falhas de criptografia ou descriptografia podem ser manifestadas com vários sintomas e têm várias causas potenciais.
 
-A proteção por senha do Azure AD tem uma dependência crítica da funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves da Microsoft, que está disponível em controladores de domínio que executam o Windows Server 2012 e posterior. O serviço KDS deve estar habilitado e funcional em todos os controladores de domínio do Windows Server 2012 e posteriores em um domínio.
+1. Verifique se o serviço KDS está habilitado e funcional em todos os controladores de domínio do Windows Server 2012 e posteriores em um domínio.
 
-Por padrão, o modo de início do serviço do serviço KDS é configurado como manual (início do gatilho). Essa configuração significa que, na primeira vez que um cliente tenta usar o serviço, ele é iniciado sob demanda. Esse modo de início de serviço padrão é aceitável para que a proteção de senha do Azure AD funcione.
+   Por padrão, o modo de início do serviço do serviço KDS é configurado como manual (início do gatilho). Essa configuração significa que, na primeira vez que um cliente tenta usar o serviço, ele é iniciado sob demanda. Esse modo de início de serviço padrão é aceitável para que a proteção de senha do Azure AD funcione.
 
-Se o modo de início do serviço KDS tiver sido configurado para desabilitado, essa configuração deverá ser corrigida antes que a proteção de senha do Azure AD funcione corretamente.
+   Se o modo de início do serviço KDS tiver sido configurado para desabilitado, essa configuração deverá ser corrigida antes que a proteção de senha do Azure AD funcione corretamente.
 
-Um teste simples para esse problema é iniciar manualmente o serviço KDS, seja pelo console do MMC de gerenciamento de serviços ou usando outras ferramentas de gerenciamento (por exemplo, execute "net start kdssvc" em um console de prompt de comando). Espera-se que o serviço KDS seja iniciado com êxito e permaneça em execução.
+   Um teste simples para esse problema é iniciar manualmente o serviço KDS, seja pelo console do MMC de gerenciamento de serviços ou usando outras ferramentas de gerenciamento (por exemplo, execute "net start kdssvc" em um console de prompt de comando). Espera-se que o serviço KDS seja iniciado com êxito e permaneça em execução.
 
-A causa raiz mais comum para o serviço KDS não conseguir iniciar é que o objeto do controlador de domínio Active Directory está localizado fora da UO dos controladores de domínio padrão. Essa configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela proteção de senha do Azure AD. A correção para essa condição é mover o objeto do controlador de domínio para um local na UO Controladores de domínio padrão.
+   A causa raiz mais comum para o serviço KDS não conseguir iniciar é que o objeto do controlador de domínio Active Directory está localizado fora da UO dos controladores de domínio padrão. Essa configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela proteção de senha do Azure AD. A correção para essa condição é mover o objeto do controlador de domínio para um local na UO Controladores de domínio padrão.
+
+1. Alteração de formato de buffer criptografado KDS incompatível do Windows Server 2012 R2 para o Windows Server 2016
+
+   Uma correção de segurança KDS foi introduzida no Windows Server 2016 que modifica o formato dos buffers criptografados KDS; às vezes, esses buffers falharão ao descriptografar no Windows Server 2012 e no Windows Server 2012 R2. A direção inversa é um problema-os buffers que são criptografados KDS no Windows Server 2012 e no Windows Server 2012 R2 sempre serão descriptografados com êxito no Windows Server 2016 e posterior. Se os controladores de domínio em seus domínios de Active Directory estiverem executando uma combinação desses sistemas operacionais, falhas ocasionais de descriptografia de proteção de senha do Azure AD poderão ser relatadas. Não é possível prever com precisão o tempo ou os sintomas dessas falhas devido à natureza da correção de segurança e, Considerando que ela não é determinística, qual agente de DC da proteção de senha do Azure AD em que controlador de domínio criptografará os dados em um determinado momento.
+
+   A Microsoft está investigando uma correção para esse problema, mas nenhum ETA está disponível ainda. Enquanto isso, não há nenhuma solução alternativa para esse problema além de não executar uma combinação desses sistemas operacionais incompatíveis em seus domínios de Active Directory. Em outras palavras, você deve executar somente controladores de domínio do Windows Server 2012 e do Windows Server 2012 R2 ou deve executar somente os controladores de domínio do Windows Server 2016 e superior.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão sendo aceitas, mas não devem ser
 
@@ -80,7 +86,7 @@ Esse problema pode ter várias causas.
 
 1. A política de senha foi desabilitada. Se essa configuração estiver em vigor, reconfigure-a para habilitada usando o portal de proteção de senha do Azure AD. Consulte [habilitar a proteção por senha](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. Você não instalou o software do agente DC em todos os controladores de domínio no domínio. Nessa situação, é difícil garantir que os clientes remotos do Windows tenham como destino um determinado controlador de domínio durante uma operação de alteração de senha. Se você tiver certeza de que foi direcionado com êxito um determinado controlador de domínio em que o software do agente do DC está instalado, você pode verificar verificando novamente o log de eventos do administrador do agente de DC: independentemente do resultado, haverá pelo menos um evento para documentar o resultado da senha confirmação. Se não houver nenhum evento presente para o usuário cuja senha seja alterada, a alteração de senha provavelmente será processada por um controlador de domínio diferente.
+1. Você não instalou o software do agente DC em todos os controladores de domínio no domínio. Nessa situação, é difícil garantir que os clientes remotos do Windows tenham como destino um determinado controlador de domínio durante uma operação de alteração de senha. Se você acredita que tenha direcionado com êxito um determinado controlador de domínio em que o software do agente do DC está instalado, você pode verificar verificando novamente o log de eventos do administrador do agente de DC: independentemente do resultado, haverá pelo menos um evento para documentar o resultado da senha confirmação. Se não houver nenhum evento presente para o usuário cuja senha seja alterada, a alteração de senha provavelmente será processada por um controlador de domínio diferente.
 
    Como um teste alternativo, tente setting\changing senhas enquanto estiver conectado diretamente a um controlador de domínio em que o software do agente DC está instalado. Essa técnica não é recomendada para domínios de Active Directory de produção.
 
@@ -183,7 +189,7 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 O software de proxy de proteção de senha do Azure AD não é limitado por tempo em nenhuma versão. A Microsoft ainda recomenda que ambos os agentes de DC e proxy sejam atualizados para as versões mais recentes à medida que são lançados. O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para localizar agentes de proxy que exigem atualizações, semelhante ao exemplo acima para agentes de DC.
 
-Consulte Atualizando [o agente de DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) e [atualizando o agente de proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para obter mais detalhes sobre os procedimentos de atualização específicos.
+Consulte [atualizando o agente de DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) e [atualizando o agente de proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para obter mais detalhes sobre os procedimentos de atualização específicos.
 
 ## <a name="emergency-remediation"></a>Correção de emergência
 
@@ -241,7 +247,7 @@ Se for decidido desinstalar o software de proteção de senha do Azure AD e limp
 
    Esse caminho será diferente se o compartilhamento de SYSVOL tiver sido configurado em um local não padrão.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Perguntas frequentes sobre a proteção de senha do Azure AD](howto-password-ban-bad-on-premises-faq.md)
 

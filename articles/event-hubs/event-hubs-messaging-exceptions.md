@@ -1,5 +1,5 @@
 ---
-title: Mensagens exceções - Event Hubs do Azure | Documentos da Microsoft
+title: Exceções de mensagens para .NET – hubs de eventos do Azure | Microsoft Docs
 description: Este artigo fornece uma lista de exceções de mensagens de Hubs de eventos e ações sugeridas.
 services: event-hubs
 documentationcenter: na
@@ -11,27 +11,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 09/25/2019
 ms.author: shvija
-ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6680902180a1d4a3c75080e232569cf760ba078
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001771"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309849"
 ---
-# <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
+# <a name="event-hubs-messaging-exceptions---net"></a>Exceções de mensagens dos hubs de eventos-.NET
 
-Este artigo lista algumas das exceções geradas pela Azure Service Bus API biblioteca de mensagens, que inclui APIs de Hubs de eventos do .NET Framework. Esta referência está sujeitas a alterações, por isso, verifique novamente a existência de atualizações.
+Este artigo lista algumas das exceções .NET geradas pela biblioteca de API .NET do sistema de mensagens do barramento de serviço do Azure, que inclui .NET Framework APIs de hubs de eventos. Esta referência está sujeitas a alterações, por isso, verifique novamente a existência de atualizações.
 
 ## <a name="exception-categories"></a>Categorias de exceção
 
-As APIs de Hubs de eventos gerar exceções que podem ser classificados nas seguintes categorias, juntamente com a ação associada que pode tomar para tentar corrigi-los.
+As APIs do .NET dos hubs de eventos geram exceções que podem se enquadrar nas categorias a seguir, juntamente com a ação associada que você pode executar para tentar corrigi-las.
 
-1. Erro de código de utilizador: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Ação geral: tentar corrigir o código antes de continuar.
-2. Erro de configuração: [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception), [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Ação geral: rever a configuração e altere se necessário.
-3. Exceções transitórias: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](#serverbusyexception), [Microsoft.Azure.EventHubs.ServerBusyException](#serverbusyexception), [ Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). Ação geral: Repita a operação ou notificar os utilizadores.
-4. Outras exceções: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](#timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception), [ Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception). Ação geral: específico para o tipo de exceção; consulte a tabela na secção seguinte. 
+1. Erro de codificação do usuário: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Ação geral: tentar corrigir o código antes de continuar.
+2. Erro de instalação/configuração: [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception), [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Ação geral: rever a configuração e altere se necessário.
+3. Exceções transitórias: [Microsoft. ServiceBus. Messaging. MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. ServerBusyException](#serverbusyexception), [Microsoft. Azure. EventHubs. ServerBusyException](#serverbusyexception), [ Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). Ação geral: Repita a operação ou notificar os utilizadores.
+4. Outras exceções: [System. Reactions. TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System. tempo_limiteexception](#timeoutexception), [Microsoft. ServiceBus. Messaging. MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception), [Microsoft. ServiceBus. Messaging. SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception). Ação geral: específico para o tipo de exceção; consulte a tabela na secção seguinte. 
 
 ## <a name="exception-types"></a>Tipos de exceção
 A tabela seguinte lista os tipos de exceções de mensagens e suas causas e ação sugerida notas que possa realizar.
@@ -45,12 +45,12 @@ A tabela seguinte lista os tipos de exceções de mensagens e suas causas e aç�
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Um ou mais argumentos fornecidos para o método são inválidos. O URI fornecido a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém o caminho de modo. O esquema URI fornecido a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. O valor da propriedade é maior do que 32 KB. | Verifique o código de chamada e certifique-se de que os argumentos estão corretos. | Repetição não ajudará. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | Entidade associada com a operação não existe ou foi eliminado. | Certifique-se de que a entidade existe. | Repetição não ajudará. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Cliente não é capaz de estabelecer uma ligação ao Hub de eventos. |Certificar-se de que o nome de anfitrião fornecido está correto e o anfitrião está contactável. | Repetição pode ajudar se existem problemas de conectividade intermitente. |
-| [Microsoft.ServiceBus.Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Serviço não é capaz de processar o pedido neste momento. | Cliente pode aguardar um período de tempo, em seguida, repita a operação. <br /> Ver [ServerBusyException](#serverbusyexception). | Cliente pode voltar a tentar após determinado intervalo. Se uma repetição resulta numa exceção de diferente, verifique o comportamento de repetição dessa exceção. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Genérico mensagens de exceção que pode ser gerada nos seguintes casos: É efetuada uma tentativa de criar uma [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) usando um nome ou o caminho que pertence a um tipo de entidade diferentes (por exemplo, um tópico). É efetuada uma tentativa de enviar uma mensagem maior que 1 MB. O servidor ou serviço encontrou um erro durante o processamento do pedido. Ver a mensagem de exceção para obter detalhes. Essa exceção é, normalmente, uma exceção transitória. | Verifique o código e certifique-se de que apenas os objetos serializáveis são utilizados para o corpo da mensagem (ou usar um serializador personalizado). Verifique a documentação para os tipos de valor suportado das propriedades e apenas os tipos de utilização suportado. Verifique os [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) propriedade. Se for **true**, pode repetir a operação. | Comportamento de repetição é indefinido e não poderá ajudar. |
+| [Microsoft. ServiceBus. Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Serviço não é capaz de processar o pedido neste momento. | Cliente pode aguardar um período de tempo, em seguida, repita a operação. <br /> Ver [ServerBusyException](#serverbusyexception). | Cliente pode voltar a tentar após determinado intervalo. Se uma repetição resulta numa exceção de diferente, verifique o comportamento de repetição dessa exceção. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Exceção de mensagens genéricas que pode ser lançada nos seguintes casos: É feita uma tentativa de criar um [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) usando um nome ou caminho que pertence a um tipo de entidade diferente (por exemplo, um tópico). É feita uma tentativa de enviar uma mensagem maior que 1 MB. O servidor ou serviço encontrou um erro durante o processamento do pedido. Ver a mensagem de exceção para obter detalhes. Essa exceção é, normalmente, uma exceção transitória. | Verifique o código e certifique-se de que apenas os objetos serializáveis são utilizados para o corpo da mensagem (ou usar um serializador personalizado). Verifique a documentação para os tipos de valor suportado das propriedades e apenas os tipos de utilização suportado. Verifique os [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) propriedade. Se for **true**, pode repetir a operação. | Comportamento de repetição é indefinido e não poderá ajudar. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Tentativa de criar uma entidade com um nome que já está a ser utilizado por outra entidade nesse espaço de nomes de serviço. | Eliminar a entidade existente ou escolha um nome diferente para a entidade a ser criada. | Repetição não ajudará. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | A entidade de mensagens foi atingido o tamanho máximo admissível. Essa exceção pode acontecer se o número máximo de recetores (que é 5) já foi aberto num nível de grupo por consumidor. | Crie espaço na entidade por receber mensagens a partir da entidade ou seu subfilas. <br /> Consulte [QuotaExceededException](#quotaexceededexception) | Repetição pode ajudar se as mensagens foram removidas enquanto isso. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Pedido para uma operação de tempo de execução numa entidade desativada. |Ative a entidade. | Repetição pode ajudar se a entidade tiver sido ativada até lá. |
-| [Microsoft.ServiceBus.Messaging MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) <br /><br/> [Microsoft.Azure.EventHubs MessageSizeExceededException](/dotnet/api/microsoft.azure.eventhubs.messagesizeexceededexception) | Um payload de mensagem excede o limite de 1 MB. É este limite de 1 MB para o total de mensagens, que pode incluir as propriedades do sistema e qualquer sobrecarga de .NET. | Reduzir o tamanho da carga de mensagem, em seguida, repita a operação. |Repetição não ajudará. |
+| [Microsoft.ServiceBus.Messaging MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) <br /><br/> [Microsoft.Azure.EventHubs MessageSizeExceededException](/dotnet/api/microsoft.azure.eventhubs.messagesizeexceededexception) | Uma carga de mensagem excede o limite de 1 MB. Esse limite de 1 MB é para a mensagem total, que pode incluir propriedades do sistema e qualquer sobrecarga do .NET. | Reduzir o tamanho da carga de mensagem, em seguida, repita a operação. |Repetição não ajudará. |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indica que foi excedida uma quota de uma entidade específica.
@@ -81,24 +81,24 @@ Este erro pode ocorrer para um dos dois motivos:
 
 1. A carga não é distribuída uniformemente entre todas as partições no hub de eventos e uma partição atinge a limitação de unidades de débito local.
     
-    Resolução: Rever a estratégia de distribuição de partição ou tentar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) poderá ajudar.
+    Resolução: A revisão da estratégia de distribuição de partição ou a tentativa de [EventHubClient. Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) pode ajudar.
 
 2. O espaço de nomes de Hubs de eventos não tem unidades de débito suficiente (pode verificar o **métricas** ecrã de evento de janela de espaço de nomes de Hubs no [portal do Azure](https://portal.azure.com) para confirmar). O portal mostra informações de agregados (1 minuto), mas a taxa de transferência em tempo real – é medida, portanto, é apenas uma estimativa.
 
-    Resolução: Pode ajudar a aumentar as unidades de débito no espaço de nomes. Pode fazer esta operação no portal, além do **dimensionamento** janela do ecrã de espaço de nomes dos Hubs de eventos. Em alternativa, pode utilizar [ampliação automática](event-hubs-auto-inflate.md).
+    Resolução: Aumentar as unidades de produtividade no namespace pode ajudar. Pode fazer esta operação no portal, além do **dimensionamento** janela do ecrã de espaço de nomes dos Hubs de eventos. Em alternativa, pode utilizar [ampliação automática](event-hubs-auto-inflate.md).
 
 ### <a name="error-code-50001"></a>Código de erro 50001
 
 Este erro raramente deve ocorrer. Isso acontece quando o contentor em execução de código para o espaço de nomes tem pouco CPU – não mais do que alguns segundos antes do Balanceador de carga de Hubs de eventos começa.
 
-### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Limite para chamadas para o método GetRuntimeInformation
-Os Hubs de eventos do Azure oferece suporte a até 50 chamadas por segundo para GetRuntimeInfo por segundo. Poderá receber uma exceção semelhante ao seguinte quando for atingido o limite:
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Limite em chamadas para o método GetRuntimeInformation
+Os hubs de eventos do Azure dão suporte a até 50 chamadas por segundo para o GetRuntimeInfo por segundo. Você pode receber uma exceção semelhante à seguinte uma vez que o limite for atingido:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

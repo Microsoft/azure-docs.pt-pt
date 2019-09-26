@@ -4,14 +4,14 @@ description: Como criar uma instância de cache do HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1cc77b24c96514f40c86115f7d611076facd406b
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: a0590c14032595bea685c69962ef27dca14d1d69
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181037"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300023"
 ---
 # <a name="create-an-azure-hpc-cache-preview"></a>Criar um cache do HPC do Azure (versão prévia)
 
@@ -23,18 +23,20 @@ Use o portal do Azure para criar o cache.
 
 ![captura de tela da página de detalhes do projeto no portal do Azure](media/hpc-cache-create-basics.png)
 
-Em **detalhes do projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache do HPC do Azure. Verifique se a assinatura está na lista de [acesso de visualização](hpc-cache-prereqs.md#azure-subscription) .
+Em **detalhes do projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache. Verifique se a assinatura está na lista de [acesso de visualização](hpc-cache-prereqs.md#azure-subscription) .
 
 Em **detalhes do serviço**, defina o nome do cache e esses outros atributos:
 
 * Local-selecione uma das [regiões com suporte](hpc-cache-overview.md#region-availability).
 * Rede virtual-você pode selecionar um existente ou criar uma nova rede virtual.
-* Sub-rede – escolha ou crie uma sub-rede com pelo menos 64 endereços IP (/24) que serão usados somente para o cache do HPC do Azure.
+* Sub-rede – escolha ou crie uma sub-rede com pelo menos 64 endereços IP (/24) que serão usados somente para esta instância de cache do Azure HPC.
 
 ## <a name="set-cache-capacity"></a>Definir capacidade de cache
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-Na página **cache** , você deve definir a capacidade do cache do Azure HPC. Esse valor determina a quantidade de dados que seu cache pode conter e a rapidez com que ele pode atender às solicitações do cliente. Após o período de visualização pública, a capacidade também afetará o custo do cache.
+Na página **cache** , você deve definir a capacidade do seu cache. Esse valor determina a quantidade de dados que seu cache pode conter e a rapidez com que ele pode atender às solicitações do cliente. 
+
+Após o período de visualização pública, a capacidade também afetará o custo do cache.
 
 A capacidade do cache é medida em operações de entrada/saída por segundo (IOPS). Escolha a capacidade definindo estes dois valores:
 
@@ -43,9 +45,9 @@ A capacidade do cache é medida em operações de entrada/saída por segundo (IO
 
 Escolha um dos valores de taxa de transferência disponíveis e tamanhos de armazenamento em cache. A capacidade de IOPS é calculada e mostrada abaixo dos seletores de valor.
 
-Tenha em mente que a taxa de transferência de dados real depende da carga de trabalho, das velocidades de rede e do tipo de destinos de armazenamento. Se um arquivo não estiver no cache ou estiver marcado como obsoleto, o serviço usará alguma taxa de transferência para obtê-lo do armazenamento de back-end. O valor escolhido define a taxa de transferência máxima para todo o cache e nem todas elas estão disponíveis para solicitações de cliente.
+Tenha em mente que a taxa de transferência de dados real depende da carga de trabalho, das velocidades de rede e do tipo de destinos de armazenamento. O valor escolhido define a taxa de transferência máxima para todo o cache e nem todas elas estão disponíveis para solicitações de cliente. Por exemplo, se um cliente solicitar um arquivo que ainda não esteja armazenado no cache, ou se o arquivo estiver marcado como obsoleto, seu cache usará parte de sua taxa de transferência para obtê-lo do armazenamento de back-end.
 
-Para o armazenamento em cache, o cache HPC do Azure gerencia quais arquivos são armazenados em cache e pré-carregados para maximizar as tarifas de acesso ao cache. O conteúdo do cache é avaliado continuamente e os arquivos são movidos para o armazenamento de longo prazo quando são acessados com menos frequência. Escolha um tamanho de armazenamento de cache que possa manter confortavelmente o conjunto ativo de arquivos de trabalho com espaço adicional para metadados e outras sobrecargas.
+O cache HPC do Azure gerencia quais arquivos são armazenados em cache e pré-carregados para maximizar as tarifas de acesso ao cache. O conteúdo do cache é avaliado continuamente e os arquivos são movidos para o armazenamento de longo prazo quando são acessados com menos frequência. Escolha um tamanho de armazenamento de cache que possa manter confortavelmente o conjunto ativo de arquivos de trabalho com espaço adicional para metadados e outras sobrecargas.
 
 ![captura de tela da página de dimensionamento do cache](media/hpc-cache-create-iops.png)
 
@@ -63,7 +65,7 @@ Você pode definir até dez destinos de armazenamento diferentes.
 
 As instruções passo a passo para adicionar um destino de armazenamento estão incluídas em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md). O procedimento é diferente para armazenamento de BLOBs ou para exportações NFS.
 
-Aqui estão algumas dicas: 
+Aqui estão algumas dicas:
 
 * Para os dois tipos de armazenamento, você deve especificar como encontrar o sistema de armazenamento de back-end (um endereço NFS ou um nome de contêiner de BLOB) e o caminho do namespace voltado para o cliente.
 
@@ -73,7 +75,7 @@ Aqui estão algumas dicas:
 
 ## <a name="add-resource-tags-optional"></a>Adicionar marcas de recurso (opcional)
 
-A página **marcas** permite que você adicione [marcas de recurso](https://go.microsoft.com/fwlink/?linkid=873112) ao cache do HPC do Azure. 
+A página **marcas** permite que você adicione [marcas de recurso](https://go.microsoft.com/fwlink/?linkid=873112) à instância de cache do HPC do Azure.
 
 ## <a name="finish-creating-the-cache"></a>Concluir a criação do cache
 

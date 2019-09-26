@@ -6,16 +6,18 @@ ms.topic: overview
 ms.date: 09/22/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 57df9e0bd6f359a45333fcde51c51f49321fec9e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8389cd4d73c5c5d881dcc32c688a59b86895a3e2
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213881"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309546"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Suporte interno a notebooks Jupyter no Azure Cosmos DB
 
 O Jupyter Notebook é um aplicativo Web de software livre que permite criar e compartilhar documentos que contêm código ao vivo, equações, visualizações e texto de narração. O Azure Cosmos DB dá suporte a blocos de anotações Jupyter internos para todas as APIs, como Cassandra, MongoDB, SQL, Gremlin e tabela. O suporte ao bloco de anotações interno para todos os Azure Cosmos DB APIs e modelos de dados permite executar consultas interativamente. Os notebooks Jupyter são executados nas contas do Azure Cosmos e permitem que os desenvolvedores realizem exploração de dados, limpeza de dados, transformações de dados, simulações numéricas, modelagem estatística, visualização de dados e aprendizado de máquina.
+
+![Visualizações do Jupyter notebooks no Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
 
 Os notebooks Jupyter dão suporte a funções mágicas que estendem os recursos do kernel ao dar suporte a comandos adicionais. Cosmos Magic é um comando que estende os recursos do kernel do Python no notebook Jupyter para que você possa executar consultas da API do SQL do Azure Cosmos, além de Apache Spark. Você pode combinar facilmente consultas de API do Python e do SQL para consultar e Visualizar dados usando bibliotecas de visualização avançadas integradas com comandos de renderização.
 Portal do Azure integra nativamente a experiência do Jupyter Notebook às contas do Azure Cosmos, conforme mostrado na imagem a seguir:
@@ -56,9 +58,8 @@ Os notebooks Jupyter podem incluir vários tipos de componentes, cada um organiz
 
 Para começar a usar o Jupyter notebooks internos no Azure Cosmos DB consulte os seguintes artigos:
 
-* [Como criar um bloco de anotações]()
-* [Como instalar dependências em um bloco de anotações]()
-* [Como usar um bloco de anotações e uma extensão mágica do cosmos para analisar dados]()
+* [Habilitar blocos de anotações em uma conta do Azure Cosmos](enable-notebooks.md)
+* [Usar recursos e comandos do bloco de anotações](use-notebook-features-and-commands.md)
 
 
 

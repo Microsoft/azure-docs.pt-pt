@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: a070b224b0cb1378f0ba6729af33840715dc0a29
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087715"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309861"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para aplicativos lógicos do Azure
 
@@ -58,7 +58,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
   * Armazenamento SSD (unidade de estado sólido) para o spooling
 
   > [!NOTE]
-  > O gateway não dá suporte ao Windows Server 2016 Core.
+  > O gateway não dá suporte ao Windows Server Core.
 
 * **Considerações relacionadas**
 
@@ -74,6 +74,8 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
   * A região que você selecionar para a instalação do gateway é o mesmo local que você deve selecionar quando você cria posteriormente o recurso de gateway do Azure para seu aplicativo lógico. Por padrão, essa região é o mesmo local que o seu locatário do Azure AD que gerencia sua conta do Azure. No entanto, você pode alterar o local durante a instalação do gateway.
 
   * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica somente a Power BI. Você não pode ter mais de um gateway em execução no mesmo modo no mesmo computador.
+
+  * O aplicativo lógico do Azure dá suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -268,7 +270,7 @@ Para obter mais informações, consulte estes tópicos:
 * [Solucionar problemas do gateway de dados local](/data-integration/gateway/service-gateway-tshoot)
 * [Monitorar e otimizar o desempenho do gateway](/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)

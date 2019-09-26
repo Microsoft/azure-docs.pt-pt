@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 362b696351e4faca02fa6ea8aed7e7447454cd34
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fdcfcbaf99d48a345d2be4da297be1c9139da15c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262031"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308120"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure
 
@@ -66,6 +66,7 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 | Azure Firewall | Esquema não disponível. |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
+| Serviço Kubernetes |[Log de kubernetes do Azure](../../aks/view-master-logs.md#log-event-schema) |
 | Balanceador de Carga |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |

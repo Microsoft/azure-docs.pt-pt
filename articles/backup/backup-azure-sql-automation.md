@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: e6a1ec1d11404e6179fda919c58f581c3524c4d4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d5f3b98048cb04eab15479c3a9f5d27f16df1f3a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650342"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309760"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -46,8 +46,6 @@ A hierarquia de objetos é resumida no diagrama a seguir.
 Examine a referência de [referência do cmdlet](/powershell/module/az.recoveryservices) **AZ. recoveryservices** na biblioteca do Azure.
 
 ### <a name="set-up-and-install"></a>Configurar e instalar
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Configure o PowerShell da seguinte maneira:
 
@@ -110,7 +108,7 @@ O cofre dos serviços de recuperação é um recurso do Resource Manager, portan
 3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre.
 
     * Você pode usar o [armazenamento com redundância local](../storage/common/storage-redundancy-lrs.md) ou o [armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md).
-    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definidocomo georedundante.
+    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -196,7 +194,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
-## <a name="enable-backup"></a>Habilitar backup
+## <a name="enable-backup"></a>Ativar cópia de segurança
 
 ### <a name="registering-the-sql-vm"></a>Registrando a VM do SQL
 

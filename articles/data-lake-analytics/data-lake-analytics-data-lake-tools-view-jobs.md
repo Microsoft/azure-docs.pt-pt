@@ -1,174 +1,172 @@
 ---
-title: Utilize o Browser de trabalho e a vista de tarefas para tarefas de Azure Data Lake Analytics
-description: Este artigo descreve como utilizar o Browser de trabalho e a vista de tarefas para tarefas de Azure Data Lake Analytics.
-services: data-lake-analytics
+title: Usar o navegador de trabalhos & exibição de trabalho-Azure Data Lake Analytics
+description: Este artigo descreve como usar o navegador de trabalho e a exibição de trabalho para trabalhos de Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616235"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309939"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utilizar o Browser de trabalho e a vista de tarefas para o Azure Data Lake Analytics
-O serviço Azure Data Lake Analytics arquiva trabalhos submetidos num arquivo de consultas. Neste artigo, saiba como utilizar o Browser de trabalho e a vista de tarefas no Azure Data Lake Tools para Visual Studio para encontrar as informações de histórico da tarefa. 
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar o navegador de trabalhos e a exibição de trabalho para Azure Data Lake Analytics
+O serviço de Azure Data Lake Analytics arquiva trabalhos enviados em um repositório de consultas. Neste artigo, você aprenderá a usar o navegador de trabalhos e o modo de exibição de trabalho no Ferramentas do Azure Data Lake para Visual Studio para localizar as informações históricas do trabalho. 
 
-Por predefinição, o serviço Data Lake Analytics arquiva as tarefas durante 30 dias. O período de expiração pode ser configurado no portal do Azure ao configurar a política de expiração personalizado. Não será capaz de acessar as informações de tarefa após a expiração. 
+Por padrão, o serviço de Data Lake Analytics arquiva os trabalhos por 30 dias. O período de validade pode ser configurado no portal do Azure Configurando a política de expiração personalizada. Você não poderá acessar as informações do trabalho após a expiração. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Ver [Data Lake Tools para pré-requisitos do Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
+Consulte [Data Lake Tools for Visual Studio Prerequisites](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
-## <a name="open-the-job-browser"></a>Abra o Browser de trabalho
-O Browser de trabalho por meio de acesso **Explorador de servidores > Azure > do Data Lake Analytics > tarefas** no Visual Studio.  Utilizar o Browser de trabalho, pode acessar o arquivo de consultas de uma conta do Data Lake Analytics. O Browser de trabalho apresenta Store de consulta à esquerda, mostrando as informações de trabalho básico e detalhadas de vista de tarefas no direito mostrando informações da tarefa.
+## <a name="open-the-job-browser"></a>Abrir o navegador de trabalhos
+Acesse o navegador de trabalhos por meio do **Gerenciador de Servidores > Azure > data Lake Analytics trabalhos do >** no Visual Studio.  Usando o navegador de trabalhos, você pode acessar o repositório de consultas de uma conta de Data Lake Analytics. O navegador de trabalhos exibe Repositório de Consultas à esquerda, mostrando as informações básicas do trabalho e a exibição do trabalho à direita mostrando informações detalhadas do trabalho.
 
-## <a name="job-view"></a>Vista de tarefas
-Vista de tarefas mostra as informações detalhadas de uma tarefa. Para abrir uma tarefa, pode clicar duas vezes uma tarefa no Browser de trabalho ou abri-lo no menu do Data Lake ao clicar em vista de tarefas. Deverá ver uma caixa de diálogo preenchida com o URL da tarefa.
+## <a name="job-view"></a>Exibição de trabalho
+A exibição de trabalho mostra as informações detalhadas de um trabalho. Para abrir um trabalho, você pode clicar duas vezes em um trabalho no navegador de trabalhos ou abri-lo no menu Data Lake clicando em exibição de trabalho. Você deverá ver uma caixa de diálogo populada com a URL do trabalho.
 
-![Data Lake Tools Browser de trabalho do Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
+![Navegador de trabalhos de Data Lake ferramentas do Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
 
-Vista de tarefas contém:
+A exibição do trabalho contém:
 
-* Resumo da Tarefa
+* Resumo de Tarefa
   
-    Atualize a vista de tarefa para ver as informações mais recentes de tarefas em execução.
+    Atualize a exibição de trabalho para ver as informações mais recentes de trabalhos em execução.
   
-  * Estado da tarefa (gráfico):
+  * Status do trabalho (grafo):
     
-      Estado da tarefa descreve as fases de tarefa:
+      O status do trabalho descreve as fases do trabalho:
     
-      ![Estado de fases da tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Status de Azure Data Lake Analytics de fases do trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
-    * Preparar: Carregar o script para a nuvem, compilar e otimizar o script com o serviço de compilação.
-    * Em fila: São colocados em fila de tarefas quando estão a aguardar recursos suficientes, ou as tarefas excederem as máximas tarefas simultâneas por limitação de conta. A definição de prioridade determina a seqüência de tarefas em fila - quanto menor o número, maior será a prioridade.
-    * A executar: A tarefa, na verdade, está em execução na sua conta do Data Lake Analytics.
-    * A finalizar: A tarefa está a concluir (por exemplo, a finalizar o arquivo).
+    * Prepar Carregue o script na nuvem, compilando e otimizando o script usando o serviço de compilação.
+    * Em fila Os trabalhos são enfileirados quando estão aguardando recursos suficientes ou os trabalhos excedem a limitação máxima de trabalhos simultâneos por conta. A configuração de prioridade determina a sequência de trabalhos em fila-quanto menor o número, maior a prioridade.
+    * Executado O trabalho está realmente em execução na sua conta de Data Lake Analytics.
+    * Finalizando O trabalho está sendo concluído (por exemplo, finalizando o arquivo).
       
-      A tarefa pode falhar em todas as fases. Por exemplo, erros de compilação na fase de preparando, erros de tempo limite na fase de em fila e erros de execução na fase de execução, etc.
-  * Informações básicas
+      O trabalho pode falhar em todas as fases. Por exemplo, erros de compilação na fase de preparação, erros de tempo limite na fase de fila e erros de execução na fase de execução, etc.
+  * Informação Básica
     
-      Mostram as informações de trabalho básico na parte inferior do painel de resumo da tarefa.
+      As informações básicas do trabalho são mostradas na parte inferior do painel Resumo do trabalho.
     
-      ![Estado de fases da tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Status de Azure Data Lake Analytics de fases do trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * Resultado da tarefa: Com êxito ou falhadas. A tarefa poderá falhar em todas as fases.
-    * Duração total: Tempo de relógio (duração) entre a hora de envio e horário de término.
-    * Tempo de computação total: A soma de cada tempo de execução de vértice, pode considerá-lo como o tempo que a tarefa é executada em apenas um vértice. Consulte vértices Total para obter mais informações sobre o vértice.
-    * Hora de envio/início/fim: A hora quando o serviço Data Lake Analytics recebe a tarefa. o envio/começa a executar o tarefa/termina o trabalho com êxito ou não.
-    * Compilação/colocados em fila/em execução: Tempo de relógio gasto durante a fase de preparando/em fila/em execução.
-    * Conta: A conta de Data Lake Analytics utilizada para executar a tarefa.
-    * Autor: O utilizador que enviou a tarefa, pode ser a conta de uma pessoa real ou uma conta de sistema.
-    * Prioridade: A prioridade da tarefa. Menor o número, maior será a prioridade. Afeta apenas a sequência de tarefas na fila. Definir uma prioridade mais alta não tomar o lugar de tarefas em execução.
-    * Paralelismo: O número máximo de pedido simultâneo Azure Lake Analytics de unidades de dados (ADLAUs), também conhecido como vértices. Atualmente, um vértice é igual a uma VM com dois núcleos virtuais e seis GB de RAM, embora isso poderia ser atualizado no futuro do Data Lake Analytics de atualizações.
-    * À esquerda em bytes: Bytes que precisam ser processadas até que a tarefa é concluída.
-    * Bytes lidos/escritos: Bytes lidos/escritos tem sido desde o trabalho que iniciou a execução.
-    * Vértices total: A tarefa é dividida em várias partes do trabalho, cada trabalho é chamado um vértice. Este valor descreve quantas partes do trabalho consiste na tarefa. Pode considerar um vértice como uma unidade de processo básico, também conhecido como Azure Data Lake Analytics unidade (ADLAU), e vértices podem ser executados em paralelismo. 
-    * Concluído/execução/falha: Contagem de vértices concluída/execução/falha. Vértices podem falhar devido a ambas as falhas de código e de sistema do utilizador, mas as repetições de sistema de falha de vértices automaticamente algumas vezes. Se o vértice ainda é falha depois de repetir, todo o trabalho irá falhar.
-* Gráfico da tarefa
+    * Resultado do trabalho: Com êxito ou falha. O trabalho pode falhar em todas as fases.
+    * Duração total: Tempo de relógio de parede (duração) entre o envio de hora e a hora de término.
+    * Tempo total de computação: A soma de cada tempo de execução de vértice, você pode considerá-la como a hora em que o trabalho é executado em apenas um vértice. Consulte total de vértices para obter mais informações sobre o vértice.
+    * Hora de envio/início/término: A hora em que o serviço de Data Lake Analytics recebe o envio do trabalho/começa a executar o trabalho/encerra o trabalho com êxito ou não.
+    * Compilação/em fila/em execução: Tempo gasto durante a fase de preparação/na fila/em execução.
+    * Considerar A conta de Data Lake Analytics usada para executar o trabalho.
+    * Autorização O usuário que enviou o trabalho pode ser uma conta da pessoa real ou uma conta do sistema.
+    * Prioridade: A prioridade do trabalho. Quanto menor o número, maior a prioridade. Ele afeta apenas a sequência dos trabalhos na fila. Definir uma prioridade mais alta não antecipa a execução de trabalhos.
+    * Paralelismo O número máximo solicitado de ADLAUs (unidades de Azure Data Lake Analytics simultâneas), também conhecido como vértices. Atualmente, um vértice é igual a uma VM com dois núcleos virtuais e seis GB de RAM, embora isso possa ser atualizado em futuras atualizações de Data Lake Analytics.
+    * Bytes restantes: Bytes que precisam ser processados até que o trabalho seja concluído.
+    * Bytes lidos/gravados: Bytes que foram lidos/gravados desde que o trabalho começou a ser executado.
+    * Total de vértices: O trabalho é dividido em muitas partes de trabalho, cada parte do trabalho é chamada de vértice. Esse valor descreve de quantas partes de trabalho o trabalho consiste. Você pode considerar um vértice como uma unidade de processo básica, também conhecida como ADLAU (unidade de Azure Data Lake Analytics) e os vértices podem ser executados em paralelismo. 
+    * Concluído/em execução/com falha: A contagem de vértices concluídos/em execução/com falha. Os vértices podem falhar devido a falhas do sistema e do código do usuário, mas o sistema repete os vértices com falha automaticamente algumas vezes. Se o vértice ainda falhar após a repetição, todo o trabalho falhará.
+* Grafo de trabalho
   
-    Um script de U-SQL representa a lógica de transformar dados de entrada para dados de saída. O script é compilado e otimizado para um plano de execução física na fase de preparando. Gráfico da tarefa é mostrar o plano de execução físico.  O diagrama seguinte ilustra o processo:
+    Um script U-SQL representa a lógica da transformação de dados de entrada para dados de saída. O script é compilado e otimizado para um plano de execução física na fase de preparação. O grafo do trabalho é mostrar o plano de execução física.  O diagrama a seguir ilustra o processo:
   
-    ![Estado de fases da tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
+    ![Status de Azure Data Lake Analytics de fases do trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Uma tarefa é dividida em várias partes do trabalho. Cada trabalho é chamado de um vértice. Os vértices são agrupados como Super vértice (também conhecido como fase) e visualizados como gráfico da tarefa. As fase de verde placards no gráfico da tarefa mostram as fases.
+    Um trabalho é dividido em muitas partes de trabalho. Cada parte do trabalho é chamada de vértice. Os vértices são agrupados como um super vértice (também conhecido como estágio) e visualizados como grafo de trabalho. O estágio verde letreiros no grafo do trabalho mostra os estágios.
   
-    Cada vértice numa fase está a fazer o mesmo tipo de trabalho com diferentes partes dos mesmos dados. Por exemplo, se tiver um ficheiro com dados TB e existirem centenas de vértices lendo nele, cada um deles está lendo um segmento. Esses vértices são agrupadas na mesma fase e fazendo mesmo trabalhar em partes diferentes do mesmo ficheiro de entrada.
+    Cada vértice em um estágio está fazendo o mesmo tipo de trabalho com partes diferentes dos mesmos dados. Por exemplo, se você tiver um arquivo com um TB de dados, e houver centenas de vértices lendo a partir dele, cada um deles estará lendo uma parte. Esses vértices são agrupados no mesmo estágio e funcionam em diferentes partes do mesmo arquivo de entrada.
   
-  * <a name="state-information"></a>Informações de fase
+  * <a name="state-information"></a>Informações do estágio
     
-      Num estágio particular, alguns números são mostrados no placard.
+      Em um estágio específico, alguns números são mostrados no letreiro.
     
-      ![Fase de gráfico da tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
+      ![Azure Data Lake Analytics estágio do grafo de trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
-    * Extração de SV1: O nome de uma fase, chamado por um número e o método de operação.
-    * 84 vértices: A contagem total de vértices neste estágio. A figura indica quantas partes do trabalho é dividido neste estágio.
-    * s 12.90/vértice: O tempo de execução de vértice média neste estágio. Esta figura é calculada pela soma (cada tempo de execução do vértice) / (total de contagem de vértice). O que significa se foi atribuir todos os vértices executados em paralelismo, o estágio de inteiro é concluído na 12.90 s. Isso também quer dizer se todo o trabalho neste estágio é feito em série, o custo seria #vertices * Méd do tempo.
-    * 850,895 linhas escritas: Contagem total de linhas escrita neste estágio.
-    * R/W: Quantidade de dados de leitura/Written neste estágio em bytes.
-    * Cores: Cores são utilizadas na fase para indicar o estado de vértice diferentes.
+    * Extração de SV1: O nome de um estágio, nomeado por um número e o método de operação.
+    * 84 vértices: A contagem total de vértices neste estágio. A figura indica quantas partes de trabalho são divididas neste estágio.
+    * 12,90 s/vértice: O tempo médio de execução do vértice para este estágio. Esta figura é calculada por SUM (cada tempo de execução de vértice)/(contagem total de vértices). Ou seja, se você puder atribuir todos os vértices executados em paralelismo, o estágio inteiro será concluído em 12,90 s. Isso também significa que se todo o trabalho nesse estágio for feito em série, o custo será #vertices * tempo médio.
+    * 850.895 linhas gravadas: Contagem total de linhas gravadas neste estágio.
+    * R/W: Quantidade de dados lidos/gravados neste estágio em bytes.
+    * Cores As cores são usadas no estágio para indicar um status de vértice diferente.
       
-      * Verde indica que o vértice é concluído com êxito.
-      * Cor de laranja indica que o vértice será repetido. O vértice de nova tentativa falhou, mas é repetido com êxito e automaticamente pelo sistema e o estágio geral é concluído com êxito. Se o vértice repetida, mas ainda falha, a cor torna-se vermelho e todo o trabalho falhou.
-      * Vermelho indica falha, que significa que um determinado vértice tive foi repetida algumas vezes pelo sistema, mas ainda falha. Este cenário faz com que todo o trabalho efetuar a ativação.
+      * Verde indica que o vértice foi bem-sucedido.
+      * Laranja indica que o vértice é repetido. O vértice repetido falhou, mas é repetido automaticamente e com êxito pelo sistema, e o estágio geral é concluído com êxito. Se o vértice for repetido, mas ainda falhar, a cor ficará vermelha e todo o trabalho falhará.
+      * O vermelho indica falha, o que significa que um determinado vértice foi repetido algumas vezes pelo sistema, mas ainda falhou. Esse cenário faz com que todo o trabalho falhe.
       * Azul significa que um determinado vértice está em execução.
-      * Branco indica o vértice está à espera. O vértice pode estar esperando ser agendada uma vez que um ADLAU torna-se disponível, ou podem estar esperando para entrada, uma vez que os respetivos dados de entrada podem não estar preparados.
+      * Branco indica que o vértice está aguardando. O vértice pode estar aguardando para ser agendado quando um ADLAU se tornar disponível ou pode estar aguardando a entrada, já que seus dados de entrada podem não estar prontos.
       
-      Pode encontrar mais detalhes para o estágio ao pairar o cursor do mouse por um Estado:
+      Você pode encontrar mais detalhes para o estágio focalizando o cursor do mouse em um Estado:
       
-      ![Detalhes de fase de gráfico da tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
-  * Vértices: Descreve os detalhes de vértices, por exemplo, o número de vértices no total, o número de vértices forem concluídas, são elas falhou ou ainda em execução/em espera, etc.
-  * Dados lidos em vários/intra pod: Ficheiros e dados são armazenados em vários pods no sistema de ficheiros distribuído. O valor aqui descreve a quantidade de dados foi lido no pod mesmo ou cruzada pod.
-  * Tempo de computação total: A soma de cada tempo de execução de vértice no estágio, pode considerá-lo como o tempo que demoraria se tudo funcionar na fase é executado em apenas um vértice.
-  * Dados e escritos/lidos de linhas: Indica o quanto dados linhas tem sido lidos/escritos ou tem de ser lidos.
-  * Vértice ler falhas: Descreve o número de vértices são falhou ao dados de leitura.
-  * Elimina o vértice duplicado: Se um vértice é executado muito lenta, o sistema pode agendar a várias vértices para executar o mesmo trabalho. Vértices reductant serão eliminadas depois de um dos vértices concluída com êxito. Rejeições duplicadas do vértice regista o número de vértices são eliminadas como duplicações na fase.
-  * Revogações de vértice: O vértice foi concluída com êxito, mas executar mais tarde, obtenha novamente devido a algumas razões. Por exemplo, se vértice downstream perder dados de entrada intermediários, é-lhe perguntado do vértice a montante para voltar a executar.
-  * Execuções da agenda de vértice: O tempo total que os vértices tiverem sido agendados.
-  * Leitura de dados de vértice de média/mín/máx: O mínimo/médio/máximo de cada vértice ler os dados.
-  * Duração: A hora de relógio de parede demora de uma fase, precisará carregar perfil para ver este valor.
+      ![Detalhes de estágio do grafo de trabalho Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
+  * Vértices Descreve os detalhes dos vértices, por exemplo, quantos vértices no total, quantos vértices foram concluídos, se eles falharam ou continuam em execução/aguardando, etc.
+  * Dados lidos Cross/intra Pod: Os arquivos e os dados são armazenados em vários pods no sistema de arquivos distribuído. O valor aqui descreve a quantidade de dados lidos no mesmo Pod ou entre Pod.
+  * Tempo total de computação: A soma de cada tempo de execução de vértice no estágio, você pode considerá-lo como o tempo que levaria se todo o trabalho no estágio fosse executado em apenas um vértice.
+  * Dados e linhas gravados/lidos: Indica a quantidade de dados ou as linhas que foram lidas/gravadas ou precisam ser lidas.
+  * Falhas de leitura de vértice: Descreve o número de vértices com falha durante a leitura de dados.
+  * Descartes duplicados de vértice: Se um vértice for executado muito devagar, o sistema poderá agendar vários vértices para executar a mesma parte do trabalho. Os vértices redutos serão descartados quando um dos vértices for concluído com êxito. Os descartes de vértice duplicados registram o número de vértices descartados como duplicatas no estágio.
+  * Revogações de vértice: O vértice foi bem-sucedido, mas será executado novamente mais tarde devido a alguns motivos. Por exemplo, se o vértice downstream perder dados de entrada intermediários, ele solicitará que o vértice upstream seja executado novamente.
+  * Execuções de agenda de vértice: O tempo total em que os vértices foram agendados.
+  * Leitura de dados de vértice mín./média/máx.: O mínimo/médio/máximo de cada vértice de leitura de dados.
+  * Permanência O tempo que um estágio leva para o relógio, você precisa carregar o perfil para ver esse valor.
   * Reprodução de Tarefa
     
-      Executa tarefas de data Lake Analytics e arquiva os vértices com informações de tarefas, tais como quando os vértices são iniciados, parados, falha e como são repetidas, etc. Todas as informações é automaticamente registado no arquivo de consultas e armazenadas no seu perfil de trabalho. Pode transferir o perfil de trabalho por meio de "Perfil de carga" na vista de tarefas e pode ver a reprodução de tarefa depois de transferir o perfil de trabalho.
+      Data Lake Analytics executa trabalhos e arquiva as informações de execução dos vértices dos trabalhos, como quando os vértices são iniciados, interrompidos, com falha e como são repetidos etc. Todas as informações são registradas automaticamente no repositório de consultas e armazenadas em seu perfil de trabalho. Você pode baixar o perfil de trabalho por meio de "perfil de carga" na exibição de trabalho e pode exibir a reprodução do trabalho depois de baixar o perfil de trabalho.
     
-      Reprodução de tarefa é uma visualização de resumo do que aconteceu no cluster. Ajuda-o a ver o progresso de execução da tarefa e detetar visualmente anomalias de desempenho e congestionamentos de muito pouco tempo (menos do que normalmente 30s).
-  * Apresentação do mapa de calor de tarefa 
+      A reprodução do trabalho é uma visualização representativa do que aconteceu no cluster. Ele ajuda você a assistir ao progresso da execução do trabalho e a detectar visualmente anomalias de desempenho e afunilamentos em um tempo muito curto (menos de 30s geralmente).
+  * Exibição do mapa de calor do trabalho 
     
-      Mapa térmico de tarefa podem ser selecionado através da lista pendente de apresentar no gráfico da tarefa. 
+      O mapa de calor do trabalho pode ser selecionado por meio da lista suspensa Exibir no grafo do trabalho. 
     
-      ![Apresentação do mapa de área dinâmica para dados do gráfico de tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
+      ![Exibição do mapa de heap do grafo de trabalho Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
     
-      Mostra o mapa gráfico e/s, o tempo e o débito de uma tarefa, por meio do qual pode encontrar em que o trabalho passa a maior parte do tempo, ou se a sua tarefa é uma tarefa de limite de e/s e assim por diante.
+      Ele mostra o mapa de calor de e/s, tempo e taxa de transferência de um trabalho, por meio do qual você pode descobrir onde o trabalho passa a maior parte do tempo, ou se seu trabalho é um trabalho de limite de e/s e assim por diante.
     
-      ![Exemplo de mapa do Azure Data Lake Analytics tarefa gráfico heap](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
+      ![Exemplo de mapa de heap de grafo de trabalho Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Curso: A execução de tarefa de progresso, consulte informações nas informações de fase.
-    * Dados lidos/escritos: O mapa gráfico do total de dados lidos/escritos em cada fase.
-    * Tempo de computação: O mapa térmico de SUM (cada tempo de execução do vértice), pode considerar isso como a forma como há muito tempo que demoraria se todo o trabalho na fase é executado com apenas 1 vértice.
-    * Tempo de execução média por nó: O mapa térmico de SUM (cada tempo de execução do vértice) / (número de vértice). O que significa que se foi atribuir todos os vértices executados em paralelismo, o estágio de inteiro será efetuado neste período de tempo.
-    * Débito de entrada/saída: O mapa térmico de débito de entrada/saída de cada estágio, pode confirmar se o seu trabalho é que uma e/s vinculado a tarefa através deste.
+    * Andamento O andamento da execução do trabalho, consulte informações em informações do estágio.
+    * Dados lidos/gravados: O mapa de calor do total de dados lidos/gravados em cada estágio.
+    * Tempo de computação: O mapa de calor da soma (cada tempo de execução de vértice), você pode considerar isso como quanto tempo levaria se todo o trabalho no estágio fosse executado com apenas um vértice.
+    * Tempo médio de execução por nó: O mapa de calor da soma (cada tempo de execução de vértice)/(número de vértice). Ou seja, se você puder atribuir todos os vértices executados em paralelismo, todo o estágio será feito nesse período.
+    * Taxa de transferência de entrada/saída: O mapa de calor da taxa de transferência de entrada/saída de cada estágio você pode confirmar se o trabalho é um trabalho vinculado de e/s por meio dele.
 * Operações de metadados
   
-    Pode realizar algumas operações de metadados no seu script de U-SQL, tais como criar uma base de dados, remover uma tabela, etc. Estas operações são mostradas na operação de metadados após a compilação. Pode encontrar as asserções, criar entidades, largar entidades aqui.
+    Você pode executar algumas operações de metadados em seu script U-SQL, como criar um banco de dados, remover uma tabela etc. Essas operações são mostradas na operação de metadados após a compilação. Você pode encontrar asserções, criar entidades e descartar entidades aqui.
   
-    ![Operações de metadados de vista de tarefas do Data Lake Analytics do Azure](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
-* Histórico de estado
+    ![Azure Data Lake Analytics trabalho exibir operações de metadados](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
+* Histórico de Estado
   
-    O histórico de estado também é visualizado no resumo da tarefa, mas pode obter mais detalhes aqui. Pode encontrar as informações detalhadas, como quando a tarefa é preparada, colocados em fila, execução de introdução, terminou. Também é possível encontrar o número de vezes que a tarefa tiver sido compilada (o CcsAttempts: 1), quando é a tarefa despachada para o cluster, na verdade, (o detalhe: Expedição de tarefa ao cluster), etc.
+    O histórico de estado também é visualizado no resumo do trabalho, mas você pode obter mais detalhes aqui. Você pode encontrar informações detalhadas, como quando o trabalho é preparado, enfileirado, iniciado em execução, encerrado. Além disso, você pode encontrar quantas vezes o trabalho foi compilado (o CcsAttempts: 1), quando o trabalho é expedido para o cluster de fato (os detalhes: Expedindo o trabalho para o cluster), etc.
   
-    ![Histórico de estado de vista de tarefas do Data Lake Analytics do Azure](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
+    ![Histórico do estado de exibição de Azure Data Lake Analytics trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * Diagnóstico
   
-    A ferramenta diagnostica automaticamente a execução da tarefa. Irá receber alertas quando existirem alguns erros ou problemas de desempenho nas suas tarefas. Tenha em atenção que terá de transferir o perfil para obter informações completas aqui. 
+    A ferramenta diagnostica a execução do trabalho automaticamente. Você receberá alertas quando houver alguns erros ou problemas de desempenho em seus trabalhos. Observe que você precisa baixar o perfil para obter informações completas aqui. 
   
-    ![Diagnóstico de vista de tarefas do Data Lake Analytics do Azure](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
+    ![Diagnóstico de exibição de Azure Data Lake Analytics trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
   
-  * Avisos: Um alerta é exibido aqui com aviso do compilador. Pode clicar em "x problema (s)" link para ter obter mais detalhes, uma vez que será apresentado o alerta.
-  * Vértice executar demasiado longo: Se qualquer vértice ficar sem tempo (Digamos 5 horas), irão encontrar problemas aqui.
-  * Utilização de recursos: Se já tiver alocado paralelismo mais ou insuficiente do necessário, irão encontrar problemas aqui. Também pode clicar em utilização de recursos para ver mais detalhes e efetuar cenários para encontrar uma alocação de recursos melhor (para obter mais detalhes, consulte este guia).
-  * Verificação da memória: Se qualquer vértice utilizar mais de 5 GB de memória, irão encontrar problemas aqui. Execução da tarefa pode obter terminada pelo sistema, se utiliza mais memória do que a limitação do sistema.
+  * :| Um alerta aparece aqui com o aviso do compilador. Você pode clicar no link "x problema (s)" para obter mais detalhes depois que o alerta for exibido.
+  * Execução de vértice muito longa: Se algum vértice for executado sem tempo (digamos, 5 horas), os problemas serão encontrados aqui.
+  * Uso de recursos: Se você tiver alocado mais ou não um paralelismo suficiente do que o necessário, os problemas serão encontrados aqui. Além disso, você pode clicar em uso de recursos para ver mais detalhes e executar cenários hipotéticos para encontrar uma alocação de recursos melhor (para obter mais detalhes, consulte este guia).
+  * Verificação de memória: Se qualquer vértice usar mais de 5 GB de memória, os problemas serão encontrados aqui. A execução do trabalho pode ser eliminada pelo sistema se ele usar mais memória do que a limitação do sistema.
 
-## <a name="job-detail"></a>Detalhes da tarefa
-Detalhes da tarefa mostra as informações detalhadas do trabalho, incluindo Script, recursos e vista de execução do vértice.
+## <a name="job-detail"></a>Detalhes do trabalho
+O detalhe do trabalho mostra as informações detalhadas do trabalho, incluindo script, recursos e exibição de execução de vértice.
 
-![Detalhes da tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
+![Detalhes do trabalho de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
 
 * Script
   
-    O script de U-SQL da tarefa é armazenado no arquivo de consultas. Pode ver o script de U-SQL original e envie novamente se necessário.
+    O script U-SQL do trabalho é armazenado no repositório de consultas. Você pode exibir o script U-SQL original e enviá-lo novamente, se necessário.
 * Recursos
   
-    Pode encontrar as saídas de compilação de tarefa armazenadas no arquivo de consultas através de recursos. Por exemplo, pode encontrar "algebra.xml", que é utilizado para mostrar o gráfico da tarefa, os assemblies que registou, etc. aqui.
-* Vista de execução do vértice
+    Você pode encontrar as saídas de compilação de trabalho armazenadas no repositório de consultas por meio de recursos. Por exemplo, você pode encontrar "Algebra. xml", que é usado para mostrar o grafo do trabalho, os assemblies que você registrou, etc. aqui.
+* Exibição de execução de vértice
   
-    Ela mostra vértices detalhes da execução. O perfil de trabalho arquiva todos os registo de execução de vértice, como o total de dados lidos/escritos, tempo de execução, estado, etc. Através desta vista, pode obter mais detalhes sobre como foi executada uma tarefa. Para obter mais informações, consulte [utilizar a vista de execução de vértice no Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Ele mostra os detalhes de execução dos vértices. O perfil de trabalho arquiva cada log de execução de vértice, como total de leitura/gravação de dados, tempo de execução, estado, etc. Por meio dessa exibição, você pode obter mais detalhes sobre como um trabalho foi executado. Para obter mais informações, consulte [usar o modo de exibição de execução de vértice em ferramentas de data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Próximos Passos
 * Para obter informações de diagnóstico de registo, veja [Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
-* Para utilizar a vista de execução de vértice, consulte o artigo [utilizar a vista de execução de vértice no Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+* Para usar a exibição de execução de vértice, consulte [usar o modo de exibição de execução de vértice em ferramentas de data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

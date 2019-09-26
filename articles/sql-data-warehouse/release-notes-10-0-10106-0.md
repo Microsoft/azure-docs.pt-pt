@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b9058313886484e84000b2b27986280eb1ff30eb
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f4ee3f78159cb5d9b677f0d43492325754065841
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145632"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300826"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de versão do Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Use a data identificada para confirmar qual versão foi aplicada ao Azure SQL DW
 |**Link privado do Azure (visualização)**|Com o [link privado do Azure](https://azure.microsoft.com/blog/announcing-azure-private-link/), você pode criar um ponto de extremidade privado em sua rede virtual (VNet) e mapeá-lo para o SQL DW do Azure. Esses recursos são então acessíveis por meio de um endereço IP privado em sua VNet, permitindo a conectividade local por meio de emparelhamento privado e/ou gateway de VPN do Azure ExpressRoute. De modo geral, isso simplifica a configuração de rede, não exigindo que você a Abra em endereços IP públicos. Isso também permite a proteção contra riscos de vazamento de dados. Para obter mais detalhes, consulte [visão geral](/azure/private-link/private-link-overview) e [documentação do SQL DW](/azure/sql-database/sql-database-private-endpoint-overview).|
 |**Classificação de & de descoberta de dados (GA)**|O recurso [de classificação e descoberta de dados](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json) já está disponível para o público geral. Esse recurso fornece recursos avançados para **descobrir, classificar, rotular & proteger** dados confidenciais em seus bancos de dado.|
 |**Integração de um clique do Azure Advisor**|O SQL Data Warehouse agora se integra diretamente com as recomendações do assistente do Azure na folha visão geral, juntamente com a oferta de uma experiência com um único clique. Agora você pode descobrir recomendações na folha de visão geral em vez de navegar até a folha do supervisor do Azure. Saiba mais sobre as recomendações [aqui](sql-data-warehouse-concept-recommendations.md).|
+|**Ler isolamento de instantâneo confirmado (visualização)**|Você pode usar ALTER bancos para habilitar ou desabilitar o isolamento de instantâneo para um banco de dados de usuário.  Para evitar o impacto em sua carga de trabalho atual, convém definir essa opção durante a janela de manutenção do banco de dados ou aguardar até que não haja nenhuma outra conexão ativa com o banco de dados. Para obter mais informações, consulte [Opções ALTER DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
 |**EXECUTAR como (Transact-SQL)**| [Executar como](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest) O suporte a T-SQL agora está disponível em SQL Data Warehouse permitindo que os clientes definam o contexto de execução de uma sessão para o usuário especificado.|
 |**Suporte a T-SQL adicional**|A área de superfície da linguagem T-SQL para SQL Data Warehouse foi estendida para incluir suporte para: </br> - [FORMATO (Transact-SQL)](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-SQL)](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-SQL)](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-SQL)](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [sys. user_token (Transact-SQL)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
 

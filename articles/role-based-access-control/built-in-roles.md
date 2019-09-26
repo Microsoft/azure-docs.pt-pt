@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801367"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289596"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -38,7 +38,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Proprietário](#owner) | Permite que você gerencie tudo, incluindo o acesso aos recursos. |
 | [Contribuidor](#contributor) | Permite que você gerencie tudo, exceto conceder acesso aos recursos. |
 | [Leitor](#reader) | Permite exibir tudo, mas não fazer nenhuma alteração. |
-| [AcrDelete](#acrdelete) | exclusão de ACR |
+| [AcrDelete](#acrdelete) | acr delete |
 | [AcrImageSigner](#acrimagesigner) | signatário de imagem acr |
 | [AcrPull](#acrpull) | acr pull |
 | [AcrPush](#acrpush) | acr push |
@@ -183,8 +183,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | * | Criar e gerenciar recursos de todos os tipos |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Excluir funções e atribuições de função |
-> | Microsoft. Authorization/*/Write | Criar funções e atribuições de função |
+> | Microsoft.Authorization/*/Delete | Excluir funções, atribuições de política, definições de política e definições de conjunto de políticas |
+> | Microsoft. Authorization/*/Write | Criar funções, atribuições de função, atribuições de política, definições de política e definições de conjunto de políticas |
 > | Microsoft.Authorization/elevateAccess/Action | Concede ao usuário do chamador acesso de administrador no escopo do locatário |
 > | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar artefatos de Blueprint |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar quaisquer artefactos de esquema |
@@ -212,7 +212,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | exclusão de ACR |
+> | **Descrição** | acr delete |
 > | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Exclua o artefato em um registro de contêiner. |
@@ -496,7 +496,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="avere-contributor"></a>Colaborador de avere
+## <a name="avere-contributor"></a>Contribuidor do Avere
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -531,7 +531,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="avere-operator"></a>Operador avere
+## <a name="avere-operator"></a>Operador do Avere
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -547,7 +547,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Network/networkSecurityGroups/join/action | Une um grupo de segurança de rede. Não é possível alertá-lo. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retorna o resultado da exclusão de um contêiner |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devolve a lista de contentores |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retorna a lista de contêineres |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de blob put |
 > | **NotActions** |  |
 > | *None* |  |
@@ -726,9 +726,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerenciar resultados da operação no gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Criar e gerenciar contêineres de backup dentro de malhas de backup do cofre dos serviços de recuperação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contêineres |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contentores |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar Tarefas |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerenciar metadados relacionados ao gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar resultados de operações de gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
@@ -749,19 +749,19 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/read | Retorna a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no item protegido |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar a Operação no Item Protegido |
 > | Microsoft.RecoveryServices/Vaults/write | A operação Criar Cofre cria um recurso do tipo "cofre" do Azure |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retorna o status da operação de backup do cofre dos serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | Devolve todos os servidores de gestão de cópia de segurança registados no cofre. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegíveis |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contentores protegíveis |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status do backup dos cofres dos serviços de recuperação |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar Funcionalidades |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolve o alerta. |
 > | Microsoft.RecoveryServices/operations/read | A operação retorna a lista de operações para um provedor de recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o status da operação para uma determinada operação |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as tentativas de proteção de backup |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de cópia de segurança |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
@@ -779,7 +779,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retorna o status da operação |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Devolve o estado da operação |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtém o resultado da Operação efetuada no Contentor de Proteção. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executa a Cópia de Segurança do Item Protegido. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtém o Resultado da Operação Efetuada nos Itens Protegidos. |
@@ -789,15 +789,15 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter Pontos de Recuperação de Itens Protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar Pontos de Recuperação de Itens Protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revogar a recuperação instantânea de item para o item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retorna todos os contêineres registrados |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contêineres |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Crie um Item Protegido da cópia de segurança |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Devolve todos os contentores registados |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contentores |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar Tarefas |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar resultados de operações de gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter Resultados da Operação de Política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retorna todas as políticas de proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Devolve todas as Políticas de Proteção |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens cujo backup pode ser feito |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retorna todos os contêineres que pertencem à assinatura |
@@ -816,23 +816,23 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Retorna a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no item protegido |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar a Operação no Item Protegido |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retorna o status da operação de backup do cofre dos serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Cria um contêiner registrado |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Cria um contentor registado |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Fazer consulta para cargas de trabalho dentro de um contêiner |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | Devolve todos os servidores de gestão de cópia de segurança registados no cofre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma intenção de proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma intenção de proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegíveis |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de cópia de segurança |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de cópia de segurança |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contentores protegíveis |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status do backup dos cofres dos serviços de recuperação |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar Funcionalidades |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolve o alerta. |
 > | Microsoft.RecoveryServices/operations/read | A operação retorna a lista de operações para um provedor de recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o status da operação para uma determinada operação |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as tentativas de proteção de backup |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de cópia de segurança |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
@@ -850,20 +850,20 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retorna o status da operação |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Devolve o estado da operação |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtém o resultado da Operação efetuada no Contentor de Proteção. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtém o Resultado da Operação Efetuada nos Itens Protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Devolve o estado da Operação efetuada nos Itens Protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retorna os detalhes do objeto do item protegido |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter Pontos de Recuperação de Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retorna todos os contêineres registrados |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Devolve todos os contentores registados |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Devolve o Resultado da Operação de Tarefa. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retorna todos os objetos de trabalho |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Devolve todos os Objetos da Tarefa |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar Tarefas |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Devolve o Resultado da Operação da Cópia de Segurança do Cofre de Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter Resultados da Operação de Política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retorna todas as políticas de proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Devolve todas as Políticas de Proteção |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retorna todos os contêineres que pertencem à assinatura |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retorna resumos de itens protegidos e servidores protegidos para serviços de recuperação. |
@@ -877,14 +877,14 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retorna o status da operação de backup do cofre dos serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | Devolve todos os servidores de gestão de cópia de segurança registados no cofre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma intenção de proteção de backup |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status do backup dos cofres dos serviços de recuperação |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolve o alerta. |
 > | Microsoft.RecoveryServices/operations/read | A operação retorna a lista de operações para um provedor de recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o status da operação para uma determinada operação |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as tentativas de proteção de backup |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização de um Cofre de Serviços de Recuperação. |
 > | **NotActions** |  |
 > | *None* |  |
@@ -1178,7 +1178,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Features/providers/features/read | Obtém o recurso de uma assinatura em um determinado provedor de recursos. |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do insights |
 > | Microsoft.Insights/diagnosticSettings/* | Cria, atualiza ou lê a configuração de diagnóstico para Analysis Server |
-> | Microsoft.Insights/logDefinitions/read | Ler definições de registo |
+> | Microsoft.Insights/logDefinitions/read | Ler definições de log |
 > | Microsoft.Insights/metricdefinitions/read | Ler definições de métricas |
 > | Microsoft.Insights/metrics/read | Ler métricas |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém os status de disponibilidade de todos os recursos no escopo especificado |
@@ -1219,10 +1219,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Ações** |  |
 > | Microsoft.CognitiveServices/*/read |  |
-> | Microsoft.CognitiveServices/accounts/listkeys/action | Listar Chaves |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | Listar chaves |
 > | Microsoft.Insights/alertRules/read | Ler um alerta de métrica clássica |
 > | Microsoft.Insights/diagnosticSettings/read | Ler uma definição de diagnóstico do recurso |
-> | Microsoft.Insights/logDefinitions/read | Ler definições de registo |
+> | Microsoft.Insights/logDefinitions/read | Ler definições de log |
 > | Microsoft.Insights/metricdefinitions/read | Ler definições de métricas |
 > | Microsoft.Insights/metrics/read | Ler métricas |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém os status de disponibilidade de todos os recursos no escopo especificado |
@@ -1259,7 +1259,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="cosmos-db-operator"></a>Operador de Cosmos DB
+## <a name="cosmos-db-operator"></a>Operador do Cosmos DB
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1593,7 +1593,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="hdinsight-cluster-operator"></a>Operador de cluster HDInsight
+## <a name="hdinsight-cluster-operator"></a>Operador de Cluster do HDInsight
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2265,38 +2265,38 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler todos os eventos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verifica a Consistência dos Recursos de infraestrutura |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler malhas |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Reassociar gateway |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar certificado para malha |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Reassociar Gateway |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar Certificado de Recursos de Infraestrutura |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Ler redes |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Ler mapeamentos de rede |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Ler contêineres de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler itens protegíveis |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar ponto de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Confirmação de failover |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar Ponto de Recuperação |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Consolidação de Ativação Pós-falha |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Ativação Pós-falha Planeada |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler itens protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler pontos de recuperação de replicação |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Proteger novamente o item protegido |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Voltar a Proteger o Item Protegido |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Ativação Pós-falha de Teste |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza do failover de teste |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza da Ativação Pós-falha de Teste |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Ativação pós-falha |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar serviço de mobilidade |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar Serviço de Mobilidade |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler mapeamentos de contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler provedores de serviços de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Atualizar provedor |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Atualizar Fornecedor |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler classificações de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler mapeamentos de classificação de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler qualquer vCenters |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Ler políticas |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plano de recuperação de confirmação de failover |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Plano de recuperação de failover planejado |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plano de Recuperação de Consolidação da Ativação Pós-falha |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Plano de Recuperação de Ativação Pós-falha Planeada |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler planos de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Reproteger plano de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Plano de recuperação de failover de teste |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Plano de recuperação de limpeza do failover de teste |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Plano de recuperação de failover |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Voltar a proteger o Plano de Recuperação |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Testar Ativação Pós-falha do Plano de Recuperação |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Plano de Recuperação da Limpeza de Ativação Pós-falha de Teste |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Plano de Recuperação de Ativação Pós-falha |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Ler alertas para o cofre dos serviços de recuperação |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
@@ -2467,7 +2467,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="sql-managed-instance-contributor"></a>Colaborador do SQL Instância Gerenciada
+## <a name="sql-managed-instance-contributor"></a>Contribuidor de Instâncias Geridas SQL
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2928,12 +2928,12 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Une uma rede virtual. Não é possível alertá-lo. |
 > | Microsoft.RecoveryServices/locations/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma intenção de proteção de backup |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retorna os detalhes do objeto do item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retorna todas as políticas de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Criar política de proteção |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Crie um Item Protegido da cópia de segurança |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Devolve todas as Políticas de Proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Cria a Política de Proteção |
 > | Microsoft.RecoveryServices/Vaults/read | A operação obter cofre Obtém um objeto que representa o recurso do Azure do tipo ' cofre ' |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização de um Cofre de Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/write | A operação Criar Cofre cria um recurso do tipo "cofre" do Azure |
@@ -3018,7 +3018,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)

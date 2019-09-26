@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ecd3a3c26c3b03982a2c6ce6f09df6ae21c3b26
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 854d45f8eb023436756d7a51c141f5eecab14db7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066018"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315165"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com um conta Microsoft usando políticas personalizadas no Azure Active Directory B2C
 
@@ -165,15 +165,7 @@ Agora que você tem um botão em vigor, é necessário vinculá-lo a uma ação.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você cria em seu locatário Azure AD B2C. Esta seção lista as etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-1. Insira um nome para o aplicativo, por exemplo, *testapp1*.
-1. Para **aplicativo Web/API Web**, selecione `Yes`e, em seguida `https://jwt.ms` , insira para a **URL de resposta**.
-1. Clique em **Criar**.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
 

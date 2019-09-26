@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086589"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314996"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure AD Domain Services
 
@@ -46,7 +46,7 @@ Um domínio gerenciado do Azure AD DS se conecta a uma sub-rede em uma rede virt
 * O Azure AD DS deve ser implantado em sua própria sub-rede. Não use uma sub-rede existente ou uma sub-rede de gateway.
 * Um grupo de segurança de rede é criado durante a implantação de um domínio gerenciado AD DS do Azure. Esse grupo de segurança de rede contém as regras necessárias para a comunicação correta do serviço.
     * Não crie ou use um grupo de segurança de rede existente com suas próprias regras personalizadas.
-* O AD DS do Azure requer entre cinco e sete endereços IP. Verifique se o intervalo de endereços IP da sub-rede pode fornecer esse número de endereços.
+* O AD DS do Azure requer 3-5 endereços IP. Verifique se o intervalo de endereços IP da sub-rede pode fornecer esse número de endereços.
     * Restringir os endereços IP disponíveis pode impedir Azure AD Domain Services de manter dois controladores de domínio.
 
 O diagrama de exemplo a seguir descreve um design válido onde o Azure AD DS tem sua própria sub-rede, há uma sub-rede de gateway para conectividade externa e as cargas de trabalho do aplicativo estão em uma sub-rede conectada dentro da rede virtual:
@@ -153,7 +153,7 @@ Você também deve rotear o tráfego de entrada dos endereços IP incluídos nas
 > [!CAUTION]
 > Esses intervalos de IP do datacenter do Azure podem ser alterados sem aviso prévio. Verifique se você tem processos para validar se tem os endereços IP mais recentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre alguns dos recursos de rede e opções de conexão usados pelo Azure AD DS, consulte os seguintes artigos:
 

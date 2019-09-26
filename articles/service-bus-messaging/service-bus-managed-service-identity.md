@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 90fbefb46ea51ca5bb7bf05d556fe29c88543d0b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 86721907352f19cc7ed69fba1f1a021dcf1ed1b7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273679"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299651"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure
 [Gerido identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade de entre o Azure permite-lhe criar uma identidade segura associada à implementação em que o código da aplicação é executado. Em seguida, pode associar essa identidade com funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure que a aplicação precisa.
@@ -57,7 +57,7 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 
 - **Fila**, **tópico**ou **assinatura**: A atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções de RBAC do barramento de serviço no nível da assinatura. Veja um exemplo de como usar o comando CLI do Azure: [AZ-role-Assignment-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para atribuir uma identidade a uma função de RBAC do barramento de serviço: 
 
-    ```powershell
+    ```azurecli
     az role assignment create \
         --role $service_bus_role \
         --assignee $assignee_id \

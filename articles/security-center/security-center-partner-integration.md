@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: ce8aa0229d9a9b873a489209065ada588adbffff
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257746"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309270"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -29,14 +29,14 @@ Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de
 ## <a name="integrated-azure-security-solutions"></a>Soluções de segurança do Azure integradas
 O Centro de Segurança facilita a ativação de soluções de segurança integradas no Azure. As vantagens incluem:
 
-- **Implantação simplificada**: A central de segurança oferece provisionamento simplificado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidades, o Centro de Segurança pode aprovisionar o agente necessário nas suas máquinas virtuais e para aplicações de firewall, o Centro de Segurança pode assegurar grande parte da configuração de rede necessária.
+- **Implantação simplificada**: A central de segurança oferece provisionamento simplificado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidade, a central de segurança pode provisionar o agente em suas máquinas virtuais. Para dispositivos de firewall, a central de segurança pode cuidar de grande parte da configuração de rede necessária.
 - **Detecções integradas**: Os eventos de segurança das soluções de parceiros são automaticamente recolhidos, agregados e apresentados como parte dos alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
 - **Monitoramento e gerenciamento de integridade unificados**: Os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções do parceiro de forma rápida. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
 
 Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidades de [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e o Firewall do aplicativo Web do Microsoft Application Gateway.
 
 > [!NOTE]
-> O Centro de Segurança não instala o Microsoft Monitoring Agent em aplicações virtuais de parceiro, porque a maioria dos fornecedores de segurança proíbe agentes externos em execução nas suas aplicações.
+> A central de segurança não instala o Microsoft Monitoring Agent em soluções de virtualização de parceiros, pois a maioria dos fornecedores de segurança proíbe agentes externos em execução em seus dispositivos.
 >
 >
 
@@ -55,30 +55,30 @@ As soluções de segurança do Azure implementadas a partir do Centro de Seguran
 
    ![Descrição geral do Centro de Segurança](./media/security-center-partner-integration/overview.png)
 
-Em **Soluções de segurança**, pode ver informações sobre o estado de funcionamento da solução de segurança do Azure integrada e efetuar tarefas de gestão básicas.
+Em **soluções de segurança**, você pode ver a integridade das soluções de segurança integradas do Azure e executar tarefas básicas de gerenciamento.
 
 ### <a name="connected-solutions"></a>Soluções ligadas
 
-A secção **Soluções ligadas** inclui soluções de segurança que estão ligadas atualmente ao Centro de Segurança e informações sobre o estado de funcionamento de cada solução.  
+A seção **soluções conectadas** inclui soluções de segurança que estão atualmente conectadas à central de segurança. Ele também mostra o status de integridade de cada solução.  
 
 ![Soluções ligadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 O status de uma solução de parceiro pode ser:
 
-* Íntegro (verde)-não há nenhum problema de integridade.
-* Mau estado de funcionamento (vermelho) – existe um problema de estado de funcionamento que exige atenção imediata.
+* Íntegro (verde)-sem problemas de integridade.
+* Não íntegro (vermelho) – há um problema de integridade que requer atenção imediata.
 * Problemas de integridade (laranja)-a solução parou de relatar sua integridade.
-* Não relatado (cinza)-a solução não reportou nada ainda, o status de uma solução poderá não ser relatado se tiver sido conectado recentemente e ainda estiver sendo implantado, ou se nenhum dado de integridade estiver disponível.
+* Não relatado (cinza)-a solução ainda não relatou nada e nenhum dado de integridade está disponível. O status de uma solução poderá não ser relatado se ele tiver sido conectado recentemente e ainda estiver sendo implantado.
 
 > [!NOTE]
 > Se os dados de status de integridade não estiverem disponíveis, a central de segurança mostrará a data e a hora do último evento recebido para indicar se a solução está se comunicando ou não. Se nenhum dado de integridade estiver disponível e nenhum alerta for recebido nos últimos 14 dias, a central de segurança indicará que a solução não está íntegra ou não está relatando.
 >
 >
 
-1. Selecione **Exibir** para obter informações e opções adicionais, que incluem:
+1. Selecione **Exibir** para obter informações adicionais e opções, como:
 
    - **Console de solução**. Abre a experiência de gerenciamento para esta solução.
-   - **Vincular VM**. Abre a folha vincular aplicativos. Aqui pode ligar recursos à solução de parceiros.
+   - **Vincular VM**. Abre a página vincular aplicativos. Aqui pode ligar recursos à solução de parceiros.
    - **Excluir solução**.
    - **Configurar**.
 
@@ -86,14 +86,14 @@ O status de uma solução de parceiro pode ser:
 
 ### <a name="discovered-solutions"></a>Soluções descobertas
 
-O Centro de Segurança deteta automaticamente as soluções de segurança em execução no Azure, mas não ligadas ao Centro de Segurança, e apresenta as soluções na secção **Soluções detetadas**. Isto inclui soluções do Azure, como o [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), bem como soluções de parceiros.
+A central de segurança descobre automaticamente as soluções de segurança em execução no Azure, mas não está conectada à central de segurança e exibe as soluções na seção **soluções descobertas** . Essas soluções incluem soluções do Azure, como [Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluções de parceiros.
 
 > [!NOTE]
-> É necessário o escalão Standard do Centro de Segurança ao nível da subscrição para a funcionalidade de soluções detetadas. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preço de Segurança.
+> É necessário o escalão Standard do Centro de Segurança ao nível da subscrição para a funcionalidade de soluções detetadas. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
 >
 >
 
-Selecione **LIGAR** numa solução para se integrar com o Centro de Segurança e ser notificado sobre alertas de segurança.
+Selecione **conectar** em uma solução para integrar com a central de segurança e ser notificado sobre alertas de segurança.
 
 ![Soluções descobertas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
@@ -105,13 +105,13 @@ A secção **Adicionar origens de dados** inclui outras origens de dados dispon�
 
 ## <a name="exporting-data-to-a-siem"></a>Exportando dados para um SIEM
 
-Os eventos processados produzidos pela central de segurança do Azure são publicados no [log de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)do Azure, um dos tipos de log disponíveis por meio de Azure monitor. O Azure Monitor oferece um pipeline consolidado para roteamento de qualquer um dos seus dados de monitoramento para uma ferramenta SIEM. Isso é feito transmitindo esses dados para um hub de eventos, no qual ele pode ser extraído para uma ferramenta de parceiro.
+Você pode configurar seus SIEMs ou outras ferramentas de monitoramento para receber eventos da central de segurança do Azure.
 
-Esse pipe usa o [pipeline único de monitoramento do Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para obter acesso aos dados de monitoramento do seu ambiente do Azure. Isso permite que você configure facilmente os SIEMs e as ferramentas de monitoramento para consumir os dados.
+Todos os eventos da central de segurança do Azure são publicados no [log de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)do Azure Azure monitor. O Azure Monitor usa [um pipeline consolidado](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para transmitir os dados para um hub de eventos, no qual ele pode ser obtido em sua ferramenta de monitoramento.
 
 As seções a seguir descrevem como você pode configurar os dados a serem transmitidos para um hub de eventos. As etapas pressupõem que você já tem a central de segurança do Azure configurada em sua assinatura do Azure.
 
-Descrição geral de alto nível
+### <a name="high-level-overview"></a>Descrição geral de alto nível
 
 ![Visão geral de alto nível](media/security-center-export-data-to-siem/overview.png)
 
@@ -119,21 +119,21 @@ Descrição geral de alto nível
 
 Nesta versão, expõemos os [alertas de segurança.](../security-center/security-center-managing-and-responding-alerts.md) Em versões futuras, enriqueceremos o conjunto de dados com recomendações de segurança.
 
-### <a name="how-to-setup-the-pipeline"></a>Como configurar o pipeline
+### <a name="how-to-set-up-the-pipeline"></a>Como configurar o pipeline
 
 #### <a name="create-an-event-hub"></a>Criar um Hub de Eventos
 
-Antes de começar, você precisa [criar um namespace de hubs de eventos](../event-hubs/event-hubs-create.md). Esse namespace e o Hub de eventos são o destino de todos os seus dados de monitoramento.
+Antes de começar, [crie um namespace de hubs de eventos](../event-hubs/event-hubs-create.md) -o destino de todos os seus dados de monitoramento.
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmitir o log de atividades do Azure para os hubs de eventos
 
-Consulte o seguinte artigo fluxo de [atividades do Stream para hubs de eventos](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+Consulte o artigo [fluxo de atividades do Stream a seguir para os hubs de eventos](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 
 #### <a name="install-a-partner-siem-connector"></a>Instalar um conector SIEM do parceiro 
 
 O roteamento dos dados de monitoramento para um hub de eventos com o Azure Monitor permite que você se integre facilmente às ferramentas de monitoramento e SIEM do parceiro.
 
-Consulte o link a seguir para ver a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+Consulte o seguinte artigo para obter a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
 
 ### <a name="example-for-querying-data"></a>Exemplo para consultar dados 
 

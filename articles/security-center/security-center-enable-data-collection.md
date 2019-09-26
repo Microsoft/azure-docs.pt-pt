@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 0cbb6f022dbeded2bbfb19769595be69ec62c311
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6dcb7fd1ae2dc5ca3a950f5055e79d95f779b029
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910621"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300799"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 A central de segurança coleta dados de suas VMs (máquinas virtuais) do Azure, conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure (incluindo locais) para monitorar vulnerabilidades de segurança e ameaças. Os dados são coletados usando o agente de Log Analytics, que lê várias configurações relacionadas à segurança e logs de eventos do computador e copia os dados para o espaço de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente de Log Analytics também copia arquivos de despejo de memória para seu espaço de trabalho.
@@ -278,13 +278,13 @@ Você pode instalar manualmente o agente de Log Analytics, para que a central de
 
    3. Preencha a configuração pública e a configuração privada com estes valores:
      
-           $PublicConf = '{
-               "workspaceId": "WorkspaceID value"
-           }' 
+           $PublicConf = @{
+               "workspaceId"= "<WorkspaceID value>"
+           }
  
-           $PrivateConf = '{
-               "workspaceKey": "<Primary key value>”
-           }' 
+           $PrivateConf = @{
+               "workspaceKey"= "<Primary key value>”
+           }
 
       - Quando instalar numa VM do Windows:
         

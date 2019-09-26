@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 66d0d65065f323f53095782e165f179125aa35ac
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264985"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299625"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -139,6 +139,8 @@ O Azure NetApp Files atualmente dá suporte a uma conexão de Active Directory p
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure NetApp Files oferece suporte a Azure Active Directory? 
 
 Há suporte para os [serviços de domínio Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) e [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) . Você pode usar os controladores de domínio Active Directory existentes com Azure NetApp Files. Os controladores de domínio podem residir no Azure como máquinas virtuais ou localmente por meio de ExpressRoute ou VPN S2S. O Azure NetApp Files não oferece suporte ao ingresso no AD para [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) no momento.
+
+Se você estiver usando Azure NetApp files com Azure Active Directory Domain Services, o caminho da unidade organizacional `OU=AADDC Computers` será quando você configurar Active Directory para sua conta do NetApp.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Quais versões do Windows Server Active Directory têm suporte?
 

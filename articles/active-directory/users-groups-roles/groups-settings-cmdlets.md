@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd79b9a6fa8aedd45f41b64f8f81a908feab71f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f0f2d3f8d8d2298ec00532205e359ed6f8dbc87a
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882994"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315684"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 Este artigo contém instruções para usar os cmdlets do PowerShell do Azure Active Directory (AD do Azure) para criar e atualizar grupos. Esse conteúdo se aplica somente a grupos do Office 365 (às vezes chamados de grupos unificados). 
@@ -123,7 +123,7 @@ Aqui estão as configurações definidas no Group. Unified Settingstemplate. Sal
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Escreva: Booleano<li>Os False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Escreva: Booleano<li>Os True | Booliano que indica se um usuário convidado pode ou não ter acesso ao conteúdo de grupos do Office 365.  Essa configuração não requer uma licença Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Escreva: Cadeia<li>Padrão: "" | A URL de um link para as diretrizes de uso do convidado. |
-|  <ul><li>AllowToAddGuests<li>Escreva: Booleano<li>Os True | Um booliano que indica se há permissão para adicionar convidados a este diretório.|
+|  <ul><li>AllowAddGuests<li>Escreva: Booleano<li>Os True | Um booliano que indica se há permissão para adicionar convidados a este diretório.|
 |  <ul><li>Classificação da<li>Escreva: Cadeia<li>Padrão: "" |Uma lista delimitada por vírgulas de valores de classificação válidos que podem ser aplicados a grupos do Office 365. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exemplo: Configurar a política de convidado para grupos no nível do diretório
@@ -140,9 +140,9 @@ Aqui estão as configurações definidas no Group. Unified Settingstemplate. Sal
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Em seguida, atualize a configuração AllowToAddGuests
+4. Em seguida, atualize a configuração AllowAddGuests
    ```powershell
-   $Setting["AllowToAddGuests"] = $False
+   $Setting["AllowAddGuests"] = $False
    ```  
 5. Em seguida, aplique a configuração:
   
@@ -196,7 +196,7 @@ Essas etapas lêem as configurações no nível do diretório, que se aplicam a 
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowToAddGuests              True
+   AllowAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -233,7 +233,7 @@ Essa etapa remove as configurações no nível do diretório, que se aplicam a t
 
 4. Defina a configuração para o valor necessário:
    ```powershell
-   $SettingCopy["AllowToAddGuests"]=$False
+   $SettingCopy["AllowAddGuests"]=$False
    ```
 5. Obtenha a ID do grupo ao qual você deseja aplicar essa configuração:
    ```powershell
@@ -259,7 +259,7 @@ Essa etapa remove as configurações no nível do diretório, que se aplicam a t
    ```
 3. Atualize a configuração do grupo conforme necessário, por exemplo,
    ```powershell
-   $Setting["AllowToAddGuests"] = $True
+   $Setting["AllowAddGuests"] = $True
    ```
 4. Em seguida, obtenha a ID da configuração para este grupo específico:
    ```powershell

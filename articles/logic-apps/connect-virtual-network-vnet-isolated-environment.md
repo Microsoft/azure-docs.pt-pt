@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099459"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309323"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -44,18 +44,19 @@ Este artigo mostra como concluir essas tarefas:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se você não tiver uma rede virtual, saiba como [criar uma rede virtual do Azure](../virtual-network/quick-create-portal.md).
+* Uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se você não tiver uma rede virtual, saiba como [criar uma rede virtual do Azure](../virtual-network/quick-create-portal.md). 
 
-  * Sua rede virtual deve ter quatro sub-redes vazias para criar e implantar recursos no ISE. Você pode criar essas sub-redes com antecedência, ou pode esperar até criar seu ISE, em que você pode criar sub-redes ao mesmo tempo. Saiba mais sobre [os requisitos de sub-rede](#create-subnet).
-  
-    > [!NOTE]
-    > Se você usar o [ExpressRoute](../expressroute/expressroute-introduction.md), que fornece uma conexão privada com os serviços de nuvem da Microsoft, deverá [criar uma tabela de rotas](../virtual-network/manage-route-table.md) que tenha a seguinte rota e vincular essa tabela a cada sub-rede usada pelo ISE:
-    > 
-    > **Nome**: <*nome da rota*><br>
-    > **Prefixo de endereço**: 0.0.0.0/0<br>
-    > **Próximo salto**: Internet
+  * Sua rede virtual precisa ter quatro sub-redes *vazias* para criar e implantar recursos no ISE. Você pode criar essas sub-redes com antecedência, ou pode esperar até criar seu ISE, em que você pode criar sub-redes ao mesmo tempo. Saiba mais sobre [os requisitos de sub-rede](#create-subnet).
+
+  * Os nomes de sub-rede precisam começar com um caractere alfabético ou um sublinhado e não podem usar esses `<`caracteres `>`: `%`, `&` `\\` `?`,,, `/`,,. 
 
   * Certifique-se de que sua rede virtual disponibilize [essas portas](#ports) para que o ISE funcione corretamente e permaneça acessível.
+
+  * Se você usar o [ExpressRoute](../expressroute/expressroute-introduction.md), que fornece uma conexão privada com os serviços de nuvem da Microsoft, deverá [criar uma tabela de rotas](../virtual-network/manage-route-table.md) que tenha a seguinte rota e vincular essa tabela a cada sub-rede usada pelo ISE:
+
+    **Nome**: <*nome da rota*><br>
+    **Prefixo de endereço**: 0.0.0.0/0<br>
+    **Próximo salto**: Internet
 
 * Se você quiser usar servidores DNS personalizados para sua rede virtual do Azure, [Configure esses servidores seguindo estas etapas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implantar o ISE em sua rede virtual. Caso contrário, sempre que alterar o servidor DNS, você também precisará reiniciar o ISE, que é um recurso disponível com a visualização pública do ISE.
 
@@ -65,7 +66,7 @@ Este artigo mostra como concluir essas tarefas:
 
 Quando você usa um ISE com uma rede virtual existente, um problema de configuração comum é ter uma ou mais portas bloqueadas. Os conectores que você usa para criar conexões entre o ISE e o sistema de destino também podem ter seus próprios requisitos de porta. Por exemplo, se você se comunicar com um sistema FTP usando o conector de FTP, verifique se a porta usada nesse sistema de FTP, como a porta 21 para enviar comandos, está disponível.
 
-Se você tiver criado uma nova rede virtual e sub-redes sem nenhuma restrição, não será necessário configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md) em sua rede virtual para que você possa controlar o tráfego entre sub-redes. Para uma rede virtual existente, opcionalmente , você pode configurar o NSGs [filtrando o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você escolher essa rota, verifique se o ISE abre portas específicas, conforme descrito na tabela a seguir, na rede virtual que tem o NSGs. Portanto, para NSGs existentes ou firewalls em sua rede virtual, certifique-se de que eles abram essas portas. Dessa forma, o ISE permanece acessível e pode funcionar corretamente para que você não perca o acesso ao ISE. Caso contrário, se qualquer porta necessária estiver indisponível, o ISE para de funcionar.
+Se você tiver criado uma nova rede virtual e sub-redes sem nenhuma restrição, não será necessário configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md) em sua rede virtual para que você possa controlar o tráfego entre sub-redes. Para uma rede virtual existente, *opcionalmente* , você pode configurar o NSGs [filtrando o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você escolher essa rota, verifique se o ISE abre portas específicas, conforme descrito na tabela a seguir, na rede virtual que tem o NSGs. Portanto, para NSGs existentes ou firewalls em sua rede virtual, certifique-se de que eles abram essas portas. Dessa forma, o ISE permanece acessível e pode funcionar corretamente para que você não perca o acesso ao ISE. Caso contrário, se qualquer porta necessária estiver indisponível, o ISE para de funcionar.
 
 > [!IMPORTANT]
 > Para a comunicação interna dentro de suas sub-redes, o ISE exige que você abra todas as portas dentro dessas sub-redes.
@@ -134,9 +135,13 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
 
    **Criar sub-rede**
 
-   Para criar e implantar recursos em seu ambiente, o ISE precisa de quatro sub-redes vazias que não são delegadas a nenhum serviço. Você *não pode* alterar esses endereços de sub-rede depois de criar seu ambiente. Cada sub-rede deve atender a estes critérios:
-
-   * Tem um nome que começa com um caractere alfabético ou um sublinhado e não tem estes caracteres: `<` `%`, `>` `&` `\\` `?`,,,,,`/`
+   Para criar e implantar recursos em seu ambiente, o ISE precisa de quatro sub-redes vazias que não são delegadas a nenhum serviço. Você *não pode* alterar esses endereços de sub-rede depois de criar seu ambiente.
+   
+   > [!IMPORTANT]
+   > 
+   > Os nomes de sub-rede devem começar com um caractere alfabético ou um sublinhado (sem números) e não usam esses caracteres `<`: `>` `%`, `?` `&` `\\`,,,, `/`,.
+   
+   Além disso, cada sub-rede deve atender a esses requisitos:
 
    * Usa o [formato CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereço da classe B.
 
@@ -150,7 +155,7 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
 
      Para saber mais sobre como calcular endereços, consulte [blocos CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Se você usar o [ExpressRoute](../expressroute/expressroute-introduction.md), lembre-se de [criar uma tabela de rotas](../virtual-network/manage-route-table.md) que tenha a rota a seguir e vincular essa tabela a cada sub-rede usada pelo ISE:
+   * Se você usar o [ExpressRoute](../expressroute/expressroute-introduction.md), precisará [criar uma tabela de rotas](../virtual-network/manage-route-table.md) que tenha a rota a seguir e vincular essa tabela a cada sub-rede usada pelo ISE:
 
      **Nome**: <*nome da rota*><br>
      **Prefixo de endereço**: 0.0.0.0/0<br>
@@ -239,7 +244,7 @@ A unidade base do ISE Premium tem capacidade fixa, portanto, se você precisar d
 
 1. Quando tiver concluído as configurações de dimensionamento automático, salve as alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar artefatos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Verificar a integridade da rede para ambientes do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)

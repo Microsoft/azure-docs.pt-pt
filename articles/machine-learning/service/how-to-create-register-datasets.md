@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 7a6a2c35360f59c8c2e3d0a75e646ae76c0c9de2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 2034701008396f524e5b058ddb726ddce89e4e32
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218296"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300606"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Criar e acessar conjuntos de os (visualização) no Azure Machine Learning
 
@@ -172,9 +172,9 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ## <a name="register-datasets"></a>Registrar conjuntos de os
 
-Para concluir o processo de criação, registre seus conjuntos de registros com o espaço de trabalho:
+Para concluir o processo de criação, registre seus conjuntos de registros com um espaço de trabalho.
 
-Use o [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) método para registrar conjuntos de registros em seu espaço de trabalho para que eles possam ser compartilhados com outras pessoas e reutilizados em vários experimentos.
+Use o [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) método para registrar conjuntos de registros com seu espaço de trabalho para que eles possam ser compartilhados com outras pessoas e reutilizados em vários experimentos.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -187,7 +187,8 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="version-datasets"></a>Conjuntos de itens de versão
 
-Você pode registrar um novo conjunto de registros com o mesmo nome criando uma nova versão. A versão do conjunto de dados é uma maneira de marcar o estado de seus dados, de modo que você possa aplicar uma versão específica do DataSet para experimentação ou reprodução futura. Cenários típicos para considerar o controle de versão:
+Você pode registrar um novo conjunto de registros com o mesmo nome criando uma nova versão. A versão do conjunto de dados é uma maneira de marcar o estado de seus dados, de modo que você possa aplicar uma versão específica do DataSet para experimentação ou reprodução futura. Os cenários típicos a serem considerados para o controle de versão são: 
+
 * Quando novos dados estão disponíveis para novo treinamento.
 * Ao aplicar as abordagens de preparação de dados ou de engenharia de recursos diferentes.
 

@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530929"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300955"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
 > [!IMPORTANT]
-> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
@@ -39,7 +39,7 @@ A um nível elevado, a API REST do Scheduler expõe estas operações para a ges
 
 ### <a name="job-management"></a>Gestão de tarefas
 
-Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Este é o endereço URI para essas operações:
+Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para essas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -47,7 +47,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gestão de coleções de tarefas
 
-Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Este é o endereço URI para essas operações:
+Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aqui está o endereço URI para essas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -55,7 +55,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Gestão do histórico de tarefas
 
-Suporta a operação GET para obter 60 dias do histórico de execuções de tarefas, por exemplo, o tempo decorrido da tarefa e os resultados de execução da tarefa. Inclui suporte de parâmetros de cadeias de consulta para filtrar com base no estado. Para obter mais informações, veja [API REST do Scheduler – Tarefas – Lista do Histórico de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Este é o endereço URI para esta operação:
+Suporta a operação GET para obter 60 dias do histórico de execuções de tarefas, por exemplo, o tempo decorrido da tarefa e os resultados de execução da tarefa. Inclui suporte de parâmetros de cadeias de consulta para filtrar com base no estado. Para obter mais informações, veja [API REST do Scheduler – Tarefas – Lista do Histórico de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Aqui está o endereço URI para esta operação:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -75,13 +75,13 @@ O Azure Scheduler suporta vários tipos de tarefas:
 A um nível elevado, uma tarefa do Scheduler tem estas partes básicas:
 
 * A ação que é executada quando é acionado o temporizador da tarefa
-* Opcional: O tempo para executar a tarefa
-* Opcional: Quando e como muitas vezes repetir a tarefa
-* Opcional: Uma ação de erro que é executado se a ação principal falhar
+* Opcional: A hora para executar o trabalho
+* Opcional: Quando e com que frequência repetir o trabalho
+* Opcional: Uma ação de erro que é executada se a ação principal falhar
 
 A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo de execução agendado da tarefa. A definição do código da tarefa é um objeto no formato JavaScript Object Notation (JSON), que tem estes elementos:
 
-| Elemento | Necessário | Descrição | 
+| Elemento | Requerido | Descrição | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
@@ -227,7 +227,7 @@ Tal como a **ação** primária, a ação de erro pode utilizar uma lógica simp
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>recurrence
+## <a name="recurrence"></a>periodicidade
 
 Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto **recurrence**, por exemplo:
 
@@ -245,7 +245,7 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 },
 ```
 
-| Propriedade | Necessário | Value | Descrição | 
+| Propriedade | Requerido | Value | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
 | **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
@@ -275,7 +275,7 @@ Para o caso de uma tarefa do Scheduler poder falhar, pode configurar uma políti
 },
 ```
 
-| Propriedade | Necessário | Value | Descrição | 
+| Propriedade | Requerido | Value | Descrição | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sim | **Determinado**, **Nenhum** | Determina se especificou uma política de repetição (**determinado**) ou não (**nenhum**). | 
 | **retryInterval** | Não | PT30S | Especifica o intervalo e a frequência entre tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos e o valor máximo é 18 meses. | 

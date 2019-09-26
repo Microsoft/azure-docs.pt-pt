@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141154"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300665"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
-Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou otimizado para **armazenamento** .
+Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou **otimizado para armazenamento** .
 
 + **Gratuito** é um serviço compartilhado multilocatário que vem com sua assinatura do Azure.
 
@@ -29,7 +29,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 > [!NOTE]
 > A partir de 1º de julho, todas as camadas estão geralmente disponíveis, incluindo a camada de armazenamento otimizado. Todos os preços podem ser encontrados na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) .
 
-  S3 High densidade (S3 HD) é projetado para cargas de trabalho específicas: [multilocação](search-modeling-multitenant-saas-applications.md) e grandes quantidades de índices pequenos (1 milhão documentos por índice, 3000 índices por serviço). Essa camada não fornece o [recurso](search-indexer-overview.md)de indexador. No S3 HD, a ingestão de dados deve aproveitar a abordagem de push, usando chamadas à API para enviar dados de origem para o índice. 
+  S3 High densidade (S3 HD) é projetado para cargas de trabalho específicas: [multilocação](search-modeling-multitenant-saas-applications.md) e grandes quantidades de índices pequenos (1 milhão documentos por índice, 3000 índices por serviço). Essa camada não fornece o [recurso de indexador](search-indexer-overview.md). No S3 HD, a ingestão de dados deve aproveitar a abordagem de push, usando chamadas à API para enviar dados de origem para o índice. 
 
 > [!NOTE]
 > Um serviço é provisionado em uma camada específica. As camadas de salto para obter capacidade envolvem o provisionamento de um novo serviço (não há nenhuma atualização in-loco). Para obter mais informações, consulte [escolher uma SKU ou camada](search-sku-tier.md). Para saber mais sobre como ajustar a capacidade em um serviço que você já provisionou, consulte [dimensionar níveis de recursos para cargas de trabalho de consulta e indexação](search-capacity-planning.md).
@@ -52,7 +52,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 | Máximo de campos de coleta complexos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
 | Máximo de elementos em todas as coleções complexas por documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profundidade máxima de campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
-| Sugestores máximos por índice [](https://docs.microsoft.com/rest/api/searchservice/suggesters) |1 |1 |1 |1 |1 |1 |1 |1 |
+| [Sugestores](https://docs.microsoft.com/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |1 |1 |
 | Máximo de [perfis de Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Máximo de funções por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
@@ -62,11 +62,13 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 ## <a name="document-limits"></a>Limites de documentos 
 
-A partir de outubro de 2018, não há mais nenhum limite de documento para nenhum novo serviço criado em qualquer camada faturável (básico, S1, S2, S3, S3 HD) em qualquer região. Embora a maioria das regiões tenha tido contagens de documentos ilimitadas desde novembro/dezembro de 2017, havia cinco regiões que continuaram a impor limites de documentos. Dependendo de quando e onde você criou um serviço de pesquisa, você pode estar executando um serviço que ainda está sujeito a limites de documentos.
+A partir de outubro de 2018, não há mais nenhum limite de documento<sup>1</sup> para qualquer novo serviço criado em qualquer camada faturável (básico, S1, S2, S3, S3 HD) em qualquer região. Embora a maioria das regiões tenha tido contagens de documentos ilimitadas desde novembro/dezembro de 2017, havia cinco regiões que continuaram a impor limites de documentos. Dependendo de quando e onde você criou um serviço de pesquisa, você pode estar executando um serviço que ainda está sujeito a limites de documentos.
 
 Para determinar se o serviço tem limites de documento, verifique o bloco uso na página Visão geral do seu serviço. As contagens de documentos são ilimitadas ou estão sujeitas a um limite com base na camada.
 
   ![Mosaico utilização](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+<sup>1</sup> mesmo que não haja nenhum limite de documento específico de SKU, cada índice ainda está sujeito a um limite de segurança máximo para garantir a estabilidade do serviço. Esse limite vem do Lucene. Cada documento de Azure Search é indexado internamente como um ou mais documentos do Lucene. O número de documentos do Lucene por documento do Azure Search depende do número total de elementos em campos de coleção complexos. Cada elemento é indexado como um documento Lucene separado. Por exemplo, um documento com 3 elementos em um campo de coleção complexo será indexado como quatro documentos Lucene-1 para o documento em si e 3 para os elementos. O número máximo de documentos Lucene é de aproximadamente 25.000.000.000 por índice.
 
 ### <a name="regions-previously-having-document-limits"></a>Regiões com limites de documentos anteriormente
 
@@ -144,7 +146,7 @@ Para as camadas de armazenamento otimizado, você deve esperar uma taxa de trans
 
 ## <a name="data-limits-cognitive-search"></a>Limites de dados (pesquisa cognitiva)
 
-Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), extração de [frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, use a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, use a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>Limites de solicitação de API
 * Máximo de 16 MB por solicitação <sup>1</sup>

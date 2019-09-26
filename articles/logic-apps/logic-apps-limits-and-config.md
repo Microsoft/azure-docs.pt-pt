@@ -1,5 +1,5 @@
 ---
-title: Limites e configuração-aplicativos lógicos do Azure | Microsoft Docs
+title: Limites e configuração – aplicativos lógicos do Azure
 description: Limites de serviço e valores de configuração para aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 1479c6665b5d68e0fa16ece7e37f4e2a2457c69a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242373"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309796"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -52,7 +52,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 365 dias | Para alterar o limite padrão, consulte [alterar duração da execução](#change-duration). |
 | Retenção de armazenamento | 90 dias a partir da hora de início da execução | 365 dias | Para alterar o limite padrão, consulte [alterar retenção de armazenamento](#change-retention). |
-| Intervalo de recorrência mínimo | Um segundo | Um segundo ||
+| Intervalo de recorrência mínimo | 1 segundo | 1 segundo ||
 | Intervalo de recorrência máximo | 500 dias | 500 dias ||
 |||||
 
@@ -118,6 +118,12 @@ Para ultrapassar esses limites no processamento normal ou executar testes de car
 
 > [!NOTE]
 > A [SKU do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, pois essa SKU não tem nenhum SLA (contrato de nível de serviço) ou recursos para escalar verticalmente. Use esta SKU somente para testes, desenvolvimento e teste, não para produção ou teste de desempenho.
+
+<a name="gateway-limits"></a>
+
+## <a name="gateway-limits"></a>Limites de gateway
+
+O aplicativo lógico do Azure dá suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="request-limits"></a>
 
@@ -211,7 +217,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 | Esquemas | 25 | 500 | 1,000 |
 | Assemblagens | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 1,000 |
-| Configurações de batch | 5 | 1 | 50 |
+| Configurações do lote | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -338,7 +344,7 @@ Os aplicativos lógicos não dão suporte à conexão direta com contas de armaz
 | Reino Unido Oeste | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 ||||
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 * Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * Saiba mais sobre [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

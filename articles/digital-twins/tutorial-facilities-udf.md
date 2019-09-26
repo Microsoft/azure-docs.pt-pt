@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alinast
-ms.openlocfilehash: e483ac8e56ce39cbb05c5d00634c6327b497bab5
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219906"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300052"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provisione sua criação e monitore condições de trabalho com o Azure digital gêmeos Preview
 
@@ -184,7 +184,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
 
 1. Na saída na janela de comando, copie o valor de `ConnectionString`, `Devices` na seção, para a área de transferência. Você precisará desse valor para simular a conexão do dispositivo na próxima seção.
 
-    ![Exemplo de aprovisionamento](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![Exemplo de provisionamento](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Se você receber uma mensagem de erro semelhante a "a operação de e/s foi anulada devido a uma saída de thread ou a uma solicitação de aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer se o cliente HTTP esgotou o tempo limite de um problema de rede.
@@ -245,7 +245,7 @@ A função definida pelo utilizador é executada sempre que a sua instância rec
 
 A janela saída mostra como a função definida pelo usuário é executada e intercepta eventos da simulação de dispositivo. 
 
-   ![Saída para o UDF](./media/tutorial-facilities-udf/udf-running.png)
+   [![Saída para o UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
 Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A `GetAvailableAndFreshSpaces` função imprime a mensagem no console.
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876767"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300706"
 ---
 # <a name="remote-desktop-client-connections"></a>Ligações cliente do Ambiente de Trabalho Remoto
 
@@ -153,6 +153,11 @@ Siga estas instruções gerais de solução de problemas para códigos de erro d
 
 **Soluciona** Ingresse todas as VMs que fazem parte de um pool de hosts no controlador de domínio.
 
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Erro: ConnectionFailedUserSIDInformationMismatch
+**Faz** O SID do token de Azure Active Directory (AD) do usuário não corresponde ao SID retornado pelo controlador de domínio ao tentar habilitar o usuário para entrada remota. Esse erro normalmente ocorre ao tentar entrar em um ambiente Azure Active Directory Domain Services (Azure AD DS) com um usuário originalmente originado de um AD do Windows Server.
+
+**Soluciona** Este cenário não tem suporte no momento. Somente os usuários originados de Azure Active Directory podem entrar em VMs de área de trabalho virtual do Windows conectadas ao Azure AD DS.
+
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>O usuário se conecta, mas nada é exibido (sem feed)
 
 Um usuário pode iniciar Área de Trabalho Remota clientes e é capaz de autenticar, no entanto, o usuário não vê nenhum ícone no feed de descoberta da Web.
@@ -167,7 +172,7 @@ Confirme se o usuário está fazendo logon com as credenciais corretas.
 
 Se o cliente Web estiver sendo usado, confirme se não há problemas de credenciais em cache.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.

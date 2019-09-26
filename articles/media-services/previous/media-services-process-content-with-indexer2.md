@@ -11,35 +11,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 8aa3082b15886234905edaebbbc9e1458bd7e3f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d03c3a15d9bccf93b73d36302f986dffd95c6428
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015021"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309255"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a versão prévia do Azure Media Indexer 2
-## <a name="overview"></a>Descrição geral
+
+> [!NOTE]
+> O processador de mídia [Azure Media indexer 2](media-services-process-content-with-indexer2.md) será desativado em 1º de janeiro de 2020. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substituem esse processador de mídia herdado. Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
+
 O MP (processador de mídia) da versão **prévia do Azure Media indexer 2** permite que você torne os arquivos de mídia e o conteúdo pesquisáveis, bem como gerar faixas de legendas ocultas. Em comparação com a versão anterior do [Azure Media indexer](media-services-index-content.md), o **Azure Media indexer 2 Preview** executa uma indexação mais rápida e oferece suporte mais amplo a idiomas. Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), Português, árabe, russo e japonês.
 
 O pacote de gerenciamento do **Azure Media indexer 2 Preview** está em visualização no momento.
 
 Este artigo mostra como criar trabalhos de indexação com a versão **prévia do Azure Media indexer 2**.
 
-> [!NOTE]
-> As seguintes considerações se aplicam:
-> 
-> Não há suporte para o indexador 2 no Azure China e no Azure governamental.
-> 
-> Ao indexar conteúdo, certifique-se de usar arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio de microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras ou apresentações gravadas. O conteúdo a seguir pode não ser adequado para indexação: filmes, programas de TV, qualquer coisa com efeitos de áudio e som mistos, conteúdo mal gravado com ruídos de fundo (assovio).
-> 
-> 
+## <a name="considerations"></a>Considerações
 
-Este artigo fornece detalhes sobre a versão **prévia do Azure Media indexer 2** e mostra como usá-lo com o SDK dos serviços de mídia para .net
-
+As seguintes considerações se aplicam:
+ 
+* Não há suporte para o indexador 2 no Azure China 21Vianet e no Azure governamental.
+* Ao indexar conteúdo, certifique-se de usar arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio de microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras ou apresentações gravadas. O conteúdo a seguir pode não ser adequado para indexação: filmes, programas de TV, qualquer coisa com efeitos de áudio e som mistos, conteúdo mal gravado com ruídos de fundo (assovio).
+ 
 ## <a name="input-and-output-files"></a>Arquivos de entrada e saída
 ### <a name="input-files"></a>Arquivos de entrada
 Arquivos de áudio ou vídeo

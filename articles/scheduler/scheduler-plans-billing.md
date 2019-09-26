@@ -1,6 +1,6 @@
 ---
-title: Planos e faturação - Azure Scheduler
-description: Saiba mais sobre os planos e faturação do Azure Scheduler
+title: Planos e cobrança – Agendador do Azure
+description: Saiba mais sobre planos e cobrança do Agendador do Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -9,76 +9,76 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720439"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300874"
 ---
-# <a name="plans-and-billing-for-azure-scheduler"></a>Planos e faturação do Azure Scheduler
+# <a name="plans-and-billing-for-azure-scheduler"></a>Planos e cobrança do Agendador do Azure
 
 > [!IMPORTANT]
-> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
 
-## <a name="job-collection-plans"></a>Planos de recolha de tarefa
+## <a name="job-collection-plans"></a>Planos de coleção de trabalhos
 
-No agendador do Azure, uma coleção de tarefas contém um número específico de tarefas. A coleção de tarefas é a entidade faturável e é fornecida nos planos Standard, P10 Premium e P20 Premium, que são descritos aqui: 
+No Agendador do Azure, uma coleção de trabalhos contém um número específico de trabalhos. A coleção de trabalhos é a entidade Faturável e vem nos planos standard, P10 Premium e P20 Premium, que são descritos aqui: 
 
-| Plano de recolha de tarefa | Máximo de tarefas por coleção | Periodicidade máxima | Coleções de tarefas máxima por subscrição | Limits | 
+| Plano de coleção de trabalhos | Máximo de trabalhos por coleção | Recorrência máxima | Máximo de coleções de trabalhos por assinatura | Limites | 
 |:--- |:--- |:--- |:--- |:--- |
-| **Standard** | 50 tarefas por coleção | Um minuto. Não é possível executar tarefas com mais frequência do que um minuto. | Cada subscrição do Azure pode ter até 100 coleções de tarefas padrão. | Acesso ao conjunto de todas as funcionalidades do Scheduler | 
-| **P10 Premium** | 50 tarefas por coleção | Um minuto. Não é possível executar tarefas com mais frequência do que um minuto. | Cada subscrição do Azure pode ter até 10 000 coleções de tarefas P10 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">contacte-nos</a>. | Acesso ao conjunto de todas as funcionalidades do Scheduler |
-| **P20 Premium** | 1000 tarefas por coleção | Um minuto. Não é possível executar tarefas com mais frequência do que um minuto. | Cada subscrição do Azure pode ter até 5 000 coleções de tarefas P20 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">contacte-nos</a>. | Acesso ao conjunto de todas as funcionalidades do Scheduler |
+| **Standard** | 50 trabalhos por coleção | Um por minuto. Não é possível executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 100 coleções de trabalhos padrão. | Acesso ao conjunto de recursos completos do Agendador | 
+| **P10 Premium** | 50 trabalhos por coleção | Um por minuto. Não é possível executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 10.000 P10 de coleta de trabalhos Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">entre em contato conosco</a>. | Acesso ao conjunto de recursos completos do Agendador |
+| **P20 Premium** | 1000 trabalhos por coleção | Um por minuto. Não é possível executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 5.000 P20 de coleta de trabalhos Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">entre em contato conosco</a>. | Acesso ao conjunto de recursos completos do Agendador |
 |||||| 
 
 ## <a name="pricing"></a>Preços
 
-Para detalhes de preços, consulte [preços do Scheduler](https://azure.microsoft.com/pricing/details/scheduler/).
+Para obter detalhes de preços, consulte [preços do Agendador](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## <a name="upgrade-or-downgrade-plans"></a>Aumentar ou diminuir planos
+## <a name="upgrade-or-downgrade-plans"></a>Planos de upgrade ou downgrade
 
-Em qualquer altura, pode atualizar ou mudar a versão de um plano de coleção de tarefas entre os planos Standard, P10 Premium e P20 Premium.
+A qualquer momento, você pode atualizar ou fazer downgrade de um plano de coleção de trabalhos nos planos standard, P10 Premium e P20 Premium.
 
-## <a name="active-status-and-billing"></a>Estado do Active Directory e faturação
+## <a name="active-status-and-billing"></a>Status ativo e cobrança
 
-Coleções de tarefas são sempre ativas, a menos que a sua subscrição do Azure inteira entra em estado temporário desativado devido a problemas de faturação. E embora pode desativar todas as tarefas numa coleção de tarefas por meio de uma única operação, esta ação não altera a Estado de faturação a coleção de tarefas, pelo que é a coleção de tarefas *ainda* faturado. Coleções de tarefas vazio são consideradas Active Directory e são faturadas.
+As coleções de trabalho estão sempre ativas, a menos que toda a sua assinatura do Azure entre em um estado temporário desabilitado devido a problemas de cobrança. E, embora você possa desabilitar todos os trabalhos em uma coleção de trabalhos por meio de uma única operação, essa ação não altera o status de cobrança da coleção de trabalhos, portanto, a coleção de trabalhos *ainda* é cobrada. As coleções de trabalhos vazias são consideradas ativas e são cobradas.
 
-Para certificar-se de que não é cobrada uma coleção de tarefas, tem de eliminar a coleção de tarefas.
+Para garantir que uma coleção de trabalhos não seja cobrada, você deve excluir a coleção de trabalhos.
 
-## <a name="standard-billable-units"></a>Unidades faturáveis padrão
+## <a name="standard-billable-units"></a>Unidades Faturáveis padrão
 
-Uma unidade a cobrar standard pode ter até 10 coleções de tarefas padrão. Como uma coleção de tarefas padrão pode ter até 50 tarefas por coleção, uma unidade de faturação padrão permite que a sua subscrição do Azure ter até 500 tarefas ou até quase 22 *milhão* execuções por mês de tarefas. Esta lista explica como é cobrado com base em vários números de coleções de tarefas padrão:
+Uma unidade Faturável padrão pode ter até 10 coleções de trabalhos padrão. Como uma coleção de trabalhos padrão pode ter até 50 trabalhos por coleção, uma unidade de cobrança padrão permite que sua assinatura do Azure tenha até 500 trabalhos ou até quase 22 *milhões* de execuções de trabalho por mês. Esta lista explica como você é cobrado com base em vários números de coleções de trabalhos padrão:
 
-* Se tiver entre 1 e coleções de tarefas padrão 10, é-lhe cobrada para uma unidade de faturação padrão. 
+* Se você tiver entre 1 e 10 coleções de trabalhos padrão, será cobrado por uma unidade de cobrança padrão. 
 
-* Se tiver entre 11 e coleções de tarefas padrão 20, é cobrado para duas unidades de faturas padrão. 
+* Se você tiver entre 11 e 20 coleções de trabalhos padrão, será cobrado por duas unidades de cobrança padrão. 
 
-* Se tiver entre 21 e coleções de tarefas padrão 30, a faturação para três unidades de faturas padrão e assim por diante.
+* Se você tiver entre 21 e 30 coleções de trabalhos padrão, será cobrado por três unidades de cobrança padrão e assim por diante.
 
-## <a name="p10-premium-billable-units"></a>Unidades faturáveis do P10 premium
+## <a name="p10-premium-billable-units"></a>Unidades faturáveis P10 Premium
 
-Uma unidade a cobrar P10 premium pode ter até 10 000 coleções de tarefas P10 Premium. Como uma coleção de tarefas P10 Premium pode ter até 50 tarefas por coleção, uma unidade faturação para o P10 premium permite que a sua subscrição do Azure ter até 500.000 tarefas ou até quase 22 *mil milhões* execuções por mês de tarefas. 
+Uma unidade Faturável P10 Premium pode ter até 10.000 P10 de coleta de trabalhos Premium. Como uma coleção de trabalhos P10 Premium pode ter até 50 trabalhos por coleção, uma unidade de cobrança Premium do P10 permite que sua assinatura do Azure tenha até 500.000 trabalhos ou até quase 22 *bilhões* de execuções de trabalho por mês. 
 
-Coleções de tarefas P10 Premium fornecem as mesmas capacidades do coleções de tarefas padrão, mas oferecem uma garantia de reparação de preço para as aplicações que requerem muitas coleções de tarefas e fornecer escalabilidade mais. Esta lista explica como é cobrado com base em vários números de coleções de tarefas P10 Premium:
+As coleções de trabalhos do P10 Premium fornecem os mesmos recursos que as coleções de trabalho padrão, mas oferecem uma quebra de preço para aplicativos que exigem muitas coleções de trabalho e fornecem mais escalabilidade. Esta lista explica como você é cobrado com base em vários números de coleções de trabalhos do P10 Premium:
 
-* Se tiver entre 1 e 10 000 coleções de tarefas P10 Premium, é-lhe cobrada para a unidade de faturação um P10 premium. 
+* Se você tiver entre 1 e 10.000 P10 de coleta de trabalhos Premium, você será cobrado por uma unidade de cobrança Premium do P10. 
 
-* Se tiver entre 10,001 e 20 000 coleções de tarefas P10 Premium, a faturação para unidades de faturas 2 P10 premium e assim por diante.
+* Se você tiver entre 10.001 e 20.000 P10 de coleta de trabalhos Premium, você será cobrado por duas unidades de cobrança Premium do P10 e assim por diante.
 
-## <a name="p20-premium-billable-units"></a>Unidades faturáveis do P20 premium
+## <a name="p20-premium-billable-units"></a>Unidades faturáveis P20 Premium
 
-Uma unidade a cobrar P20 premium pode ter até 5 000 coleções de tarefas P20 Premium. Como uma coleção de tarefas P20 Premium pode ter até 1.000 tarefas por coleção de tarefas, uma unidade faturação para o P20 premium permite que a sua subscrição do Azure tem para 5,000,000 tarefas ou até quase 220 *mil milhões* execuções por mês de tarefas.
+Uma unidade Faturável P20 Premium pode ter até 5.000 P20 de coleta de trabalhos Premium. Como uma coleção de trabalhos P20 Premium pode ter até 1.000 trabalhos por coleção de trabalhos, uma unidade de cobrança Premium do P20 permite que sua assinatura do Azure tenha até 5 milhões trabalhos ou até quase 220 *bilhões* de execuções de trabalho por mês.
 
-Coleções de tarefas P20 Premium fornecem as mesmas capacidades do coleções de tarefas P10 Premium, mas também para suportar um maior número de tarefas por coleção e um maior número total de tarefas geral que Premium P10, fornecendo escalabilidade mais.
+As coleções de trabalhos do P20 Premium fornecem os mesmos recursos que as coleções de trabalhos do P10 Premium, mas também dão suporte a um número maior de trabalhos por coleção e um número total maior de trabalhos gerais do que o P10 Premium, fornecendo mais escalabilidade.
 
 ## <a name="plan-comparison"></a>Comparação de planos
 
-* Se tiver mais de 100 coleções de tarefas padrão (10 unidades de faturas padrão), em seguida, pode obter um resultado melhor fazendo com que todas as coleções de tarefas num plano Premium.
+* Se você tiver mais de 100 coleções de trabalhos padrão (10 unidades de cobrança padrão), poderá obter um melhor acordo com todas as coleções de trabalhos em um plano Premium.
 
-* Se tiver uma coleção de tarefas padrão e uma coleção de tarefas Premium, em seguida, é-lhe cobrada para uma unidade de faturação standard *e* uma unidade de faturação premium.
+* Se você tiver uma coleção de trabalhos padrão e uma coleção de trabalhos Premium, será cobrado por uma unidade de cobrança padrão e uma unidade *de* cobrança Premium.
 
-  As contas de serviço de Scheduler com base no número de coleções de tarefas ativas que estão standard ou premium.
+  O serviço de Agendador cobra com base no número de coleções de trabalhos ativas que são standard ou Premium.
 
 ## <a name="see-also"></a>Consulte também
 

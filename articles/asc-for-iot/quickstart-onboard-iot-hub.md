@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a794ccea13323f38b20906458e216f85652bfc3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3d9c5352a90d5bcacbaf27b7b62be61fc404e87a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596959"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299495"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Início rápido: Integração da central de segurança do Azure para o serviço de IoT no Hub IoT
 
@@ -38,19 +38,6 @@ Este artigo fornece uma explicação de como habilitar a central de segurança d
 - Hub IoT (camada Standard)
 - Atender a todos os [pré-requisitos de serviço](service-prerequisites.md) 
 
-|Regiões de serviço do Azure com suporte | ||
-|---|---|---|
-| EUA Central |East US |EUA Leste 2 |
-| EUA Centro-Oeste |EUA Oeste |E.U.A. Oeste 2 |
-| EUA Central Sul|EUA Centro-Norte | Canadá Central|
-| Leste do Canadá| Europa do Norte|Sul do Brasil|
-| França Central| Reino Unido Oeste|Reino Unido Sul|
-|Europa Ocidental|Norte da Europa| Oeste do Japão|
-|Leste do Japão | Sudeste da Austrália|Leste da Austrália|
-|Ásia Oriental| Sudeste Asiático| Coreia do Sul Central|
-|Coreia do Sul| Índia Central| Sul da Índia|
-|
-
 ## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Habilitar a central de segurança do Azure para IoT em seu hub IoT 
 
 Para habilitar a segurança em seu hub IoT, faça o seguinte: 
@@ -60,14 +47,14 @@ Para habilitar a segurança em seu hub IoT, faça o seguinte:
 1. Deixe **habilitar** selecionado como padrão. 
 1. Selecione seu espaço de trabalho do log Analytics.
 1. Forneça os detalhes do seu Log Analytics espaço de trabalho. 
-   - Escolha habilitar a **coleta** de entrelaçamento deixando a opção de **Ativar/desativar** **coleta** .
-   - Escolha armazenar **eventos brutos** além dos tipos de informações padrão de armazenamento selecionando os **eventos de segurança de dispositivo brutos de armazenamento** em log Analytics. Deixe a opção de ativar **/desativar** **evento bruto** . 
+   - Escolha habilitar a **coleta de entrelaçamento** deixando a **opção de ativar/desativar** **coleta** .
+   - Escolha armazenar **eventos brutos** além dos tipos de informações padrão de armazenamento selecionando os **eventos de segurança de dispositivo brutos de armazenamento** em log Analytics. Deixe a **opção de ativar/desativar** **evento bruto** . 
     
 1. Clique em **Guardar**. 
 
 Parabéns! Você concluiu a habilitação da central de segurança do Azure para IoT em seu hub IoT. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para configurar sua solução...
 

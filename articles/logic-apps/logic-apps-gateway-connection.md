@@ -9,16 +9,18 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: d397adfb6ed2d3aef93bd40d14eb0ad199cdb90c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036662"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309362"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
-Para acessar fontes de dados locais de seus aplicativos lógicos, crie um recurso de gateway de dados local no portal do Azure. Seus aplicativos lógicos podem usar os [conectores locais](../connectors/apis-list.md#on-premises-connectors). Este artigo mostra como criar o recurso de gateway do Azure *depois* de [baixar e instalar o gateway em um computador local](../logic-apps/logic-apps-gateway-install.md). Para obter mais informações sobre o gateway, consulte [como funciona o gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Para acessar fontes de dados locais de seus aplicativos lógicos, crie um recurso de gateway de dados local no portal do Azure. Seus aplicativos lógicos podem usar os [conectores locais](../connectors/apis-list.md#on-premises-connectors). O aplicativo lógico do Azure dá suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+
+Este artigo mostra como criar o recurso de gateway do Azure *depois* de [baixar e instalar o gateway em um computador local](../logic-apps/logic-apps-gateway-install.md). Para obter mais informações sobre o gateway, consulte [como funciona o gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service). 
 
 > [!TIP]
 > Para se conectar às redes virtuais do Azure, considere criar um [*ambiente de serviço de integração*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) em vez disso. 
@@ -121,7 +123,7 @@ Depois de criar o recurso de gateway e associar sua assinatura do Azure a esse r
 
 Sua conexão de gateway agora está pronta para uso do seu aplicativo lógico.
 
-## <a name="edit-connection"></a>Editar conexão
+## <a name="edit-connection"></a>Editar ligação
 
 Para atualizar as configurações de uma conexão de gateway, você pode editar sua conexão.
 
@@ -151,7 +153,7 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
    Por exemplo:
 
-   ![Excluir gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![Eliminar gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
 
 <a name="faq"></a>
 
@@ -166,7 +168,7 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger as suas aplicações lógicas](./logic-apps-securing-a-logic-app.md)
 * [Exemplos e cenários comuns para aplicativos lógicos](./logic-apps-examples-and-scenarios.md)

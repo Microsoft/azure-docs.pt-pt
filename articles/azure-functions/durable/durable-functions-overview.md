@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 5fd79b15f0f6398e2f48da25197fa6d5c2e010c2
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a917a823d47d6a072cf5a3ee5d636b432913df9a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075923"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299433"
 ---
 # <a name="what-are-durable-functions"></a>O que são Durable Functions?
 
@@ -61,7 +61,7 @@ public static async Task<object> Run(
 {
     try
     {
-        var x = await context.CallActivityAsync<object>("F1");
+        var x = await context.CallActivityAsync<object>("F1", null);
         var y = await context.CallActivityAsync<object>("F2", x);
         var z = await context.CallActivityAsync<object>("F3", y);
         return  await context.CallActivityAsync<object>("F4", z);
@@ -113,7 +113,7 @@ public static async Task Run(
     var parallelTasks = new List<Task<int>>();
 
     // Get a list of N work items to process in parallel.
-    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1", null);
     for (int i = 0; i < workBatch.Length; i++)
     {
         Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
@@ -287,7 +287,7 @@ Estes exemplos criam um processo de aprovação para demonstrar o padrão de int
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("RequestApproval");
+    await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
     {
         DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
@@ -301,7 +301,7 @@ public static async Task Run(
         }
         else
         {
-            await context.CallActivityAsync("Escalate");
+            await context.CallActivityAsync("Escalate", null);
         }
     }
 }
@@ -455,7 +455,7 @@ Você pode começar a usar o Durable Functions em menos de 10 minutos, concluind
 
 Em ambos os guias de início rápido, você cria e testa localmente uma função durável "Olá, mundo". Em seguida, publique o código de função no Azure. A função que você cria orquestra e encadeia chamadas para outras funções.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Obter mais informações
 
 O vídeo a seguir destaca os benefícios de Durable Functions:
 
@@ -467,7 +467,7 @@ Para obter uma discussão mais detalhada sobre o Durable Functions e a tecnologi
 
 Como Durable Functions é uma extensão avançada para [Azure Functions](../functions-overview.md), ela não é apropriada para todos os aplicativos. Para obter uma comparação com outras tecnologias de orquestração do Azure, consulte [comparar Azure Functions e aplicativos lógicos do Azure](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Durable Functions tipos de função e recursos](durable-functions-types-features-overview.md)

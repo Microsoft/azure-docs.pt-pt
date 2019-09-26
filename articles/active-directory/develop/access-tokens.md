@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d89d861b48b0c198b06a45613db668adcf551b39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 780ec85438990959b7b0ac686e05ad5db3f9eedf
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074316"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291092"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma Microsoft Identity
 
@@ -67,7 +67,7 @@ JWTs são divididos em três partes:
 
 Cada parte é separada por um ponto (`.`) e codificado em base64 separado.
 
-As declarações estarão presentes somente se houver um valor para preenchê-lo. Portanto, seu aplicativo não deve assumir uma dependência de uma declaração estar presente. Os exemplos `pwd_exp` incluem (nem todos os locatários exigem que as senhas `family_name` expirem) ou (os fluxos de credencial do[cliente](v1-oauth2-client-creds-grant-flow.md) estão em nome dos aplicativos, que não têm nomes). As declarações usadas para validação de token de acesso sempre estarão presentes.
+As declarações estarão presentes somente se houver um valor para preenchê-lo. Portanto, seu aplicativo não deve assumir uma dependência de uma declaração estar presente. Os exemplos `pwd_exp` incluem (nem todos os locatários exigem que as senhas `family_name` expirem) ou (os fluxos de[credencial do cliente](v1-oauth2-client-creds-grant-flow.md) estão em nome dos aplicativos, que não têm nomes). As declarações usadas para validação de token de acesso sempre estarão presentes.
 
 > [!NOTE]
 > Algumas declarações são usadas para ajudar os tokens de segurança do Azure AD no caso de reutilização. Eles são marcados como não sendo para consumo público na descrição como "opaco". Essas declarações podem ou não aparecer em um token, e novas podem ser adicionadas sem aviso prévio.
@@ -114,6 +114,11 @@ As declarações estarão presentes somente se houver um valor para preenchê-lo
 | `uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
 | `rh` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
 | `ver` | Cadeia de caracteres `1.0` , ou`2.0` | Indica a versão do token de acesso. |
+
+
+> [! Declaração excedente de grupos] para garantir que o tamanho do token não exceda os limites de tamanho do cabeçalho HTTP, o Azure AD limita o número de IDs de objeto que ele inclui na declaração de grupos. Se um usuário for membro de mais grupos do que o limite excedente (150 para tokens SAML, 200 para tokens JWT), o Azure AD não emitirá a declaração de grupos no token. Em vez disso, ele inclui uma declaração excedente no token que indica ao aplicativo consultar o API do Graph para recuperar a associação de grupo do usuário.
+> { ... "_claim_names": {"Groups": "src1"}, {"_claim_sources": {"src1": {"Endpoint": "[URL do grafo para obter a associação de grupo deste usuário de]"}}    
+    ... } Você pode usar o `BulkCreateGroups.ps1` fornecido na pasta [scripts de criação de aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) para ajudar a testar cenários excedentes.
 
 #### <a name="v10-basic-claims"></a>declarações básicas do v 1.0
 
@@ -247,7 +252,7 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 >
 > Os tokens de atualização não são invalidados ou revogados quando usados para buscar um novo token de acesso e um token de atualização.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [ `id_tokens` o Azure ad](id-tokens.md).
 * Saiba mais sobre permissão e consentimento em [v 1.0](v1-permissions-and-consent.md) e [v 2.0](v2-permissions-and-consent.md).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 99d21e773fee59780d82004eaa7213598fe7c8bb
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 202414260deacc4b196cd789e923ff00ca650b4d
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066127"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315219"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
@@ -188,15 +188,7 @@ Abra um navegador e navegue até a URL. Verifique se você digitou a URL correta
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cria em seu locatário. Esta seção lista as etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-5. Insira um nome para o aplicativo, por exemplo, *testapp1*.
-6. Para **aplicativo Web/API Web**, selecione `Yes`e, em seguida `https://jwt.ms` , insira para a **URL de resposta**.
-7. Clique em **Criar**.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ### <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
 

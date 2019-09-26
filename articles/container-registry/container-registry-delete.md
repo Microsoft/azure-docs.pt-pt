@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873213"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300190"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Excluir imagens de contêiner no registro de contêiner do Azure usando o CLI do Azure
 
@@ -259,11 +259,14 @@ if ($enableDelete) {
 }
 ```
 
+
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Remover automaticamente etiquetas e manifestos (pré-visualização)
 
 Como uma alternativa ao script CLI do Azure comandos, execute uma tarefa de ACR sob demanda ou agendada para excluir todas as marcas que são mais antigas do que uma determinada duração ou que correspondam a um filtro de nome especificado. Para obter mais informações, consulte [limpar automaticamente imagens de um registro de contêiner do Azure](container-registry-auto-purge.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+Opcionalmente, defina uma [política de retenção](container-registry-retention-policy.md) para cada registro, para gerenciar os manifestos não marcados. Quando você habilita uma política de retenção, os manifestos de imagem no registro que não têm nenhuma marca associada e os dados de camada subjacentes são excluídos automaticamente após um período definido.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o armazenamento de imagem no registro de contêiner do Azure, veja [armazenamento de imagem de contêiner no registro de contêiner do Azure](container-registry-storage.md).
 

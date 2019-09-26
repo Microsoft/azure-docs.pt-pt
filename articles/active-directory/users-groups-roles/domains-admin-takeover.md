@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146468"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315728"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -101,7 +101,7 @@ Os planos de serviço com suporte incluem:
 
 O tomada de administração externa não tem suporte para nenhum serviço que tenha planos de serviço que incluam o SharePoint, OneDrive ou Skype for Business; por exemplo, por meio de uma assinatura gratuita do Office. 
 
-Opcionalmente, você pode usar a [opção **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. **A opção ForceTakeover não se move por usuários nem mantém o acesso à assinatura. Essa opção move apenas o nome de domínio.**
+Opcionalmente, você pode usar a [opção **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas físicas
 

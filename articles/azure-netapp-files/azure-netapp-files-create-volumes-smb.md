@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/20/2019
+ms.date: 9/25/2019
 ms.author: b-juche
-ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178273"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299657"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -95,6 +95,9 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
     * **Caminho da unidade organizacional**  
         Esse é o caminho LDAP para a UO (unidade organizacional) em que as contas de máquina do servidor SMB serão criadas. Ou seja, OU = segundo nível, OU = primeiro nível. 
+
+        Se você estiver usando Azure NetApp files com Azure Active Directory Domain Services, o caminho da unidade organizacional `OU=AADDC Computers` será quando você configurar Active Directory para sua conta do NetApp.
+        
     * Credenciais, incluindo seu **nome de usuário** e **senha**
 
     ![Associar o Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)

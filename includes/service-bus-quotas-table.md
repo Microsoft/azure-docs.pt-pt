@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d6c5d881c5ca6eee14835ab0ec10bff2749299dc
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b0c6d80bfa7a7ae27e5dc6565b0d15b94eb7cdd3
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68502320"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310604"
 ---
 A tabela a seguir lista informações de cota específicas para mensagens do barramento de serviço do Azure. Para obter informações sobre preços e outras cotas para o barramento de serviço, consulte [preços do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Nome da quota | Scope | Notas | Value |
 | --- | --- | --- | --- |
 | Número máximo de namespaces Basic ou Standard por assinatura do Azure |Espaço de Nomes |As solicitações subsequentes para namespaces básicos ou padrão adicionais são rejeitadas pelo portal do Azure. |100|
-| Número máximo de namespaces Premium por assinatura do Azure |Espaço de Nomes |As solicitações subsequentes para namespaces Premium adicionais são rejeitadas pelo portal. |50 |
+| Número máximo de namespaces Premium por assinatura do Azure |Espaço de Nomes |As solicitações subsequentes para namespaces Premium adicionais são rejeitadas pelo portal. |100 |
 | Tamanho da fila ou do tópico |Entidade |Definido na criação da fila ou do tópico. <br/><br/> As mensagens de entrada subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />No SKU Premium e o SKU Standard com [particionamento](/azure/service-bus-messaging/service-bus-partitioning) habilitado, o tamanho máximo da fila ou do tópico é de 80 GB. |
 | Número de conexões simultâneas em um namespace |Espaço de Nomes |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. As operações REST não contam para conexões TCP simultâneas. |NetMessaging: 1.000.<br /><br />AMQP 5.000. |
 | Número de solicitações de recebimento simultâneas em uma entidade de fila, tópico ou assinatura |Entidade |As solicitações de recebimento subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. Essa cota se aplica ao número combinado de operações de recebimento simultâneas em todas as assinaturas em um tópico. |5,000 |

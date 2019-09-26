@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: c81c2de180a2c5734f3896d4b6843f2ccccdf45f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 7cb158490bd8a8520e101dbe321b8594cad059f9
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231206"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309671"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
@@ -36,7 +36,7 @@ Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) sã
 Um [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação ativa e de passagem. Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType. None** -um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. Os fluxos ingeridos passam pelo evento ao vivo sem nenhum processamento adicional. 
-* **LiveEventEncodingType. Standard** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior , a predefinição de default720p codificará um conjunto de 6 pares de resolução/taxa de bits.
+* **LiveEventEncodingType. Standard** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits.
 * **LiveEventEncodingType. Premium1080p** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. A predefinição de default1080p especifica o conjunto de saída de pares de resolução/taxa de bits. 
 
 ### <a name="pass-through"></a>Pass-through
@@ -61,7 +61,7 @@ Ao utilizar a codificação em direto com os Serviços de Multimédia, configura
 
 Ao usar a codificação ativa, você pode enviar o feed de contribuição somente em resoluções até a resolução de uma taxa de quadros de 30 quadros/segundo, com H. 264/AVC Video Codec e o codec de áudio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Observe que os eventos ao vivo de passagem podem dar suporte a resoluções de até 4K em 60 quadros/segundo. Veja o artigo [Live Event types comparison](live-event-types-comparison.md) (Comparação de tipos de Eventos em Direto) para obter mais detalhes.
 
-As resoluções e taxas de bits contidas na saída do codificador ao vivo são determinadas pela predefinição. Se você estiver usando um codificador ativo **padrão** (LiveEventEncodingType. Standard), a predefinição default720p especificará um conjunto de 6 pares de taxa de resolução/bit, indo de 720p a 3,5 Mbps para 192p a 200 Kbps. Caso contrário, se estiver usando um codificador **Premium1080p** Live (LiveEventEncodingType. Premium1080p), a predefinição de default1080p especificará um conjunto de 6 pares de taxa de resolução/bit, indo de 1080p a 3,5 Mbps para 180p a 200 Kbps. Para obter informações, veja [System presets](live-event-types-comparison.md#system-presets) (Predefinições do sistema).
+As resoluções e taxas de bits contidas na saída do codificador ao vivo são determinadas pela predefinição. Se você estiver usando um codificador ativo **padrão** (LiveEventEncodingType. Standard), a predefinição *default720p* especificará um conjunto de 6 pares de taxa de resolução/bit, indo de 720p a 3,5 mbps para 192P a 200 Kbps. Caso contrário, se estiver usando um codificador **Premium1080p** Live (LiveEventEncodingType. Premium1080p), a predefinição de *default1080p* especificará um conjunto de 6 pares de taxa de resolução/bit, indo de 1080p a 3,5 mbps para 180p a 200 Kbps. Para obter informações, veja [System presets](live-event-types-comparison.md#system-presets) (Predefinições do sistema).
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte via portal do Azure. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Verifique se há apenas uma camada em 720p (se solicitar uma predefinição para um codificador ao vivo padrão) ou em 1080p (se solicitar uma predefinição para um codificador ao vivo Premium1080p) e no máximo 6 camadas.
@@ -71,11 +71,13 @@ As resoluções e taxas de bits contidas na saída do codificador ao vivo são d
 Ao criar um evento ao vivo, você pode especificar as seguintes opções:
 
 * O protocolo de streaming para o evento ao vivo (atualmente, há suporte para os protocolos RTMP e Smooth Streaming).<br/>Você não pode alterar a opção de protocolo enquanto o evento ao vivo ou suas saídas dinâmicas associadas estiverem em execução. Se você precisar de protocolos diferentes, deverá criar um evento ao vivo separado para cada protocolo de streaming.  
-* Restrições de IP na ingestão e na pré-visualização. Você pode definir os endereços IP que têm permissão para ingerir um vídeo para esse evento ao vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').<br/>Se não for especificado qualquer endereço IP e se não existir nenhuma definição de regra, não será permitido nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos seguintes formatos: Endereço IpV4 com 4 números, intervalo de endereços CIDR.
 * Ao criar o evento, poderá especificar o início automático do mesmo. <br/>Quando AutoStart é definido como true, o evento ao vivo será iniciado após a criação. A cobrança começa assim que o evento ao vivo começa a ser executado. Você deve chamar Stop explicitamente no recurso de evento ao vivo para interromper mais cobranças. Como alternativa, você pode iniciar o evento quando estiver pronto para iniciar o streaming. 
 
     Para obter mais informações, consulte [Live Event States e Billing](live-event-states-billing.md).
+* Restrições de IP na ingestão e na pré-visualização. Você pode definir os endereços IP que têm permissão para ingerir um vídeo para esse evento ao vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').<br/>Se não for especificado qualquer endereço IP e se não existir nenhuma definição de regra, não será permitido nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos seguintes formatos: Endereço IpV4 com 4 números, intervalo de endereços CIDR.
 
+    Se você quiser habilitar determinados IPs em seus próprios firewalls ou se quiser restringir as entradas aos seus eventos ao vivo para os endereços IP do Azure, baixe um arquivo JSON dos [intervalos de endereços IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Para obter detalhes sobre esse arquivo, clique na seção **detalhes** na página.
+    
 ## <a name="live-event-ingest-urls"></a>URLs de ingestão de eventos ao vivo
 
 Quando o Evento em Direto estiver criado, pode obter os URLs de ingestão que vai fornecer ao codificador em direto no local. O codificador em direto utiliza esses URLs para introduzir uma transmissão um fluxo direto. Para obter mais informações, consulte [codificadores ativos locais recomendados](recommended-on-premises-live-encoders.md). 
@@ -153,7 +155,7 @@ Para obter detalhes, consulte [operações de execução longa](media-services-a
 
 ## <a name="live-outputs"></a>Saídas em Direto
 
-Depois que o fluxo fluir para o evento ao vivo, você poderá iniciar o evento de streaming criando um [ativo](https://docs.microsoft.com/rest/api/media/assets), uma [saída ao vivo](https://docs.microsoft.com/rest/api/media/liveoutputs)e um localizador de [streaming](https://docs.microsoft.com/rest/api/media/streaminglocators). A saída ao vivo arquivará o fluxo e o tornará disponível para os visualizadores por meio do [ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
+Depois que o fluxo fluir para o evento ao vivo, você poderá iniciar o evento de streaming criando um [ativo](https://docs.microsoft.com/rest/api/media/assets), uma [saída ao vivo](https://docs.microsoft.com/rest/api/media/liveoutputs)e um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators). A saída ao vivo arquivará o fluxo e o tornará disponível para os visualizadores por meio do [ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
 Para obter informações detalhadas sobre as saídas ao vivo, consulte [usando um DVR de nuvem](live-event-cloud-dvr.md).
 

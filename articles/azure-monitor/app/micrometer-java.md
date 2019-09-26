@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 1074495f5ac9112b6ce4f67ad2d81ee57b28e720
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5bef5a6037c6eb29d0dc48e313958e2d243904eb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012699"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299579"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrometer com o SDK do Java do insights Aplicativo Azure
 O monitoramento de aplicativos micrometer mede as métricas para o código do aplicativo baseado em JVM e permite que você exporte os dados para seus sistemas de monitoramento favoritos. Este artigo ensinará como usar o micrometer com Application Insights para aplicativos Spring boot e não Spring boot.
 
 ## <a name="using-spring-boot-15x"></a>Usando o Spring boot 1.5 x
 Adicione as seguintes dependências ao arquivo pom. xml ou Build. gradle: 
-* [Application insights Spring-boot-Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-beta ou superior
+* [Application insights Spring-boot-Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 ou posterior
 * Micrometer Azure registro 1.1.0 ou superior
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 ou superior (isso reportará o código de configuração automática no Spring Framework).
 * [Recurso ApplicationInsights](../../azure-monitor/app/create-new-resource.md )
@@ -37,7 +37,7 @@ Passos
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.0-BETA</version>
+        <version>2.5.0</version>
     </dependency>
 
     <dependency>
@@ -64,7 +64,7 @@ Passos
 Adicione as seguintes dependências ao arquivo pom. xml ou Build. gradle:
 
 * Application Insights Spring-boot-Starter 2.1.2 ou superior
-* Azure-Spring-boot-métricas-inicializadores 2.1.5 ou acima  
+* Azure-Spring-boot-métricas-inicializadores 2.0.7 ou posterior
 * [Application Insights recurso](../../azure-monitor/app/create-new-resource.md )
 
 Passos:
@@ -75,21 +75,21 @@ Passos:
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.1.6</version>
+          <version>2.0.7</version>
     </dependency>
     ```
 1. Atualize o arquivo Application. Properties ou yml com a chave de instrumentação Application Insights usando a seguinte propriedade:
 
-     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
+     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. Compile seu aplicativo e execute
 4. A seguir, você deve fazer com que você execute com as métricas previamente agregadas coletadas automaticamente para Azure Monitor. Para obter detalhes sobre como ajustar Application Insights iniciador do Spring boot, consulte o [Leiame no GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
 Métricas padrão:
 
 *    As métricas configuradas automaticamente para Tomcat, JVM, métricas de Logback, métricas de Log4J, métricas de tempo de atividade, métricas de processador, FileDescriptorMetrics.
-*    Por exemplo, se o Netflix Hystrix estiver presente no caminho de classe, obteremos essas métricas também. 
+*    Por exemplo, se Netflix Hystrix estiver presente no caminho de classe, obteremos essas métricas também. 
 *    As métricas a seguir podem estar disponíveis adicionando os respectivos Beans. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -121,10 +121,8 @@ Como desativar a coleção de métricas automáticas:
 ## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Usar o micrometer com aplicativos Web que não são Spring boot
 
 Adicione as seguintes dependências ao arquivo pom. xml ou Build. gradle:
- 
-* [Núcleo do Application insights 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) ou superior
-* [Application insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) ou superior
-* [Registrar filtro da Web](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+
+* Application Insights Web auto 2.5.0 ou posterior
 * Micrometer Azure registro 1.1.0 ou superior
 * [Application Insights recurso](../../azure-monitor/app/create-new-resource.md )
 
@@ -141,14 +139,41 @@ Passos:
         
         <dependency>
             <groupId>com.microsoft.azure</groupId>
-            <artifactId>applicationinsights-web</artifactId>
-            <version>2.2.0</version>
-        </dependency
+            <artifactId>applicationinsights-web-auto</artifactId>
+            <version>2.5.0</version>
+        </dependency>
      ```
 
-2. Coloque Application Insights. xml na pasta de recursos
+2. Coloque `ApplicationInsights.xml` o arquivo na pasta de recursos:
 
-    Classe de servlet de exemplo (emite uma métrica de temporizador):
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    
+       <!-- The key from the portal: -->
+       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+    
+       <!-- HTTP request component (not required for bare API) -->
+       <TelemetryModules>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+       </TelemetryModules>
+    
+       <!-- Events correlation (not required for bare API) -->
+       <!-- These initializers add context data to each event -->
+       <TelemetryInitializers>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+       </TelemetryInitializers>
+    
+    </ApplicationInsights>
+    ```
+
+3. Classe de servlet de exemplo (emite uma métrica de temporizador):
 
     ```Java
         @WebServlet("/hello")
@@ -187,7 +212,7 @@ Passos:
     
     ```
 
-      Classe de configuração de exemplo:
+4. Classe de configuração de exemplo:
 
     ```Java
          @WebListener
@@ -250,7 +275,7 @@ Adicione o seguinte código de associação ao arquivo de configuração:
     New GuavaCacheMetrics().bind(registry);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o micrometer, consulte a [documentação](https://micrometer.io/docs)oficial do micrometer.
 * Para saber mais sobre o Spring no Azure, consulte a documentação oficial do [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).

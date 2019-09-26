@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051051"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309590"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure com aplicativos lógicos do Azure
 
@@ -25,13 +25,13 @@ Este artigo mostra como você pode acessar e gerenciar arquivos armazenados como
 Suponha que você tenha uma ferramenta que é atualizada em um site do Azure. que atua como o gatilho para seu aplicativo lógico. Quando esse evento acontece, você pode fazer com que seu aplicativo lógico atualize algum arquivo em seu contêiner de armazenamento de BLOBs, que é uma ação em seu aplicativo lógico.
 
 > [!NOTE]
-> Os aplicativos lógicos não dão suporte à conexão direta com contas de armazenamento do Azure por meio de firewalls. Para acessar essas contas de armazenamento, use qualquer opção aqui:
+> Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](../storage/common/storage-network-security.md) e existem na mesma região. No entanto, os aplicativos lógicos podem acessar contas de armazenamento do Azure que existem em uma região diferente porque um endereço IP público é usado para se comunicar entre regiões. Ou então, você pode usar qualquer uma das opções aqui:
 >
 > * Crie um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar a recursos em uma rede virtual do Azure.
 >
 > * Se você já usa o gerenciamento de API, pode usar esse serviço para este cenário. Para obter mais informações, consulte [arquitetura de integração corporativa simples](https://aka.ms/aisarch).
 
-Se você for novo em aplicativos lógicos, examine [o que é o](../logic-apps/logic-apps-overview.md) início [rápido e aplicativos lógicos do Azure: Crie seu primeiro aplicativo](../logic-apps/quickstart-create-first-logic-app-workflow.md)lógico. Para obter informações técnicas específicas do conector, consulte a [referência do conector de armazenamento de BLOBs do Azure](/connectors/azureblobconnector/).
+Se você for novo em aplicativos lógicos, examine [ [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) : Crie seu primeiro aplicativo](../logic-apps/quickstart-create-first-logic-app-workflow.md)lógico. Para obter informações técnicas específicas do conector, consulte a [referência do conector de armazenamento de BLOBs do Azure](/connectors/azureblobconnector/).
 
 ## <a name="limits"></a>Limites
 
@@ -65,7 +65,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
    Este exemplo usa este gatilho: **Quando um blob é adicionado ou modificado (somente Propriedades)**
 
-   ![Selecionar acionador](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Selecionar gatilho](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
 3. Se você for solicitado a fornecer detalhes de conexão, [Crie sua conexão de armazenamento de BLOBs agora](#create-connection). Ou, se sua conexão já existir, forneça as informações necessárias para o gatilho.
 
@@ -87,7 +87,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
 ## <a name="add-blob-storage-action"></a>Adicionar ação de armazenamento de BLOBs
 
-Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma etapa no fluxo de trabalho que segue um gatilho ou outra ação. Para este exemplo, o aplicativo lógico começa com o [gatilho](../connectors/connectors-native-recurrence.md)de recorrência.
+Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma etapa no fluxo de trabalho que segue um gatilho ou outra ação. Para este exemplo, o aplicativo lógico começa com o [gatilho de recorrência](../connectors/connectors-native-recurrence.md).
 
 1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico. Este exemplo usa o portal do Azure.
 
@@ -131,6 +131,6 @@ Este exemplo só Obtém o conteúdo de um blob. Para exibir o conteúdo, adicion
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de API aberta do conector (anteriormente, Swagger), consulte a [página de referência do conector](/connectors/azureblobconnector/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476755"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310105"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Criando tabelas no Azure SQL Data Warehouse
 
@@ -68,7 +68,7 @@ Uma tabela externa aponta para os dados localizados no blob de armazenamento do 
 SQL Data Warehouse dá suporte aos tipos de dados usados com mais frequência. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados no CREATE TABLE referência](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) na instrução CREATE TABLE. Para obter orientação sobre como usar tipos de dados, consulte [tipos de dados](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
-Um recurso fundamental do SQL Data Warehouse é a maneira como ele pode armazenar e operar em tabelas [](massively-parallel-processing-mpp-architecture.md#distributions)entre distribuições.  O SQL Data Warehouse dá suporte a três métodos de distribuição de dados, Round-Robin (padrão), hash e replicados.
+Um recurso fundamental do SQL Data Warehouse é a maneira como ele pode armazenar e operar em tabelas entre [distribuições](massively-parallel-processing-mpp-architecture.md#distributions).  O SQL Data Warehouse dá suporte a três métodos de distribuição de dados, Round-Robin (padrão), hash e replicados.
 
 ### <a name="hash-distributed-tables"></a>Tabelas distribuídas por hash
 Uma tabela distribuída por hash distribui linhas com base no valor na coluna de distribuição. Uma tabela distribuída por hash foi projetada para alcançar alto desempenho para consultas em tabelas grandes. Há vários fatores a serem considerados ao escolher uma coluna de distribuição. 
@@ -109,6 +109,9 @@ Para obter uma lista de recursos columnstore, consulte [novidades para índices 
 ## <a name="statistics"></a>Estatísticas
 O otimizador de consulta usa estatísticas em nível de coluna quando cria o plano para executar uma consulta. Para melhorar o desempenho da consulta, é importante ter estatísticas em colunas individuais, especialmente colunas usadas em junções de consulta. A [criação de estatísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) ocorre automaticamente.  No entanto, a atualização de estatísticas não ocorre automaticamente. Atualize as estatísticas depois que um número significativo de linhas for adicionado ou alterado. Por exemplo, atualize estatísticas após uma carga. Para obter mais informações, consulte [diretrizes de estatísticas](sql-data-warehouse-tables-statistics.md).
 
+## <a name="primary-key-and-unique-key"></a>Chave primária e chave exclusiva
+Só há suporte para a chave primária quando não CLUSTERIZAdo e não imposto são usados.  Só há suporte para a restrição UNIQUE quando não imposta é usado.  Verifique [SQL data warehouse restrições de tabela](sql-data-warehouse-table-constraints.md).
+
 ## <a name="commands-for-creating-tables"></a>Comandos para criar tabelas
 Você pode criar uma tabela como uma nova tabela vazia. Você também pode criar e popular uma tabela com os resultados de uma instrução SELECT. A seguir estão os comandos T-SQL para criar uma tabela.
 
@@ -128,8 +131,7 @@ Se os dados forem provenientes de vários armazenamentos de dados, você poderá
 ## <a name="unsupported-table-features"></a>Recursos de tabela sem suporte
 O SQL Data Warehouse dá suporte a muitos, mas não a todos, dos recursos de tabela oferecidos por outros bancos de dados.  A lista a seguir mostra alguns dos recursos de tabela que não têm suporte no SQL Data Warehouse.
 
-- Chave primária, chaves estrangeiras, exclusivas, verificar [restrições da tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
-
+- Chave estrangeira, verificar [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Colunas computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [Exibições indexadas](/sql/relational-databases/views/create-indexed-views)
 - [Ordem](/sql/t-sql/statements/create-sequence-transact-sql)
@@ -339,5 +341,5 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de criar as tabelas para seu data warehouse, a próxima etapa é carregar dados na tabela.  Para obter um tutorial de carregamento, consulte [carregando dados para SQL data warehouse](load-data-wideworldimportersdw.md).

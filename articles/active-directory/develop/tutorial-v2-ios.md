@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d442508a1ac79a30ba5a02ecd09c27fc0e320ad0
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 2474f86c0f293b98ab7bc9faec8ff8519a25e96b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268306"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309375"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -340,15 +340,12 @@ func initWebViewParams() {
 Abra o ficheiro `AppDelegate.swift`. Para lidar com o retorno de chamada após a entrada `MSALPublicClientApplication.handleMSALResponse` , adicione `appDelegate` à classe desta forma:
 
 ```swift
-    // Inside AppDelegate...
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+// Inside AppDelegate...
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-            return false
-        }
-        
-        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
-    }
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+
 ```
 
 **Se você estiver usando o Xcode 11**, deverá posicionar o retorno de `SceneDelegate.swift` chamada MSAL em seu lugar.

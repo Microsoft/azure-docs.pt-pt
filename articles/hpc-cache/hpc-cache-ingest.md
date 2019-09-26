@@ -4,26 +4,26 @@ description: Como popular o armazenamento de BLOBs do Azure para uso com o cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180716"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300001"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>Mover dados para o armazenamento de BLOBs do Azure para o cache HPC do Azure (visualização)
+# <a name="move-data-to-azure-blob-storage"></a>Mover dados para o armazenamento de BLOBs do Azure
 
-Se o fluxo de trabalho incluir a movimentação de dados para o armazenamento de BLOBs do Azure, verifique se você está usando uma estratégia eficiente para copiar seus dados por meio do cache do HPC do Azure.
+Se o fluxo de trabalho incluir a movimentação de dados para o armazenamento de BLOBs do Azure, verifique se você está usando uma estratégia eficiente. Você pode pré-carregar dados em um novo contêiner de blob antes de defini-lo como um destino de armazenamento ou adicionar o contêiner e, em seguida, copiar seus dados usando o cache do HPC do Azure.
 
 Este artigo explica as melhores maneiras de mover dados para o armazenamento de BLOBs para uso com o cache do HPC do Azure.
 
 Tenha esses fatos em mente:
 
-* O cache HPC do Azure usa um formato de armazenamento especializado para organizar dados no armazenamento de BLOBs. É por isso que um destino de armazenamento de BLOBs deve ser um contêiner novo, vazio ou um contêiner de BLOBs que foi usado anteriormente para dados de cache do Azure HPC. (O[avere vFXT para Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) também usa esse sistema de arquivos em nuvem.)
+* O cache HPC do Azure usa um formato de armazenamento especializado para organizar dados no armazenamento de BLOBs. É por isso que um destino de armazenamento de BLOBs deve ser um contêiner novo, vazio ou um contêiner de BLOBs que foi usado anteriormente para dados de cache do Azure HPC. (O[avere vFXT para Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) também usa esse sistema de arquivos de nuvem.)
 
-* A cópia de dados por meio do cache do HPC do Azure é melhor quando você usa vários clientes e operações paralelas. Um comando de cópia simples de um cliente moverá os dados de forma lenta.
+* A cópia de dados por meio do cache do Azure HPC para um destino de armazenamento de back-end é mais eficiente quando você usa vários clientes e operações paralelas. Um comando de cópia simples de um cliente moverá os dados de forma lenta.
 
 Um utilitário baseado em Python está disponível para carregar conteúdo em um contêiner de armazenamento de BLOBs. Leia [pré-carregar dados no armazenamento de BLOBs](#pre-load-data-in-blob-storage-with-clfsload) para saber mais.
 
@@ -41,7 +41,7 @@ Informações detalhadas estão incluídas na distribuição do avere CLFSLoad, 
 
 Uma visão geral do processo:
 
-1. Prepare um sistema Linux (VM ou físico) com o Python versão 3,6 ou posterior. (O Python 3,7 é recomendado para melhorar o desempenho.)
+1. Prepare um sistema Linux (VM ou físico) com o Python versão 3,6 ou posterior. O Python 3,7 é recomendado para melhorar o desempenho.
 1. Instale o software avere-CLFSLoad no sistema Linux.
 1. Execute a transferência na linha de comando do Linux.
 
@@ -50,7 +50,7 @@ O utilitário avere CLFSLoad precisa das seguintes informações:
 * A ID da conta de armazenamento que contém o contêiner de armazenamento de BLOBs
 * O nome do contêiner de armazenamento de BLOBs vazio
 * Um token SAS (assinatura de acesso compartilhado) que permite que o utilitário grave no contêiner
-* Um caminho local para a fonte de dados – um diretório local que contém os dados a serem copiados ou um caminho local para um sistema remoto montado com os dados.
+* Um caminho local para a fonte de dados – um diretório local que contém os dados a serem copiados ou um caminho local para um sistema remoto montado com os dados
 
 <!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 

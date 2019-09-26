@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170470"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315257"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure
 
@@ -88,7 +88,6 @@ Altere o **status de provisionamento** para **desativado** para pausar o serviç
 Marque a caixa de seleção **limpar estado atual e reiniciar sincronização** e selecione **salvar** em:
 
 * Parar o serviço de provisionamento
-* Despejar os dados armazenados em cache sobre quais contas o Azure AD está gerenciando
 * Reinicie os serviços e execute o ciclo inicial novamente
 
 Essa opção permite que os administradores iniciem o processo de implantação de provisionamento novamente.

@@ -4,14 +4,14 @@ description: Descreve como usar modelos de Azure Resource Manager para a implant
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965302"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300157"
 ---
 # <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -47,9 +47,11 @@ Se você estiver tentando decidir entre usar modelos do Resource Manager e uma d
 
 * **Plantas de implantação**: Você pode aproveitar os [planos gráficos](../governance/blueprints/overview.md) fornecidos pela Microsoft para atender aos padrões normativos e de conformidade. Esses planos gráficos incluem modelos predefinidos para várias arquiteturas.
 
+* **Integração de CI/CD**: Você pode integrar modelos em suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar seus pipelines de lançamento para atualizações rápidas e confiáveis de aplicativos e de infraestrutura. Usando o Azure DevOps e a tarefa de modelo do Resource Manager, você pode usar Azure Pipelines para criar e implantar continuamente projetos de modelo de Azure Resource Manager. Para saber mais, confira [projeto do vs com pipelines](./vs-resource-groups-project-devops-pipelines.md) e [integração contínua com o Azure pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
+
 * **Código exportável**: Você pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para uma implantação específica. Visualizar o [modelo exportado](export-template-portal.md) é uma forma útil de saber mais sobre a sintaxe do modelo.
 
-* **Ferramentas de criação**: Você pode criar modelos com [Visual Studio Code](resource-manager-tools-vs-code.md) e a extensão de ferramenta de modelo. Você Obtém o IntelliSense, o realce de sintaxe, a ajuda online e muitas outras funções de linguagem.
+* **Ferramentas de criação**: Você pode criar modelos com [Visual Studio Code](resource-manager-tools-vs-code.md) e a extensão de ferramenta de modelo. Você Obtém o IntelliSense, o realce de sintaxe, a ajuda online e muitas outras funções de linguagem. Além do Visual Studio Code, você também pode usar o [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="template-file"></a>Arquivo de modelo
 
@@ -124,7 +126,4 @@ Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos li
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
-* Para definir dependências explicitamente para que um recurso seja implantado antes de outro recurso, consulte [definindo dependências em modelos de Azure Resource Manager](resource-group-define-dependencies.md).
-* Você pode adicionar um recurso ao seu modelo e, opcionalmente, implantá-lo. Para obter mais informações, consulte [implantação condicional em modelos do Resource Manager](conditional-resource-deployment.md).
-* Em vez de blocos repetitivos de JSON muitas vezes em seu modelo, você pode especificar mais de uma instância de uma variável, propriedade ou recurso. Para obter mais informações, consulte [recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager](resource-group-create-multiple.md).
 * Para saber mais sobre como exportar modelos [, consulte início rápido: Crie e implante modelos de Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

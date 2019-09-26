@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618369"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291023"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar e gerenciar um pacote do Access existente no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -206,7 +206,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, cliqueem atribuições.
+1. No menu à esquerda, clique em **atribuições**.
 
 1. Clique em **nova atribuição** para abrir Adicionar usuário ao pacote do Access.
 
@@ -234,7 +234,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Clique em atribuições para ver uma lista de atribuições ativas.
+1. Clique em **atribuições** para ver uma lista de atribuições ativas.
 
 1. Clique em uma atribuição específica para ver detalhes adicionais.
 
@@ -242,7 +242,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
     Você pode ver detalhes adicionais sobre erros de entrega, localizando a solicitação correspondente do usuário na página **solicitações** .
 
-1. Para ver as atribuições expiradas, clique no statusdo filtro e selecione expirado.
+1. Para ver as atribuições expiradas, clique no status do filtro e selecione **expirado**.
 
 1. Para baixar um arquivo CSV da lista filtrada, clique em **baixar**.
 
@@ -270,7 +270,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
 1. Selecione a solicitação que você deseja exibir.
 
-    Se a solicitação tiver erros de entrega, o status da solicitação não será **entregue e o** substatus será **parcialmente entregue**.
+    Se a solicitação tiver erros de entrega, o status da solicitação não **será entregue e o** substatus será **parcialmente entregue**.
 
     Se houver erros de entrega, no painel de detalhes da solicitação, haverá uma contagem de erros de entrega.
 
@@ -294,7 +294,15 @@ Você só pode cancelar uma solicitação pendente que ainda não foi entregue.
 
 ## <a name="copy-my-access-portal-link"></a>Link copiar meu portal do Access
 
-A maioria dos usuários em seu diretório pode entrar no portal meu acesso e ver automaticamente uma lista de pacotes de acesso que eles podem solicitar. No entanto, para usuários externos de parceiros comerciais que ainda não estão em seu diretório, você precisará enviar um link que eles possam usar para solicitar um pacote de acesso. Desde que o pacote de acesso esteja habilitado para usuários externos e você tenha uma política para o diretório do usuário externo, o usuário externo poderá usar o link meu portal de acesso para solicitar o pacote de acesso.
+A maioria dos usuários em seu diretório pode entrar no portal meu acesso e ver automaticamente uma lista de pacotes de acesso que eles podem solicitar. No entanto, para usuários externos de parceiros comerciais que ainda não estão em seu diretório, você precisará enviar um link que eles possam usar para solicitar um pacote de acesso. 
+
+É importante que você copie todo o link meu portal de acesso ao enviá-lo para um parceiro comercial interno. Isso garante que o parceiro terá acesso ao portal do seu diretório para fazer sua solicitação. 
+
+O link começará com "myaccess", incluirá uma dica de diretório e terminará com uma ID de pacote de acesso. Verifique se o link inclui todos os itens a seguir:
+
+ `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+
+Desde que o pacote de acesso esteja habilitado para usuários externos e você tenha uma política para o diretório do usuário externo, o usuário externo poderá usar o link meu portal de acesso para solicitar o pacote de acesso.
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
@@ -336,7 +344,7 @@ Um pacote do Access só poderá ser excluído se não tiver nenhuma atribuição
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique em atribuições e remova o acesso para todos os usuários.
+1. No menu à esquerda, clique em **atribuições** e remova o acesso para todos os usuários.
 
 1. No menu à esquerda, clique em **visão geral** e, em seguida, clique em **excluir**.
 
@@ -346,7 +354,7 @@ Um pacote do Access só poderá ser excluído se não tiver nenhuma atribuição
 
 No gerenciamento de direitos, o Azure AD processará alterações em massa para atribuição e recursos em seus pacotes de acesso várias vezes por dia. Portanto, se você fizer uma atribuição ou alterar as funções de recurso do seu pacote de acesso, poderá levar até 24 horas para que essa alteração seja feita no Azure AD, além da quantidade de tempo que leva para propagar essas alterações para outros serviços online da Microsoft ou para o aplicativo SaaS conectado &. Se a alteração afetar apenas alguns objetos, a alteração provavelmente levará apenas alguns minutos para ser aplicada ao Azure AD, após o qual outros componentes do Azure AD detectarão essa alteração e atualizarão os aplicativos SaaS. Se a alteração afetar milhares de objetos, a alteração levará mais tempo. Por exemplo, se você tiver um pacote de acesso com 2 aplicativos e 100 atribuições de usuário e decidir adicionar uma função de site do SharePoint ao pacote de acesso, pode haver um atraso até que todos os usuários façam parte dessa função de site do SharePoint. Você pode monitorar o progresso por meio do log de auditoria do Azure AD, do log de provisionamento do Azure AD e dos logs de auditoria do site do SharePoint.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Solicitar notificações de processo e email](entitlement-management-process.md)

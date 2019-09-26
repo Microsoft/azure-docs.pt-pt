@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 9aa8cda7d65d97d831a218be393581d0e5bf3a4a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910193"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300564"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alertar e monitorar fábricas de dados usando Azure Monitor
 
@@ -505,8 +505,6 @@ A instalação do Azure Data Factory Analytics cria um conjunto padrão de exibi
 
 ![Janela com "pastas de trabalho (visualização)" e "AzureDataFactoryAnalytics" realçadas](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
-![Representação gráfica de execuções e erros](media/data-factory-monitor-oms/monitor-oms-image7.png)
-
 Você pode visualizar as métricas anteriores, examinar as consultas por trás dessas métricas, editar as consultas, criar alertas e executar outras ações.
 
 ![Representação gráfica das execuções de pipeline por data factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
@@ -548,5 +546,5 @@ Entre no portal do Azure e selecione **monitorar** > **alertas** para criar aler
 
     ![Definir um grupo de ação](media/monitor-using-azure-monitor/alerts_image12.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Monitorar e gerenciar pipelines programaticamente](monitor-programmatically.md)

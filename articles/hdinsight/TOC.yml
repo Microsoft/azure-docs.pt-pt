@@ -219,7 +219,7 @@
               href: ./hdinsight-release-notes.md
             - name: Notas de versão completas do HDInsight 3.6
               href: ./hdinsight-release-notes-archive.md
-        - name: FAQ
+        - name: Perguntas Mais Frequentes (FAQ)
           href: ./hdinsight-faq.md
         - name: Migrar para o acesso granular baseado em funções para as configurações de cluster
           href: ./hdinsight-migrate-granular-access-cluster-configurations.md

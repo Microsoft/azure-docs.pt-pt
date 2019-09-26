@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6ff23ca4c66094df18d1d18caac67192059e8f8d
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d4f4cfc005b2d5a63512245baee5230e9a26cb37
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019410"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309213"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes herdados dos serviços de mídia do Azure
 
@@ -26,13 +26,15 @@ Com o tempo, houve aprimoramentos e aprimoramentos contínuos nos componentes do
 
 ## <a name="legacy-components-and-migration-guidance"></a>Componentes herdados e diretrizes de migração
 
-### <a name="media-processors"></a>Processadores de multimédia
-
 Estamos anunciando a reprovação dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame). Esses processadores estão sendo desativados em 30 de novembro de 2019.
 
 * [Migrar do codificador de mídia do Windows Azure para Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Migrar do Azure Media Encoder para Media Encoder Standard](migrate-azure-media-encoder.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+Também estamos anunciando a substituição de *Azure Media indexer* e *Azure Media indexer 2*. O processador de mídia [Azure Media indexer](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia [[Azure Media indexer 2 (versão prévia)](media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2019.  Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+
+* [Migre do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Diretrizes de migração para mudar dos serviços de mídia v2 para v3](../latest/migrate-from-v2-to-v3.md)

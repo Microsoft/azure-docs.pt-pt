@@ -7,12 +7,12 @@ ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: baafb0fbcf1dba1cadfff1d5f5e02e2df4f34a25
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 64f0517eece5efcd928b18c7f040fb88c3c36546
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002900"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309530"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra do Canadá Federal PBMM Blueprint
 
@@ -43,7 +43,7 @@ Este projeto ajuda você a examinar as contas que podem não estar em conformida
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>Gerenciamento de conta AC-2 (7) | Esquemas baseados em função
 
-O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Além disso, esse plano gráfico atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
+O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Além disso, esse plano gráfico atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas de RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
 
 - Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
 - Clusters de Service Fabric só devem usar Azure Active Directory para autenticação de cliente

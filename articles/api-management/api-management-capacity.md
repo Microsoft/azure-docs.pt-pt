@@ -1,6 +1,6 @@
 ---
-title: Capacidade de uma instância de gestão de API do Azure | Documentos da Microsoft
-description: Este artigo explica o que é a métrica de capacidade e como tomar decisões informadas se pretende dimensionar uma instância de gestão de API do Azure.
+title: Capacidade de uma instância de gerenciamento de API do Azure | Microsoft Docs
+description: Este artigo explica o que é a métrica de capacidade e como tomar decisões informadas quanto à escala de uma instância de gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,94 +11,99 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836956"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299453"
 ---
-# <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gestão de API do Azure
+# <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gerenciamento de API do Azure
 
-**Capacidade** é o mais importante [métrica do Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) para tomar decisões informadas se pretende dimensionar uma instância de gestão de API para acomodar mais carga. Sua construção é complexa e impõe determinado comportamento.
+A **capacidade** é a mais importante [Azure monitor métrica](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) para tomar decisões informadas quanto à possibilidade de dimensionar uma instância de gerenciamento de API para acomodar mais carga. Sua construção é complexa e impõe determinado comportamento.
 
-Este artigo explica o que o **capacidade** é e como ele se comporta. Ele mostra como acessar **capacidade** métricas no portal do Azure e sugere quando considerar o dimensionamento ou a atualizar a instância de gestão de API.
+Este artigo explica o que é a **capacidade** e como ela se comporta. Ele mostra como acessar as métricas de **capacidade** no portal do Azure e sugere quando considerar o dimensionamento ou a atualização da instância de gerenciamento de API.
+
+> [!IMPORTANT]
+> Este artigo discute como você pode monitorar e dimensionar sua instância de gerenciamento de API do Azure com base na sua métrica de capacidade. No entanto, é igualmente importante entender o que acontece quando uma instância de gerenciamento de API individual realmente *atingiu* sua capacidade. O gerenciamento de API do Azure não aplicará nenhuma limitação no nível de serviço para evitar uma sobrecarga física das instâncias. Quando uma instância atinge sua capacidade física, ela se comportará de forma semelhante a qualquer servidor Web sobrecarregado que não consiga processar as solicitações de entrada: a latência aumentará, as conexões serão eliminadas, ocorrerão erros de tempo limite, etc. Isso significa que os clientes de API devem estar preparados para lidar com essa possibilidade semelhante a qualquer outro serviço externo (por exemplo, aplicando políticas de repetição).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir os passos deste artigo, tem de ter:
+Para seguir as etapas deste artigo, você deve ter:
 
 + Uma subscrição ativa do Azure.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Uma instância APIM. Para obter mais informações, consulte [criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
++ Uma instância de APIM. Para obter mais informações, consulte [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="what-is-capacity"></a>Qual é a capacidade
+## <a name="what-is-capacity"></a>O que é a capacidade
 
 ![Métrica de capacidade](./media/api-management-capacity/capacity-ingredients.png)
 
-**Capacidade** é um indicador de carga numa instância de gestão de API. Ela reflete a utilização de recursos (CPU, memória) e comprimentos de fila de rede. Utilização da CPU e memória revela o consumo de recursos por:
+A **capacidade** é um indicador de carga em uma instância de gerenciamento de API. Ele reflete o uso de recursos (CPU, memória) e comprimentos de fila de rede. Uso de CPU e memória revela consumo de recursos por:
 
-+ Serviços de gestão de API, como ações ou pedido de processamento de gestão, que pode incluir pedidos de reencaminhamento ou executar uma política
-+ processos de sistema operativo selecionado, incluindo processos que envolvem o custo de handshakes de SSL em novas ligações.
++ Serviços de plano de dados de gerenciamento de API, como processamento de solicitações, que podem incluir solicitações de encaminhamento ou execução de uma política.
++ Serviços de plano de gerenciamento de API, como ações de gerenciamento aplicadas por meio do portal do Azure ou ARM, ou carga proveniente do [portal do desenvolvedor](api-management-howto-developer-portal.md).
++ Os processos do sistema operacional selecionados, incluindo processos que envolvem o custo de Handshakes de SSL em novas conexões.
 
-Total **capacidade** é uma média de seus próprios valores de cada unidade de uma instância de gestão de API.
+A **capacidade** total é uma média de seus próprios valores de cada unidade de uma instância de gerenciamento de API.
 
-Embora o **métrica de capacidade** é criado para a superfície problemas com a instância de gestão de API, há casos em problemas não serão refletidos em alterações na **métricas de capacidade**.
+Embora a **métrica de capacidade** seja projetada para a superfície de problemas com sua instância de gerenciamento de API, há casos em que os problemas não serão refletidos nas alterações na **métrica de capacidade**.
 
-## <a name="capacity-metric-behavior"></a>Comportamento da métrica capacidade
+## <a name="capacity-metric-behavior"></a>Comportamento de métrica de capacidade
 
-Por causa de sua construção, na vida real **capacidade** pode ser afetado por muitas variáveis, por exemplo:
+Devido à sua construção, a **capacidade** real pode ser afetada por muitas variáveis, por exemplo:
 
-+ padrões de ligação (nova ligação numa vs pedido reutilizar a ligação existente)
-+ tamanho de um pedido e resposta
-+ políticas configuradas em cada API ou o número de clientes enviando solicitações.
++ padrões de conexão (nova conexão em uma solicitação versus reutilizar a conexão existente)
++ tamanho de uma solicitação e resposta
++ políticas configuradas em cada API ou número de clientes que enviam solicitações.
 
-As operações mais complexas nas solicitações são, mais alto a **capacidade** consumo será. Por exemplo, políticas de transformação complexas consumam CPU muito mais que um reencaminhamento de solicitação simples. As respostas de serviço de back-end lenta serão aumentá-la demasiado.
+Quanto mais complexas forem as operações nas solicitações, maior será o consumo de **capacidade** . Por exemplo, políticas de transformação complexas consomem muito mais CPU do que um encaminhamento de solicitação simples. As respostas de serviço de back-end lentas aumentarão também.
 
 > [!IMPORTANT]
-> **Capacidade** não é uma medida direta do número de pedidos a serem processados.
+> A **capacidade** não é uma medida direta do número de solicitações que estão sendo processadas.
 
-![Picos de métricos de capacidade](./media/api-management-capacity/capacity-spikes.png)
+![Picos de métrica de capacidade](./media/api-management-capacity/capacity-spikes.png)
 
-**Capacidade** também pode expandam intermitentemente ou ser maior que zero, mesmo se não houver nenhuma solicitação a ser processada. Ele acontece devido a ações específicas do sistema ou da plataforma e não deve ser levado em consideração ao decidir se uma instância de dimensionar.
+A **capacidade** também pode ser propicomente intermitente ou maior que zero, mesmo se não houver nenhuma solicitação sendo processada. Isso acontece devido a ações específicas do sistema ou da plataforma e não deve ser levado em consideração ao decidir se é necessário dimensionar uma instância.
 
-Baixa **métrica de capacidade** não significa necessariamente que a instância de gestão de API não está tendo problemas.
+A **métrica** de baixa capacidade não significa necessariamente que sua instância de gerenciamento de API não está enfrentando problemas.
   
-## <a name="use-the-azure-portal-to-examine-capacity"></a>Utilizar o Portal do Azure para examinar a capacidade
+## <a name="use-the-azure-portal-to-examine-capacity"></a>Usar o portal do Azure para examinar a capacidade
   
 ![Métrica de capacidade](./media/api-management-capacity/capacity-metric.png)  
 
-1. Navegue para a instância APIM no [portal do Azure](https://portal.azure.com/).
-2. Selecione **métricas (pré-visualização)** .
-3. Na secção de roxa, selecione **capacidade** métrica de métricas disponíveis e deixe a predefinição **média** agregação.
+1. Navegue até sua instância do APIM no [portal do Azure](https://portal.azure.com/).
+2. Selecione **Métricas**.
+3. Na seção roxa, selecione métrica de **capacidade** de métricas disponíveis e deixe a agregação padrão de **média** .
 
     > [!TIP]
-    > Sempre deve examinar um **capacidade** métrica divisão por localização para evitar interpretações erradas.
+    > Você deve sempre examinar uma análise de métrica de **capacidade** por local para evitar interpretações erradas.
 
-4. Na secção de verde, selecione **localização** para dividir a métrica por dimensão.
-5. Escolha um período de tempo pretendido da barra superior da seção.
+4. Na seção verde, selecione **local** para dividir a métrica por dimensão.
+5. Escolha um período de tempo desejado na barra superior da seção.
 
-    Pode definir um alerta de métrica para informá-lo quando algo inesperado está a acontecer. Por exemplo, obter notificações quando a instância APIM tem sido a exceder a sua capacidade máxima esperada durante mais de 20 minutos.
+    Você pode definir um alerta de métrica para informá-lo quando algo inesperado estiver acontecendo. Por exemplo, obtenha notificações quando sua instância do APIM estiver excedendo sua capacidade de pico esperada por mais de 20 minutos.
 
     >[!TIP]
-    > Pode configurar alertas para permitem-lhe saber quando seu serviço está a esgotar na capacidade ou utilizar a funcionalidade de dimensionamento automático do Azure Monitor para adicionar automaticamente uma unidade de API Management do Azure. Operação de dimensionamento, pode demorar cerca de 30 minutos, para que deve planejar suas regras em conformidade.  
-    > Dimensionamento apenas a localização principal é permitido.
+    > Você pode configurar alertas para que você saiba quando o serviço está ficando com pouca capacidade ou use Azure Monitor funcionalidade de dimensionamento automático para adicionar automaticamente uma unidade de gerenciamento de API do Azure. A operação de dimensionamento pode levar cerca de 30 minutos, portanto, você deve planejar suas regras de acordo.  
+    > Só é permitido dimensionar o local mestre.
 
-## <a name="use-capacity-for-scaling-decisions"></a>Utilizar a capacidade para dimensionar decisões
+## <a name="use-capacity-for-scaling-decisions"></a>Use a capacidade para as decisões de dimensionamento
 
-**Capacidade** é a métrica de tomada de decisões se pretende dimensionar uma instância de gestão de API para acomodar mais carga. Considere:
+A **capacidade** é a métrica para tomar decisões quanto à possibilidade de dimensionar uma instância de gerenciamento de API para acomodar mais carga. Aconselhável
 
-+ Observar uma tendência de longo prazo e a média.
-+ A ignorar a picos repentinos, que são mais prováveis que não relacionadas com qualquer aumento de carga (consulte a seção de "Comportamento de métricas de capacidade" para explicação).
-+ Atualizar ou dimensionar a sua instância, quando **capacidade**do valor excede 60% ou 70% durante um período mais longo do tempo (por exemplo, 30 minutos). Valores diferentes podem funcionar melhor para seu cenário ou serviço.
++ Observando uma tendência e uma média de longo prazo.
++ Ignorando picos repentinos que provavelmente não estão relacionados a qualquer aumento na carga (consulte a seção "comportamento de métrica de capacidade" para obter uma explicação).
++ Atualizar ou dimensionar sua instância, quando o valor da **capacidade**excede 60% ou 70% por um período de tempo maior (por exemplo, 30 minutos). Valores diferentes podem funcionar melhor para seu serviço ou cenário.
 
 >[!TIP]  
-> Se for capaz de estimar o tráfego com antecedência, teste sua instância APIM nas cargas de trabalho esperado. Pode aumentar gradualmente a carga de pedidos no seu inquilino e monitorizar a qual o valor da métrica capacidade corresponde ao seu pico de carga. Siga os passos da secção anterior para utilizar o portal do Azure para compreender a capacidade é utilizada em qualquer momento.
+> Se você for capaz de estimar o tráfego com antecedência, teste sua instância do APIM em cargas de trabalho que você espera. Você pode aumentar a carga da solicitação em seu locatário gradualmente e monitorar qual valor da métrica de capacidade corresponde à sua carga de pico. Siga as etapas da seção anterior para usar portal do Azure para entender a quantidade de capacidade usada em um determinado momento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Como dimensionar ou atualizar uma instância de serviço de gestão de API do Azure](upgrade-and-scale.md)
+[Como dimensionar ou atualizar uma instância do serviço de gerenciamento de API do Azure](upgrade-and-scale.md)

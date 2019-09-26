@@ -1,6 +1,6 @@
 ---
-title: Monitorização de desempenho para aplicações web de Java no Azure Application Insights | Documentos da Microsoft
-description: Estendidas de desempenho e monitorização da utilização do seu site de Java com o Application Insights.
+title: Monitoramento de desempenho para aplicativos Web Java no Aplicativo Azure insights | Microsoft Docs
+description: Monitoramento de uso e desempenho estendido do seu site Java com Application Insights.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -12,149 +12,127 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900613"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299233"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções recebidas e tempos de execução do método em aplicações web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
 
-Se tiver [instrumentado a sua aplicação web de Java com o Application Insights][java], pode utilizar o agente Java para obter informações mais aprofundadas, sem quaisquer alterações de código:
+Se você tiver [instrumentado seu aplicativo Web Java com Application insights][java], poderá usar o agente Java para obter informações mais aprofundadas, sem nenhuma alteração de código:
 
-* **Dependências:** Dados sobre chamadas de que a aplicação faz para outros componentes, incluindo:
-  * **Chamadas REST** feita por meio do HttpClient, OkHttp e RestTemplate (Spring) são capturadas.
-  * **Redis** chamadas efetuadas através do cliente de Jedis são capturadas.
-  * **[Chamadas JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -comandos do MySQL, SQL Server e Oracle DB são automaticamente capturados. Para o MySQL, se a chamada demora mais tempo do que 10s, o agente reporta o plano de consulta.
-* **Exceções recebidas:** Informações sobre as exceções que são processados pelo seu código.
-* **Tempo de execução do método:** Informações sobre o tempo que demora a executar métodos específicos.
+* **Depend** Dados sobre chamadas que seu aplicativo faz para outros componentes, incluindo:
+  * As **chamadas http de saída** feitas por meio do Apache HttpClient, `java.net.HttpURLConnection` OkHttp e são capturadas.
+  * **Chamadas Redis** feitas por meio do cliente Jedis são capturadas.
+  * **Consultas JDBC** – para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente relatará o plano de consulta.
 
-Para utilizar o agente Java, instalá-lo no seu servidor. As aplicações web tem de ser equipadas com o [SDK de Java do Application Insights][java]. 
+* **Log de aplicativo:** Capturar e correlacionar os logs de aplicativo com solicitações HTTP e outras telemetrias
+  * **Log4J 1,2**
+  * **Log4j2**
+  * **Logback**
 
-## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador a executar o seu servidor de Java [transferir o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se para baixar a mesma versão do agente Java como pacotes de núcleo e web de Java SDK do Application Insights.
-2. Edite o script de inicialização do servidor de aplicação e adicione o JVM seguinte:
+* **Melhor nomenclatura de operação:** (usado para agregação de solicitações no Portal)
+  * Baseado em `@RequestMapping`Spring.
+  * Baseado em **JAX-RS** em `@Path`. 
+
+Para usar o agente Java, instale-o em seu servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java Application insights][java]. 
+
+## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente de Application Insights para Java
+1. No computador com o servidor Java em execução, [transfira o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Garanta que transfere a mesma versão do Agente Java que a do núcleo do SDK Java do Application Insights e dos pacotes Web.
+2. Edite o script de inicialização do servidor de aplicativos e adicione o seguinte argumento JVM:
    
-    `javaagent:`*caminho completo para o ficheiro JAR do agente*
+    `-javaagent:<full path to the agent JAR file>`
    
-    Por exemplo, no Tomcat numa máquina Linux:
+    Por exemplo, no Tomcat em um computador Linux:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
-3. Reinicie o servidor de aplicação.
+3. Reinicie o servidor de aplicativos.
 
 ## <a name="configure-the-agent"></a>Configurar o agente
-Crie um ficheiro denominado `AI-Agent.xml` e colocá-lo na mesma pasta que o ficheiro JAR do agente.
+Crie um arquivo chamado `AI-Agent.xml` e coloque-o na mesma pasta que o arquivo JAR do agente.
 
-Defina o conteúdo do arquivo xml. Edite o exemplo seguinte para incluir ou omitir os recursos que pretende.
+Defina o conteúdo do arquivo XML. Edite o exemplo a seguir para incluir ou omitir os recursos desejados.
 
 ```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsightsAgent>
-      <Instrumentation>
+         <!-- capture logging via Log4j 1.2, Log4j2, and Logback, default is true -->
+         <Logging enabled="true" />
 
-        <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
-               Defaults: enabled, 10000 ms -->
-           <Jedis enabled="true" thresholdInMS="1000"/>
+         <!-- capture outgoing HTTP calls performed through Apache HttpClient, OkHttp,
+              and java.net.HttpURLConnection, default is true -->
+         <HTTP enabled="true" />
 
-           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
-           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
-        </BuiltIn>
+         <!-- capture JDBC queries, default is true -->
+         <JDBC enabled="true" />
 
-        <!-- Collect data about caught exceptions
-             and method execution times -->
+         <!-- capture Redis calls, default is true -->
+         <Jedis enabled="true" />
 
-        <Class name="com.myCompany.MyClass">
-           <Method name="methodOne"
-               reportCaughtExceptions="true"
-               reportExecutionTime="true"
-               />
-           <!-- Report on the particular signature
-                void methodTwo(String, int) -->
-           <Method name="methodTwo"
-              reportExecutionTime="true"
-              signature="(Ljava/lang/String;I)V" />
-        </Class>
+         <!-- capture query plans for JDBC queries that exceed this value (MySQL, PostgreSQL),
+              default is 10000 milliseconds -->
+         <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
 
-      </Instrumentation>
-    </ApplicationInsightsAgent>
-
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
 ```
 
-Tem de ativar a exceção de relatórios e o tempo de método para métodos individuais.
-
-Por predefinição, `reportExecutionTime` é verdadeiro e `reportCaughtExceptions` é false.
-
-## <a name="additional-config-spring-boot"></a>Configurações adicionais (Spring Boot)
+## <a name="additional-config-spring-boot"></a>Configuração adicional (Spring boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Para serviços de aplicações do Azure, efetue o seguinte procedimento:
+Para Azure App serviços, faça o seguinte:
 
 * Selecione Definições > Definições da Aplicação
 * Em Definições da Aplicação, adicione um par de chaves-valores novo:
 
-Chave: `JAVA_OPTS` Valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+Chaves `JAVA_OPTS`Valor`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-A versão mais recente do agente Java verificar as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
-). 
+Para obter a versão mais recente do agente Java, verifique as [versões](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)aqui. 
 
-O agente deve ser empacotado como um recurso no seu projeto, de modo que ele acaba o d: / home/site/wwwroot/diretório. Pode confirmar que o agente está no diretório correto do serviço de aplicações, acedendo a **ferramentas de desenvolvimento** > **ferramentas avançadas** > **depurar consola**e examinando o conteúdo do diretório do site.    
+O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas** > **avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
 
-* Guardar as definições e reinicie a aplicação. (Estes passos só se aplicam aos serviços de aplicação em execução no Windows.)
+* Salve as configurações e reinicie o aplicativo. (Essas etapas se aplicam somente aos serviços de aplicativo em execução no Windows.)
 
 > [!NOTE]
-> IA Agent.xml e o ficheiro jar do agente devem estar na mesma pasta. Eles, muitas vezes, são colocados em conjunto no `/resources` pasta do projeto.  
+> AI-Agent. xml e o arquivo JAR do agente devem estar na mesma pasta. Geralmente, eles são colocados juntos na `/resources` pasta do projeto.  
 
-### <a name="spring-rest-template"></a>Modelo de Rest de Spring
+#### <a name="enable-w3c-distributed-tracing"></a>Habilitar o rastreamento distribuído do W3C
 
-Na ordem do Application Insights instrumentar com êxito a chamadas HTTP feitas com o modelo de Rest do Spring, o uso do cliente HTTP Apache é necessário. Por predefinição o modelo de Rest do Spring não está configurado para utilizar o cliente de HTTP do Apache. Ao especificar [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) no construtor de um modelo de Rest de Spring, este irá utilizar o Apache HTTP.
-
-Eis um exemplo de como fazê-lo com o Spring Beans. Este é um exemplo muito simples que utiliza as predefinições da classe de fábrica.
-
-```java
-@bean
-public ClientHttpRequestFactory httpRequestFactory() {
-return new HttpComponentsClientHttpRequestFactory()
-}
-@Bean(name = 'myRestTemplate')
-public RestTemplate dcrAccessRestTemplate() {
-    return new RestTemplate(httpRequestFactory())
-}
-```
-
-#### <a name="enable-w3c-distributed-tracing"></a>Ativar o rastreio distribuído do W3C
-
-Adicione o seguinte ao IA-Agent.xml:
+Adicione o seguinte ao AI-Agent. xml:
 
 ```xml
 <Instrumentation>
-        <BuiltIn enabled="true">
-            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
-        </BuiltIn>
-    </Instrumentation>
+   <BuiltIn enabled="true">
+      <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+   </BuiltIn>
+</Instrumentation>
 ```
 
 > [!NOTE]
-> O modo de compatibilidade com versões anteriores está ativado por predefinição e o parâmetro enableW3CBackCompat é opcional e deve ser usado apenas quando pretender desativá-la. 
+> O modo de compatibilidade com versões anteriores é habilitado por padrão e o parâmetro enableW3CBackCompat é opcional e deve ser usado somente quando você deseja desativá-lo. 
 
-Idealmente, isso seria o caso quando todos os seus serviços foram atualizados para a versão mais recente de SDKs que suporta o protocolo de W3C. É altamente recomendado para mover para a versão mais recente dos SDKs com suporte de W3C logo que possível.
+Idealmente, esse seria o caso quando todos os seus serviços foram atualizados para uma versão mais recente de SDKs com suporte para o protocolo W3C. É altamente recomendável migrar para a versão mais recente de SDKs com suporte W3C assim que possível.
 
-Certifique-se de que **ambos [entrada](correlation.md#w3c-distributed-tracing) e de saída configurações (agente)** são exatamente iguais.
+Verifique se **as configurações de [entrada](correlation.md#w3c-distributed-tracing) e de saída (agente)** são exatamente iguais.
 
-## <a name="view-the-data"></a>Ver os dados
-O recurso do Application Insights, agregados remotos dependência e o método tempos de execução aparece [sob o mosaico de desempenho][metrics].
+## <a name="view-the-data"></a>Exibir os dados
+No recurso Application Insights, a dependência remota agregada e os tempos de execução [do método aparecem no bloco desempenho][metrics].
 
-Para procurar instâncias individuais de dependência, a exceção e o método de relatórios, abra [pesquisa][diagnostic].
+Para pesquisar instâncias individuais de dependência, exceção e relatórios de método, abra a [pesquisa][diagnostic].
 
-[Diagnóstico de dependência de problemas - Saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnosticando problemas de dependência-saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Tem dúvidas? Problemas?
-* Não existem dados? [Exceções de firewall de conjunto](../../azure-monitor/app/ip-addresses.md)
+* Não existem dados? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
 * [Resolução de problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->
