@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 06af1f4326e3f6a6dcb53c8710a126f43e2d2f6a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875105"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262268"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Práticas recomendadas de design do aplicativo Service Fabric do Azure
 
@@ -40,7 +40,7 @@ Use um serviço de gateway de API que se comunica com serviços de back-end que 
 
 - [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), que é [integrado com Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
 - [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), usando o [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) para ler as partições do hub de eventos.
-- [Træfik proxy reverso](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), usando o [provedor de Service Fabric do Azure](https://docs.traefik.io/configuration/backends/servicefabric/).
+- [Træfik proxy reverso](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), usando o [provedor de Service Fabric do Azure](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
 - [Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 

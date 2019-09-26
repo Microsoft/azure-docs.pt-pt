@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622711"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272549"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -59,6 +59,25 @@ No cenário de exemplo acima, pode classificar as aplicações de acordo com est
 
 * Aplicações que precisam de aceder de forma segura a recursos
 * Aplicações que desempenham a função do recurso em si
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
+
+Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico tem uma visão geral:
+
+|Fluxo | Requisitos | id_token | token de acesso | token de atualização | código de autorização | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Fluxo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Resgate de token de atualização](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token de atualização | x | x | x| |
+|[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | token de acesso| x| x| x| |
+|[Fluxo de código do dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
+|[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
+
+**Observações**:
+
+Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador `response_mode` por `query` meio `fragment`da URL (onde é ou).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm `groups` declarações `wids` ou. 
+
 
 Agora que você tem uma visão geral das noções básicas, continue lendo para entender o modelo e a API do aplicativo de identidade, como o provisionamento funciona na plataforma de identidade da Microsoft e links para informações detalhadas sobre os cenários comuns aos quais a plataforma de identidades da Microsoft dá suporte.
 
@@ -104,7 +123,7 @@ Tokens de segurança (tokens de ID e acesso) emitidos pela plataforma de identid
 
 As afirmações presentes em qualquer token de segurança dependem do tipo de token, do tipo de credencial utilizado para autenticar o utilizador e da configuração da aplicação.
 
-Uma breve descrição de cada tipo de declaração emitida pela plataforma de identidade da Microsoft é fornecida na tabela a seguir. Para obter informações mais detalhadas, consulte [tokens de acesso](access-tokens.md) e tokens de [ID](id-tokens.md) emitidos pela plataforma de identidade da Microsoft.
+Uma breve descrição de cada tipo de declaração emitida pela plataforma de identidade da Microsoft é fornecida na tabela a seguir. Para obter informações mais detalhadas, consulte [tokens de acesso](access-tokens.md) e [tokens de ID](id-tokens.md) emitidos pela plataforma de identidade da Microsoft.
 
 | Afirmação | Descrição |
 | --- | --- |
@@ -129,6 +148,6 @@ Uma breve descrição de cada tipo de declaração emitida pela plataforma de id
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |
 | Version | Contém o número de versão do token. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [tipos de aplicativos e os cenários com suporte na plataforma de identidade da Microsoft](app-types.md)
