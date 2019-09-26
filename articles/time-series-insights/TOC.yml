@@ -61,7 +61,7 @@
           href: time-series-insights-update-use-cases.md
         - name: Modelo de Série de Tempo
           href: time-series-insights-update-tsm.md
-        - name: Consulta de dados
+        - name: Consulta de Série de Tempo
           href: time-series-insights-update-tsq.md
         - name: Visualizar dados na Pré-visualização do explorador
           href: time-series-insights-update-explorer.md

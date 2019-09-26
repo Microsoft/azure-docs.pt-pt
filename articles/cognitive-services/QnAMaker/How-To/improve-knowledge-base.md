@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ab4447c8c07f8e8315c0258cc3254e5272ab7582
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934692"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272429"
 ---
-# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar sua base de dados de conhecimento
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
 O aprendizado ativo permite que você aprimore a qualidade de sua base de dados de conhecimento sugerindo perguntas alternativas, com base em envios de usuários, para seu par de perguntas e respostas. Revise essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as. 
 
@@ -79,6 +79,8 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver as perguntas 
     Quando o **aprendizado ativo** é habilitado, a base de dados de conhecimento sugere novas perguntas em intervalos regulares com base em perguntas enviadas pelo usuário. Você pode desabilitar o **aprendizado ativo** alternando a configuração novamente.
 
 ## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Aceitar uma sugestão de aprendizado ativo na base de dados de conhecimento
+
+O aprendizado ativo altera a base de dados de conhecimento ou Serviço de Pesquisa depois que você aprova a sugestão, em seguida, salva e treina. Se você aprovar a sugestão, ela será adicionada como uma pergunta alternativa.
 
 1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição**e, em seguida, selecione **Mostrar sugestões de aprendizado ativo**. 
 
@@ -387,7 +389,14 @@ A `SuggestedQuestions` coluna é um objeto JSON de informações de `usersuggest
 ]
 ```
 
+Você também pode usar a API de alterações de download para examinar essas alterações, usando REST ou qualquer um dos SDKs baseados em linguagem:
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar informações e recomendar sugestões para sua base de dados de conhecimento. 
+
+
 
 ## <a name="best-practices"></a>Melhores práticas
 

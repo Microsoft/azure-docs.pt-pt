@@ -7,15 +7,7 @@
 - name: Documentação de Extensões de VM
   href: extensions/overview.md
 - name: Cargas de trabalho
-  items:
-    - name: Oracle
-      href: workloads/oracle/oracle-considerations.md
-    - name: SAP
-      href: workloads/sap/get-started.md
-    - name: Computação de alto desempenho
-      href: workloads/hpc/overview.md
-    - name: Realojamento de mainframe
-      href: workloads/mainframe-rehosting/overview.md
+  href: ./workloads/workloads.md
 - name: Implementações clássicas
   items:
     - name: VMs do Linux com implementação clássica

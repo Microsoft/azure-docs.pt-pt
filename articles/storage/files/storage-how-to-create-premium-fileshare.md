@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 223efefde4fc09684504925abd0d8d5ee5e4b5ea
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699581"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260222"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar um compartilhamento de arquivos premium do Azure
 Os compartilhamentos de arquivos Premium são oferecidos na mídia de armazenamento de SSD (disco de estado sólido) e são úteis para cargas de trabalho com uso intensivo de e/s, incluindo bancos de dados de hospedagem e HPC (computação de alto desempenho). Os compartilhamentos de arquivos Premium são hospedados em um tipo de conta de armazenamento de finalidade especial, chamado de conta de armazenamento de arquivo. Os compartilhamentos de arquivos Premium são projetados para aplicativos de alto desempenho e escala empresarial, fornecendo compartilhamentos de baixa latência, IOPS e alta taxa de transferência consistentes.
@@ -46,7 +46,7 @@ Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
 1. Para **desempenho** , selecione **Premium**.
-1. Selecione **tipo de conta** eescolha FileStorage.
+1. Selecione **tipo de conta** e escolha **FileStorage**.
 1. Deixe a **replicação** definida com seu valor padrão de **armazenamento com REDUNDÂNCIA local (LRS)** .
 
     ![Como criar uma conta de armazenamento para um compartilhamento de arquivos Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
@@ -59,7 +59,7 @@ Depois que o recurso da conta de armazenamento tiver sido criado, navegue até e
 ### <a name="create-a-premium-file-share"></a>Criar uma partilha de ficheiros premium
 
 1. No menu à esquerda da conta de armazenamento, role até a seção **serviço de arquivo** e selecione **arquivos**.
-1. Selecione **+ compartilhamento de arquivos** para criar um compartilhamento de arquivos premium.
+1. Selecione **compartilhamento de arquivos** para criar um compartilhamento de arquivos premium.
 1. Insira um nome e uma cota desejada para o compartilhamento de arquivos e, em seguida, selecione **criar**.
 
 > [!NOTE]
@@ -206,7 +206,7 @@ Para remover o grupo de recursos e os respetivos recursos associados, incluindo 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você criou um compartilhamento de arquivos premium. Para saber mais sobre o desempenho oferecido por essa conta, continue na seção nível de desempenho do guia de planejamento.
 

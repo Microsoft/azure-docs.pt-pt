@@ -5,10 +5,10 @@ manager: carmonm
 ms.date: 04/17/2019
 ms.topic: include
 ms.openlocfilehash: bba762fca7154067e528ebbbb0ea94c8ba7965f3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "67171084"
 ---
 > [!NOTE]

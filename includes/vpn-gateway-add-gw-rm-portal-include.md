@@ -5,50 +5,50 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/30/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184104"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273747"
 ---
-1. Inicie sessão no portal do Azure e selecione **criar um recurso**. O **New** é aberta a página.
+1. No portal, do lado esquerdo, clique em **+ Criar um recurso** e escreva "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** no resultado da pesquisa e clique na entrada. Na página **Gateway de rede virtual** , clique em **criar**. É aberta a página **Criar gateway de rede virtual**.
 
-2. Na **pesquisar o campo de marketplace**, introduza *gateway de rede virtual*e selecione **gateway de rede Virtual** na lista de pesquisa. 
+   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Create virtual network gateway page fields")
 
-3. Sobre o **gateway de rede Virtual** página, selecione **criar** para abrir o **criar gateway de rede virtual** página.
+   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw2.png "Create virtual network gateway page fields")
+2. Na página **Criar gateway de rede virtual**, preencha os valores para o gateway de rede virtual.
 
-   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Create virtual network gateway page fields")
+   **Detalhes do projeto**
 
-4. Sobre o **criar gateway de rede virtual** página, preencha os valores para o seu gateway de rede virtual:
+   - **Subscrição**: Selecione a assinatura que você deseja usar na lista suspensa.
+   - **Grupo de recursos**: Essa configuração é preenchida automática quando você seleciona sua rede virtual nesta página.
 
-   - **Nome**: Introduza um nome para o objeto de gateway que está a criar. Este nome é diferente do nome de sub-rede de gateway. 
+   **Detalhes da instância**
 
-   - **Tipo de gateway**: Selecione **VPN** para gateways de VPN. 
+   - **Nome**: Nomeie seu gateway. Nomear seu gateway não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de gateway que está a criar.
+   - **Região**: Selecione a região na qual você deseja criar esse recurso. A região do gateway deve ser a mesma que a rede virtual.
+   - **Tipo de gateway**: Selecione **VPN**. Os gateways de VPN utilizam o tipo de gateway de rede virtual **VPN**. 
+   - **Tipo de VPN**: Selecione o tipo de VPN que é especificado para sua configuração. A maioria das configurações requerem um tipo de VPN baseado em rotas.
+   - **SKU**: Selecione o SKU de gateway no menu suspenso. Os SKUs listados na lista pendente dependem do tipo de VPN que selecionar. Para obter mais informações sobre os SKUs de gateway, veja [SKUs de Gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-   - **Tipo de VPN**: Selecione o tipo VPN especificado para a sua configuração. A maioria das configurações requerem um **baseado na rota** tipo de VPN.
+      **Rede virtual**: Escolha a rede virtual à qual pretende adicionar este gateway.
 
-   - **SKU**: Selecione o SKU de gateway na lista pendente. Os SKUs listados na lista pendente dependem do tipo de VPN que selecionar. Para obter mais informações sobre os SKUs de gateway, veja [SKUs de Gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+      **Intervalo de endereços da sub-rede do gateway**: Esse campo só aparecerá se a rede virtual selecionada não tiver uma sub-rede de gateway. Preencha o intervalo se você ainda não tiver uma sub-rede de gateway. Se possível, torne o intervalo/27 ou maior (/26,/25 etc.)
 
-      Apenas a determinados **ative o modo ativo-ativo** se estiver a criar uma configuração de gateway ativo-ativo. Caso contrário, deixe esta configuração não selecionada.
-  
-   - **Localização**: Poderá ter de deslocar para ver **localização**. Definir **localização** para a localização onde se encontra a rede virtual. Por exemplo, **E.U.A. oeste**. Se não definir o local para a região onde está localizada a sua rede virtual, ele não aparece na lista pendente quando seleciona uma rede virtual.
+   **Endereço IP público**: Essa configuração especifica o objeto de endereço IP público que é associado ao gateway de VPN. O endereço IP público é dinamicamente atribuído a este objeto quando o gateway de VPN é criado. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
-   - **Rede virtual**: Escolha a rede virtual à qual pretende adicionar este gateway. Selecione **rede Virtual** para abrir o **escolher rede virtual** página e selecione a VNet. Se não vir a sua VNet, certifique-se de que o **localização** campo é definido para a região em que a sua rede virtual se encontra.
+     - **Endereço IP público**: Deixe **Criar novo** selecionado.
+     - **Nome do endereço IP público**: Na caixa de texto, digite um nome para sua instância de endereço IP público.
+     - **Atribuição**: O gateway de VPN dá suporte apenas ao dinâmico.
 
-   - **Intervalo de endereços da sub-rede de gateway**: Só verá esta definição se não tiver criado anteriormente uma sub-rede de gateway da rede virtual. Se tiver criado anteriormente uma sub-rede de gateway válida, esta definição não será apresentado.
+   **Modo ativo-ativo**: Selecione apenas **Ativar modo ativo-ativo** se estiver a criar uma configuração de gateway ativa-ativa. Caso contrário, deixe esta configuração não selecionada.
 
-   - **Endereço IP público**: Esta definição especifica o objeto de endereço IP público associado o gateway de VPN. O endereço IP público é dinamicamente atribuído a este objeto quando o gateway de VPN é criado. O gateway VPN atualmente suporta apenas *dinâmica* alocação de endereço IP pública. No entanto, a alocação dinâmica não significa que o endereço IP é alterado depois de ser atribuído ao gateway de VPN. O único momento em que as alterações de endereço IP públicas é quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
-    
-      - Deixe **Criar novo** selecionado.
+   Deixe **Configurar o BGP ASN** não selecionado, a não ser que a sua configuração solicite especificamente esta definição. Se precisar desta definição, o ASN predefinido é 65515, apesar de isto poder ser alterado.
 
-      - Na caixa de texto, introduza um nome para o seu endereço IP público.
+3. Clique em **examinar + criar** para executar a validação. Depois que a validação for aprovada, clique em **criar** para implantar o gateway de VPN. Um gateway pode levar até 45 minutos para criar e implantar totalmente. Você pode ver o status da implantação na página Visão geral do seu gateway.
 
-   - **Configurar BGP ASN**: Deixe esta definição desmarcada, a menos que a configuração requer especificamente-lo. Se necessitar desta definição, a predefinição ASN é *65515*, que pode alterar.
-     
-5. Verifique as definições e selecione **criar** para começar a criar o gateway de VPN. As definições são validadas e verá o **gateway de rede Virtual Implantando** mosaico no dashboard. A criação de um gateway pode demorar até 45 minutos. Poderá ter de atualizar a página do portal para ver o estado concluído.
-
-6. Depois de criar o gateway, verifique se o endereço IP que é foram atribuído ao mesmo, visualizando a rede virtual no portal. O gateway aparece como um dispositivo ligado. Pode selecionar o dispositivo ligado (o seu gateway de rede virtual) para ver mais informações.
+Uma vez criado o gateway, pode visualizar o endereço IP que lhe foi atribuído vendo a rede virtual no portal. O gateway aparece como um dispositivo ligado.

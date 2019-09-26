@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976636"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266862"
 ---
 ## <a name="benefits"></a>Benefícios 
 
@@ -29,7 +29,7 @@ Reservar o host inteiro oferece os seguintes benefícios:
 
 ![Exibição dos novos recursos para hosts dedicados.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
-Um **grupo** de hosts é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele.
+Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele.
 
 Um **host** é um recurso, mapeado para um servidor físico em um data center do Azure. O servidor físico é alocado quando o host é criado. Um host é criado dentro de um grupo de hosts. Um host tem uma SKU que descreve quais tamanhos de VM podem ser criados. Cada host pode hospedar várias VMs, de tamanhos diferentes, contanto que sejam da mesma série de tamanho.
 
@@ -69,7 +69,7 @@ O modelo de exemplo do Resource Manager encontrado [aqui](https://github.com/Azu
 O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias.
 
 > [!NOTE]
->  O controle de manutenção está atualmente em um estágio de visualização limitado e requer um processo de integração. Inscreva-se para esta visualização enviando uma [pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u)de nominação.
+>  O controle de manutenção está atualmente em um estágio de visualização limitado e requer um processo de integração. Inscreva-se para esta visualização enviando uma [pesquisa de nominação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
 ## <a name="capacity-considerations"></a>Considerações sobre capacidade
 
@@ -81,7 +81,7 @@ Há um limite de cota padrão de 3000 vCPUs para hosts dedicados, por região. P
 
 ![Captura de tela da página uso e cotas no portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-Para obter mais informações, consulte cotas de [vCPU de máquina virtual](/azure/virtual-machines/windows/quotas).
+Para obter mais informações, consulte [cotas de vCPU de máquina virtual](/azure/virtual-machines/windows/quotas).
 
 ## <a name="pricing"></a>Preços
 
@@ -113,6 +113,6 @@ O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes 
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |
-| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoHealingOnFailure` o estiver habilitado, suas máquinas virtuais serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
-| Host desalocado  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
+| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoReplaceOnFailure` o estiver habilitado, suas máquinas virtuais serão reparadas *para o* hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
+| Anfitrião desatribuído  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
 

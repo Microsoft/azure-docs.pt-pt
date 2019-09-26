@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 18a19f5f853206b06c617307c761a99033c9f92a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "70174651"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266930"
 ---
 Os tamanhos de VM com otimização de memória oferecem uma alta taxa de memória para CPU que são excelentes para servidores de banco de dados relacionais, caches médios a grandes e análise na memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e a largura de banda de rede para cada tamanho neste agrupamento.
 
 * A série Ev3 apresenta o processador E5-2673 v4 2,3 GHz (Broadwell) em uma configuração de hiperthread, fornecendo uma proposta de valor melhor para a maioria das cargas de trabalho de uso geral e trazendo o Ev3 para o alinhamento com as VMs de uso geral da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de disco e rede foram ajustados por núcleo para ficarem alinhados com a mudança para o hyperthreading.  O Ev3 é o acompanhamento dos tamanhos de VM de alta memória das famílias D/Dv2.
 
-* As séries Eav3 e Easv3 utilizam o processador 2.35 GHz EPYC<sup>TM</sup> 7452V da AMD em uma configuração multi-threaded com até 256 MB de cache L3, aumentando as opções para executar a maioria das cargas de trabalho com otimização de memória.  As séries Eav3 e Easv3 têm as mesmas configurações de memória e disco que o Ev3 & série Esv3.
+* Os tamanhos de visualização das séries Eav3 e Easv3 utilizam o processador 2.35 GHz EPYC<sup>TM</sup> 7452 da AMD em uma configuração multi-threaded com até 256 MB de cache L3, aumentando as opções para executar a maioria das cargas de trabalho com otimização de memória.  As séries Eav3 e Easv3 têm as mesmas configurações de memória e disco que o Ev3 & série Esv3.
 
 * A série Mv2 oferece a contagem de vCPU mais alta (até 208 vCPUs) e a maior memória (até 5,7 TiB) de qualquer VM na nuvem. É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
 
@@ -61,13 +61,15 @@ As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5
 
 <sup>3</sup> a instância é isolada em hardware dedicado a um único cliente.
 
-## <a name="easv3-series"></a>Série Easv3
+## <a name="easv3-series-preview"></a>Série Easv3 (versão prévia)
 
 Armazenamento Premium: Suportadas
 
 Cache de armazenamento Premium: Suportadas
 
-Os tamanhos da série Easv3 são baseados no processador AMD EPYC<sup>TM</sup> de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Easv3 são ideais para aplicativos empresariais com uso intensivo de memória.
+Os tamanhos da série Easv3 baseiam-se no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Easv3 são ideais para aplicativos empresariais com uso intensivo de memória.
+
+[Clique aqui para inscrever-se para a versão prévia](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB |
 |---|---|---|---|
@@ -110,23 +112,25 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 <sup>3</sup> a instância é isolada em hardware dedicado a um único cliente.
 
-## <a name="eav3-series"></a>Série Eav3
+## <a name="eav3-series-preview"></a>Série Eav3 (versão prévia)
 
 Armazenamento Premium: Não Suportada
 
 Cache de armazenamento Premium: Não Suportada
 
-Os tamanhos da série Eav3 são baseados no processador AMD EPYC<sup>TM</sup> de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Eav3 são ideais para aplicativos empresariais com uso intensivo de memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos da série Easv3. Os medidores de cobrança e preço para os tamanhos de Easv3 são os mesmos que os da série Eav3.
+Os tamanhos da série Eav3 baseiam-se no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Eav3 são ideais para aplicativos empresariais com uso intensivo de memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos da série Easv3. Os medidores de cobrança e preço para os tamanhos de Easv3 são os mesmos que os da série Eav3.
 
-| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB |
-|---|---|---|---|---|---|
-| Standard_E2a_v3  | 2  | 16  | 50   |
-| Standard_E4a_v3  | 4  | 32  | 100  |
-| Standard_E8a_v3  | 8  | 64  | 200  |
-| Standard_E16a_v3 | 16 | 128 | 400  |
-| Standard_E32a_v3 | 32 | 256 | 800  |
-| Standard_E48a_v3 | 48 | 384 | 1200 |
-| Standard_E64a_v3 | 64 | 432 | 1600 |
+[Clique aqui para inscrever-se para a versão prévia](http://aka.ms/azureamdpreview).
+
+| Size             | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB |
+|------------------|------|-------------|-------------------------|
+| Standard_E2a_v3  | 2    | 16          | 50                      |
+| Standard_E4a_v3  | 4    | 32          | 100                     |
+| Standard_E8a_v3  | 8    | 64          | 200                     |
+| Standard_E16a_v3 | 16   | 128         | 400                     |
+| Standard_E32a_v3 | 32   | 256         | 800                     |
+| Standard_E48a_v3 | 48   | 384         | 1200                    |
+| Standard_E64a_v3 | 64   | 432         | 1600                    |
 
 ## <a name="mv2-series"></a>Série Mv2
 

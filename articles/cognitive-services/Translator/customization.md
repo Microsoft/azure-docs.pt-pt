@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595306"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257631"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -29,7 +29,7 @@ Com o tradutor personalizado, você pode criar sistemas de tradução neural que
 
 ### <a name="how-does-it-work"></a>Como funciona?
 
-Use seus documentos traduzidos anteriormente (leaflets, páginas da Web, documentação, etc.) para criar um sistema de tradução que reflita sua terminologia e estilo específicos de domínio, melhor do que um sistema de tradução genérico. Os usuários podem carregar documentos TMX, XLIFF, TXT, DOCX e XLSX.  
+Use seus documentos traduzidos anteriormente (leaflets, páginas da Web, documentação, etc.) para criar um sistema de tradução que reflita sua terminologia e estilo específicos de domínio, melhor do que um sistema de tradução padrão. Os usuários podem carregar documentos TMX, XLIFF, TXT, DOCX e XLSX.  
 
 O sistema também aceita dados que são paralelos no nível do documento, mas que ainda não estão alinhados no nível da frase. Se os usuários tiverem acesso a versões do mesmo conteúdo em vários idiomas, mas em documentos separados, o tradutor personalizado será capaz de corresponder automaticamente frases entre documentos.  O sistema também pode usar dados multilíngues em uma ou em ambas as linguagens para complementar os dados de treinamento paralelo para melhorar as traduções.
 

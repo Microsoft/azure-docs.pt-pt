@@ -6,18 +6,17 @@ metadata:
   description: Faça pesquisas na cloud em conteúdos heterogéneos e privados com opções de melhoramento da IA se o seu conteúdo não for estruturado ou não for pesquisável na sua forma não processada.
   services: search
   ms.service: service
-  ms.subservice: cognitive-search
   ms.topic: landing-page
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
   ms.date: 09/20/2019
-  ms.openlocfilehash: 113ee13c1667e00f1052c88c9b29b881f312b00c
-  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.openlocfilehash: 9c89fa143ad5e7fb2c4ba9c227682d14aa511bd9
+  ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71147281"
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71265635"
 landingContent:
 - title: Sobre o Azure Search
   linkLists:

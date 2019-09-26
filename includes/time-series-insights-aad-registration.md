@@ -7,13 +7,13 @@ services: time-series-insights
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 08/08/2019
-ms.openlocfilehash: ed5cd9424630a90b989b8a4d76959961f82a53ec
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 09/24/2019
+ms.openlocfilehash: ccfbd16f4db770558f1bc0284860a5f8d9fb8b68
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935233"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266947"
 ---
 > [!IMPORTANT]
 > * A nova folha **Azure Active Directory** > **registros de aplicativo** substitui a folha registros de aplicativo herdada **Azure Active Directory** >  **(herdada)** pode ser 2019.
@@ -41,12 +41,12 @@ ms.locfileid: "68935233"
 
 1. A folha **autenticação** especifica definições de configuração de autenticação importantes. 
 
-    1. Os **URIs** de redirecionamento devem corresponder ao endereço fornecido pela solicitação de autenticação:
+    1. Os **URIs de redirecionamento** devem corresponder ao endereço fornecido pela solicitação de autenticação:
 
         * Para aplicativos hospedados em um ambiente de desenvolvimento local, selecione **cliente público (mobile & Desktop)** . Certifique-se de definir o **tipo de cliente padrão** como Sim.
         * Para aplicativos de página única hospedados no serviço Azure App, selecione **Web**.
 
-    1. Habilite o fluxo de concessão implícita verificando tokens de **ID**.
+    1. Habilite o fluxo de concessão implícita verificando **tokens de ID**.
 
    [![Criar um novo segredo do cliente](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 

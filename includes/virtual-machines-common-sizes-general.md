@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: a47589728bdbe3842790a7c13fe35d04dbbe6883
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5d89feaa5225aea56af86aa7f70d3666994fdaec
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881624"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266896"
 ---
 Os tamanhos de VM de uso geral fornecem a proporção balanceada de CPU para memória. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento para tamanhos neste agrupamento.
 
@@ -80,13 +80,15 @@ Os tamanhos da série Dsv3 são baseados no processador Intel Xeon® E5-2673 v3 
 
 <sup>1</sup> o recurso da VM da série Dsv3 Intel® tecnologia Hyper-Threading
 
-## <a name="dasv3-series"></a>Série Dasv3
+## <a name="dasv3-series-preview"></a>Série Dasv3 (versão prévia)
 
 Armazenamento Premium: Suportadas
 
 Cache de armazenamento Premium: Suportadas
 
-Os tamanhos da série Dasv3 são baseados no processador AMD EPYC<sup>TM</sup> de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Dasv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
+Os tamanhos da série Dasv3 baseiam-se no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz e usar o armazenamento Premium. Os tamanhos da série Dasv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
+
+[Clique aqui para se inscrever para a versão prévia](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB |
 |---|---|---|---|
@@ -123,13 +125,15 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 <sup>1</sup> o recurso da VM da série Dv3 Intel® tecnologia Hyper-Threading
 
-## <a name="dav3-series"></a>Série Dav3
+## <a name="dav3-series-preview"></a>Série Dav3 (versão prévia)
 
 Armazenamento Premium: Não Suportada
 
 Cache de armazenamento Premium: Não Suportada
 
-Os tamanhos da série Dav3 são baseados no processador AMD EPYC<sup>TM</sup> de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz. Os tamanhos da série Dav3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos de Dasv3. Os medidores de cobrança e preço para os tamanhos de Dasv3 são os mesmos que os da série Dav3.
+Os tamanhos da série Dav3 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar um Fmax aumentado de 3.35 GHz. Os tamanhos da série Dav3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos de Dasv3. Os medidores de cobrança e preço para os tamanhos de Dasv3 são os mesmos que os da série Dav3.
+
+[Clique aqui para se inscrever para a versão prévia](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB |
 |---|---|---|---|

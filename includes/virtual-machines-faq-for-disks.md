@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541522"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266879"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
 
@@ -183,8 +183,26 @@ Não, o suporte do backup do Azure ainda não está disponível.
 **Posso anexar um ultra Disk a uma VM em execução em um conjunto de disponibilidade?**
 Não, ainda não há suporte para isso.
 
-**Posso habilitar a Azure Site Recovery (ASR) para VMs usando ultra discos?**
-Não, o ASR ainda não tem suporte para ultra discos.
+**Posso habilitar Azure Site Recovery para VMs usando ultra discos?**
+Não, o Azure Site Recovery ainda não tem suporte para ultra discos.
+
+## <a name="uploading-to-a-managed-disk"></a>Carregando para um disco gerenciado
+
+**Posso carregar dados em um disco gerenciado existente?**
+
+Não, o carregamento só pode ser usado durante a criação de um novo disco vazio com o estado **ReadyToUpload** .
+
+**Como fazer carregar em um disco gerenciado?**
+
+Criar um disco gerenciado com a propriedade [createoption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) definida como "upload", você pode carregar dados nele.
+
+**Posso anexar um disco a uma VM enquanto ele estiver em um estado de carregamento?**
+
+Não.
+
+**Posso tirar um instantâneo de um disco de gerenciada em um estado de carregamento?**
+
+Não.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eba7dbb934bbc19ed7dc7452c15cbf22a9429bc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 9ce9fa29a29559a1eaaff6173737159f11aa83d8
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706755"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268894"
 ---
 1. No portal, do lado esquerdo, clique em **+ Criar um recurso** e escreva "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** no resultado da pesquisa e clique na entrada. Na página **Gateway de rede virtual** , clique em **criar**. É aberta a página **Criar gateway de rede virtual**.
 
@@ -24,7 +24,7 @@ ms.locfileid: "68706755"
 
    **Detalhes do projeto**
 
-   - **Assinatura**: Selecione a assinatura que você deseja usar na lista suspensa.
+   - **Subscrição**: Selecione a assinatura que você deseja usar na lista suspensa.
    - **Grupo de recursos**: Essa configuração é preenchida automática quando você seleciona sua rede virtual nesta página.
 
    **Detalhes da instância**
@@ -39,7 +39,7 @@ ms.locfileid: "68706755"
 
       **Intervalo de endereços da sub-rede do gateway**: Esse campo só aparecerá se a rede virtual selecionada não tiver uma sub-rede de gateway. Preencha o intervalo se você ainda não tiver uma sub-rede de gateway. Se possível, torne o intervalo/27 ou maior (/26,/25 etc.)
 
-    **Endereço IP público**: Essa configuração especifica o objeto de endereço IP público que é associado ao gateway de VPN. O endereço IP público é dinamicamente atribuído a este objeto quando o gateway de VPN é criado. O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos*. No entanto, isto não significa que o endereço IP é alterado após ser atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
+   **Endereço IP público**: Essa configuração especifica o objeto de endereço IP público que é associado ao gateway de VPN. O endereço IP público é dinamicamente atribuído a este objeto quando o gateway de VPN é criado. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
      - **Endereço IP público**: Deixe **Criar novo** selecionado.
      - **Nome do endereço IP público**: Na caixa de texto, digite um nome para sua instância de endereço IP público.

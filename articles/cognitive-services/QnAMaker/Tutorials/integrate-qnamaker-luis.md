@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053156"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272419"
 ---
-# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Utilizar o bot com a ferramenta QnA Maker e o LUIS para distribuir a sua base de dados de conhecimento
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usar bot com QnA Maker e LUIS para distribuir sua base de dados de conhecimento
 À medida que sua base de dados de conhecimento do QnA Maker cresce grandes, torna-se difícil mantê-lo como um único monolítico definido e há a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.
 
 Embora seja fácil para criar várias bases de dados de conhecimento no Criador de FAQ, terá de alguma lógica para rotear a pergunta de entrada para a base de dados de conhecimento adequada. Pode fazê-lo ao utilizar o LUIS.
@@ -27,7 +27,7 @@ Este artigo utiliza o Bot Framework v3 SDK. Consulte este [artigo de Bot Framewo
 
 ## <a name="architecture"></a>Arquitetura
 
-![A ferramenta QnA Maker com arquitetura de compreensão de idiomas](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker com arquitetura de Reconhecimento vocal](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 No cenário acima, o QnA Maker obtém primeiro a intenção da pergunta recebida de um modelo do LUIS e, em seguida, usá-lo para encaminhar para a base de dados de conhecimento do QnA Maker correta.
 
@@ -51,7 +51,7 @@ No cenário acima, o QnA Maker obtém primeiro a intenção da pergunta recebida
 
 ## <a name="web-app-bot"></a>Bot de funções
 
-1. [Criar um bot de aplicação Web "Básica"](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) que inclui automaticamente uma aplicação do LUIS. Selecione 4.x SDK e o C# linguagem de programação.
+1. [Crie um bot de aplicativo Web "básico"](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) que inclui automaticamente um aplicativo Luis. Selecione C# linguagem de programação.
 
 1. Uma vez criado o bot de aplicação web, no portal do Azure, selecione o bot de aplicação web.
 1. Selecione **as configurações do aplicativo** na navegação de serviço da Web app bot, em seguida, desloque para baixo até **configurações de aplicativo** secção de definições disponíveis.

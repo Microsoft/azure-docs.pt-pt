@@ -10,12 +10,12 @@ metadata:
   author: ecfan
   ms.author: estfan; logicappspm
   ms.date: 09/18/2019
-  ms.openlocfilehash: d23fac0d030c1d288e1491273d39e07d80426885
-  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.openlocfilehash: 8c4f701c398e27114844b5a2b95c894044c3a8b2
+  ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71147303"
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71268880"
 landingContent:
 - title: Acerca do Azure Logic Apps
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Conectores do Azure Logic Apps
-      url: /azure/connectors/apis-list.md
+      url: /azure/connectors/apis-list
     - text: Agendar fluxos de trabalho periódicos
       url: concepts-schedule-automated-recurring-tasks-workflows.md
     - text: Integração empresarial B2B
