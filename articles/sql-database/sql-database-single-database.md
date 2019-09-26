@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566541"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316667"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no banco de dados SQL do Azure
 
@@ -57,8 +57,8 @@ O banco de dados SQL fornece uma variedade de recursos [internos de segurança e
 > [!IMPORTANT]
 > O banco de dados SQL do Azure (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte a [central de confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , em que você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para começar rapidamente com um único banco de dados, comece com o [Guide.MD início rápido do banco de dados individual](sql-database-single-database-quickstart-guide.md).
+- Para começar rapidamente com um único banco de dados, comece com o [Guia de início rápido do banco de dados individual](sql-database-single-database-quickstart-guide.md).
 - Para saber mais sobre como migrar um banco de dados SQL Server para o Azure, consulte [migrar para o banco de dados SQL do Azure](sql-database-single-database-migrate.md)
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](sql-database-features.md).

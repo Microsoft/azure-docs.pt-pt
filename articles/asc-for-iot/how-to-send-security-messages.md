@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: c780eea15b9f064d3279c75ac2f967e8b6099ecb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b291e2392f0756cb2d3ec294db37206d32216959
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596218"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315934"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar SDK de mensagens de segurança
 
@@ -28,8 +28,12 @@ Este guia de instruções explica a central de segurança do Azure para recursos
 
 Neste guia, ficará a saber como: 
 > [!div class="checklist"]
-> * Usar a API enviar mensagem de segurança paraC#
-> * Usar a API de envio de mensagem de segurança para C
+> * Enviar mensagens de segurança usando o SDK do Azure IoT C
+> * Enviar mensagens de segurança usando o SDK C# do Azure IOT
+> * Enviar mensagens de segurança usando o SDK do Python do Azure IoT
+> * Enviar mensagens de segurança usando o SDK do node. js do Azure IoT
+> * Enviar mensagens de segurança usando o SDK do Java do Azure IoT
+
 
 ## <a name="azure-security-center-for-iot-capabilities"></a>Central de segurança do Azure para recursos de IoT
 
@@ -38,7 +42,7 @@ A central de segurança do Azure para IoT pode processar e analisar qualquer tip
 ## <a name="security-message"></a>Mensagem de segurança
 
 A central de segurança do Azure para IoT define uma mensagem de segurança usando os seguintes critérios:
-- Se a mensagem foi enviada com o Azure IoT CC# /SDK
+- Se a mensagem foi enviada com o SDK do Azure IoT
 - Se a mensagem estiver em conformidade com o [esquema de mensagem de segurança](https://aka.ms/iot-security-schemas)
 - Se a mensagem foi definida como uma mensagem de segurança antes de enviar
 
@@ -49,7 +53,7 @@ O esquema define as propriedades válidas e obrigatórias da mensagem de seguran
 > As mensagens enviadas que não estão em conformidade com o esquema são ignoradas. Certifique-se de verificar o esquema antes de iniciar o envio de dados, pois as mensagens ignoradas não estão armazenadas no momento. 
 
 >[!Note]
-> Mensagens enviadas que não foram definidas como uma mensagem de segurança usando o Azure IoT CC# /SDK não serão roteadas para a central de segurança do Azure para o pipeline de IOT
+> Mensagens enviadas que não foram definidas como uma mensagem de segurança usando o SDK do Azure IoT não serão roteadas para a central de segurança do Azure para o pipeline de IoT.
 
 ## <a name="valid-message-example"></a>Exemplo de mensagem válida
 
@@ -87,28 +91,15 @@ Uma vez definido como uma mensagem de segurança e enviado, essa mensagem será 
 
 ## <a name="send-security-messages"></a>Enviar mensagens de segurança 
 
-Envie mensagens de segurança sem usar a central de segurança do Azure para agente de IoT usando o [SDK do dispositivo IOT C# do Azure](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) ou o [SDK do dispositivo do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
+Enviar mensagens de segurança *sem* usar a central de segurança do Azure para agente de IOT, usando o SDK do dispositivo do Azure [IOT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), o [SDK do dispositivo IOT C# do](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)Azure, o [SDK do node. js do Azure IOT](https://github.com/Azure/azure-iot-sdk-node), o SDK [do Python do Azure IOT](https://github.com/Azure/azure-iot-sdk-python)ou o [SDK do Java do Azure IOT ](https://github.com/Azure/azure-iot-sdk-java).
 
 Para enviar os dados do dispositivo de seus dispositivos para processamento pela central de segurança do Azure para IoT, use uma das APIs a seguir para marcar as mensagens para o roteamento correto para a central de segurança do Azure para o pipeline de processamento de IoT. 
 
 Todos os dados que são enviados, mesmo se marcados com o cabeçalho correto, também devem estar em conformidade com a [central de segurança do Azure para o esquema de mensagem de IOT](https://aka.ms/iot-security-schemas). 
 
-### <a name="send-security-message-api"></a>Enviar API de mensagem de segurança
+### <a name="send-security-message-api"></a>Enviar API de mensagem de segurança 
 
-A API **enviar mensagens de segurança** está disponível no momento em C#C e.  
-
-#### <a name="c-api"></a>API C#
-
-```cs
-
-private static async Task SendSecurityMessageAsync(string messageContent)
-{
-    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
-    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
-    securityMessage.SetAsSecurityMessage();
-    await client.SendEventAsync(securityMessage);
-}
-```
+A API **enviar mensagens de segurança** está disponível no momento em C#C e, Python, Node. js e Java.  
 
 #### <a name="c-api"></a>C API
 
@@ -154,8 +145,67 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
     }
 }
 ```
+#### <a name="c-api"></a>API C#
 
-## <a name="next-steps"></a>Passos Seguintes
+```cs
+
+private static async Task SendSecurityMessageAsync(string messageContent)
+{
+    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
+    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
+    securityMessage.SetAsSecurityMessage();
+    await client.SendEventAsync(securityMessage);
+}
+```
+#### <a name="nodejs-api"></a>API do node. js
+
+```typescript
+var Protocol = require('azure-iot-device-mqtt').Mqtt
+
+function SendSecurityMessage(messageContent)
+{
+  var client = Client.fromConnectionString(connectionString, Protocol);
+
+  var connectCallback = function (err) {
+    if (err) {
+      console.error('Could not connect: ' + err.message);
+    } else {
+      var message = new Message(messageContent);
+      message.setAsSecurityMessage();
+      client.sendEvent(message);
+  
+      client.on('error', function (err) {
+        console.error(err.message);
+      });
+  
+      client.on('disconnect', function () {
+        clearInterval(sendInterval);
+        client.removeAllListeners();
+        client.open(connectCallback);
+      });
+    }
+  };
+
+  client.open(connectCallback);
+}
+```
+
+#### <a name="python-api"></a>API Python
+
+```python
+async def send_security_message_async(message_content):
+    conn_str = os.getenv("<connection_string>")
+    device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
+    await device_client.connect()
+    security_message = Message(message_content)
+    security_message.set_as_security_message()
+    await device_client.send_d2c_message(security_message)
+    await device_client.disconnect()
+```
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 - Leia a [visão geral](overview.md) da central de segurança do Azure para serviços de IOT
 - Saiba mais sobre a [arquitetura](architecture.md) da central de segurança do Azure para IOT
 - Habilitar o [serviço](quickstart-onboard-iot-hub.md)

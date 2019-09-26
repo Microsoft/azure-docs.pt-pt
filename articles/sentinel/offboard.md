@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: f636fc9bab5ea77d11ac7944e7aa18cb0e402b8c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d3b9284282a7ee14cde2461598c81e6dfdfd9f72
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240059"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316749"
 ---
 # <a name="remove-azure-sentinel-from-your-tenant"></a>Remover o Azure Sentinel do seu locatário
 

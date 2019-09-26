@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: c58f8ae0605f99952507a5f308316f784b3d8de1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: eced3415db27562ea60b67f5c23ca7fafe09ccc0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105150"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316636"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contêineres do reconhecedor de formulário
 
@@ -303,7 +303,9 @@ O contêiner fornece APIs de ponto de extremidade REST, que podem ser encontrada
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando você executa o contêiner, o contêiner usa **stdout** e **stderr** para gerar informações que são úteis para solucionar problemas que surgem quando você inicia ou executa o contêiner.
+Se você executar o contêiner com uma [montagem](form-recognizer-container-configuration.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem ao iniciar ou executar o contêiner.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Faturação
 
@@ -330,7 +332,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, ins
 > [!IMPORTANT]
 >  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Os contêineres de serviços cognitivas não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Examine [configurar contêineres](form-recognizer-container-configuration.md) para definições de configuração.
 * Use mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md).

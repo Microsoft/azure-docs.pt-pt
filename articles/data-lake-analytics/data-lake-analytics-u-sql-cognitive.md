@@ -1,6 +1,6 @@
 ---
-title: Utilizar capacidades cognitivas para U-SQL no Azure Data Lake Analytics
-description: Saiba como utilizar a inteligência de capacidades cognitivas em U-SQL
+title: Recursos cognitivas do U-SQL no Azure Data Lake Analytics
+description: Saiba como usar a inteligência de recursos cognitivas no U-SQL
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,29 +9,29 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb64f08fae3a211b3ec26177ab2604edc20a8fdd
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812899"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315677"
 ---
-# <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Comece com as capacidades cognitivas do U-SQL
+# <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introdução aos recursos cognitivas do U-SQL
 
 ## <a name="overview"></a>Descrição geral
-Capacidades cognitivas para U-SQL permitem aos programadores utilizar inteligência put em seus programas de macrodados. 
+Recursos cognitivas para o U-SQL permitem que os desenvolvedores usem a inteligência Put em seus programas de Big Data. 
 
-Os exemplos seguintes com capacidades cognitivas estão disponíveis:
-* Geração de imagens: [Detetar rostos](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Geração de imagens: [Detetar emoções](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Geração de imagens: [Detetar objetos (identificação)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* Geração de imagens: [OCR (reconhecimento ótico de carateres)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Texto: [Extração de expressões-chave & análise de sentimentos](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+Os seguintes exemplos que usam recursos cognitivas estão disponíveis:
+* Geração [Detectar faces](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Geração [Detectar emoções](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Geração [Detectar objetos (marcação)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Geração [OCR (reconhecimento ótico de carateres)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* texto [Extração de Frases-chave & Análise de Sentimento](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
-## <a name="registering-cognitive-extensions-in-u-sql"></a>Registar extensões cognitivas do U-SQL
-Antes de começar, siga os passos neste artigo para registar extensões cognitivas do U-SQL: [Registar extensões cognitivas do U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
+## <a name="registering-cognitive-extensions-in-u-sql"></a>Registrando extensões cognitivas no U-SQL
+Antes de começar, siga as etapas neste artigo para registrar as extensões cognitivas no U-SQL: [Registrando extensões cognitivas no U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Exemplos de U-SQL/cognitivos](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+## <a name="next-steps"></a>Passos seguintes
+* [Exemplos de U-SQL/cognitiva](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
 * [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Usando as funções de janela de U-SQL para tarefas de Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
+* [Usando funções de janela do U-SQL para trabalhos de Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)

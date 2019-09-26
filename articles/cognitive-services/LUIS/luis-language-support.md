@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307447"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316359"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 
@@ -34,18 +34,18 @@ LUIS compreende expressões com nos seguintes idiomas:
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Neerlandês |`nl-NL` |-|  -   |-|✔|
-| Francês (França) |`fr-FR` |-| ✔ |✔ |✔|
+| Neerlandês |`nl-NL` |✔|  -   |-|✔|
+| Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
 | Francês (Canadá) |`fr-CA` |-|   -   |-|✔|
-| Alemão |`de-DE` |-| ✔ |✔ |✔|
+| Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italiano |`it-IT` |-| ✔ |✔|✔|
-| *[Japonês](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Apenas expressões-chave|
-| Coreano |`ko-KR` |-|   -   |-|Apenas expressões-chave|
-| Português (Brasil) |`pt-BR` |-| ✔ |✔ |nem todas as culturas secundárias|
-| Espanhol (Espanha) |`es-ES` |-| ✔ |✔|✔|
+| Italiano |`it-IT` |✔| ✔ |✔|✔|
+| *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Apenas expressões-chave|
+| Coreano |`ko-KR` |✔|   -   |-|Apenas expressões-chave|
+| Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as culturas secundárias|
+| Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Espanhol (México)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |-|-|-|Somente sentimentos|
+| Turco | `tr-TR` |✔|-|-|Somente sentimentos|
 
 
 Suporte de idiomas varia para [entidades pré-concebidas](luis-reference-prebuilt-entities.md) e [domínios pré-concebidos](luis-reference-prebuilt-domains.md).

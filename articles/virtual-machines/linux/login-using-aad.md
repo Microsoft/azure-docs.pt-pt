@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163225"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316761"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Faça logon em uma máquina virtual Linux no Azure usando a autenticação Azure Active Directory
 
@@ -70,7 +70,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
-Crie um grupo de recursos com [AZ Group Create](/cli/azure/group#az-group-create)e crie uma VM com [AZ VM Create](/cli/azure/vm#az-vm-create) usando um distribuição com suporte e em uma região com suporte. O exemplo a seguir implanta uma VM chamada *myVM* que usa o *Ubuntu 16, 4 LTS* em um grupo de recursos chamado MyResource Group na região *southcentralus* . Nos exemplos a seguir, você pode fornecer seu próprio grupo de recursos e nomes de VM, conforme necessário.
+Crie um grupo de recursos com [AZ Group Create](/cli/azure/group#az-group-create)e crie uma VM com [AZ VM Create](/cli/azure/vm#az-vm-create) usando um distribuição com suporte e em uma região com suporte. O exemplo a seguir implanta uma VM chamada *myVM* que usa o *Ubuntu 16, 4 LTS* em um grupo de recursos chamado *MyResource* Group na região *southcentralus* . Nos exemplos a seguir, você pode fornecer seu próprio grupo de recursos e nomes de VM, conforme necessário.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -87,7 +87,10 @@ São necessários alguns minutos para criar a VM e os recursos de suporte.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar a extensão de VM de logon do Azure AD
 
-Para fazer logon em uma VM do Linux com credenciais do Azure AD, instale a extensão de VM de logon Azure Active Directory. Extensões de VM são pequenos aplicativos que fornecem tarefas de automação e configuração pós-implantação em máquinas virtuais do Azure. Use [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos MyResource Group:
+> [!NOTE]
+> Se estiver implantando esse exention em uma VM criada anteriormente, verifique se a máquina tem pelo menos 1GB de memória alocada. caso contrário, a extensão falhará na instalação
+
+Para fazer logon em uma VM do Linux com credenciais do Azure AD, instale a extensão de VM de logon Azure Active Directory. Extensões de VM são pequenos aplicativos que fornecem tarefas de automação e configuração pós-implantação em máquinas virtuais do Azure. Use [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos *MyResource* Group:
 
 ```azurecli-interactive
 az vm extension set \
@@ -159,7 +162,7 @@ Na primeira vez que você executar o sudo, você será solicitado a autenticar u
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-Com esta linha:
+com esta linha:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
@@ -195,6 +198,6 @@ Se você concluiu com êxito a etapa de autenticação em um navegador da Web, v
 
 Compartilhe seus comentários sobre este recurso de visualização ou relate problemas usando-os no [Fórum de comentários do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre Azure Active Directory, consulte [o que é Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

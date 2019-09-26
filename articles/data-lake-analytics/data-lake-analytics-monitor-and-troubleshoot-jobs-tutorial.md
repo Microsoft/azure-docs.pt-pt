@@ -1,7 +1,6 @@
 ---
-title: Monitorizar tarefas no Azure Data Lake Analytics com o portal do Azure
-description: Este artigo descreve como utilizar o portal do Azure para resolver problemas das tarefas de Azure Data Lake Analytics.
-services: data-lake-analytics
+title: Monitorar Azure Data Lake Analytics-portal do Azure
+description: Este artigo descreve como usar o portal do Azure para solucionar problemas de Azure Data Lake Analytics trabalhos.
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,43 +8,43 @@ ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 40864bab068659be016161f7dc40243ebbd45174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fb85f179f1e1e1ac873fc7d6d937b34c1d48ada
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812583"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316591"
 ---
-# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Monitorizar tarefas no Azure Data Lake Analytics com o Portal do Azure
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Monitorar trabalhos no Azure Data Lake Analytics usando o portal do Azure
 
-**Para ver todas as tarefas**
+**Para ver todos os trabalhos**
 
-1. A partir do portal do Azure, clique em **Microsoft Azure** no canto superior esquerdo.
-2. Clique no mosaico com o nome da sua conta de Data Lake Analytics.  O resumo da tarefa é apresentada no **Job Management** mosaico.
+1. No portal do Azure, clique em **Microsoft Azure** no canto superior esquerdo.
+2. Clique no mosaico com o nome da sua conta de Data Lake Analytics.  O resumo do trabalho é mostrado no bloco **Gerenciamento de trabalhos** .
 
-    ![Gestão de tarefas do Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
+    ![Azure Data Lake Analytics o gerenciamento de trabalhos](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    A tarefa de gestão proporciona-lhe rapidamente o estado da tarefa. Observe que há é uma tarefa falhada.
-3. Clique nas **Job Management** mosaico para ver as tarefas. As tarefas são categorizadas em **em execução**, **em fila**, e **ter terminado**. Deverá ver a tarefa falhada na **ter terminado** secção. Ele deve ser primeiro na lista. Quando tiver muitas tarefas, pode clicar **filtro** para ajudá-lo a localizar tarefas.
+    O gerenciamento de trabalhos fornece uma visão geral do status do trabalho. Observe que há um trabalho com falha.
+3. Clique no bloco **Gerenciamento de trabalho** para ver os trabalhos. Os trabalhos são categorizados em **execução**, **na fila**e **finalizados**. Você deverá ver seu trabalho com falha na seção **encerrada** . Ela deve ser a primeira na lista. Quando você tem muitos trabalhos, você pode clicar em **Filtrar** para ajudá-lo a localizar trabalhos.
 
-    ![Tarefas de filtro do Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Clique a tarefa falhada a partir da lista para abrir os detalhes da tarefa:
+    ![Azure Data Lake Analytics filtrar trabalhos](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+4. Clique no trabalho com falha na lista para abrir os detalhes do trabalho:
 
-    ![O Azure Data Lake Analytics falha de tarefa](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
+    ![Azure Data Lake Analytics trabalho com falha](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    Observe que o **volte a submeter** botão. Depois de corrigir o problema, pode submeter novamente a tarefa.
-5. Clique em parte realçado na captura de tela anterior para abrir os detalhes do erro.  Deverá ver algo como:
+    Observe o botão **reenviar** . Depois de corrigir o problema, você pode reenviar o trabalho.
+5. Clique em parte realçada da captura de tela anterior para abrir os detalhes do erro.  Você deverá ver algo como:
 
-    ![Detalhes da tarefa de falha do Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
+    ![Azure Data Lake Analytics detalhes do trabalho com falha](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
-    Indica que a pasta de origem não foi encontrada.
-6. Clique em **duplicar Script**.
-7. Atualização do **FROM** caminho para:
+    Ele informa que a pasta de origem não foi encontrada.
+6. Clique em **duplicar script**.
+7. Atualize o caminho **from** para:
 
-    "/Samples/Data/SearchLog.tsv"
+    /Samples/data/SearchLog.tsv
 8. Clique em **Submeter Tarefa**.
 
 ## <a name="see-also"></a>Consulte também
-* [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Visão geral de Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introdução ao Azure Data Lake Analytics com o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Gerir o Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-manage-use-portal.md)

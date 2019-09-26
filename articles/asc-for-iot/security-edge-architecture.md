@@ -1,5 +1,5 @@
 ---
-title: Entendendo a central de segurança do Azure para o módulo de segurança de IoT para IoT Edge versão prévia | Microsoft Docs
+title: Entendendo a central de segurança do Azure para o módulo de segurança de IoT para IoT Edge | Microsoft Docs
 description: Entenda a arquitetura e os recursos da central de segurança do Azure para o módulo de segurança de IoT para IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596850"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315898"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge módulo de segurança
-
-> [!IMPORTANT]
-> A central de segurança do Azure para o serviço de IoT para IoT Edge está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) fornece recursos poderosos para gerenciar e executar fluxos de trabalho de negócios na borda.
 A parte importante que IoT Edge desempenha em ambientes de IoT o torna particularmente atraente para atores mal-intencionados.
@@ -58,7 +54,7 @@ O modo privilegiado é necessário para permitir que o módulo monitore o sistem
 
 A central de segurança do Azure para o módulo de segurança de IoT para IoT Edge está disponível no momento apenas para Linux. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre a arquitetura e os recursos da central de segurança do Azure para o módulo de segurança de IoT para IoT Edge.
 

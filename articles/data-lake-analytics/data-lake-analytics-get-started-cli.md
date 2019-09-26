@@ -1,30 +1,29 @@
 ---
-title: Introdução ao Azure Data Lake Analytics com a CLI do Azure
-description: Saiba como utilizar a Interface de linha de comandos do Azure para criar uma conta do Azure Data Lake Analytics e submeter uma tarefa de U-SQL.
+title: Criar & Azure Data Lake Analytics de consulta-CLI do Azure
+description: Saiba como usar a interface de linha de comando do Azure para criar uma conta de Azure Data Lake Analytics e enviar um trabalho do U-SQL.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 2af6d499bafb0e00b31d0379baac6a390bd6ca3f
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626240"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316579"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics com a CLI do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Este artigo descreve como utilizar a interface de linha de comandos da CLI do Azure para criar contas de Azure Data Lake Analytics, submeter tarefas de u-SQL e catálogos. A tarefa que lê um ficheiro de valores separados por tabulações (TSV) e converte-o num ficheiro de valores separados por vírgulas (CSV). 
+Este artigo descreve como usar a interface de linha de comando CLI do Azure para criar contas de Azure Data Lake Analytics, enviar trabalhos USQL e catálogos. A tarefa que lê um ficheiro de valores separados por tabulações (TSV) e converte-o num ficheiro de valores separados por vírgulas (CSV). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, irá precisar dos seguintes itens:
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Este artigo requer que está a executar a CLI do Azure versão 2.0 ou posterior. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+* Este artigo requer que você esteja executando o CLI do Azure versão 2,0 ou posterior. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
 
@@ -66,7 +65,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Nome da conta do Data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
 * **Localização**. Utilize um dos centros de dados do Azure que suportem a Data Lake Analytics.
-* **Conta padrão Data Lake Store**: Cada conta do Data Lake Analytics tem uma conta do Data Lake Store predefinida.
+* **Conta de data Lake Store padrão**: Cada conta de Data Lake Analytics tem uma conta de Data Lake Store padrão.
 
 Para listar a conta existente do Data Lake Store:
 
@@ -98,7 +97,7 @@ Neste tutorial, vai processar alguns registos de pesquisa.  O registo de pesquis
 
 O portal do Azure fornece uma interface de utilizador para copiar alguns ficheiros de dados de exemplo para a conta predefinida do Data Lake Store, que incluem um ficheiro de registo de pesquisa. Consulte [Preparar dados de origem](data-lake-analytics-get-started-portal.md) para carregar os dados para a conta de Data Lake Store predefinida.
 
-Para carregar ficheiros através da CLI do Azure, utilize os seguintes comandos:
+Para carregar arquivos usando CLI do Azure, use os seguintes comandos:
 
 ```
 az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
@@ -195,6 +194,6 @@ az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-fr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para ver o documento de referência da CLI do Azure do Data Lake Analytics, consulte [do Data Lake Analytics](/cli/azure/dla).
-* Para ver o documento de referência da CLI do Azure do Data Lake Store, consulte [Data Lake Store](/cli/azure/dls).
+* Para ver o documento de referência do Data Lake Analytics CLI do Azure, consulte [Data Lake Analytics](/cli/azure/dla).
+* Para ver o documento de referência do Data Lake Store CLI do Azure, consulte [Data Lake Store](/cli/azure/dls).
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).

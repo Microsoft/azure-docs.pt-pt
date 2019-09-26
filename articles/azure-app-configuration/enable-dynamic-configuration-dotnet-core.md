@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: 3eee34f594cb23a8b64f6fd10837c9a641eda62d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e56aba81b2e6b8e66aeb2c3e5284843055713826
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075978"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316079"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo .NET Core
 
@@ -59,8 +59,6 @@ class Program
 
     static void Main(string[] args)
     {
-        IConfigurationRefresher refresher = null;
-
         var builder = new ConfigurationBuilder();
         builder.AddAzureAppConfiguration(options =>
         {
@@ -140,7 +138,7 @@ O `ConfigureRefresh` método é usado para especificar as configurações usadas
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você adicionou uma identidade de serviço gerenciado do Azure para simplificar o acesso à configuração de aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
 
