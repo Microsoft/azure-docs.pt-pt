@@ -691,6 +691,8 @@
       items:
         - name: Ativar blocos de notas
           href: enable-notebooks.md
+        - name: Utilizar comandos de bloco de notas incorporados
+          href: use-notebook-features-and-commands.md
     - name: Programação do lado do servidor
       items:
         - name: 'Escrever procedimentos, acionadores e UDFs armazenados'

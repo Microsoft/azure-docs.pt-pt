@@ -476,6 +476,8 @@
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Redimensionar um disco
           href: expand-disks.md
+        - name: Utilizar o Explorador de Armazenamento para gerir discos
+          href: disks-use-storage-explorer-managed-disks.md
         - name: Tirar um instantâneo de um disco
           href: snapshot-copy-managed-disk.md
         - name: Criar um instantâneo incremental

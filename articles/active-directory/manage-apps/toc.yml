@@ -293,6 +293,8 @@
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md
             - name: Instruções de publicação
               items:
+                - name: Integrar com o Azure AD Domain Services
+                  href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
                 - name: Integrar no Power BI
                   href: application-proxy-integrate-with-power-bi.md
                 - name: Integrar com o Cloud App Security

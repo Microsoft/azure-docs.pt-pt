@@ -155,6 +155,8 @@
               href: sql-data-warehouse-tables-data-types.md
             - name: Tabelas distribuídas
               href: sql-data-warehouse-tables-distribute.md
+            - name: Restrições de tabela
+              href: sql-data-warehouse-table-constraints.md
             - name: Índices
               href: sql-data-warehouse-tables-index.md
             - name: Identidade

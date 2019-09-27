@@ -28,6 +28,10 @@
           href: connect-windows-7-and-10.md
         - name: Ligar a partir de um browser web
           href: connect-web.md
+        - name: Ligar ao cliente de macOS
+          href: connect-macos.md
+        - name: Ligar ao cliente de iOS
+          href: connect-ios.md
     - name: Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
       href: create-host-pools-arm-template.md
     - name: Criar um conjunto de anfitriões com o PowerShell

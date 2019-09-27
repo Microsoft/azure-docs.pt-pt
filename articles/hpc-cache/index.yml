@@ -3,19 +3,19 @@ title: Documentação da Pré-visualização do Azure HPC Cache
 summary: Utilizar o Azure HPC Cache para agilizar o acesso a ficheiros para cargas de trabalho de computação de alto desempenho (HPC) com utilização intensiva de leitura
 metadata:
   title: Microsoft Azure HPC Cache
-  description: Saiba como criar e utilizar o Azure HPC Cache para resolver o problema de latência entre os recursos de computação e o armazenamento. O Azure HPC Cache destina-se a cargas de trabalho de leitura intensa baseadas em ficheiros e pode criar um sistema de ficheiros virtual agregado que incorpora o Armazenamento de blobs do Azure e os arquivos de hardware no local.
+  description: Saiba como criar e utilizar o Azure HPC Cache para resolver o problema de latência entre os recursos de computação e o armazenamento. O Azure HPC Cache destina-se a cargas de trabalho de leitura intensa baseadas em ficheiros e pode criar um sistema de ficheiros virtual agregado que incorpora o Armazenamento de Blobs do Azure e os arquivos de hardware no local.
   ms.service: hpc-cache
   ms.topic: landing-page
   ms.collection: collection
   author: ekpgh
   ms.author: v-erkell
   ms.date: 09/24/2019
-  ms.openlocfilehash: a7ed18c19e611d4c3155493e25435a49c81b7348
-  ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+  ms.openlocfilehash: 266f1e62f57c0d795d154dc29c159c609212b73b
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/25/2019
-  ms.locfileid: "71257050"
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299906"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:
