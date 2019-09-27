@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2019
 ms.author: sagupt
-ms.openlocfilehash: a67034752b4c43533a5735b857186ee83934717a
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326620"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Criar alertas do supervisor do Azure sobre novas recomendações 
 
@@ -33,7 +33,7 @@ Você também pode configurar a ação que ocorrerá quando um alerta for dispar
 * Selecionando um grupo de ação existente
 * Criando um novo grupo de ação
 
-Para saber mais sobre grupos de ações, consulte [criar e gerenciar grupos de ações] (.. /azure-monitor/platform/action-groups.md.
+Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE] 
 > Atualmente, os alertas do Advisor estão disponíveis apenas para alta disponibilidade, desempenho e recomendações de custo. Não há suporte para recomendações de segurança. 

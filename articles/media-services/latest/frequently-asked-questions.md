@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338823"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
 
@@ -65,6 +65,14 @@ Você pode usar um [codificador local ao vivo](recommended-on-premises-live-enco
 Os clientes freqüentemente se questionam sobre se deve utilizar encriptação AES ou um sistema DRM. A principal diferença entre os dois sistemas é que, com a criptografia AES, a chave de conteúdo é transmitida ao cliente via TLS para que a chave seja criptografada em trânsito, mas sem nenhuma criptografia adicional ("em claro"). Como resultado, a chave usada para descriptografar o conteúdo é acessível ao Player do cliente e pode ser exibida em um rastreamento de rede no cliente em texto sem formatação. Uma criptografia de chave não criptografada AES-128 é adequada para casos de uso em que o visualizador é uma parte confiável (por exemplo, criptografar vídeos corporativos distribuídos em uma empresa para serem exibidos por funcionários).
 
 Os sistemas DRM, como PlayReady, Widevine e FairPlay, fornecem um nível adicional de criptografia na chave usada para descriptografar o conteúdo em comparação com uma chave de limpeza AES-128. A chave de conteúdo é criptografada para uma chave protegida pelo tempo de execução do DRM em um adicional para qualquer criptografia de nível de transporte fornecida pelo TLS. Além disso, a desencriptação é tratada num ambiente seguro ao nível do sistema operativo, onde é mais difícil para um utilizador mal intencionado a ataques. Para casos de utilização em que o Visualizador pode não ser um confiável e requerem o nível mais elevado de segurança, recomenda-se DRM.
+
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Como mostrar um vídeo somente para usuários que têm uma permissão específica, sem usar o Azure AD?
+
+Você não precisa usar nenhum provedor de token específico (como o Azure AD). Você pode criar seu próprio provedor de [JWT](https://jwt.io/) (chamado STS, Secure token Service), usando a criptografia de chave assimétrica. Em seu STS personalizado, você pode adicionar declarações com base em sua lógica de negócios.
+
+Verifique se o emissor, o público e as reivindicações todas correspondem exatamente entre o que está no JWT e o ContentKeyPolicyRestriction usado em ContentKeyPolicy.
+
+Para obter mais informações, consulte [proteger seu conteúdo usando a criptografia dinâmica dos serviços de mídia](content-protection-overview.md).
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Como e onde obter JWT token antes de o utilizar para a licença de pedido ou a chave?
 
@@ -127,6 +135,6 @@ Para obter mais informações, consulte [migrar para os serviços de mídia v3](
 
 Agora é recomendável usar a criptografia de armazenamento do lado do servidor (que está ativada por padrão). Para obter mais informações, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral dos serviços de mídia v3](media-services-overview.md)

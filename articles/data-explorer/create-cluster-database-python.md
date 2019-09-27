@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ef0001059026421584efde4c165e882197eda7a6
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 2fc2b847c18cecbcea3c137312b18bb274398cc6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326632"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando Python
 
@@ -22,7 +22,7 @@ ms.locfileid: "71266228"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [Modelo ARM](create-cluster-database-resource-manager.md)
 
 O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando o Python.
 

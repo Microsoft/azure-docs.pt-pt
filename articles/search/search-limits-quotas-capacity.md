@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300665"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327154"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
 Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou **otimizado para armazenamento** .
 
-+ **Gratuito** é um serviço compartilhado multilocatário que vem com sua assinatura do Azure.
++ **Gratuito** é um serviço compartilhado multilocatário que vem com sua assinatura do Azure. As solicitações de indexação e consulta são executadas em réplicas e partições que são usadas por outros locatários.
 
-+ O **básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor.
++ O **básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, mas compartilha alguma infraestrutura de rede com outros locatários.
 
 + O **Standard** é executado em computadores dedicados com mais capacidade de armazenamento e processamento em todos os níveis. O Standard é fornecido em quatro níveis: S1, S2, S3 e S3 HD.
 

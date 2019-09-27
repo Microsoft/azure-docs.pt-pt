@@ -1,77 +1,60 @@
 ---
-title: Ligar a pré-visualização de área de trabalho virtuais Windows a partir do Windows 10 ou Windows 7 - Azure
-description: Como ligar à pré-visualização de ambiente de Trabalho Virtual do Windows a partir do Windows 10 ou Windows 7.
+title: Conectar-se à visualização da área de trabalho virtual do Windows do Windows 10 ou Windows 7 – Azure
+description: Como se conectar à área de trabalho virtual do Windows usando o cliente de área de trabalho do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49431f75fb801c683a167e1809724eeeef208561
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620124"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338453"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>Ligar a partir do Windows 10 ou Windows 7
+# <a name="connect-with-the-windows-desktop-client"></a>Conectar-se ao cliente de desktop do Windows
 
-> Aplica-se a: O Windows 7 e Windows 10.
+> Aplica-se a: Windows 7 e Windows 10
 
-Está disponível um cliente disponível para download que fornece acesso a recursos da demonstração de ambiente de Trabalho Virtual do Windows dos dispositivos que executam o Windows 7 e Windows 10.
+Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7 ou Windows 10 usando o cliente de área de trabalho do Windows.
 
 > [!IMPORTANT]
-> Não utilize **RemoteApp e ligações de ambiente de trabalho (RADC)** ou **ligação de ambiente de trabalho remoto (MSTSC)** para aceder aos recursos de área de Trabalho Virtual do Windows, porque a área de Trabalho Virtual do Windows não oferece suporte a qualquer cliente.
+> A área de trabalho virtual do Windows não dá suporte ao cliente RADC (RemoteApp e área de trabalho) ou ao cliente do Conexão de Área de Trabalho Remota (MSTSC).
 
-## <a name="install-the-client"></a>Instalar o cliente
+## <a name="install-the-windows-desktop-client"></a>Instalar o cliente de área de trabalho do Windows
 
-[Baixe](https://go.microsoft.com/fwlink/?linkid=2068602) e instalar o cliente ao seu PC local. A instalação requer direitos de administrador.
+Estes são os clientes que você pode baixar atualmente:
 
-## <a name="subscribe-to-a-feed"></a>Subscrever um feed
+- [Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
 
-Obter a lista de recursos gerenciados disponíveis para si ao subscrever o feed fornecido pelo seu administrador. Subscrever torna os recursos disponíveis no seu PC local.
+Atualizaremos essa lista à medida que o cliente se tornar disponível para mais versões do Windows.
 
-Para subscrever um feed:
+Você pode instalar o cliente do para o usuário atual, que não requer direitos de administrador, ou o administrador pode instalar e configurar o cliente para que todos os usuários no dispositivo possam acessá-lo.
 
-1. Iniciar o cliente da lista de todas as aplicações, procure para **ambiente de trabalho remoto**.
-1. Selecione **Subscribe** na página principal para se ligar ao serviço e recuperar os seus recursos.
-1. **Inicie sessão no** com a sua conta de utilizador quando lhe for pedido.
+Uma vez instalado, o cliente pode ser iniciado no menu iniciar pesquisando **área de trabalho remota**.
 
-Após a autenticação bem-sucedida, agora deve ver uma lista de recursos disponíveis para.
+## <a name="subscribe-to-a-feed"></a>Assinar um feed
 
-Pode iniciar recursos por um dos dois métodos.
+Obtenha a lista de recursos gerenciados disponíveis para você assinando o feed fornecido pelo administrador. A assinatura disponibiliza os recursos no seu PC local.
 
-- Na página de principal do cliente, faça duplo clique num recurso para iniciá-lo.
-- Inicie um recurso, tal como faria normalmente de outras aplicações do Menu Iniciar.
-  - Também pode procurar as aplicações na barra de pesquisa.
+Para assinar um feed:
 
-Depois de subscrever um feed, o conteúdo do feed é atualizado automaticamente em intervalos regulares. Podem ser adição, alteração ou removidos com base nas alterações feitas pelo seu administrador de recursos.
+1. Abra o cliente de área de trabalho do Windows.
+2. Selecione **assinar** na página principal para se conectar ao serviço e recuperar seus recursos.
+3. Entre com sua conta de usuário quando solicitado.
 
-## <a name="view-the-details-of-a-feed"></a>Ver os detalhes de um feed
+Depois de entrar com êxito, você verá uma lista dos recursos que você pode acessar.
 
-Depois de subscrever, pode ver informações adicionais sobre o feed acessando o painel de detalhes.
+Você pode iniciar recursos por um dos dois métodos.
 
-1. Na página de principal do cliente, selecione as reticências ( **...** ) à direita do nome do feed.
-1. No menu pendente, selecione **detalhes**.
-1. O painel de detalhes é apresentada no lado direito do cliente.
+- Na página principal do cliente, clique duas vezes em um recurso para iniciá-lo.
+- Inicie um recurso como faria normalmente com outros aplicativos no menu iniciar.
+  - Você também pode pesquisar os aplicativos na barra de pesquisa.
 
-O painel de detalhes contém informações úteis sobre o feed:
+Após a assinatura de um feed, o conteúdo do feed é atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
 
-- O URL e o nome de utilizador utilizada para subscrever
-- O número de aplicações e áreas de trabalho
-- A data/hora da última atualização
-- O estado da última atualização
+## <a name="next-steps"></a>Passos seguintes
 
-Se for necessário, pode iniciar uma atualização manual selecionando na **atualizar agora**.
-
-## <a name="unsubscribe-from-a-feed"></a>Anular a subscrição de um feed
-
-Esta secção irá ensiná-lo como anular a subscrição de um feed. Pode anular a subscrição para subscrever novamente com uma conta diferente ou remover os recursos do sistema.
-
-1. Na página de principal do cliente, selecione as reticências ( **...** ) à direita do nome do feed.
-1. No menu pendente, selecione **Unsubscribe**.
-1. Reveja e selecione **continuar** na caixa de diálogo.
-
-## <a name="update-the-client"></a>Atualizar o cliente
-
-Quando uma nova versão do cliente estiver disponível, será notificado pelo cliente e o Centro de ação do Windows. Selecione a notificação para iniciar o processo de atualização.
+Para saber mais sobre como usar o cliente de área de trabalho do Windows, confira [introdução ao cliente de desktop do Windows](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561477"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338790"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteger seu conteúdo usando a criptografia dinâmica dos serviços de mídia
 
@@ -35,7 +35,7 @@ A imagem a seguir ilustra o fluxo de trabalho para proteção de conteúdo dos s
 
 ![Fluxo de trabalho para proteção de conteúdo dos serviços de mídia](./media/content-protection/content-protection.svg)
   
-&#42;*A criptografia dinâmica dá suporte ao AES-128 Clear Key, CBCs e Cenc. Para obter detalhes, consulte a [matriz de suporte](#streaming-protocols-and-encryption-types).*
+&#42;a criptografia *Dynamic dá suporte ao AES-128 Clear Key, CBCS e CENC. Para obter detalhes, consulte a [matriz de suporte](#streaming-protocols-and-encryption-types).*
 
 Este artigo explica os conceitos e a terminologia que o ajudarão a entender a proteção de conteúdo com os serviços de mídia.
 
@@ -68,17 +68,17 @@ O exemplo mostra como:
      ```
 2. Crie um [localizador de streaming](streaming-locators-concept.md) configurado para transmitir o ativo criptografado. 
   
-   O localizador de streaming deve ser associado a uma [política de streaming](streaming-policy-concept.md). No exemplo, definimos `StreamingLocator.StreamingPolicyName` a política "Predefined_MultiDrmCencStreaming". 
+   O localizador de streaming deve ser associado a uma [política de streaming](streaming-policy-concept.md). No exemplo, definimos `StreamingLocator.StreamingPolicyName` para a política "Predefined_MultiDrmCencStreaming". 
       
    As criptografias PlayReady e Widevine são aplicadas e a chave é entregue ao cliente de reprodução com base nas licenças DRM configuradas. Se você também quiser criptografar seu fluxo com CBCS (FairPlay), use a política "Predefined_MultiDrmStreaming".
 
    O localizador de streaming também está associado à política de chave de conteúdo que você definiu.
 3. Crie um token de teste.
 
-   O `GetTokenAsync` método mostra como criar um token de teste.
+   O método `GetTokenAsync` mostra como criar um token de teste.
 4. Crie o URL de transmissão em fluxo.
 
-   O `GetDASHStreamingUrlAsync` método mostra como criar a URL de streaming. Nesse caso, a URL transmite o conteúdo do traço.
+   O método `GetDASHStreamingUrlAsync` mostra como criar a URL de streaming. Nesse caso, a URL transmite o conteúdo do traço.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>Player com um cliente AES ou DRM 
 
@@ -172,7 +172,7 @@ Uma política de chave de conteúdo com restrição aberta pode ser usada quando
 
 Com uma política de chave de conteúdo restrita por token, a chave de conteúdo é enviada somente para um cliente que apresenta um token JWT válido ou um token Web simples (SWT) na solicitação de licença/chave. Esse token deve ser emitido por um STS. 
 
-Você pode usar o Azure AD como um STS ou implantar um STS personalizado. O STS deve ser configurado para criar um token assinado com as declarações de chave e o problema especificadas que especificou na configuração de restrição de token. O serviço de distribuição de chaves/licença dos serviços de mídia retorna a licença ou chave solicitada ao cliente se ambas as condições existirem:
+Você pode usar o Azure AD como um STS ou implantar um [STS personalizado](#using-a-custom-sts). O STS deve ser configurado para criar um token assinado com as declarações de chave e o problema especificadas que especificou na configuração de restrição de token. O serviço de distribuição de chaves/licença dos serviços de mídia retorna a licença ou chave solicitada ao cliente se ambas as condições existirem:
 
 * O token é válido. 
 * As declarações no token correspondem àquelas configuradas para a licença ou chave.
@@ -238,13 +238,13 @@ Por exemplo:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`tem um valor da chave solicitada. Você pode usar `AlternativeMediaId` se quiser mapear a solicitação para uma entidade no seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a Pesquisar permissões.
+`ContentKeyId` tem um valor da chave solicitada. Você pode usar `AlternativeMediaId` se quiser mapear a solicitação para uma entidade no seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a Pesquisar permissões.
 
  Para obter exemplos de REST que usam URLs de licença/chave personalizadas, consulte [políticas de streaming – criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Se você receber o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de especificar a política de streaming apropriada.
+Se você receber o erro `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, certifique-se de especificar a política de streaming apropriada.
 
 Se você receber erros que terminam `_NOT_SPECIFIED_IN_URL`com o, certifique-se de especificar o formato de criptografia na URL. Um exemplo é `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Consulte [protocolos de streaming e tipos de criptografia](#streaming-protocols-and-encryption-types).
 
@@ -252,11 +252,11 @@ Se você receber erros que terminam `_NOT_SPECIFIED_IN_URL`com o, certifique-se 
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger com encriptação AES](protect-with-aes128.md)
 * [Proteger com o DRM](protect-with-drm.md)
 * [Projetar o sistema de proteção de conteúdo de vários DRM com o controle de acesso](design-multi-drm-system-with-access-control.md)
 * [Criptografia do lado do armazenamento](storage-account-concept.md#storage-side-encryption)
 * [Perguntas mais frequentes](frequently-asked-questions.md)
-
+* [Manipulador de token Web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

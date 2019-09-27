@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 079f87dec67f98d502d135fc012b5523211d5957
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381797"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326718"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster de Data Explorer do Azure e um banco de dados
 
@@ -22,7 +22,7 @@ ms.locfileid: "70381797"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [Modelo ARM](create-cluster-database-resource-manager.md)
 
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. Neste início rápido, irá criar um cluster e uma base de dados.
@@ -55,8 +55,8 @@ Crie um cluster de Data Explorer do Azure com um conjunto definido de recursos d
     | Resource group | Seu grupo de recursos | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Ele deve conter de 4 a 22 caracteres.
     | Região | *Oeste dos EUA* ou *oeste dos EUA 2* | Selecione *oeste dos EUA* ou *oeste dos EUA 2* (se estiver usando zonas de disponibilidade) para este guia de início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
-    | Zonas de disponibilidade | *1*, *2*e/ou *3* | Coloque as instâncias de cluster em várias zonas de disponibilidade na mesma região (opcional). [Zonas de disponibilidade do Azure](/azure/availability-zones/az-overview) são locais físicos exclusivos na mesma região do Azure. Eles protegem um cluster Data Explorer do Azure e dados de uma falha parcial da região. Os nós de cluster são criados, por padrão, na mesma data center. Ao selecionar várias zonas de disponibilidade, você pode eliminar um único ponto de falha e garantir a alta disponibilidade. A implantação em zonas de disponibilidade só é possível durante a criação do cluster e não pode ser modificada em uma data posterior.
-    | Especificações do dispositivo | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
+    | Zonas de Disponibilidade | *1*, *2*e/ou *3* | Coloque as instâncias de cluster em várias zonas de disponibilidade na mesma região (opcional). [Zonas de disponibilidade do Azure](/azure/availability-zones/az-overview) são locais físicos exclusivos na mesma região do Azure. Eles protegem um cluster Data Explorer do Azure e dados de uma falha parcial da região. Os nós de cluster são criados, por padrão, na mesma data center. Ao selecionar várias zonas de disponibilidade, você pode eliminar um único ponto de falha e garantir a alta disponibilidade. A implantação em zonas de disponibilidade só é possível durante a criação do cluster e não pode ser modificada em uma data posterior.
+    | Especificações de computação | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
     | | | |
 
 1. Selecione **examinar + criar** para examinar os detalhes do cluster e **criar** para provisionar o cluster. O provisionamento normalmente leva cerca de 10 minutos.
@@ -120,9 +120,9 @@ Se você planeja seguir outros guias de início rápido e tutoriais, mantenha os
 
 1. Selecione **excluir grupo de recursos** para excluir o grupo de recursos inteiro. Se estiver usando um grupo de recursos existente, você poderá optar por excluir apenas o cluster Data Explorer.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingerir dados do hub de eventos para o Azure Data Explorer](ingest-data-event-hub.md)
+> [Quickstart: Ingerir dados do hub de eventos para o Azure Data Explorer @ no__t-0
 
 

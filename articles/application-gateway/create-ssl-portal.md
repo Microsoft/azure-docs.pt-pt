@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/31/2019
+ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194576"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327366"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com terminação SSL usando o portal do Azure
 
@@ -82,7 +82,7 @@ Export-PfxCertificate `
    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se ele não existir, selecione **criar novo** para criá-lo.
    - **Nome do gateway de aplicativo**: Digite *myAppGateway* para o nome do gateway de aplicativo.
 
-     ![Criar novo gateway de aplicativo: Noções Básicas](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![Criar novo gateway de aplicativo: Noções Básicas](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, você criará uma nova rede virtual ao mesmo tempo em que criar o gateway de aplicativo. As instâncias do gateway de aplicativo são criadas em sub-redes separadas. Você cria duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
 
@@ -98,7 +98,7 @@ Export-PfxCertificate `
 
     Selecione **OK** para fechar a janela **criar rede virtual** e salvar as configurações de rede virtual.
 
-     ![Criar novo gateway de aplicativo: rede virtual](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![Criar novo gateway de aplicativo: rede virtual](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. Na guia **noções básicas** , aceite os valores padrão para as outras configurações e, em **seguida, selecione Avançar: Front-ends.**
 
@@ -110,7 +110,7 @@ Export-PfxCertificate `
 
 2. Escolha **criar novo** para o **endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
-     ![Criar novo gateway de aplicativo: front-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![Criar novo gateway de aplicativo: front-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. Selecione **avançar: Back-** ends.
 
@@ -127,7 +127,7 @@ O pool de back-end é usado para rotear solicitações para os servidores de bac
 
 3. Na janela **Adicionar um pool de back-end** , selecione **Adicionar** para salvar a configuração do pool de back-end e retornar à guia **back-ends** .
 
-     ![Criar novo gateway de aplicativo: back-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![Criar novo gateway de aplicativo: back-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. Na guia **back-ends** , selecione **avançar: Configuração**.
 
@@ -152,19 +152,19 @@ Na guia **configuração** , você conectará o front-end e o pool de back-end q
    - **Nome do certificado** – digite *mycert1* para o nome do certificado.
    - **Senha** -digite *Azure123456!* para a palavra-passe.
   
-      Aceite os valores padrão para as outras configurações na guia **ouvinte** e, em seguida, selecione a guia **destinos de back-end** para configurar o restante da regra de roteamento.
+        Aceite os valores padrão para as outras configurações na guia **ouvinte** e, em seguida, selecione a guia **destinos de back-end** para configurar o restante da regra de roteamento.
 
-   ![Criar novo gateway de aplicativo: ouvinte](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![Criar novo gateway de aplicativo: ouvinte](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. Na guia **destinos de back-end** , selecione **myBackendPool** para o **destino de back-end**.
 
 5. Para a **configuração de http**, selecione **criar novo** para criar uma nova configuração de http. A configuração HTTP determinará o comportamento da regra de roteamento. Na janela **Adicionar uma configuração de http** que é aberta, insira *myHTTPSetting* para o **nome da configuração http**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de http** e, em seguida, selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento** . 
 
-     ![Criar novo gateway de aplicativo: Definição HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+   ![Criar novo gateway de aplicativo: Definição HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. Na janela **Adicionar uma regra de roteamento** , selecione **Adicionar** para salvar a regra de roteamento e retornar para a guia **configuração** .
 
-     ![Criar novo gateway de aplicativo: regra de roteamento](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![Criar novo gateway de aplicativo: regra de roteamento](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. Selecione **avançar: Marcas** e, **em seguida, avançar: Examine + criar**.
 
@@ -214,17 +214,17 @@ Neste exemplo, você instala o IIS nas máquinas virtuais somente para verificar
 
 2. Execute o comando seguinte para instalar o IIS na máquina virtual: 
 
-    ```azurepowershell-interactive
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -ExtensionName IIS `
-      -VMName myVM `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
-    ```
+   ```azurepowershell-interactive
+          Set-AzVMExtension `
+            -ResourceGroupName myResourceGroupAG `
+            -ExtensionName IIS `
+            -VMName myVM `
+            -Publisher Microsoft.Compute `
+            -ExtensionType CustomScriptExtension `
+            -TypeHandlerVersion 1.4 `
+            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+            -Location EastUS
+   ```
 
 3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você concluiu anteriormente. Use *myVM2* para o nome da máquina virtual e para a configuração **VMName** do cmdlet **set-AzVMExtension** .
 
@@ -252,7 +252,7 @@ Neste exemplo, você instala o IIS nas máquinas virtuais somente para verificar
 
     ![Registar o endereço IP público do gateway de aplicação](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Na barra de endereços do seu navegador, digite *https://\<seu endereço\>IP do gateway de aplicativo*.
+2. Na barra de endereços do seu navegador, digite *https://\<your endereço IP do gateway de aplicativo @ no__t-2*.
 
    Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **detalhes** (ou **avançado** no Chrome) e vá para a página da Web:
 
@@ -262,7 +262,7 @@ Neste exemplo, você instala o IIS nas máquinas virtuais somente para verificar
 
     ![Testar o URL base no gateway de aplicação](./media/create-ssl-portal/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o suporte a SSL do gateway de aplicativo](ssl-overview.md)

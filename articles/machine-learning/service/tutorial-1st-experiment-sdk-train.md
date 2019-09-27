@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6287f51d4fa0a1e4c2fb27b7cde873262ad6b3fe
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327231"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -50,6 +50,9 @@ Nesta parte do tutorial, você executa o código no bloco de anotações `tutori
    Essa pasta existe na conta de [armazenamento](concept-workspace.md#resources) do espaço de trabalho em vez de na própria VM do notebook.  Se você excluir a VM do notebook, ainda manterá todo o seu trabalho.  Quando você criar uma nova VM de bloco de anotações mais tarde, ela carregará essa mesma pasta. Se você compartilhar seu espaço de trabalho com outras pessoas, ele verá sua pasta e você verá seus.
 
 1. Abra o `samples-*` subdiretório e, em seguida, abra o `tutorials/tutorial-1st-experiment-sdk-train.ipynb`bloco de anotações `.yml` Jupyter, **não** o arquivo de mesmo nome. 
+
+> [!Warning]
+> **Não** crie um *novo* bloco de anotações na interface Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` é inclusivo de **todos os códigos e dados necessários** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar espaço de trabalho e criar experimento
 
@@ -219,7 +222,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você fez as seguintes tarefas:
 

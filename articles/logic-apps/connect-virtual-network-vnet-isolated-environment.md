@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0b04ca5c4bea00221d5a823432b6fc1934badb1a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309323"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320521"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -58,7 +58,10 @@ Este artigo mostra como concluir essas tarefas:
     **Prefixo de endereço**: 0.0.0.0/0<br>
     **Próximo salto**: Internet
 
-* Se você quiser usar servidores DNS personalizados para sua rede virtual do Azure, [Configure esses servidores seguindo estas etapas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implantar o ISE em sua rede virtual. Caso contrário, sempre que alterar o servidor DNS, você também precisará reiniciar o ISE, que é um recurso disponível com a visualização pública do ISE.
+* Se você quiser usar servidores DNS personalizados para sua rede virtual do Azure, [Configure esses servidores seguindo estas etapas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implantar o ISE em sua rede virtual. Caso contrário, sempre que alterar o servidor DNS, você também precisará reiniciar o ISE.
+
+  > [!IMPORTANT]
+  > Se você alterar as configurações do servidor DNS depois de criar um ISE, certifique-se de reiniciar o ISE. Para obter mais informações sobre como gerenciar configurações do servidor DNS, consulte [criar, alterar ou excluir uma rede virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 

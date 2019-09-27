@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3f6f61523b8509f23ffc98b236daaf0e646a013a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 304091634c9e07f0a34029e83111a537b95bc061
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310428"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338541"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrar do indexador de mídia e do indexador de mídia 2 para Video Indexer
 
-O processador de mídia [Azure Media indexer](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia do [Azure Media indexer indexador 2 (versão prévia)](media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020.  Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+O processador de mídia [Azure Media indexer v1](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia de [visualização do Azure Media indexer v2](media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020.  Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
 
 Os serviços de mídia do Azure Video Indexer se baseiam em Análise de Mídia do Azure, Azure Search, serviços cognitivas (como o API de Detecção Facial, o Microsoft Translator, o API da Pesquisa Visual Computacional e o serviço Fala Personalizada). Esta aplicação permite-lhe extrair as informações dos seus vídeos através dos modelos de vídeo e áudio do Video Indexer. Para ver quais cenários Video Indexer podem ser usados no, quais recursos ele oferece e como começar, consulte [Video indexer modelos de vídeo e áudio](../video-indexer/video-indexer-overview.md). 
 

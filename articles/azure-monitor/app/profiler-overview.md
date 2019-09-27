@@ -1,6 +1,6 @@
 ---
-title: Perfil de aplicativos de produção no Azure com o Application Insights Profiler | Documentos da Microsoft
-description: Identifique o caminho instantâneo em seu código de servidor web com um criador de perfil de baixa capacidade.
+title: Perfil de aplicativos de produção no Azure com Application Insights Profiler | Microsoft Docs
+description: Identifique o Hot Path no código do servidor Web com um criador de perfil de baixa ocupação.
 services: application-insights
 documentationcenter: ''
 author: cweining
@@ -12,125 +12,125 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338082"
 ---
-# <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção do perfil no Azure com o Application Insights
-## <a name="enable-application-insights-profiler-for-your-application"></a>Ativar o Application Insights Profiler para a sua aplicação
+# <a name="profile-production-applications-in-azure-with-application-insights"></a>Perfil de aplicativos de produção no Azure com Application Insights
+## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitar Application Insights Profiler para seu aplicativo
 
-De Azure Application Insights Profiler fornece rastreios de desempenho para aplicativos em execução em produção no Azure. Profiler captura os dados automaticamente à escala sem afetar negativamente os seus utilizadores. Profiler ajuda a identificar o caminho de códigos "ativos" que demora muito tempo quando ele está a processar um pedido web específico. 
+O Aplicativo Azure insights Profiler fornece rastreamentos de desempenho para aplicativos que estão sendo executados em produção no Azure. O criador de perfil captura os dados automaticamente em escala sem afetar negativamente os usuários. O profiler ajuda a identificar o caminho de código "quente" que leva o tempo mais longo quando trata de uma solicitação da Web específica. 
 
-Profiler funciona com aplicações de .NET que são implementadas nos seguintes serviços do Azure. Instruções específicas para ativar o Profiler para cada tipo de serviço estão nos links a seguir.
+O profiler funciona com aplicativos .NET que são implantados nos seguintes serviços do Azure. Instruções específicas para habilitar o Profiler para cada tipo de serviço estão nos links abaixo.
 
 * [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**Pré-visualização** aplicações ASP.NET Core a Web do Linux do Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Versão **prévia** ASP.NET Core aplicativos Web Linux do Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
-Se tiver ativado o Profiler, mas não vê rastreios, verifique nossos [guia de resolução de problemas](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+Se você tiver habilitado o Profiler, mas não estiver vendo rastreamentos, consulte nosso [Guia de solução de problemas](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
-## <a name="view-profiler-data"></a>Ver dados do Profiler
+## <a name="view-profiler-data"></a>Exibir dados do criador de perfil
 
-Para o Profiler carregar os rastreios, seu aplicativo deve ser ativamente processar pedidos. Se estiver fazendo uma experimentação, pode gerar solicitações à sua aplicação web, utilizando [testes de desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se ativou Profiler recentemente, pode executar um teste de carga curto. Enquanto o teste de carga está em execução, selecione o **perfil agora** botão a [ **Profiler definições** painel](profiler-settings.md#profiler-settings-pane). Quando o Profiler está em execução, perfis aleatoriamente aproximadamente uma vez por hora e durante um período de dois minutos. Se a sua aplicação está a processar um fluxo constante de pedidos, o Profiler carrega rastreios a cada hora.
+Para que o profiler carregue rastreamentos, seu aplicativo deve estar manipulando ativamente as solicitações. Se você estiver fazendo um experimento, poderá gerar solicitações para seu aplicativo Web usando [Application insights teste de desempenho](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se você tiver habilitado o profiler recentemente, poderá executar um teste de carga curto. Enquanto o teste de carga estiver em execução, selecione o botão **perfil agora** no [painel **configurações do profiler** ](profiler-settings.md). Quando o profiler está em execução, ele faz o perfil aleatoriamente de uma vez por hora e por uma duração de dois minutos. Se seu aplicativo estiver manipulando um fluxo constante de solicitações, o profiler carregará rastreamentos a cada hora.
 
-Depois da aplicação recebe algum tráfego e Profiler tenha tido tempo para carregar os rastreios, deve ter rastreios para ver. Este processo pode demorar 5 a 10 minutos. Para ver os rastreios, além da **desempenho** painel, selecione **tomar ações**e, em seguida, selecione o **rastreios do Profiler** botão.
+Depois que o aplicativo recebe algum tráfego e o criador de perfil teve tempo para carregar os rastreamentos, você deve ter rastreamentos para exibir. Esse processo pode levar de 5 a 10 minutos. Para exibir os rastreamentos, no painel **desempenho** , selecione **executar ações**e, em seguida, selecione o botão **rastreamentos do criador de perfil** .
 
-![Rastreios do Profiler de visualização de painel de informações de desempenho do aplicativo][performance-blade]
+![Painel de desempenho do Application Insights Visualizar rastreamentos do criador de perfil][performance-blade]
 
-Selecione um exemplo para exibir uma divisão de nível de código de tempo gasto para executar o pedido.
+Selecione um exemplo para exibir uma divisão de nível de código de tempo gasto na execução da solicitação.
 
-![Explorador de rastreio do Application Insights][trace-explorer]
+![Gerenciador de rastreamento do Application Insights][trace-explorer]
 
-O Explorador de rastreio apresenta as seguintes informações:
+O Gerenciador de rastreamento exibe as seguintes informações:
 
-* **Mostrar caminho mais utilizado**: É aberto o maior folha nó, ou, pelo menos, algo fechar. Na maioria dos casos, este nó está perto de um estrangulamento do desempenho.
-* **Etiqueta**: O nome da função ou eventos. A árvore apresenta uma combinação de código e eventos que ocorreram, como o SQL e eventos HTTP. O evento superior representa a duração do pedido geral.
-* **Decorrido**: O intervalo de tempo entre o início da operação e o final da operação.
-* **When**: A hora quando a função ou o evento estava em execução em relação a outras funções.
+* **Mostrar Hot Path**: Abre o maior nó folha ou pelo menos algo próximo. Na maioria dos casos, esse nó está perto de um afunilamento de desempenho.
+* **Rótulo**: O nome da função ou do evento. A árvore exibe uma mistura de código e eventos que ocorreram, como eventos SQL e HTTP. O evento superior representa a duração geral da solicitação.
+* **Decorrido**: O intervalo de tempo entre o início da operação e o fim da operação.
+* **Quando**: A hora em que a função ou evento estava sendo executado em relação a outras funções.
 
 ## <a name="how-to-read-performance-data"></a>Como ler dados de desempenho
 
-O criador de perfil de serviço do Microsoft utiliza uma combinação de métodos de amostragem e instrumentação para analisar o desempenho da sua aplicação. Quando a coleção detalhada está em curso, o criador de perfil de serviço copia o ponteiro de instrução de cada CPU do computador cada milissegundo. Cada exemplo captura a pilha de chamadas completa do thread que está sendo executado. Ele fornece informações detalhadas sobre o que esse thread estava fazendo, num alto nível e um baixo nível de abstração. O criador de perfil de serviço também recolhe outros eventos para controlar a correlação da atividade e causalidade, incluindo eventos, eventos de tarefas TPL (biblioteca paralela) e eventos de pool de threads de alternância de contexto.
+O criador de perfil de serviço da Microsoft usa uma combinação de métodos de amostragem e instrumentação para analisar o desempenho do seu aplicativo. Quando a coleta detalhada está em andamento, o criador de perfil de serviço amostra o ponteiro de instrução de cada CPU da máquina a cada milissegundo. Cada exemplo captura a pilha de chamadas completa do thread que está sendo executado no momento. Ele fornece informações detalhadas sobre o que o thread estava fazendo, em um nível alto e um nível baixo de abstração. O criador de perfil de serviço também coleta outros eventos para acompanhar a correlação de atividades e causalidade, incluindo eventos de alternância de contexto, eventos TPL (biblioteca paralela de tarefas) e eventos de pool de threads.
 
-A pilha de chamadas que é apresentada na vista de linha de tempo é o resultado da amostragem e instrumentação. Uma vez que cada exemplo captura a pilha de chamadas completa do thread, inclui código de Microsoft .NET Framework e de outras estruturas que referencia.
+A pilha de chamadas exibida na exibição da linha do tempo é o resultado da amostragem e da instrumentação. Como cada amostra captura a pilha de chamadas completa do thread, ela inclui código de Microsoft .NET Framework e de outras estruturas que você referencia.
 
-### <a id="jitnewobj"></a>Alocação de objeto (clr! JIT\_novo ou clr! JIT\_Newarr1)
+### <a id="jitnewobj"></a>Alocação de objeto (CLR! JIT @ no__t-1New ou CLR! JIT @ no__t-2Newarr1)
 
-**CLR! JIT\_New** e **clr! JIT\_Newarr1** são funções auxiliares no .NET Framework que alocar a memória de um heap gerenciado. **CLR! JIT\_New** é invocado quando um objeto é alocado. **CLR! JIT\_Newarr1** é invocado quando uma matriz de objeto é alocada. Essas duas funções são, normalmente, rápidas e levar quantidades relativamente pequenas de tempo. Se **clr! JIT\_New** ou **clr! JIT\_Newarr1** assume um muito tempo na sua linha de tempo, o código poderá ser alocando muitos objetos e consumir quantidades significativas de memória.
+**CLR! JIT @ no__t-1New** e **CLR! JIT @ no__t-3Newarr1** são funções auxiliares em .NET Framework que alocam memória de um heap gerenciado. **CLR! JIT @ no__t-1New** é invocado quando um objeto é alocado. **CLR! JIT @ no__t-1Newarr1** é invocado quando uma matriz de objeto é alocada. Essas duas funções geralmente são rápidas e levam quantidades relativamente pequenas de tempo. Se o **CLR! JIT @ no__t-1New** ou **CLR! JIT @ no__t-3Newarr1** leva muito tempo em sua linha do tempo, o código pode estar alocando muitos objetos e consumindo quantidades significativas de memória.
 
-### <a id="theprestub"></a>Carregamento de código (clr! ThePreStub)
+### <a id="theprestub"></a>Carregando código (CLR! ThePreStub
 
-**CLR! ThePreStub** é uma função de auxiliar no .NET Framework, que prepara o código seja executado pela primeira vez. Normalmente, esta execução inclui, mas não está limitada a compilação do just-in-time (JIT). Para cada C# método, **clr! ThePreStub** deve ser invocado no máximo uma vez durante um processo.
+**CLR! ThePreStub** é uma função auxiliar no .NET Framework que prepara o código para ser executado pela primeira vez. Essa execução geralmente inclui, mas não se limita à compilação JIT (just-in-time). Para cada C# método, **CLR! ThePreStub** deve ser invocado no máximo uma vez durante um processo.
 
-Se **clr! ThePreStub** demora muito tempo para um pedido, o pedido é o primeiro para executar esse método. A hora de tempo de execução do .NET Framework carregar o primeiro método é significativa. Considere o uso de um processo de aquecimento que executa essa parte do código antes dos utilizadores aceder ou considere executar o gerador de imagem nativa (ngen.exe) em seus assemblies.
+Se o **CLR! ThePreStub** leva muito tempo para uma solicitação, a solicitação é a primeira a executar esse método. O tempo para o tempo de execução de .NET Framework carregar o primeiro método é significativo. Você pode considerar o uso de um processo aquecimento que executa essa parte do código antes que os usuários o acessem, ou considere executar o gerador de imagem nativa (NGen. exe) em seus assemblies.
 
-### <a id="lockcontention"></a>Contenção de bloqueio (clr! JITutil\_MonContention ou clr! JITutil\_MonEnterWorker)
+### <a id="lockcontention"></a>Contenção de bloqueio (CLR! JITutil @ no__t-1MonContention ou CLR! JITutil @ no__t-2MonEnterWorker)
 
-**CLR! JITutil\_MonContention** ou **clr! JITutil\_MonEnterWorker** indica que o thread atual está a aguardar um bloqueio ser lançado. Este texto, muitas vezes, é apresentado quando executa um C# **bloqueio** instrução, invocar o **ENTER** método, ou invocar um método com o **Methodimploptions**atributo. Contenção de bloqueio geralmente ocorre quando thread _um_ adquire um bloqueio e o thread _B_ tenta adquirir o bloqueio mesmo antes de thread _A_ libera-lo.
+**CLR! JITutil @ no__t-1MonContention** ou **CLR! JITutil @ no__t-3MonEnterWorker** indica que o thread atual está aguardando a liberação de um bloqueio. Esse texto geralmente é exibido quando você executa uma C# instrução **Lock** , invoca o método **Monitor. Enter** ou invoca um método com o atributo **MethodImplOptions. Synchronized** . A contenção de bloqueio geralmente ocorre quando o thread _a_ adquire um bloqueio e o thread _B_ tenta adquirir o mesmo bloqueio antes que _o thread a o_ libere.
 
-### <a id="ngencold"></a>Carregamento de código ([frio])
+### <a id="ngencold"></a>Carregando código ([frio])
 
-Se o nome do método contiver **[frio]** , tal como **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, o tempo de execução do .NET Framework esteja executando código pela primeira vez que não está otimizada por [otimização orientada por perfil](/cpp/build/profile-guided-optimizations). Para cada método, que deve ser exibida no máximo uma vez durante o processo.
+Se o nome do método contiver **[frio]** , como **mscorlib.ni! [ FRIO] System. Reflection. CustomAttribute. IsDefined**, .NET Framework tempo de execução está executando o código pela primeira vez que não é otimizado pela [otimização guiada por perfil](/cpp/build/profile-guided-optimizations). Para cada método, ele deve ser exibido no máximo uma vez durante o processo.
 
-Se o carregamento de código leva uma quantidade substancial de tempo para um pedido, o pedido é o primeiro para executar a parte não otimizada do método. Considere a utilização de um processo de aquecimento que executa essa parte do código antes dos utilizadores aceder a ele.
+Se o carregamento de código demorar uma quantidade significativa de tempo para uma solicitação, a solicitação será a primeira a executar a parte não otimizada do método. Considere usar um processo aquecimento que execute essa parte do código antes que os usuários o acessem.
 
-### <a id="httpclientsend"></a>Enviar o pedido HTTP
+### <a id="httpclientsend"></a>Enviar solicitação HTTP
 
-Métodos como **HttpClient.Send** indicar que o código está aguardando uma solicitação HTTP para ser concluído.
+Métodos como **HttpClient. Send** indicam que o código está aguardando a conclusão de uma solicitação HTTP.
 
-### <a id="sqlcommand"></a>Operação de base de dados
+### <a id="sqlcommand"></a>Operação de banco de dados
 
-Métodos como **SqlCommand.Execute** indicar que o código está à espera que uma operação de base de dados concluir.
+Métodos como **SqlCommand. Execute** indicam que o código está aguardando a conclusão de uma operação de banco de dados.
 
-### <a id="await"></a>A aguardar (AWAIT\_tempo)
+### <a id="await"></a>Aguardando (AWAIT @ no__t-1TIME)
 
-**AWAIT\_tempo** indica que o código está a aguardar conclusão da outra tarefa. Este atraso normalmente acontece com o C# **AWAIT** declaração. Quando o código faz uma C# **AWAIT**, o thread se Desdobra e retorna o controle ao pool de segmentos, e não há nenhum thread que está bloqueada aguardando o **AWAIT** para concluir. No entanto, logicamente, o thread que fez a **AWAIT** for "bloqueado," e está a aguardar a conclusão da operação. O **AWAIT\_tempo** instrução indica o tempo bloqueado aguardando a conclusão da tarefa.
+**AWAIT @ no__t-1TIME** indica que o código está aguardando a conclusão de outra tarefa. Geralmente, esse atraso ocorre com C# a instrução **AWAIT** . Quando o código faz um C# **AWAIT**, o thread desenrola e retorna o controle para o pool de threads, e não há nenhum thread que esteja bloqueado aguardando a conclusão do **AWAIT** . No entanto, logicamente, o thread que fez o **AWAIT** é "bloqueado" e está aguardando a conclusão da operação. A instrução **AWAIT @ no__t-1TIME** indica o tempo bloqueado aguardando a conclusão da tarefa.
 
 ### <a id="block"></a>Tempo bloqueado
 
-**BLOCKED_TIME** indica que o código está a aguardar outro recurso esteja disponível. Por exemplo, pode aguardar para um objeto de sincronização, para um thread esteja disponível ou para um pedido para concluir.
+**BLOCKED_TIME** indica que o código está aguardando que outro recurso esteja disponível. Por exemplo, ele pode estar aguardando um objeto de sincronização, para que um thread esteja disponível ou para que uma solicitação seja concluída.
 
-### <a name="unmanaged-async"></a>Async não gerido
+### <a name="unmanaged-async"></a>Assíncrono Não Gerido
 
-.NET framework emite eventos do ETW e transmite os ids de atividade entre threads para que as chamadas assíncronas podem ser controladas entre threads. Código não gerenciado (código nativo) e alguns estilos mais antigos do código assíncrono estão em falta esses eventos e ids de atividade, para que o criador de perfil não é possível dizer qual thread e quais funções estão sendo executados no thread. Isso tem o nome "Async não gerenciado" na pilha de chamadas. Se baixar o arquivo do ETW, poderá conseguir utilizar [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obter mais informações sobre o que está acontecendo.
+O .NET Framework emite eventos ETW e passa IDs de atividade entre threads para que as chamadas assíncronas possam ser controladas entre threads. O código não gerenciado (código nativo) e alguns estilos mais antigos de código assíncrono estão sem esses eventos e IDs de atividade, portanto, o criador de perfil não pode informar o thread e quais funções estão em execução no thread. Isso é rotulado como ' async não gerenciado ' na pilha de chamadas. Se você baixar o arquivo ETW, talvez seja possível usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obter mais informações sobre o que está acontecendo.
 
 ### <a id="cpu"></a>Tempo de CPU
 
 A CPU está ocupada executando as instruções.
 
-### <a id="disk"></a>Tempo de disco
+### <a id="disk"></a>Tempo do disco
 
-A aplicação está a efetuar operações de disco.
+O aplicativo está executando operações de disco.
 
-### <a id="network"></a>Tempo da rede
+### <a id="network"></a>Hora da rede
 
-A aplicação está a efetuar operações de rede.
+O aplicativo está executando operações de rede.
 
 ### <a id="when"></a>Quando coluna
 
-O **quando** coluna é uma visualização de como os exemplos, INCLUSIVE recolhidos para um nó variam ao longo do tempo. O intervalo total do pedido está dividido em 32 registos de tempo. Os exemplos, inclusivos para esse nó são acumulados nessas 32 partições. Cada classificação é representada como uma barra. A altura da barra de representa um valor dimensionado. Para nós que estão marcados **CPU_TIME** ou **BLOCKED_TIME**, ou onde existe uma relação óbvia a consumindo um recurso (por exemplo, uma CPU, disco ou thread), a barra representa o consumo de um dos os recursos durante o registo. Para estas métricas, é possível obter um valor superior a 100 por cento de consumir vários recursos. Por exemplo, se usar, em média, duas CPUs durante um intervalo, terá 200 por cento.
+A coluna **When** é uma visualização de como as amostras inclusivas coletadas para um nó variam ao longo do tempo. O intervalo total da solicitação é dividido em 32 buckets de tempo. Os exemplos inclusivos para esse nó são acumulados nesses 32 buckets. Cada bucket é representado como uma barra. A altura da barra representa um valor dimensionado. Para nós marcados como **CPU_TIME** ou **BLOCKED_TIME**, ou onde há uma relação óbvia para consumir um recurso (por exemplo, CPU, disco ou thread), a barra representa o consumo de um dos recursos durante o Bucket. Para essas métricas, é possível obter um valor maior que 100% consumindo vários recursos. Por exemplo, se você usar, em média, duas CPUs durante um intervalo, obterá 200 por cento.
 
 ## <a name="limitations"></a>Limitações
 
-O período de retenção de dados predefinido é de cinco dias. A máxima de dados que é ingerida por dia é de 10 GB.
+O período de retenção de dados padrão é de cinco dias. O máximo de dados ingeridos por dia é de 10 GB.
 
-Não existem custos para utilizar o serviço do Profiler. Para poder utilizá-lo, a aplicação web tem de ser hospedado em, pelo menos, o escalão básico da funcionalidade Web Apps do App Service do Azure.
+Não há encargos para usar o serviço Profiler. Para você usá-lo, seu aplicativo Web deve ser hospedado em pelo menos a camada básica do recurso de aplicativos Web do serviço de Azure App.
 
-## <a name="overhead-and-sampling-algorithm"></a>Sobrecarga e algoritmo de amostragem
+## <a name="overhead-and-sampling-algorithm"></a>Algoritmo de sobrecarga e amostragem
 
-Profiler aleatoriamente executa dois minutos por hora em cada máquina virtual que aloja a aplicação que tenha ativado para capturar rastreios do Profiler. Quando o Profiler está em execução, ele adiciona entre 5 para 15% a sobrecarga da CPU para o servidor.
+O profiler é executado aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo que tem o criador de perfil habilitado para capturar rastreamentos. Quando o profiler está em execução, ele adiciona de 5 a 15% da sobrecarga de CPU ao servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
-Ative o Application Insights Profiler para a sua aplicação do Azure. Consulte também:
+## <a name="next-steps"></a>Passos seguintes
+Habilite Application Insights Profiler para seu aplicativo do Azure. Consulte também:
 * [Serviços Aplicacionais](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
 [performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png

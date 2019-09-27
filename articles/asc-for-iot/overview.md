@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 29add1cff184e234cd5dcc5050b94cdd50593731
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
-ms.translationtype: HT
+ms.openlocfilehash: adb1b840fd733353e449224c9ac752e94329bde6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326735"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introdução ao Centro de Segurança do Azure para IoT
 
@@ -30,7 +30,7 @@ Unifique o gerenciamento de segurança e habilite a detecção e análise de ame
 
 Escolha em nossa solução ininterrupta sem agente ou aproveite a segurança abrangente baseada em agente, a central de segurança do Azure para IoT fornece prevenção de ameaças e análise para cada dispositivo, IoT Edge e Hub IoT, em seus ativos de IoT.
 
-Como bilhões de novos dispositivos estão conectados à Internet e integrados às nossas vidas diárias e às nossas empresas; suas equipes de operações de segurança precisam garantir que suas estratégias de segurança evoluam rapidamente o suficiente para abranger essas novas superfícies de ataque. Como qualquer outro sistema, proteger sua solução de IoT precisa de proteção em todos os estágios da sua implementação. 
+À medida que bilhões de dispositivos novos estiverem conectados à Internet e integrados a nossas vidas diárias e nossas empresas, suas equipes de operações de segurança devem garantir que suas estratégias de segurança evoluam rapidamente para cobrir cada nova superfície de ataque. Como qualquer outro sistema, para proteger de forma abrangente sua solução de IoT, ela requer proteção em todos os estágios de implementação. 
 
 A central de segurança do Azure para IoT simplifica a proteção de carga de trabalho híbrida fornecendo visibilidade e controle unificados, prevenção de ameaças adaptáveis e detecção de ameaças inteligentes e resposta entre cargas de trabalho em execução no Edge, no local, no Azure e em outras nuvens. 
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336846"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância de Azure Active Directory Domain Services
 
@@ -42,7 +42,8 @@ Para concluir este tutorial, você precisa dos seguintes recursos e privilégios
     * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Você precisa de privilégios de *administrador global* em seu locatário do Azure ad para habilitar o Azure AD DS.
 * Você precisa de privilégios de *colaborador* em sua assinatura do Azure para criar os recursos de AD DS do Azure necessários.
-* O locatário do Azure AD deve ser [configurado para redefinição de senha de autoatendimento][configure-sspr].
+
+Embora não seja necessário para o Azure AD DS, é recomendável [Configurar o SSPR (redefinição de senha de autoatendimento)][configure-sspr] para o locatário do Azure AD. Os usuários podem alterar sua senha sem SSPR, mas o SSPR ajuda a esquecer sua senha e precisa redefini-la.
 
 > [!IMPORTANT]
 > Depois de criar um domínio gerenciado do Azure AD DS, você não poderá mover a instância para um grupo de recursos, rede virtual, assinatura etc. diferentes. Tome cuidado para selecionar a assinatura, o grupo de recursos, a região e a rede virtual mais apropriados ao implantar a instância de AD DS do Azure.

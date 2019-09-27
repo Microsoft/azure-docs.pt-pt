@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7d312f54da91c8bc8b3f659ff92f531136cdecb3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301004"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338592"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é a versão prévia da área de trabalho virtual do Windows? 
 
@@ -87,6 +87,17 @@ As máquinas virtuais do Azure criadas para a área de trabalho virtual do Windo
 
 >[!NOTE]
 >Se precisar de uma assinatura do Azure, você poderá [se inscrever para uma avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se você estiver usando a versão de avaliação gratuita do Azure, deverá usar Azure AD Domain Services para manter o Active Directory do Windows Server em sincronia com Azure Active Directory.
+
+As máquinas virtuais do Azure que você cria para a área de trabalho virtual do Windows devem ter acesso TCP 443 de saída às seguintes URLs:
+* *. wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>Abrir essas URLs é essencial para uma implantação de área de trabalho virtual do Windows confiável. Não há suporte para o bloqueio de acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos da área de trabalho virtual do Windows e não incluem URLS para outros serviços como o Azure AD.
 
 A área de trabalho virtual do Windows inclui os aplicativos e as áreas de trabalho do Windows que você fornece aos usuários e à solução de gerenciamento, que é hospedada como um serviço no Azure pela Microsoft. Durante a visualização pública, as áreas de trabalho e os aplicativos podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gerenciamento e os dados para essas VMs residirão no Estados Unidos (região leste dos EUA 2). Isso pode resultar na transferência de dados para o Estados Unidos enquanto você testa o serviço durante a visualização pública. Começaremos a escalar horizontalmente a solução de gerenciamento e a localização de dados para todas as regiões do Azure, começando com a disponibilidade geral.
 

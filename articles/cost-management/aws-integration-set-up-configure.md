@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: deb13b833707849bcbce8bcae7b05aeb5e0bce3b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535198"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338882"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurar e configurar a integração de relatório de uso e custo do AWS
 
@@ -42,13 +42,13 @@ Use a página **relatórios de uso & de custo** do console de gerenciamento de c
     2. Insira um nome de Bucket e a região em que você deseja criar um novo Bucket e escolha **Avançar**.
 10. Selecione **Eu confirmei que essa política está correta**e, em seguida, clique em **salvar**.
 11. Adicional Para o prefixo do caminho do relatório, insira o prefixo do caminho do relatório que você deseja que seja anexado ao nome do relatório.
-Se você não especificar um prefixo, o prefixo padrão será o nome que você especificou para o relatório. O intervalo de datas tem `/report-name/date-range/` o formato.
+Se você não especificar um prefixo, o prefixo padrão será o nome que você especificou para o relatório. O intervalo de datas tem o formato `/report-name/date-range/`.
 12. Para **unidade de tempo**, escolha por **hora**.
 13. Para **controle de versão de relatório**, escolha se você deseja que cada versão do relatório substitua a versão anterior ou se deseja novos relatórios adicionais.
 14. Para **habilitar a integração de dados para**o, nenhuma seleção é necessária.
 15. Para **compactação**, selecione **gzip**.
 16. Selecione **Seguinte**.
-17. Depois de examinar as configurações do relatório, selecione revisar **e concluir**.
+17. Depois de examinar as configurações do relatório, selecione **revisar e concluir**.
 
     Observe o nome do relatório. Você o usará em etapas posteriores.
 
@@ -79,15 +79,15 @@ Use o assistente para criação de uma nova função:
 Configure a permissão para o relatório de custo e uso:
 
 1. Insira o **relatório de custo e uso**.
-2. Selecione **nível** > de acesso**ler** > **DescribeReportDefinitions**. Esta etapa permite que o gerenciamento de custos Leia o que os relatórios de CUR são definidos e determine se eles correspondem ao pré-requisito de definição de relatório.
+2. Selecione **nível de acesso** > **ler** > **DescribeReportDefinitions**. Esta etapa permite que o gerenciamento de custos Leia o que os relatórios de CUR são definidos e determine se eles correspondem ao pré-requisito de definição de relatório.
 3. Selecione **adicionar permissões adicionais**.
 
 Configure a permissão para seu Bucket e objetos S3:
 
 1. Selecione **escolher um serviço**.
 2. Insira **S3**.
-3. Selecione > listade > nível de acesso**ListBucket**. Esta ação Obtém a lista de objetos no Bucket S3.
-4. Selecione **nível** > de acesso**ler** > **GetObject**. Essa ação permite o download de arquivos de cobrança.
+3. Selecione **nível de acesso** > **list** > **ListBucket**. Esta ação Obtém a lista de objetos no Bucket S3.
+4. Selecione **nível de acesso** > **ler** > **GetObject**. Essa ação permite o download de arquivos de cobrança.
 5. Selecione **recursos**.
 6. Selecione **Bucket – adicionar ARN**.
 7. Em **nome do Bucket**, insira o Bucket usado para armazenar os arquivos da cur.
@@ -100,13 +100,13 @@ Configurar permissão para o Gerenciador de custo:
 
 1. Selecione **escolher um serviço**.
 2. Insira o **serviço Gerenciador de custo**.
-3. Selecione **todas as ações de serviço do Gerenciador de\*custos (CE:)** . Esta ação valida que a coleção está correta.
+3. Selecione **todas as ações de serviço do Gerenciador de custos (CE: \*)** . Esta ação valida que a coleção está correta.
 4. Selecione **adicionar permissões adicionais**.
 
 Adicionar permissão para organizações AWS:
 
 1. Insira **organizações**.
-2. Selecione > listade > nível de acesso**ListAccounts**. Essa ação Obtém os nomes das contas.
+2. Selecione **nível de acesso** > **list** > **ListAccounts**. Essa ação Obtém os nomes das contas.
 3. Em **política de revisão**, insira um nome para a nova política. Verifique se você inseriu as informações corretas e, em seguida, selecione **criar política**.
 4. Volte para a guia anterior e atualize a página da Web do navegador. Na barra de pesquisa, procure sua nova política.
 5. Selecione **avançar: Examine**.
@@ -151,12 +151,12 @@ A política JSON deve ser semelhante ao exemplo a seguir. Substitua _bucketname_
 Use as informações a seguir para criar um conector do AWS e começar a monitorar seus custos de AWS:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Vá para **Gerenciamento de custos +**  > **Gerenciamento de custos**de cobrança.
+2. Vá para **Gerenciamento de custos + cobrança** > **Gerenciamento de custos**.
 3. Em **configurações**, selecione **conectores de nuvem (versão prévia)** .  
-    ![Exemplo mostrando a configuração de conectores de nuvem (](./media/aws-integration-setup-configure/cloud-connectors-preview01.png)versão prévia)).
+    ![Example mostrando a configuração de conectores de nuvem (versão prévia) ](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Selecione **+ Adicionar** na parte superior da página para criar um conector.
 5. Na página **criar um conector do AWS** , em **nome de exibição**, insira um nome para o conector.  
-    ![Exemplo da página para criar um conector do AWS](./media/aws-integration-setup-configure/create-aws-connector01.png)
+    ![Example da página para criar um conector AWS @ no__t-1
 6. Opcionalmente, selecione o grupo de gerenciamento padrão. Ele armazenará todas as contas vinculadas descobertas. Você pode configurá-lo mais tarde.
 7. Na seção **cobrança** , selecione **cobrar automaticamente 1% em disponibilidade geral** se você quiser garantir a operação contínua quando a visualização expirar. Se você selecionar a opção automática, deverá selecionar uma assinatura de cobrança.
 8. Para a **função ARN**, insira o valor que você usou ao configurar a função em AWS.
@@ -172,13 +172,13 @@ A atribuição de permissões de conector a usuários após a descoberta ocorre 
 
 ## <a name="take-additional-steps"></a>Executar etapas adicionais
 
-- [Configure grupos de gerenciamento](../governance/management-groups/index.md#initial-setup-of-management-groups), se ainda não tiver feito isso.
+- [Configure grupos de gerenciamento](../governance/management-groups/overview.md#initial-setup-of-management-groups), se ainda não tiver feito isso.
 - Verifique se novos escopos são adicionados ao seu seletor de escopo. Selecione **Atualizar** para exibir os dados mais recentes.
 - Na página **conectores de nuvem** , selecione seu conector e selecione **ir para conta de cobrança** para atribuir a conta vinculada aos grupos de gerenciamento.
 
 ## <a name="manage-cloud-connectors"></a>Gerenciar conectores de nuvem
 
-Ao selecionar um conector na página conectores de **nuvem** , você pode:
+Ao selecionar um conector na página **conectores de nuvem** , você pode:
 
 - Selecione **ir para conta de cobrança** para exibir informações para a conta consolidada do AWS.
 - Selecione **controle de acesso** para gerenciar a atribuição de função para o conector.
@@ -189,7 +189,7 @@ Ao selecionar um conector na página conectores de **nuvem** , você pode:
 
 ## <a name="set-up-azure-management-groups"></a>Configurar grupos de gerenciamento do Azure
 
-Coloque suas assinaturas do Azure e as contas vinculadas do AWS no mesmo grupo de gerenciamento para criar um único local onde você possa ver as informações do provedor entre nuvens. Se você ainda não tiver configurado seu ambiente do Azure com grupos de gerenciamento, consulte [configuração inicial dos grupos de gerenciamento](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Coloque suas assinaturas do Azure e as contas vinculadas do AWS no mesmo grupo de gerenciamento para criar um único local onde você possa ver as informações do provedor entre nuvens. Se você ainda não tiver configurado seu ambiente do Azure com grupos de gerenciamento, consulte [configuração inicial dos grupos de gerenciamento](../governance/management-groups/overview.md#initial-setup-of-management-groups).
 
 Se você quiser separar os custos, poderá criar um grupo de gerenciamento que contenha apenas contas vinculadas do AWS.
 

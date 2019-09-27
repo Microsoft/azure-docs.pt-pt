@@ -1,19 +1,19 @@
 ---
-title: Entender as práticas recomendadas de segurança do Azure digital gêmeos | Microsoft Docs
-description: Práticas recomendadas de segurança do gêmeos digital do Azure.
+title: Entender as práticas recomendadas de segurança-gêmeos digitais do Azure | Microsoft Docs
+description: Saiba mais sobre as práticas recomendadas de segurança para o gêmeos digital do Azure e o Internet das Coisas.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 09/17/2019
 ms.author: v-adgera
-ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 181176e00595daa307504d4dea7494aefa7f1942
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656530"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336693"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -46,7 +46,7 @@ Algumas práticas importantes para proteger com segurança um espaço IoT inclue
 > [!div class="checklist"]
 > * Criptografar dados salvos, armazenados ou persistentes.
 > * Exigir que senhas ou chaves sejam alteradas periodicamente ou atualizadas.
-> * Restringir cuidadosamente o acesso e as permissões por função. Consulte a seção [práticas recomendadas de controle de acesso baseado em função](#rbac) abaixo.
+> * Restringir cuidadosamente o acesso e as permissões por função. Consulte a seção [práticas recomendadas de controle de acesso baseado em função](#role-based-access-control-best-practices) abaixo.
 > * Considere uma topologia de rede dividida para que os dispositivos em cada rede sejam isolados dos outros.
 > * Use criptografia avançada. Exigir senhas longas e usar protocolos seguros e autenticação de dois fatores.
 
@@ -66,8 +66,6 @@ O Azure digital gêmeos usa Azure Active Directory para autenticar usuários e p
 > * Verifique o período de tempo em que um token é válido e se um token permanece válido.
 > * Defina os comprimentos de tempo apropriados aos quais os tokens são válidos.
 > * Atualizar tokens expirados.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Práticas recomendadas de controle de acesso baseado em função
 

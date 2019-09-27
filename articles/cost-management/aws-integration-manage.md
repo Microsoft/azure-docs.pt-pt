@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019537"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338887"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerenciar os custos e o uso do AWS no Azure
 
@@ -181,6 +181,6 @@ Esse erro significa que o gerenciamento de custos não pode localizar o relatór
 
 Esse erro está relacionado à definição do relatório de uso e custo de AWS, exigimos configurações específicas para esse relatório, consulte os requisitos em [criar um relatório de custo e uso em AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se você ainda não tiver configurado seu ambiente do Azure com grupos de gerenciamento, consulte [configuração inicial dos grupos de gerenciamento](../governance/management-groups/index.md#initial-setup-of-management-groups).
+- Se você ainda não tiver configurado seu ambiente do Azure com grupos de gerenciamento, consulte [configuração inicial dos grupos de gerenciamento](../governance/management-groups/overview.md#initial-setup-of-management-groups).

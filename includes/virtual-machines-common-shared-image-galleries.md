@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012236"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338348"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -60,7 +60,7 @@ Todos esses três têm conjuntos de valores exclusivos. O formato é semelhante 
 
 Veja a seguir outros parâmetros que podem ser definidos na definição de imagem para que você possa controlar seus recursos com mais facilidade:
 
-* Estado do sistema operacional – você pode definir o estado do so como generalizado ou especializado, mas só há suporte para generalizado no momento. As imagens devem ser criadas a partir de VMs que foram generalizadas usando o Sysprep `waagent -deprovision` para Windows ou para Linux.
+* Estado do sistema operacional – você pode definir o estado do so como generalizado ou especializado, mas só há suporte para generalizado no momento. As imagens devem ser criadas a partir de VMs que foram generalizadas usando o Sysprep para Windows ou `waagent -deprovision` para Linux.
 * Sistema operacional – pode ser Windows ou Linux.
 * Descrição – use a descrição para fornecer informações mais detalhadas sobre por que a definição da imagem existe. Por exemplo, você pode ter uma definição de imagem para o servidor front-end que tem o aplicativo pré-instalado.
 * EULA – pode ser usado para apontar para um contrato de licença de usuário final específico para a definição de imagem.
@@ -83,10 +83,10 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 | Leste da Austrália      | East US         | EUA Centro-Norte | Oeste da Índia      |
 | Sudeste da Austrália | EUA Leste 2       | Europa do Norte     | EUA Oeste         |
 | Sul do Brasil        | E.U.A. Leste 2 EUAP  | EUA Centro-Sul | EUA Oeste 2       |
-| Canadá Central      | França Central  | Sul da Índia      |                 |
-| Leste do Canadá         | Sul de França    | Sudeste Asiático   |                 |
-| Índia Central       | Leste do Japão      | Reino Unido Sul         |                 |
-| EUA Central          | Oeste do Japão      | Reino Unido Oeste          |                 |
+| Canadá Central      | França Central  | Sul da Índia      | Leste da China      |
+| Leste do Canadá         | Sul de França    | Sudeste Asiático   | Leste da China 2    |
+| Índia Central       | Leste do Japão      | Reino Unido Sul         | Norte da China     |
+| EUA Central          | Oeste do Japão      | Reino Unido Oeste          | Norte da China 2   |
 
 
 
@@ -106,8 +106,8 @@ A Galeria de imagens compartilhadas permite que você especifique o número de r
 
 Com a Galeria de imagens compartilhadas, agora você pode implantar até uma instância de VM 1.000 em um conjunto de dimensionamento de máquinas virtuais (acima de 600 com imagens gerenciadas). As réplicas de imagem oferecem melhor desempenho, confiabilidade e consistência da implantação.  Você pode definir uma contagem de réplicas diferente em cada região de destino, com base nas necessidades de escala para a região. Como cada réplica é uma cópia profunda da imagem, isso ajuda a dimensionar suas implantações linearmente com cada réplica extra. Embora não entendamos que duas imagens ou regiões são as mesmas, aqui está nossa orientação geral sobre como usar réplicas em uma região:
 
-- Para cada 20 VMs que você cria simultaneamente, é recomendável manter uma réplica. Por exemplo, se você estiver criando VMs 120 simultaneamente usando a mesma imagem em uma região, sugerimos que você mantenha pelo menos 6 réplicas da sua imagem. 
-- Para cada implantação de conjunto de dimensionamento com até 600 instâncias, recomendamos que você mantenha pelo menos uma réplica. Por exemplo, se você estiver criando cinco conjuntos de dimensionamento simultaneamente, cada um com instâncias de VM 600 usando a mesma imagem em uma única região, sugerimos que você mantenha pelo menos 5 réplicas de sua imagem. 
+- Para implantações de VMSS (conjunto de dimensionamento de máquinas virtuais) – para cada 20 VMs que você cria simultaneamente, recomendamos que você mantenha uma réplica. Por exemplo, se você estiver criando VMs 120 simultaneamente usando a mesma imagem em uma região, sugerimos que você mantenha pelo menos 6 réplicas da sua imagem. 
+- Para implantações de VMSS (conjunto de dimensionamento de máquinas virtuais) – para cada implantação de conjunto de dimensionamento com até 600 instâncias, recomendamos que você mantenha pelo menos uma réplica. Por exemplo, se você estiver criando cinco conjuntos de dimensionamento simultaneamente, cada um com instâncias de VM 600 usando a mesma imagem em uma única região, sugerimos que você mantenha pelo menos 5 réplicas de sua imagem. 
 
 Sempre recomendamos que você provisione o número de réplicas devido a fatores como tamanho da imagem, conteúdo e tipo de so.
 
@@ -133,13 +133,13 @@ As regiões nas quais uma versão de imagem compartilhada é replicada podem ser
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Aceder
+## <a name="access"></a>Acesso
 
 Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de imagem são todos os recursos, elas podem ser compartilhadas usando controles nativos do Azure RBAC internos. Usando o RBAC, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso a pessoas fora do locatário em que foram criadas. Quando um usuário tem acesso à versão da imagem compartilhada, ele pode implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender a que o usuário obtém acesso:
 
-| Compartilhado com usuário     | Galeria de Imagens Partilhadas | Definição da Imagem | Versão de imagem |
+| Compartilhado com usuário     | Shared Image Gallery | Definição da Imagem | Versão de imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhadas | Sim                  | Sim          | Sim                  |
+| Shared Image Gallery | Sim                  | Sim          | Sim                  |
 | Definição da Imagem     | Não                   | Sim          | Sim                  |
 
 É recomendável compartilhar no nível da galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -271,7 +271,7 @@ Para especificar a contagem de réplica regional, passe o local junto com o núm
 
 Se a contagem de réplica regional não for especificada em cada local, o número padrão de réplicas será a contagem de réplicas comum que você especificou. 
 
-Para especificar a contagem de réplicas comuns na CLI, use o argumento **--réplica-Count** no `az sig image-version create` comando.
+Para especificar a contagem de réplicas comuns na CLI, use o argumento **--réplica-Count** no comando `az sig image-version create`.
 
 
 **P.** Posso criar a Galeria de imagens compartilhadas em um local diferente daquele em que desejo criar a definição da imagem e a versão da imagem?

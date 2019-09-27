@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a335bcbb45b1aac48a3aaea282ffeffe1696f4c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: b7c851c2d865a7b553be2cd0f619ad09985115a3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900073"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336869"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD)? Os planos de implantação do Azure AD orientam você pelo valor de negócios, considerações de planejamento e procedimentos operacionais necessários para implantar com êxito recursos comuns do Azure AD.
@@ -47,6 +47,14 @@ As funções podem incluir o seguinte
 - **C**para o plano e o resultado do projeto 
 
 - **Eu**nformed o plano e o resultado do projeto
+
+
+## <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto
+Um piloto permite que você teste com um pequeno grupo antes de ativar um recurso para todos. Certifique-se de que, como parte de seu teste, cada caso de uso em sua organização seja totalmente testado. É melhor ter como alvo um grupo específico de usuários piloto antes de redistribuir para sua organização como um todo.
+
+Na sua primeira onda, destinada a ti, usabilidade e outros usuários apropriados que podem testar e fornecer comentários. Esses comentários devem ser usados para desenvolver ainda mais as comunicações e as instruções que você envia para os usuários e fornecer informações sobre os tipos de problemas que sua equipe de suporte pode ver. 
+
+Ampliar a distribuição para grupos maiores de usuários deve ser executado aumentando o escopo dos grupos de destino. Isso pode ser feito por meio de [Associação de grupo dinâmico](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)ou adicionando usuários manualmente aos grupos de destino.
 
 
 ## <a name="deploy-authentication"></a>Implantar autenticação

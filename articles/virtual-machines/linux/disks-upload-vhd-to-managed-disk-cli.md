@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bd4d3b9b34f951896e838d5f6f50ca204d329568
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266604"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326825"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carregar um VHD no Azure usando o CLI do Azure
 
@@ -40,6 +40,8 @@ Esse tipo de disco gerenciado tem dois Estados exclusivos:
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e a SAS foi gerada.
 
 Em qualquer um desses Estados, o disco gerenciado será cobrado no preço de [HDD padrão](https://azure.microsoft.com/pricing/details/managed-disks/), independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isso será verdadeiro até que `revoke-access` seja chamado no disco gerenciado, que é necessário para anexar o disco a uma VM.
+
+Antes de criar um HDD padrão vazio para carregamento, você precisará ter o tamanho do arquivo do VHD que deseja carregar, em bytes. Para obtê-lo, você pode usar `wc -c <yourFileName>.vhd` ou `ls -al <yourFileName>.vhd`. Esse valor é usado ao especificar o parâmetro **--upload-size-bytes** .
 
 Crie um HDD padrão vazio para carregamento, especificando o parâmetro **-– para-upload** e o parâmetro **--upload-size-bytes** em um cmdlet [Create de disco](/cli/azure/disk#az-disk-create) :
 

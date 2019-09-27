@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200487"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338777"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -42,7 +42,7 @@ Quando você habilita a central de segurança, a política de segurança interna
 Se a sua organização tiver várias subscrições, poderá precisar de uma forma de gerir eficazmente o acesso, as políticas e a conformidade para essas subscrições. Os Grupos de Gestão do Azure fornecem um nível de âmbito acima das subscrições. Organiza as subscrições em contentores chamados "grupos de gestão" e aplica as políticas de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. É atribuído a cada diretório um único grupo de gestão de nível superior denominado grupo de gestão de "raiz". Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo de gestão de raiz permite a aplicação de políticas globais e atribuições do RBAC ao nível do diretório. Para configurar grupos de gerenciamento para uso com a central de segurança do Azure, siga as instruções em [obter visibilidade em todo o locatário para a central de segurança do Azure](security-center-management-groups.md).
 
 > [!NOTE]
-> É importante que compreenda a hierarquia de grupos de gestão e subscrições. Veja [Organizar os recursos com os Grupos de Gestão do Azure](../governance/management-groups/index.md#root-management-group-for-each-directory) para obter mais informações sobre grupos de gestão, gestão de raiz e acesso ao grupo de gestão.
+> É importante que compreenda a hierarquia de grupos de gestão e subscrições. Veja [Organizar os recursos com os Grupos de Gestão do Azure](../governance/management-groups/overview.md#root-management-group-for-each-directory) para obter mais informações sobre grupos de gestão, gestão de raiz e acesso ao grupo de gestão.
 >
 
 ## <a name="how-security-policies-work"></a>Como funcionam as políticas de segurança

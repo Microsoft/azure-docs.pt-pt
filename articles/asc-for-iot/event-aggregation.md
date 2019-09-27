@@ -1,6 +1,6 @@
 ---
-title: Entendendo a central de segurança do Azure para a agregação de eventos da solução IoT | Microsoft Docs
-description: Saiba mais sobre como os eventos são agregados na central de segurança do Azure para o serviço de IoT.
+title: Entendendo a central de segurança do Azure para agregação de eventos de IoT | Microsoft Docs
+description: Saiba mais sobre a central de segurança do Azure para agregação de eventos de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933904"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327307"
 ---
-# <a name="security-agent-event-aggregation"></a>Agregação de eventos do agente de segurança
+# <a name="azure-security-center-for-iot-event-aggregation"></a>Central de segurança do Azure para agregação de eventos de IoT
 
-A central de segurança do Azure para agentes de segurança de IoT coleta dados e eventos do sistema do seu dispositivo local e envia esses dados para a nuvem do Azure para processamento e análise. O agente de segurança coleta muitos tipos de eventos de dispositivo, incluindo novo processo e novos eventos de conexão. Os novos eventos de processo e de conexão podem ocorrer legitimamente com frequência em um dispositivo dentro de um segundo e, embora sejam importantes para segurança robusta e abrangente, a quantidade de mensagens que isso força os agentes de segurança a enviar pode alcançar ou exceder rapidamente o Hub IoT cotas e limites de custo. No entanto, esses eventos contêm informações de segurança altamente valiosas que são cruciais para proteger seu dispositivo.
+A central de segurança do Azure para agentes de segurança de IoT coleta dados e eventos do sistema do seu dispositivo local e envia esses dados para a nuvem do Azure para processamento e análise. O agente de segurança coleta muitos tipos de eventos de dispositivo, incluindo novo processo e novos eventos de conexão. O novo processo e novos eventos de conexão podem ocorrer com frequência em um dispositivo em um segundo e, embora sejam importantes para segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode alcançar rapidamente ou exceder o Hub IoT cotas e limites de custo. No entanto, esses eventos contêm informações de segurança altamente valiosas que são cruciais para proteger seu dispositivo.
 
 Para reduzir a cota e os custos adicionais enquanto mantém seus dispositivos protegidos, a central de segurança do Azure para agentes IoT agrega esses tipos de eventos.
 
@@ -44,8 +44,8 @@ Para reduzir a superfície de memória do agente, sempre que o agente coletar um
 
 Os eventos são considerados idênticos somente quando as seguintes condições são atendidas: 
 
-* Eventos de ProcessCreate-quando **CommandLine**, **executável**, **username** e **userid** são idênticos
-* Eventos de ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **endereço local**, **endereço remoto**, **protocolo** e **porta de destino** são idênticos
+* Eventos de ProcessCreate-quando **CommandLine**, **executável**, * * username e **userid** são idênticos
+* Eventos de ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **endereço local**, **endereço remoto**, * * protocolo e **porta de destino** são idênticos
 * Eventos de ProcessTerminate-quando o **status** **executável** e de saída são idênticos
 
 ### <a name="working-with-aggregated-events"></a>Trabalhando com eventos agregados

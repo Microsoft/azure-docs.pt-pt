@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 5e33108c9fc674abaf980a1272cca31aa21cffff
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991065"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326389"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Iniciar o leitor de imersão usando o projeto de exemplo do Python
 
@@ -68,7 +68,7 @@ O ponto de extremidade da API do **getimmersivereadertoken** deve ser protegido 
 
 ## <a name="create-a-python-web-app-on-windows"></a>Criar um aplicativo Web Python no Windows
 
-Crie um aplicativo Web Python usando `flask` o no Windows.
+Crie um aplicativo Web Python usando o `flask` no Windows.
 
 Instale o [Git](https://git-scm.com/).
 
@@ -88,11 +88,11 @@ Adicione recursos opcionais marcando as caixas e, em seguida, clique no botão '
 
 ![Caixa de diálogo de instalação do Python Windows etapa 2](./media/pythoninstalltwo.jpg)
 
-Escolha ' instalação personalizada ' e defina o caminho de instalação como sua pasta raiz, `C:\Python37-32\` por exemplo, clique no botão ' instalar '.
+Escolha ' instalação personalizada ' e defina o caminho de instalação como sua pasta raiz, por exemplo, `C:\Python37-32\` e clique no botão ' instalar '.
 
 ![Caixa de diálogo de instalação do Python Windows etapa 3](./media/pythoninstallthree.jpg)
 
-Após a conclusão da instalação do Python, abra um prompt `cd` de comando e a pasta scripts Python.
+Após a conclusão da instalação do Python, abra um prompt de comando e `cd` na pasta scripts Python.
 
 ```cmd
 cd C:\Python37-32\Scripts
@@ -113,7 +113,7 @@ pip install jinja2
 Instale o virtualenv. Uma ferramenta para criar ambientes de Python isolados.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 Instale o virtualenvwrapper-Win. A ideia por trás do virtualenvwrapper é facilitar o uso de virtualenv.
@@ -128,13 +128,19 @@ Instale o módulo solicitações. Solicitações é uma biblioteca HTTP licencia
 pip install requests
 ```
 
+Instale o módulo python-dotenv. Esse módulo lê o par chave-valor do arquivo. env e os adiciona à variável de ambiente.
+
+```cmd
+pip install python-dotenv
+```
+
 Criar um ambiente virtual
 
 ```cmd
 mkvirtualenv advanced-python
 ```
 
-`cd`para a pasta raiz do projeto de exemplo.
+`cd` para a pasta raiz do projeto de exemplo.
 
 ```cmd
 cd C:\immersive-reader-sdk\js\samples\advanced-python
@@ -160,9 +166,9 @@ Desative o ambiente.
 deactivate
 ```
 
-Agora `(advanced-python)` , o prefixo deve ser removido, pois o ambiente agora está desativado.
+O prefixo `(advanced-python)` agora deve estar, já que o ambiente está desativado.
 
-Para reativar o ambiente, `workon advanced-python` execute na pasta raiz do projeto de exemplo.
+Para reativar o ambiente, execute `workon advanced-python` na pasta raiz do projeto de exemplo.
 
 ```cmd
 workon advanced-python
@@ -170,7 +176,7 @@ workon advanced-python
 
 ### <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
 
-Quando o ambiente estiver ativo, execute o projeto de exemplo digitando `flask run` na pasta raiz do projeto de exemplo.
+Quando o ambiente estiver ativo, execute o projeto de exemplo inserindo `flask run` na pasta raiz do projeto de exemplo.
 
 ```cmd
 flask run
@@ -192,9 +198,9 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Instale o [Python](https://www.python.org/downloads/).
 
-A pasta raiz do Python, `Python37-32` por exemplo, deve estar agora na pasta aplicativos.
+A pasta raiz do Python, por exemplo, `Python37-32` agora deve estar na pasta aplicativos.
 
-Após a conclusão da instalação do Python, abra `cd` o terminal e a pasta scripts Python.
+Após a conclusão da instalação do Python, abra o terminal e `cd` na pasta scripts do Python.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -218,10 +224,10 @@ sudo nano /etc/paths
 
 - Insira sua senha, quando solicitado.
 - Adicione o caminho da instalação do Pip à variável PATH.
-- Vá para a parte inferior do arquivo e insira o caminho que você deseja adicionar como o último item da lista, por exemplo `PATH=$PATH:/usr/local/bin`,.
+- Vá para a parte inferior do arquivo e insira o caminho que você deseja adicionar como o último item da lista, por exemplo, `PATH=$PATH:/usr/local/bin`.
 - Pressione Control-x para sair.
 - Insira `Y` para salvar o buffer modificado.
-- Já está! Para testá-lo, na janela novo terminal, digite `echo $PATH`:.
+- Já está! Para testá-lo, na janela novo terminal, digite: `echo $PATH`.
 
 Instale o Flask.
 
@@ -253,13 +259,19 @@ Instale o módulo solicitações. Solicitações é uma biblioteca HTTP licencia
 pip install requests --user
 ```
 
+Instale o módulo python-dotenv. Esse módulo lê o par chave-valor do arquivo. env e os adiciona à variável de ambiente.
+
+```bash
+pip install python-dotenv --user
+```
+
 Escolha uma pasta na qual você gostaria de manter seus ambientes virtuais e execute este comando
 
 ```bash
 mkdir ~/.virtualenvs
 ```
 
-`cd`para a pasta do aplicativo de exemplo Python do SDK do leitor de imersão.
+`cd` para a pasta do aplicativo de exemplo Python do SDK do leitor de imersão.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -291,9 +303,9 @@ Desative o ambiente.
 deactivate
 ```
 
-Agora `(advanced-python)` , o prefixo deve ser removido, pois o ambiente agora está desativado.
+O prefixo `(advanced-python)` agora deve estar, já que o ambiente está desativado.
 
-Para reativar o ambiente, `workon advanced-python` execute na pasta raiz do projeto de exemplo.
+Para reativar o ambiente, execute `workon advanced-python` na pasta raiz do projeto de exemplo.
 
 ```bash
 workon advanced-python
@@ -301,7 +313,7 @@ workon advanced-python
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
 
-Quando o ambiente estiver ativo, execute o projeto de exemplo digitando `flask run` na pasta raiz do projeto de exemplo.
+Quando o ambiente estiver ativo, execute o projeto de exemplo inserindo `flask run` na pasta raiz do projeto de exemplo.
 
 ```bash
 flask run
@@ -309,7 +321,7 @@ flask run
 
 Abra o navegador e navegue até _http://localhost:5000_ .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
 * Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)

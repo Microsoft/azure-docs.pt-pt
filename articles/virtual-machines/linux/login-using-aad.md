@@ -3,7 +3,7 @@ title: Faça logon em uma VM do Linux com credenciais de Azure Active Directory 
 description: Saiba como criar e configurar uma VM do Linux para entrar usando Azure Active Directory autenticação.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
-ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.author: iainfou
+ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316761"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327085"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Faça logon em uma máquina virtual Linux no Azure usando a autenticação Azure Active Directory
 
@@ -88,7 +88,7 @@ São necessários alguns minutos para criar a VM e os recursos de suporte.
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar a extensão de VM de logon do Azure AD
 
 > [!NOTE]
-> Se estiver implantando esse exention em uma VM criada anteriormente, verifique se a máquina tem pelo menos 1GB de memória alocada. caso contrário, a extensão falhará na instalação
+> Se estiver implantando essa extensão em uma VM criada anteriormente, verifique se a máquina tem pelo menos 1GB de memória alocada. caso contrário, a extensão falhará na instalação
 
 Para fazer logon em uma VM do Linux com credenciais do Azure AD, instale a extensão de VM de logon Azure Active Directory. Extensões de VM são pequenos aplicativos que fornecem tarefas de automação e configuração pós-implantação em máquinas virtuais do Azure. Use [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos *MyResource* Group:
 

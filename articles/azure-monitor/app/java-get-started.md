@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 351247041d4e2f857bcb38b38a490c1a160a6a70
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: a6e8187a085d637ad3abc650daf15d92b96755a3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299596"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338102"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights num projeto Web em Java
 
@@ -225,7 +225,7 @@ E para a nomenclatura de operação automática.
 
 O SDK do Java Application Insights agora dá suporte ao [rastreamento distribuído W3C](https://w3c.github.io/trace-context/).
 
-A configuração do SDK de entrada é explicada com mais detalhes em nosso artigo sobre [correlação](correlation.md#w3c-distributed-tracing).
+A configuração do SDK de entrada é explicada com mais detalhes em nosso artigo sobre [correlação](correlation.md#telemetry-correlation-in-the-java-sdk).
 
 A configuração do SDK de saída é definida no arquivo [ai-Agent. xml](java-agent.md) .
 

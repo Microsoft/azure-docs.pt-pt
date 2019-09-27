@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b94607691b662dcfcf0e166cd5c339b00ed0573d
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70171432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326688"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integração do Azure Active Directory SSO (logon único) com a margem de atraso
 
@@ -46,7 +46,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * A margem de atraso dá suporte ao SSO iniciado pelo **SP**
 * A margem de atraso dá suporte ao provisionamento **de usuário just in time**
-* A margem de atraso dá suporte ao [ provisionamento automatizado de usuários](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+* A margem de atraso dá suporte ao [provisionamento **automatizado** de usuários](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
@@ -87,7 +87,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<companyname>.slack.com`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<your Slack company>.slack.com`
 
     b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL:`https://slack.com`
 
@@ -136,7 +136,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Em uma janela diferente do navegador da Web, entre no site da empresa de margem de atraso como administrador.
 
-2. Navegue até **Microsoft Azure ad** , em seguida, vá para **configurações da equipe**.
+2. Navegue até o nome da sua empresa de margem de atraso à esquerda, que, em nosso caso, foi configurada como **Microsoft Azure ad** e, em seguida, vá para **configurações da equipe** , conforme mostrado na captura de tela a seguir.
 
      ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_001.png)
 

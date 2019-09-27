@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212017"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327675"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -96,6 +96,8 @@ No momento, não é possível converter diretamente entre um compartilhamento de
 
 > [!IMPORTANT]
 > Os compartilhamentos de arquivos premium estão disponíveis com o LRS na maioria das regiões que oferecem contas de armazenamento e com o ZRS em um subconjunto menor de regiões. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para descobrir quais regiões dão suporte a ZRS, consulte [cobertura de suporte e disponibilidade regional](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+>
+> Para nos ajudar a priorizar novas regiões e recursos da camada Premium, preencha esta [pesquisa](https://aka.ms/pfsfeedback).
 
 #### <a name="provisioned-shares"></a>Compartilhamentos provisionados
 

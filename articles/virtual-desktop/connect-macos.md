@@ -1,20 +1,20 @@
 ---
 title: Conectar-se à área de trabalho virtual do Windows do macOS – Azure
-description: Como se conectar à área de trabalho virtual do Windows do macOS.
+description: Como se conectar à área de trabalho virtual do Windows usando o cliente macOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: bf6bfb52bd763eabd88f23701c3d1f240cdf4844
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: fa61d69ae7aa650b6011696fd45d05ba20d2ac8b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310194"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338710"
 ---
-# <a name="connect-from-macos"></a>Conectar do macOS
+# <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
 
 > Aplica-se a: macOS 10,12 ou posterior
 
@@ -44,6 +44,6 @@ Depois de entrar, você deverá ver uma lista de recursos disponíveis.
 
 Depois que você se inscreveu em um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
 
-## <a name="client-documentation"></a>Documentação do cliente
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o cliente macOS, confira a documentação [introdução ao cliente MacOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) .

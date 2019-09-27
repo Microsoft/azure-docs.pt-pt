@@ -6,12 +6,12 @@ ms.service: governance
 ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7fd9a8e00072bfb8d3a0e57fb552822588111019
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 28bfabd5c28fe833050551e7be690c0ea3d1e6a0
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241185"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338937"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -35,7 +35,7 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
 1. Selecione **detalhes**.
 
-1. Selecione a opção renomear **grupo** na parte superior da página.
+1. Selecione a opção **Renomear Grupo** na parte superior da página.
 
    ![Opção Renomear Grupo na página grupo de gerenciamento](./media/detail_action_small.png)
 
@@ -130,7 +130,7 @@ Você pode exibir qualquer grupo de gerenciamento no qual tenha uma função de 
 
 ### <a name="view-in-powershell"></a>Exibir no PowerShell
 
-Use o comando Get-AzManagementGroup para recuperar todos os grupos.  Consulte módulos [AZ.](/powershell/module/az.resources/Get-AzManagementGroup) Resources para obter a lista completa do grupo de gerenciamento obter comandos do PowerShell.  
+Use o comando Get-AzManagementGroup para recuperar todos os grupos.  Consulte módulos [AZ. Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa do grupo de gerenciamento obter comandos do PowerShell.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -281,7 +281,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Mover grupos de gerenciamento na hierarquia  
 
-Quando você move um grupo de gerenciamento pai, a hierarquia sob esse grupo é movida com ele. Para obter o acesso necessário para mover grupos de gerenciamento, consulte [acesso ao grupo de gerenciamento](index.md#management-group-access).
+Quando você move um grupo de gerenciamento pai, a hierarquia sob esse grupo é movida com ele. Para obter o acesso necessário para mover grupos de gerenciamento, consulte [acesso ao grupo de gerenciamento](overview.md#management-group-access).
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de gerenciamento no portal
 

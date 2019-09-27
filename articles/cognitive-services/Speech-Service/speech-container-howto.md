@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: dapine
-ms.openlocfilehash: c8efc416555996ef9a1abd79ec5aafcb65186d6f
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: dbd4f2cd4691f9ae6d8e37f38d2b600ec4897e45
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316668"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326703"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala
 

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338739"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação em um banco de dados de instância gerenciada do banco de dados SQL
 
@@ -28,7 +28,7 @@ Você também pode usar a replicação transacional para enviar por push as alte
 - Um banco de dados individual no banco de dados SQL do Azure.
 - Um banco de dados em pool em um pool elástico do banco de dados SQL do Azure.
  
-A replicação transacional está em visualização pública na [instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerenciada pode hospedar bancos de dados de Publicador, distribuidor e Assinante. Consulte [configurações de replicação](sql-database-managed-instance-transactional-replication.md#common-configurations) transacional para configurações disponíveis.
+A replicação transacional está em visualização pública na [instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerenciada pode hospedar bancos de dados de Publicador, distribuidor e Assinante. Consulte [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
 
   > [!NOTE]
   > Este artigo destina-se a orientar um usuário na configuração de replicação com uma instância gerenciada do banco de dados do Azure de ponta a ponta, começando com a criação do grupo de recursos. Se você já tiver instâncias gerenciadas implantadas, pule para a [etapa 4](#4---create-a-publisher-database) para criar o banco de dados do Publicador ou a [etapa 6](#6---configure-distribution) se você já tiver um banco de dados do Publicador e do assinante e estiver pronto para começar a configurar a replicação.  
@@ -41,7 +41,7 @@ Configurar uma instância gerenciada para funcionar como um Publicador e/ou um d
 - Que a instância gerenciada pelo Publicador está na mesma rede virtual que o distribuidor e o Assinante, ou o [emparelhamento vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais de todas as três entidades. 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Um compartilhamento de conta de armazenamento do Azure para o diretório de trabalho de replicação.
-- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para as instâncias gerenciadas para acessar o compartilhamento de arquivos do Azure. 
+- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para as instâncias gerenciadas para acessar o compartilhamento de arquivos do Azure.  Se você encontrar o erro "falha ao conectar-se ao armazenamento do Azure \<storage nome da conta > com o erro de so 53", será necessário adicionar uma regra de saída ao NSG da sub-rede do SQL Instância Gerenciada apropriada.
 
 
  > [!NOTE]
@@ -50,7 +50,7 @@ Configurar uma instância gerenciada para funcionar como um Publicador e/ou um d
 
 ## <a name="features"></a>Funcionalidades
 
-Suporta:
+Suportar
 
 - A combinação de replicação transacional e de instantâneo de SQL Server instâncias locais e gerenciadas no banco de dados SQL do Azure.
 - Os assinantes podem estar no local SQL Server bancos de dados, em bancos de dados individuais/instâncias gerenciadas no banco de dados SQL do Azure ou em bancos de dados em pool em pools elásticos do banco de dados SQL do Azure.
@@ -63,7 +63,7 @@ Os recursos a seguir não têm suporte em uma instância gerenciada no banco de 
  
 ## <a name="1---create-a-resource-group"></a>1-criar um grupo de recursos
 
-Use o [portal do Azure](https://portal.azure.com) para criar um grupo de recursos com o `SQLMI-Repl`nome.  
+Use o [portal do Azure](https://portal.azure.com) para criar um grupo de recursos com o nome `SQLMI-Repl`.  
 
 ## <a name="2---create-managed-instances"></a>2-criar instâncias gerenciadas
 
@@ -78,15 +78,15 @@ Você também precisará [Configurar uma VM do Azure para se conectar](sql-datab
 
 [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento. 
 
-Copie o caminho do compartilhamento de arquivos no formato:`\\storage-account-name.file.core.windows.net\file-share-name`
+Copie o caminho do compartilhamento de arquivos no formato: `\\storage-account-name.file.core.windows.net\file-share-name`
 
-Copie as chaves de acesso de armazenamento no formato:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copie as chaves de acesso de armazenamento no formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
  Para obter mais informações, veja [Ver e copiar chaves de acesso do armazenamento](../storage/common/storage-account-manage.md#access-keys). 
 
 ## <a name="4---create-a-publisher-database"></a>4-criar um banco de dados do Publicador
 
-Conecte-se `sql-mi-pub` à sua instância gerenciada usando SQL Server Management Studio e execute o seguinte código Transact-SQL (T-SQL) para criar o banco de dados do Publicador:
+Conecte-se à sua instância gerenciada `sql-mi-pub` usando SQL Server Management Studio e execute o seguinte código Transact-SQL (T-SQL) para criar o banco de dados do Publicador:
 
 ```sql
 USE [master]
@@ -120,7 +120,7 @@ GO
 
 ## <a name="5---create-a-subscriber-database"></a>5-criar um banco de dados do assinante
 
-Conecte-se `sql-mi-sub` à sua instância gerenciada usando SQL Server Management Studio e execute o seguinte código T-SQL para criar seu banco de dados de assinante vazio:
+Conecte-se à sua instância gerenciada `sql-mi-sub` usando SQL Server Management Studio e execute o seguinte código T-SQL para criar seu banco de dados de assinante vazio:
 
 ```sql
 USE [master]
@@ -141,7 +141,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6-configurar a distribuição
 
-Conecte-se `sql-mi-pub` à sua instância gerenciada usando SQL Server Management Studio e execute o código T-SQL a seguir para configurar o banco de dados de distribuição. 
+Conecte-se à instância gerenciada `sql-mi-pub` usando SQL Server Management Studio e execute o código T-SQL a seguir para configurar o banco de dados de distribuição. 
 
 ```sql
 USE [master]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7-configurar o Publicador para usar o distribuidor 
 
-Na instância `sql-mi-pub`gerenciada do Publicador, altere a execução da consulta para o modo [sqlcmd](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o código a seguir para registrar o novo distribuidor com o seu editor. 
+Na instância gerenciada do Publicador `sql-mi-pub`, altere a execução da consulta para o modo [sqlcmd](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o código a seguir para registrar o novo distribuidor com o Publicador. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -322,7 +322,7 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Você pode limpar os recursos do Azure [excluindo os recursos de instância gerenciada do grupo de recursos](../azure-resource-manager/manage-resources-portal.md#delete-resources) e, em seguida `SQLMI-Repl`, excluindo o grupo de recursos. 
+Você pode limpar os recursos do Azure [excluindo os recursos de instância gerenciada do grupo de recursos](../azure-resource-manager/manage-resources-portal.md#delete-resources) e, em seguida, excluindo o grupo de recursos `SQLMI-Repl`. 
 
    
 ## <a name="see-also"></a>Consultar Também

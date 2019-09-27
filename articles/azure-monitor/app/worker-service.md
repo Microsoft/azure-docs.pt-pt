@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: cithomas
-ms.openlocfilehash: 653710d2f57385fa6d608a501f72b0dde2f3bb46
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2b92b58b75389f84f1ea18c6d48538c343a13212
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258494"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337965"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
 
@@ -239,47 +239,58 @@ O exemplo completo é compartilhado [aqui](https://github.com/microsoft/Applicat
 ```csharp
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
-    class Program
+    namespace WorkerSDKOnConsole
     {
-        static async Task Main(string[] args)
+        class Program
         {
-            // Create the DI container.
-            IServiceCollection services = new ServiceCollection();
-
-            // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-            // Hence instrumentation key must be specified here.
-            services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
-
-            // Build ServiceProvider.
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-
-            // Obtain logger instance from DI.
-            ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-
-            // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
-            var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
-
-            while (true) // This app runs indefinitely. replace with actual application termination logic.
+            static async Task Main(string[] args)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                // Create the DI container.
+                IServiceCollection services = new ServiceCollection();
 
-                using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
+                // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
+                // Hence instrumentation key must be specified here.
+                services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
+
+                // Build ServiceProvider.
+                IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+                // Obtain logger instance from DI.
+                ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+                // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
+                var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
+
+                var httpClient = new HttpClient();
+
+                while (true) // This app runs indefinitely. replace with actual application termination logic.
                 {
-                    _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
-                    _logger.LogInformation("Calling bing.com");
-                    var res = await httpClient.GetAsync("https://bing.com");
-                    _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                    telemetryClient.TrackEvent("Bing call event completed");
+                    logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                    // Replace with a name which makes sense for this operation.
+                    using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
+                    {
+                        logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
+                        logger.LogInformation("Calling bing.com");                    
+                        var res = await httpClient.GetAsync("https://bing.com");
+                        logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
+                        telemetryClient.TrackEvent("Bing call event completed");
+                    }
+
+                    await Task.Delay(1000);
                 }
 
-                await Task.Delay(1000, stoppingToken);
+                // Explicitly call Flush() followed by sleep is required in Console Apps.
+                // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+                telemetryClient.Flush();
+                Task.Delay(5000).Wait();
             }
-
-            // Explicitly call Flush() followed by sleep is required in Console Apps.
-            // This is to ensure that even if application terminates, telemetry is sent to the back-end.
-            telemetryClient.Flush();
-            Task.Delay(5000).Wait();
         }
     }
 ```

@@ -1,102 +1,102 @@
 ---
-title: Tutorial - aceitar e receber dados através da pré-visualização do compartilhamento de dados do Azure
-description: Tutorial - aceitar e receber dados através da pré-visualização do compartilhamento de dados do Azure
+title: 'Tutorial: Aceitar & receber dados-visualização do compartilhamento de dados do Azure'
+description: Tutorial – aceitar e receber dados usando a visualização do compartilhamento de dados do Azure
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 235ef25b2d655c4388dee5bdcf88d179f3373697
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838423"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327402"
 ---
-# <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Tutorial: Aceitar e receber dados através da pré-visualização do compartilhamento de dados do Azure
+# <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Tutorial: Aceitar e receber dados usando a visualização do compartilhamento de dados do Azure
 
-Neste tutorial, aprenderá como aceitar um convite de partilha de dados a utilizar a pré-visualização de partilhar dados do Azure. Aprenderá como receber dados a ser partilhados consigo, bem como ativar um intervalo de atualização regular garantir que tenha sempre o instantâneo mais recente dos dados que está a ser partilhados consigo. 
+Neste tutorial, você aprenderá a aceitar um convite de compartilhamento de dados usando a visualização do compartilhamento de dados do Azure. Você aprenderá a receber dados que estão sendo compartilhados com você, bem como a habilitar um intervalo de atualização regular para garantir que você sempre tenha o instantâneo mais recente dos dados que estão sendo compartilhados com você. 
 
 > [!div class="checklist"]
-> * Como aceitar um convite de pré-visualização de partilha de dados do Azure
-> * Criar uma conta de pré-visualização de partilha de dados do Azure
-> * Especifique um destino para os seus dados
-> * Criar uma subscrição para a partilha de dados para a atualização agendada
+> * Como aceitar um convite de visualização do compartilhamento de dados do Azure
+> * Criar uma conta de visualização do compartilhamento de dados do Azure
+> * Especifique um destino para seus dados
+> * Criar uma assinatura para seu compartilhamento de dados para a atualização agendada
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de poder aceitar um convite de partilha de dados, terá de aprovisionar um número de recursos do Azure, que estão listados abaixo. 
+Antes de aceitar um convite de compartilhamento de dados, você deve provisionar vários recursos do Azure, que são listados abaixo. 
 
-Certifique-se de que todos os pré-requisitos estão concluídos antes de aceitar um convite de partilha de dados. 
+Verifique se todos os pré-requisitos estão completos antes de aceitar um convite de compartilhamento de dados. 
 
-* Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Uma conta de armazenamento do Azure: Se ainda não tiver uma, pode criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Um convite de partilha de dados: Um convite do Microsoft Azure com um requerente intitulado "convite de partilha de dados do Azure partir **<yourdataprovider@domain.com>** ".
-* Permissão para adicionar a atribuição de função para a conta de armazenamento, o que está presente no *Microsoft.Authorization/role atribuições/gravação* permissão. Esta permissão existe na função de proprietário. 
-* Registo do fornecedor de recursos para Microsoft.DataShare. Consulte a [fornecedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) documentação para obter informações sobre como fazer isso. 
+* Assinatura do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Uma conta de armazenamento do Azure: Se você ainda não tiver uma, poderá criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Um convite de compartilhamento de dados: Um convite de Microsoft Azure com um assunto intitulado "convite de compartilhamento de dados do Azure de **<yourdataprovider@domain.com>** ".
+* Permissão para adicionar a atribuição de função à conta de armazenamento, que está presente na permissão *Microsoft. Authorization/role atribuitions/Write* . Essa permissão existe na função proprietário. 
+* Registro do provedor de recursos para Microsoft. DataShare. Consulte a documentação dos [provedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) para obter informações sobre como fazer isso. 
 
 > [!IMPORTANT]
-> Para aceitar e receber uma partilha de dados do Azure, primeiro tem de registar o fornecedor de recursos de Microsoft.DataShare e tem de ser um proprietário da conta de armazenamento que aceitar dados. Siga as instruções documentadas na [resolver problemas de pré-visualização do Azure dados partilhar](data-share-troubleshoot.md) para registar o fornecedor de recursos de partilha de dados, bem como adicionar a próprio como proprietário da conta de armazenamento. 
+> Para aceitar e receber um compartilhamento de dados do Azure, primeiro você deve registrar o provedor de recursos Microsoft. DataShare e deve ser um proprietário da conta de armazenamento na qual você aceita dados. Siga as instruções documentadas em [solucionar problemas de visualização do compartilhamento de dados do Azure](data-share-troubleshoot.md) para registrar o provedor de recursos de compartilhamento de dados, além de adicionar como proprietário da conta de armazenamento. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="open-invitation"></a>Convite aberto
+## <a name="open-invitation"></a>Abrir convite
 
-Verifique a sua caixa de entrada para um convite através do seu fornecedor de dados. O convite é do Microsoft Azure, intitulada **convite de partilha de dados do Azure partir <yourdataprovider@domain.com>** . Anote o nome da partilha para garantir que está a aceitar a partilha correta se existirem vários convites. 
+Verifique sua caixa de entrada para obter um convite de seu provedor de dados. O convite é de Microsoft Azure, intitulado **convite de compartilhamento de dados do Azure de <yourdataprovider@domain.com>** . Anote o nome do compartilhamento para garantir que você está aceitando o compartilhamento correto se houver vários convites. 
 
-Selecione no **ver o convite** para ver o seu convite no Azure. Isto leva-o à sua exibição de partilhas recebido.
+Selecione **Exibir convite** para ver seu convite no Azure. Isso levará você para a exibição de compartilhamentos recebidos.
 
-![Convites](./media/invitations.png "lista de convites") 
+![](./media/invitations.png "Lista de convites de convites") 
 
-Selecione a partilha que pretende ver. 
+Selecione o compartilhamento que você deseja exibir. 
 
 ## <a name="accept-invitation"></a>Aceitar convite
-Certifique-se de que todos os campos são revisados, incluindo o **termos de utilização**. Se concordar com os termos de utilização, precisará selecionar a caixa para indicar a que concorda. 
+Verifique se todos os campos foram revisados, incluindo os **termos de uso**. Se você concordar com os termos de uso, será necessário marcar a caixa para indicar que concorda. 
 
-![Termos de utilização](./media/terms-of-use.png "termos de utilização") 
+![Termos de uso](./media/terms-of-use.png "termos de uso") 
 
-Sob *conta de partilha de dados de destino*, selecione a subscrição e grupo de recursos que esteja implantando a partilha de dados em. 
+Em *conta de compartilhamento de dados de destino*, selecione a assinatura e o grupo de recursos em que você implantará seu compartilhamento de dados. 
 
-Para o **conta de partilha de dados** campo, selecione **criar nova** se não tiver uma conta de partilha de dados existente. Caso contrário, selecione uma conta de partilha de dados existente que gostaria de aceitar a partilha de dados em. 
+Para o campo **conta de compartilhamento de dados** , selecione **criar novo** se você não tiver uma conta de compartilhamento de dados existente. Caso contrário, selecione uma conta de compartilhamento de dados existente para a qual você gostaria de aceitar seu compartilhamento de dados. 
 
-Para o *nome da partilha recebido* campo, pode deixar a predefinição especificada por dados, fornecer ou especificar um novo nome para a partilha recebido. 
+Para o campo *nome de compartilhamento recebido* , você pode deixar o padrão especificado pelos dados fornecidos ou especificar um novo nome para o compartilhamento recebido. 
 
-![Conta de partilha de dados de destino](./media/target-data-share.png "conta de partilhar dados de destino") 
+(./media/target-data-share.png "Conta de compartilhamento de dados de destino") conta de compartilhamento de dados de ![destino] 
 
-Depois de aceitou os termos de utilização e especificar uma localização para a sua partilha, selecione no *Accept e configurar*. Se escolher esta opção, será criada uma subscrição de partilha e o ecrã seguinte irá pedir-lhe para selecionar uma conta de armazenamento de destino para os seus dados a ser copiado para. 
+Depois de concordar com os termos de uso e especificar um local para seu compartilhamento, selecione em *aceitar e configurar*. Se você escolher essa opção, uma assinatura de compartilhamento será criada e a próxima tela solicitará que você selecione uma conta de armazenamento de destino para os dados a serem copiados. 
 
-![Aceitar as opções](./media/accept-options.png "aceitar opções") 
+Opções de ![aceitar opções](./media/accept-options.png "aceitas") 
 
-Se preferir, mas aceitar o convite agora de configurar o armazenamento num momento posterior, selecione *aceite e configurar mais tarde*. Esta opção permite-lhe configurar a sua conta de armazenamento de destino mais tarde. Para continuar a configuração do armazenamento mais tarde, veja [como configurar a sua conta de armazenamento](how-to-configure-mapping.md) página para obter passos detalhados sobre como retomar a seus dados partilham a configuração. 
+Se você preferir aceitar o convite agora, mas configurar seu armazenamento mais tarde, selecione *aceitar e configurar mais tarde*. Essa opção permite que você configure sua conta de armazenamento de destino mais tarde. Para continuar a configurar o armazenamento mais tarde, consulte a página [como configurar sua conta de armazenamento](how-to-configure-mapping.md) para obter etapas detalhadas sobre como retomar sua configuração de compartilhamento de dados. 
 
-Se não pretender aceitar o convite, selecione *rejeitar*. 
+Se você não quiser aceitar o convite, selecione *rejeitar*. 
 
 ## <a name="configure-storage"></a>Configurar o armazenamento
-Sob *definições de armazenamento de destino*, selecione a subscrição, grupo de recursos e a conta de armazenamento que gostaria de recebem os dados para. 
+Em *configurações de armazenamento de destino*, selecione a assinatura, o grupo de recursos e a conta de armazenamento na qual você gostaria de receber os dados. 
 
-![As definições de armazenamento de destino](./media/target-storage-settings.png "armazenamento de destino") 
+(./media/target-storage-settings.png "Armazenamento") de destino ![das configurações de armazenamento de destino] 
 
-Para receber atualizações regulares de seus dados, certifique-se de que ativar as definições de instantâneos. Tenha em atenção que apenas será apresentada uma agenda de definição do instantâneo se o seu fornecedor de dados está incluído na partilha de dados. 
+Para receber atualizações regulares de seus dados, certifique-se de habilitar as configurações de instantâneo. Observe que você verá apenas um agendamento de configuração de instantâneo se o provedor de dados o tiver incluído no compartilhamento de dados. 
 
-![Definições de instantâneo](./media/snapshot-settings.png "as definições de instantâneo") 
+Configurações ![de instantâneo de]configurações de(./media/snapshot-settings.png "instantâneo") 
 
 Selecione *Guardar*. 
 
-## <a name="trigger-a-snapshot"></a>Acionar um instantâneo
+## <a name="trigger-a-snapshot"></a>Disparar um instantâneo
 
-Pode acionar um instantâneo nos compartilhamentos recebido -> separador de detalhes, selecionando **instantâneo de Acionador**. Aqui, pode disparar um instantâneo completo ou incremental dos seus dados. Se for a primeira vez que receber dados do seu fornecedor de dados, selecione cópia completa. 
+Você pode disparar um instantâneo na guia compartilhamentos recebidos-> detalhes selecionando **instantâneo de gatilho**. Aqui, você pode disparar um instantâneo completo ou incremental de seus dados. Se for a primeira vez que você recebe dados do seu provedor de dados, selecione cópia completa. 
 
-![Instantâneo do acionador](./media/trigger-snapshot.png "instantâneo de Acionador") 
+![Disparar](./media/trigger-snapshot.png "instantâneo de gatilho") de instantâneo 
 
-Quando o último Estado de execução estiver *bem-sucedida*, abra a conta de armazenamento para ver os dados recebidos. 
+Quando o status da última execução for *bem-sucedido*, abra a conta de armazenamento para exibir os dados recebidos. 
 
-Para verificar que conta de armazenamento utilizado, selecione ativado **conjuntos de dados**. 
+Para verificar qual conta de armazenamento você usou, selecione em **conjuntos de valores**. 
 
-![Conjuntos de dados do consumidor](./media/consumer-datasets.png "mapeamento do conjunto de dados de consumidor") 
+(./media/consumer-datasets.png "Mapeamento de conjunto de clientes do consumidor") de conjuntos de ![clientes] 
 
 ## <a name="view-history"></a>Ver histórico
-Para ver um histórico de sua instantâneos, navegue para partilhas de recebido -> histórico. Aqui encontrará um histórico de todos os instantâneos que foram gerados durante os últimos 60 dias. 
+Para exibir um histórico de seus instantâneos, navegue até compartilhamentos recebidos-histórico de >. Aqui você encontrará um histórico de todos os instantâneos que foram gerados nos últimos 60 dias. 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, com aprendizagem como aceitar e receber uma partilha de dados do Azure. Para saber mais sobre os conceitos de partilha de dados do Azure, avance para [conceitos: Dados do Azure partilham a terminologia](terminology.md).
+## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, você aprenderá a aceitar e receber um compartilhamento de dados do Azure. Para saber mais sobre os conceitos de compartilhamento de dados do Azure, continue em [Concepts: Terminologia do compartilhamento de dados do Azure @ no__t-0.

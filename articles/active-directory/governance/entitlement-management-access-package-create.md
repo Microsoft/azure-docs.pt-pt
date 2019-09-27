@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678207"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326344"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -75,11 +75,11 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
 1. Clique em **Seguinte**.
 
-## <a name="resource-roles"></a>Funções de recursos
+## <a name="resource-roles"></a>Funções de recurso
 
 Na guia **funções de recurso** , selecione os recursos a serem incluídos no pacote de acesso.  Os usuários que solicitam e recebem o pacote de acesso receberão todas as funções de recurso no pacote de acesso.
 
-1. Clique no tipo de recurso que você deseja adicionar (**grupos**, **aplicativos**ou **sites do SharePoint**).
+1. Clique no tipo de recurso que você deseja adicionar (**grupos e equipes**, **aplicativos**ou **sites do SharePoint**).
 
 1. No painel Selecionar que aparece, selecione um ou mais recursos na lista.
 
@@ -105,13 +105,13 @@ Na guia **política** , você cria a primeira política para especificar quem po
 
     ![Pacote de acesso-política](./media/entitlement-management-access-package-create/policy.png)
 
-1. Se você selecionar **mais tarde**, pule para a seção revisar [+ criar](#review--create) para criar seu pacote de acesso.
+1. Se você selecionar **mais tarde**, pule para a seção [revisar + criar](#review--create) para criar seu pacote de acesso.
 
 1. Se você selecionar **agora**, execute as etapas em uma das seções de política a seguir.
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>Rever + criar
+## <a name="review--create"></a>Examinar + criar
 
 Na guia **revisar + criar** , você pode examinar as configurações e verificar se há erros de validação.
 

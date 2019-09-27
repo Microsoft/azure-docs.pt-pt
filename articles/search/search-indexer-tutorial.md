@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640658"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327181"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Destina Rastrear um banco de dados SQL do Azure usando indexadores Azure Search
 
@@ -67,7 +67,7 @@ As informações de ligação dos serviços necessários estão especificadas no
 
 1. No Gerenciador de Soluções, abra **appSettings. JSON** para que você possa preencher cada configuração.  
 
-As duas primeiras entradas que você pode preencher agora, usando a URL e as chaves de administração para seu serviço de Azure Search. Dado um ponto de `https://mydemo.search.windows.net`extremidade de, o nome do serviço `mydemo`a ser fornecido é.
+As duas primeiras entradas que você pode preencher agora, usando a URL e as chaves de administração para seu serviço de Azure Search. Dado um ponto de extremidade de `https://mydemo.search.windows.net`, o nome do serviço a ser fornecido é `mydemo`.
 
 ```json
 {
@@ -159,7 +159,7 @@ Neste tutorial, o indexador extrai dados de uma origem de dados. Na prática, vo
 
 O programa principal inclui a lógica para criar um cliente, um índice, uma fonte de dados e um indexador. Verifica e elimina os recursos existentes com o mesmo nome, no pressuposto de que poderá executar este programa várias vezes.
 
-O objeto de fonte de dados é configurado com configurações que são específicas para recursos do Azure SQL Database, incluindo a [indexação incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os recursos internos de [detecção de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do SQL do Azure. O banco de dados de hotéis de demonstração no SQL do Azure tem uma colunade "exclusão reversível" chamada IsDeleted. Quando essa coluna é definida como true no banco de dados, o indexador remove o documento correspondente do índice de Azure Search.
+O objeto de fonte de dados é configurado com configurações que são específicas para recursos do Azure SQL Database, incluindo a [indexação incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os recursos internos de [detecção de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do SQL do Azure. O banco de dados de hotéis de demonstração no SQL do Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna é definida como true no banco de dados, o indexador remove o documento correspondente do índice de Azure Search.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -230,7 +230,7 @@ O código é executado localmente no Visual Studio e liga-se ao seu serviço de 
 
 + A informação de ligação da base de dados em **appsettings.json**. Deve ser a cadeia de ligação ADO.NET obtida no portal e modificada para incluir um nome de utilizador e uma palavra-passe válidas na sua base de dados. A conta de utilizador tem de ter permissão para obter dados.
 
-+ Limites dos recursos. Recorde-se que o serviço partilhado (gratuito) tem como limite três índices, três indexadores e três origens de dados. Um serviço que esteja no limite máximo não pode criar objetos novos.
++ Limites dos recursos. Lembre-se de que a camada gratuita tem limites de 3 índices, indexadores e fontes de dados. Um serviço que esteja no limite máximo não pode criar objetos novos.
 
 ## <a name="search-the-index"></a>Pesquisar o índice 
 
@@ -263,7 +263,7 @@ Todos os indexadores, incluindo o que acabou de criar programaticamente, são ap
 
 A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Descrição Geral do serviço Azure Search.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode anexar algoritmos de enriquecimento de AI a um pipeline do indexador. Como próximo passo, avance para o tutorial seguinte.
 

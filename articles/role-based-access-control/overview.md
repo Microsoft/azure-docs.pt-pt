@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: ff539311139d7e9823a2d7db2f5d8ee56f9231b6
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338646"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
 
@@ -80,7 +80,7 @@ O Azure tem operações de dados que permitem que você conceda acesso a dados d
 
 *Escopo* é o conjunto de recursos aos quais o acesso se aplica. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
-No Azure, pode especificar um âmbito a vários níveis: [grupo de gestão](../governance/management-groups/index.md), subscrição, grupo de recursos ou recurso. Os âmbitos são estruturados numa relação de principal-subordinado.
+No Azure, pode especificar um âmbito a vários níveis: [grupo de gestão](../governance/management-groups/overview.md), subscrição, grupo de recursos ou recurso. Os âmbitos são estruturados numa relação de principal-subordinado.
 
 ![Âmbito de uma atribuição de função](./media/overview/rbac-scope.png)
 
@@ -134,7 +134,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 [!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure](check-access.md)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)

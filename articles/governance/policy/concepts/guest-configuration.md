@@ -7,12 +7,12 @@ ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 733b7fd8ef5b302df754fc7299b420739baff153
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172477"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338388"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -122,7 +122,7 @@ Política do Azure utiliza os fornecedores de recursos de configuração de conv
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExists** retorne os resultados. Sem o **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
 
-Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa interna chamada *[Preview]: As configurações de segurança de senha de auditoria dentro* de computadores Linux e Windows contêm 18 políticas. Existem seis **DeployIfNotExists** e **AuditIfNotExists** pares para Windows e três pares para Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa interna chamada  *[Preview]: As configurações de segurança de senha de auditoria dentro* de computadores Linux e Windows contêm 18 políticas. Existem seis **DeployIfNotExists** e **AuditIfNotExists** pares para Windows e três pares para Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
 
 ### <a name="multiple-assignments"></a>Várias atribuições
 
@@ -185,4 +185,4 @@ Exemplos de configuração de convidado de política estão disponíveis nos seg
 - Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
-- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/index.md).
+- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

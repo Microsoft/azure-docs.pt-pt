@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f9591b26891ab36ccbfa34126fb1ac1bdb9cf52
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338216"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 
@@ -59,7 +59,7 @@ Com o Gerenciador de recursos, você pode:
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
-O Azure fornece quatro níveis de escopo: [grupos de gerenciamento](../governance/management-groups/index.md), assinaturas, [grupos de recursos](#resource-groups)e recursos. A imagem seguinte mostra um exemplo destas camadas.
+O Azure fornece quatro níveis de escopo: [grupos de gerenciamento](../governance/management-groups/overview.md), assinaturas, [grupos de recursos](#resource-groups)e recursos. A imagem seguinte mostra um exemplo destas camadas.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
@@ -103,7 +103,7 @@ O serviço de Azure Resource Manager foi projetado para resiliência e disponibi
 
 Essa resiliência se aplica a serviços que recebem solicitações por meio do Resource Manager. Por exemplo, Key Vault se beneficia dessa resiliência.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para todas as operações oferecidas pelos provedores de recursos, consulte as [APIs REST do Azure](/rest/api/azure/).
 
@@ -111,6 +111,6 @@ Essa resiliência se aplica a serviços que recebem solicitações por meio do R
 
 * Para saber mais sobre como marcar recursos, confira [usar marcas para organizar os recursos do Azure](resource-group-using-tags.md).
 
-* Para saber mais sobre como bloquear recursos, consulte [Bloquear recursos para evitar alterações](resource-group-lock-resources.md)inesperadas.
+* Para saber mais sobre como bloquear recursos, consulte [Bloquear recursos para evitar alterações inesperadas](resource-group-lock-resources.md).
 
 * Para obter informações sobre como criar modelos para implantações, consulte [implantação de modelo visão geral](template-deployment-overview.md).

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2019
+ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124176"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327470"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados no Azure Monitor
 
@@ -58,7 +58,7 @@ O assistente de log personalizado é executado no portal do Azure e permite que 
 
 1. No portal do Azure, selecione **log Analytics espaços de trabalho** > seu espaço de trabalho > **Configurações avançadas**.
 2. Clique em **dados** > **logs personalizados**.
-3. Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *aplicar configuração abaixo a meus computadores Linux*.
+3. Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
 4. Clique em **Adicionar +** para abrir o assistente de log personalizado.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passo 2. Carregar e analisar um log de exemplo
@@ -77,7 +77,7 @@ Se um delimitador de carimbo de data/hora for usado, a Propriedade TimeGenerated
 ### <a name="step-3-add-log-collection-paths"></a>Passo 3: Adicionar caminhos da coleção de registos
 Você deve definir um ou mais caminhos no agente onde ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log, ou pode especificar um caminho com um curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
 
-Por exemplo, um aplicativo pode criar um arquivo de log todos os dias com a data incluída no nome como em log20100316. txt. Um padrão para tal log pode ser *\*log. txt* , que se aplica a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
+Por exemplo, um aplicativo pode criar um arquivo de log todos os dias com a data incluída no nome como em log20100316. txt. Um padrão para tal log pode ser *log\*.txt* que se aplicaria a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar arquivos de log diferentes.
 
@@ -86,16 +86,16 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar arquivo
 | Todos os arquivos em *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
 | Todos os arquivos em *C:\Logs* com um nome que começa com log e uma extensão. txt no agente do Windows |C:\Logs\log\*.txt |
 | Todos os arquivos em */var/log/Audit* com a extensão. txt no agente do Linux |/var/log/audit/*.txt |
-| Todos os arquivos em */var/log/Audit* com um nome que começa com log e uma extensão. txt no agente do Linux |/var/log/Audit/Log\*. txt |
+| Todos os arquivos em */var/log/Audit* com um nome que começa com log e uma extensão. txt no agente do Linux |/var/log/Audit/log\*.txt |
 
 1. Selecione Windows ou Linux para especificar o formato de caminho que você está adicionando.
-2. Digite o caminho e clique no **+** botão.
+2. Digite o caminho e clique no botão **+** .
 3. Repita o processo para quaisquer caminhos adicionais.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4: Forneça um nome e uma descrição para o log
 O nome que você especificar será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
-1. Digite um nome para o log.  O sufixo CL é fornecido automaticamente.  **\_**
+1. Digite um nome para o log.  O sufixo **\_CL** é fornecido automaticamente.
 2. Adicione uma **Descrição**opcional.
 3. Clique em **Avançar** para salvar a definição de log Personalizada.
 
@@ -147,7 +147,7 @@ Fornecemos um dos arquivos de log e podemos ver os eventos que serão coletados.
 ![Carregar e analisar um log de exemplo](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Adicionar caminhos da coleção de registos
-Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Um novo arquivo será criado todos os dias com um nome que inclui a data no padrão *appaaaammdd. log*.  Um padrão suficiente para esse log seria *\\C:\MyApp\Logs\*. log*.
+Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Um novo arquivo será criado todos os dias com um nome que inclui a data no padrão *appaaaammdd. log*.  Um padrão suficiente para esse log seria *C:\MyApp\Logs @ no__t-1\*.log*.
 
 ![Caminho da coleção de logs](media/data-sources-custom-logs/collection-path.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 45fb2daaeaf9ee788207d43d805e070320372ca0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617153"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320447"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de senha e conta em domínios gerenciados
 
@@ -44,11 +44,11 @@ As FGPPs (políticas de senha refinadas) permitem que você aplique restrições
 
 As seguintes configurações de senha podem ser configuradas usando FGPP:
 
-* Comprimento mínimo da senha
+* Comprimento mínimo da palavra-passe
 * Histórico de senha
 * As senhas devem atender aos requisitos de complexidade
-* Duração mínima da senha
-* Duração máxima da senha
+* Duração mínima da palavra-passe
+* Duração máxima da palavra-passe
 * Política de bloqueio de conta
   * Duração do bloqueio de conta
   * Número de tentativas de logon com falha permitidas
@@ -90,6 +90,9 @@ Para criar uma política de senha refinada, use as ferramentas administrativas A
 1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 1. Para criar e gerenciar UOs, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
 1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *contoso.com*.
+1. Abra o contêiner do **sistema** e o contêiner **configurações de senha** .
+
+    Um FGPP interno para o domínio gerenciado AD DS do Azure é mostrado. Você não pode modificar este FGPP interno. Em vez disso, crie um novo FGPP personalizado para substituir o FGPP padrão.
 1. No painel **tarefas** à direita, selecione **novo > configurações de senha**.
 1. Na caixa de diálogo **criar configurações de senha** , insira um nome para a política, como *MyCustomFGPP*. Defina a precedência como adequadamente para substituir o FGPP padrão (que é *200*), como *1*.
 

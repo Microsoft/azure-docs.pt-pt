@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 84cca255d8cf768d44e01c8f3a892e3c9830184e
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327239"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para o líder de equipe em uma equipe de processo de ciência de dados de equipe
 
@@ -140,7 +140,7 @@ Para preencher seus repositórios de equipe com o conteúdo dos repositórios co
    
    ![Selecionar importação](./media/team-lead-tasks/import-repo.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório de modelo comum de grupo em URL de **clonagem**. A URL é *https:\//\<nome do servidor >\</nome da organização\<> nome do repositório/_git/>* . Por exemplo: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório de modelo comum de grupo em URL de **clonagem**. A URL é *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/_git/\<repository name >* . Por exemplo: *https: \//dev. Azure. com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Selecione **importar**. O conteúdo do seu repositório de modelos de grupo é importado para o repositório de modelos de equipe. 
    
@@ -230,7 +230,7 @@ git push
 > 
 > `git config --global user.name <your name>`
 > 
-> `git config --global user.email \<your email address>`
+> `git config --global user.email <your email address>`
 > 
 > Se você estiver confirmando vários repositórios git, use o mesmo nome e endereço de email para todos eles. Usar o mesmo nome e endereço de email é conveniente ao criar Power BI Dashboards para controlar suas atividades git em vários repositórios.
 

@@ -1,18 +1,18 @@
 ---
 title: Criar uma nova oferta do Dynamics 365 Business central no Marketplace comercial
 description: Como criar uma nova oferta do Dynamics 365 Business central para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
-author: JnHs
+author: ChJenk
 manager: evansma
-ms.author: jenhayes
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/26/2019
+ms.openlocfilehash: 8c57fd2a2c9c5c059480f3d6ad48454724e5cc61
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033270"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327630"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta do Dynamics 365 Business central
 
@@ -162,7 +162,7 @@ Se você quiser permitir que os clientes saibam que seu aplicativo funciona com 
 
 Esta seção permite que você forneça links para ajudar os clientes a entenderem mais sobre sua oferta.
 
-#### <a name="help-link"></a>Hiperligação de ajuda
+#### <a name="help-link"></a>Link de ajuda
 
 Insira a URL onde os clientes podem saber mais sobre sua oferta.
 
@@ -194,11 +194,11 @@ A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pix
 
 #### <a name="screenshots"></a>Capturas de ecrã
 
-Adicione capturas de tela que mostram como sua oferta funciona. Pelo menos uma captura de tela é necessária e você pode adicionar até cinco. Todas as capturas de tela devem ser 1280 x 720 pixels.
+Adicione capturas de tela que mostram como sua oferta funciona. Pelo menos três capturas de tela são necessárias e você pode adicionar até cinco. Todas as capturas de tela devem ser 1280 x 720 pixels.
 
 #### <a name="videos"></a>Os meus vídeos
 
-Opcionalmente, você pode adicionar até quatro vídeos que demonstram sua oferta. Esses vídeos devem ser hospedados no YouTube e/ou no Vimeo. Para cada um, insira o nome do vídeo, sua URL e uma imagem em miniatura do vídeo (1280 x 720 pixels)
+Opcionalmente, você pode adicionar até cinco vídeos que demonstram sua oferta. Esses vídeos devem ser hospedados no YouTube e/ou no Vimeo. Para cada um, insira o nome do vídeo, sua URL e uma imagem em miniatura do vídeo (1280 x 720 pixels)
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem do Marketplace
 
@@ -252,7 +252,7 @@ Necessário se sua oferta deve ser instalada junto com outra extensão que não 
 
 #### <a name="dependency-package-file"></a>Arquivo de pacote de dependência
 
-Necessário se sua oferta deve ser instalada junto com outra extensão que já foi publicada no Marketplace. Nesse caso, carregue seu `.app` arquivo `.zip` ou aqui.
+Necessário se sua oferta deve ser instalada junto com outra extensão que já foi publicada no Marketplace. Nesse caso, carregue seu arquivo `.app` ou `.zip` aqui.
 
 ### <a name="url-to-app-installation"></a>URL para instalação do aplicativo
 
@@ -295,9 +295,9 @@ A Microsoft pode remover a complexidade de configurar um test drive hospedando e
 
 - **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa definindo o número de horas. Depois disso, a sessão será encerrada e não consumirá mais uma de suas licenças. Recomendamos um valor de 2-24 horas, dependendo da complexidade da sua oferta. Essa duração só pode ser configurada por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).  O usuário pode solicitar uma nova sessão se ela ficar sem tempo e desejar acessar a test drive novamente.
 
-- **URL da instância** (obrigatório): A URL em que o cliente começará sua test drive. Normalmente, a URL da instância do Dynamics 365 que executa seu aplicativo com os dados de exemplo instalados https://testdrive.crm.dynamics.com) (por exemplo,.
+- **URL da instância** (obrigatório): A URL em que o cliente começará sua test drive. Normalmente, a URL da instância do Dynamics 365 que executa seu aplicativo com os dados de exemplo instalados (por exemplo, https://testdrive.crm.dynamics.com).
 
-- **URL da API Web da instância** (obrigatório): Recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta do Microsoft 365 e navegando para **as configurações** \&gt; **Personalização** do \&gt; **Recursos para desenvolvedores** \&gt; **API Web da instância (URL da raiz do serviço)** , copie a URL encontrada aqui ( https://testdrive.crm.dynamics.com/api/data/v9.0) por exemplo,.
+- **URL da API Web da instância** (obrigatório): Recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta do Microsoft 365 e navegando para **configurações** \&gt; @No__t de **personalização** -3GT; **Recursos para desenvolvedores** \&GT; **API Web da instância (URL da raiz do serviço)** , copie a URL encontrada aqui (por exemplo, https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Nome da função** (obrigatório): Forneça o nome da função de segurança que você definiu em seu test drive personalizado do Dynamics 365, que será atribuído ao usuário durante o test drive (por exemplo, Test-Drive-Role).
 
@@ -366,7 +366,7 @@ Se sua oferta exigir a edição Premium do Microsoft Dynamics 365 Business centr
 
 ### <a name="key-usage-scenario"></a>Cenário de uso de chave
 
-Você deve carregar um `.pdf` arquivo que lista os principais cenários de uso de sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
+Você deve carregar um arquivo `.pdf` que lista os principais cenários de uso de sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
 
 ### <a name="app-tests-automation"></a>Automação de testes de aplicativo
 
@@ -391,6 +391,6 @@ Se for a primeira vez que publicar essa oferta, você poderá:
 - Na seção **notas de certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Nós lhe enviaremos um email quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

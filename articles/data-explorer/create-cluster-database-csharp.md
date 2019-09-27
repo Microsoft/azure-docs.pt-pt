@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 64f16c2ad6fdeeb47b747eab24587b43f3df5130
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4a3f37c232fcd7a0fcbdac051ed36916ef5c2868
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326667"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usandoC#
 
@@ -22,12 +22,13 @@ ms.locfileid: "68355950"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [Modelo ARM](create-cluster-database-resource-manager.md)
 
 O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando C#o.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o  [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+* Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -99,7 +100,7 @@ Se o resultado contiver `ProvisioningState` com o `Succeeded` valor, o cluster f
    | databaseName | *mykustodatabase* | O nome do seu banco de dados.|
    | resourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
    | softDeletePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
-   | hotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |
+   | HotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |
 
 2. Execute o seguinte comando para ver o banco de dados que você criou:
 
@@ -118,6 +119,6 @@ Agora você tem um cluster e um banco de dados.
     kustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ingerir dados usando o SDK do Azure Data Explorer .NET Standard (versão prévia)](net-standard-ingest-data.md)

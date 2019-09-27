@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 473e16c610e7dee0b2838cb1a54ef7cd98958889
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232983"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338203"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: Definir e atribuir um plano gráfico no portal
 
@@ -40,11 +40,11 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Criar um plano gráfico na página Definições de plantas](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Forneça um **nome de plano gráfico** , como myblueprint. (Use até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe a **Descrição do plano gráfico** em branco por enquanto.
+1. Forneça um **nome de plano gráfico** , como **myblueprint**. (Use até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe a **Descrição do plano gráfico** em branco por enquanto.
 
 1. Na caixa **local da definição** , selecione as reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que você deseja salvar o plano gráfico e escolha **selecionar**.
 
-1. Verifique se as informações estão corretas. Os campos **nome do plano gráfico** e **local de definição** não podem ser alterados posteriormente. Em seguida **, selecione Avançar: Artefatos** na parte inferior da página ou na guia **artefatos** na parte superior da página.
+1. Verifique se as informações estão corretas. Os campos **nome do plano gráfico** e **local de definição** não podem ser alterados posteriormente. Em seguida, selecione **Next: Artefatos @ no__t-0 na parte inferior da página ou na guia **artefatos** na parte superior da página.
 
 1. Adicione uma atribuição de função no nível de assinatura:
 
@@ -170,7 +170,7 @@ Em [criar um plano gráfico](#create-a-blueprint), você não forneceu uma descr
 
 1. Em **Descrição do plano gráfico**, forneça algumas informações sobre o plano gráfico e os artefatos que a compõem. Nesse caso, insira algo como: **Este projeto define a política de marca e a atribuição de função na assinatura, cria um resourcegroup e implanta um modelo de recurso e uma atribuição de função para esse resourcegroup.**
 
-1. Selecione **avançar: Artefatos** na parte inferior da página ou na guia **artefatos** na parte superior da página.
+1. Selecione **Next: Artefatos @ no__t-0 na parte inferior da página ou na guia **artefatos** na parte superior da página.
 
 1. Adicione uma atribuição de função sob o grupo de recursos:
 
@@ -223,7 +223,7 @@ Depois que um plano gráfico tiver sido publicado, ele poderá ser atribuído a 
 
    1. Selecione a **oferta** disponível na lista suspensa.
 
-   1. Use as reticências para selecionar o [grupo de gerenciamento](../management-groups/index.md) do qual a assinatura será filha.
+   1. Use as reticências para selecionar o [grupo de gerenciamento](../management-groups/overview.md) do qual a assinatura será filha.
 
    1. Selecione **criar** na parte inferior da página.
 
@@ -247,7 +247,7 @@ Depois que um plano gráfico tiver sido publicado, ele poderá ser atribuído a 
 
 1. Em **identidade gerenciada**, deixe o padrão **atribuído pelo sistema**.
 
-1. Para a atribuição **de função de nível de assinatura [nome do aplicativo ou grupo de usuários]: Colaborador**, procure e selecione um usuário, aplicativo ou grupo.
+1. Para a atribuição de função de nível de assinatura ** [nome do aplicativo ou grupo de usuários]: Colaborador @ no__t-0, procure e selecione um usuário, aplicativo ou grupo.
 
 1. Para a atribuição de política de nível de assinatura, defina o **nome da marca** como **CostCenter** e o **valor da marca** como **ContosoIT**.
 
@@ -298,9 +298,9 @@ Se você não precisar mais de uma atribuição de plano gráfico, remova-a de u
 > A exclusão de um plano gráfico nesse método também exclui todas as versões publicadas do plano gráfico selecionado.
 > Para excluir uma única versão, abra o plano gráfico, selecione a guia **versões publicadas** , selecione a versão que você deseja excluir e, em seguida, selecione **excluir esta versão**. Além disso, não é possível excluir um plano gráfico até que você tenha excluído toda a atribuição Blueprint da definição do Blueprint.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](./concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).

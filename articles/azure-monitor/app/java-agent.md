@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299233"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338094"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
@@ -122,7 +122,7 @@ Adicione o seguinte ao AI-Agent. xml:
 
 Idealmente, esse seria o caso quando todos os seus serviços foram atualizados para uma versão mais recente de SDKs com suporte para o protocolo W3C. É altamente recomendável migrar para a versão mais recente de SDKs com suporte W3C assim que possível.
 
-Verifique se **as configurações de [entrada](correlation.md#w3c-distributed-tracing) e de saída (agente)** são exatamente iguais.
+Verifique se **as configurações de [entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e de saída (agente)** são exatamente iguais.
 
 ## <a name="view-the-data"></a>Exibir os dados
 No recurso Application Insights, a dependência remota agregada e os tempos de execução [do método aparecem no bloco desempenho][metrics].

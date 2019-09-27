@@ -1,19 +1,19 @@
 ---
 title: Instalar o Jupyter localmente e conectar-se ao Spark no Azure HDInsight
 description: Saiba como instalar o Jupyter Notebook localmente em seu computador e conectá-lo a um cluster Apache Spark.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993775"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337658"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o Jupyter Notebook no computador e conectar-se ao Apache Spark no HDInsight
 
@@ -146,7 +146,7 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
 
     a. Crie um novo bloco de notas. No canto direito, selecione **novo**. Você deve ver o kernel padrão **Python 2** ou **Python 3** e os kernels que você instalou. Os valores reais podem variar dependendo das suas opções de instalação.  Selecione **PySpark**.
 
-    ![Kernels no notebook Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels no notebook Jupyter")
+    ![Kernels disponíveis em](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "kernels do notebook Jupyter no Jupyter Notebook")
 
     > [!IMPORTANT]  
     > Depois de selecionar **nova** revisão, seu shell para quaisquer erros.  Se você vir o erro `TypeError: __init__() got an unexpected keyword argument 'io_loop'` , talvez esteja ocorrendo um problema conhecido com determinadas versões do tornado.  Nesse caso, pare o kernel e, em seguida, faça o downgrade da instalação do `pip install tornado==4.5.3`tornado com o seguinte comando:.

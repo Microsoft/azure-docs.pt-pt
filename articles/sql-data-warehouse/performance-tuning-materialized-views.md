@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338905"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas 
 As exibições materializadas no Azure SQL Data Warehouse fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem nenhuma alteração de consulta. Este artigo discute as diretrizes gerais sobre como usar exibições materializadas.
@@ -49,7 +49,7 @@ Uma exibição materializada adequadamente projetada pode fornecer os seguintes 
 
 - O otimizador no Azure SQL Data Warehouse pode usar automaticamente exibições materializadas implantadas para melhorar os planos de execução de consulta.  Esse processo é transparente para os usuários que fornecem um desempenho de consulta mais rápido e não requer consultas para fazer referência direta às exibições materializadas. 
 
-- Exigir baixa manutenção nas exibições.  Uma exibição materializada armazena dados em dois locais, um índice columnstore clusterizado para os dados iniciais no momento da criação da exibição e um armazenamento Delta para as alterações de dados incrementais.  Todas as alterações de dados das tabelas base são automaticamente adicionadas ao armazenamento Delta de maneira síncrona.  Um processo em segundo plano (motor de tupla) move periodicamente os dados do armazenamento Delta para o índice columnstore da exibição.  Esse design permite consultar exibições materializadas para retornar os mesmos dados como consultando diretamente as tabelas base. 
+- Exigir baixa manutenção nas exibições.  Todas as alterações de dados incrementais das tabelas base são automaticamente adicionadas às exibições materializadas de maneira síncrona.  Esse design permite consultar exibições materializadas para retornar os mesmos dados como consultando diretamente as tabelas base. 
 - Os dados em uma exibição materializada podem ser distribuídos de forma diferente das tabelas base.  
 - Os dados em exibições materializadas têm os mesmos benefícios de alta disponibilidade e resiliência que os dados em tabelas regulares.  
  
@@ -90,7 +90,7 @@ Os usuários podem executar explicar WITH_RECOMMENDATIONS < SQL_statement > para
 
 **Esteja atento à compensação entre consultas mais rápidas e o custo** 
 
-Para cada exibição materializada, há um custo de armazenamento de dados e um custo para manter a exibição.  À medida que os dados são alterados nas tabelas base, o tamanho da exibição materializada aumenta e sua estrutura física também é alterada.  Para evitar a degradação do desempenho da consulta, cada exibição materializada é mantida separadamente pelo mecanismo de data warehouse, incluindo a movimentação de linhas do armazenamento Delta para os segmentos de índice columnstore e a consolidação de alterações de dados.  A carga de trabalho de manutenção fica mais alta quando o número de exibições materializadas e as alterações na tabela base aumentam.   Os usuários devem verificar se o custo incorrido de todas as exibições materializadas pode ser deslocado pelo lucro de desempenho da consulta.  
+Para cada exibição materializada, há um custo de armazenamento de dados e um custo para manter a exibição.  À medida que os dados são alterados nas tabelas base, o tamanho da exibição materializada aumenta e sua estrutura física também é alterada.  Para evitar a degradação do desempenho da consulta, cada exibição materializada é mantida separadamente pelo mecanismo de data warehouse.  A carga de trabalho de manutenção fica mais alta quando o número de exibições materializadas e as alterações na tabela base aumentam.   Os usuários devem verificar se o custo incorrido de todas as exibições materializadas pode ser deslocado pelo lucro de desempenho da consulta.  
 
 Você pode executar essa consulta para a lista de exibições materializadas em um banco de dados: 
 
@@ -136,7 +136,7 @@ O otimizador de data warehouse pode usar automaticamente exibições materializa
 
 **Monitorar exibições materializadas** 
 
-Uma exibição materializada é armazenada na data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação do índice e a aplicação de alterações do armazenamento Delta.  Quando o número de linhas no repositório Delta é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  Para evitar a degradação do desempenho da consulta, é uma boa prática executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) para monitorar o overhead_ratio da exibição (total_rows/base_view_row).  Se o overhead_ratio for muito alto, considere recriar a exibição materializada para que todas as linhas no repositório Delta sejam movidas para o índice columnstore.  
+Uma exibição materializada é armazenada na data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação dos segmentos do índice CCI e a aplicação de quaisquer alterações incrementais das tabelas base. Quando o número de alterações incrementais é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  Para evitar a degradação do desempenho da consulta, é uma boa prática executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) para monitorar o overhead_ratio da exibição (total_rows/Max (1, base_view_row)).  Os usuários devem recriar a exibição materializada se seu overhead_ratio for muito alto. 
 
 **Exibição materializada e cache de conjunto de resultados**
 

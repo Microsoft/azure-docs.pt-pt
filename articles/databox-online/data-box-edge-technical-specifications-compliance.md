@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910130"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326887"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas de Azure Data Box Edge
 
 Os componentes de hardware de seu Microsoft Azure Data Box Edge dispositivo aderem às especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem as unidades de fonte de alimentação (PSUs), a capacidade de armazenamento, os compartimentos e os padrões ambientais. 
+
+## <a name="compute-memory-specifications"></a>Computação, especificações de memória
+
+O dispositivo Data Box Edge tem as seguintes especificações para computação e memória:
+
+| Specification           | Value                  |
+|-------------------------|----------------------------|
+| CPU    | CPU de 2 X 10 núcleos                     |
+| Memória              | 128 GB de RAM                  |
+
+
+## <a name="fpga-specifications"></a>Especificações do FPGA
+
+Uma FPGA (matriz de Gate programável) de campo é incluída em cada dispositivo de Data Box Edge que habilita cenários de Machine Learning (ML). 
+
+| Specification           | Value                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> Os modelos de DNN (rede neural profunda) disponíveis são os mesmos [suportados pelas instâncias do Cloud FPGA](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+
 
 ## <a name="power-supply-unit-specifications"></a>Especificações da unidade de fonte de alimentação
 
@@ -55,7 +74,7 @@ As tabelas a seguir listam as várias especificações de compartimento para dim
 
 A tabela a seguir lista as dimensões do compartimento em milímetros e polegadas.
 
-|     SPE     |     Milímetros     |     5,08     |
+|     Bastidor     |     Milímetros     |     5,08     |
 |-------------------|---------------------|----------------|
 |    Altura         |    44,45            |    1,75 "          |
 |    Largura          |    434,1           |    17, 9 "          |
@@ -73,7 +92,7 @@ A tabela a seguir lista as dimensões do pacote de envio em milímetros e polega
 
 O pacote do dispositivo pesa 66 kg. e requer duas pessoas para tratá-lo. O peso do dispositivo depende da configuração do compartimento.
 
-|     SPE                                 |     Peso          |
+|     Bastidor                                 |     Peso          |
 |-----------------------------------------------|---------------------|
 |    Peso total, incluindo o empacotamento       |    61 lbs.          |
 |    Peso do dispositivo                       |    35 lbs.          |
@@ -84,14 +103,14 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 
 ### <a name="temperature-and-humidity"></a>Temperatura e umidade
 
-|     SPE         |     Intervalo de temperatura ambiente     |     Umidade relativa ao ambiente     |     Ponto de orvalho máximo     |
+|     Bastidor         |     Intervalo de temperatura ambiente     |     Umidade relativa ao ambiente     |     Ponto de orvalho máximo     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
 |    Operacional        |    10 ° C-35 ° C (50 ° F-86 ° F)         |    10%-80% sem condensação.         |    29 ° C (84 ° F)            |
 |    Não operacional    |    -40 ° c a 65 ° c (-40 ° f-149 ° f)     |    5%-95% sem condensação.          |    33°C (91°F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Fluxo de ar, altitude, choque, vibração, orientação, segurança e EMC
 
-|     SPE                           |     Especificações operacionais                                                                                                                                                                                         |
+|     Bastidor                           |     Especificações operacionais                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Ar                              |    O fluxo de ar do sistema é de frente para trás. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
 |    Altitude máxima, operacional        |    3048 metros (10.000 pés) com a temperatura operacional máxima desclassificada determinada pelas [especificações de desclassificação de temperatura operacional](#operating-temperature-de-rating-specifications).                                                                                |
@@ -116,6 +135,6 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 |    40 ° c a 45 ° c (104 ° f a 113 ° f)           |    A temperatura máxima é reduzida em 1 ° c/125 m (1 ° f/228 ft) acima de 950 m (3.117 pés).    |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implantar seu Azure Data Box Edge](data-box-edge-deploy-prep.md)

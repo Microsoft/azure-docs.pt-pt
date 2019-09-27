@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/26/2019
+ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091132"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327118"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL-servidor único
 O PostgreSQL fornece a capacidade de estender a funcionalidade do seu banco de dados usando extensões. As extensões agrupam vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido do banco de dados com um único comando. Depois de ser carregado no banco de dados, as extensões funcionam como recursos internos.
@@ -62,6 +62,7 @@ As extensões a seguir estão disponíveis no banco de dados do Azure para servi
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Tipos e funções espaciais de topologia PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | wrapper de dados externos para servidores PostgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funções que manipulam tabelas inteiras, incluindo a tabela de referência cruzada|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Permite inserções escalonáveis e consultas complexas para dados de série temporal|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | dicionário de pesquisa de texto que remove acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | gerar identificadores universais exclusivos (UUIDs)|
 
@@ -206,7 +207,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 A extensão pg_stat_statements é pré-carregado em cada servidor de banco de dados do Azure para PostgreSQL para fornecer a você um meio de controlar estatísticas de execução de instruções SQL.
 A configuração `pg_stat_statements.track`, que controla quais instruções são contadas pela extensão, usa como `top`padrão, o que significa que todas as instruções emitidas diretamente pelos clientes são controladas. Os dois outros níveis de controle `none` são `all`e. Essa configuração é configurável como um parâmetro de servidor por meio do [portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou [CLI do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-Há uma compensação entre as informações de execução de consulta que o pg_stat_statements fornece e o impacto no desempenho do servidor enquanto registra cada instrução SQL. Se você não estiver usando ativamente a extensão pg_stat_statements, recomendamos que você defina `pg_stat_statements.track` como `none`. Observe que alguns serviços de monitoramento de terceiros podem depender do pg_stat_statements para fornecer informações de desempenho de consulta, portanto, confirme se esse é o caso para você ou não.
+Há uma compensação entre as informações de execução de consulta que o pg_stat_statements fornece e o impacto no desempenho do servidor enquanto registra cada instrução SQL. Se você não estiver usando ativamente a extensão pg_stat_statements, recomendamos que defina `pg_stat_statements.track` como `none`. Observe que alguns serviços de monitoramento de terceiros podem depender do pg_stat_statements para fornecer informações de desempenho de consulta, portanto, confirme se esse é o caso para você ou não.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
 dblink e postgres_fdw permitem que você se conecte de um servidor PostgreSQL para outro ou a outro banco de dados no mesmo servidor. O servidor de recebimento precisa permitir conexões do servidor de envio por meio de seu firewall. Ao usar essas extensões para se conectar entre os servidores do banco de dados do Azure para PostgreSQL, isso pode ser feito definindo "permitir acesso aos serviços do Azure" como ativado. Isso também é necessário se você quiser usar as extensões para fazer um loop de volta para o mesmo servidor. A configuração "permitir acesso aos serviços do Azure" pode ser encontrada na página portal do Azure para o servidor Postgres, em segurança de conexão. A ativação de "permitir acesso aos serviços do Azure" no coloca todos os IPs do Azure na lista de permissões.
@@ -227,9 +228,6 @@ TimescaleDB é um banco de dados de série temporal que é empacotado como uma e
 
 ### <a name="installing-timescaledb"></a>Instalando o TimescaleDB
 Para instalar o TimescaleDB, você precisa incluí-lo nas bibliotecas de pré-carregamento compartilhadas do servidor. Uma alteração no parâmetro de `shared_preload_libraries` postgres requer a **reinicialização do servidor** para entrar em vigor. Você pode alterar os parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md) ou o [CLI do Azure](howto-configure-server-parameters-using-cli.md).
-
-> [!NOTE]
-> O TimescaleDB pode ser habilitado no banco de dados do Azure para PostgreSQL versões 9,6 e 10
 
 Usando o [portal do Azure](https://portal.azure.com/):
 
@@ -256,5 +254,5 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 Agora você pode criar uma hipertabela TimescaleDB [do zero](https://docs.timescale.com/getting-started/creating-hypertables) ou migrar [dados existentes de série temporal no PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se você não vir uma extensão que gostaria de usar, informe-nos. Vote em solicitações existentes ou crie novas solicitações de comentários em nosso [Fórum de comentários](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

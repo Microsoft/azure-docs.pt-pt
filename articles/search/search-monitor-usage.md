@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640539"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327148"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorar o consumo de recursos e a atividade de consulta no Azure Search
 
@@ -30,17 +30,16 @@ As seções de **uso** e **monitoramento** criadas na página Visão geral relat
 
 A guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md)atuais. A ilustração a seguir é para o serviço gratuito, que está limitado a três objetos de cada tipo e 50 MB de armazenamento. Um serviço básico ou Standard tem limites mais altos e, se você aumentar as contagens de partição, o armazenamento máximo será proporcionalmente.
 
-![O status de uso relativo à eficiência limita](./media/search-monitor-usage/usage-tab.png
- "o status de uso em relação aos limites efetivos")
+![Status de uso relativo a limites efetivos]@no__t status de 1Usage relativo a limites efetivos @ no__t-2
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Consultas por segundo (QPS) e outras métricas
 
 A guia **monitoramento** mostra as médias de movimentação para métricas como consultas de pesquisa *por segundo* (QPS), agregadas por minuto. 
-A *latência de pesquisa* é a quantidade de tempo que o serviço de pesquisa precisou para processar consultas de pesquisa, agregadas por minuto. *Percentual de consultas de pesquisa limitadas* (não mostrado) é a porcentagem de consultas de pesquisa que foram limitadas, também agregadas por minuto.
+A *latência de pesquisa* é a quantidade de tempo que o serviço de pesquisa precisou para processar consultas de pesquisa, agregadas por minuto. A *porcentagem de consultas de pesquisa limitadas* (não mostradas) é a porcentagem de consultas de pesquisa que foram limitadas, também agregadas por minuto.
 
 Esses números são aproximados e visam fornecer uma ideia geral de como o sistema está atendendo às solicitações. O QPS real pode ser maior ou menor do que o número relatado no Portal.
 
-![Atividade de consultas por segundo](./media/search-monitor-usage/monitoring-tab.png "Atividade de consultas por segundo")
+Atividade de consultas ![por segundo de atividades](./media/search-monitor-usage/monitoring-tab.png "por segundo")
 
 ## <a name="activity-logs"></a>Registos de atividade
 
@@ -63,7 +62,7 @@ A tabela a seguir compara as opções de armazenamento de logs e a adição de m
 | [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registrados em um contêiner de BLOB e armazenados em arquivos JSON. Use um editor de JSON para exibir o conteúdo do arquivo.|
 | [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados em log e métricas de consulta, com base nos esquemas documentados neste artigo. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
 
-Os logs de Azure Monitor e o armazenamento de BLOBs estão disponíveis como um serviço compartilhado gratuito para que você possa experimentá-lo gratuitamente pelo tempo de vida da sua assinatura do Azure. Application Insights é livre para se inscrever e usar desde que o tamanho dos dados do aplicativo esteja sob determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes).
+Os logs de Azure Monitor e o armazenamento de BLOBs estão disponíveis como um serviço gratuito para que você possa experimentá-lo gratuitamente pelo tempo de vida da sua assinatura do Azure. Application Insights é livre para se inscrever e usar desde que o tamanho dos dados do aplicativo esteja sob determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes).
 
 A próxima seção orienta você pelas etapas de habilitar e usar o armazenamento de BLOBs do Azure para coletar e acessar dados de log criados por Azure Search operações.
 
@@ -79,13 +78,13 @@ Nesta seção, você aprenderá a usar o armazenamento de BLOBs para armazenar e
 
 2. Abra a página Visão geral do serviço de pesquisa. No painel de navegação esquerdo, role para baixo até **monitoramento** e clique em **habilitar monitoramento**.
 
-   ![Habilitar monitoramento](./media/search-monitor-usage/enable-monitoring.png "Habilitar monitoramento")
+   ![Habilitar monitoramento](./media/search-monitor-usage/enable-monitoring.png "habilitar monitoramento")
 
 3. Escolha os dados que você deseja exportar: Logs, métricas ou ambos. Você pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para Azure Monitor logs.
 
    Para o armazenamento de arquivamento no BLOB, somente a conta de armazenamento deve existir. Contêineres e blobs serão criados conforme necessário quando os dados do log forem exportados.
 
-   ![Configurar arquivo morto de armazenamento] de BLOBs (./media/search-monitor-usage/configure-blob-storage-archive.png "Configurar arquivo morto de armazenamento") de BLOBs
+   ![Configurar arquivo morto de armazenamento de blob](./media/search-monitor-usage/configure-blob-storage-archive.png "configurar arquivo morto de armazenamento de BLOBs")
 
 4. Salve o perfil.
 
@@ -96,7 +95,7 @@ O registro em log é habilitado quando você salva o perfil. Os contêineres sã
 * insights-logs-operationlogs: para os registos de tráfego de pesquisa
 * as métricas-insights-pt1m: para métricas
 
-**Leva uma hora antes que os contêineres apareçam no armazenamento de BLOBs. Há um blob, por hora, por contêiner.**
+**It leva uma hora antes que os contêineres apareçam no armazenamento de BLOBs. Há um blob, por hora, por contêiner.**
 
 Você pode usar [Visual Studio Code](#download-and-open-in-visual-studio-code) ou outro editor de JSON para exibir os arquivos. 
 

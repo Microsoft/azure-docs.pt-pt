@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09b39cb9db2450b7d200ec725396141f72f1b2f1
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: d5c45005d6a54765458b463acb12c21a1f3b6d0c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336769"
 ---
 # <a name="web-app-that-signs-in-users---sign-in-and-sign-out"></a>Aplicativo Web que entra em usuários – entrar e sair
 
@@ -106,7 +106,7 @@ def index():
 
 ---
 
-### <a name="login-action-of-the-controller"></a>`login()`ação do controlador
+### <a name="login-action-of-the-controller"></a>`Login`ação do controlador
 
 # <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
 
@@ -320,7 +320,7 @@ No início rápido do Python, o botão de saída está localizado no arquivo [te
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`Signout()`ação do controlador
+### <a name="signout-action-of-the-controller"></a>`Signout`ação do controlador
 
 # <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
 
@@ -375,13 +375,12 @@ Em Java, a saída é tratada chamando o ponto de extremidade de logout da plataf
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-O código que desconecta o usuário está no [aplicativo. py # L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L46-L52) 
+O código que desconecta o usuário está no [aplicativo. py # L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48)
 
 ```Python
 @app.route("/logout")
 def logout():
-    session["user"] = None  # Log out from this app from its session
-    # session.clear()  # If you prefer, this would nuke the user's token cache too
+    session.clear()  # Wipe out user and its token cache from session
     return redirect(  # Also need to logout from Microsoft Identity platform
         "https://login.microsoftonline.com/common/oauth2/v2.0/logout"
         "?post_logout_redirect_uri=" + url_for("index", _external=True))
