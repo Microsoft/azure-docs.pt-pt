@@ -1,47 +1,52 @@
 ---
-title: Adicionar ou alterar os administradores de subscrições do Azure | Microsoft Docs
+title: Adicionar ou alterar os administradores de subscrições do Azure
 description: Descreve como adicionar ou alterar um administrador de subscrições do Azure através do controlo de acesso baseado em funções (RBAC).
-services: ''
-documentationcenter: ''
 author: genlin
-manager: adpick
-editor: ''
+manager: dcscontentpm
 tags: billing
-ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 09/24/2019
 ms.author: banders
-ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2054fbb7d0a9f450ad487fc0f03d0af920c6cc4b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "64922904"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260927"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrições do Azure
 
-Para gerir o acesso aos recursos do Azure, tem de ter a função de administrador adequada. O Azure tem um sistema de autorização denominado controlo de acesso baseado em funções (RBAC) que tem à sua disposição várias funções incorporadas. Pode atribuir estas funções em âmbitos diferentes, tais como grupo de gestão, subscrição ou grupo de recursos.
 
-A Microsoft recomenda que faça a gestão do acesso aos recursos através do RBAC. No entanto, se ainda utiliza o modelo de implementação clássica e gere os recursos clássicos através do [Módulo do PowerShell da Gestão de Serviços do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure), terá de utilizar um administrador clássico. 
-
-> [!TIP]
-> Se utiliza apenas o portal do Azure para gerir os recursos clássicos, não precisará de utilizar um administrador clássico.
-
-Para obter mais informações, veja [Azure Resource Manager vs. implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md) e [Administradores de subscrições clássicos do Azure](../role-based-access-control/classic-administrators.md).
+Para gerir o acesso aos recursos do Azure, tem de ter a função de administrador adequada. O Azure tem um sistema de autorização denominado [controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) que tem à sua disposição várias funções incorporadas. Pode atribuir estas funções em âmbitos diferentes, tais como grupo de gestão, subscrição ou grupo de recursos. Por predefinição, a pessoa que cria uma nova subscrição do Azure pode atribuir a outros utilizadores acesso administrativo a uma subscrição.
 
 Este artigo descreve como adicionar ou alterar a função de administrador para um utilizador que utiliza o RBAC no âmbito da subscrição.
 
+A Microsoft recomenda que faça a gestão do acesso aos recursos através do RBAC. No entanto, se ainda utiliza o modelo de implementação clássica e gere os recursos clássicos através do [Módulo do PowerShell da Gestão de Serviços do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure), terá de utilizar um administrador clássico.
+
+> [!TIP]
+> Se apenas utiliza o portal do Azure para gerir os recursos clássicos, não precisa de utilizar o administrador clássico.
+
+Para obter mais informações, veja [Azure Resource Manager vs. implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md) e [Administradores de subscrições clássicos do Azure](../role-based-access-control/classic-administrators.md).
+
 <a name="add-an-admin-for-a-subscription"></a>
 
-## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Atribuir um utilizador como administrador de uma subscrição
+## <a name="assign-a-subscription-administrator"></a>Atribuir um administrador de subscrição
 
-Para que um utilizador seja administrador de uma subscrição do Azure, atribua-lhe a função [Proprietário](../role-based-access-control/built-in-roles.md#owner) (uma função RBAC) no âmbito da subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são iguais a qualquer outra atribuição de função.
+Para que um utilizador seja administrador de uma subscrição do Azure, um administrador existente tem de atribuir a este a função [Proprietário](../role-based-access-control/built-in-roles.md#owner) (uma função RBAC) no âmbito da subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são iguais a qualquer outra atribuição de função.
 
-1. No portal do Azure, abra as [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Se não tiver a certeza de quem é o administrador de conta de uma subscrição, utilize os seguintes passos para descobrir.
+
+1. Abra a [página Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Selecione a subscrição que pretende verificar e, em seguida, procure em **Definições**.
+1. Selecione **Propriedades**. O administrador de conta da subscrição é apresentado na caixa **Administrador de Conta**.
+
+### <a name="to-assign-a-user-as-an-administrator"></a>Atribuir a um utilizador a função de administrador
+
+1. Inicie sessão no portal do Azure como proprietário da subscrição e abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 1. Clique na subscrição na qual pretende conceder acesso.
 

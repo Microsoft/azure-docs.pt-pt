@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f2f5b2ecf096d7dc8babb79a38d00158a2120688
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68598095"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218072"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e utilização de reservas do Contrato Enterprise
 
@@ -25,8 +25,8 @@ Os custos de reserva e os dados de utilização estão disponíveis para os clie
 - Obter os dados de compra de reserva
 - Saber qual subscrição, grupo de recursos ou recurso utilizou a reserva
 - Estorno para a utilização de reserva
-- Calcular poupanças na reserva
-- Obter dados de subutilização de reserva
+- Calcular as poupanças das reservas
+- Obter dados de subutilização das reservas
 - Amortizar custos de reserva
 
 Os encargos do Marketplace estão consolidados nos dados da utilização. Pode ver os encargos para a utilização do proprietário, a utilização do Marketplace e as compras de uma única origem de dados.
@@ -43,7 +43,7 @@ Comparação de dois conjuntos de dados:
 
 | Dados | Conjunto de dados do Custo Real | Conjunto de dados do Custo Amortizado |
 | --- | --- | --- |
-| Compras de Reservas | Disponível nesta vista.<br><br>  Para obter estes dados, filtre com ChargeType = Purchase. <br><br> Veja ReservationID ou ReservationName para saber de que reserva é o encargo.  | Não aplicável a esta vista. <br><br> Os custos de compra não são fornecidos nos dados amortizados. |
+| Compras de Reservas | Disponível nesta vista.<br><br>  Para obter este filtro de dados em ChargeType = &quot;Compra&quot;. <br><br> Veja ReservationID ou ReservationName para saber de que reserva é o encargo.  | Não aplicável a esta vista. <br><br> Os custos de compra não são fornecidos nos dados amortizados. |
 | EffectivePrice | O valor é zero para a utilização que obtém o desconto de reserva. | O valor é o custo calculado por hora da reserva para a utilização que tem o desconto de reserva. |
 | Reserva não utilizada (fornece o número de horas que a reserva não foi utilizada num dia e o valor monetário do desperdício) | Não aplicável nesta vista. | Disponível nesta vista.<br><br> Para obter estes dados, filtre com ChargeType = &quot;UnusedReservation&quot;.<br><br>  Veja ReservationID ou ReservationName para saber que reserva foi subutilizada. Esta é a quantidade de reserva desperdiçada no dia.  |
 | UnitPrice (preço do recurso na sua folha de preços) | Disponível | Disponível |
@@ -57,18 +57,20 @@ Outras informações disponíveis nos dados de utilização do Azure foram alter
 - Termo – 12 meses ou 36 meses.
 - RINormalizationRatio – disponível em AdditionalInfo. Esta é a proporção na qual a reserva é aplicada ao registo de utilização. Se a flexibilidade do tamanho da instância estiver ativada para a sua reserva, poderá ser aplicada a outros tamanhos. O valor mostra a proporção à qual a reserva foi aplicada para o registo de utilização.
 
+[Veja a definição de campo](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Obter dados de utilização de reserva e de consumo do Azure com a API
 
 Pode obter os dados com a API ou transferi-los no portal do Azure.
 
-Pode chamar a [API de Detalhes de Utilização](/rest/api/consumption/usagedetails/list) com a versão de API &quot;2019-04-01-preview&quot; para obter os novos dados. Para obter detalhes sobre a terminologia, veja os [termos de utilização](billing-understand-your-usage.md). O autor da chamada deve ser um Administrador da Empresa para o contrato Enterprise através do [portal de EA](https://ea.azure.com). Os Administradores de Empresa só de leitura também podem obter os dados.
+Pode chamar a [API de Detalhes de Utilização](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, veja os [termos de utilização](billing-understand-your-usage.md). O autor da chamada deve ser um Administrador da Empresa para o contrato Enterprise através do [portal de EA](https://ea.azure.com). Os Administradores de Empresa só de leitura também podem obter os dados.
 
 Os dados não estão disponíveis em [APIs de Relatórios para clientes Enterprise – Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
 Aqui está um exemplo de chamada para a API:
 
 ```
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 Para obter mais informações sobre {enrollmentid} e {billingPeriodId}, veja o artigo sobre API: [Detalhes de Utilização – Lista](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
