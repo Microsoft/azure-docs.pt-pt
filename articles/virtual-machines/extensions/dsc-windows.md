@@ -100,9 +100,9 @@ O JSON a seguir mostra o esquema para a parte de configurações da extensão de
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| publisher | Microsoft. PowerShell. DSC | Cadeia de caracteres |
-| type | DSC | Cadeia de caracteres |
-| typeHandlerVersion | 2,77 | int |
+| publisher | Microsoft.PowerShell.DSC | string |
+| type | DSC | string |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores da propriedade de configurações
 
