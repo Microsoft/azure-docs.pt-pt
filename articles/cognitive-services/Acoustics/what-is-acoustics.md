@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390315"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351143"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 O projeto acústicos é um mecanismo acústicos de ondas para experiências interativas 3D. Ele modela efeitos de ondas como oclusão, obstrução, portabilidade e efeitos reverberations em cenas complexas, sem a necessidade de marcação de zona manual ou de raytracing de uso intensivo de CPU. Ele também inclui o mecanismo de jogo e a integração de middleware de áudio. A filosofia do projeto acústicos é semelhante à iluminação estática: distortar a física detalhada offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas para os acústicos do mundo virtual.
@@ -31,7 +31,7 @@ A principal inovação do projeto é a de duas simulações acústicas com base 
 ![Animação mostrando uma fatia 2D horizontal da propagação de ondas por meio de uma cena](media/wave-simulation.gif)
 
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>Apresentação em vídeo do GDC 2019 (~ 30 min)
-Vídeo acústicos do projeto(https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "clique para reproduzir vídeo") [ ![]
+[Vídeo de acústica de @no__t 1Project](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Clique para reproduzir vídeo")
 
 ## <a name="setup"></a>Configurar
 A [integração do Unity do projeto acústica](unity-integration.md) é o recurso arrastar e soltar e inclui um plug-in do mecanismo de áudio do Unity. Aumente os controles de origem de áudio do Unity anexando um C# componente controles acústicos do projeto a cada objeto de áudio.
@@ -58,13 +58,12 @@ O plug-in do editor de acústica do projeto está disponível para as seguintes 
 ## <a name="download"></a>Transferência
 * [Plug-ins e exemplos do projeto acústicos acústica](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Projetos acústicos não reais & WWise e exemplos](https://www.microsoft.com/download/details.aspx?id=58090)
-  * Para obter binários e suporte do Xbox, entre em contato conosco por meio do formulário de inscrição abaixo
+  * Para obter binários do Xbox e outro suporte, entre em contato conosco por meio do [Fórum](https://github.com/microsoft/ProjectAcoustics/issues).
 
 ## <a name="contact-us"></a>Contacte-nos
 * [Discussão acústica do projeto e relatório de problemas](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Inscreva-se para receber atualizações em acústicas do projeto](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Experimente um [início rápido do projeto acústicos para Unity](unity-quickstart.md) ou [inreal](unreal-quickstart.md)
 * Explore a [filosofia de design de som de acústicas do projeto](design-process.md)
 

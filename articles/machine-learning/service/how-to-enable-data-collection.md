@@ -11,14 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002864"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350566"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
+
+>[!IMPORTANT]
+> Este SDK está sendo desativado em breve e será substituído pelo monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 Neste artigo, você pode aprender a coletar dados de modelo de entrada de Azure Machine Learning implantado no AKS (cluster kubernetes do Azure) em um armazenamento de BLOBs do Azure. 
 

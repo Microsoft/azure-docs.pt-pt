@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5a3eab2c703c63a4d73fa468224aed88a92b8b94
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 675a0b93fed3764fb3d6c78bcee819928a03b353
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309485"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350773"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapeamento de controle da amostra do IRS 1075 Blueprint
 
@@ -78,7 +78,7 @@ O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../..
 
 ## <a name="93112-ac-17-1-remote-access--automated-monitoring--control"></a>9.3.1.12 AC-17 (1) acesso remoto | Monitoramento/controle automatizado
 
-Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo definições de [Azure Policy](../../../policy/overview.md) para monitores que a depuração remota para o aplicativo de serviço Azure app está desativada e definições de política que auditam máquinas virtuais Linux que permitem Remote conexões de contas sem senhas. Esse projeto também atribui uma definição de Azure Policy que ajuda a monitorar o acesso irrestrito a contas de armazenamento. O monitoramento desses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
+Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo definições de [Azure Policy](../../../policy/overview.md) para monitorar que a depuração remota para o aplicativo de serviço Azure app está desativada. O Blueprint também atribui definições de política que auditam máquinas virtuais Linux que permitem conexões remotas de contas sem senhas. Além disso, o Blueprint atribui uma definição de Azure Policy que ajuda a monitorar o acesso irrestrito a contas de armazenamento. O monitoramento desses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
 
 - \[Versão\]prévia: Auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - \[Versão\]prévia: Implantar requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas

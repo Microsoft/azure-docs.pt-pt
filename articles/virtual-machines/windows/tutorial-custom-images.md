@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24a382680860890e57c8d5a380b8a1bb097baaa1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101677"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350843"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com Azure PowerShell
 
@@ -53,7 +53,7 @@ Para criar uma imagem de uma máquina virtual, você precisa preparar a VM de or
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM do Windows com o Sysprep
 
-O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para obter detalhes sobre o Sysprep, veja [How to Use Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
+O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para obter detalhes sobre o Sysprep, veja [How to Use Sysprep: Uma introdução @ no__t-0.
 
 
 1. Ligue à máquina virtual.
@@ -117,7 +117,7 @@ New-AzImage `
 
 Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Usando o parâmetro simplificado definido para o cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) , você só precisa fornecer o nome da imagem personalizada, desde que ela esteja no mesmo grupo de recursos. 
 
-Este exemplo cria uma VM chamada *myVMfromImage* a partir da imagem MyImage, no MyResource.
+Este exemplo cria uma VM chamada *myVMfromImage* a partir da imagem *MyImage* , no *MyResource*.
 
 
 ```azurepowershell-interactive
@@ -133,6 +133,8 @@ New-AzVm `
     -OpenPorts 3389
 ```
 
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de uma única imagem. Se você estiver planejando implantações simultâneas em grande escala de mais de 20 VMs da mesma imagem personalizada, deverá usar uma [Galeria de imagens compartilhadas](shared-image-galleries.md) com várias réplicas de imagem. 
+
 ## <a name="image-management"></a>Gestão das imagens 
 
 Seguem-se alguns exemplos de tarefas comuns de imagens geridas e como concluí-las com o PowerShell.
@@ -144,7 +146,7 @@ $images = Get-AzResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Elimine uma imagem. Este exemplo exclui a imagem chamada *MyImage* do MyResource.
+Elimine uma imagem. Este exemplo exclui a imagem chamada *MyImage* do *MyResource*.
 
 ```azurepowershell-interactive
 Remove-AzImage `

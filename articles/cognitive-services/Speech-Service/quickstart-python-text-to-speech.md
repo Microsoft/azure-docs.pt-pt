@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8579693052ea102e34d81d84abaced52d1e7440d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553663"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350953"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Início rápido: Converter conversão de texto em fala usando Python
 
@@ -73,7 +73,7 @@ O `subscription_key` é a chave exclusiva do portal do Azure. `tts` pede ao util
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Este exemplo troca sua chave de assinatura dos serviços de fala para um token de acesso `issueToken` usando o ponto de extremidade.
+A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Este exemplo troca sua chave de assinatura dos serviços de fala para um token de acesso usando o ponto de extremidade `issueToken`.
 
 Este exemplo pressupõe que sua assinatura de serviços de fala está na região oeste dos EUA. Se estiver a utilizar uma região diferente, atualize o valor para `fetch_token_url`. Para obter uma lista completa, consulte [regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
@@ -101,7 +101,7 @@ Em seguida, terá de adicionar cabeçalhos necessários para o pedido. Certifiqu
 Em seguida, construa o corpo do pedido com o Speech Synthesis Markup Language (SSML). Este exemplo define a estrutura e utiliza o `tts` de entrada que criou anteriormente.
 
 >[!NOTE]
-> Este exemplo utiliza o `ZiraRUS` tipo de voz. Para uma lista completa de Microsoft fornecidas vozes/idiomas, consulte [suporte de idiomas](language-support.md).
+> Este exemplo utiliza o `Guy24KRUS` tipo de voz. Para uma lista completa de Microsoft fornecidas vozes/idiomas, consulte [suporte de idiomas](language-support.md).
 > Se estiver interessado em criar uma voz exclusiva, reconhecível para sua marca, veja [criar tipos de voz personalizada](how-to-customize-voice-font.md).
 
 Por fim, vou fazer um pedido para o serviço. Se a solicitação for bem-sucedida, e é devolvido um código de 200 Estado, a resposta de voz é escrita num ficheiro timestamped.
@@ -165,7 +165,7 @@ Quando lhe for pedido, escreva qualquer coisa que gostaria de converter a sínte
 
 Não se esqueça de remover quaisquer informações confidenciais do código-fonte da sua aplicação de exemplo, como chaves de subscrição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore os exemplos do Python no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)

@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596711"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348931"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault: Suporte a Bring Your Own Key
 
@@ -60,7 +60,7 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE de Ke
 - Verifique se Azure Key Vault e o banco de dados SQL/Instância Gerenciada do Azure estarão no mesmo locatário.  **Não há suporte para**interações de servidor e cofre de chaves entre locatários.
 - Se você estiver planejando uma movimentação de locatário, TDE com AKV precisará ser reconfigurado, saiba mais sobre como [mover recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Ao configurar o TDE com Azure Key Vault, é importante considerar a carga colocada no cofre de chaves por operações repetidas de encapsulamento/desencapsulamento. Por exemplo, uma vez que todos os bancos de dados associados a um servidor SQL Database usam o mesmo protetor de TDE, um failover desse servidor irá disparar tantas operações de chave no cofre quanto houver bancos de dados no servidor. Com base em nossa experiência e nos limites de serviço documentados do [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), é recomendável associar no máximo 500 bancos de dados Standard/Uso Geral ou 200 Premium/comercialmente crítico com um Azure Key Vault em uma única assinatura para garantir consistentemente alto disponibilidade ao acessar o protetor de TDE no cofre.
-- Aconselhável Mantenha uma cópia do protetor de TDE local.  Isso requer que um dispositivo HSM crie um protetor de TDE localmente e um sistema de caução de chave para armazenar uma cópia local do protetor de TDE.  Saiba [como transferir uma chave de um HSM local para Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Recomendação: Mantenha uma cópia do protetor de TDE local.  Isso requer que um dispositivo HSM crie um protetor de TDE localmente e um sistema de caução de chave para armazenar uma cópia local do protetor de TDE.  Saiba [como transferir uma chave de um HSM local para Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Diretrizes para configurar Azure Key Vault
@@ -93,7 +93,7 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE de Ke
    > [!NOTE]
    > Para fins de teste, é possível criar uma chave com Azure Key Vault, no entanto, essa chave não pode ser caução, porque a chave privada nunca pode deixar o cofre de chaves.  Sempre faça backup e as chaves de caução usadas para criptografar dados de produção, pois a perda da chave (exclusão acidental no cofre de chaves, expiração etc.) resulta em perda de dados permanente.
 
-- Se você usar uma chave com uma data de expiração – implemente um sistema de aviso de expiração para girar a chave antes de ela expirar: **depois que a chave expirar, os bancos de dados criptografados perderão o acesso ao seu protetor TDE e** ficarão inacessíveis e todos os logons serão negados até a chave foi girada para uma nova chave e selecionada como a nova chave e o protetor de TDE padrão para o SQL Server lógico.
+- Se você usar uma chave com uma data de expiração – implemente um sistema de aviso de expiração para girar a chave antes de ela expirar: **depois que a chave expirar, os bancos de dados criptografados perderão o acesso ao seu protetor TDE e ficarão inacessíveis** e todos os logons serão negados até a chave foi girada para uma nova chave e selecionada como a nova chave e o protetor de TDE padrão para o SQL Server lógico.
 - Verifique se a chave está habilitada e tem permissões para executar as operações *Get*, *Wrap Key*e Unwrap *Key* .
 - Crie um backup de chave de Azure Key Vault antes de usar a chave em Azure Key Vault pela primeira vez. Saiba mais sobre o comando [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) .
 - Crie um novo backup sempre que qualquer alteração for feita à chave (por exemplo, adicionar ACLs, adicionar marcas, adicionar atributos de chave).
@@ -149,7 +149,7 @@ A seção a seguir abordará as etapas de instalação e configuração em mais 
 - Crie dois cofres de chaves do Azure em duas regiões diferentes usando o [PowerShell para habilitar a propriedade "exclusão reversível"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) nos cofres de chaves (essa opção ainda não está disponível no portal do akv – mas exigida pelo SQL).
 - Ambos os cofres de chaves do Azure devem estar localizados nas duas regiões disponíveis na mesma Geografia do Azure para que o backup e a restauração de chaves funcionem.  Se você precisar que os dois cofres de chaves estejam localizados em diferentes áreas geográficas para atender aos requisitos de SQL geo-DR, siga o [processo BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) que permite que as chaves sejam importadas de um HSM local.
 - Crie uma nova chave no primeiro cofre de chaves:  
-  - Chave RSA/RSA-HSA 2048
+  - Chave RSA/RSA-HSM 2048
   - Nenhuma data de expiração
   - A chave está habilitada e tem permissões para executar as operações obter, encapsular chave e desencapsular chave
 - Faça backup da chave primária e restaure a chave para o segundo cofre de chaves.  Consulte [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) e [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).

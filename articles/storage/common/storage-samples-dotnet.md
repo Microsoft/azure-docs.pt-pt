@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 57249bd2fa4d3c8aefe19a85ec9a2b6b584b00d2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350897"
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemplos de armazenamento do Azure usando .NET
 
@@ -93,10 +93,11 @@ Confira os guias a seguir se você estiver procurando instruções sobre como in
 * [Introdução com o serviço tabela do Azure no .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Introdução com o serviço de arquivos do Azure no .NET](../storage-dotnet-how-to-use-files.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre exemplos de outros idiomas:
 
 * Java: [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
+* JavaScript/node. js: [Exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
 * Python: [Exemplos de armazenamento do Azure usando Python](storage-samples-python.md)
 * Todos os outros idiomas: [Exemplos de armazenamento do Azure](../storage-samples.md)

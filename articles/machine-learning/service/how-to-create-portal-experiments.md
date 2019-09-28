@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034835"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350561"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Criar, explorar e implantar experimentos automatizados de aprendizado de máquina com a página de aterrissagem do espaço de trabalho Azure Machine Learning (versão prévia)
 
@@ -32,12 +32,11 @@ ms.locfileid: "71034835"
 
 ## <a name="get-started"></a>Introdução
 
-
 1. Entre na [página de aterrissagem do espaço de trabalho](https://ml.azure.com/workspaceportal/). 
 
 1. Selecione sua assinatura e seu espaço de trabalho. 
 
-1. Navegue até o painel esquerdo. Selecione **ml automatizado** na seção **criação** .
+1. Navegue até o painel esquerdo. Selecione **ml automatizado** na seção **autor** .
 
 [![Painel de navegação portal do Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -59,7 +58,7 @@ Caso contrário, você verá o painel **automatizado do Machine Learning** com u
     ---|---
     Nome de computação| Insira um nome exclusivo que identifique o contexto de computação.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para sua computação.
-    Definições adicionais| *Nó mínimo*: Insira o número mínimo de nós para a computação. O número mínimo de nós para a computação AML é 0. Para habilitar a criação de perfil de dados, você deve ter um ou mais nós. <br> *Nó máximo*: Insira o número máximo de nós para sua computação. O padrão é 6 nós para uma computação AML.
+    Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós. Insira o número máximo de nós para sua computação. O padrão é 6 nós para uma computação AML.
     
     Selecione **Criar**. A criação de uma nova computação pode levar alguns minutos.
 
@@ -83,7 +82,7 @@ Caso contrário, você verá o painel **automatizado do Machine Learning** com u
 
         Campo| Descrição
         ----|----
-        Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
+        Formato do ficheiro| Define o layout e o tipo de dados armazenados em um arquivo.
         Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
         Codificação| Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.
@@ -109,7 +108,7 @@ Caso contrário, você verá o painel **automatizado do Machine Learning** com u
     Definições avançadas|Descrição
     ------|------
     Métrica primária| Métrica principal usada para pontuar seu modelo. [Saiba mais sobre métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Critérios de saída| Quando qualquer um desses critérios é atendido, o trabalho de treinamento termina antes da conclusão completa. <br> *Tempo de trabalho de treinamento (minutos)* : Por quanto tempo permitir que o trabalho de treinamento seja executado.  <br> *Número máximo de iterações*: Número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações. <br> *Limite de pontuação da métrica*:  Pontuação de métrica mínima para todos os pipelines. Isso garante que, se você tiver uma métrica de destino definida que deseja alcançar, não gaste mais tempo no trabalho de treinamento do que o necessário.
+    Critérios de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento será interrompido. <br> *Tempo de trabalho de treinamento (minutos)* : Por quanto tempo permitir que o trabalho de treinamento seja executado.  <br> *Número máximo de iterações*: Número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações. <br> *Limite de pontuação da métrica*:  Pontuação de métrica mínima para todos os pipelines. Isso garante que, se você tiver uma métrica de destino definida que deseja alcançar, não gaste mais tempo no trabalho de treinamento do que o necessário.
     Pré-processamento| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. [Saiba mais sobre o pré-processamento](#preprocess).
     Validação| Selecione uma das opções de validação cruzada para usar no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-auto-train.md).
     Simultaneidade| Selecione os limites de vários núcleos que você gostaria de usar ao usar a computação de vários núcleos.
@@ -208,7 +207,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 Agora você tem um serviço Web operacional para gerar previsões!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.
