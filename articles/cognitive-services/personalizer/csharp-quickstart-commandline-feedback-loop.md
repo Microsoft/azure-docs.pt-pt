@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 2289c21fcc172c8dffd7d6b3f9c0e2e11736e71a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345231"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Início rápido: Personalizar a biblioteca de cliente para .NET
 
@@ -33,9 +33,17 @@ Introdução à biblioteca de cliente do personalizador para .NET. Siga estas et
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## <a name="setting-up"></a>Configurando
+## <a name="using-this-quickstart"></a>Usando este guia de início rápido
 
-### <a name="create-a-personalizer-azure-resource"></a>Criar um recurso personalizado do Azure
+Há várias etapas para usar este guia de início rápido:
+
+* No portal do Azure, criar um recurso personalizador
+* Na portal do Azure, para o recurso personalizador, na página **configurações** , altere a frequência de atualização do modelo
+* Em um editor de código, crie um arquivo de código e edite o arquivo de código
+* Na linha de comando ou terminal, instale o SDK da linha de comando
+* Na linha de comando ou no terminal, execute o arquivo de código
+
+## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso personalizado do Azure
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
 
@@ -50,15 +58,15 @@ Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas
 
 No portal do Azure, os valores de chave e ponto de extremidade estão disponíveis na página **início rápido** .
 
-### <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
+## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No recurso personalizado no portal do Azure, altere a **frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
+No portal do Azure, no recurso personalizado na página **configurações** , altere a frequência de atualização do **modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
 Quando um loop do personalizador é instanciado pela primeira vez, não há nenhum modelo, pois não há chamadas de API de recompensa para treinar. Chamadas de classificação retornarão probabilidades iguais para cada item. Seu aplicativo ainda deve sempre classificar o conteúdo usando a saída de RewardActionId.
 
-### <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
+## <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
 
 Crie um novo aplicativo .NET Core em seu editor ou IDE preferido. 
 
@@ -84,7 +92,7 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-sdk"></a>Instalar o SDK
+## <a name="install-the-sdk"></a>Instalar o SDK
 
 No diretório do aplicativo, instale a biblioteca de cliente do personalizador para .NET com o seguinte comando:
 

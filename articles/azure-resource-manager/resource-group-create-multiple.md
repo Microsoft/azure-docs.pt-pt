@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345417"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager
 
-Este artigo mostra como criar mais de uma instância de um recurso, variável ou propriedade em seu modelo de Azure Resource Manager. Para criar várias instâncias, adicione o `copy` objeto ao seu modelo.
+Este artigo mostra como criar mais de uma instância de um recurso, variável ou propriedade em seu modelo de Azure Resource Manager. Para criar várias instâncias, adicione o objeto `copy` ao seu modelo.
 
 Quando usado com um recurso, o objeto de cópia tem o seguinte formato:
 
@@ -49,7 +49,7 @@ Se você precisar especificar se um recurso é implantado, consulte [elemento Co
 
 Para especificar o número de iterações, você fornece um valor para a propriedade Count. A contagem não pode exceder 800.
 
-A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, ou a versão de API REST **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell e a API REST não dão suporte a zero para contagem. Atualmente, CLI do Azure não dá suporte a zero para Count, mas esse suporte será adicionado em uma versão futura.
+A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
 
 Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) com a cópia. Se você reimplantar com o modo completo em um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
 
@@ -57,7 +57,7 @@ Os limites para a contagem são os mesmos, se usados com um recurso, uma variáv
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
-Quando você deve decidir durante a implantação para criar uma ou mais instâncias de um recurso, adicione `copy` um elemento ao tipo de recurso. No elemento copiar, especifique o número de iterações e um nome para esse loop.
+Quando você deve decidir durante a implantação para criar uma ou mais instâncias de um recurso, adicione um elemento `copy` ao tipo de recurso. No elemento copiar, especifique o número de iterações e um nome para esse loop.
 
 O recurso para criar várias vezes usa o seguinte formato:
 
@@ -86,7 +86,7 @@ O recurso para criar várias vezes usa o seguinte formato:
 }
 ```
 
-Observe que o nome de cada recurso inclui a `copyIndex()` função, que retorna a iteração atual no loop. `copyIndex()` é baseado em zero. Portanto, o exemplo a seguir:
+Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()` é baseado em zero. Portanto, o exemplo a seguir:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -110,28 +110,28 @@ Cria estes nomes:
 * storage2
 * storage3
 
-A operação de cópia é útil ao trabalhar com matrizes porque você pode iterar em cada elemento na matriz. Use a `length` função na matriz para especificar a contagem de iterações e `copyIndex` para recuperar o índice atual na matriz. Portanto, o exemplo a seguir:
+A operação de cópia é útil ao trabalhar com matrizes porque você pode iterar em cada elemento na matriz. Use a função `length` na matriz para especificar a contagem de iterações e `copyIndex` para recuperar o índice atual na matriz. Portanto, o exemplo a seguir:
 
 ```json
-"parameters": { 
-  "org": { 
-    "type": "array", 
-    "defaultValue": [ 
-      "contoso", 
-      "fabrikam", 
-      "coho" 
-    ] 
+"parameters": {
+  "org": {
+    "type": "array",
+    "defaultValue": [
+      "contoso",
+      "fabrikam",
+      "coho"
+    ]
   }
-}, 
-"resources": [ 
-  { 
-    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-    "copy": { 
-      "name": "storagecopy", 
-      "count": "[length(parameters('org'))]" 
-    }, 
+},
+"resources": [
+  {
+    "name": "[concat('storage', parameters('org')[copyIndex()])]",
+    "copy": {
+      "name": "storagecopy",
+      "count": "[length(parameters('org'))]"
+    },
     ...
-  } 
+  }
 ]
 ```
 
@@ -143,7 +143,7 @@ Cria estes nomes:
 
 Por padrão, o Resource Manager cria os recursos em paralelo. Ele não aplica nenhum limite ao número de recursos implantados em paralelo, além do limite total de 800 recursos no modelo. A ordem na qual eles são criados não é garantida.
 
-No entanto, talvez você queira especificar que os recursos sejam implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, talvez você queira escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implantar em série mais de uma instância de um recurso, defina `mode` como **serial** e `batchSize` como o número de instâncias a serem implantadas por vez. Com o modo Serial, o Resource Manager cria uma dependência em instâncias anteriores no loop, portanto, ele não inicia um lote até que o lote anterior seja concluído.
+No entanto, talvez você queira especificar que os recursos sejam implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, talvez você queira escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implantar em série mais de uma instância de um recurso, defina `mode` como **serial** e `batchSize` como o número de instâncias a serem implantadas de cada vez. Com o modo Serial, o Resource Manager cria uma dependência em instâncias anteriores no loop, portanto, ele não inicia um lote até que o lote anterior seja concluído.
 
 Por exemplo, para implantar em série duas contas de armazenamento de cada vez, use:
 
@@ -180,13 +180,13 @@ Para obter informações sobre como usar a cópia com modelos aninhados, consult
 
 ## <a name="property-iteration"></a>Iteração de propriedade
 
-Para criar mais de um valor para uma propriedade em um recurso, adicione uma `copy` matriz no elemento Properties. Essa matriz contém objetos e cada objeto tem as seguintes propriedades:
+Para criar mais de um valor para uma propriedade em um recurso, adicione uma matriz `copy` no elemento Properties. Essa matriz contém objetos e cada objeto tem as seguintes propriedades:
 
 * nome-o nome da propriedade para a qual criar vários valores
 * Count – o número de valores a serem criados.
-* entrada-um objeto que contém os valores a serem atribuídos à propriedade  
+* entrada-um objeto que contém os valores a serem atribuídos à propriedade
 
-O exemplo a seguir mostra como aplicar `copy` a propriedade datadisks em uma máquina virtual:
+O exemplo a seguir mostra como aplicar `copy` à propriedade datadisks em uma máquina virtual:
 
 ```json
 {
@@ -207,9 +207,9 @@ O exemplo a seguir mostra como aplicar `copy` a propriedade datadisks em uma má
       ...
 ```
 
-Observe que, ao `copyIndex` usar dentro de uma iteração de propriedade, você deve fornecer o nome da iteração. Você não precisa fornecer o nome quando usado com a iteração de recurso.
+Observe que, ao usar `copyIndex` dentro de uma iteração de propriedade, você deve fornecer o nome da iteração. Você não precisa fornecer o nome quando usado com a iteração de recurso.
 
-O Resource Manager expande `copy` a matriz durante a implantação. O nome da matriz se torna o nome da propriedade. Os valores de entrada se tornam as propriedades do objeto. O modelo implantado se torna:
+O Resource Manager expande a matriz `copy` durante a implantação. O nome da matriz se torna o nome da propriedade. Os valores de entrada se tornam as propriedades do objeto. O modelo implantado se torna:
 
 ```json
 {
@@ -302,7 +302,7 @@ Você pode usar a iteração de recurso e Propriedade juntas. Referencie a itera
 
 ## <a name="variable-iteration"></a>Iteração de variável
 
-Para criar várias instâncias de uma variável, use a `copy` Propriedade na seção variáveis. Você cria uma matriz de elementos construídos com base no valor na `input` propriedade. Você pode usar a `copy` Propriedade dentro de uma variável ou no nível superior da seção de variáveis. Ao usar `copyIndex` dentro de uma iteração de variável, você deve fornecer o nome da iteração.
+Para criar várias instâncias de uma variável, use a propriedade `copy` na seção variáveis. Você cria uma matriz de elementos construídos com base no valor na propriedade `input`. Você pode usar a propriedade `copy` dentro de uma variável ou no nível superior da seção de variáveis. Ao usar `copyIndex` dentro de uma iteração de variável, você deve fornecer o nome da iteração.
 
 Para obter um exemplo simples de criação de uma matriz de valores de cadeia de caracteres, consulte [copiar modelo de matriz](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
@@ -426,7 +426,7 @@ E, a variável chamada de **nível superior-String-array** retorna:
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender de recursos em um loop
 
-Você especifica que um recurso é implantado após outro recurso usando `dependsOn` o elemento. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento depende. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento Copy tem o nome definido `storagecopy` como e o elemento depende para as máquinas virtuais também é definido `storagecopy`como.
+Você especifica que um recurso é implantado após outro recurso usando o elemento `dependsOn`. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento depende. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento Copy tem o nome definido como `storagecopy` e o elemento depende para as máquinas virtuais também é definido como `storagecopy`.
 
 ```json
 {
@@ -450,9 +450,9 @@ Você especifica que um recurso é implantado após outro recurso usando `depend
       }
     },
     {
-      "apiVersion": "2015-06-15", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
@@ -488,7 +488,7 @@ Por exemplo, suponha que você normalmente defina um conjunto de um como um recu
 
 Para criar mais de um conjunto de dados, mova-o para fora do data factory. O conjunto de recursos deve estar no mesmo nível que o data factory, mas ainda é um recurso filho do data factory. Você preserva a relação entre o conjunto de dados e data factory pelas propriedades Type e Name. Como o tipo não pode mais ser inferido de sua posição no modelo, você deve fornecer o tipo totalmente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-Para estabelecer uma relação pai/filho com uma instância do data factory, forneça um nome para o conjunto de dados que inclui o nome do recurso pai. Use o formato: `{parent-resource-name}/{child-resource-name}`.  
+Para estabelecer uma relação pai/filho com uma instância do data factory, forneça um nome para o conjunto de dados que inclui o nome do recurso pai. Use o formato: `{parent-resource-name}/{child-resource-name}`.
 
 O exemplo a seguir mostra a implementação:
 

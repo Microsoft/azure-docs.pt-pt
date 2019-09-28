@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265965"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345243"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Início rápido: Personalizar a biblioteca de cliente para o Node. js
 
@@ -31,11 +31,21 @@ Introdução à biblioteca de cliente do personalizador para node. js. Siga esta
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [node. js](https://nodejs.org).
+* A versão atual do [node. js](https://nodejs.org) e do NPM.
 
-## <a name="setting-up"></a>Configurando
+## <a name="using-this-quickstart"></a>Usando este guia de início rápido
 
-### <a name="create-a-personalizer-azure-resource"></a>Criar um recurso personalizado do Azure
+
+Há várias etapas para usar este guia de início rápido:
+
+* No portal do Azure, criar um recurso personalizador
+* Na portal do Azure, para o recurso personalizador, na página **configurações** , altere a frequência de atualização do modelo
+* Em um editor de código, crie um arquivo de código e edite o arquivo de código
+* Na linha de comando ou terminal, instale o SDK da linha de comando
+* Na linha de comando ou no terminal, execute o arquivo de código
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso personalizado do Azure
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
 
@@ -50,7 +60,7 @@ Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas
 No portal do Azure, os valores de chave e ponto de extremidade estão disponíveis na página **início rápido** .
 
 
-### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
+## <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
 Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele. 
 
@@ -64,7 +74,7 @@ Execute o `npm init -y` comando para criar um `package.json` arquivo.
 npm init -y
 ```
 
-### <a name="install-the-nodejs-library-for-personalizer"></a>Instalar a biblioteca do node. js para personalizar
+## <a name="install-the-nodejs-library-for-personalizer"></a>Instalar a biblioteca do node. js para personalizar
 
 Instale a biblioteca de cliente do personalizador para node. js com o seguinte comando:
 
@@ -78,9 +88,9 @@ Instale os pacotes de NPM restantes para este guia de início rápido:
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-### <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
+## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No recurso personalizado no portal do Azure, altere a **frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
+No portal do Azure, no recurso personalizado na página **configurações** , altere a frequência de atualização do **modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 

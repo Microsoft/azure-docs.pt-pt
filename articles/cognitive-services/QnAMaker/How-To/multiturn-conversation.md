@@ -11,20 +11,20 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 585dc03503a61ff6666d3da3374586287e24283f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 318df27ebb822f49c1f8881d0bf68ac7167dea36
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966706"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351292"
 ---
-# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usar avisos de acompanhamento para criar várias transformações de uma conversa
+# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
-Use os prompts e o contexto de acompanhamento para gerenciar os vários ativadores,conhecidos como Multiturn, para o bot de uma pergunta para outra.
+Use os prompts e o contexto de acompanhamento para gerenciar os vários ativadores, conhecidos como _Multiturn_, para o bot de uma pergunta para outra.
 
 Para ver como funciona a opção múltipla, veja o vídeo de demonstração a seguir:
 
-[![Conversa de troca múltipla no QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![Multi-ativar a conversa QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>O que é uma conversa com vários desligamentos?
 
@@ -43,7 +43,7 @@ Na imagem anterior, um usuário iniciou uma conversa inserindo **minha conta**. 
 Quando o usuário seleciona uma opção (#3), a próxima lista de opções de refinamento (#4) é apresentada. Essa sequência continua (#5) até que o usuário determine a resposta final correta (#6).
 
 > [!NOTE]
-> Na imagem anterior, a caixa de seleção **habilitar várias** desativações foi selecionada para garantir que os prompts sejam exibidos. 
+> Na imagem anterior, a caixa de seleção **habilitar várias desativações** foi selecionada para garantir que os prompts sejam exibidos. 
 
 ### <a name="use-multi-turn-in-a-bot"></a>Usar o multi-Transform em um bot
 
@@ -67,7 +67,7 @@ Quando você importa o documento PDF, QnA Maker determina os prompts de acompanh
 1. Crie ou use um serviço de QnA Maker existente. No exemplo anterior de superfície da Microsoft, como o arquivo PDF é muito grande para uma camada menor, use um serviço de QnA Maker com um **serviço de pesquisa** de **B** (15 índices) ou superior.
 1. Insira um nome para sua base de dados de conhecimento, como **manual de superfície**.
 1. Marque a caixa de seleção **habilitar extração de vários desligamentos de URLs,. pdf ou. docx** . 
-1. Selecione a URL manual da superfície **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** ,.
+1. Selecione a URL manual da superfície, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
 
 1. Selecione o botão **criar seu KB** . 
 
@@ -274,7 +274,7 @@ A seção anterior solicitou uma resposta e quaisquer avisos de acompanhamento p
 }
 ```
 
-A `prompts` matriz fornece texto `displayText` na propriedade e o `qnaId` valor. Você pode mostrar essas respostas como as próximas opções exibidas no fluxo de conversa e, em seguida, `qnaId` enviar o back selecionado para QnA Maker na solicitação a seguir. 
+A matriz `prompts` fornece texto na propriedade `displayText` e o valor `qnaId`. Você pode mostrar essas respostas como as próximas opções exibidas no fluxo de conversa e, em seguida, enviar o `qnaId` selecionado de volta para QnA Maker na solicitação a seguir. 
 
 <!--
 
@@ -284,7 +284,7 @@ The `promptsToDelete` array provides the ...
 
 ## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Uma solicitação JSON para retornar uma resposta não inicial e prompts de acompanhamento
 
-Preencha o `context` objeto para incluir o contexto anterior.
+Preencha o objeto `context` para incluir o contexto anterior.
 
 Na solicitação JSON a seguir, a pergunta atual é *usar o Windows Hello para entrar* e a pergunta anterior era *contas e entrando*. 
 
@@ -304,7 +304,7 @@ Na solicitação JSON a seguir, a pergunta atual é *usar o Windows Hello para e
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Uma resposta JSON para retornar uma resposta não inicial e prompts de acompanhamento
 
-A resposta JSON do QnA Maker _GenerateAnswer_ inclui os prompts de acompanhamento na `context` Propriedade do `answers` primeiro item no objeto:
+A resposta JSON do QnA Maker _GenerateAnswer_ inclui os prompts de acompanhamento na propriedade `context` do primeiro item no objeto `answers`:
 
 ```JSON
 {
@@ -364,7 +364,7 @@ A resposta JSON do QnA Maker _GenerateAnswer_ inclui os prompts de acompanhament
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consultar a base de dados de conhecimento com a ID de QnA Maker
 
-Na resposta da pergunta inicial, qualquer prompt de acompanhamento e seu associado `qnaId` são retornados. Agora que você tem a ID, é possível passá-la no corpo da solicitação do prompt de acompanhamento. Se o corpo da solicitação contiver o `qnaId`, e o objeto de contexto (que contém as propriedades de QnA Maker anteriores), GenerateAnswer retornará a pergunta exata por ID, em vez de usar o algoritmo de classificação para localizar a resposta pelo texto da pergunta. 
+Na resposta da pergunta inicial, qualquer prompt de acompanhamento e seu `qnaId` associado são retornados. Agora que você tem a ID, é possível passá-la no corpo da solicitação do prompt de acompanhamento. Se o corpo da solicitação contiver o `qnaId` e o objeto de contexto (que contém as propriedades anteriores do QnA Maker), GenerateAnswer retornará a pergunta exata por ID, em vez de usar o algoritmo de classificação para localizar a resposta pelo texto da pergunta. 
 
 ## <a name="display-prompts-and-send-context-in-the-client-application"></a>Exibir prompts e enviar o contexto no aplicativo cliente 
 
@@ -382,12 +382,12 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar uma base de dados de conhecimento com prompts de múltipla ativação com a API de criação
 
-Você pode criar um caso de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão sendo adicionados na `context` matriz da `prompts` propriedade. 
+Você pode criar uma base de dados de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão adicionando na matriz `prompts` da propriedade `context`. 
 
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Adicionar ou excluir prompts de várias ativações com a API de atualização
 
-Você pode adicionar ou excluir prompts de várias ativações usando a [API de atualização de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Os prompts estão adicionando na `context` matriz da `promptsToAdd` Propriedade e na `promptsToDelete` matriz. 
+Você pode adicionar ou excluir prompts de várias ativações usando a [API de atualização de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Os prompts estão adicionando na matriz `promptsToAdd` da propriedade `context` e na matriz `promptsToDelete`. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
