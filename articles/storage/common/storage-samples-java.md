@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b295c5a945f41059ca98e96d742bc5e1f6b4bf9f
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349961"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure usando Java
 
@@ -92,10 +92,11 @@ Confira os guias a seguir se você estiver procurando instruções sobre como in
 * [Getting Started with Azure Table Service in Java](../../cosmos-db/table-storage-how-to-use-java.md) (Introdução ao Serviço Tabela do Azure em Java)
 * [Introdução com o serviço de arquivos do Azure em Java](../files/storage-java-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre exemplos de outros idiomas:
 
 * .NET: [Exemplos de Armazenamento do Microsoft Azure com o .NET](storage-samples-dotnet.md)
+* JavaScript/node. js: [Exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
 * Python: [Exemplos de armazenamento do Azure usando Python](storage-samples-python.md)
 * Todos os outros idiomas: [Exemplos de armazenamento do Azure](storage-samples.md)

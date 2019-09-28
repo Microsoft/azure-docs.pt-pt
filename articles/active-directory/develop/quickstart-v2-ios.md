@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309645"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345544"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -41,8 +41,8 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
-> * Express [Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
-> * Manual [Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Express] [Option 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
+> * [Manual] [Option 2: Registrar e configurar manualmente seu aplicativo e exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe o exemplo de código
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
@@ -94,11 +94,11 @@ Em uma janela de terminal, navegue até a pasta com o exemplo de código baixado
 > 1. Extraia o ficheiro zip e abra o projeto no XCode.
 > 1. Edite **ViewController. Swift** e substitua a linha que começa com ' Let kClientID ' com o trecho de código a seguir. Lembre-se de atualizar o `kClientID` valor de com a ID do cliente que você salvou quando registrou seu aplicativo no portal anteriormente no início rápido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra as configurações do projeto. Na seção **identidade** , insira o **identificador do pacote** que você inseriu no Portal.
 > 1. Somente para IOS, clique com o botão direito do mouse em **info. plist** e selecione **abrir como** > **código-fonte**.
-> 1. Somente para IOS, no nó raiz do dict, substitua `Enter_the_bundle_Id_Here`pela ***ID do pacote*** que você inseriu no Portal.
+> 1. Somente para iOS, no nó raiz do Dictation, substitua `CFBundleURLSchemes` pela ***ID do pacote*** que você inseriu no Portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,11 +120,11 @@ Em uma janela de terminal, navegue até a pasta com o exemplo de código baixado
 > 1. Extraia o ficheiro zip e abra o projeto no XCode.
 > 1. Edite **ViewController. Swift** e substitua a linha que começa com ' Let kClientID ' com o trecho de código a seguir. Lembre-se de atualizar o `kClientID` valor de com o ClientID que você salvou quando registrou seu aplicativo no portal anteriormente neste guia de início rápido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra as configurações do projeto. Na seção **identidade** , insira o **identificador do pacote** que você inseriu no Portal.
 > 1. Somente para IOS, clique com o botão direito do mouse em **info. plist** e selecione **abrir como** > **código-fonte**.
-> 1. Somente para IOS, no nó raiz do dict, substitua `Enter_the_bundle_Id_Here`pela ***ID do pacote*** que você usou no Portal.
+> 1. Somente para iOS, no nó raiz do Dictation, substitua `Enter_the_bundle_Id_Here` pela ***ID do pacote*** que você usou no Portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>

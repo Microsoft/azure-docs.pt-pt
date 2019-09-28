@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390482"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350178"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -149,9 +149,9 @@ Quando cria um agrupamento, tem de selecionar o **nodeAgentSkuId** adequado, con
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Imagens personalizadas para agrupamentos de Máquinas Virtuais
 
-Para utilizar uma imagem personalizada, terá de generalizar a imagem para prepará-la. Para obter informações sobre como preparar imagens do Linux personalizadas a partir de VMs do Azure, veja [Como criar uma imagem de uma máquina virtual ou VHD](../virtual-machines/linux/capture-image.md). Para obter informações sobre como preparar imagens do Windows personalizadas a partir de VMs do Azure, veja [Criar uma imagem gerida de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md). 
+Para saber como criar um pool com imagens personalizadas, consulte [usar a Galeria de imagens compartilhadas para criar um pool personalizado](batch-sig-images.md).
 
-Para obter requisitos e passos detalhados, veja [Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais](batch-custom-images.md).
+Como alternativa, você pode criar um pool personalizado de máquinas virtuais usando um recurso de [imagem gerenciada](batch-custom-images.md) . Para obter informações sobre como preparar imagens do Linux personalizadas a partir de VMs do Azure, veja [Como criar uma imagem de uma máquina virtual ou VHD](../virtual-machines/linux/capture-image.md). Para obter informações sobre como preparar imagens do Windows personalizadas a partir de VMs do Azure, veja [Criar uma imagem gerida de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Suporte de contentor em agrupamentos de Máquinas Virtuais
 
@@ -245,7 +245,7 @@ O agendamento de tarefas no âmbito dos conjuntos é independente. Entre conjunt
 
 ### <a name="scheduled-jobs"></a>Tarefas agendadas
 
-As [agendas de trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Uma agenda de tarefas especifica quando executar tarefas e inclui as especificações das tarefas a executar. Pode especificar a duração da agenda – quando e durante quanto tempo está em vigor – e com que frequência os trabalhos são criados durante o período agendado.
+As agendas de [trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Uma agenda de tarefas especifica quando executar tarefas e inclui as especificações das tarefas a executar. Pode especificar a duração da agenda – quando e durante quanto tempo está em vigor – e com que frequência os trabalhos são criados durante o período agendado.
 
 ## <a name="task"></a>Tarefa
 
@@ -519,7 +519,7 @@ Se precisar de restringir ou desativar o acesso RDP ou SSH para computação de 
 
 Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cliente ou o serviço Batch podem examinar os metadados das tarefas com falhas para identificar um nó a funcionar incorretamente. Cada nó num conjunto recebe um ID exclusivo e o nó no qual é executada uma tarefa está incluído nos metadados da tarefa. Depois de ter identificado um nó de problema, pode tomar várias medidas no mesmo:
 
-* **Reinicializar o nó** ([REST][rest_reboot] | [.net][net_reboot])
+* **Reinicialize o nó** ([REST][rest_reboot] | [.net][net_reboot])
 
     Reiniciar o nó pode, por vezes, limpar problemas latentes, como processos bloqueados ou falhados. Se o pool usar uma tarefa de início ou seu trabalho usar uma tarefa de preparação de trabalho, eles serão executados quando o nó for reiniciado.
 * Refazer **a imagem do nó** ([REST][rest_reimage] | [.net][net_reimage])
@@ -533,7 +533,7 @@ Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cli
     Esta ação coloca o nó offline de forma eficaz, para que não lhe sejam atribuídas mais tarefas, mas permite que o nó permaneça em execução e no conjunto. Isto permite-lhe investigar melhor a causa das falhas sem perder os dados da tarefa com falhas e sem que o nó cause mais falhas nas tarefas. Por exemplo, pode desativar o agendamento de tarefas no nó e, em seguida, [iniciar sessão remotamente](#connecting-to-compute-nodes) para examinar os registos de eventos do nó ou realizar outras ações de resolução de problemas. Depois de concluir sua investigação, você pode colocar o nó online novamente habilitando o agendamento de tarefas ([REST][rest_online] | [.net][net_online]) ou executar uma das outras ações discutidas anteriormente.
 
 > [!IMPORTANT]
-> Em cada ação descrita nesta secção -- reiniciar, recriar imagem, remover e desativar o agendamento de tarefas --, pode especificar a forma como as tarefas atualmente em execução no nó são processadas quando realizar a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, **reenfileira** -las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
+> Em cada ação descrita nesta secção -- reiniciar, recriar imagem, remover e desativar o agendamento de tarefas --, pode especificar a forma como as tarefas atualmente em execução no nó são processadas quando realizar a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, reenfileira-las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
 >
 >
 

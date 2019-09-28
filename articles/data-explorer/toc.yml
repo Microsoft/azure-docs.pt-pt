@@ -90,6 +90,8 @@
       items:
         - name: Power BI
           items:
+            - name: Melhores práticas
+              href: power-bi-best-practices.md
             - name: conector
               href: power-bi-connector.md
             - name: consulta importada

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 249380b5bd9d95e969a9c7a812102b694b9d1e3b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e273d913d07d8d7b77289695a4a28a478a64123a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726549"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350298"
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral de segurança do armazenamento do Azure
 
 Este artigo fornece uma visão geral dos recursos de segurança do Azure que você pode usar com o armazenamento do Azure. O Azure Storage é a solução de armazenamento na cloud para aplicações modernas que dependem da durabilidade, da disponibilidade e da escalabilidade para satisfazer as necessidades dos seus clientes. O armazenamento do Azure fornece um conjunto abrangente de recursos de segurança. Pode:
 
 * Proteja a conta de armazenamento usando o RBAC (controle de acesso baseado em função) e Azure Active Directory.
-* Proteja os dados em trânsito entre um aplicativo e o Azure usando criptografia do lado do cliente, HTTPS ou SMB 3,0.
+* Proteger os dados em trânsito entre uma aplicação e o Azure com a encriptação no lado do cliente, HTTPS ou SMB 3.0.
 * Defina os dados a serem criptografados automaticamente quando gravados no armazenamento do Azure usando Criptografia do Serviço de Armazenamento.
 * Defina o sistema operacional e OS discos de dados usados pelas VMs (máquinas virtuais) a serem criptografadas usando Azure Disk Encryption.
 * Conceda acesso delegado aos objetos de dados no armazenamento do Azure usando as assinaturas de acesso compartilhado (SASs).
@@ -65,7 +65,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 Saiba mais sobre a criptografia do lado do cliente:
 
 * [Criptografia do lado do cliente para Armazenamento do Microsoft Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Série de controles de segurança na nuvem: Criptografando dados em trânsito](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* série de controles de segurança [Cloud: Criptografando dados em trânsito @ no__t-0
 
 ## <a name="encryption-at-rest"></a>Encriptação inativa
 
@@ -86,9 +86,9 @@ Azure Disk Encryption para máquinas virtuais ajuda você a atender aos requisit
 
 A criptografia de disco para VMs funciona para sistemas operacionais Linux e Windows. Ele também usa Key Vault para ajudá-lo a proteger, gerenciar e auditar o uso de suas chaves de criptografia de disco. Todos os dados em seus discos de VM são criptografados em repouso usando a tecnologia de criptografia padrão da indústria em suas contas de armazenamento do Azure. A solução de criptografia de disco para Windows é baseada no [Microsoft criptografia de unidade de disco BitLocker](https://technet.microsoft.com/library/cc732774.aspx), e a solução Linux é baseada em [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Saber mais
+Obter mais informações
 
-* [Azure Disk Encryption para máquinas virtuais IaaS do Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Visão geral de Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls e redes virtuais
 
@@ -108,7 +108,7 @@ Saiba mais:
 
 * [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
 * [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview)
-* [Gateway do Azure Data Box](/azure/databox-online/data-box-gateway-overview)
+* [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
 
 ## <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
 
@@ -124,6 +124,6 @@ Saiba mais:
 
 Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ajudá-lo a controlar e gerenciar chaves de criptografia de disco e segredos em sua assinatura do cofre de chaves. Ele também garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure. Você deve usar Key Vault para auditar as chaves e o uso da política.
 
-Saber mais
+Obter mais informações
 
 * [O que é Azure Key Vault?](/azure/key-vault/key-vault-overview)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68360247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349920"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -30,16 +30,16 @@ O painel métricas mostra o conjunto padrão de contadores de desempenho.
 ![Contadores de desempenho relatados no Application Insights](./media/performance-counters/performance-counters.png)
 
 Os contadores padrão atuais que estão configurados para serem coletados para aplicativos Web ASP.NET/ASP.NET Core são:
-- % De\\tempo do processador de processo
-- % De\\tempo do processador de processo normalizado
-- Memória\\-bytes disponíveis
+- % Process @ no__t-0Processor tempo
+- % Process @ no__t-0Processor tempo normalizado
+- Memória @ no__t-0Available bytes
 - Solicitações ASP.NET/s
 - Exceções do .NET CLR lançadas/s
 - ASP.NET ApplicationsRequest tempo de execução
-- Processar\\bytes particulares
-- Processar\\bytes de dados de es/s
-- Solicitações de\\aplicativos ASP.net na fila de aplicativos
-- Processador (_ total\\)% tempo do processador
+- Processar @ no__t-0Private bytes
+- Processar @ no__t-bytes de dados de 0IO/s
+- Aplicativos ASP.NET @ no__t-0Requests na fila de aplicativos
+- Processador (_ total) \\% tempo do processador
 
 ## <a name="add-counters"></a>Adicionar contadores
 
@@ -66,13 +66,13 @@ Se o contador de desempenho desejado não estiver incluído na lista de métrica
     ```
 
 > [!NOTE]
-> ASP.NET Core aplicativos não têm `ApplicationInsights.config`e, portanto, o método acima não é válido para aplicativos ASP.NET Core.
+> ASP.NET Core aplicativos não têm `ApplicationInsights.config` e, portanto, o método acima não é válido para aplicativos ASP.NET Core.
 
-Você pode capturar os contadores padrão e os que você implementou por conta própria. `\Objects\Processes`é um exemplo de um contador padrão que está disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold`é um exemplo de um contador personalizado que pode ser implementado em um serviço Web.
+Você pode capturar os contadores padrão e os que você implementou por conta própria. `\Objects\Processes` é um exemplo de um contador padrão que está disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold` é um exemplo de um contador personalizado que pode ser implementado em um serviço Web.
 
-O formato é `\Category(instance)\Counter"`, ou para categorias que não têm instâncias, apenas `\Category\Counter`.
+O formato é `\Category(instance)\Counter"` ou para categorias que não têm instâncias, apenas `\Category\Counter`.
 
-`ReportAs`é necessário para nomes de contadores que não correspondem `[a-zA-Z()/-_ \.]+` , ou seja, eles contêm caracteres que não estão nos seguintes conjuntos: letras, colchetes, barra invertida, hífen, sublinhado, espaço, ponto.
+`ReportAs` é necessário para nomes de contadores que não correspondem `[a-zA-Z()/-_ \.]+`-ou seja, eles contêm caracteres que não estão nos seguintes conjuntos: letras, colchetes arredondados, barra invertida, hífen, sublinhado, espaço, ponto.
 
 Se você especificar uma instância, ela será coletada como uma "cominstancename" de dimensão da métrica relatada.
 
@@ -98,7 +98,7 @@ Ou você pode fazer a mesma coisa com métricas personalizadas que você criou:
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Coleta de contadores de desempenho no código para aplicativos ASP.NET Core Web
 
-Modifique `ConfigureServices` o método em `Startup.cs` sua classe, como mostrado abaixo.
+Modifique o método `ConfigureServices` na classe `Startup.cs` como abaixo.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
@@ -120,7 +120,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
 Você pode pesquisar e exibir relatórios de contador de desempenho no [Analytics](../../azure-monitor/app/analytics.md).
 
-O esquema PerformanceCounters expõe o `category`, `counter` o nome e `instance` o nome de cada contador de desempenho.  Na telemetria para cada aplicativo, você verá apenas os contadores para esse aplicativo. Por exemplo, para ver quais contadores estão disponíveis: 
+O esquema **PerformanceCounters** expõe o nome `category`, `counter` e o nome `instance` de cada contador de desempenho.  Na telemetria para cada aplicativo, você verá apenas os contadores para esse aplicativo. Por exemplo, para ver quais contadores estão disponíveis: 
 
 ![Contadores de desempenho no Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
@@ -130,7 +130,7 @@ Para obter um gráfico de memória disponível durante o período recente:
 
 ![Gráfico de timememory na análise de Application Insights](./media/performance-counters/analytics-available-memory.png)
 
-Assim como outras telemetrias, os PerformanceCounters `cloud_RoleInstance` também têm uma coluna que indica a identidade da instância do servidor host na qual seu aplicativo está sendo executado. Por exemplo, para comparar o desempenho do seu aplicativo em computadores diferentes: 
+Assim como outras telemetrias, os **PerformanceCounters** também têm uma coluna `cloud_RoleInstance` que indica a identidade da instância do servidor host na qual seu aplicativo está sendo executado. Por exemplo, para comparar o desempenho do seu aplicativo em computadores diferentes: 
 
 ![Desempenho segmentado por instância de função na análise de Application Insights](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -148,11 +148,12 @@ Os aplicativos ASP.NET e ASP.NET Core implantados nos aplicativos Web do Azure s
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de desempenho em aplicativos ASP.NET Core
 
-* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão 2.4.1 e superior coleta contadores de desempenho se o aplicativo estiver em execução no aplicativo Web do Azure (Windows)
+O suporte para contadores de desempenho no ASP.NET Core é limitado:
 
-* O SDK versão 2.7.0-Beta3 e superior coleta contadores de desempenho se o aplicativo estiver em execução no Windows e `NETSTANDARD2.0` direcionamento ou superior.
-* Para aplicativos direcionados à .NET Framework, os contadores de desempenho têm suporte em todas as versões do SDK.
-* Este artigo será atualizado quando o suporte ao contador de desempenho no não Windows for adicionado.
+* As versões do [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 e posteriores coletam contadores de desempenho se o aplicativo estiver em execução nos aplicativos Web do Azure (Windows).
+* As versões do SDK 2.7.1 e posteriores coletam contadores de desempenho se o aplicativo estiver `NETSTANDARD2.0` em execução no Windows e nos destinos ou posterior.
+* Para aplicativos direcionados à .NET Framework, todas as versões do SDK dão suporte a contadores de desempenho.
+* As versões do SDK 2.8.0 e posteriores dão suporte ao contador de CPU/memória no Linux. Nenhum outro contador tem suporte no Linux. A maneira recomendada para obter contadores do sistema no Linux (e em outros ambientes não Windows) é usando [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertas
 Assim como outras métricas, você pode [definir um alerta](../../azure-monitor/app/alerts.md) para avisá-lo se um contador de desempenho ficar fora de um limite especificado. Abra o painel alertas e clique em adicionar alerta.

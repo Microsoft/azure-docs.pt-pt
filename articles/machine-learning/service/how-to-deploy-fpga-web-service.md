@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9c3c844ba7044f8e1c9c313f1ac63b94310ea322
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034457"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350533"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 
@@ -324,9 +324,10 @@ Para implementar o seu modelo como um serviço da web de produção de grande es
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Specify the Standard_PB6s Azure VM
-prov_config = AksCompute.provisioning_configuration(vm_size="Standard_PB6s",
-                                                    agent_count=1)
+# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2”. If no value is specified, the default is "eastus".
+prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
+                                                    agent_count = 1,
+                                                    location = "eastus")
 
 aks_name = 'my-aks-cluster'
 # Create the cluster
@@ -426,7 +427,7 @@ Todos [os dispositivos](https://docs.microsoft.com/azure/databox-online/data-box
 
 Para proteger seus serviços Web do FPGA, consulte o documento [Secure Web Services](how-to-secure-web-service.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira estes blocos de anotações, vídeos e Blogs:
 

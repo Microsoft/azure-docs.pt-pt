@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259981"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350611"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 
@@ -328,7 +328,7 @@ Você pode exibir os resultados de treinamento em um widget ou embutido se estiv
 
 Qualquer modelo produzido usando o ML automatizado inclui as seguintes etapas:
 + Engenharia automatizada de recursos (se pré-processar = true)
-+ Dimensionamento/normalização e algoritmo com valores de hipermedidor
++ Dimensionamento/normalização e algoritmo com valores de hiperparâmetro
 
 Tornamos transparente para obter essas informações da saída do fitted_model do ML automatizado.
 
@@ -410,7 +410,7 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
    |EngineeringFeatureCount|Número de recursos gerados por meio de transformações automatizadas de engenharia de recursos.|
    |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Dimensionamento/normalização e algoritmo com valores de hipermedidor:
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Dimensionamento/normalização e algoritmo com valores de hiperparâmetro:
 
 Para entender os valores de dimensionamento/normalização e de algoritmo/hiperparâmetro para um pipeline, use fitted_model. Steps. [Saiba mais sobre dimensionamento/normalização](concept-automated-ml.md#preprocess). Eis uma saída de exemplo:
 

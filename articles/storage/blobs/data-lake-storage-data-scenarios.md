@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 68e1bcfeaa998b0698554fd93fd7ed2e88a29739
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9eb10260573978355a3b6996a6f06c0c612abe4c
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143004"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350021"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando Azure Data Lake Storage Gen2 para requisitos de Big Data
 
@@ -31,7 +31,7 @@ Comece criando uma conta de armazenamento e um contêiner. Em seguida, conceda a
 
 Uma conta de Data Lake Storage Gen2 é uma conta de armazenamento que tem um namespace hierárquico. 
 
-Para criar um, consulte [início rápido: Crie uma conta](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)de armazenamento Azure data Lake Storage Gen2.
+Para criar um, consulte [Quickstart: Crie uma conta](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)de armazenamento Azure data Lake Storage Gen2.
 
 ## <a name="create-a-container"></a>Criar um contentor
 
@@ -77,7 +77,7 @@ Esta tabela mostra como conceder acesso para cada serviço ou ferramenta do Azur
 
 Para conceder acesso a arquivos e pastas específicas, consulte estes artigos.
 
-* [Definir permissões de nível de arquivo e diretório usando Gerenciador de Armazenamento do Azure com Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+* [Definir permissões de nível de arquivo e diretório usando Gerenciador de Armazenamento do Azure com Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
 * [Listas de controle de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
@@ -87,7 +87,7 @@ Para saber mais sobre como configurar outros aspectos de segurança, confira [Az
 
 Esta seção destaca as diferentes fontes de dados e as diferentes maneiras em que esses dados podem ser ingeridos em uma conta de Data Lake Storage Gen2.
 
-![Ingerir dados em data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Ingerir dados em data Lake Storage Gen2")
+![Ingerir dados em data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "ingerir dados em data Lake Storage Gen2")
 
 ### <a name="ad-hoc-data"></a>Dados ad hoc
 
@@ -163,20 +163,20 @@ O Azure ExpressRoute permite criar conexões privadas entre os data centers do A
 
 Depois que os dados estiverem disponíveis no Data Lake Storage Gen2 você poderá executar a análise nesses dados usando os aplicativos Big Data com suporte. 
 
-![Analisar dados no data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analisar dados no data Lake Storage Gen2")
+![Analisar dados em data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "analisar dados no data Lake Storage Gen2")
 
 Aqui está uma lista de ferramentas que você pode usar para executar trabalhos de análise de dados em dados armazenados no Data Lake Storage Gen2.
 
 |Ferramenta | Orientação |
 |---|--|
 |Azure HDInsight | [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Quickstart: Analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrair, transformar e carregar dados usando Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Quickstart: Analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks @ no__t-0<br><br>[Tutorial: Extrair, transformar e carregar dados usando Azure Databricks @ no__t-0|
 
 ## <a name="visualize-the-data"></a>Ver os dados
 
 Você pode usar uma combinação de serviços para criar representações visuais de dados armazenados no Data Lake Storage Gen2.
 
-![Visualizar dados no data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualizar dados no data Lake Storage Gen2")
+![Visualizar dados no data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "visualizar dados no data Lake Storage Gen2")
 
 * Você pode começar usando [Azure data Factory para mover dados de data Lake Storage Gen2 para o Azure SQL data warehouse](../../data-factory/copy-activity-overview.md)
 * Depois disso, você pode [integrar Power bi com o SQL data warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) para criar a representação visual dos dados.
@@ -189,7 +189,7 @@ Talvez você também queira baixar ou mover dados de Azure Data Lake Storage Gen
 
 * Baixe os dados no computador local para processamento em ambientes IDE durante a criação de protótipos de aplicativo.
 
-![Dados de saída de data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Dados de saída de data Lake Storage Gen2")
+![Dados de saída de data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "dados de saída do data Lake Storage Gen2")
 
 Aqui está uma lista de ferramentas que você pode usar para baixar dados de Data Lake Storage Gen2.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348517"
 ---
 # <a name="pricing-and-associated-costs"></a>Custos associados e preços
 
@@ -34,20 +34,17 @@ A central de segurança do Azure para o modelo de preços do IoT é composta por
 
 - Custo por recursos de segurança aprimorados por mensagem com base em mensagens de segurança de dispositivos IoT Edge ou folha.
 
-  >[!Note]
-  > As mensagens de segurança também incorrem no consumo de cotas no Hub IoT.
 
 Para obter mais informações, consulte [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Custos associados
 
-A central de segurança do Azure para IoT tem dois tipos de custos associados, que não fazem parte do preço direto:
+A central de segurança do Azure para IoT tem custos associados, que não fazem parte do preço direto:
 
-- Consumo de cota do Hub IoT
 
 - Custos de armazenamento Log Analytics
 
-Você pode reduzir os custos associados ao optar por alguns recursos, alterando suas configurações.
+Você pode reduzir os custos associados ao optar por determinados recursos da solução. Cancele alterando suas configurações.
 
 Para alterar suas configurações:
 
@@ -61,8 +58,6 @@ A tabela a seguir fornece um resumo dos custos associados e as implicações de 
 
 |     | Utilização | Comentário |
 | --- | --- | --- |
-| **Consumo de cota do Hub IoT** |  |
-| [Exportar](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabalho do dispositivo (exportação de entrelaçamento) | Uma vez por dia | Desabilitar _coleta de metadados de entrelaçamento_ |
 | **Armazenamento Log Analytics** |  |
 | Alertas e recomendação de dispositivo| Recomendação e alertas de segurança gerados pelo serviço | Não opcional |
 | Dados brutos de segurança| Dados brutos de segurança de dispositivos IoT, coletados por agentes de segurança | Desabilitar _eventos de segurança de dispositivo bruto de armazenamento_ |

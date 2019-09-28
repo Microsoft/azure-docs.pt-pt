@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c8fa96e41b98cfa227fd25dc4b3bd66a171ff3c8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094923"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350127"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias RDMA ou GPU em pools do lote
 
@@ -86,7 +86,7 @@ Para configurar um tamanho de VM especializado para o pool do lote, você tem v�
 
     * [Servidor Ubuntu (com drivers de GPU e RDMA) para pools de contêineres do lote do Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* Crie uma [imagem de VM personalizada do Windows ou do Linux](batch-custom-images.md) na qual você instalou drivers, software ou outras configurações necessárias para o tamanho da VM. 
+* Crie uma [imagem de VM personalizada do Windows ou do Linux](batch-sig-images.md) na qual você instalou drivers, software ou outras configurações necessárias para o tamanho da VM. 
 
 * Crie um [pacote de aplicativo](batch-application-packages.md) do lote por meio de um instalador de aplicativo ou driver compactado e configure o lote para implantar o pacote em nós de pool e instale uma vez quando cada nó for criado. Por exemplo, se o pacote de aplicativos for um instalador, crie uma linha de comando de [tarefa inicial](batch-api-basics.md#start-task) para instalar silenciosamente o aplicativo em todos os nós do pool. Considere usar um pacote de aplicativos e uma tarefa de início de pool se sua carga de trabalho depender de uma versão de driver específica.
 
@@ -123,9 +123,9 @@ Para executar aplicativos CUDA em um pool de nós do Linux NC, você precisa ins
 1. Implante uma VM da série NC do Azure executando o Ubuntu 16, 4 LTS. Por exemplo, crie a VM na região centro-sul dos EUA. 
 2. Adicione a [extensão](../virtual-machines/extensions/hpccompute-gpu-linux.md
 ) de drivers de GPU NVIDIA à VM usando o portal do Azure, um computador cliente que se conecta à assinatura do Azure ou Azure cloud Shell. Como alternativa, siga as etapas para se conectar à VM e [instalar os drivers do CUDA](../virtual-machines/linux/n-series-driver-setup.md) manualmente.
-3. Siga as etapas para criar um [instantâneo e uma imagem personalizada da VM do Linux](batch-custom-images.md) para o lote.
+3. Siga as etapas para criar uma [imagem da Galeria de imagens compartilhadas](batch-sig-images.md) para o lote.
 4. Crie uma conta do lote em uma região que dê suporte a VMs NC.
-5. Usando as APIs do lote ou portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) e com o número desejado de nós e escala. A tabela a seguir mostra as configurações de pool de exemplo para a imagem:
+5. Usando as APIs do lote ou portal do Azure, crie um pool [usando a imagem personalizada](batch-sig-images.md) e com o número desejado de nós e escala. A tabela a seguir mostra as configurações de pool de exemplo para a imagem:
 
 | Definição | Value |
 | ---- | ---- |
@@ -143,8 +143,8 @@ Para executar aplicativos MPI do Windows em um pool de nós de VM H16r do Azure,
 ) Azure PowerShell de um computador cliente que se conecta à sua assinatura do Azure ou usando Azure cloud Shell. 
 1. Faça uma conexão Área de Trabalho Remota com a VM.
 1. Baixe o [pacote de instalação](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup. exe) para obter a versão mais recente do Microsoft MPI e instale o Microsoft MPI.
-1. Siga as etapas para criar um [instantâneo e uma imagem de VM personalizada do Windows](batch-custom-images.md) para o lote.
-1. Usando as APIs do lote ou portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) e com o número desejado de nós e escala. A tabela a seguir mostra as configurações de pool de exemplo para a imagem:
+1. Siga as etapas para criar uma [imagem da Galeria de imagens compartilhadas](batch-sig-images.md) para o lote.
+1. Usando as APIs ou portal do Azure do lote, crie um pool [usando a Galeria de imagens compartilhadas](batch-sig-images.md) e com o número desejado de nós e escala. A tabela a seguir mostra as configurações de pool de exemplo para a imagem:
 
 | Definição | Value |
 | ---- | ---- |
@@ -171,7 +171,7 @@ Usando as APIs ou portal do Azure do lote, crie um pool usando essa imagem e com
 | **Comunicação entre nós habilitada** | True |
 | **Máximo de tarefas por nó** | 1 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para executar trabalhos MPI em um pool do lote do Azure, consulte os exemplos do [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) .
 

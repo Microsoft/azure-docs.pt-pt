@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: atsenthi
-ms.openlocfilehash: 8cb35d6265bafe2b259774a55119d33f8ae94fe9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599253"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350289"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução ao ReliableConcurrentQueue no Azure Service Fabric
 A fila simultânea confiável é uma fila assíncrona, transacional e replicada que apresenta alta simultaneidade para operações enfileirar e remover da fila. Ele foi projetado para fornecer alta taxa de transferência e baixa latência, relaxando a ordem de FIFO estrita fornecida pela [fila confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordem de melhor esforço.
@@ -45,17 +45,24 @@ Um caso de uso de exemplo para o ReliableConcurrentQueue é o cenário de [fila 
 * A fila não garante a ordenação de FIFO estrita.
 * A fila não lê suas próprias gravações. Se um item for enfileirado em uma transação, ele não será visível para um desenfileirador dentro da mesma transação.
 * As reas filas não são isoladas umas das outras. Se *o item A* for removido da fila na transação *txnA*, mesmo que *TxnA* não seja confirmado, *o item A* não estaria visível para uma transação simultânea *txnB*.  Se *txnA* abortar, *um* ficará visível para *txnB* imediatamente.
-* O comportamento de *TryPeekAsync* pode ser implementado usando um *TryDequeueAsync* e, em seguida, anulando a transação. Um exemplo disso pode ser encontrado na seção padrões de programação.
+* O comportamento de *TryPeekAsync* pode ser implementado usando um *TryDequeueAsync* e, em seguida, anulando a transação. Um exemplo desse comportamento pode ser encontrado na seção padrões de programação.
 * A contagem não é transacional. Ele pode ser usado para obter uma ideia do número de elementos na fila, mas representa um ponto no tempo e não pode ser confiável.
 * O processamento dispendioso nos itens da fila não deve ser executado enquanto a transação estiver ativa, para evitar transações de longa execução que podem ter um impacto no desempenho do sistema.
 
 ## <a name="code-snippets"></a>Trechos de código
 Vamos examinar alguns trechos de código e suas saídas esperadas. O tratamento de exceção é ignorado nesta seção.
 
+### <a name="instantiation"></a>Instanciação
+A criação de uma instância de uma fila simultânea confiável é semelhante a qualquer outra coleção confiável.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
+
 ### <a name="enqueueasync"></a>EnqueueAsync
 Aqui estão alguns trechos de código para usar EnqueueAsync seguidos por suas saídas esperadas.
 
-- *Caso 1: Tarefa de enfileiramento único*
+- *Case 1: Tarefa de enfileiramento único @ no__t-0
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -74,7 +81,7 @@ Suponha que a tarefa foi concluída com êxito e que não havia transações sim
 > 20, 10
 
 
-- *Caso 2: Tarefa de enfileiramento paralelo*
+- *Case 2: Tarefa de enfileiramento paralelo @ no__t-0
 
 ```
 // Parallel Task 1
@@ -103,7 +110,7 @@ Suponha que as tarefas foram concluídas com êxito, que as tarefas foram execut
 Aqui estão alguns trechos de código para usar TryDequeueAsync seguidos pelas saídas esperadas. Suponha que a fila já esteja preenchida com os seguintes itens na fila:
 > 10, 20, 30, 40, 50, 60
 
-- *Caso 1: Tarefa de remoção de fila única*
+- *Case 1: Tarefa única de remoção da fila @ no__t-0
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -118,7 +125,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Suponha que a tarefa foi concluída com êxito e que não havia transações simultâneas modificando a fila. Como nenhuma inferência pode ser feita sobre a ordem dos itens na fila, qualquer um dos três itens pode ser removido da fila, em qualquer ordem. A fila tentará manter os itens na ordem original (enfileirada), mas pode ser forçada a reordená-los devido a falhas ou operações simultâneas.  
 
-- *Caso 2: Tarefa de remoção de fila paralela*
+- *Case 2: Tarefa de remoção de fila paralela @ no__t-0
 
 ```
 // Parallel Task 1
@@ -146,7 +153,7 @@ Suponha que as tarefas foram concluídas com êxito, que as tarefas foram execut
 
 O mesmo item *não* será exibido em ambas as listas. Portanto, se dequeue1 tiver *10*, *30*, então dequeue2 teria *20*, *40*.
 
-- *Caso 3: Remover a ordem da fila com anulação de transação*
+- *Case 3: Remover a ordem da fila com a anulação da transação @ no__t-0
 
 A anulação de uma transação com as filas em andamento coloca os itens de volta no cabeçalho da fila. A ordem na qual os itens são colocados de volta no início da fila não é garantida. Vamos examinar o código a seguir:
 
@@ -168,13 +175,13 @@ Quando anulamos a transação, os itens seriam adicionados de volta ao cabeçalh
 > 
 > 20, 10
 
-O mesmo acontece com todos os casos em que a transação não foi confirmada com êxito.
+O mesmo acontece com todos os casos em que a transação não foi *confirmada*com êxito.
 
 ## <a name="programming-patterns"></a>Padrões de programação
 Nesta seção, vamos examinar alguns padrões de programação que podem ser úteis no uso do ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Remover filas do lote
-Um padrão de programação recomendado é que a tarefa do consumidor execute em lote suas rerespectivas filas em vez de executar uma remoção da fila de cada vez. O usuário pode optar por limitar os atrasos entre cada lote ou o tamanho do lote. O trecho de código a seguir mostra esse modelo de programação.  Observe que, neste exemplo, o processamento é feito depois que a transação é confirmada, portanto, se ocorrer uma falha durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Como alternativa, o processamento pode ser feito dentro do escopo da transação, no entanto, isso pode ter um impacto negativo no desempenho e requer o tratamento dos itens já processados.
+Um padrão de programação recomendado é que a tarefa do consumidor execute em lote suas rerespectivas filas em vez de executar uma remoção da fila de cada vez. O usuário pode optar por limitar os atrasos entre cada lote ou o tamanho do lote. O trecho de código a seguir mostra esse modelo de programação. Lembre-se, neste exemplo, que o processamento é feito depois que a transação é confirmada, portanto, se ocorrer uma falha durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Como alternativa, o processamento pode ser feito dentro do escopo da transação, no entanto, ele pode ter um impacto negativo no desempenho e requer o tratamento dos itens já processados.
 
 ```
 int batchSize = 5;
@@ -268,7 +275,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Dreno de melhor esforço
-Uma descarga da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em andamento, uma chamada específica para TryDequeueAsync pode não retornar um item que foi anteriormente enfileirado e confirmado.  O item enfileirado tem garantia de *tornar-* se visível para remover a fila, no entanto, sem um mecanismo de comunicação fora de banda, um consumidor independente não pode saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e não novas operações de enfileiramento são permitidas. Portanto, a operação de descarga é o melhor esforço conforme implementado abaixo.
+Uma descarga da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em andamento, uma chamada específica para TryDequeueAsync pode não retornar um item que foi anteriormente enfileirado e confirmado.  O item enfileirado tem garantia de *tornar-se visível para remover* a fila, no entanto, sem um mecanismo de comunicação fora de banda, um consumidor independente não pode saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e não novas operações de enfileiramento são permitidas. Portanto, a operação de descarga é o melhor esforço conforme implementado abaixo.
 
 O usuário deve parar todas as tarefas de produtor e consumidor adicionais e aguardar que as transações em andamento sejam confirmadas ou anuladas antes de tentar drenar a fila.  Se o usuário souber o número esperado de itens na fila, ele poderá configurar uma notificação que sinalizará que todos os itens foram removidas da fila.
 
@@ -337,7 +344,7 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 
 ## <a name="must-read"></a>Deve ler
-* [Reliable Services Início Rápido](service-fabric-reliable-services-quick-start.md)
+* [Guia de início rápido Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notificações de Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Reliable Services backup e restauração (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)

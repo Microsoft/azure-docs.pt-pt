@@ -1,26 +1,26 @@
 ---
-title: Perguntas frequentes do Azure Marketplace
-description: Respostas a perguntas comuns sobre o Microsoft Azure Marketplace
+title: Perguntas frequentes do Microsoft Commercial Marketplace
+description: Respostas para perguntas comuns sobre o Azure Marketplace e Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 9/26/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259944"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350377"
 ---
-# <a name="marketplace-faqs"></a>FAQs do Marketplace
+# <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes do Microsoft Commercial Marketplace
 
-Respostas para perguntas comuns sobre o Microsoft Azure Marketplace.
+Respostas para perguntas comuns sobre o Azure Marketplace e Microsoft AppSource.
 
 ## <a name="faq-for-customers"></a>Perguntas frequentes para clientes
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>O que necessita de saber sobre o Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>O que você precisa saber sobre o Azure Marketplace e Microsoft AppSource
 
 **O que é o Azure Marketplace?**
 
@@ -253,9 +253,26 @@ As licenças adicionadas a uma assinatura existente são classificadas em tempo 
 
 As licenças canceladas estarão sujeitas à política de reembolso encontrada nestas perguntas frequentes.  Todas as licenças canceladas são removidas imediatamente da sua conta e não estarão mais disponíveis para uso.
 
+**Os reembolsos têm suporte para ofertas baseadas em consumo?**
+
+Quaisquer encargos com base no consumo – sejam as VMs por hora ou os medidores personalizados – não são refundable por meio do cancelamento. Depois que o consumo ocorre, os encargos são processados pela plataforma comercial da Microsoft e qualquer qualidade de disputas de serviço em que um reembolso é solicitado seria manipulado fora dos sistemas da Microsoft entre o Publicador e o cliente diretamente. Ofertas que dão suporte a uma taxa fixa mais a cobrança limitada segue a política de reembolso padrão para os encargos de taxa fixa.
+
+**É possível alterar os planos de médio prazo?**
+
+Não, não é possível fazer a transição entre mensal e anual.
+
+**Um cliente pode comprar dois planos da mesma oferta?**
+
+Sim, é possível que um cliente tenha dois planos da mesma oferta simultaneamente.
+
+**As políticas de reembolso e alteração de plano diferem pela vitrine?**
+
+Não, as políticas de negócios são consistentes no Azure Marketplace e Microsoft AppSource. Se revendido por um parceiro na solução de nuvem fornecer programa, o parceiro poderá impor uma política diferente para seus clientes.
+
+
 ## <a name="faq-for-publishers"></a>Perguntas frequentes para Publicadores
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>O que necessita de saber sobre o Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>O que você precisa saber sobre o Azure Marketplace e Microsoft AppSource
 
 **O que é o Azure Marketplace?**
 

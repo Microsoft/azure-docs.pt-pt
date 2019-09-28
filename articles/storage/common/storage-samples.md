@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 03a036ce5381130af4bbcea88c87d77cd93cf6a9
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350873"
 ---
 # <a name="azure-storage-samples"></a>Exemplos de Armazenamento do Azure
 
@@ -40,13 +40,7 @@ Para explorar os exemplos do Python, baixe a [biblioteca de cliente de armazenam
 ## <a name="nodejs-samples"></a>Amostras de Node.js
 Para explorar os exemplos de Node. js, baixe a [biblioteca de cliente de armazenamento do node. js](https://github.com/Azure/azure-storage-node).
 
-* [Carregador de BLOB](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Carregar e baixar o blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [Token de continuação](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [Política de repetição](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [Assinatura de acesso compartilhado](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [Instantânea](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [Consulta de tabela](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [Exemplos de armazenamento do Azure usando JavaScript/node. js](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>C++amostras
 Para explorar os C++ exemplos, baixe a [ C++ biblioteca de cliente de armazenamento](https://www.nuget.org/packages/wastorage/) do NuGet.
@@ -57,7 +51,7 @@ Para explorar os C++ exemplos, baixe a [ C++ biblioteca de cliente de armazename
 
 ## <a name="api-reference-and-source-code"></a>Referência de API e código-fonte
 
-| Idioma | Referência da API | Código de origem |
+| Idioma | Referência da API | Código fonte |
 |----------|---------------|-------------|
 | .NET | [Referência da biblioteca de cliente .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Código-fonte para a biblioteca de cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Referência da biblioteca de cliente Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código-fonte para a biblioteca de cliente de armazenamento Java](https://github.com/azure/azure-storage-java) |
@@ -65,10 +59,11 @@ Para explorar os C++ exemplos, baixe a [ C++ biblioteca de cliente de armazename
 | Node.js | [Referência da biblioteca do cliente Node. js](https://azure.github.io/azure-storage-node) | [Código-fonte para a biblioteca do cliente de armazenamento do node. js](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++Referência da biblioteca de cliente](https://azure.github.io/azure-storage-cpp/) | [Código-fonte para C++ a biblioteca de cliente de armazenamento](https://github.com/Azure/azure-storage-cpp)|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os artigos a seguir indexam cada um dos exemplos por serviço (BLOB, arquivo, fila, tabela).
 
 * [Exemplos de Armazenamento do Microsoft Azure com o .NET](storage-samples-dotnet.md)
 * [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
+* [Exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
 * [Exemplos de armazenamento do Azure usando Python](storage-samples-python.md)

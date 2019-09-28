@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc1e80433a09d8a56f2900ab6b24dd3804db56ac
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 18df43ebf3a20547917ddd372d922741b4cee849
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086763"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350119"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar nós de computação do Linux em pools do lote
 
@@ -30,7 +30,7 @@ Você pode usar o lote do Azure para executar cargas de trabalho de computação
 >
 >
 
-## <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
+## <a name="virtual-machine-configuration"></a>Configuração da máquina virtual
 Ao criar um pool de nós de computação no lote, você tem duas opções das quais selecionar o tamanho do nó e o sistema operacional: Configuração de serviços de nuvem e configuração de máquina virtual.
 
 A **Configuração de Serviços Cloud** fornece nós de computação do Windows *apenas*. Os tamanhos de nó de computação disponíveis são listados em [tamanhos para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md), e os sistemas operacionais disponíveis são listados na [matriz de compatibilidade do SDK e versões do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Ao criar um pool que contém nós dos serviços de nuvem do Azure, você especifica o tamanho do nó e a família do sistema operacional, que são descritos nos artigos mencionados anteriormente. Para pools de nós de computação do Windows, os serviços de nuvem são usados com mais frequência.
@@ -38,7 +38,8 @@ A **Configuração de Serviços Cloud** fornece nós de computação do Windows 
 A **configuração de máquina virtual** fornece imagens do Linux e do Windows para nós de computação. Os tamanhos de nó de computação disponíveis são listados em [tamanhos para máquinas virtuais no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) e [tamanhos para máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Ao criar um pool que contém nós de configuração de máquina virtual, você deve especificar o tamanho dos nós, a referência de imagem de máquina virtual e a SKU do agente de nó de lote a ser instalada nos nós.
 
 ### <a name="virtual-machine-image-reference"></a>Referência de imagem de máquina virtual
-O serviço de lote usa conjuntos de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação na configuração de máquina virtual. Você pode especificar uma imagem do [Azure Marketplace][vm_marketplace]ou fornecer uma imagem personalizada que você preparou. Para obter mais detalhes sobre imagens personalizadas, consulte [criar um pool com uma imagem personalizada](batch-custom-images.md).
+
+O serviço de lote usa conjuntos de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação na configuração de máquina virtual. Você pode especificar uma imagem do [Azure Marketplace][vm_marketplace]ou fornecer uma imagem personalizada que você preparou. Para obter mais detalhes sobre imagens personalizadas, consulte [criar um pool com a Galeria de imagens compartilhadas](batch-sig-images.md).
 
 Ao configurar uma referência de imagem de máquina virtual, você especifica as propriedades da imagem de máquina virtual. As propriedades a seguir são necessárias quando você cria uma referência de imagem de máquina virtual:
 
@@ -323,7 +324,7 @@ O lote do Azure foi criado nos serviços de nuvem do Azure e na tecnologia de m�
 
 Se você implantar aplicativos em seus nós do lote usando [pacotes de aplicativos](batch-application-packages.md), também será cobrado pelos recursos de armazenamento do Azure consumidos por seus pacotes de aplicativos. Em geral, os custos de armazenamento do Azure são mínimos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os [exemplos de código do Python][github_samples_py] no repositório [Azure-batch-Samples][github_samples] no GitHub contêm scripts que mostram como executar operações comuns em lote, como pool, trabalho e criação de tarefas. O [Leiame][github_py_readme] que acompanha os exemplos do Python tem detalhes sobre como instalar os pacotes necessários.
 

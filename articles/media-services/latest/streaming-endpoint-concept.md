@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848908"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350359"
 ---
-# <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo 
+# <a name="streaming-endpoints"></a>Pontos finais de Transmissão em fluxo 
 
 No Serviços de Mídia do Microsoft Azure, um [ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço de empacotamento e origem (just-in-time) dinâmico que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente, usando uma das mídias de streaming comuns protocolos (HLS ou DASH). Além disso, o **ponto de extremidade de streaming** fornece criptografia dinâmica (just-in-time) para a DRMs líder do setor.
 
@@ -31,11 +31,16 @@ Quando você cria uma conta dos serviços de mídia, um ponto de extremidade de 
 
 ## <a name="naming-convention"></a>Convenção de nomenclatura
 
-Para o ponto de extremidade padrão:`{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+O formato do nome de host da URL de streaming é: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, em que `servicename` = o nome do ponto de extremidade de streaming ou o nome do evento ao vivo. 
 
-Para quaisquer pontos de extremidade adicionais:`{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Ao usar o ponto de extremidade de streaming padrão, `servicename` é omitido para que a URL seja: `{accountname}-{regionname}.streaming.azure.net`. 
 
-## <a name="types"></a>Digita  
+### <a name="limitations"></a>Limitações
+
+* O nome do ponto de extremidade de streaming tem um valor máximo de 24 caracteres.
+* O nome deve seguir este padrão de [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+## <a name="types"></a>Tipos  
 
 Existem dois tipos de **Ponto Final de Transmissão em Fluxo**: **Padrão** (visualização) e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) que você aloca para o ponto de extremidade de streaming. 
 
@@ -128,7 +133,7 @@ Na maioria dos casos, deve ter a CDN ativada. No entanto, se estiver a prever um
 
 ### <a name="considerations"></a>Considerações
 
-* O ponto de `hostname` extremidade de streaming e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
+* O ponto de extremidade de streaming `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
 * Se você precisar da capacidade de testar o conteúdo com ou sem CDN, poderá criar outro ponto de extremidade de streaming que não esteja habilitado para CDN.
 
 ### <a name="detailed-explanation-of-how-caching-works"></a>Explicação detalhada de como funciona o Caching
@@ -158,7 +163,7 @@ Você pode determinar se a alteração de DNS foi feita em um ponto de extremida
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O exemplo [neste repositório](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) mostra como iniciar o ponto de extremidade de streaming padrão com o .net.
 

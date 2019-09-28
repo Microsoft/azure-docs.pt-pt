@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918964"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350667"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 
@@ -156,8 +156,8 @@ Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciada
  
 | Elemento | Type | Descrição |
 |---------|------|-------------|
-| Conector | Objeto JSON | Os cabeçalhos da resposta |
-| corpo | Objeto JSON | O corpo da resposta |
+| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta |
+| Conteúdo | Objeto JSON | O corpo da resposta |
 | Código de status | Integer | O código de status da resposta |
 |||| 
 
@@ -329,8 +329,8 @@ Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na a
 
 | Elemento | Type | Descrição |
 |---------|------|-------------| 
-| Conector | Objeto JSON | Os cabeçalhos da resposta | 
-| corpo | Objeto JSON | O corpo da resposta | 
+| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| Conteúdo | Objeto JSON | O corpo da resposta | 
 | Código de status | Integer | O código de status da resposta | 
 |||| 
 
@@ -424,8 +424,8 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subs
 
 | Elemento | Type | Descrição |
 |---------|------|-------------| 
-| Conector | Objeto JSON | Os cabeçalhos da resposta | 
-| corpo | Objeto JSON | O corpo da resposta | 
+| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| Conteúdo | Objeto JSON | O corpo da resposta | 
 | Código de status | Integer | O código de status da resposta | 
 |||| 
 
@@ -656,7 +656,7 @@ Esse gatilho especifica que uma solicitação de entrada deve usar o método HTT
 
 <a name="trigger-conditions"></a>
 
-## <a name="trigger-conditions"></a>Condições do gatilho
+## <a name="trigger-conditions"></a>Condições do acionador
 
 Para qualquer gatilho e somente gatilhos, você pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar a `conditions` Propriedade a um gatilho em seu fluxo de trabalho, abra seu aplicativo lógico no editor de exibição de código.
 
@@ -1538,7 +1538,7 @@ Essa ação cria uma matriz com objetos JSON transformando itens de outra matriz
 |-------|------|-------------| 
 | <*array*> | Array | A matriz ou expressão que fornece os itens de origem. Certifique-se de colocar uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação criará uma matriz vazia. | 
 | <*key-name*> | String | O nome da propriedade atribuído ao resultado da*expressão* <> <p>Para adicionar uma nova propriedade em todos os objetos na matriz de saída, forneça um < > de*nome de chave*para essa propriedade e uma*expressão*de < > para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos na matriz, omita o < > de*nome de chave*para essa propriedade. | 
-| <*expressão*> | String | A expressão que transforma o item na matriz de origem e atribui o resultado a <*nome-chave*> | 
+| <*expressão*> | Cadeia | A expressão que transforma o item na matriz de origem e atribui o resultado a <*nome-chave*> | 
 |||| 
 
 A ação **selecionar** cria uma matriz como saída, portanto, qualquer ação que queira usar essa saída deve aceitar uma matriz ou você deve converter a matriz no tipo que a ação do consumidor aceita. Por exemplo, para converter a matriz de saída em uma cadeia de caracteres, você pode passar essa matriz para a ação compor e, em seguida, fazer referência à saída da ação **compor** em suas outras ações.
@@ -2402,12 +2402,38 @@ Você pode alterar o comportamento padrão para gatilhos e ações com `operatio
 
 ### <a name="change-trigger-concurrency"></a>Alterar simultaneidade do gatilho
 
-Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo, simultaneamente ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de gatilho é acionada antes da conclusão da execução da instância do fluxo de trabalho anterior. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem. 
+Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de gatilho é acionada antes da conclusão da execução da instância do fluxo de trabalho anterior. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem. 
 
-Para alterar o limite padrão, você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por `runtimeConfiguration.concurrency.runs` meio do designer adiciona ou atualiza a propriedade na definição de gatilho subjacente e vice-versa. Essa propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. 
+Para alterar o limite padrão, você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por `runtimeConfiguration.concurrency.runs` meio do designer adiciona ou atualiza a propriedade na definição de gatilho subjacente e vice-versa. Essa propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. Aqui estão algumas considerações quando você usa o controle de simultaneidade:
 
-> [!NOTE] 
-> Se você definir o gatilho para ser executado sequencialmente usando o designer ou o editor de modo de exibição de código, não defina `operationOptions` a propriedade `SingleInstance` do gatilho como no editor de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [disparar instâncias sequencialmente](#sequential-trigger).
+* Enquanto a simultaneidade está habilitada, uma instância de aplicativo lógico de execução longa pode fazer com que novas instâncias do aplicativo lógico entrem em um estado de espera. Esse estado impede que os aplicativos lógicos do Azure criem novas instâncias e ocorram mesmo quando o número de execuções simultâneas for menor do que o número máximo especificado de execuções simultâneas.
+
+  * Para interromper esse Estado, cancele as instâncias mais antigas que *ainda estão em execução*.
+
+    1. No menu do aplicativo lógico, selecione **visão geral**.
+
+    1. Na seção **histórico de execuções** , selecione a instância mais antiga que ainda está em execução, por exemplo:
+
+       ![Selecionar instância em execução mais antiga](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > Para exibir apenas as instâncias que ainda estão em execução, abra a lista **todos** e selecione **executando**.    
+
+    1. Em **execução do aplicativo lógico**, selecione **Cancelar executar**.
+
+       ![Localizar instância em execução mais antiga](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * Para contornar essa possibilidade, adicione um tempo limite a qualquer ação que possa manter essas execuções. Se você estiver trabalhando no editor de código, consulte [alterar duração assíncrona](#asynchronous-limits). Caso contrário, se você estiver usando o designer, siga estas etapas:
+
+    1. Em seu aplicativo lógico, na ação em que você deseja adicionar um tempo limite, no canto superior direito, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
+
+       ![Abrir configurações de ação](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. Em **tempo limite**, especifique a duração do tempo limite no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Especificar duração do tempo limite](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* Se você quiser executar seu aplicativo lógico sequencialmente, poderá definir a simultaneidade do gatilho como `1` usando o editor de modo de exibição de código ou o designer. No entanto, não defina também a propriedade `operationOptions` do gatilho como `SingleInstance` no editor de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [disparar instâncias sequencialmente](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Editar na exibição de código 
 
@@ -2768,6 +2794,6 @@ Nesta definição de ação http de exemplo, `authentication` a seção `ActiveD
 > [!IMPORTANT]
 > Certifique-se de proteger quaisquer informações confidenciais manipuladas pela definição de fluxo de trabalho do aplicativo lógico. Use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como proteger os parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md)

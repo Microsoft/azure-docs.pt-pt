@@ -7,16 +7,16 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 5d823059842bf539f00ad372127fc8b636c74b65
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746042"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351154"
 ---
 # <a name="azure-storage-samples-using-python"></a>Exemplos de armazenamento do Azure usando Python
 
-A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e dos cenários abordados em cada exemplo. Clique nos links para exibir o código de exemplo correspondente no GitHub.
+As tabelas a seguir fornecem uma visão geral do nosso repositório de exemplos e dos cenários abordados em cada exemplo. Clique nos links para exibir o código de exemplo correspondente no GitHub.
 
 ## <a name="blob-samples"></a>Amostras de BLOB
 
@@ -93,10 +93,11 @@ Confira os guias a seguir se você estiver procurando instruções sobre como in
 * [Introdução com o serviço tabela do Azure no Python](../../cosmos-db/table-storage-how-to-use-python.md)
 * [Introdução com o serviço de arquivos do Azure no Python](../files/storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre exemplos de outros idiomas:
 
 * .NET: [Exemplos de Armazenamento do Microsoft Azure com o .NET](storage-samples-dotnet.md)
 * Java: [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
+* JavaScript/node. js: [Exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
 * Todos os outros idiomas: [Exemplos de armazenamento do Azure](storage-samples.md)

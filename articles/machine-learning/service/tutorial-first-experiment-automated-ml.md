@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259319"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350497"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -50,7 +50,7 @@ Você cria um espaço de trabalho por meio do portal do Azure, um console basead
 
 ## <a name="create-and-run-the-experiment"></a>Criar e executar o experimento
 
-Você conclui as seguintes etapas de configuração e execução de experimento na página de aterrissagem do espaço de trabalho, uma interface consolidada que inclui ferramentas de aprendizado de máquina para executar cenários de ciência de dados para profissionais de ciência de dados de todos os níveis de habilidade.
+Você conclui as seguintes etapas de configuração e execução de experimento na página de aterrissagem do espaço de trabalho, uma interface consolidada que inclui ferramentas de aprendizado de máquina para executar cenários de ciência de dados para profissionais de ciência de dados de todos os níveis de habilidade. Não há suporte para a página de aterrissagem do espaço de trabalho em navegadores do Internet Explorer.
 
 1. Entre na página de [aterrissagem do espaço de trabalho](https://ml.azure.com/workspaceportal/).
 
@@ -58,7 +58,7 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
 
 1. Selecione **introdução**.
 
-1. No painel esquerdo, selecione **ml automatizado** na seção **criação** .
+1. No painel esquerdo, selecione **ml automatizado** na seção **autor** .
 
    Como esse é seu primeiro experimento de ML automatizado, você verá a tela introdução.
 
@@ -99,23 +99,21 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
        
     1. Verifique se as **configurações e** o formulário de visualização estão preenchidos da seguinte maneira e selecione **Avançar**.
         
-        Campo|Valor do tutorial
-        ---|---
-        Formato do ficheiro| Delimitado
-        Delimitador| Vírgula
-        Codificação| UTF-8
-        Cabeçalhos de coluna| Todos os ficheiros têm os mesmos cabeçalhos
-        Ignorar linhas | Nenhum
+        Campo|Descrição| Valor do tutorial
+        ---|---|---
+        Formato do ficheiro|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitado
+        Delimitador|Um ou mais caracteres para especificar o limite entre @ no__t-0 regiões separadas e independentes em texto sem formatação ou outros fluxos de dados. |Vírgula
+        Codificação|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
+        Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
+        Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhum
     
-    1. O formulário de **esquema** permite a configuração adicional de seus dados para esse experimento. Para este exemplo, selecione a opção Alternar para o recurso **day_of_week** para não incluí-lo para este experimento. Selecione **concluído**, para concluir o carregamento do arquivo e a criação do conjunto de um para o experimento.
-
         ![Configuração da guia de visualização](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. Selecione **classificação** como a tarefa de previsão.
 
 1. Selecione **y** como a coluna de destino, o que você deseja prever. Esta coluna indica se o cliente assinou um termo de depósito ou não.
 
-1. Expanda **Configurações avançadas** e preencha os campos da seguinte maneira.
+1. Expanda **Configurações avançadas** e preencha os campos da seguinte maneira. Essas configurações são para controlar melhor o trabalho de treinamento. Caso contrário, os padrões serão aplicados com base na seleção de experimento e nos dados.
 
    >[!NOTE]
    > Neste tutorial, você não definirá uma pontuação de métrica ou um limite máximo de núcleos por iterações. Nem você bloqueará o teste de algoritmos.
@@ -138,10 +136,10 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
 
 ##  <a name="explore-iteration-results"></a>Explorar resultados de iteração
 
-À medida que o experimento progride, a tela atualiza o **gráfico de iteração** e a **lista de iteração** com as diferentes iterações (modelos) criadas conforme elas são concluídas e as ordena por Pontuação de métrica. Por padrão, o modelo que classifica o mais alto com base na métrica de **AUC_weighted** escolhida está na parte superior da lista.
+À medida que o experimento progride, a tela atualiza o **gráfico de iteração** e a **lista de iteração** com as diferentes iterações (modelos) criadas conforme elas são concluídas. Por padrão, as iterações são ordenadas por Pontuação de métrica. Para este tutorial, o modelo que classifica o mais alto com base na métrica de **AUC_weighted** escolhida está no topo da lista.
 
 Enquanto você aguarda até que todas as iterações de experimento sejam concluídas, selecione o **nome** de uma iteração concluída para explorar seus detalhes de desempenho. 
-   
+
 O exemplo a seguir mostra os gráficos e as métricas de execução geradas para cada iteração, como uma curva de recall de precisão, matriz de confusão, pontuações de precisão ponderada, etc. 
 
 ![Detalhes da execução de iteração](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
@@ -199,6 +197,7 @@ Neste tutorial de aprendizado de máquina automatizado, você usou a página de 
 + Saiba mais sobre o [pré-processamento](how-to-create-portal-experiments.md#preprocess).
 + Saiba mais sobre a [criação de perfil de dados](how-to-create-portal-experiments.md#profile).
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
++ Para obter mais informações sobre métricas de classificação e gráficos, consulte o artigo [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md#classification) .
 
 >[!NOTE]
 > Esse conjunto de Cco de [marketing bancário é disponibilizado no Creative Commons Domínio público)](https://creativecommons.org/publicdomain/zero/1.0/). Todos os direitos no conteúdo individual do banco de dados são licenciados sob a [licença de conteúdo do banco de dados](https://creativecommons.org/publicdomain/zero/1.0/) e estão disponíveis em [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Esse conjunto de dados estava originalmente disponível no [banco de dados de Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

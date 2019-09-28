@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 7716c477cea2200e6fee901f7b5f63cd4b833bd7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 31260be6c65f5948eba6b9c6228b5ead695278d1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232674"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350714"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados recorrentes com aplicativos lógicos do Azure
 
@@ -129,15 +129,14 @@ Aqui estão várias recorrências de exemplo que você pode configurar para os g
 | Recurrence <br>Janela Deslizante | Executar a cada 15 minutos após a hora, a cada hora (com data e hora de início) | 1 | Hora | *startDate*T00:15:00Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As recorrências futuras são executadas na marca de "15" minutos, que é calculada a partir da hora de início, portanto às 00:15 A.M., 1:15 AM, 2:15 AM e assim por diante. |
 | Periodicidade | Executar a cada 15 minutos após a hora, a cada hora (sem data e hora de início) | 1 | Dia | None | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Essa agenda é executada às 00:15 A.M., 1:15, 2:15 AM e assim por diante. Além disso, esse agendamento é equivalente a uma frequência de "hora" e uma hora de início com "15" minutos. |
 | Periodicidade | Executar a cada 15 minutos nas marcas de minuto especificadas (sem data e hora de início). | 1 | Dia | None | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Essa agenda não é iniciada até a próxima marca de 15 minutos especificada. |
-| Periodicidade | Executar às 8:00 A.M. todos os dias (sem data e hora de início) | 1 | Dia | None | {unavailable} | 8 | None | Essa agenda é executada às 8:00, todos os dias, com base na agenda especificada. |
-| Periodicidade | Executar às 8:00, todos os dias (com data e hora de início) | 1 | Dia | *startDate*T08:00:00Z | {unavailable} | None | None | Essa agenda é executada em 8:00 a cada dia, com base na hora de início especificada. | 
-| Periodicidade | Executar às 8:30 A.M. todos os dias (sem data e hora de início) | 1 | Dia | None | {unavailable} | 8 | 30 | Essa agenda é executada às 8:30, todos os dias, com base na agenda especificada. |
-| Periodicidade | Executar às 8:30, todos os dias (com data e hora de início) | 1 | Dia | *startDate*T08:30:00Z | {unavailable} | None | None | Esta agenda começa na data de início especificada às 8:30. |
-| Periodicidade | Executar às 8:30 AM e 4:30 PM todos os dias | 1 | Dia | None | {unavailable} | 8, 16 | 30 | |
-| Periodicidade | Executar às 8:30, 8:45 AM, 4:30 PM e 4:45 PM todos os dias | 1 | Dia | None | {unavailable} | 8, 16 | 30, 45 | |
+| Periodicidade | Execute diariamente às 8:00 *mais* o minuto-Mark de quando você salva seu aplicativo lógico | 1 | Dia | None | {unavailable} | 8 | None | Sem uma data e hora de início, essa agenda é executada com base no tempo em que você salva o aplicativo lógico (operação PUT). |
+| Periodicidade | Executar diariamente às 8:00 (com data e hora de início) | 1 | Dia | *startDate*T08:00:00Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As ocorrências futuras são executadas diariamente às 8:00. | 
+| Periodicidade | Executar diariamente às 8:30 AM (sem data e hora de início) | 1 | Dia | None | {unavailable} | 8 | 30 | Essa agenda é executada às 8:30, todos os dias. |
+| Periodicidade | Executar diariamente às 8:30 AM e 4:30 PM | 1 | Dia | None | {unavailable} | 8, 16 | 30 | |
+| Periodicidade | Executar diariamente às 8:30, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Dia | None | {unavailable} | 8, 16 | 30, 45 | |
 | Periodicidade | Executar a cada sábado às 17h (sem data e hora de início) | 1 | Semana | None | Sábado | 17 | 00 | Essa agenda é executada a cada sábado às 5:00 PM. |
 | Periodicidade | Executar todos os sábados às 17h (com data e hora de início) | 1 | Semana | *startDate*T17:00:00Z | Sábado | None | None | Esse agendamento não é iniciado *antes* da data e hora de início especificadas, neste caso, 9 de setembro de 2017 às 5:00 PM. As recorrências futuras são executadas a cada sábado às 5:00 PM. |
-| Periodicidade | Execute todas as terças-feiras às 17h | 1 | Semana | None | "Terça-feira", "quinta-feira" | 17 | None | Essa agenda é executada todas as terças e quintas-feiras às 5:00 PM. |
+| Periodicidade | Execute todas as terças-feiras às 17:00, *mais* o minuto-Mark de quando você salva seu aplicativo lógico| 1 | Semana | None | "Terça-feira", "quinta-feira" | 17 | None | |
 | Periodicidade | Executar a cada hora durante o horário de trabalho | 1 | Semana | None | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que você deseja. | Selecione os minutos da hora que desejar. | Por exemplo, se seu horário de trabalho for de 8:00 a 5:00 PM, selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se seu horário de trabalho for de 8:30 a 5:30 PM, selecione as horas anteriores do dia mais "30" como minutos da hora. |
 | Periodicidade | Executar uma vez todos os dias nos fins de semana | 1 | Semana | None | "Sábado", "domingo" | Selecione as horas do dia que você deseja. | Selecione os minutos da hora conforme apropriado. | Essa agenda é executada a cada sábado e domingo no agendamento especificado. |
 | Periodicidade | Executar a cada 15 minutos quinzenalmente apenas nas segundas-feiras | 2 | Semana | None | Segunda-feira | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Essa agenda é executada a cada segunda-feira a cada marca de 15 minutos. |
