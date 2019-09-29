@@ -1,17 +1,17 @@
 ---
-title: Adicionar destinatários a um compartilhamento de dados existente na visualização do compartilhamento de dados do Azure
+title: Adicionar destinatários na visualização do compartilhamento de dados do Azure
 description: Adicionar destinatários a um compartilhamento de dados existente
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 7df0e92bd6dba988e7a8241f7076410c3cafca37
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: e496f67616f7ebcf4c086c8d01680b95f9cafcf8
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320305"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share-preview"></a>Como adicionar um destinatário a um compartilhamento de dados existente na visualização do compartilhamento de dados do Azure
 
@@ -31,5 +31,5 @@ Um painel será exibido no lado direito da página. Clique em **Adicionar destin
 
 Clique em **Adicionar e enviar convite**. Os novos destinatários serão enviados emails de convite para esse compartilhamento de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [excluir um convite para um compartilhamento](how-to-delete-invitation.md).

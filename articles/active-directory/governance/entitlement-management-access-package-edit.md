@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291023"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326380"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar e gerenciar um pacote do Access existente no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -36,7 +36,7 @@ Este artigo descreve como editar e gerenciar pacotes de acesso existentes.
 
 ## <a name="add-resource-roles"></a>Adicionar funções de recurso
 
-Uma função de recurso é uma coleção de permissões associadas a um recurso. A maneira de disponibilizar os recursos para os usuários solicitarem é adicionando funções de recurso ao seu pacote de acesso. Você pode adicionar funções de recurso para grupos, aplicativos e sites do SharePoint.
+Uma função de recurso é uma coleção de permissões associadas a um recurso. A maneira de disponibilizar os recursos para os usuários solicitarem é adicionando funções de recurso ao seu pacote de acesso. Você pode adicionar funções de recursos para grupos, equipes, aplicativos e sites do SharePoint.
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
@@ -50,38 +50,49 @@ Uma função de recurso é uma coleção de permissões associadas a um recurso.
 
     ![Pacote de acesso – adicionar funções de recurso](./media/entitlement-management-access-package-edit/resource-roles-add.png)
 
-1. Dependendo se você deseja adicionar um grupo, aplicativo ou site do SharePoint, execute as etapas em uma das seções de função de recurso a seguir.
+1. Dependendo se você deseja adicionar um grupo, uma equipe, um aplicativo ou um site do SharePoint, execute as etapas em uma das seções de função de recurso a seguir.
 
-### <a name="add-a-group-resource-role"></a>Adicionar uma função de recurso de grupo
+### <a name="add-a-group-or-team-resource-role"></a>Adicionar uma função de recurso de equipe ou grupo
 
-Você pode ter o gerenciamento de direitos para adicionar automaticamente usuários a um grupo quando eles são atribuídos a um pacote de acesso. 
+Você pode ter o gerenciamento de direitos para adicionar automaticamente usuários a um grupo ou a uma equipe da Microsoft quando eles forem atribuídos a um pacote de acesso. 
 
-- Quando um grupo faz parte de um pacote do Access e um usuário é atribuído a esse pacote do Access, o usuário é adicionado a esse grupo, se ainda não estiver presente.
-- Quando a atribuição de pacote de acesso de um usuário expira, elas são removidas do grupo, a menos que tenham atualmente uma atribuição a outro pacote de acesso que inclua o mesmo grupo.
+- Quando um grupo ou equipe faz parte de um pacote do Access e um usuário é atribuído a esse pacote do Access, o usuário é adicionado a esse grupo ou equipe, se ainda não estiver presente.
+- Quando a atribuição de pacote de acesso de um usuário expira, elas são removidas do grupo ou da equipe, a menos que tenham atualmente uma atribuição a outro pacote de acesso que inclua o mesmo grupo ou equipe.
 
-Você pode selecionar qualquer grupo do Office 365 ou grupo de segurança do Azure AD.  Os administradores podem adicionar qualquer grupo a um catálogo; os proprietários do catálogo podem adicionar qualquer grupo ao catálogo se eles forem proprietários do grupo. Tenha em mente as seguintes restrições do Azure AD ao selecionar um grupo:
+Você pode selecionar qualquer [grupo de segurança do Azure ad ou grupo do Office 365](../fundamentals/active-directory-groups-create-azure-portal.md).  Os administradores podem adicionar qualquer grupo a um catálogo; os proprietários do catálogo podem adicionar qualquer grupo ao catálogo se eles forem proprietários do grupo. Tenha em mente as seguintes restrições do Azure AD ao selecionar um grupo:
 
-- Quando um usuário, incluindo um convidado, é adicionado como um membro a um grupo, ele pode ver todos os outros membros desse grupo.
+- Quando um usuário, incluindo um convidado, é adicionado como um membro a um grupo ou equipe, ele pode ver todos os outros membros desse grupo ou equipe.
 - O Azure AD não pode alterar a associação de um grupo que foi sincronizado do Windows Server Active Directory usando Azure AD Connect ou que foi criado no Exchange Online como um grupo de distribuição.  
 - A associação de grupos dinâmicos não pode ser atualizada com a adição ou remoção de um membro, portanto, as associações de grupo dinâmicos não são adequadas para uso com o gerenciamento de direitos.
 
-1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **grupos** para abrir o painel Selecionar grupos.
+Para obter mais informações, consulte [comparar grupos](/office365/admin/create-groups/compare-groups) e [grupos do Office 365 e Microsoft Teams](/microsoftteams/office-365-groups).
 
-1. Selecione os grupos que você deseja incluir no pacote de acesso.
+1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **grupos e equipes** para abrir o painel Selecionar grupos.
+
+1. Selecione os grupos e as equipes que você deseja incluir no pacote de acesso.
 
     ![Pacote de acesso – adicionar funções de recurso-selecionar grupos](./media/entitlement-management-access-package-edit/group-select.png)
 
 1. Clique em **Selecionar**.
 
+    Depois de selecionar o grupo ou a equipe, a coluna de **subtipo** listará um dos seguintes subtipos:
+
+    |  |  |
+    | --- | --- |
+    | Segurança | Usado para conceder acesso aos recursos. |
+    | Distribuição | Usado para enviar notificações para um grupo de pessoas. |
+    | O365 | Grupo do Office 365 que não é habilitado para equipes. Usado para colaboração entre usuários, dentro e fora da sua empresa. |
+    | Equipa | Grupo do Office 365 habilitado para equipes. Usado para colaboração entre usuários, dentro e fora da sua empresa. |
+
 1. Na lista **função** , selecione **proprietário** ou **membro**.
 
     Normalmente, você seleciona a função de membro. Se você selecionar a função proprietário, isso permitirá que os usuários adicionem ou removam outros membros ou proprietários.
 
-    ![Pacote de acesso-Adicionar função de recurso para um grupo](./media/entitlement-management-access-package-edit/group-role.png)
+    ![Pacote de acesso-Adicionar função de recurso para um grupo ou equipe](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. Clique em **Adicionar**.
 
-    Todos os usuários com atribuições existentes ao pacote de acesso se tornarão automaticamente membros desse grupo quando ele for adicionado.
+    Qualquer usuário com atribuições existentes ao pacote de acesso se tornará automaticamente membros deste grupo ou equipe quando ele for adicionado.
 
 ### <a name="add-an-application-resource-role"></a>Adicionar uma função de recurso de aplicativo
 

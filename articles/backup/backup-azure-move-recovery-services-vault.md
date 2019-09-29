@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 960ddcc2a082b247951b0f79d0c990acc5e557e1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 6e95c012aed9fdcfda2b64c310458425df2b9f9e
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337892"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -38,7 +38,7 @@ A movimentação de recursos para o cofre dos serviços de recuperação é supo
 - As opções para mover recursos implantados por meio do modelo clássico diferem dependendo se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura. Para obter mais informações, veja [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) artigo.
 - As políticas de backup definidas para o cofre são mantidas depois que o cofre se move entre assinaturas ou para um novo grupo de recursos.
 - Não há suporte para mover o cofre com os arquivos do Azure, Sincronização de Arquivos do Azure ou SQL em VMs IaaS entre assinaturas e grupos de recursos.
-- Se você mover um cofre que contém dados de backup da VM, entre assinaturas, deverá mover suas VMs para a mesma assinatura e usar o mesmo grupo de recursos de destino para continuar os backups.<br>
+- Se você mover um cofre que contém dados de backup de VM, entre assinaturas, deverá mover suas VMs para a mesma assinatura e usar o mesmo nome de grupo de recursos de VM de destino (como se ela estava na assinatura antiga) para continuar os backups.<br>
 
 > [!NOTE]
 >
@@ -143,7 +143,7 @@ Para mover para uma nova subscrição, forneça o `--destination-subscription-id
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode mover muitos tipos diferentes de recursos entre grupos de recursos e assinaturas.
 

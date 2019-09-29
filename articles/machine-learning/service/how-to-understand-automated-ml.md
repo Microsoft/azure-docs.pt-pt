@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999433"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350636"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 
@@ -30,7 +30,7 @@ Saiba mais sobre:
 
 * Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
-* Crie um experimento de aprendizado de máquina automatizado, seja com o SDK, na portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia).
+* Crie um experimento para a execução automatizada do Machine Learning, seja com o SDK, na portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia).
 
     * Usar o SDK para criar um modelo de [classificação](how-to-auto-train-remote.md) ou um [modelo](tutorial-auto-train-models.md) de regressão
     * Use a [portal do Azure ou a página de aterrissagem do espaço de trabalho (versão prévia)](how-to-create-portal-experiments.md) para criar um modelo de classificação ou regressão carregando os dados apropriados.
@@ -117,7 +117,7 @@ O termo que precisão representa essa habilidade para um classificador que ident
 
 Exemplo 1: Um modelo de classificação com baixa precisão e baixa ![recuperação de um modelo de classificação com baixa precisão e baixa recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
-Exemplo 2: Um modelo de classificação com aproximadamente 100% de precisão e ~ 100% recall ![(ideal) um modelo de classificação alta precisão e RECALL](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+Exemplo 2: Um modelo de classificação com aproximadamente 100% de precisão e ~ 100% recall (ideal) ![A de classificação do modelo de classificações alta precisão e RECALL @ no__t-1
 
 ### <a name="roc"></a>COR MULTICLASSE
 
@@ -214,7 +214,7 @@ Pode rever a classificação de importância de funcionalidade para o modelo ger
 
 Para obter mais informações sobre como habilitar recursos de interpretação, consulte [Configurar experimentos de ml automatizados em Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  Para obter um exemplo que explica o melhor modelo, consulte a [melhor explicação do modelo](how-to-auto-train-remote.md#explain).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre o [ml automatizado](concept-automated-ml.md) no Azure Machine Learning.
 + Experimente o bloco de anotações de exemplo [explicação do modelo de Machine Learning automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) .

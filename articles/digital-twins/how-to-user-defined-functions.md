@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013977"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336897"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -119,12 +119,12 @@ function process(telemetry, executionContext) {
    - A primeira parte contém os metadados de função definidos pelo usuário necessários.
    - A segunda parte contém a lógica de computação do JavaScript.
 
-1. Na seção **USER_DEFINED_BOUNDARY** , substitua os valores de spaceid`YOUR_SPACE_IDENTIFIER`() e matchers`YOUR_MATCHER_IDENTIFIER`().
-1. Verifique se a função definida pelo usuário do JavaScript é fornecida `Content-Type: text/javascript`como.
+1. Na seção **USER_DEFINED_BOUNDARY** , substitua os valores de **spaceid** (`YOUR_SPACE_IDENTIFIER`) e **correspondentes** (`YOUR_MATCHER_IDENTIFIER`).
+1. Verifique se a função definida pelo usuário do JavaScript é fornecida como `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Funções de exemplo
 
-Defina a telemetria do sensor lendo diretamente para o sensor com a **temperatura**do tipo `sensor.DataType`de dados, que é:
+Defina a telemetria do sensor lendo diretamente para o sensor com a **temperatura**do tipo de dados, que é `sensor.DataType`:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -140,7 +140,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-O parâmetro telemetria expõe os atributos **sensorid** e **Message** , correspondentes a uma mensagem enviada por um sensor. O parâmetro **ExecutionContext** expõe os seguintes atributos:
+O parâmetro **telemetria** expõe os atributos **sensorid** e **Message** , correspondentes a uma mensagem enviada por um sensor. O parâmetro **ExecutionContext** expõe os seguintes atributos:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -197,7 +197,7 @@ Para obter um exemplo de código de função definido pelo usuário mais complex
 
 Crie uma atribuição de função na qual a função definida pelo usuário deve ser executada. Se nenhuma atribuição de função existir para a função definida pelo usuário, ela não terá as permissões apropriadas para interagir com a API de gerenciamento ou terá acesso para executar ações em objetos de grafo. Ações que uma função definida pelo usuário pode executar são especificadas e definidas por meio do controle de acesso baseado em função nas APIs de gerenciamento de gêmeos digital do Azure. Por exemplo, as funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou determinados caminhos de controle de acesso. Para obter mais informações, consulte a documentação do [controle de acesso baseado em função](./security-role-based-access-control.md) .
 
-1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#all) para todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso fazendo uma solicitação HTTP GET autenticada para:
+1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) para todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso fazendo uma solicitação HTTP GET autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
@@ -205,8 +205,8 @@ Crie uma atribuição de função na qual a função definida pelo usuário deve
    Mantenha a ID de função desejada. Ele será passado como o atributo de corpo JSON **RoleID** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
 
 1. **ObjectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) será a ID da função definida pelo usuário que foi criada anteriormente.
-1. Localize o valor de **path** (`YOUR_ACCESS_CONTROL_PATH`) consultando seus espaços com `fullpath`.
-1. Copie o valor `spacePaths` retornado. Você o usará abaixo. Faça uma solicitação HTTP GET autenticada para:
+1. Localize o valor do **caminho** (`YOUR_ACCESS_CONTROL_PATH`) consultando seus espaços com `fullpath`.
+1. Copie o valor de `spacePaths` retornado. Você o usará abaixo. Faça uma solicitação HTTP GET autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
@@ -216,7 +216,7 @@ Crie uma atribuição de função na qual a função definida pelo usuário deve
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço que você deseja usar |
 
-1. Cole o valor `spacePaths` retornado em **Path** para criar uma atribuição de função de função definida pelo usuário fazendo uma solicitação HTTP post autenticada para:
+1. Cole o valor retornado `spacePaths` em **path** para criar uma atribuição de função de função definida pelo usuário fazendo uma solicitação HTTP post autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -250,7 +250,7 @@ O sensor definido no grafo de inteligência espacial envia telemetria. Por sua v
 1. Dependendo de quais correspondentes foram avaliados com êxito, recupere as funções definidas pelo usuário associadas.
 1. Execute cada função definida pelo usuário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar pontos de extremidade do Azure digital gêmeos](./how-to-egress-endpoints.md) para enviar eventos para o.
 

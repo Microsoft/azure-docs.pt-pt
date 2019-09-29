@@ -3,16 +3,16 @@ title: Solucionar problemas de visualização do compartilhamento de dados do Az
 description: Saiba como solucionar problemas com a visualização do compartilhamento de dados do Azure
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 386a5e34dccafa61859cd13c3e0ad88cd3a7ffac
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 62b386f4648074bbf1f002e162151253e5b43bc9
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421460"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320302"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Solucionar problemas comuns na visualização do compartilhamento de dados do Azure
 
@@ -56,7 +56,7 @@ Se receber algum dos erros acima ao criar ou receber uma nova partilha de dados,
 1. Clique em **Adicionar**
 1. Adicione você mesmo como proprietário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
 

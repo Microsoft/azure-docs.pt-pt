@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure | Documentos da Microsoft
-description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos, os principais de serviço e identidades geridas com o controlo de acesso baseado em funções (RBAC) e o portal do Azure. Isto inclui como listar, conceder e remover acesso.
+title: Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos, entidades de serviço e identidades gerenciadas usando o RBAC (controle de acesso baseado em função) e o portal do Azure. Isto inclui como listar, conceder e remover acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,180 +14,180 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e9a53c41535c17de2d56227012160c7f6eb25c6
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533166"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337611"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure
 
-[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Este artigo descreve como gerir o acesso no portal do Azure. Se precisar de gerir o acesso ao Azure Active Directory, consulte [modo de exibição e atribuir funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Este artigo descreve como gerenciar o acesso usando o portal do Azure. Se você precisar gerenciar o acesso a Azure Active Directory, consulte [Exibir e atribuir funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar e remover atribuições de função, tem de ter:
+Para adicionar e remover atribuições de função, você deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tal como [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
+- permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
 
-## <a name="overview-of-access-control-iam"></a>Descrição geral do controlo de acesso (IAM)
+## <a name="overview-of-access-control-iam"></a>Visão geral do controle de acesso (IAM)
 
-**Controlo de acesso (IAM)** é o painel que utiliza para gerir o acesso aos recursos do Azure. Ele também é conhecido como gestão de identidades e acesso e é exibido em vários locais no portal do Azure. O código a seguir mostra um exemplo de painel de controlo (IAM) de acesso para uma subscrição.
+O **controle de acesso (iam)** é a folha que você usa para gerenciar o acesso aos recursos do Azure. Ele também é conhecido como gerenciamento de identidade e acesso e aparece em vários locais na portal do Azure. Veja a seguir um exemplo da folha controle de acesso (IAM) para uma assinatura.
 
-![Painel de controlo (IAM) de acesso para uma subscrição](./media/role-assignments-portal/access-control-numbers.png)
+![Folha de controle de acesso (IAM) para uma assinatura](./media/role-assignments-portal/access-control-numbers.png)
 
-A tabela seguinte descreve o que são alguns dos elementos utilização para:
+A tabela a seguir descreve o que alguns dos elementos são usados para:
 
-| # | Elemento | O que usá-lo para |
+| # | Elemento | O que você usa para |
 | --- | --- | --- |
-| 1 | Recursos em que o controlo de acesso (IAM) é aberto | Identificar o âmbito (subscrição neste exemplo) |
-| 2 | **Adicionar** botão | Adicionar as atribuições de funções |
-| 3 | **Verificar acesso** separador | Ver as atribuições de funções para um único utilizador |
-| 4 | **Atribuições de funções** separador | Ver as atribuições de funções no âmbito atual |
-| 5 | **Funções** separador | Ver todas as funções e permissões |
+| 1 | Recurso em que o IAM (controle de acesso) é aberto | Identificar o escopo (assinatura neste exemplo) |
+| 2 | Botão **Adicionar** | Adicionar atribuições de função |
+| 3 | Guia **verificar acesso** | Exibir as atribuições de função para um único usuário |
+| 4 | Guia **atribuições de função** | Exibir as atribuições de função no escopo atual |
+| 5 | Guia **funções** | Exibir todas as funções e permissões |
 
-Para ser mais eficiente com o painel de controlo (IAM) de acesso, ele ajuda a se pode responder as perguntas de três seguintes quando estiver a tentar gerir o acesso:
+Para ser o mais eficaz com a folha de controle de acesso (IAM), ele ajuda se você pode responder às três perguntas a seguir ao tentar gerenciar o acesso:
 
 1. **Quem precisa de acesso?**
 
-    Que se refere a um utilizador, o grupo, o principal de serviço ou a identidade gerida. Isso também é chamado um *entidade de segurança*.
+    Quem se refere a um usuário, grupo, entidade de serviço ou identidade gerenciada. Isso também é chamado de *entidade de segurança*.
 
-1. **Quais as permissões que precisam?**
+1. **Quais permissões são necessárias?**
 
-    As permissões são agrupadas em funções. Pode selecionar a partir de uma lista de várias funções incorporadas.
+    As permissões são agrupadas em funções. Você pode selecionar em uma lista de várias funções internas.
 
-1. **Em que precisam de acesso?**
+1. **Onde eles precisam de acesso?**
 
-    Em que se refere ao conjunto de recursos que o acesso se aplica a. Em que pode ser um grupo de gestão, subscrição, grupo de recursos ou um único recurso, como uma conta de armazenamento. Isso é chamado do *âmbito*.
+    Em que se refere ao conjunto de recursos ao qual o acesso se aplica. Onde pode ser um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um único recurso, como uma conta de armazenamento. Isso é chamado de *escopo*.
 
-## <a name="open-access-control-iam"></a>Abra o controlo de acesso (IAM)
+## <a name="open-access-control-iam"></a>Controle de acesso aberto (IAM)
 
-A primeira coisa que precisa decidir é onde abrir o painel de controlo (IAM) de acesso. Depende de quais recursos que pretende gerir o acesso para. Pretende gerir o acesso para tudo num grupo de gestão, tudo numa subscrição, tudo num grupo de recursos ou um único recurso?
+A primeira coisa que você precisa decidir é onde abrir a folha de controle de acesso (IAM). Depende de quais recursos você deseja gerenciar o acesso. Você deseja gerenciar o acesso para tudo em um grupo de gerenciamento, tudo em uma assinatura, tudo em um grupo de recursos ou um único recurso?
 
-1. No portal do Azure, clique em **todos os serviços** e, em seguida, selecione o âmbito. Por exemplo, pode selecionar **grupos de gestão**, **subscrições**, **grupos de recursos**, ou um recurso.
+1. No portal do Azure, clique em **todos os serviços** e, em seguida, selecione o escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**ou um recurso.
 
 1. Clique no recurso específico.
 
 1. Clique em **controlo de acesso (IAM)** .
 
-    O código a seguir mostra um exemplo de painel de controlo (IAM) de acesso para uma subscrição. Se fizer qualquer alteração de controlo do acesso, seria aplicam-se para a subscrição completa.
+    Veja a seguir um exemplo da folha controle de acesso (IAM) para uma assinatura. Se você fizer alterações de controle de acesso aqui, elas se aplicarão à assinatura inteira.
 
-    ![Painel de controlo (IAM) de acesso para uma subscrição](./media/role-assignments-portal/access-control-subscription.png)
+    ![Folha de controle de acesso (IAM) para uma assinatura](./media/role-assignments-portal/access-control-subscription.png)
 
 ## <a name="view-roles-and-permissions"></a>Ver funções e permissões
 
-Uma definição de função é uma coleção de permissões que é utilizada para atribuições de funções. O Azure tem mais de 70 [funções incorporadas para recursos do Azure](built-in-roles.md). Siga estes passos para ver as funções disponíveis e as permissões.
+Uma definição de função é uma coleção de permissões que é utilizada para atribuições de funções. O Azure tem mais [de 70 funções internas para recursos do Azure](built-in-roles.md). Siga estas etapas para exibir as funções e permissões disponíveis.
 
-1. Open **controlo de acesso (IAM)** em qualquer âmbito.
+1. **Controle de acesso aberto (iam)** em qualquer escopo.
 
-1. Clique nas **funções** separador para ver uma lista de todas as funções incorporadas e personalizadas.
+1. Clique na guia **funções** para ver uma lista de todas as funções internas e personalizadas.
 
-   Pode ver o número de utilizadores e grupos que estão atribuídos a cada função no âmbito atual.
+   Você pode ver o número de usuários e grupos atribuídos a cada função no escopo atual.
 
    ![Lista de funções](./media/role-assignments-portal/roles-list.png)
 
-1. Clique numa função individual para ver a quem foi atribuída a esta função e também ver as permissões para a função.
+1. Clique em uma função individual para ver quem recebeu essa função e também exibir as permissões para a função.
 
    ![Atribuições de funções](./media/role-assignments-portal/role-assignments.png)
 
-## <a name="view-role-assignments"></a>Atribuições de funções da vista
+## <a name="view-role-assignments"></a>Ver atribuições de funções
 
-Ao gerir o acesso, deseja saber quem tem acesso, quais são as respetivas permissões e o âmbito. Para o acesso de lista para um utilizador, grupo, principal de serviço ou uma identidade gerida, exibir suas atribuições de funções.
+Ao gerenciar o acesso, você deseja saber quem tem acesso, quais são suas permissões e em qual escopo. Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade gerenciada, você vê suas atribuições de função.
 
-### <a name="view-role-assignments-for-a-single-user"></a>Atribuições de funções de exibição para um único utilizador
+### <a name="view-role-assignments-for-a-single-user"></a>Exibir atribuições de função para um único usuário
 
-Siga estes passos para ver o acesso a um único utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito.
+Siga estas etapas para exibir o acesso de um único usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico.
 
-1. Open **controlo de acesso (IAM)** num âmbito, como o grupo de gestão, subscrição, grupo de recursos ou recurso, em que pretende ver o acesso.
+1. **Controle de acesso aberto (iam)** em um escopo, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso, no qual você deseja exibir o acesso.
 
-1. Clique nas **verificar acesso** separador.
+1. Clique na guia **verificar acesso** .
 
-    ![Controlo de acesso - separador de acesso de verificação](./media/role-assignments-portal/access-control-check-access.png)
+    ![Controle de acesso – guia acesso de verificação](./media/role-assignments-portal/access-control-check-access.png)
 
-1. Na **encontrar** , selecione o tipo de entidade de segurança que pretende verificar o acesso.
+1. Na lista **Localizar** , selecione o tipo de entidade de segurança para a qual você deseja verificar o acesso.
 
-1. Na caixa de pesquisa, introduza uma cadeia de caracteres para procurar o diretório para os nomes a apresentar, endereços de e-mail ou identificadores de objetos.
+1. Na caixa de pesquisa, insira uma cadeia de caracteres para pesquisar o diretório em busca de nomes de exibição, endereços de email ou identificadores de objeto.
 
-    ![Verifique a lista de seleção de acesso](./media/role-assignments-portal/check-access-select.png)
+    ![Marcar lista de seleção de acesso](./media/role-assignments-portal/check-access-select.png)
 
-1. Clique a entidade de segurança para abrir o **atribuições** painel.
+1. Clique na entidade de segurança para abrir o painel **atribuições** .
 
-    ![Painel de atribuições](./media/role-assignments-portal/check-access-assignments.png)
+    ![painel atribuições](./media/role-assignments-portal/check-access-assignments.png)
 
-    Neste painel, pode ver as funções atribuídas para a entidade de segurança selecionado e o escopo. Se existirem quaisquer negar atribuições neste âmbito ou herdadas para este âmbito, estes serão apresentados.
+    Nesse painel, você pode ver as funções atribuídas à entidade de segurança selecionada e ao escopo. Se houver quaisquer atribuições de negação neste escopo ou herdadas para esse escopo, elas serão listadas.
 
-### <a name="view-all-role-assignments-at-a-scope"></a>Ver todas as atribuições de função num âmbito
+### <a name="view-all-role-assignments-at-a-scope"></a>Exibir todas as atribuições de função em um escopo
 
-1. Open **controlo de acesso (IAM)** num âmbito, como o grupo de gestão, subscrição, grupo de recursos ou recurso, em que pretende ver o acesso.
+1. **Controle de acesso aberto (iam)** em um escopo, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso, no qual você deseja exibir o acesso.
 
-1. Clique nas **atribuições de funções** separador para ver todas as atribuições de função neste âmbito.
+1. Clique na guia **atribuições de função** para exibir todas as atribuições de função neste escopo.
 
-   ![Controlo de acesso - separador de atribuições de função](./media/role-assignments-portal/access-control-role-assignments.png)
+   ![Controle de acesso – guia atribuições de função](./media/role-assignments-portal/access-control-role-assignments.png)
 
-   No separador de atribuições de função, pode ver quem tem acesso a este âmbito. Tenha em conta que algumas funções têm o âmbito **Este recurso**, ao passo que outras são **(Herdadas)** de outro âmbito. Acesso é atribuído especificamente para este recurso ou herdado de uma atribuição ao âmbito principal.
+   Na guia atribuições de função, você pode ver quem tem acesso nesse escopo. Tenha em conta que algumas funções têm o âmbito **Este recurso**, ao passo que outras são **(Herdadas)** de outro âmbito. O acesso é atribuído especificamente a esse recurso ou herdado de uma atribuição para o escopo pai.
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC, para conceder acesso, atribua uma função a um utilizador, o grupo, o principal de serviço ou a identidade gerida. Siga estes passos para conceder acesso em âmbitos diferentes.
+No RBAC, para conceder acesso, você atribui uma função a um usuário, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para conceder acesso em escopos diferentes.
 
-### <a name="assign-a-role-at-a-scope"></a>Atribuir uma função num âmbito
+### <a name="assign-a-role-at-a-scope"></a>Atribuir uma função a um escopo
 
-1. Open **controlo de acesso (IAM)** num âmbito, como o grupo de gestão, subscrição, grupo de recursos ou recurso, onde pretende conceder acesso.
+1. **Controle de acesso aberto (iam)** em um escopo, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso, no qual você deseja conceder acesso.
 
-1. Clique nas **atribuições de funções** separador para ver todas as atribuições de função neste âmbito.
+1. Clique na guia **atribuições de função** para exibir todas as atribuições de função neste escopo.
 
-1. Clique em **Add** > **adicionar atribuição de função** para abrir o painel de atribuição de função de adicionar.
+1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
-   Se não tiver permissões para atribuir funções, a opção de atribuição de função de adicionar será desativada.
+   Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desabilitada.
 
-   ![Menu Adicionar](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
 
-   ![Adicionar o painel de atribuição de função](./media/role-assignments-portal/add-role-assignment.png)
+   ![Adicionar painel de atribuição de função](./media/role-assignments-portal/add-role-assignment.png)
 
 1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
 
-1. Na **selecione** , selecione um utilizador, o grupo, o principal de serviço ou a identidade gerida. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
+1. Na lista **selecionar** , selecione um usuário, grupo, entidade de serviço ou identidade gerenciada. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 
-1. Clique em **guardar** para atribuir a função.
+1. Clique em **Guardar** para atribuir a função.
 
-   Após alguns instantes, a entidade de segurança é atribuída a função no âmbito selecionado.
+   Depois de alguns instantes, a entidade de segurança recebe a função no escopo selecionado.
 
 ### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Atribuir um utilizador como administrador de uma subscrição
 
-Para tornar um utilizador administrador de uma subscrição do Azure, atribuí-los a [proprietário](built-in-roles.md#owner) função no âmbito da subscrição. A função de proprietário dá ao usuário acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são os mesmos como qualquer outra atribuição de função.
+Para tornar um usuário um administrador de uma assinatura do Azure, atribua a ele a função de [proprietário](built-in-roles.md#owner) no escopo da assinatura. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são iguais a qualquer outra atribuição de função.
 
-1. No portal do Azure, clique em **todos os serviços** e, em seguida **subscrições**.
+1. No portal do Azure, clique em **todos os serviços** e em **assinaturas**.
 
-1. Clique a subscrição em que pretende conceder acesso.
+1. Clique na subscrição na qual pretende conceder acesso.
 
-1. Clique em **controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)** .
 
-1. Clique nas **atribuições de funções** separador para ver todas as atribuições de função para esta subscrição.
+1. Clique no separador **Atribuições de funções** para ver todas as atribuições de funções para esta subscrição.
 
-1. Clique em **Add** > **adicionar atribuição de função** para abrir o painel de atribuição de função de adicionar.
+1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
-   Se não tiver permissões para atribuir funções, a opção de atribuição de função de adicionar será desativada.
+   Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desabilitada.
 
-   ![Menu Adicionar](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
 
-   ![Adicionar o painel de atribuição de função](./media/role-assignments-portal/add-role-assignment.png)
+   ![Adicionar painel de atribuição de função](./media/role-assignments-portal/add-role-assignment.png)
 
-1. Na **função** na lista pendente, selecione a **proprietário** função.
+1. Na lista pendente **Função**, selecione a função **Proprietário**.
 
-1. Na **selecione** , selecione um utilizador. Se não vir o utilizador na lista, pode digitar o **selecione** caixa para procurar o diretório para os nomes a apresentar e endereços de e-mail.
+1. Na lista **Selecionar**, selecione um utilizador. Se não vir o utilizador na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar e endereços de e-mail.
 
-1. Clique em **guardar** para atribuir a função.
+1. Clique em **Guardar** para atribuir a função.
 
-   Após alguns instantes, o utilizador tem atribuída a função de proprietário no âmbito da subscrição.
+   Após alguns instantes, é atribuída ao utilizador a função Proprietário no âmbito da subscrição.
 
 ## <a name="remove-role-assignments"></a>Remover atribuições de funções
 
-No RBAC, para remover o acesso, remova uma atribuição de função. Siga estes passos para remover o acesso.
+No RBAC, para remover o acesso, remova uma atribuição de função. Siga estas etapas para remover o acesso.
 
-1. Open **controlo de acesso (IAM)** num âmbito, como o grupo de gestão, subscrição, grupo de recursos ou recurso, em que pretende remover o acesso.
+1. **Controle de acesso aberto (iam)** em um escopo, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso, no qual você deseja remover o acesso.
 
-1. Clique nas **atribuições de funções** separador para ver todas as atribuições de função para esta subscrição.
+1. Clique no separador **Atribuições de funções** para ver todas as atribuições de funções para esta subscrição.
 
 1. Na lista de atribuições de funções, adicione uma marca de verificação junto ao principal de segurança com a atribuição de função que pretende remover.
 
@@ -197,15 +197,15 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Siga estes 
 
    ![Mensagem Remover atribuição de função](./media/role-assignments-portal/remove-role-assignment.png)
 
-1. Na mensagem de atribuição de função remove que aparece, clique em **Sim**.
+1. Na mensagem remover atribuição de função exibida, clique em **Sim**.
 
-    As atribuições de funções herdadas não podem ser removidas. Se precisar de remover uma atribuição de função herdada, tem de o fazer no âmbito em que a atribuição da função foi criada. Na **âmbito** coluna, junto a **(herdado)** há um link que leva-o para o âmbito em que esta função foi atribuída. Vá para o âmbito aí listado para remover a atribuição de função.
+    As atribuições de funções herdadas não podem ser removidas. Se precisar de remover uma atribuição de função herdada, tem de o fazer no âmbito em que a atribuição da função foi criada. Na coluna **escopo** , ao lado de **(Herdado)** , há um link que leva você até o escopo em que essa função foi atribuída. Vá para o âmbito aí listado para remover a atribuição de função.
 
    ![Mensagem Remover atribuição de função](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
-* [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Resolver problemas relacionados com o RBAC para recursos do Azure](troubleshooting.md)
-* [Organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md)
+* [Tutorial: Conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure @ no__t-0
+* [Tutorial: Conceder a um usuário acesso aos recursos do Azure usando RBAC e Azure PowerShell @ no__t-0
+* [Solucionar problemas de RBAC para recursos do Azure](troubleshooting.md)
+* [Organizar os recursos com grupos de gestão do Azure](../governance/management-groups/overview.md)
