@@ -3,17 +3,17 @@ title: Crie aplicativos de armazenamento do Azure altamente disponíveis com arm
 description: O GZRS (armazenamento com redundância de zona geográfica) casasse a alta disponibilidade de armazenamento com redundância de zona (ZRS) com proteção contra interrupções regionais, conforme fornecido pelo armazenamento com redundância geográfica (GRS). Os dados em uma conta de armazenamento GZRS são replicados entre as zonas de disponibilidade do Azure na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais.
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300651"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673059"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -55,7 +55,7 @@ Ao criar uma conta de armazenamento, você especifica como os dados dessa conta 
 
 Quando você habilita o RA-GZRS para sua conta de armazenamento, seus dados podem ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *– secundário* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o serviço `myaccount.blob.core.windows.net`blob for, o ponto de `myaccount-secondary.blob.core.windows.net`extremidade secundário será. As chaves de acesso para sua conta de armazenamento são as mesmas para os pontos de extremidade primários e secundários.
 
-Para aproveitar o RA-GZRS no caso de uma interrupção regional, você deve projetar seu aplicativo com antecedência para lidar com esse cenário. Seu aplicativo deve ler e gravar no ponto de extremidade primário, mas alternar para o uso do ponto de extremidade secundário no caso de a região primária ficar indisponível. Para obter orientação sobre como projetar para alta disponibilidade com o RA-GZRS, consulte [criando aplicativos altamente disponíveis usando ra-GZRS ou ra-grs](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+Para aproveitar o RA-GZRS no caso de uma interrupção regional, você deve projetar seu aplicativo com antecedência para lidar com esse cenário. Seu aplicativo deve ler e gravar no ponto de extremidade primário, mas alternar para o uso do ponto de extremidade secundário no caso de a região primária ficar indisponível. Para obter orientação sobre como projetar para alta disponibilidade com o RA-GZRS, consulte [criando aplicativos altamente disponíveis usando ra-GZRS ou ra-grs](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 Como os dados são replicados para a região secundária de forma assíncrona, a região secundária geralmente está atrás da região primária. Para determinar quais operações de gravação foram replicadas para a região secundária, seu aplicativo verifica a hora da última sincronização para sua conta de armazenamento. Todas as operações de gravação gravadas na região primária antes da hora da última sincronização foram replicadas com êxito para a região secundária, o que significa que elas estão disponíveis para serem lidas a partir do secundário. Qualquer operação de gravação gravada na região primária após a hora da última sincronização pode ou não ter sido replicada para a região secundária, o que significa que elas podem não estar disponíveis para operações de leitura.
 
@@ -141,7 +141,7 @@ Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.porta
     - **Tipo de problema**: Selecione **migração de dados**.
     - **Categoria**: Selecione **migrar para (ra-) GZRS em uma região**.
     - **Título**: Digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
-    - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, \_ \_ grs] na região". ou "Eu gostaria de migrar para o \_ \_ ra-GZRS de [lRS, ra-grs] na região".
+    - **Detalhes**: Digite detalhes adicionais nos **detalhes** box, por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região \_ @ no__t-3". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região \_ @ no__t-1".
 5. Selecione  **Seguinte**.
 6. Verifique se as informações de contato estão corretas na folha **informações** de contato.
 7. Selecione **criar**.

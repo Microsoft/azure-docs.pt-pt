@@ -11,23 +11,23 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7e2b5c5c5d2ca4c0d6ab820866341c5f30082c5f
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067603"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672781"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
 
 [Domínios personalizados](luis-how-to-start-new-app.md), por outro lado, começar com nenhum intenções e modelos. Pode adicionar qualquer intenções de domínio pré-criado e entidades para um modelo personalizado.
 
-# <a name="supported-domains-across-cultures"></a>Domínios com suporte entre culturas
+## <a name="supported-domains-across-cultures"></a>Domínios com suporte entre culturas
 
 A tabela a seguir resume os domínios com suporte no momento. O suporte para inglês geralmente é mais completo do que outros. 
 
-| Tipo de entidade       | EN-US      | ZH-CN   | DE    | FR     | ES    | TI      | PT-BR |  JP  |      KO |        NL |    TR |
+| Tipo de Entidade       | EN-US      | ZH-CN   | DE    | FR     | ES    | TI      | PT-BR |  JP  |      KO |        NL |    TR |
 |:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
 | [Calendário](#calendar)    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | [Comunicação](#communication)   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
@@ -47,7 +47,7 @@ A tabela a seguir resume os domínios com suporte no momento. O suporte para ing
 * Hindi
 * Mexicano espanhol
 
-# <a name="description-for-luis-prebuilt-domains"></a>Descrição para domínios predefinidos do LUIS
+## <a name="description-for-luis-prebuilt-domains"></a>Descrição para domínios predefinidos do LUIS
 ## <a name="calendar"></a>**Calendário**
 O calendário é algo sobre reuniões pessoais e compromissos, não com evento público (por exemplo, o World Cup Schedules, o calendário de eventos de Seattle) ou o calendário genérico (por exemplo, que dia é hoje, o que começa, quando é dia do trabalho).
 ### <a name="intents"></a>**Tentativas**
@@ -76,7 +76,7 @@ ShowNext | Verifique o próximo evento. <br> _**Aviso**: Consulte o domínio de 
  TimeRemaining | Verifique o tempo restante até o próximo evento. | Exibir quanto tempo eu tenho antes das minhas reuniões. <br> Exibir a quantidade de tempo que tenho antes da minha próxima reunião começar.
  
 ### <a name="entities"></a>**Contabilidade**
-Nome da Entidade | Tipo de entidade | Descrição | Exemplos | Ranhuras
+Nome da entidade | Tipo de Entidade | Descrição | Exemplos | Ranhuras
 -------|-----------------------|-------------|---------|--------
 ContactName | personName | O nome de um participante de contato ou de reunião. | Conheça com **Betsy**. <br>  Conheça com **Aubrey** em 3 de julho às 19h | Betsy <br> Aubrey <br> Amy 
 DestinationCalendar | único | O nome do calendário de destino. | almoço com o MOM Tuesday 12 **pessoal** <br> Usar meu **Google** agenda como meu calendário padrão. <br> Atualizar a classe Yoga para Mon qua às 15:00 lista no calendário **pessoal** . | Google <br> Pessoais <br> empresa <br> principal
@@ -129,7 +129,7 @@ Ignorar | Ignore uma chamada de entrada. | Não responder <br>   Ignorar chamada
 IgnoreWithMessage | Ignorar uma chamada de entrada e responder com texto em vez disso. | Não responder a essa chamada, mas em vez disso, a enviar uma mensagem. <br>   Ignorar e enviar uma mensagem de texto novamente.
 Acesso telefónico | Fazer uma chamada telefónica. | Jim de chamada <br>   Disque 311.
 FindSpeedDial | Determinar o número de speedial que um número de telefone está definido para e vice-versa. | O que é o meu número de acesso telefónico 5? <br>   É necessário aumentar o conjunto de velocidade? <br>   O que é o número de marcação para 941-5555-333?
-Reencaminhar | Reencaminhar um e-mail | Encaminhe este email para Greg.
+Reencaminhar | Encaminhar um email | Encaminhe este email para Greg.
 ReadAloud | Leia uma mensagem ou envie um e-mail ao utilizador. | Leia o texto. <br>   O que ela falou na mensagem?
 PressKey | Pressione um botão ou um número no teclado. | Estrela de marcação. <br>   Prima 1 2 3.
 QueryLastText | Consultar o último texto ou mensagem. | Quem me Textou? <br>   Quem me emailu recentemente?
@@ -147,7 +147,7 @@ TurnSpeakerOff | Desative o telefone do orador. | Leve-me desativar orador. <br>
 TurnSpeakerOn | Ative o telefone do orador. | Modo de viva-voz. <br>   Coloque o viva-voz em.
 
 ### <a name="entities"></a>**Contabilidade**
-Nome da Entidade | Tipo de entidade | Descrição | Exemplos | Ranhuras
+Nome da entidade | Tipo de Entidade | Descrição | Exemplos | Ranhuras
 ------|-------|----------|--------------|---------------
 Attachment | único | O anexo que o usuário deseja enviar por texto ou email. | Enviar um **arquivo** por email do OneNote. <br> Envie meu **Doc** de manutenção para Katie. | file <br> Doc
 AudioDeviceType | único | Tipo de dispositivo de áudio (palestrante, headset, microfone, etc.). | Responda usando as **mãos gratuitas**. <br> Disque novamente no **telefone do viva-voz**. | locutor <br> sem intervenção <br> tecnologia
@@ -192,7 +192,7 @@ QueryLastText | Consulte o último email. | Quem enviou email para mim? <br> Que
 
 
 ### <a name="entities"></a>**Contabilidade**
-Nome da Entidade | Tipo de entidade | Descrição | Exemplos | Ranhuras
+Nome da entidade | Tipo de Entidade | Descrição | Exemplos | Ranhuras
 ------|-------|----------|--------------|---------------
 Attachment | único | O anexo que o usuário deseja enviar por texto ou email. | Enviar um **arquivo** por email do OneNote. <br> Envie meu **Doc** de manutenção para Katie. | file <br> Doc
 ContactName | personName  | O nome de um destinatário de contacto ou de mensagem. | Enviar o email para **Stevens** | Stevens
@@ -232,7 +232,7 @@ Nome da intenção | Descrição | Exemplos
  TurnUp | Ative as configurações ou o brilho dos dispositivos. | Clarear as luzes em 75 por cento. <br> O brilho aqui em 10%.  <br> Torne-o mais quente na sala de vida.
  TurnDown | Desligar mas não desligar um dispositivo, seja por meio de esmaecimento, da temperatura ou do brilho das luzes. | Desative a biblioteca por 44%. <br> Esmaecer as luzes. <br> Torne a sala mais fria.
 ### <a name="entities"></a>**Contabilidade**
-Nome da Entidade | Tipo de entidade | Descrição | Exemplos
+Nome da entidade | Tipo de Entidade | Descrição | Exemplos
 -------|----------|--------------|---------------
 DeviceName | Lista | Texto definido pelo usuário para seus dispositivos. | Azul<br> Natal <br> Escritório
 DeviceType | Lista | Dispositivos com suporte. | Noturna <br> Condicionador de ar <br> nightlight
@@ -263,7 +263,7 @@ RemoveSentence | Remova uma frase para uma nota. | Remova a última frase. <br>E
 ChangeTitle | Altere o título da nota. | Nomeado esta observação como "planejamento".
 
 ### <a name="entities"></a>**Contabilidade**
-Nome da Entidade | Tipo de entidade | Descrição | Exemplos 
+Nome da entidade | Tipo de Entidade | Descrição | Exemplos 
 ------- | ------- | ------- | -------
 Text | simples, padrão. Outro | O texto de uma nota ou lembrete. | Esticar antes de movimentação <br> amanhã longo prazo.
 Cargo | simples, padrão. Outro | Título de uma nota. | groceries <br> pessoas para chamar <br> tarefas pendentes
@@ -291,7 +291,7 @@ RatePlace | Classificar um local. | avaliação de 4 estrelas para pizza de máx
 AddFavoritePlace | O usuário deseja adicionar um local à sua lista de favoritos ou MVP. | Salvar este local em meus favoritos. <br> Adicionar melhor compra aos meus favoritos.
 
 ### <a name="entities"></a>**Contabilidade**
-Entidades LUIS | Tipo de entidade | Descrição | Exemplos | Exemplos de expressão
+Entidades LUIS | Tipo de Entidade | Descrição | Exemplos | Exemplos de expressão
 --------------|-------------|-------------|----------|-------------------
 AbsoluteLocation | único | A localização ou o endereço de um local. | Da Palo Alto <br> 300 112th Ave SE <br> Seattle | **1020 Middlefield Rd.** no **Palo Alto** <br> lojas de semente de pássaro em **Seattle** <br> Obtenha a distância daqui a **300 112Th ave se**.
 Características | único | As características e os benefícios do objetivo de um local público. | frente marítima <br> estacionamento gratuito | Kirkland **orla marítima** frutos do mar. <br> Há algum **estacionamento livre** perto de mim?
@@ -323,7 +323,7 @@ FindReservationWhen | Verificar a hora exata da reserva | Quando é a reserva de
 Rejeitar | O usuário rejeita o assistente virtual proposto no gerenciamento de uma reserva. <br> ***Observe**:P concessão consulte o domínio de **utilitários** para mais rejeitar declarações geral. * | Não é necessário definir o evento. | Não, não quero alterar a reserva. <br> Não, não o desmarque, fiz um erro.
 
 ### <a name="entities"></a>**Contabilidade**
-Entidade LUIS | Tipo de entidade | Descrição | Exemplos
+Entidade LUIS | Tipo de Entidade | Descrição | Exemplos
 -------|------|---------|-------------------
 Endereço | único | Uma localização do evento ou o endereço para uma reserva. | Da Palo Alto<br>300 112th Ave SE<br>Seattle
 Atmosfera | Lista | Uma descrição da atmosfera de um restaurante. | romantic<br>casual<br>bom para grupos<br>Bom
@@ -350,7 +350,7 @@ Inpreviouspagetype | Mostrar itens de lista na página anterior do usuário. | M
 Tarefas pendentes | Mostrar todos os itens na lista de tarefas pendentes. | Mostrar minha lista de compras. <br> Mostrar minha lista de compras.
 
 ### <a name="entities"></a>**Contabilidade**
-Entidade LUIS | Tipo de entidade | Descrição | Exemplos
+Entidade LUIS | Tipo de Entidade | Descrição | Exemplos
 -------|------|---------|-------------------
 ContainsAll | único | Representar todos ou todos os itens na lista de tarefas | Você pode ajudar a remover **todas as** tarefas. <br> Conclua **tudo**.
 ordinal | ordinal | Uma referência ordinal ou numérica a um item. | Marque a **terceira** como concluída. <br> Excluir a **primeira** tarefa.
@@ -382,7 +382,7 @@ Nome da intenção | Descrição | Exemplos
  ReadAloud | Leia algo em voz alta para o usuário. | Leia esta página. <br> Leia em voz alta.
 
 ### <a name="entities"></a>**Contabilidade**
-Entidade LUIS | Tipo de entidade | Descrição | Exemplos
+Entidade LUIS | Tipo de Entidade | Descrição | Exemplos
 ------------|-------------|-------------|---------
 ordinal | ordinal | Uma referência ordinal ou numérica a um item. | O **segundo** . <br> **Próximo** .
 number | number | Quantidade de itens que o usuário deseja | Os próximos **3** itens
@@ -400,16 +400,16 @@ Nome da intenção | Descrição | Exemplos
  GetWeatherAdvisory | Obtenha comunicados meteorológicos ou alertas de um local específico. | Há comunicados meteorológicos em Memphis? <br> Há alertas meteorológicos para minha área?
 
 ### <a name="entities"></a>**Contabilidade**
-Entidade LUIS | Tipo de entidade | Descrição | Exemplos
+Entidade LUIS | Tipo de Entidade | Descrição | Exemplos
 ------------|-------------|-------------|---------
 Location | Gráfico | O local absoluto ou implícito para uma solicitação do clima. | Palo Alto<br>Xangai<br>Seattle<br>Delvina<br>
-Date/Time   | datetime | DateTime ou Duration para consultar o clima. | Novembro<br>por hora<br>manhã<br>Este fim de semana<br>10 dias<br>
+Date/Time   | datetime | DateTime ou Duration para consultar o clima. | Novembro<br>horário<br>manhã<br>Este fim de semana<br>10 dias<br>
 AdditionalWeatherCondition | list | Palavra de descrição adicional para meteorologia, como a velocidade ou direção do vento. | direction<br>Rápido<br>Rápida
 Histórico | único | Palavras de descrição da condição de clima histórica, incluindo média de casos arestados de, no período de tempo anterior. | atrasado<br>histórico/história<br>sazonais<br>melhor tempo<br>já registrado
 PrecipitationUnit | dimensão | O precipitação de neve ou chuva. | 5 polegadas<br>6 cm
 SuitableFor | único | A descrição de uma atividade humana sob uma condição de clima, que é comum quando os usuários consultam conselhos de atividade que dependem da condição do clima. | saco<br>termo<br>Swimming
 TemperatureUnit |temperatura | temperatura | 18 Celsius<br>7 Kelvin graus
-WeatherRange | único | A condição específica de temperatura, vento e outras condições de clima entre um período de tempo | máximo<br>Elevada<br>Pequena<br>média alta<br>Mais elevado
+WeatherRange | único | A condição específica de temperatura, vento e outras condições de clima entre um período de tempo | máximo<br>Elevada<br>baixo<br>média alta<br>Mais elevado
 WeatherCondition | único | Descrição da condição de clima | ensolarado<br>Redundant<br>reinamento<br>temperatura<br>neve<br>acesso frequente
 WindDirectionUnit | list | As palavras de direção do vento | Unidos<br>Sul<br>Ásia<br>noroeste<br>Nordeste
 
@@ -422,7 +422,7 @@ Nome da intenção | Descrição | Exemplos
  Pesquisa da | Uma solicitação para navegar para um site especificado ou Pesquisar em um mecanismo de pesquisa. | Superfície de pesquisa no google.com. <br> Localizar música de aniversário feliz na Web <br> Vá para www.twitter.com.
 
 ### <a name="entities"></a>**Contabilidade**
-Entidade LUIS | Tipo de entidade | Descrição | Exemplos
+Entidade LUIS | Tipo de Entidade | Descrição | Exemplos
 ------------|-------------|-------------|---------
 SearchEngine | Lista | O usuário do mecanismo de pesquisa deseja usar. | Bing <br> Google
 ProcurarTexto | simples, padrão. Outro | O usuário de texto deseja pesquisar. <br> _Marque "amigos no Facebook" como ProcurarTexto se o site após "in" não for um mecanismo de pesquisa. A URL também deve marcar como ProcurarTexto._ | Filmes <br> Aprendizagem aprofundada <br> Tom de cruzeiro

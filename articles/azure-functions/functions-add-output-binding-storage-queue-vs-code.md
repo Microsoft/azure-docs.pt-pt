@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: 40a912a94dc61342c04528e902bb0e084546904d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 63065c918a6f78510b4908c5e2ae80df67665b40
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592806"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672606"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Conectar funções ao armazenamento do Azure usando o Visual Studio Code
 
@@ -21,7 +21,7 @@ Azure Functions permite que você conecte funções a serviços do Azure e a out
 
 Este artigo mostra como usar Visual Studio Code para conectar a função que você criou no artigo de [início rápido anterior](functions-create-first-function-vs-code.md) ao armazenamento do Azure. A associação de saída que você adiciona a essa função grava dados da solicitação HTTP em uma mensagem em uma fila de armazenamento de filas do Azure. 
 
-A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço associado. Para facilitar, use a conta de armazenamento que você criou com seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de `AzureWebJobsStorage`aplicativo chamada.  
+A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço associado. Para facilitar, use a conta de armazenamento que você criou com seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ Este artigo pressupõe que você já tenha entrado em sua assinatura do Azure de
 
 No [artigo de início rápido anterior](functions-create-first-function-vs-code.md), você criou um aplicativo de funções no Azure junto com a conta de armazenamento necessária. A cadeia de conexão para essa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você grava mensagens em uma fila de armazenamento na mesma conta. Para se conectar à sua conta de armazenamento ao executar a função localmente, você deve baixar as configurações do aplicativo para o arquivo local. Settings. JSON. 
 
-1. Pressione a tecla F1 para abrir a paleta de comandos e, em seguida, procure e `Azure Functions: Download Remote Settings....`execute o comando. 
+1. Pressione a tecla F1 para abrir a paleta de comandos e, em seguida, procure e execute o comando `Azure Functions: Download Remote Settings....`. 
 
 1. Escolha o aplicativo de funções criado no artigo anterior. Selecione **Sim para todos** para substituir as configurações locais existentes. 
 
@@ -51,29 +51,29 @@ No [artigo de início rápido anterior](functions-create-first-function-vs-code.
 
 Como você está usando uma associação de saída de armazenamento de fila, você deve ter a extensão de associações de armazenamento instalada antes de executar o projeto. 
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>Biblioteca\# de classes C
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Com exceção dos gatilhos HTTP e Timer, as associações são implementadas como pacotes de extensão. Execute o comando [dotnet adicionar pacote](/dotnet/core/tools/dotnet-add-package) a seguir na janela do terminal para adicionar o pacote de extensão de armazenamento ao seu projeto.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
-
+---
 Agora, você pode adicionar a associação de saída de armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-Em funções, cada tipo de associação requer um `direction`, `type`e um exclusivo `name` a ser definido no arquivo function. JSON. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
+Em funções, cada tipo de associação requer um `direction`, `type` e um @no__t exclusivo a ser definido no arquivo function. JSON. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Os atributos de associação são definidos diretamente no arquivo function. JSON. Dependendo do tipo de associação, podem ser necessárias propriedades adicionais. A [configuração de saída de fila](functions-bindings-storage-queue.md#output---configuration) descreve os campos necessários para uma associação de fila de armazenamento do Azure. A extensão facilita a adição de associações ao arquivo function. JSON. 
 
-Para criar uma associação, clique com o botão direito do mouse (Ctrl + clique `function.json` em MacOS) o arquivo na pasta HttpTrigger e escolha **Adicionar associação...** . Siga os prompts para definir as seguintes propriedades de associação para a nova associação:
+Para criar uma associação, clique com o botão direito do mouse (Ctrl + clique em macOS) o arquivo `function.json` na pasta HttpTrigger e escolha **Adicionar associação...** . Siga os prompts para definir as seguintes propriedades de associação para a nova associação:
 
 | Mensagem | Value | Descrição |
 | -------- | ----- | ----------- |
@@ -81,9 +81,9 @@ Para criar uma associação, clique com o botão direito do mouse (Ctrl + clique
 | **Selecionar associação com direção...** | `Azure Queue Storage` | A associação é uma associação de fila de armazenamento do Azure. |
 | **O nome usado para identificar essa associação em seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
 | **A fila para a qual a mensagem será enviada** | `outqueue` | O nome da fila na qual a associação é gravada. Quando o *QueueName* não existe, a associação o cria no primeiro uso. |
-| **Selecione configuração em "local. setting. JSON"** | `AzureWebJobsStorage` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A `AzureWebJobsStorage` configuração contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
+| **Selecione configuração em "local. setting. JSON"** | `AzureWebJobsStorage` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
 
-Uma associação é adicionada à `bindings` matriz em seu arquivo function. JSON, que agora deve ser semelhante ao exemplo a seguir:
+Uma associação é adicionada à matriz `bindings` em seu arquivo function. JSON, que agora deve ser semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -116,17 +116,19 @@ Uma associação é adicionada à `bindings` matriz em seu arquivo function. JSO
 }
 ```
 
-### <a name="c-class-library"></a>Biblioteca\# de classes C
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
+---
+
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Depois que a associação é definida, você pode usar `name` o da Associação para acessá-la como um atributo na assinatura da função. Usando uma associação de saída, você não precisa usar o código do SDK de armazenamento do Azure para autenticação, obter uma referência de fila ou gravar dados. O tempo de execução de funções e a associação de saída de fila executam essas tarefas para você.
+Depois que a associação é definida, você pode usar o `name` da Associação para acessá-la como um atributo na assinatura da função. Usando uma associação de saída, você não precisa usar o código do SDK de armazenamento do Azure para autenticação, obter uma referência de fila ou gravar dados. O tempo de execução de funções e a associação de saída de fila executam essas tarefas para você.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-Adicione o código que usa `msg` o objeto de associação `context.bindings` de saída no para criar uma mensagem de fila. Adicione este código antes da declaração `context.res`.
+Adicione o código que usa o objeto de associação de saída `msg` em `context.bindings` para criar uma mensagem da fila. Adicione este código antes da declaração `context.res`.
 
 ```javascript
 // Add a message to the Storage queue.
@@ -158,9 +160,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="c"></a>C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -182,11 +186,11 @@ Depois de entrar com êxito em sua conta, você verá todas as assinaturas do Az
 
 ### <a name="examine-the-output-queue"></a>Examinar a fila de saída
 
-1. Em Visual Studio Code, pressione a tecla F1 para abrir a paleta de comandos e, em seguida, pesquise e `Azure Storage: Open in Storage Explorer` execute o comando e escolha o nome da conta de armazenamento. Sua conta de armazenamento é aberta no Gerenciador de Armazenamento do Azure.  
+1. Em Visual Studio Code, pressione a tecla F1 para abrir a paleta de comandos e, em seguida, pesquise e execute o comando `Azure Storage: Open in Storage Explorer` e escolha o nome da conta de armazenamento. Sua conta de armazenamento é aberta no Gerenciador de Armazenamento do Azure.  
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
-   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se você tiver chamado a função com o `name` valor padrão do *Azure*, a mensagem da *fila será o nome passado para a função: Azure*.
+   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se você tiver chamado a função com o valor padrão `name` do *Azure*, a mensagem da fila será *Name passado para a função: Azure @ no__t-0.
 
     ![Mensagem da fila mostrada em Gerenciador de Armazenamento do Azure](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -200,7 +204,7 @@ Agora, é hora de republicar o aplicativo de funções atualizado no Azure.
 
 1. Escolha o aplicativo de funções que você criou no primeiro artigo. Como você está reimplantando seu projeto no mesmo aplicativo, selecione **implantar** para ignorar o aviso sobre a substituição de arquivos.
 
-1. Após a conclusão da implantação, você pode novamente usar a rotação ou um navegador para testar a função reimplantada. Como antes, acrescente a cadeia de `&name=<yourname>` caracteres de consulta à URL, como no exemplo a seguir:
+1. Após a conclusão da implantação, você pode novamente usar a rotação ou um navegador para testar a função reimplantada. Como antes, acrescente a cadeia de caracteres de consulta `&name=<yourname>` à URL, como no exemplo a seguir:
 
     ```bash
     curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
@@ -235,6 +239,6 @@ Você atualizou sua função disparada por HTTP para gravar dados em uma fila de
 Em seguida, você deve habilitar o monitoramento de Application Insights para seu aplicativo de funções:
 
 > [!div class="nextstepaction"]
-> [Habilitar integração de Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Ativar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Explorador do Armazenamento do Azure]: https://storageexplorer.com/

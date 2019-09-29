@@ -2,18 +2,18 @@
 title: Monitorização, métricas e alertas - ExpressRoute do Azure | Documentos da Microsoft
 description: Esta página fornece informações sobre a monitorização de ExpressRoute
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154771"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672080"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -72,9 +72,41 @@ Você pode exibir quase a disponibilidade em tempo real do [ARP](https://docs.mi
 
 ![Disponibilidade ARP por ponto](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## <a name="expressroute-direct-metrics"></a>Métricas diretas do ExpressRoute
+
+### <a name="admin-state---split-by-link"></a>Estado do administrador – dividir por link
+Você pode exibir o estado do administrador para cada link do par de porta do ExpressRoute Direct.
+
+![Estado de administrador direto er](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>Bits por segundo – divisão por link
+Você pode exibir os bits em por segundo em ambos os links do par de portas diretas do ExpressRoute. 
+
+![bits diretos er em por segundo](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>Bits de saída por segundo-divisão por link
+Você também pode exibir os bits de saída por segundo em ambos os links do par de portas diretas do ExpressRoute. 
+
+![bits diretos de er de saída por segundo](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>Protocolo de linha – dividir por link
+Você pode exibir o protocolo de linha em cada link do par de porta do ExpressRoute Direct.
+
+![Protocolo de linha direta er](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>Nível de luz Rx-divisão por link
+Você pode exibir o nível de luz Rx (o nível de luz que a porta do ExpressRoute Direct está **recebendo**) para cada porta. Os níveis de luz Rx em boas condições geralmente se enquadram em um intervalo de-10 a 0 dBm
+
+![Nível de luz Rx de linha direta er](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>Nível de luz Tx – dividir por link
+Você pode exibir o nível de luz Tx (o nível de luz que a porta do ExpressRoute Direct está **transmitindo**) para cada porta. Os níveis de luz Tx íntegros geralmente se enquadram dentro de um intervalo de-10 a 0 dBm
+
+![Nível de luz Rx de linha direta er](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Ligações de gateway do ExpressRoute em bits/segundos
 
-![ligações de gateway](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![ligações de gateway](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertas para as ligações de gateway do ExpressRoute
 

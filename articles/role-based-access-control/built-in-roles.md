@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71289596"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672633"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -186,8 +186,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Authorization/*/Delete | Excluir funções, atribuições de política, definições de política e definições de conjunto de políticas |
 > | Microsoft. Authorization/*/Write | Criar funções, atribuições de função, atribuições de política, definições de política e definições de conjunto de políticas |
 > | Microsoft.Authorization/elevateAccess/Action | Concede ao usuário do chamador acesso de administrador no escopo do locatário |
-> | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar artefatos de Blueprint |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar quaisquer artefactos de esquema |
+> | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar quaisquer atribuições de Blueprint |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Excluir quaisquer atribuições de Blueprint |
 > | **DataActions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |

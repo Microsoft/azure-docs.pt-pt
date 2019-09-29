@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 4e12ad64ef277396a101aab6d1bb8f3cc6079cf9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 954ff23997e56249859dd8d35f124324432f2b22
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099598"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673003"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -62,6 +62,7 @@ Leia as seguintes notas e documentos SAP primeiro:
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Políticas de suporte para clusters de alta disponibilidade RHEL-SBD e fence_sbd](https://access.redhat.com/articles/2800691)
 * Documentação do RHEL específica do Azure:
   * [Políticas de suporte para clusters de alta disponibilidade RHEL-Máquinas Virtuais do Microsoft Azure como membros do cluster](https://access.redhat.com/articles/3131341)
   * [Instalando e configurando um cluster de alta disponibilidade Red Hat Enterprise Linux 7,4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -70,6 +71,10 @@ Leia as seguintes notas e documentos SAP primeiro:
 ## <a name="cluster-installation"></a>Instalação de cluster
 
 ![Visão geral do pacemaker on RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+
+> [!NOTE]
+> A Red Hat não dá suporte ao Watchdog emulado por software. A Red Hat não dá suporte a SBD em plataformas de nuvem. Para obter detalhes [, consulte políticas de suporte para clusters de alta disponibilidade RHEL-SBD e fence_sbd](https://access.redhat.com/articles/2800691).
+> O único mecanismo de isolamento com suporte para clusters de Red Hat Enterprise Linux de pacemaker no Azure, é o agente de limite do Azure.  
 
 Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
@@ -106,7 +111,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    > RHEL 7,6: Fence-Agents-4.2.1 -11. EL7 _ 6.8  
    > RHEL 7,5: Fence-Agents-4.0.11 -86. EL7 _ 5.8  
    > RHEL 7,4: Fence-Agents-4.0.11 -66. EL7 _ 4.12  
-   > Para obter mais informações, consulte [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL leva muito tempo para ser decrescente ou o isolamento falha/expira antes de a VM ser](https://access.redhat.com/solutions/3408711)desligada.
+   > Para obter mais informações, consulte [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL leva muito tempo para ser decrescente ou o isolamento falha/expira antes de a VM ser desligada](https://access.redhat.com/solutions/3408711).
 
    Verifique a versão do agente de limite do Azure. Se necessário, atualize-o para uma versão igual ou posterior à especificada acima.
 
@@ -269,7 +274,7 @@ Use o comando a seguir para configurar o dispositivo de isolamento.
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

@@ -4,17 +4,17 @@ description: Autorize o acesso a BLOBs e filas do Azure usando Azure Active Dire
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: caf72d4af390956391fdab133cf0897abbee4633
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641097"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673143"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory
 
@@ -28,11 +28,11 @@ A autorização com o Azure AD está disponível para todas as contas de armazen
 
 Quando uma entidade de segurança (um usuário, grupo ou aplicativo) tenta acessar um recurso de BLOB ou fila, a solicitação deve ser autorizada, a menos que seja um blob disponível para acesso anônimo. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. Em seguida, o token é passado como parte de uma solicitação para o BLOB ou serviço Fila e usado pelo serviço para autorizar o acesso ao recurso especificado.
 
-A etapa de autenticação requer que um aplicativo solicite um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver sendo executado de dentro de uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo Azure Functions, ele poderá usar uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) para acessar BLOBs ou filas. Para saber como autorizar solicitações feitas por uma identidade gerenciada para o blob do Azure ou serviço Fila, consulte autorizar o [acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).
+A etapa de autenticação requer que um aplicativo solicite um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver sendo executado de dentro de uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo Azure Functions, ele poderá usar uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) para acessar BLOBs ou filas. Para saber como autorizar solicitações feitas por uma identidade gerenciada para o blob do Azure ou serviço Fila, consulte [autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).
 
 A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. O armazenamento do Azure fornece funções RBAC que abrangem conjuntos comuns de permissões para dados de BLOB e fila. As funções atribuídas a uma entidade de segurança determinam as permissões que o principal terá. Para saber mais sobre como atribuir funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
 
-Aplicativos nativos e aplicativos Web que fazem solicitações para o blob do Azure ou serviço Fila também podem autorizar o acesso com o Azure AD. Para saber como solicitar um token de acesso e usá-lo para autorizar solicitações de BLOB ou dados de fila, consulte autorizar o [acesso ao armazenamento do Azure com o Azure AD de um aplicativo de armazenamento do Azure](storage-auth-aad-app.md).
+Aplicativos nativos e aplicativos Web que fazem solicitações para o blob do Azure ou serviço Fila também podem autorizar o acesso com o Azure AD. Para saber como solicitar um token de acesso e usá-lo para autorizar solicitações de BLOB ou dados de fila, consulte [autorizar o acesso ao armazenamento do Azure com o Azure AD de um aplicativo de armazenamento do Azure](storage-auth-aad-app.md).
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Atribuindo funções RBAC para direitos de acesso
 

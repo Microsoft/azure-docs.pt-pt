@@ -4,17 +4,17 @@ description: O CLI do Azure e o PowerShell dão suporte à entrada com as creden
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 32b3f113658a20790e0f149739a882004f12fe21
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e1c7f4531dee8673cc5b6dfe675e4c793144931e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640814"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671094"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Executar comandos do CLI do Azure ou do PowerShell com as credenciais do Azure AD para acessar dados de BLOB ou fila
 
@@ -82,7 +82,7 @@ A variável de ambiente associada `--auth-mode` ao parâmetro é. `AZURE_STORAGE
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para usar Azure PowerShell para entrar e executar operações subsequentes no armazenamento do Azure usando as credenciais do Azure AD, crie um contexto de armazenamento para fazer referência à conta `-UseConnectedAccount` de armazenamento e inclua o parâmetro.
+Para usar Azure PowerShell para entrar e executar operações subsequentes no armazenamento do Azure usando as credenciais do Azure AD, crie um contexto de armazenamento para fazer referência à conta de armazenamento e inclua o parâmetro `-UseConnectedAccount`.
 
 O exemplo a seguir mostra como criar um contêiner em uma nova conta de armazenamento de Azure PowerShell usando suas credenciais do Azure AD. Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
 
@@ -129,7 +129,7 @@ O exemplo a seguir mostra como criar um contêiner em uma nova conta de armazena
     New-AzStorageContainer -Name $containerName -Context $ctx
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
 - Para saber mais sobre como usar identidades gerenciadas para recursos do Azure com o armazenamento do Azure, confira autenticar o [acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).

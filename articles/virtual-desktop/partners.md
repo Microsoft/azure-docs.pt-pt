@@ -7,16 +7,38 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: ddfe5c855b6cd0171494f1af20dc5eb4ae571a6e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918982"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673008"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
-Este artigo lista os parceiros da área de trabalho virtual do Windows em ordem alfabética.
+Este artigo lista os parceiros da área de trabalho virtual do Windows.
+
+## <a name="citrix"></a>Citrix
+
+![Logotipo da Citrix](./media/partners/citrix.png)
+
+A Citrix é um provedor aprovado que oferece às empresas gerenciamento híbrido centralizado de aplicativos virtuais e cargas de trabalho de desktops no Azure, lado a lado com implantações locais. O espaço de trabalho Citrix com os aplicativos virtuais e o serviço de desktops permite que os usuários acessem aplicativos e áreas de trabalho de qualquer dispositivo, aproveitando o protocolo Citrix HDX avançado para fornecer uma experiência de alta definição de qualquer lugar.
+
+A Citrix estende o valor da área de trabalho virtual do Windows com ferramentas empresariais robustas para melhorar a densidade e o desempenho do usuário, provisionar cargas de trabalho sob demanda e simplificar o gerenciamento de imagens e aplicativos. Ele pode otimizar os custos com ferramentas de dimensionamento inteligentes, enquanto fornece uma experiência incrível do usuário final que foi testada em campo em relação aos aplicativos mais difíceis em todos os setores.
+
+- [Acesse o site do parceiro](https://more.citrix.com/wvd).
+
+
+## <a name="vmware"></a>VMware
+
+![Logotipo do VMware](./media/partners/vmware.png)
+
+A VMware horizonte Cloud no Microsoft Azure oferece às organizações a capacidade de conectar sua própria instância do Microsoft Azure ao plano de controle de nuvem simples e intuitivo, criando uma solução segura, abrangente e hospedada na nuvem para fornecimento virtualizado Aplicativos e áreas de trabalho do Windows. Com o lançamento da área de trabalho virtual do Windows, a VMware estabeleceu uma parceria com a Microsoft para ampliar a funcionalidade da área de trabalho virtual do Windows para clientes que usam a nuvem do horizonte no Microsoft Azure.
+
+Como um provedor aprovado, o VMware horizonte Cloud em Microsoft Azure clientes Obtém todos os benefícios da área de trabalho virtual do Windows, como Windows 10 Enterprise para várias sessões, Windows 7 com atualizações de segurança estendidas gratuitas por até três anos e FSLogix recursos, além de todos os recursos modernos de classe empresarial da nuvem de horizonte, como suporte a um ponto de extremidade amplo; Agente global, otimizado para nuvem, opções e configurações de área de trabalho flexíveis, gerenciamento de ambiente do usuário e suporte para ambientes híbridos. 
+
+- [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+- [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
 
 ## <a name="cloudjumper"></a>CloudJumper
 
@@ -26,8 +48,19 @@ O CloudJumper é um provedor de serviços de valor agregado da área de trabalho
 
 O software da CloudJumper, o Cloud Workspace Management Suite estende o valor da área de trabalho virtual do Windows, simplificando a implantação e tarefas de administração contínuas no Azure. Em um único painel, ele pode provisionar, gerenciar e otimizar a infraestrutura de espaços de trabalho de usuário. O mecanismo de disparo de scripts simples do CloudJumper integra-se às plataformas de serviço de ti para automatizar tarefas envolvidas no provisionamento da área de trabalho virtual do Windows. Além disso, as APIs CloudJumper permitem mais extensibilidade e integração com outros sistemas empresariais, como o ServiceNow e o BMC prontos.
 
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg)
-- [Acesse o site do parceiro.](https://cloudjumper.com/wvd/)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg).
+- [Acesse o site do parceiro](https://cloudjumper.com/wvd/).
+
+## <a name="controlup"></a>ControlUp
+
+![Logotipo do ControlUp](./media/partners/controlup.png)
+
+ControlUp é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que permite que as equipes de ti monitorem, solucionem problemas, analisem e corrijam diretamente os problemas em sua infraestrutura local, de nuvem híbrida e de nuvem em tempo real em um único console. A plataforma de análise e gerenciamento do ControlUp também permite automatizar proativamente as correções para um conjunto rápido de casos de uso.
+
+Quando usado com a área de trabalho virtual do Windows, o ControlUp fornece recursos adicionais para otimizar os ambientes de área de trabalho virtual do Windows e a experiência do usuário final. No console do ControlUp, ele obtém visibilidade do ambiente do usuário final para monitorar e solucionar problemas de desempenho com eficiência. Um painel intuitivo fornece informações e análises para implantações de área de trabalho virtual, bem como opções para relatórios automatizados aprimorados com os benchmarks da Comunidade. O ControlUp pode gerenciar várias fontes de dados e tipos, organizá-los em conjuntos de dados de alto desempenho agregados em computação, armazenamento e infraestrutura de área de trabalho virtual do Windows, permitindo visibilidade granular de um único painel.
+
+- [Consulte o resumo da solução de junção](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
+- [Acesse o site do parceiro](https://www.controlup.com/solutions/ms_wvd/).
 
 ## <a name="lakeside-software"></a>Lakeside software
 
@@ -37,8 +70,8 @@ O Lakeside software é um provedor de serviços de valor agregado da área de tr
 
 A solução de monitoramento de experiência digital, SysTrack, da Lakeside software, pode ajudar a fornecer uma excelente experiência de usuário rastreando o desempenho e identificando cargas de trabalho ideais para a migração. O SysTrack trabalha para estender o valor da área de trabalho virtual do Windows por meio de avaliações de dimensionamento correto e monitoramento contínuo de ambientes de usuário.
 
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q)
-- [Acesse o site do parceiro.](https://www.lakesidesoftware.com/assessments/wvd)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
+- [Acesse o site do parceiro](https://www.lakesidesoftware.com/assessments/wvd).
 
 ## <a name="liquidware"></a>Liquidez
 
@@ -48,8 +81,8 @@ A liquidez é um provedor de serviços de valor agregado da área de trabalho vi
 
 O liquide Essentials estende o valor da área de trabalho virtual do Windows com a coleta eficiente de perfis de usuário e a coleta de dados importantes do usuário para simplificar a migração de ambientes de usuário para o Azure. Além disso, o liquide Essentials simplifica o gerenciamento de imagens, unificando perfis de usuário e colocando aplicativos em camadas com base nas configurações configuráveis do Rights Management.
 
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)
-- [Acesse o site do parceiro.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
+- [Acesse o site do parceiro](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
 ## <a name="nerdio"></a>Nerdio
 
@@ -59,8 +92,8 @@ O Nerdio é uma plataforma de automação de ti do Azure que torna mais fácil i
 
 O Nerdio estende o valor da área de trabalho virtual do Windows, facilitando o provisionamento de recursos do Azure e simplifique a implantação. Com o Nerdio para Azure, ele pode implantar e gerenciar automaticamente um ambiente completo do Azure, incluindo a área de trabalho virtual do Windows, em menos de duas horas.
 
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)
-- [Acesse o site do parceiro.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
+- [Acesse o site do parceiro](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -70,8 +103,8 @@ ThinPrint é um provedor de serviços de valor agregado da área de trabalho vir
 
 A solução ezeep da ThinPrint estende o valor da área de trabalho virtual do Windows habilitando a conexão à infraestrutura de impressão empresarial existente. o ezeep dá aos usuários controle sobre a impressão na empresa, independentemente de onde estiverem. Usando o ezeep, os usuários podem preencher a lacuna entre a área de trabalho virtual do Windows e o hardware de impressão.
 
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [Acesse o site do parceiro.](https://www.ezeep.com/wvd-printing)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
+- [Acesse o site do parceiro](https://www.ezeep.com/wvd-printing).
 
 ## <a name="workspot"></a>Workspot
 
@@ -81,10 +114,10 @@ Workspot é um provedor de serviços de valor agregado da área de trabalho virt
 
 Workspot estende o valor da área de trabalho virtual do Windows simplificando o processo de provisionamento da infraestrutura de área de trabalho em nuvem. Com o Workspot, os recursos podem ser facilmente dimensionados e reduzidos para atender às necessidades de diferentes usuários e usar casos. O Workspot pode otimizar as implantações para estações de trabalho de GPU de alto desempenho necessárias para os usuários de CAD e de engenharia, bem como aplicativos do Windows e desktops Windows 10 para todos os usuários empresariais.
 
-- [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P)
-- [Acesse o site do parceiro.](https://www.workspot.com/wvd)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
+- [Acesse o site do parceiro](https://www.workspot.com/wvd).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre a área de trabalho virtual do Windows.](overview.md)
-- [Crie um locatário na área de trabalho virtual do Windows.](tenant-setup-azure-active-directory.md)
+- [Saiba mais sobre a área de trabalho virtual do Windows](overview.md).
+- [Crie um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).

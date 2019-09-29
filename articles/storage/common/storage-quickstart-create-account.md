@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e72f8c3ed0658765827c4a9b0669c08fefd9044f
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 338ba468fb1442488da78f09fc72a22186cd0a51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016338"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673224"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -116,7 +116,7 @@ $resourceGroup = "storage-resource-group"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-Se você não tiver certeza de qual região especificar para o `-Location` parâmetro, poderá recuperar uma lista de regiões com suporte para sua assinatura com o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation) :
+Se você não tiver certeza de qual região especificar para o parâmetro `-Location`, poderá recuperar uma lista de regiões com suporte para sua assinatura com o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation) :
 
 ```powershell
 Get-AzLocation | select Location
@@ -260,7 +260,7 @@ az group delete --name $resourceGroupName
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo de instruções, você criou uma conta de armazenamento padrão v2 de uso geral. Para saber como carregar e baixar blobs de e para sua conta de armazenamento, continue em um dos guias de início rápido do armazenamento de BLOBs.
 

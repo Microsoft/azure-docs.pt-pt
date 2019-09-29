@@ -4,16 +4,16 @@ description: O armazenamento do Azure agora oferece exclusão reversível para o
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 95d133e07725f797ea3c1a903e315d5c7232e1de
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 253f42080d7c0eab2f7b3cfc5de3d4462f63c738
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327627"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673405"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para BLOBs de armazenamento do Azure
 O armazenamento do Azure agora oferece exclusão reversível para objetos de BLOB para que você possa recuperar seus dados com mais facilidade quando eles forem modificados ou excluídos erroneamente por um aplicativo ou outro usuário da conta de armazenamento.

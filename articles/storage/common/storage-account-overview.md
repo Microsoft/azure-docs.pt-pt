@@ -4,16 +4,16 @@ description: Entenda as opções para criar e usar uma conta de armazenamento do
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 49e15964ba370cc6dc18491507b906764f1f882c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640111"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671318"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -115,7 +115,7 @@ Para obter mais informações sobre replicação de armazenamento, consulte [rep
 
 Todos os dados em sua conta de armazenamento são criptografados no lado do serviço. Para obter mais informações sobre criptografia, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 
-## <a name="storage-account-endpoints"></a>Pontos finais da conta do Storage
+## <a name="storage-account-endpoints"></a>Pontos finais da conta de armazenamento
 
 Uma conta de armazenamento fornece um namespace exclusivo no Azure para seus dados. Cada objeto que você armazena no armazenamento do Azure tem um endereço que inclui seu nome de conta exclusivo. A combinação do nome da conta e do ponto de extremidade do serviço de armazenamento do Azure forma os pontos de extremidades para sua conta de armazenamento.
 
@@ -141,7 +141,7 @@ Todas as solicitações feitas em sua conta de armazenamento devem ser autorizad
 
 Você pode conceder acesso aos dados em sua conta de armazenamento usando qualquer uma das seguintes abordagens:
 
-- **Azure Active Directory:** Use as credenciais do Azure Active Directory (AD do Azure) para autenticar um usuário, grupo ou outra identidade para acesso a dados de BLOB e de fila. Se a autenticação de uma identidade for bem-sucedida, o Azure AD retornará um token a ser usado na autorização da solicitação para o armazenamento de BLOBs do Azure ou armazenamento de filas. Para obter mais informações, consulte autenticar o [acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory:** Use as credenciais do Azure Active Directory (AD do Azure) para autenticar um usuário, grupo ou outra identidade para acesso a dados de BLOB e de fila. Se a autenticação de uma identidade for bem-sucedida, o Azure AD retornará um token a ser usado na autorização da solicitação para o armazenamento de BLOBs do Azure ou armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
 - **Autorização de chave compartilhada:** Use sua chave de acesso da conta de armazenamento para construir uma cadeia de conexão que seu aplicativo usa no tempo de execução para acessar o armazenamento do Azure. Os valores na cadeia de conexão são usados para construir o cabeçalho de *autorização* que é passado para o armazenamento do Azure. Para obter mais informações, consulte [Configurar cadeias de conexão de armazenamento do Azure](storage-configure-connection-string.md).
 - **Assinatura de acesso compartilhado:** Use uma assinatura de acesso compartilhado para delegar acesso a recursos em sua conta de armazenamento, se você não estiver usando a autorização do Azure AD. Uma assinatura de acesso compartilhado é um token que encapsula todas as informações necessárias para autorizar uma solicitação para o armazenamento do Azure na URL. Você pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo sobre o qual as permissões são válidas como parte da assinatura de acesso compartilhado. Para obter mais informações, consulte [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
 
@@ -183,7 +183,7 @@ O serviço de importação/exportação também pode ser usado para transferir d
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como criar uma conta de armazenamento do Azure de uso geral, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 * Para saber como criar uma conta de armazenamento de blob de blocos, consulte [criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md).

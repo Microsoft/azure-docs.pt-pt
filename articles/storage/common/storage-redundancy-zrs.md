@@ -4,17 +4,17 @@ description: O ZRS (armazenamento com redundância de zona) oferece uma maneira 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036255"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673099"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -66,26 +66,26 @@ A migração de dados para o ZRS requer uma estratégia diferente. A migração 
 
 Há duas opções principais para a migração para o ZRS: 
 
-- Copiar ou mover dados manualmente para uma nova conta do ZRS de uma conta existente.
-- Solicite uma migração ao vivo.
+- Copie ou mova manualmente os dados de uma conta existente para uma nova conta ZRS.
+- Peça uma migração em direto.
 
 > [!IMPORTANT]
 > Atualmente, a migração ao vivo não tem suporte para compartilhamentos de arquivos premium. No momento, só há suporte para copiar ou mover dados manualmente.
 
-Se você precisar que a migração seja concluída em uma determinada data, considere executar uma migração manual. Uma migração manual fornece mais flexibilidade do que uma migração dinâmica. Com uma migração manual, você está no controle do tempo.
+Se precisar que a migração esteja concluída até uma determinada data, considere realizar uma migração manual. A migração manual proporciona mais flexibilidade do que a migração em direto. Com a migração manual, poderá controlar o momento da migração.
 
 Para executar uma migração manual, você tem opções:
 - Use ferramentas existentes como o AzCopy, uma das bibliotecas de cliente de armazenamento do Azure ou ferramentas de terceiros confiáveis.
 - Se você estiver familiarizado com o Hadoop ou o HDInsight, anexe a conta de origem e destino (ZRS) ao cluster. Em seguida, paralelizar o processo de cópia de dados com uma ferramenta como DistCp.
 - Crie suas próprias ferramentas usando uma das bibliotecas de cliente do armazenamento do Azure.
 
-Uma migração manual pode resultar em tempo de inatividade do aplicativo. Se seu aplicativo exigir alta disponibilidade, a Microsoft também fornecerá uma opção de migração dinâmica. Uma migração ao vivo é uma migração in-loco sem tempo de inatividade. 
+Uma migração manual pode resultar em tempo de inatividade do aplicativo. Se a aplicação exigir elevada disponibilidade, a Microsoft fornece a opção de migração em direto. A migração em direto é uma migração no local sem tempo de inatividade. 
 
-Durante uma migração ao vivo, você pode usar sua conta de armazenamento enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, você tem o mesmo nível de SLA de durabilidade e disponibilidade que normalmente faz.
+Durante a migração em direto, poderá utilizar a sua conta de armazenamento enquanto os dados são migrados entre os carimbos de armazenamento de origem e destino. Durante o processo de migração, terá o mesmo nível de durabilidade e de disponibilidade do SLA que normalmente tem.
 
 Tenha em mente as seguintes restrições na migração ao vivo:
 
-- Embora a Microsoft processe com o seu pedido para migração em direto imediatamente, não há nenhuma garantia em relação a quando uma migração em direto será concluída. Se você precisar que seus dados sejam migrados para ZRS por uma determinada data, a Microsoft recomenda que você execute uma migração manual em vez disso. Em geral, quanto mais dados tiver na conta, mais tempo levará a migrar esses dados. 
+- Embora a Microsoft processe com o seu pedido para migração em direto imediatamente, não há nenhuma garantia em relação a quando uma migração em direto será concluída. Se precisar dos dados migrados para o ZRS até uma determinada data, a Microsoft recomenda que efetue antes uma migração manual. Em geral, quanto mais dados tiver na conta, mais tempo levará a migrar esses dados. 
 - Há suporte para a migração dinâmica apenas para contas de armazenamento que usam a replicação LRS ou GRS. Se sua conta usar RA-GRS, você precisará primeiro alterar o tipo de replicação da sua conta para LRS ou GRS antes de continuar. Essa etapa intermediária remove o ponto de extremidade secundário somente leitura fornecido pelo RA-GRS antes da migração.
 - Sua conta deve conter dados.
 - Você só pode migrar dados dentro da mesma região. Se desejar migrar seus dados para uma conta do ZRS localizada em uma região diferente da conta de origem, você deverá executar uma migração manual.
@@ -103,7 +103,7 @@ Você pode solicitar a migração dinâmica por meio do [portal de suporte do Az
     - **Tipo de problema**: Selecione **migração de dados**.
     - **Categoria**: Selecione **migrar para ZRS**.
     - **Título**: Digite um título descritivo, por exemplo, **migração de conta do ZRS**.
-    - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na \_ \_ região. 
+    - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na região \_ @ no__t-2. 
 5. Selecione **Seguinte**.
 6. Verifique se as informações de contato estão corretas na folha **informações de contato** .
 7. Selecione **Criar**.
@@ -114,11 +114,11 @@ Uma pessoa de suporte entrará em contato com você e fornecerá qualquer assist
 
 **Devo planejar qualquer tempo de inatividade durante a migração?**
 
-Não há nenhum tempo de inatividade causado pela migração. Durante uma migração ao vivo, você pode continuar usando sua conta de armazenamento enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, você tem o mesmo nível de SLA de durabilidade e disponibilidade que normalmente faz.
+Não há nenhum tempo de inatividade causado pela migração. Durante uma migração ao vivo, você pode continuar usando sua conta de armazenamento enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, terá o mesmo nível de durabilidade e de disponibilidade do SLA que normalmente tem.
 
 **Há alguma perda de dados associada à migração?**
 
-Não há perda de dados associada à migração. Durante o processo de migração, você tem o mesmo nível de SLA de durabilidade e disponibilidade que normalmente faz.
+Não há perda de dados associada à migração. Durante o processo de migração, terá o mesmo nível de durabilidade e de disponibilidade do SLA que normalmente tem.
 
 **As atualizações são necessárias para os aplicativos quando a migração for concluída?**
 

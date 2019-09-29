@@ -4,16 +4,16 @@ description: Use Azure Active Directory para autenticar de dentro de um aplicati
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986792"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673241"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizar o acesso a BLOBs e filas com Azure Active Directory de um aplicativo cliente
 

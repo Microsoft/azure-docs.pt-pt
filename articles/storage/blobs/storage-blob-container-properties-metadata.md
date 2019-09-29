@@ -4,15 +4,15 @@ description: Saiba como definir e recuperar propriedades do sistema e armazenar 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: tamram
-ms.openlocfilehash: 35883b0c34503ca16f2b10fc061f94af514e10a9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d63c78fedb8dbd48655d36fecc3544fd512072e3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986917"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673378"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gerenciar Propriedades de contêiner e metadados com o .NET
 

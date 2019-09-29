@@ -4,17 +4,17 @@ description: Quando você acessa dados de BLOB ou de fila usando o portal do Azu
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8d19724883e6c2b3630de6100b1b4ca9fd9250a1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 3d5d5bd6400fdf09216124665b6b236b4da2583b
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813363"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673281"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar o portal do Azure para acessar dados de BLOB ou de fila
 
@@ -95,7 +95,7 @@ Para alternar para o usando a chave de acesso da conta, clique no link realçado
 
 Observe que nenhum blob aparecerá na lista se você não tiver acesso às chaves da conta. Clique no link **alternar para a conta de usuário do Azure ad** para usar sua conta do Azure ad para autenticação novamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md)
 - [Conceder acesso a contêineres e filas do Azure com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)

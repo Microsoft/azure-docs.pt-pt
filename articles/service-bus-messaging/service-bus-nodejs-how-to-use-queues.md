@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: df3f5a3773265249751352ce8d9c966c54bf197d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091800"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672000"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Como usar filas do barramento de serviço com node. js e o pacote Azure-SB
+# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Usar filas do barramento de serviço no Azure com node. js e o pacote Azure-SB
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
@@ -190,7 +190,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes de o `delet
 > [!NOTE]
 > Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre filas, confira os recursos a seguir.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]

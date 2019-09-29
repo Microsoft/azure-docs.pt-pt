@@ -4,17 +4,17 @@ description: O armazenamento do Azure dá suporte ao failover de conta (versão 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376455"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671082"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure
 
@@ -50,7 +50,7 @@ Outras opções de redundância de armazenamento do Azure incluem ZRS (armazenam
 * [Criando aplicativos resilientes para o Azure](https://docs.microsoft.com/azure/architecture/resiliency/): Uma visão geral dos principais conceitos para a arquitetura de aplicativos altamente disponíveis no Azure.
 * [Lista de verificação de disponibilidade](https://docs.microsoft.com/azure/architecture/checklist/availability): Uma lista de verificação para verificar se seu aplicativo implementa as melhores práticas de design para alta disponibilidade.
 * [Criando aplicativos altamente disponíveis usando o Ra-grs](storage-designing-ha-apps-with-ragrs.md): Diretrizes de design para a criação de aplicativos para tirar proveito do RA-GRS.
-* [Tutorial: Crie um aplicativo altamente disponível com o armazenamento](../blobs/storage-create-geo-redundant-storage.md)de BLOBs: Um tutorial que mostra como criar um aplicativo altamente disponível que alterna automaticamente entre pontos de extremidade como falhas e recuperações são simuladas. 
+* [Tutorial: Crie um aplicativo altamente disponível com o armazenamento de BLOBs @ no__t-0: Um tutorial que mostra como criar um aplicativo altamente disponível que alterna automaticamente entre pontos de extremidade como falhas e recuperações são simuladas. 
 
 Além disso, tenha em mente essas práticas recomendadas para manter a alta disponibilidade para os dados do armazenamento do Azure:
 

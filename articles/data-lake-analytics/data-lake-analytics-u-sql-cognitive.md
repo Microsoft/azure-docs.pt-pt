@@ -1,6 +1,6 @@
 ---
 title: Recursos cognitivas do U-SQL no Azure Data Lake Analytics
-description: Saiba como usar a inteligência de recursos cognitivas no U-SQL
+description: Saiba como usar a inteligência de recursos cognitivas no U-SQL. Este código de exemplo ajuda você a começar.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: bb64f08fae3a211b3ec26177ab2604edc20a8fdd
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315677"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672716"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introdução aos recursos cognitivas do U-SQL
 

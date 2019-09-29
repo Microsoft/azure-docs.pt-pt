@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 9d89bc2318049f068b2bab8c0345605458678b41
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 463cd350eb3c878a7d080cdfa7c8e0fabffd1a93
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350691"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672676"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -264,21 +264,27 @@ Quando elimina uma aplicação lógica, não são instanciadas novas execuções
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configuração da firewall: Endereços IP
 
-Todos os aplicativos lógicos na mesma região usam os mesmos intervalos de endereços IP. Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seus firewalls com *todos* os endereços IP de [entrada](#inbound) *e* [saída](#outbound) que são usados pelos aplicativos lógicos serviço, com base nas regiões em que os seus aplicativos lógicos existem. Esses endereços aparecem sob os cabeçalhos de **entrada** e **saída** nesta seção e são classificados por região.
+Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos os* aplicativos lógicos que estão na mesma região usam os mesmos intervalos de endereços IP.
 
-Para dar suporte às chamadas feitas pelos conectores gerenciados pela [Microsoft](../connectors/apis-list.md) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob o título de **saída** nesta seção e são classificados por região. Para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+> [!NOTE]
+> Algumas chamadas Microsoft Flow, como solicitações **http** e **http + openapi** , vão diretamente por meio do serviço aplicativos lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Microsoft Flow, consulte [limites e configuração no Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
-Para conectores personalizados, [Azure governamental](../azure-government/documentation-government-overview.md)e [Azure China 21VIANET](https://docs.microsoft.com/azure/china/), endereços IP fixos ou reservados não estão disponíveis.
+* Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seu firewall com *todos* os endereços IP de [entrada](#inbound) *e* [saída](#outbound) que são usados pelos aplicativos lógicos serviço, com base nas regiões em que os seus aplicativos lógicos existem. Esses endereços aparecem sob os cabeçalhos de **entrada** e **saída** nesta seção e são classificados por região.
+
+* Para dar suporte às chamadas feitas pelos conectores gerenciados pela [Microsoft](../connectors/apis-list.md) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob o título de **saída** nesta seção e são classificados por região. 
+
+* Para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+
+* Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e existem na mesma região. No entanto, os aplicativos lógicos podem acessar contas de armazenamento do Azure que existem em uma região diferente porque um endereço IP público é usado para se comunicar entre regiões. Ou então, você pode usar qualquer uma das opções aqui:
+
+  * Crie um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar a recursos em uma rede virtual do Azure.
+
+  * Se você já usa o gerenciamento de API, pode usar esse serviço para este cenário. Para obter mais informações, consulte [arquitetura de integração corporativa simples](https://aka.ms/aisarch).
+
+* Para conectores personalizados, [Azure governamental](../azure-government/documentation-government-overview.md)e [Azure China 21VIANET](https://docs.microsoft.com/azure/china/), endereços IP fixos ou reservados não estão disponíveis.
 
 > [!IMPORTANT]
->
-> Se você tiver configurações existentes, atualize-as **assim que possível antes de 1º de setembro de 2018** para que elas incluam e correspondam aos endereços IP nessas listas para as regiões em que os seus aplicativos lógicos existem.
-
-Os aplicativos lógicos não dão suporte à conexão direta com contas de armazenamento do Azure por meio de firewalls. Para acessar essas contas de armazenamento, use qualquer opção aqui:
-
-* Crie um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar a recursos em uma rede virtual do Azure.
-
-* Se você já usa o gerenciamento de API, pode usar esse serviço para este cenário. Para obter mais informações, consulte [arquitetura de integração corporativa simples](https://aka.ms/aisarch).
+> Se você tiver configurações de firewall que você configurou antes de 1º de setembro de 2018, verifique se elas correspondem aos endereços IP atuais nessas listas para as regiões em que seus aplicativos lógicos existem.
 
 <a name="inbound"></a>
 

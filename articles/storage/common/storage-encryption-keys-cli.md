@@ -4,17 +4,17 @@ description: Saiba como usar CLI do Azure para configurar chaves gerenciadas pel
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ba6cc03a93b664e05a667116cbf845e777416c6b
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 036322e73470ad4aa25de03e95c506e9f04496d8
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155418"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670988"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure de CLI do Azure
 

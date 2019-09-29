@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/26/2019
 ms.author: juliako
-ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232608"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672664"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -27,6 +27,26 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidades preteridas
+
+## <a name="september-2019"></a>Setembro de 2019
+ 
+Vários avanços anunciados em IBC 2019:
+ 
+* Reconhecimento de caracteres animados (visualização pública)
+
+    Capacidade de detectar os caracteres do grupo do AD Recognize no conteúdo animado, por meio da integração com visão personalizada. Para obter mais informações, consulte a [detecção de caracteres animados](animated-characters-recognition.md).
+* Identificação de vários idiomas (visualização pública)
+
+    Detecte segmentos em vários idiomas na faixa de áudio e crie uma transcrição multilíngue com base neles. Suporte inicial: Inglês, espanhol, alemão e francês. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
+* Extração de entidade nomeada para pessoas e local
+
+    Extrai marcas, locais e pessoas de fala e texto visual por meio do NLP (processamento de idioma natural).
+* Classificação do tipo editorial shot
+
+    Marcação de capturas com tipos editoriais como close up, Medium, two shot, interno, externamente, etc. Para obter mais informações, consulte [detecção do tipo editorial shot](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Aprimoramento do tópico inferência – agora cobrindo o nível 2
+    
+    O tópico inferência Model agora oferece suporte à granularidade mais profunda da taxonomia IPTC. Leia os detalhes completos nos [serviços de mídia do Azure nova inovação com alimentação de ia](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>Agosto de 2019
  

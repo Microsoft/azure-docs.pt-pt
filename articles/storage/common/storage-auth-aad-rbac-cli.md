@@ -4,17 +4,17 @@ description: Use CLI do Azure para atribuir acesso a contêineres e filas com RB
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986749"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673197"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Conceder acesso ao blob do Azure e a dados da fila com o RBAC usando CLI do Azure
 
@@ -58,7 +58,7 @@ Para atribuir uma função de RBAC a uma entidade de segurança, use o comando [
 
 ### <a name="container-scope"></a>Escopo do contêiner
 
-Para atribuir uma função com escopo a um contêiner, especifique uma cadeia de caracteres que contenha o escopo do `--scope` contêiner para o parâmetro. O escopo de um contêiner está no formato:
+Para atribuir uma função com escopo a um contêiner, especifique uma cadeia de caracteres que contenha o escopo do contêiner para o parâmetro `--scope`. O escopo de um contêiner está no formato:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
@@ -75,7 +75,7 @@ az role assignment create \
 
 ### <a name="queue-scope"></a>Escopo da fila
 
-Para atribuir uma função com escopo a uma fila, especifique uma cadeia de caracteres que contenha o escopo da `--scope` fila para o parâmetro. O escopo de uma fila está no formato:
+Para atribuir uma função com escopo a uma fila, especifique uma cadeia de caracteres que contenha o escopo da fila para o parâmetro `--scope`. O escopo de uma fila está no formato:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
@@ -92,7 +92,7 @@ az role assignment create \
 
 ### <a name="storage-account-scope"></a>Escopo da conta de armazenamento
 
-Para atribuir uma função com escopo à conta de armazenamento, especifique o escopo do recurso de conta de armazenamento para `--scope` o parâmetro. O escopo de uma conta de armazenamento está no formato:
+Para atribuir uma função com escopo à conta de armazenamento, especifique o escopo do recurso de conta de armazenamento para o parâmetro `--scope`. O escopo de uma conta de armazenamento está no formato:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -109,7 +109,7 @@ az role assignment create \
 
 ### <a name="resource-group-scope"></a>Escopo do grupo de recursos
 
-Para atribuir uma função com escopo ao grupo de recursos, especifique o nome ou a ID do grupo de `--resource-group` recursos para o parâmetro. O exemplo a seguir atribui a função de **leitor de dados de fila de armazenamento** a um usuário no nível do grupo de recursos. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes por seus próprios valores:
+Para atribuir uma função com escopo ao grupo de recursos, especifique o nome ou a ID do grupo de recursos para o parâmetro `--resource-group`. O exemplo a seguir atribui a função de **leitor de dados de fila de armazenamento** a um usuário no nível do grupo de recursos. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes por seus próprios valores:
 
 ```azurecli-interactive
 az role assignment create \
@@ -120,7 +120,7 @@ az role assignment create \
 
 ### <a name="subscription-scope"></a>Escopo da assinatura
 
-Para atribuir uma função com escopo à assinatura, especifique o escopo da assinatura para o `--scope` parâmetro. O escopo de uma assinatura está no formato:
+Para atribuir uma função com escopo à assinatura, especifique o escopo da assinatura para o parâmetro `--scope`. O escopo de uma assinatura está no formato:
 
 ```
 /subscriptions/<subscription>
@@ -135,7 +135,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerenciar o acesso aos recursos do Azure usando RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Conceder acesso ao blob do Azure e a dados da fila com o RBAC usando Azure PowerShell](storage-auth-aad-rbac-powershell.md)

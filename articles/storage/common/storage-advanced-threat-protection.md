@@ -4,16 +4,16 @@ description: Configure a proteção avançada contra ameaças para o armazenamen
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 21204a7a2fb5a6907a8af9cb91fe8b018f7a4714
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c19b64441d7afbe7544a4401314078b807a8c939
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076497"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673245"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Proteção avançada contra ameaças para o armazenamento do Azure
 
@@ -117,7 +117,7 @@ Você pode examinar e gerenciar seus alertas de segurança atuais no [bloco aler
 
 Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Para obter uma lista de alertas para o armazenamento do Azure, consulte a seção **armazenamento** em [detecção de ameaças para serviços de dados nos alertas da central de segurança do Azure](../../security-center/security-center-alerts-data-services.md#azure-storage)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [logs em contas de armazenamento do Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 * Saiba mais sobre a [central de segurança do Azure](../../security-center/security-center-intro.md)

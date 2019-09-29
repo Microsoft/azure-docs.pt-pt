@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dech
-ms.openlocfilehash: 1eda8271a3b8aa2c9e247252bd755279d23b6e10
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 4a9bd554e0858024d656dbf35d6fb00995e6f4bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310350"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672496"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Usar comandos e recursos de bloco de anotações internos no Azure Cosmos DB
 
@@ -25,7 +25,10 @@ Em uma nova célula de código, insira e execute o código a seguir ``PackageToB
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-Este pacote estará disponível para uso em qualquer notebook na conta do Azure Cosmos. 
+Este pacote estará disponível para uso em qualquer notebook no espaço de trabalho da conta do Azure Cosmos. 
+
+> [!TIP]
+> Se o seu notebook exigir um pacote personalizado, recomendamos que você adicione uma célula no bloco de anotações para instalar o pacote, pois os pacotes são removidos se você [redefinir o espaço de trabalho](#reset-notebooks-workspace).  
 
 ## <a name="run-a-sql-query"></a>Executar uma consulta SQL
 
@@ -150,6 +153,11 @@ primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
 > As ``COSMOS_ENDPOINT`` variáveis ``COSMOS_KEY`` de ambiente e são aplicáveis somente para a API do SQL. Para outras APIs, localize o ponto de extremidade e a chave na folha **cadeias de conexão** ou **chaves** na sua conta do cosmos.  
+
+## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de blocos de anotações
+Para redefinir o espaço de trabalho de blocos de anotações para as configurações padrão, selecione **redefinir espaço de trabalho** na barra de comandos. Isso removerá todos os pacotes instalados personalizados e reiniciará o servidor Jupyter. Seus blocos de anotações, arquivos e recursos de Cosmos não serão afetados.  
+
+![Redefinir espaço de trabalho de blocos de anotações](media/use-notebook-features-and-commands/reset-workspace.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

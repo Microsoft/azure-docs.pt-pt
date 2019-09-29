@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389697"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670757"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -200,9 +200,9 @@ Sim. Você deve conectar um conjunto de dimensionamento de máquinas virtuais a 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Há uma lista completa de serviços do Azure que posso implantar recursos de em uma VNet?
 Sim, para obter detalhes, consulte [integração de rede virtual para serviços do Azure](virtual-network-for-azure-services.md).
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>Quais recursos de PaaS do Azure posso restringir o acesso de uma VNet?
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>Como posso restringir o acesso aos recursos de PaaS do Azure de uma VNet?
 
-Os recursos implantados por meio de alguns serviços de PaaS do Azure (como o armazenamento do Azure e o banco de dados SQL do Azure) podem restringir o acesso à rede somente a recursos em uma VNet por meio do uso de pontos de extremidade de serviço de rede virtual. Para obter detalhes, consulte [visão geral de pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
+Os recursos implantados por meio de alguns serviços de PaaS do Azure (como o armazenamento do Azure e banco de dados SQL do Azure) podem restringir o acesso à rede para VNet através do uso de pontos de extremidade de serviço de rede virtual ou do link privado do Azure. Para obter detalhes, consulte [visão geral de pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md), [visão geral do link privado do Azure](../private-link/private-link-overview.md)
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Posso mover meus serviços para dentro e fora do VNets?
 Não. Não é possível mover serviços para dentro e fora do VNets. Para mover um recurso para outra VNet, você precisa excluir e reimplantar o recurso.
@@ -404,12 +404,12 @@ Não há limite para o número total de pontos de extremidade de serviço de VNe
 |---|---|
 |Serviço do Azure| Limites nas regras de VNet|
 |Storage do Azure| 100|
-|Azure SQL| 128|
+|SQL do Azure| 128|
 |Azure SQL Data Warehouse|  128|
 |Cofre de chaves do Azure|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Azure Service Bus| 128|
+|Service Bus do Azure| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

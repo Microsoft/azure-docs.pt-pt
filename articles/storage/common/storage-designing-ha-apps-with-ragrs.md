@@ -4,17 +4,17 @@ description: Como usar o armazenamento RA-GZRS ou RA-GRS do Azure para arquiteta
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036604"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673121"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura
 
@@ -27,7 +27,7 @@ As contas de armazenamento configuradas para replicação com redundância geogr
 
 Este artigo mostra como projetar seu aplicativo para lidar com uma interrupção na região primária. Se a região primária ficar indisponível, seu aplicativo poderá se adaptar para executar operações de leitura em vez da região secundária. Verifique se sua conta de armazenamento está configurada para RA-GRS ou RA-GZRS antes de começar.
 
-Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, consulte [continuidade de negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, @no__t consulte 0Business – continuidade e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Há trechos de código incluídos neste artigo e um link para um exemplo completo no final que você pode baixar e executar.
 
@@ -102,7 +102,7 @@ A biblioteca de cliente de armazenamento do Azure ajuda a determinar quais erros
 
 ### <a name="read-requests"></a>Pedidos de leitura
 
-As solicitações de leitura podem ser redirecionadas para o armazenamento secundário se houver um problema com o armazenamento primário. Conforme observado acima no [uso de dados eventualmente consistentes](#using-eventually-consistent-data), deve ser aceitável que seu aplicativo leia dados obsoletos potencialmente. Se você estiver usando a biblioteca de cliente de armazenamento para acessar dados do secundário, poderá especificar o comportamento de repetição de uma solicitação de leitura definindo um valor para a propriedade locationmode como um dos seguintes:
+As solicitações de leitura podem ser redirecionadas para o armazenamento secundário se houver um problema com o armazenamento primário. Conforme observado acima no [uso de dados eventualmente consistentes](#using-eventually-consistent-data), deve ser aceitável que seu aplicativo leia dados obsoletos potencialmente. Se você estiver usando a biblioteca de cliente de armazenamento para acessar dados do secundário, poderá especificar o comportamento de repetição de uma solicitação de leitura definindo um valor para a propriedade **locationmode** como um dos seguintes:
 
 * **PrimaryOnly** (o padrão)
 
@@ -124,11 +124,11 @@ Há basicamente dois cenários a serem considerados quando você está decidindo
 
     Nesse cenário, há uma penalidade de desempenho, pois todas as suas solicitações de leitura tentarão primeiro o ponto de extremidade primário, aguardarão o tempo limite expirar e alternarão para o ponto de extremidade secundário.
 
-Para esses cenários, você deve identificar que há um problema em andamento com o ponto de extremidade primário e enviar todas as solicitações de leitura diretamente para o ponto de extremidade secundário, definindo a propriedade locationmode como **SecondaryOnly**. Neste momento, você também deve alterar o aplicativo para ser executado no modo somente leitura. Essa abordagem é conhecida como [padrão de disjuntor](/azure/architecture/patterns/circuit-breaker).
+Para esses cenários, você deve identificar que há um problema em andamento com o ponto de extremidade primário e enviar todas as solicitações de leitura diretamente para o ponto de extremidade secundário, definindo a propriedade **locationmode** como **SecondaryOnly**. Neste momento, você também deve alterar o aplicativo para ser executado no modo somente leitura. Essa abordagem é conhecida como [padrão de disjuntor](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Solicitações de atualização
 
-O padrão de disjuntor também pode ser aplicado a solicitações de atualização. No entanto, as solicitações de atualização não podem ser redirecionadas para o armazenamento secundário, que é somente leitura. Para essas solicitações, você deve deixar a Propriedade locationmode definida como **PrimaryOnly** (o padrão). Para lidar com esses erros, você pode aplicar uma métrica a essas solicitações – como 10 falhas em uma linha – e quando o limite for atingido, alterne o aplicativo para o modo somente leitura. Você pode usar os mesmos métodos para retornar ao modo de atualização como os descritos abaixo na próxima seção sobre o padrão de disjuntor.
+O padrão de disjuntor também pode ser aplicado a solicitações de atualização. No entanto, as solicitações de atualização não podem ser redirecionadas para o armazenamento secundário, que é somente leitura. Para essas solicitações, você deve deixar a propriedade **locationmode** definida como **PrimaryOnly** (o padrão). Para lidar com esses erros, você pode aplicar uma métrica a essas solicitações – como 10 falhas em uma linha – e quando o limite for atingido, alterne o aplicativo para o modo somente leitura. Você pode usar os mesmos métodos para retornar ao modo de atualização como os descritos abaixo na próxima seção sobre o padrão de disjuntor.
 
 ## <a name="circuit-breaker-pattern"></a>Padrão de Disjuntor Automático
 
@@ -138,7 +138,7 @@ Usar o padrão de disjuntor em seu aplicativo pode impedi-lo de repetir uma oper
 
 Para identificar se há um problema contínuo com um ponto de extremidade primário, você pode monitorar a frequência com que o cliente encontra erros com nova tentativa. Como cada caso é diferente, você precisa decidir o limite que deseja usar para a decisão de alternar para o ponto de extremidade secundário e executar o aplicativo no modo somente leitura. Por exemplo, você pode optar por executar a opção se houver 10 falhas em uma linha sem sucessos. Outro exemplo é mudar se 90% das solicitações em um período de 2 minutos falharem.
 
-Para o primeiro cenário, você pode simplesmente manter uma contagem das falhas e, se houver um êxito, antes de atingir o máximo, defina a contagem de volta como zero. Para o segundo cenário, uma maneira de implementá-lo é usar o objeto MemoryCache (no .NET). Para cada solicitação, adicione um CacheItem ao cache, defina o valor como Success (1) ou Fail (0) e defina o tempo de expiração como 2 minutos a partir de Now (ou qualquer que seja a sua restrição de tempo). Quando o tempo de expiração de uma entrada é atingido, a entrada é automaticamente removida. Isso dará a você uma janela de 2 minutos sem interrupção. Cada vez que você faz uma solicitação para o serviço de armazenamento, primeiro usa uma consulta LINQ no objeto MemoryCache para calcular o percentual de sucesso somando os valores e dividindo pela contagem. Quando o percentual de sucesso cai abaixo de um limite (como 10%), defina a propriedade locationmode para solicitações de leitura como **SecondaryOnly** e alterne o aplicativo para o modo somente leitura antes de continuar.
+Para o primeiro cenário, você pode simplesmente manter uma contagem das falhas e, se houver um êxito, antes de atingir o máximo, defina a contagem de volta como zero. Para o segundo cenário, uma maneira de implementá-lo é usar o objeto MemoryCache (no .NET). Para cada solicitação, adicione um CacheItem ao cache, defina o valor como Success (1) ou Fail (0) e defina o tempo de expiração como 2 minutos a partir de Now (ou qualquer que seja a sua restrição de tempo). Quando o tempo de expiração de uma entrada é atingido, a entrada é automaticamente removida. Isso dará a você uma janela de 2 minutos sem interrupção. Cada vez que você faz uma solicitação para o serviço de armazenamento, primeiro usa uma consulta LINQ no objeto MemoryCache para calcular o percentual de sucesso somando os valores e dividindo pela contagem. Quando o percentual de sucesso cai abaixo de um limite (como 10%), defina a propriedade **locationmode** para solicitações de leitura como **SecondaryOnly** e alterne o aplicativo para o modo somente leitura antes de continuar.
 
 O limite de erros usados para determinar quando fazer a comutação pode variar de serviço para serviço em seu aplicativo, portanto, você deve considerar torná-los parâmetros configuráveis. Isso também é onde você decide tratar erros com nova tentativa de cada serviço separadamente ou como um, conforme discutido anteriormente.
 
@@ -203,8 +203,8 @@ A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no primário |                                   |                    | Transação A inserida no primário,<br> Ainda não replicado. |
 | T1       |                                                            | Transação A <br> replicado para<br> secundária | T1 | Transação A replicada para secundária. <br>Hora da última sincronização atualizada.    |
-| T2       | Transação B:<br>Atualizar<br> entidade de funcionário<br> no primário  |                                | T1                 | Transação B gravada no primário,<br> Ainda não replicado.  |
-| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>principal |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
+| T2       | Transação B:<br>Atualizar<br> Entidade de funcionário<br> no primário  |                                | T1                 | Transação B gravada no primário,<br> Ainda não replicado.  |
+| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>primária |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
 | *T4*     |                                                       | Transação C <br>replicado para<br> secundária | T1         | Transação C replicada para secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
 | *T5*     | Ler entidades <br>do secundário                           |                                  | T1                 | Você Obtém o valor obsoleto para o funcionário <br> entidade porque a transação B não <br> replicado ainda. Você Obtém o novo valor para<br> entidade de função de administrador porque C tem<br> replicados. A hora da última sincronização ainda não<br> atualizado porque a transação B<br> Não foi replicado. Você pode informar ao<br>a entidade da função de administrador está inconsistente <br>Porque a data/hora da entidade é posterior <br>a hora da última sincronização. |
 | *T6*     |                                                      | Transação B<br> replicado para<br> secundária | T6                 | *T6* – todas as transações por meio de C têm <br>replicado, hora da última sincronização<br> é atualizado. |
@@ -235,7 +235,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para obter a hora da última sincronização para a conta de armazenamento usando CLI do Azure, verifique a propriedade **geoReplicationStats. lastSyncTime** da conta de armazenamento. Use o `--expand` parâmetro para retornar valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
+Para obter a hora da última sincronização para a conta de armazenamento usando CLI do Azure, verifique a propriedade **geoReplicationStats. lastSyncTime** da conta de armazenamento. Use o parâmetro `--expand` para retornar valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
 
 ```azurecli
 $lastSyncTime=$(az storage account show \

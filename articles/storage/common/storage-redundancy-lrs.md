@@ -4,17 +4,17 @@ description: Por padrão, novas contas de armazenamento do Azure usam armazename
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b859751b84d75e347fc245ea1e96b94774cdfd6e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cbfe6e1c5bf3534444ae369a71c0337fd4894488
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219711"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670816"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o armazenamento do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Adicionar utilizadores a uma conta do Azure Data Lake Analytics
-description: Saiba como adicionar corretamente os utilizadores à sua conta do Data Lake Analytics
+title: Adicionar usuários a uma conta de Azure Data Lake Analytics
+description: Saiba como adicionar usuários corretamente à sua conta de Data Lake Analytics usando o assistente para Adicionar usuário e Azure PowerShell.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,51 +9,51 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629327"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672732"
 ---
-# <a name="adding-a-user-in-the-azure-portal"></a>A adição de um utilizador no portal do Azure
+# <a name="adding-a-user-in-the-azure-portal"></a>Adicionar um novo utilizador no portal do Azure
 
-## <a name="start-the-add-user-wizard"></a>Iniciar o Assistente de utilizador para adicionar
-1. Abra o Azure Data Lake Analytics através do https://portal.azure.com.
-2. Clique em **Assistente de utilizador para adicionar**.
-3. Na **selecionar utilizador** passo, encontre o utilizador que pretende adicionar. Clique em **Selecionar**.
-4. o **selecionar função** passo, escolha **programador do Data Lake Analytics**. Esta função tem o conjunto mínimo de permissões necessárias para submeter/monitor/gerir tarefas de U-SQL. Atribua a esta função, se o grupo não se destina para o gerenciamento de serviços do Azure.
-5. Na **selecionar permissões de catálogo** passo, selecione quaisquer bases de dados adicionais esse utilizador terá acesso a. Leitura e de acesso de escrita à base de dados mestra é necessário para submeter tarefas. Quando tiver terminado, clique em **OK**.
-6. No passo final chamado **atribuir permissões selecionadas** rever as alterações que fará com que o assistente. Clique em **OK**.
+## <a name="start-the-add-user-wizard"></a>Iniciar o assistente para Adicionar usuário
+1. Abra o Azure Data Lake Analytics via https://portal.azure.com.
+2. Clique em **Assistente para Adicionar usuário**.
+3. Na etapa **Selecionar usuário** , localize o usuário que você deseja adicionar. Clique em **Selecionar**.
+4. a etapa **selecionar função** , escolha **Data Lake Analytics desenvolvedor**. Essa função tem o conjunto mínimo de permissões necessárias para enviar/monitorar/gerenciar trabalhos do U-SQL. Atribua a essa função se o grupo não se destina ao gerenciamento de serviços do Azure.
+5. Na etapa **selecionar permissões do catálogo** , selecione quaisquer bancos de dados adicionais aos quais o usuário precisará acessar. O acesso de leitura e gravação ao banco de dados mestre é necessário para enviar trabalhos. Quando tiver terminado, clique em **OK**.
+6. Na etapa final chamada **atribuir permissões selecionadas** , revise as alterações que o assistente fará. Clique em **OK**.
 
 
 ## <a name="configure-acls-for-data-folders"></a>Configurar ACLs para pastas de dados
-Conceder "R-X" ou "RWX", conforme necessário, em pastas que contêm dados de entrada e saída de dados.
+Conceda "R-X" ou "RWX", conforme necessário, em pastas que contêm dados de entrada e dados de saída.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Opcionalmente, adicione o utilizador à função de geração 1 de armazenamento do Azure Data Lake **leitor** função.
-1.  Localize a conta de geração 1 de armazenamento do Azure Data Lake.
-2.  Clique em **utilizadores**.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Opcionalmente, adicione o usuário à função de **leitor** de função Azure data Lake Storage Gen1.
+1.  Localize sua conta do Azure Data Lake Storage Gen1.
+2.  Clique em **usuários**.
 3. Clique em **Adicionar**.
-4.  Selecione uma função de RBAC do Azure para atribuir este grupo.
-5.  Atribua a função de leitor. Esta função tem o conjunto mínimo de permissões necessárias para procurar/gerir dados armazenados no ADLSGen1. Atribua a esta função, se o grupo não se destina para o gerenciamento de serviços do Azure.
-6.  Escreva o nome do grupo.
+4.  Selecione uma função de RBAC do Azure para atribuir esse grupo.
+5.  Atribuir à função de leitor. Essa função tem o conjunto mínimo de permissões necessárias para procurar/gerenciar dados armazenados no ADLSGen1. Atribua a essa função se o grupo não se destina ao gerenciamento de serviços do Azure.
+6.  Digite o nome do grupo.
 7.  Clique em **OK**.
 
-## <a name="adding-a-user-using-powershell"></a>Adicionar um utilizador com o PowerShell
+## <a name="adding-a-user-using-powershell"></a>Adicionando um usuário usando o PowerShell
 
-1. Siga as instruções neste guia: [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-2. Transfira o [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) script do PowerShell.
+1. Siga as instruções neste guia: [Como instalar e configurar Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+2. Baixe o script do PowerShell [Add-AdlaJobUser. ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) .
 3. Execute o script do PowerShell. 
 
-O comando de exemplo para dar acesso de utilizador para submeter tarefas, ver novos metadados de tarefa e vista de metadados antigo são:
+O comando de exemplo para conceder acesso de usuário para enviar trabalhos, exibir novos metadados de trabalho e exibir metadados antigos é:
 
 `Add-AdlaJobUser.ps1 -Account myadlsaccount -EntityToAdd 546e153e-0ecf-417b-ab7f-aa01ce4a7bff -EntityType User -FullReplication`
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Introdução ao Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md)
-* [Gerir o Azure Data Lake Analytics com o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+* [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Introdução ao Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md)
+* [Gerenciar Azure Data Lake Analytics usando Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 

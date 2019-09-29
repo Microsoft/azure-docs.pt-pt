@@ -4,17 +4,17 @@ description: Saiba como criar uma assinatura de acesso compartilhado (SAS) usand
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 8a455fdb8ef81b0e06d1f77f7a9cdd5bec351b2b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164273"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673343"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)
 
@@ -102,7 +102,7 @@ Quando você cria uma SAS de delegação de usuário com Azure PowerShell, a cha
 
 Como o intervalo máximo em que a chave de delegação de usuário é válida é de 7 dias a partir da data de início, você deve especificar um tempo de expiração para a SAS que está dentro de 7 dias da hora de início. A SAS é inválida depois que a chave de delegação do usuário expira, portanto, uma SAS com um tempo de expiração superior a 7 dias ainda será válida por sete dias.
 
-Para criar uma SAS de delegação de usuário para um contêiner ou BLOB com Azure PowerShell, primeiro crie um novo objeto de contexto de armazenamento `-UseConnectedAccount` do Azure, especificando o parâmetro. O `-UseConnectedAccount` parâmetro especifica que o comando cria o objeto de contexto na conta do Azure AD com a qual você se conectou.
+Para criar uma SAS de delegação de usuário para um contêiner ou BLOB com Azure PowerShell, primeiro crie um novo objeto de contexto de armazenamento do Azure, especificando o parâmetro `-UseConnectedAccount`. O parâmetro `-UseConnectedAccount` especifica que o comando cria o objeto de contexto na conta do Azure AD com a qual você se conectou.
 
 Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
 
@@ -134,7 +134,7 @@ O token SAS de delegação de usuário retornado será semelhante a:
 
 Para retornar um token SAS de delegação de usuário para um blob, chame o comando [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) , passando o objeto de contexto de armazenamento do Azure que você criou anteriormente.
 
-A sintaxe a seguir retorna uma SAS de delegação de usuário para um blob. O exemplo especifica o `-FullUri` parâmetro, que retorna o URI do blob com o token SAS anexado. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+A sintaxe a seguir retorna uma SAS de delegação de usuário para um blob. O exemplo especifica o parâmetro `-FullUri`, que retorna o URI do blob com o token SAS anexado. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `
@@ -168,7 +168,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 > [!IMPORTANT]
 > Tanto a chave de delegação do usuário quanto as atribuições de função do RBAC são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso entre quando você inicia o processo de revogação e quando uma SAS de delegação de usuário existente se torna inválida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

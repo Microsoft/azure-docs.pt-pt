@@ -4,17 +4,17 @@ description: Saiba como criar uma assinatura de acesso compartilhado de serviço
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ca419165d4dea2a04f51e7ab6f60d6e23f418933
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6840b65dd63422db38759ee01703155088215fd2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035629"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673349"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Criar uma SAS de serviço para um contêiner ou BLOB com .NET
 
@@ -119,7 +119,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md)
 - [Criar uma SAS de serviço](/rest/api/storageservices/create-service-sas)

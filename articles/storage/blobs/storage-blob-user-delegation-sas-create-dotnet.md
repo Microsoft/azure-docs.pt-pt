@@ -4,17 +4,17 @@ description: Saiba como criar uma SAS de delegação de usuário usando credenci
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900435"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671333"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET (versão prévia)
 
@@ -57,7 +57,7 @@ az ad sp create-for-rbac \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-O `az ad sp create-for-rbac` comando retorna uma lista de propriedades de entidade de serviço no formato JSON. Copie esses valores para que você possa usá-los para criar as variáveis de ambiente necessárias na próxima etapa.
+O comando `az ad sp create-for-rbac` retorna uma lista de propriedades da entidade de serviço no formato JSON. Copie esses valores para que você possa usá-los para criar as variáveis de ambiente necessárias na próxima etapa.
 
 ```json
 {
@@ -87,7 +87,7 @@ A biblioteca de cliente de identidade do Azure lê valores de três variáveis d
 
 ## <a name="add-using-directives"></a>Adicionar com diretivas
 
-Adicione as seguintes `using` diretivas ao seu código para usar as versões de visualização da identidade do Azure e das bibliotecas de cliente de armazenamento do Azure.
+Adicione as seguintes diretivas `using` ao seu código para usar as versões de visualização da identidade do Azure e das bibliotecas de cliente de armazenamento do Azure.
 
 ```csharp
 using System;
@@ -102,7 +102,7 @@ using Azure.Storage.Blobs.Models;
 
 ## <a name="authenticate-the-service-principal"></a>Autenticar a entidade de serviço
 
-Para autenticar a entidade de serviço, crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . O `DefaultAzureCredential` Construtor lê as variáveis de ambiente que você criou anteriormente.
+Para autenticar a entidade de serviço, crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . O Construtor `DefaultAzureCredential` lê as variáveis de ambiente que você criou anteriormente.
 
 O trecho de código a seguir mostra como obter a credencial autenticada e usá-la para criar um cliente de serviço para o armazenamento de BLOBs
 

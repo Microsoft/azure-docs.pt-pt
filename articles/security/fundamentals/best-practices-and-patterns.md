@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 64cac3d200a2cfc3b826dc75bfacc6457a01f294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e2e829fba9846c2429e362903f5ce49b9344e1bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727561"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672618"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Melhores práticas e padrões de segurança do Azure
 
@@ -28,7 +28,7 @@ Os artigos abaixo contêm as práticas recomendadas de segurança a serem usadas
 
 As práticas recomendadas devem ser um recurso para os profissionais de ti. Isso pode incluir designers, arquitetos, desenvolvedores e testadores que criam e implantam soluções seguras do Azure.
 
-* [Práticas recomendadas de segurança de limite do Azure](network-best-practices.md)
+* [Práticas recomendadas de segurança de limite do Azure](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Práticas recomendadas de segurança do banco de dados do Azure](database-best-practices.md)
 * [Práticas recomendadas de segurança de dados e criptografia do Azure](data-encryption-best-practices.md)
 * [Práticas recomendadas de segurança de controle de acesso e gerenciamento de identidade do Azure](identity-management-best-practices.md)

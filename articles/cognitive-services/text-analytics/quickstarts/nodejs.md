@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 9f9bc3bfe0c8eb023dcc9cca879eeb92175fc094
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2b98949ca93be5ec0324561a053df730705af152
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801522"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671882"
 ---
-# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Node. js para chamar o serviço de Análise de Texto cognitiva  
+# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Use o Node. js para chamar o serviço de Análise de Texto cognitiva  
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de análise de texto com node. js.
+Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) With node. js.
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
@@ -476,7 +476,7 @@ get_entities(documents);
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

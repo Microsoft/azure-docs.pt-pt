@@ -1,46 +1,46 @@
 ---
-title: Atualizar para uma conta de armazenamento para fins gerais v2 - armazenamento do Azure | Documentos da Microsoft
-description: Atualizar para contas de armazenamento para fins gerais v2.
+title: Atualizar para uma conta de armazenamento v2 de uso geral-armazenamento do Azure | Microsoft Docs
+description: Atualize para contas de armazenamento v2 de uso geral.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1c7edc2973231607cade89df56906190c2abbcf
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115627"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671152"
 ---
-# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento para fins gerais v2
+# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento v2 de uso geral
 
-Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de armazenamento do Azure mais recente e incorporam toda a funcionalidade de fins gerais v1 e contas de armazenamento de Blobs. Contas para fins gerais v2 são recomendadas para a maioria dos cenários de armazenamento. Contas para fins gerais v2 fornecem o mais baixo por gigabyte os preços de capacidade do armazenamento do Azure, bem como competitiva em termos da indústria para transações.
+As contas de armazenamento de uso geral v2 dão suporte aos recursos mais recentes do armazenamento do Azure e incorporam toda a funcionalidade das contas de armazenamento de blob v1 e de uso geral. Contas de uso geral v2 são recomendadas para a maioria dos cenários de armazenamento. As contas v2 de uso geral fornecem os preços de capacidade por gigabyte mais baixos para o armazenamento do Azure, bem como preços de transação competitivos do setor.
 
-Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins gerais v1 ou contas de armazenamento de BLOBs é simples. Pode atualizar com o portal do Azure, PowerShell ou da CLI do Azure.
+A atualização para uma conta de armazenamento v2 de uso geral de suas contas de armazenamento de blob v1 ou de uso geral é simples. Você pode atualizar usando o portal do Azure, o PowerShell ou o CLI do Azure.
 
 > [!IMPORTANT]
-> Atualizar uma para fins gerais v1 ou a conta de armazenamento de BLOBs para fins gerais v2 é permanente e não pode ser anulada.
+> A atualização de uma conta de armazenamento de blob v1 ou de uso geral para uso geral V2 é permanente e não pode ser desfeita.
 
-## <a name="upgrade-using-the-azure-portal"></a>Atualizar com o portal do Azure
+## <a name="upgrade-using-the-azure-portal"></a>Atualizar usando o portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue até à sua conta de armazenamento.
-3. Na **configurações** secção, clique em **configuração**.
+3. Na seção **configurações** , clique em **configuração**.
 4. Em **Tipo de conta**, clique em **Atualizar**.
 5. Em **Confirmar atualização**, introduza o nome da sua conta.
-6. Clique em **atualizar** na parte inferior do painel.
+6. Clique em **Atualizar** na parte inferior da folha.
 
-    ![Atualizar o tipo de conta](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    ![Tipo de conta de atualização](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 ## <a name="upgrade-with-powershell"></a>Atualizar com o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para atualizar uma conta para fins gerais v1 para uma conta de fins gerais v2 com o PowerShell, primeiro Atualize o PowerShell para utilizar a versão mais recente do **Az.Storage** módulo. Veja [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para obter informações sobre a instalação do PowerShell.
+Para atualizar uma conta v1 de uso geral para uma conta v2 de uso geral usando o PowerShell, primeiro atualize o PowerShell para usar a versão mais recente do módulo **AZ. Storage** . Veja [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para obter informações sobre a instalação do PowerShell.
 
-Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos e a conta de armazenamento:
+Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos e da conta de armazenamento:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
@@ -48,60 +48,60 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Atualizar com a CLI do Azure
 
-Para atualizar uma conta para fins gerais v1 para uma conta de fins gerais v2 com a CLI do Azure, instale primeiro a versão mais recente da CLI do Azure. Veja [Install the Azure CLI 2.0 ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalar a CLI 2.0 do Azure) para obter informações sobre a instalação da CLI.
+Para atualizar uma conta v1 de uso geral para uma conta v2 de uso geral usando CLI do Azure, primeiro instale a versão mais recente do CLI do Azure. Veja [Install the Azure CLI 2.0 ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalar a CLI 2.0 do Azure) para obter informações sobre a instalação da CLI.
 
-Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos e a conta de armazenamento:
+Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos e da conta de armazenamento:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```
 
-## <a name="specify-an-access-tier-for-blob-data"></a>Especificar um escalão de acesso para os dados de blob
+## <a name="specify-an-access-tier-for-blob-data"></a>Especificar uma camada de acesso para dados de BLOB
 
-As contas de fins gerais v2 suportam todos os serviços de armazenamento do Azure e objetos de dados, mas o escalão de acesso está disponível apenas para blobs de blocos no armazenamento de Blobs. Quando atualizar para uma conta de armazenamento para fins gerais v2, pode especificar um escalão de acesso para os seus dados de Blobs.
+As contas de uso geral v2 dão suporte a todos os serviços de armazenamento do Azure e objetos de dados, mas as camadas de acesso estão disponíveis somente para BLOBs de blocos no armazenamento de BLOBs. Ao atualizar para uma conta de armazenamento v2 de uso geral, você pode especificar uma camada de acesso para seus dados de BLOB.
 
-Escalões de acesso permitem-lhe escolher o armazenamento mais económico com base nos seus padrões de utilização antecipada. Os blobs de blocos podem ser armazenados numa camada de acesso frequente, esporádico ou arquivo. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: Acesso frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
+As camadas de acesso permitem que você escolha o armazenamento mais econômico com base em seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada quente, fria ou de arquivo morto. Para obter mais informações sobre camadas de acesso, consulte armazenamento de BLOBs [Azure: Camadas de armazenamento quentes, frias e de](../blobs/storage-blob-storage-tiers.md)arquivo morto.
 
-Por predefinição, é criada uma nova conta de armazenamento no escalão acesso frequente e uma conta de armazenamento para fins gerais v1 é atualizada para o escalão de acesso frequente. Se está a explorar a camada de acesso a utilizar para a sua pós-atualização de dados, considere o seu cenário. Existem dois cenários de usuário comum para a migração para uma conta para fins gerais v2:
+Por padrão, uma nova conta de armazenamento é criada na camada de acesso quente e uma conta de armazenamento v1 de uso geral é atualizada para a camada de acesso quente. Se você estiver explorando qual camada de acesso usar para os dados após a atualização, considere seu cenário. Há dois cenários de usuário típicos para migrar para uma conta v2 de uso geral:
 
-* Tem uma conta de armazenamento para fins gerais v1 existente e quer avaliar uma atualização para uma conta de armazenamento para fins gerais v2, com a camada de acesso de armazenamento correta para dados de Blobs.
-* Decidiu utilizar uma conta de armazenamento para fins gerais v2 ou já tiver uma e pretende avaliar se deve utilizar a camada de acesso de armazenamento de acesso frequente ou esporádico para dados de Blobs.
+* Você tem uma conta de armazenamento de uso geral v1 existente e deseja avaliar uma atualização para uma conta de armazenamento de uso geral v2, com a camada de acesso de armazenamento correta para dados de BLOB.
+* Você decidiu usar uma conta de armazenamento de uso geral v2 ou já tem uma e deseja avaliar se deve usar a camada de acesso de armazenamento quente ou fria para dados de BLOB.
 
-Em ambos os casos, a primeira prioridade é estimar os custos de armazenamento, acesso e a funcionar nos seus dados armazenados numa conta de armazenamento para fins gerais v2 e compará-los com seus custos atuais.
+Em ambos os casos, a primeira prioridade é estimar o custo de armazenamento, acesso e operação em seus dados armazenados em uma conta de armazenamento de uso geral V2 e compará-los com os custos atuais.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-A atualização de uma conta de armazenamento v1 para uma conta para fins gerais v2 é gratuita. No entanto, a alteração da camada de acesso de armazenamento pode resultar em alterações à sua fatura. 
+A atualização de uma conta de armazenamento v1 para uma conta v2 de uso geral é gratuita. No entanto, a alteração da camada de acesso de armazenamento pode resultar em alterações na sua fatura. 
 
 Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta de armazenamento, aplicam-se as seguintes considerações de faturação:
 
-* **Os custos de armazenamento**: Para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
+* **Custos de armazenamento**: Além da quantidade de dados armazenados, o custo de armazenamento de dados varia dependendo da camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
 
-* **Os custos de acesso a dados**: Aumentar os custos de acesso de dados conforme a camada se torna mais esporádica. Para dados na camada de acesso de armazenamento esporádico e de arquivo, é cobrada uma taxa de acesso de dados por gigabyte para leituras.
+* **Custos de acesso a dados**: As cobranças de acesso a dados aumentam à medida que a camada fica mais fria. Para dados na camada de acesso de armazenamento fria e de arquivo morto, você será cobrado por um encargo de acesso a dados por gigabyte para leituras.
 
-* **Os custos de transação**: Existe um custo por transação para todas as camadas que aumenta conforme a camada se torna mais esporádica.
+* **Custos de transações**: Há uma cobrança por transação para todas as camadas que aumentam à medida que a camada fica mais fria.
 
-* **Os custos de transferência de dados de Georreplicação**: Este custo aplica-se apenas a contas com a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
+* **Custos de transferência de dados de replicação geográfica**: Essa cobrança só se aplica a contas com a replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 
-* **Custos de transferência de dados de saída**: Transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) incorrem a faturação de utilização de largura de banda numa base por gigabyte, consistente com as contas de armazenamento para fins gerais.
+* **Custos de transferência de dados de saída**: As transferências de dados de saída (dados transferidos para fora de uma região do Azure) incorrem na cobrança do uso de largura de banda por gigabyte, consistentes com contas de armazenamento de uso geral.
 
-* **A alteração da camada de acesso de armazenamento**: Alteração da camada de acesso de armazenamento de conta de acesso esporádico para frequente incorre um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso da conta de frequente para esporádica incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
+* **Alterando a camada de acesso de armazenamento**: A alteração da camada de acesso de armazenamento da conta de fria para quente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso da conta de quente para fria incorre em um encargo igual à gravação de todos os dados na camada fria (somente contas GPv2).
 
 > [!NOTE]
 > Para obter mais informações sobre o modelo de preços das contas de armazenamento, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-### <a name="estimate-costs-for-your-current-usage-patterns"></a>Estimar os custos para os padrões de utilização atual
+### <a name="estimate-costs-for-your-current-usage-patterns"></a>Estimar custos para seus padrões de uso atuais
 
-Para estimar os custos de armazenar e aceder aos dados de BLOBs numa conta de armazenamento para fins gerais v2 numa camada específica, avaliar o seu padrão de utilização existente ou fazer uma aproximação do padrão de utilização esperado. Em geral, precisa de saber o seguinte:
+Para estimar o custo de armazenar e acessar dados de BLOB em uma conta de armazenamento de uso geral V2 em uma determinada camada, avalie seu padrão de uso existente ou aproximando seu padrão de uso esperado. Em geral, precisa de saber o seguinte:
 
-* O consumo de armazenamento Blob, em gigabytes, incluindo:
+* Seu consumo de armazenamento de BLOBs, em gigabytes, incluindo:
     - Que quantidade de dados está a ser armazenada na conta de armazenamento?
     - De que forma o volume de dados é alterado mensalmente: os novos dados substituem constantemente os dados antigos?
-* O padrão de acesso primária para os seus dados de armazenamento de BLOBs, incluindo:
-    - A quantidade de dados está a ser lida da e escrita para a conta de armazenamento?
-    - Quantas operações de leitura versus escrever operações ocorrem nos dados na conta de armazenamento?
+* O padrão de acesso primário para seus dados de armazenamento de BLOBs, incluindo:
+    - A quantidade de dados que estão sendo lidos e gravados na conta de armazenamento?
+    - Quantas operações de leitura versus operações de gravação ocorrem nos dados na conta de armazenamento?
 
-Para decidir qual a camada de acesso melhor às suas necessidades, pode ser útil para determinar a capacidade de dados de BLOBs e como esses dados está a ser utilizados. Isso pode ser melhor feito ao observar as métricas de monitorização para a sua conta.
+Para decidir sobre a melhor camada de acesso às suas necessidades, pode ser útil determinar a capacidade dos dados do blob e como esses dados estão sendo usados. Isso pode ser feito melhor examinando as métricas de monitoramento da sua conta.
 
 ### <a name="monitoring-existing-storage-accounts"></a>Monitorizar contas de armazenamento existentes
 
@@ -118,11 +118,11 @@ Com esta opção ativada, os dados de capacidade são registados diariamente par
 Para monitorizar os padrões de acesso a dados do Armazenamento de blobs, tem de ativar as métricas de transação horária a partir da API. Com as métricas de transação horária ativadas, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
 
 > [!NOTE]
-> Se tiver uma conta de armazenamento para fins gerais em que tem armazenados blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com o bloco e de dados de BLOBs de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
+> Se você tiver uma conta de armazenamento de uso geral na qual você armazenou blobs de páginas e discos de máquina virtual, ou filas, arquivos ou tabelas, juntamente com os dados de blob de bloco e acréscimo, esse processo de estimativa não será aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
 
 Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
 
-Para obter detalhes sobre como ativar, recolher e visualizar dados de métricas, veja [métricas da análise de armazenamento](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para obter detalhes sobre como habilitar, coletar e exibir dados de métricas, consulte [métricas de análise de armazenamento](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > O armazenamento, o acesso e a transferência de dados de análise são cobrados também como dados normais do utilizador.
@@ -160,9 +160,9 @@ Para que possa estimar os custos de acesso a dados para as contas do Armazenamen
 Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de blobs mediante a utilização da estimativa da quantidade de dados escritos se for utilizada uma conta de armazenamento GRS ou RA-GRS.
 
 > [!NOTE]
-> Para obter um exemplo mais detalhado sobre o cálculo dos custos de utilização da camada de acesso de armazenamento frequente ou esporádico, dê uma olhada nas perguntas mais frequentes intituladas *"quais são os escalões de acesso frequente e esporádico e como devo decidir sobre qual devo utilizar?"* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+> Para obter um exemplo mais detalhado sobre como calcular os custos para usar a camada de acesso de armazenamento quente ou fria, dê uma olhada nas perguntas frequentes intituladas *' o que são as camadas de acesso quente e frio e como devo determinar qual delas usar? '* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
-- [Gerir contas de armazenamento do Azure](storage-account-manage.md)
+- [Gerenciar contas de armazenamento do Azure](storage-account-manage.md)
