@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: f50d784b7518bd01a3a0069cb474296d359420a8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200042"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677850"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início rápido: Configurar o Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -21,6 +21,7 @@ Comece a executar o Máquina Virtual de Ciência de Dados Ubuntu.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar um Máquina Virtual de Ciência de Dados do Windows, você deve ter uma assinatura do Azure. [Experimente o Azure gratuitamente](https://azure.com/free).
+Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitadas para GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar a sua máquina de Virtual de ciência de dados para Linux
 

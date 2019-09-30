@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 02/22/2019
-ms.openlocfilehash: 3295a59ee4496d332f0d886c89ca900ab6b4bcd1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f40ad01d74df26e5a6d90c348a706e8a3c666f2f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191906"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675085"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é o Máquina Virtual de Ciência de Dados do Azure para Linux e Windows?
 
@@ -63,8 +63,8 @@ Você pode usar o DSVM para avaliar ou aprender ferramentas como essas, com esfo
 
 Como você pode configurar o DSVM rapidamente, você pode aplicá-lo em outros cenários de uso de curto prazo. Esses cenários incluem a replicação de experimentos publicados, a execução de demonstrações e as orientações a seguir em sessões online e tutoriais de conferência.
 
-### <a name="deep-learning"></a>Aprendizagem aprofundada
-No DSVM, seus modelos de treinamento podem usar algoritmos de aprendizado profundo em hardware baseado em unidades de processamento gráfico (GPUs). Aproveitando os recursos de dimensionamento de VM da plataforma Azure, o DSVM ajuda a usar o hardware baseado em GPU na nuvem de acordo com suas necessidades. Você pode alternar para uma VM baseada em GPU quando estiver treinando modelos grandes ou quando precisar de cálculos de alta velocidade mantendo o mesmo disco do sistema operacional.  
+### <a name="deep-learning-with-gpus"></a>Aprendizado profundo com GPUs
+No DSVM, seus modelos de treinamento podem usar algoritmos de aprendizado profundo em hardware baseado em unidades de processamento gráfico (GPUs). Aproveitando os recursos de dimensionamento de VM da plataforma Azure, o DSVM ajuda a usar o hardware baseado em GPU na nuvem de acordo com suas necessidades. Você pode alternar para uma VM baseada em GPU quando estiver treinando modelos grandes ou quando precisar de cálculos de alta velocidade mantendo o mesmo disco do sistema operacional. Você pode escolher qualquer uma das SKUs da máquina virtual da GPU da série N habilitada com DSVM. Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitadas para GPU.
 
 A edição 2016 do Windows Server do DSVM vem pré-instalada com drivers de GPU, estruturas e versões de GPU de estruturas de aprendizado profundo. Na edição do Linux, o aprendizado profundo sobre GPUs está habilitado no CentOS e no Ubuntu DSVMs. 
 
@@ -75,7 +75,7 @@ Você também pode implantar a edição Ubuntu, CentOS ou Windows 2016 do DSVM e
 <a name="included"></a>
 
 ## <a name="whats-included-on-the-dsvm"></a>O que está incluído no DSVM?
-A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas ferramentas populares de ciência de dados e aprendizagem aprofundada. Também inclui ferramentas que simplificam o trabalho com vários produtos de dados e análises do Azure. Esses produtos incluem Microsoft Machine Learning Server (R, Python) para criar modelos de previsão e SQL Server 2017 para a exploração em larga escala de conjuntos de dados. O DSVM inclui outras ferramentas da comunidade de software livre e da Microsoft, juntamente com o [código de exemplo e](dsvm-samples-and-walkthroughs.md)os notebooks. 
+A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas ferramentas populares de ciência de dados e aprendizagem aprofundada. Também inclui ferramentas que simplificam o trabalho com vários produtos de dados e análises do Azure. Esses produtos incluem Microsoft Machine Learning Server (R, Python) para criar modelos de previsão e SQL Server 2017 para a exploração em larga escala de conjuntos de dados. O DSVM inclui outras ferramentas da comunidade de software livre e da Microsoft, juntamente com o [código de exemplo e os notebooks](dsvm-samples-and-walkthroughs.md). 
 
 Aqui está uma lista de ferramentas e plataformas:
 + [Linguagens de programação com suporte](dsvm-languages.md)
@@ -97,7 +97,7 @@ A tabela seguinte detalha e compara os principais componentes incluídos nas edi
 | **Ferramenta**                                                           | **Edição do Windows** | **Edição do Linux** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) com pacotes populares pré-instalados   |S                      | S             |
-| [Microsoft Machine Learning Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) A Developer Edition inclui: <br />  &nbsp;&nbsp;&nbsp;&nbsp;Estrutura de alto desempenho [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) paralela e distribuída (R e Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;[MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package), novos algoritmos de aprendizado de máquina de última geração da Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;[Operacionalização de R e Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |S                      | S |
+| [Microsoft Machine Learning Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) A Developer Edition inclui: <br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) a estrutura paralela e distribuída de alto desempenho (R e Python)<br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package), novos algoritmos de aprendizado de máquina de última geração da Microsoft <br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [R e operacionalização Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |S                      | S |
 | [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) PROPLUS com ativação compartilhada: Excel, Word e PowerPoint   |S                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2,7 e 3,5 com pacotes populares pré-instalados    |S                      |S              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) com pacotes populares para a linguagem Julia pré-instalados                         |S                      |S              |
@@ -105,66 +105,66 @@ A tabela seguinte detalha e compara os principais componentes incluídos nas edi
 | Ferramentas de bases de dados                                                       |  SQL Server Management Studio <br/> Serviços de Integração do SQL Server<br/> [BCP, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br />  Drivers ODBC/JDBC|  [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/) (ferramenta de consulta), <br />  BCP, sqlcmd <br />  Drivers ODBC/JDBC|
 | Análise no banco de dados escalável com SQL Server serviços de Machine Learning (R, Python) | S     |N              |
 | [Jupyter Notebook Server](https://jupyter.org/) com os seguintes kernels:                                  | S     | S |
-|     &nbsp;&nbsp;&nbsp;&nbsp;D | S | S |
-|     &nbsp;&nbsp;&nbsp;&nbsp;Python | S | S |
-|     &nbsp;&nbsp;&nbsp;&nbsp;Lúcia | S | S |
-|     &nbsp;&nbsp;&nbsp;&nbsp;PySpark | S | S |
-|     &nbsp;&nbsp;&nbsp;&nbsp;[Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | Y (apenas Ubuntu) |
-|     &nbsp;&nbsp;&nbsp;&nbsp;SparkR     | N | S |
+|     &nbsp; @ NO__T-1 @ NO__T-2 @ NO__T-3 R | S | S |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Python | S | S |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Julia | S | S |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 PySpark | S | S |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | Y (apenas Ubuntu) |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Sparkr     | N | S |
 | JupyterHub (servidor de notebook multiusuário)| N | S |
 | JupyterLab (servidor de notebook multiusuário) | N | Y (apenas Ubuntu) |
 | Ferramentas de desenvolvimento, IDEs e editores de código:| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Visual Studio 2019 (Community Edition)](https://www.visualstudio.com/community/) com plug-in git, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)e [Ferramentas do R para Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Visual Studio Code](https://code.visualstudio.com/) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Área de trabalho RStudio](https://www.rstudio.com/products/rstudio/#Desktop) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Servidor RStudio](https://www.rstudio.com/products/rstudio/#Server) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Atom](https://atom.io/) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Juno (Julia IDE)](https://junolab.org/)| S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;Vim e Emacs | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;Git e git bash | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;OpenJDK | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;.NET Framework | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio 2019 (Community Edition)](https://www.visualstudio.com/community/) com plug-in git, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)e [Ferramentas do R para Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio Code](https://code.visualstudio.com/) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio desktop](https://www.rstudio.com/products/rstudio/#Desktop) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Atom](https://atom.io/) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Juno (Julia IDE)](https://junolab.org/)| S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 vim e Emacs | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 git e git bash | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 OpenJDK | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 .NET Framework | S | N |
 | Power BI Desktop | S | N |
 | SDKs para aceder aos serviços do Azure e do Cortana Intelligence Suite | S | S |
 | Ferramentas de gerenciamento e movimentação de dados: | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;Gerenciador de Armazenamento do Azure | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[CLI do Azure](https://docs.microsoft.com/cli/azure) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;Azure PowerShell | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Driver de fusível de blob](https://github.com/Azure/azure-storage-fuse) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Adlcopy (Azure data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Ferramenta de migração de dados Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Gateway do Microsoft gerenciamento de dados](https://msdn.microsoft.com/library/dn879362.aspx): mover dados entre o local e a nuvem | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;Ferramentas de linha de comando Unix/Linux | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Gerenciador de Armazenamento do Azure | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [CLI do Azure](https://docs.microsoft.com/cli/azure) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Azure PowerShell | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Driver de fusível de blob](https://github.com/Azure/azure-storage-fuse) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Adlcopy (Azure data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azure Cosmos DB ferramenta de migração de dados](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Microsoft gerenciamento de dados gateway](https://msdn.microsoft.com/library/dn879362.aspx): mover dados entre o local e a nuvem | S | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 ferramentas de linha de comando Unix/Linux | S | S |
 | Exploração de pesquisa de dados do [Apache](https://drill.apache.org) | S | S |
 | Ferramentas de Machine Learning: |||
-| &nbsp;&nbsp;&nbsp;&nbsp;Integração com o [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[XGBoost](https://github.com/dmlc/xgboost) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Weka](https://www.cs.waikato.ac.nz/ml/weka/) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Rattle](https://togaware.com/rattle/) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (apenas Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;[CatBoost](https://tech.yandex.com/catboost/) | N | Y (apenas Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;[H2O](https://www.h2o.ai/h2o/), [água de despertar](https://www.h2o.ai/sparkling-water/) | N | Y (apenas Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 integração com [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [XGBoost](https://github.com/dmlc/xgboost) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [weka](https://www.cs.waikato.ac.nz/ml/weka/) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Rattle](https://togaware.com/rattle/) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (apenas Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [CatBoost](https://tech.yandex.com/catboost/) | N | Y (apenas Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [H2O](https://www.h2o.ai/h2o/), [água de faíscaização](https://www.h2o.ai/sparkling-water/) | N | Y (apenas Ubuntu) |
 | Ferramentas de aprendizado profundo que funcionam em uma GPU ou CPU: |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Microsoft cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;[MXNet](https://mxnet.io/) | S (Windows 2016) | S|
-| &nbsp;&nbsp;&nbsp;&nbsp;[Caffe e Caffe2](https://github.com/caffe2/caffe2) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Encadeamento](https://chainer.org/) de | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Torch](http://torch.ch/) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Theano](https://github.com/Theano/Theano) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Keras](https://keras.io/)| N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[PyTorch](https://pytorch.org/)| N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Dígitos NVIDIA](https://github.com/NVIDIA/DIGITS) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Servidor de modelo MXNet](https://github.com/awslabs/mxnet-model-server) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Serviço de TensorFlow](https://www.tensorflow.org/serving/) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;[CUDA, cuDNN, Driver Nvidia](https://developer.nvidia.com/cuda-toolkit) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Microsoft cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MXNet](https://mxnet.io/) | S (Windows 2016) | S|
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Caffe e Caffe2](https://github.com/caffe2/caffe2) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Chainer](https://chainer.org/) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Torch](http://torch.ch/) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Theano](https://github.com/Theano/Theano) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Keras](https://keras.io/)| N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [PyTorch](https://pytorch.org/)| N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [dígitos NVIDIA](https://github.com/NVIDIA/DIGITS) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MXNet servidor de modelo](https://github.com/awslabs/mxnet-model-server) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorFlow servindo](https://www.tensorflow.org/serving/) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [CUDA, cuDNN, Driver Nvidia](https://developer.nvidia.com/cuda-toolkit) | S | S |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais com estes artigos:
 

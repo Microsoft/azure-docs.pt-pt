@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 138d3fd74b95fe8d51593fcbb2cedda017e35d80
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202163"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676385"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure à central de segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,8 +72,8 @@ Quando o aprovisionamento automático está ativado, o Centro de Segurança inst
 
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
 
-1. No menu principal do Centro de Segurança, selecione **Política de Segurança**.
-2. Na linha da subscrição, selecione **Editar definições >** .
+1. No menu principal da central de segurança, selecione **preços & configurações**.
+2. Na linha da assinatura, clique na assinatura na qual você gostaria de alterar as configurações.
 3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Ativar**.
 4. Selecione **Guardar**.
 ---
@@ -86,15 +86,15 @@ Com estas novas informações sobre as VMs do Azure, o Centro de Segurança pode
 ## <a name="clean-up-resources"></a>Limpar recursos
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
-2. Na linha da subscrição para a qual quer voltar como gratuita, selecione **Editar definições >** .
+1. Retorne ao menu principal da central de segurança e selecione **configurações de & de preços**.
+2. Clique na assinatura que você deseja alterar para a camada gratuita.
 3. Selecione **Escalão de preço** e **Gratuito** para alterar a subscrição do escalão Standard para o escalão Gratuito.
 5. Selecione **Guardar**.
 
 Se pretender desativar aprovisionamento automático:
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
-2. Na linha da subscrição para a qual quer desativar o aprovisionamento automático, selecione **Editar definições >** .
+1. Retorne ao menu principal da central de segurança e selecione **configurações de & de preços**.
+2. Limpe a assinatura na qual você deseja desabilitar o provisionamento automático.
 3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Desativar**.
 4. Selecione **Guardar**.
 
