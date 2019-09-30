@@ -1,5 +1,5 @@
 ---
-title: Conectar-se à visualização da área de trabalho virtual do Windows do Windows 10 ou Windows 7 – Azure
+title: Conectar-se à área de trabalho virtual do Windows do Windows 10 ou Windows 7-Azure
 description: Como se conectar à área de trabalho virtual do Windows usando o cliente de área de trabalho do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 49431f75fb801c683a167e1809724eeeef208561
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338453"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676751"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>Conectar-se ao cliente de desktop do Windows
+# <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
 > Aplica-se a: Windows 7 e Windows 10
 

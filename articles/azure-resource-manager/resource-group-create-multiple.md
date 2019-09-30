@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345417"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675093"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager
 
@@ -57,7 +57,7 @@ Os limites para a contagem são os mesmos, se usados com um recurso, uma variáv
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
-Quando você deve decidir durante a implantação para criar uma ou mais instâncias de um recurso, adicione um elemento `copy` ao tipo de recurso. No elemento copiar, especifique o número de iterações e um nome para esse loop.
+Se você quiser criar mais de uma instância de um recurso em uma implantação, adicione um elemento `copy` ao tipo de recurso. No elemento copiar, especifique o número de iterações e um nome para esse loop.
 
 O recurso para criar várias vezes usa o seguinte formato:
 

@@ -1,6 +1,6 @@
 ---
-title: Transferências de mensagem, bloqueios e acordo do Service Bus do Azure | Documentos da Microsoft
-description: Descrição geral das transferências de mensagem do Service Bus e as operações de liquidação
+title: Transferências, bloqueios e liquidação de mensagens do barramento de serviço do Azure | Microsoft Docs
+description: Visão geral de transferências de mensagens do barramento de serviço e operações de liquidação
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
-ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403946"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676270"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
 
-A função central do Mediador de mensagens, como o Service Bus é aceite mensagens numa fila ou tópico e armazená-los disponíveis para recuperação posterior. *Enviar* é o termo que é geralmente utilizado para a transferência de uma mensagem para o Mediador de mensagens. *Receber* é o termo geralmente utilizado para a transferência de uma mensagem para um cliente ao obter.
+A capacidade central de um agente de mensagens, como o barramento de serviço, é aceitar mensagens em uma fila ou tópico e mantê-las disponíveis para recuperação posterior. *Send* é o termo que é comumente usado para a transferência de uma mensagem para o agente de mensagens. *Receive* é o termo normalmente usado para a transferência de uma mensagem para um cliente de recuperação.
 
-Quando um cliente envia uma mensagem, geralmente quer saber se a mensagem foi corretamente transferida para e aceite pelo broker ou se algum tipo de erro ocorreu. Esta confirmação positiva ou negativa liquida o cliente e o Mediador de compreender sobre o estado de transferência da mensagem e, portanto, é referida como *liquidação*.
+Quando um cliente envia uma mensagem, ele geralmente deseja saber se a mensagem foi transferida corretamente e aceita pelo agente ou se ocorreu algum tipo de erro. Essa confirmação positiva ou negativa liquida o cliente e a compreensão do agente sobre o estado de transferência da mensagem e, portanto, é conhecida como *liquidação*.
 
-Da mesma forma, quando o agente de transferência de uma mensagem a um cliente, o agente e o cliente desejam compreender se a mensagem foi processada com êxito e, portanto, pode ser removida, ou se o processamento ou de entrega de mensagens falha e, portanto, o mensagem poderá ter de ser entregues novamente.
+Da mesma forma, quando o agente transfere uma mensagem para um cliente, o agente e o cliente desejam estabelecer um entendimento de se a mensagem foi processada com êxito e, portanto, pode ser removida ou se a entrega ou o processamento da mensagem falhou e, portanto, o a mensagem pode ter que ser entregue novamente.
 
-## <a name="settling-send-operations"></a>Liquidação de operações de envio
+## <a name="settling-send-operations"></a>Liquidando operações de envio
 
-Utilizar qualquer um dos clientes de API do Service Bus suportados, enviar operações para o Service Bus sempre explicitamente são liquidadas, o que significa que a operação de API aguarda um resultado de aceitação do Service Bus chegam e, em seguida, concluir a operação de envio.
+Usando qualquer um dos clientes de API do barramento de serviço com suporte, as operações de envio no barramento de serviço sempre são explicitamente liquidadas, o que significa que a operação da API aguarda um resultado de aceitação do barramento de serviço chegar e, em seguida, conclui a operação de envio.
 
-Se a mensagem será rejeitada pelo Service Bus, a rejeição contém um indicador de erro e o texto com um "-id de controlo" dentro dela. A rejeição também inclui informações sobre se a operação pode ser repetida com qualquer expectativa de sucesso. No cliente, esta informação é transformada numa exceção e gerada para o chamador da operação de envio. Se o ter sido aceite a mensagem, a operação for concluída silenciosamente.
+Se a mensagem for rejeitada pelo barramento de serviço, a rejeição conterá um indicador de erro e um texto com um "ID de acompanhamento" dentro dele. A rejeição também inclui informações sobre se a operação pode ser repetida com qualquer expectativa de sucesso. No cliente, essas informações são transformadas em uma exceção e geradas para o chamador da operação de envio. Se a mensagem tiver sido aceita, a operação será concluída silenciosamente.
 
-Ao utilizar o protocolo AMQP, que é o protocolo exclusivo para o cliente .NET Standard e o cliente de Java e [que é uma opção para o cliente do .NET Framework](service-bus-amqp-dotnet.md), transferências de mensagem e liquidações são pipelined e completamente assíncrona, e é recomendado que utilize as variantes de API de modelo programação assíncronas.
+Ao usar o protocolo AMQP, que é o protocolo exclusivo para o cliente de .NET Standard e o cliente Java e [que é uma opção para o cliente de .NET Framework](service-bus-amqp-dotnet.md), as transferências de mensagens e as liquidações são canalizadas e completamente assíncronas, e é é recomendável que você use as variantes da API do modelo de programação assíncrona.
 
-Um remetente pode colocar várias mensagens na conexão numa rápida sucessão sem ter de esperar por cada mensagem ser confirmada, como seria o caso com o protocolo SBMP ou com HTTP 1.1. Essas operações de envio assíncrono concluir uma vez que as mensagens respectivas são aceites e armazenadas em entidades particionadas ou quando enviam a operação para a sobreposição de entidades diferentes. As conclusões também poderão ocorrer fora de ordem de envio original.
+Um remetente pode colocar várias mensagens na conexão em uma rápida sucessão sem precisar esperar que cada mensagem seja confirmada, como seria o caso com o protocolo SBMP ou com HTTP 1,1. Essas operações de envio assíncronas são concluídas, pois as respectivas mensagens são aceitas e armazenadas, em entidades particionadas ou quando a operação de envio para diferentes entidades se sobrepõem. As conclusões também podem ocorrer fora da ordem de envio original.
 
-A estratégia para processar o resultado de operações de envio pode ter impacto no desempenho de imediato e significativa para a sua aplicação. Os exemplos nesta secção são escritos em c# e aplicam de maneira equivalente para Java futura.
+A estratégia para lidar com o resultado de operações de envio pode ter um impacto de desempenho imediato e significativo para seu aplicativo. Os exemplos nesta seção são gravados C# e aplicados de maneira equivalente para os futuros do Java.
 
-Se o aplicativo produz picos de mensagens, ilustrado aqui com um simples loop e tivesse de aguardar a conclusão de cada enviar operação antes de enviar a mensagem seguinte, síncrona ou assíncronas formas de API semelhantes, apenas 10 mensagens a enviar é concluída após 10 sequencial completa ida e volta para liquidação.
+Se o aplicativo produzir intermitências de mensagens, ilustradas aqui com um loop simples e aguardar a conclusão de cada operação de envio antes de enviar a próxima mensagem, formas de API assíncronas e síncronas, o envio de 10 mensagens será concluído somente após 10 viagens de ida e volta completas sequenciais para liquidação.
 
-Com um milissegundo de 70 presumível distance de latência de ida e volta do TCP partir de um site no local para o Service Bus e dando apenas 10 ms para o Service Bus para aceitar e armazenar cada mensagem, o seguinte loop ocupa, pelo menos, 8 segundos, sem contar o tempo de transferência de payload ou potencial efeitos de congestionamento de rota:
+Com uma distância de ida e volta TCP de 70 milissegundos presumida de um site local para o barramento de serviço e fornecendo apenas 10 ms para que o barramento de serviço aceite e armazene cada mensagem, o loop a seguir ocupa pelo menos 8 segundos, não contando o tempo de transferência de carga ou o potencial efeitos de congestionamento de rota:
 
 ```csharp
 for (int i = 0; i < 100; i++)
@@ -52,9 +52,9 @@ for (int i = 0; i < 100; i++)
 }
 ```
 
-Se o aplicativo é iniciado 10 operações de envio assíncrono em sucessão imediata e awaits seus respectivo conclusão separadamente, sobrepõe-se o tempo de ida e volta para essas operações de envio de 10. As 10 mensagens são transferidas sucessivamente imediata, potencialmente, até partilha quadros TCP, e a duração de transferência geral depende em grande parte do tempo de relacionada com a rede de mensagens em fila que demora a obter as mensagens transferidas para o mediador.
+Se o aplicativo iniciar as 10 operações de envio assíncrono em uma sucessão imediata e aguardar sua respectiva conclusão separadamente, o tempo de ida e volta para essas 10 operações de envio se sobrepõem. As 10 mensagens são transferidas em uma sucessão imediata, potencialmente até mesmo compartilhando quadros TCP, e a duração geral da transferência depende amplamente do tempo relacionado à rede que leva para obter as mensagens transferidas para o agente.
 
-Fazer as mesmo suposições quanto o loop anterior, o tempo de execução sobreposto total para o seguinte loop poderão permanecer menos de um segundo:
+Fazendo as mesmas suposições para o loop anterior, o tempo total de execução sobreposto para o seguinte loop pode ficar bem abaixo de um segundo:
 
 ```csharp
 var tasks = new List<Task>();
@@ -65,9 +65,9 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-É importante ter em atenção que todos os modelos de programação assíncrona usar algum tipo de fila de trabalho baseados em memória e oculto que mantém operações pendentes. Quando [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (c#) ou **enviar** retorno (Java), a tarefa de envio é colocado na fila trabalho, mas o gesto de protocolo começa apenas uma vez que é a vez da tarefa para ser executado. Para o código que tende a picos de mensagens e onde a confiabilidade é uma preocupação de push, deve ter cuidado que não demasiadas mensagens são colocadas "em trânsito", ao mesmo tempo, uma vez que todas as mensagens enviadas ocupam memória até que eles factually foi colocados em trânsito.
+É importante observar que todos os modelos de programação assíncrona usam alguma forma de fila de trabalho oculta, com base na memória, que mantém operações pendentes. Quando [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) ou **Send** (Java) retornam, a tarefa de envio é enfileirada nessa fila de trabalho, mas o gesto de protocolo só começa quando é a execução da tarefa. Para o código que tende a enviar picos de mensagens e onde a confiabilidade é uma preocupação, deve-se tomar cuidado para que muitas mensagens sejam colocadas "em trânsito" ao mesmo tempo, porque todas as mensagens enviadas ocupam memória até que cuidado tenham sido colocadas na conexão.
 
-Os semáforos, conforme mostrado no seguinte fragmento de código em c#, são objetos de sincronização que permitem essa limitação de nível de aplicativo quando necessário. Permite que esta utilização de um semáforo para um máximo de 10 mensagens estejam em trânsito ao mesmo tempo. Um dos bloqueios semáforo disponíveis 10 está a ser utilizado antes da enviar e lançado como o envio for concluída. O 11 pass-through as esperas de loop até que pelo menos uma do antes envia foi concluída e, em seguida, disponibiliza seu bloqueio:
+Os semáforos, conforme mostrado no trecho de código a C#seguir no, são objetos de sincronização que permitem essa limitação no nível do aplicativo quando necessário. Esse uso de um semáforo permite que no máximo 10 mensagens estejam em trânsito ao mesmo tempo. Um dos 10 bloqueios de semáforo disponíveis é feito antes do envio e é liberado à medida que o envio é concluído. O 11 passa pelo loop aguarda até que pelo menos um dos envios anteriores tenha sido concluído e, em seguida, torne seu bloqueio disponível:
 
 ```csharp
 var semaphore = new SemaphoreSlim(10);
@@ -82,7 +82,7 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-Aplicativos devem **nunca** iniciar uma operação de envio assíncrono de uma forma de "disparar e esquecer" sem recuperar o resultado da operação. Se o fizer, pode carregar a fila de tarefas internas e invisível até esgotamento da memória e impedir que a aplicação detetar erros de envio:
+Os aplicativos **nunca** devem iniciar uma operação de envio assíncrona de maneira "disparar e esquecer" sem recuperar o resultado da operação. Isso pode carregar a fila de tarefas interna e invisível até o esgotamento de memória e impedir que o aplicativo detecte erros de envio:
 
 ```csharp
 for (int i = 0; i < 100; i++)
@@ -92,39 +92,51 @@ for (int i = 0; i < 100; i++)
 }
 ```
 
-Com um cliente AMQP nível baixo, do Service Bus também aceita transferências "previamente liquidadas". Uma transferência previamente liquidada é uma operação de disparar e esquecer de mensagens em fila para o qual o resultado, de qualquer forma, não é informado de volta ao cliente e a mensagem é considerada liquidados quando enviada. A falta de comentários para o cliente também significa que existe sem dados passíveis de ação para obter um diagnóstico, que significa que este modo não se qualifica para obter ajuda através do suporte do Azure.
+Com um cliente AMQP de baixo nível, o barramento de serviço também aceita transferências "previamente liquidadas". Uma transferência previamente liquidada é uma operação de disparar e esquecer para a qual o resultado, de qualquer forma, não é relatado de volta ao cliente e a mensagem é considerada liquidada quando enviada. A falta de comentários para o cliente também significa que não há dados acionáveis disponíveis para diagnóstico, o que significa que esse modo não se qualifica para ajuda por meio do suporte do Azure.
 
-## <a name="settling-receive-operations"></a>Liquidação de receber operações
+## <a name="settling-receive-operations"></a>Liquidando operações Receive
 
-Para receber operações, os clientes de API do Service Bus permitem dois modos diferentes de explícitos: *Receber-e-Delete* e *bloqueio de pré-visualização*.
+Para operações de recebimento, os clientes de API do barramento de serviço habilitam dois modos explícitos diferentes: *Receive-and-Delete* e *Peek-Lock*.
 
-O [Receive e eliminação](/dotnet/api/microsoft.servicebus.messaging.receivemode) modo informa o mediador a ter em consideração todas as mensagens que envia para o cliente de recebimento como liquidados quando enviada. Isso significa que a mensagem é considerada consumidos assim que o mediador tem colocá-la em trânsito. Se falhar a transferência de mensagem, esta será perdida.
+### <a name="receiveanddelete"></a>ReceiveAndDelete
 
-A vantagem desse modo é que o recetor não precisa de realizar mais nenhuma ação na mensagem e também não diminuiu ao aguardar o resultado da liquidação. Se os dados contidos nas mensagens individuais têm valor baixo e/ou apenas são significativos para muito pouco tempo, esse modo é uma opção razoável.
+O modo de [recebimento e exclusão](/dotnet/api/microsoft.servicebus.messaging.receivemode) informa ao agente para considerar todas as mensagens que ele envia para o cliente de recebimento, conforme liquidado quando enviado. Isso significa que a mensagem é considerada consumida assim que o agente a coloca na conexão. Se a transferência da mensagem falhar, a mensagem será perdida.
 
-O [bloqueio de pré-visualização](/dotnet/api/microsoft.servicebus.messaging.receivemode) modo informa o Mediador de que o cliente de recebimento deseja liquidar as mensagens recebidas explicitamente. A mensagem é disponibilizada para o recetor processar, enquanto mantido num bloqueio exclusivo no serviço para que outras, concorrentes recetores não é possível vê-lo. A duração do bloqueio inicialmente é definida ao nível da fila ou subscrição e podem ser estendida pelo cliente ao proprietário do bloqueio, através da [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) operação.
+A vantagem desse modo é que o receptor não precisa realizar uma ação adicional na mensagem e também não é retardado aguardando o resultado da liquidação. Se os dados contidos nas mensagens individuais tiverem valor baixo e/ou forem apenas significativos por um período muito curto, esse modo será uma opção razoável.
 
-Quando uma mensagem está bloqueada, outros clientes receber a partir da mesma fila ou subscrição podem assumir bloqueios e obter as mensagens disponíveis seguintes não está sob o bloqueio de Active Directory. Quando o bloqueio numa mensagem explicitamente for lançado, ou quando o bloqueio expira, a mensagem será exibida uma cópia de segurança em ou próximo início da ordem de obtenção de reentrega.
+### <a name="peeklock"></a>PeekLock
 
-Quando a mensagem repetidamente é lançada pela recetores ou permitem que o bloqueio de decorrer para um determinado número de vezes ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), a mensagem é automaticamente removida a partir da fila ou subscrição e colocada em associada fila de mensagens não entregues.
+O modo [Peek-Lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) informa ao agente que o cliente receptor deseja liquidar as mensagens recebidas explicitamente. A mensagem é disponibilizada para o receptor processar, enquanto mantida em um bloqueio exclusivo no serviço para que outros destinatários concorrentes não possam vê-lo. A duração do bloqueio é definida inicialmente no nível da fila ou da assinatura e pode ser estendida pelo cliente que possui o bloqueio, por meio da operação [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) .
 
-O cliente de recebimento inicia liquidação de uma mensagem recebida com uma confirmação positiva, ao chamar [Complete](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) no nível da API. Isso indica para o Mediador de que a mensagem foi processada com êxito e a mensagem é removida a partir da fila ou subscrição. O mediador responde a intenção de liquidação do receptor com uma resposta que indica se foi possível efetuar a liquidação.
+Quando uma mensagem é bloqueada, outros clientes que recebem da mesma fila ou assinatura podem assumir os bloqueios e recuperar as próximas mensagens disponíveis que não estão sob o bloqueio ativo. Quando o bloqueio em uma mensagem é liberado explicitamente ou quando o bloqueio expira, a mensagem é exibida na frente da ordem de recuperação para entrega.
 
-Quando o cliente recetora não consegue processar uma mensagem, mas quer que a mensagem a ser reenviada, ele pode explicitamente solicitar a mensagem a ser lançado e desbloqueado instantaneamente chamando [abandonar](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) ou ele pode fazer nada e deixar que o bloqueio de decorrer.
+Quando a mensagem é liberada repetidamente por receptores ou elas permitem que o bloqueio decorra um número definido de vezes ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), a mensagem é automaticamente removida da fila ou da assinatura e colocada na fila de mensagens mortas associada.
 
-Se um cliente recetora não consegue processar uma mensagem e sabe que entregando-se novamente a mensagem e repetir a operação não ajudará, ele pode rejeitar a mensagem, que move-o na fila de mensagens não entregues ao chamar [mensagens não entregues](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), que também permite definir uma propriedade personalizada, incluindo um código de razão que pode ser obtido com a mensagem da fila de mensagens não entregues.
+O cliente de recebimento inicia a liquidação de uma mensagem recebida com uma confirmação positiva quando chama a [conclusão](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) no nível da API. Isso indica ao agente que a mensagem foi processada com êxito e a mensagem é removida da fila ou assinatura. O agente responde à tentativa de liquidação do destinatário com uma resposta que indica se a liquidação pode ser executada.
 
-Um caso especial de liquidação é diferimento, que é abordado num artigo separado.
+Quando o cliente de recebimento não processa uma mensagem, mas deseja que a mensagem seja entregue novamente, ela pode pedir explicitamente que a mensagem seja liberada e desbloqueada instantaneamente chamando [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) ou não pode fazer nada e permitir que o bloqueio decorra.
 
-O **concluída** ou **mensagens não entregues** operações, bem como o **RenewLock** operações poderão falhar devido a problemas de rede, se o bloqueio de retenção tiver expirado, ou se houver outras condições de lado do serviço que impedem a liquidação. Em um dos casos esse último, o serviço envia uma confirmação negativa que analisa como uma exceção nos clientes de API. Se o motivo pelo qual uma ligação de rede quebrada, o bloqueio foi removido uma vez que o barramento de serviço não suporta a recuperação de ligações AMQP existentes numa conexão diferente.
+Se um cliente de recebimento não processar uma mensagem e souber que a entrega da mensagem e a repetição da operação não ajudará, ela poderá rejeitar a mensagem, que a move para a fila de mensagens mortas chamando [mensagens mortas](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), o que também permite definir um Propriedade que inclui um código de motivo que pode ser recuperado com a mensagem da fila de mensagens mortas.
 
-Se **Complete** falhar, o que ocorre normalmente no final de processamento de mensagens e, em alguns casos depois de minutos de trabalho de processamento, o aplicativo de recebimento pode decidir se preserva o estado do trabalho e ignora o mesmo mensagem quando ela é entregue uma segunda vez, ou se partir o resultado do trabalho e repete como a mensagem é reenviada.
+Um caso especial de liquidação é o adiamento, que é discutido em um artigo separado.
 
-O mecanismo típico para identificar mensagens duplicadas entregas é verificando o id da mensagem, que pode e deve ser definido pelo remetente para um valor exclusivo, possivelmente alinhado com um identificador do processo de origem. Um programador de tarefas provavelmente iria definir o id da mensagem para o identificador da tarefa está a tentar atribuir a uma função de trabalho com a função de trabalho especificada e a função de trabalho ignoraria a segunda ocorrência da atribuição de tarefa se essa tarefa já foi feita.
+As operações **completas** ou de **mensagens mortas** , bem como as operações **RenewLock** podem falhar devido a problemas de rede, se o bloqueio mantido tiver expirado ou se houver outras condições do lado do serviço que impeçam a liquidação. Em um dos últimos casos, o serviço envia uma confirmação negativa que se superfícies como uma exceção nos clientes da API. Se o motivo for uma conexão de rede quebrada, o bloqueio será descartado, pois o barramento de serviço não oferece suporte à recuperação de links AMQP existentes em uma conexão diferente.
 
-## <a name="next-steps"></a>Passos Seguintes
+Se a **conclusão** falhar, que ocorre normalmente no final da manipulação de mensagens e, em alguns casos, após minutos de trabalho de processamento, o aplicativo de recebimento pode decidir se preserva o estado do trabalho e ignora a mesma mensagem quando ela é entregue uma segunda vez, ou se ele sai do resultado de trabalho e tenta novamente à medida que a mensagem é entregue novamente.
 
-Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
+O mecanismo típico para identificar entregas de mensagens duplicadas é verificar a ID da mensagem, que pode e deve ser definido pelo remetente para um valor exclusivo, possivelmente alinhado com um identificador do processo de origem. Um Agendador de trabalhos provavelmente definiria a ID da mensagem para o identificador do trabalho que ele está tentando atribuir a um trabalhador com o determinado trabalhador, e o trabalho ignoraria a segunda ocorrência da atribuição de trabalho se esse trabalho já tiver sido feito.
+
+> [!IMPORTANT]
+> É importante observar que o bloqueio que o PeekLock adquire na mensagem é volátil e pode ser perdido nas seguintes condições
+>   * Atualização de serviço
+>   * Atualização do so
+>   * Alterando propriedades na entidade (fila, tópico, assinatura) enquanto mantém o bloqueio.
+>
+> Quando o bloqueio for perdido, o barramento de serviço do Azure irá gerar um LockLostException que será exibido no código do aplicativo cliente. Nesse caso, a lógica de repetição padrão do cliente deve iniciar automaticamente e tentar a operação novamente.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

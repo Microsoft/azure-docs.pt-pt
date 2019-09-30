@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100320"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674990"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquinas virtuais do Windows com o Azure PowerShell
 
@@ -70,7 +70,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Se você receber um erro informando que o **GUID principal \<> não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando que a **entidade de \<guid > não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
@@ -225,7 +225,7 @@ Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGr
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 
@@ -235,8 +235,8 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 > * Proteger recursos críticos com bloqueios
 > * Etiquetar recursos para faturação e gestão
 
-Avance para o próximo tutorial, para saber mais sobre máquinas virtuais de elevada disponibilidade.
+Avance para o próximo tutorial para saber mais sobre como identificar alterações e gerenciar atualizações de pacote em uma máquina virtual Linux.
 
 > [!div class="nextstepaction"]
-> [Monitorizar máquinas virtuais](tutorial-monitoring.md)
+> [Gerenciar máquinas virtuais](tutorial-config-management.md)
 

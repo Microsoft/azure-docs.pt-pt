@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 74df4f8e3161576280e1d71c4a9b2f50a169dbb4
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350314"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687061"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Criar um ponto de extremidade privado usando portal do Azure
 
@@ -214,30 +214,31 @@ Depois de criar **myVm*, conecte-se a ele da Internet da seguinte maneira:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. Instale o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. In **Connect to server**, enter or select this information:
+4. Em **conectar ao servidor**, insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Definição | Value |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | Tipo de servidor| Selecione **Motor de Base de Dados**.|
+    | Nome do servidor| Selecionar *MyServer.Database.Windows.net* |
+    | Nome de utilizador | Insira uma senha fornecida durante a criação do SQL Server. |
+    |Palavra-passe |Insira uma senha fornecida durante a criação do SQL Server. |
+    |Memorizar palavra-passe|Selecione **Sim**.|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1. Selecione **conectar**.
+2. Procurar bancos de dados no menu à esquerda.
+3. Opcionalmente Criar ou consultar informações de MyDatabase.
+4. Feche a conexão de área de trabalho remota para *myVm*. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>Limpar recursos 
+Quando você terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
+1. Insira o *MyResource* In a **pesquisa** box na parte superior do portal e selecione *MyResource*be from os resultados da pesquisa. 
+2. Selecione **excluir grupo de recursos**. 
+3. Insira MyResource GROUP para **o tipo nome do grupo de recursos** And selecione **excluir**.
 
-## Next steps
+## <a name="next-steps"></a>Passos seguintes
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+Neste guia de início rápido, você criou uma VM em uma rede virtual, um servidor de banco de dados SQL e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM da Internet e se comunica com segurança ao servidor do banco de dados SQL usando o link privado. Para saber mais sobre pontos de extremidade privados, consulte [o que é o ponto de extremidades privado do Azure?](private-endpoint-overview.md).
 

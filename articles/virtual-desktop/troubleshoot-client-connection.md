@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 22590a7ecc94efbfad5eefe27f284bdb191e876d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300706"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676409"
 ---
 # <a name="remote-desktop-client-connections"></a>Ligações cliente do Ambiente de Trabalho Remoto
 
@@ -20,7 +20,7 @@ Use este artigo para resolver problemas com conexões de cliente de área de tra
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-No momento, não estamos adotando casos de suporte enquanto a área de trabalho virtual do Windows está em versão prévia. Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e os membros ativos da Comunidade.
+Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e os membros ativos da Comunidade.
 
 ## <a name="you-cant-open-a-web-client"></a>Não é possível abrir um cliente Web
 
@@ -178,7 +178,4 @@ Se o cliente Web estiver sendo usado, confirme se não há problemas de credenci
 - Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para saber mais sobre o serviço de visualização, consulte [ambiente de visualização de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
 - Para percorrer um tutorial de solução de problemas [, consulte o tutorial: Solucionar problemas de implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)de modelo do Resource Manager.
-- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

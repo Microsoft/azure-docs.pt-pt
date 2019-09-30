@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1349a81bc4f0f3eed4093bbe91abea68264b4021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: fa0fa6220fd090bf7fcbe14e85556b6010651e0e
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350652"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675007"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 
@@ -127,7 +127,7 @@ Você pode registrar um modelo fornecendo o caminho local do modelo. Você pode 
     ```python
     import os
     import urllib.request
-    from azureml.core import Model
+    from azureml.core.model import Model
     # Download model
     onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
     urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
@@ -467,9 +467,7 @@ def run(request):
 
 A configuração de inferência descreve como configurar o modelo para fazer previsões. Essa configuração não faz parte do seu script de entrada. Ele faz referência ao seu script de entrada e é usado para localizar todos os recursos exigidos pela implantação. Ele é usado posteriormente, quando você implanta o modelo.
 
-A configuração de inferência pode usar ambientes Azure Machine Learning para definir as dependências de software necessárias para sua implantação. Os ambientes permitem que você crie, gerencie e reutilize as dependências de software necessárias para treinamento e implantação. Ao usar um ambiente, os arquivos de modelo e o diretório de origem fornecido são montados diretamente em seu contêiner em execução-eles não são copiados para a imagem de contêiner ou para o registro de contêiner.
-
-O exemplo a seguir demonstra como carregar um ambiente do seu espaço de trabalho e usá-lo com a configuração de inferência:
+A configuração de inferência pode usar ambientes Azure Machine Learning para definir as dependências de software necessárias para sua implantação. Os ambientes permitem que você crie, gerencie e reutilize as dependências de software necessárias para treinamento e implantação. O exemplo a seguir demonstra como carregar um ambiente do seu espaço de trabalho e usá-lo com a configuração de inferência:
 
 ```python
 from azureml.core import Environment

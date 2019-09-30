@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-ms.date: 10/12/2018
+ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 7bd204789f99fa299300ff47003857e9ecc6085e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5fa14ef30d45a9a28cc690761ec33b5bfaaac6a7
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103610"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676506"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Saiba mais sobre o governança de máquinas virtuais do Linux com o CLI do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "70103610"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI do Azure localmente, este tutorial exige que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI do Azure localmente, este tutorial exige que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
@@ -56,7 +56,7 @@ Para gerir soluções de máquina virtual, existem três funções de recursos e
 
 Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil utilizar um grupo do Azure Active Directory que tem utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Neste artigo, utilize um grupo existente para gerir a máquina virtual ou utilize o portal para [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Depois de criar um grupo novo ou encontrar um existente, utilize o comando [az role assignment create](/cli/azure/role/assignment) para atribuir o novo grupo do Azure Active Directory à função Contribuidor de Máquina Virtual do grupo de recursos.
+Depois de criar um grupo novo ou encontrar um existente, utilize o comando [az role assignment create](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) para atribuir o novo grupo do Azure Active Directory à função Contribuidor de Máquina Virtual do grupo de recursos.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -64,13 +64,13 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Se você receber um erro informando que o **GUID principal \<> não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando que a **entidade de \<guid > não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
 ## <a name="azure-policy"></a>Política do Azure
 
-O [Azure Policy](../../governance/policy/overview.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o comando [az policy definition list](/cli/azure/policy/definition):
+O [Azure Policy](../../governance/policy/overview.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o comando [az policy definition list](https://docs.microsoft.com/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-list):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -82,7 +82,7 @@ Poderá ver as definições de política existentes. O tipo de política é **Bu
 * Limitar os SKUs das máquinas virtuais.
 * Auditar máquinas virtuais que não utilizam discos geridos.
 
-No exemplo seguinte, obtém três definições de políticas baseadas no nome a apresentar. Utiliza o comando [az policy assignment create](/cli/azure/policy/assignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, forneça valores de parâmetros para especificar os valores permitidos.
+No exemplo seguinte, obtém três definições de políticas baseadas no nome a apresentar. Utiliza o comando [az policy assignment create](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) para atribuir essas definições ao grupo de recursos. Para algumas políticas, forneça valores de parâmetros para especificar os valores permitidos.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -144,7 +144,7 @@ Os [bloqueios de recursos](../../azure-resource-manager/resource-group-lock-reso
 
 Para criar ou eliminar bloqueios de gestão, tem de ter acesso a ações `Microsoft.Authorization/locks/*`. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
-Para bloquear a máquina virtual e o grupo de segurança de rede, utilize o comando [az lock create](/cli/azure/lock):
+Para bloquear a máquina virtual e o grupo de segurança de rede, utilize o comando [az lock create](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-create):
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -176,7 +176,7 @@ O utilizador aplica as [etiquetas](../../azure-resource-manager/resource-group-u
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Para aplicar etiquetas a uma máquina virtual, utilize o comando [az resource tag](/cli/azure/resource). As etiquetas existentes no recurso não são mantidas.
+Para aplicar etiquetas a uma máquina virtual, utilize o comando [az resource tag](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list). As etiquetas existentes no recurso não são mantidas.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -187,7 +187,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por etiqueta
 
-Para localizar recursos com um nome e valor de etiqueta, utilize o comando [az resource list](/cli/azure/resource):
+Para localizar recursos com um nome e valor de etiqueta, utilize o comando [az resource list](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list):
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name
@@ -205,7 +205,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-O grupo de segurança de rede bloqueado não pode ser eliminado até que o bloqueio seja removido. Para remover o bloqueio, obtenha os IDs dos bloqueios e forneça-os ao comando [az lock delete](/cli/azure/lock):
+O grupo de segurança de rede bloqueado não pode ser eliminado até que o bloqueio seja removido. Para remover o bloqueio, obtenha os IDs dos bloqueios e forneça-os ao comando [az lock delete](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-delete):
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -219,7 +219,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group) para remover o Grupo de Recursos, a VM e todos os recursos relacionados. Encerre a sessão SSH da VM e, em seguida, elimine os recursos da seguinte forma:
+Quando já não for necessário, pode utilizar o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o Grupo de Recursos, a VM e todos os recursos relacionados. Encerre a sessão SSH da VM e, em seguida, elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -236,8 +236,8 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 > * Proteger recursos críticos com bloqueios
 > * Etiquetar recursos para faturação e gestão
 
-Avance para o próximo tutorial, para saber mais sobre máquinas virtuais de elevada disponibilidade.
+Avance para o próximo tutorial para saber como identificar alterações e gerenciar atualizações de pacote em uma máquina virtual.
 
 > [!div class="nextstepaction"]
-> [Monitorizar máquinas virtuais](tutorial-monitoring.md)
+> [Gerenciar máquinas virtuais](tutorial-config-management.md)
 

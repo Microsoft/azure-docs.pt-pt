@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 77cd720ffd2763b2ad3d73559a5363989f9e3e3a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103389"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679296"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET usando Azure Active Directory B2C
 
@@ -54,23 +54,17 @@ Os recursos da API Web precisam ser registrados em seu locatário antes que poss
 
 Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Neste tutorial, vai utilizar os âmbitos para definir as permissões de leitura e escrita para a API Web.
 
-1. Selecione **aplicativos**e, em seguida, selecione *webapi1*.
-2. Selecione **escopos publicados**.
-3. Para **escopo**, insira `Hello.Read`e, para descrição, digite `Read access to hello`.
-4. Para **escopo**, insira `Hello.Write`e, para descrição, digite `Write access to hello`.
-5. Clique em **Guardar**.
-
-Os escopos publicados podem ser usados para conceder a uma permissão de aplicativo cliente para a API da Web.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
 Para chamar uma API Web protegida de um aplicativo, você precisa conceder permissões de aplicativo para a API. No tutorial de pré-requisito, você criou um aplicativo Web em Azure AD B2C chamado *webapp1*. Você usa esse aplicativo para chamar a API da Web.
 
 1. Selecione **aplicativos**e, em seguida, selecione *webapp1*.
-2. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
-3. Na lista suspensa **selecionar API** , selecione *webapi1*.
-4. Na lista suspensa **selecionar** escopos, selecione os escopos **Hello. Read** e **Hello. Write** que você definiu anteriormente.
-5. Clique em **OK**.
+1. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
+1. Na lista suspensa **selecionar API** , selecione *webapi1*.
+1. Na lista suspensa **selecionar escopos** , selecione os escopos que você definiu anteriormente. Por exemplo, *demo. Read* e *demo. Write*.
+1. Selecione **OK**.
 
 Seu aplicativo está registrado para chamar a API Web protegida. Um usuário é autenticado com Azure AD B2C para usar o aplicativo. O aplicativo obtém uma concessão de autorização de Azure AD B2C para acessar a API Web protegida.
 
@@ -99,8 +93,8 @@ Os dois projetos a seguir estão na solução de exemplo:
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ### <a name="configure-the-web-api"></a>Configurar a API Web
@@ -128,8 +122,8 @@ Os dois projetos a seguir estão na solução de exemplo:
 1. Configure a configuração de escopos para corresponder às que você criou no Portal.
 
     ```csharp
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ## <a name="run-the-sample"></a>Executar o exemplo
@@ -149,7 +143,7 @@ Tem de executar os dois projetos, **TaskWebApp** e **TaskService**.
 
 Quando você cria um item de lista de tarefas pendentes, o aplicativo Web faz uma solicitação para a API da Web para gerar o item de lista de tarefas pendentes. Seu aplicativo Web protegido está chamando a API da Web protegida por Azure AD B2C.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

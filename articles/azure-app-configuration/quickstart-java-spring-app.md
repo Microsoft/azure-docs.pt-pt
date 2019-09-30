@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4ebbd4f37422c5aa2fea07a243eb624ec9e2961
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326472"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687029"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início rápido: Criar um aplicativo Spring Java com configuração Azure App
 
@@ -68,7 +68,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M3</version>
+        <version>1.1.0.M4</version>
     </dependency>
     ```
 
@@ -144,7 +144,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Spring Java. Para obter mais informações, consulte [Spring no Azure](https://docs.microsoft.com/java/azure/spring-framework/).
 

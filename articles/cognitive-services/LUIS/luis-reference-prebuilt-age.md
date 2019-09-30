@@ -9,24 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: d72af0c2126ef74f95697755a7ead354214f695c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1b2ff6b64661010136d43b8d1f10abb58a88102a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932545"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677735"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entidade de idade predefinida para um aplicativo LUIS
 A entidade de idade pré-criados captura o valor de idade tanto numericamente e em termos de dias, semanas, meses e anos. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a idade para os objetivos do aplicativo. Entidade de idade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Tipos de idade
-A idade é gerenciada do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) de reconhecedores
+A idade é gerenciada do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3)
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Resolução de entidades de idade pré-criados
 
-### <a name="api-version-2x"></a>Versão da API 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
 
 O exemplo seguinte mostra a resolução do **builtin.age** entidade.
 
@@ -52,9 +52,9 @@ O exemplo seguinte mostra a resolução do **builtin.age** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
 {
@@ -79,7 +79,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
 {
@@ -116,6 +116,10 @@ O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+* * * 
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
 Saiba mais sobre o [moeda](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), e [dimensão](luis-reference-prebuilt-dimension.md) entidades. 

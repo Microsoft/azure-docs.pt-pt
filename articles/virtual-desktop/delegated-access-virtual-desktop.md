@@ -1,24 +1,24 @@
 ---
-title: Acesso delegado na pré-visualização de ambiente de trabalho virtuais Windows - Azure
-description: Como delegar capacidades administrativas numa implementação de pré-visualização de ambiente de Trabalho Virtual do Windows, incluindo exemplos.
+title: Acesso delegado na área de trabalho virtual do Windows – Azure
+description: Como delegar recursos administrativos em uma implantação de área de trabalho virtual do Windows, incluindo exemplos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e8d1ba00043f43f626043d78ce0ab8953a0b3fbe
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272826"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679553"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acesso delegado na pré-visualização de ambiente de Trabalho Virtual do Windows
+# <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
 
-Visualização de ambiente de Trabalho Virtual do Windows tem um modelo de acesso delegado que permite que defina a quantidade de acesso que um utilizador específico pode ter ao atribuir-lhes uma função. Uma atribuição de função tem três componentes: entidade de segurança, a definição de função e o âmbito. O modelo de acesso delegado de área de Trabalho Virtual do Windows é baseado no modelo de RBAC do Azure. Para obter mais informações sobre atribuições de função específica e os respetivos componentes, consulte [a visão geral de controlo de acesso baseado em função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+A área de trabalho virtual do Windows tem um modelo de acesso delegado que permite definir a quantidade de acesso que um usuário específico tem permissão para ter atribuindo a eles uma função. Uma atribuição de função tem três componentes: entidade de segurança, definição de função e escopo. O modelo de acesso delegado da área de trabalho virtual do Windows baseia-se no modelo RBAC do Azure. Para saber mais sobre atribuições de função específicas e seus componentes, consulte [a visão geral do controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
-Área de Trabalho Virtual do Windows delegado acesso suporta os seguintes valores para cada elemento da atribuição de função:
+O acesso delegado da área de trabalho virtual do Windows oferece suporte aos seguintes valores para cada elemento da atribuição de função:
 
 * Principal de segurança
     * Utilizadores
@@ -26,44 +26,44 @@ Visualização de ambiente de Trabalho Virtual do Windows tem um modelo de acess
 * Definição de função
     * Funções incorporadas
 * Scope
-    * Grupos de inquilino
-    * Inquilinos
-    * Conjuntos de anfitrião
+    * Grupos de locatários
+    * locatários
+    * Pools de hosts
     * Grupos de aplicações
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
-Acesso delegado na área de Trabalho Virtual do Windows tem várias definições de função incorporada que pode atribuir aos utilizadores e os principais de serviço.
+O acesso delegado na área de trabalho virtual do Windows tem várias definições de função internas que você pode atribuir a usuários e entidades de serviço.
 
-* Um proprietário de RDS pode gerir tudo, incluindo o acesso aos recursos.
-* Um contribuinte de RDS pode gerir tudo, mas o acesso aos recursos.
-* Um leitor de RDS podem ver tudo, mas não é possível fazer alterações.
-* Um operador de RDS pode ver as atividades de diagnóstico.
+* Um proprietário de RDS pode gerenciar tudo, incluindo o acesso aos recursos.
+* Um colaborador de RDS pode gerenciar tudo, exceto o acesso aos recursos.
+* Um leitor de RDS pode exibir tudo, mas não pode fazer nenhuma alteração.
+* Um operador RDS pode exibir atividades de diagnóstico.
 
-## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets do PowerShell para atribuições de funções
+## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets do PowerShell para atribuições de função
 
-Pode executar os seguintes cmdlets para criar, visualizar e remover atribuições de funções:
+Você pode executar os seguintes cmdlets para criar, exibir e remover atribuições de função:
 
-* **Get-RdsRoleAssignment** apresenta uma lista de atribuições de funções.
-* **Novo RdsRoleAssignment** cria uma nova atribuição de função.
-* **Remove-RdsRoleAssignment** elimina as atribuições de funções.
+* **Get-RdsRoleAssignment** exibe uma lista de atribuições de função.
+* **New-RdsRoleAssignment** cria uma nova atribuição de função.
+* **Remove-RdsRoleAssignment** exclui atribuições de função.
 
-### <a name="accepted-parameters"></a>Parâmetros aceites
+### <a name="accepted-parameters"></a>Parâmetros aceitos
 
-Pode modificar os três cmdlets básicos com os seguintes parâmetros:
+Você pode modificar os três cmdlets básicos com os seguintes parâmetros:
 
-* **AadTenantId**: Especifica o ID de inquilino do Azure Active Directory do qual o principal de serviço é um membro.
-* **AppGroupName**: nome do grupo de aplicações de ambiente de trabalho remoto.
-* **Diagnóstico**: indica o âmbito de diagnóstico. (Deve ser emparelhado com ambos os **infraestrutura** ou **inquilino** parâmetros.)
-* **HostPoolName**: nome do conjunto de anfitrião de ambiente de trabalho remoto.
-* **Infraestrutura**: indica o âmbito de infraestrutura.
-* **RoleDefinitionName**: nome da função de controlo de acesso baseado em função dos serviços de ambiente de trabalho remoto atribuída para o utilizador, grupo ou aplicação. (Por exemplo, proprietário de serviços de ambiente de trabalho remoto, leitor de serviços de ambiente de trabalho remoto e assim por diante.)
-* **ServerPrincipleName**: nome da aplicação do Azure Active Directory.
-* **SignInName**: endereço de e-mail do utilizador ou nome principal de utilizador.
-* **TenantName**: nome do inquilino de ambiente de trabalho remoto.
+* **AadTenantId**: especifica a ID de locatário Azure Active Directory da qual a entidade de serviço é um membro.
+* **AppGroupName**: nome do grupo de aplicativos área de trabalho remota.
+* **Diagnóstico**: indica o escopo do diagnóstico. (Deve ser emparelhado com os parâmetros de **infraestrutura** ou de **locatário** .)
+* **HostPoolName**: nome do pool de hosts área de trabalho remota.
+* **Infraestrutura**: indica o escopo da infraestrutura.
+* **RoleDefinitionName**: o nome do serviços de área de trabalho remota função de controle de acesso baseado em função atribuída ao usuário, ao grupo ou ao aplicativo. (Por exemplo, Serviços de Área de Trabalho Remota proprietário, leitor de Serviços de Área de Trabalho Remota e assim por diante.)
+* **ServerPrincipleName**: nome do aplicativo Azure Active Directory.
+* **SignInName**: o endereço de email do usuário ou o nome principal do usuário.
+* **Tenantname**: nome do locatário de área de trabalho remota.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista mais completa de cada função pode utilizar cmdlets do PowerShell, consulte a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).
+Para obter uma lista mais completa de cmdlets do PowerShell que cada função pode usar, consulte a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Para obter diretrizes sobre como configurar um ambiente de área de Trabalho Virtual do Windows, consulte [ambiente do Windows Virtual Desktop Preview](environment-setup.md).
+Para obter diretrizes sobre como configurar um ambiente de área de trabalho virtual do Windows, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).

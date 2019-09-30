@@ -1,22 +1,22 @@
 ---
 title: Criar um contêiner de perfil do FSLogix para um pool de hosts usando um compartilhamento de arquivos baseado em máquina virtual-Azure
-description: Como configurar um contêiner de perfil FSLogix para um pool de hosts da visualização de área de trabalho virtual do Windows usando um compartilhamento de arquivos baseado em máquina virtual.
+description: Como configurar um contêiner de perfil FSLogix para um pool de hosts de área de trabalho virtual do Windows usando um compartilhamento de arquivos baseado em máquina virtual.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876798"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676687"
 ---
-# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos
+# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
 
-O serviço de visualização de área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. Não recomendamos o uso da solução UPD (disco de perfil do usuário), que será preterida em versões futuras da área de trabalho virtual do Windows.
+O serviço de área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. Não recomendamos o uso da solução UPD (disco de perfil do usuário), que será preterida em versões futuras da área de trabalho virtual do Windows.
 
 Este artigo informará como configurar um compartilhamento de contêiner de perfil FSLogix para um pool de hosts usando um compartilhamento de arquivos baseado em máquina virtual. Para obter mais documentação do FSLogix, consulte o [site do FSLogix](https://docs.fslogix.com/).
 
@@ -56,9 +56,9 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 
 1. [Conecte-se à máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Inicie um navegador da Internet e navegue até [este link](https://go.microsoft.com/fwlink/?linkid=2084562) para baixar o agente do FSLogix.
-3. \\Navegue até\\ versãodo\\Win32ouversãox64\\no arquivo. zip e execute FSLogixAppsSetup para instalar o agente do FSLogix. \\ \\  Para saber mais sobre como instalar o FSLogix, consulte [baixar e instalar o FSLogix](https://docs.microsoft.com/fslogix/install-ht).
-4. Navegue até **arquivos** > de programas**FSLogix** > **aplicativos** para confirmar o agente instalado.
-5. No menu Iniciar, execute **regedit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+3. Navegue até \\ @ no__t-1Win32 @ no__t-2Release ou \\ @ no__t-4X64 @ no__t-5Release no arquivo. zip e execute **FSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [baixar e instalar o FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+4. Navegue até **arquivos de programas** > **FSLogix** > **aplicativos** para confirmar o agente instalado.
+5. No menu Iniciar, execute **regedit** como administrador. Navegue até **computador @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
 6. Crie uma chave chamada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 

@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ser movidos para um n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/06/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801357"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687125"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure dá suporte à operação de movimentação. Ele também fornece informações sobre condições especiais a serem consideradas ao mover um recurso.
@@ -72,7 +72,6 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -506,7 +505,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | pacotes | Não | Não |
-> | Plan | Não | Não |
+> | planos | Não | Não |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -542,7 +541,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | Não | Não |
+> | serviços | Não | Não |
 > | serviços/projetos | Não | Não |
 > | períodos | Não | Não |
 
@@ -596,7 +595,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | controladores | Sim | Sim |
+> | Controladores | Sim | Sim |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -609,21 +608,6 @@ Ir para um namespace do provedor de recursos:
 > | laboratórios/perrunners | Sim | Sim |
 > | laboratórios/VirtualMachines | Sim | Não |
 > | agendamento | Sim | Sim |
-
-## <a name="microsoftdns"></a>microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dnszones | Não | Não |
-> | dnszones/a | Não | Não |
-> | dnszones/aaaa | Não | Não |
-> | dnszones/CNAME | Não | Não |
-> | dnszones/MX | Não | Não |
-> | dnszones/PTR | Não | Não |
-> | dnszones/SRV | Não | Não |
-> | dnszones/txt | Não | Não |
-> | trafficmanagerprofiles | Não | Não |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -644,7 +628,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | Sim | Sim |
+> | serviços | Sim | Sim |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -660,7 +644,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Sim | Sim |
-> | namespaces | Sim | Sim |
+> | espaços de nomes | Sim | Sim |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
@@ -694,7 +678,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | Sim | Sim |
+> | serviços | Sim | Sim |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -734,10 +718,10 @@ Ir para um namespace do provedor de recursos:
 > | notificationrules | Não | Não |
 > | scheduledqueryrules | Sim | Sim |
 > | webtests | Sim | Sim |
-> | pastas | Sim | Sim |
+> | livros | Sim | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para a nova assinatura não exceda as [cotas de assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Certifique-se de que a mudança para a nova assinatura não exceda as cotas de [assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -970,7 +954,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | namespaces | Sim | Sim |
+> | espaços de nomes | Sim | Sim |
 > | namespaces/notificationhubs | Sim | Sim |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -981,7 +965,7 @@ Ir para um namespace do provedor de recursos:
 > | áreas de trabalho | Sim | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para a nova assinatura não exceda as [cotas de assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Certifique-se de que a mudança para a nova assinatura não exceda as cotas de [assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1004,7 +988,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | painéis | Sim | Sim |
+> | Painéis | Sim | Sim |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 
@@ -1049,7 +1033,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | namespaces | Sim | Sim |
+> | espaços de nomes | Sim | Sim |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
@@ -1104,7 +1088,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | namespaces | Sim | Sim |
+> | espaços de nomes | Sim | Sim |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 

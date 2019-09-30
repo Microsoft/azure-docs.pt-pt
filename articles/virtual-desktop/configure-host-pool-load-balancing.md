@@ -1,5 +1,5 @@
 ---
-title: Configurar o método de balanceamento de carga do Windows Virtual Desktop Preview-Azure
+title: Configurar o método de balanceamento de carga de área de trabalho virtual do Windows – Azure
 description: Como configurar o método de balanceamento de carga para um ambiente de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3a940dbf592087878cb9dd19f856f1a3d94291c5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163755"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676783"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurar o método de balanceamento de carga do Windows Virtual Desktop Preview
+# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurar o método de balanceamento de carga do Windows Virtual Desktop
 
-Configurar o método de balanceamento de carga para um pool de hosts permite que você ajuste o ambiente de visualização de área de trabalho virtual do Windows para atender melhor às suas necessidades.
+Configurar o método de balanceamento de carga para um pool de hosts permite que você ajuste o ambiente de área de trabalho virtual do Windows para atender melhor às suas necessidades.
 
 >[!NOTE]
 > Isso não se aplica a um pool de hosts de área de trabalho persistente porque os usuários sempre têm um mapeamento 1:1 para um host de sessão dentro do pool de hosts.

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306008"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686811"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 
@@ -52,7 +52,7 @@ Você não será afetado se tiver:
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>O que fazer se você for afetado
 
-Recomendamos que você permita o tráfego de saída para endereços IP para todos os [endereços IP do gateway do banco de dados SQL do Azure](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) na região na porta TCP 1433 e o intervalo de portas 11000-11999 no seu dispositivo de firewall. Para obter mais informações sobre intervalos de portas, consulte [política de conexão](sql-database-connectivity-architecture.md#connection-policy).
+Recomendamos que você permita o tráfego de saída para endereços IP para todos os [endereços IP do gateway do banco de dados SQL do Azure](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) na região na porta TCP 1433 e o intervalo de porta 11000-11999. Essa recomendação é aplicável aos clientes que se conectam do local e também aos que se conectam por meio de pontos de extremidade de serviço. Para obter mais informações sobre intervalos de portas, consulte [política de conexão](sql-database-connectivity-architecture.md#connection-policy).
 
 As conexões feitas de aplicativos usando o Microsoft JDBC Driver abaixo da versão 4,0 podem falhar na validação do certificado. Versões inferiores do Microsoft JDBC dependem do nome comum (CN) no campo assunto do certificado. A mitigação é garantir que a propriedade hostNameInCertificate esteja definida como *. database.windows.net. Para obter mais informações sobre como definir a propriedade hostNameInCertificate, consulte [conectando-se com a criptografia SSL](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

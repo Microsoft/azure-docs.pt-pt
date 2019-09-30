@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 811fdd0b177e3a255ca91145e39005de1d2328ad
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981084"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676460"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -20,13 +20,13 @@ Este artigo aborda problemas durante a configuração inicial do locatário da �
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-No momento, não estamos adotando casos de suporte enquanto a área de trabalho virtual do Windows está em versão prévia. Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e os membros ativos da Comunidade.
+Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e os membros ativos da Comunidade.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, > selecione introdução ao**Microsoft Windows 10** > e [Windows 10 Enterprise para desktops virtuais Preview, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução** > **Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Uma captura de tela de seleção do Windows 10 Enterprise para desktops virtuais Preview, versão 1809.](media/AzureMarketPlace.png)
+![Uma captura de tela de seleção do Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809.](media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Criando locatário da área de trabalho virtual do Windows
 
@@ -167,7 +167,7 @@ Exemplo de erro bruto:
 
 ```Error
 { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
- rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
+ rds.wvd-provision-host-pool-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
  "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
  "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
@@ -277,9 +277,9 @@ Exemplo de erro bruto:
 
 ```Error
 \\\"The DSC Extension failed to execute: Error downloading
-https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-
-2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-
-1/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
+https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-provision-host-pool-
+2dec7a4d-006c-4cc0-965a-02bbe438d6ff-prod
+/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
 resolved: 'catalogartifact.azureedge.net'.\\nMore information about the failure can
 be found in the logs located under
 'C:\\\\WindowsAzure\\\\Logs\\\\Plugins\\\\Microsoft.Powershell.DSC\\\\2.77.0.0' on
@@ -342,13 +342,13 @@ Se você estiver executando o modelo de Azure Resource Manager do GitHub, forne�
 - IsServicePrincipal: **true**
 - AadTenantId: A ID de locatário do Azure AD da entidade de serviço que você criou
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [área de trabalho remota conexões de cliente](troubleshoot-client-connection.md).
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para saber mais sobre o serviço de visualização, consulte [ambiente de visualização de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Para percorrer um tutorial de solução de problemas [, consulte o tutorial: Solucionar problemas de implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)de modelo do Resource Manager.
 - Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

@@ -1,22 +1,22 @@
 ---
 title: Preparar e personalizar uma imagem VHD mestre – Azure
-description: Como preparar, personalizar e carregar uma imagem mestra de visualização de área de trabalho virtual do Windows no Azure.
+description: Como preparar, personalizar e carregar uma imagem mestra de área de trabalho virtual do Windows no Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981081"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679530"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
-Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são para uma configuração específica da versão prévia da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
+Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são para uma configuração específica da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -72,7 +72,7 @@ Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos qu
 
 Para desabilitar Atualizações Automáticas via Política de Grupo local:
 
-1. Abra **Editor de política de grupo local\\modelos administrativos\\componentes\\do Windows Windows Update**.
+1. Abra **Editor de política de grupo local @ no__t-1Administrative modelos @ no__t-2Windows componentes @ no__t-3Windows atualização**.
 2. Clique com o botão direito do mouse em **Configurar atualização automática** e defina-a como **desabilitada**.
 
 Você também pode executar o comando a seguir em um prompt de comando para desabilitar o Atualizações Automáticas.
@@ -109,7 +109,7 @@ As políticas de sessão remota podem ser impostas no nível de Política de Gru
 
 Para configurar políticas de sessão remota:
 
-1. Navegue até **modelos administrativos** > **componentes** > do Windowsserviçosdeáreadetrabalhoremota > limites de tempo de sessão de host da sessão da área de trabalho remota. > 
+1. Navegue até **modelos administrativos** **componentes do Windows** >   > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** >  limites de**tempo de sessão**.
 2. No painel no lado direito, selecione a política **definir limite de tempo para as sessões ativas, mas ociosas serviços de área de trabalho remota** .
 3. Depois que a janela modal for exibida, altere a opção de política de **não configurado** para **habilitado** para ativar a política.
 4. No menu suspenso abaixo da opção de política, defina a quantidade de tempo como **3 horas**.
@@ -134,8 +134,8 @@ Para redirecionar fusos horários:
 1. No Active Directory Server, abra o **console de gerenciamento de política de grupo**.
 2. Expanda seu domínio e Política de Grupo objetos.
 3. Clique com o botão direito do mouse no **objeto política de grupo** que você criou para as configurações da política de grupo e selecione **Editar**.
-4. Na **Editor de gerenciamento de política de grupo**, navegue até **configuração** > do computador**políticas** > **modelos administrativos** > componentes >   **do Windows Serviços de área de trabalho remota** > host da sessão da área de trabalho remotao > redirecionamento**de dispositivo e recurso**.
-5. Habilite a configuração permitir redirecionamento de **fuso horário** .
+4. Na **Editor de gerenciamento de política de grupo**, navegue até **configuração do computador** > **políticas** > **Modelos Administrativos** > **componentes do Windows** > **serviços de área de trabalho remota**@no__ t-10**Host da Sessão da Área de Trabalho Remota**2**redirecionamento de dispositivo e recurso**.
+5. Habilite a configuração **permitir redirecionamento de fuso horário** .
 
 Você também pode executar esse comando na imagem mestra para redirecionar os fusos horários:
 
@@ -225,7 +225,7 @@ As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta
 Agora que você tem uma imagem, você pode criar ou atualizar pools de hosts. Para saber mais sobre como criar e atualizar pools de hosts, consulte os seguintes artigos:
 
 - [Criar um pool de hosts com um modelo de Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutorial: Criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Tutorial: Criar um pool de hosts com o Azure Marketplace @ no__t-0
 - [Criar um pool de hosts com o PowerShell](create-host-pools-powershell.md)
 - [Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](configure-host-pool-load-balancing.md)

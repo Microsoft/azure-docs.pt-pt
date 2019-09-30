@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253e01b6bfa6609b4ec41d69a3c4b1bbe405ba5a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240292"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677871"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
 Você pode usar a solução Gerenciamento de Atualizações na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux no Azure, em ambientes locais ou em outros provedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
-Você pode habilitar Gerenciamento de Atualizações para máquinas virtuais diretamente da sua conta de automação do Azure. Para saber como habilitar Gerenciamento de Atualizações para máquinas virtuais de sua conta de automação, consulte [gerenciar atualizações para várias máquinas virtuais](manage-update-multi.md). Você também pode habilitar Gerenciamento de Atualizações para uma máquina virtual na página de máquina virtual no portal do Azure. Esse cenário está disponível para máquinas virtuais [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) .
+Você pode habilitar Gerenciamento de Atualizações para máquinas virtuais diretamente da sua conta de automação do Azure. Para saber como habilitar Gerenciamento de Atualizações para máquinas virtuais de sua conta de automação, consulte [gerenciar atualizações para várias máquinas virtuais](manage-update-multi.md). Você também pode habilitar Gerenciamento de Atualizações para uma máquina virtual na página de máquina virtual no portal do Azure. Esse cenário está disponível para máquinas virtuais [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) .
 
 > [!NOTE]
 > A solução Gerenciamento de Atualizações requer a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões com suporte, consulte [mapeamentos de espaço de trabalho do Azure](./how-to/region-mappings.md). Os mapeamentos de região não afetam a capacidade de gerenciar máquinas virtuais em uma região separada do que a sua conta de automação.
@@ -222,7 +222,7 @@ Para executar uma pesquisa de logs que retorna informações sobre a máquina, a
 
 ## <a name="install-updates"></a>Instalar atualizações
 
-Depois que as atualizações forem avaliadas para todos os computadores Linux e Windows em seu espaço de trabalho, você poderá instalar as atualizações necessárias criando uma *implantação de atualização*. Para criar uma implantação de atualização, você deve ter acesso de gravação à conta de automação e acesso de gravação para as VMs do Azure que são direcionadas na implantação. Uma implantação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Você especifica a data e a hora da implantação e um computador ou grupo de computadores a serem incluídos no escopo de uma implantação. Para saber mais sobre grupos de computadores, confira [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md).
+Depois que as atualizações forem avaliadas para todos os computadores Linux e Windows em seu espaço de trabalho, você poderá instalar as atualizações necessárias criando uma *implantação de atualização*. Para criar uma implantação de atualização, você deve ter acesso de gravação à conta de automação e acesso de gravação a todas as VMs do Azure que são direcionadas na implantação. Uma implantação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Você especifica a data e a hora da implantação e um computador ou grupo de computadores a serem incluídos no escopo de uma implantação. Para saber mais sobre grupos de computadores, confira [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md).
 
 Quando você inclui grupos de computadores em sua implantação de atualização, a associação de grupo é avaliada apenas uma vez, no momento da criação do agendamento. Alterações subsequentes em um grupo não são refletidas. Para contornar esse uso de [grupos dinâmicos](#using-dynamic-groups), esses grupos são resolvidos no momento da implantação e definidos por uma consulta para VMs do Azure ou uma pesquisa salva para VMs não Azure.
 

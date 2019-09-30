@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8b2147ead7c1a6226b68588b9d0dab53da954bf2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032949"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676951"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
@@ -38,12 +38,19 @@ Para as camadas de serviço disponíveis e suas características, consulte [dife
 
 Para bugs e problemas conhecidos, consulte [problemas conhecidos](sql-database-managed-instance-transact-sql-information.md#Issues).
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>Onde posso encontrar os recursos mais recentes e os recursos na visualização pública?
+
+Para recursos novos e de visualização, consulte [notas de versão](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>Quanto tempo leva para criar ou atualizar a instância ou para restaurar um banco de dados?
+
+O tempo esperado para criar uma nova instância gerenciada ou alterar a camada de serviço (vCores, armazenamento) depende de vários fatores. Dê uma olhada nas [operações de gerenciamento](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Uma instância gerenciada pode ter o mesmo nome que o SQL Server local?
 
 A instância gerenciada deve ter um nome que termine com *Database.Windows.net*. Para usar outra zona DNS em vez do padrão, por exemplo, **mi-outro-Name**. contoso.com: 
 - Use CliConfig para definir um alias. A ferramenta é apenas um wrapper de configurações do registro, portanto, ela também pode ser feita usando a política de grupo ou o script.
 - Use a opção *CNAME* com *TrustServerCertificate = true* .
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Como posso mover o banco de dados da instância gerenciada de volta para o SQL Server ou o banco de dados SQL do Azure?
 
@@ -55,7 +62,7 @@ Backups nativos `COPY_ONLY` obtidos da instância gerenciada não podem ser rest
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Como posso migrar meu banco de dados de instância para um único banco de dados SQL do Azure?
 
-Uma opção é [exportar o banco de dados para um BACPAC](sql-database-export.md) e, em seguida, [importar o arquivo BACPAC]( sql-database-import.md). 
+Uma opção é [exportar o banco de dados para um BACPAC](sql-database-export.md) e, em seguida, [importar o arquivo BACPAC](sql-database-import.md). 
 
 Essa é a abordagem recomendada se o banco de dados for menor que 100 GB. A replicação transacional poderá ser usada se todas as tabelas no banco de dados tiverem chaves primárias.
 
@@ -125,7 +132,8 @@ Para atenuar riscos de rede, é recomendável que os clientes apliquem um conjun
 Estudos de caso de instância gerenciada:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - Todos os [scripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 Para obter uma melhor compreensão dos benefícios, dos custos e dos riscos associados à implantação da instância gerenciada do banco de dados SQL do Azure, também há um estudo da Forrester: [Impacto econômico total de mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

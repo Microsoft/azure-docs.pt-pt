@@ -1,25 +1,25 @@
 ---
 title: Criar, exibir e gerenciar alertas de log usando Azure Monitor | Microsoft Docs
 description: Use o Azure Monitor para criar, exibir e gerenciar regras de alerta de log no Azure.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d540912d280302d2ae2166b75fb2d163458d7a61
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774721"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677835"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando Azure Monitor
 
 ## <a name="overview"></a>Descrição geral
 Este artigo mostra como configurar alertas de log usando a interface alertas dentro de portal do Azure. A definição de uma regra de alerta está em três partes:
-- Alvo: Recurso específico do Azure, que deve ser monitorado
+- Destino: Recurso específico do Azure, que deve ser monitorado
 - Critérios: Condição específica ou lógica que, quando visto em sinal, deve disparar ação
 - Ação: Chamada específica enviada a um destinatário de uma notificação-email, SMS, webhook etc.
 
@@ -40,7 +40,7 @@ A seguir está o guia passo a passo para o uso de alertas de log usando a interf
 
 1. Selecione o botão **nova regra de alerta** para criar um novo alerta no Azure.
 
-    ![Adicionar Alerta](media/alerts-log/AlertsPreviewOption.png)
+    ![Adicionar alerta](media/alerts-log/AlertsPreviewOption.png)
 
 1. A seção criar alerta é mostrada com as três partes que consistem em: *Defina a condição de alerta*, *defina os detalhes do alerta*e defina o grupo de *ações*.
 
@@ -355,7 +355,7 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 
 Na operação bem-sucedida, 201 será retornado para o estado nova criação de regra de alerta ou 200 será retornado se uma regra de alerta existente tiver sido modificada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [alertas de log nos alertas do Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Entender as [ações de webhook para alertas de log](../../azure-monitor/platform/alerts-log-webhook.md)

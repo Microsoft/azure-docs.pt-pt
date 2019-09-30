@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c34ed9c5f1b5e422ba9e4e0b12fbaf833c8a4a7c
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 508fe6f7dc6c5fef99e5f62a2ce75b0c81b1577f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563478"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676339"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurando logs de fluxo do grupo de segurança de rede com o PowerShell
 
@@ -33,7 +33,7 @@ Os logs de fluxo do grupo de segurança de rede são um recurso do observador de
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 
-Para que o log de fluxo funcione com êxito, o provedor **Microsoft.** insights deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.** insights está registrado, execute o script a seguir.
+Para que o log de fluxo funcione com êxito, o provedor **Microsoft. insights** deve ser registrado. Se você não tiver certeza se o provedor **Microsoft. insights** está registrado, execute o script a seguir.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
@@ -61,7 +61,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2
 
 #Configure Version 2 FLow Logs with Traffic Analytics Configured
-Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceid -WorkspaceLocation $workspaceRegion
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceGUID -WorkspaceLocation $workspaceLocation
 
 #Query Flow Log Status
 Get-AzNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id

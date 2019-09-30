@@ -4,14 +4,14 @@ description: Descreve a estrutura e as propriedades de modelos de Azure Resource
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6b027acc5a8a8b7660d5640ff4af335e51fd2dbf
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984103"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676885"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Entender a estrutura e a sintaxe de modelos de Azure Resource Manager
 
@@ -75,7 +75,7 @@ As propriedades disponíveis para um parâmetro são:
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | nome do parâmetro |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
-| type |Sim |Tipo do valor do parâmetro. Os tipos e valores permitidos são **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject**e **array**. |
+| type |Sim |Tipo do valor do parâmetro. Os tipos e valores permitidos são **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject**e **array**. Consulte [tipos de dados](#data-types). |
 | defaultValue |Não |Valor padrão para o parâmetro, se nenhum valor for fornecido para o parâmetro. |
 | allowedValues |Não |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
 | minValue |Não |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
@@ -85,6 +85,18 @@ As propriedades disponíveis para um parâmetro são:
 | description |Não |Descrição do parâmetro que é exibido aos usuários por meio do Portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
 
 Para obter exemplos de como usar parâmetros, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
+
+### <a name="data-types"></a>Tipos de dados
+
+Os tipos de inteiros podem variar de-2147483648 a 2147483647. No entanto, os tipos de recursos podem aplicar um limite inferior para uma propriedade de número inteiro.
+
+Ao especificar valores Boolianos e inteiros em seu modelo, não coloque o valor entre aspas. Comece e termine valores de cadeia de caracteres com aspas duplas.
+
+Os objetos começam com uma chave esquerda e terminam com uma chave direita. As matrizes começam com um colchete esquerdo e terminam com um colchete direito.
+
+Cadeias de caracteres seguras e objetos seguros não podem ser lidos após a implantação de recursos.
+
+Para obter exemplos de formatação de tipos de dados, consulte [formatos de tipo de parâmetro](resource-manager-parameter-files.md#parameter-type-formats).
 
 ## <a name="variables"></a>Variáveis
 
@@ -123,7 +135,7 @@ Para obter exemplos de como usar variáveis, consulte [variáveis no modelo Azur
 
 ## <a name="functions"></a>Functions
 
-Em seu modelo, você pode criar suas próprias funções. Essas funções estão disponíveis para uso em seu modelo. Normalmente, você define uma expressão complicada que não deseja repetir em todo o modelo. Você cria as funções definidas pelo usuário a partir de expressões e [funções](resource-group-template-functions.md) com suporte em modelos.
+Em seu modelo, você pode criar suas próprias funções. Essas funções estão disponíveis para uso em seu modelo. Normalmente, você define expressões complicadas que não deseja repetir em todo o modelo. Você cria as funções definidas pelo usuário a partir de expressões e [funções](resource-group-template-functions.md) com suporte em modelos.
 
 Ao definir uma função de usuário, há algumas restrições:
 
@@ -240,7 +252,7 @@ Você define recursos com a seguinte estrutura:
 | properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são os mesmos que os valores fornecidos no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Você também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | sku | Não | Alguns recursos permitem valores que definem a SKU a ser implantada. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
 | type | Não | Alguns recursos permitem um valor que define o tipo de recurso que você implanta. Por exemplo, você pode especificar o tipo de Cosmos DB a ser criado. |
-| intenção | Não | Alguns recursos permitem valores que definem o plano a ser implantado. Por exemplo, você pode especificar a imagem do Marketplace para uma máquina virtual. | 
+| plano | Não | Alguns recursos permitem valores que definem o plano a ser implantado. Por exemplo, você pode especificar a imagem do Marketplace para uma máquina virtual. | 
 | recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recursos que são permitidos pelo esquema do recurso pai. A dependência do recurso pai não está implícita. Você deve definir explicitamente essa dependência. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>outputs
@@ -365,7 +377,7 @@ No VS Code, você pode definir o modo de linguagem como JSON com comentários. O
 
    ![Selecionar modo de linguagem](./media/resource-group-authoring-templates/select-json-comments.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).

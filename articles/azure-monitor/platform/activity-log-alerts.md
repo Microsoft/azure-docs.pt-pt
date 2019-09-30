@@ -1,19 +1,19 @@
 ---
 title: Alertas do log de atividades no Azure Monitor
 description: Seja notificado via SMS, webhook, SMS, email e muito mais, quando determinados eventos ocorrerem no log de atividades.
-author: msvijayn
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: vinagara
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 61b5b96636ea12b5c63da657e006bd3121c34756
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: b24f24edf2a3a0df8cb8ef9687f205a4a8868537
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852617"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675222"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades 
 
@@ -59,7 +59,7 @@ Quando um alerta do log de atividades é ativado, ele usa um grupo de ações pa
 Para saber mais sobre grupos de ações, confira [criar e gerenciar grupos de ações no portal do Azure](action-groups.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Obtenha uma [visão geral dos alertas](alerts-overview.md).
 - Saiba mais sobre como [criar e modificar alertas do log de atividades](alerts-activity-log.md).

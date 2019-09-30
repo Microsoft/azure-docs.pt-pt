@@ -1,18 +1,18 @@
 ---
 title: Instalar o Office em uma imagem VHD mestre – Azure
-description: Como instalar e personalizar o Office em uma imagem mestra de visualização de área de trabalho virtual do Windows para o Azure.
+description: Como instalar e personalizar o Office em uma imagem mestra de área de trabalho virtual do Windows para o Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378be7ebc1cc04433d42b6a05d7eafc73a515568
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816443"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679525"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
@@ -23,7 +23,7 @@ Este artigo pressupõe que você já criou uma VM (máquina virtual). Caso contr
 Este artigo também pressupõe que você tenha acesso elevado na VM, seja provisionado no Azure ou no Gerenciador do Hyper-V. Caso contrário, consulte [elevar o acesso para gerenciar todos os grupos de gerenciamento e assinatura do Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Essas instruções são para uma configuração específica da versão prévia da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
+>Essas instruções são para uma configuração específica da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalar o Office no modo de ativação do computador compartilhado
 
@@ -45,7 +45,7 @@ Este XML de configuração de exemplo que fornecemos fará o seguinte:
 - Habilite a ativação do computador compartilhado.
 
 >[!NOTE]
->O recurso de pesquisa de estêncil no Visio não funciona na área de trabalho virtual do Windows durante a configuração de visualização.
+>O recurso de pesquisa de estêncil do Visio pode não funcionar conforme o esperado na área de trabalho virtual do Windows.
 
 Veja o que este XML de configuração de exemplo não fará:
 
@@ -53,7 +53,7 @@ Veja o que este XML de configuração de exemplo não fará:
 - Instale o OneDrive no modo por usuário. Para saber mais, confira [instalar o onedrive no modo por máquina](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **políticas\\de\\configuração do\\computador Modelos Administrativos Microsoft Office 2016 (\\máquina) configurações de licenciamento**
+>A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **Computer Configuration @ no__t-1Policies @ no__t-2Administrative templates @ no__t-3Microsoft Office 2016 (Machine) \\Licensing Settings**
 
 A ferramenta de implantação do Office contém setup. exe. Para instalar o Office, execute o seguinte comando em uma linha de comando:
 
@@ -130,11 +130,11 @@ O OneDrive normalmente é instalado por usuário. Nesse ambiente, ele deve ser i
 
 Veja como instalar o OneDrive no modo por máquina:
 
-1. Primeiro, crie um local para preparar o instalador do OneDrive. Um local de pasta de disco\\local ou [\\UNC] (file://UNC) está bem.
+1. Primeiro, crie um local para preparar o instalador do OneDrive. Uma pasta de disco local ou [\\ @ no__t-1unc] (file://unc) local é bem.
 
-2. Baixe o OneDriveSetup. exe em seu local de preparação com este link:<https://aka.ms/OneDriveWVD-Installer>
+2. Baixe o OneDriveSetup. exe em seu local de preparação com este link: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Se você instalou o Office com o onedrive omitindo  **\<ExcludeApp ID = "onedrive"\>/** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
+3. Se você instalou o Office com o OneDrive omitindo **\<EXCLUDEAPP ID = "onedrive"/\>** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69924674fba44595e4f5a9702607579d8c7a8bc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064474"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679308"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de senha do proprietário do recurso no Azure AD B2C
 
@@ -53,17 +53,13 @@ Não há suporte para os seguintes fluxos:
 
 ## <a name="register-an-application"></a>Registar uma aplicação
 
-1. Nas configurações do B2C, selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-2. Insira um nome para o aplicativo, como *ROPC_Auth_app*.
-3. Selecione **não** para **aplicativo Web/API Web**e, em seguida, selecione **Sim** para **cliente nativo**.
-4. Deixe todos os outros valores como estão e, em seguida, selecione **criar**.
-5. Selecione o novo aplicativo e anote a ID do aplicativo para uso posterior.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 Use seu aplicativo de desenvolvimento de API favorito para gerar uma chamada à API e examine a resposta para depurar seu fluxo de usuário. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
 - *Substitua\<seulocatario. onmicrosoft. com >* pelo nome do seu locatário B2C.
-- *Substitua\<B2C_1A_ROPC_Auth >* pelo nome completo da política de credenciais de senha do proprietário do recurso.
+- Substitua *\<B2C_1A_ROPC_Auth >* pelo nome completo da política de credenciais de senha do proprietário do recurso.
 - *Substitua\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* com a ID do aplicativo do seu registro.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`

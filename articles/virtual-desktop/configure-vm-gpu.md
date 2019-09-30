@@ -1,97 +1,97 @@
 ---
-title: Configurar a GPU para visualização de área de trabalho virtuais Windows - Azure
-description: Como ativar acelerado de GPU renderização e codificação em pré-visualização de ambiente de Trabalho Virtual do Windows.
+title: Configurar GPU para área de trabalho virtual do Windows-Azure
+description: Como habilitar o processamento e a codificação com aceleração de GPU na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: b6a4811f685803ecdc079a690d550618c071c4a6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620203"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679594"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-preview"></a>Configurar a aceleração da (GPU unidade) para a pré-visualização de ambiente de Trabalho Virtual do Windows de processamento gráfico
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows
 
-Windows Virtual Desktop Preview suporta acelerado de GPU renderização e codificação para escalabilidade e desempenho de aplicações melhorada. Aceleração por GPU é particularmente crucial para aplicações de grande intensidade de gráficos.
+A área de trabalho virtual do Windows dá suporte à renderização e codificação aceleradas por GPU para melhorar o desempenho e a escalabilidade do aplicativo. A aceleração de GPU é particularmente crucial para aplicativos com uso intensivo de gráficos.
 
-Siga as instruções neste artigo para criar uma máquina virtual do Azure com otimização de GPU, adicioná-lo ao agrupamento de anfitrião e configurá-lo para utilizar a aceleração por GPU de renderização e codificação. Este artigo pressupõe que já tem um inquilino de área de Trabalho Virtual do Windows configurado.
+Siga as instruções neste artigo para criar uma máquina virtual do Azure otimizada para GPU, adicioná-la ao seu pool de hosts e configurá-la para usar a aceleração de GPU para renderização e codificação. Este artigo pressupõe que você já tenha um locatário de área de trabalho virtual do Windows configurado.
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selecione um tamanho de máquina virtual do Azure com otimização de GPU
 
-O Azure oferece diversas [tamanhos de máquinas virtuais com otimização de GPU](/azure/virtual-machines/windows/sizes-gpu). A escolha certa para o seu conjunto de anfitrião depende de vários fatores, incluindo a cargas de trabalho de aplicação específica, qualidade pretendida de experiência do usuário e os custos. Em geral, maiores e mais capacitadas GPUs oferecem uma melhor experiência de usuário numa densidade de determinado utilizador.
+O Azure oferece uma série de [tamanhos de máquina virtual otimizados para GPU](/azure/virtual-machines/windows/sizes-gpu). A escolha certa para seu pool de hosts depende de vários fatores, incluindo suas cargas de trabalho de aplicativo específicas, a qualidade desejada da experiência do usuário e o custo. Em geral, as GPUs maiores e mais compatíveis oferecem uma melhor experiência de usuário em uma determinada densidade de usuário.
 
-## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Criar um conjunto de anfitrião, aprovisionar a máquina virtual e configurar um grupo de aplicações
+## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Criar um pool de hosts, provisionar sua máquina virtual e configurar um grupo de aplicativos
 
-Crie um novo conjunto de anfitrião com uma VM do tamanho que selecionou. Para obter instruções, consulte [Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Crie um novo pool de hosts usando uma VM do tamanho selecionado. Para obter instruções, consulte [Tutorial: Crie um pool de hosts com o Azure Marketplace @ no__t-0.
 
-Windows Virtual Desktop Preview suporta acelerado de GPU renderização e codificação nos seguintes sistemas operativos:
+A área de trabalho virtual do Windows dá suporte à renderização e codificação aceleradas por GPU nos seguintes sistemas operacionais:
 
 * Windows 10 versão 1511 ou mais recente
 * Windows Server 2016 ou mais recente
 
-Também deve configurar um grupo de aplicação ou o grupo de aplicativo de desktop do padrão (com o nome "Grupo de aplicações de ambiente de trabalho") é criado automaticamente quando cria um novo conjunto de anfitrião. Para obter instruções, consulte [Tutorial: Gerir grupos de aplicações para Windows Virtual Desktop Preview](/azure/virtual-desktop/manage-app-groups).
+Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicativos de área de trabalho padrão (chamado "grupo de aplicativos de área de trabalho") que é criado automaticamente quando você cria um novo pool de hosts. Para obter instruções, consulte [Tutorial: Gerenciar grupos de aplicativos para a área de trabalho virtual do Windows @ no__t-0.
 
 >[!NOTE]
->Windows Virtual Desktop Preview só suporta o tipo de grupo de aplicação "Desktop" para os conjuntos de anfitrião ativadas para GPU. Grupos de aplicações do tipo "RemoteApp" não são suportados para conjuntos de anfitrião ativadas para GPU.
+>A área de trabalho virtual do Windows dá suporte apenas ao tipo de grupo de aplicativos "desktop" para pools de host habilitados para GPU. Não há suporte para grupos de aplicativos do tipo "RemoteApp" para pools de hosts habilitados para GPU.
 
-## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalar controladores de gráfico com suporte na sua máquina virtual
+## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalar os drivers gráficos com suporte em sua máquina virtual
 
-Para tirar partido das capacidades de GPU de VMs de série N do Azure em pré-visualização de ambiente de Trabalho Virtual do Windows, tem de instalar drivers de gráficos da NVIDIA. Siga as instruções em [controladores de GPU de NVIDIA instalar em VMs de série N que executam o Windows](/azure/virtual-machines/windows/n-series-driver-setup) para instalar controladores, seja manualmente ou utilizando o [extensão de controladores de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+Para aproveitar os recursos de GPU das VMs da série N do Azure na área de trabalho virtual do Windows, você deve instalar os drivers gráficos NVIDIA. Siga as instruções em [instalar drivers NVIDIA GPU em VMs da série N executando o Windows](/azure/virtual-machines/windows/n-series-driver-setup) para instalar drivers manualmente ou usando a [extensão de Driver Nvidia GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
 
-Tenha em atenção que apenas [controladores de GRID da NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuídos pelo Azure são suportados para a Windows Virtual Desktop Preview.
+Observe que somente os [Drivers NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuídos pelo Azure têm suporte na área de trabalho virtual do Windows.
 
-Após a instalação de driver, é necessário um reinício VM. Utilize os passos de verificação nas instruções acima para confirmar que os drivers gráficos foram instalados com êxito.
+Após a instalação do driver, é necessária uma reinicialização da VM. Use as etapas de verificação nas instruções acima para confirmar se os drivers gráficos foram instalados com êxito.
 
-## <a name="configure-gpu-accelerated-app-rendering"></a>Configurar o processamento de aplicação acelerado de GPU
+## <a name="configure-gpu-accelerated-app-rendering"></a>Configurar renderização de aplicativo acelerada por GPU
 
-Por predefinição, aplicações e áreas de trabalho em execução em configurações de sessão multi são processadas com a CPU e não aproveitam as GPUs disponíveis para a composição. Configure a política de grupo para o anfitrião de sessões ativar o processamento acelerado de GPU:
+Por padrão, aplicativos e áreas de trabalho em execução em configurações de várias sessões são renderizados com a CPU e não aproveitam as GPUs disponíveis para renderização. Configure Política de Grupo para o host de sessão para habilitar a renderização acelerada por GPU:
 
-1. Ligue-se na área de trabalho da VM com uma conta com privilégios de administrador local.
-2. Abra o início menu e escreva "gpedit. msc" para abrir o Editor de diretiva de grupo.
-3. Navegue pela árvore para **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Os serviços de ambiente de trabalho remoto** > **anfitrião de sessões de ambiente de trabalho remoto** > **sessão remota ambiente**.
-4. Selecione a política **utilizar o adaptador de gráficos do hardware padrão para todas as sessões de serviços de ambiente de trabalho remoto** e defina esta política como **ativado** para ativar a renderização de GPU na sessão remota.
+1. Conecte-se à área de trabalho da VM usando uma conta com privilégios de administrador local.
+2. Abra o menu iniciar e digite "gpedit. msc" para abrir o editor de Política de Grupo.
+3. Navegue pela árvore para **a configuração do computador** > **modelos administrativos** **componentes do Windows** >   > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** > **remoto Ambiente de sessão**.
+4. Selecione política **use o adaptador gráfico padrão de hardware para todas as sessões de serviços de área de trabalho remota** e defina essa política como **habilitada** para habilitar a renderização de GPU na sessão remota.
 
-## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurar a codificação de quadro acelerado de GPU
+## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurar a codificação de quadro acelerado por GPU
 
-Ambiente de trabalho remoto codifica todos os elementos gráficos processados pelas aplicações e áreas de trabalho (seja processado com GPU ou com CPU) para transmissão aos clientes de ambiente de trabalho remoto. Por predefinição, o ambiente de trabalho remoto não aproveita GPUs disponíveis para essa codificação. Configure a política de grupo para o anfitrião de sessões ativar a codificação de quadro acelerado de GPU. Continuar os passos acima:
+Área de Trabalho Remota codifica todos os gráficos renderizados por aplicativos e áreas de trabalho (sejam renderizados com GPU ou com CPU) para transmissão para clientes Área de Trabalho Remota. Por padrão, Área de Trabalho Remota não aproveita as GPUs disponíveis para essa codificação. Configure Política de Grupo para o host de sessão para habilitar a codificação de quadro acelerado por GPU. Continuando as etapas acima:
 
-1. Selecione a política **modo de Priorizar o H.264/AVC 444 gráficos para ligações de ambiente de trabalho remoto** e defina esta política como **ativado** para forçar o codec de H.264/AVC 444 na sessão remota.
-2. Selecione a política **H.264/AVC configurar hardware codificação para ligações de ambiente de trabalho remoto** e defina esta política como **ativado** para ativar a codificação de hardware para AVC/H.264 na sessão remota.
+1. Selecione política **priorizar o modo gráfico H. 264/AVC 444 para conexões área de trabalho remota** e defina essa política como **habilitada** para forçar o codec H. 264/AVC 444 na sessão remota.
+2. Selecione política **Configurar codificação de hardware H. 264/AVC para conexões área de trabalho remota** e defina essa política como **habilitada** para habilitar a codificação de hardware para AVC/H. 264 na sessão remota.
 
     >[!NOTE]
-    >No Windows Server 2016, defina a opção **preferir a codificação de Hardware de AVC** ao **sempre tentativa**.
+    >No Windows Server 2016, a opção set **preferir codificação de hardware AVC** para **sempre tentar**.
 
-3. Agora que as políticas de grupo tem sido editadas, força uma atualização de política de grupo. Abra a linha de comandos e escreva:
+3. Agora que as políticas de grupo foram editadas, Force uma atualização da política de grupo. Abra o prompt de comando e digite:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Termine a sessão de ambiente de trabalho remoto.
+4. Saia da sessão de Área de Trabalho Remota.
 
-## <a name="verify-gpu-accelerated-app-rendering"></a>Verificar a composição de aplicação acelerado de GPU
+## <a name="verify-gpu-accelerated-app-rendering"></a>Verificar renderização de aplicativo acelerada por GPU
 
-Para verificar que aplicações estão a utilizar a GPU para processamento, experimente uma das seguintes:
+Para verificar se os aplicativos estão usando a GPU para renderização, tente qualquer um dos seguintes:
 
-* Utilize o `nvidia-smi` utilitário conforme descrito na [verificar a instalação de driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização de GPU ao executar as suas aplicações.
-* Em versões de sistema operativo suportado, pode utilizar o Gestor de tarefas para verificar a existência de utilização da GPU. Selecione a GPU no separador "Desempenho" para ver se aplicações são a utilização de GPU.
+* Use o utilitário `nvidia-smi` conforme descrito em [verificar a instalação do driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
+* Em versões de sistema operacional com suporte, você pode usar o Gerenciador de tarefas para verificar a utilização da GPU. Selecione a GPU na guia "desempenho" para ver se os aplicativos estão utilizando a GPU.
 
-## <a name="verify-gpu-accelerated-frame-encoding"></a>Certifique-se de que a codificação de quadro acelerado de GPU
+## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificar a codificação de quadro acelerada por GPU
 
-Para verificar que o ambiente de trabalho remoto está usando a codificação acelerada por GPU:
+Para verificar se Área de Trabalho Remota está usando a codificação acelerada por GPU:
 
-1. Ligue-se na área de trabalho da VM com o cliente de área de Trabalho Virtual do Windows.
-2. Inicie o Visualizador de eventos e navegue até o nó seguinte: **Registos de serviços e aplicativos** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS**  >  **Operacional**
-3. Para determinar se acelerado de GPU de codificação, procure o evento ID 170. Se vir "codificador de hardware AVC ativada: 1", em seguida, codificação de GPU é utilizada.
-4. Para determinar se o modo de AVC 444 é usado, procure o evento ID 162. Se vir "AVC disponível: 1 perfil inicial: 2048", em seguida, AVC 444 é utilizado.
+1. Conecte-se à área de trabalho da VM usando o cliente de área de trabalho virtual do Windows.
+2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **Logs de aplicativos e serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operacional**
+3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você vir "codificador de hardware AVC habilitado: 1 "Então, a codificação de GPU é usada.
+4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você vir "AVC disponível: 1 perfil inicial: 2048 "em seguida, AVC 444 é usado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Estas instruções devem ter em execução com aceleração por GPU num host de sessão única VM. Algumas considerações adicionais para ativar a aceleração por GPU num conjunto maior de anfitrião:
+Essas instruções devem estar em funcionamento com a aceleração de GPU em uma única VM host de sessão. Algumas considerações adicionais para habilitar a aceleração de GPU em um pool de hosts maior:
 
-* Considere utilizar o [extensão de controladores de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para simplificar a instalação de controladores e atualizações num número de VMs.
-* Considere utilizar a política de grupo do Active Directory para simplificar a configuração de política de grupo num número de VMs. Para obter informações sobre como implementar a política de grupo no domínio do Active Directory, consulte [trabalhando com objetos de política de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Considere usar a [extensão de Driver Nvidia GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para simplificar a instalação e as atualizações de driver em várias VMS.
+* Considere o uso de Active Directory Política de Grupo para simplificar a configuração da diretiva de grupo em várias VMs. Para obter informações sobre como implantar Política de Grupo no domínio Active Directory, consulte [trabalhando com objetos política de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932525"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677698"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida DatetimeV2 para um aplicativo LUIS
 
 O **datetimeV2** entidade pré-criados extrai valores de data e hora. Resolva estes valores num formato padronizado para programas de cliente consumir. Quando uma expressão tem uma data ou hora que não esteja concluída, o LUIS inclui _passado e valores futuras_ na resposta do ponto final. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém datetimeV2 para os objetivos do aplicativo. 
 
 ## <a name="types-of-datetimev2"></a>Tipos de datetimeV2
-DatetimeV2 é gerenciado do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) de reconhecedores
+DatetimeV2 é gerenciado do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
 
 ## <a name="example-json"></a>JSON de exemplo 
 O exemplo seguinte resposta JSON tem um `datetimeV2` entidade com um subtipo de `datetime`. Para obter exemplos de outros tipos de entidades de datetimeV2, consulte [subtipos dos datetimeV2](#subtypes-of-datetimev2)</a>.
@@ -82,7 +82,7 @@ Cada elemento do `values` matriz pode ter os seguintes campos:
 |Nome da propriedade|Descrição de propriedade|
 |--|--|
 |Timex|hora, data ou intervalo de datas expressado no formato TIMEX que se segue a [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos de TIMEX3 usando a linguagem de TimeML de anotação. Esta anotação está descrita com o [diretrizes TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|O subtipo, `datetime`que pode ser um dos seguintes itens: `date` `time`,,, `set` `daterange` `timerange` `datetimerange`,,, `duration`,.|
+|type|O subtipo, que pode ser um dos seguintes itens: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
 |value|**Opcional.** Um objeto datetime em yyyy:MM:dd o formato (data), hh: mm: (hora) yyyy:MM:dd hh: mm: (datetime). Se `type` é `duration`, o valor é o número de segundos (duração) <br/> Utilizado apenas se `type` é `datetime` ou `date`, `time`, ou "duração.|
 
 ## <a name="valid-date-values"></a>Valores de data válido
@@ -185,6 +185,8 @@ A matriz de valores tem dois elementos de tempo se o tempo ou intervalo de tempo
 
 O exemplo seguinte mostra como utiliza o LUIS **datetimeV2** para resolver a expressão que tem um intervalo de tempo.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -206,15 +208,15 @@ O exemplo seguinte mostra como utiliza o LUIS **datetimeV2** para resolver a exp
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
 
 A resposta JSON DatetimeV2 foi alterada na API v3. 
 
 Alterações da API v2:
-* `datetimeV2.timex.type`a propriedade não é mais retornada porque é retornada no nível pai, `datetimev2.type`. 
-* A `datetimeV2.timex` Propriedade foi renomeada para `datetimeV2.value`.
+* a propriedade `datetimeV2.timex.type` não é mais retornada porque é retornada no nível pai, `datetimev2.type`. 
+* A propriedade `datetimeV2.timex` foi renomeada para `datetimeV2.value`.
 
-Para o expressão, `8am on may 2nd 2017`, a versão V3 do DatetimeV2 é:
+Para o expressão, `8am on may 2nd 2017`, a versão v3 de DatetimeV2 é:
 
 ```JSON
 {
@@ -244,7 +246,7 @@ Para o expressão, `8am on may 2nd 2017`, a versão V3 do DatetimeV2 é:
 }
 ```
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
 {
@@ -289,6 +291,9 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>Datetime pré-criados preterido
 
 O `datetime` criados previamente entidade é preterida e substituída por **datetimeV2**. 
@@ -300,7 +305,9 @@ Para substituir `datetime` com `datetimeV2` na sua aplicação LUIS, conclua os 
 3. Clique em **adicionar entidade pré-criados**
 4. Selecione **datetimeV2** e clique em **guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
 Saiba mais sobre o [dimensão](luis-reference-prebuilt-dimension.md), [e-mail](luis-reference-prebuilt-email.md) entidades, e [número](luis-reference-prebuilt-number.md). 
 

@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: cebf5e80ea59a29efed984097a4157f5238fad5c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744966"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686476"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall de IP do banco de dados SQL do Azure e do Azure SQL Data Warehouse
 
@@ -38,7 +38,7 @@ As tentativas de conexão da Internet e do Azure devem passar pelo firewall ante
 
 ### <a name="server-level-ip-firewall-rules"></a>Regras de firewall de IP ao nível do servidor
 
-  Essas regras permitem que os clientes acessem todo o SQL Server do Azure, ou seja, todos os bancos de dados dentro do mesmo servidor do SQL Database. As regras são armazenadas no banco de dados *mestre* .
+  Essas regras permitem que os clientes acessem todo o SQL Server do Azure, ou seja, todos os bancos de dados dentro do mesmo servidor do SQL Database. As regras são armazenadas no banco de dados *mestre* . Você pode ter um máximo de 128 regras de firewall de IP no nível de servidor para uma SQL Server do Azure.
   
   Você pode configurar regras de firewall de IP no nível de servidor usando as instruções portal do Azure, PowerShell ou Transact-SQL.
   - Para usar o portal ou o PowerShell, você deve ser o proprietário da assinatura ou um colaborador da assinatura.
@@ -255,7 +255,7 @@ Considere os seguintes pontos quando o acesso ao serviço do banco de dados SQL 
   - Pergunte ao seu provedor de serviços de Internet o intervalo de endereços IP atribuído aos seus computadores cliente que acessam o servidor do banco de dados SQL. Adicione esse intervalo de endereços IP como uma regra de firewall de IP.
   - Obtenha endereçamento IP estático em vez disso para seus computadores cliente. Adicione os endereços IP como regras de firewall de IP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Confirme se seu ambiente de rede corporativa permite a comunicação de entrada dos intervalos de endereços IP de computação (incluindo intervalos SQL) que são usados pelos data centers do Azure. Talvez seja necessário adicionar esses endereços IP à lista de permissões. Consulte [Microsoft Azure intervalos de IP do datacenter](https://www.microsoft.com/download/details.aspx?id=41653).  
 - Para obter um guia de início rápido sobre como criar uma regra de firewall de IP no nível de servidor, consulte [criar um banco de dados SQL do Azure](sql-database-single-database-get-started.md).

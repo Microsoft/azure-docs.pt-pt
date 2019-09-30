@@ -1,67 +1,67 @@
 ---
-title: Ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows - Azure
-description: Os elementos básicos de um ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows.
+title: Ambiente de área de trabalho virtual do Windows – Azure
+description: Os elementos básicos de um ambiente de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23bf9be8e3e5f1c52546faa9ed5171c140eba59a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142392"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676628"
 ---
-# <a name="windows-virtual-desktop-preview-environment"></a>Ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows
+# <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
 
-Visualização de ambiente de Trabalho Virtual do Windows é um serviço que dá aos usuários um acesso fácil e seguro aos seus ambientes de trabalho virtualizados e RemoteApps. Este tópico informa um pouco mais sobre a estrutura geral do ambiente de área de Trabalho Virtual do Windows.
+A área de trabalho virtual do Windows é um serviço que oferece aos usuários acesso fácil e seguro a seus desktops e RemoteApps virtualizados. Este tópico lhe dirá um pouco mais sobre a estrutura geral do ambiente de área de trabalho virtual do Windows.
 
-## <a name="tenants"></a>Inquilinos
+## <a name="tenants"></a>locatários
 
-O inquilino de área de Trabalho Virtual do Windows é a interface principal para o gerenciamento de seu ambiente de área de Trabalho Virtual do Windows. Cada inquilino de área de Trabalho Virtual do Windows tem de estar associado com o Azure Active Directory que contém os utilizadores que irão iniciar sessão no ambiente. No inquilino a área de Trabalho Virtual do Windows, pode começar a criar conjuntos de anfitrião para executar cargas de trabalho dos seus utilizadores.
+O locatário da área de trabalho virtual do Windows é a interface principal para gerenciar seu ambiente de área de trabalho virtual do Windows. Cada locatário da área de trabalho virtual do Windows deve ser associado ao Azure Active Directory que contém os usuários que entrarão no ambiente. No locatário da área de trabalho virtual do Windows, você pode começar a criar pools de hosts para executar cargas de trabalho dos usuários.
 
-## <a name="host-pools"></a>Conjuntos de anfitrião
+## <a name="host-pools"></a>Pools de hosts
 
-Um agrupamento de host é uma coleção de máquinas virtuais do Azure que se registar para a área de Trabalho Virtual do Windows como hosts de sessão ao executar o agente de área de Trabalho Virtual do Windows. Todas as máquinas virtuais do anfitrião de sessão de um conjunto de anfitrião deve ter origem na mesma imagem para uma experiência de usuário consistente.
+Um pool de hosts é uma coleção de máquinas virtuais do Azure que se registram na área de trabalho virtual do Windows como hosts de sessão ao executar o agente de área de trabalho virtual do Windows. Todas as máquinas virtuais do host de sessão em um pool de hosts devem ser originadas da mesma imagem para uma experiência de usuário consistente.
 
-Um conjunto de anfitrião pode ser um dos dois tipos:
+Um pool de hosts pode ser um dos dois tipos:
 
-- Pessoal, onde cada anfitrião de sessões é atribuída a utilizadores individuais.
-- Em pool, onde os hosts de sessão podem aceitar ligações a partir de qualquer utilizador autorizado a um grupo de aplicações dentro do conjunto de anfitrião.
+- Pessoal, onde cada host de sessão é atribuído a usuários individuais.
+- Em pool, onde os hosts de sessão podem aceitar conexões de qualquer usuário autorizado a um grupo de aplicativos dentro do pool de hosts.
 
-Pode definir propriedades adicionais sobre o conjunto de anfitrião para alterar seu comportamento de balanceamento de carga, como muitas sessões, cada anfitrião de sessões pode tomar, e o que o utilizador pode fazer para hosts de sessão no agrupamento de anfitrião, enquanto tiver sessão iniciada no suas sessões de área de Trabalho Virtual do Windows. Controlar os recursos publicados para utilizadores através de grupos de aplicações.
+Você pode definir propriedades adicionais no pool de hosts para alterar seu comportamento de balanceamento de carga, quantas sessões cada host de sessão pode executar e o que o usuário pode fazer para os hosts de sessão no pool de hosts enquanto entra em suas sessões de área de trabalho virtual do Windows. Você controla os recursos publicados para os usuários por meio de grupos de aplicativos.
 
 ## <a name="app-groups"></a>Grupos de aplicações
 
-Um grupo de aplicações é um agrupamento lógico de aplicativos instalados em hosts de sessão no agrupamento de anfitrião. Um grupo de aplicações pode ser um dos dois tipos:
+Um grupo de aplicativos é um agrupamento lógico de aplicativos instalados em hosts de sessão no pool de hosts. Um grupo de aplicativos pode ser de um dos dois tipos:
 
-- RemoteApp, onde os utilizadores acedem a RemoteApps selecionar individualmente e publicar para o grupo de aplicações
-- Ambiente de trabalho, onde os utilizadores aceder a área de trabalho completa
+- RemoteApp, onde os usuários acessam os RemoteApps que você seleciona individualmente e publica no grupo de aplicativos
+- Área de trabalho, onde os usuários acessam a área de trabalho completa
 
-Por predefinição, um grupo de aplicativo de desktop (com o nome "Grupo de aplicações de ambiente de trabalho") é criado automaticamente sempre que cria um conjunto de anfitrião. Pode remover este grupo de aplicações em qualquer altura. No entanto, não é possível criar outro grupo de aplicações de ambiente de trabalho no conjunto de anfitrião, enquanto existe um grupo de aplicativo de desktop. Para publicar aplicativos remotos, tem de criar um grupo de aplicações do RemoteApp. Pode criar vários grupos de aplicações do RemoteApp para acomodar cenários de trabalhador diferente. Também podem conter diferentes grupos de aplicações do RemoteApp sobreposição RemoteApps.
+Por padrão, um grupo de aplicativos de desktop (denominado "grupo de aplicativos de área de trabalho") é criado automaticamente sempre que você cria um pool de hosts. Você pode remover esse grupo de aplicativos a qualquer momento. No entanto, você não pode criar outro grupo de aplicativos de área de trabalho no pool de hosts enquanto houver um grupo de aplicativos de desktop. Para publicar RemoteApps, você deve criar um grupo de aplicativos do RemoteApp. Você pode criar vários grupos de aplicativos do RemoteApp para acomodar diferentes cenários de trabalho. Grupos diferentes de aplicativos do RemoteApp também podem conter RemoteApps sobrepostos.
 
-Para publicar recursos aos utilizadores, tem de atribuí-las para grupos de aplicações. Ao atribuir utilizadores a grupos de aplicações, considere os seguintes procedimentos:
+Para publicar recursos para os usuários, você deve atribuí-los a grupos de aplicativos. Ao atribuir usuários a grupos de aplicativos, considere as seguintes coisas:
 
-- Não é possível atribuir um utilizador para um grupo de aplicativo de desktop e um grupo de aplicações do RemoteApp no mesmo pool de anfitrião.
-- Um utilizador pode ser atribuído a vários grupos de aplicações dentro do mesmo conjunto de anfitrião e o seu feed serão uma acumulação de ambos os grupos de aplicações.
+- Um usuário não pode ser atribuído a um grupo de aplicativos de desktop e a um grupo de aplicativos do RemoteApp no mesmo pool de hosts.
+- Um usuário pode ser atribuído a vários grupos de aplicativos dentro do mesmo pool de hosts, e seu feed será um acúmulo de ambos os grupos de aplicativos.
 
-## <a name="tenant-groups"></a>Grupos de inquilino
+## <a name="tenant-groups"></a>Grupos de locatários
 
-Na área de Trabalho Virtual de Windows, o inquilino de área de Trabalho Virtual do Windows é onde acontece a maior parte da instalação e configuração. O inquilino de área de Trabalho Virtual do Windows contém os conjuntos de anfitrião, grupos de aplicações e atribuições de utilizador de grupo de aplicações. No entanto, podem ser determinadas situações em que precisa de gerir vários inquilinos de área de Trabalho Virtual do Windows ao mesmo tempo, especialmente se for um fornecedor de serviços Cloud (CSP) ou um parceiro de alojamento. Nestas situações, pode utilizar um grupo de inquilino de área de Trabalho Virtual do Windows personalizado colocar cada um dos inquilinos de área de Trabalho Virtual do Windows dos clientes e gerir centralmente o acesso. No entanto, se estiver a gerir apenas um único inquilino de área de Trabalho Virtual do Windows, o conceito de grupo do inquilino não se aplica e pode continuar a operar e gerir o seu inquilino que existe no grupo de inquilino predefinido.
+Na área de trabalho virtual do Windows, o locatário da área de trabalho virtual do Windows é onde ocorre a maior parte da configuração e da configuração. O locatário da área de trabalho virtual do Windows contém os pools de hosts, grupos de aplicativos e atribuições de usuário do grupo de aplicativos. No entanto, pode haver algumas situações em que você precisa gerenciar vários locatários de área de trabalho virtual do Windows de uma vez, especialmente se você for um provedor de serviços de nuvem (CSP) ou um parceiro de hospedagem. Nessas situações, você pode usar um grupo personalizado de locatários da área de trabalho virtual do Windows para posicionar os locatários de área de trabalho virtual do Windows dos clientes e gerenciar o acesso centralmente. No entanto, se você estiver gerenciando apenas um único locatário da área de trabalho virtual do Windows, o conceito do grupo de locatários não se aplicará e você poderá continuar a operar e gerenciar seu locatário que existe no grupo de locatários padrão.
 
-## <a name="end-users"></a>Utilizadores finais
+## <a name="end-users"></a>Usuários finais
 
-Depois de atribuir utilizadores para os grupos de aplicações, pode ligar-se para uma implementação de área de Trabalho Virtual do Windows com qualquer um dos clientes de ambiente de Trabalho Virtual do Windows.
+Depois de atribuir usuários aos seus grupos de aplicativos, eles podem se conectar a uma implantação de área de trabalho virtual do Windows com qualquer um dos clientes de área de trabalho virtual do Windows.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o acesso delegado e como atribuir funções aos utilizadores no [delegado acesso no Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
+Saiba mais sobre o acesso delegado e como atribuir funções a usuários em [acesso delegado na área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
 
-Para saber como configurar o seu inquilino de área de Trabalho Virtual do Windows, veja [criar um inquilino no Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md).
+Para saber como configurar seu locatário de área de trabalho virtual do Windows, confira [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
 
-Para saber como ligar à área de Trabalho Virtual do Windows, consulte um dos seguintes artigos:
+Para saber como se conectar à área de trabalho virtual do Windows, consulte um dos seguintes artigos:
 
-- [Ligar a partir do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
-- [Ligar a partir de um navegador da web](connect-web.md)
+- [Conecte-se do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+- [Conectar-se de um navegador da Web](connect-web.md)

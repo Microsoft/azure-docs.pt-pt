@@ -1,25 +1,25 @@
 ---
 title: Implantar ferramenta de gerenciamento – Azure
-description: Como instalar uma ferramenta de interface do usuário para gerenciar recursos de visualização da área de trabalho virtual do Windows.
+description: Como instalar uma ferramenta de interface do usuário para gerenciar recursos da área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816500"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679492"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementar uma ferramenta de gestão
 
-A ferramenta de gerenciamento fornece uma interface do usuário para gerenciar recursos do Microsoft Virtual Desktop Preview. Neste tutorial, você aprenderá a implantar e conectar-se à ferramenta de gerenciamento do.
+A ferramenta de gerenciamento fornece uma interface do usuário para gerenciar recursos da área de trabalho virtual da Microsoft. Neste tutorial, você aprenderá a implantar e conectar-se à ferramenta de gerenciamento do.
 
 >[!NOTE]
->Essas instruções são para uma configuração específica da versão prévia da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
+>Essas instruções são para uma configuração específica da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
 
 ## <a name="important-considerations"></a>Considerações importantes
 
@@ -57,8 +57,8 @@ Siga estas instruções para implantar o modelo de gerenciamento de recursos do 
 ### <a name="guidance-for-template-parameters"></a>Diretrizes para parâmetros de modelo
 Aqui está como inserir parâmetros para configurar a ferramenta:
 
-- Esta é a URL do agente RD: https\/:/rdbroker.wvd.Microsoft.com/
-- Esta é a URL do recurso: https\/:/Mrs-prod.ame.GBL/Mrs-RDInfra-prod
+- Esta é a URL do agente RD: https: \//rdbroker. wvd. Microsoft. com/
+- Esta é a URL do recurso: https: \//Mrs-prod. ame. GBL/Sra-RDInfra-prod
 - Use suas credenciais do AAD com o MFA desabilitado para entrar no Azure. Veja o [que você precisa para executar o modelo de Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
 - Use um nome exclusivo para o aplicativo que será registrado em seu Azure Active Directory para a ferramenta de gerenciamento; por exemplo, Apr3UX.
 
@@ -101,7 +101,7 @@ Siga estas instruções para iniciar a ferramenta:
 > [!NOTE]
 > Se você tiver um grupo de locatários personalizado, insira o nome manualmente em vez de escolher na lista suspensa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu como implantar e se conectar à ferramenta de gerenciamento, você pode aprender a usar a integridade de serviço do Azure para monitorar problemas de serviço e comunicados de integridade.
 

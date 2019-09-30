@@ -1,22 +1,22 @@
 ---
-title: Criar entidades de serviço e atribuições de função do Windows Virtual Desktop Preview usando o PowerShell-Azure
-description: Como criar entidades de serviço e atribuir funções usando o PowerShell na visualização da área de trabalho virtual do Windows.
+title: Criar entidades de serviço e atribuições de função de área de trabalho virtual do Windows usando o PowerShell-Azure
+description: Como criar entidades de serviço e atribuir funções usando o PowerShell na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985012"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679619"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
 
-As entidades de serviço são identidades que você pode criar em Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na visualização da área de trabalho virtual do Windows, você pode criar uma entidade de serviço para:
+As entidades de serviço são identidades que você pode criar em Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na área de trabalho virtual do Windows, você pode criar uma entidade de serviço para:
 
 - Automatize tarefas específicas de gerenciamento de área de trabalho virtual do Windows.
 - Use como credenciais em vez de MFA-usuários necessários ao executar qualquer modelo de Azure Resource Manager para área de trabalho virtual do Windows.
@@ -107,7 +107,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 
 Depois de entrar, verifique se tudo funciona testando alguns cmdlets do PowerShell de área de trabalho virtual do Windows com a entidade de serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar a entidade de serviço e atribuir a ela uma função no locatário da área de trabalho virtual do Windows, você poderá usá-la para criar um pool de hosts. Para saber mais sobre pools de hosts, continue no tutorial para criar um pool de hosts na área de trabalho virtual do Windows.
 

@@ -1,6 +1,6 @@
 ---
-title: O que é a configuração de aplicações do Azure? | Microsoft Docs
-description: Uma visão geral do serviço de configuração de aplicações do Azure.
+title: O que é Azure App configuração? | Microsoft Docs
+description: Uma visão geral do serviço de configuração do Azure App.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -13,65 +13,66 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408670"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687034"
 ---
-# <a name="what-is-azure-app-configuration"></a>O que é a configuração de aplicações do Azure?
+# <a name="what-is-azure-app-configuration"></a>O que é Azure App configuração?
 
-Configuração de aplicações do Azure fornece um serviço para gerir definições da aplicação e sinalizadores de recursos de forma centralizada. Programas modernos, especialmente os programas em execução numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Utilize configuração de aplicações para armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
+Azure App configuração fornece um serviço para gerenciar centralmente as configurações do aplicativo e os sinalizadores de recursos. Os programas modernos, especialmente os programas em execução em uma nuvem, geralmente têm muitos componentes que são distribuídos por natureza. A propagação de definições de configuração entre esses componentes pode levar a erros difíceis de solucionar problemas durante a implantação de um aplicativo. Use a configuração de aplicativo para armazenar todas as configurações para seu aplicativo e proteger seus acessos em um único local.
 
-Configuração de aplicações está atualmente em pré-visualização pública. É gratuito para utilizar durante o período de pré-visualização. Pode inscrever-se para o mesmo no [portal do Azure](https://portal.azure.com).
+A configuração do aplicativo está atualmente em visualização pública. Ele é livre para ser usado durante o período de versão prévia. Você pode se inscrever nele na [portal do Azure](https://portal.azure.com).
 
-## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicações?
+## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicativo?
 
-Aplicativos baseados na nuvem, muitas vezes, executar em várias máquinas virtuais ou contentores em várias regiões e utilizam múltiplos serviços externos. Criar uma aplicação distribuída que é robusta e escalonável é um desafio.
+Os aplicativos baseados em nuvem geralmente são executados em várias máquinas virtuais ou contêineres em várias regiões e usam vários serviços externos. A criação de um aplicativo distribuído, robusto e escalonável, é um desafio.
 
-Várias metodologias de programação ajudam os desenvolvedores a lidar com a crescente complexidade da criação de aplicativos. Por exemplo, a aplicação de 12 fatores descreve vários padrões de arquitetura bem testados e melhores práticas para utilização com aplicações na cloud. Uma recomendação de chave deste guia é separar a configuração a partir do código. Neste caso, as definições de configuração de um aplicativo devem ser mantidas fora do seu executável e ler a partir do seu ambiente de tempo de execução ou de uma origem externa.
+Várias metodologias de programação ajudam os desenvolvedores a lidar com a complexidade crescente da criação de aplicativos. Por exemplo, o aplicativo de 12 fatores descreve muitos padrões arquitetônicos bem testados e práticas recomendadas para uso com aplicativos de nuvem. Uma recomendação importante deste guia é separar a configuração do código. Nesse caso, as definições de configuração de um aplicativo devem ser mantidas externas ao seu executável e lidas em seu ambiente de tempo de execução ou em uma fonte externa.
 
-Embora qualquer aplicativo pode fazer uso de configuração de aplicações, os exemplos seguintes são os tipos de aplicações que tiram partido da utilização do mesmo:
+Embora qualquer aplicativo possa fazer uso da configuração do aplicativo, os seguintes exemplos são os tipos de aplicativo que se beneficiam do uso dele:
 
-* Microsserviços com base no serviço Kubernetes do Azure, Azure Service Fabric ou outras aplicações em contentores implementadas em localizações geográficas de um ou mais
-* Aplicações sem servidor, que inclui as funções do Azure ou outras aplicações orientadas por eventos computação sem monitoração de estado
-* Pipeline de implementação contínua
+* Microserviços baseados no serviço kubernetes do Azure, Service Fabric do Azure ou outros aplicativos em contêineres implantados em uma ou mais geografias
+* Aplicativos sem servidor, que incluem Azure Functions ou outros aplicativos de computação com estado baseado em evento
+* Pipeline de implantação contínua
 
-Configuração de aplicações oferece as seguintes vantagens:
+A configuração de aplicativo oferece os seguintes benefícios:
 
-* Um serviço totalmente gerido que pode configurar em minutos
-* Representações de chave flexíveis e mapeamentos
-* Marcação com etiquetas
-* Repetição de ponto no tempo de definições
-* Interface do Usuário dedicado para gestão de sinalizador de funcionalidade
-* Comparação de dois conjuntos de configurações em dimensões personalizado
-* Maior segurança por meio de identidades geridas do Azure
-* Dados completos encriptações, Inativos ou em trânsito
+* Um serviço totalmente gerenciado que pode ser configurado em minutos
+* Representações e mapeamentos de chave flexíveis
+* Marcação com rótulos
+* Replay pontual de configurações
+* Interface do usuário dedicada para gerenciamento de sinalizador de recursos
+* Comparação de dois conjuntos de configurações em dimensões definidas personalizadas
+* Segurança aprimorada por meio de identidades gerenciadas pelo Azure
+* Total de criptografias de dados em repouso ou em trânsito
 * Integração nativa com estruturas populares
 
-Configuração de aplicações complementa [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que é utilizado para armazenar segredos da aplicação. Configuração de aplicações torna mais fácil de implementar os seguintes cenários:
+A configuração do aplicativo complementa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que é usada para armazenar os segredos do aplicativo. A configuração do aplicativo torna mais fácil implementar os seguintes cenários:
 
-* Centralize a gestão e distribuição de dados de configuração hierárquica para ambientes diferentes e localizações geográficas
-* Alterar dinamicamente as definições da aplicação sem a necessidade de voltar a implementar ou reiniciar uma aplicação
-* Disponibilidade de funcionalidades de controlo em tempo real
+* Centralize o gerenciamento e a distribuição de dados de configuração hierárquica para diferentes ambientes e geografias
+* Alterar dinamicamente as configurações do aplicativo sem a necessidade de reimplantar ou reiniciar um aplicativo
+* Controle a disponibilidade de recursos em tempo real
 
-## <a name="use-app-configuration"></a>Utilizar configuração de aplicações
+## <a name="use-app-configuration"></a>Usar configuração de aplicativo
 
-A maneira mais fácil de adicionar um arquivo de configuração de aplicação à sua aplicação é através de uma biblioteca de cliente que a Microsoft fornece. Com base na linguagem de programação e framework, os seguintes métodos de melhor disponibilizadas para.
+A maneira mais fácil de adicionar um repositório de configuração de aplicativo ao seu aplicativo é por meio de uma biblioteca de cliente que a Microsoft fornece. Com base na linguagem e na estrutura de programação, os melhores métodos a seguir estão disponíveis para você.
 
-| Linguagem de programação e framework | Como ligar |
+| Linguagem de programação e estrutura | Como ligar |
 |---|---|
-| .NET core e o ASP.NET Core | Fornecedor de configuração de aplicações de .NET Core |
-| .NET e ASP.NET | Construtor de configuração de aplicação para .NET |
-| Java Spring | Cliente de configuração de aplicação de Spring Cloud |
-| Outros | Configuração de aplicações REST API |
+| .NET Core e ASP.NET Core | Provedor de configuração de aplicativo para .NET Core |
+| .NET e ASP.NET | Construtor de configuração de aplicativo para .NET |
+| Java Spring | Cliente de configuração de aplicativo para Spring Cloud |
+| Outros | API REST de configuração de aplicativo |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Início rápido do ASP.NET Core](./quickstart-aspnet-core-app.md)
-* [Guia de introdução do .NET core](./quickstart-dotnet-core-app.md)
-* [Guia de introdução do .NET framework](./quickstart-dotnet-app.md)
-* [Início rápido de função do Azure](./quickstart-azure-function-csharp.md)
-* [Início rápido de Java Spring](./quickstart-java-spring-app.md)
-* [Início rápido de sinalizador de funcionalidade do ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Guia de início rápido ASP.NET Core](./quickstart-aspnet-core-app.md)
+* [Início rápido do .NET Core](./quickstart-dotnet-core-app.md)
+* [Guia de início rápido .NET Framework](./quickstart-dotnet-app.md)
+* [Início rápido da função do Azure](./quickstart-azure-function-csharp.md)
+* [Início rápido do Java Spring](./quickstart-java-spring-app.md)
+* [Início rápido do sinalizador de recurso ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Início rápido do sinalizador de recursos do Spring boot](./quickstart-feature-flag-spring-boot.md)

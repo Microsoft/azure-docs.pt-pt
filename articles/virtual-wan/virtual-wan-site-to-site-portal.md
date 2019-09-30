@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 357cc23c9dedb49dfd19dc897102762066ffd1b2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515155"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679354"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN virtual do Azure
 
@@ -53,7 +53,7 @@ Num browser, navegue para o [Portal do Azure](https://aka.ms/azurevirtualwanprev
 
 Crie tantos sites qantos necessários para corresponder às suas localizações físicas. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Neste momento, só pode especificar um espaço de endereços privado para o site.
 
-1. Clique no WAN que criou. Na página de WAN, em **Arquitetura de WAN**, clique em **Sites de VPN** para abrir a página de sites de VPN.
+1. Clique no WAN que criou. Na página WAN, em **arquitetura Wan virtual**, clique em **sites VPN** para abrir a página sites VPN.
 2. Na página **Sites de VPN**, clique em **+Criar site**.
 3. Na página **Criar site**, preencha os seguintes campos:
 
@@ -281,7 +281,7 @@ Quando você não precisar mais desses recursos, poderá usar [Remove-AzResource
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

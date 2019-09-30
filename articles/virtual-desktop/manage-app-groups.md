@@ -1,22 +1,22 @@
 ---
-title: Gerenciar grupos de aplicativos para a visualização da área de trabalho virtual do Windows-Azure
-description: Descreve como configurar locatários da versão prévia da área de trabalho virtual do Windows no Azure Active Directory.
+title: Gerenciar grupos de aplicativos para a área de trabalho virtual do Windows-Azure
+description: Descreve como configurar locatários de área de trabalho virtual do Windows no Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163259"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679460"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerenciar grupos de aplicativos para a visualização da área de trabalho virtual do Windows
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Gerenciar grupos de aplicativos para área de trabalho virtual do Windows
 
-O grupo de aplicativos padrão criado para um novo pool de hosts da visualização de área de trabalho virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos de menu **Iniciar** individuais.
+O grupo de aplicativos padrão criado para um novo pool de hosts da área de trabalho virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos de menu **Iniciar** individuais.
 
 Neste tutorial, ficará a saber como:
 
@@ -50,7 +50,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
    
-4. Execute o cmdlet a seguir para instalar o aplicativo com `AppAlias`base em. `AppAlias`torna-se visível quando você executa a saída da etapa 3.
+4. Execute o seguinte cmdlet para instalar o aplicativo com base em `AppAlias`. `AppAlias` torna-se visível quando você executa a saída da etapa 3.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
@@ -75,7 +75,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a criar um grupo de aplicativos, preenchê-lo com programas RemoteApp e atribuir usuários ao grupo de aplicativos. Para saber como criar um pool de hosts de validação, consulte o tutorial a seguir. Você pode usar um pool de hosts de validação para monitorar atualizações de serviço antes de distribuí-las para seu ambiente de produção.
 

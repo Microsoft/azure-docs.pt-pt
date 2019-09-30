@@ -9,24 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: ecdaec6dcade033bf99842dd384be095dd363a05
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0c16a60b0ddcde733cfbc7b9c90e07b697526015
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933410"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677397"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida de temperatura para um aplicativo LUIS
 Temperatura extrai uma variedade de tipos de temperatura. Uma vez que esta entidade já está preparada, não é necessário adicionar expressões de exemplo que contém a temperatura à aplicação. Entidade de temperatura é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-temperature"></a>Tipos de temperatura
-A temperatura é gerenciada do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) de reconhecedores
+A temperatura é gerenciada do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Resolução de entidades de temperatura pré-criados
 
-### <a name="api-version-2x"></a>Versão da API 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
 
 O exemplo seguinte mostra a resolução do **builtin.temperature** entidade.
 
@@ -58,9 +58,9 @@ O exemplo seguinte mostra a resolução do **builtin.temperature** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
 {
@@ -85,7 +85,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
 {
@@ -122,6 +122,10 @@ O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+* * * 
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
 Saiba mais sobre o [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md), e [idade](luis-reference-prebuilt-age.md) entidades. 

@@ -1,18 +1,18 @@
 ---
 title: Criar, exibir e gerenciar alertas do log de atividades no Azure Monitor
 description: Crie alertas do log de atividades usando o portal do Azure, um modelo de Azure Resource Manager e Azure PowerShell.
-author: msvijayn
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
-ms.openlocfilehash: a7f80698791831b3d4404ea0f687a75c660c2222
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.author: robb
+ms.openlocfilehash: e93b6f9c74bb44cb7341f5763261ecb699432ae2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852749"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675264"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando Azure Monitor  
 
@@ -59,7 +59,7 @@ Use o procedimento a seguir.
 
      **Exibição de exemplo de destino de alerta**
 
-     ![Selecionar o destino](media/alerts-activity-log/select-target.png)
+     ![Selecionar destino](media/alerts-activity-log/select-target.png)
 
    - Em **critérios de destino**, selecione **Adicionar critérios**. Todos os sinais disponíveis para o destino são exibidos, o que os inclui de várias categorias de **log de atividades**. O nome da categoria é anexado ao nome do **serviço monitor** .
 
@@ -75,7 +75,7 @@ Use o procedimento a seguir.
 
      - **Lógica de alerta**:
 
-       - **Nível do evento**: O nível de severidade do evento: _Detalhado_, informativo, _aviso_, _erro_ou _crítico_.
+       - **Nível do evento**: O nível de severidade do evento: _Detalhado_,informativo, _aviso_, _erro_ou _crítico_.
        - **Status**: O status do evento: _Iniciado_, _com falha ou com_ _êxito_.
        - **Evento iniciado por**: Também conhecido como chamador. O endereço de email ou o identificador de Azure Active Directory do usuário que realizou a operação.
 
@@ -108,7 +108,7 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 1. Na portal do Azure, selecione **monitorar** > **alertas**. Selecione **gerenciar regras de alerta** no canto superior esquerdo da janela.
 
-    ![Gerenciar regras de alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![Gere regras do alerta](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista de regras disponíveis é exibida.
 
@@ -124,7 +124,7 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 3. Selecione a regra e clique duas vezes para editar as opções de regra. Faça as alterações necessárias e, em seguida, selecione **salvar**.
 
-   ![Gerenciar regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Gere regras do alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Você pode habilitar, desabilitar ou excluir uma regra. Selecione a opção apropriada na parte superior da janela depois de selecionar a regra, conforme descrito na etapa 2.
 
@@ -242,7 +242,7 @@ Para recuperar um recurso de regra de alerta do log de atividades, [use o comand
 )-log Alert show. Para exibir todos os recursos de regra de alerta do log de atividades em um grupo de recursos, use a [lista de alertas AZ monitor Activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
 Os recursos da regra de alerta do log de atividades podem ser removidos usando o comando CLI do Azure [AZ monitor atividade-log Delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [esquema de webhook para logs de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leia uma [visão geral dos logs de atividades](../../azure-monitor/platform/activity-log-alerts.md).

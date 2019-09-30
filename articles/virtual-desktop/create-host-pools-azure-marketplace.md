@@ -1,22 +1,22 @@
 ---
-title: Criar um pool de hosts da visualização de área de trabalho virtual do Windows usando o Azure Marketplace – Azure
-description: Como criar um pool de hosts da visualização de área de trabalho virtual do Windows usando o Azure Marketplace.
+title: Criar um pool de hosts de área de trabalho virtual do Windows usando o Azure Marketplace – Azure
+description: Como criar um pool de hosts de área de trabalho virtual do Windows usando o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208377"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676713"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
 
-Os pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas nos ambientes de locatário da visualização de área de trabalho virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativos com os quais os usuários podem interagir como fariam em uma área de trabalho física.
+Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativos com os quais os usuários podem interagir como fariam em uma área de trabalho física.
 
 Este tutorial descreve como criar um pool de hosts em um locatário de área de trabalho virtual do Windows usando uma oferta Microsoft Azure Marketplace. As tarefas incluem:
 
@@ -40,9 +40,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Para executar a oferta do Azure Marketplace para provisionar um novo pool de hosts:
 
-1. Selecione **+** ou **+ crie um recurso**.
+1. Selecione **+** ou **+ criar um recurso**.
 2. Insira **área de trabalho virtual do Windows** na janela pesquisa do Marketplace.
-3. Selecione **área de trabalho virtual do Windows-provisionar um pool**de hosts e, em seguida, selecione **criar**.
+3. Selecione **área de trabalho virtual do Windows-provisionar um pool de hosts**e, em seguida, selecione **criar**.
 
 Depois disso, siga as instruções na próxima seção para inserir as informações para as folhas apropriadas.
 
@@ -52,7 +52,7 @@ Veja o que você faz para a folha **noções básicas** :
 
 1. Insira um nome para o pool de hosts que é exclusivo no locatário da área de trabalho virtual do Windows.
 2. Selecione a opção apropriada para uma área de trabalho pessoal. Se você selecionar **Sim**, cada usuário que se conecta a esse pool de hosts será permanentemente atribuído a uma máquina virtual.
-3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da área de trabalho virtual do Windows e acessar uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser user1@contoso.com atribuir e user2@contoso.com acessar, insira "user1@contoso.com,user2@contoso.com".
+3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da área de trabalho virtual do Windows e acessar uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir acesso user1@contoso.com e user2@contoso.com, insira "user1@contoso.com, user2@contoso.com."
 4. Selecione **criar novo** e forneça um nome para o novo grupo de recursos.
 5. Para **local**, selecione o mesmo local que a rede virtual que tem conectividade com o servidor de Active Directory.
 6. Selecione **OK**.
@@ -80,7 +80,7 @@ Para a folha **configurações de máquina virtual** :
 3. Selecione a rede virtual que tem conectividade com o servidor de Active Directory e, em seguida, escolha uma sub-rede para hospedar as máquinas virtuais.
 4. Selecione **OK**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Informações do locatário da visualização da área de trabalho virtual do Windows
+### <a name="windows-virtual-desktop-tenant-information"></a>Informações de locatário da área de trabalho virtual do Windows
 
 Para a folha **informações de locatário da área de trabalho virtual do Windows** :
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 50a4ead58cc70524ec464e52ce546b36f9685df5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064540"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679225"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar um aplicativo de API Web ao seu locatário Azure Active Directory B2C
 
@@ -36,22 +36,16 @@ ms.locfileid: "71064540"
 
 Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Neste tutorial, vai utilizar os âmbitos para definir as permissões de leitura e escrita para a API Web.
 
-1. Selecione **aplicativos**e, em seguida, selecione *webapi1*.
-2. Selecione **escopos publicados**.
-3. Para **escopo**, insira `Read`e, para descrição, digite `Read access to the application`.
-4. Para **escopo**, insira `Write`e, para descrição, digite `Write access to the application`.
-5. Clique em **Guardar**.
-
-Os escopos publicados podem ser usados para conceder a uma permissão de aplicativo cliente para a API da Web.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
 Para chamar uma API Web protegida de um aplicativo, você precisa conceder permissões de aplicativo para a API. Por exemplo, no [tutorial: Registrar um aplicativo no Azure Active Directory B2C](tutorial-register-applications.md), um aplicativo Web é criado em Azure ad B2C chamado *webapp1*. Você pode usar esse aplicativo para chamar a API da Web.
 
 1. Selecione **aplicativos**e, em seguida, selecione seu aplicativo Web.
-2. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
-3. Na lista suspensa **selecionar API** , selecione *webapi1*.
-4. Na lista suspensa **selecionar escopos** , selecione os escopos de **leitura** e **gravação** definidos anteriormente.
-5. Clique em **OK**.
+1. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
+1. Na lista suspensa **selecionar API** , selecione *webapi1*.
+1. Na lista suspensa **selecionar escopos** , selecione os escopos que você definiu anteriormente. Por exemplo, *demo. Read* e *demo. Write*.
+1. Selecione **OK**.
 
 Seu aplicativo está registrado para chamar a API Web protegida. Um usuário é autenticado com Azure AD B2C para usar o aplicativo. O aplicativo obtém uma concessão de autorização de Azure AD B2C para acessar a API Web protegida.

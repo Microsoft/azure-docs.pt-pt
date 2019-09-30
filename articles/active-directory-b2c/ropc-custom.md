@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063710"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678131"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha do proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
@@ -41,14 +41,7 @@ Conclua as etapas em introdução [às políticas personalizadas no Azure Active
 
 ## <a name="register-an-application"></a>Registar uma aplicação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-5. Insira um nome para o aplicativo, como *ROPC_Auth_app*.
-6. Selecione **não** para **aplicativo Web/API Web**e, em seguida, selecione **Sim** para **cliente nativo**.
-7. Deixe todos os outros valores como estão e, em seguida, selecione **criar**.
-8. Selecione o novo aplicativo e registre a ID do aplicativo para uso posterior.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  <a name="create-a-resource-owner-policy"></a>Criar uma política de proprietário do recurso
 
@@ -321,7 +314,7 @@ Construa uma chamada POST como a mostrada aqui. Use as informações na tabela a
 | refresh_token | `refresh-token` |
 
 - Substitua `application-id` pela ID do aplicativo do registro *ROPC_Auth_app* .
-- Substituir `refresh-token` pelo **refresh_token** que foi enviado de volta na resposta anterior.
+- Substitua `refresh-token` pelo **refresh_token** que foi enviado de volta na resposta anterior.
 
 Uma resposta bem-sucedida é semelhante ao exemplo a seguir:
 
@@ -345,7 +338,7 @@ Uma resposta bem-sucedida é semelhante ao exemplo a seguir:
 
 Azure AD B2C atende aos padrões do OAuth 2,0 para credenciais de senha do proprietário do recurso de cliente público e deve ser compatível com a maioria dos SDKs do cliente. Para obter as informações mais recentes, consulte [Native app SDK para OAuth 2,0 e OpenID Connect implementando práticas recomendadas modernas](https://appauth.io/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja um exemplo completo desse cenário no [Azure Active Directory B2C pacote de início de política personalizada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Saiba mais sobre os tokens que são usados pelo Azure Active Directory B2C na [referência de token](active-directory-b2c-reference-tokens.md).

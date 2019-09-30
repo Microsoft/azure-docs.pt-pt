@@ -6,14 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672740"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677152"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB
+
+> [!IMPORTANT]
+> Os blocos de anotações internos para Azure Cosmos DB estão disponíveis atualmente nas seguintes regiões do Azure: Leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental e oeste dos EUA 2. Para usar blocos de anotações, [crie uma nova conta com blocos de anotações](#enable-notebooks-in-a-new-cosmos-account) ou [habilite blocos de anotações em uma conta existente](#enable-notebooks-in-an-existing-cosmos-account) em uma dessas regiões.
 
 Os blocos de anotações internos do Jupyter no Azure Cosmos DB permitem que você analise e visualize os dados do portal do Azure. Este artigo descreve como habilitar esse recurso para sua conta do Azure Cosmos DB.
 
@@ -67,4 +70,3 @@ Você também pode selecionar **novo bloco de anotações** para criar um novo b
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os benefícios do [Azure Cosmos DB notebooks Jupyter](cosmosdb-jupyter-notebooks.md)
-- Saiba mais sobre [como usar os recursos e comandos do bloco de anotações](use-notebook-features-and-commands.md)

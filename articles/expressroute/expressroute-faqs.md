@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 886dd9b0f3c72fc7649b1e2fc3927cfa87f65312
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316514"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686996"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -70,7 +70,7 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 * A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>**Os seguintes serviços não são suportados**:
     * CDN
     * Azure Front Door
-    * Multi-Factor Authentication
+    * Servidor de autenticação multifator (Herdado)
     * Gestor de Tráfego
 
 ### <a name="public-peering"></a>Peering público
@@ -84,7 +84,7 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
   **Os seguintes serviços não são suportados**:
     * CDN
     * Azure Front Door
-    * Multi-Factor Authentication
+    * Servidor de autenticação multifator (Herdado)
     * Gestor de Tráfego
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>O Dynamics 365 tem suporte no ExpressRoute?

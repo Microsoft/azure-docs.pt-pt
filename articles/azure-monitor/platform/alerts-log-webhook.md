@@ -1,19 +1,19 @@
 ---
 title: Ações de webhook para alertas de log nos alertas do Azure
 description: Este artigo descreve como criar uma regra de alerta de log usando o espaço de trabalho Log Analytics ou Application Insights, como o alerta envia dados por push como um webhook HTTP e os detalhes das diferentes personalizações que são possíveis.
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8bdd0d5230feeeb4c80775ce63aa7e4eaccb601c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226795"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677756"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta de log
 Quando um [alerta de log é criado no Azure](alerts-log.md), você tem a opção de [configurá-lo usando grupos de ação](action-groups.md) para executar uma ou mais ações. Este artigo descreve as diferentes ações de webhook que estão disponíveis e mostra como configurar um webhook personalizado baseado em JSON.

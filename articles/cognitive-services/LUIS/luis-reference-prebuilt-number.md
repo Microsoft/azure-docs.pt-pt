@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: f2868610bf9215b1414ea3ba342e3064b9c54f63
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cb97cc5b0004442e00b970202dd01f76aa971a2a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933510"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677577"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Número da entidade predefinida para um aplicativo LUIS
 Existem várias formas em que os valores numéricos são utilizados para quantificar, express além de descrever partes de informações. Este artigo abrange apenas alguns dos exemplos possíveis. LUIS interpreta as variações em expressões de utilizador e devolve valores numéricos consistentes. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém um número para os objetivos do aplicativo. 
 
 ## <a name="types-of-number"></a>Tipos de número
-O número é gerenciado do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) de reconhecedores
+O número é gerenciado do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
 ## <a name="examples-of-number-resolution"></a>Exemplos de resolução de número
 
@@ -43,7 +43,7 @@ LUIS inclui o valor reconhecido de um **`builtin.number`** entidade no `resoluti
 ## <a name="resolution-for-prebuilt-number"></a>Resolução de número pré-criados
 
 
-### <a name="api-version-2x"></a>Versão da API 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
 
 O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do valor 24, para a expressão "duas dezenas".
 
@@ -83,9 +83,9 @@ O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
 {
@@ -107,7 +107,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
 {
@@ -141,6 +141,10 @@ O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+* * * 
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
 Saiba mais sobre o [moeda](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), e [percentagem](luis-reference-prebuilt-percentage.md). 

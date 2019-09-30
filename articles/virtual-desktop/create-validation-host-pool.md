@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts da visualização de área de trabalho virtual do Windows para validar atualizações de serviço – Azure
+title: Criar um pool de hosts de área de trabalho virtual do Windows para validar atualizações de serviço – Azure
 description: Como criar um pool de hosts de validação para monitorar atualizações de serviço antes de distribuir as atualizações para produção.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 3843a03b3b6d41520b121e5088fb13eac956e6fa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163600"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676680"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitriões para validar as atualizações de serviço
 
-Os pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas nos ambientes de locatário da visualização de área de trabalho virtual do Windows. Antes de implantar pools de hosts em seu ambiente de produção, é altamente recomendável criar um pool de hosts de validação. As atualizações são aplicadas primeiro aos pools de hosts de validação, permitindo que você monitore as atualizações de serviço antes de distribuí-las para o ambiente de produção. Sem um pool de hosts de validação, você não pode descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os usuários em seu ambiente de produção.
+Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Antes de implantar pools de hosts em seu ambiente de produção, é altamente recomendável criar um pool de hosts de validação. As atualizações são aplicadas primeiro aos pools de hosts de validação, permitindo que você monitore as atualizações de serviço antes de distribuí-las para o ambiente de produção. Sem um pool de hosts de validação, você não pode descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os usuários em seu ambiente de produção.
 
 Para garantir que seus aplicativos funcionem com as atualizações mais recentes, o pool de hosts de validação deve ser semelhante aos pools de hosts em seu ambiente de produção o mais recente possível. Os usuários devem se conectar com frequência ao pool de hosts de validação, como no pool de hosts de produção. Se você tiver testes automatizados em seu pool de hosts, deverá incluir testes automatizados no pool de hosts de validação.
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ## <a name="create-your-host-pool"></a>Criar seu pool de hosts
 
 Você pode criar um pool de hosts seguindo as instruções em qualquer um destes artigos:
-- [Tutorial: Criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Tutorial: Criar um pool de hosts com o Azure Marketplace @ no__t-0
 - [Criar um pool de hosts com um modelo de Azure Resource Manager](create-host-pools-arm-template.md)
 - [Criar um pool de hosts com o PowerShell](create-host-pools-powershell.md)
 
@@ -71,9 +71,9 @@ Os resultados do cmdlet devem ser semelhantes a esta saída:
 
 ## <a name="update-schedule"></a>Agenda de atualização
 
-Na visualização, as atualizações de serviço ocorrem em aproximadamente uma cadência mensal. Se houver problemas importantes, as atualizações críticas serão fornecidas em uma cadência mais frequente.
+As atualizações de serviço acontecem mensalmente. Se houver problemas importantes, as atualizações críticas serão fornecidas em um ritmo mais frequente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você criou um pool de hosts de validação, você pode aprender a implantar e conectar-se a uma ferramenta de gerenciamento para gerenciar recursos da área de trabalho virtual da Microsoft.
 

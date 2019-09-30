@@ -1,22 +1,22 @@
 ---
-title: Criar um pool de hosts da visualização de área de trabalho virtual do Windows com o PowerShell-Azure
-description: Como criar um pool de hosts na visualização da área de trabalho virtual do Windows com cmdlets do PowerShell.
+title: Criar um pool de hosts da área de trabalho virtual do Windows com o PowerShell-Azure
+description: Como criar um pool de hosts na área de trabalho virtual do Windows com cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a5e228417610a19c38acf9ce2db6e743ec122580
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163682"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679584"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
-Os pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas nos ambientes de locatário da visualização de área de trabalho virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativos com os quais os usuários podem interagir como fariam em uma área de trabalho física.
+Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativos com os quais os usuários podem interagir como fariam em uma área de trabalho física.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Usar o cliente do PowerShell para criar um pool de hosts
 
@@ -48,7 +48,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 O cmdlet **Add-RdsAppGroupUser** não dá suporte à adição de grupos de segurança e adiciona apenas um usuário por vez ao grupo de aplicativos. Se você quiser adicionar vários usuários ao grupo de aplicativos, execute novamente o cmdlet com os nomes principais de usuário apropriados.
 
-Execute o cmdlet a seguir para exportar o token de registro para uma variável, que será usada posteriormente no [registro das máquinas virtuais no pool de hosts da área de trabalho virtual do Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
+Execute o cmdlet a seguir para exportar o token de registro para uma variável, que será usada posteriormente no [registro das máquinas virtuais no pool de hosts da área de trabalho virtual do Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
@@ -64,9 +64,12 @@ Você pode criar uma máquina virtual de várias maneiras:
 - [Criar uma máquina virtual com base em uma imagem gerenciada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Criar uma máquina virtual com base em uma imagem não gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
+>[!NOTE]
+>Se você estiver implantando uma máquina virtual usando o Windows 7 como o sistema operacional do host, o processo de criação e implantação será um pouco diferente. Para obter mais detalhes, consulte [implantar uma máquina virtual do Windows 7 na área de trabalho virtual do Windows](deploy-windows-7-virtual-machine.md).
+
 Depois de criar as máquinas virtuais do host de sessão, [aplique uma licença do Windows a uma VM host de sessão](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) para executar suas máquinas virtuais Windows ou Windows Server sem pagar por outra licença. 
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Preparar as máquinas virtuais para instalações do agente de visualização de área de trabalho virtual do Windows
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparar as máquinas virtuais para instalações do agente de área de trabalho virtual do Windows
 
 Você precisa fazer o seguinte para preparar suas máquinas virtuais antes de instalar os agentes de área de trabalho virtual do Windows e registrar as máquinas virtuais em seu pool de hosts de área de trabalho virtual do Windows:
 
@@ -84,7 +87,7 @@ Para ingressar no domínio com êxito, execute as ações a seguir em cada máqu
     >[!NOTE]
     > Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrar as máquinas virtuais no pool de hosts da visualização de área de trabalho virtual do Windows
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrar as máquinas virtuais no pool de hosts da área de trabalho virtual do Windows
 
 Registrar as máquinas virtuais em um pool de hosts da área de trabalho virtual do Windows é tão simples quanto instalar os agentes de área de trabalho virtual do Windows.
 

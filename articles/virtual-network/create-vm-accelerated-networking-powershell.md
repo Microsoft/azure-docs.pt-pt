@@ -1,6 +1,6 @@
 ---
-title: Criar uma máquina virtual do Azure com o Accelerated Networking | Documentos da Microsoft
-description: Saiba como criar uma máquina virtual Linux com redes aceleradas.
+title: Criar uma máquina virtual do Azure com rede acelerada | Microsoft Docs
+description: Saiba como criar uma máquina virtual Linux com rede acelerada.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -14,76 +14,77 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8f4f55f2c2aa4a0f9cce08e10c9f12f81a54dba
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190278"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678001"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com redes aceleradas
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com rede acelerada
 
-Neste tutorial, saiba como criar uma máquina virtual de Windows (VM) com redes aceleradas. Para criar uma VM do Linux com redes aceleradas, consulte [criar uma VM com Accelerated Networking](create-vm-accelerated-networking-cli.md). Funcionamento em rede acelerado permite que a virtualização de e/s de raiz única (SR-IOV) para uma VM, melhorando em grande medida o desempenho de rede. Este caminho de alto desempenho ignora o anfitrião a partir de datapath, reduzindo a latência, distorção e a utilização da CPU, para utilização com as mais exigentes cargas de trabalho de rede sobre os tipos VM suportados. A imagem seguinte mostra a comunicação entre duas VMs com e sem redes aceleradas:
+Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Windows com rede acelerada. Para criar uma VM do Linux com rede acelerada, consulte [criar uma VM do Linux com rede acelerada](create-vm-accelerated-networking-cli.md). A rede acelerada habilita o SR-IOV (virtualização de e/s de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de DataPath, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes em tipos de VM com suporte. A figura a seguir mostra a comunicação entre duas VMs com e sem rede acelerada:
 
 ![Comparação](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Sem redes aceleradas, todo o tráfego de rede e para a VM deve percorrer o anfitrião e o comutador virtual. O comutador virtual fornece todos os imposição de políticas, tais como grupos de segurança de rede, listas de controlo de acesso, isolamento e outros serviços de rede virtualizado para o tráfego de rede. Para obter mais informações sobre comutadores virtuais, veja [Virtualização de rede do Hyper-V e o comutador virtual](https://technet.microsoft.com/library/jj945275.aspx).
+Sem a rede acelerada, todo o tráfego de rede de entrada e saída da VM deve atravessar o host e o comutador virtual. O comutador virtual fornece toda a imposição de política, como grupos de segurança de rede, listas de controle de acesso, isolamento e outros serviços virtualizados de rede para tráfego de rede. Para saber mais sobre os comutadores virtuais, consulte [virtualização de rede Hyper-V e comutador virtual](https://technet.microsoft.com/library/jj945275.aspx).
 
-Com redes aceleradas, o tráfego de rede chega à interface de rede da VM (NIC) e, em seguida, é reencaminhado para a VM. Todas as políticas de rede que o comutador virtual aplica-se agora são descarregadas e aplicadas no hardware. Aplicando a diretiva de hardware, permite que o NIC para reencaminhar o tráfego de rede diretamente à VM, ignorando o anfitrião e o comutador virtual, enquanto mantém a diretiva de todos os que ele aplicado no anfitrião.
+Com a rede acelerada, o tráfego de rede chega à NIC (interface de rede) da VM e, em seguida, é encaminhado para a VM. Todas as políticas de rede que o comutador virtual aplica agora são descarregadas e aplicadas no hardware. A aplicação da política em hardware permite que a NIC encaminhe o tráfego de rede diretamente para a VM, ignorando o host e o comutador virtual, mantendo toda a política aplicada no host.
 
-Os benefícios do funcionamento em rede acelerado só se aplicam à VM que está ativada no. Para obter melhores resultados, é ideal para ativar esta funcionalidade em, pelo menos, duas VMs ligadas à mesma rede Virtual do Azure (VNet). Durante a comunicação entre VNets ou ligação no local, esta funcionalidade tem um impacto mínimo para latência geral.
+Os benefícios da rede acelerada só se aplicam à VM em que ela está habilitada. Para obter os melhores resultados, é ideal habilitar esse recurso em pelo menos duas VMs conectadas à mesma VNet (rede virtual) do Azure. Ao se comunicar entre VNets ou conectar-se localmente, esse recurso tem um impacto mínimo sobre a latência geral.
 
 ## <a name="benefits"></a>Benefícios
-* **Menor latência / superior pacotes por segundo (pps):** Remover o comutador virtual do datapath remove o tempo gasto de pacotes no anfitrião para processamento de diretiva e aumenta o número de pacotes que podem ser processadas dentro da VM.
-* **Menor interferência:** Processamento de comutador virtual depende da quantidade de política que tem de ser aplicadas e a carga de trabalho da CPU que está a fazer o processamento. Descarregar a imposição de política para o hardware remove essa variabilidade fornecendo pacotes diretamente à VM, remover o anfitrião a comunicação de VM e todas as interrupções de software e Alternâncias de contexto.
-* **Diminuição da utilização da CPU:** Ignorar o comutador virtual no anfitrião leva para menos de utilização da CPU para processar o tráfego de rede.
+* **Latência mais baixa/pacotes maiores por segundo (PPS):** Remover o comutador virtual do caminho de data remove o tempo que os pacotes gastam no host para processamento de política e aumenta o número de pacotes que podem ser processados dentro da VM.
+* **Variação reduzida:** O processamento do comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade fornecendo pacotes diretamente para a VM, removendo o host para comunicação de VM e todas as interrupções de software e alternâncias de contexto.
+* **Utilização de CPU reduzida:** Ignorar o comutador virtual no host leva a menos utilização de CPU para processar o tráfego de rede.
 
 ## <a name="limitations-and-constraints"></a>Limitações e restrições
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
-As distribuições seguintes são suportadas prontos a utilizar da galeria do Azure:
-* **Windows Server 2016 Datacenter** 
-* **Windows Server 2012 R2 Datacenter**
+As distribuições a seguir têm suporte pronto para uso na galeria do Azure:
+* **Windows Server 2016 datacenter** 
+* **Datacenter do Windows Server 2012 R2**
+* **Windows Server 2019 datacenter**
 
-### <a name="supported-vm-instances"></a>Instâncias VM suportadas
-Funcionamento em rede acelerado é suportado em fins mais gerais e tamanhos de instâncias com otimização de computação com vCPUs 2 ou mais.  Esta série suportado é: D/DSv2 e F/Fs
+### <a name="supported-vm-instances"></a>Instâncias de VM com suporte
+A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral e otimizado para computação com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/FS
 
-Redes aceleradas é suportada em instâncias que suportam o hyperthreading, nas instâncias VM com vCPUs 4 ou mais. Série suportado é: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
+Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com 4 ou mais vCPUs. As séries com suporte são: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
-Para obter mais informações sobre as instâncias de VM, consulte [tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre instâncias de VM, consulte [tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="regions"></a>Regiões
-Disponível em todas as regiões públicas do Azure e na Cloud do Azure Government.
+Disponível em todas as regiões públicas do Azure e na nuvem do Azure governamental.
 
-### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Ativar o Accelerated Networking numa VM em execução
-Um tamanho de VM suportado sem aceleração de rede ativada só pode ter a funcionalidade ativada quando está parado e desalocado.
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Habilitando a rede acelerada em uma VM em execução
+Um tamanho de VM com suporte sem rede acelerada habilitada só pode ter o recurso habilitado quando é interrompido e desalocado.
 
-### <a name="deployment-through-azure-resource-manager"></a>Implementação através do Azure Resource Manager
-Não é possível implementar máquinas virtuais (clássico) com redes aceleradas.
+### <a name="deployment-through-azure-resource-manager"></a>Implantação por meio do Azure Resource Manager
+As máquinas virtuais (clássicas) não podem ser implantadas com rede acelerada.
 
-## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Criar um VM do Windows com redes aceleradas do Azure
+## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Criar uma VM do Windows com a rede acelerada do Azure
 ## <a name="portal-creation"></a>Criação do portal
-Embora este artigo fornece passos para criar uma máquina virtual com o funcionamento em rede acelerado com o Azure Powershell, também pode [criar uma máquina virtual com o funcionamento em rede acelerado com o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, no **criar uma máquina virtual** painel, escolha a **Networking** separador.  Neste separador, é uma opção para **Accelerated networking**.  Se tiver optado por um [sistema operativo suportado](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances), esta opção será preenchida automaticamente como "On".  Caso contrário, irá preencher a opção "Desativado" para redes aceleradas e dar ao utilizador um motivo por que ele não é possível ativar.   
-* *Nota:* Apenas os sistemas operativos suportados, pode ser ativados através do portal.  Se estiver a utilizar uma imagem personalizada e sua imagem oferece suporte a redes aceleradas, crie a VM com a CLI ou Powershell. 
+Embora este artigo forneça etapas para criar uma máquina virtual com rede acelerada usando o Azure PowerShell, você também pode [criar uma máquina virtual com rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, na folha **criar uma máquina virtual** , escolha a guia **rede** .  Nessa guia, há uma opção para **rede acelerada**.  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será preenchida automaticamente como "ativada".  Caso contrário, ele preencherá a opção "desativado" para rede acelerada e dará ao usuário um motivo pelo qual ele não está habilitado.   
+* *Nota:* Somente sistemas operacionais com suporte podem ser habilitados por meio do Portal.  Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, crie sua VM usando a CLI ou o PowerShell. 
 
-Depois da máquina virtual é criada, pode confirmar que Accelerated Networking está ativada ao seguir as instruções de confirmação que accelerated networking está ativada.
+Depois que a máquina virtual for criada, você poderá confirmar se a rede acelerada está habilitada seguindo as instruções em confirmar se a rede acelerada está habilitada.
 
-## <a name="powershell-creation"></a>Criação de PowerShell
+## <a name="powershell-creation"></a>Criação do PowerShell
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Instale [do Azure PowerShell](/powershell/azure/install-az-ps) versão 1.0.0 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable Az`. Se precisar de instalar ou atualizar, instale a versão mais recente do módulo de Az a [galeria do PowerShell](https://www.powershellgallery.com/packages/Az). Numa sessão do PowerShell, inicie sessão para uma conta do Azure com [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Instale [Azure PowerShell](/powershell/azure/install-az-ps) versão 1.0.0 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable Az`. Se você precisar instalar ou atualizar o, instale a versão mais recente do módulo AZ do [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az). Em uma sessão do PowerShell, faça logon em uma conta do Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *myNic*, e *myVM*.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Exemplos de nomes de parâmetro incluem *MyResource*, *myNic*e *myVM*.
 
-Criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* no *centralus* localização:
+Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *centralus* :
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-Em primeiro lugar, crie uma configuração de sub-rede com [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). O exemplo seguinte cria uma sub-rede denominada *mySubnet*:
+Primeiro, crie uma configuração de sub-rede com [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). O exemplo a seguir cria uma sub-rede chamada *mysubnet*:
 
 ```powershell
 $subnet = New-AzVirtualNetworkSubnetConfig `
@@ -91,7 +92,7 @@ $subnet = New-AzVirtualNetworkSubnetConfig `
     -AddressPrefix "192.168.1.0/24"
 ```
 
-Criar uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), com o *mySubnet* sub-rede.
+Crie uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), com a sub-rede *mysubnet* .
 
 ```powershell
 $vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -119,7 +120,7 @@ $rdp = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-Crie um grupo de segurança de rede com [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) e atribua a *Allow-RDP-All* regra de segurança para ele. Para além da *Allow-RDP-All* regra, o grupo de segurança de rede contém várias regras de predefinidas. Uma regra predefinida desativa todos os acessos de entrada da Internet, razão pela qual o *Allow-RDP-All* regra é atribuída ao grupo de segurança de rede para que pode ligar remotamente à máquina virtual, depois de criado.
+Crie um grupo de segurança de rede com [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) e atribua a regra de segurança *Allow-RDP-All* a ele. Além da regra *Allow-RDP-All* , o grupo de segurança de rede contém várias regras padrão. Uma regra padrão desabilita todo o acesso de entrada da Internet, motivo pelo qual a regra *Allow-RDP-All* é atribuída ao grupo de segurança de rede para que você possa se conectar remotamente à máquina virtual, depois de ela ser criada.
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -129,7 +130,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $rdp
 ```
 
-Associar o grupo de segurança de rede para o *mySubnet* sub-rede com [conjunto AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). A regra no grupo de segurança de rede está em vigor para todos os recursos implementados na sub-rede.
+Associe o grupo de segurança de rede à sub-rede *mysubnet* com [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). A regra no grupo de segurança de rede é eficaz para todos os recursos implantados na sub-rede.
 
 ```powershell
 Set-AzVirtualNetworkSubnetConfig `
@@ -139,8 +140,8 @@ Set-AzVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-## <a name="create-a-network-interface-with-accelerated-networking"></a>Criar uma interface de rede com redes aceleradas
-Criar um endereço IP público [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). Um endereço IP público não é necessário se não planeja para aceder à máquina virtual a partir da Internet, mas para concluir os passos neste artigo, é necessário.
+## <a name="create-a-network-interface-with-accelerated-networking"></a>Criar uma interface de rede com rede acelerada
+Crie um endereço IP público com [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). Um endereço IP público não é necessário se você não planeja acessar a máquina virtual pela Internet, mas para concluir as etapas neste artigo, ele é necessário.
 
 ```powershell
 $publicIp = New-AzPublicIpAddress `
@@ -150,7 +151,7 @@ $publicIp = New-AzPublicIpAddress `
     -AllocationMethod Dynamic
 ```
 
-Criar uma interface de rede com [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) com accelerated networking ativada e atribuir o endereço IP público à interface de rede. O exemplo seguinte cria uma interface de rede com o nome *myNic* no *mySubnet* sub-rede do *myVnet* rede virtual e atribui o *myPublicIp*  endereço IP público para o mesmo:
+Crie um adaptador de rede com [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) com rede acelerada habilitada e atribua o endereço IP público à interface de rede. O exemplo a seguir cria uma interface de rede chamada *myNic* na sub-rede *mysubnet* da rede virtual *MYVNET* e atribui o endereço IP público *myPublicIp* a ela:
 
 ```powershell
 $nic = New-AzNetworkInterface `
@@ -164,21 +165,21 @@ $nic = New-AzNetworkInterface `
 
 ## <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 
-Definir as credenciais da sua VM o `$cred` variável usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
+Defina suas credenciais de VM para a variável `$cred` usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Em primeiro lugar, defina a sua VM com [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). O exemplo seguinte define uma VM com o nome *myVM* com um tamanho VM que suporte redes aceleradas (*Standard_DS4_v2*):
+Primeiro, defina sua VM com [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). O exemplo a seguir define uma VM chamada *myVM* com um tamanho de VM que dá suporte à rede acelerada (*Standard_DS4_v2*):
 
 ```powershell
 $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
 ```
 
-Para obter uma lista de todos os tamanhos de VM e características, consulte [tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter uma lista de todos os tamanhos e características de VM, consulte [tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Criar o resto da sua configuração de VM com [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) e [conjunto AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). O exemplo seguinte cria uma VM do Windows Server 2016:
+Crie o restante da sua configuração de VM com [set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) e [set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). O exemplo a seguir cria uma VM do Windows Server 2016:
 
 ```powershell
 $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
@@ -194,75 +195,75 @@ $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
     -Version "latest"
 ```
 
-Anexar a interface de rede que criou anteriormente com [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
+Anexe a interface de rede que você criou anteriormente com [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
 ```powershell
 $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 
-Por fim, crie a sua VM com [New-AzVM](/powershell/module/az.compute/new-azvm):
+Por fim, crie sua VM com [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```powershell
 New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
 ```
 
-## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Confirmar que o controlador está instalado no sistema operativo
+## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Confirme se o driver está instalado no sistema operacional
 
-Depois de criar a VM no Azure, ligar à VM e confirme que o driver é instalado no Windows.
+Depois de criar a VM no Azure, conecte-se à VM e confirme se o driver está instalado no Windows.
 
-1. A partir de um browser da Internet, abra o Azure [portal](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
-2. Na caixa que contém o texto *recursos de pesquisa* na parte superior do portal do Azure, escreva *myVm*. Quando **myVm** aparece nos resultados da pesquisa, clique no mesmo. Se **Creating** está visível sob o **Connect** botão, Azure não ainda acabou de criar a VM. Clique em **Connect** no canto superior esquerdo da descrição geral do apenas depois de já não verá **criando** sob o **Connect** botão.
-3. Introduza o nome de utilizador e palavra-passe que introduziu no [criar a máquina virtual](#create-the-virtual-machine). Se nunca se ligar a uma VM do Windows no Azure, veja [ligar à máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
-4. Faça duplo clique no botão Iniciar do Windows e clique em **Gestor de dispositivos**. Expanda a **adaptadores de rede** nó. Confirme que o **adaptador de Ethernet de função Virtual Mellanox ConnectX-3** for apresentada, conforme mostrado na imagem seguinte:
+1. Em um navegador da Internet, abra o [portal](https://portal.azure.com) do Azure e entre com sua conta do Azure.
+2. Na caixa que contém os recursos de *pesquisa* de texto na parte superior da portal do Azure, digite *myVm*. Quando **myVm** aparecer nos resultados da pesquisa, clique nele. Se a **criação** estiver visível no botão **conectar** , o Azure ainda não terminou de criar a VM. Clique em **conectar** no canto superior esquerdo da visão geral somente depois de não ver mais a **criação** no botão **conectar** .
+3. Insira o nome de usuário e a senha que você inseriu em [criar a máquina virtual](#create-the-virtual-machine). Se você nunca se conectou a uma VM do Windows no Azure, consulte [conectar-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
+4. Clique com o botão direito do mouse no botão Iniciar do Windows e clique em **Device Manager**. Expanda o nó **adaptadores de rede** . Confirme se o **adaptador Ethernet de função virtual Mellanox ConnectX-3** aparece, conforme mostrado na figura a seguir:
 
-    ![Gestor de dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Gestor de Dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
 
-Funcionamento em rede acelerado está agora ativado para a sua VM.
+A rede acelerada agora está habilitada para sua VM.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>Ativar redes aceleradas em VMs existentes
-Se tiver criado uma VM sem redes aceleradas, é possível ativar esta funcionalidade numa VM existente.  A VM tem de suportar redes aceleradas cumprindo os seguintes pré-requisitos também são descritos acima:
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitar rede acelerada em VMs existentes
+Se você tiver criado uma VM sem rede acelerada, será possível habilitar esse recurso em uma VM existente.  A VM deve dar suporte à rede acelerada ao atender aos seguintes pré-requisitos que também são descritos acima:
 
-* A VM tem de ser um tamanho suportado para redes aceleradas
-* A VM tem de ser uma imagem da galeria do Azure suportados (e a versão de kernel de Linux)
-* Todas as VMs num conjunto de disponibilidade ou VMSS tem de ser parada/desalocada antes de ativar redes aceleradas em qualquer NIC
+* A VM deve ter um tamanho com suporte para rede acelerada
+* A VM deve ser uma imagem da galeria do Azure com suporte (e a versão do kernel para Linux)
+* Todas as VMs em um conjunto de disponibilidade ou VMSS devem ser interrompidas/desalocadas antes de habilitar a rede acelerada em qualquer NIC
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>Conjunto de VMs individuais e de VMs de disponibilidade
-Primeiro parar/desalocar a VM ou, se um conjunto de disponibilidade, todas as VMs no conjunto de:
+### <a name="individual-vms--vms-in-an-availability-set"></a>VMs individuais & VMs em um conjunto de disponibilidade
+Primeiro pare/Desaloque a VM ou, se houver um conjunto de disponibilidade, todas as VMs no conjunto:
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
-Importante,. tenha em atenção que se a VM foi criada individualmente, sem um conjunto de disponibilidade, só precisa parar/desalocar a VM individual para ativar a redes aceleradas.  Se a VM foi criada com um conjunto de disponibilidade, todas as VMs contidas no conjunto de disponibilidade terá de ser parada/desalocada antes de ativar redes aceleradas em qualquer uma das NICs. 
+Importante. Observe que, se a VM tiver sido criada individualmente, sem um conjunto de disponibilidade, você só precisará parar/desalocar a VM individual para habilitar a rede acelerada.  Se sua VM foi criada com um conjunto de disponibilidade, todas as VMs contidas no conjunto de disponibilidade precisarão ser interrompidas/desalocadas antes de habilitar a rede acelerada em qualquer uma das NICs. 
 
-Depois de parado, ative a Accelerated Networking na NIC da VM:
+Depois de parar, habilite a rede acelerada na NIC da VM:
 
 ```azurepowershell
-$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRMNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
-Reinicie a VM ou, se num conjunto de disponibilidade, todas as VMs no conjunto e confirme que o Accelerated Networking está ativado:
+Reinicie a VM ou, se estiver em um conjunto de disponibilidade, todas as VMs no conjunto e confirme se a rede acelerada está habilitada:
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
 ### <a name="vmss"></a>VMSS
-VMSS é ligeiramente diferente, mas segue o mesmo fluxo de trabalho.  Em primeiro lugar, pare as VMs:
+VMSS é um pouco diferente, mas segue o mesmo fluxo de trabalho.  Primeiro, pare as VMs:
 
 ```azurepowershell
 Stop-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 ```
 
-Assim que as VMs são paradas, atualize a propriedade redes aceleradas sob a interface de rede:
+Depois que as VMs forem interrompidas, atualize a propriedade de rede acelerada na interface de rede:
 
 ```azurepowershell
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
@@ -275,7 +276,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" `
     -VirtualMachineScaleSet $vmss
 ```
 
-. Tenha em atenção que um VMSS tem as atualizações VM que se aplicam a atualizações com três configurações diferentes, manuais, automática e sem interrupção.  Nestas instruções a política está definida como automático, para que a VMSS captará as alterações imediatamente após o reinício.  Defini-la como automático, para que as alterações são captadas imediatamente:
+Observe que um VMSS tem atualizações de VM que aplicam atualizações usando três configurações diferentes, automática, sem interrupção e manual.  Nessas instruções, a política é definida como automática para que o VMSS selecione as alterações imediatamente após a reinicialização.  Para defini-lo como automático para que as alterações sejam imediatamente selecionadas:
 
 ```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
@@ -292,14 +293,14 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 ```
 
-Uma vez que reinicie, espere pelas atualizações concluir e depois de concluir, a VF aparecerá dentro da VM.  (Certifique-se que estiver a utilizar um tamanho VM e de SO suportado)
+Depois de reiniciar, aguarde a conclusão das atualizações, mas depois de concluída, o FV aparecerá dentro da VM.  (Verifique se você está usando um sistema operacional com suporte e o tamanho da VM)
 
-### <a name="resizing-existing-vms-with-accelerated-networking"></a>Redimensionar VMs existentes com redes aceleradas
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Redimensionando VMs existentes com rede acelerada
 
-As VMs com redes aceleradas ativada apenas podem ser redimensionadas para VMs que suportam redes aceleradas.  
+As VMs com rede acelerada habilitada só podem ser redimensionadas para VMs que dão suporte à rede acelerada.  
 
-Uma VM com Accelerated Networking ativado não pode ser redimensionada para uma instância VM que não suporta redes aceleradas usando a operação de redimensionamento.  Em vez disso, para redimensionar um estas VMS:
+Uma VM com rede acelerada habilitada não pode ser redimensionada para uma instância de VM que não dá suporte à rede acelerada usando a operação de redimensionamento.  Em vez disso, para redimensionar uma dessas VMs:
 
-* Parar/Desalocação da VM ou em caso de um conjunto de disponibilidade/VMSS, parar/desalocar todas as VMs no conjunto/VMSS.
-* Funcionamento em rede acelerado tem de ser desativado na NIC da VM ou se estiver numa disponibilidade conjunto/VMSS, todas as VMs no conjunto/VMSS.
-* Assim que o Accelerated Networking está desativada, o conjunto de disponibilidade/da VM/VMSS podem ser movidos para um novo tamanho que não suporta redes aceleradas e reiniciado.
+* Pare/Desaloque a VM ou se estiver em um conjunto de disponibilidade/VMSS, pare/desaloque todas as VMs no conjunto/VMSS.
+* A rede acelerada deve ser desabilitada na NIC da VM ou se estiver em um conjunto de disponibilidade/VMSS, todas as VMs no conjunto/VMSS.
+* Quando a rede acelerada está desabilitada, a VM/conjunto de disponibilidade/VMSS pode ser movida para um novo tamanho que não dá suporte à rede acelerada e reiniciada.

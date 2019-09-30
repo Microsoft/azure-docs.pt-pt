@@ -1,22 +1,22 @@
 ---
-title: Identificar problemas com o recurso de diagnóstico do Windows Virtual Desktop Preview-Azure
-description: Descreve o recurso de diagnóstico de visualização de área de trabalho virtual do Windows e como usá-lo.
+title: Identificar problemas com o recurso de diagnóstico de área de trabalho virtual do Windows – Azure
+description: Descreve o recurso de diagnóstico de área de trabalho virtual do Windows e como usá-lo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163482"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676639"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas com a funcionalidade de diagnóstico
 
-A versão prévia da área de trabalho virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. As funções de área de trabalho virtual do Windows registram uma atividade de diagnóstico sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções de área de trabalho virtual do Windows envolvidas na transação, mensagens de erro, informações de locatário e informações do usuário. As atividades de diagnóstico são criadas pelo usuário final e por ações administrativas e podem ser categorizadas em três buckets principais:
+A área de trabalho virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. As funções de área de trabalho virtual do Windows registram uma atividade de diagnóstico sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções de área de trabalho virtual do Windows envolvidas na transação, mensagens de erro, informações de locatário e informações do usuário. As atividades de diagnóstico são criadas pelo usuário final e por ações administrativas e podem ser categorizadas em três buckets principais:
 
 * Atividades de assinatura do feed: o usuário final dispara essas atividades sempre que tenta se conectar ao feed por meio de aplicativos Área de Trabalho Remota da Microsoft.
 * Atividades de conexão: o usuário final dispara essas atividades sempre que tenta se conectar a um desktop ou RemoteApp por meio de aplicativos Área de Trabalho Remota da Microsoft.
@@ -136,7 +136,7 @@ Os cenários de erro são categorizados em interno ao serviço e externos à ár
 A tabela a seguir lista os erros comuns que seus administradores podem encontrar.
 
 >[!NOTE]
->Essa visualização não inclui uma categorização completa de erros e será atualizada regularmente. Para garantir que você tenha as informações mais atualizadas, certifique-se de verificar este artigo pelo menos uma vez por mês.
+>Essa lista inclui erros mais comuns e é atualizada em uma cadência regular. Para garantir que você tenha as informações mais atualizadas, certifique-se de verificar este artigo pelo menos uma vez por mês.
 
 ### <a name="external-management-error-codes"></a>Códigos de erro de gerenciamento externo
 
@@ -174,8 +174,8 @@ A tabela a seguir lista os erros comuns que seus administradores podem encontrar
 |14|UnexpectedNetworkDisconnect|A conexão com a rede foi descartada. Peça ao usuário para se conectar novamente.|
 |24|ReverseConnectFailed|A máquina virtual do host não tem uma linha de visão direta para o gateway de área de trabalho remota. Verifique se o endereço IP do gateway pode ser resolvido.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as funções na área de trabalho virtual do Windows, consulte [ambiente de visualização de área de trabalho virtual do Windows](environment-setup.md).
+Para saber mais sobre as funções na área de trabalho virtual do Windows, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
 
 Para ver uma lista de cmdlets do PowerShell disponíveis para a área de trabalho virtual do Windows, consulte a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).

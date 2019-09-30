@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a9da5089c9309ec06f29fd3e0868102cfa538049
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b5f4855c03c1c003df8f58b135cb809f1757e58f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933447"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677474"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida PersonName para um aplicativo LUIS
 A entidade de personName pré-criados Deteta os nomes de pessoas. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém personName para os objetivos do aplicativo. entidade de personName é suportada em inglês e chinês [culturas](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Resolução de entidades de personName
 
-### <a name="api-version-2x"></a>Versão da API 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
 
 O exemplo seguinte mostra a resolução do **builtin.personName** entidade.
 
@@ -44,10 +44,10 @@ O exemplo seguinte mostra a resolução do **builtin.personName** entidade.
   ]
 }
 ```
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
 
-### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
 {
@@ -69,7 +69,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
 {
@@ -103,6 +103,10 @@ O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+* * * 
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
 Saiba mais sobre o [e-mail](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md), e [ordinal](luis-reference-prebuilt-ordinal.md) entidades. 

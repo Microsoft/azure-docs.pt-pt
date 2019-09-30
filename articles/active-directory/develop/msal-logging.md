@@ -1,5 +1,5 @@
 ---
-title: Fazendo logon em aplicativos MSAL | Plataforma de identidade da Microsoft
+title: Log em aplicativos da MSAL (biblioteca de autenticação da Microsoft) | Azure
 description: Saiba mais sobre o registro em log nos aplicativos da MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dad8a276cd40b1ff04bbced833b5d70cec4fc87
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268589"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678041"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -44,14 +44,14 @@ Por padrão, o agente de log do MSAL não captura dados pessoais ou organizacion
 ## <a name="logging-in-msalnet"></a>Registrando em MSAL.NET
 
  > [!NOTE]
- > Para obter mais informações sobre MSAL.NET, confira o [wiki do MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Obtenha exemplos de registro em log do MSAL.NET e muito mais.
- 
+ > Consulte o [wiki do MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) para obter exemplos de registro em log do MSAL.net e muito mais.
+
 No MSAL 3. x, o registro em log é definido por aplicativo na criação `.WithLogging` do aplicativo usando o modificador de construtor. Esse método usa parâmetros opcionais:
 
-- O *nível* permite que você decida qual nível de log deseja. Configurá-lo como erros só receberá erros
-- O *PiiLoggingEnabled* permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais.
-- *LogCallback* é definido como um delegado que faz o registro em log. Se *PiiLoggingEnabled* for true, esse método receberá as mensagens duas vezes: uma vez com o parâmetro *containsPii* é igual a false e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro *containsPii* é igual a true e o a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
-- *DefaultLoggingEnabled* habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como verdadeiro, ele usará o rastreamento de eventos em aplicativos de desktop/UWP, NSLog no iOS e logcat no Android.
+- `Level` permite que você decida qual nível de log você deseja. Configurá-lo como erros só receberá erros
+- `PiiLoggingEnabled` permite que você registre dados pessoais e organizacionais se definidos como true. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais.
+- `LogCallback` é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez com o parâmetro `containsPii` é igual a false e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` igual a true e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
+- `DefaultLoggingEnabled` habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como verdadeiro, ele usará o rastreamento de eventos em aplicativos de desktop/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
 class Program
@@ -80,16 +80,54 @@ class Program
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>Registrando em log no MSAL. js
+## <a name="logging-in-msal-for-android-using-java"></a>Registro em log no MSAL para Android usando Java
 
- Você pode habilitar o registro em log no MSAL. js passando um objeto do agente durante a configuração `UserAgentApplication` para criar uma instância. Este objeto de agente tem as seguintes propriedades:
+Ative o logon na criação do aplicativo Criando um retorno de chamada de log. O retorno de chamada usa estes parâmetros:
+
+- `tag` é uma cadeia de caracteres passada para o retorno de chamada pela biblioteca. Ele é associado à entrada de log e pode ser usado para classificar mensagens de registro em log.
+- `logLevel` permite que você decida qual nível de log você deseja. Os níveis de log com suporte são: `Error`, `Warning`, `Info` e `Verbose`.
+- `message` é o conteúdo da entrada de log.
+- `containsPII` especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registradas. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais. Se `containsPII` for `true`, esse método receberá as mensagens duas vezes: uma vez com o parâmetro `containsPII` definido como `false` e o `message` sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` definido como `true` e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+Por padrão, o MSAL Logger não capturará nenhuma informação de identificação pessoal ou informações de identificação organizacional.
+Para habilitar o log de informações de identificação pessoal ou informações de identificação organizacional:
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+Para desabilitar o registro em log de dados pessoais e dados da organização:
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+Por padrão, o log em logcat está desabilitado. Para habilitar: 
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## <a name="logging-in-msaljs"></a>Registrando em log no MSAL. js
+
+ Habilite o registro em log no MSAL. js passando um objeto do agente durante a configuração para criar uma instância `UserAgentApplication`. Este objeto de agente tem as seguintes propriedades:
 
 - `localCallback`: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar logs de maneira personalizada. Implemente o método localCallback dependendo de como você deseja redirecionar os logs.
-
-- `level`(opcional): o nível de log configurável. Os níveis de log com suporte são: Erro, aviso, informações, detalhado. O valor padrão é info.
-
-- `piiLoggingEnabled`(opcional): permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, isso é definido como false para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como console, logcat ou NSLog. O padrão é definido como false.
-
+- `level`(opcional): o nível de log configurável. Os níveis de log com suporte são: `Error`, `Warning`, `Info` e `Verbose`. A predefinição é `Info`.
+- `piiLoggingEnabled` (opcional): se definido como true, registra dados pessoais e organizacionais. Por padrão, isso é falso para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como console, logcat ou NSLog.
 - `correlationId`(opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é RFC4122 versão 4 GUID (128 bits).
 
 ```javascript
@@ -99,7 +137,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: “<Enter your client id>”,
     },
      system: {
              logger: new Msal.Logger(
