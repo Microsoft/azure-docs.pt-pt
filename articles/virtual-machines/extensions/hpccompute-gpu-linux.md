@@ -39,8 +39,8 @@ Essa extensão dá suporte aos seguintes distribuições de sistema operacional,
 | Distribuição | Version |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6 |
-| Linux: CentOS | 7,3, 7,4, 7,5, 7,6 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -76,7 +76,7 @@ O JSON a seguir mostra o esquema para a extensão.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | Cadeia de caracteres |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
@@ -86,7 +86,7 @@ Todas as configurações são opcionais. O comportamento padrão é não atualiz
 | Name | Descrição | Default Value | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o kernel mesmo se não for necessário para a instalação do driver | false | true, false | boolean |
-| driverVersion | NV Versão do driver de grade<br> NC/ND: Versão do kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | latest | GRADE "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | Cadeia de caracteres |
+| driverVersion | NV Versão do driver de grade<br> NC/ND: Versão do kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | latest | GRADE "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale o kit de ferramentas do CUDA. Somente relevante para VMs da série NC/ND. | true | true, false | boolean |
 
 
