@@ -24,10 +24,12 @@
   items:
     - name: Ligar a recursos do Windows Virtual Desktop
       items:
-        - name: Ligar a partir do Windows 10 ou Windows 7
+        - name: Ligar ao cliente de Ambiente de Trabalho do Windows
           href: connect-windows-7-and-10.md
-        - name: Ligar a partir de um browser web
+        - name: Ligar com o cliente web
           href: connect-web.md
+        - name: Ligar ao cliente Android
+          href: connect-android.md
         - name: Ligar ao cliente de macOS
           href: connect-macos.md
         - name: Ligar ao cliente de iOS
@@ -72,6 +74,8 @@
       href: partners.md
     - name: FAQ de multissessões do Windows 10 Enterprise
       href: windows-10-multisession-faq.md
+    - name: Localizações dos dados
+      href: data-locations.md
 - name: Resolução de problemas
   items:
     - name: 'Descrição geral da resolução de problemas, comentários e suporte'

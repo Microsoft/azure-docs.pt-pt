@@ -192,106 +192,116 @@
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Referência
   items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
+    - name: Azure PowerShell
+      href: /powershell/module/az.storage
     - name: CLI do Azure
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: 'Blobs, Filas, Tabelas e Ficheiros'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
-        - name: Movimento de dados
-          href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: Resource Manager
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+        - name: 'Blobs, Filas e Ficheiros'
+          href: /dotnet/api/overview/azure/storage/client
+        - name: Fornecedor de Recursos de Armazenamento
+          href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-        - name: 'Blobs, Filas, Tabelas e Ficheiros'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
-        - name: Resource Manager
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
+        - name: 'Blobs, Filas e Ficheiros (versão 12.x - pré-visualização)'
+          href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+        - name: Fornecedor de Recursos de Armazenamento
+          href: /java/api/overview/azure/storage/management
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
+      href: /javascript/api/overview/azure/storage
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+      href: /python/api/overview/azure/storage
     - name: REST
       items:
         - name: 'Blobs, Filas, Tabelas e Ficheiros'
           href: /rest/api/storageservices
-        - name: Fornecedor de recursos
+        - name: Fornecedor de Recursos de Armazenamento
           href: /rest/api/storagerp
-        - name: Importação/Exportação
-          href: /rest/api/storageimportexport
+    - name: C++
+      href: 'https://azure.github.io/azure-storage-cpp'
+    - name: Ruby
+      href: 'https://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'https://azure.github.io/azure-storage-php/'
+    - name: iOS
+      href: 'https://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'https://azure.github.io/azure-storage-android'
     - name: Modelo do Resource Manager
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?product=storage'
-    - name: Ferramentas de cliente do Armazenamento do Azure
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Fórum
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
-    - name: Calculadora de preços
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Atualizações do Azure
+      href: 'https://azure.microsoft.com/updates/?product=storage'
     - name: Explorador do Storage do Azure
       items:
-        - name: Explorador de Armazenamento
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Transferir o Explorador de Armazenamento
+          href: 'https://azure.microsoft.com/features/storage-explorer/'
+        - name: Introdução ao Explorador de Armazenamento
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Notas de lançamento do Explorador do Armazenamento
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Resolução de Problemas do Explorador de Armazenamento
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Acessibilidade do Explorador de Armazenamento
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Pacotes NuGet
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Fórum do Armazenamento do Azure
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Armazenamento do Azure no Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Preços do armazenamento do Azure
+      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Calculadora de preços do Azure
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Pacotes NuGet (.NET)
       items:
-        - name: Biblioteca de cliente comum do Armazenamento do Azure
+        - name: Microsoft.Azure.Storage.Common (versão 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-        - name: Biblioteca de cliente do Armazenamento de Filas do Azure
+        - name: Azure.Storage.Common (versão 12.x - pré-visualização)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+        - name: Microsoft.Azure.Storage.Queue (versão 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
-        - name: Biblioteca de cliente do Movimento de Dados do Armazenamento do Azure
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure.Storage.Queue (versão 12.x - pré-visualização)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Queues/'
         - name: Gestor de Configuração do Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+        - name: Biblioteca do Movimento de Dados do Storage do Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
     - name: Código de origem
       items:
         - name: .NET
           items:
-            - name: 'Blobs, Filas e Ficheiros'
-              href: 'https://github.com/Azure/azure-storage-net'
-            - name: Fornecedor de Recursos de Armazenamento
-              href: 'https://github.com/Azure/azure-sdk-for-net'
-        - name: Node.js
-          href: 'https://azure.github.io/azure-storage-node/'
+            - name: Biblioteca de cliente do Armazenamento do Azure
+              items:
+                - name: Versão 12.x (pré-visualização)
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                - name: Versão 11.x e anteriores
+                  href: 'https://github.com/Azure/azure-storage-net'
+            - name: Biblioteca do Movimento de Dados
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: Biblioteca do Fornecedor de Recursos de Armazenamento
+              href: /dotnet/api/overview/azure/storage/management
         - name: Java
-          href: 'https://github.com/Azure/azure-storage-java'
-        - name: C++
-          href: 'https://github.com/Azure/azure-storage-cpp'
-        - name: PHP
-          href: 'https://github.com/Azure/azure-storage-php'
+          items:
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 8.x e anteriores'
+              href: 'https://github.com/Azure/azure-storage-java'
+        - name: Node.js
+          items:
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 10.x'
+              href: 'https://github.com/Azure/azure-storage-node'
         - name: Python
-          href: 'https://github.com/Azure/azure-storage-python'
-        - name: Ruby
-          href: 'https://github.com/Azure/azure-storage-ruby'
-        - name: iOS
-          href: 'https://github.com/Azure/azure-storage-ios'
+          items:
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 2.1'
+              href: 'https://github.com/Azure/azure-storage-python'
     - name: Ofertas de conformidade
       href: ../common/storage-compliance-offerings.md

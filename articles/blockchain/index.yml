@@ -1,0 +1,88 @@
+### YamlMime:Hub
+title: Documentação do Azure Blockchain
+summary: Saiba como utilizar o Azure Blockchain para desenvolver, testar e implementar aplicações de blockchain seguras.
+brand: azure
+metadata:
+  title: Documentação do Azure Blockchain
+  description: Saiba como utilizar o Azure Blockchain para desenvolver, testar e implementar aplicações de blockchain seguras.
+  services: service
+  ms.service: azure-blockchain
+  ms.topic: hub-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 09/25/2019
+  ms.openlocfilehash: 93a1e54dd2f1c209792c688666782a9c9823214b
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71328629"
+productDirectory:
+  items:
+  - title: Azure Blockchain Service
+    imageSrc: ./media/index/blockchain-service.svg
+    links:
+    - url: ./service/overview.md
+      text: O que é o Azure Blockchain Service?
+    - url: ./service/index.yml
+      text: Ver mais >
+  - title: Azure Blockchain Workbench
+    imageSrc: ./media/index/blockchain-workbench.svg
+    links:
+    - url: ./workbench/overview.md
+      text: O que é o Azure Blockchain Workbench?
+    - url: ./workbench/index.yml
+      text: Ver mais >
+conceptualContent:
+  title: Introdução
+  items:
+  - title: Compilar e desenvolver com redes de blockchain de consórcio
+    links:
+    - url: ./service/create-member.md
+      itemType: quickstart
+      text: Implementar um membro de blockchain do Azure Blockchain Service
+    - url: ./service/send-transaction.md
+      itemType: tutorial
+      text: Seguir um tutorial e escrever um contrato inteligente
+    - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+      itemType: video
+      text: Ver como implementar e configurar a sua rede
+    - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+      itemType: video
+      text: Ver como escrever um contrato inteligente com o VS Code
+  - title: Criar o protótipo de uma solução de blockchain
+    links:
+    - url: ./workbench/deploy.md
+      itemType: how-to-guide
+      text: Implementar o Azure Blockchain Workbench
+    - url: ./workbench/create-app.md
+      itemType: tutorial
+      text: Seguir um tutorial e criar uma aplicação do Blockchain Workbench
+    - url: ./workbench/integration-patterns.md
+      itemType: concept
+      text: Saiba como integrar soluções com o Blockchain Workbench
+    - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
+      itemType: video
+      text: Ver como criar a sua primeira aplicação
+  - title: Criar com o livro razão adequado ao seu caso de utilização
+    links:
+    - url: ./templates/ethereum-poa-deployment.md
+      itemType: how-to-guide
+      text: Implementar uma rede Ethereum de Prova de Autoridade de consórcio com vários membros no Azure
+    - url: ./templates/hyperledger-fabric-consortium-blockchain.md
+      itemType: how-to-guide
+      text: Implementar uma rede de consórcio do Hyperledger Fabric no Azure
+additionalContent:
+  sections:
+  - title: Ferramentas e exemplos de desenvolvimento
+    summary: Exemplos de código e ferramentas de desenvolvimento de aplicações do Blockchain.
+    items:
+    - title: Development Kit do Azure Blockchain para o Ethereum
+      summary: Desenvolva, implemente a depuração e faça a gestão da sua solução do Azure Blockchain Service.
+      url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
+    - title: Conector de Blockchain do Ethereum
+      summary: Utilize o Azure Logic Apps, Microsoft Flow e Microsoft PowerApps para realizar ações de contrato inteligente como, por exemplo, submeter transações, ler o estado do contrato e acionar fluxos relativamente a atualizações de contrato.
+      url: https://docs.microsoft.com/connectors/blockchainethereum/
+    - title: Exemplos de código
+      summary: Repositório do GitHub com exemplos de código para começar.
+      url: https://github.com/Azure-Samples/blockchain

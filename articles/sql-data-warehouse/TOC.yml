@@ -78,7 +78,7 @@
         - name: Autenticação
           items:
             - name: Descrição geral
-              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Inícios de sessão e utilizadores
@@ -92,7 +92,7 @@
             - name: Segurança ao nível da coluna
               href: column-level-security.md
             - name: Segurança ao Nível da Linha
-              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
+              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Proteção de dados
           items:
             - name: Descrição geral de Encriptação de Dados Transparente (TDE)
@@ -234,9 +234,9 @@
     - name: Proteger
       items:
         - name: Configurar a autenticação do Azure AD
-          href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Acesso Condicional
-          href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Regras de rede virtual pelo PowerShell
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Ativar a encriptação - portal
@@ -338,7 +338,7 @@
     - name: T-SQL
       items:
         - name: Referência completa
-          href: /sql/t-sql/language-reference
+          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Elementos de linguagem do SQL DW
           href: sql-data-warehouse-reference-tsql-language-elements.md
         - name: Instruções do SQL DW

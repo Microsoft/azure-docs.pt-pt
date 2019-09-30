@@ -448,6 +448,8 @@
           href: sql-database-geo-replication-portal.md
         - name: Configurar a segurança das réplicas geográficas
           href: sql-database-geo-replication-security-config.md
+        - name: Configurar o grupo de ativação pós-falha
+          href: sql-database-configure-failover-group.md
         - name: Experimentar as funcionalidades dentro da memória
           href: sql-database-in-memory-sample.md
         - name: Ativar o ajuste automático

@@ -44,9 +44,9 @@
           href: go-tutorial-object-detection.md
 - name: Tutoriais
   items:
-    - name: Aplicação de Alertas Visuais de IoT
+    - name: Comunicar estados visuais no dispositivo IoT
       href: iot-visual-alerts-tutorial.md
-    - name: Detetor de logótipo para dispositivos móveis
+    - name: Reconhecer logótipos em dispositivos móveis
       href: logo-detector-mobile.md
 - name: Guias de procedimentos
   items:

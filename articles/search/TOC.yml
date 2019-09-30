@@ -249,6 +249,8 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Ligar com o Power BI
               href: knowledge-store-connect-power-bi.md
+        - name: Resolução de problemas de melhoramento
+          href: cognitive-search-common-errors-warnings.md
     - name: Consultar documentos
       items:
         - name: Tipos de consulta e composição

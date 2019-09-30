@@ -89,6 +89,12 @@
       href: traffic-manager-powershell-arm.md
     - name: Apontar o domínio da Internet para o Gestor de Tráfego
       href: traffic-manager-point-internet-domain.md
+    - name: Substituição de sub-rede
+      items:
+        - name: Configurar a substituição de sub-rede - CLI do Azure
+          href: traffic-manager-subnet-override-cli.md
+        - name: Configurar a substituição de sub-rede - PowerShell
+          href: traffic-manager-subnet-override-powershell.md
     - name: Resolução de problemas
       items:
         - name: Resolução de problemas do estado degradado no Gestor de Tráfego do Azure

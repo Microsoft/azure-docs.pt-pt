@@ -8,47 +8,29 @@
       href: durable/durable-functions-overview.md
     - name: Comparação sem servidor
       href: functions-compare-logic-apps-ms-flow-webjobs.md
+    - name: Opções do plano de alojamento
+      href: functions-scale.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar função - Visual Studio Code
-      href: functions-create-first-function-vs-code.md
-    - name: Criar função - Visual Studio
+    - name: 'Criar função - C#'
       href: functions-create-your-first-function-visual-studio.md
     - name: Criar função - Java/Maven
       href: functions-create-first-java-maven.md
-    - name: Criar função - Python
-      href: functions-create-first-function-python.md
+    - name: Criar função - JavaScript
+      href: functions-create-first-function-vs-code.md
     - name: Criar função - PowerShell
       href: functions-create-first-function-powershell.md
-    - name: Criar função - CLI do Azure
-      href: functions-create-first-azure-function-azure-cli.md
-    - name: Criar função - portal
-      href: functions-create-first-azure-function.md
-    - name: Criar função - Linux
-      href: functions-create-first-azure-function-azure-cli-linux.md
-    - name: Acionadores
+    - name: Criar função - Python
+      href: functions-create-first-function-python.md
+    - name: Ligar aos serviços
       items:
-        - name: Azure Cosmos DB
-          href: functions-create-cosmos-db-triggered-function.md
-        - name: Armazenamento de blobs
-          href: functions-create-storage-blob-triggered-function.md
-        - name: Armazenamento de filas
-          href: functions-create-storage-queue-triggered-function.md
-        - name: Temporizador
-          href: functions-create-scheduled-function.md
-    - name: Integrar
-      items:
-        - name: Azure Cosmos DB
-          href: functions-integrate-store-unstructured-data-cosmosdb.md
+        - name: 'Armazenamento - C#'
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Armazenamento - JavaScript
+          href: functions-add-output-binding-storage-queue-vs-code.md
         - name: Armazenamento - Python
           href: functions-add-output-binding-storage-queue-python.md
-        - name: Armazenamento - portal
-          href: functions-integrate-storage-queue-output-binding.md
-        - name: Armazenamento - Visual Studio Code
-          href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Armazenamento - Visual Studio
-          href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutoriais
   items:
     - name: Funções com Aplicações Lógicas
@@ -77,10 +59,12 @@
       items:
         - name: 'C#'
           href: /samples/browse/?products=azure-functions&languages=csharp
-        - name: JavaScript
-          href: /samples/browse/?products=azure-functions&languages=javascript
         - name: Java
           href: /samples/browse/?products=azure-functions&languages=java
+        - name: JavaScript
+          href: /samples/browse/?products=azure-functions&languages=javascript
+        - name: PowerShell
+          href: /samples/browse/?products=azure-functions&languages=azurepowershell
         - name: Python
           href: /samples/browse/?products=azure-functions&languages=python
         - name: TypeScript
@@ -92,8 +76,6 @@
     - name: Comparar as versões 1.x e 2.x
       href: functions-versions.md
       displayName: 'migrate, migration'
-    - name: Dimensionamento e alojamento
-      href: functions-scale.md
     - name: Plano Premium
       href: functions-premium-plan.md
     - name: Implementações
@@ -142,6 +124,7 @@
       href: functions-consumption-costs.md
     - name: Considerações de desempenho
       href: functions-best-practices.md
+      displayName: best practice
     - name: Proxies de Funções
       href: functions-proxies.md
     - name: Opções de redes
@@ -156,36 +139,75 @@
       items:
         - name: Guia para programadores
           href: functions-reference.md
-        - name: Testar funções
-          href: functions-test-a-function.md
-        - name: Programar e depurar localmente
-          href: functions-develop-local.md
-        - name: Desenvolvimento do Visual Studio Code
-          href: functions-develop-vs-code.md
-        - name: Desenvolvimento do Visual Studio
-          href: functions-develop-vs.md
-        - name: Desenvolvimento de Ferramentas de Núcleo
-          href: functions-run-local.md
-        - name: Desenvolvimento do IntelliJ IDEA
-          href: functions-create-maven-intellij.md
-        - name: Desenvolvimento em Eclipse
-          href: functions-create-maven-eclipse.md
-        - name: Criar aplicação de funções do Linux
-          href: create-function-app-linux-app-service-plan.md
-        - name: Depurar funções locais do PowerShell
-          href: functions-debug-powershell-local.md
+        - name: Desenvolvimento local
+          items:
+            - name: Programar e depurar localmente
+              href: functions-develop-local.md
+            - name: Desenvolvimento do Visual Studio Code
+              href: functions-develop-vs-code.md
+            - name: Desenvolvimento do Visual Studio
+              href: functions-develop-vs.md
+            - name: Desenvolvimento de Ferramentas de Núcleo
+              href: functions-run-local.md
+        - name: Criar funções
+          items:
+            - name: Acionador HTTP
+              items:
+                - name: Portal do Azure
+                  href: functions-create-first-azure-function.md
+                - name: Linha de comandos
+                  href: functions-create-first-azure-function-azure-cli.md
+                - name: Visual Studio
+                  href: create-visual-studio.md
+                - name: Visual Studio Code
+                  href: create-visual-studio-code.md
+                - name: Java com o Eclipse
+                  href: functions-create-maven-eclipse.md
+                - name: Java com o IntelliJ IDEA
+                  href: functions-create-maven-intellij.md
+                - name: Plano do Serviço de Aplicações do Linux
+                  href: create-function-app-linux-app-service-plan.md
+                - name: Plano de Consumo em Linux
+                  href: functions-create-first-azure-function-azure-cli-linux.md
+                - name: Azure for Students Starter
+                  href: functions-create-student-starter.md
+            - name: Acionador do Azure Cosmos DB
+              href: functions-create-cosmos-db-triggered-function.md
+            - name: Acionador do armazenamento de blobs
+              href: functions-create-storage-blob-triggered-function.md
+            - name: Acionador do armazenamento de filas
+              href: functions-create-storage-queue-triggered-function.md
+            - name: Acionador de temporizador
+              href: functions-create-scheduled-function.md
+        - name: Adicionar enlaces
+          items:
+            - name: Azure Cosmos DB - portal
+              href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Armazenamento - Python
+              href: add-output-binding-storage-queue-python.md
+            - name: Armazenamento - portal
+              href: functions-integrate-storage-queue-output-binding.md
+            - name: Armazenamento - Visual Studio Code
+              href: add-output-binding-storage-queue-vs-code.md
+            - name: Armazenamento - Visual Studio
+              href: add-output-binding-storage-queue-vs.md
+        - name: Depurar e testar
+          items:
+            - name: Testar funções
+              href: functions-test-a-function.md
+            - name: Depurar funções locais do PowerShell
+              href: functions-debug-powershell-local.md
+            - name: Depurar o acionador do Event Grid localmente
+              href: functions-debug-event-grid-trigger-local.md
         - name: Injeção de dependência
           href: functions-dotnet-dependency-injection.md
         - name: Gerir ligações
           href: manage-connections.md
+          displayName: best practice
         - name: Processamento de erros
           href: functions-bindings-error-pages.md
         - name: Executar manualmente uma função não acionada por HTTP
           href: functions-manually-run-non-http.md
-        - name: Depurar o acionador do Event Grid localmente
-          href: functions-debug-event-grid-trigger-local.md
-        - name: Azure for Students Starter
-          href: functions-create-student-starter.md
     - name: Implementação
       items:
         - name: Implementação contínua
@@ -249,6 +271,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Integrar
       items:
+        - name: Adicionar enlaces
+          items:
+            - name: Azure Cosmos DB - portal
+              href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Armazenamento - Python
+              href: functions-add-output-binding-storage-queue-python.md
+            - name: Armazenamento - portal
+              href: functions-integrate-storage-queue-output-binding.md
+            - name: Armazenamento - Visual Studio Code
+              href: functions-add-output-binding-storage-queue-vs-code.md
+            - name: Armazenamento - Visual Studio
+              href: functions-add-output-binding-storage-queue-vs.md
         - name: Ligar à Base de dados SQL
           href: functions-scenario-database-table-cleanup.md
         - name: Ligar a uma Rede Virtual

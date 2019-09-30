@@ -1,0 +1,39 @@
+### YamlMime:Landing
+title: Documentação dos grupos de gestão do Azure
+summary: Os grupos de gestão do Azure ajudam-no a organizar os seus recursos e subscrições.
+metadata:
+  title: Documentação dos grupos de gestão do Azure
+  description: Os grupos de gestão do Azure ajudam-no a organizar os seus recursos e subscrições.
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 9d91baaec7f1bd0e365f86ea07174d6f9e32725c
+  ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71341050"
+landingContent:
+- title: Acerca da Governação do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral dos serviços de gestão no Azure
+      url: ../azure-management.md
+- title: Acerca dos grupos de gestão do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Grupos de gestão do Azure
+      url: ./overview.md
+- title: Organizar os seus recursos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar grupos de gestão
+      url: ./create.md
+    - text: Gerir os seus recursos
+      url: ./manage.md

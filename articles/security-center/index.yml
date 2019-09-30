@@ -1,88 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Centro de Segurança do Azure
+summary: O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças avançada entre cargas de trabalho na cloud híbrida.
 metadata:
-  title: 'Documentação do Centro de Segurança do Azure - Tutoriais, Referência da API | Microsoft Docs'
-  meta.description: 'Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..'
+  title: Documentação do Centro de Segurança do Azure
+  description: Comece a utilizar o Centro de Segurança, saiba como proteger as suas cargas de trabalho, limitar os riscos e detetar e responder a ataques com os nossos inícios rápidos e tutoriais.
   services: security-center
-  author: cmcclister
-  manager: carolz
   ms.service: security-center
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/26/18
-  ms.author: cmcclister
-abstract:
-  description: 'O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças avançada entre cargas de trabalho na cloud híbrida. Saiba como começar a utilizar o Centro de Segurança, aplicar políticas de segurança pelas suas cargas de trabalho, limitar a sua exposição a ameaças e detetar e responder a ataques com os nossos inícios rápidos e tutoriais.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Saiba como integrar as suas VMs e computadores no Centro de Segurança e ligar as suas soluções de segurança.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /media/common/i_subscription.svg
-            text: Integrar subscrições do Azure
-            href: /azure/security-center/security-center-get-started
-          - image:
-              src: /media/logos/logo_Windows.svg
-            text: Integrar computadores Windows
-            href: /azure/security-center/quick-onboard-windows-computer
-          - image:
-              src: /media/logos/logo_linux.svg
-            text: Integrar computadores do Linux
-            href: /azure/security-center/quick-onboard-linux-computer
-          - image:
-              src: /media/common/i_multi-connect.svg
-            text: Ligar soluções de segurança
-            href: /azure/security-center/quick-security-solutions
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como definir políticas de segurança, proteger os seus recursos em relação a atividades maliciosas e responder a alertas de segurança e de incidentes.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/security-center/tutorial-security-policy">Definir e avaliar as políticas de segurança</a>
-          - html: <a href="/azure/security-center/tutorial-protect-resources">Proteger os seus recursos</a>
-          - html: <a href="/azure/security-center/tutorial-security-incident">Responder a alertas de segurança</a>
-  - title: Desenvolva as suas competências com o Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: "\_\_Introdução à Segurança no Azure"
-            href: /learn/modules/intro-to-security-in-azure/
-            image:
-              src: /learn/achievements/intro-to-security-in-azure.svg
-              href: /learn/modules/intro-to-security-in-azure/
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Mais aprendizagem interativa...</a>
-  - title: Vídeo de Formação Gratuita
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Simplifique a proteção dos recursos da cloud com o Centro de Segurança do Azure - Ignite 2018
-            href: 'https://youtu.be/0txX1Y0GXDc'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_azure.svg'
-              href: 'https://youtu.be/0txX1Y0GXDc'
-          - title: Proteger cargas de trabalho de servidor com o Centro de Segurança do Azure - Ignite 2018
-            href: 'https://youtu.be/Kb_xeIJVROo'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_azure.svg'
-              href: 'https://youtu.be/Kb_xeIJVROo'
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://docs.microsoft.com/rest/api/securitycenter/">Referência da API REST</a>'
-          - html: '<a href="https://azure.microsoft.com/updates/?product=security-center">Atualizações de serviço</a>'
+  ms.collection: collection
+  author: memildin
+  ms.author: memildin
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 8574c69221d1f0f0528a0ab9b8d27df4ca9a0ef0
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71327610"
+landingContent:
+- title: Sobre o Centro de Segurança
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Quais são as principais capacidades do Centro de Segurança?
+      url: security-center-intro.md
+    - text: Que versões do Windows Server e do Linux são suportadas?
+      url: security-center-os-coverage.md
+- title: Introdução
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Configurar as suas políticas de segurança
+      url: tutorial-security-policy.md
+    - text: Ajustar as definições do Centro de Segurança
+      url: security-center-policies-overview.md
+    - text: Avaliar a sua postura de segurança
+      url: security-center-secure-score.md
+    - text: Atualizar para a segurança avançada
+      url: security-center-onboarding.md
+    - text: Integrar com outros produtos de segurança do Azure
+      url: security-center-alerts-integration.md
+- title: Melhorar a sua pontuação segura
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: O que é uma classificação de segurança?
+      url: security-center-secure-score.md
+    - text: Remediar recomendações de segurança
+      url: security-center-remediate-recommendations.md
+    - text: Personalizar as suas recomendações de segurança
+      url: tutorial-security-policy.md
+    - text: Utilizar as recomendações para melhorar a segurança
+      url: security-center-using-recommendations.md
+- title: Migrar ameaças
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir o acesso just-in-time
+      url: security-center-just-in-time.md
+    - text: Configurar controlos de aplicação adaptáveis
+      url: security-center-adaptive-application.md
+    - text: Implementar a Proteção de Rede Ajustável
+      url: security-center-adaptive-network-hardening.md

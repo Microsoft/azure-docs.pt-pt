@@ -80,6 +80,8 @@
         - name: Configurar o acesso aos nós de computação
           href: pool-endpoint-configuration.md
         - name: Criar um conjunto com o Shared Image Gallery
+          href: batch-sig-images.md
+        - name: Criar um conjunto com um recurso de imagem gerida
           href: batch-custom-images.md
         - name: Criar um conjunto numa rede virtual
           href: batch-virtual-network.md
