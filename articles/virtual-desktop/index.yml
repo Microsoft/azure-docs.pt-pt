@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação da Pré-visualização do Windows Virtual Desktop
+title: Documentação do Windows Virtual Desktop
 metadata:
-  title: 'Documentação da Pré-visualização do Windows Virtual Desktop - Tutoriais, inícios rápidos, referências de API | Microsoft Docs'
-  description: A Pré-visualização do Windows Virtual Desktop para o Azure é uma experiência virtualizada do Windows 10 Enterprise com vários utilizadores na cloud.
+  title: 'Documentação do Windows Virtual Desktop - Tutoriais, inícios rápidos, referências de API | Microsoft Docs'
+  description: O Windows Virtual Desktop para o Azure é uma experiência virtualizada do Windows 10 Enterprise para vários utilizadores na cloud.
   author: Heidilohr
   manager: daveba
   ms.service: virtual-desktop
@@ -17,11 +17,11 @@ sections:
   - title: Descrição geral
     items:
       - type: paragraph
-        text: 'Saiba mais sobre a Pré-visualização do Windows Virtual Desktop e como usá-lo. Tutoriais, guias de instruções, conteúdos de referência e muito mais mostram-lhe como configurar conjuntos de anfitrião e inquilinos, bem como atribuir funções a utilizadores para o seu ambiente do Windows Virtual Desktop.'
+        text: 'Saiba mais sobre o Windows Virtual Desktop e como usá-lo. Tutoriais, guias de instruções, conteúdos de referência e muito mais mostram-lhe como configurar conjuntos de anfitrião e inquilinos, bem como atribuir funções a utilizadores para o seu ambiente do Windows Virtual Desktop.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/virtual-desktop/overview">O que é a Pré-visualização do Windows Virtual Desktop?</a>
+          - html: <a href="/azure/virtual-desktop/overview">O que é o Windows Virtual Desktop?</a>
   - title: Tutoriais Passo-a-Passo
     items:
       - type: paragraph

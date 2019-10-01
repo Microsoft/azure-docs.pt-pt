@@ -183,6 +183,8 @@
       items:
         - name: 'Blobs, Filas e Ficheiros (versão 12.x - pré-visualização)'
           href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+        - name: 'Blobs, Filas e Ficheiros (versão 8)'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
         - name: Fornecedor de Recursos de Armazenamento
           href: /java/api/overview/azure/storage/management
     - name: Node.js
@@ -282,8 +284,10 @@
           href: 'https://www.nuget.org/packages/Azure.Storage.Files/'
         - name: Gestor de Configuração do Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
-        - name: Biblioteca do Movimento de Dados do Storage do Azure
+        - name: Biblioteca do Movimento de Dados do Armazenamento do Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Biblioteca do Fornecedor de Recursos de Armazenamento
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
     - name: Código de origem
       items:
         - name: .NET
@@ -297,7 +301,7 @@
             - name: Biblioteca do Movimento de Dados
               href: 'https://github.com/Azure/azure-storage-net-data-movement'
             - name: Biblioteca do Fornecedor de Recursos de Armazenamento
-              href: /dotnet/api/overview/azure/storage/management
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
         - name: Java
           items:
             - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'

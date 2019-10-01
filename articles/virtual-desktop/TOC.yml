@@ -38,6 +38,8 @@
       href: create-host-pools-arm-template.md
     - name: Criar um conjunto de anfitriões com o PowerShell
       href: create-host-pools-powershell.md
+    - name: Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
+      href: deploy-windows-7-virtual-machine.md
     - name: Aplicar a licença do Windows a anfitriões de sessões do Windows Virtual Desktop
       href: apply-windows-license.md
     - name: Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
@@ -86,6 +88,8 @@
       href: troubleshoot-set-up-issues.md
     - name: Configuração da máquina virtual do anfitrião da sessão
       href: troubleshoot-vm-configuration.md
+    - name: Resolução de problemas das máquinas virtuais do Windows 7 no Windows Virtual Desktop
+      href: troubleshoot-windows-7-vm.md
     - name: Ligações cliente do Ambiente de Trabalho Remoto
       href: troubleshoot-client-connection.md
     - name: Windows Virtual Desktop PowerShell

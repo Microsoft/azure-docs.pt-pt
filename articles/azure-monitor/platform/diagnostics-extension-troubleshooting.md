@@ -261,7 +261,7 @@ O agente de monitoramento coleta logs e artefatos `.tsf` como arquivos. O `.tsf`
 Um novo arquivo chamado `<relevantLogFile>.csv` é criado no mesmo caminho que o arquivo correspondente `.tsf` .
 
 >[!NOTE]
-> Você só precisa executar esse utilitário no arquivo. TSF principal (por exemplo, PerformanceCountersTable. TSF). Os arquivos que o acompanham (por exemplo\*, PerformanceCountersTables_\*001. TSF\*, PerformanceCountersTables_\*002. TSF e assim por diante) são processados automaticamente.
+> Você só precisa executar esse utilitário no arquivo. TSF principal (por exemplo, PerformanceCountersTable. TSF). Os arquivos que o acompanham (por exemplo, PerformanceCountersTables_\*\*001. TSF, PerformanceCountersTables_\*\*002. TSF e assim por diante) são processados automaticamente.
 
 ### <a name="more-about-missing-trace-logs"></a>Mais sobre logs de rastreamento ausentes
 
@@ -298,5 +298,5 @@ A experiência do portal nas máquinas virtuais mostra determinados contadores d
 
 - Se os dados no armazenamento têm nomes de contadores em inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não conseguirá reconhecê-lo. **Mitigação**: Altere o idioma do computador para inglês para contas do sistema. Para fazer isso, selecione**região** > do **painel** > de controle**configurações de cópia** **administrativa** > . Em seguida, desmarque a **tela de boas-vindas e as contas do sistema** para que o idioma personalizado não seja aplicado à conta do sistema.
 
-- Se você estiver usando curingas (\*) em seus nomes de contadores de desempenho, o portal não poderá correlacionar o contador configurado e coletado quando os contadores de desempenho forem enviados para o coletor de armazenamento do Azure. **Mitigação**: Para ter certeza de que você pode usar curingas e fazer com que o\*portal expanda o (), encaminhe seus contadores de desempenho para o [coletor "Azure monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
+- Se você estiver usando curingas (\*) em seus nomes de contadores de desempenho, o portal não poderá correlacionar o contador configurado e coletado quando os contadores de desempenho forem enviados para o coletor de armazenamento do Azure. **Mitigação**: Para ter certeza de que você pode usar curingas e fazer com que o portal expanda o (\*), encaminhe seus contadores de desempenho para o [coletor "Azure monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
 
