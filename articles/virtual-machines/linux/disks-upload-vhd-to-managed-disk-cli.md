@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 938f1696c95f8feb9aeebd28139870e3ce020613
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326825"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695450"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carregar um VHD no Azure usando o CLI do Azure
 
@@ -32,7 +32,7 @@ Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrã
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
 
-Para carregar o VHD no Azure, você precisará criar um disco gerenciado vazio que esteja especificamente configurado para esse processo de carregamento. Antes de criar uma, há algumas informações adicionais que você deve saber sobre esses discos.
+Para carregar o VHD no Azure, você precisará criar um disco gerenciado vazio que esteja configurado para esse processo de carregamento. Antes de criar uma, há algumas informações adicionais que você deve saber sobre esses discos.
 
 Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
@@ -43,7 +43,7 @@ Em qualquer um desses Estados, o disco gerenciado será cobrado no preço de [HD
 
 Antes de criar um HDD padrão vazio para carregamento, você precisará ter o tamanho do arquivo do VHD que deseja carregar, em bytes. Para obtê-lo, você pode usar `wc -c <yourFileName>.vhd` ou `ls -al <yourFileName>.vhd`. Esse valor é usado ao especificar o parâmetro **--upload-size-bytes** .
 
-Crie um HDD padrão vazio para carregamento, especificando o parâmetro **-– para-upload** e o parâmetro **--upload-size-bytes** em um cmdlet [Create de disco](/cli/azure/disk#az-disk-create) :
+Crie um HDD padrão vazio para carregamento, especificando o parâmetro **-– para-upload** e o parâmetro **--upload-size-bytes** em um cmdlet Create de [disco](/cli/azure/disk#az-disk-create) :
 
 ```azurecli-interactive
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs

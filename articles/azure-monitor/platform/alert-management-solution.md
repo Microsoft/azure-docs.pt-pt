@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2f195f648f08c31fbfe44543ee763aeed7459f0
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741270"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702972"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
 ![Ícone de gestão de alertas](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  O Azure Monitor agora dá suporte a recursos aprimorados para [gerenciar seus alertas em escala](https://aka.ms/azure-alerts-overview), incluindo aqueles gerados por [ferramentas de monitoramento, como SCOM, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  O Azure Monitor agora dá suporte a recursos aprimorados para [gerenciar seus alertas em escala](https://aka.ms/azure-alerts-overview), incluindo aqueles gerados por [ferramentas de monitoramento como System Center Operations Manager, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -74,7 +74,7 @@ Clique nas **gestão de alertas** mosaico para abrir o **gestão de alertas** da
 |:--- |:--- |
 | Alertas Críticos |Todos os alertas com uma gravidade de crítico agrupado por nome do alerta.  Clique num nome de alerta para executar uma pesquisa de registos que devolva todos os registos para esse alerta. |
 | Alertas de Aviso |Todos os alertas com uma gravidade de aviso, agrupada por nome do alerta.  Clique num nome de alerta para executar uma pesquisa de registos que devolva todos os registos para esse alerta. |
-| Alertas SCOM Ativos |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
+| Alertas do Active System Center Operations Manager |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
 | Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupados por nome do alerta. Inclui apenas alertas do Operations Manager com qualquer Estado diferente de *fechado*. |
 
 Se se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar uma [pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para dados de alertas.

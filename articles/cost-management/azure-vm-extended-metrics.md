@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e1d0beb6ced0d582166d556c1ae2fc17b375dddf
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66242456"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695368"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas expandidas para máquinas virtuais do Azure
 
@@ -28,10 +28,10 @@ Depois de ativar a recolha de métrica, pode:
 - Controle os custos de dimensionamento de acordo com a utilização.
 - Obter o custo Efetivo dimensionamento recomendações de otimização do Cloudyn.
 
-Por exemplo, pode querer monitorizar a % de CPU e memória % das suas VMs do Azure. As métricas de VM do Azure correspondem ao _percentual de CPU_ e _\Memory\% de bytes confirmados em uso_.
+Por exemplo, pode querer monitorizar a % de CPU e memória % das suas VMs do Azure. As métricas de VM do Azure correspondem à _porcentagem de CPU_ e _\Memory @ No__t-2 bytes confirmados em uso_.
 
 > [!NOTE]
-> Recolha de dados de métrica expandida só é suportada com a monitorização ao nível do convidado do Azure. Cloudyn não é compatível com a extensão de VM de logs de Azure Monitor.
+> Recolha de dados de métrica expandida só é suportada com a monitorização ao nível do convidado do Azure. Cloudyn não é compatível com o [agente de log Analytics](../azure-monitor/platform/agents-overview.md). 
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar se métricas expandidas estão ativadas
 
@@ -44,7 +44,7 @@ No exemplo anterior, um conjunto limitado de métricas standard estão disponív
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Ativar métricas expandidas no portal do Azure
 
-Métricas padrão são métricas de computador do anfitrião. A métrica _percentual de CPU_ é um exemplo. Também existem métricas básicas para máquinas virtuais convidadas e também são chamados métricas expandidas. Exemplos de métricas estendidas _incluem\% \Memory bytes confirmados em uso_ e _\ Mbytes bytes_.
+Métricas padrão são métricas de computador do anfitrião. A métrica _percentual de CPU_ é um exemplo. Também existem métricas básicas para máquinas virtuais convidadas e também são chamados métricas expandidas. Exemplos de métricas estendidas incluem _\Memory @ no__t-1 bytes confirmados em uso_ e _\ Mbytes bytes_.
 
 Ativar as métricas expandidas é simples. Para cada VM, ative a monitorização de ao nível do convidado. Quando ativa a monitorização ao nível do convidado, o agente de diagnóstico do Azure está instalado na VM. Por predefinição, são adicionadas um conjunto básico de métricas expandidas. O seguinte processo é o mesmo para as VMs clássicas e regulares e o mesmo para Windows e VMs do Linux.
 

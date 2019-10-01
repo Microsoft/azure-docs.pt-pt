@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de kubernetes com contêineres, microservices e Java no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 28b6a2ecff756c878bb3bc0a69976e7cede5f7ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 160787ba9766d27f9497b4fd6822fc5bc25cd4ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772661"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695523"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Depurar e iterar com Visual Studio Code e Java em kubernetes usando Azure Dev Spaces
 
@@ -25,6 +25,10 @@ Neste guia, vai aprender a:
 - Desenvolver o código em contêineres iterativamente usando Visual Studio Code.
 - Depure o código em seu espaço de desenvolvimento de Visual Studio Code.
 
+Azure Dev Spaces também permite depurar e iterar usando:
+- [Node. js e Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core e Visual Studio Code](quickstart-netcore.md)
+- [.NET Core e Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +119,7 @@ Clique em *depurar* e em *parar depuração* para interromper o depurador.
 Para implantar uma versão atualizada do serviço, você pode atualizar qualquer arquivo em seu projeto e executar novamente o *programa Java de inicialização (AZDS)* . Por exemplo:
 
 1. Se seu aplicativo ainda estiver em execução, clique em *depurar* e *interrompa a depuração* para interrompê-la.
-1. Atualize a [linha 19 `src/main/java/com/ms/sample/webfrontend/Application.java` em](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) para:
+1. Atualize a [linha 19 no `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) para:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -136,7 +140,7 @@ Abra seu serviço em um navegador e observe que nenhuma mensagem é exibida. Ret
 
 Ao executar o serviço no kubernetes com um depurador anexado, você tem acesso completo para depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Remova o ponto de interrupção colocando o cursor na linha 19 `src/main/java/com/ms/sample/webfrontend/Application.java` em e pressionando *F9*.
+Remova o ponto de interrupção colocando o cursor na linha 19 em `src/main/java/com/ms/sample/webfrontend/Application.java` e pressionando *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Atualizar código de Visual Studio Code
 

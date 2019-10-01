@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Pipelines do Machine Learning para pontuação em lote'
+title: 'Tutorial: Pipelines ML para pontuação em lote'
 titleSuffix: Azure Machine Learning
 description: Crie um pipeline de Machine Learning para executar a pontuação em lote em um modelo de classificação de imagem no Azure Machine Learning. Os pipelines do Machine Learning otimizam seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que você possa se concentrar em sua experiência-aprendizado de máquina, em vez de infraestrutura e automação.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: 978cfa7926e7a035494aae11351c15a45c0251e4
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350444"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695618"
 ---
-# <a name="use-a-machine-learning-pipeline-for-batch-scoring"></a>Usar um pipeline de Machine Learning para Pontuação de lote
+# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Criar & usar um pipeline de Azure Machine Learning para Pontuação de lote
 
 Neste tutorial, você usa um pipeline no Azure Machine Learning para executar um trabalho de pontuação em lotes. O exemplo usa o modelo de Tensorflow de rede neural do intitulada pretreinado [-v3](https://arxiv.org/abs/1512.00567) para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configura um ponto de extremidade REST que pode ser usado para disparar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
 

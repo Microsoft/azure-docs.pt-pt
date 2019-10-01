@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 198ce98808c8a62a839d154c365518c9e8263056
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 734389c92ede88d336df60a1a79a738d2abcfa92
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619903"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703169"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar dados de expressão antes ou durante a predição
 LUIS fornece maneiras de manipular a expressão antes ou durante a predição. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos. 
@@ -37,6 +37,8 @@ O ponto final requer dois parâmetros para correção ortográfica será trabalh
 
 Quando [Bing ortográfica verificar a API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) Deteta um erro, a expressão original e a expressão corrigido são devolvidos juntamente com predições do ponto final.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+
 ```JSON
 {
   "query": "Book a flite to London?",
@@ -48,9 +50,29 @@ Quando [Bing ortográfica verificar a API V7](https://azure.microsoft.com/servic
   "entities": []
 }
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
  
+```JSON
+{
+    "query": "Book a flite to London?",
+    "prediction": {
+        "normalizedQuery": "book a flight to london?",
+        "topIntent": "BookFlight",
+        "intents": {
+            "BookFlight": {
+                "score": 0.780123
+            }
+        },
+        "entities": {},
+    }
+}
+```
+
+* * * 
+
 ### <a name="list-of-allowed-words"></a>Lista de palavras permitidas
-A API de verificação ortográfica do Bing usada em LUIS não dá suporte a uma lista (também chamada de lista de permissões) de palavras a serem ignoradas durante as alterações de verificação ortográfica. Se você precisar permitir uma lista de palavras ou acrônimos, processe o expressão no aplicativo cliente antes de enviar o expressão para LUIS para previsão de intenção.
+A API de verificação ortográfica do Bing usada em LUIS não dá suporte a uma lista de palavras a serem ignoradas durante as alterações de verificação ortográfica. Se você precisar permitir uma lista de palavras ou acrônimos, processe o expressão no aplicativo cliente antes de enviar o expressão para LUIS para previsão de intenção.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Altere o fuso horário da entidade de datetimeV2 pré-criados
 Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinida, um valor DateTime pode ser retornado na resposta de previsão. O fuso horário do pedido é utilizado para determinar a datetime correta para retornar. Se a solicitação é proveniente de um bot ou outra aplicação centralizada antes de aceder à LUIS, corrija o fuso horário que utiliza o LUIS. 
@@ -65,6 +87,8 @@ O fuso horário é corrigido adicionando fuso de horário do utilizador para o [
 ### <a name="daylight-savings-example"></a>Exemplo de economia de hora de Verão
 Se precisar do datetimeV2 pré-criados retornado para ajustar para o horário de Verão, deve usar o `timezoneOffset` parâmetro de cadeia de consulta com um + /-valor em minutos para o [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) consulta.
 
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 solicitação de ponto de extremidade de previsão](#tab/V2)
+
 Adicione a 60 minutos: 
 
 https://{Region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=Turn as luzes acesas? **timezoneOffset = 60**& verboso = {booleano} & verificação ortográfica = {booleano} & de teste = {booleano} & como bing-ortográfica-check-subscription-key = {string} de e & xecução = {booleano}
@@ -72,6 +96,20 @@ https://{Region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=Turn as lu
 Remova 60 minutos: 
 
 https://{Region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=Turn as luzes acesas? **timezoneOffset = a 60**& verboso = {booleano} & verificação ortográfica = {booleano} & de teste = {booleano} & como bing-ortográfica-check-subscription-key = {string} de e & xecução = {booleano}
+
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Solicitação de ponto de extremidade de previsão v3](#tab/V3)
+
+Adicione a 60 minutos:
+
+https://{região}. API. cognitiva. Microsoft. com/Luis/v 3.0-Preview/apps/{appId}/Slots/produção/previsão? consulta = ativar as luzes? **timezoneOffset = 60**& verificação ortográfica = {booliano} & Bing-grafia-check-Subscription-Key = {string} & log = {Boolean}
+
+Remova 60 minutos: 
+
+https://{região}. API. cognitiva. Microsoft. com/Luis/v 3.0-Preview/apps/{appId}/Slots/produção/previsão? consulta = ativar as luzes? **timezoneOffset =-60**& verificação ortográfica = {booliano} & Bing-grafia-check-Subscription-Key = {string} & log = {Boolean}
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+
+* * * 
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>O código c# determina o valor correto de timezoneOffset
 O código do c# seguinte utiliza a [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) da classe [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) método para determinar o correto `timezoneOffset` com base na hora do sistema:

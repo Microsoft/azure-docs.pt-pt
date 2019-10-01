@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981244"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703279"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do data warehouse
 
@@ -24,7 +24,7 @@ ms.locfileid: "69981244"
 > Este artigo aplica-se ao SQL Server do Azure e ao banco de dados SQL e SQL Data Warehouse bancos que são criados no SQL Server do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Este artigo não se aplica a **instância gerenciada do banco de dados SQL do Azure**. para obter mais informações sobre a configuração de rede, consulte [conectando-se a um instância gerenciada](sql-database-managed-instance-connect-app.md) .
+> Este artigo não *se aplica* a **instância gerenciada do banco de dados SQL do Azure**. para obter mais informações sobre a configuração de rede, consulte [conectando-se a um instância gerenciada](sql-database-managed-instance-connect-app.md) .
 
 Quando você cria uma nova SQL Server [do Azure do portal do Azure](sql-database-single-database-get-started.md), o resultado é um ponto de extremidade público no formato *yourservername.Database.Windows.net*. Por design, todo o acesso ao ponto de extremidade público é negado. Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso ao banco de dados SQl por meio do ponto de extremidade público
 - Permitir serviços do Azure:-quando definido como ativado, outros recursos dentro do limite do Azure, por exemplo, uma máquina virtual do Azure, podem acessar o banco de dados SQL
@@ -72,7 +72,9 @@ O firewall baseado em IP é um recurso do Azure SQL Server que impede todo o ace
 ## <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
 Além das regras de IP, o firewall de SQL Server do Azure permite que você defina *regras de rede virtual*.  
-Para saber mais, consulte [pontos de extremidade de serviço de rede virtual e regras para o banco de dados SQL do Azure](sql-database-vnet-service-endpoint-rule-overview.md).
+Para saber mais, consulte [pontos de extremidade de serviço de rede virtual e regras para o banco de dados SQL do Azure](sql-database-vnet-service-endpoint-rule-overview.md) ou assista a este vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### <a name="azure-networking-terminology"></a>Terminologia de rede do Azure  
 Esteja atento aos seguintes termos de rede do Azure ao explorar as regras de firewall de rede virtual
@@ -88,7 +90,7 @@ Esteja atento aos seguintes termos de rede do Azure ao explorar as regras de fir
 
 ## <a name="ip-vs-virtual-network-firewall-rules"></a>IP vs. Regras de firewall de rede virtual
 
-O Firewall do Azure SQL Server permite que você especifique os intervalos de endereços IP dos quais as comunicações são aceitas no banco de dados SQL. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. No entanto, as máquinas virtuais (VMs) na rede privada do Azure são configuradas com endereços IP dinâmicos. Os endereços IP dinâmicos podem mudar quando sua VM é reiniciada e, por sua vez, invalidar a regra de firewall baseada em IP. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall em um ambiente de produção.
+O Firewall do Azure SQL Server permite que você especifique os intervalos de endereços IP dos quais as comunicações são aceitas no banco de dados SQL. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. No entanto, as máquinas virtuais (VMs) na rede privada do Azure são configuradas com endereços IP *dinâmicos* . Os endereços IP dinâmicos podem mudar quando sua VM é reiniciada e, por sua vez, invalidar a regra de firewall baseada em IP. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall em um ambiente de produção.
 
 Você pode contornar essa limitação obtendo um endereço IP *estático* para sua VM. Para obter detalhes, consulte [configurar endereços IP privados para uma máquina virtual usando o portal do Azure] [VM-configure-Private-IP-addresses-for-a-virtual-machine-using-the-Azure-portal-321w]. No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é dispendiosa quando feita em escala. 
 
@@ -97,7 +99,7 @@ As regras de rede virtual são uma alternativa mais fácil de estabelecer e gere
 > [!NOTE]
 > Você ainda não pode ter o banco de dados SQL em uma sub-rede. Se o servidor do banco de dados SQL do Azure era um nó em uma sub-rede em sua rede virtual, todos os nós na rede virtual podem se comunicar com o banco de dados SQL. Nesse caso, suas VMs podem se comunicar com o banco de dados SQL sem a necessidade de nenhuma regra de rede virtual ou regras de IP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter um guia de início rápido sobre como criar uma regra de firewall de IP no nível de servidor, consulte [criar um banco de dados SQL do Azure](sql-database-single-database-get-started.md).
 
@@ -105,7 +107,7 @@ As regras de rede virtual são uma alternativa mais fácil de estabelecer e gere
 
 - Para obter ajuda com a conexão com um banco de dados SQL do Azure de software livre ou aplicativos de terceiros, consulte [exemplos de código de início rápido do cliente para banco de dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Para obter informações sobre portas adicionais que talvez precisem ser abertas, consulte **o banco de dados SQL: Fora do vs** Inside seção de [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Para obter informações sobre portas adicionais que talvez precisem ser abertas, consulte o banco de dados **SQL: Fora do vs dentro da seção @ no__t-0 de [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 - Para obter uma visão geral da conectividade do banco de dados SQL do Azure, consulte [arquitetura de conectividade do SQL do Azure](sql-database-connectivity-architecture.md)
 

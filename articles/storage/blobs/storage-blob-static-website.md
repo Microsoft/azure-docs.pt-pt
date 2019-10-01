@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 9a751956f73ca4a88545e034a32d699c0766dd1d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855367"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710164"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estática no armazenamento do Azure
 
@@ -44,7 +44,7 @@ Você pode usar qualquer uma dessas ferramentas para carregar conteúdo no cont�
 > * [AZCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensão de Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Extensão de Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Exibindo conteúdo
 
@@ -56,11 +56,11 @@ Os usuários podem exibir o conteúdo do site de um navegador usando a URL públ
 |**CLI do Azure** | [Localize a URL do site usando o CLI do Azure](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Módulo Azure PowerShell** | [Localizar a URL do site usando o PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-A URL do seu site contém um código regional. Por exemplo, a `https://contosoblobaccount.z22.web.core.windows.net/` URL contém código `z22`regional.
+A URL do seu site contém um código regional. Por exemplo, a URL `https://contosoblobaccount.z22.web.core.windows.net/` contém código regional `z22`.
 
 Embora esse código deva permanecer na URL, ele é apenas para uso interno, e você não precisará usar esse código de nenhuma outra maneira.
 
-O documento de índice especificado quando você habilita a hospedagem de site estático é exibido quando os usuários abrem o site e não especificam um arquivo específico `https://contosoblobaccount.z22.web.core.windows.net`(por exemplo:).  
+O documento de índice especificado quando você habilita a hospedagem de site estático é exibido quando os usuários abrem o site e não especificam um arquivo específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 Se o servidor retornar um erro 404 e você não tiver especificado um documento de erro ao habilitar o site, uma página 404 padrão será retornada ao usuário.
 
@@ -74,9 +74,9 @@ A captura de tela a seguir mostra a configuração de nível de acesso público 
 
 Embora o ponto de extremidade de site estático primário não seja afetado, uma alteração no nível de acesso público afeta o ponto de extremidade do serviço blob primário.
 
-Por exemplo, se você alterar o nível de acesso público do contêiner de **$Web** de **privado (sem acesso anônimo)** para **BLOB (acesso de leitura anônimo para BLOBs somente)** , o nível de acesso público ao ponto de extremidade `https://contosoblobaccount.z22.web.core.windows.net/index.html`desiteestáticoprimárionão é alterado.
+Por exemplo, se você alterar o nível de acesso público do contêiner de **$Web** de **privado (sem acesso anônimo)** para **BLOB (acesso de leitura anônimo para BLOBs somente)** , o nível de acesso público ao ponto de extremidade de site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` Não é alterado.
 
-No entanto, o acesso público ao ponto de extremidade `https://contosoblobaccount.blob.core.windows.net/$web/index.html` do serviço blob primário muda de particular para público. Agora, os usuários podem abrir esse arquivo usando qualquer um desses dois pontos de extremidade.
+No entanto, o acesso público ao ponto de extremidade do serviço blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de particular para público. Agora, os usuários podem abrir esse arquivo usando qualquer um desses dois pontos de extremidade.
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Suporte à CDN (rede de distribuição de conteúdo) e ao Secure Socket Layer (SSL)
 
@@ -105,7 +105,7 @@ Você pode habilitar métricas em páginas de site estáticos. Depois de habilit
 
 Para habilitar as métricas em suas páginas de site estáticos, consulte [habilitar métricas em páginas de site estático](storage-blob-static-website-how-to.md#metrics).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Hospedar um site estático no armazenamento do Azure](storage-blob-static-website-how-to.md)
 * [Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)
@@ -113,4 +113,4 @@ Para habilitar as métricas em suas páginas de site estáticos, consulte [habil
 * [Funções do Azure](/azure/azure-functions/functions-overview)
 * [Serviço de Aplicações do Azure](/azure/app-service/overview)
 * [Crie seu primeiro aplicativo Web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* [Tutorial: Hospede seu domínio no DNS do Azure @ no__t-0

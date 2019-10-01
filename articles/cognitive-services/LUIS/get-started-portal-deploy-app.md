@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257082"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703225"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: Implantar um aplicativo no portal do LUIS
 
@@ -34,7 +34,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
 1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/).
 
-1. Selecione o sinal **+** verde no painel superior esquerdo. `Cognitive Services` Pesquise no Marketplace e selecione-o.
+1. Selecione o sinal verde **+** no painel superior esquerdo. Pesquise `Cognitive Services` no Marketplace e selecione-o.
 
 1. Configure a assinatura com as seguintes configurações:
 
@@ -69,7 +69,7 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
    ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Localize a nova linha na tabela e copie o URL de ponto final. Ele é construído corretamente para fazer uma `HTTP GET` solicitação ao ponto de extremidade da API do Luis para uma previsão.
+1. Localize a nova linha na tabela e copie o URL de ponto final. Ele é construído corretamente para fazer uma solicitação `HTTP GET` para o ponto de extremidade da API do LUIS para uma previsão.
 
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 
@@ -85,51 +85,58 @@ Treine o aplicativo quando você estiver pronto para testá-lo. Publique o aplic
 
 1. Na página **configurações de chaves e ponto de extremidade** , localize a lista de recursos atribuídos e as URLs de ponto de extremidade correspondentes na parte inferior.
 
-1. Selecione a URL do ponto de extremidade associada ao novo nome do recurso. Essa ação abre um navegador da Web com uma URL construída corretamente para fazer `GET` uma solicitação para o tempo de execução de ponto de extremidade de previsão.
+1. Selecione a URL do ponto de extremidade associada ao novo nome do recurso. Essa ação abre um navegador da Web com uma URL construída corretamente para fazer uma solicitação `GET` para o tempo de execução de ponto de extremidade de previsão.
 
-1. O `q=` no final da URL é curto para a **consulta** e é onde o expressão do usuário é anexado à solicitação get. Após o `q=`, insira o mesmo usuário expressão usado no final do início rápido anterior:
+## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 
-    ```Is there a form named hrf-234098```
+<!-- V3FIX -->
 
-    O navegador mostra a resposta, que é o mesmo JSON que seu aplicativo cliente receberá:
+O `q=` no final da URL é curto para a **consulta** e é onde o expressão do usuário é acrescentado à solicitação get. Após o `q=`, insira o mesmo usuário expressão usado no final do início rápido anterior:
 
-    ```JSON
+```Is there a form named hrf-234098```
+
+O navegador mostra a resposta, que é o mesmo JSON que seu aplicativo cliente receberá:
+
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    Essa resposta fornece mais informações do que o painel de teste padrão no tutorial anterior. Para ver esse mesmo nível de informação no painel de teste, você deve publicar o aplicativo. Depois que o aplicativo for publicado, selecione **comparar com publicado** no painel de teste. Use a **exibição mostrar JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual no qual está trabalhando com um aplicativo que é publicado no ponto de extremidade.
+Essa resposta fornece mais informações do que o painel de teste padrão no tutorial anterior. Para ver esse mesmo nível de informação no painel de teste, você deve publicar o aplicativo. Depois que o aplicativo for publicado, selecione **comparar com publicado** no painel de teste. Use a **exibição mostrar JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual no qual está trabalhando com um aplicativo que é publicado no ponto de extremidade.
 
-    [![Comparar a edição atual versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare atualmente edição versus versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você terminar este guia de início rápido, selecione **meus aplicativos** no menu de navegação superior. Marque a caixa de seleção do aplicativo na lista e, em seguida, selecione **excluir** na barra de ferramentas de contexto acima da lista.
 
-[![Excluir aplicativo da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[aplicativo ![Exclua da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

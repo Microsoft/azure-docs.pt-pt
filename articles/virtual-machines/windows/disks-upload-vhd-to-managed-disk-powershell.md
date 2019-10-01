@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: cd8c5b174d92edcf69801edaeabd0c0730985654
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 5b7c612d349c3f596487db4af025e5e599b6589c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326923"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694786"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Carregar um VHD no Azure usando o Azure PowerShell
 
@@ -31,7 +31,7 @@ Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrã
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
 
-Para carregar o VHD no Azure, você precisará criar um disco gerenciado vazio que esteja especificamente configurado para esse processo de carregamento. Antes de criar uma, há algumas informações adicionais que você deve saber sobre esses discos.
+Para carregar o VHD no Azure, você precisará criar um disco gerenciado vazio que esteja configurado para esse processo de carregamento. Antes de criar uma, há algumas informações adicionais que você deve saber sobre esses discos.
 
 Esse tipo de disco gerenciado tem dois Estados exclusivos:
 

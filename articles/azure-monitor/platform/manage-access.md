@@ -1,6 +1,6 @@
 ---
 title: Gerenciar espaços de trabalho do Log Analytics no Azure Monitor | Microsoft Docs
-description: Você pode gerenciar o acesso aos dados armazenados em um Log Analytics espaços de trabalho no Azure Monitor usando permissões de recurso, espaço de trabalho ou nível de tabela. Este artigo fornece detalhes sobre como.
+description: Você pode gerenciar o acesso aos dados armazenados em um espaço de trabalho do Log Analytics no Azure Monitor usando permissões de recurso, espaço de trabalho ou nível de tabela. Este artigo fornece detalhes sobre como concluí-los.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 9bf278b76846b98f58126957c589df87524bb8a4
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034719"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695011"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar o acesso a dados de log e espaços de trabalho no Azure Monitor
 
@@ -42,7 +42,7 @@ Você pode exibir o modo de controle de acesso configurado em um espaço de trab
 
 * Modelo Azure Resource Manager
 
-### <a name="from-the-azure-portal"></a>Da portal do Azure
+### <a name="from-the-azure-portal"></a>da portal do Azure
 
 Você pode exibir o modo de controle de acesso do espaço de trabalho atual na página **visão geral** do espaço de trabalho no menu **log Analytics espaço de trabalho** .
 
@@ -73,7 +73,7 @@ DefaultWorkspace21532: False
 Um valor de `False` significa que o espaço de trabalho está configurado com o modo de acesso de contexto de espaço de trabalho.  Um valor de `True` significa que o espaço de trabalho está configurado com o modo de acesso de contexto de recurso.
 
 > [!NOTE]
-> Se um espaço de trabalho for retornado sem um valor booliano e estiver em branco, isso também corresponderá aos resultados de um `False` valor.
+> Se um espaço de trabalho for retornado sem um valor booliano e estiver em branco, isso também corresponderá aos resultados de um valor `False`.
 >
 
 Use o script a seguir para definir o modo de controle de acesso para um espaço de trabalho específico para a permissão de contexto de recurso:
@@ -176,7 +176,7 @@ A função de Contribuidor do Log Analytics inclui as seguintes ações do Azure
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Ver a chave da conta de armazenamento. Necessária para configurar o Log Analytics para ler registos a partir das contas de Armazenamento do Azure |
 | `Microsoft.Insights/alertRules/*` | Adicionar, atualizar e remover regras de alertas |
 | `Microsoft.Insights/diagnosticSettings/*` | Adicionar, atualizar e remover as definições de diagnósticos em recursos do Azure |
-| `Microsoft.OperationalInsights/*` | Adicionar, atualizar e remover a configuração de Log Analytics espaços de trabalho. Para editar as configurações avançadas do espaço de `Microsoft.OperationalInsights/workspaces/write`trabalho, as necessidades do usuário. |
+| `Microsoft.OperationalInsights/*` | Adicionar, atualizar e remover a configuração de Log Analytics espaços de trabalho. Para editar as configurações avançadas do espaço de trabalho, o usuário precisa `Microsoft.OperationalInsights/workspaces/write`. |
 | `Microsoft.OperationsManagement/*` | Adicionar e remover soluções de gestão |
 | `Microsoft.Resources/deployments/*` | Criar e eliminar as implementações. Necessário para adicionar e remover soluções, áreas de trabalho e contas de automatização |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Criar e eliminar as implementações. Necessário para adicionar e remover soluções, áreas de trabalho e contas de automatização |
@@ -200,7 +200,7 @@ Quando os usuários consultam logs de um espaço de trabalho usando acesso de co
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de exibir todos os dados de log para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de definir a configuração de diagnóstico para permitir a configuração de logs para este recurso. |
 
-`/read`Normalmente, a permissão é concedida de uma _\*_ função que inclui  _\*/Read ou_ permissões, como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Observe que as funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
+a permissão `/read` geralmente é concedida de uma função que inclui as permissões _\*/ler ou_ _\*_ , como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Observe que as funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
 
 Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo se você quiser criar um controle de acesso diferente para tabelas diferentes.
 
@@ -210,32 +210,40 @@ Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo s
 
     * Configurar o modo de controle de acesso do espaço de trabalho para **usar permissões de espaço de trabalho ou recurso**
 
-    * Conceda `*/read` usuários `Microsoft.Insights/logs/*/read` ou permissões a seus recursos. Se eles já tiverem sido atribuídos à função [leitor de log Analytics](../../role-based-access-control/built-in-roles.md#reader) no espaço de trabalho, será suficiente.
+    * Conceda permissões `*/read` ou `Microsoft.Insights/logs/*/read` aos usuários para seus recursos. Se eles já tiverem sido atribuídos à função [leitor de log Analytics](../../role-based-access-control/built-in-roles.md#reader) no espaço de trabalho, será suficiente.
 
 2. Para conceder a um usuário acesso aos dados de log de seus recursos e configurar seus recursos para enviar logs para o espaço de trabalho, execute o seguinte:
 
     * Configurar o modo de controle de acesso do espaço de trabalho para **usar permissões de espaço de trabalho ou recurso**
 
-    * Conceda aos usuários as seguintes permissões no espaço `Microsoft.OperationalInsights/workspaces/read` de `Microsoft.OperationalInsights/workspaces/sharedKeys/action`trabalho: e. Com essas permissões, os usuários não podem executar nenhuma consulta no nível do espaço de trabalho.
+    * Conceda aos usuários as seguintes permissões no espaço de trabalho: `Microsoft.OperationalInsights/workspaces/read` e `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Com essas permissões, os usuários não podem executar nenhuma consulta no nível do espaço de trabalho. Eles só podem enumerar o espaço de trabalho e usá-lo como um destino para configurações de diagnóstico ou configuração do agente.
 
-    * Conceda aos usuários as seguintes permissões para seus `Microsoft.Insights/logs/*/read` recursos `Microsoft.Insights/diagnosticSettings/write`: e. Se eles já tiverem sido atribuídos à função de [colaborador de log Analytics](../../role-based-access-control/built-in-roles.md#contributor) nesse recurso, isso será suficiente.
+    * Conceda aos usuários as seguintes permissões para seus recursos: `Microsoft.Insights/logs/*/read` e `Microsoft.Insights/diagnosticSettings/write`. Se eles já tiverem sido atribuídos à função de [colaborador de log Analytics](../../role-based-access-control/built-in-roles.md#contributor) , atribuída a função de leitor ou permissões de `*/read` concedidas a esse recurso, isso será suficiente.
 
-3. Para conceder a um usuário acesso aos dados de log de seus recursos, Leia todos os dados de log da solução do Azure AD e leia Gerenciamento de Atualizações, execute o seguinte:
+3. Para conceder a um usuário acesso aos dados de log de seus recursos sem a capacidade de ler eventos de segurança e enviar dados, execute o seguinte:
+
+    * Configurar o modo de controle de acesso do espaço de trabalho para **usar permissões de espaço de trabalho ou recurso**
+
+    * Conceda aos usuários as seguintes permissões para seus recursos: `Microsoft.Insights/logs/*/read`.
+
+    * Adicione a seguinte não ação para impedir que os usuários leiam o tipo SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read`. A não ação deve estar na mesma função personalizada que a ação que fornece a permissão de leitura (`Microsoft.Insights/logs/*/read`). Se o usuário inerente à ação de leitura de outra função atribuída a esse recurso ou à assinatura ou ao grupo de recursos, ele poderá ler todos os tipos de log. Isso também é verdadeiro se eles herdam `*/read` que existem por exemplo, com a função leitor ou colaborador.
+
+4. Para conceder a um usuário acesso a dados de log de seus recursos e ler todos os dados de logon do Azure AD e ler Gerenciamento de Atualizações de log da solução no espaço de trabalho, execute o seguinte:
 
     * Configurar o modo de controle de acesso do espaço de trabalho para **usar permissões de espaço de trabalho ou recurso**
 
     * Conceda aos usuários as seguintes permissões no espaço de trabalho: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– necessário para que o uso possa enumerar o espaço de trabalho e abrir a folha do espaço de trabalho no portal do Azure
-        * `Microsoft.OperationalInsights/workspaces/query/read`– necessário para cada usuário que pode executar consultas
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– para poder ler os logs de entrada do Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– para poder ler Gerenciamento de Atualizações logs da solução
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– para poder ler Gerenciamento de Atualizações logs da solução
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– para poder ler os logs de gerenciamento de atualizações
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– necessário para poder usar a solução Gerenciamento de Atualizações
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– necessário para poder usar a solução Gerenciamento de Atualizações
+        * `Microsoft.OperationalInsights/workspaces/read` – necessário para que o uso possa enumerar o espaço de trabalho e abrir a folha do espaço de trabalho no portal do Azure
+        * `Microsoft.OperationalInsights/workspaces/query/read` – obrigatório para cada usuário que pode executar consultas
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – para poder ler os logs de entrada do Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – para poder ler Gerenciamento de Atualizações logs de solução
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – para poder ler Gerenciamento de Atualizações logs de solução
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – para poder ler os logs de gerenciamento de atualizações
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – necessário para poder usar a solução Gerenciamento de Atualizações
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – necessário para poder usar a solução Gerenciamento de Atualizações
 
-    * Conceda aos usuários as seguintes permissões para seus `*/read` recursos `Microsoft.Insights/logs/*/read`: ou. Se eles forem atribuídos à função [leitor de log Analytics](../../role-based-access-control/built-in-roles.md#reader) no espaço de trabalho, será suficiente.
+    * Conceda aos usuários as seguintes permissões para seus recursos: `*/read`, atribuído à função de leitor ou `Microsoft.Insights/logs/*/read`. 
 
 ## <a name="table-level-rbac"></a>RBAC de nível de tabela
 
@@ -289,7 +297,7 @@ Para criar uma função com acesso somente a _SecurityBaseline_ e nenhuma outra 
 * Os proprietários do espaço de trabalho são tratados como qualquer outro usuário para o controle de acesso por tabela.
 * Você deve atribuir funções a grupos de segurança em vez de usuários individuais para reduzir o número de atribuições. Isso também ajudará você a usar as ferramentas de gerenciamento de grupo existentes para configurar e verificar o acesso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados de computadores no seu datacenter ou outro ambiente de cloud.
 

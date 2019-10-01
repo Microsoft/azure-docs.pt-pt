@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558893"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709434"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
 
@@ -45,11 +45,11 @@ A seguir estão as configurações que podem ser definidas para controlar a cole
 |----|----------|------|------------|
 |`schema-version` |Cadeia de caracteres (diferencia maiúsculas de minúsculas) |v1 |Esta é a versão do esquema usada pelo agente ao analisar este ConfigMap. A versão de esquema com suporte atualmente é v1. Não há suporte para a modificação desse valor e ele será rejeitado quando ConfigMap for avaliado.|
 |`config-version` |Cadeia | | Dá suporte à capacidade de controlar a versão deste arquivo de configuração no sistema/repositório do controle do código-fonte. Os caracteres máximos permitidos são 10 e todos os outros caracteres são truncados. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | verdadeiro ou falso | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stdout.exclude_namespaces` (configuração abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
+|`[log_collection_settings.stdout] enabled =` |Booleano | true ou false | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stdout.exclude_namespaces` (configuração abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
 |`[log_collection_settings.stdout] exclude_namespaces =`|Cadeia | Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stdout não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` o for definido `true`como. Se não for especificado em ConfigMap, o valor padrão `exclude_namespaces = ["kube-system"]`será.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | verdadeiro ou falso |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stderr.exclude_namespaces` (configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
+|`[log_collection_settings.stderr] enabled =` |Booleano | true ou false |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stderr.exclude_namespaces` (configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Cadeia |Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` o for definido `true`como. Se não for especificado em ConfigMap, o valor padrão `exclude_namespaces = ["kube-system"]`será. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | verdadeiro ou falso | Isso controla se a coleção de variáveis de ambiente está habilitada. Quando definido como `false`, nenhuma variável de ambiente é coletada para qualquer contêiner em execução em todos os pods/nós no cluster. Se não for especificado em ConfigMap, o valor padrão `enabled = true`será. |
+| `[log_collection_settings.env_var] enabled =` |Booleano | true ou false | Isso controla se a coleção de variáveis de ambiente está habilitada. Quando definido como `false`, nenhuma variável de ambiente é coletada para qualquer contêiner em execução em todos os pods/nós no cluster. Se não for especificado em ConfigMap, o valor padrão `enabled = true`será. |
 
 ### <a name="prometheus-scraping-settings"></a>Configurações de recorte de Prometheus
 
@@ -75,8 +75,8 @@ Quando uma URL é especificada, Azure Monitor para contêineres apenas captura o
 | Em todo o cluster | | | | Especifique qualquer um dos três métodos a seguir para recorte de pontos de extremidade para métricas. |
 | | `urls` | Cadeia | Matriz separada por vírgulas | Ponto de extremidade HTTP (endereço IP ou caminho de URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE _IP é um Azure Monitor específico para o parâmetro containers e pode ser usado em vez do endereço IP do nó. Deve estar tudo em maiúsculas.) |
 | | `kubernetes_services` | Cadeia | Matriz separada por vírgulas | Uma matriz de serviços Kubernetess para recorte de métricas de métricas de Kube-State. Por exemplo,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Booleano | verdadeiro ou falso | Quando definido como `true` nas configurações de todo o cluster, Azure monitor para o agente de contêineres irá recriar o pods kubernetes em todo o cluster para as seguintes anotações Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | verdadeiro ou falso | Habilita a recorte do pod. `monitor_kubernetes_pods`deve ser definido como `true`. |
+| | `monitor_kubernetes_pods` | Booleano | true ou false | Quando definido como `true` nas configurações de todo o cluster, Azure monitor para o agente de contêineres irá recriar o pods kubernetes em todo o cluster para as seguintes anotações Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Booleano | true ou false | Habilita a recorte do pod. `monitor_kubernetes_pods` deve ser definido como `true`. |
 | | `prometheus.io/scheme` | Cadeia | http ou https | O padrão é a sucateação sobre HTTP. Se necessário, defina como `https`. | 
 | | `prometheus.io/path` | Cadeia | Matriz separada por vírgulas | O caminho do recurso HTTP para o qual buscar métricas. Se o caminho de métrica não `/metrics`for, defina-o com esta anotação. |
 | | `prometheus.io/port` | Cadeia | 9102 | Especifique uma porta para escuta. Se a porta não estiver definida, o padrão será 9102. |
@@ -163,7 +163,7 @@ Os erros impedem que o omsagent analise o arquivo, fazendo com que ele seja rein
 
 ## <a name="applying-updated-configmap"></a>Aplicando ConfigMap atualizado
 
-Se você já tiver implantado um ConfigMap em seu cluster e quiser atualizá-lo com uma configuração mais recente, poderá editar o arquivo ConfigMap que você usou anteriormente e, em seguida, aplicar usando o `kubectl apply -f <configmap_yaml_file.yaml`mesmo comando que antes,.
+Se você já tiver implantado um ConfigMap em seu cluster e quiser atualizá-lo com uma configuração mais recente, poderá editar o arquivo ConfigMap que você usou anteriormente e, em seguida, aplicar usando o mesmo comando que antes, `kubectl apply -f <configmap_yaml_file.yaml`.
 
 A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" updated`.
 
@@ -187,6 +187,22 @@ A saída será exibida de forma semelhante à seguinte com a anotação Schema-V
 ```
 
 ## <a name="review-prometheus-data-usage"></a>Examinar o uso de dados do Prometheus
+
+Para exibir as métricas de Prometheus recortadas por Azure Monitor, especifique "Prometheus" como o namespace. Aqui está uma consulta de exemplo para exibir as métricas de Prometheus do namespace `default` kubernetes.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+Os dados de Prometheus também podem ser consultados diretamente por nome.
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
 
 Para identificar o volume de ingestão de cada tamanho de métrica em GB por dia para entender se ele é alto, a consulta a seguir é fornecida.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 318df27ebb822f49c1f8881d0bf68ac7167dea36
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351292"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695151"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -55,23 +55,37 @@ Quando você cria uma base de dados de conhecimento, a seção **popular a KB** 
 
 ![Caixa de seleção para habilitar a extração de vários desligamentos](../media/conversational-context/enable-multi-turn.png)
 
-Quando você seleciona essa opção para um documento importado, a conversa de troca múltipla pode ser implícita na estrutura do documento. Se essa estrutura existir, QnA Maker criará o aviso de acompanhamento de perguntas e respostas de pares para você como parte do processo de importação. 
+Quando você seleciona essa opção, a conversa de troca múltipla pode ser implícita na estrutura do documento. Se essa estrutura existir, QnA Maker criará o aviso de acompanhamento de perguntas e respostas de pares para você como parte do processo de importação. 
 
 A estrutura de vários folheios pode ser inferida apenas de URLs, arquivos PDF ou arquivos DOCX. Para obter um exemplo de estrutura, exiba uma imagem de um [arquivo PDF manual do usuário do Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Devido ao tamanho desse arquivo PDF, o recurso QnA Maker requer um tipo de **preço de pesquisa** de **B** (15 índices) ou superior. 
 
 ![! [Exemplo de estrutura em um manual do usuário] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-Quando você importa o documento PDF, QnA Maker determina os prompts de acompanhamento da estrutura para criar o fluxo de conversação. 
+### <a name="determine-multi-turn-structure-from-format"></a>Determinar a estrutura de vários folheios a partir do formato
 
-1. Em QnA Maker, selecione **criar uma base de dados de conhecimento**.
-1. Crie ou use um serviço de QnA Maker existente. No exemplo anterior de superfície da Microsoft, como o arquivo PDF é muito grande para uma camada menor, use um serviço de QnA Maker com um **serviço de pesquisa** de **B** (15 índices) ou superior.
-1. Insira um nome para sua base de dados de conhecimento, como **manual de superfície**.
-1. Marque a caixa de seleção **habilitar extração de vários desligamentos de URLs,. pdf ou. docx** . 
-1. Selecione a URL manual da superfície, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
+QnA Maker determina a estrutura de vários folheios de:
 
-1. Selecione o botão **criar seu KB** . 
+* Tamanho da fonte do cabeçalho – se você usar estilo, cor ou algum outro mecanismo para implicar a estrutura em seu documento, QnA Maker não extrairá os prompts de várias ativações. 
 
-    Depois que a base de dados de conhecimento é criada, uma exibição dos pares de perguntas e respostas é exibida.
+As regras dos títulos incluem:
+
+* Não termine um título com um ponto de interrogação, `?`. 
+
+### <a name="add-file-with-multi-turn-prompts"></a>Adicionar arquivo com prompts de múltipla ativação
+
+Quando você adiciona um documento de várias transformações, QnA Maker determina os prompts de acompanhamento da estrutura para criar o fluxo de conversação. 
+
+1. Em QnA Maker, selecione uma base de dados de conhecimento existente que foi criada com **habilitar extração múltipla de URLs, arquivos. pdf ou. docx.** habilitado. 
+1. Vá para a página **configurações** , selecione o arquivo ou a URL a ser adicionada. 
+1. **Salve e treine** a base de dados de conhecimento.
+
+> [!Caution]
+> Não há suporte para o suporte para o uso de um arquivo base de conhecimento multiturns TSV ou XLS exportado como fonte de dados para uma base de conhecimento nova ou vazia. Você precisa **importar** esse tipo de arquivo, na página **configurações** do portal de QnA Maker, para adicionar prompts de multiativação exportados a uma base de dados de conhecimento.
+
+
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar uma base de dados de conhecimento com prompts de múltipla ativação com a API de criação
+
+Você pode criar um caso de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão adicionando na matriz `prompts` da propriedade `context`. 
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar perguntas e respostas com contexto
 
@@ -126,29 +140,6 @@ Quando um prompt de acompanhamento é criado e um par de perguntas e respostas e
 1. Quando terminar de editar o texto de exibição, selecione **salvar**. 
 1. Na barra de navegação superior, **salve e treine**.
 
-
-<!--
-
-## To find the best prompt answer, add metadata to follow-up prompts 
-
-If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
-
-1. Add metadata to each of the two follow-up question-and-answer pairs:
-
-    |Question|Add metadata|
-    |--|--|
-    |*Feedback on a QnA Maker service*|"Feature":"all"|
-    |*Feedback on an existing feature*|"Feature":"one"|
-    
-    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
-
-1. Select **Save and train**. 
-
-    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
-
--->
 
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Adicionar um novo par de perguntas e respostas como um aviso de acompanhamento
 
@@ -374,21 +365,13 @@ Você adicionou prompts na sua base de dados de conhecimento e testou o fluxo no
 
 O [texto de exibição e a ordem de exibição](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retornados na resposta JSON, têm suporte para edição pela [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-<!--
-
-FIX - Need to go to parent, then answer column, then edit answer. 
-
--->
-
-## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar uma base de dados de conhecimento com prompts de múltipla ativação com a API de criação
-
-Você pode criar uma base de dados de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão adicionando na matriz `prompts` da propriedade `context`. 
-
-
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Adicionar ou excluir prompts de várias ativações com a API de atualização
 
 Você pode adicionar ou excluir prompts de várias ativações usando a [API de atualização de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Os prompts estão adicionando na matriz `promptsToAdd` da propriedade `context` e na matriz `promptsToDelete`. 
 
+## <a name="export-knowledge-base-for-version-control"></a>Exportar base de dados de conhecimento para controle de versão
+
+O QnA Maker [dá suporte ao controle de versão](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) no portal de QnA Maker, incluindo as etapas de conversa de passagem múltipla no arquivo exportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,15 +6,15 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 90965618b1d2cb126d56453d46a5bebc85319c0f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: deefbf049d5f8daa004db942f60ff5e31bda0fe8
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219639"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695419"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendações de segurança para Azure Key Vault
 
@@ -25,16 +25,31 @@ Algumas das recomendações incluídas neste artigo podem ser monitoradas automa
 - Para obter mais informações sobre as recomendações da central de segurança do Azure, consulte [recomendações de segurança na central de segurança do Azure](../security-center/security-center-recommendations.md).
 - Para obter informações sobre a central de segurança do Azure, consulte o [que é a central de segurança do Azure?](../security-center/security-center-intro.md)
 
-## <a name="recommendations"></a>Recomendações
+## <a name="data-protection"></a>Proteção de dados
 
-| Category | Recomendação | Comentários | Centro de Segurança |
-|-|-|----|--|
-| Proteção de dados |Habilitar exclusão reversível | A [exclusão reversível](key-vault-ovw-soft-delete.md) permite recuperar cofres excluídos e objetos de cofre |  - |
-| Proteção de dados | Limitar o acesso aos dados do cofre  | Siga o princípio de privilégios mínimos e limite quais membros de sua organização têm acesso aos dados do cofre |  - |
-| Gestão de acesso e identidades | Limitar o número de usuários com acesso de colaborador | Se um usuário tiver permissões de colaborador para um plano de gerenciamento do cofre de chaves, o usuário poderá conceder a si mesmo o acesso ao plano de dados definindo uma política de acesso de Key Vault. Você deve controlar rigidamente quem tem acesso de função de colaborador para seus cofres de chaves. Certifique-se de que apenas aqueles com a necessidade de acessar pessoas autorizadas possam acessar e gerenciar seus cofres. Você pode ler [o acesso seguro a um cofre de chaves](key-vault-secure-your-key-vault.md) | - |
-| Monitorização | Os logs de diagnóstico no Key Vault devem ser habilitados | Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. | [Sim](../security-center/security-center-identity-access.md) |
-| Monitorização | Restringir quem pode acessar seus logs do cofre de chaves do Azure | [Os logs de Key Vault](key-vault-logging.md) salvam informações sobre as atividades executadas em seu cofre, como criação ou exclusão de cofres, chaves, segredos e podem ser usadas durante uma investigação |  - |
-| Redes |Limitar a exposição da rede | O acesso à rede deve ser limitado às redes virtuais usadas por soluções que exigem acesso ao cofre. Examinar informações sobre [pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
+| Recomendação | Comentários | Centro de Segurança |
+|-|----|--|
+|Habilitar exclusão reversível | A [exclusão reversível](key-vault-ovw-soft-delete.md) permite recuperar cofres excluídos e objetos de cofre |  - |
+| Limitar o acesso aos dados do cofre  | Siga o princípio de privilégios mínimos e limite quais membros de sua organização têm acesso aos dados do cofre |  - |
+
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
+
+| Recomendação | Comentários | Centro de Segurança |
+|-|----|--|
+| Limitar o número de usuários com acesso de colaborador | Se um usuário tiver permissões de colaborador para um plano de gerenciamento do cofre de chaves, o usuário poderá conceder a si mesmo o acesso ao plano de dados definindo uma política de acesso de Key Vault. Você deve controlar rigidamente quem tem acesso de função de colaborador para seus cofres de chaves. Certifique-se de que apenas aqueles com a necessidade de acessar pessoas autorizadas possam acessar e gerenciar seus cofres. Você pode ler [o acesso seguro a um cofre de chaves](key-vault-secure-your-key-vault.md) | - |
+
+## <a name="monitoring"></a>Monitorização
+
+| Recomendação | Comentários | Centro de Segurança |
+|-|----|--|
+ Os logs de diagnóstico no Key Vault devem ser habilitados | Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. | [Sim](../security-center/security-center-identity-access.md) |
+| Restringir quem pode acessar seus logs do cofre de chaves do Azure | [Os logs de Key Vault](key-vault-logging.md) salvam informações sobre as atividades executadas em seu cofre, como criação ou exclusão de cofres, chaves, segredos e podem ser usadas durante uma investigação |  - |
+
+## <a name="networking"></a>Redes
+
+| Recomendação | Comentários | Centro de Segurança |
+|-|----|--|
+|Limitar a exposição da rede | O acesso à rede deve ser limitado às redes virtuais usadas por soluções que exigem acesso ao cofre. Examinar informações sobre [pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
 
 ## <a name="next-steps"></a>Passos seguintes
 

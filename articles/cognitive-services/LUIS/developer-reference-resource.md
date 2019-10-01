@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 97684a4668c1d495fa690674f7bd94e064737bd4
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273954"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703203"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Recursos para desenvolvedores para Reconhecimento vocal
 
@@ -34,6 +34,8 @@ Encontre a documentação de referência com base na ferramenta:
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Solicitações de criação e previsão de Reconhecimento vocal
 
 O serviço de Reconhecimento vocal é acessado de um recurso do Azure que você precisa criar. Há dois recursos: recursos de ponto de extremidade de criação e previsão. Esses dois recursos permitem que você controle seus recursos do LUIS. 
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
 ### <a name="rest-apis"></a>APIs REST
 

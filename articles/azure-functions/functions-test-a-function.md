@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085145"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709343"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código nas funções do Azure
 
@@ -42,7 +42,7 @@ Para configurar o ambiente, criar uma função e testar a aplicação. Os passos
 1. [Criar uma nova aplicação de funções](./functions-create-first-azure-function.md) e designe- *funções*
 2. [Criar uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e o nomeio *HttpTrigger*.
 3. [Criar uma função de temporizador a partir do modelo](./functions-create-scheduled-function.md) e o nomeio *TimerTrigger*.
-4. [Crie um aplicativo de teste do xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) no Visual Studio clicando em **arquivo > novo > projeto C# > Visual > .NET Core > projeto de teste do xUnit** e nomeie-o como Functions *. Test*. 
+4. [Crie um aplicativo de teste do xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) no Visual Studio clicando em **arquivo > novo > projeto C# > Visual > .NET Core > projeto de teste do xUnit** e nomeie-o como *functions. Test*. 
 5. Use o NuGet para adicionar uma referência do aplicativo de teste [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referência a *funções* aplicação](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) partir *Functions.Test* aplicação.
 
@@ -54,7 +54,7 @@ Cada função obtém uma instância da [ILogger](https://docs.microsoft.com/dotn
 
 O `ListLogger` classe destina-se para implementar o `ILogger` de interface e mantenha premido na lista interna de mensagens para avaliação durante um teste.
 
-**Clique com o botão direito do mouse** no aplicativo Functions *. Test* e selecione **Adicionar > classe**, nomeie-o **NullScope.cs** e insira o código a seguir:
+**Clique com o botão direito do mouse** no aplicativo *functions. Test* e selecione **Adicionar > classe**, nomeie-o **NullScope.cs** e insira o código a seguir:
 
 ```csharp
 using System;
@@ -110,11 +110,11 @@ namespace Functions.Tests
 
 O `ListLogger` classe implementa os seguintes membros como contratado pelo `ILogger` interface:
 
-- **BeginScope**: Os escopos adicionam contexto ao seu registro em log. Nesse caso, o teste apenas aponta para a instância estática na `NullScope` classe para permitir que o teste funcione.
+- **BeginScope**: Os escopos adicionam contexto ao seu registro em log. Nesse caso, o teste apenas aponta para a instância estática na classe `NullScope` para permitir que o teste funcione.
 
-- **IsEnabled**: Um valor `false` padrão é fornecido.
+- **IsEnabled**: Um valor padrão de `false` é fornecido.
 
-- **Log**: Esse método usa a função `formatter` fornecida para formatar a mensagem e, em seguida, adiciona o texto `Logs` resultante à coleção.
+- **Log**: Esse método usa a função `formatter` fornecida para formatar a mensagem e, em seguida, adiciona o texto resultante à coleção de `Logs`.
 
 O `Logs` coleção é uma instância de `List<string>` e é inicializada no construtor.
 
@@ -197,7 +197,7 @@ O `TestFactory` classe implementa os seguintes membros:
 
 - **Dados**: Essa propriedade retorna uma coleção [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) de dados de exemplo. Os pares de chave-valor representam valores que são transmitidas numa cadeia de caracteres de consulta.
 
-- **CreateDictionary**: Esse método aceita um par de chave/valor como argumentos e retorna um `Dictionary` novo usado para `QueryCollection` criar para representar valores de cadeia de caracteres de consulta.
+- **CreateDictionary**: Esse método aceita um par de chave/valor como argumentos e retorna um novo `Dictionary` usado para criar `QueryCollection` para representar valores de cadeia de caracteres de consulta.
 
 - **CreateHttpRequest**: Esse método cria uma solicitação HTTP inicializada com os parâmetros de cadeia de caracteres de consulta fornecidos.
 
@@ -246,11 +246,11 @@ namespace Functions.Tests
 ```
 Os membros implementados nessa classe são:
 
-- **Http_trigger_should_return_known_string**: Esse teste cria uma solicitação com os valores de cadeia de `name=Bill` caracteres de consulta de para uma função http e verifica se a resposta esperada é retornada.
+- **Http_trigger_should_return_known_string**: Esse teste cria uma solicitação com os valores de cadeia de caracteres de consulta de `name=Bill` para uma função HTTP e verifica se a resposta esperada é retornada.
 
 - **Http_trigger_should_return_string_from_member_data**: Esse teste usa atributos xUnit para fornecer dados de exemplo para a função HTTP.
 
-- **Timer_should_log_message**: Esse teste cria uma instância do `ListLogger` e a passa para uma função de temporizador. Assim que a função é executada, o registo é verificado para garantir que a mensagem esperada está presente.
+- **Timer_should_log_message**: Esse teste cria uma instância de `ListLogger` e a passa para uma função de temporizador. Assim que a função é executada, o registo é verificado para garantir que a mensagem esperada está presente.
 
 Se você quiser acessar as configurações do aplicativo em seus testes, você pode usar [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
@@ -311,7 +311,7 @@ module.exports = {
 ```
 Este módulo implementa a `IsPastDue` propriedade para se destacar é como uma instância de temporizador falsa.
 
-Em seguida, utilize a extensão de funções de código VS [criar uma nova função de HTTP de JavaScript](https://code.visualstudio.com/tutorials/functions-extension/getting-started) e o nomeio *HttpTrigger*. Assim que a função é criada, adicione um novo ficheiro na mesma pasta com o nome **index.test.js**e adicione o seguinte código:
+Em seguida, utilize a extensão de funções de código VS [criar uma nova função de HTTP de JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) e o nomeio *HttpTrigger*. Assim que a função é criada, adicione um novo ficheiro na mesma pasta com o nome **index.test.js**e adicione o seguinte código:
 
 ```javascript
 const httpFunction = require('./index');

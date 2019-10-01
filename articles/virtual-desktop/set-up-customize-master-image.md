@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679530"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710186"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -204,7 +204,7 @@ Depois de preparar a imagem para upload, verifique se a VM permanece no estado d
 
 Esta seção se aplica somente quando a imagem mestra foi criada localmente.
 
-As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento do Azure, siga as instruções neste [artigo](https://code.visualstudio.com/tutorials/static-website/create-storage) para criar uma.
+As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento do Azure, siga as instruções neste [artigo](/azure/javascript/tutorial-vscode-static-website-node-03) para criar uma.
 
 1. Converta a imagem de VM (VHD) para fixa se você ainda não tiver feito isso. Se você não converter a imagem em Fixed, não será possível criar a imagem com êxito.
 

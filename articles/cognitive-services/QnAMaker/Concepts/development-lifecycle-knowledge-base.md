@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955177"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695105"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de base de dados de conhecimento no QnA Maker
 A ferramenta QnA Maker Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -35,7 +35,7 @@ A base de dados de conhecimento está pronta para teste depois que ele é preenc
 
 Esse loop estreito de atualização de teste continua até estar satisfeito com os resultados. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para grandes KBS, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a `isTest` Propriedade Body, `test` que consulta a base de dados de conhecimento em vez da base de dados de conhecimento publicada. 
+Para grandes KBs, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a propriedade de corpo `isTest`, que consulta a base de dados de conhecimento `test` em vez da base de dados de conhecimento publicada. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Depois de concluída a base de dados de conhecimento de teste, pode publicá-lo.
 
 Dessa forma, qualquer alteração que está a ser feita para a versão de teste de base de dados de conhecimento não afetam a versão publicada que pode ser em direto num aplicativo de produção.
 
-Cada uma destas bases de dados de conhecimento pode ser alvo para fins de teste em separado. Usando as APIs, você pode direcionar a versão de teste da base de `isTest` dados de conhecimento com a Propriedade Body na chamada generateAnswer.
+Cada uma destas bases de dados de conhecimento pode ser alvo para fins de teste em separado. Usando as APIs, você pode direcionar a versão de teste da base de dados de conhecimento com a propriedade de corpo `isTest` na chamada generateAnswer.
 
 Saiba como [publicar a sua base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
@@ -62,7 +62,15 @@ Pode obter várias análises de utilização do seu serviço. Saiba mais sobre c
 
 Com base nas informações que da sua análise, certifique-se adequado [atualizações à sua base de dados de conhecimento](../How-To/edit-knowledge-base.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="version-control-of-a-knowledge-base"></a>Controle de versão de uma base de dados de conhecimento
+
+O controle de versão não é fornecido pelo QnA Maker. Você precisa exportar sua base de dados de conhecimento na página **configurações** e usar sua própria metodologia e ferramentas.
+
+A exportação da base de dados de conhecimento para o formato TSV ou XLS é concluída na página **configurações** . 
+
+Quando precisar voltar para uma versão específica, você precisará importar esse arquivo do seu sistema local. Na página **configurações** , importe o arquivo TSV ou xls. Isso substituirá as perguntas e respostas atualmente na base de dados de conhecimento pelo conteúdo do arquivo importado.   
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Pontuação de confiança](./confidence-score.md)

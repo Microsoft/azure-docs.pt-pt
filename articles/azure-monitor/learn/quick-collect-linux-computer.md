@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: cdaca0fd3e314ecb5c0b68438eaaf87fbfb699b0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933037"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703061"
 ---
-# <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Coletar dados de um computador Linux em um ambiente híbrido com Azure Monitor
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início rápido: Coletar dados de um computador Linux em um ambiente híbrido com Azure Monitor
 
 [Azure monitor](../overview.md) pode coletar dados diretamente de seus computadores Linux físicos ou virtuais em seu ambiente em um espaço de trabalho log Analytics para análise e correlação detalhadas. A instalação do [agente de log Analytics](../platform/log-analytics-agent.md) permite Azure monitor coletar dados de um datacenter ou de outro ambiente de nuvem. Este guia de início rápido mostra como configurar e coletar dados do seu servidor Linux com algumas etapas fáceis. Para obter informações sobre VMs Linux do Azure, consulte [coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
@@ -161,7 +161,7 @@ Para excluir o espaço de trabalho, selecione o Log Analytics espaço de trabalh
 
 ![Eliminar recurso do Log Analytics](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está a recolher dados operacionais e de desempenho do computador com Linux no local, pode começar facilmente a explorar, analisar e efetuar ações nos dados recolhidos *gratuitamente*.  
 

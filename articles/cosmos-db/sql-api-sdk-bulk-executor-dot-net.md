@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 447f52a08c9e833808508852c4619f6ce1d947e1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624649"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703376"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executores em massa do .NET: Informações de download 
 
@@ -61,6 +61,12 @@ ms.locfileid: "69624649"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
 
 * Adicionado .NET Standard 2,0 como uma das estruturas de destino com suporte para fazer com que a biblioteca de executores em massa funcione com aplicativos .NET Core.
+
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Foi corrigido o alto consumo de CPU em determinados cenários.
+* O rastreamento agora usa o rastreamento. Os usuários podem definir ouvintes para a fonte `BulkExecutorTrace`.
+* Correção de um cenário raro que poderia causar um bloqueio ao enviar documentos perto de 2 MB de tamanho.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 

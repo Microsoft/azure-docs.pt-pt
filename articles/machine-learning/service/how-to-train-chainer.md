@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 70d6bd9507670a8846b2a79509b6b6e571f17e37
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076407"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710093"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Treinar e registrar modelos de encadeamento em escala com Azure Machine Learning
 
@@ -34,14 +34,14 @@ Execute este código em qualquer um destes ambientes:
 - VM do notebook Azure Machine Learning-não é necessário nenhum download ou instalação
 
     - Conclua [o tutorial: Ambiente de instalação e](tutorial-1st-experiment-sdk-setup.md) espaço de trabalho para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
-    - Na pasta Samples Deep Learning no servidor do notebook, encontre um bloco de anotações e arquivos completos na pasta " **como usar-azureml/treinamento-com-Deep-Learning/Train-hiperparameter-ajustar-implantar-com-Chain** ".  O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
+    - Na pasta de aprendizado profundo de exemplos no servidor do notebook, encontre um bloco de anotações e arquivos concluídos no **> de instruções-uso-azureml-estruturas > chain > a implantação > Train-hiperparameter-ajustar-implantar-com-a pasta do Chainr** .  O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
 
 - Seu próprio servidor de Jupyter Notebook
 
     - [Instale o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - [Crie um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
     - Baixe o arquivo de script de exemplo [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py).
-     - Você também pode encontrar uma versão completa do [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) deste guia na página de exemplos do github. O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
+     - Você também pode encontrar uma versão completa do [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) deste guia na página de exemplos do github. O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurar o experimento
 
@@ -82,9 +82,9 @@ os.makedirs(project_folder, exist_ok=True)
 
 Neste tutorial, o script de treinamento **chainer_mnist. py** já foi fornecido para você. Na prática, você deve ser capaz de pegar qualquer script de treinamento personalizado como está e executá-lo com o Azure ML sem precisar modificar seu código.
 
-Para usar os recursos de acompanhamento e métricas do Azure ML, adicione uma pequena quantidade de código do Azure ML dentro de seu script de treinamento.  O script de treinamento **chainer_mnist. py** mostra como registrar algumas métricas em sua execução do Azure ml usando `Run` o objeto dentro do script.
+Para usar os recursos de acompanhamento e métricas do Azure ML, adicione uma pequena quantidade de código do Azure ML dentro de seu script de treinamento.  O script de treinamento **chainer_mnist. py** mostra como registrar algumas métricas em sua execução do Azure ml usando o objeto `Run` no script.
 
-O script de treinamento fornecido usa dados de exemplo da `datasets.mnist.get_mnist` função de encadeamento.  Para seus próprios dados, talvez seja necessário usar etapas como [carregar DataSet e scripts](how-to-train-keras.md) para disponibilizar os dados durante o treinamento.
+O script de treinamento fornecido usa dados de exemplo da `datasets.mnist.get_mnist` função de encadeamento.  Para seus próprios dados, talvez seja necessário usar etapas como [carregar DataSet e scripts](how-to-train-keras.md#data-upload) para disponibilizar os dados durante o treinamento.
 
 Copie o script de treinamento **chainer_mnist. py** para o diretório do projeto.
 

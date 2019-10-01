@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: ad5e78638f920401a83dd431c33a68b6d80144d7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e08999798c72545f9fa1d1b5d362e23450ce16f5
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988637"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695335"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian
 
@@ -165,7 +165,7 @@ O daemon de pode ser configurado com o ficheiro de configuração em `/etc/ioted
 
 Um único dispositivo IoT Edge pode ser aprovisionado manualmente através de uma cadeia de ligações de dispositivo fornecida pelo IoT Hub. Em alternativa, pode utilizar o serviço de aprovisionamento de dispositivos para aprovisionar automaticamente os dispositivos, que é útil quando tem o número de dispositivos para aprovisionar. Dependendo de sua escolha de aprovisionamento, escolha o script de instalação apropriado.
 
-### <a name="option-1-manual-provisioning"></a>Opção 1: Provisionamento manual
+### <a name="option-1-manual-provisioning"></a>Opção 1: Provisionamento manual
 
 Para aprovisionar manualmente um dispositivo, tem de fornecê-lo com uma [cadeia de ligação do dispositivo](how-to-register-device-portal.md) que pode criar ao registar um novo dispositivo no IoT hub.
 
@@ -192,6 +192,7 @@ Localize as configurações de provisionamento do arquivo e remova a marca de co
    #     method: "tpm"
    #     registration_id: "{registration_id}"
 ```
+Para colar o conteúdo da área de transferência no nano `Shift+Right Click` ou pressione `Shift+Insert`.
 
 Guarde e feche o ficheiro.
 
@@ -203,7 +204,7 @@ Após introduzir as informações de aprovisionamento no ficheiro de configuraç
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Opção 2: Aprovisionamento automático
+### <a name="option-2-automatic-provisioning"></a>Opção 2: Aprovisionamento automático
 
 Para aprovisionar automaticamente um dispositivo [configurar o serviço aprovisionamento de dispositivos e obter o seu ID de registo do dispositivo](how-to-auto-provision-simulated-device-linux.md). Há vários mecanismos de atestado com suporte pelo IoT Edge ao usar o provisionamento automático, mas os requisitos de hardware também afetam suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip Trusted Platform Module (TPM) por padrão.
 
@@ -230,6 +231,8 @@ Localize as configurações de provisionamento do arquivo e remova a marca de co
        method: "tpm"
        registration_id: "{registration_id}"
    ```
+
+Para colar o conteúdo da área de transferência no nano `Shift+Right Click` ou pressione `Shift+Insert`.
 
 Guarde e feche o ficheiro.
 

@@ -1,50 +1,50 @@
 ---
 title: Gerir estados de alertas e de grupos inteligentes
-description: Gerir os Estados das instâncias do grupo de alerta e inteligente
+description: Gerenciando os Estados das instâncias de alerta e grupo inteligente
 author: anantr
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72abd1168d14cae703f7fcfc7b58eaa56bdc592
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919721"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702942"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gerir estados de alertas e de grupos inteligentes
-Alertas no Azure Monitor agora tem um [estado e uma condição de monitor de alerta](https://aka.ms/azure-alerts-overview) e, da mesma forma, os grupos de inteligente têm um [inteligente o estado do grupo](https://aka.ms/smart-groups). Alterações ao estado agora são capturadas no histórico associado com o respetivo grupo de alerta ou inteligente. Este artigo orienta-o pelo processo de alteração do Estado, para um alerta e um grupo inteligente.
+Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição de monitor](https://aka.ms/azure-alerts-overview) e, da mesma forma, os grupos inteligentes têm um estado de [grupo inteligente](https://aka.ms/smart-groups). As alterações no estado agora são capturadas no histórico associado ao respectivo alerta ou grupo inteligente. Este artigo orienta você pelo processo de alteração do estado, para um alerta e um grupo inteligente.
 
 ## <a name="change-the-state-of-an-alert"></a>Alterar o estado de um alerta
-1. Pode alterar o estado de um alerta das seguintes formas diferentes: 
-    * Na página de todos os alertas, clique na caixa de verificação junto aos alertas que pretende alterar o estado da e clique em Alterar Estado.   
+1. Você pode alterar o estado de um alerta das diferentes maneiras a seguir: 
+    * Na página todos os alertas, clique na caixa de seleção ao lado dos alertas para os quais você deseja alterar o estado e clique em alterar estado.   
     ![Monitorização](./media/alerts-managing-alert-states/state-all-alerts.jpg)
-    * Na página de detalhes do alerta para uma determinada instância de alerta, pode clicar em estado de alteração   
+    * Na página detalhes do alerta de uma instância de alerta específica, você pode clicar em alterar estado   
     ![Monitorização](./media/alerts-managing-alert-states/state-alert-details.jpg)
-    * Na página de detalhes do alerta para uma instância de alerta específica, no painel do grupo de Smart pode clicar na caixa de verificação junto aos alertas que pretende    
+    * Na página detalhes do alerta de uma instância de alerta específica, no painel grupo inteligente, você pode clicar na caixa de seleção ao lado dos alertas desejados    
     ![Monitorização](./media/alerts-managing-alert-states/state-alert-details-sg.jpg)
 
-    * Na página de detalhes do grupo inteligente, na lista de alertas de membro pode clicar a caixa de verificação junto aos alertas que pretende alterar o estado da e clique em alterar Stateto alterar o estado do e clique em Alterar Estado.   
+    * Na página detalhes do grupo inteligente, na lista de alertas de membro, você pode clicar na caixa de seleção ao lado dos alertas para os quais deseja alterar o estado e clicar em alterar estadopara alterar o estado de e clicar em alterar estado.   
     ![Monitorização](./media/alerts-managing-alert-states/state-sg-details-alerts.jpg)
-1. Ao clicar em estado de alteração, abre um pop-up permitindo que selecione o estado (New/confirmado/fechado) e introduza um comentário, se necessário.   
+1. Ao clicar em alterar estado, um pop-up é aberto permitindo que você selecione o estado (novo/confirmado/fechado) e insira um comentário, se necessário.   
 ![Monitorização](./media/alerts-managing-alert-states/state-alert-change.jpg)
-1. Depois de o fazer, a alteração de estado é registrada no histórico do alerta correspondente. Isso pode ser exibido ao abrir a respectiva página de detalhes e a verificar a secção de histórico.    
+1. Quando isso for feito, a alteração de estado será registrada no histórico do respectivo alerta. Isso pode ser exibido abrindo a respectiva página de detalhes e verificando a seção de histórico.    
 ![Monitorização](./media/alerts-managing-alert-states/state-alert-history.jpg)
 
 ## <a name="change-the-state-of-a-smart-group"></a>Alterar o estado de um grupo inteligente
-1. Pode alterar o estado de um grupo de smart das seguintes formas diferentes:
-    1. Na página de lista do grupo de Smart, pode clicar na caixa de verificação junto aos grupos inteligentes que pretende alterar o estado da e clique em Alterar Estado  
+1. Você pode alterar o estado de um grupo inteligente das diferentes maneiras a seguir:
+    1. Na página de lista de grupos inteligentes, você pode clicar na caixa de seleção ao lado dos grupos inteligentes para os quais deseja alterar o estado e clicar em alterar estado  
     ![Monitorização](./media/alerts-managing-alert-states/state-sg-list.jpg)
-    1. Na página de detalhes do grupo inteligente, pode clicar em estado de alteração        
+    1. Na página de detalhes do grupo inteligente, você pode clicar em alterar estado        
     ![Monitorização](./media/alerts-managing-alert-states/state-sg-details.jpg)
-1. Ao clicar em estado de alteração, abre um pop-up permitindo que selecione o estado (New/confirmado/fechado) e introduza um comentário, se necessário. 
+1. Ao clicar em alterar estado, um pop-up é aberto permitindo que você selecione o estado (novo/confirmado/fechado) e insira um comentário, se necessário. 
 ![Monitorização](./media/alerts-managing-alert-states/state-sg-change.jpg)
    > [!NOTE]
-   >  Alterar o estado de um grupo inteligente não altera o estado dos alertas membro individual.
+   >  Alterar o estado de um grupo inteligente não altera o estado dos alertas de membro individuais.
 
-1. Depois de o fazer, a alteração de estado é registrada na história do respetivo grupo inteligente. Isso pode ser exibido ao abrir a respectiva página de detalhes e a verificar a secção de histórico.     
+1. Quando isso for feito, a alteração de estado será registrada no histórico do respectivo grupo inteligente. Isso pode ser exibido abrindo a respectiva página de detalhes e verificando a seção de histórico.     
 ![Monitorização](./media/alerts-managing-alert-states/state-sg-history.jpg)
 

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6c87da7ae62af54990e0a1a2c62065717a201a
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256963"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703190"
 ---
-# <a name="authoring-and-runtime-keys"></a>Criação e chaves de tempo de execução
+# <a name="authoring-and-runtime-keys"></a>Chaves de criação e de runtime
 
 
 >[!NOTE]
@@ -29,7 +29,7 @@ O LUIS usa dois tipos de recursos do Azure, cada tipo tem chaves:
 * [Criação](#programmatic-key) para criar tentativas, entidades e rotular declarações, treinar e publicar. Quando estiver pronto para publicar seu aplicativo LUIS, você precisará de uma [chave de ponto de extremidade de previsão para o tempo de execução](luis-how-to-azure-subscription.md) atribuído ao aplicativo.
 * [Chave de ponto de extremidade de previsão para o tempo de execução](#prediction-endpoint-runtime-key). Aplicativos cliente, como um bot de chat, precisam acessar o ponto de extremidade de **previsão de consulta** do tempo de execução por meio dessa chave. 
 
-|Chave|Objetivo|Serviço cognitiva`kind`|Serviço cognitiva`type`|
+|Chave|Objetivo|@No__t de serviço cognitiva-0|@No__t de serviço cognitiva-0|
 |--|--|--|--|
 |[Chave de criação](#programmatic-key)|Criação, treinamento, publicação, teste.|`LUIS.Authoring`|`Cognitive Services`|
 |[Chave de tempo de execução de ponto de extremidade de previsão](#prediction-endpoint-runtime-key)| Tempo de execução de ponto de extremidade de previsão de consulta com um usuário expressão para determinar tentativas e entidades.|`LUIS`|`Cognitive Services`|
@@ -83,12 +83,30 @@ Esse é um recurso especial criado para você. Ela não aparece na lista de recu
 ### <a name="use-runtime-key-in-query"></a>Usar chave de tempo de execução na consulta
 O ponto de extremidade do LUIS Runtime aceita dois estilos de consulta, ambos usam a chave de tempo de execução de ponto de extremidade de previsão, mas em locais diferentes.
 
-O ponto de extremidade usado para acessar o tempo de execução usa um subdomínio que é exclusivo para a região do seu recurso `{region}` , indicado com na tabela a seguir. 
+O ponto de extremidade usado para acessar o tempo de execução usa um subdomínio que é exclusivo para a região do seu recurso, indicado com `{region}` na tabela a seguir. 
+
+
+#### <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão v2](#tab/V2)
 
 |Verbo|Localização de url e a chave de exemplo|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valor de cadeia de caracteres de consulta para `runtime-key`<br><br>Alterar o valor de consulta de ponto final para o `runtime-key` da chave de criação (iniciante), para a nova chave de ponto de extremidade para usar a taxa de quota de chave de ponto final do LUIS. Se criar a chave e atribuir a chave, mas não altere o valor de consulta de ponto final para `runtime-key`, sua quota de chave de ponto final não estiver a utilizar.|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valor de cabeçalho para `Ocp-Apim-Subscription-Key`<br>Se você criar a chave de tempo de execução e atribuir a chave de tempo de execução, mas não alterar `Ocp-Apim-Subscription-Key`o valor de consulta de ponto de extremidade para, você não está usando sua chave de tempo de execução.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
+
+#### <a name="v3-prediction-endpointtabv3"></a>[Ponto de extremidade de previsão v3](#tab/V3)
+
+|Verbo|Localização de url e a chave de exemplo|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+
+* * * 
+
+**OBTER**: Alterar o valor de consulta de ponto final para o `runtime-key` da chave de criação (iniciante), para a nova chave de ponto de extremidade para usar a taxa de quota de chave de ponto final do LUIS. Se criar a chave e atribuir a chave, mas não altere o valor de consulta de ponto final para `runtime-key`, sua quota de chave de ponto final não estiver a utilizar.
+
+**POST**: Alterar o valor do cabeçalho para `Ocp-Apim-Subscription-Key`<br>Se você criar a chave de tempo de execução e atribuir a chave de tempo de execução, mas não alterar o valor de consulta de ponto de extremidade para `Ocp-Apim-Subscription-Key`, você não está usando sua chave de tempo de execução.
 
 O ID da aplicação utilizado nos URLs anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, é a aplicação de IoT pública utilizada para o [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
@@ -113,7 +131,7 @@ Se você exceder sua cota de transações por segundo (TPS), receberá um erro H
 
 O gerenciamento de contribuições de colaboradores depende do status atual do aplicativo.
 
-**Para [criar](luis-migration-authoring.md) aplicativos migrados de recursos**: os _colaboradores_ são gerenciados no portal do Azure para o recurso de criação, usando a página de **controle de acesso (iam)** . Saiba [como adicionar um usuário](luis-how-to-collaborate.md), usando o endereço de email da colaboração e a função _colaborador_ . 
+**Para [criar aplicativos migrados de recursos](luis-migration-authoring.md)** : os _colaboradores_ são gerenciados no portal do Azure para o recurso de criação, usando a página de **controle de acesso (iam)** . Saiba [como adicionar um usuário](luis-how-to-collaborate.md), usando o endereço de email da colaboração e a função _colaborador_ . 
 
 **Para aplicativos que ainda não foram migrados**: todos os _colaboradores_ são gerenciados no portal do Luis a partir da página **Gerenciar > colaboradores** .
 
@@ -187,7 +205,7 @@ Uma aplicação pública está publicada em todas as regiões, para que um utili
 
 ## <a name="transfer-of-ownership"></a>Transferência de propriedade
 
-**Para [criar](luis-migration-authoring.md) aplicativos migrados de recursos**: 
+**Para [criar aplicativos migrados de recursos](luis-migration-authoring.md)** : Como o proprietário do recurso, você pode adicionar um `contributor`.
 
 **Para aplicativos que ainda não foram migrados**: Exporte seu aplicativo como um arquivo JSON. Outro usuário do LUIS pode importar o aplicativo, tornando-se o proprietário do aplicativo. O novo aplicativo terá uma ID de aplicativo diferente.  
 
@@ -195,7 +213,7 @@ Uma aplicação pública está publicada em todas as regiões, para que um utili
 
 Você pode controlar quem pode ver sua chave de ponto de extremidade do LUIS de tempo de execução de previsão chamando-a em um ambiente de servidor para servidor. Se estiver a utilizar o LUIS de um bot, a ligação entre o bot e o LUIS já é segura. Se estiver a chamar diretamente o ponto de extremidade do LUIS, deve criar uma API do lado do servidor (como do Azure [função](https://azure.microsoft.com/services/functions/)) com o acesso controlado (tal como [AAD](https://azure.microsoft.com/services/active-directory/)). Quando é chamado de API do lado do servidor e autenticação e autorização são verificadas, passe a chamada para o LUIS. Embora essa estratégia não impede ataques man-in-the-middle, obfuscates o ponto final dos seus utilizadores, permite-lhe controlar o acesso e permite-lhe adicionar o registo de resposta do ponto final (tal como [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Compreender [controle de versão](luis-concept-version.md) conceitos. 
 * Saiba [como criar chaves](luis-how-to-azure-subscription.md).

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: f27982b4e310d9865e497a3e1e10be9948beb928
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640742"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710056"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
@@ -31,10 +31,10 @@ Use essas comparações selecionadas para ajudá-lo a decidir qual método usar.
 --- | --- | ---
 **Permissões do Azure** | Você precisa de permissões para criar um projeto de migrações para Azure e registrar os aplicativos do Azure AD criados ao implantar o dispositivo de migrações para Azure. | Você precisa de permissões de colaborador na assinatura do Azure. 
 **Replicação simultânea** | Um máximo de 100 VMs pode ser replicado simultaneamente de um vCenter Server.<br/> Se você tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais em uma única vez afetará o desempenho. | ND
-**Implantação de dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação](migrate-replication-appliance.md) de migrações para Azure é implantado localmente.
+**Implantação de dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação de migrações para Azure](migrate-replication-appliance.md) é implantado localmente.
 **Compatibilidade Site Recovery** | Compatíveis. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
 **Disco de destino** | Managed disks | Managed disks
-**Limites de disco** | Disco do so: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 60 | Disco do so: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 63
+**Limites de disco** | Disco do so: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 60 | Disco do so: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
 **Discos de passagem** | Não suportado | Suportadas
 **Inicialização UEFI** | Não suportado | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
 
@@ -57,7 +57,7 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Migre VMs VMware](tutorial-migrate-vmware.md) com migração sem agente.
 

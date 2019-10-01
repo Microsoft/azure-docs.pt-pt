@@ -10,29 +10,29 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725549"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694913"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Início rápido: Biblioteca de cliente do detector de anomalias para Python
 
-Introdução à biblioteca de cliente do detector de anomalias para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de detector de anomalias permite que você encontre anormalidades em seus dados de série temporal usando automaticamente os modelos de melhor ajuste, independentemente do setor, cenário ou volume de dados.
+Introdução à biblioteca de cliente do detector de anomalias para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de detector de anomalias permite que você encontre anormalidades em seus dados de série temporal usando automaticamente os modelos de melhor ajuste, independentemente do setor, cenário ou volume de dados.
 
 Use a biblioteca de cliente do detector de anomalias para Python para:
 
 * Detectar anomalias em todo o seu conjunto de data de série temporal, como uma solicitação em lote
 * Detectar o status de anomalia do último ponto de dados em sua série temporal
 
-[Referência de biblioteca documentação](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | de biblioteca de | [código-fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector)[(PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [amostras](https://github.com/Azure-Samples/anomalydetector)
+[Documentação de referência de biblioteca](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [library código-fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3. x](https://www.python.org/)
-* A [biblioteca de análise de dados](https://pandas.pydata.org/) do pandas
+* A [biblioteca de análise de dados do pandas](https://pandas.pydata.org/)
  
 ## <a name="setting-up"></a>Configurando
 
@@ -70,7 +70,7 @@ A resposta do detector de anomalias é um objeto [LastDetectResponse](https://do
 
 ## <a name="code-examples"></a>Exemplos de código 
 
-Esses trechos de código mostram como fazer o seguinte com a biblioteca de cliente do detector de anomalias para .NET:
+Esses trechos de código mostram como fazer o seguinte com a biblioteca de cliente do detector de anomalias para Python:
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Carregar um conjunto de dados de série temporal de um arquivo](#load-time-series-data-from-a-file)
@@ -92,7 +92,7 @@ Baixe os dados de exemplo para este guia de início rápido do [GitHub](https://
 
 Esses dados de série temporal são formatados como um arquivo. csv e serão enviados para a API do detector de anomalias.
 
-Carregue o arquivo de dados com o método da `read_csv()` biblioteca pandas e crie uma variável de lista vazia para armazenar sua série de dados. Itere pelo arquivo e acrescente os dados como um objeto [Point](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point%28class%29?view=azure-python) . Esse objeto conterá o carimbo de data/hora e o valor numérico das linhas do arquivo de dados. csv. 
+Carregue o arquivo de dados com o método `read_csv()` da biblioteca pandas e crie uma variável de lista vazia para armazenar sua série de dados. Itere pelo arquivo e acrescente os dados como um objeto [Point](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point%28class%29?view=azure-python) . Esse objeto conterá o carimbo de data/hora e o valor numérico das linhas do arquivo de dados. csv. 
 
 [!code-python[Load the data file](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=loadDataFile)]
 
@@ -114,7 +114,7 @@ Chame a API do detector de anomalias para determinar se o último ponto de dados
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo no IDE ou na linha de comando com o `python` comando e o nome do arquivo.
+Execute o aplicativo no IDE ou na linha de comando com o comando `python` e o nome do arquivo.
  
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -123,7 +123,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Detecção de anomalias de streaming com Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)

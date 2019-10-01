@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 903492d790cdde93dfe84763de139fe85e26b234
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218280"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701898"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Utilizar a Graph API do Azure AD
 
@@ -43,16 +43,9 @@ Depois de ter um locatário Azure AD B2C, você precisa registrar seu aplicativo
 
 ### <a name="register-application-in-azure-active-directory"></a>Registrar aplicativo no Azure Active Directory
 
-Para usar o API do Graph do Azure AD com seu locatário B2C, você precisa registrar um aplicativo usando o fluxo de trabalho Azure Active Directory **registros de aplicativo** .
+Para usar o API do Graph do Azure AD com seu locatário B2C, você precisa registrar um aplicativo usando o fluxo de trabalho de registro do aplicativo Azure Active Directory.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e alterne para o diretório que contém o locatário Azure ad B2C.
-1. Selecione **Azure Active Directory** (*não* Azure ad B2C) no menu à esquerda. Ou então, selecione **todos os serviços** e, em seguida, pesquise e selecione **Azure Active Directory**.
-1. Em **gerenciar** no menu à esquerda, selecione **registros de aplicativo (Herdado)** .
-1. Selecione **novo registro de aplicativo**
-1. Insira um nome para o aplicativo. Por exemplo, *aplicativo de gerenciamento*.
-1. Insira qualquer URL válida na **URL de logon**. Por exemplo, *https://localhost* . Esse ponto de extremidade não precisa estar acessível, mas precisa ser uma URL válida.
-1. Selecione **Criar**.
-1. Registre a **ID do aplicativo** que aparece na página Visão geral do **aplicativo registrado** . Você usará esse valor para configuração em uma etapa posterior.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>Atribuir permissões de acesso à API
 
@@ -83,7 +76,7 @@ Se você quiser dar ao aplicativo a capacidade de excluir usuários ou atualizar
 1. Em **gerenciar**, selecione **funções e administradores**.
 1. Selecione a função de **administrador de usuários** .
 1. Selecione **Adicionar atribuição**.
-1. Na caixa de texto **selecionar** , digite o nome do aplicativo que você registrou anteriormente, por exemplo, *aplicativo de gerenciamento*. Selecione seu aplicativo quando ele aparecer nos resultados da pesquisa.
+1. Na caixa de texto **selecionar** , digite o nome do aplicativo que você registrou anteriormente, por exemplo, *managementapp1*. Selecione seu aplicativo quando ele aparecer nos resultados da pesquisa.
 1. Selecione **Adicionar**. Pode levar alguns minutos para que as permissões se propaguem totalmente.
 
 Seu aplicativo Azure AD B2C agora tem as permissões adicionais necessárias para excluir usuários ou atualizar suas senhas em seu locatário B2C.

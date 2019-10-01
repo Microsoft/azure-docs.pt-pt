@@ -1,80 +1,83 @@
 ---
-title: Construtor de expressões de fluxo de mapeamento de dados do Azure Data Factory
-description: O construtor de expressões para dados de mapeamento de fábrica de dados do Azure fluxos
+title: Construtor de expressão de fluxo de dados de mapeamento de Azure Data Factory
+description: O construtor de expressões para mapear Azure Data Factory fluxos de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.openlocfilehash: 67a6de6d85a58f48af4761e0b5d5b0a1a4d74b1a
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269165"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703402"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-No Azure Data Factory mapeamento de fluxo de dados, encontrará caixas de expressão onde pode introduzir expressões para transformação de dados. Utilize estas caixas de colunas, campos, variáveis, parâmetros, as funções a partir do seu fluxo de dados. Para compilar a expressão, use o construtor de expressões, o que é iniciado ao clicar na caixa de texto expressão dentro da transformação. Verá também que, às vezes, as opções de "Coluna calculada" quando selecionar as colunas para transformação. Quando clico nele, também verá o construtor de expressões iniciado.
+No fluxo de dados de mapeamento Azure Data Factory, você encontrará caixas de expressão nas quais é possível inserir expressões para transformação de dados. Use colunas, campos, variáveis, parâmetros, funções do fluxo de dados nessas caixas. Para criar a expressão, use o construtor de expressões, que é iniciado clicando na caixa de texto expressão dentro da transformação. Às vezes, você verá opções de "coluna computada" ao selecionar colunas para transformação. Ao clicar nele, você também verá o construtor de expressões iniciado.
 
-![Construtor de expressões](media/data-flow/expression.png "construtor de expressões")
+![](media/data-flow/xpb1.png "Construtor de expressões") do construtor de expressões
 
-A ferramenta construtor de expressões por predefinição, a opção de editor de texto. o recurso de preenchimento automático lê do modelo de objeto do fluxo de dados do Azure Data Factory inteiro com a verificação e realce de sintaxe.
+A ferramenta Construtor de expressões usa como padrão a opção editor de texto. o recurso de preenchimento automático lê todo o modelo de objeto de fluxo de dados Azure Data Factory com verificação de sintaxe e realce.
 
-![Preenchimento automático de construtor de expressões](media/data-flow/expb1.png "Expression Builder, preenchimento automático")
+Preenchimento automático do(media/data-flow/expb1.png "Construtor") de expressões do construtor de ![expressões]
 
-## <a name="currently-working-on-field"></a>Atualmente a trabalhar no campo
+## <a name="build-schemas-in-output-schema-pane"></a>Criar esquemas no painel de esquema de saída
 
-![Construtor de expressões](media/data-flow/exp3.png "trabalhando no momento")
+![Adicionar](media/data-flow/complexcolumn.png "colunas de adição") de coluna complexa
 
-Na parte superior esquerda da interface do Usuário do Expression Builder, verá um campo chamado "A trabalhar no momento" com o nome do campo que está atualmente a trabalhar num. A expressão que criar na interface do Usuário será aplicada apenas para o campo de trabalho que, atualmente. Se quiser transformar outro campo, guardar o trabalho atual e utilize esta lista pendente para selecionar outro campo e criar uma expressão para os outros campos.
+No painel esquema de saída à esquerda, você verá as colunas que está modificando e adicionando ao seu esquema. Você pode criar interativamente estruturas de dados simples e complexas aqui. Adicione campos adicionais usando "adicionar coluna" e crie hierarquias usando "Adicionar subcoluna".
 
-## <a name="data-preview-in-debug-mode"></a>Pré-visualização de dados no modo de depuração
+![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar subcoluna")
 
-![Construtor de expressões](media/data-flow/exp4b.png "pré-visualização de dados de expressão")
+## <a name="data-preview-in-debug-mode"></a>Visualização de dados no modo de depuração
 
-Quando estiver a trabalhar em seu expressões, pode, opcionalmente, alternar no modo de depuração da superfície de design de fluxo de dados do Azure Data Factory, permitindo a visualização dinâmica em andamento de seus resultados de dados da expressão que estiver a criar. Depuração em direto em tempo real está ativada para as expressões.
+(media/data-flow/exp4b.png "Visualização de dados da expressão") do construtor de ![expressões]
 
-![Modo de depuração](media/data-flow/debugbutton.png "botão de depuração")
+Quando você estiver trabalhando em suas expressões de fluxo de dados, ative o modo de depuração da superfície de design Azure Data Factory fluxo de dados, habilitando a visualização em andamento ao vivo dos resultados de seus dados da expressão que você está criando. A depuração dinâmica em tempo real está habilitada para suas expressões.
 
+![](media/data-flow/debugbutton.png "Botão de depuração") do modo de depuração
 
-![Construtor de expressões](media/data-flow/exp5.png "pré-visualização de dados de expressão")
+Clique no botão atualizar para atualizar os resultados da expressão em um exemplo ao vivo de sua fonte em tempo real.
+
+(media/data-flow/exp5.png "Visualização de dados da expressão") do construtor de ![expressões]
 
 ## <a name="comments"></a>Comentários
 
-Adicione comentários para as expressões usando a sintaxe de comentário com várias linhas e de linha única:
+Adicione comentários às suas expressões usando a sintaxe de linha única e de comentário de várias linhas:
 
-![Comentários](media/data-flow/comments.png "comentários")
+![](media/data-flow/comments.png "Comentários") de comentários
 
-## <a name="regular-expressions"></a>Expressões regulares
+## <a name="regular-expressions"></a>Expressões Regulares
 
-A linguagem de expressão fluxo de dados do Azure Data Factory [documentação de referência completo aqui](https://aka.ms/dataflowexpressions), permite que incluam a sintaxe de expressão regular. Ao utilizar as funções de expressão regular, o construtor de expressões tentará interpretar barra invertida (\\) como uma seqüência de caracteres de escape. Ao utilizar as barras invertidas sua expressão regular, ou coloque regex todo em tiques (\`) ou usar uma barra invertida dupla.
+O Azure Data Factory linguagem de expressão de fluxo de dados, [documentação de referência completa aqui](https://aka.ms/dataflowexpressions), habilita funções que incluem sintaxe de expressão regular. Ao usar funções de expressão regular, o construtor de expressões tentará interpretar a barra invertida (\\) como uma sequência de caracteres de escape. Ao usar barras invertidas em sua expressão regular, coloque todo o Regex em tiques (\`) ou use uma barra invertida dupla.
 
-Exemplo de uso ticks
+Exemplo usando tiques
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
 
-ou ao utilizar duas barras
+ou usar barra dupla
 
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Endereçamento de matriz de índices
+## <a name="addressing-array-indexes"></a>Endereçando índices de matriz
 
-Com as funções de expressão que retornam as matrizes, use parênteses Retos [-] para abordar índices específicos dentro desse objeto de retorno de matriz. A matriz é baseado em aplicações.
+Com funções de expressão que retornam matrizes, use colchetes [] para endereçar índices específicos dentro desse objeto de matriz de retorno. A matriz é baseada em itens.
 
-![Matriz do Expression Builder](media/data-flow/expb2.png "pré-visualização de dados de expressão")
+(media/data-flow/expb2.png "Visualização de dados da expressão") de matriz do construtor de ![expressões]
 
-## <a name="handling-names-with-special-characters"></a>Manipulação de nomes com carateres especiais
+## <a name="handling-names-with-special-characters"></a>Manipulando nomes com caracteres especiais
 
-Quando tiver nomes de colunas que incluem carateres especiais ou espaços, coloque o nome de código entre chaves.
+Quando você tem nomes de coluna que incluem caracteres especiais ou espaços, coloque o nome entre chaves.
 * ```{[dbo].this_is my complex name$$$}```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Comece a criar expressões de transformação de dados](data-flow-expression-functions.md)
+[Iniciar a criação de expressões de transformação de dados](data-flow-expression-functions.md)

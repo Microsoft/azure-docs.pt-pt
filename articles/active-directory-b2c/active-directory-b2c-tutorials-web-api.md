@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 77cd720ffd2763b2ad3d73559a5363989f9e3e3a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd4bf602cb5ca409b957e9dbd6f963d88428a63f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679296"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694648"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET usando Azure Active Directory B2C
 
@@ -60,11 +60,7 @@ Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Sã
 
 Para chamar uma API Web protegida de um aplicativo, você precisa conceder permissões de aplicativo para a API. No tutorial de pré-requisito, você criou um aplicativo Web em Azure AD B2C chamado *webapp1*. Você usa esse aplicativo para chamar a API da Web.
 
-1. Selecione **aplicativos**e, em seguida, selecione *webapp1*.
-1. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
-1. Na lista suspensa **selecionar API** , selecione *webapi1*.
-1. Na lista suspensa **selecionar escopos** , selecione os escopos que você definiu anteriormente. Por exemplo, *demo. Read* e *demo. Write*.
-1. Selecione **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Seu aplicativo está registrado para chamar a API Web protegida. Um usuário é autenticado com Azure AD B2C para usar o aplicativo. O aplicativo obtém uma concessão de autorização de Azure AD B2C para acessar a API Web protegida.
 
@@ -73,8 +69,6 @@ Seu aplicativo está registrado para chamar a API Web protegida. Um usuário é 
 Agora que a API Web está registrada e você tem escopos definidos, configure a API Web para usar seu locatário Azure AD B2C. Neste tutorial, vai configurar uma API Web de exemplo. A API Web de exemplo está incluída no projeto que você baixou no tutorial de pré-requisito.
 
 Existem dois projetos na solução de exemplo:
-
-Os dois projetos a seguir estão na solução de exemplo:
 
 * **TaskWebApp** -criar e editar uma lista de tarefas. O exemplo usa o fluxo de usuário de inscrição **ou de entrada** para inscrever-se ou conectar usuários.
 * **TaskService** -dá suporte à funcionalidade criar, ler, atualizar e excluir lista de tarefas. A API é protegida por Azure AD B2C e chamada pelo TaskWebApp.

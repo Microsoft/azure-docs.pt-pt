@@ -8,12 +8,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: laobri
-ms.openlocfilehash: 50648d22a62199d27374a1cacf617858ce9e7d6a
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ae0694c4c79527ef3b64ad68d32ef3bce0150462
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329275"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703581"
 ---
 # <a name="create-an-azure-search-knowledge-store-using-rest"></a>Criar um repositório de conhecimento Azure Search usando REST
 
@@ -53,7 +53,7 @@ Carregue o arquivo CSV de revisões de Hotel no armazenamento de BLOBs do Azure 
 
 ## <a name="3---configure-postman"></a>3-configurar o postmaster
 
-Baixe o [código-fonte da coleção de postmaster](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) e importe-o para o postmaster usando **arquivo, importar..** .. Alterne para a guia **coleções** e clique no botão **...** e selecione **Editar**. 
+Baixe o [código-fonte da coleção de postmaster](https://github.com/Azure-Samples/azure-search-postman-samples/knowledge-store/KnowledgeStore.postman_collection.json) e importe-o para o postmaster usando **arquivo, importar..** .. Alterne para a guia **coleções** e clique no botão **...** e selecione **Editar**. 
 
 ![Aplicativo de postagem mostrando navegação](media/knowledge-store-create-rest/postman-edit-menu.png "navegar até o menu Editar no postmaster")
 

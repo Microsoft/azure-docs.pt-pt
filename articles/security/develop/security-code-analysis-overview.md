@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a7ab908673f60a651db48ae0485592a362741b6d
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242308"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695436"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Sobre a análise de código de segurança da Microsoft
 
@@ -73,7 +73,7 @@ As senhas e outros segredos armazenados no código-fonte são um problema signif
 
 ### <a name="microsoft-security-risk-detection"></a>Detecção de riscos de segurança da Microsoft
 
-A MSRD (detecção de riscos de segurança da Microsoft) é um serviço baseado em nuvem para teste de fuzzing. Ele identifica bugs de segurança exploráveis no software. Esse serviço requer um processo de integração separado. Para obter mais informações, consulte o [centro de desenvolvedores do MSRD](https://docs.microsoft.com/security-risk-detection/).
+A MSRD (detecção de riscos de segurança da Microsoft) é um serviço baseado em nuvem para teste de fuzzing. Ele identifica bugs de segurança exploráveis no software. Esse serviço requer uma assinatura e ativação separadas. Para obter mais informações, consulte o [centro de desenvolvedores do MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analisadores de Roslyn
 
@@ -108,7 +108,7 @@ Você pode configurar essa tarefa para interromper a compilação em busca de pr
 >[!NOTE]
 >Por design, cada tarefa de compilação é bem-sucedida se a tarefa for concluída com êxito. Isso é verdadeiro se uma ferramenta encontra ou não problemas, para que a compilação possa ser executada até a conclusão, permitindo que todas as ferramentas sejam executadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter instruções sobre como carregar e instalar a análise de código de segurança da Microsoft, consulte nosso [Guia de integração e instalação](security-code-analysis-onboard.md).
 

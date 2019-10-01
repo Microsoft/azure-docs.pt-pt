@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104825"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695531"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução Problemas de conexão de ponto a site do Azure
 
@@ -84,7 +84,7 @@ Para preparar o Windows 10 ou o Windows Server 2016 para o IKEv2:
    | Windows 10 versão 1709 | 22 de março de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Defina o valor da chave de registo. Crie ou defina `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` a chave REG_DWORD no registro como 1.
+2. Defina o valor da chave de registo. Crie ou defina a chave `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD no registro como 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erro de cliente VPN: A mensagem recebida era inesperada ou formatada incorretamente
 
@@ -250,32 +250,6 @@ Para resolver esse problema, Baixe novamente e reimplante o pacote ponto a site 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Muitos clientes VPN conectados ao mesmo tempo
 
 O número máximo de conexões permitidas é atingido. Você pode ver o número total de clientes conectados no portal do Azure.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>A VPN ponto a site adiciona incorretamente uma rota para 10.0.0.0/8 à tabela de rotas
-
-### <a name="symptom"></a>Sintoma
-
-Quando você disca a conexão VPN no cliente ponto a site, o cliente VPN deve adicionar uma rota para a rede virtual do Azure. O serviço auxiliar de IP deve adicionar uma rota para a sub-rede dos clientes VPN. 
-
-O intervalo de cliente VPN pertence a uma sub-rede menor de 10.0.0.0/8, como 10.0.12.0/24. Em vez de uma rota para 10.0.12.0/24, é adicionada uma rota para 10.0.0.0/8 que tem prioridade mais alta. 
-
-Essa rota incorreta interrompe a conectividade com outras redes locais que podem pertencer a outra sub-rede dentro do intervalo 10.0.0.0/8, como 10.50.0.0/24, que não têm uma rota específica definida. 
-
-### <a name="cause"></a>Causa
-
-Esse comportamento é por design para clientes Windows. Quando o cliente usa o protocolo PPP IPCP, ele obtém o endereço IP da interface de túnel do servidor (o gateway de VPN, nesse caso). No entanto, devido a uma limitação no protocolo, o cliente não tem a máscara de sub-rede. Como não há nenhuma outra maneira de obtê-lo, o cliente tenta adivinhar a máscara de sub-rede com base na classe do endereço IP da interface de túnel. 
-
-Portanto, uma rota é adicionada com base no seguinte mapeamento estático: 
-
-Se o endereço pertencer à classe A – > aplicar/8
-
-Se o endereço pertencer à classe B--> aplicar/16
-
-Se o endereço pertencer à classe C--> aplicar/24
-
-### <a name="solution"></a>Solução
-
-As rotas para outras redes são injetadas na tabela de roteamento com correspondência de prefixo mais longa ou métrica inferior (portanto, prioridade mais alta) do que o ponto a site. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>O cliente VPN não pode acessar compartilhamentos de arquivos de rede
 

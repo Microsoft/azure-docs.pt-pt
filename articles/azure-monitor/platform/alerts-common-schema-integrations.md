@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: f431e5e5f4537d1a5f889457eb81b881e47ee178
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091794"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702956"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com aplicativos lógicos
 
@@ -139,7 +139,7 @@ Este artigo pressupõe que o leitor esteja familiarizado com
     
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre grupos de ações](../../azure-monitor/platform/action-groups.md).
 * [Saiba mais sobre o esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).

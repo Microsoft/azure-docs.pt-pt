@@ -4,14 +4,14 @@ description: Pré-requisitos para usar o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299923"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709964"
 ---
 # <a name="prerequisites-for-azure-hpc-cache-preview"></a>Pré-requisitos para o cache do Azure HPC (versão prévia)
 
@@ -57,15 +57,14 @@ Saiba mais sobre as configurações de servidor DNS e redes virtuais do Azure na
 Verifique esses pré-requisitos relacionados à permissão antes de começar a criar seu cache.
 
 * A instância de cache precisa ser capaz de criar NICs (interfaces de rede virtual). O usuário que cria o cache deve ter privilégios suficientes na assinatura para criar NICs.
-<!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
 * Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Você pode usar o RBAC (controle de acesso baseado em função) para conceder ao cache acesso ao armazenamento de BLOBs. São necessárias duas funções: Colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento. Siga as instruções em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 
 ## <a name="storage-infrastructure"></a>Infraestrutura de armazenamento
 
-O cache dá suporte a exportações de armazenamento NFS ou de contêineres de blob do Azure. Você pode definir destinos de armazenamento ao criar o cache, mas também pode adicionar armazenamento posteriormente.
+O cache dá suporte a exportações de armazenamento NFS ou de contêineres de blob do Azure. Adicione destinos de armazenamento depois de criar o cache.
 
-Cada tipo de armazenamento tem pré-requisitos específicos. 
+Cada tipo de armazenamento tem pré-requisitos específicos.
 
 ### <a name="nfs-storage-requirements"></a>Requisitos de armazenamento NFS
 

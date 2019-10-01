@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/30/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231254"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694722"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory
 
@@ -50,6 +50,9 @@ Para alta disponibilidade em seu ambiente de produção, recomendamos ter mais d
 
 1. Localize fisicamente o servidor do conector próximo aos servidores de aplicativos para otimizar o desempenho entre o conector e o aplicativo. Para obter mais informações, consulte [considerações de topologia de rede](application-proxy-network-topology.md).
 1. O servidor do conector e os servidores de aplicativos Web devem pertencer ao mesmo domínio Active Directory ou abranger Domínios confiantes. Ter os servidores no mesmo domínio ou domínios confiantes é um requisito para usar o logon único (SSO) com autenticação integrada do Windows (IWA) e KCD (delegação restrita de Kerberos). Se o servidor do conector e os servidores de aplicativos Web estiverem em domínios de Active Directory diferentes, você precisará usar a delegação baseada em recursos para logon único. Para obter mais informações, consulte [KCD para logon único com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md).
+
+> [!WARNING]
+> Se você implantou o proxy de proteção de senha do Azure AD, não instale o Azure Proxy de Aplicativo do AD e o proxy de proteção de senha do Azure AD juntos no mesmo computador. O Azure Proxy de Aplicativo do AD e o proxy de proteção de senha do Azure AD instalam versões diferentes do serviço de atualizador do Azure AD Connect Agent. Essas versões diferentes são incompatíveis quando instaladas juntas no mesmo computador.
 
 #### <a name="tls-requirements"></a>Requisitos de TLS
 
@@ -94,9 +97,9 @@ Permitir acesso às seguintes URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do proxy de aplicativo |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*. microsoftonline-p.com<br>\*. msauth.net<br>\*. msauthimages.net<br>\*. msecnd.net<br>\*. msftauth.net<br>\*. msftauthimages.net<br>\*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | O conector usa essas URLs durante o processo de registro. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | O conector usa essas URLs durante o processo de registro. |
 
-Você pode permitir conexões com \*. msappproxy.net e \*. ServiceBus.Windows.net se o firewall ou o proxy permitir que você configure listas de permissões de DNS. Caso contrário, você precisará permitir o acesso aos [intervalos de IP e marcas de serviço do Azure-nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
+Você pode permitir conexões com \*.msappproxy.net e \*.servicebus.windows.net se o firewall ou o proxy permitir que você configure listas de permissões de DNS. Caso contrário, você precisará permitir o acesso aos [intervalos de IP e marcas de serviço do Azure-nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registrar um conector
 
@@ -104,7 +107,7 @@ Para usar o proxy de aplicativo, instale um conector em cada servidor Windows qu
 
 Para instalar o conector:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de aplicativos do diretório que usa o proxy de aplicativo. Por exemplo, se o domínio do locatário for contoso.com, o administrador deverá admin@contoso.com ser ou qualquer outro alias de administrador nesse domínio.
+1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de aplicativos do diretório que usa o proxy de aplicativo. Por exemplo, se o domínio do locatário for contoso.com, o administrador deverá ser admin@contoso.com ou qualquer outro alias de administrador nesse domínio.
 1. Selecione seu nome de usuário no canto superior direito. Verifique se você está conectado a um diretório que usa o proxy de aplicativo. Se você precisar alterar os diretórios, selecione **alternar diretório** e escolha um diretório que usa o proxy de aplicativo.
 1. No painel de navegação esquerdo, selecione **Azure Active Directory**.
 1. Em **gerenciar**, selecione **proxy de aplicativo**.
@@ -115,13 +118,13 @@ Para instalar o conector:
 1. Leia os termos de serviço. Quando estiver pronto, selecione **aceitar termos & baixar**.
 1. Na parte inferior da janela, selecione **executar** para instalar o conector. Um assistente de instalação é aberto.
 1. Siga as instruções no Assistente para instalar o serviço. Quando for solicitado que você registre o conector com o proxy de aplicativo para seu locatário do Azure AD, forneça suas credenciais de administrador do aplicativo.
-    - Para o Internet Explorer (IE), se a **configuração de segurança** reforçada do IE estiver definida como **ativada**, talvez você não veja a tela de registro. Para obter acesso, siga as instruções na mensagem de erro. Verifique se a **configuração de segurança reforçada do Internet Explorer** está definida como **desativado**.
+    - Para o Internet Explorer (IE), se a **configuração de segurança reforçada do IE** estiver definida como **ativada**, talvez você não veja a tela de registro. Para obter acesso, siga as instruções na mensagem de erro. Verifique se a **configuração de segurança reforçada do Internet Explorer** está definida como **desativado**.
 
 ### <a name="general-remarks"></a>Comentários gerais
 
-Se você já tiver instalado um conector, reinstale-o para obter a versão mais recente. Para ver informações sobre versões lançadas anteriormente e quais alterações elas incluem, [consulte proxy de aplicativo: Histórico](application-proxy-release-version-history.md)de lançamento de versão.
+Se você já tiver instalado um conector, reinstale-o para obter a versão mais recente. Para ver informações sobre versões lançadas anteriormente e quais alterações elas incluem, consulte proxy [Application: Histórico de lançamento de versão @ no__t-0.
 
-Se você optar por ter mais de um Windows Server para seus aplicativos locais, será necessário instalar e registrar o conector em cada servidor. Você pode organizar os conectores em grupos de conectores. Para obter mais informações, consulte [grupos](application-proxy-connector-groups.md)de conectores.
+Se você optar por ter mais de um Windows Server para seus aplicativos locais, será necessário instalar e registrar o conector em cada servidor. Você pode organizar os conectores em grupos de conectores. Para obter mais informações, consulte [grupos de conectores](application-proxy-connector-groups.md).
 
 Se sua organização usa servidores proxy para se conectar à Internet, você precisa configurá-los para o proxy de aplicativo.  Para obter mais informações, consulte [trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md). 
 
@@ -169,7 +172,7 @@ Agora que você preparou seu ambiente e instalou um conector, você está pronto
     | Campo | Descrição |
     | :---- | :---------- |
     | **Name** | O nome do aplicativo que será exibido no painel de acesso e no portal do Azure. |
-    | **URL interna** | A URL para acessar o aplicativo de dentro de sua rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Dessa forma, você pode publicar diferentes sites no mesmo servidor como aplicativos diferentes e dar a cada um deles seu próprio nome e suas regras de acesso.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se seu aplicativo estiver em https:\//yourapp/app e usar imagens localizadas em https\/:/yourapp/Media, você deverá publicar https:\//yourapp/como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [definir um Home Page personalizado para aplicativos publicados](application-proxy-configure-custom-home-page.md). |
+    | **URL interna** | A URL para acessar o aplicativo de dentro de sua rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Dessa forma, você pode publicar diferentes sites no mesmo servidor como aplicativos diferentes e dar a cada um deles seu próprio nome e suas regras de acesso.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se seu aplicativo estiver em https: \//yourapp/aplicativo e usar imagens localizadas em https: \//yourapp/mídia, você deverá publicar https: \//yourapp/como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [definir um Home Page personalizado para aplicativos publicados](application-proxy-configure-custom-home-page.md). |
     | **URL externo** | O endereço para os usuários acessarem o aplicativo de fora da rede. Se você não quiser usar o domínio do proxy de aplicativo padrão, leia sobre [domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).|
     | **Pré-autenticação** | Como o proxy de aplicativo verifica os usuários antes de conceder a eles acesso ao seu aplicativo.<br><br>**Azure Active Directory** -o proxy de aplicativo redireciona os usuários para entrar com o Azure AD, que autentica suas permissões para o diretório e o aplicativo. É recomendável manter essa opção como o padrão para que você possa aproveitar os recursos de segurança do Azure AD como o acesso condicional e a autenticação multifator. **Azure Active Directory** é necessário para monitorar o aplicativo com Microsoft Cloud segurança de aplicativo.<br><br>**Passagem** -os usuários não precisam se autenticar no Azure ad para acessar o aplicativo. Você ainda pode configurar os requisitos de autenticação no back-end. |
     | **Grupo de conectores** | Os conectores processam o acesso remoto ao seu aplicativo, e os grupos de conectores ajudam a organizar os conectores e aplicativos por região, rede ou finalidade. Se você ainda não tiver grupos de conectores criados, seu aplicativo será atribuído ao **padrão**.<br><br>Se seu aplicativo usa Websockets para se conectar, todos os conectores no grupo devem ser da versão 1.5.612.0 ou posterior.|
@@ -211,9 +214,9 @@ Para testar o logon no aplicativo:
 1. No navegador, navegue até a URL externa que você configurou durante a etapa de publicação. Você deve ver a tela iniciar.
 1. Entre como o usuário que você criou na seção anterior.
 
-Para solucionar problemas, consulte solucionar problemas [de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
+Para solucionar problemas, consulte [solucionar problemas de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você preparou seu ambiente local para trabalhar com o proxy de aplicativo e, em seguida, instalou e registrou o conector de proxy de aplicativo. Em seguida, você adicionou um aplicativo ao seu locatário do Azure AD. Você verificou que um usuário pode fazer logon no aplicativo usando uma conta do Azure AD.
 

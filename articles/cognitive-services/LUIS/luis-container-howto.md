@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 7de529c9478b78ff9dd042df90a061f0a96f5427
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a718a2335ed4928c6cd40ad4dc832eaf82bc6a2b
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316407"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695302"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar contêineres do Docker LUIS
  
@@ -325,7 +325,6 @@ Para obter mais informações sobre estas opções, consulte [configurar content
 
 O contêiner mais recente, lançado em 2019//Build, dará suporte a:
 
-* Verificação ortográfica do Bing: solicitações para o ponto de extremidade de previsão `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` de consulta com os parâmetros de cadeia de caracteres de consulta. Use o [tutorial verificação ortográfica do Bing v7](luis-tutorial-bing-spellcheck.md) para saber mais. Se esse recurso for usado, o contêiner enviará o expressão para o recurso v7 Verificação Ortográfica do Bing.
 * [Novos domínios pré-criados](luis-reference-prebuilt-domains.md): esses domínios voltados para a empresa incluem entidades, exemplos de declarações e padrões. Estenda esses domínios para seu próprio uso. 
 
 <a name="unsupported-dependencies"></a>
@@ -343,6 +342,7 @@ Configurações de aplicativo sem suporte|Detalhes|
 |Entidades sem suporte para cultura Inglês (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) entidades predefinidas|
 |Espriming de fala|Não há suporte para dependências externas no contêiner.|
 |Análise de sentimentos|Não há suporte para dependências externas no contêiner.|
+|Verificação ortográfica do Bing|Não há suporte para dependências externas no contêiner.|
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]

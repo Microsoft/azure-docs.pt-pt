@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 0b04ca5c4bea00221d5a823432b6fc1934badb1a
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320521"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701937"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -67,17 +67,19 @@ Este artigo mostra como concluir essas tarefas:
 
 ## <a name="check-network-ports"></a>Verificar portas de rede
 
-Quando você usa um ISE com uma rede virtual existente, um problema de configuração comum é ter uma ou mais portas bloqueadas. Os conectores que você usa para criar conexões entre o ISE e o sistema de destino também podem ter seus próprios requisitos de porta. Por exemplo, se você se comunicar com um sistema FTP usando o conector de FTP, verifique se a porta usada nesse sistema de FTP, como a porta 21 para enviar comandos, está disponível.
-
-Se você tiver criado uma nova rede virtual e sub-redes sem nenhuma restrição, não será necessário configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md) em sua rede virtual para que você possa controlar o tráfego entre sub-redes. Para uma rede virtual existente, *opcionalmente* , você pode configurar o NSGs [filtrando o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você escolher essa rota, verifique se o ISE abre portas específicas, conforme descrito na tabela a seguir, na rede virtual que tem o NSGs. Portanto, para NSGs existentes ou firewalls em sua rede virtual, certifique-se de que eles abram essas portas. Dessa forma, o ISE permanece acessível e pode funcionar corretamente para que você não perca o acesso ao ISE. Caso contrário, se qualquer porta necessária estiver indisponível, o ISE para de funcionar.
+Quando você usa um ISE com uma rede virtual do Azure, um problema de configuração comum é ter uma ou mais portas bloqueadas. Os conectores que você usa para criar conexões entre o ISE e o sistema de destino também podem ter seus próprios requisitos de porta. Por exemplo, se você se comunicar com um sistema FTP usando o conector de FTP, verifique se a porta que você usa no seu sistema FTP está disponível, por exemplo, a porta 21 para enviar comandos. Para garantir que o ISE permaneça acessível e possa funcionar corretamente, abra as portas especificadas pela tabela abaixo. Caso contrário, se qualquer porta necessária estiver indisponível, o ISE para de funcionar.
 
 > [!IMPORTANT]
-> Para a comunicação interna dentro de suas sub-redes, o ISE exige que você abra todas as portas dentro dessas sub-redes.
+> As portas de origem são efêmeras, portanto, certifique-se de defini-las como `*` para todas as regras.
+> Para a comunicação interna dentro de suas sub-redes, seu ISE exige que você abra todas as portas dentro dessas sub-redes.
 
-Esta tabela descreve as portas em sua rede virtual que o ISE usa e onde essas portas são usadas. As [marcas de serviço do Gerenciador de recursos](../virtual-network/security-overview.md#service-tags) representam um grupo de prefixos de endereço IP que ajudam a minimizar a complexidade ao criar regras de segurança.
+* Se você tiver criado uma nova rede virtual e sub-redes sem nenhuma restrição, não será necessário configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md#network-security-groups) em sua rede virtual para controlar o tráfego entre sub-redes.
 
-> [!NOTE]
-> As portas de origem são efêmeras, portanto, `*` defina-as como para todas as regras.
+* Em uma rede virtual existente, *opcionalmente* , você pode configurar o NSGs [filtrando o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você escolher essa rota, na rede virtual em que deseja configurar o NSGs, abra as portas especificadas pela tabela a seguir. Se você usar [as regras de segurança do NSG](../virtual-network/security-overview.md#security-rules), precisará dos protocolos TCP e UDP.
+
+* Se você já tiver NSGs ou firewalls existentes em sua rede virtual, certifique-se de abrir as portas especificadas pela tabela abaixo. Se você usar [as regras de segurança do NSG](../virtual-network/security-overview.md#security-rules), precisará dos protocolos TCP e UDP.
+
+Aqui está a tabela que descreve as portas em sua rede virtual que o ISE usa e onde essas portas são usadas. As [marcas de serviço do Gerenciador de recursos](../virtual-network/security-overview.md#service-tags) representam um grupo de prefixos de endereço IP que ajudam a minimizar a complexidade ao criar regras de segurança.
 
 | Objetivo | Direction | Portas de destino | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|

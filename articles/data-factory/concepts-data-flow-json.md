@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: ad21ddffdb22f7abf999bfa12f4a8ed86f42cfa2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 69dce46052c18eec7c3f1fa2082907ed62b367d6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673433"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703332"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapeando manipulação de JSON de fluxo de dados
 
@@ -50,7 +50,7 @@ Se essa expressão foi inserida para uma coluna chamada "complexColumn", ela ser
 }
 ```
 
-#### <a name="sample-manual-dsl"></a>Exemplo de DSL manual
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Exemplo de script manual para a definição hierárquica completa
 ```
 @(
     title=Title,

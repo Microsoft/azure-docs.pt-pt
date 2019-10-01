@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301034"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695506"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para aplicativos lógicos do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, mova para o aplicativo lógico do Azure assim que possível, seguindo este artigo.
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, mova para o aplicativo lógico do Azure assim que possível, seguindo este artigo. 
 
 Este artigo mostra como você pode agendar trabalhos de uso único e recorrente criando fluxos de trabalho automatizados com aplicativos lógicos do Azure, em vez de com o Agendador do Azure. Ao criar trabalhos agendados com aplicativos lógicos, você obtém estes benefícios:
 
@@ -38,6 +38,10 @@ Para saber mais, confira [o que são os aplicativos lógicos do Azure?](../logic
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * Para disparar seu aplicativo lógico enviando solicitações HTTP, use uma ferramenta como o aplicativo de [área de trabalho do postmaster](https://www.getpostman.com/apps).
+
+## <a name="migrate-by-using-a-script"></a>Migrar usando um script
+
+Cada trabalho do Agendador é exclusivo, portanto, não existe uma ferramenta de tamanho único para migrar trabalhos do Agendador para os aplicativos lógicos do Azure. No entanto, você pode [Editar esse script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) para atender às suas necessidades.
 
 ## <a name="schedule-one-time-jobs"></a>Agendar trabalhos de uso único
 
@@ -203,7 +207,7 @@ Para saber mais sobre a manipulação de exceção, consulte [tratar erros e exc
 **A**: Como prática recomendada, sempre faça backup do seu trabalho. Verifique se os aplicativos lógicos que você criou estão sendo executados conforme o esperado antes de excluir ou desabilitar os trabalhos do Agendador. 
 
 **P**: Há uma ferramenta que pode me ajudar a migrar meus trabalhos do Agendador para os aplicativos lógicos? <br>
-**A**: Cada trabalho do Agendador é exclusivo e, portanto, uma ferramenta de tamanho único não existe. No entanto, vários scripts estarão disponíveis para você modificar para suas necessidades. Para disponibilidade de script, verifique novamente mais tarde.
+**A**: Cada trabalho do Agendador é exclusivo e, portanto, uma ferramenta de tamanho único não existe. No entanto, com base em suas necessidades, você pode [Editar esse script para migrar trabalhos do Agendador do Azure para aplicativos lógicos do Azure](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **P**: Onde posso obter suporte para migrar meus trabalhos do Agendador? <br>
 **A**: Aqui estão algumas maneiras de obter suporte: 
