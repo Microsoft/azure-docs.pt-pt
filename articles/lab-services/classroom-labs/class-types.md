@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: d24b22ad7f306e6334369ec859f5f01b2d32184e
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: HT
+ms.openlocfilehash: c6a424ed6036016839f03f50f90ad5d911b05fad
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695835"
+ms.locfileid: "71710005"
 ---
-# <a name="example-class-types-on-azure-lab-services"></a>Tipos de classe de exemplo em Azure Lab Services
-Este artigo fornece uma lista de classes de exemplo que você pode configurar em Azure Lab Services.
+# <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classe-Azure Lab Services
+Azure Lab Services permite que você configure rapidamente ambientes de laboratório de sala de aula na nuvem. Os artigos nesta seção fornecem orientação sobre como configurar vários tipos de laboratórios de sala de aula usando Azure Lab Services.
 
 ## <a name="deep-learning-in-natural-language-processing"></a>Aprendizado profundo no processamento de linguagem natural
 Você pode configurar um laboratório voltado para o aprendizado profundo no NLP (processamento de linguagem natural) usando Azure Lab Services. O NLP (processamento de idioma natural) é uma forma de ia (inteligência artificial) que permite aos computadores com tradução, reconhecimento de fala e outros recursos de compreensão da linguagem. Os alunos que tomam uma classe NLP obtêm uma VM (máquina virtual) do Linux para saber como aplicar algoritmos de rede neural para desenvolver modelos de aprendizado profundo que são usados para analisar a linguagem humana programada. 
