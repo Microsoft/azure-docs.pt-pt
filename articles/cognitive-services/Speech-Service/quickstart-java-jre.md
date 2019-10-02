@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer fala, Java (Windows, Linux)-serviço de fala'
+title: 'Início rápido: Reconhecer fala, Java (Windows, Linux, macOS)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá a criar um aplicativo Java simples que captura e transcreve a fala do usuário do microfone do seu computador.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9438cd1345d324b068db8837216afb39241cb2a2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554107"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802472"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Início rápido: Reconhecer a fala com o SDK de fala para Java
 
-Os guias de início rápido também estão disponíveis para [conversão de fala em fala](quickstart-translate-speech-java-jre.md) e [assistente virtual de voz primeiro](quickstart-virtual-assistant-java-jre.md).
+Os guias de início rápido também estão disponíveis para [conversão de fala em fala](quickstart-translate-speech-java-jre.md), [assistente virtual de voz primeiro](quickstart-virtual-assistant-java-jre.md)e [síntese de fala](quickstart-text-to-speech-java-jre.md).
 
 Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -40,7 +40,7 @@ Este início rápido requer:
 
 Se você estiver executando o Linux, verifique se essas dependências estão instaladas antes de iniciar o eclipse.
 
-* No Ubuntu:
+* no Ubuntu:
 
   ```sh
   sudo apt-get update
@@ -86,7 +86,7 @@ Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e re
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-java-jre-07-console-output.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
 
@@ -95,6 +95,7 @@ Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão dispon
 
 ## <a name="see-also"></a>Consulte também
 
-- [Quickstart: Traduzir fala, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Quickstart: Traduzir fala, Java (Windows, Linux, macOS) ](quickstart-translate-speech-java-jre.md)
+- [Quickstart: Sintetizar fala, Java (Windows, Linux, macOS) ](quickstart-text-to-speech-java-jre.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

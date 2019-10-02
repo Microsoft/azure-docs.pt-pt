@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20c8fbd1626adaf67b790d500d8bfdeff6f27841
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702176"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802084"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migração de usuário
 
@@ -59,22 +59,13 @@ Primeiro, registre um aplicativo que você possa usar para tarefas de gerenciame
 
 Em seguida, conceda ao aplicativo o Azure AD API do Graph permissões necessárias para gravar no diretório.
 
-1. No menu **configurações** , selecione **permissões necessárias**.
-1. Selecione **Azure Active Directory do Windows**.
-1. No painel **habilitar acesso** , em **permissões do aplicativo**, selecione **ler e gravar dados do diretório**e, em seguida, selecione **salvar**.
-1. No painel **permissões necessárias** , selecione **conceder permissões**e, em seguida, selecione **Sim**.
-
-   ![Caixa de seleção ler/gravar diretório, salvar e conceder permissões realçadas](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="step-13-create-the-application-secret"></a>Etapa 1,3: Criar o segredo do aplicativo
 
 Crie um segredo do cliente (chave) para uso pelo aplicativo de migração do usuário que você configurar em uma etapa posterior.
 
-1. Na página do **aplicativo registrado** , selecione **configurações**.
-1. Selecione **Chaves**.
-1. Em **senhas**, adicione uma nova chave (também conhecida como um segredo do cliente) chamada *MyClientSecret* ou outro nome de sua escolha, selecione uma janela de expiração, selecione **salvar**e, em seguida, copie o valor da chave para uso posterior.
-
-    ![Item de menu chaves e valor de ID do aplicativo realçado em portal do Azure](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Agora você tem um aplicativo com permissões para criar, ler e atualizar usuários em seu locatário Azure AD B2C.
 

@@ -4,14 +4,14 @@ description: Saiba como configurar e gerenciar a vida útil no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104861"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815918"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
@@ -36,10 +36,16 @@ Use as etapas a seguir para habilitar a vida útil em um contêiner sem expiraç
 
    ![Configurar a vida útil no portal do Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* Quando DefaultTimeToLive for NULL, o tempo de vida estará desativado
+* Quando DefaultTimeToLive for-1, a configuração de tempo de vida estará ativada (sem padrão)
+* Quando DefaultTimeToLive tem qualquer outro valor int (exceto 0), a configuração de tempo de vida está ativada
 
-- Quando DefaultTimeToLive for NULL, o tempo de vida estará desativado
-- Quando DefaultTimeToLive for-1, a configuração de tempo de vida estará ativada (sem padrão)
-- Quando DefaultTimeToLive tem qualquer outro valor int (exceto 0), a configuração de tempo de vida está ativada
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Habilitar a vida útil em um contêiner usando CLI do Azure ou o PowerShell
+
+Para criar ou habilitar TTL em um contêiner, consulte
+
+* [Criar um contêiner com TTL usando CLI do Azure](manage-with-cli.md#create-a-container-with-ttl)
+* [Criar um contêiner com TTL usando o PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilitar a vida útil em um contêiner usando o SDK
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>Redefinir vida útil
 
@@ -274,7 +279,7 @@ containerResponse.Resource.DefaultTimeToLive = null;
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o tempo de vida no seguinte artigo:
 

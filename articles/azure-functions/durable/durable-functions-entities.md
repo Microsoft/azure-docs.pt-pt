@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 99e61cef55bd97704063e4d2da90909d0376c327
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 06dfa40b6f320646513ab759f0ad5f4d10790236
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961455"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719986"
 ---
 # <a name="entity-functions-preview"></a>Funções de entidade (visualização)
 
@@ -50,7 +50,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            currentValue += amount;
             break;
         case "reset":
             currentValue = 0;
@@ -331,7 +331,7 @@ No entanto, há algumas diferenças importantes que valem a pena observar:
 * Entidades duráveis podem ser usadas em conjunto com orquestrações duráveis e oferecem suporte a mecanismos de bloqueio distribuídos.
 * Os padrões de solicitação/resposta em entidades são limitados a orquestrações. Para a comunicação de *cliente para entidade* e *entidade para entidade* , somente mensagens unidirecionais (também conhecidas como "sinalização") são permitidas, como no modelo de ator original. Esse comportamento impede deadlocks distribuídos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os hubs de tarefas](durable-functions-task-hubs.md)

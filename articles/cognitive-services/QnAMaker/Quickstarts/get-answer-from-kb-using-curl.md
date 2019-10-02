@@ -1,47 +1,47 @@
 ---
-title: 'Início rápido: Utilize o cURL para receber resposta da base de dados de conhecimento - QnA Maker'
+title: 'Início rápido: Use a rotação para obter a resposta da base de dados de conhecimento-QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Este início rápido explica como obter uma resposta de sua base de dados de conhecimento com o cURL.
+description: Este guia de início rápido orienta você na obtenção de uma resposta da sua base de dados de conhecimento usando a ondulação.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: bb33e829853e1f9a975d29c7a80298b9033f0748
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b698b40546ee1655ebbef3980692ede6b51fc7f1
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249637"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803016"
 ---
-# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Início rápido: Receber resposta da base de dados de conhecimento com cURL
+# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Início rápido: Obter resposta da base de dados de conhecimento usando a ondulação
 
-Este guia de introdução com base em cURL explica como obter uma resposta de sua base de dados de conhecimento.
+Este guia de início rápido baseado em ondulado orienta você pela obtenção de uma resposta da sua base de dados de conhecimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Mais recente [ **cURL**](https://curl.haxx.se/).
-* Tem de ter uma [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md) e têm um [base de dados de conhecimento com perguntas e respostas](../Tutorials/create-publish-query-in-portal.md).
+* [**Ondulação**](https://curl.haxx.se/)mais recente.
+* Você deve ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md) e ter uma [base de dados de conhecimento com perguntas e respostas](../Tutorials/create-publish-query-in-portal.md).
 
-## <a name="publish-to-get-endpoint"></a>Publicar para obter o ponto final
+## <a name="publish-to-get-endpoint"></a>Publicar para obter ponto de extremidade
 
-Quando estiver pronto para gerar uma resposta a uma pergunta da sua base de dados de conhecimento [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) sua base de dados de conhecimento.
+Quando você estiver pronto para gerar uma resposta para uma pergunta de sua base de dados de conhecimento, [publique](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) sua base de dados de conhecimento.
 
-## <a name="use-production-endpoint-with-curl"></a>Utilizar o ponto final de produção com cURL
+## <a name="use-production-endpoint-with-curl"></a>Usar ponto de extremidade de produção com ondulação
 
-Quando é publicado a sua base de dados de conhecimento, o **publicar** página apresenta as definições do pedido HTTP para gerar uma resposta. O **CURL** separador mostra as definições necessárias para gerar uma resposta da ferramenta de linha de comandos [CURL](https://www.getpostman.com).
+Quando sua base de dados de conhecimento é publicada, a página **publicar** exibe as configurações de solicitação HTTP para gerar uma resposta. A guia **ondulação** mostra as configurações necessárias para gerar uma resposta da ferramenta de linha de comando, à [ondulação](https://www.getpostman.com).
 
-[![Publicar os resultados](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
+[resultados de @no__t 1Publish](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
-Para gerar uma resposta com o CURL, conclua os seguintes passos:
+Para gerar uma resposta com a ONDULAção, conclua as seguintes etapas:
 
-1. Copie o texto no separador de CURL. 
-1. Abra uma linha de comandos ou terminal e cole o texto.
-1. Edite a pergunta para ser relevante para a sua base de dados de conhecimento. Tenha cuidado para não remover o JSON que contêm que envolvem a pergunta.
-1. Introduza o comando. 
+1. Copie o texto na guia ONDULAção. 
+1. Abra uma linha de comando ou um terminal e cole o texto.
+1. Edite a pergunta para ser relevante para sua base de dados de conhecimento. Tenha cuidado para não remover o JSON que o contém ao redor da pergunta.
+1. Insira o comando. 
 1. A resposta inclui as informações relevantes sobre a resposta. 
 
     ```bash
@@ -67,17 +67,17 @@ Para gerar uma resposta com o CURL, conclua os seguintes passos:
     }
     ```
 
-## <a name="use-staging-endpoint-with-curl"></a>Utilizar o ponto final de teste com cURL
+## <a name="use-staging-endpoint-with-curl"></a>Usar ponto de extremidade de preparo com ondulação
 
-Se quiser obter uma resposta do ponto de extremidade de teste, utilize o `isTest` body propriedade.
+Se você quiser obter uma resposta do ponto de extremidade de preparo, use a propriedade de corpo `isTest`.
 
 ```json
 isTest:true
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Página de publicação também fornece informações que lhe [gerar uma resposta](get-answer-from-kb-using-postman.md) com o Postman. 
+A página publicar também fornece informações para [gerar uma resposta com o](get-answer-from-kb-using-postman.md) postmaster. 
 
 > [!div class="nextstepaction"]
-> [Metadados de utilização ao gerar uma resposta](../How-to/metadata-generateanswer-usage.md)
+> [Usar metadados ao gerar uma resposta](../How-to/metadata-generateanswer-usage.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: dfbf40ef422903069352e64340fe5e3cb960a105
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1b87d0219bdf1b317eed41f91e65bf318b31e5a
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559452"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803357"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala C++ no Linux usando o SDK de fala
 
@@ -34,15 +34,13 @@ Você precisa de uma chave de assinatura dos serviços de fala para concluir est
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
-
-O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e os arquivos de cabeçalho necessários podem ser baixados como um https://aka.ms/csspeech/linuxbinary arquivo tar do.
+O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e os arquivos de cabeçalho necessários podem ser baixados como um arquivo tar de https://aka.ms/csspeech/linuxbinary.
 
 Transfira e instale o SDK da seguinte forma:
 
 1. Certifique-se de que as dependências do SDK estão instaladas.
 
-   * No Ubuntu:
+   * no Ubuntu:
 
      ```sh
      sudo apt-get update
@@ -91,7 +89,7 @@ Transfira e instale o SDK da seguinte forma:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Nesse novo arquivo, substitua a cadeia de `YourSubscriptionKey` caracteres pela sua chave de assinatura dos serviços de fala.
+1. Nesse novo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura dos serviços de fala.
 
 1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
@@ -112,6 +110,12 @@ Transfira e instale o SDK da seguinte forma:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
+* Em um sistema **ARM64** (64 bits), execute o comando a seguir para compilar o aplicativo.
+
+  ```sh
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
+  ```
+
 ## <a name="run-the-app"></a>Executar a aplicação
 
 1. Configure o caminho da biblioteca do carregador para apontar para a biblioteca do SDK de Voz.
@@ -128,6 +132,12 @@ Transfira e instale o SDK da seguinte forma:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
+   * Em um sistema **ARM64** (64 bits), digite o comando a seguir.
+
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
+     ```
+
 1. Execute a aplicação.
 
    ```sh
@@ -141,7 +151,7 @@ Transfira e instale o SDK da seguinte forma:
    We recognized: What's the weather like?
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)

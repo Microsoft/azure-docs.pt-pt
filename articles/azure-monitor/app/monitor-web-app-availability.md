@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8e9cc93a74c299be6fb4898b4af143a43fc079f5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067028"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812209"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -31,7 +31,7 @@ Há três tipos de testes de disponibilidade:
 
 * [Teste de ping do URL](#create-a-url-ping-test): um teste simples que pode criar no Portal do Azure.
 * [Teste na Web de várias etapas](availability-multistep.md): Uma gravação de uma sequência de solicitações da Web, que pode ser reproduzida para testar cenários mais complexos. Os testes na Web de várias etapas são criados no Visual Studio Enterprise e carregados no portal para execução.
-* [Testes de disponibilidade de acompanhamento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): O `TrackAvailability()` método pode ser usado para criar seus próprios testes de disponibilidade personalizados.
+* [Testes de disponibilidade de acompanhamento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Se você decidir criar um aplicativo personalizado para executar testes de disponibilidade, o método `TrackAvailability()` poderá ser usado para enviar os resultados para Application Insights.
 
 **Você pode criar até 100 testes de disponibilidade por recurso de Application Insights.**
 
@@ -135,7 +135,7 @@ Além dos resultados brutos, você também pode exibir duas métricas de disponi
 
 [Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alertas de disponibilidade](availability-alerts.md)
 * [Testes na Web de várias etapas](availability-multistep.md)

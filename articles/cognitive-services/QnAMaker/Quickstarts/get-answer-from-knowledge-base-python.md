@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34c85de456e7ec96f3244d327fd53c91ed90d109
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f7bf73561cadab866c08ae279d18bc1bd4655983
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306902"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802964"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento com Python
 
@@ -43,6 +43,8 @@ Abra o VSCode e crie um novo ficheiro designado `get-answer-3x.py`.
 Na parte superior do `get-answer-3x.py` arquivo, adicione as dependências necessárias ao projeto:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+
+<!--TBD - reword this following paragraph -->
 
 O host e a rota são diferentes de como aparecem na página **publicar** . Isso ocorre porque a biblioteca do Python não permite nenhum roteamento no host. O roteamento que aparece na página de **publicação** como parte do host foi movido para a rota.
 
@@ -76,7 +78,7 @@ Saiba mais sobre a [solicitação](../how-to/metadata-generateanswer-usage.md#ge
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

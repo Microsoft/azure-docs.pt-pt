@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 67e95133b9d78823f37ba48f291175ae8e9058d6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 7b9d4099734af3a04f43d35d89f07f8b005c90f9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703564"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802520"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceções do Gerenciador de recursos do barramento de serviço
 
@@ -36,8 +36,8 @@ Abaixo estão as várias exceções/erros que são exibidos por meio do Azure Re
 
 | Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Pedido Inválido | 40000 | Subcódigo = 40000. A propriedade *' nome da propriedade '* não pode ser definida ao criar uma fila porque o namespace *' nome do namespace '* está usando a camada ' básica '. Esta operação só tem suporte na camada ' Standard ' ou ' Premium '. | Na camada básica do barramento de serviço do Azure, as propriedades abaixo não podem ser definidas ou atualizadas- <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Tópicos </li> </ul> | Considere a atualização da camada básica para Standard ou Premium para aproveitar essa funcionalidade. |
-| Pedido Inválido | 40000 | Subcódigo = 40000. O valor da propriedade ' requiresDuplicateDetection ' de uma fila (ou tópico) existente não pode ser alterado. | A detecção de duplicidades deve ser habilitada/desabilitada no momento da criação da entidade. Depois de criado, o parâmetro de configuração de detecção de duplicidades não pode ser alterado. | Para habilitar a detecção de duplicidades em uma fila/tópico criado anteriormente, você pode criar uma nova fila/tópico com detecção de duplicidades e, em seguida, encaminhar da fila original para a nova fila/tópico. |
+| Pedido Inválido | 40000 | Subcódigo = 40000. A propriedade *' nome da propriedade '* não pode ser definida ao criar uma fila porque o namespace *' nome do namespace '* está usando a camada ' básica '. Esta operação só tem suporte na camada ' Standard ' ou ' Premium '. | Na camada básica do barramento de serviço do Azure, as propriedades abaixo não podem ser definidas ou atualizadas- <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Tópicos </li> </ul> | Considere atualizar da camada básica para Standard ou Premium para usar essa funcionalidade. |
+| Pedido Inválido | 40000 | Subcódigo = 40000. O valor da propriedade ' requiresDuplicateDetection ' de uma fila (ou tópico) existente não pode ser alterado. | A detecção de duplicidades deve ser habilitada/desabilitada no momento da criação da entidade. O parâmetro de configuração de detecção de duplicidades não pode ser alterado após a criação. | Para habilitar a detecção de duplicidades em uma fila/tópico criado anteriormente, você pode criar uma nova fila/tópico com detecção de duplicidades e, em seguida, encaminhar da fila original para a nova fila/tópico. |
 | Pedido Inválido | 40000 | Subcódigo = 40000. O valor especificado 16384 é inválido. A propriedade ' MaxSizeInMegabytes ' deve ser um dos seguintes valores: 1024; 2048; 3072; 4096; 5120. | O valor de MaxSizeInMegabytes é inválido. | Verifique se o MaxSizeInMegabytes é um dos seguintes-1024, 2048, 3072, 4096, 5120. |
 | Pedido Inválido | 40000 | Subcódigo = 40000. O particionamento não pode ser alterado para a fila/tópico. | O particionamento não pode ser alterado para a entidade. | Crie uma nova entidade (fila ou tópico) e habilite partições. | 
 | Pedido Inválido | nenhum | O namespace *' nome do namespace '* não existe. | O namespace não existe em sua assinatura do Azure. | Para resolver esse erro, tente o seguinte <ul> <li> Verifique se a assinatura do Azure está correta. </li> <li> Verifique se o namespace existe. </li> <li> Verifique se o nome do namespace está correto (sem erros de ortografia ou cadeias de caracteres nulas). </li> </ul> | 
@@ -58,4 +58,17 @@ Assim como no HTTP, "código de erro 429" indica "muitas solicitações". Isso i
 | 429 | 40901 | Subcódigo = 40901. Outra operação conflitante está em andamento. | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação em andamento atual antes de tentar novamente. |
 | 429 | 40900 | Subcódigo = 40900. Houver. Você está solicitando uma operação que não é permitida no estado atual do recurso. | Essa condição pode ser atingida quando várias solicitações são feitas para executar as operações na mesma entidade (fila, tópico, assinatura ou regra) ao mesmo tempo. | Aguarde alguns segundos e tente novamente |
 | 429 | nenhum | Conflito de recursos ocorrido. Outra operação conflitante pode estar em andamento. Se esta for uma nova tentativa para uma operação com falha, a limpeza em segundo plano ainda estará pendente. Tente novamente mais tarde. | Essa condição pode ser atingida quando há uma operação pendente na mesma entidade. | Aguarde a conclusão da operação anterior antes de tentar novamente. |
+| 429 | nenhum | A solicitação na entidade *' nome da entidade '* entrou em conflito com outra solicitação | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |
+| 429 | nenhum | Outra solicitação de atualização está em andamento para a entidade *' nome da entidade '* . | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |
 
+
+## <a name="error-code-not-found"></a>Código de erro: Não Encontrado
+
+Essa classe de erros indica que o recurso não foi encontrado.
+
+| Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Não encontrado | nenhum | A entidade *' nome da entidade '* não foi encontrada. | A entidade na qual a operação não foi encontrada. | Verifique se a entidade existe e tente a operação novamente. |
+| Não encontrado | nenhum | Não encontrado. A operação não existe. | A operação que você está tentando executar não existe. | Verifique a operação e tente novamente. |
+| Não encontrado | nenhum | A solicitação de entrada não é reconhecida como uma solicitação de Put de política de namespace. | O corpo da solicitação de entrada é nulo e, portanto, não pode ser executado como uma solicitação Put. | Verifique o corpo da solicitação para garantir que ele não seja nulo. | 
+| Não encontrado | nenhum | Não foi possível encontrar a entidade de mensagens *' nome da entidade '* . | A entidade na qual você está tentando executar a operação não foi encontrada. | Verifique se a entidade existe e tente a operação novamente. |

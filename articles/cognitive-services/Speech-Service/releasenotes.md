@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 09/20/2019
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 12eecc4998153cbeedeb907ecad33c56141a50e6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559133"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799960"
 ---
 # <a name="release-notes"></a>Notas de versão
+## <a name="speech-sdk-170-2019-september-release"></a>1\.7.0 do SDK de fala: 2019 – versão de setembro
+
+**Novos recursos**
+*   Adicionado suporte beta para Xamarin em Plataforma Universal do Windows (UWP), Android e iOS
+*   Adicionado suporte do iOS para o Unity
+*   Adição de suporte de entrada compactada para ALaw, mulaw, FLAC no Android, iOS e Linux
+*   Adicionado SendMessageAsync na classe de conexão para enviar uma mensagem para o serviço
+*   Setmessageproperty adicionado na classe de conexão para definir a propriedade de uma mensagem
+*   Ligações adicionadas a TTS para Java (JRE e Android), Python, Swift e Objective-C
+*   Suporte à reprodução de TTS adicionado para macOS, iOS e Android.
+*   Informações de "limite de palavras" adicionadas para TTS.
+
+**Correções de erros**
+*   Correção do problema de compilação do IL2CPP no Unity 2019 para Android
+*   Corrigido o problema com cabeçalhos malformados na entrada do arquivo WAV que está sendo processada incorretamente
+*   Corrigido o problema com UUIDs que não são exclusivos em algumas propriedades de conexão
+*   Correção de alguns avisos sobre especificadores de nulidade nas associações Swift (pode exigir pequenas alterações de código)
+*   Correção de um bug que fazia com que as conexões WebSocket fosse fechadas de acordo com a carga de rede
+*   iOS: suporte Descartado para a arquitetura arm7s
+*   Correção de um problema no Android que às vezes resulta em IDs de impressão duplicadas usadas pelo DialogServiceConnector
+*   Melhorias na estabilidade de conexões entre interativações de várias transformações e o relatório de falhas (por meio de eventos cancelados) quando ocorrem com DialogServiceConnector
+*   A sessão DialogServiceConnector começará agora a fornecer eventos, inclusive ao chamar ListenOnceAsync () durante um StartKeywordRecognitionAsync ativo ()
+*   Foi corrigido uma falha associada às atividades DialogServiceConnector que estão sendo recebidas 
+
+**Amostras**
+*   Início rápido para Xamarin
+*   Atualizado o início rápido do CPP com as informações de ARM64 do Linux
+*   Guia de início rápido do Unity atualizado com informações do iOS
 
 ## <a name="speech-sdk-160-2019-june-release"></a>1\.6.0 do SDK de fala: 2019 – versão de junho
 

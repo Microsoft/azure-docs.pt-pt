@@ -1,6 +1,6 @@
 ---
-title: Artigo sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL | Microsoft Docs
-description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL.
+title: Artigo sobre problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL-servidor único | Microsoft Docs
+description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,17 +10,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/03/2019
+ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743546"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802579"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conhecidos/limitações de migração com migrações online para o BD do Azure para PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o BD do Azure para PostgreSQL-servidor único
 
-Os problemas conhecidos e as limitações associadas a migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL são descritas nas seções a seguir.
+Problemas conhecidos e limitações associadas a migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL-um único servidor são descritos nas seções a seguir.
 
 ## <a name="online-migration-configuration"></a>Configuração de migração online
 
@@ -32,7 +32,7 @@ Os problemas conhecidos e as limitações associadas a migrações online do Pos
 
 - Para habilitar a replicação lógica no arquivo PostgreSQL **. conf de origem** , defina os seguintes parâmetros:
   - **wal_level** = logical
-  - **max_replication_slots** = [número máximo de bancos de dados para migração]; Se você quiser migrar 4 bancos de dados, defina o valor como 4
+  - **max_replication_slots** = [número máximo de bancos de dados para migração]; Se você quiser migrar quatro bancos de dados, defina o valor como 4
   - **max_wal_senders** = [número de bancos de dados em execução simultânea]; o valor recomendado é 10
 - Adicionar o IP do agente DMS à origem PostgreSQL pg_hba. conf
   1. Anote o endereço IP DMS depois de concluir o provisionamento de uma instância do DMS.
@@ -42,7 +42,7 @@ Os problemas conhecidos e as limitações associadas a migrações online do Pos
 
 - O usuário deve ter a permissão de superusuário no servidor que hospeda o banco de dados de origem
 - Além de ter ENUM no esquema de banco de dados de origem, os esquemas de banco de dados de origem e de destino devem corresponder.
-- O esquema no banco de dados do Azure de destino para PostgreSQL não deve ter chaves estrangeiras. Use a seguinte consulta para remover chaves estrangeiras:
+- O esquema no banco de dados do Azure de destino para PostgreSQL-servidor único não deve ter chaves estrangeiras. Use a seguinte consulta para remover chaves estrangeiras:
 
     ```
                                 SELECT Queries.tablename
@@ -73,7 +73,7 @@ Os problemas conhecidos e as limitações associadas a migrações online do Pos
 
     Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 
-- O esquema no banco de dados do Azure de destino para PostgreSQL não deve ter nenhum gatilho. Use o seguinte para desabilitar gatilhos no banco de dados de destino:
+- O esquema no banco de dados do Azure de destino para PostgreSQL-um servidor único não deve ter gatilhos. Use o seguinte para desabilitar gatilhos no banco de dados de destino:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

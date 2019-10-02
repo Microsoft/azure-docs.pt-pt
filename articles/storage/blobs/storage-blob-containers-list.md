@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 06454798deb4a5bc5064e28535a837f73c083e1c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671291"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803383"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
 

@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120493"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803389"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -33,7 +33,7 @@ Depois de criar uma conta do Azure Cosmos em sua assinatura, você pode gerencia
 | Tamanho máximo de anexo por conta (o recurso de anexo está sendo depreciado) | 2 GB | 
 
 > [!NOTE]
-> Para obter as práticas recomendadas para gerenciar cargas de trabalho com chaves de partição que precisam de limites mais altos para armazenamento ou taxa de transferência, consulte [criando chaves de partição ativa](synthetic-partition-keys.md)
+> Para saber mais sobre as práticas recomendadas para o gerenciamento de cargas de trabalho que têm chaves de partição que exigem limites mais altos para armazenamento ou taxa de transferência, consulte [criar uma chave de partição sintética](synthetic-partition-keys.md).
 >
 
 Um contêiner Cosmos (ou banco de dados de produtividade compartilhado) deve ter uma taxa de transferência mínima de 400 RUs. À medida que o contêiner cresce, a taxa de transferência mínima suportada também depende dos seguintes fatores:

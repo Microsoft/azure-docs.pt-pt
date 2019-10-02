@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/18/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: bcce9c53e2618f9501dde63905fb834bce7985ee
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204507"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719516"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para node. js
 
@@ -171,9 +171,9 @@ Defina a função `formatRectFaces`auxiliar:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
 
-### <a name="detect-adult-or-racy-content"></a>Detectar conteúdo adulto ou erótico
+### <a name="detect-adult-racy-or-gory-content"></a>Detectar conteúdo adulto, erótico ou terríveis
 
-O código a seguir imprime a presença detectada de conteúdo adulto ou erótico na imagem. Consulte [conteúdo adulto e erótico](../concept-detecting-adult-content.md) para obter mais detalhes.
+O código a seguir imprime a presença detectada de conteúdo adulto na imagem. Consulte [conteúdo adulto, erótico, terríveis](../concept-detecting-adult-content.md) para obter mais detalhes.
 
 Defina a URL da imagem a ser usada:
 

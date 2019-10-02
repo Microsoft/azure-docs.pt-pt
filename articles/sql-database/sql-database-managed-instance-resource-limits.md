@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146793"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816085"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -38,12 +38,27 @@ Instância gerenciada do banco de dados SQL do Azure pode ser implantada em duas
 | Hardware | Processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, vCore de SSD anexado = 1 PP (núcleo físico) | Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz, SSD Fast NVMe, vCore = 1 LP (Hyper-thread) |
 | Número de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memória máxima (taxa de memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5,1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
-| Memória máxima OLTP na memória | Limite de instância: 3 GB por vCore<br/>Limites de banco de dados:<br/> -8-núcleo: 8 GB por banco de dados<br/> -16-núcleo: 20 GB por banco de dados<br/> -24-núcleo: 36 GB por banco de dados | Limite de instância: 2,5 GB por vCore<br/>Limites de banco de dados:<br/> -8-núcleo: 13 GB por banco de dados<br/> -16-núcleo: 32 GB por banco de dados |
+| Memória máxima OLTP na memória | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8-1,65 GB por vCore |
 | Armazenamento reservado de instância máx. |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
 > - O hardware Gen4 está sendo desativado. É recomendável implantar novas instâncias gerenciadas em hardware Gen5.
 > - O hardware do Gen4 no momento ainda está disponível apenas nas seguintes regiões: Europa Setentrional, Europa Ocidental, leste dos EUA, Sul EUA Central, norte EUA Central, oeste dos EUA 2, EUA Central, Canadá central, sul da Índia, Sudeste Asiático e Coreia central.
+
+#### <a name="in-memory-oltp-available-space"></a>Espaço disponível no OLTP na memória 
+
+A quantidade de espaço OLTP na memória depende do número de vCores e da geração de hardware. Na tabela a seguir estão listados os limites de memória que podem ser usados para objetos OLTP na memória.
+
+| Espaço OLTP na memória por vCore    | **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4 | 3,14 GB | |   
+| 8 | 6,28 GB | 8 GB |
+| 16    | 15,77 GB | 20 GB |
+| 24    | 25,25 GB | 36 GB |
+| 32    | 37,94 GB | |
+| 40    | 52,23 GB | |
+| 64    | 99,9 GB   | |
+| 80    | 131,68 GB| |
 
 ### <a name="service-tier-characteristics"></a>Características da camada de serviço
 

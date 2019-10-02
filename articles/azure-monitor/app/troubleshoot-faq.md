@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875378"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802295"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Mais Frequentes
 
@@ -59,7 +59,7 @@ O plano Enterprise incorre em um encargo para cada dia em que cada nó do servid
 
 [Leia o plano de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>Quanto custa?
+## <a name="how-much-does-it-cost"></a>Quanto custa?
 
 * Abra a **página uso e custos estimados** em um recurso de Application insights. Há um gráfico de uso recente. Você pode definir um limite de volume de dados, se desejar.
 * Abra a [folha de cobrança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) para ver suas listas em todos os recursos.
@@ -139,6 +139,8 @@ Procuramos o endereço IP (IPv4 ou IPv6) do cliente Web usando [GeoLite2](https:
 
 * Telemetria do navegador: Coletamos o endereço IP do remetente.
 * Telemetria do servidor: O módulo Application Insights coleta o endereço IP do cliente. Ele não será coletado `X-Forwarded-For` se estiver definido.
+* Para saber mais sobre como o endereço IP e os dados de localização geográfica são coletados no Application Insights consulte este [artigo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+
 
 Você pode configurar o `ClientIpHeaderTelemetryInitializer` para obter o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele é movido por um proxy, balanceador de carga ou CDN para `X-Originating-IP`. [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
@@ -197,7 +199,7 @@ Use um único recurso para todos os componentes ou funções em um único sistem
 | Obter rastreamentos de pilha de exceções |[Inserir chamadas trackexception em seu código](asp-net-exceptions.md) (mas alguns são relatados automaticamente) |Detectar e diagnosticar exceções |
 | Pesquisar rastreamentos de log |[Adicionar um adaptador de log](asp-net-trace-logs.md) |Diagnosticar exceções, problemas de desempenho |
 | Noções básicas de uso do cliente: exibições de página, sessões,... |[Inicializador de JavaScript em páginas da Web](javascript.md) |Análise de utilização |
-| Métricas personalizadas do cliente |[Acompanhamento de chamadas em páginas da Web](api-custom-events-metrics.md) |Aprimore a experiência do usuário |
+| Métricas personalizadas do cliente |[Acompanhamento de chamadas em páginas da Web](api-custom-events-metrics.md) |Aperfeiçoar a experiência de utilizador |
 | Métricas personalizadas do servidor |[Acompanhamento de chamadas no servidor](api-custom-events-metrics.md) |Business intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Por que as contagens em gráficos de pesquisa e métricas são desiguais?

@@ -1,21 +1,21 @@
 ---
 title: Aprovisionar débito do contentor no Azure Cosmos DB
 description: Aprenda a aprovisionar débito ao nível do contentor no Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
-ms.openlocfilehash: 0975fe5135bbe9f5e1dc65ee0444cc3aab986a2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/28/2019
+ms.author: mjbrown
+ms.openlocfilehash: 8da27773cc74324c1dde5a95de1abef3256c1f1c
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093044"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811682"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionar a taxa de transferência em um contêiner Cosmos do Azure
 
-Este artigo explica como provisionar a taxa de transferência em um contêiner (coleção, gráfico ou tabela) no Azure Cosmos DB. Você pode provisionar a produtividade em um único contêiner ou provisionar a [taxa de transferência em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-lo entre os contêineres no banco de dados. Você pode provisionar a taxa de transferência em um contêiner usando os SDKs portal do Azure, CLI do Azure ou Azure Cosmos DB.
+Este artigo explica como provisionar a taxa de transferência em um contêiner (coleção, gráfico ou tabela) no Azure Cosmos DB. Você pode provisionar a produtividade em um único contêiner ou [provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-lo entre os contêineres no banco de dados. Você pode provisionar a taxa de transferência em um contêiner usando os SDKs portal do Azure, CLI do Azure ou Azure Cosmos DB.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
 
@@ -27,52 +27,21 @@ Este artigo explica como provisionar a taxa de transferência em um contêiner (
 
    * Indique se você está criando um novo banco de dados ou usando um existente.
    * Insira uma ID de contêiner (ou tabela ou gráfico).
-   * Insira um valor de chave de partição (por `/userid`exemplo,).
+   * Insira um valor de chave de partição (por exemplo, `/userid`).
    * Insira uma taxa de transferência que você deseja provisionar (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-![Captura de tela de Data Explorer, com a nova coleção realçada](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    ![Captura de tela de Data Explorer, com a nova coleção realçada](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>Aprovisionar débito com a CLI do Azure
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Provisionar taxa de transferência usando o CLI do Azure ou o PowerShell
 
-```azurecli-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
-```
+Para criar um contêiner com taxa de transferência dedicada, consulte
 
-## <a name="provision-throughput-using-powershell"></a>Provisionar taxa de transferência usando o PowerShell
+* [Criar um contêiner usando CLI do Azure](manage-with-cli.md#create-a-container)
+* [Criar um contêiner usando o PowerShell](manage-with-powershell.md#create-container)
 
-```azurepowershell-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
-
-$ContainerProperties = @{
-    "resource"=@{
-        "id"=$containerName;
-        "partitionKey"=@{
-            "paths"=@("/myPartitionKey");
-            "kind"="Hash"
-        }
-    };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
-```
-
-Se você estiver Provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a `/myShardKey` API do Azure Cosmos DB para MongoDB, use para o caminho da chave de partição. Se você estiver Provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com API do Cassandra, use `/myPrimaryKey` para o caminho de chave de partição.
+> [!Note]
+> Se você estiver Provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Azure Cosmos DB para MongoDB, use `/myShardKey` para o caminho da chave de partição. Se você estiver Provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com API do Cassandra, use `/myPrimaryKey` para o caminho da chave de partição.
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>Provisionar taxa de transferência usando o SDK do .NET
 

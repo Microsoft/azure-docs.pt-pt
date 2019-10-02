@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701898"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802068"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Utilizar a Graph API do Azure AD
 
@@ -49,19 +49,11 @@ Para usar o API do Graph do Azure AD com seu locatário B2C, você precisa regis
 
 ### <a name="assign-api-access-permissions"></a>Atribuir permissões de acesso à API
 
-1. Na página Visão geral do **aplicativo registrado** , selecione **configurações**.
-1. Em **acesso à API**, selecione **permissões necessárias**.
-1. Selecione **Azure Active Directory do Windows**.
-1. Em **permissões do aplicativo**, selecione **ler e gravar dados do diretório**.
-1. Selecione **Guardar**.
-1. Selecione **conceder permissões**e, em seguida, selecione **Sim**. Pode levar alguns minutos para que as permissões se propaguem totalmente.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="create-client-secret"></a>Criar segredo do cliente
 
-1. Em **acesso à API**, selecione **chaves**.
-1. Insira uma descrição para a chave na caixa **Descrição da chave** . Por exemplo, *chave de gerenciamento*.
-1. Selecione uma **duração** de validade e, em seguida, selecione **salvar**.
-1. Registre o **valor**da chave. Você usará esse valor para configuração em uma etapa posterior.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Agora você tem um aplicativo que tem permissão para *criar*, *ler*e *atualizar* usuários em seu locatário Azure ad B2C. Continue na próxima seção para adicionar permissões de *exclusão* de usuário e *atualização de senha* .
 

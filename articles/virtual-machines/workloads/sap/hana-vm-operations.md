@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceefb565a82301d2ddedf70d12c0fc564b801229
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d3c810746218e9761ae4c821dc22fef921e62a60
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101210"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719055"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece diretrizes para configurar a infraestrutura do Azure e sistemas operacionais SAP HANA implantados em VMs (máquinas virtuais) nativas do Azure. O documento também inclui informações de configuração para SAP HANA escalar horizontalmente para o SKU da VM M128s. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -67,7 +67,7 @@ Implante as VMs no Azure usando:
 Você também pode implantar uma plataforma de SAP HANA instalada completa nos serviços de VM do Azure por meio da [plataforma de nuvem SAP](https://cal.sap.com/). O processo de instalação é descrito em [implantar SAP S/4HANA ou BW/4HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) ou com a automação liberada [aqui](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
-> Para usar VMs M208xx_v2, você precisa ter cuidado ao selecionar a imagem do SUSE Linux na Galeria de imagens de VM do Azure. Para ler os detalhes, leia o artigo tamanhos de [máquina virtual com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). O Red Hat ainda não tem suporte para usar o HANA em VMs da família Mv2. O planejamento atual é fornecer suporte para versões do Red Hat que executam o HANA na família de VMs Mv2 no T4/CY2019 
+> Para usar VMs M208xx_v2, você precisa ter cuidado ao selecionar a imagem do Linux na Galeria de imagens de VM do Azure. Para ler os detalhes, leia o artigo tamanhos de [máquina virtual com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). 
 > 
 
 
@@ -79,11 +79,11 @@ Para configurações de armazenamento e tipos de armazenamento a serem usados co
 Quando houver conectividade site a site no Azure por meio de VPN ou ExpressRoute, você deverá ter pelo menos uma rede virtual do Azure conectada por meio de um gateway virtual para o circuito VPN ou ExpressRoute. Em implantações simples, o gateway virtual pode ser implantado em uma sub-rede da VNet (rede virtual) do Azure que hospeda as instâncias de SAP HANA também. Para instalar SAP HANA, você cria duas sub-redes adicionais na rede virtual do Azure. Uma sub-rede hospeda as VMs para executar as instâncias de SAP HANA. A outra sub-rede executa VMs de Jumpbox ou de gerenciamento para hospedar SAP HANA Studio, outro software de gerenciamento ou seu software de aplicativo.
 
 > [!IMPORTANT]
-> Fora de funcionalidade, mas mais importante por motivos de desempenho, não há suporte para configurar dispositivos de virtualização de [rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou S/4HANA com base em SAP sistema. A comunicação entre a camada do aplicativo SAP e a camada do DBMS precisa ser direta. A restrição não inclui [as regras ASG e NSG do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview) , contanto que essas regras ASG e NSG permitam uma comunicação direta. Outros cenários em que não há suporte para NVAs estão em caminhos de comunicação entre VMs do Azure que representam nós de cluster pacemaker do Linux e dispositivos SBD, conforme descrito em [alta disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para SAP aplicativos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou em caminhos de comunicação entre as VMs do Azure e o Windows Server SOFS configurados conforme descrito em [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivos no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). O NVAs em caminhos de comunicação pode facilmente dobrar a latência de rede entre dois parceiros de comunicação, pode restringir a taxa de transferência em caminhos críticos entre a camada do aplicativo SAP e a camada do DBMS. Em alguns cenários observados com os clientes, o NVAs pode fazer com que os clusters do pacemaker Linux falhem nos casos em que as comunicações entre os nós do cluster Linux pacemaker precisam se comunicar com o dispositivo SBD por meio de um NVA.  
+> Fora de funcionalidade, mas mais importante por motivos de desempenho, não há suporte para configurar [dispositivos de virtualização de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou S/4HANA com base em SAP sistema. A comunicação entre a camada do aplicativo SAP e a camada do DBMS precisa ser direta. A restrição não inclui [as regras ASG e NSG do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview) , contanto que essas regras ASG e NSG permitam uma comunicação direta. Outros cenários em que não há suporte para NVAs estão em caminhos de comunicação entre VMs do Azure que representam nós de cluster pacemaker do Linux e dispositivos SBD, conforme descrito em [alta disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para SAP aplicativos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou em caminhos de comunicação entre as VMs do Azure e o Windows Server SOFS configurados conforme descrito em [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivos no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). O NVAs em caminhos de comunicação pode facilmente dobrar a latência de rede entre dois parceiros de comunicação, pode restringir a taxa de transferência em caminhos críticos entre a camada do aplicativo SAP e a camada do DBMS. Em alguns cenários observados com os clientes, o NVAs pode fazer com que os clusters do pacemaker Linux falhem nos casos em que as comunicações entre os nós do cluster Linux pacemaker precisam se comunicar com o dispositivo SBD por meio de um NVA.  
 > 
 
 > [!IMPORTANT]
-> Outro design **sem** suporte é a diferenciação da camada do aplicativo SAP e da camada DBMS em diferentes redes virtuais do Azure que não são [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre si. É recomendável separar a camada do aplicativo SAP e a camada do DBMS usando sub-redes em uma rede virtual do Azure em vez de usar diferentes redes virtuais do Azure. Se você decidir não seguir a recomendação e, em vez disso, separar as duas camadas em uma rede virtual diferente, as duas redes virtuais precisarão ser [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Lembre-se de que o tráfego [](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) de rede entre duas redes virtuais emparelhadas do Azure é o assunto dos custos de transferência. Com o enorme volume de dados em muitos terabytes trocados entre a camada do aplicativo SAP e os custos substanciais da camada do DBMS podem ser acumulados se a camada do aplicativo SAP e a camada do DBMS estiverem segregas entre duas redes virtuais emparelhadas do Azure. 
+> Outro design **sem** suporte é a diferenciação da camada do aplicativo SAP e da camada DBMS em diferentes redes virtuais do Azure que não são [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre si. É recomendável separar a camada do aplicativo SAP e a camada do DBMS usando sub-redes em uma rede virtual do Azure em vez de usar diferentes redes virtuais do Azure. Se você decidir não seguir a recomendação e, em vez disso, separar as duas camadas em uma rede virtual diferente, as duas redes virtuais precisarão ser [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Lembre-se de que o tráfego de rede entre duas redes virtuais [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) do Azure é o assunto dos custos de transferência. Com o enorme volume de dados em muitos terabytes trocados entre a camada do aplicativo SAP e os custos substanciais da camada do DBMS podem ser acumulados se a camada do aplicativo SAP e a camada do DBMS estiverem segregas entre duas redes virtuais emparelhadas do Azure. 
 
 Quando você instala as VMs para executar o SAP HANA, as VMs precisam de:
 
@@ -97,7 +97,7 @@ Quando você instala as VMs para executar o SAP HANA, as VMs precisam de:
 
 No entanto, para implantações que são desejadas, você precisa criar uma arquitetura de rede de datacenter virtual no Azure. Essa arquitetura recomenda a separação do gateway de VNet do Azure que se conecta ao local em uma VNet do Azure separada. Essa VNet separada deve hospedar todo o tráfego que deixa para o local ou para a Internet. Essa abordagem permite que você implante o software para auditoria e log de tráfego que entra no datacenter virtual no Azure nessa VNet de Hub separada. Portanto, você tem uma VNet que hospeda todo o software e as configurações relacionadas ao tráfego de entrada e saída para sua implantação do Azure.
 
-Os artigos [datacenter virtual do Azure: Uma perspectiva](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) de rede e um datacenter [virtual do Azure e o plano de controle corporativo](https://docs.microsoft.com/azure/architecture/vdc/) fornecem mais informações sobre a abordagem de datacenter virtual e o design de VNet do Azure relacionado.
+Os artigos [Azure de datacenter virtual: Uma perspectiva de rede @ no__t-0 e [datacenter virtual do Azure e o plano de controle corporativo](https://docs.microsoft.com/azure/architecture/vdc/) fornecem mais informações sobre a abordagem de datacenter virtual e o design de VNet do Azure relacionado.
 
 
 >[!NOTE]
@@ -119,7 +119,7 @@ Para implantar SAP HANA no Azure sem uma conexão site a site, você ainda desej
 ![Esquema de implantação aproximado para SAP HANA sem uma conexão site a site](media/hana-vm-operations/hana-simple-networking2.PNG)
  
 
-Outra descrição sobre como usar o Azure NVAs para controlar e monitorar o acesso da Internet sem a arquitetura de VNet do Hub e do spoke pode ser encontrada no artigo implantar soluções de virtualização de [rede altamente disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+Outra descrição sobre como usar o Azure NVAs para controlar e monitorar o acesso da Internet sem a arquitetura de VNet do Hub e do spoke pode ser encontrada no artigo implantar soluções de [virtualização de rede altamente disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 
 ## <a name="configuring-azure-infrastructure-for-sap-hana-scale-out"></a>Configurando a infraestrutura do Azure para SAP HANA escalar horizontalmente
@@ -139,10 +139,8 @@ Da certificação de expansão de 16 nós
 >Em implantações de expansão de VM do Azure, não há possibilidade de usar um nó em espera
 >
 
-O motivo para não poder configurar um nó em espera é duplo:
+Embora o Azure tenha um serviço NFS nativo com o [Azure NetApp files](https://azure.microsoft.com/services/netapp/), o serviço NFS, embora tenha suporte para a camada de aplicativo SAP, ainda não foi certificado para SAP Hana. Como resultado, os compartilhamentos NFS ainda precisam ser configurados com a ajuda de uma funcionalidade de terceiros. 
 
-- O Azure neste ponto não tem nenhum serviço NFS nativo. Como resultado, os compartilhamentos NFS precisam ser configurados com a ajuda de uma funcionalidade de terceiros.
-- Nenhuma das configurações de NFS de terceiros é capaz de atender aos critérios de latência de armazenamento para SAP HANA com suas soluções implantadas no Azure.
 
 Como resultado, os volumes **/Hana/data** e **/Hana/log** não podem ser compartilhados. Não compartilhar esses volumes de nós únicos impede o uso de um SAP HANA nó em espera em uma configuração de expansão.
 
@@ -152,11 +150,15 @@ Como resultado, o design básico de um único nó em uma configuração de expan
 
 A configuração básica de um nó de VM para SAP HANA expansão é semelhante a:
 
-- Para o **/Hana/Shared**, você cria um cluster NFS altamente disponível com base no SUSE Linux 12 SP3. Esse cluster hospeda os compartilhamentos NFS **/Hana/Shared** de sua configuração de expansão e os serviços centrais do SAP NetWeaver ou BW/4HANA. A documentação para criar essa configuração está disponível no artigo [alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+- Para **/Hana/Shared**, você precisa criar um compartilhamento NFS altamente disponível. Até agora, existem diferentes possibilidades para chegar a um compartilhamento desse tipo altamente disponível. Eles estão documentados em conjunto com o SAP NetWeaver:
+    - [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+    - [GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+    - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+    - [Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 - Todos os outros volumes de disco **não** são compartilhados entre os diferentes nós e **não** são baseados em NFS. As configurações de instalação e as etapas para instalações de expansão do HANA com **/Hana/data** e **/Hana/log** não compartilhados são fornecidas mais adiante neste documento.
 
 >[!NOTE]
->O cluster NFS altamente disponível, conforme exibido nos gráficos até o momento, tem suporte apenas para o SUSE Linux. Uma solução NFS altamente disponível com base no Red Hat será aconselhada posteriormente.
+>O cluster NFS altamente disponível, conforme exibido nos gráficos, é documentado em [alta disponibilidade para NFS em VMs do Azure em SuSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Outras possibilidades estão documentadas na lista acima.
 
 O dimensionamento dos volumes para os nós é o mesmo para escalar verticalmente, exceto **/Hana/Shared**. Para o SKU da VM M128s, os tamanhos e tipos sugeridos são semelhantes a:
 

@@ -10,18 +10,22 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195672"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802441"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemplos em máquinas virtuais de ciência de dados do Azure
 
 As DSVMs (máquinas virtuais de ciência de dados) do Azure incluem um conjunto abrangente de códigos de exemplo. Esses exemplos incluem blocos de anotações e scripts do Jupyter em linguagens como Python e R.
 > [!NOTE]
 > Para obter mais informações sobre como executar notebooks Jupyter em suas máquinas virtuais de ciência de dados, consulte a seção [Access Jupyter](#access-jupyter) .
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para executar esses exemplos, você deve ter provisionado um Máquina Virtual de Ciência de Dados. Consulte os guias de início rápido para [Windows](./provision-vm.md) e [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Exemplos disponíveis
 | Categoria de exemplos | Descrição | Localizações |
@@ -42,7 +46,7 @@ As DSVMs (máquinas virtuais de ciência de dados) do Azure incluem um conjunto 
 
 ## <a name="access-jupyter"></a>Jupyter de acesso 
 
-Para acessar o Jupyter, selecione o ícone de **Jupyter** no menu da área de trabalho ou do aplicativo. Você também pode acessar o Jupyter em uma edição do Linux de um DSVM. Para acessar remotamente a partir de um navegador da Web `https://<Full Domain Name or IP Address of the DSVM>:8000` , vá para no Ubuntu.
+Para acessar o Jupyter, selecione o ícone de **Jupyter** no menu da área de trabalho ou do aplicativo. Você também pode acessar o Jupyter em uma edição do Linux de um DSVM. Para acessar remotamente a partir de um navegador da Web, acesse `https://<Full Domain Name or IP Address of the DSVM>:8000` no Ubuntu.
 
 Para adicionar exceções e tornar o Jupyter acesso disponível em um navegador, use as seguintes diretrizes:
 

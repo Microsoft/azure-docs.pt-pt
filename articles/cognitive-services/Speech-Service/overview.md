@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068848"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803350"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
@@ -41,9 +41,11 @@ Esses recursos compõem os serviços de fala do Azure. Use os links nesta tabela
 
 Saiba o que há de novo nos serviços de fala do Azure.
 
+* Setembro de 2019
+  * Lançada a 1.7.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * Agosto de 2019
   * **Novo tutorial**: [Dê voz ao seu bot com o SDK de Voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  * Foi adicionado um novo estilo de [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)fala,, `en-US-JessaNeural` para a voz. 
+  * Adicionado um novo estilo de fala, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), para a voz `en-US-JessaNeural`. 
 * Junho de 2019
   * Lançada a 1.6.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * 2019 de maio-a documentação agora está disponível para [transcrição de conversa](conversation-transcription-service.md), [transcrição do Call Center](call-center-transcription.md)e [assistentes virtuais da primeira voz](voice-first-virtual-assistants.md).
@@ -68,8 +70,8 @@ Oferecemos guias de início rápido nas linguagens de programação mais popular
 Depois de ter tido a oportunidade de usar os serviços de fala, experimente nosso tutorial que ensina como reconhecer tentativas de fala usando o SDK de fala e o LUIS.
 
 * [Tutorial: Reconheça as intenções da fala com o SDK de fala e o LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
-* [Tutorial: Voz habilite seu bot com o SDK de fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Tutorial: Crie um aplicativo Flask para traduzir texto, analisar sentimentos e sintetizar texto traduzido em fala, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+* [Tutorial: Voz habilite seu bot com o SDK de C#fala, ](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Tutorial: Crie um aplicativo Flask para traduzir texto, analisar sentimentos e sintetizar texto traduzido em fala, REST @ no__t-0
 
 ## <a name="get-sample-code"></a>Obter o código de exemplo
 
@@ -97,7 +99,7 @@ Os serviços de fala do Azure funcionam bem com modelos internos, no entanto, ta
 * [API REST: Conversão de texto em fala](rest-text-to-speech.md)
 * [API REST: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)

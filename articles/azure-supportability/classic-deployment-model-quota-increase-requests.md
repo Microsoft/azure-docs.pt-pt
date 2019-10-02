@@ -7,18 +7,24 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 70ad44eade871d52591014ee24e645b95c52f1e5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234882"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802671"
 ---
 # <a name="classic-deployment-model"></a>Modelo de implementação clássica
 
-O modelo de implantação clássico é a geração mais antiga do modo de implantação do Azure que impõe um limite de cota de vCPU global para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais. O modelo de implantação clássico não é mais recomendado e agora é substituído pelo modelo do Resource Manager. Para saber mais sobre esses dois modelos de implantação e a vantagem do Resource Manager, consulte a página modelo de implantação do Resource Manager. Quando uma nova assinatura é criada, uma cota padrão de vCPUs é atribuída a ela. Sempre que uma nova VM for implantada usando o modelo de implantação clássico, a soma do uso de vCPUs novo e existente em todas as regiões não deverá exceder a cota vCPU aprovada para o modelo de implantação clássico. Saiba mais sobre cotas na [página limites de serviço e assinatura do Azure](https://aka.ms/quotalimits)
+O modelo de implantação clássico é o modelo de implantação do Azure de geração mais antiga. Ele impõe um limite de cota de vCPU global para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais. O modelo de implantação clássico não é mais recomendado e agora é substituído pelo modelo do Resource Manager. 
 
-Você pode solicitar um aumento no limite de vCPUs para o modelo de implantação clássico por meio da folha ajuda + suporte ou da folha usos + cota no Portal.
+Para saber mais sobre esses dois modelos de implantação e as vantagens de usar o Resource Manager, consulte o [Resource Manager e](../azure-resource-manager/resource-manager-deployment-model.md) a página de implantação clássica.
+ 
+Quando uma nova assinatura é criada, uma cota padrão de vCPUs é atribuída a ela. Sempre que uma nova VM for implantada usando o modelo de implantação clássico, a soma do uso de vCPU novo e existente em todas as regiões não deverá exceder a cota vCPU aprovada para o modelo de implantação clássico.
+ 
+Saiba mais sobre cotas na página de [limites de serviço e assinatura do Azure](https://aka.ms/quotalimits) .
+
+Você pode solicitar um aumento no limite de cota de vCPU para o modelo de implantação clássico por meio da folha ' ajuda + suporte ' ou da folha ' usos + cota ' no Portal.
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>A solicitação por série de VM vCPU aumento de cota no nível da assinatura usando a folha **ajuda + suporte**
 
@@ -78,7 +84,7 @@ Siga as instruções abaixo usando para criar uma solicitação de suporte por m
 
 4. No canto superior direito, selecione **solicitar aumento**.
 
-   ![Aumento da solicitação](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Pedir aumento](./media/resource-manager-core-quotas-request/request-increase.png)
 
 5. Selecione **computação – o limite de assinatura de VM (núcleos-vCPUs) aumenta** como o tipo de cotação. 
 

@@ -1,6 +1,6 @@
 ---
 title: Carregar um VHD no Azure usando o CLI do Azure
-description: Saiba como carregar um VHD em um disco gerenciado do Azure usando o CLI do Azure.
+description: Saiba como carregar um VHD em um disco gerenciado do Azure e copiar um disco gerenciado entre regiões, usando o CLI do Azure.
 services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 938f1696c95f8feb9aeebd28139870e3ce020613
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695450"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71717178"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carregar um VHD no Azure usando o CLI do Azure
 
@@ -29,6 +29,8 @@ Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrã
 - Baixe a versão mais recente [do AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale o CLI do Azure](/cli/azure/install-azure-cli).
 - Um arquivo VHD, armazenado localmente
+- Se você pretende carregar um VHD de em PEM: Um VHD que foi [preparado para o Azure](../windows/prepare-for-upload-vhd-image.md), armazenado localmente.
+- Ou, um disco gerenciado no Azure, se você pretende executar uma ação de cópia.
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
 
@@ -45,7 +47,7 @@ Antes de criar um HDD padrão vazio para carregamento, você precisará ter o ta
 
 Crie um HDD padrão vazio para carregamento, especificando o parâmetro **-– para-upload** e o parâmetro **--upload-size-bytes** em um cmdlet Create de [disco](/cli/azure/disk#az-disk-create) :
 
-```azurecli-interactive
+```bash
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
@@ -55,7 +57,7 @@ Agora você criou um disco gerenciado vazio que está configurado para o process
 
 Para gerar uma SAS gravável de seu disco gerenciado vazio, use o seguinte comando:
 
-```azurecli-interactive
+```bash
 az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
 ```
 
@@ -75,7 +77,7 @@ Use AzCopy V10 para carregar o arquivo VHD local em um disco gerenciado especifi
 
 Esse carregamento tem a mesma taxa de transferência que o [HDD padrão](disks-types.md#standard-hdd)equivalente. Por exemplo, se você tiver um tamanho que é igual a S4, terá uma taxa de transferência de até 60 MiB/s. Mas, se você tiver um tamanho igual a S70, terá uma taxa de transferência de até 500 MiB/s.
 
-```
+```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
@@ -83,8 +85,41 @@ Se sua SAS expirar durante o carregamento e você ainda não `revoke-access` tiv
 
 Depois que o upload for concluído e você não precisar mais gravar mais dados no disco, revogue a SAS. A revogação da SAS alterará o estado do disco gerenciado e permitirá que você anexe o disco a uma VM.
 
-```azurecli-interactive
+```bash
 az disk revoke-access -n mydiskname -g resourcegroupname
+```
+
+## <a name="copy-a-managed-disk"></a>Copiar um disco gerido
+
+O carregamento direto também simplifica o processo de cópia de um disco gerenciado. Você pode copiar na mesma região ou em uma região cruzada (para outra região).
+
+O script a seguir fará isso para você, o processo é semelhante às etapas descritas anteriormente, com algumas diferenças, já que você está trabalhando com um disco existente.
+
+> [!IMPORTANT]
+> Você precisa adicionar um deslocamento de 512 quando estiver fornecendo o tamanho do disco em bytes de um disco gerenciado do Azure. Isso ocorre porque o Azure omite o rodapé ao retornar o tamanho do disco. A cópia falhará se você não fizer isso. O script a seguir já faz isso para você.
+
+Substitua o `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) com seus valores e, em seguida, execute o seguinte script para copiar um disco gerenciado.
+
+```bash
+sourceDiskName = <sourceDiskNameHere>
+sourceRG = <sourceResourceGroupHere>
+targetDiskName = <targetDiskNameHere>
+targetRG = <targetResourceGroupHere>
+targetLocale = <yourTargetLocationHere>
+
+sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
+
+az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+
+targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+
+sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+
+.\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
+
+az disk revoke-access -n $sourceDiskName -g $sourceRG
+
+az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

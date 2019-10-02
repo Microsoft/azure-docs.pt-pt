@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5e325f7766e7b0d9764949eb3fbf9753d65db8b3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: e21bad930bba02e4cbf715a050278ada812e55fa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619390"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718927"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -31,15 +31,20 @@ Os logs de Azure Monitor são projetados para dimensionar e dar suporte à colet
 
 Neste artigo, vamos rever como pode proativamente monitorizar crescimento de volume e o armazenamento de dados e definir limites para controlar os custos associados. 
 
-O custo de dados pode ser considerável consoante os seguintes fatores: 
 
-- Volume de dados gerados e ingeridos no espaço de trabalho 
-    - Número de soluções de gerenciamento habilitadas
-    - Número de sistemas monitorados
-    - Tipo de dados coletados de cada recurso monitorado 
-- O período de tempo que você decide para manter seus dados 
+## <a name="pricing-model"></a>Modelo preços
 
-## <a name="understand-your-workspaces-usage-and-estimated-cost"></a>Entenda o uso e o custo estimado do seu espaço de trabalho
+Os preços para Log Analytics baseiam-se no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. Cada espaço de trabalho Log Analytics é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. A quantidade de ingestão de dados pode ser considerável dependendo dos seguintes fatores: 
+
+  - Número de soluções de gerenciamento habilitadas
+  - Uso de soluções com seu próprio modelo de cobrança, por exemplo, [central de segurança do Azure](https://azure.microsoft.com/en-us/pricing/details/security-center/)
+  - Número de VMs monitoradas
+  - Tipo de dados coletados de cada VM monitorada 
+
+> [!NOTE]
+> Os tipos de preço de reserva de capacidade anunciado recentemente estarão disponíveis para Log Analytics em 1º de novembro de 2019. Saiba mais no [https://azure.microsoft.com/en-us/pricing/details/monitor/](Azure Monitor pricing page).
+
+## <a name="understand-your-usage-and-estimate-costs"></a>Entenda seu uso e calcule os custos
 
 Os logs de Azure Monitor facilitam a compreensão do que os custos são prováveis com base em padrões de uso recentes. Para fazer isso, use **log Analytics uso e custos estimados** para revisar e analisar o uso de dados. Mostra a quantidade de dados é recolhido por cada solução, a quantidade de dados está a ser retido e uma estimativa dos seus custos com base na quantidade de dados ingeridos e qualquer retenção adicional que ultrapassem o montante incluído.
 
@@ -53,20 +58,20 @@ Na página **uso e custos estimados** , você pode examinar o volume de dados do
  
 Custos de análise de registo são adicionados à sua fatura do Azure. Pode ver detalhes do seu do Azure são faturadas na secção de faturação do portal do Azure ou no [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
-## <a name="daily-cap"></a>Extremidade diária
+## <a name="manage-your-maximum-daily-data-volume"></a>Gerenciar seu volume máximo de dados diário
 
 Pode configurar um máximo diário e limitar a ingestão diária da sua área de trabalho, mas usar cuidados de saúde, como o seu objetivo não deve ser atingir o limite diário.  Caso contrário, perde os dados para o resto do dia, que pode afetar outros serviços do Azure e soluções cuja funcionalidade pode depender de dados atualizados estarem disponíveis na área de trabalho.  Como resultado, a sua capacidade de observar e receber alertas quando as condições de estado de funcionamento de recursos que suportam serviços de TI são afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar os encargos não planejados para seu espaço de trabalho.  
 
 Quando for atingido o limite diário, a coleção de tipos de dados cobrar deixa para o resto do dia. É apresentada uma faixa de aviso na parte superior da página para a área de trabalho do Log Analytics selecionada e um evento de operação é enviado para o *operação* tabela sob **LogManagement** categoria. Recolha de dados retoma após a hora de reposição definidas em *limite diário terá o valor*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para ser notificado quando for atingido o limite diário de dados. 
 
 > [!NOTE]
-> O limite diário não interrompe a coleta de dados da central de segurança do Azure.
+> O limite diário não interrompe a coleta de dados da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
 
 Revisão [utilização do Log Analytics e custos estimados](usage-estimated-costs.md) para compreender as tendências de ingestão de dados e o que é o limite de volume diário para definir. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
 
-### <a name="manage-the-maximum-daily-data-volume"></a>Gerir o volume de dados máximo diário
+### <a name="set-the-daily-cap"></a>Definir o limite diário
 
 As etapas a seguir descrevem como configurar um limite para gerenciar o volume de dados que Log Analytics espaço de trabalho será ingerido por dia.  
 
@@ -82,13 +87,13 @@ Embora, apresentamos uma indicação visual no portal do Azure quando o limiar d
 
 Para começar, seguem-se as definições recomendadas para o alerta:
 
-- Alvo: Selecione seu recurso de Log Analytics
+- Destino: Selecione seu recurso de Log Analytics
 - Critérios: 
    - Nome do sinal: Pesquisa de logs personalizada
    - Consulta de pesquisa: Operação | onde o detalhe tem ' overquota '
    - Com base em: Número de resultados
-   - Condição: Maior que
-   - Limiar: 0
+   - Problema Maior que
+   - Os 0
    - Período 5 (minutos)
    - Frequência 5 (minutos)
 - Nome da regra de alerta: Limite diário de dados atingido
@@ -106,7 +111,9 @@ Os passos seguintes descrevem como configurar o registo quanto dados são mantid
 
     ![Alterar a configuração de retenção de dados do espaço de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-A retenção também pode ser [definida por meio](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) do ARM `dataRetention` usando o parâmetro. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos `immediatePurgeDataOn30Days` usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta por meio do ARM. 
+A retenção também pode ser [definida por meio do ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o parâmetro `dataRetention`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta por meio do ARM. 
+
+Dois tipos de dados--`Usage` e `AzureActivity`--são retidos por 90 dias por padrão, e não há nenhum custo para essa retenção de 90 dias. Esses tipos de dados também são gratuitos de encargos de ingestão de dados. 
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço herdados
 
@@ -131,7 +138,7 @@ Se seu espaço de trabalho Log Analytics tiver acesso a tipos de preço herdados
 3. Sob **escalão de preço**, selecione um escalão de preço e, em seguida, clique em **selecione**.  
     ![Selecionado o plano de preços](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Você também pode [definir o tipo de preço por meio](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) do `ServiceTier` ARM usando o parâmetro. 
+Você também pode [definir o tipo de preço por meio do ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o parâmetro `ServiceTier`. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solução de problemas por que o Log Analytics não está mais coletando dados
 
@@ -167,7 +174,7 @@ Heartbeat | where TimeGenerated > startofday(ago(31d))
 | render timechart
 ```
 
-Para obter uma lista de computadores que serão cobrados como nós se o espaço de trabalho estiver no tipo de preço herdado por nó, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para fazer isso, use a `_IsBillable` [Propriedade](log-standard-properties.md#_isbillable) e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a lista de computadores com dados cobrados:
+Para obter uma lista de computadores que serão cobrados como nós se o espaço de trabalho estiver no tipo de preço herdado por nó, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para fazer isso, use a [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a lista de computadores com dados cobrados:
 
 ```kusto
 union withsource = tt * 
@@ -221,7 +228,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-Para ver o **tamanho** dos eventos faturáveis ingeridos por computador, use `_BilledSize` a [Propriedade](log-standard-properties.md#_billedsize), que fornece o tamanho em bytes:
+Para ver o **tamanho** dos eventos faturáveis ingeridos por computador, use a [Propriedade](log-standard-properties.md#_billedsize)`_BilledSize`, que fornece o tamanho em bytes:
 
 ```kusto
 union withsource = tt * 
@@ -230,7 +237,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-A `_IsBillable` [Propriedade](log-standard-properties.md#_isbillable) especifica se os dados ingeridos incorrerão em encargos.
+A [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` especifica se os dados ingeridos incorrerão em encargos.
 
 Para ver a contagem de eventos **faturáveis** ingeridos por computador, use 
 
@@ -260,7 +267,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos eventos faturáveis ingeridos __por assinatura do Azure__, analisar a `_ResourceId` Propriedade como:
+Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos eventos faturáveis ingeridos __por assinatura do Azure__, analisar a propriedade `_ResourceId` como:
 
 ```kusto
 union withsource = tt * 
@@ -270,7 +277,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-A `subscriptionId` alteração `resourceGroup` para mostrará o volume de dados ingeridos Faturável pelo grupo de recursos do Azure. 
+Alterar `subscriptionId` para `resourceGroup` mostrará o volume de dados ingerido Faturável pelo grupo de recursos do Azure. 
 
 
 > [!NOTE]
@@ -414,12 +421,16 @@ Especifique um existente ou crie um novo [Grupo de Ação](action-groups.md), pa
 
 Quando receber um alerta, utilize os passos da secção seguinte para resolver o motivo pelo qual a utilização é superior ao esperado.
 
+## <a name="data-transfer-charges-using-log-analytics"></a>Cobranças de transferência de dados usando Log Analytics
+
+Enviar dados para Log Analytics pode incorrer em encargos de largura de banda de dados. Conforme descrito na [página de preços de largura de banda do Azure](https://azure.microsoft.com/en-us/pricing/details/bandwidth/), a transferência de dados entre os serviços do Azure localizados em duas regiões cobradas como transferência de dados de saída na taxa normal. A transferência de dados de entrada é gratuita. No entanto, esse encargo é muito pequeno (alguns%) em comparação com os custos de ingestão de dados Log Analytics. Consequentemente, controlar os custos de Log Analytics precisa se concentrar no volume de dados ingerido e temos diretrizes para ajudar a entender isso [aqui](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
+
 ## <a name="limits-summary"></a>Resumo de limites
 
 Há alguns limites de Log Analytics adicionais, alguns dos quais dependem do tipo de preço Log Analytics. Eles estão documentados [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [pesquisas de log em logs de Azure monitor](../log-query/log-query-overview.md) para saber como usar o idioma de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 - Utilize os passos descritos em [create a new log alert](alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.

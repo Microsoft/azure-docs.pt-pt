@@ -4,14 +4,14 @@ description: Saiba como definir chaves exclusivas para um contêiner Cosmos do A
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: 3b950565e0a44f979c11e3eb67b702c4dcb44769
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2f61afd12a50b1b135419585bfada52d7ef98f3a
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104897"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811648"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner Cosmos do Azure
 
@@ -33,7 +33,11 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 1. Se necessário, adicione mais entradas de chave exclusivas clicando em **+ Adicionar chave exclusiva**
 
-![Captura de tela de entrada de restrição de chave exclusiva em portal do Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Captura de tela de entrada de restrição de chave exclusiva em portal do Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+
+## <a name="use-powershell"></a>Utilizar o PowerShell
+
+Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Cosmos do Azure com chave exclusiva e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET v2
 
@@ -80,6 +84,7 @@ Ao criar um novo contêiner usando o [SDK do Java](https://mvnrepository.com/art
 // create a new DocumentCollection object
 DocumentCollection container = new DocumentCollection();
 container.setId("container");
+
 // create array of strings and populate them with the unique key paths
 Collection<String> uniqueKey1Paths = new ArrayList<String>();
 uniqueKey1Paths.add("/firstName");
@@ -87,19 +92,23 @@ uniqueKey1Paths.add("/lastName");
 uniqueKey1Paths.add("/emailAddress");
 Collection<String> uniqueKey2Paths = new ArrayList<String>();
 uniqueKey2Paths.add("/address/zipCode");
+
 // create UniqueKey objects and set their paths
 UniqueKey uniqueKey1 = new UniqueKey();
 UniqueKey uniqueKey2 = new UniqueKey();
 uniqueKey1.setPaths(uniqueKey1Paths);
 uniqueKey2.setPaths(uniqueKey2Paths);
+
 // create a new UniqueKeyPolicy object and set its unique keys
 UniqueKeyPolicy uniqueKeyPolicy = new UniqueKeyPolicy();
 Collection<UniqueKey> uniqueKeys = new ArrayList<UniqueKey>();
 uniqueKeys.add(uniqueKey1);
 uniqueKeys.add(uniqueKey2);
 uniqueKeyPolicy.setUniqueKeys(uniqueKeys);
+
 // set the unique key policy
 container.setUniqueKeyPolicy(uniqueKeyPolicy);
+
 // create the container
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
@@ -136,7 +145,7 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 })
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [particionamento](partition-data.md)
 - Explore [como funciona a indexação](index-overview.md)

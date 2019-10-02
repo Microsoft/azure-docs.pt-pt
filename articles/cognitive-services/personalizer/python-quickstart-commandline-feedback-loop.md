@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 877a28e5f672bbd61bad2b4c5c9175c7dafa71ab
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345332"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802537"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Início rápido: Personalizar a biblioteca de cliente para Python
 
@@ -68,8 +68,6 @@ Instale a biblioteca de cliente do personalizador para Python com o seguinte com
 pip install azure-cognitiveservices-personalizer
 ```
 
-Se você estiver usando o IDE do Visual Studio, a biblioteca de cliente estará disponível como um pacote NuGet baixável.
-
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
 No portal do Azure, no recurso personalizado na página **configurações** , altere a frequência de atualização do **modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
@@ -108,7 +106,9 @@ No diretório do projeto, abra o arquivo **Sample.py** no seu editor ou IDE pref
 
 ## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos do personalizador
 
-Na classe **programa** , crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das variáveis `PERSONALIZER_RESOURCE_KEY` de `PERSONALIZER_RESOURCE_ENDPOINT`ambiente, nomeadas e. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
+Crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das `PERSONALIZER_RESOURCE_KEY` variáveis `PERSONALIZER_RESOURCE_ENDPOINT`de ambiente, nomeadas e. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
+
+O nome do recurso faz parte da URL do ponto de extremidade: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -120,7 +120,7 @@ Em seguida, crie um método para retornar um cliente personalizado. O parâmetro
 
 ## <a name="get-content-choices-represented-as-actions"></a>Obter opções de conteúdo representadas como ações
 
-As ações representam as opções de conteúdo que você deseja que o personalizado classifique. Adicione os seguintes métodos à classe Program para obter a entrada de um usuário da linha de comando para a hora do dia e a preferência de alimentos atual.
+As ações representam as opções de conteúdo que você deseja que o personalizado classifique. Adicione os métodos a seguir para obter a entrada de um usuário na linha de comando para a hora do dia e a preferência de comida atual.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -132,7 +132,7 @@ As ações representam as opções de conteúdo que você deseja que o personali
 
 O loop de aprendizagem personalizador é um ciclo de chamadas de [classificação](#request-a-rank) e [recompensa](#send-a-reward) . Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço classificou o conteúdo. 
 
-O código a seguir no `main` método do programa executa um loop em um ciclo de solicitar ao usuário suas preferências na linha de comando, enviando essas informações ao personalizador para classificação, apresentando a seleção classificada ao cliente para escolher entre as e, em seguida, enviar um prêmio para o personalizado sinalizando o quão bem o serviço fez ao classificar a seleção.
+O código a seguir percorre um ciclo de pedir ao usuário suas preferências na linha de comando, enviando essas informações para o personalizador para classificação, apresentando a seleção classificada ao cliente para escolher entre a lista e, em seguida, enviar um prêmio para o personalizador sinalizando o quão bem o serviço fez ao classificar a seleção.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

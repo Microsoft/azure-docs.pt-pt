@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241009"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799566"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicativos Oracle que integram Microsoft Azure e a infraestrutura de nuvem da Oracle (versão prévia)
 
@@ -28,7 +28,7 @@ A Microsoft e a Oracle fizeram parceria para fornecer conectividade de nuvem cru
 Usando essa conectividade entre nuvens, você pode particionar um aplicativo multicamadas para executar sua camada de banco de dados no Oracle Cloud Infrastructure (OCI) e o aplicativo e outras camadas em Microsoft Azure. A experiência é semelhante à execução de toda a pilha de solução em uma única nuvem. 
 
 > [!IMPORTANT]
-> Esse recurso de nuvem está atualmente em visualização e as [limitações se aplicam](#preview-limitations). Para habilitar a conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser listada em branco para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esse recurso de nuvem está atualmente em visualização e as [limitações se aplicam](#preview-limitations). Para estabelecer conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser habilitada para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 Se você estiver interessado em implantar soluções Oracle totalmente na infraestrutura do Azure, consulte [imagens de VM Oracle e sua implantação em Microsoft Azure](oracle-vm-solutions.md).
 

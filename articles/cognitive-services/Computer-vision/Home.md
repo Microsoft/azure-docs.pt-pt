@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967048"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719544"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
-O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações. Para analisar uma imagem, pode carregar uma imagem ou especificar um URL de imagem. Os algoritmos de processamento de imagens podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais nos quais você está interessado. Por exemplo, Pesquisa Visual Computacional pode determinar se uma imagem contém conteúdo adulto ou erótico ou localizar todas as faces humanas em uma imagem.
+O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações. Para analisar uma imagem, pode carregar uma imagem ou especificar um URL de imagem. Os algoritmos de processamento de imagens podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais nos quais você está interessado. Por exemplo, Pesquisa Visual Computacional pode determinar se uma imagem contém conteúdo adulto ou pode encontrar todas as faces humanas em uma imagem.
 
 Você pode usar Pesquisa Visual Computacional em seu aplicativo usando um SDK nativo ou invocando a API REST diretamente. Esta página abrange em grande escala o que você pode fazer com Pesquisa Visual Computacional.
 
@@ -52,7 +52,7 @@ Você também pode usar a API de [OCR (reconhecimento óptico de caracteres)](co
 
 ## <a name="moderate-content-in-images"></a>Conteúdo moderado em imagens
 
-Você pode usar Pesquisa Visual Computacional para [detectar conteúdo adulto e erótico](concept-detecting-adult-content.md) em uma imagem e retornar uma pontuação de confiança para ambos. Você pode definir o filtro para a detecção de conteúdo adulto e erótico em uma escala deslizante para acomodar suas preferências.
+Você pode usar Pesquisa Visual Computacional para [detectar conteúdo adulto](concept-detecting-adult-content.md) em uma imagem e retornar pontuações de confiança para diferentes classificações. O limite para a sinalização de conteúdo pode ser definido em uma escala deslizante para acomodar suas preferências.
 
 ## <a name="use-containers"></a>Utilizar contentores
 
@@ -71,7 +71,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 
 Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de Pesquisa Visual Computacional devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a [página serviços cognitivas](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na central de confiabilidade da Microsoft para saber mais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a usar o Pesquisa Visual Computacional seguindo um guia de início rápido:
 

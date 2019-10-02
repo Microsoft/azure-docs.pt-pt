@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5a6042e4b181190849b3759325e4aab0c22413b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553253"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800041"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início rápido: Criar um assistente virtual de voz-primeiro com o SDK de fala, Java
 
-Os guias de início rápido também estão disponíveis para conversão de [fala em texto](quickstart-java-jre.md) e [fala](quickstart-translate-speech-java-jre.md).
+Os guias de início rápido também estão disponíveis para conversão de fala em [texto](quickstart-java-jre.md), [texto em fala](quickstart-text-to-speech-java-jre.md)e [tradução de fala](quickstart-translate-speech-java-jre.md).
 
 Neste artigo, você cria um aplicativo de console Java usando o [SDK de fala dos serviços cognitivas](speech-sdk.md). O aplicativo se conectará a um bot criado anteriormente configurado para usar o canal de fala de linha direta, enviar uma solicitação de voz e retornar uma atividade de resposta de voz (se configurada). O aplicativo é criado com o pacote do SDK do Speech e o eclipse Java IDE no Windows, Ubuntu Linux ou no macOS. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
@@ -48,7 +48,7 @@ Se você estiver executando o Windows (64 bits), certifique-se de ter instalado 
 
 ## <a name="optional-get-started-fast"></a>Opcional: Comece rapidamente
 
-Este guia de início rápido descreverá, passo a passo, como criar um aplicativo cliente simples para se conectar ao bot habilitado para fala. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste guia de início rápido está disponível nos [exemplos](https://aka.ms/csspeech/samples) `quickstart` do SDK de fala na pasta.
+Este guia de início rápido descreverá, passo a passo, como criar um aplicativo cliente simples para se conectar ao bot habilitado para fala. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste guia de início rápido está disponível nos [exemplos do SDK de fala](https://aka.ms/csspeech/samples) na pasta `quickstart`.
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto
 
@@ -72,7 +72,7 @@ Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** p
 
    ![Captura de ecrã da janela Nova Classe Java](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Abra a classe **principal** recém-criada e substitua o conteúdo do `Main.java` arquivo pelo código inicial a seguir.
+1. Abra a classe **principal** recém-criada e substitua o conteúdo do arquivo `Main.java` pelo seguinte código inicial.
 
     ```java
     package speechsdk.quickstart;
@@ -139,11 +139,11 @@ Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** p
     }
     ```
 
-1. No método **Main** , primeiro você configurará seu `DialogServiceConfig` e o usará para criar `DialogServiceConnector` uma instância. Isso se conectará ao canal de fala de linha direta para interagir com o bot. Uma `AudioConfig` instância também é usada para especificar a fonte de entrada de áudio. Neste exemplo, o microfone padrão é usado com `AudioConfig.fromDefaultMicrophoneInput()`.
+1. No método **Main** , primeiro você configurará o `DialogServiceConfig` e o usará para criar uma instância `DialogServiceConnector`. Isso se conectará ao canal de fala de linha direta para interagir com o bot. Uma instância `AudioConfig` também é usada para especificar a origem da entrada de áudio. Neste exemplo, o microfone padrão é usado com `AudioConfig.fromDefaultMicrophoneInput()`.
 
-    * Substitua a cadeia `YourSubscriptionKey` de caracteres pela sua chave de assinatura, que pode ser obtida [aqui](get-started.md).
-    * Substitua a cadeia `YourServiceRegion` de caracteres pela [região](regions.md) associada à sua assinatura.
-    * Substitua a cadeia `YourChannelSecret` de caracteres pelo seu segredo de canal de fala de linha direta.
+    * Substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura, que pode ser obtida [aqui](get-started.md).
+    * Substitua a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à sua assinatura.
+    * Substitua a cadeia de caracteres `YourChannelSecret` pelo seu segredo de canal de fala de linha direta.
 
     > [!NOTE]
     > A Direct line Speech (visualização) está disponível atualmente em um subconjunto de regiões de serviços de fala. Consulte [a lista de regiões com suporte para assistentes virtuais primeiro de voz](regions.md#voice-first-virtual-assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
@@ -161,7 +161,7 @@ Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** p
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector`depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações. Adicione esses ouvintes de evento em seguida.
+1. o `DialogServiceConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações. Adicione esses ouvintes de evento em seguida.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
@@ -200,7 +200,7 @@ Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** p
         });
     ```
 
-1. Conecte o `DialogServiceConnector` para direcionar a linha de fala invocando o `connectAsync()` método. Para testar o bot, você pode invocar `listenOnceAsync` o método para enviar a entrada de áudio do microfone. Além disso, você também pode usar `sendActivityAsync` o método para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o bot usará na conversa.
+1. Conecte o `DialogServiceConnector` para direcionar a fala de linha invocando o método `connectAsync()`. Para testar o bot, você pode invocar o método `listenOnceAsync` para enviar entrada de áudio do microfone. Além disso, você também pode usar o método `sendActivityAsync` para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o bot usará na conversa.
 
     ```java
     connector.connectAsync();
@@ -211,9 +211,9 @@ Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** p
     // connector.sendActivityAsync(...)
     ```
 
-1. Salve as alterações no `Main` arquivo.
+1. Salve as alterações no arquivo `Main`.
 
-1. Para dar suporte à reprodução de resposta, você adicionará uma classe adicional que transformará o objeto PullAudioOutputStream retornado da API GetAudio () em um InputStream Java para facilitar o manuseio. Este ActivityAudioStream é uma classe especializada que manipulará a resposta de áudio do "canal de fala de linha direta". Ele fornecerá aos acessadores para obter as informações de formato de áudio necessárias para lidar com a reprodução: Para esse **arquivo** > , selecione**nova** > **classe**.
+1. Para dar suporte à reprodução de resposta, você adicionará uma classe adicional que transformará o objeto PullAudioOutputStream retornado da API GetAudio () em um InputStream Java para facilitar o manuseio. Este ActivityAudioStream é uma classe especializada que manipulará a resposta de áudio do "canal de fala de linha direta". Ele fornecerá aos acessadores para obter as informações de formato de áudio necessárias para lidar com a reprodução: Para isso, selecione **arquivo** > **nova** **classe** > .
 
 1. Na janela **nova classe Java** , insira **speechsdk. QuickStart** no campo **pacote** e **ActivityAudioStream** no campo **nome** .
 
@@ -459,16 +459,16 @@ Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** p
 
     ```
 
-1. Salve as alterações no `ActivityAudioStream` arquivo.
+1. Salve as alterações no arquivo `ActivityAudioStream`.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Prima F11 ou selecione **Executar** > **Depurar**.
-O console exibirá uma mensagem "Digamos algo" neste ponto, você pode falar uma frase ou sentença em inglês que seu bot entenderá. Sua fala será transmitida para o bot por meio do canal de fala de linha direta, onde será reconhecido, processado pelo bot e a resposta será retornada como uma atividade. Se o bot retornar a fala como resposta, o áudio será reproduzido usando a `AudioPlayer` classe.
+O console exibirá uma mensagem "Digamos algo" neste ponto, você pode falar uma frase ou sentença em inglês que seu bot entenderá. Sua fala será transmitida para o bot por meio do canal de fala de linha direta, onde será reconhecido, processado pelo bot e a resposta será retornada como uma atividade. Se o bot retornar a fala como resposta, o áudio será reproduzido usando a classe `AudioPlayer`.
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-java-jre-08-console-output.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
 

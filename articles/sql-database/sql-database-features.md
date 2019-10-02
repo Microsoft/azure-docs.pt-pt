@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 36bcb8f7a3ee75794741b44f91956950179e5544
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 1d8379d0ee54332ae4971cd9abaa8b153d52084a
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162289"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816072"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 
@@ -35,7 +35,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | **Recurso SQL** | **Bancos de dados individuais e pools elásticos** | **Instâncias gerenciadas e pools de instância** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim-consulte [repositório de certificados](sql-database-always-encrypted.md) e [cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) | Sim-consulte [repositório de certificados](sql-database-always-encrypted.md) e [cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) |
-| [Always On grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | A [alta disponibilidade](sql-database-high-availability.md) está incluída em todos os bancos de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) | A [alta disponibilidade](sql-database-high-availability.md) está incluída em todos os bancos de dados e [não pode ser gerenciada pelo usuário](sql-database-managed-instance-transact-sql-information.md#always-on-availability). A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) |
+| [Always On grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [a disponibilidade de 99,99-99.995%](sql-database-high-availability.md) é garantida para cada banco de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) | [99,99.% de disponibilidade](sql-database-high-availability.md) é garantido para cada banco de dados e [não pode ser gerenciado pelo usuário](sql-database-managed-instance-transact-sql-information.md#always-on-availability). A recuperação de desastre é discutida em [visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) Use [grupos de failover automático](sql-database-auto-failover-group.md) para configurar o Always On secundário instância gerenciada em outra região. Outras instâncias de SQL Server e bancos de dados únicos não podem ser usados como secundários para Instância Gerenciada. |
 | [Anexar um banco de dados](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Não | Não |
 | [Auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sim](sql-database-auditing.md)| [Sim](sql-database-managed-instance-auditing.md), com algumas [diferenças](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [Autenticação Azure Active Directory (AAD)](sql-database-aad-authentication.md) | Sim. Somente usuários do AAD. | Sim. Incluindo logons do AAD no nível do servidor. |
@@ -57,7 +57,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Instruções DDL](https://docs.microsoft.com/sql/t-sql/statements/statements) | Maioria-consulte instruções individuais | Sim-consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Gatilhos DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Somente banco de dados |  Sim |
 | [Exibições de partição distribuída](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | Não | Sim |
-| [Transações distribuídas-MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Não-veja [Transações elásticas](sql-database-elastic-transactions-overview.md) |  Não-consulte [diferenças de servidor vinculado](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
+| [Transações distribuídas-MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Não-veja [Transações elásticas](sql-database-elastic-transactions-overview.md) |  Não-consulte [diferenças de servidor vinculado](sql-database-managed-instance-transact-sql-information.md#linked-servers). Tente consolidar bancos de dados de várias instâncias de SQL Server distribuídas em uma instância gerenciada durante a migração. |
 | [Gatilhos DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Maioria-consulte instruções individuais |  Sim |
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Maioria-consulte DMVs individuais |  Sim-consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não-veja [alertas](sql-database-insights-alerts-portal.md) | Não |
@@ -90,7 +90,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Restaurar banco de dados do backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Somente de backups automatizados-consulte [recuperação do banco de dados SQL](sql-database-recovery-using-backups.md) | De backups automatizados-consulte [recuperação de banco de dados SQL](sql-database-recovery-using-backups.md) e de backups completos colocados no armazenamento de BLOBs do Azure-consulte [diferenças de backup](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Restaurar banco de dados para SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Não. Use BACPAC ou BCP em vez de restauração nativa. | Não, porque SQL Server Mecanismo de Banco de Dados usado em Instância Gerenciada tem uma versão superior à versão RTM do SQL Server usado localmente. Em vez disso, use BACPAC, BCP ou replicação transacional. |
 | [Pesquisa semântica](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Não | Não |
-| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Não | Sim, mas somente dentro da instância. Consulte [diferenças de Service Broker](sql-database-managed-instance-transact-sql-information.md#service-broker) |
+| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Não | Sim, mas somente dentro da instância. Se você estiver usando rotas de Service Broker remotas, tente consolidar bancos de dados de várias instâncias de SQL Server distribuídas em uma instância gerenciada durante a migração e use apenas rotas locais. Consulte [diferenças de Service Broker](sql-database-managed-instance-transact-sql-information.md#service-broker) |
 | [Definições de configuração do servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | Não | Sim-consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Instruções SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Maioria-consulte instruções individuais | Sim-consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [Agente do SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Não-veja [trabalhos elásticos](elastic-jobs-overview.md) | Sim – consulte [diferenças de SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
@@ -133,7 +133,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | [Restauração pontual do banco de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sim-todas as camadas de serviço que não sejam de hiperescala-consulte [recuperação de banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sim-consulte [recuperação do banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | Pools de recursos | Sim, como [pools elásticos](sql-database-elastic-pool.md) | Sim. Uma única instância gerenciada pode ter vários bancos de dados que compartilham o mesmo pool de recursos. Além disso, você pode implantar várias instâncias gerenciadas em [pools de instância (versão prévia)](sql-database-instance-pools.md) que podem compartilhar os recursos. |
 | Expansão ou redução (online) | Sim, você pode alterar o DTU ou o vCores reservado ou o armazenamento máximo com o tempo de inatividade mínimo. | Sim, você pode alterar o armazenamento reservado vCores ou Max com o tempo de inatividade mínimo. |
-| Alias do SQL | Sim, consulte [alias DNS](dns-alias-overview.md) | Não |
+| [Alias do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | Não, usar [alias DNS](dns-alias-overview.md) | Não, use [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) para configurar o alias nos computadores cliente. |
 | [Análise de SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sim | Sim |
 | [Sincronização de Dados SQL](sql-database-get-started-sql-data-sync.md) | Sim | Não |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Não, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) é um serviço de nuvem do Azure separado. | Não, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) é um serviço de nuvem do Azure separado. |
@@ -142,6 +142,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | [Informações de desempenho de consulta (QPI)](sql-database-query-performance.md) | Sim | Não. Use relatórios internos em SQL Server Management Studio e Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Parcial, ele habilita o acesso restrito usando [pontos de extremidade de VNet](sql-database-vnet-service-endpoint-rule-overview.md) | Sim, Instância Gerenciada é injetada na VNet do cliente. Consulte [sub-rede](sql-database-managed-instance-transact-sql-information.md#subnet) e rede [virtual](sql-database-managed-instance-transact-sql-information.md#vnet) |
 | Ponto de extremidade de serviço VNet | [Sim](sql-database-vnet-service-endpoint-rule-overview.md) | Não |
+| Emparelhamento global de VNet | Sim, usando [IP privado e pontos de extremidade de serviço](sql-database-vnet-service-endpoint-rule-overview.md) | Não, [não há suporte para instância gerenciada](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) devido à [restrição do balanceador de carga no emparelhamento global da VNet](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 ## <a name="tools"></a>Ferramentas
 O banco de dados SQL do Azure dá suporte a várias ferramentas de data que podem ajudá-lo a gerenciar seus dados.
@@ -161,7 +162,7 @@ O banco de dados SQL do Azure dá suporte a várias ferramentas de data que pode
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim [, versão 18,0 e superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não – consulte [eventos estendidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
-| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Sim, [em versão prévia](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Sim, [em versão prévia](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## <a name="migration-methods"></a>Métodos de migração
 

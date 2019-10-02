@@ -6,24 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/14/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5dcd7d2204e7ec03bf6b11bce9be20870cb3054
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1c5d9f665c9b3e7a439a09f4259f304f8f8b1a0a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076471"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718339"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop HDFS usando o Azure HDInsight
 
-Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com cargas de Sistema de Arquivos Distribuído do Hadoop (HDFS) no Apache Ambari.
+Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com cargas de Sistema de Arquivos Distribuído do Hadoop (HDFS) no Apache Ambari. Para obter uma lista completa de comandos, consulte o [Guia de comandos do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) e o guia do shell do sistema de [arquivos](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como fazer acessar o HDFS local de dentro de um cluster?
 
 ### <a name="issue"></a>Problema
 
-Acesse o HDFS local da linha de comando e do código do aplicativo em vez de usar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage de dentro do cluster HDInsight.   
+Acesse o HDFS local da linha de comando e do código do aplicativo em vez de usar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage de dentro do cluster HDInsight.
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
@@ -71,6 +71,30 @@ Acesse o HDFS local da linha de comando e do código do aplicativo em vez de usa
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
+
+## <a name="du"></a>du
+
+O comando [-du](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) exibe tamanhos de arquivos e diretórios contidos no diretório determinado ou o comprimento de um arquivo, caso seja apenas um arquivo.
+
+A opção `-s` produz um resumo agregado de comprimentos de arquivo que estão sendo exibidos.  
+A opção `-h` formata os tamanhos de arquivo.
+
+Exemplo:
+
+```bash
+hdfs dfs -du -s -h hdfs://mycluster/
+hdfs dfs -du -s -h hdfs://mycluster/tmp
+```
+
+## <a name="rm"></a>RM
+
+O comando [-RM](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) exclui os arquivos especificados como argumentos.
+
+Exemplo:
+
+```bash
+hdfs dfs -rm hdfs://mycluster/tmp/testfile
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

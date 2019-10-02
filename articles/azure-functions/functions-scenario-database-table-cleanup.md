@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/02/2019
 ms.author: glenga
-ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085240"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815985"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar Azure Functions para se conectar a um banco de dados SQL do Azure
 
-Este artigo mostra como usar Azure Functions para criar um trabalho agendado que se conecta a uma instância do banco de dados SQL do Azure. O código de função limpa linhas em uma tabela no banco de dados. A nova C# função é criada com base em um modelo de gatilho de temporizador predefinido no Visual Studio 2019. Para dar suporte a esse cenário, você também deve definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. 
+Este artigo mostra como usar Azure Functions para criar um trabalho agendado que se conecta a um banco de dados SQL do Azure ou Instância Gerenciada SQL do Azure. O código de função limpa linhas em uma tabela no banco de dados. A nova C# função é criada com base em um modelo de gatilho de temporizador predefinido no Visual Studio 2019. Para dar suporte a esse cenário, você também deve definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Para o Azure SQL Instância Gerenciada você precisa [habilitar o ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) para poder se conectar de Azure functions. Esse cenário usa uma operação em massa no banco de dados. 
 
 Se esta for sua primeira experiência trabalhando com C# funções, você deverá ler a [referência C# do Azure Functions Developer](functions-dotnet-class-library.md).
 
@@ -39,7 +39,7 @@ Você precisa obter a cadeia de conexão para o banco de dados criado quando con
 
 1. Selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página bancos de dados **SQL** .
 
-1. Selecione **cadeias de conexão** em **configurações** e copie a cadeia de conexão completa do **ADO.net** .
+1. Selecione **cadeias de conexão** em **configurações** e copie a cadeia de conexão completa do **ADO.net** . Para Azure SQL Instância Gerenciada copiar cadeia de conexão para o ponto de extremidade público.
 
     ![Copie a cadeia de conexão ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -49,11 +49,11 @@ Uma aplicação de função aloja a execução das suas funções no Azure. Como
 
 Você deve ter publicado anteriormente seu aplicativo no Azure. Se você ainda não tiver feito isso, [Publique seu aplicativo de funções no Azure](functions-develop-vs.md#publish-to-azure).
 
-1. Em Gerenciador de soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **publicar** > **gerenciar configurações do aplicativo...** . Selecione **Adicionar configuração**, em **novo aplicativo nome da configuração**, `sqldb_connection`digite e selecione **OK**.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **publicar** > **gerenciar configurações do aplicativo...** . Selecione **Adicionar configuração**, em **novo nome da configuração do aplicativo**, digite `sqldb_connection` e selecione **OK**.
 
     ![Configurações do aplicativo para o aplicativo de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-1. Na nova configuração **sqldb_connection** , Cole a cadeia de conexão que você copiou na seção anterior no campo **local** e substitua `{your_username}` os espaços `{your_password}` reservados e por valores reais. Selecione **Inserir valor do local** para copiar o valor atualizado para o campo **remoto** e selecione **OK**.
+1. Na nova configuração **sqldb_connection** , Cole a cadeia de conexão que você copiou na seção anterior no campo **local** e substitua os espaços reservados `{your_username}` e `{your_password}` por valores reais. Selecione **Inserir valor do local** para copiar o valor atualizado para o campo **remoto** e selecione **OK**.
 
     ![Adicione a configuração de cadeia de conexão SQL.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
@@ -79,11 +79,11 @@ Agora, você pode adicionar o C# código de função que se conecta ao seu banco
 
 ## <a name="add-a-timer-triggered-function"></a>Adicionar uma função acionada por temporizador
 
-1. Em Gerenciador de soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **Adicionar** > **nova função do Azure**.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **adicionar** > **nova função do Azure**.
 
 1. Com o modelo de **Azure Functions** selecionado, nomeie o novo item como `DatabaseCleanup.cs` e selecione **Adicionar**.
 
-1. Na caixa de diálogo **nova função do Azure** , escolha **gatilho** de temporizador e, em seguida, **OK**. Essa caixa de diálogo cria um arquivo de código para a função disparada pelo temporizador.
+1. Na caixa de diálogo **nova função do Azure** , escolha **gatilho de temporizador** e, em seguida, **OK**. Essa caixa de diálogo cria um arquivo de código para a função disparada pelo temporizador.
 
 1. Abra o novo arquivo de código e adicione as seguintes instruções using na parte superior do arquivo:
 
@@ -92,7 +92,7 @@ Agora, você pode adicionar o C# código de função que se conecta ao seu banco
     using System.Threading.Tasks;
     ```
 
-1. Substitua a função `Run` existente pelo código a seguir:
+1. Substitua a função `Run` existente pelo seguinte código:
 
     ```cs
     [FunctionName("DatabaseCleanup")]
@@ -116,7 +116,7 @@ Agora, você pode adicionar o C# código de função que se conecta ao seu banco
     }
     ```
 
-    Essa função é executada a cada 15 segundos para `Status` atualizar a coluna com base na data de remessa. Para saber mais sobre o gatilho de temporizador, consulte [gatilho de temporizador para Azure Functions](functions-bindings-timer.md).
+    Essa função é executada a cada 15 segundos para atualizar a coluna `Status` com base na data de remessa. Para saber mais sobre o gatilho de temporizador, consulte [gatilho de temporizador para Azure Functions](functions-bindings-timer.md).
 
 1. Pressione **F5** para iniciar o aplicativo de funções. A janela de execução de [Azure Functions Core Tools](functions-develop-local.md) é aberta atrás do Visual Studio.
 
@@ -124,9 +124,9 @@ Agora, você pode adicionar o C# código de função que se conecta ao seu banco
 
     ![Exiba os logs de função.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
-    Na primeira execução, você deve atualizar 32 linhas de dados. A seguir executa a atualização sem linhas de dados, a menos que você faça alterações nos dados da tabela SalesOrderHeader para que mais `UPDATE` linhas sejam selecionadas pela instrução.
+    Na primeira execução, você deve atualizar 32 linhas de dados. A seguir executa a atualização sem linhas de dados, a menos que você faça alterações nos dados da tabela SalesOrderHeader para que mais linhas sejam selecionadas pela instrução `UPDATE`.
 
-Se você planeja [publicar essa função](functions-develop-vs.md#publish-to-azure), lembre-se de alterar `TimerTrigger` o atributo para uma [agenda cron](functions-bindings-timer.md#ncrontab-expressions) mais razoável do que a cada 15 segundos.
+Se você planeja [publicar essa função](functions-develop-vs.md#publish-to-azure), lembre-se de alterar o atributo `TimerTrigger` para uma [agenda cron](functions-bindings-timer.md#ncrontab-expressions) mais razoável do que a cada 15 segundos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662792"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720242"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para implementação responsável do personalizador
 
@@ -63,7 +63,8 @@ Ao escolher casos de uso para personalizador:
 
 * Inicie o processo de design considerando como a personalização ajuda os usuários.
 * Considere as consequências negativas no mundo real se alguns itens não estiverem classificados para usuários devido a padrões de personalização ou exploração.
-* Considere o autoatendimento de loops de Prophecy. Isso pode acontecer se um prêmio de personalização treinar um modelo para que ele possa posteriormente excluir um grupo demográfico de acessar conteúdo relevante. Por exemplo, a maioria das pessoas em um ambiente de baixa renda não obtém uma oferta de seguro Premium, e ninguém mais lento na vizinhança tende a ver a oferta.
+* Considere se o seu caso de uso constitui o processamento automatizado, que afeta significativamente os assuntos de dados que são regulamentados em [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) artigo 22 ou outras leis.
+* Considere o autoatendimento de loops de Prophecy. Isso pode acontecer se um prêmio de personalização treinar um modelo para que ele possa posteriormente excluir um grupo demográfico de acessar conteúdo relevante. Por exemplo, a maioria das pessoas em um ambiente de baixa renda não obtém uma oferta de seguro Premium, e ninguém mais lento na vizinhança tende a ver a oferta se não houver exploração suficiente.
 * Salve cópias de modelos e políticas de aprendizado caso seja necessário reproduzir o personalizador no futuro. Você pode fazer isso periodicamente ou em cada período de atualização do modelo.
 * Considere o nível de exploração adequado para o espaço e como usá-lo como uma ferramenta para atenuar os efeitos de "eco câmara".
 
@@ -74,7 +75,7 @@ A personalização de conteúdo depende de ter informações úteis sobre o cont
 
 Considere o efeito desses recursos:
 
-* Dados demográficos do **usuário**: Recursos relacionados a sexo, gênero, idade, corrida, Religion: Esses recursos podem não ser permitidos em determinados aplicativos por motivos regulatórios, e talvez não seja ético personalizá-los, pois a personalização propagará generalizações e tendência. Um exemplo dessa propagação de tendência é uma postagem de trabalho para a engenharia não ser mostrada para idosa ou para os públicos baseados em gênero.
+* Dados **demográficos do usuário**: Recursos relacionados a sexo, gênero, idade, corrida, Religion: Esses recursos podem não ser permitidos em determinados aplicativos por motivos regulatórios, e talvez não seja ético personalizá-los, pois a personalização propagará generalizações e tendência. Um exemplo dessa propagação de tendência é uma postagem de trabalho para a engenharia não ser mostrada para idosa ou para os públicos baseados em gênero.
 * **Informações de localidade**: Em muitos lugares do mundo, as informações de local (como um CEP, código postal ou nome de vizinhança) podem estar altamente correlacionadas com renda, corrida e Religion.
 * **Percepção de imparcialidade do usuário**: Mesmo nos casos em que seu aplicativo está tomando decisões sonoras, considere o efeito dos usuários que percebem que o conteúdo exibido em seu aplicativo é alterado de uma maneira que pareça estar correlacionado a recursos que seriam discriminados.
 * **Tendência indesejada em recursos**:  Há tipos de tendências que podem ser introduzidas usando recursos que afetam apenas um subconjunto da população. Isso requer atenção extra se os recursos estiverem sendo gerados forma algorítmica, como ao usar a análise de imagem para extrair itens em uma imagem ou análise de texto para descobrir entidades em texto. Fique atento às características dos serviços que você usa para criar esses recursos.
@@ -116,7 +117,7 @@ Implemente estas práticas recomendadas:
 
 ## <a name="responsible-design-considerations"></a>Considerações de design responsável
 
-A seguir estão áreas de design para implementações responsáveis do ia. Saiba mais está confinado no essa estrutura no [futuro](https://news.microsoft.com/futurecomputed/)computada.
+A seguir estão áreas de design para implementações responsáveis do ia. Saiba mais está confinado no essa estrutura no [futuro computada](https://news.microsoft.com/futurecomputed/).
 
 ![Valores de ia do futuro computados](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
@@ -200,6 +201,6 @@ A Microsoft está continuamente colocando esforços em ferramentas e documentos 
 * [Princípios de FATML para algoritmos de conta](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Recursos: ação e contexto](concepts-features.md).

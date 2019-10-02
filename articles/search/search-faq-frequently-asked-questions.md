@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649843"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719893"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search-perguntas frequentes (FAQ)
 
@@ -30,7 +30,7 @@ O Azure Search dá suporte a várias fontes de dados, [análise linguística par
 
 Ao comparar as tecnologias de pesquisa, os clientes frequentemente pedem informações específicas sobre como Azure Search se compara com Elasticsearch. Os clientes que escolhem Azure Search sobre Elasticsearch para seus projetos de aplicativo de pesquisa normalmente fazem isso porque tornamos uma tarefa fundamental mais fácil ou precisam da integração interna com outras tecnologias da Microsoft:
 
-+ Azure Search é um serviço de nuvem totalmente gerenciado com contratos de nível de serviço (SLA) de 99,9% quando provisionado com redundância suficiente (2 réplicas para acesso de leitura, 3 réplicas para leitura/gravação).
++ Azure Search é um serviço de nuvem totalmente gerenciado com contratos de nível de serviço (SLA) de 99,9% quando provisionado com redundância suficiente (2 réplicas para acesso de leitura, três réplicas para leitura e gravação).
 + Os [processadores de idioma natural](https://docs.microsoft.com/rest/api/searchservice/language-support) da Microsoft oferecem análise linguística de ponta.  
 + [Azure Search indexadores](search-indexer-overview.md) podem rastrear uma variedade de fontes de dados do Azure para indexação inicial e incremental.
 + Se você precisar de resposta rápida a flutuações em volumes de consulta ou indexação, poderá usar [controles deslizantes](search-manage.md#scale-up-or-down) na portal do Azure ou executar um [script do PowerShell](search-manage-powershell.md), ignorando o gerenciamento de fragmentos diretamente.  
@@ -42,19 +42,29 @@ Não é possível pausar o serviço. Os recursos computacionais e de armazenamen
 
 ## <a name="indexing-operations"></a>Operações de indexação
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>Índices de backup e restauração (ou download e movimentação) ou instantâneos de índice?
+### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>Mover, fazer backup e restaurar índices ou instantâneos de índice?
 
-Embora você possa [obter uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) a qualquer momento, não há nenhum recurso de extração de índice, instantâneo ou restauração de backup para baixar um índice *preenchido* em execução na nuvem para um sistema local ou movê-lo para outro serviço de Azure Search.
+Durante a fase de desenvolvimento, talvez você queira mover o índice entre os serviços de pesquisa. Por exemplo, você pode usar um tipo de preço básico ou gratuito para desenvolver seu índice e, em seguida, desejar movê-lo para a camada Standard ou superior para uso em produção. 
 
-Os índices são criados e preenchidos a partir do código que você escreve e executados somente em Azure Search na nuvem. Normalmente, os clientes que desejam mover um índice para outro serviço fazem isso editando seu código para usar um novo ponto de extremidade e, em seguida, executar a indexação novamente. Se você quiser a capacidade de tirar um instantâneo ou fazer backup de um índice, converta um voto na [voz do usuário](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+Ou, talvez você queira fazer backup de um instantâneo de índice em arquivos que podem ser usados para restaurá-lo mais tarde. 
+
+Você pode fazer todas essas coisas com o código de exemplo **index-backup-restore** neste [Azure Search repositório de exemplo .net](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+
+Você também pode [obter uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) a qualquer momento usando a API REST do Azure Search.
+
+No momento, não há nenhum recurso interno de extração de índice, instantâneo ou restauração de backup no portal do Azure. No entanto, estamos pensando em Adicionar a funcionalidade de backup e restauração em uma versão futura. Se você quiser mostrar o suporte para esse recurso, converta um voto na [voz do usuário](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>Posso restaurar meu índice ou serviço quando ele for excluído?
 
-Não, você não pode restaurar índices ou serviços. Se você excluir um índice de Azure Search, a operação será final e o índice não poderá ser recuperado. Quando você exclui um serviço de Azure Search, todos os índices no serviço são excluídos permanentemente. Além disso, se você excluir um grupo de recursos do Azure que contém um ou mais serviços do Azure Search, todos os serviços serão excluídos permanentemente.  
+Não, se você excluir um Azure Search índice ou serviço, ele não poderá ser recuperado. Quando você exclui um serviço de Azure Search, todos os índices no serviço são excluídos permanentemente. Se você excluir um grupo de recursos do Azure que contém um ou mais serviços do Azure Search, todos os serviços serão excluídos permanentemente.  
 
-Restaurar recursos como índices, indexadores, fontes de dados e habilidades exige que você os recrie a partir do código. No caso de índices, você deve reindexar dados de fontes externas. Por esse motivo, é altamente recomendável que você retenha uma cópia mestra ou um backup dos dados originais em outro armazenamento de dados, como o Azure SQL Database ou o Cosmos DB.
+Recriar recursos como índices, indexadores, fontes de dados e habilidades exige que você os recrie a partir do código. 
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>Posso indexar de réplicas do banco de dados SQL (aplica-se aos indexadores do [banco de dados SQL do Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
+Para recriar um índice, você deve reindexar dados de fontes externas. Por esse motivo, é recomendável que você retenha uma cópia mestra ou um backup dos dados originais em outro armazenamento de dados, como o Azure SQL Database ou o Cosmos DB.
+
+Como alternativa, você pode usar o código de exemplo **index-backup-restore** neste [Azure Search repositório de exemplo .net](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup de uma definição de índice e um instantâneo de índice para uma série de arquivos JSON. Posteriormente, você pode usar a ferramenta e os arquivos para restaurar o índice, se necessário.  
+
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>Posso indexar de réplicas do banco de dados SQL (aplica-se aos [indexadores do banco de dados SQL do Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 Não há restrições quanto ao uso de réplicas primárias ou secundárias como uma fonte de dados ao criar um índice do zero. No entanto, a atualização de um índice com atualizações incrementais (com base em registros alterados) requer a réplica primária. Esse requisito vem do banco de dados SQL, que garante o controle de alterações somente nas réplicas primárias. Se você tentar usar réplicas secundárias para uma carga de trabalho de atualização de índice, não haverá nenhuma garantia de que você obtenha todos os dados.
 
@@ -66,17 +76,17 @@ Não, essa operação não tem suporte. A pesquisa sempre está no escopo de um 
 
 ### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Posso restringir o acesso ao índice de pesquisa por identidade do usuário?
 
-Você pode implementar [filtros](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) de segurança `search.in()` com o filtro. O filtro se compõe bem com os [serviços de gerenciamento de identidade como Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) para cortar os resultados da pesquisa com base na associação de grupo de usuários definida.
+Você pode implementar [filtros de segurança](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) com o filtro `search.in()`. O filtro se compõe bem com os [serviços de gerenciamento de identidade como Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) para cortar os resultados da pesquisa com base na associação de grupo de usuários definida.
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Por que há zero correspondências em termos que sei ser válidos?
 
-O caso mais comum é não saber que cada tipo de consulta dá suporte a diferentes comportamentos de pesquisa e níveis de análises linguísticas. A pesquisa de texto completo, que é a carga de trabalho predominante, inclui uma fase de análise de linguagem que quebra os termos para os formulários raiz. Esse aspecto da análise de consulta converte uma rede mais ampla sobre possíveis correspondências, pois o termo indexado corresponde a um número maior de variantes.
+O caso mais comum é não saber que cada tipo de consulta dá suporte a diferentes comportamentos de pesquisa e níveis de análises linguísticas. A pesquisa de texto completo, que é a carga de trabalho predominante, inclui uma fase de análise de linguagem que divide os termos para formulários raiz. Esse aspecto da análise de consulta converte uma rede mais ampla sobre possíveis correspondências, pois o termo indexado corresponde a um número maior de variantes.
 
-As consultas curinga, difusa e Regex, no entanto, não são analisadas como consultas de termo ou expressão regulares e podem levar a uma recuperação ruim se a consulta não corresponder à forma analisada da palavra no índice de pesquisa. Para mais informações sobre análise e análise de consulta, consulte [arquitetura de consulta](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+As consultas curinga, difusa e Regex, no entanto, não são analisadas como consultas de termo ou expressão regulares e podem levar a uma recuperação ruim se a consulta não corresponder à forma analisada da palavra no índice de pesquisa. Para obter mais informações sobre análises e análise de consultas, consulte [arquitetura de consulta](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
 
 ### <a name="my-wildcard-searches-are-slow"></a>Minhas pesquisas de curinga estão lentas.
 
-A maioria das consultas de pesquisa de caractere curinga, como prefixo, difusa e Regex, são reescritas internamente com termos correspondentes no índice de pesquisa. Esse processamento extra de verificação do índice de pesquisa aumenta a latência. Além disso, muitas consultas de pesquisa `a*` amplas, como por exemplo, que provavelmente serão reescritas com muitos termos podem ser muito lentas. Para pesquisas de curingas de desempenho, considere definir um [analisador personalizado](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
+A maioria das consultas de pesquisa de caractere curinga, como prefixo, difusa e Regex, são reescritas internamente com termos correspondentes no índice de pesquisa. Esse processamento extra de verificação do índice de pesquisa aumenta a latência. Além disso, muitas consultas de pesquisa amplas, como `a*`, por exemplo, que provavelmente serão reescritas com muitos termos podem ser muito lentas. Para pesquisas de curingas de desempenho, considere definir um [analisador personalizado](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Por que a classificação de pesquisa tem uma pontuação constante ou igual a 1,0 para cada clique?
 
@@ -90,12 +100,12 @@ Por exemplo, suponha que uma entrada de "Tour *" em uma pesquisa curinga produza
 
 A maioria dos clientes escolhe campos dedicados em uma coleção quando se trata de dar suporte a localidades diferentes (idiomas) no mesmo índice. Os campos específicos de localidade possibilitam atribuir um analisador apropriado. Por exemplo, atribuir o Microsoft French Analyzer a um campo que contém cadeias de caracteres francesas. Ele também simplifica a filtragem. Se você souber que uma consulta é iniciada em uma página fr-fr, poderá limitar os resultados da pesquisa a esse campo. Ou crie um [perfil de Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar ao campo mais peso relativo. O Azure Search dá suporte a mais de [50 analisadores de idioma](https://docs.microsoft.com/azure/search/search-language-support) para sua escolha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Sua pergunta sobre um recurso ou uma funcionalidade ausente? Solicite o recurso no [site do User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="see-also"></a>Consulte também
 
- [StackOverflow Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
+ [StackOverflow: Azure Search @ no__t-0 @ no__t-1  
  [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md)  
  [O que é o Azure Search?](search-what-is-azure-search.md)

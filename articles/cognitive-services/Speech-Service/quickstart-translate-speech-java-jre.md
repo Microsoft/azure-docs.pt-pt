@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 402bf198981641db74a86bbc420fab83124f0b47
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553403"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802023"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Início rápido: Traduzir a conversão de voz com o SDK de voz para Java
 
-Os guias de início rápido também estão disponíveis para o assistente virtual de [fala-para-texto](quickstart-java-jre.md) e [voz-primeiro](quickstart-virtual-assistant-java-jre.md).
+Os guias de início rápido também estão disponíveis para o assistente virtual de [voz a texto](quickstart-java-jre.md), conversão de [texto em fala](quickstart-text-to-speech-java-jre.md)e [primeiro voz](quickstart-virtual-assistant-java-jre.md).
 
 Neste guia de início rápido, você criará um aplicativo Java simples que captura a fala do usuário do microfone do seu computador, traduz a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado em Windows de 64 bits ou em Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou no macOS 10,13 ou posterior. Ele é criado com o pacote do SDK do Speech e o Java IDE do eclipse.
 
@@ -36,7 +36,7 @@ Este início rápido requer:
 
 Se você estiver executando o Linux, verifique se essas dependências estão instaladas antes de iniciar o eclipse.
 
- * No Ubuntu:
+ * no Ubuntu:
 
    ```sh
    sudo apt-get update
@@ -92,6 +92,6 @@ Exemplos adicionais, como a leitura de fala de um arquivo de áudio e a saída d
 
 ## <a name="see-also"></a>Consulte também
 
-- [Quickstart: Reconhecer fala, Java (Windows, Linux)](quickstart-java-jre.md)
+- [Quickstart: Reconhecimento de fala, Java (Windows, Linux) ](quickstart-java-jre.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

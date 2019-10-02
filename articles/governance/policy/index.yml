@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/17/2019
-  ms.openlocfilehash: 43deed57090cd2f64bc9ee96f6f0c6f5286b0dca
-  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.openlocfilehash: 58e5b078fc337a53193b9c0518ae12437d26fb75
+  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/23/2019
-  ms.locfileid: "71203970"
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71802273"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -114,4 +114,4 @@ landingContent:
     - text: REST (Iniciativas)
       url: /rest/api/resources/policysetdefinitions
     - text: Modelos do Resource Manager
-      url: /azure/templates/microsoft.authorization
+      url: /azure/templates/microsoft.authorization/allversions

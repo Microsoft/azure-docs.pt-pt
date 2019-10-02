@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/01/2019
 ms.author: bwren
-ms.openlocfilehash: d50a680ed2b054f87a9cf36e761bd16d79677fb3
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304704"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718903"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log de Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) que usam a [linguagem de consulta Kusto](/azure/kusto/query/) para recuperar diferentes tipos de dados de log de Azure monitor. Métodos diferentes são usados para consolidar e analisar dados, para que você possa usar esses exemplos para identificar estratégias diferentes que podem ser usadas para seus próprios requisitos.  
@@ -44,7 +44,7 @@ Event
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Batida
+## <a name="heartbeat"></a>Heartbeat
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Gráfico uma exibição semana a semana do número de computadores que enviam dados
 
@@ -205,7 +205,7 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Status de proteção
+## <a name="protection-status"></a>Estado da proteção
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com duração de status de proteção sem relatórios
 Este exemplo apresenta uma lista dos computadores que tiveram o estado de proteção _Not Reporting_ e durante quanto tempo estiveram nesse estado.
@@ -425,13 +425,12 @@ Este exemplo mostra uma lista de computadores que estavam sem uma ou mais atuali
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where TimeGenerated between (ago(30d)..ago(1h))
+| where Classification !has "Critical" and UpdateState =~ "Needed"
 | summarize makeset(Computer);
-
 Update
 | where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Classification has "Critical" and UpdateState =~ "Needed"
 | where Computer in (ComputersMissingUpdates3DaysAgo)
 | summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
 ```

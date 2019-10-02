@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/17/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9244dfabef8b13105ef830f9f4543da9cb2cca9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3696ebc216062a6d52fd187819f07dfb0078057
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842645"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812580"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
 Você pode especificar o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Você pode definir tempos de vida de token para todos os aplicativos em sua organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de novembro de 2019, você não poderá usar a política de tempo de vida de token configurável para configurar tokens de atualização, mas ainda poderá usá-lo para configurar tokens de acesso.
+> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de novembro de 2019, você não poderá usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
 
 No Azure AD, um objeto de política representa um conjunto de regras que são impostas em aplicativos individuais ou em todos os aplicativos em uma organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas a objetos aos quais elas são atribuídas.
 
@@ -389,7 +389,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Se for true, definirá a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Tipo de política. Para tempos de vida de token, sempre use "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Adicional |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [opcional] |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -402,7 +402,7 @@ Get-AzureADPolicy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code>Adicional |**ObjectId (ID)** da política que você deseja. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [opcional] |**ObjectId (ID)** da política que você deseja. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -430,10 +430,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** da política que você deseja. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>Adicional |Matriz de JSON em cadeias que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>Adicional |Se for true, definirá a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>Adicional |Tipo de política. Para tempos de vida de token, sempre use "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Adicional |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [opcional] |Matriz de JSON em cadeias que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [opcional] |Se for true, definirá a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [opcional] |Tipo de política. Para tempos de vida de token, sempre use "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [opcional] |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -494,7 +494,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Políticas de principal de serviço
+### <a name="service-principal-policies"></a>Políticas de entidade de serviço
 Você pode usar os cmdlets a seguir para as políticas de entidade de serviço.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy

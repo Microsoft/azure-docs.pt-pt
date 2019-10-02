@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/10/2019
-  ms.openlocfilehash: 07db40943ae0ff9978cedcef6a42ba0b83f5f2cc
-  ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+  ms.openlocfilehash: 32fe6f5967c6f09b095fc1128d7ffa5007b03c59
+  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71337744"
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71802775"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -148,7 +148,7 @@ additionalContent:
         url: /rest/api/guestconfiguration/
         note: (Configuração de Convidado)
       - text: Modelos do Resource Manager
-        url: /azure/templates/microsoft.authorization
+        url: /azure/templates/microsoft.authorization/allversions
     - title: Azure Blueprints
       links:
       - text: Funções de esquema

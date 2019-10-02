@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 458ba61adba294af99f2265e4907e874ed3a6956
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084584"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815700"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com modelos de Azure Resource Manager
 
@@ -181,8 +181,8 @@ Para obter uma lista dos argumentos que estão disponíveis para o script de con
 | --- | --- | --- |
 | settings.wmfVersion |Cadeia de caracteres |Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Definir essa propriedade como **mais recente** instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para essa propriedade são **4,0**, **5,0**, **5,1**e **mais recente**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **mais recente**. |
 | settings.configuration.url |Cadeia de caracteres |Especifica o local da URL do qual baixar o arquivo. zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings. configurationUrlSasToken** como o valor do seu token SAS. Essa propriedade será necessária se **Settings. Configuration. script** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir metadados de local Configuration Manager (LCM) e os argumentos deverão ser fornecidos. |
-| settings.configuration.script |Cadeia de caracteres |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo. zip que é baixado da URL especificada pela propriedade **Settings. Configuration. URL** . Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. script** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
-| settings.configuration.function |Cadeia de caracteres |Especifica o nome da sua configuração DSC. A configuração nomeada deve ser incluída no script que o **Settings. Configuration. script** define. Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
+| settings.configuration.script |string |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo. zip que é baixado da URL especificada pela propriedade **Settings. Configuration. URL** . Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. script** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
+| settings.configuration.function |string |Especifica o nome da sua configuração DSC. A configuração nomeada deve ser incluída no script que o **Settings. Configuration. script** define. Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
 | settings.configurationArguments |Collection |Define todos os parâmetros que você deseja passar para sua configuração DSC. Esta propriedade não está criptografada. |
 | settings.configurationData.url |Cadeia de caracteres |Especifica a URL da qual baixar seu arquivo de dados de configuração (. psd1) para usar como entrada para sua configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings. configurationDataUrlSasToken** como o valor do seu token SAS. |
 | settings.privacy.dataCollection |Cadeia de caracteres |Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são **habilitar**, **desabilitar**, **' '** ou **$NULL**. Deixar essa propriedade em branco ou NULL habilita a telemetria. O valor padrão é **' '** . Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
@@ -236,8 +236,10 @@ Os argumentos de configuração são passados para o script de configuração pa
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -253,7 +255,7 @@ Os argumentos de configuração são passados para o script de configuração pa
 
 O exemplo a seguir é da [visão geral do manipulador de extensão de DSC](dsc-overview.md).
 Este exemplo usa modelos do Resource Manager em vez de cmdlets para implantar a extensão.
-Salve a configuração IisInstall. ps1, coloque-a em um arquivo. zip (exemplo `iisinstall.zip`:) e, em seguida, carregue o arquivo em uma URL acessível.
+Salve a configuração IisInstall. ps1, coloque-a em um arquivo. zip (exemplo: `iisinstall.zip`) e, em seguida, carregue o arquivo em uma URL acessível.
 Este exemplo usa o armazenamento de BLOBs do Azure, mas você pode baixar arquivos. zip de qualquer local arbitrário.
 
 No modelo do Resource Manager, o código a seguir instrui a VM a baixar o arquivo correto e, em seguida, executar a função apropriada do PowerShell:
@@ -331,8 +333,8 @@ Veja como o formato anterior se adapta ao formato atual:
 | --- | --- |
 | settings.wmfVersion |settings.WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |Primeira parte das configurações. ConfigurationFunction (antes \\) \\ |
-| settings.configuration.function |Segunda parte das configurações. ConfigurationFunction (depois \\) \\ |
+| settings.configuration.script |Primeira parte das configurações. ConfigurationFunction (antes de \\ @ no__t-1) |
+| settings.configuration.function |Segunda parte das configurações. ConfigurationFunction (após \\ @ no__t-1) |
 | settings.configuration.module.name | settings.ModuleSource |
 | settings.configuration.module.version | settings.ModuleVersion |
 | settings.configurationArguments |settings.Properties |
@@ -349,9 +351,9 @@ Aqui estão alguns dos erros que você pode encontrar e como você pode corrigi-
 
 ### <a name="invalid-values"></a>Valores inválidos
 
-"Privacy. dataCollection é '{0}'.
+"Privacy. dataCollection é ' {0} '.
 Os únicos valores possíveis são ' ', ' Enable ' e ' Disable ' ".
-"WmfVersion é '{0}'.
+"WmfVersion é ' {0} '.
 Somente os valores possíveis são... e ' Latest ' ".
 
 **Problema**: Um valor fornecido não é permitido.
@@ -359,9 +361,9 @@ Somente os valores possíveis são... e ' Latest ' ".
 **Solução**: Altere o valor inválido para um valor válido.
 Para obter mais informações, consulte a tabela em [detalhes](#details).
 
-### <a name="invalid-url"></a>URL inválido
+### <a name="invalid-url"></a>URL Inválido
 
-"ConfigurationData. URL é '{0}'. Esta não é uma URL válida "" DataBlobUri é '{0}'. Esta não é uma URL válida "" Configuration. a URL é{0}' '. Esta não é uma URL válida "
+"ConfigurationData. URL é ' {0} '. Esta não é uma URL válida "" DataBlobUri é ' {0} '. Esta não é uma URL válida "" Configuration. a URL é ' {0} '. Esta não é uma URL válida "
 
 **Problema**: Uma URL fornecida não é válida.
 
@@ -387,7 +389,7 @@ Verifique se todas as URLs são resolvidas para locais válidos que a extensão 
 
 ### <a name="invalid-configurationargument-type"></a>Tipo de ConfigurationArgument inválido
 
-"Tipo {0}de configurationArguments inválido"
+"Tipo de configurationArguments inválido {0}"
 
 **Problema**: A propriedade *ConfigurationArguments* não pode ser resolvida para um objeto de **tabela de hash** .
 
@@ -396,7 +398,7 @@ Siga o formato fornecido nos exemplos anteriores. Observe as aspas, vírgulas e 
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicado
 
-"Encontrados argumentos duplicados{0}' ' nos configurationArguments públicos e protegidos"
+"Encontrados argumentos duplicados ' {0} ' nos configurationArguments públicos e protegidos"
 
 **Problema**: O *ConfigurationArguments* em configurações públicas e *ConfigurationArguments* nas configurações protegidas têm propriedades com o mesmo nome.
 
@@ -423,7 +425,7 @@ das. Configuration. URL requer que Settings. Configuration. Function seja especi
 - Forneça a propriedade ausente.
 - Remova a propriedade que precisa da propriedade ausente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como [usar conjuntos de dimensionamento de máquinas virtuais com a extensão DSC do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Encontre mais detalhes sobre o [Gerenciamento de credenciais seguras da DSC](dsc-credentials.md).

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736100"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718366"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-motivação e benefícios
 
@@ -51,9 +51,9 @@ O Azure HDInsight é uma distribuição em nuvem de componentes do Hadoop. O Azu
 
 - **Produtividade** – você pode usar várias ferramentas para Hadoop e Spark em seu ambiente de desenvolvimento preferido.
 
-- **Extensibilidade com ferramentas personalizadas ou aplicativos** de terceiros-os clusters HDInsight podem ser estendidos com componentes instalados e também podem ser integrados a outras soluções de Big data usando implantações com [um clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do Azure Market Place.
+- **Extensibilidade com ferramentas personalizadas ou aplicativos** de terceiros-os clusters HDInsight podem ser estendidos com os componentes instalados e também podem ser integrados a outras soluções de Big data usando o @no__t de [um clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)-2deployments do Azure Mercado.
 
-- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) de Azure monitor para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
+- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se aos [logs de Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) To fornecem uma única interface com a qual você pode monitorar todos os seus clusters.
 
 - **Integração com outros serviços do Azure** – o HDInsight pode ser facilmente integrado a outros serviços populares do Azure, como o seguinte:
 
@@ -137,10 +137,10 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
 |**Tópico**: **Metadados**|||
 |Tipo de BD do hive|Mysql, Postgres||
-|Não. de metastores do hive|2||
-|Não. de tabelas do hive|100||
-|Não. de políticas do Ranger|20||
-|Não. de fluxos de trabalho do Oozie|100||
+|Número de metastores do hive|2||
+|Número de tabelas do hive|100||
+|Número de políticas de Ranger|20||
+|Número de fluxos de trabalho do Oozie|100||
 |**Tópico**: **Dimensionamento**|||
 |Volume de dados incluindo replicação|100 TB||
 |Volume de ingestão diário|50 GB||
@@ -152,11 +152,11 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |Espaço em disco utilizado|75%||
 |% De rede média usada|25%
 |**Tópico**: **Receber**|||
-|Não. de administradores|2||
-|Não. de desenvolvedores|10||
-|Não. de usuários finais|100||
+|Número de administradores|2||
+|Número de desenvolvedores|10||
+|Número de usuários finais|100||
 |Competências|Hadoop, Spark||
-|Não. de recursos disponíveis para os esforços de migração|2||
+|Número de recursos disponíveis para os esforços de migração|2||
 |**Tópico**: **Limitações**|||
 |Limitações atuais|A latência é alta||
 |Desafios atuais|Problema de simultaneidade||
@@ -180,7 +180,7 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |Pipeline de dados particular e protegido?|Sim||
 |ESP (cluster ingressado no domínio)?|     Sim||
 |AD Sync local para nuvem?|     Sim||
-|Não. de usuários do AD para sincronizar?|          100||
+|Número de usuários do AD a serem sincronizados?|          100||
 |OK para sincronizar as senhas com a nuvem?|    Sim||
 |Somente usuários de nuvem?|                 Sim||
 |MFA necessária?|                       Não|| 

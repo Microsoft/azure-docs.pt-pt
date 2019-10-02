@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566967"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812376"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Como parte da [arquitetura de alta disponibilidade](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), cada banco de dados na camada de serviço Premium, comercialmente crítico ou hiperescala é automaticamente provisionado com uma réplica primária e várias réplicas secundárias. As réplicas secundárias são provisionadas com o mesmo tamanho de computação que a réplica primária. O recurso de **expansão de leitura** permite balancear a carga de cargas de trabalho somente leitura do banco de dados SQL usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Desta forma, a carga de trabalho só de leitura vai ser isolada da carga de trabalho de leitura/escrita principal e não vai afetar o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análise. Eles podem obter benefícios de desempenho usando essa capacidade adicional sem nenhum custo adicional.
+Como parte da [arquitetura de alta disponibilidade](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), cada banco de dados na camada de serviço Premium e comercialmente crítico é automaticamente provisionado com uma réplica primária e várias réplicas secundárias. As réplicas secundárias são provisionadas com o mesmo tamanho de computação que a réplica primária. O recurso de **expansão de leitura** permite balancear a carga de cargas de trabalho somente leitura do banco de dados SQL usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Desta forma, a carga de trabalho só de leitura vai ser isolada da carga de trabalho de leitura/escrita principal e não vai afetar o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análise. Nas camadas de serviço Premium e Comercialmente Crítico, os aplicativos podem obter benefícios de desempenho usando essa capacidade adicional sem custo adicional.
+
+O recurso de **expansão de leitura** também está disponível na camada de serviço de hiperescala quando pelo menos uma réplica secundária é criada. Várias réplicas secundárias podem ser usadas se as cargas de trabalho somente leitura exigirem mais recursos do que o disponível em uma réplica secundária. A arquitetura de alta disponibilidade das camadas de serviço Basic, Standard e Uso Geral não inclui nenhuma réplica. O recurso de **expansão de leitura** não está disponível nessas camadas de serviço.
 
 O diagrama a seguir ilustra isso usando um banco de dados Comercialmente Crítico.
 
 ![Réplicas somente leitura](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-O recurso de expansão de leitura é habilitado por padrão nos novos bancos de dados Premium, Comercialmente Crítico e hiperescala. Se a cadeia de conexão SQL estiver configurada com `ApplicationIntent=ReadOnly`, o aplicativo será redirecionado pelo gateway para uma réplica somente leitura desse banco de dados. Para obter informações sobre como usar a `ApplicationIntent` Propriedade, consulte [especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+O recurso de expansão de leitura é habilitado por padrão nos novos bancos de dados Premium, Comercialmente Crítico e hiperescala. Para o hiperescala, uma réplica secundária é criada por padrão para novos bancos de dados. Se a cadeia de conexão SQL estiver configurada com `ApplicationIntent=ReadOnly`, o aplicativo será redirecionado pelo gateway para uma réplica somente leitura desse banco de dados. Para obter informações sobre como usar a `ApplicationIntent` Propriedade, consulte [especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Se você quiser garantir que o aplicativo se conecte à réplica primária, independentemente `ApplicationIntent` da configuração na cadeia de conexão SQL, você deve desabilitar explicitamente a expansão de leitura ao criar o banco de dados ou ao alterar sua configuração. Por exemplo, se você atualizar seu banco de dados da camada Standard ou Uso Geral para a camada Premium, Comercialmente Crítico ou hiperscale e quiser ter certeza de que todas as suas conexões continuam a ir para a réplica primária, desabilite a expansão de leitura. Para obter detalhes sobre como desabilitá-lo, consulte [habilitar e desabilitar a expansão de leitura](#enable-and-disable-read-scale-out).
 
@@ -144,6 +146,6 @@ Se você estiver usando a expansão de leitura para balancear a carga de cargas 
 > [!NOTE]
 > Não há suporte para Round Robin ou qualquer outro roteamento com balanceamento de carga entre as réplicas locais do banco de dados secundário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a oferta de hiperescala do banco de dados SQL, consulte [camada de serviço](./sql-database-service-tier-hyperscale.md)de hiperescala.

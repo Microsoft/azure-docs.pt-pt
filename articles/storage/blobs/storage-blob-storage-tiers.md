@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 642fcc9ac2513329e9223f59a33d51ac5005e1fd
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543679"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802183"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo
 
 O armazenamento do Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objeto de BLOB da maneira mais econômica. As camadas de acesso disponíveis incluem:
 
-- Otimizado para o armazenamento de dados que são acessados com frequência.
+- Otimizado para o **armazenamento de dados** que são acessados com frequência.
 - Muito otimizado para armazenar dados que são acessados com pouca frequência e armazenados por pelo menos 30 dias.
 - **Arquivado** -otimizado para armazenar dados que raramente são acessados e armazenados por pelo menos 180 dias com requisitos de latência flexíveis (na ordem de horas).
 
@@ -30,7 +30,7 @@ As seguintes considerações se aplicam às diferentes camadas de acesso:
 - Os dados na camada de acesso frio podem tolerar uma disponibilidade ligeiramente menor, mas ainda exigem alta durabilidade, latência de recuperação e características de taxa de transferência semelhantes aos dados ativos. Para dados legais, um SLA (contrato de nível de serviço) de disponibilidade ligeiramente menor e custos de acesso mais altos em comparação com os dados ativos são compensações aceitáveis para reduzir os custos de armazenamento.
 - O armazenamento de arquivos armazena dados offline e oferece os custos de armazenamento mais baixos, mas também os mais altos reidratar de dados e custos de acesso.
 
-Os dados armazenados na nuvem crescem em um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes em termos de como são gerados, processados e acessados durante seu tempo de vida. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem ociosos na nuvem e raramente são acessados depois de armazenados.
+Os dados armazenados na nuvem crescem em um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes com base em como são gerados, processados e acessados durante seu tempo de vida. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem ociosos na nuvem e raramente são acessados depois de armazenados.
 
 Cada um desses cenários de acesso a dados se beneficia de uma camada de acesso diferente que é otimizada para um padrão de acesso específico. Com as camadas de acesso frequente, esporádica e de arquivo morto, o armazenamento de BLOBs do Azure atende a essa necessidade de camadas de acesso diferenciado com modelos de preços separados.
 
@@ -38,17 +38,9 @@ Cada um desses cenários de acesso a dados se beneficia de uma camada de acesso 
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que suportam camadas
 
-A camada de dados de armazenamento de objetos em alta, esporádica ou arquivo morto só tem suporte em contas de armazenamento de BLOB e Uso Geral v2 (GPv2). As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. O GPv2 fornece uma nova estrutura de preços para BLOBs, arquivos e filas, além de acesso a uma variedade de novos recursos de armazenamento. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Portanto, os clientes devem avaliar o uso de contas do GPv2 após a revisão abrangente do novo preço, já que algumas cargas de trabalho podem ser mais caras no GPv2 do que o GPv1. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
+As camadas de dados de armazenamento de objetos entre Hot, fria e arquivo morto só têm suporte em contas de armazenamento de BLOB e Uso Geral v2 (GPv2). As contas do Uso Geral V1 (GPv1) não dão suporte a camadas. Os clientes podem facilmente converter suas contas de armazenamento de GPv1 ou BLOB existentes para contas do GPv2 por meio do portal do Azure. O GPv2 fornece novos preços e recursos para BLOBs, arquivos e filas. Alguns recursos e preços são oferecidos apenas em contas do GPv2. Avalie usando contas do GPv2 após a revisão abrangente de preços. Algumas cargas de trabalho podem ser mais caras em GPv2 do que GPv1. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
-As contas de armazenamento de BLOBs e GPv2 expõem o atributo **camada de acesso** no nível da conta. Esse atributo permite que você especifique a camada de acesso padrão como frequente ou fria para qualquer blob na conta de armazenamento que não tenha uma camada explícita definida no nível do objeto. Relativamente aos objetos cuja camada está definida ao nível do objeto, a camada da conta não se aplicará. A camada de arquivo pode ser aplicada somente no nível do objeto. Você pode alternar entre essas camadas de acesso a qualquer momento.
-
-## <a name="premium-performance-block-blob-storage"></a>Armazenamento de blobs de blocos de desempenho premium
-
-O armazenamento de blobs de blocos de desempenho premium disponibiliza dados acessados com frequência por meio de hardware de alto desempenho. Os dados nesse nível de desempenho são armazenados em SSDs (unidades de estado sólido), que são otimizados para latência baixa e consistente. O SSDs fornece taxas transacionais e taxa de transferência maiores em comparação com os discos rígidos tradicionais.
-
-O armazenamento de blobs de blocos de desempenho Premium é ideal para cargas de trabalho que exigem tempos de resposta rápidos e consistentes. É melhor para cargas de trabalho que executam muitas transações pequenas, como a captura de dados de telemetria, mensagens e transformação de dados. Os dados que envolvem usuários finais, como edição interativa de vídeo, conteúdo da Web estático e transações online também são bons candidatos.
-
-O armazenamento de blobs de blocos de desempenho Premium está disponível apenas por meio do tipo de conta de armazenamento de blobs de blocos e atualmente não dá suporte a camadas para camadas de acesso frequente, esporádica ou de arquivamento.
+As contas de armazenamento de BLOBs e GPv2 expõem o atributo **camada de acesso** no nível da conta. Esse atributo permite que você especifique a camada de acesso padrão para qualquer BLOB que não tenha ele definido explicitamente no nível do objeto. Para objetos com a camada definida no nível do objeto, a camada de conta não será aplicada. A camada de arquivo pode ser aplicada somente no nível do objeto. Você pode alternar entre essas camadas de acesso a qualquer momento.
 
 ## <a name="hot-access-tier"></a>Escalão de acesso frequente
 
@@ -67,32 +59,27 @@ A camada de acesso frio reduz os custos de armazenamento e os custos de acesso m
 
 ## <a name="archive-access-tier"></a>Camada de acesso de arquivo
 
-A camada de acesso de arquivamento tem o menor custo de armazenamento e os maiores custos de recuperação de dados em comparação com as camadas quentes e frias. Esta camada destina-se a dados que podem tolerar várias horas de latência de obtenção e que vão permanecer na camada de arquivo, pelo menos, 180 dias.
+A camada de acesso de arquivamento tem o menor custo de armazenamento. Mas ele tem custos de recuperação de dados mais altos em comparação com as camadas quente e fria. Os dados na camada de arquivo podem levar várias horas para serem recuperados. Os dados devem estar na camada de arquivo por pelo menos 180 dias ou estar sujeitos a uma cobrança de exclusão antecipada.
 
 Enquanto um blob está no armazenamento de arquivo morto, os dados de blob ficam offline e não podem ser lidos, copiados, substituídos ou modificados. Não é possível tirar instantâneos de um blob no armazenamento de arquivos. No entanto, os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob e suas propriedades. Para BLOBs no arquivo morto, as únicas operações válidas são getblobproperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob.
 
 Os cenários de uso de exemplo para a camada de acesso de arquivamento incluem:
 
 - Conjuntos de dados de arquivo, cópia de segurança secundária e cópia de segurança a longo prazo
-- Dados originais (não processados) que têm de ser preservados, mesmo depois de terem sido processados para a forma utilizável final. (*Por exemplo,* , ficheiros de multimédia não processados após a transcodificação noutros formatos)
-- Dados de conformidade e arquivo que têm ser armazenados durante muito tempo e que raramente são acedidos. (*Por exemplo*, vídeo de câmara de segurança, raios X/MRIs para empresas de saúde, gravações de áudio e transcrições de chamadas de clientes para serviços financeiros)
-
-### <a name="blob-rehydration"></a>Reidratação de blobs
-
-[!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
-Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.  
+- Dados originais (não processados) que têm de ser preservados, mesmo depois de terem sido processados para a forma utilizável final.
+- Dados de conformidade e arquivo que têm ser armazenados durante muito tempo e que raramente são acedidos.
 
 ## <a name="account-level-tiering"></a>Camadas em nível de conta
 
-Os BLOBs em todas as três camadas de acesso podem coexistir dentro da mesma conta. Um blob que não tenha uma camada atribuída explicitamente infere a camada da definição da camada de acesso da conta. Se a camada de acesso for inferida da conta, você verá a propriedade de blob **camada de acesso inferida** definida como "true", e a propriedade BLOB da camada de **acesso** ao blob corresponderá à camada da conta. No portal do Azure, a propriedade _camada de acesso deduzida_ é exibida com a camada de acesso de blob como **ativa (inferida)** ou **fria (inferida)** .
+Os BLOBs em todas as três camadas de acesso podem coexistir dentro da mesma conta. Qualquer BLOB que não tenha uma camada explicitamente atribuída infere a camada da configuração de nível de acesso da conta. Se a camada de acesso vier da conta, você verá a propriedade de blob **camada de acesso inferida** definida como "true", e a propriedade de BLOB da **camada de acesso** corresponderá à camada da conta. No portal do Azure, a propriedade _camada de acesso deduzida_ é exibida com a camada de acesso de blob como **ativa (inferida)** ou **fria (inferida)** .
 
-A alteração da camada de acesso da conta aplica-se a todos os objetos inferidos da _camada de acesso_ armazenados na conta que não têm uma camada explícita definida. Se mudar a camada da conta de frequente para esporádica, são-lhe cobradas operações de escrita (por 10 000) para todos os blobs que não tenham uma camada definida em contas GPv2 apenas. Não há nenhum encargo para essa alteração nas contas de armazenamento de BLOBs. Você será cobrado por operações de leitura (por 10.000) e por recuperação de dados (por GB) se alternar de fria para quente no armazenamento de BLOBs ou em contas de GPv2.
+A alteração da camada de acesso à conta se aplica a todos os objetos _inferidos da camada de acesso_ armazenados na conta que não têm um conjunto de camadas explícito. Se você alternar a camada de conta de quente para fria, você será cobrado pelas operações de gravação (por 10.000) para todos os BLOBs sem uma camada de conjunto somente nas contas GPv2. Não há nenhum encargo para essa alteração nas contas de armazenamento de BLOBs. Você será cobrado por operações de leitura (por 10.000) e por recuperação de dados (por GB) se alternar de fria para quente no armazenamento de BLOBs ou em contas de GPv2.
 
 ## <a name="blob-level-tiering"></a>Camadas ao nível do blob
 
 As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as alterações de camada acontecem imediatamente. No entanto, reidratar um blob do arquivo pode levar várias horas.
 
-A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não é permitido neste cenário. Você pode substituir um blob em uma camada quente ou fria; nesse caso, o novo BLOB herda a camada do blob que foi substituído.
+A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não será permitido nesse cenário. Ao substituir um blob em uma camada quente ou fria, o novo BLOB herda a camada do blob que foi substituído.
 
 > [!NOTE]
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Você também não pode alterar atualmente a camada de um blob de blocos que tenha instantâneos.
@@ -118,7 +105,7 @@ Quando um blob é movido para uma camada mais quente (arquivo morto-> frio, > qu
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminação precoce de blobs de acesso esporádico e de arquivo
 
-Para além dos custos por mês por GB, qualquer blob que seja movido para a camada esporádica (apenas contas GPv2) está sujeito a um período de 30 dias de eliminação precoce esporádica e qualquer blob que seja incluído na camada de arquivos está sujeito a um período de 180 dias de eliminação precoce de arquivos. Estes custos são rateados. Por exemplo, se um blob for movido para arquivo e, em seguida, for eliminado ou movido para a camada frequente após 45 dias, é-lhe cobrada uma tarifa de eliminação precoce equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo.
+Qualquer BLOB que é movido para a camada fria (somente contas GPv2) está sujeito a um período de exclusão antecipado de 30 dias. Qualquer blob movido para a camada de arquivo está sujeito a um período de exclusão antecipada de 180 dias. Estes custos são rateados. Por exemplo, se um blob for movido para o arquivo morto e, em seguida, excluído ou movido para a camada quente após 45 dias, você será cobrado como uma taxa de exclusão inicial equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo morto.
 
 Você pode calcular a exclusão antecipada usando a propriedade BLOB, **Last-Modified**, se não houver nenhuma alteração na camada de acesso. Caso contrário, você pode usar quando a camada de acesso foi modificada pela última vez para fria ou arquivo morto exibindo a propriedade blob: **acesso-camada-alteração-tempo**. Para obter mais informações sobre propriedades de BLOB, consulte [obter propriedades de blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
@@ -137,7 +124,7 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 
 <sup>1</sup> os objetos na camada fria em contas GPv2 têm uma duração de retenção mínima de 30 dias. As contas de armazenamento de BLOBs não têm uma duração de retenção mínima para a camada fria.
 
-<sup>2</sup> armazenamento de arquivos atualmente dá suporte a duas reidratar prioridades, alta e padrão, que oferecem latências de recuperação diferentes. Para obter mais informações, consulte [blob reidratação](#blob-rehydration).
+<sup>2</sup> armazenamento de arquivos atualmente dá suporte a duas reidratar prioridades, alta e padrão, que oferece latências de recuperação diferentes. Para obter mais informações, consulte [dados de blob reidratar da camada de arquivo morto](storage-blob-rehydration.md).
 
 > [!NOTE]
 > As contas de armazenamento de BLOBs dão suporte às mesmas metas de desempenho e escalabilidade que as contas de armazenamento de uso geral v2. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -155,11 +142,11 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 1. Para navegar para a sua conta de armazenamento, selecione Todos os Recursos, em seguida, selecione a sua conta de armazenamento.
 
-1. No painel Definições, clique em**Configuração** para ver e/ou alterar a configuração da conta.
+1. Em configurações, clique em **configuração** para exibir e alterar a configuração da conta.
 
 1. Selecione a camada de acesso certa para suas necessidades: Defina a **camada de acesso** como **fria** ou **quente**.
 
-1. Clique em **Guardar**, na parte superior do painel.
+1. Clique em **salvar** na parte superior.
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob em uma conta de armazenamento de BLOBs ou de GPv2
 
@@ -167,11 +154,11 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 1. Para navegar para o blob na conta de armazenamento, selecione Todos os Recursos, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
 
-1. Na folha **Propriedades do blob** , selecione o botão **alterar camada** para abrir a folha da camada.
+1. Nas **Propriedades do blob**, selecione **alterar camada**.
 
 1. Selecione a camada de acesso **quente**, **fria**ou de **arquivamento** . Se o blob estiver atualmente no arquivo morto e você quiser reidratar-lo em uma camada online, você também poderá selecionar uma prioridade reidratar de **padrão** ou **alta**.
 
-1. Clique em **OK** na parte inferior do painel.
+1. Selecione **salvar** na parte inferior.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -182,7 +169,7 @@ Todas as contas de armazenamento usam um modelo de preços para armazenamento de
 - **Custos de transações**: Há uma cobrança por transação para todas as camadas que aumentam à medida que a camada fica mais fria.
 - **Custos de transferência de dados de replicação geográfica**: Essa cobrança só se aplica a contas com a replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 - **Custos de transferência de dados de saída**: As transferências de dados de saída (dados transferidos para fora de uma região do Azure) incorrem na cobrança do uso de largura de banda por gigabyte, consistentes com contas de armazenamento de uso geral.
-- **Alterando a camada de acesso**: Alterar a camada de acesso da conta resultará em encargos de alteração de camada para BLOBs de _camada de acesso_ inferidos armazenados na conta que não têm uma camada explícita definida. Para obter informações sobre como alterar a camada de acesso de um único BLOB, consulte [cobrança em camadas no nível do blob](#blob-level-tiering-billing).
+- **Alterando a camada de acesso**: A alteração da camada de acesso da conta resultará em encargos de alteração de camada para BLOBs de _camada de acesso inferidos_ armazenados na conta que não têm um conjunto de camadas explícito. Para obter informações sobre como alterar a camada de acesso de um único BLOB, consulte [cobrança em camadas no nível do blob](#blob-level-tiering-billing).
 
 > [!NOTE]
 > Para obter mais informações sobre os preços para BLOBs de blocos, consulte a página de [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) . Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -191,13 +178,13 @@ Todas as contas de armazenamento usam um modelo de preços para armazenamento de
 
 **Posso utilizar contas de armazenamento de Blobs ou GPv2 se quiser adicionar os meus dados a uma camada?**
 
-Para adicionar a camadas, recomendamos que utilize uma conta GPv2 em vez de uma conta de armazenamento de Blobs. As contas GPv2 suportam todas as funcionalidades que as contas de armazenamento de Blobs suportam e muitas mais. Os preços entre ambas são quase idênticos, mas algumas funcionalidades e reduções de preços só estarão disponíveis nas GPv2. As contas GPv1 não suportam as camadas.
+Para adicionar a camadas, recomendamos que utilize uma conta GPv2 em vez de uma conta de armazenamento de Blobs. As contas GPv2 suportam todas as funcionalidades que as contas de armazenamento de Blobs suportam e muitas mais. Os preços entre ambas são quase idênticos, mas algumas funcionalidades e reduções de preços só estarão disponíveis nas GPv2. As contas do GPv1 não dão suporte a camadas.
 
 A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes devem analisá-las cuidadosamente antes de optarem pelas GPv2. Pode converter facilmente uma conta de armazenamento de Blobs ou GPv1 existente em GPv2 através de um processo de um só clique simples. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 **Posso armazenar objetos em todas as três camadas de acesso (quentes, frias e de arquivamento) na mesma conta?**
 
-Sim. O atributo de **camada de acesso** definido no nível da conta é a camada de conta padrão que se aplica a todos os objetos nessa conta sem uma camada de conjunto explícita. No entanto, a criação de camadas ao nível do blob permite-lhe definir a camada de acesso ao nível do objeto, independentemente de qual seja a definição de camada de acesso da conta. Os BLOBs em qualquer uma das três camadas de acesso (quente, fria ou arquivo) podem existir na mesma conta.
+Sim. O atributo de **camada de acesso** definido no nível da conta é a camada de conta padrão que se aplica a todos os objetos nessa conta sem uma camada de conjunto explícita. Camadas no nível do blob permitem que você defina a camada de acesso no nível do objeto, independentemente da configuração da camada de acesso na conta. Os BLOBs em qualquer uma das três camadas de acesso (quente, fria ou arquivo) podem existir na mesma conta.
 
 **Posso alterar a camada de acesso padrão do meu BLOB ou da conta de armazenamento do GPv2?**
 
@@ -223,13 +210,13 @@ Todas as operações entre frequente e esporádica são 100% consistentes. Todas
 
 **Como posso saber que a reidratação de um blob a partir da camada de arquivo para a camada frequente ou esporádica foi concluída?**
 
-Durante a reidratação, pode utilizar a operação “get blob properties” para consultar o atributo **Archive Status** e verificar se a alteração de camada já está concluída. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade “archive status” do blob é removida e a propriedade **Access Tier** reflete a camada frequente ou esporádica nova.  
+Durante a reidratação, você pode usar a operação obter propriedades de BLOB para sondar o atributo **status do arquivo** e confirmar quando a alteração da camada foi concluída. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade “archive status” do blob é removida e a propriedade **Access Tier** reflete a camada frequente ou esporádica nova.  
 
 **Depois de definir a camada de um blob, quando é que me começa a ser faturada a taxa adequada?**
 
 Cada blob é sempre cobrado de acordo com a camada indicada pela propriedade **camada de acesso** do blob. Quando você define uma nova camada para um blob, a propriedade de **camada de acesso** reflete imediatamente a nova camada para todas as transições. No entanto, a reativação de um blob a partir de uma camada de arquivo para um escalão de acesso frequente ou esporádico pode demorar várias horas. Nesse caso, você será cobrado em taxas de arquivamento até que reidratação seja concluído, ponto em que a propriedade da **camada de acesso** reflete a nova camada. Nesse ponto, você será cobrado pelo blob à taxa quente ou fria.
 
-**Como posso saber se me vai ser faturada uma cobrança de eliminação precoce quando eliminar ou retirar um blob da camada esporádica ou de arquivo?**
+**Como fazer determinar se eu incorrerá em um encargo de exclusão antecipada ao excluir ou mover um blob da camada fria ou de arquivo morto?**
 
 Qualquer blob que seja eliminado ou retirado da camada de acesso esporádico (contas GPv2 apenas) ou de arquivo antes de terem decorrido 30 e 180 dias, respetivamente, irá incorrer numa cobrança por eliminação precoce rateada. Você pode determinar por quanto tempo um blob esteve na camada fria ou de arquivo verificando a propriedade blob de **alteração da camada de acesso** , que fornece um carimbo da última alteração de camada. Se a camada do blob nunca foi alterada, você poderá verificar a propriedade de blob **modificada pela última vez** . Para obter mais informações, consulte [exclusão antecipada de frio e arquivo](#cool-and-archive-early-deletion).
 
@@ -239,20 +226,16 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 **Quantos dados posso armazenar nas camadas frequente, esporádica e de arquivo?**
 
-O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Portanto, você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-and-blob-storage-accounts"></a>Avaliar a quente, a frio e o arquivo em contas de armazenamento de BLOBs e GPv2
+Avaliar a quente, a frio e o arquivo em contas de armazenamento de BLOBs e GPv2
 
-[Verificar a disponibilidade das camadas frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
-
-[Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)
-
-[Saiba mais sobre os dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md)
-
-[Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md)
-
-[Verificar os preços das camadas de armazenamento frequente, esporádica e de arquivo nas contas de armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
-
-[Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)
+- [Verificar a disponibilidade das camadas frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
+- [Gerir o ciclo de vida do Armazenamento de blobs do Azure](storage-lifecycle-management-concepts.md)
+- [Saiba mais sobre os dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md)
+- [Determinar se o desempenho premium beneficiaria seu aplicativo](storage-blob-performance-tiers.md)
+- [Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md)
+- [Verificar os preços das camadas de armazenamento frequente, esporádica e de arquivo nas contas de armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
+- [Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

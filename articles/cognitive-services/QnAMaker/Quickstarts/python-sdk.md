@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 90712012f904f7b098af01433fee4a97ee8f2160
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 81e5ac5e5017330d2c5ea8bf5b269c4ce70b495b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203768"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802840"
 ---
 # <a name="quickstart-qna-maker-client-library-for-python"></a>Início rápido: Biblioteca de cliente QnA Maker para Python
 
@@ -29,6 +29,8 @@ Use a biblioteca de cliente QnA Maker para Python para:
 
 [](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) [de Python (PyPI)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | debibliotecadedocumentaçãodereferênciadopacotedecódigo-fonte | [](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
@@ -40,7 +42,7 @@ Use a biblioteca de cliente QnA Maker para Python para:
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para QnA Maker usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. 
 
-Depois de obter uma chave do recurso, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, `QNAMAKER_KEY` chamado `QNAMAKER_HOST`e. Use os valores de chave e host encontrados no portal do Azure.
+Depois de obter uma chave do recurso, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, `QNAMAKER_KEY` chamado `QNAMAKER_HOST`e. Use os valores de chave e ponto de extremidade encontrados no portal do Azure.
 
 ### <a name="install-the-python-library-for-qna-maker"></a>Instalar a biblioteca do Python para QnA Maker
 
@@ -82,7 +84,7 @@ Crie variáveis para o ponto de extremidade e a chave do Azure do recurso. Se vo
 |Variável de ambiente|variável do Python|Exemplo|
 |--|--|--|
 |`QNAMAKER_KEY`|`subscription_key`|GUID de caractere de 32|
-|`QNAMAKER_HOST`|`host`|`https://westus.api.cognitive.microsoft.com`|
+|`QNAMAKER_HOST`|`host`|`https://your-resource-name.api.cognitive.microsoft.com`-alterar `your-resource-name` para seu próprio nome de recurso|
 ||||
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

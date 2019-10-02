@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275746"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718945"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solucionar erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -29,14 +29,14 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga as restrições de nomenclatura para contas de armazenamento. | [Resolver o nome da conta de armazenamento](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponíveis. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não dá suporte ao tamanho de VM solicitado. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de provisionamento e alocação para o Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e solucionar problemas de falhas de [alocação](../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não dá suporte ao tamanho de VM solicitado. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de provisionamento e alocação para o Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [solucionar](../virtual-machines/troubleshooting/allocation-failure.md) problemas de falhas de alocação|
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função à qual sua conta pertence e seu acesso para o escopo de implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
 | BadRequest | Você enviou valores de implantação que não correspondem ao que é esperado pelo Resource Manager. Verifique a mensagem de status interno para obter ajuda com a solução de problemas. | [Referência de modelo](/azure/templates/) e [locais com suporte](resource-location.md) |
 | Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde a conclusão da implantação simultânea para este grupo de recursos. | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolver o erro. Examine os detalhes do erro para obter um código de erro que fornece mais informações. | [Localizar código de erro](#find-error-code) |
-| DeploymentQuotaExceeded | Se você atingir o limite de 800 implantações por grupo de recursos, exclua as implantações do histórico que não são mais necessárias. Você pode excluir entradas do histórico com [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete) para CLI do Azure ou [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) no PowerShell. A exclusão de uma entrada do histórico de implantação não afeta os recursos de implantação. | |
+| DeploymentQuotaExceeded | Se você atingir o limite de 800 implantações por grupo de recursos, exclua as implantações do histórico que não são mais necessárias. | [Resolver erro quando a contagem de implantação exceder 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Insira um nome diferente. | |
 | ImageNotFound | Verifique as configurações de imagem da VM. |  |
 | InUseSubnetCannotBeDeleted | Você pode receber esse erro ao tentar atualizar um recurso, e a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -246,8 +246,8 @@ Em alguns casos, a maneira mais fácil de solucionar problemas de seu modelo é 
 Ou, suponha que você esteja encontrando erros de implantação que você acredite que estão relacionados a dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta apenas um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso está definido corretamente, adicione um recurso que dependa dele (como um banco de dados SQL). Quando você tiver esses dois recursos definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para verificar se você está testando as dependências adequadamente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para passar por um tutorial de solução de problemas [, consulte Tutorial: Solucionar problemas de implantações de modelo do Resource Manager](./resource-manager-tutorial-troubleshoot.md)
+* Para percorrer um tutorial de solução de problemas, consulte [Tutorial: Solucionar problemas de implantações de modelo do Resource Manager @ no__t-0
 * Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](resource-group-audit.md).
 * Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).

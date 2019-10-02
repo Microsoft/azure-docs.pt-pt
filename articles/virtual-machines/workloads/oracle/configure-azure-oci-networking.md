@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: eb5d03d50a99978e4f3ee58fba206dd730f7d5fe
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100141"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802216"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
 
 Para criar uma [experiência integrada de várias nuvens](oracle-oci-overview.md) (versão prévia), a Microsoft e a Oracle oferecem interconexão direta entre o Azure e o Oracle Cloud Infrastructure (OCI) por meio do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e do [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Por meio da interconexão do ExpressRoute e do FastConnect, os clientes podem experimentar baixa latência, alta taxa de transferência, conectividade direta privada entre as duas nuvens.
 
 > [!IMPORTANT]
-> A conexão entre Microsoft Azure e OCI está no estágio de visualização. Para habilitar a conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser listada em branco para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> A conexão entre Microsoft Azure e OCI está no estágio de visualização. Para estabelecer conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser habilitada para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 
@@ -37,7 +37,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 
 * A conectividade só é possível quando um local de emparelhamento do ExpressRoute do Azure está em proximidade com ou no mesmo local de emparelhamento que o FastConnect de OCI. Consulte [limitações de visualização](oracle-oci-overview.md#preview-limitations).
 
-* Sua assinatura do Azure deve estar na lista de permissões para esse recurso de visualização.
+* Sua assinatura do Azure deve ser habilitada para esse recurso de visualização.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurar a conectividade direta entre o ExpressRoute e o FastConnect
 
@@ -57,7 +57,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 1. Crie um DRG (gateway de roteamento dinâmico). Você precisará disso ao criar seu circuito FastConnect. Para obter mais informações, consulte a documentação do [Gateway de roteamento dinâmico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Crie um circuito FastConnect em seu locatário do Oracle. Para obter mais informações, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Em configuração do FastConnect, **selecione Microsoft Azure: ExpressRoute** como o provedor.
+    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute @ no__t-0 como o provedor.
     * Selecione o gateway de roteamento dinâmico que você provisionou na etapa anterior.
     * Selecione a largura de banda a ser provisionada. Para um desempenho ideal, a largura de banda deve corresponder à largura de banda selecionada ao criar o circuito de ExpressRoute.
     * Em **chave de serviço do provedor**, Cole a chave de serviço do ExpressRoute.
@@ -99,7 +99,7 @@ Para excluir a interconexão, as etapas a seguir devem ser seguidas, na ordem es
 
 Neste ponto, o processo de exclusão e desprovisionamento é concluído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a conexão entre nuvem entre o OCI e o Azure, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
 * Use [scripts Terraform](https://aka.ms/azureociinterconnecttf) para implantar a infraestrutura para aplicativos Oracle direcionados no Azure e configurar a interconexão de rede. 

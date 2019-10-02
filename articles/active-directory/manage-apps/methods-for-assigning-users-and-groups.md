@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967285"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720294"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir utilizadores e grupos a uma aplicação no Azure Active Directory
 Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no Azure Active Directory (Azure AD). Os usuários primeiro devem ser atribuídos a uma aplicação antes de um administrador pode conceder-lhes acesso para fazer o seguinte:
@@ -50,7 +50,7 @@ Antes de poder atribuir utilizadores e grupos a uma aplicação, deve exigir a a
 
 Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global ou como um proprietário de aplicativo não administrador.**
 
 2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerda principal.
 
@@ -88,7 +88,7 @@ Após um curto período de tempo, os usuários selecionados poderão iniciar ess
 
 Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou como um proprietário de aplicativo não administrador com uma licença de Azure ad Premium atribuída.
 
 2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerda principal.
 
@@ -150,7 +150,7 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
 
 10. **Adicional** Se você quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, defina a opção **exigir aprovação antes de conceder acesso a este aplicativo?** alterne para **Sim**.
 
-11. **Adicional Para aplicativos que usam somente logon único de senha,** se você quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para este aplicativo para usuários aprovados, defina **permitir que os aprovadores definam as senhas do usuário para isso aplicativo?** Alterne para **Sim**.
+11. **Adicional Para aplicativos que usam somente logon único de senha,**  se você quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para este aplicativo para usuários aprovados, defina **permitir que os aprovadores definam as senhas do usuário para este aplicativo?** Alterne para **Sim**.
 
 12. **Adicional** Para especificar os aprovadores de negócios que têm permissão para aprovar o acesso a esse aplicativo, clique no seletor ao lado do rótulo **que tem permissão para aprovar o acesso a este aplicativo?** para selecionar até 10 aprovadores de negócios individuais.
 
@@ -167,5 +167,5 @@ Depois de concluir a configuração de aplicações self-service, os usuários p
 
 Essas aprovações só dão suporte a fluxos de trabalho de aprovação única, o que significa que, se você especificar vários Aprovadores, qualquer aprovador poderá aprovar o acesso ao aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)

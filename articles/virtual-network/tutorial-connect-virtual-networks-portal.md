@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726562"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720047"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Ligar redes virtuais com o peering de rede virtual com o portal do Azure
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conectar redes virtuais com o emparelhamento de rede virtual usando o portal do Azure
 
 Pode ligar redes virtuais entre si com o peering de rede virtual. Estas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como o peering de VNet Global). Depois de as redes virtuais estarem em modo de peering, os recursos nas duas redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos estivessem na mesma rede virtual. Neste tutorial, ficará a saber como:
 
@@ -55,7 +55,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
     |Location| Selecione **E.U.A. Leste**.|
-    |Nome da sub-rede|Subnet1|
+    |Nome da Sub-rede|Subnet1|
     |Intervalo de endereços da sub-rede|10.0.0.0/24|
 
       ![Criar uma rede virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
@@ -66,7 +66,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Name|myVirtualNetwork2|
     |Espaço de endereços|10.1.0.0/16|
-    |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
+    |Resource group| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
     |Intervalo de Endereços da Sub-rede|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Colocar redes virtuais em modo de peering
@@ -78,29 +78,20 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**.
 
-    |Definição|Valor|
+    |Definição|Value|
     |---|---|
-    |Name|myVirtualNetwork1-myVirtualNetwork2|
-    |Subscrição| Selecione a sua subscrição.|
-    |Rede virtual|myVirtualNetwork2 - para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork2**. Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
+    |Nome do emparelhamento de myVirtualNetwork1 para rede virtual remota|myVirtualNetwork1-myVirtualNetwork2-quando a página é carregada pela primeira vez, você verá a frase "rede virtual remota" aqui. Depois de escolher a rede virtual remota, a frase "rede virtual remota" será substituída pelo nome da rede virtual remota.|
+    |Subscription| Selecione a sua subscrição.|
+    |Rede virtual|myVirtualNetwork2-para selecionar a rede virtual *myVirtualNetwork2* , selecione **rede virtual**e, em seguida, selecione **myVirtualNetwork2 (myresourceus)** . Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
+    |Nome do emparelhamento de myVirtualNetwork2 para myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
-    ![Definições de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![Definições de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    O **ESTADO DE PEERING** é *iniciado*, conforme mostrado na imagem seguinte:
+    O **status de emparelhamento** é *conectado*, conforme mostrado na figura a seguir:
 
-    ![Estado de peering](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![Estado de peering](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     Se não vir o estado, atualize o browser.
-
-4. Na caixa **Pesquisar** na parte superior do Portal do Azure, comece a escrever *MyVirtualNetwork2*. Quando a **myVirtualNetwork2** aparecer nos resultados da pesquisa, selecione-a.
-5. Conclua os passos 2 a 3 novamente, com as seguintes alterações e, em seguida, selecione **OK**:
-
-    |Definição|Valor|
-    |---|---|
-    |Name|myVirtualNetwork2-myVirtualNetwork1|
-    |Rede virtual|myVirtualNetwork1|
-
-    O **ESTADO DE PEERING** é *Ligado*. O Azure também alterou o estado de peering das *myVirtualNetwork2-myVirtualNetwork1*, de *Iniciado* para *Ligado.* O peering de rede virtual não é totalmente estabelecido até que o estado do peering para ambas as redes virtuais seja *Ligado.* 
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -125,7 +116,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
     |Definição|Valor|
     |---|---|
     |Rede virtual| myVirtualNetwork1 - se ainda não estiver selecionado, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork1** em **Escolher rede virtual**.|
-    |Subrede| Subnet1 - se ainda não estiver selecionado, selecione **Sub-rede** e, em seguida, selecione **Subnet1** em **Escolher sub-rede**.|
+    |Subnet| Subnet1 - se ainda não estiver selecionado, selecione **Sub-rede** e, em seguida, selecione **Subnet1** em **Escolher sub-rede**.|
     
     ![Definições da máquina virtual](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
@@ -182,7 +173,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a ligar duas redes na mesma região do Azure, com o peering de rede virtual. Também pode ligar em modo de peering máquinas virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region) e em [diferentes subscrições do Azure](create-peering-different-subscriptions.md#portal), bem como criar [designs de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering. Para obter mais informações sobre o peering de rede virtual, veja [Descrição geral do peering de rede virtual](virtual-network-peering-overview.md) e [Gerir peerings de rede virtual](virtual-network-manage-peering.md).
 

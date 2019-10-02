@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702812"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802116"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando Azure AD B2C logs de auditoria
 
@@ -112,10 +112,7 @@ Siga estas etapas para registrar um aplicativo, conceda a ele as permissões de 
 
 ### <a name="create-client-secret"></a>Criar segredo do cliente
 
-1. Em **acesso à API**, selecione **chaves**.
-1. Insira uma descrição para a chave na caixa **Descrição da chave** . Por exemplo, a *chave do log de auditoria*.
-1. Selecione uma **duração**de validade e, em seguida, selecione **salvar**.
-1. Registre o **valor**da chave. Você precisa desse valor para autenticação em scripts de automação, como o exemplo de script do PowerShell mostrado em uma seção posterior.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Agora você tem um aplicativo com o acesso necessário à API, uma ID do aplicativo e uma chave que você pode usar em seus scripts de automação. Consulte a seção script do PowerShell mais adiante neste artigo para obter um exemplo de como você pode obter eventos de atividade com um script.
 

@@ -1,41 +1,40 @@
 ---
 title: 'Início rápido: Sintetizar fala, serviço Unity-Speech'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para criar um aplicativo de conversão de texto em fala com o Unity e o SDK de fala para Unity (beta). Quando terminar, você poderá sintetizar a fala de texto em tempo real para o palestrante do dispositivo.
+description: Use este guia para criar um aplicativo de conversão de texto em fala com o Unity e o SDK de fala para o Unity. Quando terminar, você poderá sintetizar a fala de texto em tempo real para o palestrante do dispositivo.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/26/2019
+ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be5f07b8ea58d0d62c70e0e9dc8ab187ce4a0f63
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553615"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803191"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Sintetizar fala com o SDK de fala para Unity (beta)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity"></a>Início rápido: Sintetizar fala com o SDK de fala para o Unity
 
 Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-csharp-unity.md).
 
-Use este guia para criar um aplicativo de conversão de texto em fala usando o [Unity](https://unity3d.com/) e o SDK de fala para Unity (beta).
+Use este guia para criar um aplicativo de conversão de texto em fala usando o [Unity](https://unity3d.com/) e o SDK de fala para o Unity.
 Quando terminar, você poderá sintetizar a fala de texto em tempo real para o palestrante do dispositivo.
 Se você não estiver familiarizado com o Unity, é recomendável estudar o [manual do usuário do Unity](https://docs.unity3d.com/Manual/UnityManual.html) antes de iniciar o desenvolvimento do aplicativo.
 
 > [!NOTE]
-> O SDK de fala para o Unity está atualmente em beta.
-> Ele dá suporte à área de trabalho do Windows (x86 e x64) ou Plataforma Universal do Windows (x86, x64, ARM/ARM64) e Android (x86, ARM32/64).
+> Ele dá suporte à área de trabalho do Windows (x86 e x64) ou Plataforma Universal do Windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (x64 Simulator, ARM32 e ARM64).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este projeto, precisa de:
 
 * [Unity 2018,3 ou posterior](https://store.unity.com/) com o [Unity 2019,1 adicionando suporte para UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Para obter suporte a ARM64, instale as [ferramentas de compilação opcionais para ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). A versão 15,9 ou superior do Visual Studio 2017 também é aceitável.
+* Para obter suporte ao Windows ARM64, instale as [ferramentas de compilação opcionais para ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Uma chave de assinatura para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-unity-project"></a>Criar um projeto do Unity
@@ -63,18 +62,18 @@ Para concluir este projeto, precisa de:
 Adicionamos uma interface do usuário mínima à nossa cena, que consiste em um campo de entrada para inserir o texto de síntese, um botão para disparar a síntese de fala e um campo de texto para exibir o resultado.
 
 * Na [janela hierarquia](https://docs.unity3d.com/Manual/Hierarchy.html) (por padrão à esquerda), uma cena de exemplo é mostrada como Unity criado com o novo projeto.
-* Clique no botão **criar** na parte superior da janela hierarquia e selecione**campo de entrada** **da interface do usuário** > .
+* Clique no botão **criar** na parte superior da janela hierarquia e selecione o**campo de entrada** **interface do usuário** > .
 * Isso cria três objetos de jogo que você pode ver na janela hierarquia: um objeto de **campo de entrada** aninhado em um objeto **Canvas** e um objeto **EventSystem** .
 * [Navegue pela exibição de cena](https://docs.unity3d.com/Manual/SceneViewNavigation.html) para que você tenha uma boa exibição da tela e do campo de entrada na [exibição de cena](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Clique no objeto **campo de entrada** na janela hierarquia para exibir suas configurações na [janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
 * Defina as propriedades do **pos X** e do **pos Y** como **0**, para que o campo de entrada seja centralizado no meio da tela.
-* Clique no botão **criar** na parte superior da janela hierarquia novamente e selecione o**botão** **da interface do usuário** > para criar um botão.
+* Clique no botão **criar** na parte superior da janela hierarquia novamente e selecione o botão **interface do usuário**@no__t -2 para criar um botão.
 * Clique no objeto **Button** na janela hierarquia para exibir suas configurações na [janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
 * Defina as propriedades **pos X** e **pos Y** como **0** e **-48**e defina as propriedades **Width** e **Height** como **160** e **30** para garantir que o botão e o campo de entrada não se sobreponham.
 * Clique no botão **criar** na parte superior da janela hierarquia novamente e selecione**texto** **da interface do usuário** > para criar um campo de texto.
 * Clique no objeto de **texto** na janela hierarquia para exibir suas configurações na [janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
 * Defina as propriedades **pos X** e **pos Y** como **0** e **80**e defina as propriedades **Width** e **Height** como **320** e **80** para garantir que o campo de texto e o campo de entrada não se sobreponham.
-* Clique no botão **criar** na parte superior da janela hierarquia novamente **e selecione** > **fonte** de áudio de áudio para criar uma fonte de áudio.
+* Clique no botão **criar** na parte superior da janela hierarquia novamente e selecione **áudio** >  fonte de**áudio** para criar uma fonte de áudio.
 
 Quando você terminar, a interface do usuário deverá ser semelhante a esta captura de tela:
 
@@ -103,7 +102,7 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 
    * Clique no objeto **Canvas** na janela hierarquia. Isso abre a configuração na janela do [Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
    * Clique no botão **Adicionar componente** na janela Inspetor e procure o script HelloWorld que criamos acima e adicione-o.
-   * Observe que o componente Olá, mundo tem quatro propriedades não inicializadas, **texto de saída**, **campo de entrada**, botão de **fala** e fonte de **áudio** `HelloWorld` , que correspondem às propriedades públicas da classe.
+   * Observe que o componente Olá, Mundo tem quatro propriedades não inicializadas, **texto de saída**, **campo de entrada**, botão de **fala** e fonte de **áudio**, que correspondem às propriedades públicas da classe `HelloWorld`.
      Para conectá-los, clique no seletor de objetos (o ícone de círculo pequeno à direita da propriedade) e escolha o texto e os objetos de botão criados anteriormente.
 
      > [!NOTE]

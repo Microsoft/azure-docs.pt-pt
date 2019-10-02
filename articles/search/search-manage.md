@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647667"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719871"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração de serviço para Azure Search no portal do Azure
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ O Azure Search é um serviço de pesquisa baseado em nuvem totalmente gerenciado
 Observe que a *atualização* não está listada como uma tarefa administrativa. Como os recursos são alocados quando o serviço é provisionado, a mudança para uma camada diferente requer um novo serviço. Para obter detalhes, consulte [criar um serviço de Azure Search](search-create-service-portal.md).
 
 > [!Tip]
-> Procurando ajuda sobre como analisar o desempenho de consulta ou o tráfego de pesquisa? Você pode monitorar o volume de consulta, quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedidos estão em orientar clientes para documentos específicos no índice. Para obter mais informações, consulte [pesquisar análise de tráfego por Azure Search](search-traffic-analytics.md), monitorar as métricas de [uso e consulta](search-monitor-usage.md)e o [desempenho e a otimização](search-performance-optimization.md).
+> Procurando ajuda sobre como analisar o desempenho de consulta ou o tráfego de pesquisa? Você pode monitorar o volume de consulta, quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedidos estão em orientar clientes para documentos específicos no índice. Para obter mais informações, consulte [pesquisar análise de tráfego por Azure Search](search-traffic-analytics.md), [monitorar as métricas de uso e consulta](search-monitor-usage.md)e o [desempenho e a otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -71,18 +71,17 @@ Usando a API REST do Serviço de Pesquisa, você pode obter uma contagem de docu
 
 Embora possamos recuperar seus dados, Azure Search não fornece um failover instantâneo do serviço se houver uma interrupção no nível do cluster ou do data center. Se um cluster falhar na data center, a equipe de operações irá detectar e trabalhar para restaurar o serviço. Você passará por tempo de inatividade durante a restauração do serviço, mas poderá solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Se o serviço contínuo for necessário no caso de falhas catastróficas fora do controle da Microsoft, você poderá provisionar [um serviço adicional](search-create-service-portal.md) em uma região diferente e implementar uma estratégia de replicação geográfica para garantir que os índices sejam totalmente redundantes em todos os serviços.
+Se o serviço contínuo for necessário no caso de falhas catastróficas fora do controle da Microsoft, você poderá [provisionar um serviço adicional](search-create-service-portal.md) em uma região diferente e implementar uma estratégia de replicação geográfica para garantir que os índices sejam totalmente redundantes em todos os serviços.
 
-Os clientes que [](search-indexer-overview.md) usam indexadores para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos de Geografia aproveitando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, podem indexar a mesma fonte de dados para obter redundância geográfica. Se você estiver indexando de fontes de dados que também são com redundância geográfica, lembre-se de que Azure Search indexadores só podem executar a indexação incremental de réplicas primárias. Em um evento de failover, certifique-se de apontar novamente o indexador para a nova réplica primária. 
+Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos de Geografia aproveitando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, podem indexar a mesma fonte de dados para obter redundância geográfica. Se você estiver indexando de fontes de dados que também são com redundância geográfica, lembre-se de que Azure Search indexadores só podem executar a indexação incremental de réplicas primárias. Em um evento de failover, certifique-se de apontar novamente o indexador para a nova réplica primária. 
 
 Se você não usar indexadores, você usaria o código do aplicativo para enviar objetos e dados por push a diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [desempenho e otimização no Azure Search](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-Como Azure Search não é uma solução de armazenamento de dados primária, não fornecemos um mecanismo formal para backup e restauração de autoatendimento. O código do aplicativo usado para criar e popular um índice é a opção de restauração de fato se você excluir um índice por engano. 
+Como Azure Search não é uma solução de armazenamento de dados primária, não fornecemos um mecanismo formal para backup e restauração de autoatendimento. No entanto, você pode usar o código de exemplo **index-backup-restore** neste [Azure Search repositório de exemplo do .net](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup da definição de índice e do instantâneo em uma série de arquivos JSON e, em seguida, usar esses arquivos para restaurar o índice, se necessário. Essa ferramenta também pode mover índices entre as camadas de serviço.
 
-Para recriar um índice, você o excluirá (supondo que ele exista), recriará o índice no serviço e recarregará recuperando dados do seu armazenamento de dados primário.
-
+Caso contrário, o código do aplicativo usado para criar e popular um índice é a opção de restauração de fato se você excluir um índice por engano. Para recriar um índice, você o excluirá (supondo que ele exista), recriará o índice no serviço e recarregará recuperando dados do seu armazenamento de dados primário.
 
 <a id="scale"></a>
 

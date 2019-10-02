@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647698"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719852"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como recriar um índice de Azure Search
 
@@ -29,16 +29,16 @@ Em contraste com as recompilações que usam um índice offline, a *atualizaçã
 | Condição | Descrição |
 |-----------|-------------|
 | Alterar uma definição de campo | A revisão de um nome de campo, tipo de dados ou [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) específicos (pesquisável, filtrável, classificável, facetable) requer uma recompilação completa. |
-| Atribuir um analisador a um campo | [](search-analyzers.md) Os analisadores são definidos em um índice e, em seguida, atribuídos a campos. Você pode adicionar uma nova definição de analisador a qualquer momento, mas só pode *atribuir* um analisador quando o campo é criado. Isso é verdadeiro para as propriedades do analisador e do **indexAnalyzer** . A propriedade **searchAnalyzer** é uma exceção (você pode atribuir essa propriedade a um campo existente). |
+| Atribuir um analisador a um campo | Os [analisadores](search-analyzers.md) são definidos em um índice e, em seguida, atribuídos a campos. Você pode adicionar uma nova definição de analisador a qualquer momento, mas só pode *atribuir* um analisador quando o campo é criado. Isso é verdadeiro para as propriedades do **analisador** e do **indexAnalyzer** . A propriedade **searchAnalyzer** é uma exceção (você pode atribuir essa propriedade a um campo existente). |
 | Atualizar ou excluir uma definição do analisador em um índice | Não é possível excluir ou alterar uma configuração existente do analisador (Analyzer, criador, filtro de token ou filtro de caracteres) no índice, a menos que você reconstrua o índice inteiro. |
-| Adicionar um campo a um Sugestor | Se um campo já existir e você quiser adicioná-lo a uma [](index-add-suggesters.md) construção de sugestores, você deverá recompilar o índice. |
+| Adicionar um campo a um Sugestor | Se um campo já existir e você quiser adicioná-lo a uma construção de [Sugestores](index-add-suggesters.md) , você deverá recompilar o índice. |
 | Excluir um campo | Para remover fisicamente todos os rastreamentos de um campo, você precisa recompilar o índice. Quando uma recompilação imediata não é prática, você pode modificar o código do aplicativo para desabilitar o acesso ao campo "excluído". Fisicamente, a definição de campo e o conteúdo permanecem no índice até a próxima recompilação, quando você aplica um esquema que omite o campo em questão. |
-| Alternar camadas | Se você precisar de mais capacidade, não haverá nenhuma atualização in-loco. Um novo serviço é criado no novo ponto de capacidade e os índices devem ser criados a partir do zero no novo serviço. |
+| Alternar camadas | Se você precisar de mais capacidade, não haverá nenhuma atualização in-loco no portal do Azure. Um novo serviço deve ser criado e os índices devem ser criados a partir do zero no novo serviço. Para ajudar a automatizar esse processo, você pode usar o código de exemplo **index-backup-restore** neste [Azure Search repositório de exemplo .net](https://github.com/Azure-Samples/azure-search-dotnet-samples). Esse aplicativo fará backup do índice em uma série de arquivos JSON e, em seguida, recriará o índice em um serviço de pesquisa que você especificar.|
 
 Qualquer outra modificação pode ser feita sem afetar as estruturas físicas existentes. Especificamente, as seguintes alterações *não* exigem uma recompilação de índice:
 
 + Adicionar um novo campo
-+ Definir o atributo recuperável em um campo existente
++ Definir o atributo **recuperável** em um campo existente
 + Definir um **searchAnalyzer** em um campo existente
 + Adicionar uma nova definição de analisador em um índice
 + Adicionar, atualizar ou excluir perfis de Pontuação
@@ -55,11 +55,11 @@ No entanto, o que você pode fazer facilmente é *atualizar documentos* em um í
 
 ## <a name="partial-indexing-with-indexers"></a>Indexação parcial com indexadores
 
-[](search-indexer-overview.md) Os indexadores simplificam a tarefa de atualização de dados. Um indexador só pode indexar uma tabela ou exibição na fonte de dados externa. Para indexar várias tabelas, a abordagem mais simples é criar uma exibição que une tabelas e projetos as colunas que você deseja indexar. 
+Os [indexadores](search-indexer-overview.md) simplificam a tarefa de atualização de dados. Um indexador só pode indexar uma tabela ou exibição na fonte de dados externa. Para indexar várias tabelas, a abordagem mais simples é criar uma exibição que une tabelas e projetos as colunas que você deseja indexar. 
 
-Ao usar indexadores que rastreiam fontes de dados externas, verifique a coluna "marca d' água alta" nos dados de origem. Se houver, você poderá usá-lo para detecção de alteração incremental, selecionando apenas as linhas que contêm o conteúdo novo ou revisado. Para o armazenamento de BLOBs `lastModified` [do Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), um campo é usado. No [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` tem a mesma finalidade. Da mesma forma, o indexador de [banco de dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) e o [indexador Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) têm campos para sinalizar atualizações de linha. 
+Ao usar indexadores que rastreiam fontes de dados externas, verifique a coluna "marca d' água alta" nos dados de origem. Se houver, você poderá usá-lo para detecção de alteração incremental, selecionando apenas as linhas que contêm o conteúdo novo ou revisado. Para o [armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), um campo `lastModified` é usado. No [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` tem a mesma finalidade. Da mesma forma, o [indexador de banco de dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) e o [indexador Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) têm campos para sinalizar atualizações de linha. 
 
-Para obter mais informações sobre indexadores, consulte [visão geral](search-indexer-overview.md) do indexador e [Redefinir API REST](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)do indexador.
+Para obter mais informações sobre indexadores, consulte [visão geral do indexador](search-indexer-overview.md) e [Redefinir API REST do indexador](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
 
 ## <a name="how-to-rebuild-an-index"></a>Como recriar um índice
 

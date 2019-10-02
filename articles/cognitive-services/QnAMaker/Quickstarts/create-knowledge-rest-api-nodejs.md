@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ad7986a0c4b0d59322ccebcaa6b1c70776164c48
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 4393609bf426c6ae99c48a5d84162526aeff6fb7
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015694"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803523"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Início rápido: QnA Maker APIs REST para node. js
 
@@ -30,12 +30,15 @@ Use as APIs REST do QnA Maker para o Node. js para:
 * Baixar uma base de dados de conhecimento
 * Obter o status de uma operação
 
-[](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | Exemplos de documentação de referência do[node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)@no__t exemplos de 1[node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [node. js](https://nodejs.org).
+* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **início rápido** para seu recurso no portal do Azure.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -43,7 +46,7 @@ Use as APIs REST do QnA Maker para o Node. js para:
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para QnA Maker usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. 
 
-Depois de obter uma chave do recurso, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, `QNAMAKER_RESOURCE_KEY` chamado `QNAMAKER_AUTHORING_ENDPOINT`e. Use os valores de chave e host encontrados na página **início rápido** do recurso no portal do Azure.
+Depois de obter uma chave do recurso, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, `QNAMAKER_RESOURCE_KEY` chamado `QNAMAKER_AUTHORING_ENDPOINT`e. Use os valores de chave e ponto de extremidade encontrados na página **início rápido** do recurso na portal do Azure.
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
@@ -53,13 +56,13 @@ Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o `npm init -y` comando para criar um arquivo `package.json` de nó. 
+Execute o comando `npm init -y` para criar um arquivo de nó `package.json`. 
 
 ```console
 npm init -y
 ```
 
-Adicione os `reqeuestretry` pacotes `request` e NPM:
+Adicione os pacotes `reqeuestretry` e `request` NPM:
 
 ```console
 npm install requestretry request --save
@@ -135,7 +138,7 @@ Use a [API REST para excluir uma base de dados de conhecimento](https://docs.mic
 
 ## <a name="get-status-of-an-operation"></a>Obter o status de uma operação
 
-Processos de execução longa, como o processo de criação, retornam uma ID de operação, que precisa ser verificada com uma chamada à API REST separada. Essa função usa o corpo da resposta de criação. A chave importante é o `operationState`, que determina se você precisa continuar a sondagem.
+Processos de execução longa, como o processo de criação, retornam uma ID de operação, que precisa ser verificada com uma chamada à API REST separada. Essa função usa o corpo da resposta de criação. A chave importante é a `operationState`, que determina se você precisa continuar a sondagem.
 
 Use a [API REST para monitorar operações em uma base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
 
@@ -158,7 +161,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Tutorial: Criar e responder a um KB](../tutorials/create-publish-query-in-portal.md)

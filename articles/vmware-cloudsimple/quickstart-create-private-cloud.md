@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845492"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816134"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 
 Neste artigo, saiba como criar uma nuvem privada do CloudSimple e configurar seu ambiente de nuvem privada.
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Examine os [pré-requisitos de rede](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -43,7 +47,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
 
     ![Criar nuvem privada-informações básicas](media/create-private-cloud-basic-info.png)
 
-9. Clique **em Avançar: Opções**avançadas.
+9. Clique em **Seguinte: Opções**avançadas.
 10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
     **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até 26 nós, um intervalo CIDR/23 dá suporte a até 58 nós, e um intervalo CIDR/22 e/21 dá suporte a nós 64 (o número máximo de nós em uma nuvem privada).  Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
@@ -51,7 +55,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
       > [!IMPORTANT]
       > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
-11. Clique **em Avançar: Revise e**crie.
+11. Clique em **Seguinte: Revise e**crie.
 12. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
 13. Clique em **Criar**.
 
@@ -78,7 +82,7 @@ Uma conexão VPN ponto a site é a maneira mais simples de se conectar à sua nu
 2. Selecione **Gateway de VPN**.
 3. Clique em **novo gateway de VPN**.
 
-    ![Criar um gateway de VPN](media/create-vpn-gateway.png)
+    ![Criar gateway de VPN](media/create-vpn-gateway.png)
 
 4. Para **configuração de gateway**, especifique as seguintes configurações e clique em **Avançar**.
 
@@ -151,7 +155,7 @@ Agora você pode entrar no vCenter para configurar máquinas virtuais e polític
 
 1. Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**.  Selecione a nuvem privada e clique em **Iniciar vSphere cliente** na nuvem privada.
 
-    ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![Iniciar Cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selecione seu cliente vSphere preferencial para acessar o vCenter e entrar com seu nome de usuário e senha.  Os padrões são:
     * Nome de usuário: **CloudOwner@cloudsimple.local**
@@ -204,7 +208,7 @@ Para criar um grupo de portas distribuídas no vSphere:
 1. Siga as instruções em "adicionar um grupo de portas distribuídas" no [Guia de rede do vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
 2. Ao configurar o grupo de portas distribuídas, forneça a ID de VLAN criada em [criar uma VLAN para suas VMs de carga de trabalho](#create-a-vlan-for-your-workload-vms).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Conectar-se à rede local usando o Azure ExpressRoute](on-premises-connection.md)

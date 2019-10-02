@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300564"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815947"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alertar e monitorar fábricas de dados usando Azure Monitor
 
@@ -468,6 +468,9 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações dessa data factory. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 
+* No modo _específico do recurso_ , os logs de diagnóstico de Azure data Factory fluxo em tabelas _ADFPipelineRun_, _ADFTriggerRun_e _ADFActivityRun_
+* No modo de _diagnóstico do Azure_ , os logs de diagnóstico fluem para a tabela _AzureDiagnostics_
+
 > [!NOTE]
 > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é altamente recomendável selecionar o modo específico do recurso. Para obter mais informações, consulte [log Analytics limitações conhecidas](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
@@ -508,6 +511,9 @@ A instalação do Azure Data Factory Analytics cria um conjunto padrão de exibi
 Você pode visualizar as métricas anteriores, examinar as consultas por trás dessas métricas, editar as consultas, criar alertas e executar outras ações.
 
 ![Representação gráfica das execuções de pipeline por data factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> A análise de Azure Data Factory (versão prévia) envia logs de diagnóstico para tabelas _de destino específicas do recurso_ . Você pode escrever consultas nas seguintes tabelas: _ADFPipelineRun_, _ADFTriggerRun_e _ADFActivityRun_.
 
 ## <a name="alerts"></a>Alertas
 

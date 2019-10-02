@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129702"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720119"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no serviço Azure App
 <a name="Overview"></a>
@@ -38,7 +38,7 @@ Para dimensionar seu aplicativo para uma camada diferente, verifique se a camada
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Adicionar uma ranhura
+## <a name="add-a-slot"></a>Adicionar um slot
 O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Isolated** para que você habilite vários slots de implantação.
 
 1. Na [portal do Azure](https://portal.azure.com/), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)do aplicativo.
@@ -106,7 +106,7 @@ Em qualquer ponto da operação de permuta, todo o trabalho de inicializar os ap
 
 Para configurar uma cadeia de conexão ou configuração de aplicativo para se conectar a um slot específico (não trocado), vá para a página de **configuração** desse slot. Adicione ou edite uma configuração e, em seguida, selecione **configuração do slot de implantação**. Marcar essa caixa de seleção informa ao serviço de aplicativo que a configuração não é intercambiável. 
 
-![Definição de bloco](./media/web-sites-staged-publishing/SlotSetting.png)
+![Configuração de slot](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -128,7 +128,7 @@ Para permutar slots de implantação:
 
 2. Selecione os slots de **origem** e de **destino** desejados. Normalmente, o destino é o slot de produção. Além disso, selecione as guias **alterações de origem** e **alterações de destino** e verifique se as alterações de configuração são esperadas. Quando tiver terminado, você poderá trocar os slots imediatamente selecionando **alternar**.
 
-    ![Concluir troca](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Concluir a troca](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Para ver como o slot de destino seria executado com as novas configurações antes que a permuta realmente aconteça, não selecione **alternar**, mas siga as instruções em [alternar com visualização](#Multi-Phase).
 
@@ -140,9 +140,6 @@ Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoo
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Alternar com visualização (troca de várias fases)
 
-> [!NOTE]
-> Não há suporte para troca com visualização em aplicativos Web no Linux.
-
 Antes de trocar para produção como o slot de destino, valide se o aplicativo é executado com as configurações trocadas. O slot de origem também é ativado antes da conclusão da permuta, o que é desejável para aplicativos de missão crítica.
 
 Quando você executa uma troca com visualização, o serviço de aplicativo executa a mesma [operação de permuta](#AboutConfiguration) , mas pausa após a primeira etapa. Em seguida, você pode verificar o resultado no slot de preparo antes de concluir a permuta. 
@@ -153,7 +150,7 @@ Para alternar com a visualização:
 
 1. Siga as etapas em [trocar slots de implantação](#Swap) , mas selecione **executar permuta com visualização**.
 
-    ![Troca com pré-visualização](./media/web-sites-staged-publishing/SwapWithPreview.png)
+    ![Alternar com visualização](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
     A caixa de diálogo mostra como a configuração no slot de origem muda na fase 1 e como a origem e o slot de destino são alterados na fase 2.
 
@@ -204,7 +201,8 @@ Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoo
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>Especificar aquecimento personalizado
-Quando você estiver usando a [troca automática](#Auto-Swap), alguns aplicativos poderão exigir ações de aquecimento personalizadas antes da troca. O `applicationInitialization` elemento de configuração no Web. config permite que você especifique ações de inicialização personalizadas. A [operação de permuta](#AboutConfiguration) aguarda que esse aquecimento personalizado seja concluído antes de alternar com o slot de destino. Aqui está um fragmento Web. config de exemplo.
+
+Alguns aplicativos podem exigir ações de aquecimento personalizadas antes da troca. O `applicationInitialization` elemento de configuração no Web. config permite que você especifique ações de inicialização personalizadas. A [operação de permuta](#AboutConfiguration) aguarda que esse aquecimento personalizado seja concluído antes de alternar com o slot de destino. Aqui está um fragmento Web. config de exemplo.
 
     <system.webServer>
         <applicationInitialization>
@@ -317,7 +315,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Trocar slots de implantação
+### <a name="swap-deployment-slots"></a>Trocar blocos de implementação
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>Automatizar com modelos ARM
+
+Os [modelos do ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração dos recursos do Azure. Para trocar os slots usando modelos ARM, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+
+- `buildVersion`: essa é uma propriedade de cadeia de caracteres que representa a versão atual do aplicativo implantado no slot. Por exemplo: "v1", "1.0.0.1" ou "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: essa é uma propriedade de cadeia de caracteres que especifica o que `buildVersion` o slot deve ter. Se o targetBuildVersion não for igual ao `buildVersion` atual, isso disparará a operação de permuta localizando o slot que tem o @no__t especificado-1.
+
+### <a name="example-arm-template"></a>Exemplo de modelo ARM
+
+O modelo ARM a seguir atualizará o `buildVersion` do slot de preparo e definirá o `targetBuildVersion` no slot de produção. Isso mudará os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "preparo".
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+Esse modelo de ARM é idempotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira execução, `targetBuildVersion` corresponderá à @no__t atual-1, portanto, uma troca não será disparada.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

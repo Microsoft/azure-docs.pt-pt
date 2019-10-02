@@ -6,14 +6,14 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: ae0694c4c79527ef3b64ad68d32ef3bce0150462
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: e28fa919c4c656b9ceb1d34806c3ef08aec2df2c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703581"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719927"
 ---
 # <a name="create-an-azure-search-knowledge-store-using-rest"></a>Criar um repositório de conhecimento Azure Search usando REST
 
@@ -29,7 +29,7 @@ Depois de criar a loja de conhecimento, você pode aprender sobre como acessar e
 
 + [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo e a loja de conhecimento. Sua conta de armazenamento deve usar o mesmo local (como US-oeste) para seu serviço de Azure Search. O *tipo de conta* deve ser *StorageV2 (uso geral v2)* (padrão) ou *armazenamento (uso geral v1)* .
 
-+ Recomendação: [Aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) para enviar solicitações para Azure Search. Você pode usar a API REST com qualquer ferramenta capaz de trabalhar com solicitações e respostas HTTP. O postmaster é uma boa opção para explorar as APIs REST e será usado neste artigo. Além disso, o [código-fonte](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) deste artigo inclui uma coleção de solicitações do postmaster. 
++ Recomendação: [Aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) para enviar solicitações para Azure Search. Você pode usar a API REST com qualquer ferramenta capaz de trabalhar com solicitações e respostas HTTP. O postmaster é uma boa opção para explorar as APIs REST e será usado neste artigo. Além disso, o [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) deste artigo inclui uma coleção de solicitações do postmaster. 
 
 ## <a name="2---store-the-data"></a>2-armazenar os dados
 
@@ -53,7 +53,7 @@ Carregue o arquivo CSV de revisões de Hotel no armazenamento de BLOBs do Azure 
 
 ## <a name="3---configure-postman"></a>3-configurar o postmaster
 
-Baixe o [código-fonte da coleção de postmaster](https://github.com/Azure-Samples/azure-search-postman-samples/knowledge-store/KnowledgeStore.postman_collection.json) e importe-o para o postmaster usando **arquivo, importar..** .. Alterne para a guia **coleções** e clique no botão **...** e selecione **Editar**. 
+Baixe o [código-fonte da coleção de postmaster](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) e importe-o para o postmaster usando **arquivo, importar..** .. Alterne para a guia **coleções** e clique no botão **...** e selecione **Editar**. 
 
 ![Aplicativo de postagem mostrando navegação](media/knowledge-store-create-rest/postman-edit-menu.png "navegar até o menu Editar no postmaster")
 
@@ -88,7 +88,7 @@ Criar uma loja de conhecimento exige que você emita quatro solicitações HTTP:
 1. Uma solicitação PUT para criar o confirmador de habilidades. O skillset especifica os aprimoramentos aplicados aos seus dados e à estrutura da loja de conhecimento.
 1. Uma solicitação PUT para criar o indexador. A execução do indexador lê os dados, aplica o qualificable e armazena os resultados. Você deve executar esta solicitação por último.
 
-O [código-fonte](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) contém uma coleção de postmaster com essas quatro solicitações. Para emitir as solicitações, alterne para a guia da solicitação no postmaster e adicione os cabeçalhos de solicitação `api-key` e `Content-Type`. Defina o valor de `api-key` como `{{admin-key}}`. Defina o valor `Content-type` como `application/json`. 
+O [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contém uma coleção de postmaster com essas quatro solicitações. Para emitir as solicitações, alterne para a guia da solicitação no postmaster e adicione os cabeçalhos de solicitação `api-key` e `Content-Type`. Defina o valor de `api-key` como `{{admin-key}}`. Defina o valor `Content-type` como `application/json`. 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot mostrando a interface do postmaster para os cabeçalhos @ no__t-1

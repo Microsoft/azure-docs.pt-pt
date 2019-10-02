@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 97e28165702e352c7840f12a3214776dcc8642bc
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 54f9e1eb9614708880c9a45cddcf9d7a282d0305
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308089"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802861"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Início rápido: Publicar uma base de dados de conhecimento no QnA Maker usando o Python
 
@@ -28,7 +28,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 3.7](https://www.python.org/downloads/)
-* Tem de ter um serviço Criador de FAQ. Para obter a sua chave, selecione Chaves em Gestão de Recursos no seu dashboard.
+* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **início rápido** para seu recurso no portal do Azure.
 * O ID da base de dados de conhecimento (KB) do Criador de FAQ encontrado no URL no parâmetro de cadeia de consulta kbid, conforme mostrado abaixo.
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)

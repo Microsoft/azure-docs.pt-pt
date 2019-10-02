@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673059"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720360"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -21,7 +21,7 @@ Armazenamento com redundância de zona geográfica (GZRS) (visualização) casas
 
 Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. O GZRS também oferece as mesmas [metas de escalabilidade](storage-scalability-targets.md) que lRS, ZRS, grs ou ra-grs. Opcionalmente, você pode habilitar o acesso de leitura aos dados na região secundária com armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) se seus aplicativos precisarem ser capazes de ler dados no caso de um desastre na região primária.
 
-A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade, alta disponibilidade, excelente desempenho e resiliência para a recuperação de diaster. Para obter a segurança adicional de acesso de leitura para a região secundária no caso de um desastre regional, habilite o RA-GZRS para sua conta de armazenamento.
+A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade, alta disponibilidade, excelente desempenho e resiliência para a recuperação de desastres. Para obter a segurança adicional de acesso de leitura para a região secundária no caso de um desastre regional, habilite o RA-GZRS para sua conta de armazenamento.
 
 ## <a name="about-the-preview"></a>Sobre a versão prévia
 

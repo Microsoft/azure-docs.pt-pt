@@ -1,6 +1,6 @@
 ---
-title: Aplicação Web que chamadas de web APIs (entrar) - a plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação Web que chamadas de web APIs (início de sessão)
+title: Aplicativo Web que chama APIs da Web (entrar)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que chama APIs da Web (entrar)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,50 +11,74 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 663cea72eb620217ad5fa8925d3bb00eedbf890c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3036f8cb72f2a07673743a77e8be37614002563f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074564"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720206"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Aplicação Web que chama o web APIs - início de sessão
+# <a name="web-app-that-calls-web-apis---sign-in"></a>Aplicativo Web que chama APIs da Web-entrar
 
-Já sabe como adicionar início de sessão na sua aplicação web. Saiba que, na [aplicação Web que inicia sessão de utilizadores - adicionar início de sessão](scenario-web-app-sign-user-sign-in.md).
+Você já sabe como adicionar entrada ao seu aplicativo Web. Você aprende que, em um [aplicativo Web que entra com usuários-adicionar entrada](scenario-web-app-sign-user-sign-in.md).
 
-O que é diferente aqui, é que quando o utilizador tem sessão iniciada horizontalmente, a partir desta aplicação ou a partir de qualquer aplicação, que pretende remover da cache de token, os tokens associados ao utilizador.
+O que há de diferente aqui é que, quando o usuário sai, desse aplicativo ou de qualquer aplicativo, você deseja remover do cache de tokens os tokens associados ao usuário.
 
-## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Interceptando o retorno de chamada após o fim de sessão - único terminar sessão
+## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Interceptando o retorno de chamada após a saída-saída única
 
-Seu aplicativo pode interceptar a depois `logout` evento, por exemplo para limpar a entrada de cache de tokens associado à conta que terminar a sessão. Vamos ver na segunda parte deste Tutorial (sobre a aplicação Web chamar uma API Web), que a aplicação web irá armazenar tokens de acesso para o utilizador em cache. Interceptando o depois `logout` retorno de chamada permite que seu aplicativo web para remover o utilizador a partir da cache de token. Esse mecanismo é ilustrado na `AddMsal()` método de [StartupHelper.cs L137 143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143)
+Seu aplicativo pode interceptar o evento After `logout`, por exemplo, para limpar a entrada do cache de token associado à conta que foi desconectada. O aplicativo Web irá armazenar tokens de acesso para o usuário em um cache. Interceptar o retorno de chamada After `logout` permite que o aplicativo Web remova o usuário do cache de token.
 
-O **Url de fim de sessão** que se registra para a aplicação permite-lhe implementar a fim de sessão único. A plataforma de identidade da Microsoft `logout` ponto final chamará o **URL de fim de sessão** registado com a sua aplicação. Esta chamada acontece se o fim de sessão foi iniciada da sua aplicação web ou a partir de outra aplicação web ou o browser. Para obter mais informações, consulte [fim de sessão único](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out) na documentação do conceitual.
+# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+
+Esse mecanismo é ilustrado no método `AddMsal()` de [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
+
+A **URL de logout** que você registrou para seu aplicativo permite que você implemente o logout único. O ponto de extremidade `logout` da plataforma de identidade da Microsoft chamará a **URL de logout** registrada com seu aplicativo. Essa chamada ocorrerá se a saída tiver sido iniciada por meio de seu aplicativo Web ou de outro aplicativo Web ou navegador. Para obter mais informações, consulte [logout único](v2-protocols-oidc.md#single-sign-out).
 
 ```CSharp
-public static IServiceCollection AddMsal(this IServiceCollection services, IEnumerable<string> initialScopes)
+public static class WebAppServiceCollectionExtensions
 {
-    services.AddTokenAcquisition();
+ public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")
+ {
+  // Code omitted here
 
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-     ...
-        // Handling the sign-out: removing the account from MSAL.NET cache
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            // Remove the account from MSAL.NET token cache
-            var _tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-            await _tokenAcquisition.RemoveAccount(context);
-        };
-    });
-    return services;
+  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
+  {
+   // Code omitted here
+
+   // Handling the sign-out: removing the account from MSAL.NET cache
+   options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+   {
+    // Remove the account from MSAL.NET token cache
+    var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
+    await tokenAcquisition.RemoveAccountAsync(context).ConfigureAwait(false);
+   };
+  });
+  return services;
+ }
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+O código para RemoveAccountAsync está disponível em [Microsoft. Identity. Web/TokenAcquisition. cs # L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+O exemplo ASP.NET não remove contas do cache no logout global
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+O exemplo de Java não remove contas do cache no logout global
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+O exemplo de Python não remove as contas do cache na saída global
+
+---
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Obter um token para a aplicação web](scenario-web-app-call-api-acquire-token.md)
+> [Adquirindo um token para o aplicativo Web](scenario-web-app-call-api-acquire-token.md)

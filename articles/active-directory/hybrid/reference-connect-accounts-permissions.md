@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290972"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812604"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -57,6 +57,9 @@ Além dessas três contas usadas para executar o Azure AD Connect, você também
 > As florestas administrativas dedicadas permitem que as organizações hospedem contas administrativas, estações de trabalho e grupos em um ambiente que tenha controles de segurança mais fortes do que o ambiente de produção.
 > Para saber mais sobre florestas administrativas dedicadas, consulte a [abordagem de design de floresta administrativa do Esae](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> A função de administrador global não é necessária após a configuração inicial e a única conta necessária será a conta de função de **contas de sincronização de diretórios** . Isso não necssarily significa que você desejará apenas remover a conta com a função de administrador global. É melhor alterar a função para uma função menos poderosa, pois a remoção total da conta pode apresentar problemas se você precisar executar novamente o assistente novamente. Ao reduzir o privilégio da função, você sempre poderá reelevar os privilégios se precisar utilizar o assistente de Azure AD Connect novamente. 
 
 ## <a name="installing-azure-ad-connect"></a>A instalar o Azure AD Connect
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:

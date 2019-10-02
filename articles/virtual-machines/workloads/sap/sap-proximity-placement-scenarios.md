@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c56bfda2b4f74bf31ce847f1fdb42f77f43eb372
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677987"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720003"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP
 Os aplicativos SAP baseados na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência de rede entre a camada de aplicativo SAP e a camada de banco de dados SAP. Essa sensibilidade é o resultado da maior parte da lógica de negócios em execução na camada de aplicativo. Como a camada de aplicativo SAP executa a lógica de negócios, ela emite consultas para a camada de banco de dados em uma alta frequência, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza dessas consultas é simples. Geralmente, eles podem ser executados na camada de banco de dados em 500 microssegundos ou menos.
@@ -34,7 +34,7 @@ Para evitar esses problemas, o Azure oferece [grupos de posicionamento de proxim
 ## <a name="what-are-proximity-placement-groups"></a>O que são grupos de posicionamento de proximidade? 
 Um grupo de posicionamento de proximidade do Azure é um constructo lógico. Quando um é definido, ele é associado a uma região do Azure e a um grupo de recursos do Azure. Quando as VMs são implantadas, um grupo de posicionamento de proximidade é referenciado por:
 
-- A primeira VM do Azure implantada no datacenter. Você pode considerar a primeira máquina virtual como uma "VM de âncora" que é implantada em um datacenter com base em algoritmos de alocação do Azure que são eventualmente combinados com definições de usuário para uma zona de disponibilidade específica.
+- A primeira VM do Azure implantada no datacenter. Você pode considerar a primeira máquina virtual como uma "VM de escopo" implantada em um datacenter com base em algoritmos de alocação do Azure que são eventualmente combinados com definições de usuário para uma zona de disponibilidade específica.
 - Todas as VMs subsequentes implantadas que fazem referência ao grupo de posicionamento de proximidade, para colocar todas as VMs do Azure implantadas subsequentemente no mesmo datacenter da primeira máquina virtual.
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Um único [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-re
 
 Ao usar grupos de posicionamento de proximidade, tenha em mente estas considerações:
 
-- Quando você visa o desempenho ideal para seu sistema SAP e se limita a um único datacenter do Azure para o sistema usando grupos de posicionamento de proximidade, talvez não seja possível combinar todos os tipos de famílias de VMs dentro do grupo de posicionamento. Essas limitações ocorrem porque o hardware do host necessário para executar um determinado tipo de VM pode não estar presente no datacenter no qual a VM de âncora do grupo de posicionamento foi implantada.
+- Quando você visa o desempenho ideal para seu sistema SAP e se limita a um único datacenter do Azure para o sistema usando grupos de posicionamento de proximidade, talvez não seja possível combinar todos os tipos de famílias de VMs dentro do grupo de posicionamento. Essas limitações ocorrem porque o hardware do host necessário para executar um determinado tipo de VM pode não estar presente no datacenter no qual a "VM com escopo" do grupo de posicionamento foi implantada.
 - Durante o ciclo de vida de tal sistema SAP, você pode ser forçado a mover o sistema para outro datacenter. Essa mudança pode ser necessária se você decidir que a camada do DBMS do HANA de expansão deve, por exemplo, mover de quatro nós para 16 nós, e não há capacidade suficiente para obter 12 VMs adicionais do tipo usado no datacenter.
 - Devido ao encerramento de hardware, a Microsoft pode criar capacidades para um tipo de VM usado em um datacenter diferente, em vez daquele que você usou inicialmente. Nesse cenário, talvez seja necessário mover todas as VMs do grupo de posicionamento de proximidade para outro datacenter.
 
@@ -55,7 +55,7 @@ Na maioria das implantações de clientes, os clientes criam um único [grupo de
 
 Evite agrupar vários sistemas de produção ou não produção SAP em um único grupo de posicionamento de proximidade. Quando um pequeno número de sistemas SAP ou um sistema SAP e alguns aplicativos ao redor precisam ter comunicação de rede de baixa latência, você pode considerar mover esses sistemas para um grupo de posicionamento de proximidade. Você deve evitar pacotes de sistemas porque quanto mais sistemas você agrupa em um grupo de posicionamento de proximidade, maior a probabilidade:
 
-- Que você precisa de um tipo de VM que não pode ser executado no datacenter específico no qual o grupo de posicionamento de proximidade foi ancorado.
+- Que você precisa de um tipo de VM que não pode ser executado no datacenter específico ao qual o grupo de posicionamento de proximidade foi definido como escopo.
 - Esses recursos de VMs não convencionais, como VMs da série M, podem eventualmente ser não cumpridos quando você precisar de mais porque você está adicionando software a um grupo de posicionamento de proximidade ao longo do tempo.
 
 Veja o que a configuração ideal, conforme descrito, é semelhante a:

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/19/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444342"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802319"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de assinatura clássica do Azure
 
@@ -34,7 +34,7 @@ Este artigo descreve como adicionar ou alterar as funções de coadministrador e
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de serviço.
 
-1. Abra [assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma assinatura.
+1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
     Os coadministradores só podem ser atribuídos no escopo da assinatura.
 
@@ -44,7 +44,7 @@ Este artigo descreve como adicionar ou alterar as funções de coadministrador e
 
     ![Captura de tela que abre os administradores clássicos](./media/classic-administrators/classic-administrators.png)
 
-1. Clique em **Adicionar** > **Adicionar coadministrador** para abrir o painel Adicionar co-administradores.
+1. Clique em **adicionar** > **Adicionar coadministrador** para abrir o painel Adicionar co-administradores.
 
     Se a opção Adicionar coadministrador estiver desabilitada, você não terá permissões.
 
@@ -56,12 +56,14 @@ Este artigo descreve como adicionar ou alterar as funções de coadministrador e
 
 [Os usuários convidados](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) que receberam a função de coadministrador podem ver algumas diferenças em comparação com os usuários Membros com a função de coadministrador. Considere o seguinte cenário:
 
-- O usuário A com uma conta corporativa ou de estudante do Azure AD é um administrador de serviço para uma assinatura do Azure.
+- O usuário A com uma conta do Azure AD (conta corporativa ou de estudante) é um administrador de serviço para uma assinatura do Azure.
 - O usuário B tem um conta Microsoft.
 - O usuário A atribui a função de coadministrador ao usuário B.
 - O usuário B pode fazer quase tudo, mas não é possível registrar aplicativos ou Pesquisar usuários no diretório do AD do Azure.
 
-Você esperaria que o usuário B pudesse gerenciar tudo. O motivo dessa diferença é que a conta Microsoft é adicionada à assinatura como um usuário convidado, em vez de um usuário membro. Os usuários convidados têm permissões padrão diferentes no Azure AD, em comparação com os usuários membros. Por exemplo, os usuários Membros podem ler outros usuários no Azure AD e os usuários convidados não podem. Os usuários Membros podem registrar novas entidades de serviço no Azure AD e os usuários convidados não podem. Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções de administrador específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função de [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros usuários e atribuir a função de desenvolvedor de [aplicativo](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para poder criar entidades de serviço. Para obter mais informações sobre usuários Membros e convidados e suas permissões, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+Você esperaria que o usuário B pudesse gerenciar tudo. O motivo dessa diferença é que a conta Microsoft é adicionada à assinatura como um usuário convidado, em vez de um usuário membro. Os usuários convidados têm permissões padrão diferentes no Azure AD, em comparação com os usuários membros. Por exemplo, os usuários Membros podem ler outros usuários no Azure AD e os usuários convidados não podem. Os usuários Membros podem registrar novas entidades de serviço no Azure AD e os usuários convidados não podem.
+
+Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções de administrador específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função de [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros usuários e atribuir a função de desenvolvedor de [aplicativo](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para poder criar entidades de serviço. Para obter mais informações sobre usuários Membros e convidados e suas permissões, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
 Observe que as [funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md) são diferentes das funções de [administrador do Azure ad](../active-directory/users-groups-roles/directory-assign-admin-roles.md). As funções internas não concedem nenhum acesso ao Azure AD. Para obter mais informações, consulte [entender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -69,7 +71,7 @@ Observe que as [funções internas para recursos do Azure](../role-based-access-
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de serviço.
 
-1. Abra [assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma assinatura.
+1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
 1. Clique em **controlo de acesso (IAM)** .
 
@@ -93,9 +95,9 @@ Existem duas formas de alterar o Administrador de Serviços. Você pode alterar 
 
 1. Verifique se o cenário tem suporte verificando as limitações para alterar os administradores de serviço.
 
-1. Entre no [portal do Azure](https://portal.azure.com) como o administrador da conta.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
 
-1. Abra [assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma assinatura.
+1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
 1. Clique em **Propriedades**.
 
@@ -127,14 +129,16 @@ Existem duas formas de alterar o Administrador de Serviços. Você pode alterar 
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitações para alterar o administrador de serviços
 
-Cada assinatura é associada a um diretório do Azure AD. Para localizar o diretório ao qual a assinatura está associada, abra **assinaturas** no portal do Azure e, em seguida, selecione uma assinatura para ver o diretório.
+Só pode haver um administrador de serviços por assinatura do Azure. A alteração do administrador de serviços se comportará de maneira diferente, dependendo se o administrador da conta for um conta Microsoft ou se é uma conta do Azure AD (conta corporativa ou de estudante).
 
-Se você tiver entrado com uma conta corporativa ou de estudante, poderá adicionar outras contas em sua organização como administrador de serviços. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como administrador de serviços, mas não john@notcontoso.com pode john@notcontoso.com adicionar, a menos que tenha presença no diretório contoso.com Os usuários conectados com contas corporativas ou de estudante podem continuar a adicionar conta Microsoft usuários como administrador de serviços. Só pode haver um administrador de serviços por assinatura do Azure.
+| Conta de administrador da conta | Pode alterar o administrador de serviços para um conta Microsoft diferente? | Pode alterar o administrador de serviço para uma conta do Azure AD no mesmo diretório? | Pode alterar o administrador de serviço para uma conta do Azure AD em um diretório diferente? |
+| --- | --- | --- | --- |
+| Conta Microsoft | Sim | Não | Não |
+| Conta do Azure AD | Sim | Sim | Não |
 
-  | Método de entrada | Adicionar conta Microsoft usuário como um administrador de serviço? | Adicionar conta corporativa ou de estudante na mesma organização que um administrador de serviços? | Adicionar conta corporativa ou de estudante em uma organização diferente como um administrador de serviço? |
-  | --- | --- | --- | --- |
-  |  Conta Microsoft |Sim |Não |Não |
-  |  Conta escolar ou profissional |Sim |Sim |Não |
+Se o administrador da conta for uma conta do Azure AD, você poderá alterar o administrador do serviço para uma conta do Azure AD no mesmo diretório, mas não em um diretório diferente. Por exemplo, abby@contoso.com pode alterar o administrador de serviço para bob@contoso.com, mas não pode alterar o administrador de serviços para john@notcontoso.com, a menos que john@notcontoso.com tenha uma presença no diretório contoso.com.
+
+Para obter mais informações sobre contas da Microsoft e contas do Azure AD, consulte [o que é Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="view-the-account-administrator"></a>Exibir o administrador da conta
 
@@ -144,7 +148,7 @@ Siga estas etapas para exibir o administrador da conta.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Abra [assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma assinatura.
+1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
 1. Clique em **Propriedades**.
 
@@ -152,7 +156,7 @@ Siga estas etapas para exibir o administrador da conta.
 
     ![Captura de tela mostrando o administrador da conta](./media/classic-administrators/account-admin.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Manage access to Azure resources using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
