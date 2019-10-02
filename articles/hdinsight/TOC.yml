@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: Gerir clusters do HDInsight - Powershell
           href: ./hdinsight-administer-use-powershell.md
+        - name: Criar um pipeline de ETL
+          href: ./hdinsight-sales-insights-etl.md
     - name: Amostras
       items:
         - name: Exemplos da CLI do Azure

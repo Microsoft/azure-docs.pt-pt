@@ -14,6 +14,14 @@
           href: tutorial-scale-cluster.md
         - name: 3 - Eliminar um cluster do Azure Red Hat OpenShift
           href: tutorial-delete-cluster.md
+- name: Administração de cluster
+  items:
+    - name: Administração de cluster do Azure Red Hat OpenShift
+      items:
+        - name: 1 - Função de administrador de cluster do Azure Red Hat OpenShift
+          href: cluster-administration-cluster-admin-role.md
+        - name: 2- Gerir restrições do contexto de segurança
+          href: cluster-administration-security-context-constraints.md
 - name: Guias de procedimentos
   expanded: true
   items:

@@ -138,7 +138,7 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: Utilizar o Azure PowerShell
                   href: learn/quick-create-workspace-posh.md
-            - name: Eliminar uma área de trabalho
+            - name: Eliminar e recuperar uma área de trabalho
               href: platform/delete-workspace.md
             - name: Design para fornecedores de serviços
               href: platform/service-providers.md

@@ -58,8 +58,8 @@ Em seguida, concatene os dois arquivos juntos:
 
 O conjunto de os vários tipos de estatísticas para cada email:
 
-* Colunas como **\_freq\_Word * Word*** indicam a porcentagem de palavras no email que correspondem à *palavra*. Por exemplo, se **Word\_freq\_Make** for **1**, 1% de todas as palavras no email foram *feitas*.
-* Colunas como **Char\_freq\_* Char*** indicam a porcentagem de todos os caracteres no email que são *Char*.
+* Colunas como **\_freq\_Word *Word*** indicam a porcentagem de palavras no email que correspondem à *palavra*. Por exemplo, se **Word\_freq\_Make** for **1**, 1% de todas as palavras no email foram *feitas*.
+* Colunas como **Char\_freq\_*Char*** indicam a porcentagem de todos os caracteres no email que são *Char*.
 * **capital\_execute\_comprimento\_mais longo** é o período mais longo de uma sequência de letras maiúsculas.
 * **capital\_execute\_comprimento\_médio** é a duração média de todas as sequências de letras maiúsculas.
 * **capital\_execute\_comprimento\_total** é o comprimento total de todas as sequências de letras maiúsculas.

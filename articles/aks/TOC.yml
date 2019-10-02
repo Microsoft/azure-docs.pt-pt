@@ -21,17 +21,17 @@
       items:
         - name: Utilizar Rascunho
           href: kubernetes-draft.md
-        - name: Utilizar Java (VS Code e CLI)
-          href: ../dev-spaces/quickstart-java.md
-          maintainContext: true
-        - name: Utilizar .NET Core (VS Code e CLI)
+        - name: Utilizar o Visual Studio Code e o Azure Dev Spaces
           href: ../dev-spaces/quickstart-netcore.md
           maintainContext: true
-        - name: Utilizar .NET Core (Visual Studio 2017)
+        - name: Utilizar o Visual Studio e o Azure Dev Spaces
           href: ../dev-spaces/quickstart-netcore-visualstudio.md
           maintainContext: true
-        - name: Utilizar Node.js (VS Code e CLI)
-          href: ../dev-spaces/quickstart-nodejs.md
+        - name: Utilizar a CLI e o Azure Dev Spaces
+          href: ../dev-spaces/quickstart-cli.md
+          maintainContext: true
+        - name: Utilizar o Azure Dev Spaces para desenvolvimento em equipa
+          href: ../dev-spaces/quickstart-team-development.md
           maintainContext: true
 - name: Tutoriais
   items:

@@ -70,6 +70,14 @@
               href: devtest-lab-use-claim-capabilities.md
 - name: Guias de procedimentos
   items:
+    - name: Laboratórios de sala de aula - tipos de aula
+      items:
+        - name: Tipos de aula
+          href: classroom-labs/class-types.md
+        - name: Aprendizagem profunda no processamento natural
+          href: classroom-labs/class-type-deep-learning-natural-processing.md
+        - name: Script de Shell no Linux
+          href: classroom-labs/class-type-shell-scripting-linux.md
     - name: Laboratórios de sala de aula
       items:
         - name: Criar e configurar contas de laboratório (proprietário de conta de laboratório)

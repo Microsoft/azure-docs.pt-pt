@@ -272,14 +272,14 @@ Para tornar o status de replicação da VM íntegro novamente, você pode optar 
 
 #### <a name="to-protect-the-disks"></a>Para proteger os discos
 
-1. Vá > para **itens replicados***nome* > da VM**discos**.
+1. Vá para **itens replicados** > *nome* > **da VM discos**.
 1. Selecione o disco desprotegido e, em seguida, selecione **habilitar replicação**:
 
     ![Habilitar a replicação em discos de VM](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
 #### <a name="to-dismiss-the-warning"></a>Para ignorar o aviso
 
-1. Vá > para **itens replicados***nome da VM*.
+1. Vá para **itens replicados** > *nome da VM*.
 1. Selecione o aviso na seção **visão geral** e, em seguida, selecione **OK**.
 
     ![Ignorar aviso de novo disco](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
@@ -402,7 +402,7 @@ Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtu
 
 ### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: Você protegeu anteriormente a VM usando Site Recovery e, em seguida, desabilitou a replicação
 
-Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Vá > para *cofre dos serviços de recuperação***site Recovery** > **mapeamento de rede**de infraestrutura.
+Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Vá para *cofre dos serviços de recuperação* > **site Recovery** > **mapeamento de rede**de infraestrutura.
 
 ![Eliminar mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 

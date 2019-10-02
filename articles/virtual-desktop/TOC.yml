@@ -66,6 +66,8 @@
   items:
     - name: Ambiente do Windows Virtual Desktop
       href: environment-setup.md
+    - name: Recomendações de largura de banda para sessões remotas
+      href: bandwidth-recommendations.md
     - name: Acesso delegado ao Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Métodos de balanceamento de carga do agrupamento de anfitriões

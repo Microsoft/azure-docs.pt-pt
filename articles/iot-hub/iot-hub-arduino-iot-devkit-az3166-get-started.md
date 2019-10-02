@@ -293,7 +293,7 @@ Em vez de provisionar o Hub IoT do Azure e o dispositivo do portal do Azure, voc
 
     ![Selecionar placa e COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
 
-1. Clique `F1` para abrir a paleta de comandos, digite e **selecione Azure IOT Device Workbench: Definir configurações do dispositivo... e, em seguida, selecione **configuração cadeia de conexão do dispositivo > Selecionar cadeia de conexão do dispositivo do Hub IOT.****
+1. Clique `F1` para abrir a paleta de comandos, digite e **selecione Azure IOT Device Workbench: Definir configurações do dispositivo...** e, em seguida, selecione **configuração cadeia de conexão do dispositivo > Selecionar cadeia de conexão do dispositivo do Hub IOT.**
 
 1. No DevKit, mantenha o **botão a**, pressione e solte o botão **Redefinir** e, em seguida, solte o **botão a**. Seu DevKit entra no modo de configuração e salva a cadeia de conexão.
 

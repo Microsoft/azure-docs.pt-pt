@@ -406,7 +406,7 @@ Essa é uma máquina virtual que você usa para se conectar usando Área de Trab
 2. Em **popular**, selecione **Windows Server 2016 datacenter**.
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** -selecione existente e, em seguida, selecione **FW-híbrido-teste**.
-    - **Nome da máquina virtual***VM-local.*  - 
+    - **Nome da máquina virtual** *VM-local.*  - 
     - **Região** -mesma região que você está acostumado anteriormente.
     - **Nome de usuário**: *azureuser*.
     - **Senha**: *Azure123456!* .
