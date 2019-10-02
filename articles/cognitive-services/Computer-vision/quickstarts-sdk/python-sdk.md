@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
-ms.translationtype: MT
+ms.openlocfilehash: c0a11c90b59c1c475f80b82073c6b151d57535c3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967005"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709790"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para Python
 
@@ -64,7 +64,7 @@ Em seguida, crie variáveis para o ponto de extremidade e a chave do Azure do re
 Você pode instalar a biblioteca de cliente com:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -128,7 +128,7 @@ O código a seguir detecta objetos comuns na imagem e os imprime no console do. 
 
 O código a seguir detecta marcas corporativas e logotipos na imagem e os imprime no console. Consulte [detecção de marca](../concept-brand-detection.md) para obter mais detalhes.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Detetar rostos
 
@@ -198,7 +198,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a usar a biblioteca de Pesquisa Visual Computacional para Python para tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
