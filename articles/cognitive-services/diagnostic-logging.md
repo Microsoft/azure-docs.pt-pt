@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516361"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827906"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Habilitar o log de diagnóstico para serviços cognitivas do Azure
 
@@ -35,14 +35,14 @@ Para habilitar o log de diagnóstico, você precisará de algum lugar para armaz
 Vamos começar habilitando o log de diagnóstico usando o portal do Azure.
 
 > [!NOTE]
-> Para habilitar esse recurso usando o PowerShell ou o CLI do Azure, use as instruções fornecidas em [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> Para habilitar esse recurso usando o PowerShell ou o CLI do Azure, use as instruções fornecidas em [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Navegue até a portal do Azure. Em seguida, localize e selecione um recurso de serviços cognitivas. Por exemplo, sua assinatura para Pesquisa na Web do Bing.   
 2. Em seguida, no menu de navegação à esquerda, localize **monitoramento** e selecione **configurações de diagnóstico**. Esta tela contém todas as configurações de diagnóstico criadas anteriormente para esse recurso.
 3. Se houver um recurso criado anteriormente que você gostaria de usar, você poderá selecioná-lo agora. Caso contrário, selecione **+ Adicionar configuração de diagnóstico**.
 4. Insira um nome para a configuração. Em seguida, selecione **arquivar em uma conta de armazenamento** e **Enviar para o log Analytics**.
 5. Quando for solicitado a configurar, selecione a conta de armazenamento e o espaço de trabalho do OMS que você gostaria de usar para armazenar os logs de diagnóstico. **Nota**: Se você não tiver uma conta de armazenamento ou espaço de trabalho do OMS, siga os prompts para criar uma.
-6. Selecione **auditoria**, **RequestResponse**e biométricas. Em seguida, defina o período de retenção para seus dados de log de diagnóstico. Se uma política de retenção for definida como zero, os eventos dessa categoria de log serão armazenados indefinidamente.
+6. Selecione **auditoria**, **RequestResponse**e **biométricas**. Em seguida, defina o período de retenção para seus dados de log de diagnóstico. Se uma política de retenção for definida como zero, os eventos dessa categoria de log serão armazenados indefinidamente.
 7. Clique em **Guardar**.
 
 Pode levar até duas horas antes que os dados de log estejam disponíveis para consulta e análise. Portanto, não se preocupe se não vir nada imediatamente.
@@ -111,7 +111,7 @@ by bin(TimeGenerated, 10s), OperationName
 | render areachart kind=unstacked
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para entender como habilitar o registro em log e também as métricas e as categorias de log com suporte nos vários serviços do Azure, leia a [visão geral das métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) nos artigos Microsoft Azure e [visão geral dos logs de diagnóstico do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) .
 * Leia os seguintes artigos para saber mais sobre os hubs de eventos:

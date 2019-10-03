@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a670976b199a558f7adedeb52811d465f644058
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 208909c31fc5bcdc8876d95eca0aac62c7df2129
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490251"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719602"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Atualizar a sua conta gratuita do Azure ou subscrição do Azure for Students Starter
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3e379581440019a794388d3e01c4f230c9617a58
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490270"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718589"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Ver reservas do Azure no portal do Azure
 
@@ -49,7 +49,7 @@ Se tiver de alterar o âmbito de uma reserva, dividir uma reserva ou alterar que
 Para ver as transações de reserva no portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Escreva **Gestão de Custos + Faturação** na caixa de pesquisa.
+1. Procure **Cost Management + Faturação**.
 
     ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
 

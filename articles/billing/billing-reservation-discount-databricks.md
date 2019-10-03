@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 7c1855b587ab1d603e9c6ac24a67b0f50065361f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9651a61cb7b5c995a46571b7628d5416c08f4161
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67827646"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719666"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Como é aplicado um desconto de pré-compra de Azure Databricks
 
@@ -52,7 +52,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 - Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre a pré-compra de Azure Databricks para poupar dinheiro, veja [Otimizar custos de Azure Databricks com uma pré-compra](billing-prepay-databricks-reserved-capacity.md).
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-  - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+  - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
   - [Gerir Reservas no Azure](billing-manage-reserved-vm-instance.md)
   - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](billing-understand-reserved-instance-usage.md)
   - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b6d1de1ee24ce9ca67d3bd8fa514ec9ea7a5c771
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490714"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709547"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir as tarefas de Contrato Enterprise na sua conta de faturação de um Contrato de Cliente da Microsoft
 
@@ -33,7 +33,7 @@ O seguinte diagrama descreve como a faturação é organizada na nova conta de f
 |------------------------|--------------------------------------------------------|
 | Inscrição            | Pode utilizar um perfil de faturação para gerir a faturação da organização, que é semelhante à sua inscrição no Contrato Enterprise. Os administradores com Contrato Enterprise tornam-se proprietários do perfil de faturação. Para obter mais informações sobre perfis de faturação, veja [Compreender os perfis de faturação](billing-mca-overview.md#billing-profiles).
 | Departamento            | Utiliza uma secção de faturação para organizar os custos, em tudo semelhante à dos departamentos na inscrição do Contrato Enterprise. O departamento passa a ser secções de faturação e os administradores do departamento passam a ser proprietários das respetivas secções de faturação. Para obter mais informações sobre as secções de faturação, veja [Compreender as secções de faturação](billing-mca-overview.md#invoice-sections). |
-| Conta               | As contas que foram criadas no Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à secção de faturas do departamento. Os proprietários de contas podem criar e gerir subscrições para as respetivas secções de faturação. |
+| Conta               | As contas que foram criadas no Contrato Enterprise não são suportadas na nova conta de faturação. As subscrições da conta pertencem à respetiva secção da fatura do departamento. Os proprietários de contas podem criar e gerir subscrições para as respetivas secções de faturação. |
 
 ## <a name="changes-for-enterprise-administrators"></a>Alterações para administradores com Contrato Enterprise
 
@@ -130,7 +130,7 @@ Os proprietários de contas com o Contrato Enterprise têm permissão para criar
 
 Para criar subscrições do Azure adicionais, é-lhe atribuída a seguinte função na nova conta de faturação.
 
-**Criador de subscrições do Azure** – é-lhe atribuída uma função de criador de subscrições do Azure na secção de fatura criada para o seu departamento com o Contrato Enterprise.Se a sua conta não pertencer a um departamento, obtém uma função de criador de subscrições do Azure numa secção denominada Secção de faturação predefinida.A função permite-lhe criar subscrições do Azure para a secção de faturação. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
+**Criador de subscrições do Azure** – é-lhe atribuída uma função de criador de subscrições do Azure na secção de fatura criada para o seu departamento com o Contrato Enterprise. Se a sua conta não pertencer a um departamento, obtém uma função de criador de subscrições do Azure numa secção denominada Secção de faturação predefinida. A função permite-lhe criar subscrições do Azure para a secção de faturação.
 
 ### <a name="create-an-azure-subscription"></a>Criar uma subscrição do Azure
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ceeacf216b1d3258aa73d86c613d28e00e9480bb
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68610128"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718624"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Compreender a fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare-a ao ficheiro de utilização diária detalhada e aos relatórios de gestão de custos no portal do Azure.

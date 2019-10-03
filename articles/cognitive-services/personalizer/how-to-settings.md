@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962525"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827886"
 ---
 # <a name="personalizer-settings"></a>Configurações do personalizador
 
@@ -45,9 +45,9 @@ Defina as configurações do serviço para o uso de recompensas do seu loop de c
 
 |Definição|Objetivo|
 |--|--|
-|Tempo de espera de recompensa|Define o período durante o qual o personalizador coletará valores de recompensa para uma chamada de classificação, a partir do momento em que a chamada de classificação ocorrer. Esse valor é definido perguntando-se: "Quanto tempo o personalizado deve esperar por chamadas de recompensas?" Qualquer recompensa chegando após essa janela será registrada, mas não usada para aprendizado.|
-|Recompensa padrão|Se nenhuma chamada de recompensa for recebida pelo personalizador durante a janela de tempo de espera da recompensa associada a uma chamada de classificação, o personalizador atribuirá a recompensa padrão. Por padrão, e na maioria dos cenários, a recompensa padrão é zero.|
-|Recompensar agregação|Se várias recompensas forem recebidas para a mesma chamada à API de classificação, esse método de agregação será usado: **sum** ou mais **antigo**. O primeiro escolhe a pontuação mais antiga recebida e descarta o restante. Isso será útil se você quiser um recompensa exclusivo entre chamadas possivelmente duplicadas. |
+|Tempo de espera do prémio|Define o período durante o qual o personalizador coletará valores de recompensa para uma chamada de classificação, a partir do momento em que a chamada de classificação ocorrer. Esse valor é definido perguntando-se: "Quanto tempo o personalizado deve esperar por chamadas de recompensas?" Qualquer recompensa chegando após essa janela será registrada, mas não usada para aprendizado.|
+|Prémio predefinido|Se nenhuma chamada de recompensa for recebida pelo personalizador durante a janela de tempo de espera da recompensa associada a uma chamada de classificação, o personalizador atribuirá a recompensa padrão. Por padrão, e na maioria dos cenários, a recompensa padrão é zero.|
+|Agregação de prémios|Se várias recompensas forem recebidas para a mesma chamada à API de classificação, esse método de agregação será usado: **sum** ou mais **antigo**. O primeiro escolhe a pontuação mais antiga recebida e descarta o restante. Isso será útil se você quiser um recompensa exclusivo entre chamadas possivelmente duplicadas. |
 
 Depois de alterar essas configurações, certifique-se de selecionar **salvar**.
 
@@ -87,6 +87,21 @@ Na seção do gerenciamento de recursos para **modelo e política**, examine a c
 
 Na seção do gerenciamento de recursos para **modelo e política**, importe uma nova política de aprendizado ou exporte a política de aprendizado atual.
 Você pode obter arquivos de política de aprendizado de exportações anteriores ou baixar as políticas otimizadas descobertas durante as avaliações offline. Fazer alterações manuais nesses arquivos afetará o desempenho do aprendizado de máquina e a precisão das avaliações offline, e a Microsoft não conseguirá comprovar a precisão do aprendizado e das avaliações de máquina, ou exceções de serviço resultantes de políticas editadas manualmente.
+
+## <a name="clear-data-for-your-learning-loop"></a>Limpar dados para seu loop de aprendizado
+
+1. Na portal do Azure, para o recurso personalizador, na página **modelo e política** , selecione **limpar dados**.
+1. Para limpar todos os dados e redefinir o loop de aprendizagem para o estado original, marque todas as 3 caixas de seleção.
+
+    ![Em portal do Azure, desmarque dados do recurso Personalizar.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Definição|Objetivo|
+    |--|--|
+    |Personalização registrada e dados de recompensa.|Esses dados de log são usados em avaliações offline. Limpe os dados se você estiver redefinindo seu recurso.|
+    |Redefina o modelo personalizador.|Esse modelo é alterado em cada novo treinamento. Essa frequência de treinamento é especificada na **frequência do modelo de carregamento** na página **configurações** . |
+    |Defina a política de aprendizado como padrão.|Se você alterou a política de aprendizado como parte de uma avaliação offline, isso redefinirá a política de aprendizado original.|
+
+1. Selecione **limpar dados selecionados** para iniciar o processo de limpeza. O status é relatado nas notificações do Azure, na navegação superior direita. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 23cd7c3765fc99eb5907aa853d7431d5e247aea6
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491434"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709719"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a utilização e os custos do Azure
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre a sua utilização diária, veja [Compreende
 Para ver e transferir os dados de utilização como um cliente do EA, tem de ser um Administrador da Empresa, o Proprietário da Conta ou o Administrador do Departamento com a política de visualização de custos ativada.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure *Gestão de Custos + Faturação*.
+1. Procure *Cost Management + Faturação*.
 
     ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
 
@@ -74,7 +74,7 @@ Se tiver um Contrato de Cliente da Microsoft, pode transferir a sua utilização
 ### <a name="download-usage-for-billed-charges"></a>Transferir utilização para custos faturados
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Procure *Gestão de Custos + Faturação*.
+2. Procure *Cost Management + Faturação*.
 3. Selecione um perfil de faturação. Dependendo do seu acesso, pode ser preciso selecionar primeiro uma conta de faturação.
 4. Selecione **Faturas**.
 5. Na grelha da fatura, localize a linha da fatura que corresponde à utilização que pretende transferir.
@@ -91,7 +91,7 @@ Se tiver um Contrato de Cliente da Microsoft, pode transferir a sua utilização
 Pode também transferir a utilização do mês até à data atual para o período de faturação atual. Estes custos de utilização que ainda não foram faturados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Procure *Gestão de Custos + Faturação*.
+2. Procure *Cost Management + Faturação*.
 3. Selecione um perfil de faturação. Dependendo do seu acesso, pode ser preciso selecionar primeiro uma conta de faturação.
 4. Na área **Descrição Geral**, localize as ligações para transferência por baixo dos custos do mês até à data atual.
 5. Selecione **Utilização e custos do Azure**.
