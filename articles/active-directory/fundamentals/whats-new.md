@@ -367,7 +367,7 @@ Para obter mais informações sobre a experiência de informações de seguranç
 
 3. No, os **usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança – área avançada** , selecionar **selecionado**e, em seguida, escolher um grupo de usuários ou escolher **tudo** para ativar esse recurso para todos os usuários no locatário.
 
-4. Em * * os usuários podem usar recursos de visualização para registrar e gerenciar segurança * * info * * * *, selecione **nenhum**.
+4. Em **os usuários podem usar recursos de visualização para registrar e gerenciar segurança** **info** ,selecione **nenhum**.
 
 5. Salve suas configurações.
 
