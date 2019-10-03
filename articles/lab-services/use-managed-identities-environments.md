@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: fc06d5d36cb6004c79bec79838c8f0d51961d560
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: HT
+ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720149"
+ms.locfileid: "71815991"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usar identidades gerenciadas do Azure para implantar ambientes em um laboratório 
 Como proprietário de um laboratório, você pode usar uma identidade gerenciada para implantar ambientes em um laboratório. Esse recurso é útil em cenários em que o ambiente contém ou tem referências a recursos do Azure, como cofres de chaves, galerias de imagens compartilhadas e redes que são externas ao grupo de recursos do ambiente. Ele permite a criação de ambientes de área restrita que não são limitados ao grupo de recursos desse ambiente.
@@ -54,7 +54,7 @@ Para alterar a identidade gerenciada pelo usuário atribuída ao laboratório, r
 1. Depois de criar uma identidade, observe a ID de recurso dessa identidade. Ele deve ser semelhante ao exemplo a seguir: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. Usando o **Fiddler**, execute um comando put semelhante ao exemplo a seguir. Para o nome do executor de serviço, é recomendável usar o nome da identidade, mesmo que você possa especificar qualquer nome desejado. 
+1. Execute um método https PUT para adicionar um novo recurso `ServiceRunner` ao laboratório semelhante ao exemplo a seguir. O recurso do executor de serviço é um recurso de proxy para gerenciar e controlar identidades gerenciadas no DevTest Labs. O nome do executor de serviço pode ser qualquer nome válido, mas recomendamos que você use o nome do recurso de identidade gerenciada. 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}

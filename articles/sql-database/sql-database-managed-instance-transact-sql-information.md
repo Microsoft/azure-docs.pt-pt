@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7f47798ec3d0be8885853454ced8c1ea4c2a268c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 94e9a484afe42f8621380fa685f8bc9faeb894d3
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720397"
+ms.locfileid: "71816044"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -544,7 +544,15 @@ Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há
 
 ## <a name="Issues"></a>Problemas conhecidos
 
-### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Alterar a camada de serviço e criar operações de instância são bloqueadas pela restauração do banco de dados ongioing
+### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erro incorreto retornado ao tentar remover um arquivo que não está vazio
+
+**Date** Outubro de 2019
+
+SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arquivo que não esteja vazio](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites). Se você tentar remover um arquivo de dados não vazio usando a instrução `ALTER DATABASE REMOVE FILE`, o erro `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` não será retornado imediatamente. Instância Gerenciada continuará tentando descartar o arquivo e a operação falhará após 30 min com `Internal server error`.
+
+**Solução alternativa**: Remova o conteúdo do arquivo usando o comando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Se esse for o único arquivo no grupo de arquivos, você precisará excluir dados da tabela ou da partição associada a esse grupo de arquivos antes de reduzir o arquivo e, opcionalmente, carregar esses dados em outra tabela/partição.
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Alterar a camada de serviço e criar operações de instância são bloqueadas pela restauração de banco de dados em andamento
 
 **Date** Setembro de 2019
 

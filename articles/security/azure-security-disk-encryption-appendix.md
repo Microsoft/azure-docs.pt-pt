@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7cbddc4b7af546396a1a5a4c86d349a96054a6f3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4c065e1970a01f7e3737f8bd99672c84f2019bfe
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726274"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822327"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para a encriptação de disco do Azure 
 
@@ -104,7 +104,7 @@ Antes de começar, reveja os [pré-requisitos](azure-security-disk-encryption-pr
      ```
 
 ### <a name="bkmk_prereq-script"></a> Usando o script de PowerShell de pré-requisitos do Azure Disk Encryption
-Se já estiver familiarizado com os pré-requisitos para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de usar este script do PowerShell, consulte a [encriptar um início rápido de VM](azure-disk-encryption-linux-powershell-quickstart.md). Pode remover os comentários de uma seção do script, começando na linha 211, para encriptar todos os discos de VMs existentes no grupo de recursos existente. 
+Se já estiver familiarizado com os pré-requisitos para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de usar este script do PowerShell, consulte a [encriptar um início rápido de VM](../virtual-machines/linux/disk-encryption-powershell-quickstart.md). Pode remover os comentários de uma seção do script, começando na linha 211, para encriptar todos os discos de VMs existentes no grupo de recursos existente. 
 
 A tabela seguinte mostra quais parâmetros podem ser utilizados no script do PowerShell: 
 
@@ -206,7 +206,7 @@ Utilize o [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a encriptação de disco do SO
 
-* A VM deve usar uma distribuição compatível com a criptografia de disco do [sistema operacional, conforme listado no Azure Disk Encryption sistemas operacionais com suporte: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* A VM deve usar uma distribuição compatível com a criptografia de disco do sistema operacional, conforme listado nos sistemas operacionais com suporte à criptografia de disco [Azure: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * A VM tem de ser criada a partir da imagem do Marketplace no Azure Resource Manager.
 * VM do Azure com, pelo menos, 4 GB de RAM (recomendado tamanho é de 7 GB).
 * (Para RHEL e CentOS) Desative SELinux. Para desativar SELinux, consulte "4.4.2 criação. Desativar o SELinux"a [Guia do administrador e usuário SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.
