@@ -276,6 +276,12 @@
               href: authentication-national-cloud.md
             - name: Autenticação
               href: msal-national-cloud.md
+        - name: Aprovisionamento automático de utilizadores (SCIM)
+          items:
+            - name: O que é o aprovisionamento automático de utilizadores?
+              href: /azure/active-directory/manage-apps/user-provisioning
+            - name: Criar e integrar um ponto final SCIM
+              href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
     - name: Guias de procedimentos
       items:
         - name: Autenticação

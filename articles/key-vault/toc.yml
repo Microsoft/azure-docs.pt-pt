@@ -66,12 +66,12 @@
       items:
         - name: Descrição geral da segurança
           href: overview-security.md
-        - name: Controlos de segurança incorporados
-          href: key-vault-security-controls.md
         - name: Mundos de segurança
           href: key-vault-ovw-security-worlds.md
         - name: Proteger o seu cofre de chaves
           href: key-vault-secure-your-key-vault.md
+        - name: Controlos de segurança incorporados
+          href: key-vault-security-controls.md
     - name: Eliminar de forma recuperável
       href: key-vault-ovw-soft-delete.md
     - name: Limitação
@@ -98,8 +98,12 @@
       items:
         - name: Recomendações
           href: security-recommendations.md
-    - name: Utilizar uma identidade gerida do Serviço de Aplicações
-      href: managed-identity.md
+    - name: Autenticação
+      items:
+        - name: Utilizar uma identidade gerida do Serviço de Aplicações
+          href: managed-identity.md
+        - name: Utilizar uma política de controlo de acesso
+          href: key-vault-group-permissions-for-apps.md
     - name: Registo do Azure Key Vault
       href: key-vault-logging.md
     - name: Acesso por trás de firewalls
@@ -114,8 +118,6 @@
       href: key-vault-soft-delete-cli.md
     - name: Utilizar a eliminação de forma recuperável do Key Vault com o Azure PowerShell
       href: key-vault-soft-delete-powershell.md
-    - name: Utilizar grupos para conceder acesso
-      href: key-vault-group-permissions-for-apps.md
     - name: Configurar firewalls e redes virtuais
       href: key-vault-network-security.md
     - name: Desenvolvimento em Java

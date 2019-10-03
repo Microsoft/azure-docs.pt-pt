@@ -4,6 +4,8 @@
   items:
     - name: O que é a Base de Dados do Azure para MySQL?
       href: overview.md
+    - name: Que opção do MySQL devo escolher?
+      href: select-right-deployment-type.md
 - name: Inícios rápidos
   expanded: true
   items:

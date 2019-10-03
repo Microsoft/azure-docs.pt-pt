@@ -72,7 +72,7 @@
   items:
     - name: Laboratórios de sala de aula - tipos de aula
       items:
-        - name: Tipos de aula
+        - name: Descrição geral dos tipos de aula
           href: classroom-labs/class-types.md
         - name: Aprendizagem profunda no processamento natural
           href: classroom-labs/class-type-deep-learning-natural-processing.md
